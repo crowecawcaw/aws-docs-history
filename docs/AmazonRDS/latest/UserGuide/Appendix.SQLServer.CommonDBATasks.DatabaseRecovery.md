@@ -1,7 +1,6 @@
 
 
 # Determining a recovery model for your Amazon RDS for SQL Server database
-<a name="Appendix.SQLServer.CommonDBATasks.DatabaseRecovery"></a>
 
 In Amazon RDS, the recovery model, retention period, and database status are linked.
 

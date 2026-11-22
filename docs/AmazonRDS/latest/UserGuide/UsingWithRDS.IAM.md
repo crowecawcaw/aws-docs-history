@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon RDS
-<a name="UsingWithRDS.IAM"></a>
 
 
 

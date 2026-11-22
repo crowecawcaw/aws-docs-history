@@ -1,7 +1,6 @@
 
 
 # MySQL feature support on Amazon RDS
-<a name="MySQL.Concepts.FeatureSupport"></a>
 
 RDS for MySQL supports most of the features and capabilities of MySQL. Some features might have limited support or restricted privileges.
 
@@ -24,9 +23,63 @@ The following lists are not exhaustive.
 In the following sections, find information about MySQL feature support on Amazon RDS for MySQL major versions:
 
 **Topics**
++ [MySQL 9.7 support on Amazon RDS](#MySQL.Concepts.FeatureSupport.9-7)
 + [MySQL 8.4 support on Amazon RDS](#MySQL.Concepts.FeatureSupport.8-4)
 
 For information about supported minor versions of Amazon RDS for MySQL, see [Supported MySQL minor versions on Amazon RDS](MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.Supported).
+
+### MySQL 9.7 support on Amazon RDS
+<a name="MySQL.Concepts.FeatureSupport.9-7"></a>
+
+MySQL 9.7 is a Long-Term Support (LTS) release. Amazon RDS supports the following new features and changes for your DB instances running MySQL version 9.7.
++ **Reserved user for RDS Proxy** – The `rdsproxyadmin` user is a reserved user in MySQL 9.7. If you created a user named `rdsproxyadmin` yourself, not through RDS Proxy, drop or rename it before you upgrade. If RDS Proxy created the user, leave it in place.
++ **JSON Duality Views** – You can now insert, update, and delete data through JSON duality views. Previously, the MySQL Community Edition supported only creating and querying them. Your applications can work with the same data as JSON documents or as relational rows. When you modify a JSON document through a duality view, MySQL applies the change to the underlying tables. To allow changes, the view definition must include modification annotations, and some statements, such as `REPLACE`, `INSERT ... ON DUPLICATE KEY UPDATE`, and multi-row updates, aren't supported. For more information, see [DML Operations on JSON Duality Views](https://dev.mysql.com/doc/refman/9.7/en/json-duality-views-updatable.html) in the MySQL documentation.
++ **Hypergraph optimizer** – The Hypergraph optimizer is an alternative query optimizer that you can turn on for complex queries that join many tables. It's off by default. To turn it on, set `hypergraph_optimizer=on` in the `optimizer_switch` parameter in a custom DB parameter group, or for the current session with `SET SESSION optimizer_switch='hypergraph_optimizer=on'`. We recommend that you test your workload with the Hypergraph optimizer before you turn it on for a production DB instance. For information about parameter groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md).
++ **VECTOR data type** – You can use the `VECTOR` data type to store embeddings alongside your relational data.
++ **Active-active clusters** – You can use RDS for MySQL 9.7 DB instances in active-active clusters. For more information, see [Configuring active-active clusters for RDS for MySQL](mysql-active-active-clusters.md) and [Joining an active-active cluster with RDS for MySQL 9.7](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.gr-gtid-9-7).
++ **Security defaults** – MySQL 9.7 on Amazon RDS includes the following security changes:
+  + **TLS required by default** – In MySQL 9.7, the `require_secure_transport` parameter defaults to `1` (ON). As a result, Amazon RDS rejects connections that don't use TLS. In MySQL 8.4, the default is `0` (OFF). To allow connections that don't use TLS, set `require_secure_transport` to `0` in a custom DB parameter group. For more information, see [Requiring SSL/TLS for all connections to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.require-ssl.md).
+  + **Post-quantum key exchange** – As on RDS for MySQL 8.4.11 and higher, TLS 1.3 connections support the hybrid post-quantum key exchange groups `X25519MLKEM768` and `SecP256r1MLKEM768`. To use them, your client's TLS library must support ML-KEM.
+  + **`mysql_native_password` removed** – The `mysql_native_password` authentication plugin isn't available in MySQL 9.7. Use `caching_sha2_password` instead. Before you upgrade to MySQL 9.7, change any database accounts that use `mysql_native_password`, because these accounts block the upgrade. The `mysql_native_password_proxy_users` parameter is also removed. For more information, see [MySQL default authentication plugin](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin).
+  + **PBKDF2-SHA512 password storage** – You can choose to store `caching_sha2_password` password hashes with PBKDF2-SHA512. To do so, set the `caching_sha2_password_storage_format` parameter to `PBKDF2_SHA512` in a custom DB parameter group. The new format applies only to passwords that you set or change after you modify the parameter.
+  + **Password validation** – The `validate_password` plugin is removed in MySQL 9.7, and you can't install it. To turn on password validation, set the `rds.validate_password` parameter in a custom DB parameter group. This parameter isn't set by default, so password validation is off. For more information, see [Using password validation for MySQL 9.7](MySQL.Concepts.PasswordValidationPlugin.md#MySQL.Concepts.PasswordValidationPlugin.9-7).
++ **New default values for parameters** – The following parameters have new default values for MySQL 9.7 DB instances:
+  + Several MySQL community parameter defaults changed. For example, `innodb_change_buffer_max_size` changed from 25 to 5, `innodb_change_buffering` from `none` to `all`, `binlog_transaction_dependency_history_size` from 25000 to 10000000, `explain_json_format_version` from 1 to 2, and `back_log` to 10000. The new `activate_mandatory_roles` parameter is `ON` by default, so roles named in `mandatory_roles` are activated automatically when a user logs in. For more information, see [What Is New in MySQL 9.7](https://dev.mysql.com/doc/refman/9.7/en/mysql-nutshell.html) in the MySQL documentation.
+
+    We recommend that you test your application's performance on RDS for MySQL 9.7 before you upgrade a production DB instance.
+  + `gtid-mode` – The default value is `ON_PERMISSIVE`. In MySQL 8.4, the default is `OFF_PERMISSIVE`.
+  + `group_replication_ssl_mode` and `group_replication_recovery_use_ssl` – The default values are `REQUIRED` and `ON`. In MySQL 8.4, the defaults are `DISABLED` and `OFF`.
++ **New parameters** – MySQL 9.7 adds the following parameters to the DB parameter group:
+  + `activate_mandatory_roles` – This new parameter is `ON` by default.
+  + `caching_sha2_password_storage_format` – This new parameter controls how `caching_sha2_password` stores password hashes. The default is `CRYPT5`.
+  + `caching_sha2_password_proxy_users` – This new parameter is `OFF` by default.
+  + `connection_memory_status_limit` and `global_connection_memory_status_limit` – These new parameters set memory thresholds that increment status counters. They don't limit memory use.
+  + `enable_cascade_triggers` – This new parameter is `OFF` by default.
+  + `innodb_native_foreign_keys` – This new parameter is `ON` by default, so InnoDB handles foreign key checks and cascades, as in MySQL 8.4.
+  + `rds.validate_password` – This new parameter turns the `validate_password` component on or off. It isn't set by default, so password validation is off.
+  + `table_open_cache_triggers` – This new parameter controls the maximum number of open tables with fully loaded triggers. The default is `524288`.
+  + `validate_password.*` – These new parameters configure the `validate_password` component, for example `validate_password.length` and `validate_password.policy`.
++ **Parameter behavior changes** – If your custom DB parameter group for MySQL 8.4 sets any of the following parameters, update it in your custom DB parameter group for MySQL 9.7:
+  + `authentication_policy` – The only allowed value is `*:caching_sha2_password`.
+  + `validate-password` and `validate_password_*` – Replaced by `rds.validate_password` and the `validate_password.*` parameters.
+  + `replica_parallel_workers` – The minimum value is `1`.
+  + `character_set_*` and `collation_*` – Use `utf8mb3` or `utf8mb4` instead of `utf8`, and `utf8mb3_*` collations instead of `utf8_*`.
++ **Removed parameters** – RDS for MySQL removed the following parameters from parameter groups for MySQL 9.7 DB instances:
+  + `mysql_native_password_proxy_users`
+  + `replica_parallel_type`
+  + `temptable_use_mmap`
++ **Removed or changed functionality** – The following functionality changed in MySQL 9.7:
+  + **`MD5()`, `SHA1()`, and `SHA()` functions** – These functions aren't available on RDS for MySQL 9.7. Use `SHA2()` instead, or compute hashes in your application. If your views, stored routines, triggers, events, generated columns, column defaults, `CHECK` constraints, or functional indexes use these functions, the upgrade precheck blocks the upgrade to MySQL 9.7.
+  + **Reserved keywords** – MySQL 9.7 adds the reserved keywords `EXTERNAL` and `LIBRARY`. The upgrade precheck blocks the upgrade if a stored procedure, stored function, trigger, or event uses either word unquoted in its body. Other objects named `EXTERNAL` or `LIBRARY` don't block the upgrade, but SQL that refers to them without backticks fails after the upgrade. When you create a DB instance, the initial database name can't be a reserved word, including `EXTERNAL` or `LIBRARY`. For more information, see [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). For the full list, see [Keywords and Reserved Words](https://dev.mysql.com/doc/refman/9.7/en/keywords.html) in the MySQL documentation.
+
+For the changes between MySQL 8.4 and MySQL 9.7, see the following topics in the MySQL documentation:
++ [MySQL 9.7 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/9.7/en/), and the release notes for MySQL 9.0 through 9.6
++ [What Is New in MySQL 9.7](https://dev.mysql.com/doc/refman/9.7/en/mysql-nutshell.html)
++ [Server and Status Variables and Options Added, Deprecated, or Removed in MySQL 9.7](https://dev.mysql.com/doc/refman/9.7/en/added-deprecated-removed.html)
+
+For information about upgrading to MySQL 9.7, see [Upgrading to MySQL 9.7](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.Major.97).
+
+For a list of unsupported features, see [MySQL features not supported by Amazon RDS](#MySQL.Concepts.Features). 
 
 ### MySQL 8.4 support on Amazon RDS
 <a name="MySQL.Concepts.FeatureSupport.8-4"></a>
@@ -39,9 +92,9 @@ Amazon RDS supports the following new features for your DB instances running MyS
 + **`mysqlpump` client utility** – The `mysqlpump` client utility is no longer available in MySQL 8.4. For more information, see [Role-based privilege model for RDS for MySQL](Appendix.MySQL.CommonDBATasks.privilege-model.md) and [mysqldump and mysqlpump](https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-large-mysql-mariadb-databases/mysqldump-and-mysqlpump.html) in the *AWS Prescriptive Guidance*. 
 + **Managed replication stored procedures** – When using stored procedures to manage replication with a replication user configured with `caching_sha2_password`, you must configure TLS by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default authentication plugin for RDS for MySQL 8.4.
 + **Parameter behavior changes** – The following parameters changed for MySQL 8.4.
-  + `innodb_dedicated_server` – This parameter is now enabled by default. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
-  + `innodb_buffer_pool` – The database engine now calculates this parameter, but you can override this setting. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
-  + `innodb_redo_log_capacity` – This parameter now controls the size of the redo log files. The database engine now calculates this parameter, but you can override this setting. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
+  + `innodb_dedicated_server` – This parameter is now enabled by default. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4 and higher](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
+  + `innodb_buffer_pool` – The database engine now calculates this parameter, but you can override this setting. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4 and higher](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
+  + `innodb_redo_log_capacity` – This parameter now controls the size of the redo log files. The database engine now calculates this parameter, but you can override this setting. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4 and higher](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
 + **Deprecated or removed parameters** – RDS for MySQL removed the following parameters from parameter groups for MySQL 8.4 DB instances. The `innodb_redo_log_capacity` parameter now controls the size of the redo log files.
   + `innodb_log_file_size`
   + `innodb_log_files_in_group`
@@ -110,7 +163,7 @@ You can save and load the InnoDB cache "on demand."
 ## Inclusive language changes for RDS for MySQL 8.4
 <a name="mysql-8-4-inclusive-language-changes"></a>
 
-RDS for MySQL 8.4 includes changes from the MySQL 8.4 community edition related to keywords and system schemas for inclusive language. For example, the `SHOW REPLICA STATUS` command replaces `SHOW SLAVE STATUS`.
+RDS for MySQL 8.4 includes changes from the MySQL 8.4 community edition related to keywords and system schemas for inclusive language. For example, the `SHOW REPLICA STATUS` command replaces `SHOW SLAVE STATUS`. These changes also apply to RDS for MySQL 9.7, except that MySQL 9.7 removes `replica_parallel_type`.
 
 **Topics**
 + [Configuration parameter name changes](#mysql-8-4-inclusive-language-changes-params)
@@ -182,5 +235,8 @@ Amazon RDS doesn't currently support the following MySQL features:
 + Semisynchronous replication, except for Multi-AZ DB clusters
 + Transportable tablespace
 + X Plugin
+
+**Note**  
+Multi-AZ DB clusters aren't supported for RDS for MySQL 9.7. For more information, see [Multi-AZ DB clusters and RDS for MySQL 9.7](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.MAZ-9-7).
 
 To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB instances. It also restricts access to certain system procedures and tables that require advanced privileges. Amazon RDS supports access to databases on a DB instance using any standard SQL client application. Amazon RDS doesn't allow direct host access to a DB instance by using Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection. When you create a DB instance, you are assigned as *db\_owner* for all databases on that instance, and you have all database-level permissions except for those used for backups. Amazon RDS manages backups for you.

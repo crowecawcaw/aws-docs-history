@@ -1,7 +1,6 @@
 
 
 # Automatically connecting an AWS compute resource and a Multi-AZ DB cluster for Amazon RDS
-<a name="multi-az-compute-rds-connect"></a>
 
 You can automatically connect a Multi-AZ DB cluster and AWS compute resources such as Amazon Elastic Compute Cloud (Amazon EC2) instances and AWS Lambda functions.
 

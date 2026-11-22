@@ -1,7 +1,6 @@
 
 
 # Viewing Database Insights proactive recommendations
-<a name="USER_PerfInsights.InsightsRecommendationViewDetails"></a>
 
 Amazon RDS monitors specific metrics and automatically creates thresholds by analyzing what levels might be potentially problematic for a specified resource. When the new metric values cross a predefined threshold over a given period of time, Amazon RDS generates a proactive recommendation. This recommendation helps to prevent future database performance impact. To receive these proactive recommendations, you must enable collecting detailed per-query and database counter metrics with a paid tier retention period.
 

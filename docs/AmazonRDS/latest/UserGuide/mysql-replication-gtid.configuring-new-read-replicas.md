@@ -1,7 +1,6 @@
 
 
 # Enabling GTID-based replication for new read replicas for RDS for MySQL
-<a name="mysql-replication-gtid.configuring-new-read-replicas"></a>
 
 When GTID-based replication is enabled for an RDS for MySQL DB instance, GTID-based replication is configured automatically for read replicas of the DB instance.
 

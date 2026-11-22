@@ -1,7 +1,6 @@
 
 
 # Adding options to Oracle DB instances
-<a name="Appendix.Oracle.Options"></a>
 
 In Amazon RDS, an option is an additional feature. Following, you can find a description of options that you can add to Amazon RDS instances running the Oracle DB engine.
 

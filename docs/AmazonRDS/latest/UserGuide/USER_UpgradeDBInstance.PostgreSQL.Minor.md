@@ -1,7 +1,6 @@
 
 
 # Automatic minor version upgrades for RDS for PostgreSQL
-<a name="USER_UpgradeDBInstance.PostgreSQL.Minor"></a>
 
 If you enable the **Auto minor version upgrade** option when creating or modifying a DB instance or Multi-AZ DB cluster, you can have your database automatically upgraded.
 

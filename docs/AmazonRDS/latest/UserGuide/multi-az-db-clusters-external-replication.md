@@ -1,7 +1,6 @@
 
 
 # Setting up external replication from Multi-AZ DB clusters for Amazon RDS
-<a name="multi-az-db-clusters-external-replication"></a>
 
 You can set up replication between a Multi-AZ DB cluster and a database that is external to Amazon RDS. 
 

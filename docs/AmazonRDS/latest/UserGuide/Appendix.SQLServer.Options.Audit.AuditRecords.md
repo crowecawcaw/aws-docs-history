@@ -1,7 +1,6 @@
 
 
 # Viewing audit logs
-<a name="Appendix.SQLServer.Options.Audit.AuditRecords"></a>
 
 Your audit logs are stored in `D:\rdsdbdata\SQLAudit`.
 
@@ -11,7 +10,7 @@ For information about configuring retention, see [Adding SQL Server Audit to the
 
 Audit records are kept on the DB instance until the audit log file is uploaded. You can view the audit records by running the following command.
 
-```
+```sql
 SELECT   * 
 	FROM     msdb.dbo.rds_fn_get_audit_file
 	             ('D:\rdsdbdata\SQLAudit\*.sqlaudit'
@@ -21,7 +20,7 @@ SELECT   *
 
 You can use the same command to view audit records in your retention folder by changing the filter to `D:\rdsdbdata\SQLAudit\transmitted\*.sqlaudit`.
 
-```
+```sql
 SELECT   * 
 	FROM     msdb.dbo.rds_fn_get_audit_file
 	             ('D:\rdsdbdata\SQLAudit\transmitted\*.sqlaudit'
@@ -48,7 +47,7 @@ If you chose to upload the audit logs to CloudWatch, you can access the log reco
 
 Alternatively, you can use the AWS CLI to query the log stream. The following example extracts audit log events and exports them to a CSV file.
 
-```
+```bash
 # Parameters
 # -----------
 LOG_GROUP="/aws/rds/instance/<your-db-instance-id>/sqlaudit"

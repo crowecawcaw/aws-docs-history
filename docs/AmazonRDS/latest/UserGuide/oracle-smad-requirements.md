@@ -1,7 +1,6 @@
 
 
 # Requirements for self-managed Active Directory
-<a name="oracle-smad-requirements"></a>
 
 Make sure that you meet the following requirements before you join an Amazon RDS for Oracle DB instance to your self-managed Active Directory (AD) domain.
 

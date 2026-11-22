@@ -1,7 +1,6 @@
 
 
 # PostgreSQL version numbers
-<a name="USER_UpgradeDBInstance.PostgreSQL.VersionID"></a>
 
 The version numbering sequence for the PostgreSQL database engine is as follows: 
 + For PostgreSQL versions 10 and higher, the engine version number is in the form *major.minor*. The major version number is the integer part of the version number. The minor version number is the fractional part of the version number. 

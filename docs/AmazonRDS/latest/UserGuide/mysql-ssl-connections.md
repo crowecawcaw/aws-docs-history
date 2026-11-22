@@ -1,7 +1,6 @@
 
 
 # Encrypting client connections with SSL/TLS to MySQL DB instances on Amazon RDS
-<a name="mysql-ssl-connections"></a>
 
 Secure Sockets Layer (SSL) is an industry-standard protocol for securing network connections between client and server. After SSL version 3.0, the name was changed to Transport Layer Security (TLS). Amazon RDS supports SSL/TLS encryption for MySQL DB instances. Using SSL/TLS, you can encrypt a connection between your application client and your MySQL DB instance. SSL/TLS support is available in all AWS Regions for MySQL.
 

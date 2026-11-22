@@ -1,7 +1,6 @@
 
 
 # Stopping automated backup replication for Amazon RDS
-<a name="AutomatedBackups.StopReplicating"></a>
 
 You can stop backup replication for DB instances using the Amazon RDS console. You can also use the `stop-db-instance-automated-backups-replication` AWS CLI command or the `StopDBInstanceAutomatedBackupsReplication` RDS API operation.
 

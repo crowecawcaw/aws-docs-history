@@ -1,7 +1,6 @@
 
 
 # Configuring network permissions for RDS for Oracle integration with Amazon EFS
-<a name="oracle-efs-integration.network"></a>
 
 For RDS for Oracle to integrate with Amazon EFS, make sure that your DB instance has network access to an EFS file system. For more information, see [Controlling network access to Amazon EFS file systems for NFS clients](https://docs.aws.amazon.com/efs/latest/ug/NFS-access-control-efs.html) in the *Amazon Elastic File System User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # RAM disk for the stats\_temp\_directory
-<a name="PostgreSQL.Concepts.General.FeatureSupport.RamDisk"></a>
 
 You can use the RDS for PostgreSQL parameter `rds.pg_stat_ramdisk_size` to specify the system memory allocated to a RAM disk for storing the PostgreSQL `stats_temp_directory`. The RAM disk parameter is only available in RDS for PostgreSQL version 14 and lower versions. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating linked servers with Teradata
-<a name="USER_SQLServerTeradata.CreateLinkedServers"></a>
 
 To create a linked server with Teradata, run the following commands:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring MySQL binary logging for Multi-AZ DB clusters
-<a name="USER_Binlog.MultiAZ"></a>
 
 Binary logging in Amazon RDS for MySQL Multi-AZ DB clusters records all database changes to support replication, point-in-time recovery, and auditing. In Multi-AZ DB clusters, binary logs synchronize secondary nodes with the primary node, ensuring data consistency across Availability Zones and enabling seamless failovers. 
 

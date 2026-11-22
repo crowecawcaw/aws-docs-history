@@ -1,7 +1,6 @@
 
 
 # Performing common log-related tasks for Oracle DB instances
-<a name="Appendix.Oracle.CommonDBATasks.Log"></a>
 
 Following, you can find how to perform certain common DBA tasks related to logging on your Amazon RDS DB instances running Oracle. To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB instances, and restricts access to certain system procedures and tables that require advanced privileges. 
 
@@ -33,13 +32,13 @@ To set force logging, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.force
 
 The following example puts the database in force logging mode. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.force_logging(p_enable => {{true}});
 ```
 
 To verify that force logging is enabled, run the following query:
 
-```
+```sql
 SELECT FORCE_LOGGING FROM V$DATABASE;
 ```
 
@@ -61,7 +60,7 @@ The `alter_supplemental_logging` procedure has the following parameters.
 
 The following example enables supplemental logging.
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.alter_supplemental_logging(
         p_action => '{{ADD}}');
@@ -71,7 +70,7 @@ end;
 
 The following example enables supplemental logging for all fixed-length maximum size columns. 
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.alter_supplemental_logging(
         p_action => '{{ADD}}',
@@ -82,7 +81,7 @@ end;
 
 The following example enables supplemental logging for primary key columns. 
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.alter_supplemental_logging(
         p_action => '{{ADD}}',
@@ -93,7 +92,7 @@ end;
 
 To verify that supplemental logging is enabled, run the following query:
 
-```
+```sql
 SELECT SUPPLEMENTAL_LOG_DATA_MIN, SUPPLEMENTAL_LOG_DATA_PK, SUPPLEMENTAL_LOG_DATA_UI, SUPPLEMENTAL_LOG_DATA_FK, SUPPLEMENTAL_LOG_DATA_ALL FROM V$DATABASE;
 ```
 
@@ -104,7 +103,7 @@ To switch log files, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.switch
 
 The following example switches log files.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.switch_logfile;
 ```
 
@@ -130,7 +129,7 @@ You must specify either `bytes` or `p_size`. If you specify both, the procedure 
 
 The following command adds a 100 MB log file.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.add_logfile(p_size => '{{100M}}');
 ```
 
@@ -147,13 +146,13 @@ To drop redo logs, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.drop_log
 
 The following example drops the log with group number 3. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.drop_logfile(grp => {{3}});
 ```
 
 You can only drop logs that have a status of unused or inactive. The following example gets the statuses of the logs.
 
-```
+```sql
 SELECT GROUP#, STATUS FROM V$LOG;
 
 GROUP#     STATUS

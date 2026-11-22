@@ -1,7 +1,6 @@
 
 
 # Exporting data from a MySQL DB instance by using replication
-<a name="MySQL.Procedural.Exporting.NonRDSRepl"></a>
 
 To export data from an RDS for MySQL DB instance to a MySQL instance running external to Amazon RDS, you can use replication. In this scenario, the MySQL DB instance is the *source MySQL DB instance*, and the MySQL instance running external to Amazon RDS is the *external MySQL database*.
 

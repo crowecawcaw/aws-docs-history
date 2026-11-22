@@ -1,14 +1,13 @@
 
 
 # Creating and connecting to a DB instance for Amazon RDS Custom for SQL Server
-<a name="custom-creating-sqlserver"></a>
 
 You can create an RDS Custom DB instance, and then connect to it using AWS Systems Manager or Remote Desktop Protocol (RDP).
 
 **Important**  
 Before you can create or connect to an RDS Custom for SQL Server DB instance, make sure to complete the tasks in [Setting up your environment for Amazon RDS Custom for SQL Server](custom-setup-sqlserver.md).  
 You can tag RDS Custom DB instances when you create them, but don't create or modify the `AWSRDSCustom` tag that's required for RDS Custom automation. For more information, see [Tagging RDS Custom for SQL Server resources](custom-managing-sqlserver.tagging.md).  
-The first time that you create an RDS Custom for SQL Server DB instance, you might receive the following error: The service-linked role is in the process of being created. Try again later. If you do, wait a few minutes and then try again to create the DB instance.
+The first time that you create an RDS Custom for SQL Server DB instance, you might receive the following error: `The service-linked role is in the process of being created. Try again later.` If you do, wait a few minutes and then try again to create the DB instance.
 
 **Topics**
 + [Creating an RDS Custom for SQL Server DB instance](#custom-creating-sqlserver.create)

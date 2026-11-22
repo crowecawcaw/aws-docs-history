@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon RDS using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Amazon RDS with an AWS software development kit (SDK). 
 

@@ -1,7 +1,6 @@
 
 
 # Setting up access to transaction log backups
-<a name="USER.SQLServer.AddlFeat.TransactionLogAccess.Enabling"></a>
 
 To set up access to transaction log backups, complete the list of requirements in the [Requirements](USER.SQLServer.AddlFeat.TransactionLogAccess.md#USER.SQLServer.AddlFeat.TransactionLogAccess.Requirements) section, and then run the `rds_tlog_copy_setup` stored procedure. The procedure will enable the access to transaction log backups feature at the DB instance level. You don't need to run it for each individual database on the DB instance. 
 

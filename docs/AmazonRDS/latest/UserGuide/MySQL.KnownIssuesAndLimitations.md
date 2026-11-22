@@ -1,7 +1,6 @@
 
 
 # Known issues and limitations for Amazon RDS for MySQL
-<a name="MySQL.KnownIssuesAndLimitations"></a>
 
 Known issues and limitations for working with Amazon RDS for MySQL are as follows.
 
@@ -19,6 +18,10 @@ Known issues and limitations for working with Amazon RDS for MySQL are as follow
 + [MySQL default authentication plugin](#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin)
 + [Overriding innodb\_buffer\_pool\_size](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size)
 + [Upgrading from MySQL 5.7 to MySQL 8.4](#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4)
++ [Upgrading to MySQL 9.7](#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-9-7)
++ [Multi-AZ DB clusters and RDS for MySQL 9.7](#MySQL.Concepts.KnownIssuesAndLimitations.MAZ-9-7)
++ [Restoring from Amazon S3 and RDS for MySQL 9.7](#MySQL.Concepts.KnownIssuesAndLimitations.s3-import-9-7)
++ [Joining an active-active cluster with RDS for MySQL 9.7](#MySQL.Concepts.KnownIssuesAndLimitations.gr-gtid-9-7)
 + [InnoDB page compression](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression)
 
 ## InnoDB reserved word
@@ -98,13 +101,13 @@ Some MySQL parameters require special considerations when used with an Amazon RD
 
 Because Amazon RDS uses a case-sensitive file system, setting the value of the `lower_case_table_names` server parameter to 2 (names stored as given but compared in lowercase) is not supported. The following are the supported values for Amazon RDS for MySQL DB instances:
 + 0 (names stored as given and comparisons are case-sensitive) is supported for all RDS for MySQL versions.
-+ 1 (names stored in lowercase and comparisons are not case-sensitive) is supported for RDS for MySQL version 5.7, version 8.0.28 and higher 8.0 versions, and version 8.4.
++ 1 (names stored in lowercase and comparisons are not case-sensitive) is supported for RDS for MySQL version 5.7, version 8.0.28 and higher 8.0 versions, version 8.4, and version 9.7.
 
 Set the `lower_case_table_names` parameter in a custom DB parameter group before creating a DB instance. Then, specify the custom DB parameter group when you create the DB instance.
 
 When a parameter group is associated with a MySQL DB instance with a version lower than 8.0, we recommend that you avoid changing the `lower_case_table_names` parameter in the parameter group. Changing it could cause inconsistencies with point-in-time recovery backups and read replica DB instances.
 
-When a parameter group is associated with a version 8.0 or 8.4 MySQL DB instance, you can't modify the `lower_case_table_names` parameter in the parameter group.
+When a parameter group is associated with a version 8.0 or higher MySQL DB instance, you can't modify the `lower_case_table_names` parameter in the parameter group.
 
 Read replicas should always use the same `lower_case_table_names` parameter value as the source DB instance. 
 
@@ -178,7 +181,7 @@ For information on updating a parameter group, see [Parameter groups for Amazon 
 
 When you have enabled or disabled InnoDB file-per-table tablespaces, you can issue an `ALTER TABLE` command to move a table from the global tablespace to its own tablespace, or from its own tablespace to the global tablespace as shown in the following example: 
 
-```
+```sql
 ALTER TABLE table_name TABLESPACE=innodb_file_per_table;
 ```
 
@@ -211,6 +214,12 @@ RDS for MySQL version 8.0.34 and higher 8.0 versions use the `mysql_native_passw
 
 RDS for MySQL version 8.4 and higher versions use the `caching_sha2_password` plugin as the default authentication plugin. You can change the default authentication plugin for MySQL 8.4. The `mysql_native_password` plugin still works with MySQL 8.4, but support of this plugin ends with MySQL 8.4. To change the default authentication plugin, create a custom parameter group and modify the value of the `authentication_policy` parameter. For more information, see [Default and custom parameter groups](parameter-groups-overview.md#parameter-groups-overview.custom). 
 
+RDS for MySQL version 9.7 doesn't support the `mysql_native_password` plugin. Use `caching_sha2_password` instead. Database accounts that use `mysql_native_password` block the upgrade from MySQL 8.4 to MySQL 9.7. Before you upgrade, change these accounts to use `caching_sha2_password`. To find these accounts, run the following query.
+
+```sql
+SELECT user, host FROM mysql.user WHERE plugin = 'mysql_native_password';
+```
+
 ## Overriding innodb\_buffer\_pool\_size
 <a name="MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size"></a>
 
@@ -232,6 +241,26 @@ If the value that you input is too large, Amazon RDS lowers the value to the fol
 <a name="MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4"></a>
 
 You can't upgrade directly from MySQL 5.7 to MySQL 8.4. You must first upgrade from MySQL 5.7 to MySQL 8.0, and then upgrade from MySQL 8.0 to MySQL 8.4. For more information, see [Major version upgrades for RDS for MySQL](USER_UpgradeDBInstance.MySQL.Major.md).
+
+## Upgrading to MySQL 9.7
+<a name="MySQL.Concepts.KnownIssuesAndLimitations.upgrade-9-7"></a>
+
+You can upgrade to MySQL 9.7 only from MySQL 8.4. You can't upgrade directly from MySQL 5.7 or MySQL 8.0 to MySQL 9.7. Upgrade one major version at a time. If your DB instance runs MySQL 5.7, upgrade to 8.0, then to 8.4, and then to 9.7. If your DB instance runs MySQL 8.0, upgrade to 8.4 and then to 9.7. For more information, see [Upgrading to MySQL 9.7](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.Major.97).
+
+## Multi-AZ DB clusters and RDS for MySQL 9.7
+<a name="MySQL.Concepts.KnownIssuesAndLimitations.MAZ-9-7"></a>
+
+Multi-AZ DB clusters aren't supported for RDS for MySQL 9.7. You can't create or restore a Multi-AZ DB cluster that runs MySQL 9.7, and you can't upgrade a Multi-AZ DB cluster to MySQL 9.7. Single-AZ DB instance deployments and Multi-AZ DB instance deployments support MySQL 9.7. For more information, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md).
+
+## Restoring from Amazon S3 and RDS for MySQL 9.7
+<a name="MySQL.Concepts.KnownIssuesAndLimitations.s3-import-9-7"></a>
+
+RDS for MySQL 9.7 doesn't support restoring a backup from Amazon S3 that you created with Percona XtraBackup. To move data into a MySQL 9.7 DB instance, use another migration method, such as a logical dump and restore.
+
+## Joining an active-active cluster with RDS for MySQL 9.7
+<a name="MySQL.Concepts.KnownIssuesAndLimitations.gr-gtid-9-7"></a>
+
+On RDS for MySQL 9.7, a DB instance that joins an active-active cluster can fail with error 3092 (the error log shows `MY-011526`) because the instance has local GTIDs that the group members don't have. For more information, see [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md).
 
 ## InnoDB page compression
 <a name="MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression"></a>

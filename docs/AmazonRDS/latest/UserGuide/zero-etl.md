@@ -1,7 +1,6 @@
 
 
 # Amazon RDS zero-ETL integrations
-<a name="zero-etl"></a>
 
 An Amazon RDS zero-ETL integration with Amazon Redshift and Amazon SageMaker AI enables near real-time analytics and machine learning (ML) using data from RDS. It's a fully managed solution for making transactional data available in your analytics destination after it is written to an RDS database. *Extract, transform,* and *load* (ETL) is the process of combining data from multiple sources into a large, central data warehouse.
 

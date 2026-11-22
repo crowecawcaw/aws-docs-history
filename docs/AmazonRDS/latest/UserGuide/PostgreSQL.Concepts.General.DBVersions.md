@@ -1,7 +1,6 @@
 
 
 # Available PostgreSQL database versions
-<a name="PostgreSQL.Concepts.General.DBVersions"></a>
 
 Amazon RDS supports DB instances running several editions of PostgreSQL. You can specify any currently available PostgreSQL version when creating a new DB instance. You can specify the major version (such as PostgreSQL 14), and any available minor version for the specified major version. If no version is specified, Amazon RDS defaults to an available version, typically the most recent version. If a major version is specified but a minor version is not, Amazon RDS defaults to a recent release of the major version you have specified. 
 

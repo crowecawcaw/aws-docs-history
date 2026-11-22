@@ -1,7 +1,6 @@
 
 
 # Failover process for an RDS Custom for SQL Server Multi-AZ deployment
-<a name="custom-sqlserver-multiaz.failover"></a>
 
 If a planned or unplanned outage of your DB instance results from an infrastructure defect, Amazon RDS automatically switches to a standby replica in another Availability Zone if you have turned on Multi-AZ. The time that it takes for the failover to complete depends on the database activity and other conditions at the time that the primary DB instance became unavailable. Failover times are typically 60 – 120 seconds. However, large transactions or a lengthy recovery process can increase failover time. When the failover is complete, it can take additional time for the RDS console to show the new Availability Zone.
 

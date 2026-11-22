@@ -1,7 +1,6 @@
 
 
 # Migrating from AIX or Windows to Linux for Amazon RDS for Db2
-<a name="db2-one-time-migration-aix-windows-linux"></a>
 
 With this migration approach, you use native Db2 tools to back up your self-managed Db2 database to an Amazon S3 bucket. Native Db2 tools include the `export` utility, the `db2move` system command, or the `db2look` system command. Your Db2 database can either be self-managed or in Amazon Elastic Compute Cloud (Amazon EC2). You can move data from your AIX or Windows system to your Amazon S3 bucket. Then, use a Db2 client to load data directly from the S3 bucket to your Amazon RDS for Db2 database. Downtime depends on the size of your database. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md).
 

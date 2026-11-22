@@ -1,7 +1,6 @@
 
 
 # Monitoring read replication
-<a name="USER_ReadRepl.Monitoring"></a>
 
 You can monitor the status of a read replica in several ways. The Amazon RDS console shows the status of a read replica in the **Replication** section of the **Connectivity & security** tab in the read replica details. To view the details for a read replica, choose the name of the read replica in the list of DB instances in the Amazon RDS console.
 

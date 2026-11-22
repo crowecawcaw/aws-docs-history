@@ -1,7 +1,6 @@
 
 
 # SQL statistics for MariaDB and MySQL
-<a name="USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL"></a>
 
 MariaDB and MySQL collect SQL statistics only at the digest level. No statistics are shown at the statement level.
 

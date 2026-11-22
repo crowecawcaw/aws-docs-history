@@ -1,7 +1,6 @@
 
 
 # Shrinking tablespaces in RDS for Oracle
-<a name="Oracle.ShrinkTablespace"></a>
 
 Starting with Oracle Database 26ai (26.0.0.0), Amazon RDS for Oracle supports tablespace shrinking with the `rdsadmin.rdsadmin_util.shrink_tablespace` procedure. Use this procedure to reclaim unused space in a tablespace by shrinking its datafiles. Shrinking reduces storage consumption without data migration or tablespace recreation.
 

@@ -1,10 +1,10 @@
 
 
 # Connecting from the MySQL command-line client (unencrypted)
-<a name="USER_ConnectToInstance.CLI"></a>
 
 **Important**  
-Only use an unencrypted MySQL connection when the client and server are in the same VPC and the network is trusted. For information about using encrypted connections, see [Connecting to your MySQL DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.CLI.md).
+Only use an unencrypted MySQL connection when the client and server are in the same VPC and the network is trusted. For information about using encrypted connections, see [Connecting to your MySQL DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.CLI.md).  
+For MySQL 9.7, the `require_secure_transport` parameter defaults to `1` (ON), so Amazon RDS rejects unencrypted connections. For more information, see [Requiring SSL/TLS for all connections to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.require-ssl.md).
 
 To connect to a DB instance using the MySQL command-line client, enter the following command at the command prompt. For the -h parameter, substitute the DNS name (endpoint) for your DB instance. For the -P parameter, substitute the port for your DB instance. For the -u parameter, substitute the user name of a valid database user, such as the master user. Enter the master user password when prompted. 
 

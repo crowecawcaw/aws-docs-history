@@ -1,7 +1,6 @@
 
 
 # Importing data into an Amazon RDS for MySQL DB instance
-<a name="MySQL.Procedural.Importing.Other"></a>
 
 You can use several different techniques to import data into an RDS for MySQL DB instance. The best approach depends on a number of factors:
 + Source of the data
@@ -16,7 +15,7 @@ The following table lists techniques to importing data into an RDS for MySQL DB 
 
 | Source | Amount of data | One time or ongoing | Application downtime | Technique | More information | 
 | --- | --- | --- | --- | --- | --- | 
-| Existing MySQL database on premises or on Amazon EC2 | Any | One time | Some | Create a backup of your on-premises database, store it on Amazon S3, and then restore the backup file to a new Amazon RDS DB instance running MySQL. | [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md) | 
+| Existing MySQL database on premises or on Amazon EC2 | Any | One time | Some | Create a backup of your on-premises database, store it on Amazon S3, and then restore the backup file to a new Amazon RDS DB instance running MySQL. This option isn't available for RDS for MySQL 9.7. | [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md) | 
 | Existing MySQL database on premises or on Amazon EC2 | Any | Ongoing | Minimal | Configure replication with an existing MySQL database as the replication source. | [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md)<br />[Importing data to an Amazon RDS for MySQL database with reduced downtime](mysql-importing-data-reduced-downtime.md) | 
 | Any existing database | Any | One time or ongoing | Minimal | Use AWS Database Migration Service to migrate the database with minimal downtime and, for many database DB engines, continue ongoing replication. | [What is AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) and [Using a MySQL-compatible database as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html) in the *AWS Database Migration Service User Guide*  | 
 | Existing MySQL DB instance | Any | One time or ongoing | Minimal | Create a read replica for ongoing replication. Promote the read replica for one-time creation of a new DB instance. | [Working with DB instance read replicas](USER_ReadRepl.md) | 

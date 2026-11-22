@@ -1,7 +1,6 @@
 
 
 # Measuring replication lag among pgactive members
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.replicationlag"></a>
 
 You can use the following query to view the replication lag among the `pgactive` members. Run this query on every `pgactive` node to get the full picture.
 

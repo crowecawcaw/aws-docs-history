@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Active Directory authentication in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.ActiveDirectoryAuthentication"></a>
 
 RDS for MySQL supports external authentication of database users with Microsoft Active Directory. Unlike the ticket-based Kerberos authentication used by other Amazon RDS engines, RDS for MySQL uses password-based Active Directory authentication through Pluggable Authentication Modules (PAM). For more information, see [Using Active Directory authentication for Amazon RDS for MySQL](mysql-ad-authentication.md).
 

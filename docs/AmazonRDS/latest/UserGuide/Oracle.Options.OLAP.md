@@ -1,7 +1,6 @@
 
 
 # Oracle OLAP
-<a name="Oracle.Options.OLAP"></a>
 
 Amazon RDS supports Oracle OLAP through the use of the `OLAP` option. This option provides On-line Analytical Processing (OLAP) for Oracle DB instances. You can use Oracle OLAP to analyze large amounts of data by creating dimensional objects and cubes in accordance with the OLAP standard. For more information, see [the Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/olaug/index.html). 
 

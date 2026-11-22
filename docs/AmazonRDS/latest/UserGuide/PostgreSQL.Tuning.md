@@ -1,7 +1,6 @@
 
 
 # Tuning with wait events for RDS for PostgreSQL
-<a name="PostgreSQL.Tuning"></a>
 
 Wait events are an important tuning tool for RDS for PostgreSQL. When you can find out why sessions are waiting for resources and what they are doing, you're better able to reduce bottlenecks. You can use the information in this section to find possible causes and corrective actions. This section also discusses basic PostgreSQL tuning concepts.
 
@@ -16,6 +15,7 @@ The wait events in this section are specific to RDS for PostgreSQL.
 + [IO:BufFileRead and IO:BufFileWrite](wait-event.iobuffile.md)
 + [IO:DataFileRead](wait-event.iodatafileread.md)
 + [IO:WALWrite](wait-event.iowalwrite.md)
++ [IO:WALSync](wait-event.iowalsync.md)
 + [IPC:parallel wait events](rpg-ipc-parallel.md)
 + [IPC:ProcArrayGroupUpdate](apg-rpg-ipcprocarraygroup.md)
 + [Lock:advisory](wait-event.lockadvisory.md)

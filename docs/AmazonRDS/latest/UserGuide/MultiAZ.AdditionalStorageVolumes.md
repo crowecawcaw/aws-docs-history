@@ -1,7 +1,6 @@
 
 
 # Multi-AZ failover with additional storage volumes
-<a name="MultiAZ.AdditionalStorageVolumes"></a>
 
 Multi-AZ deployments support DB instances with additional storage volumes. During a failover, RDS automatically fails over to the standby instance with any additional storage volumes attached to the DB instance. This process ensures data consistency and availability.
 

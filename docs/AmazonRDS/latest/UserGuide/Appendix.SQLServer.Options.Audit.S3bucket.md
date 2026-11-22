@@ -1,7 +1,6 @@
 
 
 # Configuring an S3 bucket
-<a name="Appendix.SQLServer.Options.Audit.S3bucket"></a>
 
 The audit log files are automatically uploaded from the DB instance to your S3 bucket. The following restrictions apply to the S3 bucket that you use as a target for audit files: 
 + It must be in the same AWS Region and AWS account as the DB instance.

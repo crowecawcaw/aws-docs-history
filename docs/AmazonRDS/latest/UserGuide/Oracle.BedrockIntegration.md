@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock integration for RDS for Oracle
-<a name="Oracle.BedrockIntegration"></a>
 
 RDS for Oracle supports integration with Amazon Bedrock, enabling you to invoke foundation models directly from your Oracle database using SQL. With this integration, you can use generative AI capabilities such as text generation, summarization, and embedding generation without moving data out of your database.
 

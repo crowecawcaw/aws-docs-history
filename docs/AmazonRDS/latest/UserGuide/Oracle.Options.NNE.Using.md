@@ -1,7 +1,6 @@
 
 
 # Setting NNE values in the sqlnet.ora
-<a name="Oracle.Options.NNE.Using"></a>
 
 With Oracle native network encryption, you can set network encryption on the server side and client side. The client is the computer used to connect to the DB instance. You can specify the following client settings in the sqlnet.ora: 
 + `SQLNET.ALLOW_WEAK_CRYPTO`

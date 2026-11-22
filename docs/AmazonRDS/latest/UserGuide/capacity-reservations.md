@@ -1,7 +1,6 @@
 
 
 # Amazon RDS On-Demand Capacity Reservations
-<a name="capacity-reservations"></a>
 
 On-Demand Capacity Reservations for Amazon Relational Database Service (Amazon RDS) let you reserve compute capacity for your Amazon RDS DB instances in one or more Availability Zones in an AWS Region. By creating a Capacity Reservation, you help make sure that you have access to Amazon RDS compute capacity when you need it, for as long as you need it. Then DB instance create, restore, compute scaling, and start operations don't fail because of insufficient capacity.
 

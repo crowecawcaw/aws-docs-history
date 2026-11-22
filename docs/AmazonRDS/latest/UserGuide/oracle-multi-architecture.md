@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle database architecture
-<a name="oracle-multi-architecture"></a>
 
 The Oracle multitenant architecture, also known as the CDB architecture, enables an Oracle database to function as a multitenant container database (CDB). A CDB can include customer-created pluggable databases (PDBs). A non-CDB is an Oracle database that uses the traditional architecture, which can't contain PDBs. For more information about the multitenant architecture, see [*Oracle Multitenant Administrator’s Guide*](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/introduction-to-the-multitenant-architecture.html#GUID-267F7D12-D33F-4AC9-AA45-E9CD671B6F22).
 

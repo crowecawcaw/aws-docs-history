@@ -1,7 +1,6 @@
 
 
 # NATIVE\_NETWORK\_ENCRYPTION option settings
-<a name="Oracle.Options.NNE.Options"></a>
 
 You can specify encryption requirements on both the server and the client. The DB instance can act as a client when, for example, it uses a database link to connect to another database. You might want to avoid forcing encryption on the server side. For example, you might not want to force all client communications to use encryption because the server requires it. In this case, you can force encryption on the client side using the `SQLNET.*CLIENT` options.
 

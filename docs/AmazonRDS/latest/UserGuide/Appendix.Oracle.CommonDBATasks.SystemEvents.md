@@ -1,7 +1,6 @@
 
 
 # Setting and unsetting system diagnostic events
-<a name="Appendix.Oracle.CommonDBATasks.SystemEvents"></a>
 
 To set and unset diagnostic events at the session level, you can use the Oracle SQL statement `ALTER SESSION SET EVENTS`. However, to set events at the system level you can't use Oracle SQL. Instead, use the system event procedures in the `rdsadmin.rdsadmin_util` package. The system event procedures are available in the following engine versions:
 + All Oracle Database 26ai versions

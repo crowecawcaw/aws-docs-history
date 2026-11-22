@@ -1,7 +1,6 @@
 
 
 # Upgrading the engine version of a Multi-AZ DB cluster for Amazon RDS
-<a name="multi-az-db-clusters-upgrading"></a>
 
 Amazon RDS provides newer versions of each supported database engine so that you can keep your Multi-AZ DB cluster up to date. This topic explains the process of upgrading a Multi-AZ DB cluster to newer versions.
 

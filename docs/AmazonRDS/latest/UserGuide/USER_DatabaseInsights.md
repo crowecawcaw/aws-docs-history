@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon RDS databases with CloudWatch Database Insights
-<a name="USER_DatabaseInsights"></a>
 
 Monitor the database load (DB Load) for your fleet of Amazon RDS DB instances with Database Insights. DB Load measures the level of session activity in your database. You can use Database Insights to analyze and troubleshoot the performance of your Amazon RDS databases at scale.
 

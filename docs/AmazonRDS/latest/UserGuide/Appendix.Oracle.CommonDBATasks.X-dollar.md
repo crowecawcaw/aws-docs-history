@@ -1,7 +1,6 @@
 
 
 # Managing RDS\_X$ views for Oracle DB instances
-<a name="Appendix.Oracle.CommonDBATasks.X-dollar"></a>
 
 You might need to access `SYS.X$` fixed tables, which are only accessible by `SYS`. To create `SYS.RDS_X$` views on eligible `X$` tables, use the procedures in the `rdsadmin.rdsadmin_util` package. Your master user is automatically granted the privilege `SELECT … WITH GRANT OPTION` on the `RDS_X$` views. 
 

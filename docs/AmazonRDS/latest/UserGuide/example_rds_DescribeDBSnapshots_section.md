@@ -1,7 +1,6 @@
 
 
 # Use `DescribeDBSnapshots` with an AWS SDK or CLI
-<a name="example_rds_DescribeDBSnapshots_section"></a>
 
 The following code examples show how to use `DescribeDBSnapshots`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Return a list of DB snapshots for a particular DB instance.
     /// </summary>
@@ -45,7 +44,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -137,7 +136,7 @@ For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/A
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -176,7 +175,7 @@ func (instances *DbInstances) GetSnapshot(ctx context.Context, snapshotName stri
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
-```
+```python
 class InstanceWrapper:
     """Encapsulates Amazon RDS DB instance actions."""
 
@@ -226,7 +225,7 @@ class InstanceWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-rds' # v2: require 'aws-sdk'
 
 # List all Amazon Relational Database Service (Amazon RDS) DB instance
@@ -255,7 +254,7 @@ end
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
-```
+```swift
 import AWSRDS
 
     /// Wait until the specified database snapshot is available to use.

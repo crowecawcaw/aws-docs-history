@@ -1,13 +1,12 @@
 
 
 # Resolving identifiable vacuum blockers in RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers"></a>
 
 Autovacuum performs aggressive vacuums and lowers the age of transaction IDs to below the threshold specified by the `autovacuum_freeze_max_age` parameter of your RDS instance. You can track this age using the Amazon CloudWatch metric `MaximumUsedTransactionIDs`.
 
 To find the setting of `autovacuum_freeze_max_age` (which has a default of 200 million transaction IDs) for your Amazon RDS instance, you can use the following query:
 
-```
+```sql
 SELECT
     TO_CHAR(setting::bigint, 'FM9,999,999,999') autovacuum_freeze_max_age
 FROM
@@ -35,7 +34,7 @@ In PostgreSQL, an active statement is an SQL statement that is currently being e
 
 The `postgres_get_av_diag()` function displays output similar to the following when it identifies a statement that is an active statement.
 
-```
+```sql
 blocker               | Active statement
 database              | my_database
 blocker_identifier    | SELECT pg_sleep(20000);
@@ -59,7 +58,7 @@ An idle in transaction statement refers to any session that has opened an explic
 
 The `postgres_get_av_diag()` function displays output similar to the following when it identifies an `idle in transaction` statement as a blocker.
 
-```
+```sql
 blocker               | idle in transaction
 database              | my_database
 blocker_identifier    | INSERT INTO tt SELECT * FROM tt;
@@ -88,7 +87,7 @@ Be aware that a backup taken during a prepared transaction will still contain th
 
 The `postgres_get_av_diag()` function displays the following output when it identifies a blocker that is a prepared transaction.
 
-```
+```sql
 blocker               | Prepared transaction
 database              | my_database
 blocker_identifier    | myptx
@@ -104,7 +103,7 @@ As mentioned in the suggestion column, connect to the database where the prepare
 
 To monitor prepared transactions in general, PostgreSQL offers a catalog view called `pg_prepared_xacts`. You can use the following query to find prepared transactions.
 
-```
+```sql
 SELECT
     gid,
     prepared,
@@ -134,7 +133,7 @@ Sometimes removal of dead tuples of catalog is delayed due to the performance de
 
 The `postgres_get_av_diag()` function displays output similar to the following when it finds a logical replication slot as a blocker.
 
-```
+```sql
 blocker               | Logical replication slot
 database              | my_database
 blocker_identifier    | slot1
@@ -167,7 +166,7 @@ Caution: Before dropping a replication slot, carefully ensure that it has no ong
 
 After confirming that the replication slot is no longer needed, drop it to allow autovacuum to continue. The condition `active = 'f'` ensures that only an inactive slot is dropped.
 
-```
+```sql
 SELECT pg_drop_replication_slot('slot1') WHERE active ='f'
 ```
 
@@ -183,7 +182,7 @@ Beginning with RDS for PostgreSQL version 14, all replicas utilize replication s
 
 The `postgres_get_av_diag()` function displays output similar to the following when it finds a read replica with physical replication slot as the blocker.
 
-```
+```sql
 blocker               | Read replica with physical replication slot
 database              |
 blocker_identifier    | rds_us_west_2_db_xxxxxxxxxxxxxxxxxxxxx
@@ -204,7 +203,7 @@ Amazon RDS allows setting up read replicas without a physical replication slot i
 
 The `postgres_get_av_diag()` function displays output similar to the following when it finds a streaming read replica as the blocker.
 
-```
+```sql
 blocker               | Read replica with streaming replication slot
 database              | Not applicable
 blocker_identifier    | xx.x.x.xxx/xx
@@ -228,7 +227,7 @@ As recommended in the `suggested_action` column, carefully review these options 
 
   You may run the following SQL command on the read replica to terminate the query that is preventing the vacuum on the primary from cleaning up old rows. The value of `backend_xmin` is reported in the function’s output:
 
-  ```
+  ```sql
   SELECT
       pg_terminate_backend(pid)
   FROM
@@ -248,13 +247,13 @@ As recommended in the `suggested_action` column, carefully review these options 
 
 In unusual circumstances, a temporary table exists without an active session owning it. If the owning session ends unexpectedly due to a fatal crash, network issue, or similar event, the temporary table might not be cleaned up, leaving it behind as an "orphaned" table. When the PostgreSQL autovacuum process detects an orphaned temporary table, it logs the following message:
 
-```
+```sql
 LOG: autovacuum: found orphan temp table \"%s\".\"%s\" in database \"%s\"
 ```
 
 The `postgres_get_av_diag()` function displays output similar to the following when it identifies a temporary table as a blocker. For the function to correctly show the output related to temporary tables, it needs to be executed within the same database where those tables exist.
 
-```
+```sql
 blocker               | Temporary table
 database              | my_database
 blocker_identifier    | pg_temp_14.ttemp
@@ -268,13 +267,13 @@ suggested_action      | {"DROP TABLE ttemp;"}
 
 Follow the instructions provided in the `suggestion` column of the output to identify and remove the temporary table that is preventing autovacuum from running. Use the following command to drop the temporary table reported by `postgres_get_av_diag()`. Replace the table name based on the output provided by the `postgres_get_av_diag()` function.
 
-```
+```sql
 DROP TABLE {{my_temp_schema}}.{{my_temp_table}};
 ```
 
 The following query can be used to identify temporary tables:
 
-```
+```sql
 SELECT
     oid,
     relname,

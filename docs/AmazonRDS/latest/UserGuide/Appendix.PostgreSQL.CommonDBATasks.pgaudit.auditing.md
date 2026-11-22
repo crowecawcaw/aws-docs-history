@@ -1,7 +1,6 @@
 
 
 # Auditing database objects
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.auditing"></a>
 
 With pgAudit set up on your RDS for PostgreSQL DB instance and configured for your requirements, more detailed information is captured in the PostgreSQL log. For example, while the default PostgreSQL logging configuration identifies the date and time that a change was made in a database table, with the pgAudit extension the log entry can include the schema, user who made the change, and other details depending on how the extension parameters are configured. You can set up auditing to track changes in the following ways.
 + For each session, by user. For the session level, you can capture the fully qualified command text.

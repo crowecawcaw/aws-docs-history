@@ -1,7 +1,6 @@
 
 
 # Enabling RDS for SQL Server integration with S3
-<a name="Appendix.SQLServer.Options.S3-integration.enabling"></a>
 
 In the following section, you can find how to enable Amazon S3 integration with Amazon RDS for SQL Server. To work with S3 integration, your DB instance must be associated with the IAM role that you previously created before you use the `S3_INTEGRATION` feature-name parameter.
 

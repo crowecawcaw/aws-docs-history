@@ -1,7 +1,6 @@
 
 
 # Setting character sets and collations for RDS Custom for SQL Server DB instances
-<a name="custom-reqs-limits-MS.collation"></a>
 
 ## Overview
 <a name="custom-reqs-limits-MS.collation.overview"></a>

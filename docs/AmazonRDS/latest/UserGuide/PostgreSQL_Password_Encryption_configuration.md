@@ -1,7 +1,6 @@
 
 
 # Using SCRAM for PostgreSQL password encryption
-<a name="PostgreSQL_Password_Encryption_configuration"></a>
 
 The *Salted Challenge Response Authentication Mechanism (SCRAM)* is an alternative to PostgreSQL's default message digest (MD5) algorithm for encrypting passwords. The SCRAM authentication mechanism is considered more secure than MD5. To learn more about these two different approaches to securing passwords, see [Password Authentication](https://www.postgresql.org/docs/14/auth-password.html) in the PostgreSQL documentation.
 

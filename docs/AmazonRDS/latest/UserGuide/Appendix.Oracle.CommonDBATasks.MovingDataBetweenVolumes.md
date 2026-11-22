@@ -1,7 +1,6 @@
 
 
 # Moving data between storage volumes in RDS for Oracle
-<a name="Appendix.Oracle.CommonDBATasks.MovingDataBetweenVolumes"></a>
 
 You can move data files and database objects between your primary and additional storage volumes. Before you move data, consider the following points:
 + The source and target volumes must have sufficient free space.
@@ -32,7 +31,7 @@ The `move_datafile` procedure has the following parameters.
 
 The following example moves a tablespace from the default volume `rdsdbdata` to the additional volume `rdsdbdata2`.
 
-```
+```sql
 SQL> SELECT tablespace_name,file_id,file_name FROM dba_data_files
  WHERE tablespace_name = 'MYNEWTABLESPACE';
 
@@ -59,7 +58,7 @@ You can optimize database storage by creating tablespaces on additional storage 
 
 In the following example, you create a new tablespace on high-performance volume `rdsdbdata2`. Then you move a table to your additional storage volume while the table is online. You also move the index to the same volume. Moving tables and rebuilding indexes while online requires Oracle Enterprise Edition.
 
-```
+```sql
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata2/db';
 CREATE TABLESPACE perf_tbs DATAFILE SIZE 10G;
 
@@ -72,7 +71,7 @@ ALTER INDEX employees_idx
 
 In the following example, you create a tablespace on a low-cost volume. Then you move a table partition to your low-cost storage volume using an online operation.
 
-```
+```sql
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata3/db';
 CREATE TABLESPACE hist_tbs DATAFILE SIZE 10G;
 
@@ -83,7 +82,7 @@ ALTER TABLE orders
 
 In the following example, you query active sessions long operations.
 
-```
+```sql
 SELECT sid,opname,sofar,totalwork,time_remaining,elapsed_seconds 
   FROM v$session_longops 
   WHERE time_remaining > 0;
@@ -91,7 +90,7 @@ SELECT sid,opname,sofar,totalwork,time_remaining,elapsed_seconds
 
 You can check your tablespaces usage with the following query.
 
-```
+```sql
 SELECT tablespace_name, used_percent
   FROM dba_tablespace_usage_metrics
   ORDER BY used_percent DESC;
@@ -104,7 +103,7 @@ Your database might contains tables with BLOB or CLOB objects that consume subst
 
 In the following example, you create a tablespace for LOB data on a low-cost volume that is intended for low-access data. Then you create a table that stores data on this volume.
 
-```
+```sql
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata3/db';
 CREATE TABLESPACE lob_data DATAFILE SIZE 5G AUTOEXTEND ON NEXT 1G;
 

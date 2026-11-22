@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Kerberos authentication in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication"></a>
 
 By using Kerberos authentication in Amazon RDS, you can support external authentication of database users using Kerberos and Microsoft Active Directory. Using Kerberos and Active Directory provides the benefits of single sign-on and centralized authentication of database users.
 

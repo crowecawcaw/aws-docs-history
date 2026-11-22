@@ -1,7 +1,6 @@
 
 
 # Creating and connecting to a PostgreSQL DB instance
-<a name="CHAP_GettingStarted.CreatingConnecting.PostgreSQL"></a>
 
 This tutorial creates an EC2 instance and an RDS for PostgreSQL DB instance. The tutorial shows you how to access the DB instance from the EC2 instance using a standard PostgreSQL client. You use the EC2 instance only as a client to connect to the database; it isn't required for the DB instance to operate. As a best practice, this tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources outside the VPC can't access it. You can also connect from other resources, such as a Lambda function, or make the DB instance publicly accessible.
 
@@ -304,7 +303,7 @@ The `-y` option installs the updates without asking for confirmation. To examine
 
    For example, the following SQL command shows the current date and time:
 
-   ```
+   ```sql
    SELECT CURRENT_TIMESTAMP;
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Setting up access to an Amazon S3 bucket
-<a name="USER_PostgreSQL.S3Import.AccessPermission"></a>
 
 To import data from an Amazon S3 file, give the RDS for PostgreSQL DB instance permission to access the Amazon S3 bucket containing the file. You provide access to an Amazon S3 bucket in one of two ways, as described in the following topics.
 

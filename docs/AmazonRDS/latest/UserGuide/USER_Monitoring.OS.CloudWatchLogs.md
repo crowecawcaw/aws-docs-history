@@ -1,7 +1,6 @@
 
 
 # Viewing OS metrics using CloudWatch Logs
-<a name="USER_Monitoring.OS.CloudWatchLogs"></a>
 
 After you have enabled Enhanced Monitoring for your DB instance or Multi-AZ DB cluster, you can view the metrics for it using CloudWatch Logs, with each log stream representing a single DB instance or DB cluster being monitored. The log stream identifier is the resource identifier (`DbiResourceId`) for the DB instance or DB cluster.
 

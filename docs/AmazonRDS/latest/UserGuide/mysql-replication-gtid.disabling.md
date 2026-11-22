@@ -1,7 +1,6 @@
 
 
 # Disabling GTID-based replication for a MySQL DB instance with read replicas
-<a name="mysql-replication-gtid.disabling"></a>
 
 You can disable GTID-based replication for a MySQL DB instance with read replicas. 
 
@@ -17,7 +16,7 @@ You can disable GTID-based replication for a MySQL DB instance with read replica
 
    **MySQL 8.0 and lower major versions**
 
-   ```
+   ```sql
    CALL mysql.rds_set_master_auto_position(0);
    ```
 
@@ -39,15 +38,15 @@ You can disable GTID-based replication for a MySQL DB instance with read replica
 
    1. On the MySQL DB instance, run the following command:
 
-      **MySQL 8.4**
+      **MySQL 8.4 and higher**
 
-      ```
+      ```sql
       SHOW BINARY LOG STATUS
       ```
 
       **MySQL 5.7 and 8.0**
 
-      ```
+      ```sql
       SHOW MASTER STATUS
       ```
 
@@ -64,29 +63,29 @@ You can disable GTID-based replication for a MySQL DB instance with read replica
 
    1. On each read replica, use the file and position information from its source instance in the previous step to run the following query:
 
-      **MySQL 8.4 and MySQL 8.0.26 and higher MySQL 8.0 versions**
+      **MySQL 9.7, MySQL 8.4, and MySQL 8.0.26 and higher MySQL 8.0 versions**
 
-      ```
+      ```sql
       SELECT SOURCE_POS_WAIT('{{file}}', {{position}});
       ```
 
       **MySQL 5.7**
 
-      ```
+      ```sql
       SELECT MASTER_POS_WAIT('{{file}}', {{position}});
       ```
 
       For example, if the file name is `mysql-bin-changelog.000031` and the position is `107`, run the following statement:
 
-      **MySQL 8.4 and MySQL 8.0.26 and higher MySQL 8.0 versions**
+      **MySQL 9.7, MySQL 8.4, and MySQL 8.0.26 and higher MySQL 8.0 versions**
 
-      ```
+      ```sql
       SELECT SOURCE_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
 
       **MySQL 5.7**
 
-      ```
+      ```sql
       SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
 

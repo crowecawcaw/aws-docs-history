@@ -1,7 +1,6 @@
 
 
 # Converting a DB instance to a Multi-AZ deployment for Amazon RDS
-<a name="Concepts.MultiAZ.Migrating"></a>
 
 Modifying a DB instance to a Multi-AZ deployment improves availability by adding a standby instance in another Availability Zone. The process involves minimal downtime and requires careful planning around storage and performance impacts. This change enhances fault tolerance and reduces recovery time in case of failures, making it ideal for high-availability environments.
 
@@ -9,7 +8,7 @@ If you have a DB instance in a Single-AZ deployment and modify it to a Multi-AZ 
 
 1. Takes a snapshot of the primary DB instance's Amazon Elastic Block Store (EBS) volumes.
 
-1. Creates new volumes for the standby replica from the snapshot. These volumes initialize in the background, and maximum volume performance is achieved after the data is fully initialized.
+1. Creates new volumes for the standby replica from the snapshot. These volumes initialize in the background at a rate of up to 4 TiB per hour for volumes that use gp3 or io2 Block Express storage, and maximum volume performance is achieved after the data is fully initialized. For more information, see [Storage volume initialization](CHAP_Storage.md#CHAP_Storage.initialization).
 
 1. Turns on synchronous block-level replication between the volumes of the primary and standby replicas.
 

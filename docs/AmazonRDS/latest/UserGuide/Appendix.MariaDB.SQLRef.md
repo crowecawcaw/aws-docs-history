@@ -1,7 +1,6 @@
 
 
 # MariaDB on Amazon RDS SQL reference
-<a name="Appendix.MariaDB.SQLRef"></a>
 
 Following, you can find descriptions of system stored procedures that are available for Amazon RDS instances running the MariaDB DB engine.
 

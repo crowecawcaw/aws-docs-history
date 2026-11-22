@@ -1,7 +1,6 @@
 
 
 # Setting up and enabling Enhanced Monitoring
-<a name="USER_Monitoring.OS.Enabling"></a>
 
 To use Enhanced Monitoring, you must create an IAM role, and then enable Enhanced Monitoring.
 
@@ -168,7 +167,7 @@ The following example uses the `aws:SourceArn` and `aws:SourceAccount` global co
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

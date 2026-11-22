@@ -1,9 +1,9 @@
 
 
 # Converting an existing DB instance to an active-active cluster
-<a name="mysql-active-active-clusters-converting"></a>
 
 The DB engine version of the DB instance you want to migrate to an active-active cluster must be one of the following versions:
++ All MySQL 9.7 versions
 + All MySQL 8.4 versions
 + MySQL 8.0.35 and higher minor versions
 
@@ -51,7 +51,7 @@ aws rds create-db-parameter-group ^
 
 You can also use the AWS Management Console or the AWS CLI to set the parameters in the custom parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md).
 
-The following example runs the [modify-db-parameter-group](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-parameter-group.html) AWS CLI command to set the parameters for RDS for MySQL 8.0. To use this example with RDS for MySQL 8.4, change `slave_preserve_commit_order` to `replica_preserve_commit_order`.
+The following example runs the [modify-db-parameter-group](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-parameter-group.html) AWS CLI command to set the parameters for RDS for MySQL 8.0. To use this example with RDS for MySQL 8.4 and higher versions, change `slave_preserve_commit_order` to `replica_preserve_commit_order`.
 
 For Linux, macOS, or Unix:
 
@@ -151,6 +151,11 @@ For each of the DB instances in the active-active cluster, use a SQL client to c
 call mysql.rds_set_configuration('binlog retention hours', {{168}}); -- 7 days binlog
 call mysql.rds_group_replication_create_user('{{group_replication_user_password}}');
 call mysql.rds_group_replication_set_recovery_channel('{{group_replication_user_password}}');
+```
+
+Then start replication on the DB instance. For RDS for MySQL 9.7, first synchronize local GTIDs. For more information, see [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md).
+
+```
 call mysql.rds_group_replication_start(0);
 ```
 
@@ -166,13 +171,13 @@ Make sure you run these stored procedures on all of the other DB instances in th
 
 To make sure each member of the cluster is configured correctly, check the status of the cluster by connecting to a DB instance in the active-active cluster, and running the following SQL command:
 
-```
+```sql
 SELECT * FROM performance_schema.replication_group_members;
 ```
 
 Your output should show `ONLINE` for the `MEMBER_STATE` of each DB instance, as in the following sample output:
 
-```
+```sql
 +---------------------------+--------------------------------------+----------------+-------------+--------------+-------------+----------------+----------------------------+
 | CHANNEL_NAME              | MEMBER_ID                            | MEMBER_HOST    | MEMBER_PORT | MEMBER_STATE | MEMBER_ROLE | MEMBER_VERSION | MEMBER_COMMUNICATION_STACK |
 +---------------------------+--------------------------------------+----------------+-------------+--------------+-------------+----------------+----------------------------+

@@ -1,7 +1,6 @@
 
 
 # Working with storage for Amazon RDS DB instances
-<a name="USER_PIOPS.StorageTypes"></a>
 
 To specify how you want your data stored in Amazon RDS, choose a storage type and provide a storage size when you create or modify a DB instance. Later, you can increase the amount or change the type of storage by modifying the DB instance. For more information about which storage type to use for your workload, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage).
 

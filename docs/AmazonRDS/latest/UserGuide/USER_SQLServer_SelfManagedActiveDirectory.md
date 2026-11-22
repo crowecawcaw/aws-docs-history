@@ -1,7 +1,6 @@
 
 
 # Working with self-managed Active Directory with an Amazon RDS for SQL Server DB instance
-<a name="USER_SQLServer_SelfManagedActiveDirectory"></a>
 
 Amazon RDS for SQL Server seamlessly integrates with your self-managed Active Directory (AD) domain, regardless of where your AD is hosted - whether in your data center, on Amazon EC2, or with other cloud providers. This integration enables direct user authentication through NTLM or Kerberos protocols, eliminating the need for complex intermediary domains or forest trusts. When you connect to your RDS SQL Server DB instance, authentication requests are securely forwarded to your designated AD domain, maintaining your existing identity management structure while leveraging Amazon RDS's managed database capabilities.
 

@@ -1,7 +1,6 @@
 
 
 # Working with DB instance read replicas
-<a name="USER_ReadRepl"></a>
 
 A read replica is a read-only copy of a DB instance. You can reduce the load on your primary DB instance by routing queries from your applications to the read replica. In this way, you can elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads.
 

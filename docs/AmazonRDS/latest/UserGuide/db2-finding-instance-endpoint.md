@@ -1,7 +1,6 @@
 
 
 # Finding the endpoint of your Amazon RDS for Db2 DB instance
-<a name="db2-finding-instance-endpoint"></a>
 
 Each Amazon RDS DB instance has an endpoint, and each endpoint has the DNS name and port number for the DB instance. To connect to your Amazon RDS for Db2 DB instance with a SQL client application, you need the DNS name and port number for your DB instance.
 
@@ -50,7 +49,7 @@ aws rds describe-db-instances ^
 
 This command produces output similar to the following example. The `Address` line in the output contains the DNS name. 
 
-```
+```json
 [
     {
         "DBInstanceIdentifier": "database-1",

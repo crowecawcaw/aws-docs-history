@@ -1,7 +1,6 @@
 
 
 # Planning where to use RDS Proxy
-<a name="rds-proxy-planning"></a>
 
  You can determine which of your DB instances, clusters, and applications might benefit the most from using RDS Proxy. To do so, consider these factors: 
 +  Any DB instance that encounters "too many connections" errors is a good candidate for associating with a proxy. This is often characterized by a high value of the `ConnectionAttempts` CloudWatch metric. The proxy enables applications to open many client connections, while the proxy manages a smaller number of long-lived connections to the DB instance . 

@@ -1,7 +1,6 @@
 
 
 # Securing Oracle DB instance connections
-<a name="Oracle.Concepts.RestrictedDBAPrivileges"></a>
 
 Amazon RDS for Oracle supports SSL/TLS encrypted connections and also the Oracle Native Network Encryption (NNE) option to encrypt connections between your application and your Oracle DB instance. For more information about the Oracle Native Network Encryption option, see [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md). 
 

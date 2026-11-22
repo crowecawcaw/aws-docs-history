@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Amazon RDS Blue/Green Deployments
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.BlueGreenDeployments"></a>
 
 A blue/green deployment copies a production database environment in a separate, synchronized staging environment. By using Amazon RDS Blue/Green Deployments, you can make changes to the database in the staging environment without affecting the production environment. For example, you can upgrade the major or minor DB engine version, change database parameters, or make schema changes in the staging environment. When you are ready, you can promote the staging environment to be the new production database environment. For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](blue-green-deployments.md).
 
@@ -30,6 +29,7 @@ For RDS for MariaDB, blue/green deployments are supported for the following vers
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.mysql"></a>
 
 For RDS for MySQL, blue/green deployments are supported for the following versions:
++ RDS for MySQL 9.7 (All available versions) 
 + RDS for MySQL 8.4 (All available versions) 
 + RDS for MySQL 8.0 (All available versions) 
 + RDS for MySQL 5.7 (All available versions) 

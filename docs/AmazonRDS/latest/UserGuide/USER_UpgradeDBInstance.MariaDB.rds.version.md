@@ -1,7 +1,6 @@
 
 
 # RDS version numbers in RDS for MariaDB
-<a name="USER_UpgradeDBInstance.MariaDB.rds.version"></a>
 
 RDS version numbers use either the `{{major}}.{{minor}}.{{patch}}` or the `{{major}}.{{minor}}.{{patch.YYYYMMDD}}` naming scheme. An RDS patch version includes important bug fixes added to a minor version after its release. An RDS date version ({{YYMMDD}}) is a security patch. A security patch doesn't include any fixes that might change the engine's behavior. 
 
@@ -13,7 +12,7 @@ CREATE EXTENSION rds_tools;
 
 You can find out the RDS version number of your RDS for MariaDB database with the following SQL query:
 
-```
+```sql
 mysql> select mysql.rds_version();
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Creating and managing BYOM engine versions for RDS for SQL Server
-<a name="sqlserver-byom-creating-cev"></a>
 
 Creating a BYOM engine version requires a one-time setup (License Mobility verification, obtaining RTM media, and uploading it to Amazon S3).
 
@@ -71,7 +70,7 @@ Use the [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 
 Run this command on the computer that has the ISO file. To sign in with your console credentials, use the [aws login](https://docs.aws.amazon.com/cli/latest/reference/login/index.html) command.
 
-```
+```bash
 aws s3 cp {{enu_sql_server_2025_enterprise_core_edition_x64_dvd_1a2b3c4d.iso}} \
     s3://{{amzn-s3-demo-bucket}}/{{ISOs/}} \
     --region {{us-west-2}}
@@ -84,7 +83,7 @@ Use the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference
 
 Run this cmdlet on the computer that has the ISO file. To sign in with your console credentials, use the [Invoke-AWSLogin](https://docs.aws.amazon.com/powershell/latest/reference/items/Invoke-AWSLogin.html) cmdlet.
 
-```
+```powershell
 Write-S3Object `
     -BucketName {{amzn-s3-demo-bucket}} `
     -Key {{ISOs/enu_sql_server_2025_enterprise_core_edition_x64_dvd_1a2b3c4d.iso}} `
@@ -132,7 +131,7 @@ The console displays the new BYOM engine version with an initial status of **Pen
 
 Use the [create-custom-db-engine-version](https://docs.aws.amazon.com/cli/latest/reference/rds/create-custom-db-engine-version.html) command to create a BYOM engine version from your installation media. Amazon RDS automatically downloads the required cumulative update from Microsoft.
 
-```
+```bash
 aws rds create-custom-db-engine-version \
     --engine sqlserver-ee \
     --engine-version 17.00.4075.5.v1 \
@@ -161,7 +160,7 @@ The output looks like the following.
 
 To create a BYOM engine version for a later minor version of the same major version and edition, specify only the engine and engine version. Amazon RDS reuses the installation media that you provided earlier.
 
-```
+```bash
 aws rds create-custom-db-engine-version \
     --engine sqlserver-ee \
     --engine-version 17.00.5005.3.v1 \
@@ -173,7 +172,7 @@ aws rds create-custom-db-engine-version \
 
 Use the [New-RDSCustomDBEngineVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RDSCustomDBEngineVersion.html) cmdlet to create a BYOM engine version from your installation media. Amazon RDS automatically downloads the required cumulative update from Microsoft.
 
-```
+```powershell
 New-RDSCustomDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.4075.5.v1 `
@@ -199,7 +198,7 @@ Status                                    : pending-validation
 
 To create a BYOM engine version for a later minor version of the same major version and edition, specify only the engine and engine version. Amazon RDS reuses the installation media that you provided earlier.
 
-```
+```powershell
 New-RDSCustomDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.5005.3.v1 `
@@ -227,7 +226,7 @@ The list shows each engine version with its **Engine**, **Engine media type**, a
 
 Use the [describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html) command.
 
-```
+```bash
 aws rds describe-db-engine-versions \
     --engine sqlserver-ee \
     --engine-version 17.00.5005.3.v1 \
@@ -255,7 +254,7 @@ The output looks like the following.
 
 Use the [Get-RDSDBEngineVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-RDSDBEngineVersion.html) cmdlet.
 
-```
+```powershell
 Get-RDSDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.5005.3.v1 `
@@ -320,7 +319,7 @@ Existing instances running on a BYOM engine version that you make inactive conti
 
 Use the [modify-custom-db-engine-version](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-custom-db-engine-version.html) command.
 
-```
+```bash
 aws rds modify-custom-db-engine-version \
     --engine sqlserver-ee \
     --engine-version 17.00.5005.3.v1 \
@@ -347,7 +346,7 @@ The output looks like the following.
 
 Use the [Edit-RDSCustomDBEngineVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-RDSCustomDBEngineVersion.html) cmdlet.
 
-```
+```powershell
 Edit-RDSCustomDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.5005.3.v1 `
@@ -399,7 +398,7 @@ The **Status** of the BYOM engine version changes to **Deleting**.
 
 Use the [delete-custom-db-engine-version](https://docs.aws.amazon.com/cli/latest/reference/rds/delete-custom-db-engine-version.html) command.
 
-```
+```bash
 aws rds delete-custom-db-engine-version \
     --engine sqlserver-ee \
     --engine-version 17.00.5005.3.v1 \
@@ -425,7 +424,7 @@ The output looks like the following.
 
 Use the [Remove-RDSCustomDBEngineVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-RDSCustomDBEngineVersion.html) cmdlet.
 
-```
+```powershell
 Remove-RDSCustomDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.5005.3.v1 `

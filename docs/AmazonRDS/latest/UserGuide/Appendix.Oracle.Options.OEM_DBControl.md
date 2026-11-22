@@ -1,7 +1,6 @@
 
 
 # Oracle Enterprise Manager Database Express
-<a name="Appendix.Oracle.Options.OEM_DBControl"></a>
 
 Amazon RDS supports Oracle Enterprise Manager Database Express (EM Express) through the use of the OEM option. Amazon RDS supports EM Express for Oracle Database 19c using the CDB or non-CDB architecture.
 
@@ -70,7 +69,7 @@ If your DB instance uses the CDB architecture, you must log in to EM Express as 
 
 1. Run the following stored procedure to unlock the `DBSNMP` account:
 
-   ```
+   ```sql
    1. EXEC rdsadmin.rdsadmin_util.reset_oem_agent_password('{{new_password}}');
    ```
 
@@ -149,13 +148,13 @@ Running this task from the source DB instance for a read replica also causes the
 
 The following procedure invocation creates a task to switch the OEM Database Express website to Adobe Flash and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_tasks.em_express_frontend_to_flash() as TASK_ID from DUAL;
 ```
 
 You can view the result by displaying the task's output file.
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','dbtask-{{task-id}}.log'));
 ```
 
@@ -178,13 +177,13 @@ Running this task from the source DB instance for a read replica also causes the
 
 The following procedure invocation creates a task to switch the OEM Database Express website to Oracle JET and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_tasks.em_express_frontend_to_jet() as TASK_ID from DUAL;
 ```
 
 You can view the result by displaying the task's output file.
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','dbtask-{{task-id}}.log'));
 ```
 

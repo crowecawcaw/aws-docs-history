@@ -1,7 +1,6 @@
 
 
 # Amazon EFS integration
-<a name="oracle-efs-integration"></a>
 
 Amazon Elastic File System (Amazon EFS) provides serverless, fully elastic file storage so that you can share file data without provisioning or managing storage capacity and performance. With Amazon EFS, you can create a file system and then mount it in your VPC through the NFS versions 4.0 and 4.1 (NFSv4) protocol. Then you can use the EFS file system like any other POSIX-compliant file system. For general information, see [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) and the AWS blog [Integrate Amazon RDS for Oracle with Amazon EFS](https://aws.amazon.com/blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/).
 

@@ -1,7 +1,6 @@
 
 
 # Migrating to a Multi-AZ DB cluster using a read replica
-<a name="multi-az-db-clusters-migrating-to-with-read-replica"></a>
 
 To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster deployment with reduced downtime, you can create a Multi-AZ DB cluster read replica. For the source, you specify the DB instance in the Single-AZ deployment or the primary DB instance in the Multi-AZ DB instance deployment. The DB instance can process write transactions during the migration to a Multi-AZ DB cluster.
 

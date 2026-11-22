@@ -1,7 +1,6 @@
 
 
 # Working with Amazon RDS for Microsoft SQL Server logs
-<a name="Appendix.SQLServer.CommonDBATasks.Logs"></a>
 
 You can use the Amazon RDS console to view, watch, and download SQL Server Agent logs, Microsoft SQL Server error logs, and SQL Server Reporting Services (SSRS) logs.
 
@@ -32,7 +31,7 @@ To view Microsoft SQL Server error and agent logs, use the Amazon RDS stored pro
 **Example**  
 The following example requests the current error log.  
 
-```
+```sql
 EXEC rdsadmin.dbo.rds_read_error_log @index = {{0}}, @type = {{1}};
 ```
 

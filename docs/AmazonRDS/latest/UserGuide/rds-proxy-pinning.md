@@ -1,7 +1,6 @@
 
 
 # Avoiding pinning an RDS Proxy
-<a name="rds-proxy-pinning"></a>
 
  Multiplexing is more efficient when database requests don't rely on state information from previous requests. In that case, RDS Proxy can reuse a connection at the conclusion of each transaction. Examples of such state information include most variables and configuration parameters that you can change through `SET` or `SELECT` statements. SQL transactions on a client connection can multiplex between underlying database connections by default. 
 
@@ -141,7 +140,7 @@ You can minimize pinning by doing the following:
 <a name="rds-proxy-pinning.postgres"></a>
 
  For PostgreSQL, the following interactions also cause pinning: 
-+  Using `SET` commands.
++  Using `SET` commands. RDS Proxy does not pin connections when you use `SET LOCAL` inside an explicit transaction block (between `BEGIN` and `COMMIT`). This exemption does not apply to `set_config(name, value, true)`, which does cause pinning.
 +  Using `PREPARE`, `DISCARD`, `DEALLOCATE`, or `EXECUTE` commands to manage prepared statements.
 +  Creating temporary sequences, tables, or views.
 +  Declaring cursors.

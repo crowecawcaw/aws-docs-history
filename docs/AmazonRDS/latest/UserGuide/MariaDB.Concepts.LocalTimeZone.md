@@ -1,7 +1,6 @@
 
 
 # Local time zone for MariaDB DB instances
-<a name="MariaDB.Concepts.LocalTimeZone"></a>
 
 By default, the time zone for a MariaDB DB instance is UTC. You can set the time zone for your DB instance to the local time zone for your application instead.
 

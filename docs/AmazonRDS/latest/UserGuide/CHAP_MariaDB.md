@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for MariaDB
-<a name="CHAP_MariaDB"></a>
 
 Amazon RDS supports several versions of MariaDB for DB instances. For complete information about the supported versions, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md).
 

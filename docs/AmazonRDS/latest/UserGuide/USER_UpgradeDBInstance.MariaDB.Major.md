@@ -1,7 +1,6 @@
 
 
 # Major version upgrades for RDS for MariaDB
-<a name="USER_UpgradeDBInstance.MariaDB.Major"></a>
 
 Major version upgrades can contain database changes that are not backward-compatible with existing applications. As a result, Amazon RDS doesn't apply major version upgrades automatically. You must manually modify your DB instance. We recommend that you thoroughly test any upgrade before applying it to your production instances. 
 

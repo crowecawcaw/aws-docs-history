@@ -1,7 +1,6 @@
 
 
 # MariaDB on Amazon RDS versions
-<a name="MariaDB.Concepts.VersionMgmt"></a>
 
 For MariaDB, version numbers are organized as version X.Y.Z. In Amazon RDS terminology, X.Y denotes the major version, and Z is the minor version number. For Amazon RDS implementations, a version change is considered major if the major version number changes, for example going from version 10.5 to 10.6. A version change is considered minor if only the minor version number changes, for example going from version 10.6.14 to 10.6.16.
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for RMAN backups
-<a name="Appendix.Oracle.CommonDBATasks.RMAN-requirements"></a>
 
 Before backing up your database using the `rdsadmin.rdsadmin_rman_util` package, make sure that you meet the following prerequisites:
 + Make sure that your RDS for Oracle database is in `ARCHIVELOG` mode. To enable this mode, set the backup retention period to a non-zero value.

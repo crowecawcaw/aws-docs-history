@@ -1,7 +1,6 @@
 
 
 # Importing and exporting SQL Server data using other methods
-<a name="SQLServer.Procedural.Importing.Snapshots"></a>
 
 Following, you can find information about using snapshots to import your Microsoft SQL Server data to Amazon RDS. You can also find information about using snapshots to export your data from an RDS DB instance running SQL Server. 
 
@@ -41,7 +40,7 @@ When you take a database snapshot, I/O operations to the database are suspended 
 
     If you need to disable foreign key constraints, you can do so with the following script. 
 
-   ```
+   ```sql
    --Disable foreign keys on all tables
        DECLARE @table_name SYSNAME;
        DECLARE @cmd NVARCHAR(MAX);
@@ -68,7 +67,7 @@ When you take a database snapshot, I/O operations to the database are suspended 
 
     If you need to disable triggers, you can do so with the following script. 
 
-   ```
+   ```sql
    --Disable triggers on all tables
        DECLARE @enable BIT = 0;
        DECLARE @trigger SYSNAME;
@@ -132,7 +131,7 @@ When you take a database snapshot, I/O operations to the database are suspended 
 
     If you disabled foreign key constraints earlier, you can now enable them with the following script. 
 
-   ```
+   ```sql
    --Enable foreign keys on all tables
        DECLARE @table_name SYSNAME;
        DECLARE @cmd NVARCHAR(MAX);
@@ -157,7 +156,7 @@ When you take a database snapshot, I/O operations to the database are suspended 
 
     If you disabled triggers earlier, you can now enable them with the following script. 
 
-   ```
+   ```sql
    --Enable triggers on all tables
        DECLARE @enable BIT = 1;
        DECLARE @trigger SYSNAME;

@@ -1,7 +1,6 @@
 
 
 # Working with Multi-AZ deployments for Amazon RDS on AWS Outposts
-<a name="rds-on-outposts.maz"></a>
 
 For Multi-AZ deployments, Amazon RDS creates a primary DB instance on one AWS Outpost. RDS synchronously replicates the data to a standby DB instance on a different Outpost. 
 

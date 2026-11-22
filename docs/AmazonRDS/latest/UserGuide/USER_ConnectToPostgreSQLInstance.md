@@ -1,7 +1,6 @@
 
 
 # Connecting to a DB instance running the PostgreSQL database engine
-<a name="USER_ConnectToPostgreSQLInstance"></a>
 
 After Amazon RDS provisions your DB instance, you can use any standard SQL client application to connect to the instance. Before you can connect, the DB instance must be available and accessible. Whether you can connect to the instance from outside the VPC depends on how you created the Amazon RDS DB instance: 
 + If you created your DB instance as *public*, devices and Amazon EC2 instances outside the VPC can connect to your database. 

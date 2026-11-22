@@ -1,14 +1,13 @@
 
 
 # Prerequisites for a Multi-AZ deployment in RDS Custom for Oracle
-<a name="custom-oracle-multiaz-prerequisites"></a>
 
 **Note**  
 End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
 
 A Multi-AZ deployment for RDS Custom for Oracle is different from Multi-AZ for RDS for Oracle. Unlike Multi-AZ for RDS for Oracle, you must meet the prerequisites for RDS Custom for Oracle before you create your Multi-AZ DB instance. This is because RDS Custom runs inside your own account, which requires permissions. Also, you need to create the Multi-AZ instance on the CEV with the latest service-provided AMI, which supports the Multi-AZ deployments.
 
-If you don't complete the prerequisites, your Multi-AZ DB instance might fail to run, or automatically revert to a Single-AZ DB instance. For more information about prerequisites, see [Prerequisites for a Multi-AZ deployment in RDS Custom for Oracle](#custom-oracle-multiaz-prerequisites).
+If you don't complete the prerequisites, your Multi-AZ DB instance might fail to run, or automatically revert to a Single-AZ DB instance. For more information about prerequisites, see [Prerequisites for a Multi-AZ deployment in RDS Custom for Oracle](custom-oracle-multiaz-prerequisites.md).
 
 RDS Custom for Oracle requires specific prerequisites when converting from Single-AZ to Multi-AZ deployment. Incomplete prerequisites cause Multi-AZ setup to fail. Use either manual setup or the latest CloudFormation template file provided in the network setup instructions. For more information, see [Step 3: Extract the CloudFormation templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading).
 

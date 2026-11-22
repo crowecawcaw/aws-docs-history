@@ -1,12 +1,11 @@
 
 
 # Importing data from an external MySQL database to an Amazon RDS for MySQL DB instance
-<a name="mysql-importing-data-external-database"></a>
 
 You can import data from an existing MySQL database to an RDS for MySQL DB instance. You do so by copying the database with [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) and piping it directly into the RDS for MySQL DB instance. The `mysqldump` command line utility is commonly used to make backups and transfer data from one MySQL server to another. It's included with MySQL client software.
 
 **Note**  
-If you are importing or exporting large amounts of data with a MySQL DB instance, it's more reliable and faster to move data in and out of Amazon RDS by using `xtrabackup` backup files and Amazon S3. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md). 
+If you are importing or exporting large amounts of data with a MySQL DB instance, it's more reliable and faster to move data in and out of Amazon RDS by using `xtrabackup` backup files and Amazon S3. This option isn't available for RDS for MySQL 9.7. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md). 
 
 A typical `mysqldump` command to move data from an external database to an Amazon RDS DB instance looks similar to the following example. Replace values with your own information.
 

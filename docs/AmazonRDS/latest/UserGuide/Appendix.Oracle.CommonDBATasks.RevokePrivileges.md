@@ -1,7 +1,6 @@
 
 
 # Revoking SELECT or EXECUTE privileges on SYS objects
-<a name="Appendix.Oracle.CommonDBATasks.RevokePrivileges"></a>
 
 To revoke privileges on a single object, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.revoke_sys_object`. The procedure only revokes privileges that the master user has already been granted through a role or direct grant. 
 
@@ -17,7 +16,7 @@ The `revoke_sys_object` procedure has the following parameters.
 
 The following example revokes select privileges on an object named `V_$SESSION` from a user named `USER1`.
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.revoke_sys_object(
         p_obj_name  => '{{V_$SESSION}}',

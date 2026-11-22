@@ -1,7 +1,6 @@
 
 
 # Common tasks for tablespaces
-<a name="db2-managing-tablespaces"></a>
 
 You can create, alter, rename, or drop tablespaces for an RDS for Db2 database. Creating, altering, renaming, or dropping tablespaces requires higher-level `SYSADM` authority, which isn't available to the master user. Instead, use Amazon RDS stored procedures.
 
@@ -34,7 +33,7 @@ To create a tablespace, you must have a buffer pool of the same page size to ass
 
 1. Create a tablespace by calling `rdsadmin.create_tablespace`. For more information, see [rdsadmin.create\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace). 
 
-   ```
+   ```sql
    db2 "call rdsadmin.create_tablespace(
        '{{database_name}}', 
        '{{tablespace_name}}',
@@ -89,7 +88,7 @@ To change the name of a tablespace for your RDS for Db2 database, call the `rdsa
 
 1. Rename a tablespace by calling `rdsadmin.rename_tablespace`. For more information, including restrictions on what you can name a tablespace, see [rdsadmin.rename\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-rename-tablespace).
 
-   ```
+   ```sql
    db2 "call rdsadmin.rename_tablespace(
        '{{database_name}}', 
        '{{source_tablespace_name}}',
@@ -111,7 +110,7 @@ To drop a tablespace for your RDS for Db2 database, call the `rdsadmin.drop_tabl
 
 1. Drop a tablespace by calling `rdsadmin.drop_tablespace`. For more information, see [rdsadmin.drop\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace). 
 
-   ```
+   ```sql
    db2 "call rdsadmin.drop_tablespace(
        '{{database_name}}', 
        '{{tablespace_name}}')"
@@ -206,7 +205,7 @@ You can list the state and storage group for a tablespace by running a SQL state
 
 To list the state and storage group for a tablespace, run the following SQL statement:
 
-```
+```sql
 db2 "SELECT varchar(tbsp_name, 30) as tbsp_name,
                   varchar(TBSP_STATE, 30) state,
                   tbsp_type,

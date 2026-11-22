@@ -1,7 +1,6 @@
 
 
 # Modifying an RDS Custom for SQL Server Multi-AZ deployment to a Single-AZ deployment
-<a name="custom-sqlserver-multiaz.modify-maztosaz"></a>
 
 You can modify an existing RDS Custom for SQL Server DB instance from a Multi-AZ to a Single-AZ deployment. 
 

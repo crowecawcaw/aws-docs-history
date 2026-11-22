@@ -1,7 +1,6 @@
 
 
 # Managing a DB instance in a self-managed Active Directory domain
-<a name="oracle-smad-managing"></a>
 
 You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API to manage your Amazon RDS for Oracle DB instance and its relationship with your self-managed Active Directory (AD) domain. For example, you can move the DB instance into, out of, or between domains.
 
@@ -18,7 +17,7 @@ Amazon RDS uses the domain service account to maintain the user object for each 
 
 To update the secret, create a file named `smad-secret.json` with the following content. Replace *service-account* with the name of the domain service account that you created in Step 2 of [Setting up self-managed Active Directory](oracle-smad-setting-up.md), such as `rds-join-svc`, and `your-new-service-account-password` with your new password.
 
-```
+```JSON
 {
     "SELF_MANAGED_ACTIVE_DIRECTORY_USERNAME": "service-account",
     "SELF_MANAGED_ACTIVE_DIRECTORY_PASSWORD": "your-new-service-account-password"
@@ -29,7 +28,7 @@ Replace `arn:aws:secretsmanager:us-west-2:123456789012:secret:my-ad-secret-AbCdE
 
 For Linux, macOS, or Unix:
 
-```
+```bash
 aws secretsmanager put-secret-value \
     --secret-id "arn:aws:secretsmanager:us-west-2:123456789012:secret:my-ad-secret-AbCdEf" \
     --secret-string file://smad-secret.json
@@ -50,7 +49,7 @@ Amazon RDS for Oracle rotates the Kerberos keys of the DB instance service accou
 
 You can use the following Amazon RDS procedure to force the rotation of this key.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_kerberos_auth_tasks.rotate_kerberos_keytab AS TASK_ID FROM DUAL;
 ```
 
@@ -62,7 +61,7 @@ dbtask-{{task-id}}.log
 
 You can view the result by displaying the task's output file.
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','dbtask-{{task-id}}.log'));
 ```
 

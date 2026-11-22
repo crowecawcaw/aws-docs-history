@@ -1,7 +1,6 @@
 
 
 # Downloading a database log file
-<a name="USER_LogAccess.Procedural.Downloading"></a>
 
 You can use the AWS Management Console, AWS CLI, or API to download a database log file. 
 

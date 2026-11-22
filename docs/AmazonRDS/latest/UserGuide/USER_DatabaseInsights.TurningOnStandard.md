@@ -1,7 +1,6 @@
 
 
 # Turning on the Standard mode of Database Insights for Amazon RDS
-<a name="USER_DatabaseInsights.TurningOnStandard"></a>
 
 To turn on the Standard mode of Database Insights for Amazon RDS, use the following procedures.
 

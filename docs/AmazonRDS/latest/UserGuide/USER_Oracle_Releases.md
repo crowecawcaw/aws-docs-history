@@ -1,7 +1,6 @@
 
 
 # Oracle Database engine release notes
-<a name="USER_Oracle_Releases"></a>
 
 Updates to your Amazon RDS for Oracle DB instances keep them current. If you apply updates, you can be confident that your DB instance is running a version of the database software that has been tested by both Oracle and Amazon. We don't support applying one-off patches to individual RDS for Oracle DB instances.
 

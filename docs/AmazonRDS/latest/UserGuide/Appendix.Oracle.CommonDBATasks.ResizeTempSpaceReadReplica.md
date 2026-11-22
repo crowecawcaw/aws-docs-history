@@ -1,7 +1,6 @@
 
 
 # Resizing tablespaces, data files, and tempfiles in RDS for Oracle
-<a name="Appendix.Oracle.CommonDBATasks.ResizeTempSpaceReadReplica"></a>
 
 By default, Oracle tablespaces are created with auto-extend turned on and no maximum size. Because of these default settings, tablespaces can sometimes grow too large. We recommend that you specify an appropriate maximum size on permanent and temporary tablespaces, and that you carefully monitor space usage.
 
@@ -34,7 +33,7 @@ The `autoextend_datafile` procedure has the following parameters.
 
 The following example resizes data file 4 to 500 MB.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.resize_datafile(4,'500M');
 ```
 
@@ -84,17 +83,17 @@ The `autoextend_tempfile` procedure has the following parameters.
 
 The following examples resize a temporary tablespace named `TEMP` to the size of 4 GB.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.resize_temp_tablespace('TEMP','4G');
 ```
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.resize_temp_tablespace('TEMP','4294967296');
 ```
 
 The following example resizes a temporary tablespace based on the temp file with the file identifier `1` to the size of 2 MB.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.resize_tempfile(1,'2M');
 ```
 

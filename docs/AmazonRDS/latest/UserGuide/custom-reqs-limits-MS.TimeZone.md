@@ -1,7 +1,6 @@
 
 
 # Local time zone for RDS Custom for SQL Server DB instances
-<a name="custom-reqs-limits-MS.TimeZone"></a>
 
 The time zone of an RDS Custom for SQL Server DB instance is set by default. The current default is Coordinated Universal Time (UTC). You can set the time zone of your DB instance to a local time zone instead, to match the time zone of your applications.
 

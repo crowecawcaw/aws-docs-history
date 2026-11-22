@@ -1,7 +1,6 @@
 
 
 # Securing Amazon RDS for Db2 DB instance connections
-<a name="Db2.Concepts.RestrictedDBAPrivileges"></a>
 
 Amazon RDS for Db2 supports ways to improve security for your RDS for Db2 DB instance. 
 

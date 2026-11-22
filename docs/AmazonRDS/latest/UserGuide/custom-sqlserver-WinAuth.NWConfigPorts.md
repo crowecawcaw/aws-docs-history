@@ -1,7 +1,6 @@
 
 
 # Network configuration port rules
-<a name="custom-sqlserver-WinAuth.NWConfigPorts"></a>
 
 Make sure that you have met the following network configurations:
 + Connectivity configured between the Amazon VPC where you want to create the RDS Custom for SQL Server DB instance to either your self-managed Active Directory or AWS Managed Microsoft AD. For self-managed Active Directory, set up connectivity using AWS Direct Connect, AWS VPN, VPC peering, or AWS Transit Gateway. For AWS Managed Microsoft AD, set up connectivity using VPC peering.

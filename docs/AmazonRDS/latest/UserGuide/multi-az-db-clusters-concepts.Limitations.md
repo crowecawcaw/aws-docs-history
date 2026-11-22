@@ -1,7 +1,6 @@
 
 
 # Limitations of Multi-AZ DB clusters for Amazon RDS
-<a name="multi-az-db-clusters-concepts.Limitations"></a>
 
 A Multi-AZ DB cluster has a writer DB instance and two reader DB instances in three separate Availability Zones. Multi-AZ DB clusters provide high availability, increased capacity for read workloads, and lower latency when compared to Multi-AZ deployments. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md).
 
@@ -17,6 +16,7 @@ The following limitations apply to Multi-AZ DB clusters.
   + Stopping and starting the Multi-AZ DB cluster
   + Copying a snapshot of a Multi-AZ DB cluster
   + Encrypting an unencrypted Multi-AZ DB cluster
++ Multi-AZ DB clusters don't support RDS for MySQL 9.7.
 + RDS for MySQL Multi-AZ DB clusters support only the following system stored procedures:
   + `mysql.rds_rotate_general_log`
   + `mysql.rds_rotate_slow_log`

@@ -1,7 +1,6 @@
 
 
 # Managing spatial data with the PostGIS extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.PostGIS"></a>
 
 PostGIS is an extension to PostgreSQL for storing and managing spatial information. To learn more about PostGIS, see [PostGIS.net](https://postgis.net/). 
 
@@ -169,7 +168,7 @@ s;
 
 To avoid needing to specify the schema name, add the `tiger` schema to your search path using the following command.
 
-```
+```sql
 SET search_path=public,tiger;
 SET
 ```
@@ -204,10 +203,10 @@ Each new release of PostgreSQL supports one or more versions of the PostGIS exte
 
 After the PostgreSQL engine upgrade, you then upgrade the PostGIS extension again, to the version supported for the newly upgraded PostgreSQL engine version. For more information about upgrading the PostgreSQL engine, see [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md). 
 
-You can check for available PostGIS extension version updates on your RDS for PostgreSQL DB instance at any time. To do so, run the following command. This function is available with PostGIS 2.5.0 and higher versions.
+You can check the installed PostGIS version and whether an upgrade is available on your RDS for PostgreSQL DB instance. To do so, run the following command.
 
 ```
-SELECT postGIS_extensions_upgrade();
+SELECT postgis_full_version();
 ```
 
 If your application doesn't support the latest PostGIS version, you can install an older version of PostGIS that's available in your major version as follows.

@@ -1,13 +1,12 @@
 
 
 # Flushing the shared pool
-<a name="Appendix.Oracle.CommonDBATasks.FlushingSharedPool"></a>
 
 To flush the shared pool, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.flush_shared_pool`. The `flush_shared_pool` procedure has no parameters. 
 
 The following example flushes the shared pool.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.flush_shared_pool;
 ```
 
@@ -18,7 +17,7 @@ To flush the buffer cache, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.
 
 The following example flushes the buffer cache.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.flush_buffer_cache;
 ```
 

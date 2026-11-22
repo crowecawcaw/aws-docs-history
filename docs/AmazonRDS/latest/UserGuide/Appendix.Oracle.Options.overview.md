@@ -1,7 +1,6 @@
 
 
 # Overview of Oracle DB options
-<a name="Appendix.Oracle.Options.overview"></a>
 
 To enable options for your Oracle database, add them to an option group, and then associate the option group with your DB instance. For more information, see [Working with option groups](USER_WorkingWithOptionGroups.md).
 

@@ -1,7 +1,6 @@
 
 
 # Requirements for using Trusted Language Extensions for PostgreSQL
-<a name="PostgreSQL_trusted_language_extension-requirements"></a>
 
 The following are requirements for setting up and using the TLE development kit.
 + ** RDS for PostgreSQL versions** – Trusted Language Extensions is supported on RDS for PostgreSQL versions 13.12 and higher 13 versions, 14.5 and higher 14 versions, and 15.2 and higher versions only.

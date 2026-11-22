@@ -1,7 +1,6 @@
 
 
 # Working with Microsoft Active Directory with RDS Custom for SQL Server
-<a name="custom-sqlserver-WinAuth"></a>
 
 RDS Custom for SQL Server allows to join your instances to a Self-Managed Active Directory (AD) or AWS Managed Microsoft AD. This is regardless of where your AD is hosted, like an On-premises data center, Amazon EC2 or with any other cloud service providers.
 

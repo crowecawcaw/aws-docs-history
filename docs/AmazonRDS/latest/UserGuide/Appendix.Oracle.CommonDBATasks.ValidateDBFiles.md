@@ -1,7 +1,6 @@
 
 
 # Validating database files in RDS for Oracle
-<a name="Appendix.Oracle.CommonDBATasks.ValidateDBFiles"></a>
 
 You can use the Amazon RDS package `rdsadmin.rdsadmin_rman_util` to validate Amazon RDS for Oracle database files, such as data files, tablespaces, control files, and server parameter files (SPFILEs).
 
@@ -30,13 +29,13 @@ For more information, see [Common parameters for RMAN procedures](Appendix.Oracl
 
 The following example validates the database using the default values for the parameters.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_rman_util.validate_database;
 ```
 
 The following example validates the database using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.validate_database(
         p_validation_type     => '{{PHYSICAL+LOGICAL}}', 
@@ -51,13 +50,13 @@ When the `p_rman_to_dbms_output` parameter is set to `FALSE`, the RMAN output is
 
 To view the files in the `BDUMP` directory, run the following `SELECT` statement.
 
-```
+```sql
 SELECT * FROM table(rdsadmin.rds_file_util.listdir('BDUMP')) order by mtime;
 ```
 
 To view the contents of a file in the `BDUMP` directory, run the following `SELECT` statement.
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','rds-rman-validate-{{nnn}}.txt'));
 ```
 
@@ -81,13 +80,13 @@ For more information, see [Common parameters for RMAN procedures](Appendix.Oracl
 
 The following example validates the current tenant database using the default values for the parameters.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_rman_util.validate_tenant;
 ```
 
 The following example validates the current tenant database using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.validate_tenant(
         p_validation_type     => '{{PHYSICAL+LOGICAL}}', 
@@ -102,13 +101,13 @@ When the `p_rman_to_dbms_output` parameter is set to `FALSE`, the RMAN output is
 
 To view the files in the `BDUMP` directory, run the following `SELECT` statement.
 
-```
+```sql
 SELECT * FROM table(rdsadmin.rds_file_util.listdir('BDUMP')) order by mtime;
 ```
 
 To view the contents of a file in the `BDUMP` directory, run the following `SELECT` statement.
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','rds-rman-validate-{{nnn}}.txt'));
 ```
 

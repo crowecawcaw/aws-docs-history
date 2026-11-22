@@ -1,7 +1,6 @@
 
 
 # Modifying an Amazon RDS event notification subscription
-<a name="USER_Events.Modifying"></a>
 
 After you have created a subscription, you can change the subscription name, source identifier, categories, or topic ARN.
 

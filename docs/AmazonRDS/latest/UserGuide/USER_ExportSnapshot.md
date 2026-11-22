@@ -1,7 +1,6 @@
 
 
 # Exporting DB snapshot data to Amazon S3 for Amazon RDS
-<a name="USER_ExportSnapshot"></a>
 
 You can export DB snapshot data to an Amazon S3 bucket. The export process runs in the background and doesn't affect the performance of your active database.
 
@@ -172,7 +171,7 @@ Attach a bucket policy to your bucket, as shown in the following example.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -416,7 +415,7 @@ Exporting DB snapshot data to Amazon S3 has the following limitations:
 + For partial exports, the `ExportOnly` list has a maximum size of 200 KB.
 + We strongly recommend that you use a unique name for each export task. If you don't use a unique task name, you might receive the following error message:
 
-  ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask operation: The export task with the ID {{xxxxx}} already exists.
+  `ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask operation: The export task with the ID {{xxxxx}} already exists.`
 + You can delete a snapshot while you're exporting its data to S3, but you're still charged for the storage costs for that snapshot until the export task has completed.
 + You can't restore exported snapshot data from S3 to a new DB instance or import snapshot data from S3 into an existing DB instance.
 + You can have up to five concurrent DB snapshot export tasks in progress per AWS account.

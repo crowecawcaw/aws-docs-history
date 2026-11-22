@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon RDS zero-ETL integrations
-<a name="zero-etl.setting-up"></a>
 
 Before you create a zero-ETL integration, configure your RDS database and your data warehouse with the required parameters and permissions. During setup, you'll complete the following steps:
 
@@ -120,7 +119,7 @@ Within the script, optionally modify the names of the source, target, and parame
 ### Python code example
 <a name="zero-etl.setup-sdk-python"></a>
 
-```
+```python
 import boto3
 import time
 
@@ -320,7 +319,7 @@ The target creation role must be a Lake Formation administrator and requires the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -369,7 +368,7 @@ The target creation role must have the following trust relationship.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -403,7 +402,7 @@ The Glue data transfer role is required for MySQL catalog operations and must ha
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -433,7 +432,7 @@ The Glue data transfer role must have the following trust relationship.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

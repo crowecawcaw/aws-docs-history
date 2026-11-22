@@ -1,11 +1,12 @@
 
 
 # Oracle minor version upgrades
-<a name="USER_UpgradeDBInstance.Oracle.Minor"></a>
 
 In RDS for Oracle, a minor version upgrade updates your DB engine to a later minor version of the same major version. In RDS, a minor engine version is a Release Update (RU), a Supplemental Patch Bundle (SPB), or an RU with a Monthly Recommended Patch (MRP) applied. For example, if your DB instance runs major version Oracle Database 19c and minor version 19.0.0.0.ru-2025-10.rur-2025-10.r1, you can upgrade your DB engine to minor version 19.0.0.0.ru-2026-01.rur-2026-01.r1. RDS for Oracle doesn't support minor version downgrades.
 
 You can upgrade your DB engine to a minor version manually or automatically. To learn how to upgrade manually, see [Manually upgrading the engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual). To learn how to configure automatic upgrades, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades). Whether you upgrade manually or automatically, a minor version upgrade entails downtime. Consider this downtime when you plan your upgrades.
+
+If your DB instance has a replica, you can use Replica First Patching. You upgrade the replica first, test the new minor engine version with read traffic if the replica is in read-only mode, and then switch over to it. This reduces the downtime of the upgrade. For more information, see [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md).
 
 When Amazon RDS applies a minor version upgrade during the maintenance window, Amazon RDS can prepare resources before the window starts. The preparation helps reduce the time that the maintenance takes. If the preparation doesn't finish, Amazon RDS applies the upgrade without it. For more information, see [Maintenance preparation in RDS for Oracle](maintenance-preparation.md).
 
@@ -227,3 +228,5 @@ To opt out of an automatic minor version upgrade, modify your DB instance and tu
 To learn more about how to turn off automatic minor version upgrade, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades). If you need assistance with turning off automatic minor version upgrade, please reach out to the AWS Support.
 
 Sometimes a new minor version becomes available before RDS applies a previous minor version. For example, your instance is running on `21.0.0.0.ru-2025-07.rur-2025-07.r1` when `both 21.0.0.0.ru-2025-10.rur-2025-10.r1` and `21.0.0.0.ru-2026-01.rur-2026-01.r1` are available as upgrade targets. In this situation, to avoid unnecessary downtime for your DB instances, RDS schedules the automatic minor version upgrade to the most recent version, skipping the upgrade to the previous version. In this example, RDS upgrades your instance from `21.0.0.0.ru-2025-07.rur-2025-07.r1` directly to `21.0.0.0.ru-2026-01.rur-2026-01.r1`.
+
+If you use Replica First Patching while an automatic upgrade is scheduled, switch over before your maintenance window starts. Otherwise, Amazon RDS rolls back the replica and applies the automatic upgrade. For more information, see [Automatic minor version upgrades and Replica First Patching](oracle-upgrade-replica-first.requirements.md#oracle-upgrade-replica-first.requirements.amvu).

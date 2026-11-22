@@ -1,7 +1,6 @@
 
 
 # Preparing to create a CEV for RDS Custom for SQL Server
-<a name="custom-cev-sqlserver.preparing"></a>
 
 You can create a CEV using an Amazon Machine Image (AMI) that contains pre-installed, License Included (LI) Microsoft SQL Server, or with an AMI on which you install your own SQL Server installation media (BYOM).
 
@@ -54,7 +53,7 @@ If you're building a CEV using SQL Server Developer edition, you might need to o
 
 1. Grant the SQL Server sysadmin (SA) server role privilege to `NT AUTHORITY\SYSTEM`:
 
-   ```
+   ```sql
    1. USE [master]
    2. GO
    3. EXEC master..sp_addsrvrolemember @loginame = N'NT AUTHORITY\SYSTEM' , @rolename = N'sysadmin'
@@ -141,10 +140,10 @@ CEV creation for RDS Custom for SQL Server is supported for the following AWS EC
 
 CEV creation for RDS Custom for SQL Server is supported for the following operating system (OS) and database editions:
 + For CEVs using pre-installed media:
-  + SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, CU26, and CU26-GDR.
+  + SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, CU26, CU26-GDR, and CU27-GDR.
   + SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 + For CEVs using bring your own media (BYOM):
-  + SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, CU26, and CU26-GDR.
+  + SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, CU26, CU26-GDR, and CU27-GDR.
   + SQL Server 2019 Enterprise, Standard, or Developer, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 + For CEVs using pre-installed media or bring your own media (BYOM), Windows Server 2019 is the only supported OS.
 

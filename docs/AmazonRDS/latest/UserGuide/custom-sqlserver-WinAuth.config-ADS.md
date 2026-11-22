@@ -1,7 +1,6 @@
 
 
 # Configure Microsoft Active Directory using Directory Service
-<a name="custom-sqlserver-WinAuth.config-ADS"></a>
 
 AWS Managed Microsoft AD creates a fully managed Microsoft Active Directory in AWS that is powered by Windows Server 2019 and operates at the 2016 Forest and Domain functional levels. Directory Service creates the domain controllers in different subnets in an Amazon VPC, making your directory highly available even in the event of failure.
 

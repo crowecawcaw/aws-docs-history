@@ -1,7 +1,6 @@
 
 
 # Microsoft SQL Server features on Amazon RDS
-<a name="SQLServer.Concepts.General.FeatureSupport"></a>
 
 The supported SQL Server versions on Amazon RDS include the following features. In general, a version also includes features from the previous versions, unless otherwise noted in the Microsoft documentation.
 

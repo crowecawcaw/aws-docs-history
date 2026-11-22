@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon RDS
-<a name="CHAP_BestPractices"></a>
 
 Learn best practices for working with Amazon RDS. As new best practices are identified, we will keep this section up to date. 
 
@@ -205,7 +204,7 @@ Very large tables (greater than 100 GB in size) can negatively affect performanc
 
 The amount of memory required by MySQL for reads and writes depends on the tables involved in the operations. It is a best practice to have at least enough RAM to the hold the indexes of *actively* used tables. To find the ten largest tables and indexes in a database, use the following query:
 
-```
+```sql
 select table_schema, TABLE_NAME, dat, idx from 
 (SELECT table_schema, TABLE_NAME, 
        ( data_length ) / 1024 / 1024 as dat,
@@ -254,7 +253,7 @@ Very large tables (greater than 100 GB in size) can negatively affect performanc
 
 The amount of memory required by MariaDB for reads and writes depends on the tables involved in the operations. It is a best practice to have at least enough RAM to the hold the indexes of *actively* used tables. To find the ten largest tables and indexes in a database, use the following query:
 
-```
+```sql
 select table_schema, TABLE_NAME, dat, idx from 
 (SELECT table_schema, TABLE_NAME, 
        ( data_length ) / 1024 / 1024 as dat,
@@ -336,7 +335,7 @@ The autovacuum parameters determine when and how hard autovacuum works. The`auto
 
  The following query shows the number of "dead" tuples in a table named table1: 
 
-```
+```sql
 SELECT relname, n_dead_tup, last_vacuum, last_autovacuum FROM 
 pg_catalog.pg_stat_all_tables 
 WHERE n_dead_tup > 0 and relname = 'table1';
@@ -427,4 +426,4 @@ For information on creating DB instances programmatically, see the following res
 
 The 2023 AWS re:Invent conference included a presentation on new Amazon RDS features. A video of the presentation is available here:
 
-[![AWS Videos](https://img.youtube.com/vi/IFg8EZGtLsM?si=e7T7LzW616AMd3i3/0.jpg)](https://www.youtube.com/watch?v=IFg8EZGtLsM?si=e7T7LzW616AMd3i3)
+[![AWS Videos](https://img.youtube.com/vi/IFg8EZGtLsM/0.jpg)](https://www.youtube.com/watch?v=IFg8EZGtLsM)

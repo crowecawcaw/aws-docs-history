@@ -1,7 +1,6 @@
 
 
 # Improving write performance with Amazon RDS Optimized Writes for MariaDB
-<a name="rds-optimized-writes-mariadb"></a>
 
 You can improve the performance of write transactions with RDS Optimized Writes for MariaDB. When your RDS for MariaDB database uses RDS Optimized Writes, it can achieve up to two times higher write transaction throughput.
 

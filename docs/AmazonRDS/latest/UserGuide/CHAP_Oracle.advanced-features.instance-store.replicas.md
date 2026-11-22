@@ -1,7 +1,6 @@
 
 
 # Working with an instance store on an Oracle read replica
-<a name="CHAP_Oracle.advanced-features.instance-store.replicas"></a>
 
 Read replicas support the flash cache and temporary tablespaces on an instance store. While the flash cache works the same way as on the primary DB instance, note the following differences for temporary tablespaces:
 + You can't create a temporary tablespace on a read replica. If you create a new temporary tablespace on the primary instance, RDS for Oracle replicates the tablespace information without tempfiles. To add a new tempfile, use either of the following techniques:

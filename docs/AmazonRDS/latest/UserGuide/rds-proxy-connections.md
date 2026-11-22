@@ -1,7 +1,6 @@
 
 
 # RDS Proxy connection considerations
-<a name="rds-proxy-connections"></a>
 
 ## Configuring connection settings
 <a name="rds-proxy-connection-pooling-tuning"></a>
@@ -17,7 +16,7 @@ To adjust RDS Proxy's connection pooling, you can modify the following settings:
 
 You can specify how long a client connection can be idle before the proxy closes it. The default is 1,800 seconds (30 minutes). 
 
-A client connection is considered *idle* when the application doesn't submit a new request within the specified time after the previous request completed. The underlying database connection stays open and is returned to the connection pool. Thus, it's available to be reused for new client connections. If you want the proxy to proactively remove stale connections, then lowering the idle client connection timeout. If your workload establishes frequent connections with the proxy, then raise the idle client connection timeout to save the cost of establishing connections.
+A client connection is considered *idle* when the application doesn't submit a new request within the specified time after the previous request completed. The underlying database connection stays open and is returned to the connection pool. Thus, it's available to be reused for new client connections. If you want the proxy to proactively remove stale connections, then lower the idle client connection timeout. If your workload establishes frequent connections with the proxy, then raise the idle client connection timeout to save the cost of establishing connections.
 
 This setting is represented by the **Idle client connection timeout** field in the RDS console and the `IdleClientTimeout` setting in the AWS CLI and the API. To learn how to change the value of the **Idle client connection timeout** field in the RDS console, see [AWS Management Console](rds-proxy-modifying-proxy.md#rds-proxy-modifying-proxy.console). To learn how to change the value of the `IdleClientTimeout` setting, see the CLI command [modify-db-proxy](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-proxy.html) or the API operation [ModifyDBProxy](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBProxy.html).
 

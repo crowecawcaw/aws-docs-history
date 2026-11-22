@@ -1,7 +1,6 @@
 
 
 # LWLock:SubtransSLRU (LWLock:SubtransControlLock)
-<a name="wait-event.lwlocksubtransslru"></a>
 
 The `LWLock:SubtransSLRU` and `LWLock:SubtransBuffer` wait events indicate that a session is waiting to access the simple least-recently used (SLRU) cache for subtransaction information. This occurs when determining transaction visibility and parent-child relationships.
 + `LWLock:SubtransSLRU`: A process is waiting to access the simple least-recently used (SLRU) cache for a subtransaction. In RDS for PostgreSQL prior to version 13, this wait event is called `SubtransControlLock`.

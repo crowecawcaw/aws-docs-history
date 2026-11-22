@@ -1,7 +1,6 @@
 
 
 # Reducing bloat in tables and indexes with the pg\_repack extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.pg_repack"></a>
 
 You can use the `pg_repack` extension to remove bloat from tables and indexes as an alternative to `VACUUM FULL`. This extension is supported on RDS for PostgreSQL versions 9.6.3 and higher. For more information on the `pg_repack` extension and the full table repack, see the [GitHub project documentation](https://reorg.github.io/pg_repack/).
 
@@ -62,7 +61,7 @@ The following recommendations apply when you remove bloat from the tables and in
 
 1. Install the `pg_repack` extension on your RDS for PostgreSQL DB instance by running the following command.
 
-   ```
+   ```sql
    CREATE EXTENSION pg_repack;
    ```
 

@@ -1,14 +1,13 @@
 
 
 # Working with trace and dump files for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.TraceFiles"></a>
 
 This section describes working with trace files and dump files for your Amazon RDS DB instances running Microsoft SQL Server. 
 
 ## Generating a trace SQL query
 <a name="Appendix.SQLServer.CommonDBATasks.TraceFiles.TraceSQLQuery"></a>
 
-```
+```sql
 1. declare @rc int 
 2. declare @TraceID int 
 3. declare @maxfilesize bigint 
@@ -21,14 +20,14 @@ This section describes working with trace files and dump files for your Amazon R
 ## Viewing an open trace
 <a name="Appendix.SQLServer.CommonDBATasks.TraceFiles.ViewOpenTrace"></a>
 
-```
+```sql
 1. select * from ::fn_trace_getinfo(default)
 ```
 
 ## Viewing trace contents
 <a name="Appendix.SQLServer.CommonDBATasks.TraceFiles.ViewTraceContents"></a>
 
-```
+```sql
 1. select * from ::fn_trace_gettable('D:\rdsdbdata\log\rdstest.trc', default)
 ```
 
@@ -39,19 +38,19 @@ Trace and dump files can accumulate and consume disk space. By default, Amazon R
 
 To view the current trace and dump file retention period, use the `rds_show_configuration` procedure, as shown in the following example. 
 
-```
+```sql
 1. exec rdsadmin..rds_show_configuration;
 ```
 
 To modify the retention period for trace files, use the `rds_set_configuration` procedure and set the `tracefile retention` in minutes. The following example sets the trace file retention period to 24 hours. 
 
-```
+```sql
 1. exec rdsadmin..rds_set_configuration 'tracefile retention', {{1440}}; 
 ```
 
 To modify the retention period for dump files, use the `rds_set_configuration` procedure and set the `dumpfile retention` in minutes. The following example sets the dump file retention period to 3 days. 
 
-```
+```sql
 1. exec rdsadmin..rds_set_configuration 'dumpfile retention', {{4320}}; 
 ```
 

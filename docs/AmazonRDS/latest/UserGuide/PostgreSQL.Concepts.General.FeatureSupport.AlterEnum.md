@@ -1,13 +1,12 @@
 
 
 # Custom data types and enumerations with RDS for PostgreSQL
-<a name="PostgreSQL.Concepts.General.FeatureSupport.AlterEnum"></a>
 
 PostgreSQL supports creating custom data types and working with enumerations. For more information about creating and working with enumerations and other data types, see [Enumerated types](https://www.postgresql.org/docs/14/datatype-enum.html) in the PostgreSQL documentation. 
 
 The following is an example of creating a type as an enumeration and then inserting values into a table. 
 
-```
+```sql
 CREATE TYPE rainbow AS ENUM ('red', 'orange', 'yellow', 'green', 'blue', 'purple');
 CREATE TYPE
 CREATE TABLE t1 (colors rainbow);

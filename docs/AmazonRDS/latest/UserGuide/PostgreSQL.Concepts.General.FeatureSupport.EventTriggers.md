@@ -1,13 +1,12 @@
 
 
 # Event triggers for RDS for PostgreSQL
-<a name="PostgreSQL.Concepts.General.FeatureSupport.EventTriggers"></a>
 
 All current PostgreSQL versions support event triggers, and so do all available versions of RDS for PostgreSQL. You can use the main user account (default, `postgres`) to create, modify, rename, and delete event triggers. Event triggers are at the DB instance level, so they can apply to all databases on an instance.
 
 For example, the following code creates an event trigger that prints the current user at the end of every data definition language (DDL) command.
 
-```
+```sql
 CREATE OR REPLACE FUNCTION raise_notice_func()
     RETURNS event_trigger
     LANGUAGE plpgsql AS

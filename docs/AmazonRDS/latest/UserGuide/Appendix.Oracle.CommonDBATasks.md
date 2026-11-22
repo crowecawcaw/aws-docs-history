@@ -1,7 +1,6 @@
 
 
 # Administering your RDS for Oracle DB instance
-<a name="Appendix.Oracle.CommonDBATasks"></a>
 
 Following are the common management tasks that you perform with an RDS for Oracle DB instance. Some tasks are the same for all RDS DB instances. Other tasks are specific to RDS for Oracle.
 
@@ -206,6 +205,6 @@ To purge the entire recycle bin, use the Amazon RDS procedure `rdsadmin.rdsadmin
 
 The following example purges the entire recycle bin.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.purge_dba_recyclebin;
 ```

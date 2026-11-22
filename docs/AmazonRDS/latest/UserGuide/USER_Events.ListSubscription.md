@@ -1,7 +1,6 @@
 
 
 # Listing Amazon RDS event notification subscriptions
-<a name="USER_Events.ListSubscription"></a>
 
 You can list your current Amazon RDS event notification subscriptions.
 

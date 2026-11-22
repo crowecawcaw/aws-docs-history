@@ -1,7 +1,6 @@
 
 
 # Using the log\_fdw extension to access the DB log using SQL
-<a name="CHAP_PostgreSQL.Extensions.log_fdw"></a>
 
 RDS for PostgreSQL DB instance supports the `log_fdw` extension, which you can use to access your database engine log using a SQL interface. The `log_fdw` extension provides two functions that make it easy to create foreign tables for database logs:
 + `list_postgres_log_files` – Lists the files in the database log directory and the file size in bytes.
@@ -19,21 +18,21 @@ The following example assumes that the `log_destination` parameter includes `cvs
 
 1. Install the `log_fdw` extension.
 
-   ```
+   ```sql
    postgres=> CREATE EXTENSION log_fdw;
    CREATE EXTENSION
    ```
 
 1. Create the log server as a foreign data wrapper.
 
-   ```
+   ```sql
    postgres=> CREATE SERVER log_server FOREIGN DATA WRAPPER log_fdw;
    CREATE SERVER
    ```
 
 1. Select all from a list of log files.
 
-   ```
+   ```sql
    postgres=> SELECT * FROM list_postgres_log_files() ORDER BY 1;
    ```
 
@@ -51,7 +50,7 @@ The following example assumes that the `log_destination` parameter includes `cvs
 
 1. Create a table with a single 'log\_entry' column for the selected file.
 
-   ```
+   ```sql
    postgres=> SELECT create_foreign_table_for_log_file('my_postgres_error_log',
         'log_server', 'postgresql.log.2023-08-09-22.csv');
    ```
@@ -65,7 +64,7 @@ The following example assumes that the `log_destination` parameter includes `cvs
 
 1. Select a sample of the log file. The following code retrieves the log time and error message description.
 
-   ```
+   ```sql
    postgres=> SELECT log_time, message FROM my_postgres_error_log ORDER BY 1;
    ```
 

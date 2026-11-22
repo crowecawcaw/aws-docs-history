@@ -1,7 +1,6 @@
 
 
 # Recommendations from Amazon RDS
-<a name="monitoring-recommendations"></a>
 
 Amazon RDS provides automated recommendations for database resources, such as DB instances, read replicas, and DB parameter groups. These recommendations provide best practice guidance by analyzing DB instance configuration, usage, and performance data.
 

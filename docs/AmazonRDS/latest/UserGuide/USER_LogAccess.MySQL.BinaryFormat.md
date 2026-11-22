@@ -1,7 +1,6 @@
 
 
 # Configuring RDS for MySQL binary logging for instance deployments
-<a name="USER_LogAccess.MySQL.BinaryFormat"></a>
 
 The *binary log* is a set of log files that contain information about data modifications made to an RDS for MySQL DB instance. The binary log contains information such as the following:
 + Events that describe database changes such as table creation or row modifications
@@ -26,7 +25,7 @@ If you plan to use replication, the binary logging format is important because i
 
 **Important**  
 With MySQL 8.0.34, MySQL deprecated the `binlog_format` parameter. In later MySQL versions, MySQL plans to remove the parameter and only support row-based replication. As a result, we recommend using row-based logging for new MySQL replication setups. For more information, see [binlog\_format](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format) in the MySQL documentation.  
-MySQL versions 8.0 and 8.4 accept the parameter `binlog_format`. When using this parameter, MySQL issues a deprecation warning. In a future major release, MySQL will remove the parameter `binlog_format`.  
+MySQL versions 8.0, 8.4, and 9.7 accept the parameter `binlog_format`. When using this parameter, MySQL issues a deprecation warning. In a future major release, MySQL will remove the parameter `binlog_format`.  
 Statement-based replication can cause inconsistencies between the source DB instance and a read replica. For more information, see [Determination of Safe and Unsafe Statements in Binary Logging](https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-safe-unsafe.html) in the MySQL documentation.  
 Enabling binary logging increases the number of write disk I/O operations to the DB instance. You can monitor IOPS usage with the `WriteIOPS``` CloudWatch metric.
 

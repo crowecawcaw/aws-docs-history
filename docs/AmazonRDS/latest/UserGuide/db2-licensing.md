@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Db2 licensing options
-<a name="db2-licensing"></a>
 
 Amazon RDS for Db2 has two licensing options: bring your own license (BYOL) and Db2 license through AWS Marketplace.
 

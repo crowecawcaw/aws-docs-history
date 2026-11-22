@@ -1,7 +1,6 @@
 
 
 # File naming conventions for exports to Amazon S3 for Amazon RDS
-<a name="USER_ExportSnapshot.FileNames"></a>
 
 Exported data for specific tables is stored in the format `{{base_prefix}}/{{files}}`, where the base prefix is the following:
 

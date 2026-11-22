@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon RDS
-<a name="CHAP_GettingStarted"></a>
 
 In the following examples, you can find how to create and connect to a DB instance using Amazon Relational Database Service (Amazon RDS). You can create a DB instance that uses Db2, MariaDB, MySQL, Microsoft SQL Server, Oracle, or PostgreSQL.
 

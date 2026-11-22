@@ -1,7 +1,6 @@
 
 
 # Using a read replica to reduce downtime when upgrading an RDS for MySQL database
-<a name="USER_UpgradeDBInstance.MySQL.ReducedDowntime"></a>
 
 In most cases, a blue/green deployment is the best option to reduce downtime when upgrading a MySQL DB instance. For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](blue-green-deployments.md). 
 
@@ -12,7 +11,7 @@ By using a read replica, you can perform most of the maintenance steps ahead of 
 The following procedure shows an example of upgrading from MySQL version 5.7 to MySQL version 8.0. You can use the same general steps for upgrades to other major versions.
 
 **Note**  
-When you are upgrading from MySQL version 5.7 to MySQL version 8.0, or from MySQL version 8.0 to MySQL version 8.4, complete the prechecks before performing the upgrade. For more information, see [Prechecks for upgrades from MySQL 5.7 to 8.0](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.57to80Prechecks) and [Prechecks for upgrades from MySQL 8.0 to 8.4](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.80to84Prechecks).
+When you are upgrading from MySQL version 5.7 to MySQL version 8.0, from MySQL version 8.0 to MySQL version 8.4, or from MySQL version 8.4 to MySQL version 9.7, complete the prechecks before performing the upgrade. For more information, see [Prechecks for upgrades from MySQL 5.7 to 8.0](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.57to80Prechecks), [Prechecks for upgrades from MySQL 8.0 to 8.4](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.80to84Prechecks), and [Prechecks for upgrades from MySQL 8.4 to 9.7](USER_UpgradeDBInstance.MySQL.Major.md#USER_UpgradeDBInstance.MySQL.84to97Prechecks).
 
 **To upgrade a MySQL database while a DB instance is in use**
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to a database through RDS Proxy
-<a name="rds-proxy-connecting"></a>
 
 The way to connect to an RDS DB instance through a proxy or by connecting to the database is generally the same. For more information, see [Overview of proxy endpoints](rds-proxy-endpoints.md#rds-proxy-endpoints-overview). 
 

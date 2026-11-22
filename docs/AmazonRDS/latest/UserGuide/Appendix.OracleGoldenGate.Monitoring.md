@@ -1,7 +1,6 @@
 
 
 # Monitoring Oracle GoldenGate
-<a name="Appendix.OracleGoldenGate.Monitoring"></a>
 
 When you use Oracle GoldenGate for replication, make sure that the Oracle GoldenGate process is up and running and the source and target databases are synchronized. You can use the following monitoring tools:
 + [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) is a monitoring service that is used in this pattern to monitor GoldenGate error logs.

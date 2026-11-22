@@ -1,7 +1,6 @@
 
 
 # Console
-<a name="rds-storage-viewing.console"></a>
 
 To view your storage volume configuration from the console:
 

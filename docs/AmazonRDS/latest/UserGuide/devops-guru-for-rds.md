@@ -1,7 +1,6 @@
 
 
 # Analyzing performance anomalies with Amazon DevOps Guru for Amazon RDS
-<a name="devops-guru-for-rds"></a>
 
 Amazon DevOps Guru is a fully managed operations service that helps developers and operators improve the performance and availability of their applications. DevOps Guru offloads the tasks associated with identifying operational issues so that you can quickly implement recommendations to improve your application. For more information, see [What is Amazon DevOps Guru?](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html) in the *Amazon DevOps Guru User Guide*.
 

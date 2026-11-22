@@ -1,7 +1,6 @@
 
 
 # Switching a blue/green deployment in Amazon RDS
-<a name="blue-green-deployments-switching"></a>
 
 A *switchover* transitions the green environment to be the new production environment. When the green DB instance has read replicas, they are also transitioned. Before you switch over, production traffic is routed to the DB instance and read replicas in the blue environment. After you switch over, production traffic is routed to the DB instance and read replicas in the green environment.
 
@@ -139,7 +138,7 @@ For PostgreSQL blue/green deployments that use logical replication, check the `O
 
 In addition, you can run the following SQL query in the blue environment:
 
-```
+```sql
 SELECT slot_name,
        confirmed_flush_lsn as flushed,
        pg_current_wal_lsn(),

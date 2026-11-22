@@ -1,7 +1,6 @@
 
 
 # Oracle XML DB
-<a name="Appendix.Oracle.Options.XMLDB"></a>
 
 Oracle XML DB adds native XML support to your DB instance. With XML DB, you can store and retrieve structured or unstructured XML and relational data. The XML DB protocol server isn't supported on RDS for Oracle.
 

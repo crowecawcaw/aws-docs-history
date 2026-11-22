@@ -1,7 +1,6 @@
 
 
 # Deleting Amazon RDS zero-ETL integrations
-<a name="zero-etl.deleting"></a>
 
 When you delete a zero-ETL integration, Amazon RDS removes it from the source database. Your transactional data isn't deleted from Amazon RDS or the analytics destination, but Amazon RDS doesn't send new data to Amazon Redshift or Amazon SageMaker.
 

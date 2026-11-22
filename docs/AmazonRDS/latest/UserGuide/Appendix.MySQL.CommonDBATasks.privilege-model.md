@@ -1,7 +1,6 @@
 
 
 # Role-based privilege model for RDS for MySQL
-<a name="Appendix.MySQL.CommonDBATasks.privilege-model"></a>
 
 Starting with RDS for MySQL version 8.0.36, you can't modify the tables in the `mysql` database directly. In particular, you can't create database users by performing data manipulation language (DML) operations on the `grant` tables. Instead, you use MySQL account-management statements such as `CREATE USER`, `GRANT`, and `REVOKE` to grant role-based privileges to users. You also can't create other kinds of objects such as stored procedures in the `mysql` database. You can still query the `mysql` tables. If you use binary log replication, changes made directly to the `mysql` tables on the source DB instance aren't replicated to the target cluster.
 
@@ -15,13 +14,15 @@ To export metadata for database users during the migration from an external MySQ
   ```
 
   For more information, see [ Instance Dump Utility, Schema Dump Utility, and Table Dump Utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html) in the MySQL Reference Manual.
+
+  If you load the dump into a DB instance that runs MySQL 9.7, accounts that use the `mysql_native_password` authentication plugin fail to load, because MySQL 9.7 removes this plugin. Before you dump the users, change these accounts on the source database to use `caching_sha2_password`.
 + Use the `mysqlpump` client utility. This example includes all tables except for tables in the `mysql` system database. It also includes `CREATE USER` and `GRANT` statements to reproduce all MySQL users in the migrated database.
 
   ```
   mysqlpump --exclude-databases=mysql --users
   ```
 
-  The `mysqlpump` client utility is no longer available with MySQL 8.4. Instead, use `mysqldump`.
+  The `mysqlpump` client utility is no longer available with MySQL 8.4 and higher. Instead, use `mysqldump`.
 
 To simplify managing permissions for many users or applications, you can use the `CREATE ROLE` statement to create a role that has a set of permissions. Then you can use the `GRANT` and `SET ROLE` statements and the `current_role` function to assign roles to users or applications, switch the current role, and check which roles are in effect. For more information on the role-based permission system in MySQL 8.0, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html) in the MySQL Reference Manual.
 
@@ -35,6 +36,7 @@ Starting with version 8.0.36, RDS for MySQL includes a special role that has all
 +  `CREATE` 
 +  `CREATE ROLE` 
 +  `CREATE ROUTINE` 
++  `CREATE_SPATIAL_REFERENCE_SYSTEM` (MySQL 9.7.4 and higher) 
 +  `CREATE TEMPORARY TABLES` 
 +  `CREATE USER` 
 +  `CREATE VIEW` 

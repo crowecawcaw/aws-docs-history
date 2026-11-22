@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connections to your MySQL DB instance
-<a name="USER_ConnectToInstance.Troubleshooting"></a>
 
 Two common causes of connection failures to a new DB instance are:
 + The DB instance was created using a security group that doesn't authorize connections from the device or Amazon EC2 instance where the MySQL application or utility is running. The DB instance must have a VPC security group that authorizes the connections. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md).

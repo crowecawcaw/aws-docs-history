@@ -1,7 +1,6 @@
 
 
 # Creating and using an IAM policy for IAM database access
-<a name="UsingWithRDS.IAMDBAuth.IAMPolicy"></a>
 
 To allow a user or role to connect to your DB instance, you must create an IAM policy. After that, you attach the policy to a permissions set or role.
 
@@ -15,7 +14,7 @@ The following example policy allows a user to connect to a DB instance using IAM
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ You can construct other ARNs to support various access patterns. The following p
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -103,7 +102,7 @@ The following policy uses the "\*" character to match all DB instances and datab
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ The following policy matches all of the DB instances for a particular AWS accoun
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

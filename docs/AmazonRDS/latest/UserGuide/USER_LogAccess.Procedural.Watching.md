@@ -1,7 +1,6 @@
 
 
 # Watching a database log file
-<a name="USER_LogAccess.Procedural.Watching"></a>
 
 Watching a database log file is equivalent to tailing the file on a UNIX or Linux system. You can watch a log file by using the AWS Management Console. RDS refreshes the tail of the log every 5 seconds.
 

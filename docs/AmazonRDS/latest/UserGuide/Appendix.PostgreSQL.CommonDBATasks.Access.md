@@ -1,9 +1,11 @@
 
 
 # Controlling user access to the PostgreSQL database
-<a name="Appendix.PostgreSQL.CommonDBATasks.Access"></a>
 
-New databases in PostgreSQL are always created with a default set of privileges in the database's `public` schema that allow all database users and roles to create objects. These privileges allow database users to connect to the database, for example, and create temporary tables while connected.
+In PostgreSQL version 14 and earlier, new databases are created with a default set of privileges in the database's `public` schema that allow all database users and roles to create objects. These privileges allow database users to connect to the database, for example, and create temporary tables while connected.
+
+**Note**  
+Starting with PostgreSQL version 15, the `CREATE` privilege on the `public` schema is no longer granted to `PUBLIC` by default, and the `public` schema is owned by the `pg_database_owner` role. If you're using PostgreSQL 15 or later, database users can no longer create objects in the `public` schema unless you explicitly grant them the `CREATE` privilege. For more information, see the PostgreSQL 15 release notes.
 
 To better control user access to the databases instances that you create on your RDS for PostgreSQL DB instance, we recommend that you revoke these default `public` privileges. After doing so, you then grant specific privileges for database users on a more granular basis, as shown in the following procedure. 
 

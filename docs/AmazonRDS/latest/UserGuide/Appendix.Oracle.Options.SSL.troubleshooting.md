@@ -1,11 +1,10 @@
 
 
 # Troubleshooting SSL connections
-<a name="Appendix.Oracle.Options.SSL.troubleshooting"></a>
 
 You might query your database and receive the `ORA-28860` error.
 
-```
+```java
 ORA-28860: Fatal SSL error
 28860. 00000 - "Fatal SSL error"
 *Cause: An error occurred during the SSL connection to the peer. It is likely that this side sent data which the peer rejected.

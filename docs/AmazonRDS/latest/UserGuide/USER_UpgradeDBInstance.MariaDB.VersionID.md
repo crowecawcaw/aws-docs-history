@@ -1,7 +1,6 @@
 
 
 # MariaDB version numbers
-<a name="USER_UpgradeDBInstance.MariaDB.VersionID"></a>
 
 The version numbering sequence for the RDS for MariaDB database engine is either in the form of *major.minor.patch.YYYYMMDD* or *major.minor.patch*, for example, 10.11.5.R2.20231201 or 10.4.30. The format used depends on the MariaDB engine version.
 

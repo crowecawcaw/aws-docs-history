@@ -1,7 +1,6 @@
 
 
 # MariaDB security on Amazon RDS
-<a name="MariaDB.Concepts.UsersAndPrivileges"></a>
 
 Security for MariaDB DB instances is managed at three levels:
 + AWS Identity and Access Management controls who can perform Amazon RDS management actions on DB instances. When you connect to AWS using IAM credentials, your IAM account must have IAM policies that grant the permissions required to perform Amazon RDS management operations. For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md).

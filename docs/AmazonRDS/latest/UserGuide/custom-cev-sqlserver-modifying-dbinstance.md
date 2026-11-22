@@ -1,7 +1,6 @@
 
 
 # Modifying an RDS Custom for SQL Server DB instance to use a new CEV
-<a name="custom-cev-sqlserver-modifying-dbinstance"></a>
 
 You can modify an existing RDS Custom for SQL Server DB instance to use a different CEV. The changes that you can make include:
 + Changing the CEV

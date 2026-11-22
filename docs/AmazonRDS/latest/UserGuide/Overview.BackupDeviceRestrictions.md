@@ -1,7 +1,6 @@
 
 
 # Automated backups with unsupported MySQL storage engines
-<a name="Overview.BackupDeviceRestrictions"></a>
 
 For the MySQL DB engine, automated backups are only supported for the InnoDB storage engine. Using these features with other MySQL storage engines, including MyISAM, can lead to unreliable behavior when you're restoring from backups. Specifically, since storage engines like MyISAM don't support reliable crash recovery, your tables can be corrupted in the event of a crash. For this reason, we encourage you to use the InnoDB storage engine. 
 + To convert existing MyISAM tables to InnoDB tables, you can use the `ALTER TABLE` command, for example: `ALTER TABLE {{table_name}} ENGINE=innodb, ALGORITHM=COPY;` 
@@ -14,13 +13,13 @@ For the MySQL DB engine, automated backups are only supported for the InnoDB sto
 
   1. Lock and flush each of your MyISAM tables. For example, the following commands lock and flush two tables named `myisam_table1` and `myisam_table2`: 
 
-     ```
+     ```sql
      mysql> FLUSH TABLES myisam_table, myisam_table2 WITH READ LOCK;
      ```
 
   1. Create a snapshot of your DB instance or Multi-AZ DB cluster. When the snapshot has completed, release the locks and resume activity on the MyISAM tables. You can release the locks on your tables using the following command: 
 
-     ```
+     ```sql
      mysql> UNLOCK TABLES;
      ```
 

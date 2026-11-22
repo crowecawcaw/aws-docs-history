@@ -1,7 +1,6 @@
 
 
 # Setting up an SSL connection over JDBC
-<a name="Appendix.Oracle.Options.SSL.JDBC"></a>
 
 To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS root CA certificate, and use the code snippet specified following.
 
@@ -45,7 +44,7 @@ Take the following steps to trust the Amazon RDS root CA certificate.
 
 The following code example shows how to set up the SSL connection using JDBC.
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

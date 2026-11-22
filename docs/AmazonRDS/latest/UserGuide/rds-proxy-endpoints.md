@@ -1,7 +1,6 @@
 
 
 # Working with Amazon RDS Proxy endpoints
-<a name="rds-proxy-endpoints"></a>
 
 RDS Proxy endpoints provide flexible and efficient ways to manage database connections, which improves scalability, availability, and security. With proxy endpoints, you can:
 + **Simplify monitoring and troubleshooting** – Use multiple endpoints to track and manage connections from different applications independently.

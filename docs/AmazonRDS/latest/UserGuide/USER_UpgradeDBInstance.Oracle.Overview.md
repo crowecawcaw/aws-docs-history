@@ -1,7 +1,6 @@
 
 
 # Overview of RDS for Oracle engine upgrades
-<a name="USER_UpgradeDBInstance.Oracle.Overview"></a>
 
 Before upgrading your RDS for Oracle DB instance, familiarize yourself with the following concepts.
 
@@ -146,7 +145,7 @@ For major version upgrades of cross-Region read replicas, Amazon RDS performs ad
 
 After the upgrade completes, verify the new version and check for invalid objects:
 
-```
+```sql
 SELECT VERSION_FULL FROM V$INSTANCE;
 
 SELECT COMP_NAME, VERSION, STATUS FROM DBA_REGISTRY;
@@ -156,7 +155,7 @@ SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM DBA_OBJECTS WHERE STATUS = 'INVALID'
 
 If the last query returns invalid objects that you own, recompile them by running the following procedure as the master user, substituting your schema name:
 
-```
+```sql
 EXEC DBMS_UTILITY.COMPILE_SCHEMA(schema => '{{schema_name}}');
 ```
 

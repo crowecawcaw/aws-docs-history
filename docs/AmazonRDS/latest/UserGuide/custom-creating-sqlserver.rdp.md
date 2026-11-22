@@ -1,7 +1,6 @@
 
 
 # Connecting to your RDS Custom DB instance using RDP
-<a name="custom-creating-sqlserver.rdp"></a>
 
 After you create your RDS Custom DB instance, you can connect to this instance using an RDP client. The procedure is the same as for connecting to an Amazon EC2 instance. For more information, see [Connect to your Windows instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html).
 

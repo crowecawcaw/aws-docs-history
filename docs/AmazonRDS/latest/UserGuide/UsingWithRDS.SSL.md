@@ -1,7 +1,6 @@
 
 
 # Using SSL/TLS to encrypt a connection to a DB instance or cluster
-<a name="UsingWithRDS.SSL"></a>
 
 You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a database running Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
 

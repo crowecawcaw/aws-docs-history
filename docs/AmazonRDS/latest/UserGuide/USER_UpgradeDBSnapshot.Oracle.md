@@ -1,7 +1,6 @@
 
 
 # Upgrading an Oracle DB snapshot
-<a name="USER_UpgradeDBSnapshot.Oracle"></a>
 
 Upgrading your Oracle DB snapshots in Amazon RDS ensures that your database remains secure, compatible, and fully supported. As older Oracle versions reach the end of patch support, you can upgrade any manual DB snapshots tied to these versions to avoid potential vulnerabilities or service limitations. For more information, see [Oracle engine version management](USER_UpgradeDBInstance.Oracle.Overview.md#Oracle.Concepts.Patching).
 

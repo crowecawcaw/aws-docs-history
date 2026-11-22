@@ -1,7 +1,6 @@
 
 
 # Managing the Global Status History for RDS for MySQL
-<a name="Appendix.MySQL.CommonDBATasks.GoSH"></a>
 
 **Tip**  
 To analyze database performance, you can also use Performance Insights on Amazon RDS. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md).
@@ -14,7 +13,7 @@ To enable GoSH, you first enable the event scheduler from a DB parameter group b
 
 You can then use the procedures in the following table to enable and configure GoSH. First connect to your MySQL DB instance, then issue the appropriate commands as shown following. For more information, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md). For each procedure, run the following command and replace *{{procedure-name}}*: 
 
-```
+```sql
 CALL {{procedure-name}}; 
 ```
 
@@ -34,7 +33,7 @@ The following table lists all of the procedures that you can use for *{{procedur
 
 When GoSH is running, you can query the tables that it writes to. For example, to query the hit ratio of the Innodb buffer pool, you would issue the following query: 
 
-```
+```sql
 select a.collection_end, a.collection_start, (( a.variable_Delta-b.variable_delta)/a.variable_delta)*100 as "HitRatio" 
     from mysql.rds_global_status_history as a join mysql.rds_global_status_history as b on a.collection_end = b.collection_end
     where a. variable_name = 'Innodb_buffer_pool_read_requests' and b.variable_name = 'Innodb_buffer_pool_reads'

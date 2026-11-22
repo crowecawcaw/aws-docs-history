@@ -1,7 +1,6 @@
 
 
 # Using SSL with a Microsoft SQL Server DB instance
-<a name="SQLServer.Concepts.General.SSL.Using"></a>
 
 You can use Secure Sockets Layer (SSL) to encrypt connections between your client applications and your Amazon RDS DB instances running Microsoft SQL Server. SSL support is available in all AWS regions for all supported SQL Server editions. 
 
@@ -122,7 +121,7 @@ For SQL Server Management Studio, use the following procedure. For more informat
 
 1. Confirm that your connection is encrypted by running the following query. Verify that the query returns `true` for `encrypt_option`. 
 
-   ```
+   ```sql
    select ENCRYPT_OPTION from SYS.DM_EXEC_CONNECTIONS where SESSION_ID = @@SPID
    ```
 
@@ -136,6 +135,6 @@ To enable SSL encryption for clients that connect using JDBC, you might need to 
 
 1. Confirm that your connection is encrypted by running the following query. Verify that the query returns `true` for `encrypt_option`. 
 
-   ```
+   ```sql
    select ENCRYPT_OPTION from SYS.DM_EXEC_CONNECTIONS where SESSION_ID = @@SPID
    ```

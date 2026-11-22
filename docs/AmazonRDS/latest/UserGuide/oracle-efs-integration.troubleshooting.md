@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EFS integration
-<a name="oracle-efs-integration.troubleshooting"></a>
 
 Your RDS for Oracle DB instance monitors the connectivity to an Amazon EFS file system. When monitoring detects an issue, it might try to correct the issue and publish an event in the RDS console. For more information, see [Viewing Amazon RDS events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ListEvents.html).
 

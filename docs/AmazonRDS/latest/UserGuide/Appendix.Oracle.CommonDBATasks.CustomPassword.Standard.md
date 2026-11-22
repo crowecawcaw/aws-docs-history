@@ -1,7 +1,6 @@
 
 
 # The create\_verify\_function procedure
-<a name="Appendix.Oracle.CommonDBATasks.CustomPassword.Standard"></a>
 
 You can create a custom function to verify passwords by using the Amazon RDS procedure `rdsadmin.rdsadmin_password_verify.create_verify_function`. The `create_verify_function` procedure is supported for all versions of RDS for Oracle.
 
@@ -33,7 +32,7 @@ There are restrictions on the name of your custom function. Your custom function
 
 The following example creates a function named `CUSTOM_PASSWORD_FUNCTION`. The function requires that a password has at least 12 characters, 2 uppercase characters, 1 digit, and 1 special character, and that the password disallows the @ character. 
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_password_verify.create_verify_function(
         p_verify_function_name => '{{CUSTOM_PASSWORD_FUNCTION}}', 
@@ -48,7 +47,7 @@ end;
 
 To see the text of your verification function, query `DBA_SOURCE`. The following example gets the text of a custom password function named `CUSTOM_PASSWORD_FUNCTION`. 
 
-```
+```sql
 COL TEXT FORMAT a150
 
   SELECT TEXT 
@@ -60,13 +59,13 @@ ORDER BY LINE;
 
 To associate your verification function with a user profile, use `ALTER PROFILE`. The following example associates a verification PL/SQL function named `CUSTOM_PASSWORD_FUNCTION` with the `DEFAULT` user profile. `PASSWORD_VERIFY_FUNCTION` is the Oracle profile resource name. 
 
-```
+```sql
 ALTER PROFILE {{DEFAULT}} LIMIT PASSWORD_VERIFY_FUNCTION {{CUSTOM_PASSWORD_FUNCTION}};
 ```
 
 To see which user profiles are associated with which verification functions, query `DBA_PROFILES`. The following example gets the profiles that are associated with the custom verification function named `CUSTOM_PASSWORD_FUNCTION`. 
 
-```
+```sql
 SELECT * FROM DBA_PROFILES WHERE RESOURCE_NAME = 'PASSWORD_VERIFY_FUNCTION' AND LIMIT = '{{CUSTOM_PASSWORD_FUNCTION}}';
 
 
@@ -77,7 +76,7 @@ DEFAULT                    PASSWORD_VERIFY_FUNCTION          PASSWORD  CUSTOM_PA
 
 The following example gets all profiles and the password verification functions that they are associated with. 
 
-```
+```sql
 SELECT * FROM DBA_PROFILES WHERE RESOURCE_NAME = 'PASSWORD_VERIFY_FUNCTION';
 
 PROFILE                    RESOURCE_NAME                     RESOURCE  LIMIT

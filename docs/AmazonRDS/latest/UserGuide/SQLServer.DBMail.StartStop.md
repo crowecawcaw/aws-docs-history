@@ -1,7 +1,6 @@
 
 
 # Starting and stopping mail queue
-<a name="SQLServer.DBMail.StartStop"></a>
 
 Use the following instructions to start and stop the DB mail queue:
 

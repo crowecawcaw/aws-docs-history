@@ -1,7 +1,6 @@
 
 
 # Turning off SSAS
-<a name="SSAS.Disable"></a>
 
 To turn off SSAS, remove the `SSAS` option from its option group.
 

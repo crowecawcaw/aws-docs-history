@@ -1,7 +1,6 @@
 
 
 # Overview of Oracle on Amazon RDS
-<a name="Oracle.Concepts.overview"></a>
 
 You can read the following sections to get an overview of RDS for Oracle.
 

@@ -1,7 +1,6 @@
 
 
 # Stopping an Amazon RDS DB instance temporarily
-<a name="USER_StopInstance"></a>
 
 You can stop your DB instance intermittently for temporary testing or for a daily development activity, for a maximum of 7 consecutive days. The most common use case is cost optimization. The time to stop your DB instance depends on a number of factors. For more information, see [Use cases](#USER_StopInstance.Benefits) and [Time considerations](#USER_StopInstance.Time).
 
@@ -110,7 +109,7 @@ If you don't manually start your DB instance after it is stopped for seven conse
 <a name="USER_StopInstance.Limitations"></a>
 
 The following are some limitations of the stopping operation: 
-+ You can't stop a DB instance that has a read replica, or that is a read replica.
++ You can't stop a DB instance that has a read replica, or that is a read replica. Because these DB instances can't stop, they don't enter the recoverable `inaccessible-encryption-credentials-recoverable` state if Amazon RDS loses access to their KMS key. Instead, they go directly into the terminal `inaccessible-encryption-credentials` state. For more information, see [Overview of encrypting Amazon RDS resources](Overview.Encryption.md#Overview.Encryption.Overview).
 + You can't modify a stopped DB instance.
 + You can't delete an option group that is associated with a stopped DB instance.
 + You can't delete a DB parameter group that is associated with a stopped DB instance.

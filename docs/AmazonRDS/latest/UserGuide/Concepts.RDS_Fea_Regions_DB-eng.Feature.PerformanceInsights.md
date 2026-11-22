@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Database Insights in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights"></a>
 
 Database Insights in Amazon RDS expands on existing Amazon RDS monitoring features to illustrate and help you analyze your database performance. With the Database Insights dashboard, you can visualize the database load on your Amazon RDS DB instance. You can also filter the load by waits, SQL statements, hosts, or users. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md).
 

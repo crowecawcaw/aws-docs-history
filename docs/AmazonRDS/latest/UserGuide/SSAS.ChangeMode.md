@@ -1,7 +1,6 @@
 
 
 # Changing the SSAS mode
-<a name="SSAS.ChangeMode"></a>
 
 You can change the mode in which SSAS runs, either Tabular or Multidimensional. To change the mode, use the AWS Management Console or the AWS CLI to modify the options settings in the SSAS option.
 

@@ -1,7 +1,6 @@
 
 
 # Multi-AZ DB instance deployments for Amazon RDS
-<a name="Concepts.MultiAZSingleStandby"></a>
 
 Amazon RDS provides high availability and failover support for DB instances using Multi-AZ deployments with a single standby DB instance. This type of deployment is called a *Multi-AZ DB instance deployment*. Amazon RDS uses several different technologies to provide this failover support. Multi-AZ deployments for MariaDB, MySQL, Oracle, PostgreSQL, and RDS Custom for SQL Server DB instances use the Amazon failover technology. Microsoft SQL Server DB instances use SQL Server Database Mirroring (DBM) or Always On Availability Groups (AGs). For information on SQL Server version support for Multi-AZ, see [Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](USER_SQLServerMultiAZ.md). For information on working with RDS Custom for SQL Server for Multi-AZ, see [Managing a Multi-AZ deployment for RDS Custom for SQL Server](custom-sqlserver-multiaz.md).
 

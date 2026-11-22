@@ -1,7 +1,6 @@
 
 
 # Oracle Spatial
-<a name="Oracle.Options.Spatial"></a>
 
 Amazon RDS supports Oracle Spatial through the use of the `SPATIAL` option. Oracle Spatial provides a SQL schema and functions that facilitate the storage, retrieval, update, and query of collections of spatial data in an Oracle database. For more information, see [Spatial Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-concepts.html) in the Oracle documentation. Amazon RDS supports Oracle Spatial in all editions of all supported releases.
 

@@ -1,7 +1,6 @@
 
 
 # Setting trace flags in RDS for Microsoft SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.TraceFlags"></a>
 
 A SQL Server trace flag is a setting you can turn on or off to change how the database engine behaves. You can use trace flags to enable hidden features, fix performance problems, or override default server behavior. In effect, each trace flag acts as an on/off switch that changes the default behavior of SQL Server.
 

@@ -1,7 +1,6 @@
 
 
 # Importing data from Db2 to Amazon RDS for Db2 with the INGEST utility
-<a name="db2-native-db2-tools-ingest"></a>
 
 You can use the `INGEST` utility to continually stream data from files and pipes on a client machine to a target Amazon RDS for Db2 DB instance. The `INGEST` utility supports `INSERT` and `MERGE` operations. For more information, see [Ingest utility](https://www.ibm.com/docs/en/db2/11.1?topic=reference-ingest-utility) in the IBM Db2 documentation.
 

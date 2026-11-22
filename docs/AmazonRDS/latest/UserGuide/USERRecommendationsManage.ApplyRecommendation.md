@@ -1,7 +1,6 @@
 
 
 # Applying Amazon RDS recommendations
-<a name="USERRecommendationsManage.ApplyRecommendation"></a>
 
 To apply Amazon RDS recommendations using the Amazon RDS console, select a configuration based recommendation or an affected resource in the details page. Then, choose to apply the recommendation immediately or schedule it for the next maintenance window. The resource might need to restart for the change to take effect. For a few DB parameter group recommendations, you might need to restart the resources.
 

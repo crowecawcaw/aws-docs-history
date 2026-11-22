@@ -1,7 +1,6 @@
 
 
 # Connecting from the MySQL command-line client (unencrypted) for RDS for MariaDB
-<a name="USER_ConnectToMariaDBInstance.CLI"></a>
 
 **Important**  
 Only use an unencrypted MySQL connection when the client and server are in the same VPC and the network is trusted. For information about using encrypted connections, see [Connecting to your MariaDB DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToMariaDBInstanceSSL.CLI.md).

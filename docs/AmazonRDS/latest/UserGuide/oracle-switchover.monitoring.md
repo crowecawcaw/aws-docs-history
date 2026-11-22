@@ -1,7 +1,6 @@
 
 
 # Monitoring the Oracle Data Guard switchover
-<a name="oracle-switchover.monitoring"></a>
 
 To check the status of your instances, use the AWS CLI command `describe-db-instances`. The following command checks the status of the DB instance {{orcl2}}. This database was a standby database before the switchover, but is the new primary database after the switchover.
 

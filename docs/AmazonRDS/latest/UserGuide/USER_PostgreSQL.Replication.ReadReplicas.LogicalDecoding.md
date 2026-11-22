@@ -1,7 +1,6 @@
 
 
 # Logical decoding on a read replica
-<a name="USER_PostgreSQL.Replication.ReadReplicas.LogicalDecoding"></a>
 
  RDS for PostgreSQL supports logical replication from read replicas with PostgreSQL 16.1. This allows you to create logical decoding from a read replica, which reduces the load on the primary DB instance. You can achieve higher-availability for your applications that need to synchronize data across multiple systems. This feature boosts the performance of your data warehouse and data analytics. 
 

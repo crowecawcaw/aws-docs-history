@@ -1,7 +1,6 @@
 
 
 # Controlling access with security groups
-<a name="Overview.RDSSecurityGroups"></a>
 
 VPC security groups control the access that traffic has in and out of a DB instance . By default, network access is turned off for a DB instance . You can specify rules in a security group that allow access from an IP address range, port, or security group. After ingress rules are configured, the same rules apply to all DB instances that are associated with that security group. You can specify up to 20 rules in a security group.
 

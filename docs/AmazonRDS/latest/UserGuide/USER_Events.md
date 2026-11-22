@@ -1,7 +1,6 @@
 
 
 # Working with Amazon RDS event notification
-<a name="USER_Events"></a>
 
 Amazon RDS uses the Amazon Simple Notification Service (Amazon SNS) to provide notification when an Amazon RDS event occurs. These notifications can be in any notification form supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP endpoint. 
 

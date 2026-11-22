@@ -1,7 +1,6 @@
 
 
 # Granting SELECT or EXECUTE privileges to SYS objects
-<a name="Appendix.Oracle.CommonDBATasks.TransferPrivileges"></a>
 
 Usually you transfer privileges by using roles, which can contain many objects. To grant privileges to a single object, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.grant_sys_object`. The procedure grants only privileges that the master user has already been granted through a role or direct grant. 
 
@@ -21,7 +20,7 @@ For all parameter values, use uppercase unless you created the user with a case-
 
 The following example grants select privileges on an object named `V_$SESSION` to a user named `USER1`.
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.grant_sys_object(
         p_obj_name  => '{{V_$SESSION}}',
@@ -33,7 +32,7 @@ end;
 
 The following example grants select privileges on an object named `V_$SESSION` to a user named `USER1` with the grant option.
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.grant_sys_object(
         p_obj_name     => '{{V_$SESSION}}',
@@ -48,7 +47,7 @@ To be able to grant privileges on an object, your account must have those privil
 
 The following example grants the `SELECT_CATALOG_ROLE` and `EXECUTE_CATALOG_ROLE` to `USER1`. Since the `with admin option` is used, `USER1` can now grant access to SYS objects that have been granted to `SELECT_CATALOG_ROLE`. 
 
-```
+```sql
 GRANT SELECT_CATALOG_ROLE TO {{USER1}} WITH ADMIN OPTION; 
 GRANT EXECUTE_CATALOG_ROLE to {{USER1}} WITH ADMIN OPTION;
 ```

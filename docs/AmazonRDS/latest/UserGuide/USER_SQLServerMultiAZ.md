@@ -1,7 +1,6 @@
 
 
 # Multi-AZ deployments for Amazon RDS for Microsoft SQL Server
-<a name="USER_SQLServerMultiAZ"></a>
 
 Multi-AZ deployments provide increased availability, data durability, and fault tolerance for DB instances. In the event of planned database maintenance or unplanned service disruption, Amazon RDS automatically fails over to the up-to-date secondary DB instance. This functionality lets database operations resume quickly without manual intervention. The primary and standby instances use the same endpoint, whose physical network address transitions to the secondary replica as part of the failover process. You don't have to reconfigure your application when a failover occurs.
 

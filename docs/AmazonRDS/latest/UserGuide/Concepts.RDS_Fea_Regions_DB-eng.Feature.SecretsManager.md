@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for the Secrets Manager integration with Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.SecretsManager"></a>
 
 With AWS Secrets Manager, you can replace hard-coded credentials in your code, including database passwords, with an API call to Secrets Manager to retrieve the secret programmatically. For more information about Secrets Manager, see [AWS Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/).
 

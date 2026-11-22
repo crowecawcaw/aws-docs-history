@@ -1,7 +1,6 @@
 
 
 # Modifying settings for Provisioned IOPS SSD storage
-<a name="User_PIOPS.Increase"></a>
 
 You can modify the settings for a DB instance that uses Provisioned IOPS SSD storage by using the Amazon RDS console, AWS CLI, or Amazon RDS API. Specify the storage type, allocated storage, and the amount of Provisioned IOPS that you require. The range depends on your database engine and instance type.
 

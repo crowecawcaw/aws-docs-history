@@ -1,7 +1,6 @@
 
 
 # IO:BufFileRead and IO:BufFileWrite
-<a name="wait-event.iobuffile"></a>
 
 The `IO:BufFileRead` and `IO:BufFileWrite` events occur when RDS for PostgreSQL creates temporary files. When operations require more memory than the working memory parameters currently define, they write temporary data to persistent storage. This operation is sometimes called *spilling to disk*. For more information about the temporary files and their usage, see [Managing temporary files with PostgreSQL](PostgreSQL.ManagingTempFiles.md).
 

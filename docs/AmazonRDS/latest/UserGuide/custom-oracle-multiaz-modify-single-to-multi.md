@@ -1,7 +1,6 @@
 
 
 # Converting a Single-AZ deployment to a Multi-AZ deployment in RDS Custom for Oracle
-<a name="custom-oracle-multiaz-modify-single-to-multi"></a>
 
 **Note**  
 End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
@@ -49,7 +48,7 @@ If you choose to configure the prerequisites manually, perform the following tas
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -79,7 +78,7 @@ If you choose to configure the prerequisites manually, perform the following tas
 
 Update the **Instance profile** with permission to access Amazon SQS. Replace the `AWS partition`, `Region`, and `accountId` with your own values.
 
-```
+```json
 {
     "Sid": "13",
     "Effect": "Allow",

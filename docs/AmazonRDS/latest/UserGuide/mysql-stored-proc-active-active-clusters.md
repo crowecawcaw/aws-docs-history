@@ -1,11 +1,11 @@
 
 
 # Managing active-active clusters
-<a name="mysql-stored-proc-active-active-clusters"></a>
 
 The following stored procedures set up and manage RDS for MySQL active-active clusters. For more information, see [Configuring active-active clusters for RDS for MySQL](mysql-active-active-clusters.md).
 
 These stored procedures are only available with RDS for MySQL DB instances running the following versions:
++ All MySQL 9.7 versions
 + All MySQL 8.4 versions
 + MySQL 8.0.35 and higher minor versions
 
@@ -24,7 +24,7 @@ Creates placeholder GTIDs on the current DB instance.
 ### Syntax
 <a name="mysql_rds_group_replication_advance_gtid-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_group_replication_advance_gtid(
 {{begin_id}}
 , {{end_id}}
@@ -41,15 +41,17 @@ The start transaction ID to be created.
  {{end\_id}}   
 The end transaction ID to be created.
 
- {{begin\_id}}   
-The `group_replication_group_name` for the transaction to be created. The `group_replication_group_name` is specified as a UUID in the DB parameter group associated with the DB instance.
+ {{server\_uuid}}   
+The UUID of the GTIDs to create. The procedure creates the empty transactions {{server\_uuid}}:{{begin\_id}}-{{end\_id}}.
 
 ### Usage notes
 <a name="mysql_rds_group_replication_advance_gtid-usage-notes"></a>
 
-In an active-active cluster, for a DB instance to join a group, all GTID transactions executed on the new DB instance must exist on the other members in the cluster. In unusual cases, a new DB instance might have more transactions when transactions are executed before joining the instance to group. In this case, you can't remove any existing transactions, but you can use this procedure to create the corresponding placeholder GTIDs on the othe DB instances in the group. Before doing so, verify that the transactions *don't affect the replicated data*.
+In an active-active cluster, for a DB instance to join a group, all GTID transactions executed on the new DB instance must exist on the other members in the cluster. In unusual cases, a new DB instance might have more transactions when transactions are executed before joining the instance to group. In this case, you can't remove any existing transactions, but you can use this procedure to create the corresponding placeholder GTIDs on the other DB instances in the group. Before doing so, verify that the transactions *don't affect the replicated data*.
 
 When you call this procedure, GTID transactions of `server_uuid:begin_id-end_id` are created with empty content. To avoid replication issues, don't use this procedure under any other conditions.
+
+On RDS for MySQL 9.7, use this procedure to create placeholders for the local GTIDs that a new DB instance writes when it is created, before it joins the group. For the procedure, see [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md).
 
 **Important**  
 Avoid calling this procedure when the active-active cluster is functioning normally. Don't call this procedure unless you understand the possible consequences of the transactions you are creating. Calling this procedure might result in inconsistent data.
@@ -71,7 +73,7 @@ Creates the replication user `rdsgrprepladmin` for group replication on the DB i
 ### Syntax
 <a name="mysql_rds_group_replication_create_user-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_group_replication_create_user(
 {{replication_user_password}}
 );
@@ -105,7 +107,7 @@ Sets the `group_replication_recovery` channel for an active-active cluster. The 
 ### Syntax
 <a name="mysql_rds_group_replication_set_recovery_channel-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_group_replication_set_recovery_channel(
 {{replication_user_password}});
 ```
@@ -138,7 +140,7 @@ Starts group replication on the current DB instance.
 ### Syntax
 <a name="mysql_rds_group_replication_start-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_group_replication_start(
 {{bootstrap}}
 );
@@ -167,7 +169,7 @@ Stops group replication on the current DB instance.
 ### Syntax
 <a name="mysql_rds_group_replication_stop-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_group_replication_stop();
 ```
 

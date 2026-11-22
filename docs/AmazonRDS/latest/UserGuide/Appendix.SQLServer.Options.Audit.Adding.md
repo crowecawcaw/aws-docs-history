@@ -1,7 +1,6 @@
 
 
 # Adding SQL Server Audit to the DB instance options
-<a name="Appendix.SQLServer.Options.Audit.Adding"></a>
 
 Enabling SQL Server Audit requires two steps: enabling the option on the DB instance, and enabling the feature inside SQL Server. The process for adding the SQL Server Audit option to a DB instance is as follows: 
 

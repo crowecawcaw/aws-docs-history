@@ -1,7 +1,6 @@
 
 
 # Programmatic access to Amazon RDS
-<a name="ProgrammaticAccess"></a>
 
 Amazon RDS provides you with the following tools to manage your Amazon RDS resources programmatically.
 

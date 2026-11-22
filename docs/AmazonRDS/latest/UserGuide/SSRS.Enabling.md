@@ -1,7 +1,6 @@
 
 
 # Turning on SSRS or PBIRS
-<a name="SSRS.Enabling"></a>
 
 Use the following process to turn on SSRS or PBIRS for your DB instance:
 

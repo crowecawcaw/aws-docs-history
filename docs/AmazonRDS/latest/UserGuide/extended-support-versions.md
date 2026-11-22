@@ -1,7 +1,6 @@
 
 
 # Versions with Amazon RDS Extended Support
-<a name="extended-support-versions"></a>
 
 RDS Extended Support is only available for major versions. It isn't available for minor versions.
 

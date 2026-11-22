@@ -1,7 +1,6 @@
 
 
 # Setting up self-managed Active Directory
-<a name="db2-self-managed-active-directory.SettingUp"></a>
 
 To set up a self-managed AD, take the following steps.
 
@@ -105,7 +104,7 @@ The Delegation of Control Wizard does not expose the `servicePrincipalName` prop
 
 Replace {{service-account}} with the name of the AD domain service account you created in Step 2, and update the OU distinguished name to match the OU you created in Step 1.
 
-```
+```powershell
 $ou = "OU={{my-AD-test-OU}},DC={{my-AD-test}},DC={{my-AD}},DC={{my-domain}}"
 $user = Get-ADUser "{{service-account}}"
 $acl = Get-Acl "AD:\$ou"
@@ -130,7 +129,7 @@ Set-Acl "AD:\$ou" $acl
 
 To verify that the permissions applied correctly, run the following PowerShell script:
 
-```
+```powershell
 $acl = Get-Acl "AD:\$ou"
 $acl.Access | Where-Object { $_.IdentityReference -like "*{{service-account}}*" } | Format-List
 ```
@@ -173,7 +172,7 @@ For **Encryption Key**, don't use the AWS default KMS key. Be sure to create the
 
 1. For **Key policy**, include the following to the policy **Statement**:
 
-   ```
+   ```json
    {
        "Sid": "Allow use of the KMS key on behalf of RDS",
        "Effect": "Allow",
@@ -223,7 +222,7 @@ Be sure to create the secret in the same AWS account that contains the RDS for D
 **Note**  
 We recommend that you use the `aws:sourceAccount` and `aws:sourceArn` conditions in the policy to avoid the *confused deputy* problem. Use your AWS account for `aws:sourceAccount` and the RDS for Db2 DB instance ARN for `aws:sourceArn`. For more information, see [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md).
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",
        "Statement":

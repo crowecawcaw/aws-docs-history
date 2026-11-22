@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon RDS DB instance
-<a name="USER_CreateDBInstance"></a>
 
 The basic building block of Amazon RDS is the DB instance, where you create your databases. You choose the engine-specific characteristics of the DB instance when you create it. You also choose the storage capacity, CPU, memory, and so on of the AWS instance on which the database server runs.
 
@@ -88,7 +87,7 @@ To connect to your DB instance from resources other than EC2 instances in the sa
 
 By default, Amazon RDS creates the DB instance an Availability Zone automatically for you. To choose a specific Availability Zone, you need to change the **Availability & durability** setting to **Single DB instance**. Doing so exposes an **Availability Zone** setting that lets you choose from among the Availability Zones in your VPC. However, if you choose a Multi-AZ deployment, RDS chooses the Availability Zone of the primary or writer DB instance automatically, and the **Availability Zone** setting doesn't appear.
 
-In some cases, you might not have a default VPC or haven't created a VPC. In these cases, you can have Amazon RDS automatically create a VPC for you when you create a DB instance using the console. Otherwise, do the following:
+In some cases, you might not have a default VPC or haven't created a VPC. In these cases, you can have Amazon RDS automatically create a VPC for you when you create a DB instance using the console. If you use the AWS CLI or RDS API and don't specify a DB subnet group, RDS creates the DB instance in the default VPC for the AWS Region. If your account doesn't have a default VPC with default subnets in that Region, the request fails with an `InvalidSubnet` error that states `No default subnet detected in VPC`. To resolve this error, do one of the following: create a default VPC by running the `aws ec2 create-default-vpc` command; if a default VPC exists but its default subnets were deleted, create them by running the `aws ec2 create-default-subnet` command; or specify an existing DB subnet group by using the `--db-subnet-group-name` option. For more information, see [Create a default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-vpc) in the *Amazon VPC User Guide*. Otherwise, do the following:
 + Create a VPC with at least one subnet in each of at least two of the Availability Zones in the AWS Region where you want to deploy your DB instance. For more information, see [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md#Overview.RDSVPC.Create) and [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md).
 + Specify a VPC security group that authorizes connections to your DB instance. For more information, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup) and [Controlling access with security groups](Overview.RDSSecurityGroups.md).
 + Specify an RDS DB subnet group that defines at least two subnets in the VPC that can be used by the DB instance. For more information, see [Working with DB subnet groups](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Subnets).

@@ -1,7 +1,6 @@
 
 
 # Managing custom casts in RDS for PostgreSQL
-<a name="PostgreSQL.CustomCasts"></a>
 
 **Type casting** in PostgreSQL is the process of converting a value from one data type to another. PostgreSQL provides built-in casts for many common conversions, but you can also create custom casts to define how specific type conversions should behave.
 

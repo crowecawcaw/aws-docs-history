@@ -1,7 +1,6 @@
 
 
 # Using psql to connect to your RDS for PostgreSQL DB instance
-<a name="USER_ConnectToPostgreSQLInstance.psql"></a>
 
 You can use a local instance of the psql command line utility to connect to a RDS for PostgreSQL DB instance. You need either PostgreSQL or the psql client installed on your client computer. 
 

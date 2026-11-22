@@ -1,7 +1,6 @@
 
 
 # Functions and stored procedures for Amazon RDS for Microsoft SQL Server
-<a name="SQLServer.Concepts.General.StoredProcedures"></a>
 
 Following, you can find a list of the Amazon RDS functions and stored procedures that help automate SQL Server tasks. 
 

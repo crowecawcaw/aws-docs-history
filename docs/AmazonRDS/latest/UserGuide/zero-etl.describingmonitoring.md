@@ -1,7 +1,6 @@
 
 
 # Viewing and monitoring Amazon RDS zero-ETL integrations
-<a name="zero-etl.describingmonitoring"></a>
 
 You can view the details of an Amazon RDS zero-ETL integration to see its configuration information and current status. You can also monitor the status of your integration by querying specific system views in Amazon Redshift. In addition, Amazon Redshift publishes certain integration-related metrics to Amazon CloudWatch, which you can view within the Amazon Redshift console.
 

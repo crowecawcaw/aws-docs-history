@@ -1,7 +1,6 @@
 
 
 # Changing the `db_owner` to the `rdsa` account for your Amazon RDS for SQL Server database
-<a name="Appendix.SQLServer.CommonDBATasks.ChangeDBowner"></a>
 
 When you create or restore a database in an RDS for SQL Server DB instance, Amazon RDS sets the owner of the database to `rdsa`. If you have a Multi-AZ deployment using SQL Server Database Mirroring (DBM) or Always On Availability Groups (AGs), Amazon RDS sets the owner of the database on the secondary DB instance to `NT AUTHORITY\SYSTEM`. The owner of the secondary database can't be changed until the secondary DB instance is promoted to the primary role. In most cases, setting the owner of the database to `NT AUTHORITY\SYSTEM` isn't problematic when executing queries, however, can throw errors when executing system stored procedures such as `sys.sp_updatestats` that require elevated permissions to execute.
 

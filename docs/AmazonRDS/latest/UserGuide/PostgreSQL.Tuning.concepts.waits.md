@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL wait events
-<a name="PostgreSQL.Tuning.concepts.waits"></a>
 
 A *wait event* is an indication that the session is waiting for a resource. For example, the wait event `Client:ClientRead` occurs when RDS for PostgreSQL is waiting to receive data from the client. Sessions typically wait for resources such as the following.
 + Single-threaded access to a buffer, for example, when a session is attempting to modify a buffer

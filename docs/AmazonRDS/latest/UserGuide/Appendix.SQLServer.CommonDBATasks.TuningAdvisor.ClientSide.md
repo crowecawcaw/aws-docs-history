@@ -1,7 +1,6 @@
 
 
 # Running a client-side trace on a SQL Server DB instance
-<a name="Appendix.SQLServer.CommonDBATasks.TuningAdvisor.ClientSide"></a>
 
  **To run a client-side trace on a SQL Server DB instance** 
 

@@ -1,7 +1,6 @@
 
 
 # Modifying tempdb database options
-<a name="SQLServer.TempDB.Modifying"></a>
 
 You can modify the database options on the `tempdb` database on your Amazon RDS DB instances. For more information about which options can be modified, see [tempdb database](https://msdn.microsoft.com/en-us/library/ms190768%28v=sql.120%29.aspx) in the Microsoft documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up your environment for Amazon RDS Custom for SQL Server
-<a name="custom-setup-sqlserver"></a>
 
 Before you create and manage a DB instance for Amazon RDS Custom for SQL Server DB instance, make sure to perform the following tasks.
 
@@ -96,7 +95,7 @@ The following sample JSON policy grants the required permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -148,7 +147,7 @@ The IAM principal requires the following additional permissions to work with cus
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -593,7 +592,7 @@ For example, the following boundary policy restricts instance profile role to ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

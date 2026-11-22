@@ -1,7 +1,6 @@
 
 
 # Accessing MariaDB binary logs
-<a name="USER_LogAccess.MariaDB.Binarylog"></a>
 
 You can use the mysqlbinlog utility to download binary logs in text format from MariaDB DB instances. The binary log is downloaded to your local computer. For more information about using the mysqlbinlog utility, go to [Using mysqlbinlog](http://mariadb.com/kb/en/mariadb/using-mysqlbinlog/) in the MariaDB documentation.
 
@@ -46,12 +45,12 @@ Amazon RDS normally purges a binary log as soon as possible. However, the binary
 
 The following example sets the retention period to 1 day.
 
-```
+```sql
 call mysql.rds_set_configuration('binlog retention hours', 24); 
 ```
 
 To display the current setting, use the `mysql.rds_show_configuration` stored procedure.
 
-```
+```sql
 call mysql.rds_show_configuration; 
 ```

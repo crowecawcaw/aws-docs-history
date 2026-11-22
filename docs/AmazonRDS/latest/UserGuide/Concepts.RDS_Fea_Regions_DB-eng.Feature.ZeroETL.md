@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Amazon RDS zero-ETL integrations
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.ZeroETL"></a>
 
 RDS zero-ETL integrations is a fully managed solution for making transactional data available in Amazon Redshift or Amazon SageMaker after it's written to an Amazon RDS DB instance. For more information, see [Amazon RDS zero-ETL integrations](zero-etl.md).
 
@@ -16,47 +15,47 @@ RDS zero-ETL integrations is a fully managed solution for making transactional d
 The following Regions and engine versions are available for RDS for MySQL zero-ETL integrations with Amazon Redshift and Amazon SageMaker.
 
 
-| Region | Zero-ETL integration with Amazon Redshift for RDS for MySQL 8.4 | Zero-ETL integration with Amazon Redshift for RDS for MySQL 8.0 | Zero-ETL integration with Amazon SageMaker for RDS for MySQL 8.4 | Zero-ETL integration with Amazon SageMaker for RDS for MySQL 8.0 | 
-| --- | --- | --- | --- | --- | 
-| US East (N. Virginia) | All available versions | All available versions | All available versions | All available versions | 
-| US East (Ohio) | All available versions | All available versions | All available versions | All available versions | 
-| US West (N. California) | All available versions | All available versions | Not available | Not available | 
-| US West (Oregon) | All available versions | All available versions | All available versions | All available versions | 
-| Africa (Cape Town) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (Hong Kong) | All available versions | All available versions | All available versions | All available versions | 
-| Asia Pacific (Hyderabad) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (Jakarta) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (Malaysia) | Not available | Not available | Not available | Not available | 
-| Asia Pacific (Melbourne) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (Mumbai) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (New Zealand) | Not available | Not available | Not available | Not available | 
-| Asia Pacific (Osaka) | All available versions | All available versions | Not available | Not available | 
-| Asia Pacific (Seoul) | All available versions | All available versions | All available versions | All available versions | 
-| Asia Pacific (Singapore) | All available versions | All available versions | All available versions | All available versions | 
-| Asia Pacific (Sydney) | All available versions | All available versions | All available versions | All available versions | 
-| Asia Pacific (Taipei) | Not available | Not available | Not available | Not available | 
-| Asia Pacific (Thailand) | Not available | Not available | Not available | Not available | 
-| Asia Pacific (Tokyo) | All available versions | All available versions | All available versions | All available versions | 
-| Canada (Central) | All available versions | All available versions | All available versions | All available versions | 
-| Canada West (Calgary) | All available versions | All available versions | Not available | Not available | 
-| China (Beijing) | Not available | Not available | Not available | Not available | 
-| China (Ningxia) | Not available | Not available | Not available | Not available | 
-| Europe (Frankfurt) | All available versions | All available versions | All available versions | All available versions | 
-| Europe (Ireland) | All available versions | All available versions | All available versions | All available versions | 
-| Europe (London) | All available versions | All available versions | All available versions | All available versions | 
-| Europe (Milan) | All available versions | All available versions | Not available | Not available | 
-| Europe (Paris) | All available versions | All available versions | Not available | Not available | 
-| Europe (Spain) | All available versions | All available versions | Not available | Not available | 
-| Europe (Stockholm) | All available versions | All available versions | All available versions | All available versions | 
-| Europe (Zurich) | All available versions | All available versions | Not available | Not available | 
-| Israel (Tel Aviv) | All available versions | All available versions | Not available | Not available | 
-| Mexico (Central) | Not available | Not available | Not available | Not available | 
-| Mexico (Central) | Not available | Not available | Not available | Not available | 
-| Middle East (Bahrain) | All available versions | All available versions | Not available | Not available | 
-| Middle East (UAE) | All available versions | All available versions | Not available | Not available | 
-| South America (São Paulo) | All available versions | All available versions | All available versions | All available versions | 
-| AWS GovCloud (US-East) | Not available | Not available | Not available | Not available | 
-| AWS GovCloud (US-West) | Not available | Not available | Not available | Not available | 
+| Region | Zero-ETL integration with Amazon Redshift for RDS for MySQL 9.7 | Zero-ETL integration with Amazon Redshift for RDS for MySQL 8.4 | Zero-ETL integration with Amazon Redshift for RDS for MySQL 8.0 | Zero-ETL integration with Amazon SageMaker for RDS for MySQL 9.7 | Zero-ETL integration with Amazon SageMaker for RDS for MySQL 8.4 | Zero-ETL integration with Amazon SageMaker for RDS for MySQL 8.0 | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| US East (N. Virginia) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| US East (Ohio) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| US West (N. California) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| US West (Oregon) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Africa (Cape Town) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (Hong Kong) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Asia Pacific (Hyderabad) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (Jakarta) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (Malaysia) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Asia Pacific (Melbourne) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (Mumbai) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (New Zealand) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Asia Pacific (Osaka) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Asia Pacific (Seoul) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Asia Pacific (Singapore) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Asia Pacific (Sydney) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Asia Pacific (Taipei) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Asia Pacific (Thailand) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Asia Pacific (Tokyo) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Canada (Central) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Canada West (Calgary) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| China (Beijing) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| China (Ningxia) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Europe (Frankfurt) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Europe (Ireland) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Europe (London) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Europe (Milan) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Europe (Paris) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Europe (Spain) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Europe (Stockholm) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| Europe (Zurich) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Israel (Tel Aviv) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Mexico (Central) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Mexico (Central) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Middle East (Bahrain) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| Middle East (UAE) | All available versions | All available versions | All available versions | Not available | Not available | Not available | 
+| South America (São Paulo) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | 
+| AWS GovCloud (US-East) | Not available | Not available | Not available | Not available | Not available | Not available | 
+| AWS GovCloud (US-West) | Not available | Not available | Not available | Not available | Not available | Not available | 
 
 ## Zero-ETL integrations with RDS for PostgreSQL
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.ZeroETL.PostgreSQL"></a>

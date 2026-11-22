@@ -1,7 +1,6 @@
 
 
 # Administrative permissions on SSISDB
-<a name="SSIS.Permissions"></a>
 
 When the instance is created or modified with the SSIS option, the result is an SSISDB database with the ssis\_admin and ssis\_logreader roles granted to the master user. The master user has the following privileges in SSISDB:
 + alter on ssis\_admin role

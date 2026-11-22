@@ -1,7 +1,6 @@
 
 
 # Updating applications to connect to Microsoft SQL Server DB instances using new SSL/TLS certificates
-<a name="ssl-certificate-rotation-sqlserver"></a>
 
 As of January 13, 2023, Amazon RDS has published new Certificate Authority (CA) certificates for connecting to your RDS DB instances using Secure Socket Layer or Transport Layer Security (SSL/TLS). Following, you can find information about updating your applications to use the new certificates.
 
@@ -27,7 +26,7 @@ Check the DB instance configuration for the value of the `rds.force_ssl` paramet
 
 Run the following query to get the current encryption option for all the open connections to a DB instance. The column `ENCRYPT_OPTION` returns `TRUE` if the connection is encrypted.
 
-```
+```sql
 select SESSION_ID,
     ENCRYPT_OPTION,
     NET_TRANSPORT,

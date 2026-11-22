@@ -1,7 +1,6 @@
 
 
 # Application and workload considerations
-<a name="rds-proxy-best-practices.workload-considerations"></a>
 
 **Topics**
 + [Multi-tenant and multi-user environments](#rds-proxy-best-practices.multi-tenant)

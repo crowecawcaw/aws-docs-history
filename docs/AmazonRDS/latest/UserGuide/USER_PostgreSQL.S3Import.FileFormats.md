@@ -1,7 +1,6 @@
 
 
 # Importing data from Amazon S3 to your RDS for PostgreSQL DB instance
-<a name="USER_PostgreSQL.S3Import.FileFormats"></a>
 
 You import data from your Amazon S3 bucket by using the `table_import_from_s3` function of the aws\_s3 extension. For reference information, see [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3). 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting MSDTC for RDS for SQL Server
-<a name="Appendix.SQLServer.Options.MSDTC.Troubleshooting"></a>
 
 In some cases, you might have trouble establishing a connection between MSDTC running on a client computer and the MSDTC service running on an RDS for SQL Server DB instance. If so, make sure of the following:
 + The inbound rules for the security group associated with the DB instance are configured correctly. For more information, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting).

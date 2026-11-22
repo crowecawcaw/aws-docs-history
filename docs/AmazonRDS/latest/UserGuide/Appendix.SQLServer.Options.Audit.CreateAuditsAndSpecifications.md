@@ -1,7 +1,6 @@
 
 
 # Using SQL Server Audit
-<a name="Appendix.SQLServer.Options.Audit.CreateAuditsAndSpecifications"></a>
 
 You can control server audits, server audit specifications, and database audit specifications the same way that you control them for on-premises database servers.
 

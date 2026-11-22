@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using a Lambda function to access an Amazon RDS database
-<a name="rds-lambda-tutorial"></a>
 
 In this tutorial, you use a Lambda function to write data to an [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) (Amazon RDS) database through RDS Proxy. Your Lambda function reads records from an Amazon Simple Queue Service (Amazon SQS) queue and writes a new item to a table in your database whenever a message is added. In this example, you use the AWS Management Console to manually add messages to your queue. The following diagram shows the AWS resources you use to complete the tutorial.
 
@@ -149,7 +148,7 @@ The function also uses PyMySQL to add records to this table. The function adds r
 
 The code creates the connection to your database outside of the handler function. Creating the connection in the initialization code allows the connection to be re-used by subsequent invocations of your function and improves performance. In a production application, you can also use [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) to initialize a requested number of database connections. These connections are available as soon as your function is invoked.
 
-```
+```python
 import sys
 import logging
 import pymysql
@@ -294,7 +293,7 @@ You can now use the Lambda console to test your function. You create a test even
 
 1. Copy the following code into **Event JSON** and choose **Save**.
 
-   ```
+   ```json
    {
      "Records": [
        {

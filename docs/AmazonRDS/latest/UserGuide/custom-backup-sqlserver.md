@@ -1,7 +1,6 @@
 
 
 # Backing up and restoring an Amazon RDS Custom for SQL Server DB instance
-<a name="custom-backup-sqlserver"></a>
 
 Like Amazon RDS, RDS Custom creates and saves automated backups of your RDS Custom for SQL Server DB instance when backup retention is enabled. You can also back up your DB instance manually. The automated backups are comprised of snapshot backups and transaction log backups. Snapshot backups are taken for the entire storage volume of DB instance during your specified backup window. Transaction log backups are taken for the PITR-eligible databases on a regular interval period. RDS Custom saves the automated backups of your DB instance according to your specified backup retention period. You can use automated backups to recover your DB instance to a point in time within the backup retention period.
 

@@ -1,7 +1,6 @@
 
 
 # Changing the global name of a database
-<a name="Appendix.Oracle.CommonDBATasks.RenamingGlobalName"></a>
 
 To change the global name of a database, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.rename_global_name`. The `rename_global_name` procedure has the following parameters. 
 
@@ -15,6 +14,6 @@ The database must be open for the name change to occur. For more information abo
 
 The following example changes the global name of a database to `new_global_name`.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.rename_global_name(p_new_global_name => '{{new_global_name}}');
 ```

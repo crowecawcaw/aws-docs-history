@@ -1,7 +1,6 @@
 
 
 # Turning on query logging for your RDS for PostgreSQL DB instance
-<a name="USER_LogAccess.Concepts.PostgreSQL.Query_Logging"></a>
 
 You can collect more detailed information about your database activities, including queries, queries waiting for locks, checkpoints, and many other details by setting some of the parameters listed in the following table. This topic focuses on logging queries.
 

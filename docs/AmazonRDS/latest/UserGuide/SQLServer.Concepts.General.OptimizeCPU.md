@@ -1,7 +1,6 @@
 
 
 # Optimize CPUs for RDS for SQL Server instances
-<a name="SQLServer.Concepts.General.OptimizeCPU"></a>
 
 With RDS for SQL Server, you can use Optimize CPU to configure the vCPU count on your DB instance. This keeps the same memory, network, and storage performance. Windows Server and SQL Server licensing costs are based on vCPU count. Reducing the vCPU count reduces those costs. You can also achieve the memory-to-CPU ratio that your workload requires.
 

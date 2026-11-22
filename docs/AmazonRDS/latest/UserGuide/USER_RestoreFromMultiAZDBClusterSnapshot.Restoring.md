@@ -1,7 +1,6 @@
 
 
 # Restoring from a snapshot to a Multi-AZ DB cluster
-<a name="USER_RestoreFromMultiAZDBClusterSnapshot.Restoring"></a>
 
 You can restore a snapshot to a Multi-AZ DB cluster using the AWS Management Console, the AWS CLI, or the RDS API. You can restore each of these types of snapshots to a Multi-AZ DB cluster:
 + A snapshot of a Single-AZ deployment

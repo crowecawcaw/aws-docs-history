@@ -1,7 +1,6 @@
 
 
 # Working with RDS for Oracle replica backups
-<a name="oracle-read-replicas.backups"></a>
 
 You can create and restore backups of an RDS for Oracle replica. Both automatic backups and manual snapshots are supported. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md). The following sections describe the key differences between managing backups of a primary and an RDS for Oracle replica.
 

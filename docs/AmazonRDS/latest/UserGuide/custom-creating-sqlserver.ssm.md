@@ -1,7 +1,6 @@
 
 
 # Connecting to your RDS Custom DB instance using AWS Systems Manager
-<a name="custom-creating-sqlserver.ssm"></a>
 
 After you create your RDS Custom DB instance, you can connect to it using AWS Systems Manager Session Manager. Session Manager is a Systems Manager capability that you can use to manage Amazon EC2 instances through a browser-based shell or through the AWS CLI. For more information, see [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html).
 

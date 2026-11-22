@@ -1,7 +1,6 @@
 
 
 # Upgrading your CDB
-<a name="Oracle.Concepts.single-tenant.upgrades"></a>
 
 You can upgrade a CDB to a different Oracle Database release. For example, you can upgrade an Oracle Database 19c CDB to an Oracle Database 21c CDB. You can't change the database architecture during an upgrade. Thus, you can't upgrade a non-CDB to a CDB or upgrade a CDB to a non-CDB.
 

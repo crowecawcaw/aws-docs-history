@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle initialization parameters
-<a name="Oracle.Concepts.FeatureSupport.Parameters"></a>
 
 In Amazon RDS, you manage parameters using a DB parameter group. Using this group, you can customize initialization parameters. For example, you can configure the sort area size with `sort_area_size`. All RDS for Oracle DB instances associated with a specific DB parameter group use the same parameter settings. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using IAM authentication and the AWS SDK for .NET
-<a name="UsingWithRDS.IAMDBAuth.Connecting.NET"></a>
 
 You can connect to an RDS for MariaDB, MySQL, or PostgreSQL DB instance with the AWS SDK for .NET as described following.
 
@@ -31,7 +30,7 @@ This code connects to a MariaDB or MySQL DB instance. Modify the values of the f
 **Note**  
 You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
 
-```
+```net
 using System;
 using System.Data;
 using MySql.Data;
@@ -85,7 +84,7 @@ Modify the values of the following variables as needed:
 **Note**  
 You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
 
-```
+```net
 using System;
 using Npgsql;
 using Amazon.RDS.Util;

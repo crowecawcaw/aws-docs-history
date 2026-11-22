@@ -1,7 +1,6 @@
 
 
 # Canceling a task
-<a name="USER.SQLServer.AddlFeat.TransactionLogAccess.CancelTask"></a>
 
 To cancel a running task, call the `rds_cancel_task` stored procedure.
 

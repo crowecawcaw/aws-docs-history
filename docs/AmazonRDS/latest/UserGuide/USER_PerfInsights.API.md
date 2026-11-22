@@ -1,7 +1,6 @@
 
 
 # Retrieving metrics with the Performance Insights API for Amazon RDS
-<a name="USER_PerfInsights.API"></a>
 
 When you enable detailed per-query and database counter metrics, the API provides visibility into instance performance. Amazon CloudWatch Logs provides the authoritative source for vended monitoring metrics for AWS services.
 

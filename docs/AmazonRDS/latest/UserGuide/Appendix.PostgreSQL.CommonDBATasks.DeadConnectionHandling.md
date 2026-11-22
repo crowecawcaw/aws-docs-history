@@ -1,7 +1,6 @@
 
 
 # Dead connection handling in PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling"></a>
 
 Dead connections occur when a database session remains active on the server despite the client application having abandoned or terminated abnormally. This situation typically arises when client processes crash or terminate unexpectedly without properly closing their database connections or canceling ongoing requests.
 

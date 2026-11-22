@@ -1,7 +1,6 @@
 
 
 # Migrating Db2 data through Amazon S3 to Amazon RDS for Db2
-<a name="db2-migration-load-from-s3"></a>
 
 With this migration approach, you first save data from a single table into a data file that you place in an Amazon S3 bucket. Then, you use the [LOAD command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-load) to load the data from that data file into a table in your Amazon RDS for Db2 database. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md).
 

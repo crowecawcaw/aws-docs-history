@@ -1,7 +1,6 @@
 
 
 # Configuring delayed replication with MySQL
-<a name="USER_MySQL.Replication.ReadReplicas.DelayReplication"></a>
 
 You can use delayed replication as a strategy for disaster recovery. With delayed replication, you specify the minimum amount of time, in seconds, to delay replication from the source to the read replica. In the event of a disaster, such as a table deleted unintentionally, you complete the following steps to recover from the disaster quickly:
 + Stop replication to the read replica before the change that caused the disaster is sent to it.
@@ -13,12 +12,13 @@ You can use delayed replication as a strategy for disaster recovery. With delaye
 + Promote the read replica to be the new source DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md).
 
 **Note**  
-On RDS for MySQL 8.4, delayed replication is supported for MySQL 8.4.3 and higher. On RDS for MySQL 8.0, delayed replication is supported for MySQL 8.0.28 and higher. On RDS for MySQL 5.7, delayed replication is supported for MySQL 5.7.44 and higher.
+On RDS for MySQL 9.7, delayed replication is supported for all 9.7 versions. On RDS for MySQL 8.4, delayed replication is supported for MySQL 8.4.3 and higher. On RDS for MySQL 8.0, delayed replication is supported for MySQL 8.0.28 and higher. On RDS for MySQL 5.7, delayed replication is supported for MySQL 5.7.44 and higher.
 Use stored procedures to configure delayed replication. You can't configure delayed replication with the AWS Management Console, the AWS CLI, or the Amazon RDS API.
 You can use replication based on global transaction identifiers (GTIDs) in a delayed replication configuration for the following versions:  
 RDS for MySQL version 5.7.44 and higher 5.7 versions
 RDS for MySQL version 8.0.28 and higher 8.0 versions
 RDS for MySQL version 8.4.3 and higher 8.4 versions
+All RDS for MySQL 9.7 versions
 If you use GTID-based replication, use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid) stored procedure instead of the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until) stored procedure. For more information about GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md).
 
 **Topics**
@@ -40,7 +40,7 @@ To configure delayed replication for any future read replica created from a DB i
 
    For example, run the following stored procedure to specify that replication is delayed by at least one hour (3,600 seconds) for any read replica created from the current DB instance.
 
-   ```
+   ```sql
    call mysql.rds_set_configuration('target delay', 3600);
    ```
 **Note**  
@@ -61,7 +61,7 @@ To modify delayed replication for an existing read replica, run the [mysql.rds\_
 
    For example, run the following stored procedure to specify that replication to the read replica is delayed by at least one hour (3600 seconds).
 
-   ```
+   ```sql
    call mysql.rds_set_source_delay(3600);
    ```
 
@@ -80,7 +80,7 @@ After stopping replication to the read replica, you can start replication and th
 
    The following example initiates replication and replicates changes until it reaches location `120` in the `mysql-bin-changelog.000777` binary log file. In a disaster recovery scenario, assume that location `120` is just before the disaster.
 
-   ```
+   ```sql
    call mysql.rds_start_replication_until(
      'mysql-bin-changelog.000777',
      120);

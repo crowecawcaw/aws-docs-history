@@ -1,7 +1,6 @@
 
 
 # Collations supported in RDS for PostgreSQL
-<a name="PostgreSQL-Collations"></a>
 
 Collations are set of rules that determine how character strings stored in the database are sorted and compared. Collations play a fundamental role in the computer system and are included as part of the operating system. Collations change over time when new characters are added to languages or when ordering rules change.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring replication filters with MySQL
-<a name="USER_MySQL.Replication.ReadReplicas.ReplicationFilters"></a>
 
 You can use replication filters to specify which databases and tables are replicated with a read replica. Replication filters can include databases and tables in replication or exclude them from replication.
 

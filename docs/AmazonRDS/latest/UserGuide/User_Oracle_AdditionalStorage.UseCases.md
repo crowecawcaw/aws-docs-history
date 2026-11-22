@@ -1,7 +1,6 @@
 
 
 # Use cases for additional storage volumes in RDS for Oracle
-<a name="User_Oracle_AdditionalStorage.UseCases"></a>
 
 Additional storage volumes support various database management scenarios. The following sections describe common use cases and implementation approaches.
 

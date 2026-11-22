@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy
-<a name="inter-network-traffic-privacy"></a>
 
 Connections are protected both between Amazon RDS and on-premises applications and between Amazon RDS and other AWS resources within the same AWS Region.
 

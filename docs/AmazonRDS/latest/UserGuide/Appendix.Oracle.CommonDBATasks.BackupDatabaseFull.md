@@ -1,7 +1,6 @@
 
 
 # Performing a full database backup
-<a name="Appendix.Oracle.CommonDBATasks.BackupDatabaseFull"></a>
 
 You can perform a backup of all blocks of data files included in the backup using Amazon RDS procedure `rdsadmin.rdsadmin_rman_util.backup_database_full`.
 
@@ -29,7 +28,7 @@ Before running a backup, ensure the target directory exists. To create a directo
 
 The following example performs a full backup of the DB instance using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.backup_database_full(
         p_owner               => '{{SYS}}', 
@@ -44,6 +43,6 @@ END;
 
 To verify the backup completed and list the output files:
 
-```
+```sql
 SELECT FILENAME, FILESIZE FROM TABLE(rdsadmin.rds_file_util.listdir('MYDIRECTORY'));
 ```

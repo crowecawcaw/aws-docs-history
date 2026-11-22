@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon RDS for Db2 with Kerberos authentication
-<a name="db2-kerberos-connecting"></a>
 
 Use the following procedure to connect to your Amazon RDS for Db2 DB instance with Kerberos authentication.
 

@@ -1,7 +1,6 @@
 
 
 # Updating the VPC for a DB instance
-<a name="USER_VPC.VPC2VPC"></a>
 
 You can use the AWS Management Console to move your DB instance to a different VPC.
 

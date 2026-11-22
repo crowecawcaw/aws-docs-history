@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling restricted sessions
-<a name="Appendix.Oracle.CommonDBATasks.RestrictedSession"></a>
 
 To enable and disable restricted sessions, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.restricted_session`. The `restricted_session` procedure has the following parameters. 
 
@@ -13,7 +12,7 @@ To enable and disable restricted sessions, use the Amazon RDS procedure `rdsadmi
 
 The following example shows how to enable and disable restricted sessions. 
 
-```
+```sql
 /* Verify that the database is currently unrestricted. */
 
 SELECT LOGINS FROM V$INSTANCE;

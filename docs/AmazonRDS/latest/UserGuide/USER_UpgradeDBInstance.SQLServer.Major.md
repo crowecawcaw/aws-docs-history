@@ -1,7 +1,6 @@
 
 
 # Major version upgrades for RDS for SQL Server
-<a name="USER_UpgradeDBInstance.SQLServer.Major"></a>
 
 Amazon RDS currently supports the following major version upgrades to a Microsoft SQL Server DB instance.
 
@@ -66,6 +65,6 @@ You can use Microsoft SQL Server database compatibility levels to adjust some da
 
 You can change the compatibility level of a database by using the ALTER DATABASE command. For example, to change a database named `customeracct` to be compatible with SQL Server 2016, issue the following command: 
 
-```
+```sql
 1. ALTER DATABASE customeracct SET COMPATIBILITY_LEVEL = 130
 ```

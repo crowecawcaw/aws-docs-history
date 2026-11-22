@@ -1,7 +1,6 @@
 
 
 # Configuring your database to monitor slow SQL queries with Database Insights for Amazon RDS
-<a name="USER_DatabaseInsights.SlowSQL"></a>
 
 To monitor slow SQL queries for your database, you can use the **Slow SQL Queries** section in the Database Insights dashboard. Before configuring your database to monitor slow SQL queries, the **Slow SQL Queries** section is blank.
 

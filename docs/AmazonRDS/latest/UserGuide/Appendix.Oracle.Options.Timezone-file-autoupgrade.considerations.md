@@ -1,7 +1,6 @@
 
 
 # Downtime during the time zone file update
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade.considerations"></a>
 
 When RDS updates your time zone file, existing data that uses `TIMESTAMP WITH TIME ZONE` might change. In this case, your primary consideration is downtime.
 

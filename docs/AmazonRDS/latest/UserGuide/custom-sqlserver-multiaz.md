@@ -1,7 +1,6 @@
 
 
 # Managing a Multi-AZ deployment for RDS Custom for SQL Server
-<a name="custom-sqlserver-multiaz"></a>
 
  In a Multi-AZ DB instance deployment for RDS Custom for SQL Server, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone (AZ). The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy.
 

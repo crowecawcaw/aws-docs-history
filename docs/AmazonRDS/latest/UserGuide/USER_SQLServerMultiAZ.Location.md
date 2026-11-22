@@ -1,7 +1,6 @@
 
 
 # Determining the location of the secondary
-<a name="USER_SQLServerMultiAZ.Location"></a>
 
 You can determine the location of the secondary replica by using the AWS Management Console. You need to know the location of the secondary if you are setting up your primary DB instance in a VPC. 
 

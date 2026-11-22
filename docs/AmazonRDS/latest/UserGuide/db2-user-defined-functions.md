@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Db2 user-defined function reference
-<a name="db2-user-defined-functions"></a>
 
 The following user-defined functions are available for Amazon RDS DB instances running the Db2 engine. 
 
@@ -37,7 +36,7 @@ The ID of the task being run. This ID is returned when you run a task. Default: 
 The name of the database for which the task is being run.
 
 {{task\_type}}  
-The type of the task to query. Valid values: `ADD_GROUPS`, `ADD_USER`, `ALTER_BUFFERPOOL`, `ALTER_TABLESPACE`, `CHANGE_PASSWORD`, `COMPLETE_ROLLFORWARD`, `CREATE_BUFFERPOOL`, `CREATE_DATABASE`, `CREATE_ROLE`, `CREATE_TABLESPACE`, `DROP_BUFFERPOOL`, `DROP_DATABASE`, `DROP_TABLESPACE`, `LIST_USERS`, `REMOVE_GROUPS`, `REMOVE_USER`, `RESTORE_DB`, `ROLLFORWARD_DB_LOG`, `ROLLFORWARD_STATUS`, `UPDATE_DB_PARAM`.
+The type of the task to query. Valid values: `ADD_GROUPS`, `ADD_USER`, `ALTER_BUFFERPOOL`, `ALTER_TABLESPACE`, `CHANGE_PASSWORD`, `COMPLETE_ROLLFORWARD`, `CREATE_BUFFERPOOL`, `CREATE_DATABASE`, `CREATE_ROLE`, `CREATE_TABLESPACE`, `DROP_BUFFERPOOL`, `DROP_DATABASE`, `DROP_TABLESPACE`, `LIST_USERS`, `REMOVE_GROUPS`, `REMOVE_USER`, `RENAME_DB`, `RESTORE_DB`, `ROLLFORWARD_DB_LOG`, `ROLLFORWARD_STATUS`, `UPDATE_DB_PARAM`.
 
 ### Usage notes
 <a name="db2-udf-get-task-status-usage-notes"></a>
@@ -133,6 +132,7 @@ Depends on the input parameters.
 + `LIST_USERS` – Lists all users.
 + `REMOVE_GROUPS` – Removes groups.
 + `REMOVE_USER` – Removes a user.
++ `RENAME_DB` – Renames a database.
 + `RESTORE_DB` – Restores a full database.
 + `ROLLFORWARD_DB_LOG` – Performs an `rdsadmin.rollforward_database` task on database logs.
 + `ROLLFORWARD_STATUS `– Returns the status of an `rdsadmin.rollforward_database` task.

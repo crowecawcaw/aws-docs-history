@@ -1,7 +1,6 @@
 
 
 # Reestablishing logical replication after a major upgrade
-<a name="Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade"></a>
 
 Whether a major version upgrade keeps your logical replication configuration depends on the PostgreSQL major version that you upgrade from.
 

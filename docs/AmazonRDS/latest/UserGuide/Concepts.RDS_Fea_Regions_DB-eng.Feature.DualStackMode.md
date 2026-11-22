@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for dual-stack mode in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.DualStackMode"></a>
 
 By using dual-stack mode in RDS, resources can communicate with a DB instance over Internet Protocol version 4 (IPv4), Internet Protocol version 6 (IPv6), or both. For more information, see [Dual-stack mode](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.IP_addressing.dual-stack-mode).
 

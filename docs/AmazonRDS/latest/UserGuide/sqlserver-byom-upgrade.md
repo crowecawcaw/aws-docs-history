@@ -1,7 +1,6 @@
 
 
 # Upgrading a BYOM DB instance for RDS for SQL Server
-<a name="sqlserver-byom-upgrade"></a>
 
 You can apply minor engine version upgrades to your BYOM DB instances on RDS for SQL Server. Minor version upgrades include Microsoft cumulative updates that contain security patches, bug fixes, and performance improvements.
 
@@ -32,7 +31,7 @@ Before you upgrade, identify which engine versions are available as valid upgrad
 
 Use the [describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html) command to list valid minor version upgrade targets.
 
-```
+```bash
 aws rds describe-db-engine-versions \
     --engine sqlserver-ee \
     --engine-version 17.00.4075.5.v1 \
@@ -43,7 +42,7 @@ aws rds describe-db-engine-versions \
 
 The output looks like the following.
 
-```
+```json
 [
     {
         "Engine": "sqlserver-ee",
@@ -62,7 +61,7 @@ The output shows that you can upgrade from `17.00.4075.5.v1` to `17.00.5005.3.v1
 
 Use the [Get-RDSDBEngineVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-RDSDBEngineVersion.html) cmdlet to list valid minor version upgrade targets.
 
-```
+```powershell
 (Get-RDSDBEngineVersion `
     -Engine sqlserver-ee `
     -EngineVersion 17.00.4075.5.v1 `
@@ -110,7 +109,7 @@ Before you initiate a version upgrade, take a manual snapshot. Amazon RDS create
 
 Use the [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command.
 
-```
+```bash
 aws rds modify-db-instance \
     --db-instance-identifier {{my-byom-instance}} \
     --engine-version 17.00.5005.3.v1 \
@@ -123,7 +122,7 @@ aws rds modify-db-instance \
 
 Use the [Edit-RDSDBInstance](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-RDSDBInstance.html) cmdlet.
 
-```
+```powershell
 Edit-RDSDBInstance `
     -DBInstanceIdentifier {{my-byom-instance}} `
     -EngineVersion 17.00.5005.3.v1 `
@@ -158,7 +157,7 @@ Under **Configuration**, confirm that **Engine version** shows the target versio
 
 Use the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) command.
 
-```
+```bash
 aws rds describe-db-instances \
     --db-instance-identifier {{my-byom-instance}} \
     --query "DBInstances[*].[DBInstanceIdentifier,EngineVersion,DBInstanceStatus,LicenseModel]" \
@@ -167,7 +166,7 @@ aws rds describe-db-instances \
 
 The output looks like the following.
 
-```
+```json
 [
     [
         "my-byom-instance",
@@ -183,7 +182,7 @@ The output looks like the following.
 
 Use the [Get-RDSDBInstance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-RDSDBInstance.html) cmdlet.
 
-```
+```powershell
 Get-RDSDBInstance `
     -DBInstanceIdentifier {{my-byom-instance}} `
     -Region {{us-west-2}} |
@@ -228,7 +227,7 @@ You must have a BYOM engine version in `available` status for the instance's cur
 
 Use the [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command to change the license model.
 
-```
+```bash
 aws rds modify-db-instance \
     --db-instance-identifier {{my-li-instance}} \
     --license-model bring-your-own-media \
@@ -241,7 +240,7 @@ aws rds modify-db-instance \
 
 Use the [Edit-RDSDBInstance](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-RDSDBInstance.html) cmdlet to change the license model.
 
-```
+```powershell
 Edit-RDSDBInstance `
     -DBInstanceIdentifier {{my-li-instance}} `
     -LicenseModel bring-your-own-media `

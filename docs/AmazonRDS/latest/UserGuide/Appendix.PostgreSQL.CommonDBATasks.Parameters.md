@@ -1,7 +1,6 @@
 
 
 # Working with parameters on your RDS for PostgreSQL DB instance
-<a name="Appendix.PostgreSQL.CommonDBATasks.Parameters"></a>
 
 In some cases, you might create an RDS for PostgreSQL DB instance without specifying a custom parameter group. If so, your DB instance is created using the default parameter group for the version of PostgreSQL that you choose. For example, suppose that you create an RDS for PostgreSQL DB instance using PostgreSQL 13.3. In this case, the DB instance is created using the values in the parameter group for PostgreSQL 13 releases, `default.postgres13`. 
 
@@ -9,7 +8,7 @@ You can also create your own custom DB parameter group. You need to do this if y
 
 You can track the settings on your RDS for PostgreSQL DB instance in several different ways. You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API. You can also query the values from the PostgreSQL `pg_settings` table of your instance, as shown following. 
 
-```
+```sql
 SELECT name, setting, boot_val, reset_val, unit
  FROM pg_settings
  ORDER BY name;

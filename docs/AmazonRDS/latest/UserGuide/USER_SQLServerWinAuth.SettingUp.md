@@ -1,7 +1,6 @@
 
 
 # Setting up Windows Authentication for SQL Server DB instances
-<a name="USER_SQLServerWinAuth.SettingUp"></a>
 
 You use AWS Directory Service for Microsoft Active Directory, also called AWS Managed Microsoft AD, to set up Windows Authentication for a SQL Server DB instance. To set up Windows Authentication, take the following steps. 
 
@@ -91,7 +90,7 @@ The following IAM policy, `AmazonRDSDirectoryServiceAccess`, provides access to 
 **Example IAM policy for providing access to Directory Service**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -120,7 +119,7 @@ In the trust relationship, make sure to use the `aws:SourceArn` global condition
 **Example trust relationship with global condition context key for Windows Authentication**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ The following JSON example shows a trust policy that uses a Region-specific serv
 
 **Example Region-specific service principal trust policy for Windows Authentication**  
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [

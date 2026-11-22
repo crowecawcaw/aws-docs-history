@@ -1,7 +1,6 @@
 
 
 # Setting up Kerberos authentication for Amazon RDS for Db2 DB instances
-<a name="db2-kerberos-setting-up"></a>
 
 You use AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to set up Kerberos authentication for an RDS for Db2 DB instance. To set up Kerberos authentication, follow these steps:
 
@@ -114,7 +113,7 @@ As an alternative to using the `AmazonRDSDirectoryServiceAccess` managed policy,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -142,7 +141,7 @@ The role must also have the following IAM role policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

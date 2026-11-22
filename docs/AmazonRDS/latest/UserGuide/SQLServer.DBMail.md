@@ -1,7 +1,6 @@
 
 
 # Using Database Mail on Amazon RDS for SQL Server
-<a name="SQLServer.DBMail"></a>
 
 You can use Database Mail to send email messages to users from your Amazon RDS on SQL Server database instance. The messages can contain files and query results. Database Mail includes the following components:
 + **Configuration and security objects** – These objects create profiles and accounts, and are stored in the `msdb` database.

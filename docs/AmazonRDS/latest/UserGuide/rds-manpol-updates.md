@@ -1,7 +1,6 @@
 
 
 # Amazon RDS updates to AWS managed policies
-<a name="rds-manpol-updates"></a>
 
 View details about updates to AWS managed policies for Amazon RDS since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the Amazon RDS [Document history](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/WhatsNew.html) page.
 

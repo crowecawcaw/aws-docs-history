@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon RDS DB instance
-<a name="CHAP_CommonTasks.Connect"></a>
 
  Before you can connect to a DB instance, you must create the DB instance. For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md). After Amazon RDS provisions your DB instance, use any standard client application or utility for your DB engine to connect to the DB instance. In the connection string, specify the DNS address from the DB instance endpoint as the host parameter. Also, specify the port number from the DB instance endpoint as the port parameter. 
 

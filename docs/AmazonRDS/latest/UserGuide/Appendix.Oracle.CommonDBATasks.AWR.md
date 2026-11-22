@@ -1,7 +1,6 @@
 
 
 # Generating performance reports with Automatic Workload Repository (AWR)
-<a name="Appendix.Oracle.CommonDBATasks.AWR"></a>
 
 To gather performance data and generate reports, Oracle recommends Automatic Workload Repository (AWR). AWR requires Oracle Database Enterprise Edition and a license for the Diagnostics and Tuning packs. To enable AWR, set the `CONTROL_MANAGEMENT_PACK_ACCESS` initialization parameter to either `DIAGNOSTIC` or `DIAGNOSTIC+TUNING`. 
 
@@ -66,13 +65,13 @@ To generate an AWR report, use the `rdsadmin.rdsadmin_diagnostic_util.awr_report
 
 To find valid snapshot IDs for your AWR report, run the following query:
 
-```
+```sql
 SELECT SNAP_ID, BEGIN_INTERVAL_TIME, END_INTERVAL_TIME FROM DBA_HIST_SNAPSHOT ORDER BY SNAP_ID DESC FETCH FIRST 10 ROWS ONLY;
 ```
 
 The following example generates a AWR report for the snapshot range 101–106. The output text file is named `awrrpt_101_106.txt`. You can access this report from the AWS Management Console. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_diagnostic_util.awr_report(101,106,'TEXT');
 ```
 
@@ -89,7 +88,7 @@ To extract AWR data into a dump file, use the `rdsadmin.rdsadmin_diagnostic_util
 
 The following example extracts the snapshot range 101–106. The output dump file is named `awrextract_101_106.dmp`. You can access this file through the console.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_diagnostic_util.awr_extract(101,106);
 ```
 
@@ -106,7 +105,7 @@ To generate an ADDM report, use the `rdsadmin.rdsadmin_diagnostic_util.addm_repo
 
 The following example generates an ADDM report for the snapshot range 101–106. The output text file is named `addmrpt_101_106.txt`. You can access the report through the console.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_diagnostic_util.addm_report(101,106);
 ```
 
@@ -123,7 +122,7 @@ To generate an ASH report, use the `rdsadmin.rdsadmin_diagnostic_util.ash_report
 
 The following example generates an ASH report that includes the data from 14 minutes ago until the current time. The name of the output file uses the format `ashrpt{{begin_time}}{{end_time}}.txt`, where `{{begin_time}}` and `{{end_time}}` use the format `YYYYMMDDHH24MISS`. You can access the file through the console.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_diagnostic_util.ash_report(
         begin_time     =>     SYSDATE-14/1440,

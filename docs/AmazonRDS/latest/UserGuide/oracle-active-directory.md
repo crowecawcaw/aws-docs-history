@@ -1,7 +1,6 @@
 
 
 # Kerberos authentication with Active Directory with Amazon RDS for Oracle
-<a name="oracle-active-directory"></a>
 
 You can use Kerberos authentication to authenticate users when they connect to your Amazon RDS for Oracle DB instance. In this configuration, your DB instance works with Active Directory. When users authenticate with an RDS for Oracle DB instance joined to a domain, authentication requests are forwarded to the directory that the DB instance is joined to: either a directory that you create with Directory Service, or your self-managed Active Directory domain.
 

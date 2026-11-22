@@ -1,7 +1,6 @@
 
 
 # Monitoring MariaDB read replicas
-<a name="USER_MariaDB.Replication.ReadReplicas.Monitor"></a>
 
 For MariaDB read replicas, you can monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS `ReplicaLag` metric. The `ReplicaLag` metric reports the value of the `Seconds_Behind_Master` field of the `SHOW REPLICA STATUS` command. 
 

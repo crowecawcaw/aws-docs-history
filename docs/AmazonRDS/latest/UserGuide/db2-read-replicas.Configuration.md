@@ -1,7 +1,6 @@
 
 
 # Preparing to create an RDS for Db2 replica
-<a name="db2-read-replicas.Configuration"></a>
 
 Before creating an RDS for Db2 replica, you must complete the following tasks for successful replication. These tasks help prevent common issues and ensure optimal performance.
 

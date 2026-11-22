@@ -1,7 +1,6 @@
 
 
 # Working with tempfiles in RDS for Oracle
-<a name="Appendix.Oracle.CommonDBATasks.using-tempfiles"></a>
 
 ## Adding a tempfile to the instance store on a read replica
 <a name="Appendix.Oracle.CommonDBATasks.adding-tempfile-replica"></a>
@@ -20,7 +19,7 @@ You can add a tempfile to the empty temporary tablespace, and store the tempfile
 
 In the following example, the empty temporary tablespace {{temp01}} exists on your read replica. Run the following command to create a tempfile for this tablespace, and store it in the instance store.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.add_inst_store_tempfile(p_tablespace_name => '{{temp01}}');
 ```
 

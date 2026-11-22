@@ -1,7 +1,6 @@
 
 
 # Reserved DB instances for Amazon RDS
-<a name="USER_WorkingWithReservedDBInstances"></a>
 
 Using reserved DB instances, you can reserve a DB instance for a one- or three-year term. Reserved DB instances provide you with a significant discount compared to on-demand DB instance pricing. Reserved DB instances are not physical instances, but rather a billing discount applied to the use of certain on-demand DB instances in your account. Discounts for reserved DB instances are tied to instance type and AWS Region.
 
@@ -72,7 +71,7 @@ Size-flexible reserved DB instances are available for the following Amazon RDS d
 + RDS for Oracle, Bring Your Own License
 + RDS for PostgreSQL
 
-Size flexibility does not apply to RDS for SQL Server and RDS for Oracle License Included.
+**Size flexibility does not apply to RDS for SQL Server and RDS for Oracle License Included.**
 
 For details about using size-flexible reserved instances with Aurora, see [Reserved DB instances for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithReservedDBInstances.html). 
 

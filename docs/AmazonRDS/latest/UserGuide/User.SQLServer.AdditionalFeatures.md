@@ -1,7 +1,6 @@
 
 
 # Additional features for Microsoft SQL Server on Amazon RDS
-<a name="User.SQLServer.AdditionalFeatures"></a>
 
 In the following sections, you can find information about augmenting Amazon RDS instances running the Microsoft SQL Server DB engine.
 

@@ -1,10 +1,9 @@
 
 
 # RDS Custom for Oracle end of support
-<a name="RDS-Custom-for-Oracle-end-of-support"></a>
 
 **Note**  
-End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](#RDS-Custom-for-Oracle-end-of-support).
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
 
 ## Overview
 <a name="RDS-Custom-for-Oracle-end-of-support-overview"></a>
@@ -185,7 +184,7 @@ Before starting either migration option, complete the following prerequisite ste
    The directory structure depends on your database architecture:  
 **Example For Non-CDB:**  
 
-   ```
+   ```sh
    # Non-CDB directories
    mkdir -p /u01/app/oracle/oradata/ORCL/controlfile/
    mkdir -p /u01/app/oracle/oradata/ORCL/datafile
@@ -200,7 +199,7 @@ Before starting either migration option, complete the following prerequisite ste
    ```  
 **Example For Multitenant (CDB with PDBs)**  
 
-   ```
+   ```sh
    # CDB directories
    mkdir -p /u01/app/oracle/oradata/ORCL/controlfile/
    mkdir -p /u01/app/oracle/oradata/ORCL/cdb/datafile
@@ -229,7 +228,7 @@ Before starting the migration, verify your source database configuration:
 1. Log in to the RDS Custom database host as the rdsdb user and set the environment:  
 **Example**  
 
-   ```
+   ```sh
    # For non-CDB
    export ORACLE_HOME=/rdsdbbin/oracle.19.custom.r1.EE.1
    export ORACLE_SID=ORCL
@@ -244,7 +243,7 @@ Before starting the migration, verify your source database configuration:
 1. Connect to the database and check the architecture:  
 **Example**  
 
-   ```
+   ```sh
    sqlplus / as sysdba
    SQL> SELECT name, cdb, open_mode, log_mode FROM v$database;
    ```  
@@ -406,7 +405,7 @@ Pause the automation mode on your RDS Custom instance before proceeding with the
 
 **Example**  
 
-```
+```sh
 aws rds modify-db-instance \
 --db-instance-identifier my-custom-instance \
 --automation-mode all-paused \
@@ -419,7 +418,7 @@ Validate the automation status:
 
 **Example**  
 
-```
+```sh
 aws ds describe-db-instances \
 --db-instance-identifier my-custom-instance \
 --region us-east-1 \
@@ -435,7 +434,7 @@ Create a password file using `orapwd`. Retrieve the SYS password from AWS Secret
 
 **Example**  
 
-```
+```sh
 # Non-CDB
 $ORACLE_HOME/bin/orapwd file=/rdsdbdata/config/orapwORCL password={{<SYS_PASSWORD>}} entries=10
 # Multitenant
@@ -446,7 +445,7 @@ Create a parameter file from the source database:
 
 **Example**  
 
-```
+```sh
 sqlplus / as sysdba
 SQL> CREATE PFILE='/tmp/initORCL.ora' FROM SPFILE; -- Non-CDB
 SQL> CREATE PFILE='/tmp/initRDSCDB.ora' FROM SPFILE; -- Multitenant
@@ -470,7 +469,7 @@ Choose your preferred file transfer method. This guidance uses Amazon S3 for exa
 
 **Example For Non-CDB:**  
 
-```
+```sh
 # Copy files to Amazon S3 from the RDS Custom instance
 aws s3 cp /tmp/initORCL.ora s3://{{<YOUR_BUCKET>}}/
 aws s3 cp /rdsdbdata/config/orapwORCL s3://{{<YOUR_BUCKET>}}/
@@ -481,7 +480,7 @@ aws s3 cp s3://{{<YOUR_BUCKET>}}/orapwORCL $ORACLE_HOME/dbs/
 
 **Example For Multitenant**  
 
-```
+```sh
 # Copy files to Amazon S3 from the RDS Custom instance
 aws s3 cp /tmp/initRDSCDB.ora s3://{{<YOUR_BUCKET>}}/
 aws s3 cp /rdsdbdata/config/orapwRDSCDB s3://{{<YOUR_BUCKET>}}/
@@ -494,7 +493,7 @@ Validate the files on EC2:
 
 **Example**  
 
-```
+```sh
 ls -l $ORACLE_HOME/dbs/initORCL.ora
 ls -l $ORACLE_HOME/dbs/orapwORCL
 ```
@@ -567,14 +566,14 @@ The `DB_FILE_NAME_CONVERT` and `LOG_FILE_NAME_CONVERT` parameters are critical f
 
 **Example Non-CDB:**  
 
-```
+```sh
 *.DB_FILE_NAME_CONVERT='/rdsdbdata/db/ORCL_A/datafile/','/u01/app/oracle/oradata/ORCL/datafile/'
 *.LOG_FILE_NAME_CONVERT='/rdsdbdata/db/ORCL_A/onlinelog/','/u01/app/oracle/oradata/ORCL/onlinelog/'
 ```
 
 **Example **Multitenant** (must include mappings for CDB root, `PDB$SEED`, and all PDB paths):**  
 
-```
+```sh
 *.DB_FILE_NAME_CONVERT='/rdsdbdata/db/cdb/RDSCDB/datafile/','/u01/app/oracle/oradata/ORCL/cdb/datafile/','/rdsdbdata/db/cdb/pdbseed/','/u01/app/oracle/oradata/ORCL/pdbseed/datafile/','/rdsdbdata/db/pdb/RDSCDB_A/','/u01/app/oracle/oradata/ORCL/pdb/datafile/'
  *.LOG_FILE_NAME_CONVERT='/rdsdbdata/db/cdb/RDSCDB_A/onlinelog/','/u01/app/oracle/oradata/ORCL/onlinelog/'
 ```
@@ -585,7 +584,7 @@ The `DB_FILE_NAME_CONVERT` and `LOG_FILE_NAME_CONVERT` parameters are critical f
 
 **Example Non-CDB parameter file (`initORCL.ora`):**  
 
-```
+```sh
 ORCL.__data_transfer_cache_size=0
 ORCL.__db_cache_size=6039797760
 ORCL.__inmemory_ext_roarea=0
@@ -632,7 +631,7 @@ ORCL.__unified_pga_pool_size=0
 
 **Example Multitenant parameter file (`initORCL.ora`):**  
 
-```
+```sh
 ORCL.__data_transfer_cache_size=0
 ORCL.__db_cache_size=6006243328
 ORCL.__inmemory_ext_roarea=0
@@ -711,28 +710,28 @@ On both instances, add TNS entries to `tnsnames.ora`:
 
 **Example Non-CDB:**  
 
-```
+```sh
 DB_SOURCE = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {{<RDS_CUSTOM_IP>}})(PORT = 1521)) (CONNECT_DATA = (SID = ORCL)))
 DB_TARGET = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {{<EC2_IP>}})(PORT = 1521)) (CONNECT_DATA = (SID = ORCL)))
 ```
 
 **Example Multitenant:**  
 
-```
+```sh
 DB_SOURCE = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {{<RDS_CUSTOM_IP>}})(PORT = 1521)) (CONNECT_DATA = (SID = RDSCDB)))
 DB_TARGET = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {{<EC2_IP>}})(PORT = 1521)) (CONNECT_DATA = (SID = ORCL)))
 ```
 
 **Example Configure listener on EC2 (`$ORACLE_HOME/network/admin/listener.ora`):**  
 
-```
+```sh
 LISTENER = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = {{<EC2_IP>}})(PORT = 1521)))
 SID_LIST_LISTENER = (SID_LIST = (SID_DESC = (GLOBAL_DBNAME = ORCL) (ORACLE_HOME = /u01/app/oracle/product/19.0.0/dbhome_1) (SID_NAME = ORCL)))
 ```
 
 **Example Start listener:**  
 
-```
+```sh
 lsnrctl start
 ```
 
@@ -744,7 +743,7 @@ For RMAN active duplication, the TNS entries connect to the database instance us
 
 **Example**  
 
-```
+```sh
 export ORACLE_SID=ORCL
 export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
 export PATH=$ORACLE_HOME/bin:$PATH
@@ -756,7 +755,7 @@ SQL> STARTUP NOMOUNT PFILE='$ORACLE_HOME/dbs/initORCL.ora';
 
 **Example Verify parameters:**  
 
-```
+```sh
 SQL> SHOW PARAMETER db_name
 SQL> SHOW PARAMETER control_files
 SQL> SHOW PARAMETER enable_pluggable_database -- For multitenant
@@ -771,13 +770,13 @@ Connect RMAN to both the source and target instances:
 
 **Example**  
 
-```
+```sh
 rman target sys/{{<password>}}@DB_SOURCE auxiliary sys/{{<password>}}@DB_TARGET
 ```
 
 **Example Expected output for non-CDB:**  
 
-```
+```sh
 Recovery Manager: Release 19.0.0.0.0 - Production
 connected to target database: ORCL (DBID=4089929259)
 connected to auxiliary database: ORCL (not mounted)
@@ -785,7 +784,7 @@ connected to auxiliary database: ORCL (not mounted)
 
 **Example Expected output for multitenant:**  
 
-```
+```sh
 Recovery Manager: Release 19.0.0.0.0 - Production
 connected to target database: RDSCDB (DBID=4089929259)
 connected to auxiliary database: ORCL (not mounted)
@@ -793,7 +792,7 @@ connected to auxiliary database: ORCL (not mounted)
 
 **Example Run the active duplication command:**  
 
-```
+```sh
 RMAN> DUPLICATE DATABASE TO 'ORCL' FROM ACTIVE DATABASE NOFILENAMECHECK;
 ```
 
@@ -830,7 +829,7 @@ RMAN> DUPLICATE DATABASE TO 'ORCL' FROM ACTIVE DATABASE NOFILENAMECHECK;
 
 **Example Monitor progress in another session:**  
 
-```
+```sh
 SQL> SELECT sid, serial#, sofar, totalwork, ROUND(sofar/totalwork*100,2) pct_complete
 FROM v$session_longops WHERE totalwork > 0 AND sofar <> totalwork;
 ```
@@ -847,7 +846,7 @@ While RMAN duplication is running, you can monitor its progress using several me
    + Estimated completion time
    + Bytes processed
 
-   ```
+   ```sh
    channel ORA_AUX_DISK_1: starting datafile copy
    input datafile file number=00001 name=/rdsdbdata/db/ORCL_A/datafile/system01.dbf
    output file name=/u01/app/oracle/oradata/ORCL/datafile/system01.dbf tag=TAG20260303T120000
@@ -858,7 +857,7 @@ While RMAN duplication is running, you can monitor its progress using several me
    ```  
 **Example output:**  
 
-   ```
+   ```sh
    channel ORA_AUX_DISK_1: starting datafile copy
    input datafile file number=00001 name=/rdsdbdata/db/ORCL_A/datafile/system01.dbf
    output file name=/u01/app/oracle/oradata/ORCL/datafile/system01.dbf tag=TAG20260303T120000
@@ -871,7 +870,7 @@ While RMAN duplication is running, you can monitor its progress using several me
 1.  **Monitor long-running operations:**   
 **Example In a separate SQL\*Plus session on the target EC2 instance:**  
 
-   ```
+   ```sh
    SQL> SELECT sid, serial#, opname, sofar, totalwork,
           ROUND(sofar/totalwork*100,2) pct_complete,
           time_remaining, elapsed_seconds
@@ -891,7 +890,7 @@ While RMAN duplication is running, you can monitor its progress using several me
 1. **Monitor RMAN channels:**  
 **Example**  
 
-   ```
+   ```sh
    SQL> SELECT sid, serial#, context, sofar, totalwork,
           ROUND(sofar/totalwork*100,2) pct_complete
           FROM v$session_longops
@@ -903,27 +902,27 @@ While RMAN duplication is running, you can monitor its progress using several me
 1. **Check alert log:**  
 **Example On the target EC2 instance, monitor the alert log for any errors or warnings:**  
 
-   ```
+   ```sh
    tail -f $ORACLE_BASE/diag/rdbms/orcl/ORCL/trace/alert_ORCL.log
    ```
 
 **Common issues during RMAN duplication:**
    + **Network timeout**
 
-     ```
+     ```sh
      RMAN-03009: failure of duplicate command on ORA_AUX_DISK_1 channel
      ORA-03135: connection lost contact
      ```
 
      **Solution**: Increase network timeout values in `sqlnet.ora` on both instances:
 
-     ```
+     ```sh
      SQLNET.RECV_TIMEOUT=600
      SQLNET.SEND_TIMEOUT=600
      ```
    + **Insufficient space on target**
 
-     ```
+     ```sh
      RMAN-03009: failure of duplicate command
      ORA-19504: failed to create file "/u01/app/oracle/oradata/ORCL/datafile/users01.dbf"
      ORA-27040: file create error, unable to create file
@@ -932,12 +931,12 @@ While RMAN duplication is running, you can monitor its progress using several me
 
      **Solution**: Check available space and add more EBS volume capacity:
 
-     ```
+     ```sh
      df -h /u01/app/oracle/oradata
      ```
    + **Parameter file errors**
 
-     ```
+     ```sh
      RMAN-05021: this configuration cannot be used
      RMAN-06004: ORACLE error from auxiliary database: ORA-01261: Parameter db_create_file_dest destination string cannot be translated
      ```
@@ -945,7 +944,7 @@ While RMAN duplication is running, you can monitor its progress using several me
      **Solution**: Verify all directories in the parameter file exist and have proper permissions.
    + **Password file mismatch**
 
-     ```
+     ```sh
      RMAN-00571: ===========================================================
      RMAN-00569: =============== ERROR MESSAGE STACK FOLLOWS ===============
      RMAN-00571: ===========================================================

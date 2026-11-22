@@ -1,7 +1,6 @@
 
 
 # Setting the default displayed values for full redaction
-<a name="Appendix.Oracle.CommonDBATasks.FullRedaction"></a>
 
 To change the default displayed values for full redaction on your Amazon RDS Oracle instance, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.dbms_redact_upd_full_rdct_val`. Note that you create a redaction policy with the `DBMS_REDACT` PL/SQL package, as explained in the Oracle Database documentation. The `dbms_redact_upd_full_rdct_val` procedure specifies the characters to display for different data types affected by an existing policy.
 
@@ -27,13 +26,13 @@ The `dbms_redact_upd_full_rdct_val` procedure has the following parameters.
 
 The following example changes the default redacted value to \* for the `CHAR` data type:
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.dbms_redact_upd_full_rdct_val(p_char_val => '*');
 ```
 
 The following example changes the default redacted values for `NUMBER`, `DATE`, and `CHAR` data types:
 
-```
+```sql
 BEGIN
 rdsadmin.rdsadmin_util.dbms_redact_upd_full_rdct_val(
     p_number_val=>1,

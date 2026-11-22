@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL wait events
-<a name="PostgreSQL.Tuning.concepts.summary"></a>
 
 The following table lists the wait events for RDS for PostgreSQL that most commonly indicate performance problems, and summarizes the most common causes and corrective actions..
 
@@ -14,6 +13,7 @@ The following table lists the wait events for RDS for PostgreSQL that most commo
 | [IO:BufFileRead and IO:BufFileWrite](wait-event.iobuffile.md) | These events occur when RDS for PostgreSQL creates temporary files. | 
 | [IO:DataFileRead](wait-event.iodatafileread.md) | This event occurs when a connection waits on a backend process to read a required page from storage because the page isn't available in shared memory.  | 
 | [IO:WALWrite](wait-event.iowalwrite.md)  | This event occurs when RDS for PostgreSQL is waiting for the write-ahead log (WAL) buffers to be written to a WAL file.  | 
+| [IO:WALSync](wait-event.iowalsync.md) | This event occurs when RDS for PostgreSQL is waiting for a write-ahead log (WAL) file to reach durable storage. | 
 | [IPC:parallel wait events](rpg-ipc-parallel.md) | These wait events indicate that a session is waiting for inter-process communication related to parallel query execution operations. | 
 | [IPC:ProcArrayGroupUpdate](apg-rpg-ipcprocarraygroup.md) | This event occurs when a session is waiting for the group leader to update the transaction status at the end of the transaction. | 
 | [Lock:advisory](wait-event.lockadvisory.md) | This event occurs when a PostgreSQL application uses a lock to coordinate activity across multiple sessions. | 

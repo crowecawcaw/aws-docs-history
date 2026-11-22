@@ -1,7 +1,6 @@
 
 
 # Updating applications to connect to PostgreSQL DB instances using new SSL/TLS certificates
-<a name="ssl-certificate-rotation-postgresql"></a>
 
 Certificates used for Secure Socket Layer or Transport Layer Security (SSL/TLS) typically have a set lifetime. When service providers update their Certificate Authority (CA) certificates, clients must update their applications to use the new certificates. Following, you can find information about how to determine if your client applications use SSL/TLS to connect to your Amazon RDS for PostgreSQL DB instance. You also find information about how to check if those applications verify the server certificate when they connect.
 
@@ -25,7 +24,7 @@ Check the DB instance configuration for the value of the `rds.force_ssl` paramet
 
 If you are using RDS PostgreSQL version 9.5 or later major version and `rds.force_ssl` is not set to `1` (on), query the `pg_stat_ssl` view to check connections using SSL. For example, the following query returns only SSL connections and information about the clients using SSL.
 
-```
+```sql
 SELECT datname, usename, ssl, client_addr 
   FROM pg_stat_ssl INNER JOIN pg_stat_activity ON pg_stat_ssl.pid = pg_stat_activity.pid
   WHERE ssl is true and usename<>'rdsadmin';

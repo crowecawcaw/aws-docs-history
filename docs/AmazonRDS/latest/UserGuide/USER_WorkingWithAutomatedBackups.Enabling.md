@@ -1,7 +1,6 @@
 
 
 # Enabling automated backups
-<a name="USER_WorkingWithAutomatedBackups.Enabling"></a>
 
 If your DB instance doesn't have automated backups enabled, you can enable them at any time. You enable automated backups by setting the backup retention period to a positive nonzero value. When automated backups are turned on, your DB instance is taken offline and a backup is immediately created.
 

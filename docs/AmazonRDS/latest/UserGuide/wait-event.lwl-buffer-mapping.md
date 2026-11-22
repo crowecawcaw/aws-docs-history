@@ -1,7 +1,6 @@
 
 
 # LWLock:BufferMapping (LWLock:buffer\_mapping)
-<a name="wait-event.lwl-buffer-mapping"></a>
 
 This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer pool.
 
@@ -68,7 +67,7 @@ Index bloat
 Ensure that index and table bloat aren't leading to unnecessary pages being read into the shared buffer. If your tables contain unused rows, consider archiving the data and removing the rows from the tables. You can then rebuild the indexes for the resized tables.
 
 Indexes for frequently used queries  
-To determine whether you have the optimal indexes, monitor DB engine metrics in Performance Insights. The `tup_returned` metric shows the number of rows read. The `tup_fetched` metric shows the number of rows returned to the client. If `tup_returned` is significantly larger than `tup_fetched`, the data might not be properly indexed. Also, your table statistics might not be current.
+To determine whether you have the optimal indexes, monitor DB engine metrics in Performance Insights. The `tup_returned` metric shows the number of live rows fetched by sequential scans plus the number of index entries returned by index scans. The `tup_fetched` metric shows the number of live rows fetched by index scans. If `tup_returned` is significantly larger than `tup_fetched`, the data might not be properly indexed. Also, your table statistics might not be current.
 
 ### Reduce the number of buffers that must be allocated quickly
 <a name="wait-event.lwl-buffer-mapping.actions.buffers"></a>

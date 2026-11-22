@@ -1,7 +1,7 @@
 
 
 # Tagging Amazon RDS resources
-<a name="USER_Tagging"></a><a name="tagging"></a>
+<a name="tagging"></a>
 
 An Amazon RDS tag is a name-value pair that you define and associate with an Amazon RDS resource such as a DB instance or DB snapshot. The name is referred to as the key. Optionally, you can supply a value for the key.
 

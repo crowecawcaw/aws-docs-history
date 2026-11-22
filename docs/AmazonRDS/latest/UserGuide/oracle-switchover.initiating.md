@@ -1,7 +1,6 @@
 
 
 # Initiating the Oracle Data Guard switchover
-<a name="oracle-switchover.initiating"></a>
 
 You can switch over an RDS for Oracle read replica to the primary role, and the former primary DB instance to a replica role.
 
@@ -9,7 +8,10 @@ Before initiating a switchover, verify the following:
 + The `ReplicaLag` CloudWatch metric is zero or near zero.
 + No long-running transactions are active on the primary database.
 + Your application connection strings are configured to handle the endpoint change, or you have a plan to update them after the switchover.
-+ You have verified that the replica is in a healthy state (status is `available`).
++ You have verified that the replica is in a healthy state. Its status is `available`, or `replica-patched-pending-switchover` (**Patch pending switchover** in the console) if you're completing Replica First Patching.
+
+**Note**  
+If the replica's status is `replica-patched-pending-switchover`, the switchover also completes the upgrade. The new primary database accepts connections after the upgrade is complete. For more information, see [Performing Replica First Patching](oracle-upgrade-replica-first.performing.md).
 
 ## Console
 <a name="USER_ReadRepl.Promote.Console"></a>

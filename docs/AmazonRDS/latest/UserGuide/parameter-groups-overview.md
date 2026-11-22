@@ -1,7 +1,6 @@
 
 
 # Overview of parameter groups
-<a name="parameter-groups-overview"></a>
 
 A *DB parameter group* acts as a container for engine configuration values that are applied to one or more DB instances.
 
@@ -66,7 +65,7 @@ Before you create a DB instance or Multi-AZ DB cluster, set any parameters that 
 
 For some DB engines, you can change character set or collation values for an existing database using the `ALTER DATABASE` command, for example:
 
-```
+```sql
 ALTER DATABASE {{database_name}} CHARACTER SET {{character_set_name}} COLLATE {{collation}};
 ```
 

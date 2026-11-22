@@ -1,7 +1,6 @@
 
 
 # Common management tasks for Amazon RDS for PostgreSQL
-<a name="CHAP_PostgreSQL.CommonTasks"></a>
 
 The following are the common management tasks you perform with an Amazon RDS for PostgreSQL DB instance, with links to relevant documentation for each task.
 

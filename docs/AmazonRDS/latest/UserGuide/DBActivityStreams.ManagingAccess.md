@@ -1,7 +1,6 @@
 
 
 # IAM policy examples for database activity streams
-<a name="DBActivityStreams.ManagingAccess"></a>
 
 Any user with appropriate AWS Identity and Access Management (IAM) role privileges for database activity streams can create, start, stop, and modify the activity stream settings for a DB instance. These actions are included in the audit log of the stream. For best compliance practices, we recommend that you don't provide these privileges to DBAs.
 
@@ -11,7 +10,7 @@ You set access to database activity streams using IAM policies. For more informa
 To give users fine-grained access to modify activity streams, use the service-specific operation context keys `rds:StartActivityStream` and `rds:StopActivityStream` in an IAM policy. The following IAM policy example allows a user or role to configure activity streams.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -32,7 +31,7 @@ To give users fine-grained access to modify activity streams, use the service-sp
 The following IAM policy example allows a user or role to start activity streams.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -50,7 +49,7 @@ The following IAM policy example allows a user or role to start activity streams
 The following IAM policy example allows a user or role to stop activity streams.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -68,7 +67,7 @@ The following IAM policy example allows a user or role to stop activity streams.
 The following IAM policy example prevents a user or role from starting activity streams.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -86,7 +85,7 @@ The following IAM policy example prevents a user or role from starting activity 
 The following IAM policy example prevents a user or role from stopping activity streams.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[

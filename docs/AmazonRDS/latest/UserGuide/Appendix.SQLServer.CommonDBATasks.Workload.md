@@ -1,7 +1,6 @@
 
 
 # Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor
-<a name="Appendix.SQLServer.CommonDBATasks.Workload"></a>
 
 Database Engine Tuning Advisor is a client application provided by Microsoft that analyzes database workload and recommends an optimal set of indexes for your Microsoft SQL Server databases based on the kinds of queries you run. Like SQL Server Management Studio, you run Tuning Advisor from a client computer that connects to your Amazon RDS DB instance that is running SQL Server. The client computer can be a local computer that you run on premises within your own network or it can be an Amazon EC2 Windows instance that is running in the same region as your Amazon RDS DB instance.
 

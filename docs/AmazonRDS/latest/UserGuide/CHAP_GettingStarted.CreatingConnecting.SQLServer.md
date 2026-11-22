@@ -1,7 +1,6 @@
 
 
 # Creating and connecting to a Microsoft SQL Server DB instance
-<a name="CHAP_GettingStarted.CreatingConnecting.SQLServer"></a>
 
 This tutorial creates an EC2 instance and an RDS for Microsoft SQL Server DB instance. The tutorial shows you how to access the DB instance from the EC2 instance using the Microsoft SQL Server Management Studio client. As a best practice, this tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources outside of the VPC can't access it. 
 
@@ -305,7 +304,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
 
    1. Enter the following SQL query:
 
-      ```
+      ```sql
       select @@VERSION
       ```
 

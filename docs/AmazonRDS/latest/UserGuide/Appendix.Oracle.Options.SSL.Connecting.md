@@ -1,7 +1,6 @@
 
 
 # Connecting to an RDS for Oracle DB instance using SSL
-<a name="Appendix.Oracle.Options.SSL.Connecting"></a>
 
 After you configure SQL\*Plus to use SSL as described previously, you can connect to the RDS for Oracle DB instance with the SSL option. Optionally, you can first export the `TNS_ADMIN` value that points to the directory that contains the tnsnames.ora and sqlnet.ora files. Doing so ensures that SQL\*Plus can find these files consistently. The following example exports the `TNS_ADMIN` value.
 

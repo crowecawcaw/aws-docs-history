@@ -1,7 +1,6 @@
 
 
 # Importing data from a client machine to Amazon RDS for Db2 with the LOAD command
-<a name="db2-native-db2-tools-load"></a>
 
 You can use the `LOAD CLIENT` command to load data from a file on a client machine to the RDS for Db2 server. Because no SSH connectivity exists to the RDS for Db2 server, you can use the `LOAD CLIENT` command on either your self-managed Db2 server or your Db2 client machine.
 

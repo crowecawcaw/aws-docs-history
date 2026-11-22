@@ -1,7 +1,6 @@
 
 
 # Connecting to your Db2 DB instance
-<a name="USER_ConnectToDb2DBInstance"></a>
 
 After Amazon RDS provisions your Amazon RDS for Db2 DB instance, you can use any standard SQL client application to connect to the DB instance. Because Amazon RDS is a managed service, you can't sign in as `SYSADM`, `SYSCTRL`, `SECADM`, or `SYSMAINT`.
 

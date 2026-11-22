@@ -1,7 +1,6 @@
 
 
 # Configuring an RDS for Oracle instance store
-<a name="CHAP_Oracle.advanced-features.instance-store.configuring"></a>
 
 By default, 100% of instance store space is allocated to the temporary tablespace. To configure the instance store to allocate space to the flash cache and temporary tablespace, set the following parameters in the parameter group for your instance:
 

@@ -1,7 +1,6 @@
 
 
 # Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum"></a>
 
 We strongly recommend that you use the autovacuum feature to maintain the health of your PostgreSQL DB instance. Autovacuum automates the start of the VACUUM and the ANALYZE commands. It checks for tables with a large number of inserted, updated, or deleted tuples. After this check, it reclaims storage by removing obsolete data or tuples from the PostgreSQL database.
 

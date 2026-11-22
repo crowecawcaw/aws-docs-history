@@ -1,7 +1,6 @@
 
 
 # Upgrade options for DB snapshots with unsupported engine versions for RDS for MariaDB
-<a name="mariadb-upgrade-snapshot.upgrade-options"></a>
 
 The following table shows which engine versions you can upgrade to from an unsupported engine version for RDS for MariaDB DB snapshots.
 

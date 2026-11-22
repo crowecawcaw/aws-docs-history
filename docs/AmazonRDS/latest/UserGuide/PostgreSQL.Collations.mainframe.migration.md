@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL collations for EBCDIC and other mainframe migrations
-<a name="PostgreSQL.Collations.mainframe.migration"></a>
 
 RDS for PostgreSQL versions 10 and higher include ICU version 60.2, which is based on Unicode 10.0 and includes collations from the Unicode Common Locale Data Repository, CLDR 32. These software internationalization libraries ensure that character encodings are presented in a consistent way, regardless of operating system or platform. For more information about Unicode CLDR-32, see the [CLDR 32 Release Note](https://cldr.unicode.org/index/downloads/cldr-32) on the Unicode CLDR website. You can learn more about the internationalization components for Unicode (ICU) at the [ICU Technical Committee (ICU-TC)](https://icu.unicode.org/home) website. For information about ICU-60, see [Download ICU 60](https://icu.unicode.org/download/60). 
 

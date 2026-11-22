@@ -1,12 +1,11 @@
 
 
 # MySQL memcached support
-<a name="Appendix.MySQL.Options.memcached"></a>
 
 Amazon RDS supports using the `memcached` interface to InnoDB tables that was introduced in MySQL 5.6. The `memcached` API enables applications to use InnoDB tables in a manner similar to NoSQL key-value data stores.
 
 **Note**  
-The memcached interface is no longer available in MySQL 8.4. When you upgrade your DB instances to MySQL 8.4, you must disable `memcached` in existing option groups.
+The memcached interface is no longer available in MySQL 8.4 and higher. When you upgrade your DB instances to MySQL 8.4, you must disable `memcached` in existing option groups.
 
 The `memcached` interface is a simple, key-based cache. Applications use `memcached` to insert, manipulate, and retrieve key-value data pairs from the cache. MySQL 5.6 introduced a plugin that implements a daemon service that exposes data from InnoDB tables through the `memcached` protocol. For more information about the MySQL `memcached` plugin, see [InnoDB integration with memcached](https://dev.mysql.com/doc/refman/8.0/en/innodb-memcached.html).
 

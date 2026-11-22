@@ -1,7 +1,6 @@
 
 
 # Preparing for a cross-VPC active-active cluster
-<a name="mysql-active-active-clusters-cross-vpc-prerequisites"></a>
 
 You can configure an active-active cluster with Amazon RDS for MySQL DB instances in more than one VPC. The VPCs can be in the same AWS Region or different AWS Regions.
 

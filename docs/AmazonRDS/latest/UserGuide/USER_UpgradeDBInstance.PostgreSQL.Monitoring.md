@@ -1,7 +1,6 @@
 
 
 # Monitoring RDS for PostgreSQL engine upgrades with events
-<a name="USER_UpgradeDBInstance.PostgreSQL.Monitoring"></a>
 
 When you upgrade the engine version of a RDS for PostgreSQL database, Amazon RDS emits a specific event during each phase of the process. To track the progress of an upgrade, you can view or subscribe to these events.
 

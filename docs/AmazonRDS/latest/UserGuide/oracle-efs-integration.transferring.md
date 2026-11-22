@@ -1,7 +1,6 @@
 
 
 # Transferring files between RDS for Oracle and an Amazon EFS file system
-<a name="oracle-efs-integration.transferring"></a>
 
 To transfer files between an RDS for Oracle instance and an Amazon EFS file system, create at least one Oracle directory and configure EFS file system permissions to control DB instance access.
 

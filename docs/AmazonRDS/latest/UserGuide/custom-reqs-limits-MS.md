@@ -1,7 +1,6 @@
 
 
 # Requirements and limitations for Amazon RDS Custom for SQL Server
-<a name="custom-reqs-limits-MS"></a>
 
 Following, you can find a summary of the Amazon RDS Custom for SQL Server requirements and limitations for quick reference. Requirements and limitations also appear in the relevant sections.
 

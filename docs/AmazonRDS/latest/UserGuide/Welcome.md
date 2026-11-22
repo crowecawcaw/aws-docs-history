@@ -1,7 +1,6 @@
 
 
 # What is Amazon Relational Database Service (Amazon RDS)?
-<a name="Welcome"></a>
 
 Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the AWS Cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks.
 
@@ -63,7 +62,7 @@ Amazon RDS is responsible for hosting the software components and infrastructure
 
 A *DB instance* is an isolated database environment in the AWS Cloud. The basic building block of Amazon RDS is the DB instance. Your DB instance can contain one or more user-created databases. The following diagram shows a virtual private cloud (VPC) that contains two Availability Zones, with each AZ containing two DB instances.
 
-![Shows a VPC that spans two Availability Zones. Each AZ hosts two DB instances.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db-instances.png)
+![An AWS architecture diagram showing Amazon RDS DB instances deployed across two Availability Zones within a virtual private cloud (VPC) in the AWS Cloud. Availability Zone 1 contains two Oracle instances. Availability Zone 2 contains one PostgreSQL instance and one MySQL instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db-instances.png)
 
 
 You can access your DB instances by using the same tools and applications that you use with a standalone database instance. You can create and modify a DB instance by using the AWS Command Line Interface (AWS CLI), the Amazon RDS API, or the AWS Management Console.

@@ -1,7 +1,6 @@
 
 
 # mysql.rds\_replica\_status
-<a name="mysql_rds_replica_status"></a>
 
 Shows the replication status of a MariaDB read replica.
 
@@ -10,7 +9,7 @@ Call this procedure on the read replica to show status information on essential 
 ## Syntax
 <a name="mysql_rds_replica_status-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_replica_status;
 ```
 
@@ -28,7 +27,7 @@ In prior versions of MariaDB, the equivalent `SHOW SLAVE STATUS` command require
 
 The following example shows the status of a MariaDB read replica:
 
-```
+```sql
 call mysql.rds_replica_status;
 ```
 

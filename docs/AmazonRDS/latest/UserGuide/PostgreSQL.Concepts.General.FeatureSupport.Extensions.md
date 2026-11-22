@@ -1,11 +1,10 @@
 
 
 # Supported PostgreSQL extension versions
-<a name="PostgreSQL.Concepts.General.FeatureSupport.Extensions"></a>
 
 RDS for PostgreSQL supports many PostgreSQL extensions. The PostgreSQL community sometimes refers to these as modules. Extensions expand on the functionality provided by the PostgreSQL engine. You can find a list of extensions supported by Amazon RDS in the default DB parameter group for that PostgreSQL version. You can also see the current extensions list using `psql` by showing the `rds.extensions` parameter as in the following example.
 
-```
+```sql
 SHOW rds.extensions; 
 ```
 

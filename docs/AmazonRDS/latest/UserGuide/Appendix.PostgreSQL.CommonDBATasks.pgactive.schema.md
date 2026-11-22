@@ -1,7 +1,6 @@
 
 
 # Understanding the pgactive schema
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.schema"></a>
 
 The pgactive schema manages active-active replication in RDS for PostgreSQL. This schema contains tables that store replication configuration and status information.
 

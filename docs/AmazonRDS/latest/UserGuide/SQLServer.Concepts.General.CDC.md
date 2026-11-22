@@ -1,7 +1,6 @@
 
 
 # Change data capture support for Microsoft SQL Server DB instances
-<a name="SQLServer.Concepts.General.CDC"></a>
 
 Amazon RDS supports change data capture (CDC) for your DB instances running Microsoft SQL Server. CDC captures changes that are made to the data in your tables, and stores metadata about each change that you can access later. For more information, see [Change data capture](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture) in the Microsoft documentation. 
 

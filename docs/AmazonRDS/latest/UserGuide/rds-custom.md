@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Custom
-<a name="rds-custom"></a>
 
 Amazon RDS Custom automates database administration tasks and operations. RDS Custom makes it possible for you as a database administrator to access and customize your database environment and operating system. With RDS Custom, you can customize to meet the requirements of legacy, custom, and packaged applications.
 

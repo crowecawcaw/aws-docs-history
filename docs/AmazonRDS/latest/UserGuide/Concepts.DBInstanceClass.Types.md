@@ -1,7 +1,6 @@
 
 
 # DB instance class types
-<a name="Concepts.DBInstanceClass.Types"></a>
 
 Amazon RDS supports DB instance classes for the following use cases:
 + [General-purpose](#Concepts.DBInstanceClass.Types.general-purpose)

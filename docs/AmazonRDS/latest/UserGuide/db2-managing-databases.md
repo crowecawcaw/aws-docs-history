@@ -1,7 +1,6 @@
 
 
 # Common tasks for databases
-<a name="db2-managing-databases"></a>
 
 You can create, drop, or restore databases on your RDS for Db2 DB instance. Creating, dropping, or restoring databases requires higher-level `SYSADM` authority, which isn't available to the master user. Instead, use Amazon RDS stored procedures.
 
@@ -18,6 +17,7 @@ You can also perform common management tasks such as monitoring, maintenance, an
 + [Activating a database](#db2-activating-database)
 + [Reactivating a database](#db2-reactivating-database)
 + [Dropping a database](#db2-dropping-database)
++ [Renaming a database without restoring it](#db2-renaming-database)
 + [Backing up a database](#db2-backing-up-database)
 + [Copying archive logs to Amazon S3](#db2-copying-archive-logs-to-s3)
 + [Copying active logs to Amazon S3](#db2-copying-active-logs-to-s3)
@@ -203,7 +203,7 @@ By default, Amazon RDS activates a database when you create a database on your R
 
 1. Deactivate a database by calling `rdsadmin.deactivate_database`. For more information, see [rdsadmin.deactivate\_database](db2-sp-managing-databases.md#db2-sp-deactivate-database).
 
-   ```
+   ```sql
    db2 "call rdsadmin.deactivate_database(    
        ?, 
        '{{database_name}}')"
@@ -226,7 +226,7 @@ By default, Amazon RDS activates a database when you create a database on your R
 
 1. Activate a database by calling `rdsadmin.activate_database`. For more information, see [rdsadmin.activate\_database](db2-sp-managing-databases.md#db2-sp-activate-database).
 
-   ```
+   ```sql
    db2 "call rdsadmin.activate_database(
        ?, 
        '{{database_name}}')"
@@ -249,7 +249,7 @@ You can also call this stored procedure to reactivate a database on a standalone
 
 1. Reactivate a database by calling `rdsadmin.reactivate_database`. For more information, see [rdsadmin.reactivate\_database](db2-sp-managing-databases.md#db2-sp-reactivate-database).
 
-   ```
+   ```sql
    db2 "call rdsadmin.reactivate_database(
        ?, 
        '{{database_name}}')"
@@ -273,9 +273,40 @@ You can drop a database by calling the stored procedure only if certain conditio
 
 1. Drop a database by calling `rdsadmin.drop_database`. For more information, see [rdsadmin.drop\_database](db2-sp-managing-databases.md#db2-sp-drop-database).
 
-   ```
+   ```sql
    db2 "call rdsadmin.drop_database('{{database_name}}')"
    ```
+
+## Renaming a database without restoring it
+<a name="db2-renaming-database"></a>
+
+To rename a database, call the `rdsadmin.rename_database` stored procedure. The rename keeps your data in place on your Amazon RDS for Db2 DB instance, so it's faster than backing up the database and restoring it under a new name. For example, you can rename a database to give its name to a copy that you restored from a backup.
+
+Before you begin, do the following:
++ Check that you can rename the database. For more information, see [Checking when you can rename a database](db2-sp-managing-databases.md#db2-sp-rename-database-refusals).
++ Delete any read replicas of your DB instance.
++ Get the master username and master password for your DB instance.
++ Commit your work. The rename ends all connections to the database and rolls back any work that isn't committed.
+
+**To rename a database**
+
+1. Connect to the `rdsadmin` database with your master username and master password. In the following command, replace `{{master_username}}` and `{{master_password}}` with your own values.
+
+   ```sql
+   db2 "connect to rdsadmin user {{master_username}} using {{master_password}}"
+   ```
+
+1. In the `rdsadmin` session, rename the database by calling `rdsadmin.rename_database`. In the following command, replace `{{current_database_name}}` and `{{new_database_name}}` with your own values.
+
+   ```sql
+   db2 "call rdsadmin.rename_database(?, '{{current_database_name}}', '{{new_database_name}}')"
+   ```
+
+   If the call returns an error, then fix the cause and run the command again. For example, if you receive the error `Database '{{new_database_name}}' already exists`, choose a different name. For instructions on resolving each error, see [Resolving rdsadmin.rename\_database errors](db2-troubleshooting.md#db2-troubleshooting-rename-database-sp-errors).
+
+1. In the `rdsadmin` session, wait for the rename task to finish. The task runs in the background and might take several minutes. For instructions on checking its status, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status).
+
+1. In your applications, use the new database name to connect to the renamed database.
 
 ## Backing up a database
 <a name="db2-backing-up-database"></a>
@@ -301,7 +332,7 @@ This stored procedure uses the integration with Amazon S3. Make sure that you ha
 
 1. Back up a database by calling `rdsadmin.backup_database`. For more information, see [rdsadmin.backup\_database](db2-sp-managing-databases.md#db2-sp-backup-database).
 
-   ```
+   ```sql
    db2 "call rdsadmin.backup_database(
        ?,
        '{{database_name}}', 
@@ -623,6 +654,8 @@ Db2 includes a `db2mon.sh` file in its `~sqllib/sample/perf` directory. Running 
 <a name="db2-generating-db2exfmt-reports"></a>
 
 `db2exfmt` is a query performance analyzer tool that you can use to debug query performance issues in an RDS for Db2 database.
+
+**Prerequisites**
 
 Before using `db2exfmt`, ensure the following requirements are met:
 

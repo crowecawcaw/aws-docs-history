@@ -1,7 +1,6 @@
 
 
 # Preparing a CEV for RDS for SQL Server
-<a name="sqlserver-dev-edition.preparing"></a>
 
 ## Prerequisites
 <a name="sqlserver-dev-prerequisites"></a>

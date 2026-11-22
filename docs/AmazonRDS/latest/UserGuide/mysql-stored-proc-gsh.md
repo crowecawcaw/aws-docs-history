@@ -1,7 +1,6 @@
 
 
 # Collecting and maintaining the Global Status History
-<a name="mysql-stored-proc-gsh"></a>
 
 Amazon RDS provides a set of procedures that take snapshots of the values of status variables over time and write them to a table, along with any changes since the last snapshot. This infrastructure is called Global Status History. For more information, see [Managing the Global Status History for RDS for MySQL](Appendix.MySQL.CommonDBATasks.GoSH.md).
 
@@ -27,7 +26,7 @@ Takes a snapshot on demand for the Global Status History.
 
  
 
-```
+```sql
 CALL mysql.rds_collect_global_status_history;
 ```
 
@@ -41,7 +40,7 @@ Turns off snapshots taken by the Global Status History.
 
  
 
-```
+```sql
 CALL mysql.rds_disable_gsh_collector;
 ```
 
@@ -55,7 +54,7 @@ Turns off rotation of the `mysql.global_status_history` table.
 
  
 
-```
+```sql
 CALL mysql.rds_disable_gsh_rotation;
 ```
 
@@ -69,7 +68,7 @@ Turns on the Global Status History to take default snapshots at intervals specif
 
  
 
-```
+```sql
 CALL mysql.rds_enable_gsh_collector;
 ```
 
@@ -83,7 +82,7 @@ Turns on rotation of the contents of the `mysql.global_status_history` table to 
 
  
 
-```
+```sql
 CALL mysql.rds_enable_gsh_rotation;
 ```
 
@@ -97,7 +96,7 @@ Rotates the contents of the `mysql.global_status_history` table to `mysql.global
 
  
 
-```
+```sql
 CALL mysql.rds_rotate_global_status_history;
 ```
 
@@ -111,7 +110,7 @@ Specifies the interval, in minutes, between snapshots taken by the Global Status
 
  
 
-```
+```sql
 CALL mysql.rds_set_gsh_collector({{intervalPeriod}});
 ```
 
@@ -131,7 +130,7 @@ Specifies the interval, in days, between rotations of the `mysql.global_status_h
 
  
 
-```
+```sql
 CALL mysql.rds_set_gsh_rotation({{intervalPeriod}});
 ```
 

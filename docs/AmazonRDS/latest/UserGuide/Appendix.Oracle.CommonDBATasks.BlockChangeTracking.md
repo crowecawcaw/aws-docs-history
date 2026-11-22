@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling block change tracking
-<a name="Appendix.Oracle.CommonDBATasks.BlockChangeTracking"></a>
 
 Block changing tracking records changed blocks in a tracking file. This technique can improve the performance of RMAN incremental backups. For more information, see [Using Block Change Tracking to Improve Incremental Backup Performance](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/backing-up-database.html#GUID-4E1F605A-76A7-48D0-9D9B-7343B4327E2A) in the Oracle Database documentation.
 
@@ -19,18 +18,18 @@ To enable block change tracking for a DB instance, use the Amazon RDS procedure 
 
 To determine whether block change tracking is enabled for your DB instance, run the following query.
 
-```
+```sql
 SELECT STATUS, FILENAME FROM V$BLOCK_CHANGE_TRACKING;
 ```
 
 The following example enables block change tracking for a DB instance.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_rman_util.enable_block_change_tracking;
 ```
 
 The following example disables block change tracking for a DB instance.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_rman_util.disable_block_change_tracking;
 ```

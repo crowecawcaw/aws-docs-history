@@ -1,7 +1,6 @@
 
 
 # RDS version numbers in RDS for PostgreSQL
-<a name="USER_UpgradeDBInstance.PostgreSQL.rds.version"></a>
 
 RDS version numbers use the `{{major}}.{{minor}}.{{patch}}` naming scheme. An RDS patch version includes important bug fixes added to a minor version after its release. For information about RDS Extended Support version numbering, see [Amazon RDS Extended Support version naming](extended-support-versions.md#extended-support-naming).
 
@@ -13,7 +12,7 @@ CREATE EXTENSION rds_tools;
 
 Starting with the release of PostgreSQL version 15.2-R2, you can find out the RDS version number of your RDS for PostgreSQL database with the following SQL query:
 
-```
+```sql
 postgres=> SELECT rds_tools.rds_version();
 ```
 

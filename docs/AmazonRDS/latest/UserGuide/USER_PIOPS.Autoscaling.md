@@ -1,7 +1,6 @@
 
 
 # Managing capacity automatically with Amazon RDS storage autoscaling
-<a name="USER_PIOPS.Autoscaling"></a>
 
 If your workload is unpredictable, you can enable storage autoscaling for an Amazon RDS DB instance. To do so, you can use the Amazon RDS console, the Amazon RDS API, or the AWS CLI. 
 
@@ -23,7 +22,7 @@ The additional storage is in increments of whichever of the following is greater
 The maximum storage threshold is the limit that you set for autoscaling the DB instance. It has the following constraints:
 + You must set the maximum storage threshold to at least 10% more than the current allocated storage. We recommend setting it to at least 26% more to avoid receiving an [event notification](USER_Events.Messages.md#RDS-EVENT-0225) that the storage size is approaching the maximum storage threshold.
 
-  For example, if you have DB instance with 1000 GiB of allocated storage, then set the maximum storage threshold to at least 1100 GiB. If you don't, you get an error such as Invalid max storage size for {{engine\_name}}. However, we recommend that you set the maximum storage threshold to at least 1260 GiB to avoid the event notification.
+  For example, if you have DB instance with 1000 GiB of allocated storage, then set the maximum storage threshold to at least 1100 GiB. If you don't, you get an error such as `Invalid max storage size for {{engine_name}}`. However, we recommend that you set the maximum storage threshold to at least 1260 GiB to avoid the event notification.
 + For a DB instance that uses Provisioned IOPS (io1 or io2 Block Express) storage, the ratio of IOPS to maximum storage threshold (in GiB) must be within a certain range. For more information, see [Provisioned IOPS SSD storage](CHAP_Storage.md#USER_PIOPS).
 + You can't set the maximum storage threshold for autoscaling-enabled instances to a value greater than the maximum allocated storage for the database engine and DB instance class.
 
@@ -213,7 +212,7 @@ For more information about storage, see [Amazon RDS DB instance storage](CHAP_St
 
 For RDS for Oracle and RDS for SQL Server DB instances that use additional storage volumes, you can enable storage autoscaling for each additional storage volume independently, in the same way that you enable it for the primary storage volume. Each volume – the primary volume and each additional storage volume – has its own maximum storage threshold, and Amazon RDS evaluates and scales each volume independently against that threshold. For more information about additional storage volumes, see [Adding storage volumes](USER_PIOPS.ModifyingExisting.AdditionalVolumes.md).
 
-The conditions that trigger autoscaling, the storage increment that Amazon RDS adds, and the constraints on the maximum storage threshold are the same for an additional storage volume as they are for the primary volume. For a description of these conditions and constraints, see [Managing capacity automatically with Amazon RDS storage autoscaling](#USER_PIOPS.Autoscaling). The limitations in [Limitations of storage autoscaling](#autoscaling-limitations) also apply to each additional storage volume.
+The conditions that trigger autoscaling, the storage increment that Amazon RDS adds, and the constraints on the maximum storage threshold are the same for an additional storage volume as they are for the primary volume. For a description of these conditions and constraints, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md). The limitations in [Limitations of storage autoscaling](#autoscaling-limitations) also apply to each additional storage volume.
 
 Amazon RDS validates the maximum storage threshold for each additional storage volume independently, against the storage settings of that volume. For a volume that uses Provisioned IOPS (io1 or io2 Block Express) or gp3 storage, the ratio of IOPS to the volume's maximum storage threshold (in GiB) must be within the same range that applies to the volume's allocated storage. For these ranges, see [Provisioned IOPS SSD storage](CHAP_Storage.md#USER_PIOPS).
 

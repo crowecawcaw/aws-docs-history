@@ -1,7 +1,6 @@
 
 
 # Managing autovacuum with large indexes
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes"></a>
 
 As part of its operation, *autovacuum* performs several [ vacuum phases](https://www.postgresql.org/docs/current/progress-reporting.html#VACUUM-PHASES) while running on a table. Before the table is cleaned up, all of its indexes are first vacuumed. When removing multiple large indexes, this phase consumes a significant amount of time and resources. Therefore, as a best practice, be sure to control the number of indexes on a table and eliminate unused indexes.
 

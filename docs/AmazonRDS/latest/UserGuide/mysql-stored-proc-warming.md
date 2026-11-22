@@ -1,7 +1,6 @@
 
 
 # Warming the InnoDB cache
-<a name="mysql-stored-proc-warming"></a>
 
 The following stored procedures save, load, or cancel loading the InnoDB buffer pool on RDS for MySQL DB instances. For more information, see [InnoDB cache warming for MySQL on Amazon RDS](MySQL.Concepts.FeatureSupport.md#MySQL.Concepts.InnoDBCacheWarming).
 
@@ -20,7 +19,7 @@ Dumps the current state of the buffer pool to disk.
 
  
 
-```
+```sql
 CALL mysql.rds_innodb_buffer_pool_dump_now();
 ```
 
@@ -39,7 +38,7 @@ Cancels a load of the saved buffer pool state while in progress.
 
  
 
-```
+```sql
 CALL mysql.rds_innodb_buffer_pool_load_abort();
 ```
 
@@ -58,7 +57,7 @@ Loads the saved state of the buffer pool from disk.
 
  
 
-```
+```sql
 CALL mysql.rds_innodb_buffer_pool_load_now();
 ```
 

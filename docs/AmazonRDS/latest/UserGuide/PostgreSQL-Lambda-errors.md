@@ -1,7 +1,6 @@
 
 
 # Lambda function error messages
-<a name="PostgreSQL-Lambda-errors"></a>
 
 In the following list you can find information about error messages, with possible causes and solutions.
 + **VPC configuration issues**
@@ -34,7 +33,7 @@ In the following list you can find information about error messages, with possib
 
   If a Lambda function throws an exception during request processing, `aws_lambda.invoke` fails with a PostgreSQL error such as the following.
 
-  ```
+  ```sql
   SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json);
   ERROR:  lambda invocation failed
   DETAIL:  "arn:aws:lambda:us-west-2:555555555555:function:my-function" returned error "Unhandled", details: "<Error details string>".

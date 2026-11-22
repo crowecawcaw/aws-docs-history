@@ -1,7 +1,6 @@
 
 
 # Configuring unified auditing for Oracle Database
-<a name="DBActivityStreams.configuring-auditing"></a>
 
 When you configure unified auditing for use with database activity streams, the following situations are possible:
 + Unified auditing isn't configured for your Oracle database.

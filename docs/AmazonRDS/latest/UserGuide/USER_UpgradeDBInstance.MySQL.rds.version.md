@@ -1,7 +1,6 @@
 
 
 # RDS version numbers in RDS for MySQL
-<a name="USER_UpgradeDBInstance.MySQL.rds.version"></a>
 
 RDS version numbers use either the `{{major}}.{{minor}}.{{patch}}` or the `{{major}}.{{minor}}.{{patch.YYYYMMDD}}` naming scheme. Amazon RDS Extended Support versions use the {{minor-RDS.YYYYMMDD}} minor version naming scheme.
 
@@ -9,7 +8,7 @@ An RDS patch version includes important bug fixes added to a minor version after
 
 You can find out the RDS version number of your RDS for MySQL database with the following SQL query:
 
-```
+```sql
 mysql> select mysql.rds_version();
 ```
 

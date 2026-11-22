@@ -1,7 +1,6 @@
 
 
 # Working with the Database Preview environment
-<a name="working-with-the-database-preview-environment"></a>
 
  The PostgreSQL community continuously releases new PostgreSQL version and extensions, including beta versions. This gives PostgreSQL users the opportunity to try out a new PostgreSQL version early. To learn more about the PostgreSQL community beta release process, see [Beta Information](https://www.postgresql.org/developer/beta/) in the PostgreSQL documentation. Similarly, Amazon RDS makes certain PostgreSQL beta versions available as Preview releases. This allows you to create DB instances using the Preview version and test out its features in the Database Preview Environment. 
 
@@ -39,4 +38,4 @@ This is preview documentation for Amazon RDS PostgreSQL version 17. It is subjec
 
 PostgreSQL version 17.0 is now available in the Amazon RDS Database Preview environment. PostgreSQL version 17.0 contains several improvements that are described in the following PostgreSQL documentation, [PostgreSQL 17 Released\!](https://www.postgresql.org/docs/17/release-17.html)
 
-For information on the Database Preview Environment, see [Working with the Database Preview environment](#working-with-the-database-preview-environment). To access the Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/).
+For information on the Database Preview Environment, see [Working with the Database Preview environment](working-with-the-database-preview-environment.md). To access the Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/).

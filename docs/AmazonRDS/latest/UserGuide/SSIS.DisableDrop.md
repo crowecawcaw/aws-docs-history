@@ -1,7 +1,6 @@
 
 
 # Disable and drop SSIS database
-<a name="SSIS.DisableDrop"></a>
 
 Use the following steps to disable or drop SSIS databases:
 

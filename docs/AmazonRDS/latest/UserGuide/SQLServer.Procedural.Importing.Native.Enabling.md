@@ -1,7 +1,6 @@
 
 
 # Setting up for native backup and restore
-<a name="SQLServer.Procedural.Importing.Native.Enabling"></a>
 
 To set up for native backup and restore, you need three components:
 
@@ -39,7 +38,7 @@ In the trust relationship, make sure to use the `aws:SourceArn` global condition
 **Example of trust relationship with global condition context key for native backup and restore**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -68,7 +67,7 @@ The following example uses an ARN to specify a resource. For more information on
 **Example of permissions policy for native backup and restore without encryption support**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -104,7 +103,7 @@ You must use a symmetric encryption KMS key to encrypt your backups. Amazon RDS 
 The IAM role must also be a key user and key administrator for the KMS key, that is, it must be specified in the key policy. For more information, see [Creating symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.  
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -149,7 +148,7 @@ The actions required to use S3 access points are the same as for S3 buckets. The
 Access points must be configured to use **Network origin: Internet** as RDS does not publish private VPCs. S3 traffic from RDS instances does not go through the public internet since it goes through private VPCs.  
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ Directory buckets use a different, [session-based authorization mechanism](https
 Access points must be configured to use **Network origin: Internet** as RDS does not publish private VPCs. S3 traffic from RDS instances does not go through the public internet since it goes through private VPCs.  
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":

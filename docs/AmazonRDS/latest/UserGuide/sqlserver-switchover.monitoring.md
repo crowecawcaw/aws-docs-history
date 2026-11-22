@@ -1,7 +1,6 @@
 
 
 # Monitoring the SQL Server switchover
-<a name="sqlserver-switchover.monitoring"></a>
 
 To check the status of your instances, use the AWS CLI command `describe-db-instances`. The following command checks the status of the DB instance {{replica-to-be-made-primary}}. This DB instance was a read replica before the switchover, but is the new primary DB instance after the switchover.
 

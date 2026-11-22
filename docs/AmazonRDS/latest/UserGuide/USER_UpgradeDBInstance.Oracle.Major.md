@@ -1,7 +1,6 @@
 
 
 # Oracle major version upgrades
-<a name="USER_UpgradeDBInstance.Oracle.Major"></a>
 
 To perform a major version upgrade, modify the DB instance manually. Major version upgrades don't occur automatically. 
 
@@ -61,7 +60,7 @@ Before you perform a major version upgrade, Oracle recommends that you gather op
 
 To gather optimizer statistics, connect to the DB instance as the master user, and run the `DBMS_STATS.GATHER_DICTIONARY_STATS` procedure, as in the following example.
 
-```
+```sql
 EXEC DBMS_STATS.GATHER_DICTIONARY_STATS;
 ```
 

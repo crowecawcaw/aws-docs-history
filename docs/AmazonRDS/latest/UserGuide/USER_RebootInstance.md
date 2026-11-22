@@ -1,7 +1,6 @@
 
 
 # Rebooting a DB instance
-<a name="USER_RebootInstance"></a>
 
 You can stop and start the database service on your RDS DB instance in a single operation, called *rebooting*. Rebooting might be necessary to apply configuration changes, address minor issues, or resolve network problems without having to perform a full restart or migration of your database.
 

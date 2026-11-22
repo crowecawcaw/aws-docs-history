@@ -1,13 +1,12 @@
 
 
 # Enabling GTID-based replication for existing read replicas for RDS for MySQL
-<a name="mysql-replication-gtid.configuring-existing-read-replicas"></a>
 
 For an existing MySQL DB instance with read replicas that doesn't use GTID-based replication, you can configure GTID-based replication between the DB instance and the read replicas.
 
 **To enable GTID-based replication for existing read replicas**
 
-1. If the DB instance or any read replica is using an 8.0 version of RDS for MySQL version lower than 8.0.26, upgrade the DB instance or read replica to 8.0.26 or a higher MySQL 8.0 version. All RDS for MySQL 8.4 versions and 5.7 versions support GTID-based replication.
+1. If the DB instance or any read replica is using an 8.0 version of RDS for MySQL version lower than 8.0.26, upgrade the DB instance or read replica to 8.0.26 or a higher MySQL 8.0 version. All RDS for MySQL 9.7, 8.4, and 5.7 versions support GTID-based replication.
 
    For more information, see [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md).
 
@@ -37,7 +36,7 @@ For an existing MySQL DB instance with read replicas that doesn't use GTID-based
 
    1. Run the following statement on your source DB instance. 
 
-      **MySQL 8.4**
+      **MySQL 8.4 and higher**
 
       ```
       SHOW BINARY LOG STATUS;
@@ -53,13 +52,29 @@ For an existing MySQL DB instance with read replicas that doesn't use GTID-based
 
    1. On each read replica, use the file and position information from its source instance in the previous step to run the following query.
 
+      **MySQL 8.4 and higher**
+
+      ```sql
+      SELECT SOURCE_POS_WAIT('{{file}}', {{position}});
       ```
+
+      **MySQL 8.0 and lower**
+
+      ```sql
       SELECT MASTER_POS_WAIT('{{file}}', {{position}});
       ```
 
       For example, if the file name is `mysql-bin-changelog.000031` and the position is `107`, run the following statement.
 
+      **MySQL 8.4 and higher**
+
+      ```sql
+      SELECT SOURCE_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
+
+      **MySQL 8.0 and lower**
+
+      ```sql
       SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
 

@@ -1,7 +1,6 @@
 
 
 # Upgrading and removing Oracle APEX
-<a name="Appendix.Oracle.Options.APEX.UpgradeandRemove"></a>
 
 To upgrade or remove Oracle APEX, follow the instructions in this topic:
 

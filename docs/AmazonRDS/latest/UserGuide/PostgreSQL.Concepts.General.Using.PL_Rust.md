@@ -1,7 +1,6 @@
 
 
 # Using PL/Rust to write PostgreSQL functions in the Rust language
-<a name="PostgreSQL.Concepts.General.Using.PL_Rust"></a>
 
 PL/Rust is a trusted Rust language extension for PostgreSQL. You can use it for stored procedures, functions, and other procedural code that's callable from SQL. The PL/Rust language extension is available in the following versions:
 + RDS for PostgreSQL 17.1 and higher 17 versions

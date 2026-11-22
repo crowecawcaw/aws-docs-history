@@ -1,7 +1,6 @@
 
 
 # Storing temporary data in an RDS for Oracle instance store
-<a name="CHAP_Oracle.advanced-features.instance-store"></a>
 
 Use an instance store for the temporary tablespaces and the Database Smart Flash Cache (the flash cache) on supported RDS for Oracle DB instance classes.
 

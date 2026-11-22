@@ -1,7 +1,6 @@
 
 
 # Overview of Trusted Language Extensions for PostgreSQL
-<a name="PostgreSQL_trusted_language_extension.overview"></a>
 
 Trusted Language Extensions for PostgreSQL is a PostgreSQL extension that you install in your RDS for PostgreSQL DB instance in the same way that you set up other PostgreSQL extensions. In the following image of an example database in the pgAdmin client tool, you can view some of the components that comprise the `pg_tle` extension.
 

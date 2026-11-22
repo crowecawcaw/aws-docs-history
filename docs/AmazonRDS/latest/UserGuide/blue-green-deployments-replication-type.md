@@ -1,7 +1,6 @@
 
 
 # PostgreSQL replication methods for blue/green deployments
-<a name="blue-green-deployments-replication-type"></a>
 
 Amazon RDS for PostgreSQL primarily uses physical replication for blue/green deployments. However, if you request a major version upgrade when you create the blue/green deployment, and your source DB instance runs one of the PostgreSQL versions listed in the table below, Amazon RDS uses logical replication instead.
 

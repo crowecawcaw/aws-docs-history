@@ -1,7 +1,6 @@
 
 
 # Using native Db2 tools to migrate data from Db2 to Amazon RDS for Db2
-<a name="db2-native-db2-tools"></a>
 
 You can use several native Db2 tools, utilities, and commands to move data directly from a Db2 database to an Amazon RDS for Db2 database. To use these native Db2 tools, you must be able to connect your client machine to an RDS for Db2 DB instance. For more information, see [Connecting a client machine to an Amazon RDS for Db2 DB instance](db2-connecting-client-rds.md).
 

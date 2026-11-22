@@ -1,7 +1,6 @@
 
 
 # Viewing instance status
-<a name="accessing-monitoring"></a>
 
 Using the Amazon RDS console, you can quickly access the status of your DB instance.
 
@@ -43,6 +42,7 @@ Find the possible status values for DB instances in the following table. This ta
 | **modifying** | Billed | The DB instance is being modified because of a customer request to modify the DB instance.  | 
 | **moving-to-vpc** | Billed | The DB instance is being moved to a new Amazon Virtual Private Cloud (Amazon VPC). | 
 | **rebooting** | Billed | The DB instance is being rebooted because of a customer request or an Amazon RDS process that requires the rebooting of the DB instance. | 
+| **replica-patched-pending-switchover** | Billed | RDS for Oracle only. Amazon RDS finished upgrading the Oracle Database software on the replica, and the replica is waiting for you to switch over to it. In the console, this status appears as **Patch pending switchover**. If you don't switch over within 48 hours, Amazon RDS rolls back the replica. For more information, see [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md). | 
 | **resetting-master-credentials** | Billed | The master credentials for the DB instance are being reset because of a customer request to reset them. | 
 | **renaming** | Billed | The DB instance is being renamed because of a customer request to rename it.  | 
 | **restore-error** | Billed | The DB instance encountered an error attempting to restore to a point-in-time or from a snapshot. | 

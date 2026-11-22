@@ -1,7 +1,6 @@
 
 
 # Adding storage volumes
-<a name="USER_PIOPS.ModifyingExisting.AdditionalVolumes"></a>
 
 For RDS for Oracle and RDS for SQL Server DB instances, you can add up to three storage volumes to increase your total storage capacity up to 256 TiB per instance. Additional storage volumes allow you to use different storage types (gp3 and io2) to optimize costs and performance based on your data access patterns.
 

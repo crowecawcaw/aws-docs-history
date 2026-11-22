@@ -1,7 +1,6 @@
 
 
 # Requiring SSL/TLS for all connections to a MariaDB DB instance on Amazon RDS
-<a name="mariadb-ssl-connections.require-ssl"></a>
 
 Use the `require_secure_transport` parameter to require that all user connections to your MariaDB DB instance use SSL/TLS. For versions 11.4 and earlier, the `require_secure_transport` parameter is set to `OFF` by default. For 11.8 and later versions, the default value is set to `ON`, enforcing SSL/TLS for connections to your DB instance. You can change the `require_secure_transport` parameter to `OFF` if non-secure connections are needed.
 
@@ -12,7 +11,7 @@ You can set the `require_secure_transport` parameter value by updating the DB pa
 
 When the `require_secure_transport` parameter is set to `ON` for a DB instance, a database client can connect to it if it can establish an encrypted connection. Otherwise, an error message similar to the following is returned to the client:
 
-```
+```bash
 ERROR 1045 (28000): Access denied for user '{{USER}}'@'localhost' (using password: {{YES | NO}})
 ```
 

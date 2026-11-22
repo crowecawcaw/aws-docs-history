@@ -1,7 +1,6 @@
 
 
 # Using SSL/TLS with an Amazon RDS for Db2 DB instance
-<a name="Db2.Concepts.SSL"></a>
 
 SSL is an industry-standard protocol for securing network connections between client and server. After SSL version 3.0, the name was changed to TLS, but we still often refer to the protocol as SSL. Amazon RDS supports SSL encryption for Amazon RDS for Db2 DB instances. Using SSL/TLS, you can encrypt a connection between your application client and your RDS for Db2 DB instance. SSL/TLS support is available in all AWS Regions for RDS for Db2.
 

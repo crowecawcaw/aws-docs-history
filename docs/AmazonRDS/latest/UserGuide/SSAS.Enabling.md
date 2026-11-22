@@ -1,7 +1,6 @@
 
 
 # Turning on SSAS
-<a name="SSAS.Enabling"></a>
 
 Use the following process to turn on SSAS for your DB instance:
 

@@ -1,7 +1,6 @@
 
 
 # Performing a full backup of a tenant database
-<a name="Appendix.Oracle.CommonDBATasks.BackupTenantDatabaseFull"></a>
 
 You can perform a backup of all data blocks in a tenant database in a container database (CDB). Use the Amazon RDS procedure `rdsadmin.rdsadmin_rman_util.backup_tenant_full`. This procedure applies only to the current database backup and uses the following common parameters for RMAN tasks:
 + `p_owner`
@@ -24,7 +23,7 @@ The `rdsadmin_rman_util.backup_tenant_full` procedure is supported for the follo
 
 The following example performs a full backup of the current tenant database using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.backup_tenant_full(
         p_owner               => '{{SYS}}', 

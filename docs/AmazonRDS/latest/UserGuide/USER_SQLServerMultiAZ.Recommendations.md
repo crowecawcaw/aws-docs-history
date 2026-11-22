@@ -1,7 +1,6 @@
 
 
 # Microsoft SQL Server Multi-AZ deployment limitations, notes, and recommendations
-<a name="USER_SQLServerMultiAZ.Recommendations"></a>
 
 The following are some limitations when working with Multi-AZ deployments on RDS for SQL Server DB instances:
 + Cross-Region Multi-AZ isn't supported.
@@ -92,26 +91,26 @@ The following are some recommendations for working with Multi-AZ deployments on 
   ```
 + Don't use the `Set Partner Off` command when working with Multi-AZ instances using DBM or AGs. This command is not supported on instances using block level replication. For example, don't do the following. 
 
-  ```
+  ```sql
   --Don't do this
   ALTER DATABASE db1 SET PARTNER off
   ```
 + Don't set the recovery mode to `simple`. For example, don't do the following. 
 
-  ```
+  ```sql
   --Don't do this
   ALTER DATABASE db1 SET RECOVERY simple
   ```
 + Don't use the `DEFAULT_DATABASE` parameter when creating new logins on Multi-AZ DB instances unless using block level replication for high availability, because these settings can't be applied to the standby mirror. For example, don't do the following. 
 
-  ```
+  ```sql
   --Don't do this
   CREATE LOGIN [test_dba] WITH PASSWORD=foo, DEFAULT_DATABASE=[db2]
   ```
 
   Also, don't do the following.
 
-  ```
+  ```sql
   --Don't do this
   ALTER LOGIN [test_dba] WITH DEFAULT_DATABASE=[db3]
   ```

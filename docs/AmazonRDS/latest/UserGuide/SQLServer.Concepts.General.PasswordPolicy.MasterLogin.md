@@ -1,7 +1,6 @@
 
 
 # Password considerations for the master login
-<a name="SQLServer.Concepts.General.PasswordPolicy.MasterLogin"></a>
 
 When you create an RDS for SQL Server DB instance, the master user password is not evaluated against the password policy. A new master password is also not evaluated against the password when performing operations to the master user, specifically when setting `MasterUserPassword` in the `ModifyDBInstance` command. In both cases, you can set a password for the master user that does not satisfy your password policy, and the operation still succeeds. If the policy is not satisfied, RDS attempts to raise an RDS event, with the recommendation to set a strong password. Take care to only use strong passwords for the master user. 
 

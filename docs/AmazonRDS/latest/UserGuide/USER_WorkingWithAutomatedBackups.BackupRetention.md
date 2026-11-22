@@ -1,7 +1,6 @@
 
 
 # Backup retention period
-<a name="USER_WorkingWithAutomatedBackups.BackupRetention"></a>
 
 You can set the backup retention period when you create or restore a DB instance or Multi-AZ DB cluster. If you create a DB instance using the Amazon RDS API or the AWS CLI and if you don't set the backup retention period, the default backup retention period is one day. If you create a DB instance using the console, the default backup retention period is seven days.
 

@@ -1,7 +1,6 @@
 
 
 # Working with read replicas for Amazon RDS for PostgreSQL
-<a name="USER_PostgreSQL.Replication.ReadReplicas"></a>
 
 You can scale reads for your Amazon RDS for PostgreSQL DB instances by adding read replicas to the instances. As with other Amazon RDS database engines, RDS for PostgreSQL uses native replication mechanisms of PostgreSQL to keep read replicas up to date with changes on the source DB. For general information about read replicas and Amazon RDS, see [Working with DB instance read replicas](USER_ReadRepl.md). 
 

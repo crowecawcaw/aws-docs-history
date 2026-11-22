@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Media with RDS Custom for SQL Server
-<a name="custom-sqlserver.byom"></a>
 
 RDS Custom for SQL Server supports two licensing models: License Included (LI) and Bring Your Own Media (BYOM).
 

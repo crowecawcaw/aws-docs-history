@@ -1,7 +1,6 @@
 
 
 # Starting and stopping an RDS Custom for SQL Server DB instance
-<a name="custom-managing-sqlserver.startstop"></a>
 
 You can start and stop your RDS Custom for SQL Server DB instance. The same general requirements and limitations for RDS for SQL Server DB instances apply to stopping and starting your RDS Custom for SQL Server DB instances. For more information, see [Stopping an Amazon RDS DB instance temporarily](USER_StopInstance.md).
 

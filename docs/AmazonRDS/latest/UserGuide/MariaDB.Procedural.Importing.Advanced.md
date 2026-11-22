@@ -1,7 +1,6 @@
 
 
 # Importing data considerations for MariaDB
-<a name="MariaDB.Procedural.Importing.Advanced"></a>
 
 The following content contains technical information related to loading data into MariaDB. This content is aimed at users who are familiar with the MariaDB server architecture.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a VPC for use with a DB instance (IPv4 only)
-<a name="CHAP_Tutorials.WebServerDB.CreateVPC"></a>
 
 A common scenario includes a DB instance in a virtual private cloud (VPC) based on the Amazon VPC service. This VPC shares data with a web server that is running in the same VPC. In this tutorial, you create the VPC for this scenario.
 

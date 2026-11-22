@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for database activity streams in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.DBActivityStreams"></a>
 
  By using database activity streams in Amazon RDS, you can monitor and set alarms for auditing activity in your Oracle database and SQL Server database. For more information, see [Overview of Database Activity Streams](DBActivityStreams.md#DBActivityStreams.Overview).
 

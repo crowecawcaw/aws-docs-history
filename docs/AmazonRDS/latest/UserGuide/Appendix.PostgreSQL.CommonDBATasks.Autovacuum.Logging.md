@@ -1,7 +1,6 @@
 
 
 # Logging autovacuum and vacuum activities
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum.Logging"></a>
 
 Information about autovacuum activities is sent to the `postgresql.log` based on the level specified in the `rds.force_autovacuum_logging_level` parameter. Following are the values allowed for this parameter and the PostgreSQL versions for which that value is the default setting:
 + `disabled` (PostgreSQL 10, PostgreSQL 9.6)

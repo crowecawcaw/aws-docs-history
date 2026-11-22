@@ -1,11 +1,11 @@
 
 
 # Configuring active-active clusters for RDS for MySQL
-<a name="mysql-active-active-clusters"></a>
 
 An active-active cluster in Amazon RDS is a database configuration where multiple nodes actively handle read and write operations, distributing the workload across instances to improve availability and scalability. Each node in the cluster is synchronized to maintain data consistency, enabling high availability and faster failover in case of node failure
 
 You can set up an active-active cluster for RDS for MySQL by using the MySQL Group Replication plugin. The Group Replication plugin is supported for RDS for MySQL DB instances running the following versions:
++ All MySQL 9.7 versions
 + All MySQL 8.4 versions
 + MySQL 8.0.35 and higher minor versions
 
@@ -27,6 +27,7 @@ The following cases are good candidates for using active-active clusters:
 + [Limitations and considerations for active-active clusters](mysql-active-active-clusters-considerations-limitations.md)
 + [Preparing for a cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md)
 + [Required parameter settings for active-active clusters](mysql-active-active-clusters-parameters.md)
++ [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md)
 + [Converting an existing DB instance to an active-active cluster](mysql-active-active-clusters-converting.md)
 + [Setting up an active-active cluster with new DB instances](mysql-active-active-clusters-setting-up.md)
 + [Adding a DB instance to an active-active cluster](mysql-active-active-clusters-adding.md)

@@ -1,7 +1,6 @@
 
 
 # Oracle Management Agent for Enterprise Manager Cloud Control
-<a name="Oracle.Options.OEMAgent"></a>
 
 Oracle Enterprise Manager (OEM) Management Agent is a software component that monitors targets running on hosts and communicates that information to the middle-tier Oracle Management Service (OMS). Amazon RDS supports Management Agent through the use of the `OEM_AGENT` option. 
 
@@ -213,13 +212,13 @@ The Management Agent uses the `DBSNMP` user account to connect to the database a
 **Your database is a non-CDB.**  
 Run the following SQL statement:  
 
-   ```
+   ```sql
    1. ALTER USER dbsnmp IDENTIFIED BY {{new_password}} ACCOUNT UNLOCK;
    ```  
 **Your database is a CDB.**  
 Run the following stored procedure to unlock the `DBSNMP` account:  
 
-   ```
+   ```sql
    1. EXEC rdsadmin.rdsadmin_util.reset_oem_agent_password('{{new_password}}');
    ```
 If you receive an error stating that the procedure doesn't exist, reboot your CDB instance to install it automatically. For more information, see [Rebooting a DB instance](USER_RebootInstance.md).
@@ -294,7 +293,7 @@ To secure the Management Agent, run the Amazon RDS procedure `rdsadmin.rdsadmin_
 
 The following procedure creates a task to secure the Management Agent and returns the ID of the task:
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.secure_oem_agent as TASK_ID from DUAL;
 ```
 
@@ -307,7 +306,7 @@ To get the status of the Management Agent, run the Amazon RDS procedure `rdsadmi
 
 The following procedure creates a task to get the Management Agent's status and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.get_status_oem_agent() as TASK_ID from DUAL;
 ```
 
@@ -320,7 +319,7 @@ To restart the Management Agent, run the Amazon RDS procedure `rdsadmin.rdsadmin
 
 The following procedure creates a task to restart the Management Agent and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.restart_oem_agent as TASK_ID from DUAL;    
 ```
 
@@ -333,7 +332,7 @@ To list the targets monitored by the Management Agent, run the Amazon RDS proced
 
 The following procedure creates a task to list the targets monitored by the Management Agent and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.list_targets_oem_agent as TASK_ID from DUAL;
 ```
 
@@ -346,7 +345,7 @@ To list of all the running, ready, and scheduled collection threads monitored by
 
 The following procedure creates a task to list the collection threads and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.list_clxn_threads_oem_agent() as TASK_ID from DUAL;          
 ```
 
@@ -359,7 +358,7 @@ To clear the Management Agent's state, run the Amazon RDS procedure `rdsadmin.rd
 
 The following procedure creates a task that clears the Management Agent's state and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.clearstate_oem_agent() as TASK_ID from DUAL;
 ```
 
@@ -372,7 +371,7 @@ To make the Management Agent upload the Oracle Management Server (OMS) associate
 
 The following procedure creates a task that makes the Management Agent upload its associated OMS and return the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.upload_oem_agent() as TASK_ID from DUAL;
 ```
 
@@ -385,7 +384,7 @@ To ping the Management Agent's OMS, run the Amazon RDS procedure `rdsadmin.rdsad
 
 The following procedure creates a task that pings the Management Agent's OMS and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.ping_oms_oem_agent() as TASK_ID from DUAL;
 ```
 
@@ -398,7 +397,7 @@ To diagnose connectivity problems between the Management Agent and the Oracle Ma
 
 The following procedure creates a task to diagnose connectivity between the Management Agent and OMS and returns the ID of the task.
 
-```
+```sql
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.run_diagnostics_oem_agent() AS TASK_ID FROM DUAL;
 ```
 
@@ -417,7 +416,7 @@ When you want to monitor a task, replace `{{task-id}}` with the ID of the task t
 
 To view the contents of bdump files, run the Amazon RDS procedure `rdsadmin.rds_file_util.read_text_file`. The following query returns the contents of the `dbtask-1546988886389-2444.log` bdump file. 
 
-```
+```sql
 SELECT text FROM table(rdsadmin.rds_file_util.read_text_file('BDUMP','dbtask-1546988886389-2444.log'));
 ```
 

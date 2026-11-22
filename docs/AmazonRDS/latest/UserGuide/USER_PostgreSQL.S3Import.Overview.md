@@ -1,7 +1,6 @@
 
 
 # Overview of importing data from Amazon S3 data
-<a name="USER_PostgreSQL.S3Import.Overview"></a>
 
 **To import S3 data into Amazon RDS**
 

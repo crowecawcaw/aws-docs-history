@@ -1,7 +1,6 @@
 
 
 # Understanding Domain membership
-<a name="custom-sqlserver-WinAuth.Understanding"></a>
 
  After you create or modify your DB instance, the instance becomes a member of the domain. The AWS console indicates the status of the domain membership for the DB instance. The status of the DB instance can be one of the following: 
 +  **joined** – The instance is a member of the domain.

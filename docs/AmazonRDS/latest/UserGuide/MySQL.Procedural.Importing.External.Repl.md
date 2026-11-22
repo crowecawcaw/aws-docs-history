@@ -1,7 +1,6 @@
 
 
 # Configuring binary log file position replication with an external source instance
-<a name="MySQL.Procedural.Importing.External.Repl"></a>
 
 You can set up replication between an RDS for MySQL or MariaDB DB instance and a MySQL or MariaDB instance that is external to Amazon RDS using binary log file replication.
 
@@ -32,7 +31,7 @@ Follow these guidelines when you set up an external source instance and a replic
 
 1. Make the source MySQL or MariaDB instance read-only.
 
-   ```
+   ```sql
    mysql> FLUSH TABLES WITH READ LOCK;
    mysql> SET GLOBAL read_only = ON;
    ```
@@ -86,7 +85,7 @@ Make sure that there isn't a space between the `-p` option and the entered passw
 
 1. Make the source MySQL or MariaDB instance writeable again.
 
-   ```
+   ```sql
    mysql> SET GLOBAL read_only = OFF;
    mysql> UNLOCK TABLES;
    ```
@@ -111,7 +110,7 @@ Make sure that there isn't a space between the `-p` option and the entered passw
 
 1. Using the client of your choice, connect to the external instance and create a user to use for replication. Use this account solely for replication and restrict it to your domain to improve security. The following is an example. 
 
-   ```
+   ```sql
    CREATE USER '{{repl_user'@'mydomain.com}}' IDENTIFIED BY '{{password}}';
    ```
 **Note**  
@@ -119,13 +118,13 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. For the external instance, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. For example, to grant the `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the '`repl_user`' user for your domain, issue the following command.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '{{repl_user'@'mydomain.com}}';
    ```
 
 1. Make the Amazon RDS DB instance the replica. To do so, first connect to the Amazon RDS DB instance as the master user. Then identify the external MySQL or MariaDB database as the source instance by using the [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source) or [mysql.rds\_set\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master) command. Use the master log file name and master log position that you determined in step 2. The following commands are examples.
 
-   **MySQL 8.4**
+   **MySQL 8.4 and higher**
 
    ```
    CALL mysql.rds_set_external_source ('{{mysourceserver.mydomain.com}}', 3306, '{{repl_user}}', '{{password}}', '{{mysql-bin-changelog.000031}}', {{107}}, {{1}});
@@ -133,7 +132,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
    **MariaDB and MySQL 8.0 and 5.7**
 
-   ```
+   ```sql
    CALL mysql.rds_set_external_master ('{{mymasterserver.mydomain.com}}', 3306, '{{repl_user}}', '{{password}}', '{{mysql-bin-changelog.000031}}', {{107}}, {{1}});
    ```
 **Note**  
@@ -141,6 +140,6 @@ On RDS for MySQL, you can choose to use delayed replication by running the [mysq
 
 1. On the Amazon RDS DB instance, issue the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication) command to start replication.
 
-   ```
+   ```sql
    CALL mysql.rds_start_replication;
    ```

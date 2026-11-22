@@ -1,7 +1,6 @@
 
 
 # Working with storage in RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.DatabaseStorage"></a>
 
 With RDS for SQL Server, you can attach up to three additional volumes to your RDS for SQL Server instance, each mapped to a unique Windows drive letter. This allows you to distribute database files across multiple volumes beyond the default `D:` drive. When you add a storage volume, you get enhanced flexibility for database file management and storage optimization.
 
@@ -57,7 +56,7 @@ You can add up to three storage volumes beyond the default `D:` drive. To add a 
 
 The following example adds a new 4,000 GiB General Purpose SSD (gp3) volume named `rdsdbdata4`.
 
-```
+```bash
 aws rds modify-db-instance \
   --db-instance-identifier {{my-sql-server-instance}} \
   --region {{us-east-1}} \
@@ -70,7 +69,7 @@ aws rds modify-db-instance \
 
 You can modify any storage setting for your additional volumes except for storage size. The following example modifies the IOPS setting for the `rdsdbdata2` volume.
 
-```
+```bash
 aws rds modify-db-instance \
   --db-instance-identifier {{my-sql-server-instance}} \
   --region {{us-east-1}} \
@@ -90,7 +89,7 @@ Before you remove an additional storage volume, make sure that no database files
 
 The following example removes the `rdsdbdata4` volume.
 
-```
+```bash
 aws rds modify-db-instance \
   --db-instance-identifier {{my-sql-server-instance}} \
   --region {{us-east-1}} \
@@ -115,7 +114,7 @@ When restoring from a snapshot, you can add new additional storage volumes or mo
 
 The following example restores a DB instance from a snapshot and modifies the IOPS setting for the `rdsdbdata2` volume:
 
-```
+```bash
 aws rds restore-db-instance-from-db-snapshot \
   --db-instance-identifier {{my-restored-instance}} \
   --db-snapshot-identifier {{my-snapshot}} \
@@ -130,7 +129,7 @@ During point-in-time recovery (PITR), you can add new additional storage volumes
 
 The following example performs PITR and adds a new 5,000 GiB General Purpose SSD (gp3) volume:
 
-```
+```bash
 aws rds restore-db-instance-to-point-in-time \
   --source-db-instance-identifier {{my-source-instance}} \
   --target-db-instance {{my-pitr-instance}} \
@@ -152,7 +151,7 @@ Specifies the drive letter for database log files
 
 The following example restores a database with data files on the `H:` drive and log files on the `I:` drive:
 
-```
+```sql
 EXEC msdb.dbo.rds_restore_database    
     @restore_db_name='{{my_database}}',
     @s3_arn_to_restore_from='{{arn:aws:s3:::my-bucket/backup-file.bak}}',
@@ -162,7 +161,7 @@ EXEC msdb.dbo.rds_restore_database
 
 If you don't specify volume parameters, or if you specify the `D:` drive for both parameters, the database files are restored to the default `D:` drive:
 
-```
+```sql
 EXEC msdb.dbo.rds_restore_database    
     @restore_db_name='{{my_database}}',
     @s3_arn_to_restore_from='{{arn:aws:s3:::my-bucket/backup-file.bak}}';
@@ -186,7 +185,7 @@ You can create new databases directly on additional storage volumes using standa
 
 The following example creates a database with data files on the `H:` drive and log files on the `I:` drive:
 
-```
+```sql
 CREATE DATABASE {{MyDatabase}}
 ON (
     NAME = '{{MyDatabase_Data}}',
@@ -213,7 +212,7 @@ When the default `D:` drive reaches its maximum capacity, you can add additional
 
 1. Add a new data file to the additional storage volume:
 
-   ```
+   ```sql
    ALTER DATABASE {{MyDatabase}}
    ADD FILE (
        NAME = '{{MyDatabase_Data2}}',
@@ -232,7 +231,7 @@ To move a database to a different volume, use the backup and restore approach wi
 
 1. Back up the database using `rds_backup_database`:
 
-   ```
+   ```sql
    EXEC msdb.dbo.rds_backup_database 
        @source_db_name='{{MyDatabase}}',
        @s3_arn_to_backup_to='{{arn:aws:s3:::my-bucket/database-backup.bak}}';
@@ -240,7 +239,7 @@ To move a database to a different volume, use the backup and restore approach wi
 
 1. Restore the database to the target volume:
 
-   ```
+   ```sql
    EXEC msdb.dbo.rds_restore_database    
        @restore_db_name='{{MyDatabase_New}}',
        @s3_arn_to_restore_from='{{arn:aws:s3:::my-bucket/database-backup.bak}}',
@@ -261,7 +260,7 @@ For partitioned tables, you can archive older data to additional storage volumes
 
 1. Create a new filegroup on the additional storage volume:
 
-   ```
+   ```sql
    ALTER DATABASE {{MyDatabase}}
    ADD FILEGROUP {{ArchiveFileGroup}};
    

@@ -1,7 +1,6 @@
 
 
 # Strategies for updating your time zone file
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade.strategies"></a>
 
 Upgrading your DB engine and adding the `TIMEZONE_FILE_AUTOUPGRADE` option to an option group are separate operations. Adding the `TIMEZONE_FILE_AUTOUPGRADE` option initiates the update of your time zone file if a more current one is available. You run the following commands (only relevant options are shown) either immediately or at the next maintenance window:
 + Upgrade your DB engine only using the following RDS CLI command:

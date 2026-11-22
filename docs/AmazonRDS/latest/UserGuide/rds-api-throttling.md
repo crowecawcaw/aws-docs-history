@@ -1,7 +1,6 @@
 
 
 # Request throttling for the Amazon RDS API
-<a name="rds-api-throttling"></a>
 
 Amazon RDS throttles API requests for each AWS account in each AWS Region. This helps the performance of the service and ensures fair usage for all Amazon RDS customers. Throttling ensures that requests to the Amazon RDS API don't exceed the maximum allowed API request limits. The request limits apply to API requests from any source, including the following.
 + Your own application code using an AWS SDK
@@ -11,7 +10,7 @@ Amazon RDS throttles API requests for each AWS account in each AWS Region. This 
 
 If you use any Amazon RDS API operations and exceed the default limit for the number of calls per second, the Amazon RDS API issues an error like the following one.
 
-ClientError: An error occurred (ThrottlingException) when calling the {{API\_name}} operation: Rate exceeded.
+`ClientError: An error occurred (ThrottlingException) when calling the {{API_name}} operation: Rate exceeded.`
 
 This error means that your account exceeded its API request limit. By default, you can make up to 300 requests in a burst and a sustained 12 requests per second. To avoid this error, retry the request with exponential backoff, reduce your request rate, or request a limit increase. For more information, see [Retries and exponential backoff](#rds-api-throttling-backoff), [Reduce the number of API requests](#rds-api-throttling-reduce), and [Request a limit increase](#rds-api-throttling-increase).
 

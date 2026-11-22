@@ -1,7 +1,6 @@
 
 
 # Importing data into an Amazon RDS for MariaDB DB instance
-<a name="MariaDB.Procedural.Importing"></a>
 
 You can use several different techniques to import data into an RDS for MariaDB DB instance. The best approach depends on a number of factors:
 + Source of the data

@@ -1,7 +1,6 @@
 
 
 # Importing data from Db2 to Amazon RDS for Db2 with the INSERT command
-<a name="db2-native-db2-tools-insert"></a>
 
 You can use the `INSERT` command from a self-managed Db2 server to insert your data into an Amazon RDS for Db2 database. With this migration approach, you use a nickname for the remote RDS for Db2 DB instance. Your self-managed Db2 database (source) must be able to connect to the RDS for Db2 database (target).
 

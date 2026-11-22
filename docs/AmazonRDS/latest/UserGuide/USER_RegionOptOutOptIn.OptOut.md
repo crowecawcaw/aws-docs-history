@@ -1,7 +1,6 @@
 
 
 # What happens when you opt out of a Region
-<a name="USER_RegionOptOutOptIn.OptOut"></a>
 
 When you opt out of an AWS Region, the following changes apply to your Amazon RDS resources in that Region:
 + A snapshot of your DB instances and DB clusters in that Region is taken; then, your DB instances and DB clusters are deleted.

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a MariaDB read replica problem
-<a name="USER_ReadRepl.Troubleshooting.MariaDB"></a>
 
 The replication technologies for MariaDB are asynchronous. Because they are asynchronous, occasional `BinLogDiskUsage` increases on the source DB instance and `ReplicaLag` on the read replica are to be expected. For example, a high volume of write operations to the source DB instance can occur in parallel. In contrast, write operations to the read replica are serialized using a single I/O thread, which can lead to a lag between the source instance and read replica. For more information about read-only replicas in the MariaDB documentation, go to [Replication overview](http://mariadb.com/kb/en/mariadb/replication-overview/).
 

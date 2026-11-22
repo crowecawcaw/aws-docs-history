@@ -1,7 +1,6 @@
 
 
 # Using pgactive to support active-active replication
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive"></a>
 
 The `pgactive` extension uses active-active replication to support and coordinate write operations on multiple RDS for PostgreSQL databases. Amazon RDS for PostgreSQL supports the `pgactive` extension on the following versions: 
 + RDS for PostgreSQL 17.0 and all higher versions

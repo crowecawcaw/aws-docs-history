@@ -1,7 +1,6 @@
 
 
 # Upgrading the RDS for Oracle DB engine
-<a name="USER_UpgradeDBInstance.Oracle"></a>
 
 When Amazon RDS supports a new version of Oracle Database, you can upgrade your DB instances to the new version. For information about which Oracle versions are available on Amazon RDS, see [*Amazon RDS for Oracle Release Notes*](https://docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/Welcome.html).
 
@@ -12,6 +11,7 @@ RDS for Oracle Databases 11g, 12c, and 18c are no longer supported. If you maint
 + [Overview of RDS for Oracle engine upgrades](USER_UpgradeDBInstance.Oracle.Overview.md)
 + [Oracle major version upgrades](USER_UpgradeDBInstance.Oracle.Major.md)
 + [Oracle minor version upgrades](USER_UpgradeDBInstance.Oracle.Minor.md)
++ [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md)
 + [Maintenance preparation in RDS for Oracle](maintenance-preparation.md)
 + [Running minor version upgrade prechecks in Amazon RDS for Oracle](USER_UpgradeDBInstance.Oracle.Precheck.md)
 + [Considerations for Oracle database upgrades](USER_UpgradeDBInstance.Oracle.OGPG.md)

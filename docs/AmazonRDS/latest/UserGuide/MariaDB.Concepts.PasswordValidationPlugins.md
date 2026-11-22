@@ -1,7 +1,6 @@
 
 
 # Using the password validation plugins for RDS for MariaDB
-<a name="MariaDB.Concepts.PasswordValidationPlugins"></a>
 
 Starting with RDS for MariaDB version 11.4, you can use the following password validation plugins to enhance the security of your database connections:
 + [simple\_password\_check](https://mariadb.com/kb/en/simple-password-check-plugin/) – checks whether a password contains at least a specific number of characters of a specific type.

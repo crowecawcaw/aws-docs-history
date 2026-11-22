@@ -1,7 +1,6 @@
 
 
 # Requirements and considerations for RDS for Db2 replicas
-<a name="db2-read-replicas.limitations"></a>
 
 Db2 replica requirements fall into several categories: licensing and versioning, backup and restore considerations, replication behavior, and general operational considerations. Before creating a Db2 replica, familiarize yourself with the following requirements and considerations.
 

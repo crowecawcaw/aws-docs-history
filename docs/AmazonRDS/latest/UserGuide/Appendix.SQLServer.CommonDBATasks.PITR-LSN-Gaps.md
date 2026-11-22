@@ -1,7 +1,6 @@
 
 
 # Troubleshooting point-in-time-recovery failures due to a log sequence number gap
-<a name="Appendix.SQLServer.CommonDBATasks.PITR-LSN-Gaps"></a>
 
 When attempting point-in-time-recovery (PITR) in RDS for SQL Server, you might encounter failures due to gaps in log sequence numbers (LSNs). These gaps prevent RDS from restoring your database to the requested time and RDS places your restoring instance in `incompatible-restore` state.
 
@@ -11,7 +10,7 @@ Common causes for this issue are:
 
 To identify LSN gaps in your database, run this query:
 
-```
+```sql
 SELECT * FROM msdb.dbo.rds_fn_list_tlog_backup_metadata({{database_name}})
 ORDER BY backup_file_time_utc desc;
 ```

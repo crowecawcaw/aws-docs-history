@@ -1,7 +1,6 @@
 
 
 # MariaDB features not supported by Amazon RDS
-<a name="MariaDB.Concepts.FeatureNonSupport"></a>
 
 The following MariaDB features are not supported on Amazon RDS:
 + S3 storage engine

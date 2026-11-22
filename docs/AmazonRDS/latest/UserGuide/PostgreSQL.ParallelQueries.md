@@ -1,7 +1,6 @@
 
 
 # Best Practices for Parallel Queries in RDS for PostgreSQL
-<a name="PostgreSQL.ParallelQueries"></a>
 
 Parallel query execution is a feature in PostgreSQL that allows a single SQL query to be broken into smaller tasks that are processed simultaneously by multiple background worker processes. Instead of executing a query entirely in a single backend process, PostgreSQL can distribute parts of the query, such as scans, joins, aggregations, or sorting, across multiple CPU cores. The *leader process* coordinates this execution and gathers the results from the *parallel workers*.
 

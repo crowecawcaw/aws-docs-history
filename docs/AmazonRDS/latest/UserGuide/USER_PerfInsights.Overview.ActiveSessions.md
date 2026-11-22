@@ -1,7 +1,6 @@
 
 
 # Database load
-<a name="USER_PerfInsights.Overview.ActiveSessions"></a>
 
 *Database load (DB load)* measures the level of session activity in your database. `DBLoad` is the key metric in Database Insights, and Database Insights collects DB load every second.
 

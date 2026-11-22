@@ -1,7 +1,6 @@
 
 
 # Requirements and considerations for RDS for Oracle replicas
-<a name="oracle-read-replicas.limitations"></a>
 
 Before creating an Oracle replica, familiarize yourself with the following requirements and considerations.
 
@@ -21,7 +20,7 @@ Before you create an RDS for Oracle replica, consider the following:
 + Oracle replicas are supported only for Oracle Enterprise Edition (EE).
 + Oracle replicas of non-CDBs are supported only for DB instances created using non-CDB instances running Oracle Database 19c.
 + Oracle replicas are available for DB instances running only on DB instance classes with two or more vCPUs. A source DB instance can't use the db.t3.small instance class.
-+ The Oracle DB engine version of the source DB instance and all its replicas must be the same. Amazon RDS upgrades the replicas immediately after upgrading the source DB instance, regardless of a replica's maintenance window. For major version upgrades of cross-Region replicas, Amazon RDS automatically does the following:
++ The Oracle DB engine version of the source DB instance and all its replicas must be the same. Amazon RDS upgrades the replicas immediately after upgrading the source DB instance, regardless of a replica's maintenance window. The exception is Replica First Patching, where you upgrade one replica in the same AWS Region before its source DB instance, and then switch over to it. For more information, see [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md). For major version upgrades of cross-Region replicas, Amazon RDS automatically does the following:
   + Generates an option group for the target version.
   + Copies all options and option settings from the original option group to the new option group.
   + Associates the upgraded cross-Region replica with the new option group.

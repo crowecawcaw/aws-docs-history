@@ -1,7 +1,6 @@
 
 
 # Troubleshooting RDS for Db2 replication issues
-<a name="db2-troubleshooting-replicas"></a>
 
 This topic describes common RDS for Db2 replication issues and provides troubleshooting guidance for both read-only and standby replicas. In addition to reviewing the following troubleshooting information, make sure that you followed the [requirements and considerations](db2-read-replicas.limitations.md), and completed the [preparation steps](db2-read-replicas.Configuration.md) before creating Db2 replicas.
 

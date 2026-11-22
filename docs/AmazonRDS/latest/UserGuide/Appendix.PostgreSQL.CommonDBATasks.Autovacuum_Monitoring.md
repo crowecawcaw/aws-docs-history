@@ -1,7 +1,6 @@
 
 
 # Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring"></a>
 
 In PostgreSQL, vacuuming is vital for ensuring database health as it reclaims storage and prevents [transaction ID wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND) issues. However, there are times when vacuuming can be prevented from operating as desired, which can result in performance degradation, storage bloat, and even impact availability of your DB instance by transaction ID wraparound. Therefore, identifying and resolving these issues are essential for optimal database performance and availability. Read [Understanding autovacuum in Amazon RDS for PostgreSQL environments](https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-rds-for-postgresql-environments/) to learn more about autovacuum.
 

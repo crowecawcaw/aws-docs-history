@@ -1,7 +1,6 @@
 
 
 # Configuring a temporary tablespace group on an instance store and Amazon EBS
-<a name="CHAP_Oracle.advanced-features.instance-store.temp-ebs"></a>
 
 You can configure a temporary tablespace group to include temporary tablespaces on both an instance store and Amazon EBS. This technique is useful when you want more temporary storage than is allowed by the maximum setting of `rds.instance_store_temp_size`.
 

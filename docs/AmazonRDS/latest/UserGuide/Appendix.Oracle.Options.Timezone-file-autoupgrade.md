@@ -1,7 +1,6 @@
 
 
 # Oracle time zone file autoupgrade
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade"></a>
 
 With the `TIMEZONE_FILE_AUTOUPGRADE` option, you can upgrade the current time zone file to the latest version on your RDS for Oracle DB instance.
 

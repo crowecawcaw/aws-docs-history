@@ -1,7 +1,6 @@
 
 
 # Function reference
-<a name="postgresql-s3-export-functions"></a>
 
 **Topics**
 + [aws\_s3.query\_export\_to\_s3](#aws_s3.export_query_to_s3)

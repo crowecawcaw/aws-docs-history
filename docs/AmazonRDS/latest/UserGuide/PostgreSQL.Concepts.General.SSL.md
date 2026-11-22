@@ -1,9 +1,11 @@
 
 
 # Using SSL with a PostgreSQL DB instance
-<a name="PostgreSQL.Concepts.General.SSL"></a>
 
 Amazon RDS supports Secure Socket Layer (SSL) encryption for PostgreSQL DB instances. Using SSL, you can encrypt a PostgreSQL connection between your applications and your PostgreSQL DB instances. By default, RDS for PostgreSQL uses and expects all clients to connect using SSL/TLS, but you can also require it. RDS for PostgreSQL supports Transport Layer Security (TLS) versions 1.1 and 1.2. RDS for PostgreSQL 16 and later supports TLS version 1.3.
+
+**Note**  
+RDS for PostgreSQL 15 and earlier versions don't support the Extended Master Secret (EMS) extension for TLS 1.2. Clients that require EMS can't connect to these versions. For example, clients in Federal Information Processing Standard (FIPS) mode on Red Hat Enterprise Linux 9.2 and later require EMS for TLS 1.2. RDS for PostgreSQL 16 and later supports EMS. If your clients require EMS, use RDS for PostgreSQL 16 or later.
 
 For general information about SSL support and PostgreSQL databases, see [SSL support](https://www.postgresql.org/docs/11/libpq-ssl.html) in the PostgreSQL documentation. For information about using an SSL connection over JDBC, see [Configuring the client](https://jdbc.postgresql.org/documentation/head/ssl-client.html) in the PostgreSQL documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle native network encryption
-<a name="Appendix.Oracle.Options.NetworkEncryption"></a>
 
 Amazon RDS supports Oracle native network encryption (NNE). With the `NATIVE_NETWORK_ENCRYPTION` option, you can encrypt data as it moves to and from a DB instance. Amazon RDS supports NNE for all editions of Oracle Database.
 
@@ -23,7 +22,7 @@ You can use Native Network Encryption or Secure Sockets Layer, but not both. For
 
 After connecting to your DB instance, query `V$SESSION_CONNECT_INFO` for your session to confirm that native network encryption is active:
 
-```
+```sql
 SELECT NETWORK_SERVICE_BANNER
 FROM V$SESSION_CONNECT_INFO
 WHERE SID = SYS_CONTEXT('USERENV', 'SID');

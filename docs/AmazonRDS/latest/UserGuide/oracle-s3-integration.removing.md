@@ -1,7 +1,6 @@
 
 
 # Removing the Amazon S3 integration option
-<a name="oracle-s3-integration.removing"></a>
 
 **Important**  
 Removing the S3\_INTEGRATION option invalidates the `rdsadmin.rdsadmin_s3_tasks` package. Ensure all S3 transfers are complete before removing this option.

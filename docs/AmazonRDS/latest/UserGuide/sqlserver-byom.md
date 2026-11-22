@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Media (BYOM) for RDS for SQL Server
-<a name="sqlserver-byom"></a>
 
 Bring Your Own Media (BYOM) for RDS for SQL Server lets you use your existing SQL Server licenses on Amazon RDS through Microsoft's License Mobility through Software Assurance benefit.
 
@@ -93,6 +92,7 @@ BYOM for RDS for SQL Server is available in the following AWS Regions:
 + Asia Pacific (Thailand)
 + Asia Pacific (Tokyo)
 + Canada (Central)
++ Canada West (Calgary)
 + China (Beijing)
 + China (Ningxia)
 + Europe (Frankfurt)

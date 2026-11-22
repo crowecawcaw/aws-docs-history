@@ -1,7 +1,6 @@
 
 
 # Hello Amazon RDS
-<a name="example_rds_Hello_section"></a>
 
 The following code examples show how to get started using Amazon RDS.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Amazon RDS.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
-```
+```csharp
 using System;
 using System.Threading.Tasks;
 using Amazon.RDS;
@@ -55,7 +54,7 @@ public static class HelloRds
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds/hello_rds#code-examples). 
 Code for the CMakeLists.txt CMake file.  
 
-```
+```cpp
 # Set the minimum required version of CMake for this project.
 cmake_minimum_required(VERSION 3.13)
 
@@ -97,7 +96,7 @@ target_link_libraries(${PROJECT_NAME}
 ```
 Code for the hello\_rds.cpp source file.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/rds/RDSClient.h>
 #include <aws/rds/model/DescribeDBInstancesRequest.h>
@@ -170,7 +169,7 @@ int main(int argc, char **argv) {
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -221,7 +220,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rds.RdsClient;
 import software.amazon.awssdk.services.rds.model.DescribeDbInstancesResponse;
@@ -274,7 +273,7 @@ public class DescribeDBInstances {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
-```
+```python
 """
 Purpose
 
@@ -324,7 +323,7 @@ except ClientError as e:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-rds'
 require 'logger'
 

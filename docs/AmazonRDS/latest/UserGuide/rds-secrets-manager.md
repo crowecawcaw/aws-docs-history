@@ -1,7 +1,6 @@
 
 
 # Password management with Amazon RDS and AWS Secrets Manager
-<a name="rds-secrets-manager"></a>
 
 Amazon RDS integrates with Secrets Manager to manage master user passwords for your DB instances and Multi-AZ DB clusters.
 
@@ -98,7 +97,7 @@ You can use IAM condition keys to enforce RDS management of the master user pass
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

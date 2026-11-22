@@ -1,7 +1,6 @@
 
 
 # Amazon RDS on AWS Outposts
-<a name="rds-on-outposts"></a>
 
 Amazon RDS on AWS Outposts extends RDS for SQL Server, RDS for MySQL, RDS for PostgreSQL, and RDS for Oracle databases to AWS Outposts Rack Gen1 and Gen2 environments. AWS Outposts uses the same hardware as in public AWS Regions to bring AWS services, infrastructure, and operation models on-premises. With RDS on Outposts, you can provision managed DB instances close to the business applications that must run on-premises. For more information about AWS Outposts, see the [AWS Outposts documentation](https://docs.aws.amazon.com/outposts/) and the [AWS Outposts product page](https://aws.amazon.com/outposts/).
 
@@ -32,5 +31,7 @@ When network connectivity to the AWS Region isn't available, your DB instance co
 
 The following are prerequisites for using Amazon RDS on AWS Outposts:
 + Install AWS Outposts in your on-premises data center. For more information, see [Installing an AWS Outposts server](https://docs.aws.amazon.com/outposts/latest/install-server/install-server.html) in the *AWS Outposts Server installation guide*.
++ Make sure that your Outpost has capacity for the EC2 instance types that RDS on Outposts supports. RDS on Outposts supports only general purpose (m5 and m7i) and memory optimized (r5 and r7i) instance types. Other instance families, such as compute optimized (C family) instances, aren't supported. For the full list, see [Supported DB instance classes for Amazon RDS on AWS Outposts](rds-on-outposts.db-instance-classes.md).
 + Make sure that you have at least one subnet available for RDS on Outposts. You can use the same subnet for other workloads.
++ If you use an Outpost subnet that another AWS account shared with you, make sure that the Outpost is also shared with your account through AWS Resource Access Manager (AWS RAM). For example, Account A owns the Outpost and shares it with Account B. Account B creates an Outpost subnet and shares the subnet with Account C. To create an RDS on Outposts DB instance in Account C, Account A must also share the Outpost with Account C. Otherwise, the request to create the DB instance fails. For more information, see [Working with shared AWS Outposts resources](https://docs.aws.amazon.com/outposts/latest/userguide/sharing-outposts.html) in the *AWS Outposts User Guide*.
 + Make sure that you have a reliable network connection between your Outpost and an AWS Region.

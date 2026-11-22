@@ -1,7 +1,6 @@
 
 
 # Configuring parameter settings for the pgactive extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.parameters"></a>
 
 You can use the following query to view all the parameters associated with `pgactive` extension.
 

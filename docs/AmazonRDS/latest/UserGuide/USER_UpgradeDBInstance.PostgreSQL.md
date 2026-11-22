@@ -1,7 +1,6 @@
 
 
 # Upgrades of the RDS for PostgreSQL DB engine
-<a name="USER_UpgradeDBInstance.PostgreSQL"></a>
 
 There are two types of upgrades that you can manage for your PostgreSQL database:
 + Operating system updates – Occasionally, Amazon RDS might need to update the underlying operating system of your database to apply security fixes or OS changes. You can decide when Amazon RDS applies OS updates by using the RDS console, AWS Command Line Interface (AWS CLI), or RDS API. For more information about OS updates, see [Applying updates to a DB instance ](USER_UpgradeDBInstance.Maintenance.md#USER_UpgradeDBInstance.OSUpgrades).

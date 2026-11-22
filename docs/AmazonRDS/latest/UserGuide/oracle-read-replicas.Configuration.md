@@ -1,7 +1,6 @@
 
 
 # Preparing to create an Oracle replica
-<a name="oracle-read-replicas.Configuration"></a>
 
 Before you can begin using your replica, perform the following tasks.
 

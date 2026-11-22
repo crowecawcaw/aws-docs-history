@@ -1,7 +1,6 @@
 
 
 # Removing a DB instance from an active-active cluster
-<a name="mysql-active-active-clusters-remove"></a>
 
 When you remove a DB instance from an active-active cluster, it reverts to a standalone DB instance.
 

@@ -1,7 +1,6 @@
 
 
 # Stored procedures for storage access for RDS for Db2
-<a name="db2-sp-managing-storage-access"></a>
 
 The built-in stored procedures described in this topic manage storage access for RDS for Db2 databases that use Amazon S3 for migrating data. For more information, see [Migrating Db2 data through Amazon S3 to Amazon RDS for Db2](db2-migration-load-from-s3.md).
 

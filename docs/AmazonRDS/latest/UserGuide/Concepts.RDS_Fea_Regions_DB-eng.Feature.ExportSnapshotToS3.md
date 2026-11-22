@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3"></a>
 
 You can export RDS DB snapshot data to an Amazon S3 bucket. You can export all types of DB snapshots—including manual snapshots, automated system snapshots, and snapshots created by AWS Backup. After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more information, see [Exporting DB snapshot data to Amazon S3 for Amazon RDS](USER_ExportSnapshot.md). 
 

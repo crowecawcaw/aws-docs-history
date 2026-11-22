@@ -1,7 +1,6 @@
 
 
 # Listing DB parameter groups in Amazon RDS
-<a name="USER_WorkingWithParamGroups.Listing"></a>
 
 You can list the DB parameter groups you've created for your AWS account.
 

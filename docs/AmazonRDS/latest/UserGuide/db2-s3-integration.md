@@ -1,7 +1,6 @@
 
 
 # Integrating an Amazon RDS for Db2 DB instance with Amazon S3
-<a name="db2-s3-integration"></a>
 
 You can transfer files between your Amazon RDS for Db2 DB instance and an Amazon Simple Storage Service (Amazon S3) bucket with Amazon RDS stored procedures. For more information, see [Amazon RDS for Db2 stored procedure reference](db2-stored-procedures.md).
 
@@ -31,7 +30,7 @@ The IAM policy that you create should contain the following information. Replace
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ You can create an IAM policy by using the AWS Management Console or the AWS Comm
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -256,7 +255,7 @@ You can create an IAM role for your DB instance by using the AWS Management Cons
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Migrating data from a MySQL DB snapshot to a MariaDB DB instance
-<a name="USER_Migrate_MariaDB"></a>
 
 You can migrate an RDS for MySQL DB snapshot to a new DB instance running MariaDB using the AWS Management Console, the AWS CLI, or Amazon RDS API. You must use a DB snapshot that was created from an Amazon RDS DB instance running MySQL 5.6 or 5.7. To learn how to create an RDS for MySQL DB snapshot, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md).
 
@@ -72,7 +71,7 @@ Incompatibilities between MySQL and MariaDB include the following:
 + You can't migrate a DB snapshot created with MySQL 8.0 to MariaDB.
 + If the source MySQL database uses a SHA256 password hash, make sure to reset user passwords that are SHA256 hashed before you connect to the MariaDB database. The following code shows how to reset a password that is SHA256 hashed.
 
-  ```
+  ```sql
   SET old_passwords = 0;
   UPDATE mysql.user SET plugin = 'mysql_native_password',
   Password = PASSWORD('new_password')

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for a Multi-AZ deployment with RDS Custom for SQL Server
-<a name="custom-sqlserver-multiaz.prerequisites"></a>
 
 If you have an existing RDS Custom for SQL Server Single-AZ deployment, the following additional prerequisites are required before modifying it to a Multi-AZ deployment. You can choose to complete the prerequisites manually or with the provided CloudFormation template. The latest CloudFormation template contains the prerequisites for both Single-AZ and Multi-AZ deployments.
 

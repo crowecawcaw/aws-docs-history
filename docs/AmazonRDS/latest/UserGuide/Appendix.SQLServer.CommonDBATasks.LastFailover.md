@@ -1,7 +1,6 @@
 
 
 # Determining the last failover time for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.LastFailover"></a>
 
 To determine the last failover time, use the following stored procedure:
 

@@ -1,7 +1,6 @@
 
 
 # Recommendations from Amazon RDS reference
-<a name="USERRecommendationsManage.RecommendationReference"></a>
 
 Amazon RDS generates recommendations for a resource when the resource is created or modified. You can find examples of recommendations from Amazon RDS in the following table. 
 

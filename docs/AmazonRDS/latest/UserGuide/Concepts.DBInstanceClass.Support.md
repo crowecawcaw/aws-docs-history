@@ -1,7 +1,6 @@
 
 
 # Supported DB engines for DB instance classes
-<a name="Concepts.DBInstanceClass.Support"></a>
 
 The following are DB engine–specific considerations for DB instance classes:
 

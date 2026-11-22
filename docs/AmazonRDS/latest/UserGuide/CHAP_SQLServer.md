@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Microsoft SQL Server
-<a name="CHAP_SQLServer"></a>
 
 Amazon RDS supports several versions and editions of Microsoft SQL Server. The following table shows the most recent supported minor version of each major version. For the full list of supported versions, editions, and RDS engine versions, see [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md).
 
@@ -105,11 +104,11 @@ The Amazon RDS implementation of Microsoft SQL Server on a DB instance has some 
   For example, let's say that your DB instance runs on a db.\*.16xlarge with Single-AZ and that it has 76 databases. You modify the DB instance to upgrade to using Multi-AZ Always On AGs. This upgrade fails, because your DB instance contains more databases than your target configuration can support. If you upgrade your instance class type to db.\*.24xlarge instead, the modification succeeds.
 
   If the upgrade fails, you see events and messages similar to the following:
-  +  Unable to modify database instance class. The instance has 76 databases, but after conversion it would only support 75. 
-  +  Unable to convert the DB instance to Multi-AZ: The instance has 76 databases, but after conversion it would only support 75. 
+  +  `Unable to modify database instance class. The instance has 76 databases, but after conversion it would only support 75.` 
+  +  `Unable to convert the DB instance to Multi-AZ: The instance has 76 databases, but after conversion it would only support 75.` 
 
    If the point-in-time restore or snapshot restore fails, you see events and messages similar to the following:
-  +  Database instance put into incompatible-restore. The instance has 76 databases, but after conversion it would only support 75. 
+  +  `Database instance put into incompatible-restore. The instance has 76 databases, but after conversion it would only support 75.` 
 + The following ports are reserved for Amazon RDS, and you can't use them when you create a DB instance: `1234, 1434, 3260, 3343, 3389, 47001,` and `49152-49156`.
 + Client connections from IP addresses within the range 169.254.0.0/16 are not permitted. This is the Automatic Private IP Addressing Range (APIPA), which is used for local-link addressing.
 + SQL Server Standard Edition uses only a subset of the available processors if the DB instance has more processors than the software limits (24 cores, 4 sockets, and 128GB RAM). Examples of this are the db.m5.24xlarge and db.r5.24xlarge instance classes.

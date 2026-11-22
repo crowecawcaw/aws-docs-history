@@ -1,7 +1,6 @@
 
 
 # Database authentication with Amazon RDS
-<a name="database-authentication"></a>
 
  Amazon RDS supports several ways to authenticate database users.
 

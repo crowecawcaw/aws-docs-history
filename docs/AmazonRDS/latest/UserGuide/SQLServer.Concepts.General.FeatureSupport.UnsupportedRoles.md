@@ -1,7 +1,6 @@
 
 
 # Microsoft SQL Server security
-<a name="SQLServer.Concepts.General.FeatureSupport.UnsupportedRoles"></a>
 
 The Microsoft SQL Server database engine uses role-based security. The master user name that you specify when you create a DB instance is a SQL Server Authentication login that is a member of the `processadmin`, `public`, and `setupadmin` fixed server roles.
 

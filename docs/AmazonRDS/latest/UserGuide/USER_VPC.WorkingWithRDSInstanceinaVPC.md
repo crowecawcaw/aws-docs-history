@@ -1,7 +1,6 @@
 
 
 # Working with a DB instance in a VPC
-<a name="USER_VPC.WorkingWithRDSInstanceinaVPC"></a>
 
 Your DB instance is in a virtual private cloud (VPC). A VPC is a virtual network that is logically isolated from other virtual networks in the AWS Cloud. Amazon VPC makes it possible for you to launch AWS resources, such as an Amazon RDS DB instance or Amazon EC2 instance, into a VPC. The VPC can either be a default VPC that comes with your account or one that you create. All VPCs are associated with your AWS account. 
 
@@ -73,7 +72,7 @@ Each DB subnet group should have subnets in at least two Availability Zones in a
 
 If the primary DB instance of a Multi-AZ deployment fails, Amazon RDS can promote the corresponding standby and later create a new standby using an IP address of the subnet in one of the other Availability Zones.
 
-The subnets in a DB subnet group are either public or private. The subnets are public or private, depending on the configuration that you set for their network access control lists (network ACLs) and routing tables. For a DB instance to be publicly accessible, all of the subnets in its DB subnet group must be public. If a subnet that's associated with a publicly accessible DB instance changes from public to private, it can affect DB instance availability.
+The subnets in a DB subnet group are either public or private. Whether a subnet is public or private depends on the configuration that you set for its network access control lists (network ACLs) and route tables. For a DB instance to be publicly accessible, all of the subnets in its DB subnet group must be public. Don't mix public and private subnets in the DB subnet group of a publicly accessible DB instance. If you change a subnet in the DB subnet group from public to private, DB instances in that subnet are no longer reachable from outside the VPC.
 
 To create a DB subnet group that supports dual-stack mode, make sure that each subnet that you add to the DB subnet group has an Internet Protocol version 6 (IPv6) CIDR block associated with it. For more information, see [Amazon RDS IP addressing](#USER_VPC.IP_addressing) and [Migrating to IPv6](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html) in the *Amazon VPC User Guide.*
 

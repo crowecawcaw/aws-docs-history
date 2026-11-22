@@ -1,7 +1,6 @@
 
 
 # Disconnecting a session
-<a name="Appendix.Oracle.CommonDBATasks.DisconnectingSession"></a>
 
 To disconnect the current session by ending the dedicated server process, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.disconnect`. The `disconnect` procedure has the following parameters. 
 
@@ -15,7 +14,7 @@ To disconnect the current session by ending the dedicated server process, use th
 
 The following example disconnects a session.
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_util.disconnect(
         sid    => {{sid}}, 
@@ -26,7 +25,7 @@ end;
 
 To get the session identifier and the session serial number, query the `V$SESSION` view. The following example gets all sessions for the user `AWSUSER`.
 
-```
+```sql
 SELECT SID, SERIAL#, STATUS FROM V$SESSION WHERE USERNAME = '{{AWSUSER}}';
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Creating a database account using IAM authentication
-<a name="UsingWithRDS.IAMDBAuth.DBAccounts"></a>
 
 With IAM database authentication, you don't need to assign database passwords to the user accounts you create. If you remove a user that is mapped to a database account, you should also remove the database account with the `DROP USER` statement.
 
@@ -17,7 +16,7 @@ The user name used for IAM authentication must match the case of the user name i
 
 With MariaDB and MySQL, authentication is handled by `AWSAuthenticationPlugin`—an AWS-provided plugin that works seamlessly with IAM to authenticate your users. Connect to the DB instance as the master user or a different user who can create users and grant privileges. After connecting, issue the `CREATE USER` statement, as shown in the following example.
 
-```
+```sql
 CREATE USER 'jane_doe' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS'; 
 ```
 
@@ -43,7 +42,7 @@ ALTER USER 'jane_doe'@'%' REQUIRE SSL;
 
 To use IAM authentication with PostgreSQL, connect to the DB instance as the master user or a different user who can create users and grant privileges. After connecting, create database users and then grant them the `rds_iam` role as shown in the following example.
 
-```
+```sql
 CREATE USER db_userx; 
 GRANT rds_iam TO db_userx;
 ```

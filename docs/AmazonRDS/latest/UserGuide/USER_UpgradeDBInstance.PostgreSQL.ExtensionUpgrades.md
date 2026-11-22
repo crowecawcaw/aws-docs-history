@@ -1,7 +1,6 @@
 
 
 # Upgrading PostgreSQL extensions in RDS for PostgreSQL databases
-<a name="USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades"></a>
 
 A PostgreSQL engine upgrade doesn't upgrade most PostgreSQL extensions. To update an extension after a version upgrade, use the `ALTER EXTENSION UPDATE` command. 
 
@@ -11,7 +10,7 @@ To update the `pg_repack` extension, drop the extension and then create the new 
 
 To upgrade an extension, use the following command. 
 
-```
+```sql
 ALTER EXTENSION {{extension_name}} UPDATE TO '{{new_version}}';
 ```
 
@@ -19,12 +18,12 @@ For the list of supported versions of PostgreSQL extensions, see [Supported Post
 
 To list your currently installed extensions, use the PostgreSQL [pg\_extension](https://www.postgresql.org/docs/current/catalog-pg-extension.html) catalog in the following command.
 
-```
+```sql
 SELECT * FROM pg_extension;
 ```
 
 To view a list of the specific extension versions that are available for your installation, use the PostgreSQL [ pg\_available\_extension\_versions](https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html) view in the following command.
 
-```
+```sql
 SELECT * FROM pg_available_extension_versions;
 ```

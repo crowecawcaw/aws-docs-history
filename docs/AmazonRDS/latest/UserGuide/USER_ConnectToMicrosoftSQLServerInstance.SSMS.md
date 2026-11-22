@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance with Microsoft SQL Server Management Studio
-<a name="USER_ConnectToMicrosoftSQLServerInstance.SSMS"></a>
 
 In this procedure, you connect to your sample DB instance by using Microsoft SQL Server Management Studio (SSMS). To download a standalone version of this utility, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) in the Microsoft documentation.
 
@@ -53,7 +52,7 @@ Change the colon between the endpoint and port number to a comma.
 
    1. Enter the following SQL query.
 
-      ```
+      ```sql
       select @@VERSION
       ```
 

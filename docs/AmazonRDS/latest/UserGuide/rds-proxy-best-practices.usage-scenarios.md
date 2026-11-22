@@ -1,7 +1,6 @@
 
 
 # Common usage scenarios
-<a name="rds-proxy-best-practices.usage-scenarios"></a>
 
 **Topics**
 + [Application scalability](#rds-proxy-best-practices.application-scalability)

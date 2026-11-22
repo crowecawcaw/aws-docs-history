@@ -1,7 +1,6 @@
 
 
 # Configuring GTID-based replication with an external source instance
-<a name="MariaDB.Procedural.Replication.GTID"></a>
 
 You can set up replication based on global transaction identifiers (GTIDs) from an external MariaDB instance of version 10.0.24 or higher into an RDS for MariaDB DB instance. Follow these guidelines when you set up an external source instance and a replica on Amazon RDS:
 + Monitor failover events for the RDS for MariaDB DB instance that is your replica. If a failover occurs, then the DB instance that is your replica might be recreated on a new host with a different network address. For information on how to monitor failover events, see [Working with Amazon RDS event notification](USER_Events.md).
@@ -17,7 +16,7 @@ To start replication between an external source instance and a MariaDB DB instan
 
 1. Make the source MariaDB instance read-only:
 
-   ```
+   ```sql
    mysql> FLUSH TABLES WITH READ LOCK;
    mysql> SET GLOBAL read_only = ON;
    ```
@@ -67,7 +66,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. Make the source MariaDB instance writeable again.
 
-   ```
+   ```sql
    mysql> SET GLOBAL read_only = OFF;
    mysql> UNLOCK TABLES;
    ```
@@ -90,7 +89,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. Using the client of your choice, connect to the external MariaDB instance and create a MariaDB user to be used for replication. This account is used solely for replication and must be restricted to your domain to improve security. The following is an example.
 
-   ```
+   ```sql
    CREATE USER '{{repl_user}}'@'{{mydomain.com}}' IDENTIFIED BY '{{password}}';
    ```
 **Note**  
@@ -98,13 +97,13 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. For the external MariaDB instance, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. For example, to grant the `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the '`repl_user`' user for your domain, issue the following command.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '{{repl_user}}'@'{{mydomain.com}}';
    ```
 
 1. Make the MariaDB DB instance the replica. Connect to the MariaDB DB instance as the master user and identify the external MariaDB database as the replication source instance by using the [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md) command. Use the GTID that you determined in Step 2. The following is an example.
 
-   ```
+   ```sql
    CALL mysql.rds_set_external_master_gtid ('{{mymasterserver.mydomain.com}}', 3306, '{{repl_user}}', '{{password}}', '{{GTID}}', {{1}});
    ```
 **Note**  
@@ -112,6 +111,6 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. On the MariaDB DB instance, issue the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication) command to start replication. 
 
-   ```
+   ```sql
    CALL mysql.rds_start_replication; 
    ```

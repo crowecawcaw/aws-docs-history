@@ -1,7 +1,6 @@
 
 
 # Stopping and starting a DB instance in a reservation
-<a name="capacity-reservations.stopstart"></a>
 
 When you stop a DB instance that is using reserved capacity, the instance stays associated with the reservation, but the capacity it was using is released back to the reservation for other DB instances to use. Stopping a DB instance does not hold capacity aside for it.
 

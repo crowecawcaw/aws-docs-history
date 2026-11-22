@@ -1,7 +1,6 @@
 
 
 # Instance store support for the tempdb database on Amazon RDS for SQL Server
-<a name="SQLServer.InstanceStore"></a>
 
 An *instance store* provides temporary block-level storage for your DB instance. This storage is located on disks that are physically attached to the host computer. These disks have Non-Volatile Memory Express (NVMe) instance storage that is based on solid-state drives (SSDs). This storage is optimized for low latency, very high random I/O performance, and high sequential read throughput.
 
@@ -56,8 +55,8 @@ When `tempdb` is on the instance store, snapshots don't include temporary files.
 <a name="SQLServer.InstanceStore.DiskFull"></a>
 
 If you use all of the available space in the instance store, you might receive errors such as the following:
-+ The transaction log for database 'tempdb' is full due to 'ACTIVE\_TRANSACTION'.
-+ Could not allocate space for object 'dbo.SORT temporary run storage: 140738941419520' in database 'tempdb' because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.
++ `The transaction log for database 'tempdb' is full due to 'ACTIVE_TRANSACTION'.`
++ `Could not allocate space for object 'dbo.SORT temporary run storage: 140738941419520' in database 'tempdb' because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.`
 
 You can do one or more of the following when the instance store is full:
 + Adjust your workload or the way you use `tempdb`.

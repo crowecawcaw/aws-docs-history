@@ -1,7 +1,6 @@
 
 
 # Backing up and restoring data with additional storage volumes in RDS for Oracle
-<a name="User_Oracle_AdditionalStorage.BackupRestore"></a>
 
 You can use automated backups and create a DB snapshot with your DB instance with additional storage volumes. All backup operations include both the primary volume and additional storage volumes. You can also use point-in-time recovery for your DB instance with additional storage volumes. When you restore your database, you can add storage volumes. You can also modify the storage settings of existing volumes. You cannot delete additional storage volumes when you restore your database from a snapshot. 
 

@@ -1,7 +1,6 @@
 
 
 # Common DBA tasks for Amazon RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks"></a>
 
 Database administrators (DBAs) perform a variety of tasks when administering an Amazon RDS for PostgreSQL DB instance. If you're a DBA already familiar with PostgreSQL, you need to be aware of some of the important differences between running PostgreSQL on your hardware and RDS for PostgreSQL. For example, because it's a managed service, Amazon RDS doesn't allow shell access to your DB instances. That means that you don't have direct access to `pg_hba.conf` and other configuration files. For RDS for PostgreSQL, changes that are typically made to the PostgreSQL configuration file of an on-premises instance are made to a custom DB parameter group associated with the RDS for PostgreSQL DB instance. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md).
 

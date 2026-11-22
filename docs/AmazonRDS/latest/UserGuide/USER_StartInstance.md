@@ -1,7 +1,6 @@
 
 
 # Starting an Amazon RDS DB instance that was previously stopped
-<a name="USER_StartInstance"></a>
 
 This topic explains how to start an Amazon RDS DB instance that was previously stopped, outlining the necessary steps and key considerations for resuming use of the database.
 

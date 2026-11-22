@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance with SQL Workbench/J
-<a name="USER_ConnectToMicrosoftSQLServerInstance.JDBC"></a>
 
 This example shows how to connect to a DB instance running the Microsoft SQL Server database engine by using the SQL Workbench/J database tool. To download SQL Workbench/J, see [SQL Workbench/J](http://www.sql-workbench.net/). 
 
@@ -33,7 +32,7 @@ SQL Workbench/J uses JDBC to connect to your DB instance. You also need the JDBC
 
 1. In the query pane, enter the following SQL query.
 
-   ```
+   ```sql
    select @@VERSION
    ```
 

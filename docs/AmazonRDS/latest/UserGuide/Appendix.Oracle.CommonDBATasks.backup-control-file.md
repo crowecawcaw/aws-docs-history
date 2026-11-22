@@ -1,7 +1,6 @@
 
 
 # Backing up a control file
-<a name="Appendix.Oracle.CommonDBATasks.backup-control-file"></a>
 
 You can back up a control file using the Amazon RDS procedure `rdsadmin.rdsadmin_rman_util.backup_current_controlfile`.
 
@@ -22,7 +21,7 @@ This procedure is supported for the following Amazon RDS for Oracle DB engine ve
 
 The following example backs up a control file using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.backup_current_controlfile(
         p_owner               => '{{SYS}}', 

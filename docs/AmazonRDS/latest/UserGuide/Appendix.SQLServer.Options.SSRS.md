@@ -1,7 +1,6 @@
 
 
 # Support for SQL Server Reporting Services and Power BI Report Server in Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.Options.SSRS"></a>
 
 Starting with SQL Server 2025, Microsoft has consolidated all reporting services under Power BI Report Server (PBIRS), replacing SSRS. If you upgrade an existing RDS DB instance with SSRS to SQL Server 2025, SSRS is automatically replaced by PBIRS. For more information about the upgrade process, see [Upgrading from SSRS to PBIRS](SSRS.Upgrade.md). Like SSRS, PBIRS provides a report server with a web portal where you can display and manage reports and KPIs. With PBIRS, you can run Power BI reports (.pbix) and paginated reports (.rdl), which makes it a superset of SSRS functionality. Everything you can do in SSRS, you can do in PBIRS, with the addition of interactive Power BI report types.
 

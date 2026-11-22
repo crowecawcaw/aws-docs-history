@@ -1,7 +1,6 @@
 
 
 # Using pgAudit to log database activity
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit"></a>
 
 Financial institutions, government agencies, and many industries need to keep *audit logs* to meet regulatory requirements. By using the PostgreSQL Audit extension (pgAudit) with your RDS for PostgreSQL DB instance, you can capture the detailed records that are typically needed by auditors or to meet regulatory requirements. For example, you can set up the pgAudit extension to track changes made to specific databases and tables, to record the user who made the change, and many other details.
 

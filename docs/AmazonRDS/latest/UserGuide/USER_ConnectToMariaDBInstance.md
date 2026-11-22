@@ -1,7 +1,6 @@
 
 
 # Connecting to your MariaDB DB instance
-<a name="USER_ConnectToMariaDBInstance"></a>
 
 After Amazon RDS provisions your DB instance, you can use any standard MariaDB client application or utility to connect to the instance. In the connection string, you specify the Domain Name System (DNS) address from the DB instance endpoint as the host parameter. You also specify the port number from the DB instance endpoint as the port parameter.
 

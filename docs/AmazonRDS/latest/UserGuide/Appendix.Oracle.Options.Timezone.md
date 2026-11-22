@@ -1,7 +1,6 @@
 
 
 # Oracle time zone
-<a name="Appendix.Oracle.Options.Timezone"></a>
 
 To change the system time zone used by your Oracle DB instance, use the time zone option. For example, you might change the time zone of a DB instance to be compatible with an on-premises environment, or a legacy application. The time zone option changes the time zone at the host level. Changing the time zone impacts all date columns and values, including `SYSDATE` and `SYSTIMESTAMP`.
 

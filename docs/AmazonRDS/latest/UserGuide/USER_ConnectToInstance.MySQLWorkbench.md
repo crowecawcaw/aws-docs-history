@@ -1,7 +1,6 @@
 
 
 # Connecting from MySQL Workbench
-<a name="USER_ConnectToInstance.MySQLWorkbench"></a>
 
 **To connect from MySQL Workbench**
 

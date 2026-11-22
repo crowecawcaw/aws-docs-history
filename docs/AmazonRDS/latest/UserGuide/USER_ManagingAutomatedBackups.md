@@ -1,7 +1,6 @@
 
 
 # Managing automated backups
-<a name="USER_ManagingAutomatedBackups"></a>
 
 This section shows how to manage automated backups for DB instances and Multi-AZ DB clusters.
 

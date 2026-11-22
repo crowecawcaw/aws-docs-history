@@ -1,7 +1,6 @@
 
 
 # Settings for DB instances
-<a name="USER_ModifyInstance.Settings"></a>
 
 In the following table, you can find details about which settings you can and can't modify. You can also find when changes can be applied and whether the changes cause downtime for your DB instance. By using Amazon RDS features such as Multi-AZ, you can minimize downtime if you later modify the DB instance. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md). 
 

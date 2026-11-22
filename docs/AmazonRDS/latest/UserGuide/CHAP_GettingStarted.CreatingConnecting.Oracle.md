@@ -1,7 +1,6 @@
 
 
 # Creating and connecting to an Oracle DB instance
-<a name="CHAP_GettingStarted.CreatingConnecting.Oracle"></a>
 
 This tutorial creates an EC2 instance and an RDS for Oracle DB instance. The tutorial shows you how to access the DB instance from the EC2 instance using a standard Oracle client. As a best practice, this tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources outside of the VPC can't access it.
 
@@ -247,7 +246,9 @@ You can use any standard SQL client application to connect to your DB instance. 
 
    1. Choose the Oracle DB instance name to display its details. 
 
-   1. On the **Connectivity & security** tab, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.   
+   1. On the **Connectivity & security** tab, for **Connect using**, choose **Endpoints**.
+
+   1. Under **Endpoint & port**, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.   
 ![Connect to an Oracle DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/OracleConnect1.png)
 
 1. Connect to the EC2 instance that you created earlier by following the steps in [Connect to your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) in the *Amazon EC2 User Guide*.
@@ -325,7 +326,7 @@ The `-y` option installs the updates without asking for confirmation. To examine
 
    For example, the following SQL command shows the current date:
 
-   ```
+   ```sql
    SELECT SYSDATE FROM DUAL;
    ```
 

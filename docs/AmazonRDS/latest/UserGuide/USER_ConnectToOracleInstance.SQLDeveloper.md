@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using Oracle SQL developer
-<a name="USER_ConnectToOracleInstance.SQLDeveloper"></a>
 
 In this procedure, you connect to your DB instance by using Oracle SQL Developer. To download a standalone version of this utility, see the [ Oracle SQL developer downloads page](https://www.oracle.com/tools/downloads/sqldev-downloads.html).
 
@@ -32,7 +31,7 @@ To connect to your DB instance, you need its DNS name and port number. For infor
 
    1. In the **Worksheet** tab for your connection, enter the following SQL query.
 
-      ```
+      ```sql
       SELECT NAME FROM V$DATABASE;
       ```
 

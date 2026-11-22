@@ -1,7 +1,6 @@
 
 
 # Troubleshooting RDS for PostgreSQL permissions errors
-<a name="USER_ExportSnapshot.postgres-permissions"></a>
 
 When exporting PostgreSQL databases to Amazon S3, you might see a `PERMISSIONS_DO_NOT_EXIST` error stating that certain tables were skipped. This error usually occurs when the superuser, which you specified when creating the database, doesn't have permissions to access those tables.
 

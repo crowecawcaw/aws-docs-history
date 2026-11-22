@@ -1,7 +1,6 @@
 
 
 # Listing DB cluster parameter groups
-<a name="USER_WorkingWithParamGroups.ListingCluster"></a>
 
 You can list the DB cluster parameter groups you've created for your AWS account.
 

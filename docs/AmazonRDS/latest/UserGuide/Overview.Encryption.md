@@ -1,7 +1,6 @@
 
 
 # Encrypting Amazon RDS resources
-<a name="Overview.Encryption"></a>
 
 Amazon RDS can encrypt your Amazon RDS DB instances. Data that is encrypted at rest includes the underlying storage for DB instances, its logs, automated backups, read replicas, and snapshots.
 
@@ -45,7 +44,7 @@ Using AWS KMS, you can create customer managed keys and define the policies that
 
 **Important**  
 Amazon RDS loses access to the KMS key for a DB instance when you disable the KMS key. If you lose access to a KMS key, the encrypted DB instance goes into the `inaccessible-encryption-credentials-recoverable` state 2 hours after detection in instances where backups are enabled. The DB instance remains in this state for seven days, during which the instance is stopped. API calls made to the DB instance during this time might not succeed. To recover the DB instance, enable the KMS key and restart this DB instance. Enable the KMS key from the AWS Management Console, AWS CLI, or RDS API. Restart the DB instance using the AWS CLI command [start-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/start-db-instance.html) or AWS Management Console.   
-The `inaccessible-encryption-credentials-recoverable` state only applies to DB instances that can stop. This recoverable state is not applicable to instances that can't stop, such as read replicas and instances with read replicas. For more information, see [Limitations of stopping your DB instance](USER_StopInstance.md#USER_StopInstance.Limitations).  
+The `inaccessible-encryption-credentials-recoverable` state applies only to DB instances that can stop. It doesn't apply to DB instances that can't stop, such as read replicas and DB instances that have read replicas. If Amazon RDS loses access to the KMS key for one of these DB instances, the DB instance goes directly into the terminal `inaccessible-encryption-credentials` state. The DB instance doesn't enter the recoverable state. You can't recover it by enabling the KMS key and starting the DB instance. You can only restore it from a DB snapshot or backup. For more information, see [Limitations of stopping your DB instance](USER_StopInstance.md#USER_StopInstance.Limitations).  
 If the DB instance isn't recovered within seven days, it goes into the terminal `inaccessible-encryption-credentials` state. In this state, the DB instance is no longer usable and you can only restore it from a DB snapshot or backup.  
 During the creation of a DB instance, Amazon RDS checks if the calling principal has access to the KMS key and generates a grant from the KMS key that it uses for the entire lifetime of the DB instance. Revoking the calling principal's access to the KMS key does not affect a running database. When using KMS keys in cross-account scenarios, such as copying a snapshot to another account, the KMS key needs to be shared with the other account. If you create a DB instance from the snapshot without specifying a different KMS key, the new instance uses the KMS key from the source account. Revoking access to the key after you create the DB instance does not affect the instance. However, disabling the key impacts all DB instances encrypted with that key. To prevent this, specify a different key during the snapshot copy operation.  
 DB instances with disabled backups remain available until the volumes are detached from the host during an instance modification or a recovery. RDS moves the instances into `inaccessible-encryption-credentials-recoverable` state or `inaccessible-encryption-credentials` state as applicable.
@@ -172,12 +171,10 @@ All data flowing accross AWS Regions over the AWS global network is automaticall
 All cross-Region traffic that uses Amazon VPC and Transit Gateway peering is automatically bulk-encrypted when it exits a Region. An additional layer of encryption is automatically provided at the physical layer for all traffic before it leaves AWS secured facilities.
 
 **Encryption between instances**  
-AWS provides secure and private connectivity between DB instances of all types. In addition, some instance types use the offload capabilities of the underlying Nitro System hardware to automatically encrypt in-transit traffic between instances. This encryption uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. There is no impact on network performance. To support this additional in-transit traffic encryption between instances, the following requirements must be met:  
-+ The instances use the following instance types:
-  + **General purpose**: M6i, M6id, M6in, M6idn, M7g
-  + **Memory optimized**: R6i, R6id, R6in, R6idn, R7g, X2idn, X2iedn, X2iezn
+AWS provides secure and private connectivity between DB instances of all types. In addition, some instance types use the offload capabilities of the underlying Nitro System hardware to automatically encrypt in-transit traffic between instances. This encryption uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. There is no impact on network performance. To support this additional in-transit traffic encryption between instances, your instances must meet the following requirements:  
++ The DB instance class corresponds to an Amazon EC2 instance type that supports encryption in transit between instances. For example, the db.m7i DB instance class corresponds to the M7i instance type. For the current list of supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide*. For the DB instance classes that your DB engine supports, see [DB instance classes](Concepts.DBInstanceClass.md).
 + The instances are in the same AWS Region.
-+ The instances are in the same VPC or peered VPCs, and the traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
++ The instances are in the same VPC or peered VPCs, and the traffic doesn't pass through a virtual network device or service, such as a load balancer or a transit gateway.
 
 ## Limitations of Amazon RDS encrypted DB instances
 <a name="Overview.Encryption.Limitations"></a>

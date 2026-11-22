@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using IAM authentication and the AWS SDK for Python (Boto3)
-<a name="UsingWithRDS.IAMDBAuth.Connecting.Python"></a>
 
 You can connect to an RDS for MariaDB, MySQL, or PostgreSQL DB instance with the AWS SDK for Python (Boto3) as described following.
 
@@ -37,7 +36,7 @@ This code connects to a MariaDB or MySQL DB instance.
 
 Before running this code, install the PyMySQL driver by following the instructions in the [ Python Package Index](https://pypi.org/project/PyMySQL/).
 
-```
+```python
 import pymysql
 import sys
 import boto3
@@ -70,7 +69,7 @@ This code connects to a PostgreSQL DB instance.
 
 Before running this code, install `psycopg2` by following the instructions in [Psycopg documentation](https://pypi.org/project/psycopg2/).
 
-```
+```python
 import psycopg2
 import sys
 import boto3

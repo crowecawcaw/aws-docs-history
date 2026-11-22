@@ -1,7 +1,6 @@
 
 
 # Creating Amazon RDS zero-ETL integrations with an Amazon SageMaker lakehouse
-<a name="zero-etl.creating-smlh"></a>
 
 When you create an Amazon RDS zero-ETL integration with an Amazon SageMaker lakehouse, you specify the source RDS database and the target AWS Glue managed catalog. You can also customize encryption settings and add tags. Amazon RDS creates an integration between the source database and its target. Once the integration is active, any data that you insert into the source database will be replicated into the configured target.
 
@@ -31,7 +30,7 @@ Additionally, you must configure a resource policy on the target AWS Glue manage
 ### Sample AWS CLI command to authorize inbound integrations on the target catalog
 <a name="zero-etl.create-sample-policy-smlh"></a>
 
-```
+```bash
 aws glue put-resource-policy \
       --policy-in-json  '{
     "Version": "2012-10-17",		 	 	 
@@ -82,7 +81,7 @@ The role must have the following permissions, which allow the user to view avail
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -108,7 +107,7 @@ The role must have the following trust policy, which specifies the target accoun
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -172,7 +171,7 @@ Modifying DB parameters requires a reboot. Before you can create the integration
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -198,7 +197,7 @@ Modifying DB parameters requires a reboot. Before you can create the integration
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -305,7 +304,7 @@ The following sample policy demonstrates how to provide the required permissions
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "Key policy",

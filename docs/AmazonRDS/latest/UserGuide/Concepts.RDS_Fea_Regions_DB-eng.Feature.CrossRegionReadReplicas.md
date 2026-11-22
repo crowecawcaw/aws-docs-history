@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for cross-Region read replicas in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas"></a>
 
 By using cross-Region read replicas in Amazon RDS, you can create a Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server read replica in a different Region from the source DB instance. For more information about cross-Region read replicas, including source and destination Region considerations, see [Creating a read replica in a different AWS Region](USER_ReadRepl.XRgn.md).
 
@@ -36,6 +35,7 @@ Cross-Region read replicas with RDS for MariaDB are available in all Regions for
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.my"></a>
 
 Cross-Region read replicas with RDS for MySQL are available in all Regions for the following versions:
++ RDS for MySQL 9.7 (All available versions)
 + RDS for MySQL 8.4 (All available versions)
 + RDS for MySQL 8.0 (All available versions)
 + RDS for MySQL 5.7 (All available versions)

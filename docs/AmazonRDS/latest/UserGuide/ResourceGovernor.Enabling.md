@@ -1,7 +1,6 @@
 
 
 # Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance
-<a name="ResourceGovernor.Enabling"></a>
 
 Enable resource governor by adding the `RESOURCE_GOVERNOR` option to your RDS for SQL Server DB instance. Use the following process:
 

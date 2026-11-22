@@ -1,7 +1,6 @@
 
 
 # Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS
-<a name="USER_PerfInsights"></a>
 
 Amazon CloudWatch Database Insights expands on existing Amazon RDS monitoring features to illustrate and help you analyze your database performance. With the Amazon CloudWatch Database Insights dashboard, you can visualize the database load on your Amazon RDS DB instance load and filter the load by waits, SQL statements, hosts, or users.
 

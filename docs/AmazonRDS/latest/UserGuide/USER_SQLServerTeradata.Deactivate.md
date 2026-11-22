@@ -1,7 +1,6 @@
 
 
 # Deactivating servers linked to Teradata
-<a name="USER_SQLServerTeradata.Deactivate"></a>
 
 To deactivate linked servers to Teradata, remove the `ODBC_TERADATA` option from its option group.
 

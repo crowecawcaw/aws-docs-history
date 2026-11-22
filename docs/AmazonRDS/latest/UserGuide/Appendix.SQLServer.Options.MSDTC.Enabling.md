@@ -1,7 +1,6 @@
 
 
 # Enabling MSDTC
-<a name="Appendix.SQLServer.Options.MSDTC.Enabling"></a>
 
 Use the following process to enable MSDTC for your DB instance:
 

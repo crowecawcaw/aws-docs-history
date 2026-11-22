@@ -1,7 +1,6 @@
 
 
 # Setting up Windows Authentication for RDS Custom for SQL Server instances
-<a name="custom-sqlserver-WinAuth.settingUp"></a>
 
 We recommend creating a dedicated OU and service credentials scoped to that OU for any AWS account that owns an RDS Custom for SQL Server DB instance joined to your AD domain. By dedicating an OU and service credentials, you avoid conflicting permissions and follow the principle of least privilege.
 

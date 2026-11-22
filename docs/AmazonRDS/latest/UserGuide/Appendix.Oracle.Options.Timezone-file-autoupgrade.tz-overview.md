@@ -1,7 +1,6 @@
 
 
 # Overview of Oracle time zone files
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade.tz-overview"></a>
 
 An Oracle Database *time zone file* stores the following information:
 + Offset from Coordinated Universal Time (UTC)

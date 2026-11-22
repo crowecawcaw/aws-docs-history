@@ -1,7 +1,6 @@
 
 
 # Client:ClientRead
-<a name="wait-event.clientread"></a>
 
 The `Client:ClientRead` event occurs when RDS for PostgreSQL is waiting to receive data from the client.
 
@@ -95,7 +94,7 @@ For more information, see [ Monitor network performance for your Amazon EC2 inst
 
 Check whether you have an increasing number of `idle in transaction` connections. To do this, monitor the `state` column in the `pg_stat_activity` table. You might be able to identify the connection source by running a query similar to the following.
 
-```
+```sql
 select client_addr, state, count(1) from pg_stat_activity 
 where state like 'idle in transaction%' 
 group by 1,2 

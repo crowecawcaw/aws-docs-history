@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle limitations
-<a name="Oracle.Concepts.limitations"></a>
 
 In the following sections, you can find important limitations of using RDS for Oracle. For limitations specific to CDBs, see [Limitations of RDS for Oracle CDBs](Oracle.Concepts.CDBs.md#Oracle.Concepts.single-tenant-limitations).
 

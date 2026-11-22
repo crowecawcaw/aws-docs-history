@@ -1,7 +1,6 @@
 
 
 # Using a dedicated log volume (DLV)
-<a name="USER_PIOPS.dlv"></a>
 
 You can use a dedicated log volume (DLV) for a DB instance that uses Provisioned IOPS (PIOPS) storage. A DLV moves PostgreSQL database transaction logs and MySQL/MariaDB redo logs and binary logs to a storage volume that's separate from the volume containing the database tables. A DLV makes transaction write logging more efficient and consistent. DLVs are ideal for databases with large allocated storage, high I/O per second (IOPS) requirements, or latency-sensitive workloads.
 

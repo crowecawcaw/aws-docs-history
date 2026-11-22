@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Extended Support charges
-<a name="extended-support-charges"></a>
 
 You will incur charges for all engines enrolled in RDS Extended Support beginning the day after the RDS end of standard support date. For the RDS end of standard support date, see [Major versions](MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar) and [Release calendar for Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html). RDS Extended Support charges apply to standby instances in Multi-AZ deployments. 
 

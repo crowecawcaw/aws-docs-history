@@ -1,13 +1,12 @@
 
 
 # Connecting to your MySQL DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)
-<a name="USER_ConnectToInstanceSSL.CLI"></a>
 
 The `mysql` client program parameters are slightly different depending on which version of MySQL or MariaDB you are using.
 
 To find out which version you have, run the `mysql` command with the `--version` option. In the following example, the output shows that the client program is from MariaDB.
 
-```
+```bash
 $ mysql --version
 mysql  Ver 15.1 Distrib 10.5.15-MariaDB, for osx10.15 (x86_64) using readline 5.1
 ```

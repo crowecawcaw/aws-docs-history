@@ -1,7 +1,6 @@
 
 
 # Report server databases
-<a name="SSRS.DBs"></a>
 
 When your DB instance is associated with the SSRS option, two new databases are created on your DB instance:
 + `rdsadmin_ReportServer`

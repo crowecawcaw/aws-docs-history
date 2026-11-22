@@ -1,7 +1,6 @@
 
 
 # Cleaning up interrupted online index builds
-<a name="Appendix.Oracle.CommonDBATasks.CleanupIndex"></a>
 
 To clean up failed online index builds, use the Amazon RDS procedure `rdsadmin.rdsadmin_dbms_repair.online_index_clean`. 
 
@@ -16,7 +15,7 @@ The `online_index_clean` procedure has the following parameters.
 
 The following example cleans up a failed online index build:
 
-```
+```sql
 declare
   is_clean boolean;
 begin

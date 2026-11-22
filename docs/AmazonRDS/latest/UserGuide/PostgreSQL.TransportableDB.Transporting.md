@@ -1,11 +1,10 @@
 
 
 # Transporting a PostgreSQL database to the destination from the source
-<a name="PostgreSQL.TransportableDB.Transporting"></a>
 
 After you complete the process described in [Setting up to transport a PostgreSQL database](PostgreSQL.TransportableDB.Setup.md), you can start the transport. To do so, run the `transport.import_from_server` function on the destination DB instance. In the syntax following you can find the function parameters.
 
-```
+```SQL
 SELECT transport.import_from_server( 
    '{{source-db-instance-endpoint}}', 
     {{source-db-instance-port}}, 
@@ -18,7 +17,7 @@ SELECT transport.import_from_server(
 
 The `false` value shown in the example tells the function that this is not a dry run. To test your transport setup, you can specify `true` for the `dry_run` option when you call the function, as shown following:
 
-```
+```sql
 postgres=> SELECT transport.import_from_server(
     'docs-lab-source-db.666666666666{{aws-region}}.rds.amazonaws.com', 5432,
     'postgres', '********', 'labdb', '******', true);

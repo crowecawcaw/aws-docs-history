@@ -1,7 +1,6 @@
 
 
 # Creating a custom engine version for RDS for SQL Server
-<a name="sqlserver-dev-edition.creating-cev"></a>
 
 A custom engine version (CEV) for RDS for SQL Server consists of your SQL Server Developer Edition installation media imported into Amazon RDS. It is necessary to upload the base ISO installer and cumulative update files (.exe) to your Amazon S3 bucket. Once uploaded, you should provide the Amazon S3 location to RDS for it to download, validate, and subsequently create your CEV.
 

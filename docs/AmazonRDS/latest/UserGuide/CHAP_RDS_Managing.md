@@ -1,7 +1,6 @@
 
 
 # Managing an Amazon RDS DB instance
-<a name="CHAP_RDS_Managing"></a>
 
  Following, you can find instructions for managing and maintaining your Amazon RDS DB instance.
 

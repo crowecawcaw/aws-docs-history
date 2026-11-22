@@ -1,7 +1,6 @@
 
 
 # Creating custom error messages for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.CustomMessage"></a>
 
 Applications often define their own error messages in `sys.messages` so that they can raise them with `RAISERROR`. On an Amazon RDS DB instance, to add a custom message to `sys.messages`, use the `rds_create_custom_message` stored procedure. The procedure passes its parameters to `sp_addmessage`.
 
@@ -22,7 +21,7 @@ The parameters have the same meaning as the parameters of `sp_addmessage`. For m
 
 The following example adds a message to `sys.messages` and logs it to the Windows application log when it's raised. In the example, replace the `@msgnum` value {{50002}}, the `@severity` value {{16}}, and the `@msgtext` value with your own message ID, severity, and text.
 
-```
+```sql
 EXEC msdb.dbo.rds_create_custom_message
     @msgnum = {{50002}},
     @severity = {{16}},
@@ -33,7 +32,7 @@ EXEC msdb.dbo.rds_create_custom_message
 
 The following example replaces the text of an existing message. In the example, replace the `@msgnum` value {{50002}}, the `@severity` value {{16}}, and the `@msgtext` value with your own message ID, severity, and text.
 
-```
+```sql
 EXEC msdb.dbo.rds_create_custom_message
     @msgnum = {{50002}},
     @severity = {{16}},
@@ -45,6 +44,6 @@ EXEC msdb.dbo.rds_create_custom_message
 
 To confirm that the message was added, query `sys.messages`. In the example, replace the `message_id` value {{50002}} with your message ID.
 
-```
+```sql
 SELECT * FROM sys.messages WHERE message_id = {{50002}};
 ```

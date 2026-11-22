@@ -1,7 +1,6 @@
 
 
 # Deploying an SSIS project
-<a name="SSIS.Deploy"></a>
 
 On RDS, you can't deploy SSIS projects directly by using SQL Server Management Studio (SSMS) or SSIS procedures. To download project files from Amazon S3 and then deploy them, use RDS stored procedures.
 

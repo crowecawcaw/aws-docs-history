@@ -1,7 +1,6 @@
 
 
 # Choosing a major version for an RDS for PostgreSQL upgrade
-<a name="USER_UpgradeDBInstance.PostgreSQL.MajorVersion"></a>
 
 Major version upgrades can contain changes that are not backward-compatible with previous versions of the database. New functionality can cause your existing applications to stop working correctly. For this reason, Amazon RDS doesn't apply major version upgrades automatically. To perform a major version upgrade, you modify your database manually. Make sure that you thoroughly test any upgrade to verify that your applications work correctly before applying the upgrade to your production databases. When you do a PostgreSQL major version upgrade, we recommend that you follow the steps described in [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md).
 

@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon RDS Blue/Green Deployments
-<a name="blue-green-deployments-overview"></a>
 
 By using Amazon RDS Blue/Green Deployments, you can make and test database changes before implementing them in a production environment. A *blue/green deployment* creates a staging environment that copies the production environment. In a blue/green deployment, the *blue environment* is the current production environment. The *green environment* is the staging environment and stays in sync with the current production environment.
 

@@ -1,7 +1,6 @@
 
 
 # Working with tablespaces in RDS for Oracle
-<a name="Appendix.Oracle.CommonDBATasks.TablespacesAndDatafiles"></a>
 
 You can use tablespaces with RDS for Oracle, which is a logical storage unit that stores the database's data.
 
@@ -37,7 +36,7 @@ You can modify the parameter at the session level by executing an `ALTER SESSION
 
 The following example shows how to check the current parameter value and modify it for the session:
 
-```
+```sql
 SHOW PARAMETER db_create_file_dest
 
 NAME                                 TYPE        VALUE
@@ -68,31 +67,31 @@ Because of these default settings, tablespaces can grow to consume all allocated
 
 The following example creates a tablespace named {{users2}} with a starting size of 1 gigabyte. Because a data file size is specified, but `AUTOEXTEND ON` isn't specified, the tablespace isn't autoextensible.
 
-```
+```sql
 CREATE TABLESPACE {{users2}} DATAFILE SIZE {{1G}};
 ```
 
 The following example creates a tablespace named {{users3}} with a starting size of 1 gigabyte, autoextend turned on, and a maximum size of 10 gigabytes.
 
-```
+```sql
 CREATE TABLESPACE {{users3}} DATAFILE SIZE {{1G}} AUTOEXTEND ON MAXSIZE {{10G}};
 ```
 
 The following example creates a temporary tablespace named {{temp01}}.
 
-```
+```sql
 CREATE TEMPORARY TABLESPACE {{temp01}};
 ```
 
 You can resize a bigfile tablespace by using `ALTER TABLESPACE`. You can specify the size in kilobytes (K), megabytes (M), gigabytes (G), or terabytes (T). The following example resizes a bigfile tablespace named {{users\_bf}} to 200 MB.
 
-```
+```sql
 ALTER TABLESPACE {{users_bf}} RESIZE {{200M}};
 ```
 
 The following example adds an additional data file to a smallfile tablespace named {{users\_sf}}.
 
-```
+```sql
 ALTER TABLESPACE {{users_sf}} ADD DATAFILE SIZE {{100000M}} AUTOEXTEND ON NEXT {{250m}} MAXSIZE {{UNLIMITED}};
 ```
 
@@ -101,7 +100,7 @@ ALTER TABLESPACE {{users_sf}} ADD DATAFILE SIZE {{100000M}} AUTOEXTEND ON NEXT {
 
 To create a tablespace on an additional storage volume, modify the `DB_CREATE_FILE_DEST` parameter to the volume location. The following example sets the file location to `/rdsdbdata2/db`.
 
-```
+```sql
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata2/db';
 
 Session altered.
@@ -109,7 +108,7 @@ Session altered.
 
 In the following example, you create a tablespace on the additional volume `/rdsdbdata2/db`.
 
-```
+```sql
 CREATE TABLESPACE new_tablespace DATAFILE SIZE 10G;
 
 Tablespace created.
@@ -124,7 +123,7 @@ NEW_TABLESPACE                     7 /rdsdbdata2/db/ORCL_A/datafile/o1_mf_newtab
 
 To create a smallfile tablespace and spread its data files across different storage volumes, add data files to the tablespace after you create it. In the following example, you create a tablespace with the data files in the default location of `/rdsdbdata/db`. Then you set the default destination to `/rdsdbdata2/db`. When you add a data file to your newly created tablespace, the database stores the file in `/rdsdbdata2/db`.
 
-```
+```sql
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata/db';
 
 Session altered.
@@ -170,13 +169,13 @@ To set the default tablespace, use the Amazon RDS procedure `rdsadmin.rdsadmin_u
 
 The following example sets the default tablespace to {{users2}}: 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.alter_default_tablespace(tablespace_name => '{{users2}}');
 ```
 
 To verify the default tablespace setting, run the following query:
 
-```
+```sql
 SELECT PROPERTY_VALUE FROM DATABASE_PROPERTIES WHERE PROPERTY_NAME = 'DEFAULT_PERMANENT_TABLESPACE';
 ```
 
@@ -193,7 +192,7 @@ To set the default temporary tablespace, use the Amazon RDS procedure `rdsadmin.
 
 The following example sets the default temporary tablespace to {{temp01}}. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.alter_default_temp_tablespace(tablespace_name => '{{temp01}}');
 ```
 
@@ -210,7 +209,7 @@ To create a temporary tablespace on the instance store, use the Amazon RDS proce
 
 The following example creates the temporary tablespace {{temp01}} in the instance store. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.create_inst_store_tmp_tblspace(p_tablespace_name => '{{temp01}}');
 ```
 

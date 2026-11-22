@@ -1,7 +1,6 @@
 
 
 # Importing and exporting SQL Server databases using native backup and restore
-<a name="SQLServer.Procedural.Importing"></a>
 
 Amazon RDS supports native backup and restore for Microsoft SQL Server databases using full backup files (.bak files). When you use RDS, you access files stored in Amazon S3 rather than using the local file system on the database server.
 

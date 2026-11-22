@@ -1,7 +1,6 @@
 
 
 # Accessing the SSRS or PBIRS web portal
-<a name="SSRS.Access"></a>
 
 Use the following process to access the SSRS or PBIRS web portal:
 

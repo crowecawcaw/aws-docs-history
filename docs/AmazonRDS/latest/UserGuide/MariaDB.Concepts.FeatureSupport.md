@@ -1,7 +1,6 @@
 
 
 # MariaDB feature support on Amazon RDS
-<a name="MariaDB.Concepts.FeatureSupport"></a>
 
 RDS for MariaDB supports most of the features and capabilities of MariaDB. Some features might have limited support or restricted privileges.
 

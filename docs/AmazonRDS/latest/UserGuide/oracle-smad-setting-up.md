@@ -1,7 +1,6 @@
 
 
 # Setting up self-managed Active Directory
-<a name="oracle-smad-setting-up"></a>
 
 Before you join an Amazon RDS for Oracle DB instance to your self-managed Active Directory (AD) domain, complete the following steps to prepare your AD domain and your AWS account. You complete these steps once, and you can use the Organizational Unit (OU), domain service account, AWS KMS key, and secret that they create for each DB instance in the same AWS account and AWS Region that you join to the domain. After you finish, join each DB instance to the domain and connect to it as described in [Configuring a Kerberos client and connecting to your DB instance](oracle-smad-connecting.md).
 + [Step 1: Create an Organizational Unit in your AD](#oracle-smad-setting-up.step1)
@@ -106,7 +105,7 @@ The Delegation of Control Wizard doesn't expose the `servicePrincipalName` prope
 
 Replace *service-account* with the name of the domain service account that you created in Step 2, such as `rds-join-svc`, and replace the OU distinguished name with the OU that you created in Step 1.
 
-```
+```powershell
 $ou   = "OU=AWS-RDS-OU,DC=corp,DC=example,DC=com"
 $user = Get-ADUser "service-account"
 $acl  = Get-Acl "AD:$ou"
@@ -131,7 +130,7 @@ Set-Acl "AD:$ou" $acl
 
 To verify that the permissions applied, run the following PowerShell commands.
 
-```
+```powershell
 $acl = Get-Acl "AD:$ou"
 $acl.Access | Where-Object { $_.IdentityReference -like "*service-account*" } | Format-List
 ```
@@ -174,7 +173,7 @@ For Encryption Key, don't use the AWS default AWS KMS key. Be sure to create the
 
 1. For **Key policy**, add the following to the policy **Statement**.
 
-   ```
+   ```JSON
    {
        "Sid": "Allow use of the KMS key on behalf of RDS",
        "Effect": "Allow",
@@ -224,7 +223,7 @@ Create the secret in the same AWS account and AWS Region as the RDS for Oracle D
 **Note**  
 We recommend that you use the `aws:sourceAccount` and `aws:sourceArn` conditions to avoid the confused deputy problem. Use your AWS account for `aws:sourceAccount` and the ARN of your DB instances for `aws:sourceArn`. For more information, see [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.html).
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17",
        "Statement": [

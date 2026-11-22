@@ -1,7 +1,6 @@
 
 
 # Support for Transparent Data Encryption in SQL Server
-<a name="Appendix.SQLServer.Options.TDE"></a>
 
 Amazon RDS supports using Transparent Data Encryption (TDE) to encrypt stored data on your DB instances running Microsoft SQL Server. TDE automatically encrypts data before it is written to storage, and automatically decrypts data when the data is read from storage. 
 

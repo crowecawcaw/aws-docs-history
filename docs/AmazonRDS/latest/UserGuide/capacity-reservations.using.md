@@ -1,7 +1,6 @@
 
 
 # Using a Capacity Reservation with a DB instance
-<a name="capacity-reservations.using"></a>
 
 Reserved capacity is used only when you explicitly target the reservation. You reference the reservation by its identifier (`dbcr-`) or its name when you perform any of the following operations:
 + Create a DB instance (`CreateDBInstance`)

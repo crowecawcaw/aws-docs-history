@@ -1,7 +1,6 @@
 
 
 # Disabling fast inserts during bulk loading for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.DisableFastInserts"></a>
 
 Starting with SQL Server 2016, fast inserts are enabled by default. Fast inserts leverage the minimal logging that occurs while the database is in the simple or bulk logged recovery model to optimize insert performance. With fast inserts, each bulk load batch acquires new extents, bypassing the allocation lookup for existing extents with available free space to optimize insert performance.
 

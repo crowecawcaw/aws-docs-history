@@ -1,7 +1,6 @@
 
 
 # MySQL on Amazon RDS versions
-<a name="MySQL.Concepts.VersionMgmt"></a>
 
 For MySQL, version numbers are organized as version = X.Y.Z. In Amazon RDS terminology, X.Y denotes the major version, and Z is the minor version number. For Amazon RDS implementations, a version change is considered major if the major version number changes—for example, going from version 5.7 to 8.0. A version change is considered minor if only the minor version number changes—for example, going from version 8.0.32 to 8.0.34.
 
@@ -37,11 +36,19 @@ Amazon RDS currently supports the following minor versions of MySQL.
 **Note**  
 Amazon RDS Extended Support isn't available for minor versions.
 
+The following table shows the minor versions of MySQL 9.7 that Amazon RDS currently supports. 
+
+
+| MySQL engine version | Community release date | RDS release date | RDS end of standard support date | 
+| --- | --- | --- | --- | 
+| 9.7.4 | 20 October 2026 | 18 November 2026 | 18 November 2027 | 
+
 The following table shows the minor versions of MySQL 8.4 that Amazon RDS currently supports. 
 
 
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date | 
 | --- | --- | --- | --- | 
+| 8.4.13 | 20 October 2026 | 17 November 2026 | 17 November 2027 | 
 | 8.4.11 | 28 July 2026 | 21 August 2026 | 21 August 2027 | 
 | 8.4.10 | 16 June 2026 | 7 July 2026 | 7 July 2027 | 
 | 8.4.9 | 21 April 2026 | 8 May 2026 | 8 May 2027 | 
@@ -123,6 +130,7 @@ If you opt out of automatically scheduled upgrades, you can manually upgrade to 
 Amazon RDS currently supports the following upgrades for major versions of the MySQL database engine: 
 + MySQL 5.7 to MySQL 8.0
 + MySQL 8.0 to MySQL 8.4
++ MySQL 8.4 to MySQL 9.7
 
 Because major version upgrades involve some compatibility risk, they do not occur automatically; you must make a request to modify the DB instance. You should thoroughly test any upgrade before upgrading your production instances. For information about upgrading a MySQL DB instance, see [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md). 
 
@@ -134,6 +142,8 @@ You can test a DB instance against a new version before upgrading by creating a 
 For the changes that the MySQL community made to the minor versions, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) on the Oracle website. Under **Critical Patch Update**, choose the month when Oracle released the minor version. And then choose the MySQL minor version under **Affected Products and Versions**.
 
 **Topics**
++ [MySQL version 9.7.4](#MySQL.Concepts.VersionMgmt.Supported.Minor.9.7.4)
++ [MySQL version 8.4.13](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.13)
 + [MySQL version 8.4.11](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.11)
 + [MySQL version 8.4.10](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.10)
 + [MySQL version 8.4.9](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.9)
@@ -151,6 +161,21 @@ For the changes that the MySQL community made to the minor versions, see [Critic
 + [MySQL version 8.0.40](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.40)
 + [MySQL version 8.0.39](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39)
 + [MySQL version 8.0.37](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37)
+
+#### MySQL version 9.7.4
+<a name="MySQL.Concepts.VersionMgmt.Supported.Minor.9.7.4"></a>
+
+MySQL version 9.7.4 is now available on Amazon RDS. This release is the first RDS for MySQL version for the MySQL 9.7 major version. It contains fixes and improvements added by the MySQL community and Amazon RDS. For the changes that the MySQL community made, see [Changes in MySQL 9.7.4](https://dev.mysql.com/doc/relnotes/mysql/9.7/en/news-9-7-4.html).
+
+For information about MySQL 9.7 support on Amazon RDS, see [MySQL 9.7 support on Amazon RDS](MySQL.Concepts.FeatureSupport.md#MySQL.Concepts.FeatureSupport.9-7).
+
+#### MySQL version 8.4.13
+<a name="MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.13"></a>
+
+MySQL version 8.4.13 is now available on Amazon RDS. This release contains fixes and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
++ Updated the time zone information to base it on `tzdata2026f`.
 
 #### MySQL version 8.4.11
 <a name="MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.11"></a>
@@ -297,6 +322,7 @@ You can also view information about support dates for major engine versions by u
 
 | MySQL major version | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing date | RDS start of Extended Support year 3 pricing date | RDS end of Extended Support date | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
+| MySQL 9.7 | 21 April 2026 | 18 November 2026 | 30 April 2031 | 31 July 2031 | 1 August 2031 | 1 August 2033 | 31 July 2034 | 
 | MySQL 8.4 | 30 April 2024 | 21 November 2024 | 30 April 2029 | 31 July 2029 | 1 August, 2029 | 1 August 2031 | 31 July 2032 | 
 | MySQL 8.0\* | 19 April 2018 | 23 October 2018 | 30 April 2026 | 31 July 2026 | 1 August 2026 | 1 August 2028 | 31 July 2029 | 
 | MySQL 5.7\* | 21 October 2015 | 22 February 2016 | 31 October 2023 | 29 February 2024 | 1 March 2024 | 1 March 2026 | 30 June 2029 | 

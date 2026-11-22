@@ -1,7 +1,6 @@
 
 
 # Configure Self-Managed or On-premise AD
-<a name="custom-sqlserver-WinAuth.config-Self-Managed"></a>
 
 To join your on-premise or self-managed Microsoft AD to your RDS Custom for SQL Server DB instance, your Active Domain must be configured as follows:
 + Define the subnets in the VPC associated with your RDS Custom for SQL Server DB instance in your self-managed or on-premises AD. Confirm there are no conflicts between the subnets in your VPC and the subnets in your AD sites. 

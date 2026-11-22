@@ -1,7 +1,6 @@
 
 
 # Lock:transactionid
-<a name="wait-event.locktransactionid"></a>
 
 The `Lock:transactionid` event occurs when a transaction is waiting for a row-level lock.
 

@@ -1,7 +1,6 @@
 
 
 # Modifying an RDS Proxy
-<a name="rds-proxy-modifying-proxy"></a>
 
  You can change specific settings associated with a proxy after you create the proxy. You do so by modifying the proxy itself, its associated target group, or both. Each proxy has an associated target group. 
 

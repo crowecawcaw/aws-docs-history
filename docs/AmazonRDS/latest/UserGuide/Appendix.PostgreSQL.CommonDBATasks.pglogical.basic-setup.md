@@ -1,7 +1,6 @@
 
 
 # Setting up the pglogical extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.pglogical.basic-setup"></a>
 
 To set up the `pglogical` extension on your RDS for PostgreSQL DB instance , you add `pglogical` to the shared libraries on the custom DB parameter group for your RDS for PostgreSQL DB instance. You also need to set the value of the `rds.logical_replication` parameter to `1`, to turn on logical decoding. Finally, you create the extension in the database. You can use the AWS Management Console or the AWS CLI for these tasks. 
 

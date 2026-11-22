@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for Amazon RDS
-<a name="CHAP_Troubleshooting"></a>
 
 Use the following sections to help troubleshoot problems you have with DB instances in Amazon RDS and Amazon Aurora.
 
@@ -83,13 +82,13 @@ You can test your connection to a DB instance using common Linux or Microsoft Wi
 
 From a Linux or Unix terminal, you can test the connection by entering the following. Replace `{{DB-instance-endpoint}}` with the endpoint and `{{port}}` with the port of your DB instance.
 
-```
+```bash
 nc -zv {{DB-instance-endpoint}} {{port}} 
 ```
 
 For example, the following shows a sample command and the return value.
 
-```
+```bash
 nc -zv postgresql1.c6c8mn7fake0.us-west-2.rds.amazonaws.com 8299
 
   Connection to postgresql1.c6c8mn7fake0.us-west-2.rds.amazonaws.com 8299 port [tcp/vvr-data] succeeded!
@@ -97,7 +96,7 @@ nc -zv postgresql1.c6c8mn7fake0.us-west-2.rds.amazonaws.com 8299
 
 Windows users can use Telnet to test the connection to a DB instance. Telnet actions aren't supported other than for testing the connection. If a connection is successful, the action returns no message. If a connection isn't successful, you receive an error message such as the following.
 
-```
+```dos
 C:\>telnet sg-postgresql1.c6c8mntfake0.us-west-2.rds.amazonaws.com 819
 
   Connecting To sg-postgresql1.c6c8mntfake0.us-west-2.rds.amazonaws.com...Could not open
@@ -354,13 +353,13 @@ The connection limit for a DB instance is set by default to the maximum for the 
 
 You can retrieve the maximum number of connections allowed for a MySQL or MariaDB DB instance by running the following query.
 
-```
+```sql
 SELECT @@max_connections;
 ```
 
 You can retrieve the number of active connections to a MySQL or MariaDB DB instance by running the following query.
 
-```
+```sql
 SHOW STATUS WHERE `variable_name` = 'Threads_connected';
 ```
 
@@ -601,7 +600,7 @@ You can mitigate this issue by increasing the number of hours that binary log fi
 
 To set the binlog retention time, use the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration) procedure. Specify a configuration parameter of 'binlog retention hours' along with the number of hours to retain binlog files on the DB cluster, up to 720 (30 days). The following example sets the retention period for binlog files to 48 hours.
 
-```
+```sql
 CALL mysql.rds_set_configuration('binlog retention hours', 48);
 ```
 

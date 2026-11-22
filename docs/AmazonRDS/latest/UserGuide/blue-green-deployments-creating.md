@@ -1,7 +1,6 @@
 
 
 # Creating a blue/green deployment in Amazon RDS
-<a name="blue-green-deployments-creating"></a>
 
 When you create a blue/green deployment, you specify the source DB instance to copy in the deployment. The DB instance you choose is the production DB instance, and it becomes the primary DB instance in the blue environment. This DB instance is copied to the green environment, and RDS configures replication from the DB instance in the blue environment to the DB instance in the green environment. 
 

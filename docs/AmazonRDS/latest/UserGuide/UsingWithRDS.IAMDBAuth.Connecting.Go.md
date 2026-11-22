@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using IAM authentication and the AWS SDK for Go
-<a name="UsingWithRDS.IAMDBAuth.Connecting.Go"></a>
 
 You can connect to an RDS for MariaDB, MySQL, or PostgreSQL DB instance with the AWS SDK for Go as described following.
 
@@ -47,7 +46,7 @@ The following code examples show how to generate an authentication token, and th
 
 This code connects to a MariaDB or MySQL DB instance.
 
-```
+```go
 package main
                 
 import (
@@ -98,7 +97,7 @@ func main() {
 
 This code connects to a PostgreSQL DB instance.
 
-```
+```go
 package main
 
 import (
@@ -158,7 +157,7 @@ The following code examples show how to generate an authentication token, and th
 
 This code connects to a MariaDB or MySQL DB instance.
 
-```
+```go
 package main
          
 import (
@@ -203,7 +202,7 @@ func main() {
 
 This code connects to a PostgreSQL DB instance.
 
-```
+```go
 package main
 
 import (

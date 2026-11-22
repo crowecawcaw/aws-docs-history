@@ -1,7 +1,6 @@
 
 
 # Enabling MariaDB binary log annotation
-<a name="USER_LogAccess.MariaDB.BinarylogAnnotation"></a>
 
 In a MariaDB DB instance, you can use the `Annotate_rows` event to annotate a row event with a copy of the SQL query that caused the row event. This approach provides similar functionality to enabling the `binlog_rows_query_log_events` parameter on an RDS for MySQL DB instance.
 
@@ -9,7 +8,7 @@ You can enable binary log annotations globally by creating a custom parameter gr
 
 The following is an example of a row-based transaction in MariaDB. The use of row-based logging is triggered by setting the transaction isolation level to read-committed.
 
-```
+```sql
 CREATE DATABASE IF NOT EXISTS test;
 USE test;
 CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;
@@ -39,7 +38,7 @@ COMMIT/*!*/;
 
 The following statement enables session-level annotations for this same transaction, and disables them after committing the transaction:
 
-```
+```sql
 CREATE DATABASE IF NOT EXISTS test;
 USE test;
 CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;

@@ -1,7 +1,6 @@
 
 
 # Importing data into PostgreSQL on Amazon RDS
-<a name="PostgreSQL.Procedural.Importing"></a>
 
 Suppose that you have an existing PostgreSQL deployment that you want to move to Amazon RDS. The complexity of your task depends on the size of your database and the types of database objects that you're transferring. For example, consider a database that contains datasets on the order of gigabytes, along with stored procedures and triggers. Such a database is going to be more complicated than a simple database with only a few megabytes of test data and no triggers or stored procedures. 
 

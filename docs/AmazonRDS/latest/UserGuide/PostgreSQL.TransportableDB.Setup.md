@@ -1,7 +1,6 @@
 
 
 # Setting up to transport a PostgreSQL database
-<a name="PostgreSQL.TransportableDB.Setup"></a>
 
 Before you begin, make sure that your RDS for PostgreSQL DB instances meet the following requirements:
 + The RDS for PostgreSQL DB instances for source and destination must run the same version of PostgreSQL.
@@ -46,14 +45,14 @@ For the following steps, use an account that has `rds_superuser` privileges.
 
 1. Install the `pg_transport` extension as follows:
 
-   ```
+   ```sql
    postgres=> CREATE EXTENSION pg_transport;
    CREATE EXTENSION
    ```
 
 1. Connect to your RDS for PostgreSQL destination DB instance. Remove any extraneous extensions, and then install the `pg_transport` extension.
 
-   ```
+   ```sql
    postgres=> CREATE EXTENSION pg_transport;
    CREATE EXTENSION
    ```

@@ -1,7 +1,6 @@
 
 
 # Preparing to update the time zone file
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade.preparing"></a>
 
 A time zone file upgrade has two separate phases: prepare and upgrade. While not required, we strongly recommend that you perform the prepare step. In this step, you find out which data will be affected by running the PL/SQL procedure `DBMS_DST.FIND_AFFECTED_TABLES`. For more information about the prepare window, see [Upgrading the Time Zone File and Timestamp with Time Zone Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/datetime-data-types-and-time-zone-support.html#GUID-B0ACDB2E-4B49-4EB4-B4CC-9260DAE1567A) in the Oracle Database documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for RDS for PostgreSQL read replica
-<a name="USER_PostgreSQL.Replication.ReadReplicas.Troubleshooting"></a>
 
 Following, you can find troubleshooting ideas for some common RDS for PostgreSQL read replica issues.
 

@@ -1,13 +1,14 @@
 
 
 # Requirements for the Oracle Data Guard switchover
-<a name="oracle-switchover.preparing"></a>
 
 Before initiating the Oracle Data Guard switchover, make sure that your replication environment meets the following requirements:
 + The original standby database is mounted or open read-only.
 + Automatic backups are enabled on the original standby database.
-+ The original primary database and the original standby database are in the `available` state.
++ The status of the original primary database and the original standby database is `available`. If you're completing Replica First Patching, the status of the original standby database is `replica-patched-pending-switchover` (**Patch pending switchover** in the console). For more information, see [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md).
 + The original primary database and the original standby database don't have pending maintenance actions in any of the following states: `required`, `next window`, or `in progress`. Actions in these states block switchover. To learn how to check the status of pending maintenance updates, see [Viewing pending maintenance updates](USER_UpgradeDBInstance.Maintenance.md#USER_UpgradeDBInstance.Maintenance.Viewing).
+
+  The pending engine version upgrade of a replica whose status is `replica-patched-pending-switchover` doesn't block the switchover.
 
   Pending maintenance actions in the `available` state don't block switchover. RDS for Oracle frequently releases operating system (OS) updates in the `available` state. These pending OS updates won't block a switchover unless you schedule them for the next maintenance window, which puts them in the `next window` state.
 **Note**  

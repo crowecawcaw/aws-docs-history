@@ -1,7 +1,6 @@
 
 
 # Running minor version upgrade prechecks in Amazon RDS for Oracle
-<a name="USER_UpgradeDBInstance.Oracle.Precheck"></a>
 
 Before Amazon RDS for Oracle performs a DB minor version upgrade, it checks that your DB instance is in a state that allows the upgrade to finish. If a check finds a problem, the upgrade can't proceed until you fix it.
 
@@ -76,7 +75,7 @@ TEXT
 
 To list the files in the BDUMP directory, run the following query.
 
-```
+```sql
 SELECT * FROM table(rdsadmin.rds_file_util.listdir('BDUMP')) order by mtime;
 ```
 

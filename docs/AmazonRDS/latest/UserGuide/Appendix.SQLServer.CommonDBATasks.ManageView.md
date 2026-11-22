@@ -1,7 +1,6 @@
 
 
 # Deny or allow viewing database names for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.ManageView"></a>
 
 The master user cannot set `DENY VIEW ANY DATABASE TO {{LOGIN}}`   to hide databases from a user.   To change this permission, use the following stored procedure instead:
 + Denying database view access to {{LOGIN}}:

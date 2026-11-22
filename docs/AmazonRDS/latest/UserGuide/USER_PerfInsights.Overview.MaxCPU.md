@@ -1,7 +1,6 @@
 
 
 # Maximum CPU
-<a name="USER_PerfInsights.Overview.MaxCPU"></a>
 
 In the dashboard, the **Database load** chart collects, aggregates, and displays session information. To see whether active sessions are exceeding the maximum CPU, look at their relationship to the **Max vCPU** line. Performance Insights determines the **Max vCPU** value by the number of vCPU (virtual CPU) cores for your DB instance. 
 

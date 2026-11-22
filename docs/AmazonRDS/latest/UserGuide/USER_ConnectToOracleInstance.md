@@ -1,7 +1,6 @@
 
 
 # Connecting to your Oracle DB instance
-<a name="USER_ConnectToOracleInstance"></a>
 
 After Amazon RDS provisions your Oracle DB instance, you can use any standard SQL client application to log in to your DB instance. Because RDS is a managed service, you can't log in as SYS or SYSTEM. For more information, see [RDS for Oracle users and privileges](Oracle.Concepts.Privileges.md).
 
@@ -9,6 +8,7 @@ In this topic, you learn how to use Oracle SQL Developer or SQL\*Plus to connect
 
 **Topics**
 + [Finding the endpoint of your RDS for Oracle DB instance](USER_Endpoint.md)
++ [Using the Primary Endpoint for Amazon RDS for Oracle](oracle-primary-endpoint.md)
 + [Connecting to your DB instance using Oracle SQL developer](USER_ConnectToOracleInstance.SQLDeveloper.md)
 + [Connecting to your DB instance using SQL\*Plus](USER_ConnectToOracleInstance.SQLPlus.md)
 + [Considerations for security groups](USER_ConnectToOracleInstance.Security.md)

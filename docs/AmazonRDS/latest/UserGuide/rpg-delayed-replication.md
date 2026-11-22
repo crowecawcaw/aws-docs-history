@@ -1,7 +1,6 @@
 
 
 # Configuring delayed replication with RDS for PostgreSQL
-<a name="rpg-delayed-replication"></a>
 
 ## Overview and Benefits
 <a name="rpg-delayed-replication-overview"></a>
@@ -83,7 +82,7 @@ Consider the following when planning delayed replication with RDS for PostgreSQL
 + When promoting a delayed read replica, the `recovery_min_apply_delay` parameter is not honored, and all pending WAL records are immediately applied.
 + The `recovery_min_apply_delay` parameter is independent on each level of a cascading replication setup. Setting a delay on a replica does not add to the delay of any cascaded replicas.
 
-For more information, see the [RDS for PostgreSQL Read Replicas documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) and the [RDS for PostgreSQL Disaster Recovery documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.Disaster-Recovery.html).
+For more information, see the [RDS for PostgreSQL Read Replicas documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) and the [RDS for PostgreSQL Disaster Recovery documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/disaster-recovery-resiliency.html).
 
 ## Understanding limitations
 <a name="rpg-delayed-replication-limitations"></a>

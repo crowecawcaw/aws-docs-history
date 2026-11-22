@@ -1,7 +1,6 @@
 
 
 # Transportable databases function reference
-<a name="PostgreSQL.TransportableDB.transport.import_from_server"></a>
 
 The `transport.import_from_server` function transports a PostgreSQL database by importing it from a source DB instance to a destination DB instance. It does this by using a physical database connection transport mechanism.
 

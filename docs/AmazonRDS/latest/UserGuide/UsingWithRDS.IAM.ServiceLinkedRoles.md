@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon RDS
-<a name="UsingWithRDS.IAM.ServiceLinkedRoles"></a>
 
 Amazon RDS uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon RDS. Service-linked roles are predefined by Amazon RDS and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -28,7 +27,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 **Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.**  
  Make sure you have the following permissions enabled:   
 
-```
+```json
 {
     "Action": "iam:CreateServiceLinkedRole",
     "Effect": "Allow",
@@ -127,7 +126,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 **Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.**  
  Make sure you have the following permissions enabled:   
 
-```
+```json
 {
     "Action": "iam:CreateServiceLinkedRole",
     "Effect": "Allow",
@@ -156,7 +155,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 **Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.**  
  Make sure you have the following permissions enabled:   
 
-```
+```json
 {
     "Action": "iam:CreateServiceLinkedRole",
     "Effect": "Allow",
@@ -185,7 +184,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 **Unable to create the resource. Verify that you have permission to create service linked role. Otherwise wait and try again later.**  
  Make sure you have the following permissions enabled:   
 
-```
+```json
 {
     "Action": "iam:CreateServiceLinkedRole",
     "Effect": "Allow",

@@ -1,13 +1,13 @@
 
 
 # Using GTID-based replication
-<a name="mysql-replication-gtid"></a>
 
 The following content explains how to use global transaction identifiers (GTIDs) with binary log (binlog) replication among Amazon RDS for MySQL DB instances. 
 
 If you use binlog replication and aren't familiar with GTID-based replication with MySQL, see [Replication with global transaction identifiers](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) in the MySQL documentation.
 
 GTID-based replication is supported for the following versions:
++ All RDS for MySQL 9.7 versions
 + All RDS for MySQL 8.4 versions
 + All RDS for MySQL 8.0 versions
 + All RDS for MySQL 5.7 versions

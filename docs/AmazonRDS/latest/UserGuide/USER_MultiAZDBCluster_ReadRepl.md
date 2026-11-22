@@ -1,7 +1,6 @@
 
 
 # Working with Multi-AZ DB cluster read replicas for Amazon RDS
-<a name="USER_MultiAZDBCluster_ReadRepl"></a>
 
 A DB cluster read replica is a special type of cluster that you create from a source DB instance. After you create a read replica, any updates made to the primary DB instance are asynchronously copied to the Multi-AZ DB cluster read replica. You can reduce the load on your primary DB instance by routing read queries from your applications to the read replica. Using read replicas, you can elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads.
 

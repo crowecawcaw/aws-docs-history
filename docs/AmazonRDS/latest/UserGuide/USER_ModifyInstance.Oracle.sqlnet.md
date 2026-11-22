@@ -1,7 +1,6 @@
 
 
 # Modifying connection properties using sqlnet.ora parameters
-<a name="USER_ModifyInstance.Oracle.sqlnet"></a>
 
 The sqlnet.ora file includes parameters that configure Oracle Net features on Oracle database servers and clients. Using the parameters in the sqlnet.ora file, you can modify properties for connections in and out of the database. 
 
@@ -82,7 +81,7 @@ aws rds download-db-log-file-portion ^
 
 After you connect to the Oracle DB instance in a SQL client, the following query lists the sqlnet.ora parameters.
 
-```
+```sql
 1. SELECT * FROM TABLE
 2.    (rdsadmin.rds_file_util.read_text_file(
 3.         p_directory => 'BDUMP',

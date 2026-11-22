@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a web server and an Amazon RDS DB instance
-<a name="TUT_WebAppWithRDS"></a>
 
 This tutorial shows you how to install an Apache web server with PHP and create a MariaDB, MySQL, or PostgreSQL database. The web server runs on an Amazon EC2 instance using Amazon Linux 2023, and you can choose between a MySQL or PostgreSQL DB instance. Both the Amazon EC2 instance and the DB instance run in a virtual private cloud (VPC) based on the Amazon VPC service. 
 

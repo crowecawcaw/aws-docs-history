@@ -1,7 +1,6 @@
 
 
 # Tutorial: Managing a MySQL DB instance environment from development to production
-<a name="tutorial-managing-MySQL-DB"></a>
 
 ## Introduction
 <a name="tutorial-managing-MySQL-DB.introduction"></a>

@@ -1,7 +1,6 @@
 
 
 # Best practices with RDS Proxy
-<a name="rds-proxy-best-practices"></a>
 
 This section provides guidelines on Amazon RDS Proxy best practices and usage scenarios. Information provided here will help you understand the benefits of using RDS Proxy in various use cases and optimize your application and database configuration for best results.
 

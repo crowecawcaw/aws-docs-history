@@ -1,7 +1,6 @@
 
 
 # SQL Server Audit
-<a name="Appendix.SQLServer.Options.Audit"></a>
 
 In Amazon RDS, you can audit Microsoft SQL Server databases by using the built-in SQL Server auditing mechanism. You can create audits and audit specifications in the same way that you create them for on-premises database servers. 
 

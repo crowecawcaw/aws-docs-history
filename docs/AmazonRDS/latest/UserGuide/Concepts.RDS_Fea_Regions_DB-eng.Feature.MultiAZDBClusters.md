@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters"></a>
 
 A Multi-AZ DB cluster deployment in Amazon RDS provides a high availability deployment mode of Amazon RDS with two readable standby DB instances. A Multi-AZ DB cluster has a writer DB instance and two reader DB instances in three separate Availability Zones in the same Region. Multi-AZ DB clusters provide high availability, increased capacity for read workloads, and lower write latency when compared to Multi-AZ DB instance deployments. For more information, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md). 
 
@@ -19,6 +18,9 @@ Multi-AZ DB clusters aren't available with the following engines:
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.my"></a>
 
 The following Regions and engine versions are available for Multi-AZ DB clusters with RDS for MySQL. 
+
+**Note**  
+Multi-AZ DB clusters aren't available for RDS for MySQL 9.7.
 
 
 | Region | RDS for MySQL 8.4 | RDS for MySQL 8.0 | 

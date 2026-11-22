@@ -1,7 +1,6 @@
 
 
 # MariaDB Audit Plugin support for MySQL
-<a name="Appendix.MySQL.Options.AuditPlugin"></a>
 
 Amazon RDS offers an audit plugin for MySQL database instances based on the open source MariaDB Audit Plugin. For more information, see the [Audit Plugin for MySQL Server GitHub repository](https://github.com/aws/audit-plugin-for-mysql).
 
@@ -42,7 +41,7 @@ Adding the MariaDB Audit Plugin to a DB instance might cause an outage. We recom
 
 **To add the MariaDB Audit Plugin**
 
-1. Determine the option group you want to use. You can create a new option group or use an existing option group. If you want to use an existing option group, skip to the next step. Otherwise, create a custom DB option group. Choose **mysql** for **Engine**, and choose **5.7**, **8.0**, or **8.4** for **Major engine version**. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create). 
+1. Determine the option group you want to use. You can create a new option group or use an existing option group. If you want to use an existing option group, skip to the next step. Otherwise, create a custom DB option group. Choose **mysql** for **Engine**, and choose **5.7**, **8.0**, **8.4**, or **9.7** for **Major engine version**. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create). 
 
 1. Add the **MARIADB\_AUDIT\_PLUGIN** option to the option group, and configure the option settings. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption). For more information about each setting, see [Audit Plugin option settings](#Appendix.MySQL.Options.AuditPlugin.Options). 
 

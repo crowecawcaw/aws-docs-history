@@ -1,7 +1,6 @@
 
 
 # Modifying a proxy endpoint
-<a name="rds-proxy-endpoints.ModifyingEndpoint"></a>
 
 To modify your proxy endpoints, follow these instructions:
 

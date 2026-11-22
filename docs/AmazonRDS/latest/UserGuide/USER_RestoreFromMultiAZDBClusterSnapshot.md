@@ -1,7 +1,6 @@
 
 
 # Restoring from a Multi-AZ DB cluster snapshot to a DB instance
-<a name="USER_RestoreFromMultiAZDBClusterSnapshot"></a>
 
 A *Multi-AZ DB cluster snapshot* is a storage volume snapshot of your DB cluster, backing up the entire DB cluster and not just individual databases. You can restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment. For information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).
 

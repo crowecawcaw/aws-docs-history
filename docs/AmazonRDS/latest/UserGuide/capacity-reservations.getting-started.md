@@ -1,7 +1,6 @@
 
 
 # Getting started with On-Demand Capacity Reservations
-<a name="capacity-reservations.getting-started"></a>
 
 An Amazon RDS Capacity Reservation holds compute capacity for a specific combination of DB instance class, database engine, and Availability Zones, and reports a state that reflects where it is in its lifecycle. Before you create a reservation, review what it holds, how it's identified, when to use one, and the states it can report.
 

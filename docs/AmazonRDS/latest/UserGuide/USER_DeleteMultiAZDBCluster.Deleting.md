@@ -1,7 +1,6 @@
 
 
 # Deleting a Multi-AZ DB cluster for Amazon RDS
-<a name="USER_DeleteMultiAZDBCluster.Deleting"></a>
 
 You can delete a DB Multi-AZ DB cluster using the AWS Management Console, the AWS CLI, or the RDS API.
 

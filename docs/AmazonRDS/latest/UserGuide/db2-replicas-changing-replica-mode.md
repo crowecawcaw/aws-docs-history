@@ -1,7 +1,6 @@
 
 
 # Modifying the RDS for Db2 replica mode
-<a name="db2-replicas-changing-replica-mode"></a>
 
 You can change the replica mode of an existing Db2 replica between read-only and standby modes. This flexibility allows you to adapt your replica configuration based on changing requirements for read workloads or disaster recovery needs. 
 
@@ -96,7 +95,7 @@ To change a Db2 replica from read-only mode to standby mode, set `ReplicaMode=mo
 
 The following is an example API call to change the replica mode from read-only to standby:
 
-```
+```json
 {
     "DBInstanceIdentifier": "my_db2_replica",
     "ReplicaMode": "mounted",
@@ -106,7 +105,7 @@ The following is an example API call to change the replica mode from read-only t
 
 The following is an example API call to change the replica mode from standby to read-only:
 
-```
+```json
 {
     "DBInstanceIdentifier": "my_db2_replica",
     "ReplicaMode": "open-read-only",

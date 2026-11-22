@@ -1,7 +1,6 @@
 
 
 # Monitoring metrics in an Amazon RDS instance
-<a name="CHAP_Monitoring"></a>
 
 In the following sections, you can find an overview of Amazon RDS monitoring and an explanation about how to access metrics. To learn how to monitor events, logs, and database activity streams, see [Monitoring events, logs, and streams in an Amazon RDS DB instance](CHAP_Monitor_Logs_Events.md).
 

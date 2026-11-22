@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for PostgreSQL
-<a name="CHAP_PostgreSQL"></a>
 
 Amazon RDS supports DB instances running several versions of PostgreSQL. For a list of available versions, see [Available PostgreSQL database versions](PostgreSQL.Concepts.General.DBVersions.md).
 

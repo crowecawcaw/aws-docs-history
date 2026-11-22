@@ -1,9 +1,10 @@
 
 
 # Overview of RDS for Oracle replicas
-<a name="oracle-read-replicas.overview"></a>
 
 An *Oracle replica* database is a physical copy of your primary database. An Oracle replica in read-only mode is called a *read replica*. An Oracle replica in mounted mode is called a *mounted replica*. Oracle Database doesn't permit writes in a replica, but you can promote a replica to make it writable. The promoted read replica has the replicated data to the point when the request was made to promote it.
+
+You can also use a replica to upgrade the minor engine version with less downtime. You upgrade the replica first, test the new version with read traffic if the replica is in read-only mode, and then switch over to it. For more information, see [Upgrading with Replica First Patching](oracle-upgrade-replica-first.md).
 
 The following video provides a helpful overview of RDS for Oracle disaster recovery. 
 

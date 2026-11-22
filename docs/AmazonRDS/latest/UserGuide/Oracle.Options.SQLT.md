@@ -1,7 +1,6 @@
 
 
 # Oracle SQLT
-<a name="Oracle.Options.SQLT"></a>
 
 Amazon RDS supports Oracle SQLTXPLAIN (SQLT) through the use of the SQLT option. You can use SQLT with any edition of Oracle Database 19c and higher.
 
@@ -46,7 +45,7 @@ The following are prerequisites for using SQLT:
 
   If your DB instance has any of these users or roles, log in to the DB instance using a SQL client, and drop them using the following statements:
 
-  ```
+  ```sql
   DROP USER SQLTXPLAIN CASCADE;
   DROP USER SQLTXADMIN CASCADE;   
   DROP ROLE SQLT_USER_ROLE;
@@ -112,7 +111,7 @@ After you add the SQLT option, as soon as the option group is active, SQLT is ac
 
    1. Run the following query:
 
-      ```
+      ```sql
       SELECT sqltxplain.sqlt$a.get_param('tool_version') sqlt_version FROM DUAL;                        
       ```
 
@@ -124,7 +123,7 @@ After you add the SQLT option, as soon as the option group is active, SQLT is ac
 
    1. Run the following SQL statement to change the password for the `SQLTXADMIN` user:
 
-      ```
+      ```sql
       ALTER USER SQLTXADMIN IDENTIFIED BY {{new_password}} ACCOUNT UNLOCK;                         
       ```
 **Note**  
@@ -132,7 +131,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
    1. Run the following SQL statement to change the password for the `SQLTXPLAIN` user:
 
-      ```
+      ```sql
       ALTER USER SQLTXPLAIN IDENTIFIED BY {{new_password}} ACCOUNT UNLOCK;                         
       ```
 **Note**  
@@ -162,7 +161,7 @@ You can't download SQLT 12.1.160429 from the My Oracle Support site. Oracle has 
 
 1.  Get the SQL ID of a SQL statement: 
 
-   ```
+   ```sql
    SELECT SQL_ID FROM V$SQL WHERE SQL_TEXT='{{sql_statement}}';                               
    ```
 
@@ -190,7 +189,7 @@ You can't download SQLT 12.1.160429 from the My Oracle Support site. Oracle has 
 
 1.  (Optional) To enable application users to diagnose SQL statements with SQLT, grant `SQLT_USER_ROLE` to each application user with the following statement: 
 
-   ```
+   ```sql
    GRANT SQLT_USER_ROLE TO {{application_user_name}};                
    ```
 **Note**  

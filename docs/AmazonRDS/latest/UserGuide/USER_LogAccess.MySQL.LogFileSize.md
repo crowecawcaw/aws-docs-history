@@ -1,7 +1,6 @@
 
 
 # Overview of RDS for MySQL database logs
-<a name="USER_LogAccess.MySQL.LogFileSize"></a>
 
 You can monitor the following types of RDS for MySQL log files:
 + Error log
@@ -89,4 +88,4 @@ For RDS for MySQL version 8.0.32 and lower, the default value of this parameter 
 
 For RDS for MySQL version 8.0.33 and higher minor versions, Amazon RDS uses the `innodb_redo_log_capacity` parameter instead of the `innodb_log_file_size` parameter. The Amazon RDS default value of the `innodb_redo_log_capacity` parameter is 2 GB. For more information, see [ Changes in MySQL 8.0.30](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html) in the MySQL documentation.
 
-Starting with MySQL 8.4, Amazon RDS enables the `innodb_dedicated_server` parameter by default. With the `innodb_dedicated_server` parameter, the database engine calculates the `innodb_buffer_pool_size` and `innodb_redo_log_capacity` parameters. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).
+Starting with MySQL 8.4, Amazon RDS enables the `innodb_dedicated_server` parameter by default. With the `innodb_dedicated_server` parameter, the database engine calculates the `innodb_buffer_pool_size` and `innodb_redo_log_capacity` parameters. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4 and higher](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md).

@@ -1,7 +1,6 @@
 
 
 # Accessing the MariaDB slow query and general logs
-<a name="USER_LogAccess.MariaDB.Generallog"></a>
 
 You can write the MariaDB slow query log and general log to a file or database table by setting parameters in your DB parameter group. For information about creating and modifying a DB parameter group, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md). You must set these parameters before you can view the slow query log or general log in the Amazon RDS console or by using the Amazon RDS API, AWS CLI, or AWS SDKs.
 

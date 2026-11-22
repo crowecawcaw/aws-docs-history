@@ -1,7 +1,6 @@
 
 
 # Managing temporary files with PostgreSQL
-<a name="PostgreSQL.ManagingTempFiles"></a>
 
 In PostgreSQL, a complex query might perform several sort or hash operations at the same time, with each operation using instance memory to store results up to the value specified in the [`work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM) parameter. When the instance memory is not sufficient, temporary files are created to store the results. These are written to disk to complete the query execution. Later, these files are automatically removed after the query completes. In RDS for PostgreSQL, these files are stored in Amazon EBS on the data volume. For more information, see [Amazon RDS DB instance storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html). You can monitor the `FreeStorageSpace` metric published in CloudWatch to make sure that your DB instance has enough free storage space. For more information, see [`FreeStorageSpace `](https://repost.aws/knowledge-center/storage-full-rds-cloudwatch-alarm).
 

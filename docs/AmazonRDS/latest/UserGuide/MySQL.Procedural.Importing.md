@@ -1,7 +1,6 @@
 
 
 # Restoring a backup into an Amazon RDS for MySQL DB instance
-<a name="MySQL.Procedural.Importing"></a>
 
 Amazon RDS supports importing MySQL databases with backup files. You can create a backup of your database, store the backup file on Amazon S3, and then restore the backup file to a new Amazon RDS DB instance running MySQL. Amazon RDS supports importing backup files from Amazon S3 in all AWS Regions. 
 
@@ -143,7 +142,7 @@ The trust and permissions policies require that you provide an Amazon Resource N
 **Example trust policy for importing from Amazon S3**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -163,7 +162,7 @@ The trust and permissions policies require that you provide an Amazon Resource N
 In the following example, replace {{iam\_user\_id}} with your own value.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ In the following example, replace {{iam\_user\_id}} with your own value.
 In the following example, replace {{amzn-s3-demo-bucket}} and {{prefix}} with your own values.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -342,6 +341,7 @@ The following limitations and considerations apply to importing backup files fro
 + You can only migrate your data to a new DB instance, not to an existing DB instance.
 + You must use Percona XtraBackup to back up your data to Amazon S3. For more information, see [Creating your database backup](#MySQL.Procedural.Importing.Backup).
 + The Amazon S3 bucket and the RDS for MySQL DB instance must be in the same AWS Region.
++ You can't restore a backup from Amazon S3 to an RDS for MySQL 9.7 DB instance.
 + You can't restore from the following sources:
   + A DB instance snapshot export to Amazon S3. You also can't migrate data from a DB instance snapshot export to your Amazon S3 bucket.
   + An encrypted source database. However, you can encrypt the data being migrated. You can also leave the data unencrypted during the migration process.

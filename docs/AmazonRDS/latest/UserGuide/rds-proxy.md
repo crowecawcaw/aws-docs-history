@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Proxy
-<a name="rds-proxy"></a>
 
 By using Amazon RDS Proxy, you can allow your applications to pool and share database connections to improve their ability to scale. RDS Proxy makes applications more resilient to database failures by automatically connecting to a standby DB instance while preserving application connections. By using RDS Proxy, you can enforce AWS Identity and Access Management (IAM) authentication for clients connecting to the proxy, and the proxy can connect to databases using either IAM database authentication or credentials stored in AWS Secrets Manager. 
 
@@ -67,6 +66,8 @@ Feature availability and support varies across specific versions of each databas
 + Your proxy automatically creates the `rdsproxyadmin` DB user when you register a proxy target. This is a protected user that is essential for proxy functionality. You should avoid tampering with the `rdsproxyadmin` user in any capacity. Deleting or modifying the `rdsproxyadmin` user or its permissions can result in complete unavailability of the proxy to your application.
 
   Starting in RDS for MariaDB version 12.3, the database engine enforces this protection. Attempts to `CREATE`, `DROP`, `RENAME`, `GRANT`, `REVOKE`, or `SET PASSWORD` for `rdsproxyadmin` return an error. For details, see [MariaDB security on Amazon RDS](MariaDB.Concepts.UsersAndPrivileges.md).
+
+  Starting in RDS for MySQL version 9.7, the database engine enforces this protection. Attempts to `CREATE`, `DROP`, `RENAME`, `ALTER`, or `SET PASSWORD` for `rdsproxyadmin`, or to `GRANT` or `REVOKE` privileges for it, return an error. For details, see [MySQL 9.7 support on Amazon RDS](MySQL.Concepts.FeatureSupport.md#MySQL.Concepts.FeatureSupport.9-7).
 
 For additional limitations for each DB engine, see the following sections:
 + [Additional limitations for RDS for MariaDB](#rds-proxy.limitations-mdb)

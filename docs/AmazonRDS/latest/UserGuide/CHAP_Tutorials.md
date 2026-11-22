@@ -1,7 +1,6 @@
 
 
 # Amazon RDS tutorials and sample code
-<a name="CHAP_Tutorials"></a>
 
 The AWS documentation includes several tutorials that guide you through common Amazon RDS use cases. Many of these tutorials show you how to use Amazon RDS with other AWS services. In addition, you can access sample code in . 
 

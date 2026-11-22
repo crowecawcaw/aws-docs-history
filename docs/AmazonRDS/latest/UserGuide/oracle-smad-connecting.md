@@ -1,7 +1,6 @@
 
 
 # Configuring a Kerberos client and connecting to your DB instance
-<a name="oracle-smad-connecting"></a>
 
 After you complete the steps in [Setting up self-managed Active Directory](oracle-smad-setting-up.md), complete the following steps for each DB instance that you want to use with Kerberos authentication. You join the DB instance to your domain, create Oracle users for your Active Directory (AD) users, configure a Kerberos client, and then connect to the DB instance. If a client host is already configured for your domain, you don't need to repeat its Kerberos configuration in Step 3 for another DB instance. Make sure that the client host can reach the new DB instance over the database port.
 + [Step 1: Create or modify an Amazon RDS for Oracle DB instance](#oracle-smad.connecting.step1)
@@ -49,7 +48,7 @@ For example, the following command joins an existing DB instance to a self-manag
 
 For Linux, macOS, or Unix:
 
-```
+```bash
 aws rds modify-db-instance \
     --db-instance-identifier my-oracle-instance \
     --domain-fqdn corp.example.com \
@@ -71,7 +70,7 @@ aws rds modify-db-instance ^
 
 To verify that the domain join succeeded, run the following command and confirm that `Status` is `kerberos-enabled`.
 
-```
+```bash
 aws rds describe-db-instances \
     --db-instance-identifier my-oracle-instance \
     --query 'DBInstances[0].DomainMemberships'
@@ -90,7 +89,7 @@ After the DB instance reaches `kerberos-enabled`, use the Amazon RDS master user
 
 1. Create an externally authenticated user in Oracle database. In the following example, replace `KRBUSER@CORP.EXAMPLE.COM` with the user name and domain name.
 
-   ```
+   ```sql
    CREATE USER "KRBUSER@CORP.EXAMPLE.COM" IDENTIFIED EXTERNALLY;
    GRANT CREATE SESSION TO "KRBUSER@CORP.EXAMPLE.COM";
    ```
@@ -147,7 +146,7 @@ If you are using a native Windows cache, you can also set the `SQLNET.KERBEROS5_
 
 1. At a command prompt, obtain a Kerberos ticket. Replace `KRBUSER@CORP.EXAMPLE.COM` with the AD user and domain name, and enter the AD password at the prompt.
 
-   ```
+   ```bash
    kinit KRBUSER@CORP.EXAMPLE.COM
    ```
 

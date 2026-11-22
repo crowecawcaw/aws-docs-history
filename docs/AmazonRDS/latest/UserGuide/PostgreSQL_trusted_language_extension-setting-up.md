@@ -1,7 +1,6 @@
 
 
 # Setting up Trusted Language Extensions in your RDS for PostgreSQL DB instance
-<a name="PostgreSQL_trusted_language_extension-setting-up"></a>
 
 The following steps assume that your RDS for PostgreSQL DB instance is associated with a custom DB parameter group. You can use the AWS Management Console or the AWS CLI for these steps.
 

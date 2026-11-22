@@ -1,7 +1,6 @@
 
 
 # Considerations for SQL Server upgrades
-<a name="USER_UpgradeDBInstance.SQLServer.Considerations"></a>
 
 Amazon RDS takes two DB snapshots during the upgrade process. The first DB snapshot is of the DB instance before any upgrade changes have been made. The second DB snapshot is taken after the upgrade finishes.
 

@@ -1,7 +1,6 @@
 
 
 # Renaming a Amazon RDS for Microsoft SQL Server database in a Multi-AZ deployment
-<a name="Appendix.SQLServer.CommonDBATasks.RenamingDB"></a>
 
 To rename a Microsoft SQL Server database instance that uses Multi-AZ, use the following procedure:
 
@@ -19,7 +18,7 @@ You can't rename a database on a read replica source instance.
 
 **Example: **In the following example, the `rdsadmin.dbo.rds_modify_db_name` stored procedure renames a database from **MOO** to **ZAR**. This is similar to running the statement `DDL ALTER DATABASE [MOO] MODIFY NAME = [ZAR]`. 
 
-```
+```sql
 EXEC rdsadmin.dbo.rds_modify_db_name N'MOO', N'ZAR'
 GO
 ```

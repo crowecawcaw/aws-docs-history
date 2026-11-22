@@ -1,7 +1,6 @@
 
 
 # Monitoring database activity streams
-<a name="DBActivityStreams.Monitoring"></a>
 
 Database activity streams monitor and report activities. The stream of activity is collected and transmitted to Amazon Kinesis. From Kinesis, you can monitor the activity stream, or other services and applications can consume the activity stream for further analysis. You can find the underlying Kinesis stream name by using the AWS CLI command `describe-db-instances` or the RDS API `DescribeDBInstances` operation.
 
@@ -16,7 +15,7 @@ The following categories of activity are monitored and put in the activity strea
 **Important**  
 The full SQL text of each statement is visible in the activity stream audit log, including any sensitive data. However, database user passwords are redacted if Oracle can determine them from the context, such as in the following SQL statement.   
 
-  ```
+  ```sql
   ALTER ROLE role-name WITH password
   ```
 + **Connection information** – Activity monitored includes session and network information, the server process ID, and exit codes.

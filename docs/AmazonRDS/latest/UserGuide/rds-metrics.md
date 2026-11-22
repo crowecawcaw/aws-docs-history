@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch metrics for Amazon RDS
-<a name="rds-metrics"></a>
 
 Amazon CloudWatch metrics provide insights into the performance and health of Amazon RDS instances and clusters, allowing you to monitor system behavior and make data-driven decisions. These metrics help track resource utilization, database activity, and operational efficiency, offering visibility into how your instances are performing. 
 

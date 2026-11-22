@@ -1,7 +1,6 @@
 
 
 # Amazon RDS on AWS Outposts support for Amazon RDS features
-<a name="rds-on-outposts.features"></a>
 
 The following table describes the Amazon RDS features supported by Amazon RDS on AWS Outposts.
 

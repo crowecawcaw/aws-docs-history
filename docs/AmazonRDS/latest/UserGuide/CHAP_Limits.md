@@ -1,7 +1,6 @@
 
 
 # Quotas and constraints for Amazon RDS
-<a name="CHAP_Limits"></a>
 
 Following, you can find a description of the resource quotas and naming constraints for Amazon RDS.
 
@@ -127,7 +126,7 @@ For example, some DB instance classes have 8 GiB of memory, which is 8,589,934,5
 
 When a MariaDB or MySQL DB instance is running on a small DB instance class, such as db.t3.micro or db.t3.small, the total memory available is low. For these DB instance classes, RDS reserves a significant portion of the available memory, which affects the value `max_connections`. For example, the default maximum number of connections for a MySQL DB instance running on a db.t3.micro DB instance class is approximately 60. You can determine the `max_connections` value for your DB MariaDB or MySQL DB instance by connecting to it and running the following SQL command:
 
-```
+```sql
 SHOW GLOBAL VARIABLES LIKE 'max_connections';
 ```
 

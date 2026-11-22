@@ -1,7 +1,6 @@
 
 
 # The create\_passthrough\_verify\_fcn procedure
-<a name="Appendix.Oracle.CommonDBATasks.CustomPassword.Custom"></a>
 
 The `create_passthrough_verify_fcn` procedure is supported for all versions of RDS for Oracle.
 
@@ -17,7 +16,7 @@ You can create a custom function to verify passwords by using the Amazon RDS pro
 
 The following example creates a password verification function that uses the logic from the function named `PASSWORD_LOGIC_EXTRA_STRONG`. 
 
-```
+```sql
 begin
     rdsadmin.rdsadmin_password_verify.create_passthrough_verify_fcn(
         p_verify_function_name => '{{CUSTOM_PASSWORD_FUNCTION}}', 
@@ -29,6 +28,6 @@ end;
 
 To associate the verification function with a user profile, use `alter profile`. The following example associates the verification function with the `DEFAULT` user profile. 
 
-```
+```sql
 ALTER PROFILE {{DEFAULT}} LIMIT PASSWORD_VERIFY_FUNCTION {{CUSTOM_PASSWORD_FUNCTION}};
 ```

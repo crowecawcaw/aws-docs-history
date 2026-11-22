@@ -1,7 +1,6 @@
 
 
 # Considerations for Amazon RDS for Db2 stored procedures
-<a name="db2-stored-procedures-considerations"></a>
 
 Before using the Amazon RDS system stored procedures for RDS for Db2 DB instances running the Db2 engine, review the following information:
 + Before running the stored procedures, you must first connect to the `rdsadmin` database as the master user for your RDS for Db2 DB instance. In the following example, replace {{master\_username}} and {{master\_password}} with your own information.

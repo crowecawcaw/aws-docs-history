@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon RDS
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, permission sets and roles don't have permission to create or modify Amazon RDS resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant permission sets and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the permission sets or roles that require those permissions.
 
@@ -64,7 +63,7 @@ AmazonRDSFullAccess
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

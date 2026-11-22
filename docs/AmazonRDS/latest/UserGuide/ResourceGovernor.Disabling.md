@@ -1,7 +1,6 @@
 
 
 # Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance
-<a name="ResourceGovernor.Disabling"></a>
 
 When you disable resource governor on RDS for SQL Server, the service stops managing workload resources. Before you disable resource governor, review how this affects your database connections and configurations.
 

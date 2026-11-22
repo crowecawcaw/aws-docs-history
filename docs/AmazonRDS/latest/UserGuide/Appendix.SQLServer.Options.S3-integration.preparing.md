@@ -1,7 +1,6 @@
 
 
 # Prerequisites for integrating RDS for SQL Server with S3
-<a name="Appendix.SQLServer.Options.S3-integration.preparing"></a>
 
 Before you begin, find or create the S3 bucket that you want to use. Also, add permissions so that the RDS DB instance can access the S3 bucket. To configure this access, you create both an IAM policy and an IAM role.
 
@@ -130,7 +129,7 @@ Include the appropriate actions to grant the access your DB instance requires:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -208,7 +207,7 @@ Include the appropriate actions to grant the access your DB instance requires:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -277,7 +276,7 @@ Include the appropriate actions to grant the access your DB instance requires:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

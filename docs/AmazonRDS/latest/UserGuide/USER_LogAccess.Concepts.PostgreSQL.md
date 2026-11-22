@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL database log files
-<a name="USER_LogAccess.Concepts.PostgreSQL"></a>
 
 You can monitor the following types of log files:
 + PostgreSQL log
@@ -25,6 +24,9 @@ In addition to the standard PostgreSQL logs discussed in this topic, RDS for Pos
 <a name="USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs"></a>
 
 To store your PostgreSQL log records in highly durable storage, you can use Amazon CloudWatch Logs. With CloudWatch Logs, you can also perform real-time analysis of log data and use CloudWatch to view metrics and create alarms. For example, if you set `log_statement` to `ddl`, you can set up an alarm to alert you whenever a DDL statement is executed. You can choose to have your PostgreSQL logs uploaded to CloudWatch Logs during the process of creating your RDS for PostgreSQL DB instance. If you chose not to upload logs at that time, you can later modify your instance to start uploading logs from that point forward. In other words, existing logs aren't uploaded. Only new logs are uploaded as they're created on your modified RDS for PostgreSQL DB instance.
+
+**Note**  
+Generating log records and publishing them to CloudWatch Logs both use CPU on your DB instance. If you set logging parameters such as `log_statement`, `log_min_duration_statement`, or `pgaudit.log` to values that generate a large volume of log records, CPU usage increases. This additional CPU usage can affect database performance. Turn on verbose logging only for as long as you need it, and monitor CPU usage while it's on. In Enhanced Monitoring, the CPU used to publish logs is included in **RDS processes**. For more information, see [Viewing OS metrics in the RDS console](USER_Monitoring.OS.Viewing.md).
 
 All currently available RDS for PostgreSQL versions support publishing log files to CloudWatch Logs. For more information, see [Amazon RDS for PostgreSQL updates](https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-versions.html) in the *Amazon RDS for PostgreSQL Release Notes.*. 
 

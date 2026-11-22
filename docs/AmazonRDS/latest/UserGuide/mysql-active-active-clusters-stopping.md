@@ -1,7 +1,6 @@
 
 
 # Stopping Group Replication on a DB instance in an active-active cluster
-<a name="mysql-active-active-clusters-stopping"></a>
 
 You can stop Group Replication on a DB instance in an active-active cluster. When you stop Group Replication, the DB instance is placed in super-read-only mode until replication is restarted or that DB instance is removed from the active-active cluster. For information about super-read-only mode, see the [ MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_super_read_only).
 
@@ -16,3 +15,9 @@ You can stop Group Replication on a DB instance in an active-active cluster. Whe
    ```
    call mysql.rds_group_replication_stop();
    ```
+
+To restart Group Replication so that the DB instance rejoins the active-active cluster, call the [mysql.rds\_group\_replication\_start](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start) stored procedure on the DB instance. For RDS for MySQL 9.7, first synchronize local GTIDs. For more information, see [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md).
+
+```
+call mysql.rds_group_replication_start(0);
+```

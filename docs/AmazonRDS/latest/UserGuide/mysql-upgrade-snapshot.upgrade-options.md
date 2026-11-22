@@ -1,7 +1,6 @@
 
 
 # Upgrade options for DB snapshots with unsupported engine versions for RDS for MySQL
-<a name="mysql-upgrade-snapshot.upgrade-options"></a>
 
 The following table shows which engine versions you can upgrade to from an unsupported engine version for RDS for MySQL DB snapshots.
 

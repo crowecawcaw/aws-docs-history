@@ -1,7 +1,6 @@
 
 
 # Restoring an RDS Custom for SQL Server instance to a point in time
-<a name="custom-backup.pitr-sqs"></a>
 
 You can restore a DB instance to a specific point in time (PITR), creating a new DB instance. To support PITR, your DB instances must have backup retention enabled.
 

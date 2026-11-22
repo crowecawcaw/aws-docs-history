@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a MySQL DB instance with a custom parameterand new option group
-<a name="tutorial-creating-custom-OPG"></a>
 
 In this tutorial, you create a MySQL DB instance with a custom parameter and new option group. For more information about custom parameter and option groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md) and [Working with option groups](USER_WorkingWithOptionGroups.md). 
 

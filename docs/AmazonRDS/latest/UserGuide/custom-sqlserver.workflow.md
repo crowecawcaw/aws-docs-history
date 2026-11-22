@@ -1,7 +1,6 @@
 
 
 # RDS Custom for SQL Server workflow
-<a name="custom-sqlserver.workflow"></a>
 
 The following diagram shows the typical workflow for RDS Custom for SQL Server.
 

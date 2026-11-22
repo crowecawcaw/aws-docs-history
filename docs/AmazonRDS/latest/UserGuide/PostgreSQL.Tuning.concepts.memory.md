@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL memory
-<a name="PostgreSQL.Tuning.concepts.memory"></a>
 
 RDS for PostgreSQL memory is divided into shared and local.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a DB instance or a Multi-AZ DB cluster with Amazon RDS Extended Support
-<a name="extended-support-creating-db-instance"></a>
 
 When you create a DB instance or a Multi-AZ DB cluster, select **Enable RDS Extended Support** in the console, or use the Extended Support option in the AWS CLI or the parameter in the RDS API. When you enroll a DB instance or a Multi-AZ DB cluster in Amazon RDS Extended Support, it is permanently enrolled in RDS Extended Support for the life of the DB instance or Multi-AZ DB cluster. 
 

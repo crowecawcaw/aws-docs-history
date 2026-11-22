@@ -1,7 +1,6 @@
 
 
 # How to perform a major version upgrade for RDS for PostgreSQL
-<a name="USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process"></a>
 
 We recommend the following process when performing a major version upgrade on an Amazon RDS for PostgreSQL database:
 
@@ -14,14 +13,14 @@ We recommend the following process when performing a major version upgrade on an
 
      You can use the following query to verify that there are no open prepared transactions on your database. 
 
-     ```
+     ```sql
      SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
      ```
    + **Reg\* data types** – Remove all uses of the *reg\** data types before attempting an upgrade. Except for `regtype` and `regclass`, you can't upgrade the *reg\** data types. The `pg_upgrade` utility can't persist this data type, which is used by Amazon RDS to do the upgrade. 
 
      To verify that there are no uses of unsupported *reg\** data types, use the following query for each database. 
 
-     ```
+     ```sql
      SELECT count(*) FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
        WHERE c.oid = a.attrelid
            AND NOT a.attisdropped
@@ -38,7 +37,7 @@ We recommend the following process when performing a major version upgrade on an
 
      To find columns that use them (including columns whose type is a domain, array, composite, or range over these types), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'pg_catalog.abstime'::pg_catalog.regtype AS oid
          UNION ALL SELECT 'pg_catalog.reltime'::pg_catalog.regtype
@@ -76,7 +75,7 @@ We recommend the following process when performing a major version upgrade on an
 
      To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'information_schema.sql_identifier'::pg_catalog.regtype AS oid
          UNION ALL
@@ -112,7 +111,7 @@ We recommend the following process when performing a major version upgrade on an
 
      To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'pg_catalog.aclitem'::pg_catalog.regtype AS oid
          UNION ALL
@@ -150,12 +149,12 @@ We recommend the following process when performing a major version upgrade on an
 
      Use the following query to check for invalid databases:
 
-     ```
+     ```sql
      SELECT datname FROM pg_database WHERE datconnlimit = - 2;
      ```
    + The previous query returns invalid database names. You can use `DROP DATABASE {{invalid_db_name}};` to drop invalid databases. You can also use the following command to drop invalid databases:
 
-     ```
+     ```sql
      SELECT 'DROP DATABASE ' || quote_ident(datname) || ';' FROM pg_database WHERE datconnlimit = -2 \gexec
      ```
 
@@ -165,7 +164,7 @@ We recommend the following process when performing a major version upgrade on an
 
    If the logical replication slots aren't needed, you can delete them using the following SQL:
 
-   ```
+   ```sql
    SELECT * FROM pg_replication_slots WHERE slot_type NOT LIKE 'physical';
    SELECT pg_drop_replication_slot(slot_name);
    ```
@@ -219,7 +218,7 @@ We recommend the following process when performing a major version upgrade on an
 
    Run the following command for each extension that you're using:
 
-   ```
+   ```sql
    ALTER EXTENSION {{PostgreSQL-extension}} UPDATE TO '{{new-version}}';
    ```
 
@@ -235,7 +234,7 @@ We recommend the following process when performing a major version upgrade on an
 
    You can check if an extension is installed with the following query:
 
-   ```
+   ```sql
    SELECT * FROM pg_extension WHERE extname in ('{{extension_name}}');
    ```
 

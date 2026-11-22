@@ -1,7 +1,6 @@
 
 
 # Amazon RDS DB instance storage
-<a name="CHAP_Storage"></a>
 
 DB instances for Amazon RDS for Db2, MariaDB, MySQL, PostgreSQL, Oracle, and Microsoft SQL Server use Amazon Elastic Block Store (Amazon EBS) volumes for database and log storage.
 
@@ -17,6 +16,7 @@ For more information about instance storage pricing, see [Amazon RDS pricing](ht
 + [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic)
 + [Additional storage volumes](#Welcome.AdditionalStorageVolumes)
 + [Dedicated log volume (DLV)](#CHAP_Storage.dlv)
++ [Storage volume initialization](#CHAP_Storage.initialization)
 + [Monitoring database performance](#Concepts.Storage.Metrics)
 + [Factors that affect database performance](#CHAP_Storage.Other.Factors)
 
@@ -153,7 +153,7 @@ Storage performance for gp3 volumes on Amazon RDS DB engines, including the thre
 
 For every DB engine except RDS for SQL Server, you can provision additional IOPS and storage throughput when storage size is at or above the threshold value. For RDS for SQL Server, you can provision additional IOPS and storage throughput for any available storage size. For all DB engines, you pay for only the additional provisioned storage performance. For more information, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/).
 
-Although the added Provisioned IOPS and storage throughput aren't dependent on the storage size, they are related to each other. When you raise the IOPS above 32,000 for MariaDB and MySQL, the storage throughput value automatically increases from 500 MiBps. For example, when you set the IOPS to 40,000 on RDS for MySQL, the storage throughput must be at least 625 MiBps. The automatic increase doesn't happen for Db2, Oracle, PostgreSQL, and SQL Server DB instances.
+Although the added Provisioned IOPS and storage throughput aren't dependent on the storage size, they are related to each other. When you raise the IOPS above 32,000 for MariaDB and MySQL, the storage throughput value automatically increases from 500 MiB/s. For example, when you set the IOPS to 40,000 on RDS for MySQL, the storage throughput must be at least 625 MiB/s. The automatic increase doesn't happen for Db2, Oracle, PostgreSQL, and SQL Server DB instances.
 
 For Multi-AZ DB clusters, Amazon RDS automatically sets the throughput value based on the IOPS that you provision. You can't modify the throughput value.
 
@@ -208,7 +208,7 @@ The following table describes use cases and per-volume performance characteristi
 | Latency | Sub-millisecond, provided consistently 99.9% of the time | Single-digit millisecond, provided consistently 99.9% of the time | Single-digit millisecond, provided consistently 99% of the time | Single-digit millisecond, provided consistently 99% of the time | 
 | Volume size | 100–65,536 GiB | 100–65,536 GiB (20–16,384 GiB on RDS for SQL Server) | 20–65,536 GiB (16,384 GiB on RDS for SQL Server) | 20–65,536 GiB (16,384 GiB on RDS for SQL Server) | 
 | Maximum IOPS | 256,000 | 256,000 (64,000 on RDS for SQL Server) | 64,000 (16,000 on RDS for SQL Server) | 64,000 (16,000 on RDS for SQL Server) You can't provision IOPS directly on gp2 storage. IOPS varies with the allocated storage size.  | 
-| Maximum throughput | Scales based on Provisioned IOPS up to 4,000 MB/s<br />Throughput scales proportionally up to 0.256 MiB/s per provisioned IOPS. Maximum throughput of 4,000 MiB/s can be achieved at 256,000 IOPS with a 16-KiB I/O size and 16,000 IOPS or higher with a 256-KiB I/O size.<br />For instances not based on the AWS Nitro System, maximum throughput of 2,000 MiB/s can be achieved at 128,000 IOPS with a 16-KiB I/O size. | Scales based on Provisioned IOPS up to 4,000 MB/s | Provision additional throughput up to 4,000 MB/s (1000 MB/s on RDS for SQL Server) | 1000 MB/s (250 MB/s on RDS for SQL Server) | 
+| Maximum throughput | Scales based on Provisioned IOPS up to 4,000 MiB/s<br />Throughput scales proportionally up to 0.256 MiB/s per provisioned IOPS. Maximum throughput of 4,000 MiB/s can be achieved at 256,000 IOPS with a 16-KiB I/O size and 16,000 IOPS or higher with a 256-KiB I/O size.<br />For instances not based on the AWS Nitro System, maximum throughput of 2,000 MiB/s can be achieved at 128,000 IOPS with a 16-KiB I/O size. | Scales based on Provisioned IOPS up to 4,000 MiB/s | Provision additional throughput up to 4,000 MiB/s (1,000 MiB/s on RDS for SQL Server) | 1,000 MiB/s (250 MiB/s on RDS for SQL Server) | 
 | AWS CLI and RDS API name | io2 | io1 | gp3 | gp2 | 
 
 
@@ -317,6 +317,22 @@ RDS supports DLVs with read replicas. If the primary DB instance has a DLV enabl
 After you modify the DLV setting for a DB instance, the DB instance must be rebooted.
 
 For information on enabling a DLV, see [Using a dedicated log volume (DLV)](USER_PIOPS.dlv.md).
+
+## Storage volume initialization
+<a name="CHAP_Storage.initialization"></a>
+
+When you restore a DB instance to a point in time, create a read replica, or convert a Single-AZ deployment to a Multi-AZ DB instance deployment, Amazon RDS creates the storage volumes for the new DB instance from a snapshot. The data blocks are downloaded from Amazon S3 and written to the volumes before you can access them. This process is called volume initialization. The DB instance is available and fully operational while initialization runs, but the volumes deliver their full provisioned performance only after initialization completes.
+
+For these operations, Amazon RDS initializes each new volume at a rate of up to 4 TiB per hour. This rate applies to every volume attached to the DB instance that uses General Purpose SSD (gp3) or Provisioned IOPS SSD (io2 Block Express) storage, including dedicated log volumes and additional storage volumes. Because initialization proceeds at a predictable rate, you can estimate when your DB instance reaches full performance instead of waiting through a period of elevated I/O latency.
+
+Faster initialization is turned on by default at no additional cost, and no action is required. If the volume initialization that you request concurrently across your account exceeds the bandwidth available to it, Amazon RDS initializes the remaining blocks on a best-effort basis. Initialization is never slower than it is without the faster rate.
+
+**Note**  
+Volumes that use gp2, io1, or magnetic storage initialize at a variable rate that depends on your workload and on which blocks your DB instance accesses.
+
+When you restore a DB instance from a DB snapshot, the volumes load data in the background using lazy loading instead. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md).
+
+To monitor initialization progress per volume, use the `StorageOperationStatus` and `StorageOperationPercentProgress` fields in the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) response. During initialization, `StorageOperationStatus` is set to `Initializing`, and both fields are absent when initialization is complete. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status).
 
 ## Monitoring database performance
 <a name="Concepts.Storage.Metrics"></a>

@@ -1,7 +1,6 @@
 
 
 # Deleting an RDS for Oracle tenant database from your CDB
-<a name="oracle-cdb-configuring.deleting.pdb"></a>
 
 You can delete a tenant database (PDB) using the AWS Management Console, the AWS CLI, or the RDS API. Consider the following prerequisites and limitations:
 + The tenant database and DB instance must exist.

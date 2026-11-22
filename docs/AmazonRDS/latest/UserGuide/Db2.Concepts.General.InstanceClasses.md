@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Db2 instance classes
-<a name="Db2.Concepts.General.InstanceClasses"></a>
 
 The computation and memory capacity of a DB instance is determined by its instance class. The DB instance class you need depends on your processing power and memory requirements.
 

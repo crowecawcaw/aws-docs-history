@@ -1,7 +1,6 @@
 
 
 # Using the Oracle Repository Creation Utility on RDS for Oracle
-<a name="Oracle.Resources.RCU"></a>
 
 You can use Amazon RDS to host an RDS for Oracle DB instance that holds the schemas to support your Oracle Fusion Middleware components. Before you can use Fusion Middleware components, create and populate schemas for them in your database. You create and populate the schemas by using the Oracle Repository Creation Utility (RCU).
 
@@ -74,7 +73,7 @@ You can run the RCU in silent mode by using the command-line parameter `-silent`
 The following example creates and populates schemas for the SOA Infrastructure component (and its dependencies) in a single step.   
 For Linux, macOS, or Unix:  
 
-```
+```bash
 export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
 export JAVA_HOME=/usr/java/jdk1.8.0_65
 {{${ORACLE_HOME}}}/oracle_common/bin/rcu \
@@ -118,7 +117,7 @@ To run RCU in silent mode, specify the command-line parameter `-silent`. When yo
 The following example creates schema scripts for the SOA Infrastructure component and its dependencies.   
 For Linux, macOS, or Unix:  
 
-```
+```bash
 export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
 export JAVA_HOME=/usr/java/jdk1.8.0_65
 {{${ORACLE_HOME}}}/oracle_common/bin/rcu \
@@ -146,7 +145,7 @@ Now you can edit the generated script, connect to your Oracle DB instance, and r
 The following example populates the schemas for the SOA Infrastructure component (and its dependencies).   
 For Linux, macOS, or Unix:  
 
-```
+```bash
 export JAVA_HOME=/usr/java/jdk1.8.0_65
 {{${ORACLE_HOME}}}/oracle_common/bin/rcu \
 -silent \
@@ -180,7 +179,7 @@ To use the RCU graphical user interface, run RCU in interactive mode. Include th
 The following example starts RCU in interactive mode and pre-populates the connection information.   
 For Linux, macOS, or Unix:  
 
-```
+```bash
 export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
 export JAVA_HOME=/usr/java/jdk1.8.0_65
 {{${ORACLE_HOME}}}/oracle_common/bin/rcu \

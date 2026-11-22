@@ -1,7 +1,6 @@
 
 
 # Handling conflicts in active-active replication
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.handle-conflicts"></a>
 
 The `pgactive` extension works per database and not per cluster. Each DB instance that uses `pgactive` is an independent instance and can accept data changes from any source. When a change is sent to a DB instance, PostgreSQL commits it locally and then uses `pgactive` to replicate the change asynchronously to other DB instances. When two PostgreSQL DB instances update the same record at nearly the same time, a conflict can occur.
 

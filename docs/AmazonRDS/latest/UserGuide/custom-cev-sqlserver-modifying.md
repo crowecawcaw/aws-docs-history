@@ -1,7 +1,6 @@
 
 
 # Modifying a CEV for RDS Custom for SQL Server
-<a name="custom-cev-sqlserver-modifying"></a>
 
 You can modify a CEV using the AWS Management Console or the AWS CLI. You can modify the CEV description or its availability status. Your CEV has one of the following status values:
 + `available` – You can use this CEV to create a new RDS Custom DB instance or upgrade a DB instance. This is the default status for a newly created CEV.

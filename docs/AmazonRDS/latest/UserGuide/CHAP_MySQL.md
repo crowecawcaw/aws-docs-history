@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for MySQL
-<a name="CHAP_MySQL"></a>
 
 Amazon RDS supports several versions of MySQL for DB instances. For complete information about the supported versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md).
 

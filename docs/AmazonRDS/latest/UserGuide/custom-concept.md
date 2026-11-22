@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Custom architecture
-<a name="custom-concept"></a>
 
 Amazon RDS Custom architecture is based on Amazon RDS, with important differences. The following diagram shows the key components of the RDS Custom architecture.
 

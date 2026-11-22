@@ -1,7 +1,6 @@
 
 
 # Automatic minor version upgrades for RDS for MySQL
-<a name="USER_UpgradeDBInstance.MySQL.Minor"></a>
 
 If you specify the following settings when creating or modifying a DB instance, you can have your DB instance automatically upgraded.
 + The **Auto minor version upgrade** setting is enabled.

@@ -1,7 +1,6 @@
 
 
 # Installing the MySQL command-line client
-<a name="mysql-install-cli"></a>
 
 Most Linux distributions include the MariaDB client instead of the Oracle MySQL client. To install the MySQL command-line client on Amazon Linux 2023, run the following command:
 

@@ -1,7 +1,6 @@
 
 
 # OS metrics in Enhanced Monitoring
-<a name="USER_Monitoring-Available-OS-Metrics"></a>
 
 Amazon RDS provides metrics in real time for the operating system (OS) that your DB instance runs on. RDS delivers the metrics from Enhanced Monitoring to your Amazon CloudWatch Logs account. The following tables list the OS metrics available using Amazon CloudWatch Logs.
 
@@ -125,8 +124,8 @@ RDS collects disk metrics for `rdsdbdata` as well as additional storage volumes 
 
 - **  `swap`  **
   - **Metric:**  `total`  / **Console name:**  **Swap**  / **Description:** The amount of swap memory available, in kilobytes. 
-  - **Metric:**  `in`  / **Console name:**  **Swaps in**  / **Description:** The amount of memory, in kilobytes, swapped in from disk. 
-  - **Metric:**  `out`  / **Console name:**  **Swaps out**  / **Description:** The amount of memory, in kilobytes, swapped out to disk. 
+  - **Metric:**  `in`  / **Console name:**  **Swaps in**  / **Description:** The amount of memory, in kilobytes per second, swapped in from disk. 
+  - **Metric:**  `out`  / **Console name:**  **Swaps out**  / **Description:** The amount of memory, in kilobytes per second, swapped out to disk. 
   - **Metric:**  `free`  / **Console name:**  **Free Swap**  / **Description:** The amount of swap memory free, in kilobytes. 
   - **Metric:**  `cached`  / **Console name:**  **Committed Swap**  / **Description:** The amount of swap memory, in kilobytes, used as cache memory. 
 

@@ -1,7 +1,6 @@
 
 
 # Copying database metadata from Db2 to Amazon RDS for Db2 with db2look
-<a name="db2-native-db2-tools-db2look"></a>
 
 `db2look` is a native Db2 tool that extracts data definition language (DDL) files, objects, authorizations, configurations, WLM, and database layouts. You can use `db2look` to copy database metadata from a self-managed Db2 database to an Amazon RDS for Db2 database. For more information, see [Mimicking databases using db2look](https://www.ibm.com/docs/en/db2/11.5?topic=tools-db2look) in the IBM Db2 documentation.
 

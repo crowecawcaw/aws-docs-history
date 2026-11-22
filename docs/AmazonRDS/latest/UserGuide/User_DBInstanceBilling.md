@@ -1,7 +1,6 @@
 
 
 # DB instance billing for Amazon RDS
-<a name="User_DBInstanceBilling"></a>
 
 Amazon RDS instances are billed based on the following components:
 + DB instance hours (per hour) – Based on the DB instance class of the DB instance (for example, db.t2.small or db.m4.large). Pricing is listed on a per-hour basis, but bills are calculated down to the second and show times in decimal form. RDS usage is billed in 1-second increments, with a minimum of 10 minutes. For more information, see [DB instance classes](Concepts.DBInstanceClass.md).

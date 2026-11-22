@@ -1,7 +1,6 @@
 
 
 # Connecting to your Amazon RDS for Db2 DB instance with IBM CLPPlus
-<a name="db2-connecting-with-ibm-clpplus-client"></a>
 
 You can use a utility such as IBM CLPPlus to connect to an Amazon RDS for Db2 DB instance. This utility is part of IBM Data Server Runtime Client. To download the client** **from IBM Fix Central, see [IBM Data Server Client Packages Version 11.5 Mod 8 Fix Pack 0](https://www.ibm.com/support/pages/node/6830885) in IBM Support. 
 
@@ -45,7 +44,7 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
 
 1. Configure your Db2 server. In the following example, replace {{dsn\_name}}, {{database\_name}}, {{endpoint}}, and {{port}} with the DSN name, database name, endpoint, and port for your RDS for Db2 DB instance. For more information, see [Finding the endpoint of your Amazon RDS for Db2 DB instance](db2-finding-instance-endpoint.md).
 
-   ```
+   ```non
    db2cli writecfg add -dsn {{dsn_name}} -database {{database_name}} -host {{endpoint}} -port {{port}} -parameter "Authentication=SERVER_ENCRYPT"
    ```
 
@@ -77,13 +76,13 @@ If a Java Shell window doesn't open, run `./clpplus -nw` to use the same command
 
 1. Run queries and view results. The following example shows a SQL statement that selects the database you created. 
 
-   ```
+   ```sql
    SQL > select current server from sysibm.dual;
    ```
 
    This command produces output similar to the following example:
 
-   ```
+   ```sql
    1
        --------------------
        DB2DB

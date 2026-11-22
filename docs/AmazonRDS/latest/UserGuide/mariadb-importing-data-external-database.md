@@ -1,7 +1,6 @@
 
 
 # Importing data from an external MariaDB database to an Amazon RDS for MariaDB DB instance
-<a name="mariadb-importing-data-external-database"></a>
 
 You can import data from an existing MariaDB database to an RDS for MariaDB DB instance. You do so by copying the database with [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [mariadb-dump](https://mariadb.com/kb/en/mariadb-dump/), and piping the database directly into the RDS for MariaDB DB instance. The `mysqldump` or `mariadb-dump` command line utility is commonly used to make backups and transfer data from one MariaDB server to another. It's included with MariaDB client software.
 

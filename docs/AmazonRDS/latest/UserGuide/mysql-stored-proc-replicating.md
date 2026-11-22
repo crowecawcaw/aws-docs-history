@@ -1,11 +1,10 @@
 
 
 # Configuring, starting, and stopping binary log (binlog) replication
-<a name="mysql-stored-proc-replicating"></a>
 
 The following stored procedures control how transactions are replicated from an external database into RDS for MySQL, or from RDS for MySQL to an external database.
 
-When using these stored procedures to manage replication with a replication user configured with `caching_sha2_password`, you must configure TLS by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default authentication plugin for RDS for MySQL 8.4 For more information, see [Encrypting with SSL/TLS](mysql-ssl-connections.md).
+When using these stored procedures to manage replication with a replication user configured with `caching_sha2_password`, you must configure TLS by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default authentication plugin for RDS for MySQL 8.4 and higher. For more information, see [Encrypting with SSL/TLS](mysql-ssl-connections.md).
 
 For information about configuring, using, and managing read replicas, see [Working with MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md). 
 
@@ -39,7 +38,7 @@ Changes the source database instance log position to the start of the next binar
 
  
 
-```
+```sql
 CALL mysql.rds_next_master_log(
 {{curr_master_log}}
 );
@@ -111,7 +110,7 @@ Source_SSL_Verify_Server_Cert: No
 
 The `Last_IO_Errno` field shows that the instance is receiving I/O error 1236. The `Master_Log_File` field shows that the file name is `mysql-bin-changelog.012345`, which means that the log file index is `12345`. To resolve the error, you can call `mysql.rds_next_master_log` with the following parameter:
 
-```
+```sql
 CALL mysql.rds_next_master_log(12345);
 ```
 
@@ -125,7 +124,7 @@ Changes the source database instance log position to the start of the next binar
 
  
 
-```
+```sql
 CALL mysql.rds_next_source_log(
 {{curr_source_log}}
 );
@@ -197,7 +196,7 @@ Source_SSL_Verify_Server_Cert: No
 
 The `Last_IO_Errno` field shows that the instance is receiving I/O error 1236. The `Source_Log_File` field shows that the file name is `mysql-bin-changelog.012345`, which means that the log file index is `12345`. To resolve the error, you can call `mysql.rds_next_source_log` with the following parameter:
 
-```
+```sql
 CALL mysql.rds_next_source_log(12345);
 ```
 
@@ -214,7 +213,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_reset_external_master;
 ```
 
@@ -241,7 +240,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_reset_external_source;
 ```
 
@@ -270,7 +269,7 @@ You can use the [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB 
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_master (
   {{host_name}}
   , {{host_port}}
@@ -321,13 +320,13 @@ Before you run `mysql.rds_set_external_master`, you must configure the instance 
 
    **MySQL 5.7**
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY '{{password}}';
    ```
 
    **MySQL 8.0**
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED WITH mysql_native_password BY '{{password}}';
    ```
 **Note**  
@@ -337,13 +336,13 @@ Specify a password other than the prompt shown here as a security best practice.
 
    **MySQL 5.7**
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com' IDENTIFIED BY '{{password}}';
    ```
 
    **MySQL 8.0**
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com';
    ```
 
@@ -361,7 +360,7 @@ When `mysql.rds_set_external_master` is called, Amazon RDS records the time, use
 
 When run on a MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS.
 
-```
+```sql
 call mysql.rds_set_external_master(
   'Externaldb.some.com',
   3306,
@@ -385,7 +384,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_source (
   {{host_name}}
   , {{host_port}}
@@ -434,7 +433,7 @@ The administrative user must run the `mysql.rds_set_external_source` procedure. 
 
 1. Using the MySQL client of your choice, connect to the external instance of MySQL and create a user account to be used for replication. The following is an example.
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY '{{password}}';
    ```
 **Note**  
@@ -442,7 +441,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. On the external instance of MySQL, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. The following example grants `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the 'repl\_user' user for your domain.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com';
    ```
 
@@ -460,7 +459,7 @@ When `mysql.rds_set_external_source` is called, Amazon RDS records the time, use
 
 When run on an RDS for MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS.
 
-```
+```sql
 call mysql.rds_set_external_source(
   'Externaldb.some.com',
   3306,
@@ -484,7 +483,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_master_with_auto_position (
   {{host_name}}
   , {{host_port}}
@@ -531,13 +530,13 @@ Before you run `mysql.rds_set_external_master_with_auto_position`, you must conf
 
 1. Using the MySQL client of your choice, connect to the external instance of MySQL and create a user account to be used for replication. The following is an example.
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY 'SomePassW0rd'
    ```
 
 1. On the external instance of MySQL, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. The following example grants `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the `'repl_user'` user for your domain.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
    IDENTIFIED BY 'SomePassW0rd'
    ```
@@ -562,7 +561,7 @@ To use the `mysql.rds_rds_start_replication_until_gtid` procedure, GTID-based re
 
 When run on a MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the MySQL DB instance. A change from the MySQL source database instance running external to Amazon RDS isn't applied on the MySQL DB instance read replica for at least one hour.
 
-```
+```sql
 call mysql.rds_set_external_master_with_auto_position(
   'Externaldb.some.com',
   3306,
@@ -585,7 +584,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_source_with_auto_position (
   {{host_name}}
   , {{host_port}}
@@ -630,13 +629,13 @@ Before you run `mysql.rds_set_external_source_with_auto_position`, you must conf
 
 1. Using the MySQL client of your choice, connect to the external instance of MySQL and create a user account to be used for replication. The following is an example.
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY 'SomePassW0rd'
    ```
 
 1. On the external instance of MySQL, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. The following example grants `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the `'repl_user'` user for your domain.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
    IDENTIFIED BY 'SomePassW0rd'
    ```
@@ -661,7 +660,7 @@ To use the `mysql.rds_rds_start_replication_until_gtid` procedure, GTID-based re
 
 When run on a MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the MySQL DB instance. A change from the MySQL source database instance running external to Amazon RDS isn't applied on the MySQL DB instance read replica for at least one hour.
 
-```
+```sql
 call mysql.rds_set_external_source_with_auto_position(
   'Externaldb.some.com',
   3306,
@@ -684,7 +683,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_master_with_delay(
   {{host_name}}
   , {{host_port}}
@@ -738,13 +737,13 @@ The limit for this parameter is one day (86400 seconds).
 
 1. Using the MySQL client of your choice, connect to the external instance of MySQL and create a user account to be used for replication. The following is an example.
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY 'SomePassW0rd'
    ```
 
 1. On the external instance of MySQL, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. The following example grants `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the `'repl_user'` user for your domain.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
    IDENTIFIED BY 'SomePassW0rd'
    ```
@@ -771,7 +770,7 @@ The `mysql.rds_set_external_master_with_delay` procedure is available in these v
 
 When run on a MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the MySQL DB instance. A change from the MySQL source database instance running external to Amazon RDS isn't applied on the MySQL DB instance read replica for at least one hour.
 
-```
+```sql
 call mysql.rds_set_external_master_with_delay(
   'Externaldb.some.com',
   3306,
@@ -794,7 +793,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 ### Syntax
 <a name="mysql_rds_set_external_source_with_delay-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_set_external_source_with_delay (
   {{host_name}}
   , {{host_port}}
@@ -847,13 +846,13 @@ The administrative user must run the `mysql.rds_set_external_source_with_delay` 
 
 1. Using the MySQL client of your choice, connect to the external instance of MySQL and create a user account to be used for replication. The following is an example.
 
-   ```
+   ```sql
    CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY 'SomePassW0rd'
    ```
 
 1. On the external instance of MySQL, grant `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges to your replication user. The following example grants `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges on all databases for the `'repl_user'` user for your domain.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
    IDENTIFIED BY 'SomePassW0rd'
    ```
@@ -876,7 +875,7 @@ To use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.m
 
 When run on a MySQL DB instance, the following example configures the DB instance to be a read replica of an instance of MySQL running external to Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the MySQL DB instance. A change from the MySQL source database instance running external to Amazon RDS isn't applied on the MySQL DB instance read replica for at least one hour.
 
-```
+```sql
 call mysql.rds_set_external_source_with_delay(
   'Externaldb.example.com',
   3306,
@@ -901,7 +900,7 @@ To run this procedure, `autocommit` must be enabled. To enable it, set the `auto
 
  
 
-```
+```sql
 CALL mysql.rds_set_external_source_gtid_purged(
   {{server_uuid}}
   , {{start_pos}}
@@ -962,7 +961,7 @@ If you don't set the `gtid_purged` value appropriately for the backup that you u
 
 When run on a MySQL DB instance, the following example sets the GTID range from an external MySQL server with the UUID `12345678-abcd-1234-efgh-123456789abc`, a starting position of `1`, and an ending position of `100`. The resulting GTID value is set to `+12345678-abcd-1234-efgh-123456789abc:1-100`.
 
-```
+```sql
 CALL mysql.rds_set_external_source_gtid_purged('12345678-abcd-1234-efgh-123456789abc', 1, 100);
 ```
 
@@ -976,7 +975,7 @@ Sets the replication mode to be based on either binary log file positions or on 
 
  
 
-```
+```sql
 CALL mysql.rds_set_master_auto_position (
 {{auto_position_mode}}
 );
@@ -1005,7 +1004,7 @@ Sets the replication mode to be based on either binary log file positions or on 
 ### Syntax
 <a name="mysql_rds_set_source_auto_position-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_set_source_auto_position ({{auto_position_mode}});
 ```
 
@@ -1030,7 +1029,7 @@ Sets the minimum number of seconds to delay replication from source database ins
 ### Syntax
 <a name="mysql_rds_set_source_delay-syntax"></a>
 
-```
+```sql
 CALL mysql.rds_set_source_delay(
 {{delay}}
 );
@@ -1057,7 +1056,7 @@ To use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.m
 
 To delay replication from source database instance to the current read replica for at least one hour (3,600 seconds):
 
-```
+```sql
 CALL mysql.rds_set_source_delay(3600);
 ```
 
@@ -1071,7 +1070,7 @@ Skips and deletes a replication error on a MySQL DB read replica.
 
  
 
-```
+```sql
 CALL mysql.rds_skip_repl_error;
 ```
 
@@ -1099,7 +1098,7 @@ You can mitigate this issue by increasing the number of hours that binlog files 
 
 To set the binlog retention time, use the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration) procedure and specify a configuration parameter of `'binlog retention hours'` along with the number of hours to retain binlog files on the DB cluster. The following example sets the retention period for binlog files to 48 hours.
 
-```
+```sql
 CALL mysql.rds_set_configuration('binlog retention hours', 48);
 ```
 
@@ -1116,7 +1115,7 @@ You can use the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replicat
 
  
 
-```
+```sql
 CALL mysql.rds_start_replication;
 ```
 
@@ -1141,7 +1140,7 @@ Initiates replication from an RDS for MySQL DB instance and stops replication at
 
  
 
-```
+```sql
 CALL mysql.rds_start_replication_until (
 {{replication_log_file}}
   , {{replication_stop_point}}
@@ -1163,6 +1162,7 @@ The location in the `replication_log_file` binary log at which replication will 
 The master user must run the `mysql.rds_start_replication_until` procedure.
 
 The `mysql.rds_start_replication_until` procedure is available in these versions of RDS for MySQL:
++ All RDS for MySQL 9.7 versions
 + All RDS for MySQL 8.4 versions
 + MySQL 8.0.26 and higher 8.0 versions
 + All 5.7 versions
@@ -1184,7 +1184,7 @@ When the `replication_stop_point` parameter specifies a stop location that is in
 
 The following example initiates replication and replicates changes until it reaches location `120` in the `mysql-bin-changelog.000777` binary log file.
 
-```
+```sql
 call mysql.rds_start_replication_until(
   'mysql-bin-changelog.000777',
   120);
@@ -1200,7 +1200,7 @@ Stops replication from a MySQL DB instance.
 
  
 
-```
+```sql
 CALL mysql.rds_stop_replication;
 ```
 

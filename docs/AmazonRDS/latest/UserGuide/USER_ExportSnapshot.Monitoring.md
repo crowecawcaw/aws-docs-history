@@ -1,7 +1,6 @@
 
 
 # Monitoring snapshot exports for Amazon RDS
-<a name="USER_ExportSnapshot.Monitoring"></a>
 
 You can monitor DB snapshot exports using the AWS Management Console, the AWS CLI, or the RDS API.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon RDS log files
-<a name="USER_LogAccess"></a>
 
 Every RDS database engine generates logs that you can access for auditing and troubleshooting. The type of logs depends on your database engine.
 

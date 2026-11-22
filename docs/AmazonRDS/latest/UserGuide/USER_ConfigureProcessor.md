@@ -1,7 +1,6 @@
 
 
 # Configuring the processor for a DB instance class in RDS for Oracle
-<a name="USER_ConfigureProcessor"></a>
 
 Amazon RDS DB instance classes support Intel Hyper-Threading Technology, which enables multiple threads to run concurrently on a single Intel Xeon CPU core. Each thread is represented as a virtual CPU (vCPU) on the DB instance. A DB instance has a default number of CPU cores, which varies according to DB instance class. For example, a db.m4.xlarge DB instance class has two CPU cores and two threads per core by default—four vCPUs in total.
 
@@ -300,7 +299,7 @@ aws rds describe-orderable-db-instance-options --engine oracle-ee --db-instance-
 ```
 Following is sample output for the command in JSON format.  
 
-```
+```json
     {
                 "SupportsIops": true,
                 "MaxIopsPerGib": 50.0,

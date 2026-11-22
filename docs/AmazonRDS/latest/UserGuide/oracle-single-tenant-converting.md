@@ -1,7 +1,6 @@
 
 
 # Converting the single-tenant configuration to multi-tenant
-<a name="oracle-single-tenant-converting"></a>
 
 You can modify the architecture of an RDS for Oracle CDB from the single-tenant configuration to the multi-tenant configuration. Before and after the conversion, your CDB contains a single tenant database (PDB). Tags for the DB instance propagate to the initial tenant database created during the conversion.
 

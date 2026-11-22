@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connections to your Oracle DB instance
-<a name="USER_ConnectToOracleInstance.Troubleshooting"></a>
 
 The following are issues you might encounter when you try to connect to your Oracle DB instance. 
 

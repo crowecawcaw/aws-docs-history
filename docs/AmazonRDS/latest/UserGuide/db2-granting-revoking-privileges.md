@@ -1,7 +1,6 @@
 
 
 # Granting and revoking privileges for RDS for Db2
-<a name="db2-granting-revoking-privileges"></a>
 
 Users gain access to databases through membership in groups that are attached to databases.
 

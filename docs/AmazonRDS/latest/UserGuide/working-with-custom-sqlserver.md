@@ -1,7 +1,6 @@
 
 
 # Working with RDS Custom for SQL Server
-<a name="working-with-custom-sqlserver"></a>
 
 Following, you can find instructions for creating, managing, and maintaining your RDS Custom for SQL Server DB instances.
 

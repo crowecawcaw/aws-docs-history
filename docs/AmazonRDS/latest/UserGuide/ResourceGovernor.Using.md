@@ -1,7 +1,6 @@
 
 
 # Using Microsoft SQL Server resource governor for your RDS for SQL Server instance
-<a name="ResourceGovernor.Using"></a>
 
 After adding the resource governor option to your option group, resource governor is not yet active at the database engine level. To fully enable resource governor, you must use RDS for SQL Server stored procedures to enable it and create the necessary resource governor objects. For more information, see [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md).
 
@@ -31,7 +30,7 @@ Once resource governor is enabled on the option group, you can create custom res
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_create_resource_pool    
     @pool_name=value,
@@ -55,7 +54,7 @@ The following parameters are optional:
 
 Example of creating resource pool with all default values:
 
-```
+```sql
 --This creates resource pool 'SalesPool' with all default values
 USE [msdb]
 EXEC rds_create_resource_pool @pool_name = 'SalesPool';
@@ -70,7 +69,7 @@ select * from sys.resource_governor_resource_pools
 
 Example of creating resource pool with different parameters specified:
 
-```
+```sql
 --creates resource pool
 USE [msdb]
 EXEC dbo.rds_create_resource_pool    
@@ -91,7 +90,7 @@ select * from sys.resource_governor_resource_pools
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_alter_resource_pool    
     @pool_name=value,
@@ -112,7 +111,7 @@ At least one of the optional parameter must be specified:
 
 **Examples**
 
-```
+```sql
 --This alters resource pool
 USE [msdb]
 EXEC dbo.rds_alter_resource_pool    
@@ -133,7 +132,7 @@ select * from sys.resource_governor_resource_pools
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_drop_resource_pool    
 @pool_name=value;
@@ -147,7 +146,7 @@ Dropping Internal or default resource pool isn't allowed in SQL Server.
 
 **Examples**
 
-```
+```sql
 --This drops resource pool
 USE [msdb]
 EXEC dbo.rds_drop_resource_pool    
@@ -170,7 +169,7 @@ Workload groups, created and managed with `rds_create_workload_group` and `rds_a
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_create_workload_group 
 @group_name = value, 
@@ -202,7 +201,7 @@ The following parameters are optional:
 
 **Examples**
 
-```
+```sql
 --This creates workload group named 'analytics'
 USE msdb;
 EXEC dbo.rds_create_workload_group 
@@ -224,7 +223,7 @@ select * from sys.resource_governor_workload_groups
 
 Example of creating a workload group with tempdb governance (SQL Server 2025 and above):
 
-```
+```sql
 -- Create workload group with tempdb space limits
 USE msdb;
 EXEC dbo.rds_create_workload_group
@@ -250,7 +249,7 @@ WHERE name = 'etl_workload';
 
 **Usage**
 
-```
+```sql
 EXEC msdb.dbo.rds_alter_workload_group
     @group_name = value,
     @IMPORTANCE = 'LOW|MEDIUM|HIGH',
@@ -285,7 +284,7 @@ The following parameters are optional:
 
 Example to Modify default workload group change REQUEST\_MAX\_MEMORY\_GRANT\_PERCENT:
 
-```
+```sql
 --Modify default workload group (set memory grant cap to 10%)
 USE msdb
 EXEC dbo.rds_alter_workload_group    
@@ -301,7 +300,7 @@ SELECT * FROM sys.resource_governor_workload_groups WHERE name='default';
 
 Example to modify non-default workload group:
 
-```
+```sql
 EXEC msdb.dbo.rds_alter_workload_group    
     @group_name = 'analytics',
     @IMPORTANCE = 'HIGH',
@@ -317,7 +316,7 @@ EXEC msdb.dbo.rds_alter_resource_governor_configuration;
 
 Example to move a Non-Default Workload Group to another resource pool:
 
-```
+```sql
 EXEC msdb.dbo.rds_alter_workload_group    
 @group_name = 'analytics',
 @pool_name='abc'
@@ -331,7 +330,7 @@ select * from sys.resource_governor_workload_groups
 
 Example to modify a workload group with tempdb governance (SQL Server 2025 and above):
 
-```
+```sql
 -- Add tempdb limits to an existing workload group
 USE msdb;
 EXEC msdb.dbo.rds_alter_workload_group
@@ -353,7 +352,7 @@ WHERE name = 'etl_workload';
 
 **Usage**
 
-```
+```sql
 EXEC msdb.dbo.rds_drop_workload_group    
 @group_name = value
 ```
@@ -363,7 +362,7 @@ The following parameters are required:
 
 **Examples**
 
-```
+```sql
 --Drops a Workload Group:
 EXEC msdb.dbo.rds_drop_workload_group    
 @group_name = 'analytics';
@@ -400,7 +399,7 @@ The classifier function has the following characteristics and behaviors:
 
 **Usage**
 
-```
+```sql
 EXEC msdb.dbo.rds_create_classifier_function 
 @function_name = value,
 @workload_group1 = value, 
@@ -441,7 +440,7 @@ System accounts, databases, applications and host are restricted.
 
 Basic Example with One Workload Group:
 
-```
+```sql
 /*Create a classifier to route all requests from 'PowerBI' app to workload group 
 'reporting_group'*/
 
@@ -472,7 +471,7 @@ FROM sys.resource_governor_configuration;
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_drop_classifier_function
 @function_name = value;
@@ -483,7 +482,7 @@ The following parameter is required:
 
 **Example**
 
-```
+```sql
 EXEC msdb.dbo.rds_drop_classifier_function
 @function_name = 'rg_classifier_b';
 ```
@@ -495,7 +494,7 @@ Use this procedure to de-register classifier function. After the function is de-
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_alter_resource_governor_configuration    
 @deregister_function = 1;
@@ -506,7 +505,7 @@ For de-registration the following parameter is required:
 
 **Example**
 
-```
+```sql
 EXEC msdb.dbo.rds_alter_resource_governor_configuration 
     @deregister_function = 1;
 GO
@@ -522,7 +521,7 @@ Resource governor statistics are cumulative since the last server restart. If yo
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_alter_resource_governor_configuration  
 @reset_statistics = 1;
@@ -544,7 +543,7 @@ When resource governor isn’t enabled, `rds_alter_resource_governor_configurati
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_alter_resource_governor_configuration
 ```
@@ -567,7 +566,7 @@ aws rds modify-db-parameter-group \
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_bind_tempdb_metadata_to_resource_pool  
 @pool_name=value;
@@ -589,7 +588,7 @@ This change also requires sql service reboot without failover to take effect
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_unbind_tempdb_metadata_from_resource_pool
 ```
@@ -613,7 +612,7 @@ This cleanup can error out if a resource pool was bound to tempdb and reboot wit
 
 **Usage**
 
-```
+```sql
 USE [msdb]
 EXEC dbo.rds_cleanup_resource_governor
 ```

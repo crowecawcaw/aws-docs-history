@@ -1,7 +1,6 @@
 
 
 # Creating a DB cluster parameter group
-<a name="USER_WorkingWithParamGroups.CreatingCluster"></a>
 
 You can create a new DB cluster parameter group using the AWS Management Console, the AWS CLI, or the RDS API.
 

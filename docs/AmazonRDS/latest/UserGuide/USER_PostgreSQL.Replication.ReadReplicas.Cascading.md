@@ -1,7 +1,6 @@
 
 
 # Using cascading read replicas with RDS for PostgreSQL
-<a name="USER_PostgreSQL.Replication.ReadReplicas.Cascading"></a>
 
 As of version 14.1, RDS for PostgreSQL supports cascading read replicas. With *cascading read replicas*, you can scale reads without adding overhead to your source RDS for PostgreSQL DB instance. Updates to the WAL log aren't sent by the source DB instance to each read replica. Instead, each read replica in a cascading series sends WAL log updates to the next read replica in the series. This reduces the burden on the source DB instance. 
 

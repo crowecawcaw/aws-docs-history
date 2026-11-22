@@ -1,7 +1,6 @@
 
 
 # Setting up your Amazon RDS environment
-<a name="CHAP_SettingUp"></a>
 
 This page provides a comprehensive guide for setting up Amazon Relational Database Service, including account configuration, security, and resource management. It walks you through the essential steps to create, manage, and secure your database environments efficiently. Whether you're new to Amazon RDS or setting up for specific requirements, these sections help ensure your setup is optimized and compliant with best practices.
 

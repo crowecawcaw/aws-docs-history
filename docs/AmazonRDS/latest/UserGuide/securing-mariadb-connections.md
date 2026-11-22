@@ -1,7 +1,6 @@
 
 
 # Securing MariaDB DB instance connections
-<a name="securing-mariadb-connections"></a>
 
 You can manage the security of your MariaDB DB instances.
 

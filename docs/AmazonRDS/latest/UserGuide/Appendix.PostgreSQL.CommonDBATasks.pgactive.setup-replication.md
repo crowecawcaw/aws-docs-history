@@ -1,7 +1,6 @@
 
 
 # Setting up active-active replication for RDS for PostgreSQL DB instances
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.setup-replication"></a>
 
 The following procedure shows you how to start active-active replication between two RDS for PostgreSQL DB instances where `pgactive` is available. To run the multi-region high availability example, you need to deploy Amazon RDS for PostgreSQL instances in two different regions and set up VPC Peering. For more information, see [VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html).
 
@@ -28,7 +27,7 @@ The following example illustrates how the `pgactive` group is created, along wit
 
 1. Switch connection to the new database using the following command:
 
-   ```
+   ```sql
    \c {{app}}
    ```
 
@@ -36,7 +35,7 @@ The following example illustrates how the `pgactive` group is created, along wit
 
    1. Create an example table using the following SQL statement.
 
-      ```
+      ```sql
       app=> CREATE SCHEMA inventory;
       CREATE TABLE inventory.products (
       id int PRIMARY KEY, product_name text NOT NULL,
@@ -45,14 +44,14 @@ The following example illustrates how the `pgactive` group is created, along wit
 
    1. Populate the table with some sample data by using the following SQL statement.
 
-      ```
+      ```sql
       app=> INSERT INTO inventory.products (id, product_name)
       VALUES (1, 'soap'), (2, 'shampoo'), (3, 'conditioner');
       ```
 
    1. Verify that data exists in the table by using the following SQL statement.
 
-      ```
+      ```sql
        app=>SELECT count(*) FROM inventory.products;
       
        count
@@ -68,7 +67,7 @@ The following example illustrates how the `pgactive` group is created, along wit
 
 1. To securely create and initialize the pgactive group use the following commands:
 
-   ```
+   ```sql
    app=>
    -- connection info for endpoint1
    CREATE SERVER pgactive_server_endpoint1
@@ -98,7 +97,7 @@ The following example illustrates how the `pgactive` group is created, along wit
 
    Use the following commands as an alternate but less secure method to create and initialize the pgactive group:
 
-   ```
+   ```sql
    app=> SELECT pgactive.pgactive_create_group(
        node_name := {{'node1-app'}},
        node_dsn := 'dbname={{app}} host={{firstinstance.111122223333}}.{{aws-region}}.rds.amazonaws.com user={{postgres}} password={{PASSWORD}}');
@@ -130,25 +129,25 @@ These steps assume that another RDS for PostgreSQL DB instances has been set up 
 
 1. Use `psql` to connect to the instance that you want to receive updates from the publisher.
 
-   ```
+   ```sql
    psql --host={{secondinstance.111122223333}}.{{aws-region}}.rds.amazonaws.com --port=5432 --username={{postgres}} --password={{PASSWORD}} --dbname={{postgres}}
    ```
 
 1. Create a database on the second RDS for PostgreSQL DB instance using the following command:
 
-   ```
+   ```sql
    postgres=> CREATE DATABASE {{app}};
    ```
 
 1. Switch connection to the new database using the following command:
 
-   ```
+   ```sql
    \c {{app}}
    ```
 
 1. Create the `pgactive` extension on the existing database.
 
-   ```
+   ```sql
    app=> CREATE EXTENSION pgactive;
    ```
 
@@ -182,7 +181,7 @@ These steps assume that another RDS for PostgreSQL DB instances has been set up 
 
    Use the following commands as an alternate but less secure method to join the RDS for PostgreSQL second DB instance to the `pgactive` group
 
-   ```
+   ```sql
    app=> SELECT pgactive.pgactive_join_group(
    node_name := {{'node2-app'}},
    node_dsn := 'dbname={{app}} host={{secondinstance.111122223333}}.{{aws-region}}.rds.amazonaws.com user={{postgres}} password={{PASSWORD}}',
@@ -193,13 +192,13 @@ These steps assume that another RDS for PostgreSQL DB instances has been set up 
 
 1. To check if the DB instance is ready, use the following command:
 
-   ```
+   ```sql
    app=> SELECT pgactive.pgactive_wait_for_node_ready(); 
    ```
 
    If the command succeeds, you can see the following output:
 
-   ```
+   ```sql
    pgactive_wait_for_node_ready 
    ------------------------------ 
    (1 row)
@@ -222,13 +221,13 @@ These steps assume that another RDS for PostgreSQL DB instances has been set up 
 
 1. You can use the following command to verify if the database of the second DB instance has the data:
 
-   ```
+   ```sql
    app=> SELECT count(*) FROM inventory.products;
    ```
 
    If the data is successfully synchronized, you’ll see the following output:
 
-   ```
+   ```sql
     count
    -------
     3
@@ -236,19 +235,19 @@ These steps assume that another RDS for PostgreSQL DB instances has been set up 
 
 1. Run the following command to insert new values:
 
-   ```
+   ```sql
    app=> INSERT INTO inventory.products (id, product_name) VALUES (4, 'lotion');
    ```
 
 1. Connect to the database of the first DB instance and run the following query:
 
-   ```
+   ```sql
    app=> SELECT count(*) FROM inventory.products;
    ```
 
    If the active-active replication is initialized, the output is similar to the following:
 
-   ```
+   ```sql
    count
    -------
     4
@@ -260,24 +259,24 @@ You can detach and remove a DB instance from the `pgactive` group using these st
 
 1. You can detach the second DB instance from the first DB instance using the following command:
 
-   ```
+   ```sql
    app=> SELECT * FROM pgactive.pgactive_detach_nodes(ARRAY[‘{{node2-app}}']);
    ```
 
 1. Remove the `pgactive` extension from the second DB instance using the following command:
 
-   ```
+   ```sql
    app=> SELECT * FROM pgactive.pgactive_remove();
    ```
 
    To forcefully remove the extension:
 
-   ```
+   ```sql
    app=> SELECT * FROM pgactive.pgactive_remove(true);
    ```
 
 1. Drop the extension using the following command:
 
-   ```
+   ```sql
    app=> DROP EXTENSION pgactive;
    ```

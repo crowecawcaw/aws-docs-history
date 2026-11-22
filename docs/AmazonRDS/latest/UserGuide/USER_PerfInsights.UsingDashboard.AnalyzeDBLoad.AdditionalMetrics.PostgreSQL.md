@@ -1,7 +1,6 @@
 
 
 # SQL statistics for RDS PostgreSQL
-<a name="USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL"></a>
 
 For each SQL call and for each second that a query runs, Performance Insights collects SQL statistics. RDS for PostgreSQL collect SQL statistics only at the digest–level. No statistics are shown at the statement-level. 
 

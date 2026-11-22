@@ -1,7 +1,6 @@
 
 
 # Adding a user to the SQLAgentUser role
-<a name="SQLServerAgent.AddUser"></a>
 
 To allow an additional login or user to use SQL Server Agent, log in as the master user and do the following:
 
@@ -19,7 +18,7 @@ For example, suppose that your master user name is **admin** and you want to giv
 
 1. Run the following commands:
 
-   ```
+   ```sql
    --Initially set context to master database
    USE [master];
    GO

@@ -1,7 +1,6 @@
 
 
 # Resolving unidentifiable vacuum blockers in RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Unidentifiable_blockers"></a>
 
 This section explores additional reasons that can prevent vacuuming from making progress. These issues are currently not directly identifiable by the `postgres_get_av_diag()` function. 
 
@@ -15,7 +14,7 @@ This section explores additional reasons that can prevent vacuuming from making 
 
 An invalid page error occurs when PostgreSQL detects a mismatch in a page’s checksum while accessing that page. The contents are unreadable, preventing autovacuum from freezing tuples. This effectively stops the cleanup process. The following error is written into PostgreSQL’s log:
 
-```
+```sql
 WARNING:  page verification failed, calculated checksum YYYYY but expected XXXX
 ERROR:  invalid page in block ZZZZZ of relation base/XXXXX/XXXXX
 CONTEXT:  automatic vacuum of table {{myschema.mytable}}
@@ -23,7 +22,7 @@ CONTEXT:  automatic vacuum of table {{myschema.mytable}}
 
 **Determine the object type**
 
-```
+```sql
 ERROR: invalid page in block 4305910 of relation base/16403/186752608 
 WARNING: page verification failed, calculated checksum 50065 but expected 60033
 ```
@@ -35,7 +34,7 @@ From the error message, the path `base/16403/186752608` provides the following i
 
 By checking the output of the following query in the impacted database, you can determine the object type. The following query retrieves object information for oid: 186752608. Replace the OID with the one relevant to the error you encountered.
 
-```
+```sql
 SELECT
     relname AS object_name,
     relkind AS object_type,
@@ -58,7 +57,7 @@ The most effective solution for this issue depends on the configuration of your 
 Rebuilding the index is recommended.
 + **Using the `CONCURRENTLY` option** – Prior to PostgreSQL version 12, rebuilding an index required an exclusive table lock, restricting access to the table. With PostgreSQL version 12, and later versions, the `CONCURRENTLY` option allows for row-level locking, significantly improving the table's availability. Following is the command:
 
-  ```
+  ```sql
   REINDEX INDEX {{ix_name}} CONCURRENTLY;
   ```
 
@@ -75,13 +74,13 @@ If an invalid page error occurs on a materialized view, login to the impacted da
 
 Refresh the materialized view:
 
-```
+```sq
 REFRESH MATERIALIZED VIEW schema_name.materialized_view_name;
 ```
 
 If refreshing fails, try recreating:
 
-```
+```sql
 DROP MATERIALIZED VIEW schema_name.materialized_view_name;
 CREATE MATERIALIZED VIEW schema_name.materialized_view_name AS query;
 ```
@@ -97,11 +96,11 @@ For all other object types, reach out to AWS support.
 
 A logically inconsistent index can prevent autovacuum from making progress. The following errors or similar errors are logged during either the vacuum phase of the index or when the index is accessed by SQL statements.
 
-```
+```sql
 ERROR: right sibling's left-link doesn't match:block 5 links to 10 instead of expected 2 in index ix_name
 ```
 
-```
+```sql
 ERROR: failed to re-find parent key in index "XXXXXXXXXX" for deletion target page XXX
 CONTEXT:  while vacuuming index index_name of relation {{schema.table}}
 ```

@@ -1,7 +1,6 @@
 
 
 # Using change data capture for Amazon RDS for SQL Server
-<a name="Appendix.SQLServer.CommonDBATasks.CDC"></a>
 
 Amazon RDS supports change data capture (CDC) for your DB instances running Microsoft SQL Server. CDC captures changes that are made to the data in your tables. It stores metadata about each change, which you can access later. For more information about how CDC works, see [Change data capture](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture) in the Microsoft documentation. Before you use CDC with your Amazon RDS DB instances, enable it in the database by running `msdb.dbo.rds_cdc_enable_db`. After CDC is enabled, any user who is `db_owner` of that database can enable or disable CDC on tables in that database.
 
@@ -99,14 +98,14 @@ To view and define the CDC parameters that are used to recreate the CDC jobs aft
 
 The following example returns the value set for `cdc_capture_maxtrans`. For any parameter that is set to `RDS_DEFAULT`, RDS automatically configures the value.
 
-```
+```sql
 -- Show configuration for each parameter on either primary and secondary replicas. 
 exec rdsadmin.dbo.rds_show_configuration 'cdc_capture_maxtrans';
 ```
 
 To set the configuration on the secondary, run `rdsadmin.dbo.rds_set_configuration`. This procedure sets the parameter values for all of the databases on the secondary server. These settings are used only after a failover. The following example sets the `maxtrans` for all CDC capture jobs to {{1000}}:
 
-```
+```sql
 --To set values on secondary. These are used after failover.
 exec rdsadmin.dbo.rds_set_configuration 'cdc_capture_maxtrans', {{1000}};
 ```

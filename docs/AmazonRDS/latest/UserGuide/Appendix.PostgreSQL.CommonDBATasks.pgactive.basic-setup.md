@@ -1,7 +1,6 @@
 
 
 # Initializing the pgactive extension capability
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgactive.basic-setup"></a>
 
 To initialize the `pgactive` extension capability on your RDS for PostgreSQL DB instance, set the value of the `rds.enable_pgactive` parameter to `1` and then create the extension in the database. Doing so automatically turns on the parameters `rds.logical_replication` and `track_commit_timestamp` and sets the value of `wal_level` to `logical`. 
 
@@ -42,7 +41,7 @@ You can use the AWS Management Console or the AWS CLI to create the required RDS
 
 1. To verify that pgactive is initialized, run the following command.
 
-   ```
+   ```sql
    postgres=>SELECT setting ~ 'pgactive' 
    FROM pg_catalog.pg_settings
    WHERE name = 'shared_preload_libraries';
@@ -88,7 +87,7 @@ To initialize the `pgactive` using the AWS CLI, call the [modify-db-parameter-gr
 
 1. To verify that pgactive is initialized, run the following command.
 
-   ```
+   ```sql
    postgres=>SELECT setting ~ 'pgactive' 
    FROM pg_catalog.pg_settings
    WHERE name = 'shared_preload_libraries';

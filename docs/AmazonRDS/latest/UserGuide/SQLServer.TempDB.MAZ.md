@@ -1,7 +1,6 @@
 
 
 # TempDB configuration for Multi-AZ deployments
-<a name="SQLServer.TempDB.MAZ"></a>
 
 If your RDS for SQL Server DB instance is in a Multi-AZ Deployment using Database Mirroring (DBM) or Always On Availability Groups (AGs), keep in mind the following considerations for using the `tempdb` database.
 

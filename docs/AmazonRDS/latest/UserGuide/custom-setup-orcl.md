@@ -1,7 +1,6 @@
 
 
 # Setting up your environment for Amazon RDS Custom for Oracle
-<a name="custom-setup-orcl"></a>
 
 **Note**  
 End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
@@ -495,7 +494,7 @@ To create CEVs or RDS Custom for Oracle DB instances, your IAM principal needs t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -547,7 +546,7 @@ The following sample JSON policy grants the additional permissions necessary to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -599,7 +598,7 @@ The following sample JSON policy grants the permissions necessary to validate an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

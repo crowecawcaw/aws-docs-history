@@ -1,11 +1,12 @@
 
 
 # Failing over a Multi-AZ DB instance for Amazon RDS
-<a name="Concepts.MultiAZ.Failover"></a>
 
 If a planned or unplanned outage of your Multi-AZ DB instance results from an infrastructure defect, Amazon RDS automatically switches to a standby replica in another Availability Zone. 
 
-The time that it takes for the failover to complete depends on the database activity and other conditions at the time the primary DB instance became unavailable. Failover times are typically 60–120 seconds. However, large transactions or a lengthy recovery process can increase failover time. When the failover is complete, it can take additional time for the RDS console to reflect the new Availability Zone.
+The time that it takes for the failover to complete depends on the database activity and other conditions at the time the primary DB instance became unavailable. Failover times are typically 60–120 seconds. However, large transactions or a lengthy recovery process can increase failover time.
+
+When the failover is complete, it can take several minutes for the RDS console and the `DescribeDBInstances` API operation to show the new Availability Zone. Amazon RDS updates the Availability Zone value after the failover, so don't use it to confirm that the failover has completed. Instead, use the DB events described later in this section.
 
 **Note**  
 You can force a failover manually when you reboot a Multi-AZ DB instance. For more information, see [Rebooting a DB instance](USER_RebootInstance.md).
@@ -25,8 +26,8 @@ Amazon RDS handles failovers automatically so you can resume database operations
 
 To determine if your Multi-AZ DB instance has failed over, you can do the following:
 + Set up DB event subscriptions to notify you by email or SMS that a failover has been initiated. For more information about events, see [Working with Amazon RDS event notification](USER_Events.md).
-+ View your DB events by using the RDS console or API operations.
-+ View the current state of your Multi-AZ DB instance deployment by using the RDS console or API operations.
++ View your DB events by using the RDS console or API operations. Amazon RDS publishes the `Multi-AZ instance failover started` event when the failover begins and the `Multi-AZ instance failover completed` event when it finishes. The `failover completed` event is the authoritative indicator that the failover is done.
++ View the current state of your Multi-AZ DB instance deployment by using the RDS console or API operations. The DB instance status returns to `available` shortly after the failover completes, but the Availability Zone can take several minutes longer to update.
 
 For information on how you can respond to failovers, reduce recovery time, and other best practices for Amazon RDS, see [Best practices for Amazon RDS](CHAP_BestPractices.md).
 
@@ -53,11 +54,11 @@ The default TTL can vary according to the version of your JVM and whether a secu
 To modify the JVM's TTL, set the `networkaddress.cache.ttl` property value. Use one of the following methods, depending on your needs:
 + To set the property value globally for all applications that use the JVM, set `networkaddress.cache.ttl` in the `$JAVA_HOME/jre/lib/security/java.security` file.
 
-  ```
+  ```java
   networkaddress.cache.ttl=60									
   ```
 + To set the property locally for your application only, set `networkaddress.cache.ttl` in your application's initialization code before any network connections are established.
 
-  ```
+  ```java
   java.security.Security.setProperty("networkaddress.cache.ttl" , "60");								
   ```

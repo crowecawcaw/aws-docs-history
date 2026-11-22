@@ -1,7 +1,6 @@
 
 
 # Known issues and limitations for Amazon RDS for Db2
-<a name="db2-known-issues-limitations"></a>
 
 The following items are known issues and limitations for working with Amazon RDS for Db2:
 
@@ -29,7 +28,7 @@ SELECT 'COUNT:' || count(*) FROM SYSCAT.ROUTINES where fenced='N' and routinesch
 ## Non-automatic storage tablespaces during migration
 <a name="db2-known-issues-limitations-non-automatic-storage-tablespaces"></a>
 
-RDS for Db2 doesn't support the creation of new non-automatic storage tablespaces. When you use native restore for a one-time migration of your database, RDS for Db2 automatically converts your non-automatic storage tablespaces to automatic ones, and then restores your database to RDS for Db2. For information about one-time migrations, see [Migrating from Linux to Linux for Amazon RDS for Db2](db2-one-time-migration-linux.md) and [Migrating from AIX or Windows to Linux for Amazon RDS for Db2](db2-one-time-migration-aix-windows-linux.md).
+RDS for Db2 doesn't support the creation of new non-automatic storage tablespaces. When you use native restore for a one-time migration of your database, RDS for Db2 automatically converts your non-automatic storage tablespaces to automatic ones, and then restores your database to RDS for Db2. For information about one-time migrations, see [Migrating from Linux to Linux for Amazon RDS for Db2](db2-migration-linux-linux.md) and [Migrating from AIX or Windows to Linux for Amazon RDS for Db2](db2-one-time-migration-aix-windows-linux.md).
 
 ## Setting the db2\_compatibility\_vector parameter
 <a name="db2-known-issues-limitations-db2-compatibility-vector"></a>

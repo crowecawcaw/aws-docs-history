@@ -1,7 +1,6 @@
 
 
 # Turning on the Advanced mode of Database Insights for Amazon RDS
-<a name="USER_DatabaseInsights.TurningOnAdvanced"></a>
 
 To turn on the Advanced mode of Database Insights for Amazon RDS, use the following procedures.
 

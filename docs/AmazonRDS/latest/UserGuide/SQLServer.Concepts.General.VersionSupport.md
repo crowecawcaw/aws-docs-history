@@ -1,7 +1,6 @@
 
 
 # Microsoft SQL Server versions on Amazon RDS
-<a name="SQLServer.Concepts.General.VersionSupport"></a>
 
 You can specify any currently supported Microsoft SQL Server version when creating a new DB instance. You can specify the Microsoft SQL Server major version (such as Microsoft SQL Server 14.00), and any supported minor version for the specified major version. If no version is specified, Amazon RDS defaults to a supported version, typically the most recent version. If a major version is specified but a minor version is not, Amazon RDS defaults to a recent release of the major version you have specified.
 

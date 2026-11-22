@@ -1,7 +1,6 @@
 
 
 # Connecting to a Multi-AZ DB cluster for Amazon RDS
-<a name="multi-az-db-clusters-concepts-connection-management"></a>
 
  A Multi-AZ DB cluster has three DB instances instead of a single DB instance. Each connection is handled by a specific DB instance. When you connect to a Multi-AZ DB cluster, the hostname and port that you specify point to a fully qualified domain name called an *endpoint*. The Multi-AZ DB cluster uses the endpoint mechanism to abstract these connections so that you don't need to specify exactly which DB instance in the DB cluster to connect to. Thus, you don't have to hardcode all the hostnames or write your own logic for rerouting connections when some DB instances aren't available. 
 

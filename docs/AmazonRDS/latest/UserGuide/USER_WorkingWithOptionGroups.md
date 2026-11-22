@@ -1,7 +1,6 @@
 
 
 # Working with option groups
-<a name="USER_WorkingWithOptionGroups"></a>
 
 Some DB engines offer additional features that make it easier to manage data and databases, and to provide additional security for your database. Amazon RDS uses option groups to enable and configure these features. An *option group* can specify features, called options, that are available for a particular Amazon RDS DB instance. Options can have settings that specify how the option works. When you associate a DB instance with an option group, the specified options and option settings are enabled for that DB instance. 
 
@@ -70,7 +69,7 @@ Some options are mutually exclusive. You can use one or the other, but not both 
 
 You can create a new option group that derives its settings from the default option group. You then add one or more options to the new option group. Or, if you already have an existing option group, you can copy that option group with all of its options to a new option group. For more information, see [Copying an option group](#USER_WorkingWithOptionGroups.Copy). 
 
-After you create a new option group, it has no options. To learn how to add options to the option group, see [Adding an option to an option group](#USER_WorkingWithOptionGroups.AddOption). After you have added the options you want, you can then associate the option group with a DB instance. This way, the options become available on the DB instance. For information about associating an option group with a DB instance, see the documentation for your engine in [Working with option groups](#USER_WorkingWithOptionGroups). 
+After you create a new option group, it has no options. To learn how to add options to the option group, see [Adding an option to an option group](#USER_WorkingWithOptionGroups.AddOption). After you have added the options you want, you can then associate the option group with a DB instance. This way, the options become available on the DB instance. For information about associating an option group with a DB instance, see the documentation for your engine in [Working with option groups](USER_WorkingWithOptionGroups.md). 
 
 ### Console
 <a name="USER_WorkingWithOptionGroups.Create.Console"></a>
@@ -183,7 +182,7 @@ To copy an option group, call the Amazon RDS API [CopyOptionGroup](https://docs.
 ## Adding an option to an option group
 <a name="USER_WorkingWithOptionGroups.AddOption"></a>
 
-You can add an option to an existing option group. After you have added the options you want, you can then associate the option group with a DB instance so that the options become available on the DB instance. For information about associating an option group with a DB instance, see the documentation for your specific DB engine listed at [Working with option groups](#USER_WorkingWithOptionGroups). 
+You can add an option to an existing option group. After you have added the options you want, you can then associate the option group with a DB instance so that the options become available on the DB instance. For information about associating an option group with a DB instance, see the documentation for your specific DB engine listed at [Working with option groups](USER_WorkingWithOptionGroups.md). 
 
 Option group changes must be applied immediately in two cases: 
 + When you add an option that adds or updates a port value, such as the `OEM` option. 
@@ -396,7 +395,7 @@ To list the options and option settings for an option group, use the Amazon RDS 
 ## Modifying an option setting
 <a name="USER_WorkingWithOptionGroups.ModifyOption"></a>
 
-After you have added an option that has modifiable option settings, you can modify the settings at any time. If you change options or option settings in an option group, those changes are applied to all DB instances that are associated with that option group. For more information on what settings are available for the various options, see the documentation for your engine in [Working with option groups](#USER_WorkingWithOptionGroups). 
+After you have added an option that has modifiable option settings, you can modify the settings at any time. If you change options or option settings in an option group, those changes are applied to all DB instances that are associated with that option group. For more information on what settings are available for the various options, see the documentation for your engine in [Working with option groups](USER_WorkingWithOptionGroups.md). 
 
 Option group changes must be applied immediately in two cases: 
 + When you add an option that adds or updates a port value, such as the `OEM` option. 
@@ -496,7 +495,7 @@ To modify an option setting, use the Amazon RDS API [`ModifyOptionGroup`](https:
 ## Removing an option from an option group
 <a name="USER_WorkingWithOptionGroups.RemoveOption"></a>
 
-Some options can be removed from an option group, and some cannot. A persistent option cannot be removed from an option group until all DB instances associated with that option group are disassociated. A permanent option can never be removed from an option group. For more information about what options are removable, see the documentation for your specific engine listed at [Working with option groups](#USER_WorkingWithOptionGroups). 
+Some options can be removed from an option group, and some cannot. A persistent option cannot be removed from an option group until all DB instances associated with that option group are disassociated. A permanent option can never be removed from an option group. For more information about what options are removable, see the documentation for your specific engine listed at [Working with option groups](USER_WorkingWithOptionGroups.md). 
 
 If you remove all options from an option group, Amazon RDS doesn't delete the option group. DB instances that are associated with the empty option group continue to be associated with it; they just won't have any active options. Alternatively, to remove all options from a DB instance, you can associate the DB instance with the default (empty) option group. 
 

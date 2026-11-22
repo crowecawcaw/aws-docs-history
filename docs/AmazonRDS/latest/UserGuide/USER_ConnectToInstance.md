@@ -1,7 +1,6 @@
 
 
 # Connecting to your MySQL DB instance
-<a name="USER_ConnectToInstance"></a>
 
  Before you can connect to a DB instance running the MySQL database engine, you must create a DB instance. For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md). After Amazon RDS provisions your DB instance, you can use any standard MySQL client application or utility to connect to the instance. In the connection string, you specify the DNS address from the DB instance endpoint as the host parameter, and specify the port number from the DB instance endpoint as the port parameter. 
 

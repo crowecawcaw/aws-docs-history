@@ -1,7 +1,6 @@
 
 
 # Testing an Oracle DB upgrade
-<a name="USER_UpgradeDBInstance.Oracle.UpgradeTesting"></a>
 
 Before you upgrade your DB instance to a major version, thoroughly test your database and all applications that access the database for compatibility with the new version. We recommend that you use the following procedure. 
 

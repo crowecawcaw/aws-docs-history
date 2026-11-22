@@ -1,7 +1,6 @@
 
 
 # Customer-owned IP addresses for Amazon RDS on AWS Outposts
-<a name="rds-on-outposts.coip"></a>
 
 Amazon RDS on AWS Outposts uses information that you provide about your on-premises network to create an address pool. This pool is known as a *customer-owned IP address pool* (CoIP pool). *Customer-owned IP addresses* (CoIPs) provide local or external connectivity to resources in your Outpost subnets through your on-premises network. For more information about CoIPs, see [Customer-owned IP addresses](https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing) in the *AWS Outposts User Guide*.
 

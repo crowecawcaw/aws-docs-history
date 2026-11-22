@@ -1,7 +1,6 @@
 
 
 # Maintaining a DB instance
-<a name="USER_UpgradeDBInstance.Maintenance"></a>
 
 Periodically, Amazon RDS performs maintenance on Amazon RDS resources. The following topics describe these maintenance actions and how to apply them.
 

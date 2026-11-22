@@ -1,7 +1,6 @@
 
 
 # Scheduling maintenance with the PostgreSQL pg\_cron extension
-<a name="PostgreSQL_pg_cron"></a>
 
 You can use the PostgreSQL `pg_cron` extension to schedule maintenance commands within a PostgreSQL database. For more information about the extension, see [What is pg\_cron?](https://github.com/citusdata/pg_cron) in the pg\_cron documentation. 
 

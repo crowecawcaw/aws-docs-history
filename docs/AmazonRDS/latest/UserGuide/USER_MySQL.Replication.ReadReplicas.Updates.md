@@ -1,7 +1,6 @@
 
 
 # Updating read replicas with MySQL
-<a name="USER_MySQL.Replication.ReadReplicas.Updates"></a>
 
 Read replicas are designed to support read queries, but you might need occasional updates. For example, you might need to add an index to optimize the specific types of queries accessing the replica. 
 

@@ -1,7 +1,6 @@
 
 
 # Performing logical replication for Amazon RDS for PostgreSQL
-<a name="PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication"></a>
 
 Starting with version 10.4, RDS for PostgreSQL supports the publication and subscription SQL syntax that was introduced in PostgreSQL 10. To learn more, see [Logical replication](https://www.postgresql.org/docs/current/logical-replication.html) in the PostgreSQL documentation. 
 
@@ -43,7 +42,7 @@ For more information on PostgreSQL logical decoding, see the [ PostgreSQL docume
 
 You can use SQL commands to work with logical slots. For example, the following command creates a logical slot named `test_slot` using the default PostgreSQL output plugin `test_decoding`.
 
-```
+```sql
 SELECT * FROM pg_create_logical_replication_slot('test_slot', 'test_decoding');
 slot_name    | xlog_position
 -----------------+---------------
@@ -53,13 +52,13 @@ regression_slot | 0/16B1970
 
 To list logical slots, use the following command.
 
-```
+```sql
 SELECT * FROM pg_replication_slots;
 ```
 
 To drop a logical slot, use the following command.
 
-```
+```sql
 SELECT pg_drop_replication_slot('test_slot');
 pg_drop_replication_slot
 -----------------------
@@ -78,7 +77,7 @@ pg_recvlogical -d postgres --slot test_slot -U postgres
 
 To see the contents of the `pg_replication_origin_status` view, query the `pg_show_replication_origin_status` function.
 
-```
+```sql
 SELECT * FROM pg_show_replication_origin_status();
 local_id | external_id | remote_lsn | local_lsn
 ----------+-------------+------------+-----------
@@ -96,7 +95,7 @@ You can use logical replication to replicate data from source tables to target t
 
    Connect to the source database in your RDS for PostgreSQL DB instance:
 
-   ```
+   ```sql
    source=> CREATE TABLE testtab (slno int primary key);
    CREATE TABLE
    ```
@@ -105,7 +104,7 @@ You can use logical replication to replicate data from source tables to target t
 
 **Insert data into the source tables**
 
-   ```
+   ```sql
    source=> INSERT INTO testtab VALUES (generate_series(1,1000));
    INSERT 0 1000
    ```
@@ -115,13 +114,13 @@ You can use logical replication to replicate data from source tables to target t
 **Create a publication for source tables**
    + Create a publication for the source tables:
 
-     ```
+     ```sql
      source=> CREATE PUBLICATION testpub FOR TABLE testtab;
      CREATE PUBLICATION
      ```
    + Use a SELECT query to verify the details of the publication that was created:
 
-     ```
+     ```sql
      source=> SELECT * FROM pg_publication;
        oid   | pubname | pubowner | puballtables | pubinsert | pubupdate | pubdelete | pubtruncate | pubviaroot
      --------+---------+----------+--------------+-----------+-----------+-----------+-------------+------------
@@ -130,7 +129,7 @@ You can use logical replication to replicate data from source tables to target t
      ```
    + Verify that the source tables are added to the publication:
 
-     ```
+     ```sql
      source=> SELECT * FROM pg_publication_tables; 
      pubname | schemaname | tablename
      ---------+------------+-----------
@@ -139,12 +138,12 @@ You can use logical replication to replicate data from source tables to target t
      ```
    + To replicate all tables in a database, use:
 
-     ```
+     ```sql
      CREATE PUBLICATION testpub FOR ALL TABLES;
      ```
    + If the publication is already created for individual table and you need to add new table, you can run below query to add any new tables into the existing publication:
 
-     ```
+     ```sql
      ALTER PUBLICATION <publication_name> add table <new_table_name>;
      ```
 
@@ -153,13 +152,13 @@ You can use logical replication to replicate data from source tables to target t
 **Connect to target database and create target tables**
    + Connect to the target database in the target DB instance. Create the target tables with the same names as the source tables:
 
-     ```
+     ```sql
      target=> CREATE TABLE testtab (slno int primary key);
      CREATE TABLE
      ```
    + Make sure that there's no data present in the target tables by running a SELECT query on the target tables:
 
-     ```
+     ```sql
          
      target=> SELECT count(*) FROM testtab;
       count
@@ -173,7 +172,7 @@ You can use logical replication to replicate data from source tables to target t
 **Create and verify subscription in target database**
    + Create the subscription in the target database:
 
-     ```
+     ```sql
      target=> CREATE SUBSCRIPTION testsub 
      CONNECTION 'host=<source RDS/host endpoint> port=5432 dbname=<source_db_name> user=<user> password=<password>' 
      PUBLICATION testpub;
@@ -182,7 +181,7 @@ You can use logical replication to replicate data from source tables to target t
      ```
    + Use a SELECT query to verify that the subscription is enabled:
 
-     ```
+     ```sql
      target=> SELECT oid, subname, subenabled, subslotname, subpublications FROM pg_subscription;
        oid  | subname | subenabled | subslotname | subpublications
      -------+---------+------------+-------------+-----------------
@@ -191,7 +190,7 @@ You can use logical replication to replicate data from source tables to target t
      ```
    + When the subscription is created, it loads all data from the source tables to the target tables. Run a SELECT query on the target tables to verify that the initial data loads:
 
-     ```
+     ```sql
      target=> SELECT count(*) FROM testtab;
       count
      -------
@@ -205,7 +204,7 @@ You can use logical replication to replicate data from source tables to target t
 
    The creation of a subscription in the target database creates a replication slot in the source database. Verify the replication slot details by running the following SELECT query on the source database:
 
-   ```
+   ```sql
    source=> SELECT * FROM pg_replication_slots;
     
    slot_name |  plugin  | slot_type | datoid | database | temporary | active | active_pid | xmin | catalog_xmin | restart_lsn | confirmed_flush_lsn | wal_status | safe_wal_size
@@ -219,7 +218,7 @@ You can use logical replication to replicate data from source tables to target t
 **Testing replication**
    + Test whether data changes in the source tables are being replicated to the target tables by inserting rows into the source tables:
 
-     ```
+     ```sql
      source=> INSERT INTO testtab VALUES(generate_series(1001,2000));
      INSERT 0 1000
      
@@ -231,7 +230,7 @@ You can use logical replication to replicate data from source tables to target t
      ```
    + Verify the number of rows in the target tables to confirm that new inserts are being replicated:
 
-     ```
+     ```sql
      target=> SELECT count(*) FROM testtab;
       count
      -------
@@ -244,7 +243,7 @@ You can use logical replication to replicate data from source tables to target t
 **Refreshing the subscription after adding tables**
    + When you add new tables to an existing publication, it is mandatory to refresh the subscription for the changes to take effect:
 
-     ```
+     ```sql
      ALTER SUBSCRIPTION <subscription_name> REFRESH PUBLICATION;
      ```
    + This command fetches missing table information from the publisher and starts replication for tables that were added to the subscribed-to publications since the subscription was created or last refreshed.

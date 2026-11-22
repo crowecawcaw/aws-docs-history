@@ -1,7 +1,6 @@
 
 
 # DB instance classes that support Optimize CPU
-<a name="SQLServer.Concepts.General.OptimizeCPU.Support"></a>
 
 RDS for SQL Server supports Optimize CPU beginning with the 7th Generation instance class type. Additionally, RDS provides a detailed billing breakdown of RDS DB instance and third-party licensing fees, starting from the 7th Generation instance class type, regardless of whether the Optimize CPU feature is enabled.
 

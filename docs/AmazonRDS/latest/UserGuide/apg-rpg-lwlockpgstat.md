@@ -1,7 +1,6 @@
 
 
 # LWLock:pg\_stat\_statements
-<a name="apg-rpg-lwlockpgstat"></a>
 
 The LWLock:pg\_stat\_statements wait event occurs when the `pg_stat_statements` extension takes an exclusive lock on the hash table that tracks SQL statements. This happens in the following scenarios:
 + When the number of tracked statements reaches the configured `pg_stat_statements.max` parameter value and there is a need to make room for more entries, the extension performs a sort on the number of calls, removes the 5% of the least-executed statements, and re-populates the hash with the remaining entries.

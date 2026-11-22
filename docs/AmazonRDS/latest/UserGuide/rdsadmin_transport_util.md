@@ -1,7 +1,6 @@
 
 
 # Transporting tablespaces
-<a name="rdsadmin_transport_util"></a>
 
 Use the Amazon RDS package `rdsadmin.rdsadmin_transport_util` to copy a set of tablespaces from an on-premises Oracle database to an RDS for Oracle DB instance. At the physical level, the transportable tablespace feature incrementally copies source data files and metadata files to your target instance. You can transfer the files using either Amazon EFS or Amazon S3. For more information, see [Migrating using Oracle transportable tablespaces](oracle-migrating-tts.md).
 

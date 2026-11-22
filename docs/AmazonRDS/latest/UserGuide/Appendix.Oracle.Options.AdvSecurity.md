@@ -1,7 +1,6 @@
 
 
 # Oracle Transparent Data Encryption
-<a name="Appendix.Oracle.Options.AdvSecurity"></a>
 
 Amazon RDS supports Oracle Transparent Data Encryption (TDE), a feature of the Oracle Advanced Security option available in Oracle Enterprise Edition. This feature automatically encrypts data before it is written to storage and automatically decrypts data when the data is read from storage. This option is only supported for the Bring Your Own License (BYOL) model.
 
@@ -26,19 +25,19 @@ Amazon RDS manages the Oracle Wallet and TDE master key for the DB instance. You
 
 After you enable the `TDE` option, you can check the status of the Oracle Wallet by using the following command: 
 
-```
+```sql
 SELECT * FROM v$encryption_wallet;
 ```
 
 To create an encrypted tablespace, use the following command:
 
-```
+```sql
 CREATE TABLESPACE encrypt_ts ENCRYPTION DEFAULT STORAGE (ENCRYPT);
 ```
 
 To specify the encryption algorithm, use the following command:
 
-```
+```sql
 CREATE TABLESPACE encrypt_ts ENCRYPTION USING 'AES256' DEFAULT STORAGE (ENCRYPT);
 ```
 

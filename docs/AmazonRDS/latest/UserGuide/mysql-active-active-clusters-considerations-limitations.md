@@ -1,7 +1,6 @@
 
 
 # Limitations and considerations for active-active clusters
-<a name="mysql-active-active-clusters-considerations-limitations"></a>
 
 Active-active clusters in Amazon RDS offer enhanced availability and scalability by distributing workloads across multiple instances. However, there are important limitations and considerations to keep in mind when using this architecture.
 
@@ -26,6 +25,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
 + You can't configure an active-active cluster to use single-primary mode for the group's replication mode. For this configuration, we recommend using a Multi-AZ DB cluster instead. For more information, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md).
 + Multi-source replication isn't supported for DB instances in an active-active cluster.
 + A cross-Region active-active cluster can't enforce certificate authority (CA) verification for Group Replication connections.
++ On RDS for MySQL 9.7, a new DB instance can have local GTIDs that Amazon RDS wrote before the active-active cluster parameters in its DB parameter group took effect. Before a DB instance joins the group, make sure that its executed GTIDs and the executed GTIDs of the group members match. For more information, see [Synchronizing local GTIDs before a DB instance joins an active-active cluster (MySQL 9.7)](mysql-active-active-clusters-sync-gtids.md).
 
 ## Considerations and best practices for RDS for MySQL active-active clusters
 <a name="mysql-active-active-clusters-considerations"></a>
@@ -43,7 +43,7 @@ Before you use RDS for MySQL active-active clusters, review the following consid
 + We recommend that the DB instances in an active-active cluster have different time ranges for their maintenance windows. This practice avoids multiple DB instances in the cluster going offline for maintenance at the same time. For more information, see [Amazon RDS maintenance window](USER_UpgradeDBInstance.Maintenance.md#Concepts.DBMaintenance).
 + Active-active clusters can use SSL for connections between DB instances. To configure SSL connections, set the [ group\_replication\_recovery\_use\_ssl](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl) and [ group\_replication\_ssl\_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode) parameters. The values for these parameters must match for all DB instances in the active-active cluster.
 
-  Currently, active-active clusters don't support certificate authority (CA) verification for connections between AWS Regions. So, the [ group\_replication\_ssl\_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode) parameter must be set to `DISABLED` (the default) or `REQUIRED` for cross-Region clusters.
+  Currently, active-active clusters don't support certificate authority (CA) verification for connections between AWS Regions. So, the [ group\_replication\_ssl\_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode) parameter must be set to `DISABLED` (the default for RDS for MySQL 8.4 and lower versions) or `REQUIRED` (the default for RDS for MySQL 9.7) for cross-Region clusters.
 + An RDS for MySQL active-active cluster runs in multi-primary mode. The default value of the [ group\_replication\_enforce\_update\_everywhere\_checks](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_enforce_update_everywhere_checks) is `ON` and the parameter is static. When this parameter is set to `ON`, applications can't insert into a table that has cascading foreign key constraints.
 + An RDS for MySQL active-active cluster uses the MySQL communication stack for connection security instead of XCOM. For more information, see [ Communication Stack for Connection Security Management](https://dev.mysql.com/doc/refman/8.0/en/group-replication-connection-security.html) in the MySQL documentation.
 + When a DB parameter group is associated with a DB instance in an active-active cluster, we recommend only associating this DB parameter group with other DB instances that are in the cluster.

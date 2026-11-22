@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon RDS database in a Lambda function
-<a name="example_serverless_connect_RDS_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that connects to an RDS database. The function makes a simple database request and returns the result.
 
@@ -12,7 +11,7 @@ The following code examples show how to implement a Lambda function that connect
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using .NET.  
 
-```
+```csharp
 using System.Data;
 using System.Text.Json;
 using Amazon.Lambda.APIGatewayEvents;
@@ -104,7 +103,7 @@ public class Function
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Go.  
 
-```
+```go
 /*
 Golang v2 code here.
 */
@@ -192,7 +191,7 @@ func main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Java.  
 
-```
+```java
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
@@ -280,7 +279,7 @@ public class RdsLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using JavaScript.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 /* 
@@ -341,7 +340,7 @@ export const handler = async (event) => {
 ```
 Connecting to an Amazon RDS database in a Lambda function using TypeScript.  
 
-```
+```javascript
 import { Signer } from "@aws-sdk/rds-signer";
 import mysql from 'mysql2/promise';
 
@@ -415,7 +414,7 @@ export const lambdaHandler = async (event: any): Promise<{ statusCode: number; b
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using PHP.  
 
-```
+```php
 <?php
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
@@ -518,7 +517,7 @@ return new Handler($logger);
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Python.  
 
-```
+```python
 import json
 import os
 import boto3
@@ -572,7 +571,7 @@ def lambda_handler(event, context):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Ruby.  
 
-```
+```ruby
 # Ruby code here.
 
 require 'aws-sdk-rds'
@@ -635,7 +634,7 @@ end
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Rust.  
 
-```
+```rust
 use aws_config::BehaviorVersion;
 use aws_credential_types::provider::ProvideCredentials;
 use aws_sigv4::{

@@ -1,7 +1,6 @@
 
 
 # Network Validation
-<a name="custom-sqlserver-WinAuth.NWValidation"></a>
 
 Before joining your RDS Custom instance to either self-managed or AWS Managed Microsoft AD, check the following from a EC2 instance in the same VPC as where you plan to launch the RDS Custom for SQL Server instance. 
 + Check if you are able to resolve the fully qualified domain name (FQDN) to domain controller IPs.

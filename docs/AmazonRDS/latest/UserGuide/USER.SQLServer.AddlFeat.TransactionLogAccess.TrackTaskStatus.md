@@ -1,7 +1,6 @@
 
 
 # Tracking the status of tasks
-<a name="USER.SQLServer.AddlFeat.TransactionLogAccess.TrackTaskStatus"></a>
 
  To track the status of your copy tasks, call the `rds_task_status` stored procedure. If you don't provide any parameters, the stored procedure returns the status of all tasks. 
 

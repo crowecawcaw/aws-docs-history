@@ -1,7 +1,6 @@
 
 
 # Considerations for Database Insights for Amazon RDS
-<a name="USER_DatabaseInsights.Considerations"></a>
 
 Following are considerations for Database Insights for Amazon RDS.
 + You can't manage Database Insights for a DB instance in a Multi-AZ DB cluster.

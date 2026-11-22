@@ -1,7 +1,6 @@
 
 
 # Failing over a Multi-AZ DB cluster for Amazon RDS
-<a name="multi-az-db-clusters-concepts-failover"></a>
 
 If there is a planned or unplanned outage of your writer DB instance in a Multi-AZ DB cluster, Amazon RDS automatically fails over to a reader DB instance in different Availability Zone. This ensures high availability with minimal disruption. Failovers can occur during hardware failures, network issues, or manual requests. The topic outlines the automatic detection of failures, the sequence of events during failover, and its impact on read and write operations. It also provides best practices for monitoring and minimizing failover times.
 
@@ -85,11 +84,11 @@ The default TTL can vary according to the version of your JVM and whether a secu
 To modify the JVM's TTL, set the [`networkaddress.cache.ttl`](https://docs.oracle.com/javase/7/docs/technotes/guides/net/properties.html) property value. Use one of the following methods, depending on your needs:
 + To set the property value globally for all applications that use the JVM, set `networkaddress.cache.ttl` in the `$JAVA_HOME/jre/lib/security/java.security` file.
 
-  ```
+  ```java
   networkaddress.cache.ttl=60								
   ```
 + To set the property locally for your application only, set `networkaddress.cache.ttl` in your application's initialization code before any network connections are established.
 
-  ```
+  ```java
   java.security.Security.setProperty("networkaddress.cache.ttl" , "60");									
   ```

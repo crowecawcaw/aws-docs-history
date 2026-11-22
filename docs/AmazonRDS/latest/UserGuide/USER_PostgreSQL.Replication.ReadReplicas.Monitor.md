@@ -1,7 +1,6 @@
 
 
 # Monitoring and tuning the replication process
-<a name="USER_PostgreSQL.Replication.ReadReplicas.Monitor"></a>
 
 We strongly recommend that you routinely monitor your RDS for PostgreSQL DB instance and read replicas. You need to ensure that your read replicas are keeping up with changes on the source DB instance. Amazon RDS transparently recovers your read replicas when interruptions to the replication process occur. However, it's best to avoid needing to recover at all. Recovering using replication slots is faster than using the Amazon S3 archive, but any recovery process can affect read performance. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating cross-Region cascading read replicas with RDS for PostgreSQL
-<a name="USER_PostgreSQL.Replication.ReadReplicas.Xregion"></a>
 
 RDS for PostgreSQL supports cross-Region cascading read replicas. You can create a cross-Region replica from the source DB instance, and then create same-Region replicas from it. You can also create a same-Region replica from the source DB instance, and then create cross-Region replicas from it.
 

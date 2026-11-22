@@ -1,7 +1,6 @@
 
 
 # Deleting a DB snapshot for Amazon RDS
-<a name="USER_DeleteSnapshot"></a>
 
 You can delete DB snapshots managed by Amazon RDS when you no longer need them.
 

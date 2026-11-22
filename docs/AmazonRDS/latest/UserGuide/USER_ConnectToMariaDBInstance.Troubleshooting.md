@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connections to your MariaDB DB instance
-<a name="USER_ConnectToMariaDBInstance.Troubleshooting"></a>
 
 Two common causes of connection failures to a new DB instance are the following:
 + The DB instance was created using a security group that doesn't authorize connections from the device or Amazon EC2 instance where the MariaDB application or utility is running. The DB instance must have a VPC security group that authorizes the connections. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md).

@@ -1,7 +1,6 @@
 
 
 # Configuring Oracle Rest Data Services (ORDS)
-<a name="Appendix.Oracle.Options.APEX.ORDSConf"></a>
 
 The following topic lists the configuration options for ORDS 21 and 22:
 
@@ -22,7 +21,7 @@ Install the listener on a separate host such as an Amazon EC2 instance, an on-pr
 
 1. Create a new directory for your ORDS installation.
 
-   ```
+   ```bash
    mkdir /home/apexuser/ORDS
    cd /home/apexuser/ORDS
    ```
@@ -143,7 +142,7 @@ Specify a password other than the prompt shown here as a security best practice.
 
 1. Set a password for the APEX `admin` user. To do this, use SQL\*Plus to connect to your DB instance as the master user, and then run the following commands.
 
-   ```
+   ```sql
    1. EXEC rdsadmin.rdsadmin_util.grant_apex_admin_role;
    2. grant APEX_ADMINISTRATOR_ROLE to {{master}};
    3. @/home/apexuser/apex/apxchpwd.sql
@@ -178,7 +177,7 @@ You are now ready to install and configure Oracle Rest Data Services (ORDS) for 
 
 1. Create a new directory for your ORDS installation.
 
-   ```
+   ```bash
    mkdir /home/apexuser/ORDS
    cd /home/apexuser/ORDS
    ```
@@ -283,7 +282,7 @@ The preceding commands apply to ORDS 22 and later.
 
 1. Set a password for the Oracle APEX `admin` user. To do this, use SQL\*Plus to connect to your DB instance as the master user, and then run the following commands.
 
-   ```
+   ```sql
    1. EXEC rdsadmin.rdsadmin_util.grant_apex_admin_role;
    2. grant APEX_ADMINISTRATOR_ROLE to {{master}};
    3. @/home/apexuser/apex/apxchpwd.sql

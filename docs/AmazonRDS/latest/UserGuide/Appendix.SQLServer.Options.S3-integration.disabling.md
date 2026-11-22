@@ -1,7 +1,6 @@
 
 
 # Disabling RDS for SQL Server integration with S3
-<a name="Appendix.SQLServer.Options.S3-integration.disabling"></a>
 
 Following, you can find how to disable Amazon S3 integration with Amazon RDS for SQL Server. Files in `D:\S3\` aren't deleted when disabling S3 integration.
 

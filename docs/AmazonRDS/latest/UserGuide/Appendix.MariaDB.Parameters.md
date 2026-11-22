@@ -1,7 +1,6 @@
 
 
 # Parameters for MariaDB
-<a name="Appendix.MariaDB.Parameters"></a>
 
 By default, a MariaDB DB instance uses a DB parameter group that is specific to a MariaDB database. This parameter group contains some but not all of the parameters contained in the Amazon RDS DB parameter groups for the MySQL database engine. It also contains a number of new, MariaDB-specific parameters. For information about working with parameter groups and setting parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md).
 

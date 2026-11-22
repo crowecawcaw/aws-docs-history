@@ -1,7 +1,6 @@
 
 
 # Preparing for Oracle Database 21c end of support
-<a name="USER_UpgradeDBInstance.Oracle.21c-end-of-support"></a>
 
 Oracle Database 21c is an Innovation Release, and Oracle is ending support for it on July 31, 2027. After this date, Oracle will not release any further security patches or updates for Oracle Database 21c. Amazon RDS will deprecate the 21c major engine version in line with the Oracle support timeline.
 

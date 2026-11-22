@@ -1,7 +1,6 @@
 
 
 # Dropping tempfiles on a read replica
-<a name="Appendix.Oracle.CommonDBATasks.dropping-tempfiles-replica"></a>
 
 You can't drop an existing temporary tablespace on a read replica. You can change the tempfile storage on a read replica from Amazon EBS to the instance store, or from the instance store to Amazon EBS. To achieve these goals, do the following:
 
@@ -19,7 +18,7 @@ To drop the tempfiles, use the Amazon RDS procedure `rdsadmin.rdsadmin_util. dro
 
 Assume that a temporary tablespace named {{temp01}} resides in the instance store on your read replica. Drop all tempfiles in this tablespace by running the following command.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.drop_replica_tempfiles(p_tablespace_name => '{{temp01}}');
 ```
 

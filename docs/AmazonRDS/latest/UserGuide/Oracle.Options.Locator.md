@@ -1,7 +1,6 @@
 
 
 # Oracle Locator
-<a name="Oracle.Options.Locator"></a>
 
 Amazon RDS supports Oracle Locator through the use of the `LOCATOR` option. Oracle Locator provides capabilities that are typically required to support internet and wireless service-based applications and partner-based GIS solutions. Oracle Locator is a limited subset of Oracle Spatial. For more information, see [Oracle Locator](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html) in the Oracle documentation. 
 

@@ -1,9 +1,9 @@
 
 
 # Configuring multi-source-replication for Amazon RDS for MySQL
-<a name="mysql-multi-source-replication"></a>
 
 With multi-source replication, you can set up an Amazon RDS for MySQL DB instance as a replica that receives binary log events from more than one RDS for MySQL source DB instance. Multi-source replication is supported for RDS for MySQL DB instances running the following engine versions:
++ All MySQL 9.7 versions
 + All MySQL 8.4 versions
 + 8.0.35 and higher minor versions
 + 5.7.44 and higher minor versions
@@ -58,7 +58,7 @@ Perform the following steps on each source DB instance.
 Before you import the data from a source to the multi-source replica, determine the current binary log file and position by running the `SHOW MASTER STATUS` command. Take note of these details for use in the next step. In this example output, the file is `mysql-bin-changelog.000031` and the position is `107`.
 
 **Note**  
-Starting with MySQL 8.4, the `SHOW MASTER STATUS` command has been deprecated and replaced with `SHOW BINARY LOG STATUS`. For MySQL 8.4 and later versions, use `SHOW BINARY LOG STATUS` instead.
+Starting with MySQL 8.4, the `SHOW MASTER STATUS` command is removed and replaced with `SHOW BINARY LOG STATUS`. For MySQL 8.4 and higher, use `SHOW BINARY LOG STATUS`.
 
 ```
 File                        Position   
@@ -102,7 +102,7 @@ For more information about using these stored procedures and others to set up an
 
 You can use replication filters to specify which databases and tables are replicated with in multi-source replica. Replication filters can include databases and tables in replication or exclude them from replication. For more information on replication filters, see [Configuring replication filters with MySQL](USER_MySQL.Replication.ReadReplicas.ReplicationFilters.md).
 
-With multi-source replication, you can configure replication filters globally or at the channel level. Channel-level filtering is available only with supported DB instances running version 8.0 or version 8.4. The following examples show how to configure filters globally or at the channel level.
+With multi-source replication, you can configure replication filters globally or at the channel level. Channel-level filtering is available only with supported DB instances running version 8.0, 8.4, or 9.7. The following examples show how to configure filters globally or at the channel level.
 
 Note the following requirements and behavior with filtering in multi-source replication:
 + Back quotes (``) around the channel names are required.
@@ -163,8 +163,8 @@ Before you use multi-source replication on RDS for MySQL, review the following c
 The following limitations apply to multi-source replication on RDS for MySQL:
 + Currently, RDS for MySQL supports configuring a maximum of 15 channels for a multi-source replica.
 + A read replica instance can't be configured as a multi-source replica.
-+ To configure multi-source replication on RDS for MySQL running engine version 5.7, Performance Schema must be enabled on the replica instance. Enabling Performance Schema is optional on RDS for MySQL running engine version 8.0 or 8.4.
-+ For RDS for MySQL running engine version 5.7, replication filters apply to all replication channels. For RDS for MySQL running engine version 8.0 or 8.4, you can configure filters that apply to all replication channels or to individual channels.
++ To configure multi-source replication on RDS for MySQL running engine version 5.7, Performance Schema must be enabled on the replica instance. Enabling Performance Schema is optional on RDS for MySQL running engine version 8.0, 8.4, or 9.7.
++ For RDS for MySQL running engine version 5.7, replication filters apply to all replication channels. For RDS for MySQL running engine version 8.0, 8.4, or 9.7, you can configure filters that apply to all replication channels or to individual channels.
 + Restoring an RDS snapshot or performing a Point-in-time-Restore (PITR) doesn't restore multi-source replica channel configurations.
 + When you create a read replica of a multi-source replica, it only replicates data from the multi-source instance. It doesn't restore any channel configuration.
 + MySQL doesn't support setting up a different number of parallel workers for each channel. Every channel gets the same number of parallel workers based on the `replica_parallel_workers` value.

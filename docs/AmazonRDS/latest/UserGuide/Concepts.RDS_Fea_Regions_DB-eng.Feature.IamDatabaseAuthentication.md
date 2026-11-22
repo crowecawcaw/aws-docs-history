@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for IAM database authentication in Amazon RDS
-<a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication"></a>
 
 By using IAM database authentication in Amazon RDS, you can authenticate without a password when you connect to a DB instance. Instead, you use an authentication token. For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md). 
 
@@ -66,6 +65,7 @@ The following Regions and engine versions are available for IAM database authent
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.my"></a>
 
 IAM database authentication with RDS for MySQL is available in all Regions for the following versions:
++ RDS for MySQL 9.7 – All available versions
 + RDS for MySQL 8.4 – All available versions
 + RDS for MySQL 8.0 – All available versions
 + RDS for MySQL 5.7 – All available versions

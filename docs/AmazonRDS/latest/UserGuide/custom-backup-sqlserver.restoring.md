@@ -1,7 +1,6 @@
 
 
 # Restoring from an RDS Custom for SQL Server DB snapshot
-<a name="custom-backup-sqlserver.restoring"></a>
 
 When you restore an RDS Custom for SQL Server DB instance, you provide the name of the DB snapshot and a name for the new instance. You can't restore from a snapshot to an existing RDS Custom DB instance. A new RDS Custom for SQL Server DB instance is created when you restore.
 

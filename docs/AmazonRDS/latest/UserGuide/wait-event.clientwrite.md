@@ -1,7 +1,6 @@
 
 
 # Client:ClientWrite
-<a name="wait-event.clientwrite"></a>
 
 The `Client:ClientWrite` event occurs when RDS for PostgreSQL is waiting to write data to the client.
 

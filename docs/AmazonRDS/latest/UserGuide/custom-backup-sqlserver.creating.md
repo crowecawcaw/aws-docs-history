@@ -1,7 +1,6 @@
 
 
 # Creating an RDS Custom for SQL Server snapshot
-<a name="custom-backup-sqlserver.creating"></a>
 
 RDS Custom for SQL Server creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not just individual databases. When you create a snapshot, specify which RDS Custom for SQL Server DB instance to back up. Give your snapshot a name so you can restore from it later.
 

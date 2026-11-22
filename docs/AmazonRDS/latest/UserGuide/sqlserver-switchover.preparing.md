@@ -1,7 +1,6 @@
 
 
 # Preparing for a SQL Server switchover
-<a name="sqlserver-switchover.preparing"></a>
 
 In these requirements, the *original primary* DB instance and the *original read replica* are the roles that exist before the switchover. For more information, see [Overview of the SQL Server switchover](sqlserver-replication-switchover.md#sqlserver-replication-switchover.overview).
 

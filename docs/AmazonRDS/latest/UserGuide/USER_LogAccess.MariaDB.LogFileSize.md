@@ -1,7 +1,6 @@
 
 
 # Log rotation and retention for MariaDB
-<a name="USER_LogAccess.MariaDB.LogFileSize"></a>
 
 When logging is enabled, Amazon RDS rotates table logs or deletes log files at regular intervals. This measure is a precaution to reduce the possibility of a large log file either blocking database use or affecting performance.
 

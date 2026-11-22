@@ -1,14 +1,13 @@
 
 
 # Importing transported tablespaces to your DB instance
-<a name="rdsadmin_transport_util_import_xtts_tablespaces"></a>
 
 Use the procedure `rdsadmin.rdsadmin_transport_util.import_xtts_tablespaces` to restore tablespaces that you have previously exported from a source DB instance. In the transport phase, you back up your read-only tablespaces, export Data Pump metadata, transfer these files to your target DB instance, and then import the tablespaces. For more information, see [Phase 4: Transport the tablespaces](oracle-migrating-tts.md#oracle-migrating-tts.final-br-phase). 
 
 ## Syntax
 <a name="rdsadmin_transport_util_import_xtts_tablespaces-syntax"></a>
 
-```
+```sql
 FUNCTION import_xtts_tablespaces(
     p_tablespace_list IN CLOB,
     p_directory_name  IN VARCHAR2,

@@ -1,7 +1,6 @@
 
 
 # Example policies: Using condition keys
-<a name="UsingWithRDS.IAM.Conditions.Examples"></a>
 
 Following are examples of how you can use condition keys in Amazon RDS IAM permissions policies. 
 
@@ -15,7 +14,7 @@ The following policy uses an RDS condition key and allows a user to create only 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -51,7 +50,7 @@ Explicitly denying permission supersedes any other permissions granted. This ens
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -96,7 +95,7 @@ The following policy uses an RDS condition key and allows the addition of a tag 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

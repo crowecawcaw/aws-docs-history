@@ -1,7 +1,6 @@
 
 
 # Improving query performance for RDS for PostgreSQL with Amazon RDS Optimized Reads
-<a name="USER_PostgreSQL.optimizedreads"></a>
 
 You can achieve faster query processing for RDS for PostgreSQL with Amazon RDS Optimized Reads. An RDS for PostgreSQL DB instance or Multi-AZ DB cluster that uses RDS Optimized Reads can achieve up to 50% faster query processing compared to one that doesn't use it.
 

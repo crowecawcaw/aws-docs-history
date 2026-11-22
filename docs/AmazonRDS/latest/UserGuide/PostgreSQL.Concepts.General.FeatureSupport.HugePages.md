@@ -1,7 +1,6 @@
 
 
 # Huge pages for RDS for PostgreSQL
-<a name="PostgreSQL.Concepts.General.FeatureSupport.HugePages"></a>
 
 *Huge pages* are a memory management feature that reduces overhead when a DB instance is working with large contiguous chunks of memory, such as that used by shared buffers. This PostgreSQL feature is supported by all currently available RDS for PostgreSQL versions. You allocate huge pages for your application by using calls to `mmap` or `SYSV` shared memory. RDS for PostgreSQL supports both 4-KB and 2-MB page sizes. 
 

@@ -1,7 +1,6 @@
 
 
 # Working with Oracle databases by using the oracle\_fdw extension
-<a name="postgresql-oracle-fdw"></a>
 
 To access an Oracle database from your RDS for PostgreSQL DB instance you can install and use the `oracle_fdw` extension. This extension is a foreign data wrapper for Oracle databases. To learn more about this extension, see the [oracle\_fdw](https://github.com/laurenz/oracle_fdw) documentation.
 
@@ -21,7 +20,7 @@ To use the oracle\_fdw extension, perform the following procedure.
 **To turn on the oracle\_fdw extension**
 + Run the following command using an account that has `rds_superuser` permissions.
 
-  ```
+  ```sql
   CREATE EXTENSION oracle_fdw;
   ```
 
@@ -39,35 +38,35 @@ The following example shows the use of a foreign server linked to an Amazon RDS 
 
 1. Create a foreign server.
 
-   ```
+   ```sql
    test=> CREATE SERVER oradb FOREIGN DATA WRAPPER oracle_fdw OPTIONS (dbserver '//{{endpoint}}:{{port}}/{{DB_name}}');
    CREATE SERVER
    ```
 
 1. Grant usage to a user who doesn't have `rds_superuser` privileges, for example `user1`.
 
-   ```
+   ```sql
    test=> GRANT USAGE ON FOREIGN SERVER oradb TO user1;
    GRANT
    ```
 
 1. Connect as `user1`, and create a mapping to an Oracle user.
 
-   ```
+   ```sql
    test=> CREATE USER MAPPING FOR user1 SERVER oradb OPTIONS (user '{{oracleuser'}}, password '{{mypassword'}});
    CREATE USER MAPPING
    ```
 
 1. Create a foreign table linked to an Oracle table.
 
-   ```
+   ```sql
    test=> CREATE FOREIGN TABLE {{mytab}} (a int) SERVER oradb OPTIONS (table '{{MYTABLE'}});
    CREATE FOREIGN TABLE
    ```
 
 1. Query the foreign table.
 
-   ```
+   ```sql
    test=>  SELECT * FROM mytab;
    a
    ---
@@ -96,7 +95,7 @@ The PostgreSQL catalog `pg_user_mapping` stores the mapping from an RDS for Post
 
 In the following output, you can find roles and permissions mapped to three different example users. Users `rdssu1` and `rdssu2` are members of the `rds_superuser` role, and `user1` isn't. The example uses the `psql` metacommand `\du` to list existing roles.
 
-```
+```sql
 test=>  \du
                                                                List of roles
     Role name    |                         Attributes                         |                          Member of
@@ -108,14 +107,14 @@ test=>  \du
 
 All users, including users that have `rds_superuser` privileges, are allowed to view their own user mappings (`umoptions`) in the `pg_user_mappings` table. As shown in the following example, when `rdssu1` tries to obtain all user mappings, an error is raised even though `rdssu1``rds_superuser` privileges:
 
-```
+```sql
 test=> SELECT * FROM pg_user_mapping;
 ERROR: permission denied for table pg_user_mapping
 ```
 
 Following are some examples.
 
-```
+```sql
 test=> SET SESSION AUTHORIZATION rdssu1;
 SET
 test=> SELECT * FROM pg_user_mappings;

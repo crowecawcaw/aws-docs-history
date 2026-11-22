@@ -1,7 +1,6 @@
 
 
 # Importing using Oracle SQL Developer
-<a name="Oracle.Procedural.Importing.SQLDeveloper"></a>
 
 Oracle SQL Developer is a graphical Java tool distributed without cost by Oracle. SQL Developer provides options for migrating data between two Oracle databases, or for migrating data from other databases, such as MySQL, to an Oracle database. This tool is best for migrating small databases. 
 

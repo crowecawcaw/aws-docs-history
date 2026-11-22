@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle DB instance classes
-<a name="Oracle.Concepts.InstanceClasses"></a>
 
 The computation and memory capacity of an RDS for Oracle DB instance is determined by its instance class. The DB instance class you need depends on your processing power and memory requirements.
 

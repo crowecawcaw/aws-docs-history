@@ -1,7 +1,6 @@
 
 
 # Performing an incremental database backup
-<a name="Appendix.Oracle.CommonDBATasks.BackupDatabaseIncremental"></a>
 
 You can perform an incremental backup of your DB instance using the Amazon RDS procedure `rdsadmin.rdsadmin_rman_util.backup_database_incremental`.
 
@@ -37,7 +36,7 @@ This procedure also uses the following additional parameter.
 
 The following example performs an incremental backup of the DB instance using the specified values for the parameters.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.backup_database_incremental(
         p_owner               => '{{SYS}}', 

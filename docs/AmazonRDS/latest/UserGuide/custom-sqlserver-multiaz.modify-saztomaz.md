@@ -1,7 +1,6 @@
 
 
 # Modifying an RDS Custom for SQL Server Single-AZ deployment to a Multi-AZ deployment
-<a name="custom-sqlserver-multiaz.modify-saztomaz"></a>
 
 You can modify an existing RDS Custom for SQL Server DB instance from a Single-AZ deployment to a Multi-AZ deployment. When you modify the DB instance,Amazon RDS performs several actions:
 + Takes a snapshot of the primary DB instance.
@@ -101,7 +100,7 @@ If you choose to configure the prerequisites manually, perform the following tas
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

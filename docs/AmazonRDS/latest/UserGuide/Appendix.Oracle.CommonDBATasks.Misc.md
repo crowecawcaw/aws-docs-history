@@ -1,7 +1,6 @@
 
 
 # Performing miscellaneous tasks for Oracle DB instances
-<a name="Appendix.Oracle.CommonDBATasks.Misc"></a>
 
 Following, you can find how to perform miscellaneous DBA tasks on your Amazon RDS DB instances running Oracle. To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB instances, and restricts access to certain system procedures and tables that require advanced privileges. 
 
@@ -28,13 +27,13 @@ The `create_directory` and `drop_directory` procedures have the following requir
 
 The following example creates a new directory named `PRODUCT_DESCRIPTIONS`. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.create_directory(p_directory_name => 'product_descriptions');
 ```
 
 The data dictionary stores the directory name in uppercase. You can list the directories by querying `DBA_DIRECTORIES`. The system chooses the actual host pathname automatically. The following example gets the directory path for the directory named `PRODUCT_DESCRIPTIONS`: 
 
-```
+```sql
 SELECT DIRECTORY_PATH 
   FROM DBA_DIRECTORIES 
  WHERE DIRECTORY_NAME='PRODUCT_DESCRIPTIONS';
@@ -48,7 +47,7 @@ The master user name for the DB instance has read and write privileges in the ne
 
 The following example drops the directory named `PRODUCT_DESCRIPTIONS`. 
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.drop_directory(p_directory_name => 'product_descriptions');
 ```
 
@@ -70,7 +69,7 @@ To list the files in a directory, use the Amazon RDS procedure `rdsadmin.rds_fil
 
 The following example grants read/write privileges on the directory `PRODUCT_DESCRIPTIONS` to user `rdsadmin`, and then lists the files in this directory. 
 
-```
+```sql
 GRANT READ,WRITE ON DIRECTORY PRODUCT_DESCRIPTIONS TO rdsadmin;
 SELECT * FROM TABLE(rdsadmin.rds_file_util.listdir(p_directory => 'PRODUCT_DESCRIPTIONS'));
 ```
@@ -102,7 +101,7 @@ end;
 
 The following example reads the file `rice.txt` from the directory `PRODUCT_DESCRIPTIONS`. 
 
-```
+```sql
 SELECT * FROM TABLE
     (rdsadmin.rds_file_util.read_text_file(
         p_directory => 'PRODUCT_DESCRIPTIONS',

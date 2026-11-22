@@ -1,7 +1,6 @@
 
 
 # Getting started with RDS Proxy
-<a name="rds-proxy-setup"></a>
 
 Use the information in the following pages to set up and manage [Amazon RDS Proxy](rds-proxy.md) and set related security options. The security options control who can access each proxy and how each proxy connects to DB instances.
 

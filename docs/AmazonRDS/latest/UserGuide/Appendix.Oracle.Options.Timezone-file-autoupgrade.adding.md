@@ -1,7 +1,6 @@
 
 
 # Adding the time zone file autoupgrade option
-<a name="Appendix.Oracle.Options.Timezone-file-autoupgrade.adding"></a>
 
 When you add the option to an option group, the option group is in one of the following states:
 + An existing option group is currently attached to at least one DB instance. When you add the option, all DB instances that use this option group automatically restart. This causes a brief outage.

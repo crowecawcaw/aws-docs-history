@@ -1,7 +1,6 @@
 
 
 # Configuring auditing policy for Amazon RDS for Microsoft SQL Server
-<a name="DBActivityStreams.configuring-auditing-SQLServer"></a>
 
 A SQL Server database instance has the server audit `RDS_DAS_AUDIT`, which is managed by Amazon RDS. You can define the policies to record server events in the server audit specification `RDS_DAS_SERVER_AUDIT_SPEC`. You can create a database audit specification, such as `RDS_DAS_DB_<name>`, and define the policies to record database events. For the list of server and database level audit action groups, see [SQL Server Audit Action Groups and Actions](https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions) in the *Microsoft SQL Server documentation*.
 

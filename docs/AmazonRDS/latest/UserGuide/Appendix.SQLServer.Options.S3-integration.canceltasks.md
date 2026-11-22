@@ -1,11 +1,10 @@
 
 
 # Canceling a task
-<a name="Appendix.SQLServer.Options.S3-integration.canceltasks"></a>
 
 To cancel S3 integration tasks, use the `msdb.dbo.rds_cancel_task` stored procedure with the `task_id` parameter. Delete and list tasks that are in progress can't be cancelled. The following example shows a request to cancel a task. 
 
-```
+```SQL
 exec msdb.dbo.rds_cancel_task @task_id = 1234;
 ```
 

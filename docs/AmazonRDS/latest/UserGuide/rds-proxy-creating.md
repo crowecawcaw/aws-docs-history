@@ -1,7 +1,6 @@
 
 
 # Creating a proxy for Amazon RDS
-<a name="rds-proxy-creating"></a>
 
 You can associate a proxy with an RDS for MariaDB, RDS for Microsoft SQL Server, RDS for MySQL, or RDS for PostgreSQL DB instance. 
 

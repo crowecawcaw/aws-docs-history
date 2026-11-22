@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL processes
-<a name="PostgreSQL.Tuning.concepts.processes"></a>
 
 RDS for PostgreSQL uses multiple processes.
 

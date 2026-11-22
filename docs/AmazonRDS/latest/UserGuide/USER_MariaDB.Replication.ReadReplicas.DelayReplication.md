@@ -1,7 +1,6 @@
 
 
 # Configuring delayed replication with MariaDB
-<a name="USER_MariaDB.Replication.ReadReplicas.DelayReplication"></a>
 
 You can use delayed replication as a strategy for disaster recovery. With delayed replication, you specify the minimum amount of time, in seconds, to delay replication from the source to the read replica. In the event of a disaster, such as a table deleted unintentionally, you complete the following steps to recover from the disaster quickly:
 + Stop replication to the read replica before the change that caused the disaster is sent to it.
@@ -32,7 +31,7 @@ To configure delayed replication for any future read replica created from a DB i
 
    For example, run the following stored procedure to specify that replication is delayed by at least one hour (3,600 seconds) for any read replica created from the current DB instance.
 
-   ```
+   ```sql
    call mysql.rds_set_configuration('target delay', 3600);
    ```
 **Note**  
@@ -53,7 +52,7 @@ To modify delayed replication for an existing read replica, run the [mysql.rds\_
 
    For example, run the following stored procedure to specify that replication to the read replica is delayed by at least one hour (3600 seconds).
 
-   ```
+   ```sql
    call mysql.rds_set_source_delay(3600);
    ```
 

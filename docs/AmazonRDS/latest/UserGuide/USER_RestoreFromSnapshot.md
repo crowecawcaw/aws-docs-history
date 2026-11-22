@@ -1,7 +1,7 @@
 
 
 # Restoring to a DB instance
-<a name="USER_RestoreFromSnapshot"></a><a name="restore_snapshot"></a>
+<a name="restore_snapshot"></a>
 
 This section shows how to restore to a DB instance. This page shows how to restore to an Amazon RDS DB instance from a DB snapshot.
 
@@ -10,6 +10,8 @@ Amazon RDS creates a storage volume snapshot of your DB instance, backing up the
 You can use the restored DB instance as soon as its status is `available`. The DB instance continues to load data in the background. This is known as *lazy loading*. If you access data that hasn't been loaded yet, the DB instance immediately downloads the requested data from Amazon S3, and then continues loading the rest of the data in the background. For more information, see [Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html).
 
 To help mitigate the effects of lazy loading on tables to which you require quick access, you can perform operations that involve full-table scans, such as `SELECT *`. This allows Amazon RDS to download all of the backed-up table data from S3.
+
+When you restore a DB instance from a DB snapshot, the volumes use lazy loading. When you restore a DB instance to a point in time, create a read replica, or convert a Single-AZ deployment to a Multi-AZ DB instance deployment, Amazon RDS instead initializes the new volumes at a rate of up to 4 TiB per hour for volumes that use gp3 or io2 Block Express storage. For more information, see [Storage volume initialization](CHAP_Storage.md#CHAP_Storage.initialization).
 
 To monitor initialization progress on the restored DB instance, use the `StorageOperationStatus` and `StorageOperationPercentProgress` fields in the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) response. During initialization, `StorageOperationStatus` is set to `Initializing`, and both fields are absent when initialization is complete. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status).
 

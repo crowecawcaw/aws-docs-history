@@ -1,7 +1,6 @@
 
 
 # Adjusting database links for use with DB instances in a VPC
-<a name="Appendix.Oracle.CommonDBATasks.DBLinks"></a>
 
 To use Oracle database links with Amazon RDS DB instances inside the same virtual private cloud (VPC) or peered VPCs, the two DB instances should have a valid route between them. Verify the valid route between the DB instances by using your VPC routing tables and network access control list (ACL). 
 

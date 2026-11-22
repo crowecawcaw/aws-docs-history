@@ -1,7 +1,6 @@
 
 
 # Using extended events with Amazon RDS for Microsoft SQL Server
-<a name="SQLServer.ExtendedEvents"></a>
 
 You can use extended events in Microsoft SQL Server to capture debugging and troubleshooting information for Amazon RDS for SQL Server. Extended events replace SQL Trace and Server Profiler, which have been deprecated by Microsoft. Extended events are similar to profiler traces but with more granular control on the events being traced. Extended events are supported for SQL Server versions 2016 and later on Amazon RDS. For more information, see [Extended events overview](https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events) in the Microsoft documentation.
 

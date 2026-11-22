@@ -1,7 +1,6 @@
 
 
 # Viewing parameter values for a DB cluster parameter group
-<a name="USER_WorkingWithParamGroups.ViewingCluster"></a>
 
 You can get a list of all parameters in a DB cluster parameter group and their values.
 
@@ -32,7 +31,7 @@ The command returns a response like the following:
 aws rds describe-db-cluster-parameters --db-cluster-parameter-group-name {{mydbclusterparametergroup}}
 ```
 
-```
+```json
 {
     "Parameters": [
         {

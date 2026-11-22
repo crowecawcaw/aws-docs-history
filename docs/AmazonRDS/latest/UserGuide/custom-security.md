@@ -1,7 +1,6 @@
 
 
 # Security in Amazon RDS Custom
-<a name="custom-security"></a>
 
 Familiarize yourself with the security considerations for RDS Custom.
 

@@ -1,7 +1,6 @@
 
 
 # Managing logical replication slots for RDS for PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.pglogical.handle-slots"></a>
 
 For source versions earlier than 17, before you can perform a major version upgrade on an RDS for PostgreSQL DB instance that's serving as a publisher node in a logical replication scenario, you must drop the replication slots on the instance. The major version upgrade pre-check process notifies you that the upgrade can't proceed until the slots are dropped. For source version 17 and later, you can keep the slots. For more information, see [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md).
 

@@ -1,7 +1,6 @@
 
 
 # Creating DB instances for Amazon RDS on AWS Outposts
-<a name="rds-on-outposts.creating"></a>
 
 Creating an Amazon RDS on AWS Outposts DB instance is similar to creating an Amazon RDS DB instance in the AWS Cloud. However, make sure that you specify a DB subnet group that is associated with your Outpost.
 

@@ -1,7 +1,6 @@
 
 
 # Starting and stopping replication with MariaDB read replicas
-<a name="USER_MariaDB.Replication.ReadReplicas.StartStop"></a>
 
 You can stop and restart the replication process on an Amazon RDS DB instance by calling the system stored procedures [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication) and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication). You can do this when replicating between two Amazon RDS instances for long-running operations such as creating large indexes. You also need to stop and start replication when importing or exporting databases. For more information, see [Importing data to an Amazon RDS for MariaDB DB instance with reduced downtime](mariadb-importing-data-reduced-downtime.md) and [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.NonRDSRepl.md). 
 

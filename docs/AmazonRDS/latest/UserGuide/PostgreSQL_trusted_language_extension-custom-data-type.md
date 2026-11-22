@@ -1,7 +1,6 @@
 
 
 # Using Custom Data Types in TLE
-<a name="PostgreSQL_trusted_language_extension-custom-data-type"></a>
 
 PostgreSQL supports commands to register new base types (also known as scalar types) for efficiently handling complex data structures in your database. A base type allows you to customize how the data is stored internally, and how to convert it to and from an external textual representation. These custom data types are helpful when extending PostgreSQL to support functional domains where a built-in type such as number or text can't provide sufficient search semantics. 
 

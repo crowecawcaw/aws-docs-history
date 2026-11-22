@@ -1,13 +1,12 @@
 
 
 # Determining if autovacuum is currently running and for how long
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AutovacuumRunning"></a>
 
 If you need to manually vacuum a table, make sure to determine if autovacuum is currently running. If it is, you might need to adjust parameters to make it run more efficiently, or turn off autovacuum temporarily so that you can manually run VACUUM.
 
 Use the following query to determine if autovacuum is running, how long it has been running, and if it is waiting on another session. 
 
-```
+```sql
 SELECT datname, usename, pid, state, wait_event, current_timestamp - xact_start AS xact_runtime, query
 FROM pg_stat_activity 
 WHERE upper(query) LIKE '%VACUUM%' 

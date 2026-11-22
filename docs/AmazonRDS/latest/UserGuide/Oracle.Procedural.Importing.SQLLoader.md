@@ -1,7 +1,6 @@
 
 
 # Importing using Oracle SQL\*Loader
-<a name="Oracle.Procedural.Importing.SQLLoader"></a>
 
 You might consider Oracle SQL\*Loader for large databases that contain a limited number of objects. Because the process of exporting from a source database and loading to a target database is specific to the schema, the following example creates the sample schema objects, exports from a source, and then loads the data into a target database. 
 
@@ -11,7 +10,7 @@ The easiest way to install Oracle SQL\*Loader is to install the Oracle Instant C
 
 1. Create a sample source table using the following SQL statement.
 
-   ```
+   ```sql
    CREATE TABLE customer_0 TABLESPACE users 
       AS (SELECT ROWNUM id, o.* 
           FROM   ALL_OBJECTS o, ALL_OBJECTS x 
@@ -20,7 +19,7 @@ The easiest way to install Oracle SQL\*Loader is to install the Oracle Instant C
 
 1. On the target RDS for Oracle DB instance, create a destination table for loading the data. The clause `WHERE 1=2` ensures that you copy the structure of `ALL_OBJECTS`, but don't copy any rows.
 
-   ```
+   ```sql
    CREATE TABLE customer_1 TABLESPACE users 
      AS (SELECT 0 AS ID, OWNER, OBJECT_NAME, CREATED
          FROM   ALL_OBJECTS
@@ -29,7 +28,7 @@ The easiest way to install Oracle SQL\*Loader is to install the Oracle Instant C
 
 1. Export the data from the source database to a text file. The following example uses SQL\*Plus. For your data, you will likely need to generate a script that does the export for all the objects in the database. 
 
-   ```
+   ```sql
    ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY/MM/DD HH24:MI:SS'
    
    SET LINESIZE 800 HEADING OFF FEEDBACK OFF ARRAY 5000 PAGESIZE 0

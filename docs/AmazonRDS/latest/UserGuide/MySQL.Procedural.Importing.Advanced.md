@@ -1,7 +1,6 @@
 
 
 # Importing data considerations for MySQL
-<a name="MySQL.Procedural.Importing.Advanced"></a>
 
 The following content contains technical information related to loading data into MySQL. This content is aimed at users who are familiar with the MySQL server architecture.
 

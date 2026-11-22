@@ -1,7 +1,6 @@
 
 
 # Modifying a Multi-AZ DB cluster for Amazon RDS
-<a name="modify-multi-az-db-cluster"></a>
 
 A Multi-AZ DB cluster has a writer DB instance and two reader DB instances in three separate Availability Zones. Multi-AZ DB clusters provide high availability, increased capacity for read workloads, and lower latency when compared to Multi-AZ deployments. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md).
 

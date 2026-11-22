@@ -1,7 +1,6 @@
 
 
 # Managing a DB instance in a self-managed Active Directory domain
-<a name="db2-self-managed-active-directory.Managing"></a>
 
 You can use the AWS Management Console, AWS CLI, or the Amazon RDS API to manage your DB instance and its relationship with your self-managed AD domain. For example, you can move the DB instance into, out of, or between domains.
 

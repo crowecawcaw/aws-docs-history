@@ -1,7 +1,6 @@
 
 
 # Using SQL Server Agent for Amazon RDS
-<a name="Appendix.SQLServer.CommonDBATasks.Agent"></a>
 
 With Amazon RDS, you can use SQL Server Agent on a DB instance running Microsoft SQL Server Enterprise Edition, Standard Edition, or Web Edition. SQL Server Agent is a Microsoft Windows service that runs scheduled administrative tasks that are called jobs. You can use SQL Server Agent to run T-SQL jobs to rebuild indexes, run corruption checks, and aggregate data in a SQL Server DB instance.
 

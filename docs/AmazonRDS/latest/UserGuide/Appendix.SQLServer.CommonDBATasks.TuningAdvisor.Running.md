@@ -1,7 +1,6 @@
 
 
 # Running Tuning Advisor with a trace
-<a name="Appendix.SQLServer.CommonDBATasks.TuningAdvisor.Running"></a>
 
 Once you create a trace, either as a local file or as a database table, you can then run Tuning Advisor against your DB instance. Using Tuning Advisor with Amazon RDS is the same process as when working with a standalone, remote SQL Server instance. You can either use the Tuning Advisor UI on your client machine or use the dta.exe utility from the command line. In both cases, you must connect to the Amazon RDS DB instance using the endpoint for the DB instance and provide your master user name and master user password when using Tuning Advisor. 
 

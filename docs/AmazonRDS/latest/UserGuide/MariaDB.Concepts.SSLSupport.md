@@ -1,7 +1,6 @@
 
 
 # SSL/TLS support for MariaDB DB instances on Amazon RDS
-<a name="MariaDB.Concepts.SSLSupport"></a>
 
 Amazon RDS creates an SSL/TLS certificate and installs the certificate on the DB instance when Amazon RDS provisions the instance. These certificates are signed by a certificate authority. The SSL/TLS certificate includes the DB instance endpoint as the Common Name (CN) for the SSL/TLS certificate to guard against spoofing attacks. 
 

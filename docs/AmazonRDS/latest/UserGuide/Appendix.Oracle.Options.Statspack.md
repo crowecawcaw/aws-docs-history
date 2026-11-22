@@ -1,7 +1,6 @@
 
 
 # Oracle Statspack
-<a name="Appendix.Oracle.Options.Statspack"></a>
 
 The Oracle Statspack option installs and enables the Oracle Statspack performance statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus scripts that collect, store, and display performance data. The Statspack scripts and their documentation are installed with the database under `$ORACLE_HOME/rdbms/admin` (for example, `spdoc.txt`).
 
@@ -21,7 +20,7 @@ To run Statspack scripts, you must add the Statspack option.
    + If Statspack is installed, and the `PERFSTAT` account is associated with Statspack, skip to Step 4.
    + If Statspack is not installed, and the `PERFSTAT` account exists, drop the account as follows:
 
-     ```
+     ```sql
      DROP USER PERFSTAT CASCADE;
      ```
 
@@ -33,7 +32,7 @@ To run Statspack scripts, you must add the Statspack option.
 
 1. Reset the password using the following SQL statement, replacing *pwd* with your new password:
 
-   ```
+   ```sql
    ALTER USER PERFSTAT IDENTIFIED BY pwd ACCOUNT UNLOCK;
    ```
 
@@ -41,7 +40,7 @@ To run Statspack scripts, you must add the Statspack option.
 
 1. Grant the `CREATE JOB` privilege to the `PERFSTAT` account using the following statement:
 
-   ```
+   ```sql
    GRANT CREATE JOB TO PERFSTAT;
    ```
 
@@ -49,7 +48,7 @@ To run Statspack scripts, you must add the Statspack option.
 
    Because of Oracle Bug 28523746, the idle wait events in `PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure all idle events are available, run the following statement:
 
-   ```
+   ```sql
    INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
    SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
    MINUS
@@ -70,7 +69,7 @@ A Statspack report compares two snapshots.
    + Create a Statspack snapshot manually.
    + Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack snapshot every hour:
 
-     ```
+     ```sql
      VARIABLE jn NUMBER;
      exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
      COMMIT;
@@ -78,19 +77,19 @@ A Statspack report compares two snapshots.
 
 1. View the snapshots using the following query:
 
-   ```
+   ```sql
    SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
    ```
 
 1. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`, replacing *begin\_snap* and *end\_snap* with the snapshot IDs:
 
-   ```
+   ```sql
    exec rdsadmin.rds_run_spreport(begin_snap,end_snap);
    ```
 
    For example, the following command creates a report based on the interval between Statspack snapshots 1 and 2:
 
-   ```
+   ```sql
    exec rdsadmin.rds_run_spreport(1,2);
    ```
 
@@ -100,7 +99,7 @@ A Statspack report compares two snapshots.
 
    Oracle Statspack performs checks before running the report. Therefore, you could also see error messages in the command output. For example, you might try to generate a report based on an invalid range, where the beginning Statspack snapshot value is larger than the ending value. In this case, the output shows the error message, but the DB engine does not generate an error file.
 
-   ```
+   ```sql
    exec rdsadmin.rds_run_spreport(2,1);
    *
    ERROR at line 1:
@@ -109,7 +108,7 @@ A Statspack report compares two snapshots.
 
    If you use an invalid number for a Statspack snapshot, the output shows an error. For example, if you try to generate a report for snapshots 1 and 50, but snapshot 50 doesn't exist, the output shows an error.
 
-   ```
+   ```sql
    exec rdsadmin.rds_run_spreport(1,50);
    *
    ERROR at line 1:
@@ -130,6 +129,6 @@ A Statspack report compares two snapshots.
 
 To remove a range of Oracle Statspack snapshots, use the following command:
 
-```
+```sql
 exec statspack.purge(begin snap, end snap); 
 ```

@@ -1,7 +1,6 @@
 
 
 # Upgrades of the Microsoft SQL Server DB engine
-<a name="USER_UpgradeDBInstance.SQLServer"></a>
 
 When Amazon RDS supports a new version of a database engine, you can upgrade your DB instances to the new version. There are two kinds of upgrades for SQL Server DB instances: major version upgrades and minor version upgrades. 
 

@@ -1,7 +1,6 @@
 
 
 # Managing a DB instance in a Domain
-<a name="USER_SQLServerWinAuth.Managing"></a>
 
  You can use the console, AWS CLI, or the Amazon RDS API to manage your DB instance and its relationship with your domain. For example, you can move the DB instance into, out of, or between domains. 
 

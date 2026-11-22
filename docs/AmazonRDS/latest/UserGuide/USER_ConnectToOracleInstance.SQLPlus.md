@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using SQL\*Plus
-<a name="USER_ConnectToOracleInstance.SQLPlus"></a>
 
 You can use a utility like SQL\*Plus to connect to an Amazon RDS DB instance running Oracle. To download Oracle Instant Client, which includes a standalone version of SQL\*Plus, see [ Oracle Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html). 
 
@@ -11,12 +10,12 @@ To connect to your DB instance, you need its DNS name and port number. For infor
 In the following examples, substitute the user name of your DB instance administrator. Also, substitute the DNS name for your DB instance, and then include the port number and the Oracle SID. The SID value is the name of the DB instance's database that you specified when you created the DB instance, and not the name of the DB instance.   
 For Linux, macOS, or Unix:  
 
-```
+```sql
 1. sqlplus '{{user_name}}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={{dns_name}})(PORT={{port}}))(CONNECT_DATA=(SID={{database_name}})))'
 ```
 For Windows:  
 
-```
+```sql
 1. sqlplus {{user_name}}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={{dns_name}})(PORT={{port}}))(CONNECT_DATA=(SID={{database_name}})))
 ```
 You should see output similar to the following.  

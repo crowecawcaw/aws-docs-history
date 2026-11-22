@@ -1,7 +1,6 @@
 
 
 # Automatically connecting a Lambda function and a Multi-AZ DB cluster
-<a name="multiaz-lambda-rds-connect"></a>
 
 You can use the RDS console to simplify setting up a connection between a Lambda function and a Multi-AZ DB cluster. Often, your Multi-AZ DB cluster is in a private subnet within a VPC. The Lambda function can be used by applications to access your private Multi-AZ DB cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring RDS for MySQL engine upgrades with events
-<a name="USER_UpgradeDBInstance.MySQL.Monitoring"></a>
 
 When you upgrade the engine version of a RDS for MySQL database, Amazon RDS emits a specific event during each phase of the process. To track the progress of an upgrade, you can view or subscribe to these events.
 

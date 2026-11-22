@@ -1,7 +1,6 @@
 
 
 # Using AWS Organizations upgrade rollout policy for automatic minor version upgrades
-<a name="RDS.Maintenance.AMVU.UpgradeRollout"></a>
 
 Amazon RDS supports AWS Organizations upgrade rollout policy to manage automatic minor version upgrades across multiple database resources and AWS accounts. This policy helps you implement a controlled upgrade strategy for your instances by:
 

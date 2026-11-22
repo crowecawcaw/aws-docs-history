@@ -1,7 +1,6 @@
 
 
 # Amazon S3 integration
-<a name="oracle-s3-integration"></a>
 
 You can transfer files between your RDS for Oracle DB instance and an Amazon S3 bucket. You can use Amazon S3 integration with Oracle Database features such as Oracle Data Pump. For example, you can download Data Pump files from Amazon S3 to your RDS for Oracle DB instance. For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.Importing.md).
 

@@ -1,7 +1,6 @@
 
 
 # DB instance class support for RDS Custom for SQL Server
-<a name="custom-reqs-limits.instancesMS"></a>
 
 Check if the DB instance class is supported in your Region by using the [ describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html) command.
 

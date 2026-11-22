@@ -1,7 +1,6 @@
 
 
 # Connecting with Kerberos authentication for AWS Managed Active Directory
-<a name="oracle-kerberos-connecting"></a>
 
 This section assumes that you have set up your Oracle client as described in [Step 7: Configure an Oracle client](oracle-kerberos-setting-up.md#oracle-kerberos.setting-up.configure-oracle-client). To connect to the Oracle DB with Kerberos authentication, log in using the Kerberos authentication type. For example, after launching Oracle SQL Developer, choose **Kerberos Authentication** as the authentication type, as shown in the following example. 
 

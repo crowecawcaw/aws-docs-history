@@ -1,7 +1,6 @@
 
 
 # Working with self-managed Active Directory with an RDS for Db2 DB instance
-<a name="db2-self-managed-active-directory"></a>
 
 RDS for Db2 integrates with your self-managed Active Directory (AD) domain. Your AD can be hosted in your data center, on Amazon EC2, or with other cloud providers. This integration enables direct user authentication through the Kerberos protocol, eliminating the need for complex intermediary domains or forest trusts. When you connect to your RDS for Db2 DB instance, RDS for Db2 securely forwards authentication requests to your designated AD domain. This maintains your existing identity management structure while using Amazon RDS managed database capabilities.
 

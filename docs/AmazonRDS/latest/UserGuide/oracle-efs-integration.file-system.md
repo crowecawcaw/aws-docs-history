@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon EFS file system permissions
-<a name="oracle-efs-integration.file-system"></a>
 
 By default, only the root user (UID `0`) has read, write, and execute permissions for a newly created EFS file system. For other users to modify the file system, the root user must explicitly grant them access. The user for the RDS for Oracle DB instance is in the `others` category. For more information, see [Working with users, groups, and permissions at the Network File System (NFS) Level](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs-nfs-permissions.html) in the *Amazon Elastic File System User Guide*.
 

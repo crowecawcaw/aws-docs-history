@@ -1,7 +1,6 @@
 
 
 # pgactive functions reference
-<a name="pgactive-functions-reference"></a>
 
 Following, you can find a list of pgactive functions with their parameters, return values, and practical usage notes to help you effectively use them:
 

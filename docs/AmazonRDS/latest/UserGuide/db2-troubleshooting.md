@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for Amazon RDS for Db2
-<a name="db2-troubleshooting"></a>
 
 The following content can help you troubleshoot issues that you encounter with RDS for Db2.
 
@@ -175,15 +174,47 @@ This section describes various errors returned when calling stored procedures an
 
 | Category | Stored procedure errors | 
 | --- | --- | 
+| Audit policies | [Object-level audit policy errors](#db2-troubleshooting-audit-policy-sp-errors) | 
 | Databases | [rdsadmin.activate\_database errors](#db2-troubleshooting-activate-database-sp-errors) | 
 | Databases | [rdsadmin.backup\_database errors](#db2-troubleshooting-backup-database-sp-errors) | 
 | Databases | [rdsadmin.create\_database errors](#db2-troubleshooting-create-database-sp-errors) | 
 | Databases | [rdsadmin.deactivate\_database errors](#db2-troubleshooting-deactivate-database-sp-errors) | 
 | Databases | [rdsadmin.drop\_database errors](#db2-troubleshooting-drop-database-sp-errors) | 
 | Databases | [rdsadmin.reactivate\_database errors](#db2-troubleshooting-reactivate-database-sp-errors) | 
+| Databases | [Resolving rdsadmin.rename\_database errors](#db2-troubleshooting-rename-database-sp-errors) | 
 | Databases | [rdsadmin.restore\_database errors](#db2-troubleshooting-restore-database-sp-errors) | 
 | Databases | [rdsadmin.update\_db\_param errors](#db2-troubleshooting-update-db-param-sp-errors) | 
 | Tablespaces | [rdsadmin.alter\_tablespace errors](#db2-troubleshooting-alter-tablespace-sp-errors) | 
+
+### Object-level audit policy errors
+<a name="db2-troubleshooting-audit-policy-sp-errors"></a>
+
+The following errors can occur when you call the [rdsadmin.create\_audit\_policy](db2-sp-managing-audit-policies.md#db2-sp-create-audit-policy), [rdsadmin.alter\_audit\_policy](db2-sp-managing-audit-policies.md#db2-sp-alter-audit-policy), [rdsadmin.attach\_audit\_policy](db2-sp-managing-audit-policies.md#db2-sp-attach-audit-policy), [rdsadmin.detach\_audit\_policy](db2-sp-managing-audit-policies.md#db2-sp-detach-audit-policy), or [rdsadmin.drop\_audit\_policy](db2-sp-managing-audit-policies.md#db2-sp-drop-audit-policy) stored procedures. The stored procedures return these errors when a parameter isn't valid, and don't create a task. For errors reported in the output of a task, see [A task has the ERROR lifecycle](db2-object-level-audit.md#db2-object-level-audit-troubleshooting-task-error).
+
+The following table lists each error, the stored procedures that return it, and how to resolve it.
+
+
+| Stored procedures | SQLSTATE | Error message | Solution | 
+| --- | --- | --- | --- | 
+| All object-level audit policy stored procedures | `99990` | `Database name must be between 1 and 8 characters` | Specify a database name of 1 to 8 characters. | 
+| All object-level audit policy stored procedures | `99991` | `Operation is not allowed on the RDSADMIN database` | Specify one of your own databases. | 
+| All object-level audit policy stored procedures | `99985` | `Invalid database name` | Check the database name. | 
+| All object-level audit policy stored procedures | `99989` | `Database with the provided name does not exist` | Check the database name. | 
+| All object-level audit policy stored procedures | `99916` | `A rename involving this database is in progress. Try again later.` | Wait for the database rename to complete, and then call the stored procedure again. | 
+| All object-level audit policy stored procedures | `99988` | `Invalid characters in the provided name` | Specify a Db2 ordinary identifier. For more information, see [Limitations for object-level audit policies](db2-object-level-audit.md#db2-object-level-audit-limitations). | 
+| `rdsadmin.create_audit_policy`<br />`rdsadmin.alter_audit_policy`<br />`rdsadmin.attach_audit_policy`<br />`rdsadmin.drop_audit_policy` | `99992` | `DBA_AUDIT and RDS_DAS_* are reserved by RDS` | Specify a different audit policy name. | 
+| `rdsadmin.create_audit_policy`<br />`rdsadmin.alter_audit_policy` | `99998` | `Invalid audit category. Pass one category such as EXECUTE or AUDIT` | Specify one valid category. | 
+| `rdsadmin.create_audit_policy`<br />`rdsadmin.alter_audit_policy` | `99999` | `Invalid status. Valid values are BOTH, SUCCESS, FAILURE, NONE` | Specify a valid category status. For `rdsadmin.alter_audit_policy`, specify {{category}} and {{category\_status}} together. | 
+| `rdsadmin.create_audit_policy`<br />`rdsadmin.alter_audit_policy` | `99987` | `Invalid error type. Valid values are NORMAL and AUDIT` | Specify `NORMAL` or `AUDIT`. | 
+| `rdsadmin.alter_audit_policy` | `99986` | `Provide a category with a status, an error type, or both` | Specify the settings to change. | 
+| `rdsadmin.attach_audit_policy`<br />`rdsadmin.detach_audit_policy` | `99993` | `Unsupported object type. Examples: TABLE, USER, GROUP, ROLE, SECADM` | Specify a valid object type. | 
+| `rdsadmin.attach_audit_policy`<br />`rdsadmin.detach_audit_policy` | `99997` | `The DATABASE, SYSADM and DBADM audit scopes are managed by RDS.` | Use [rdsadmin.configure\_db\_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit) for database-level audit logging. | 
+| `rdsadmin.attach_audit_policy` | `99982` | `RDSDB, RDSADMIN and SECADMUSER are RDS users and cannot be audited` | Specify a different user. | 
+| `rdsadmin.attach_audit_policy`<br />`rdsadmin.detach_audit_policy` | `99984` | `This object type requires an object name` | Specify the name of the object. | 
+| `rdsadmin.attach_audit_policy`<br />`rdsadmin.detach_audit_policy` | `99984` | `Table names must include the schema, as SCHEMA.TABLE` | Specify the table name with its schema. | 
+| `rdsadmin.attach_audit_policy` | `99983` | `This object type is attached without an object name; pass an empty one` | For authorities, specify an empty string for {{object\_name}}. | 
+| `rdsadmin.detach_audit_policy` | `99983` | `This object type is detached without an object name; pass an empty one` | For authorities, specify an empty string for {{object\_name}}. | 
+| All object-level audit policy stored procedures | `99980` | Varies | An unexpected error occurred. Call the stored procedure again. If the error continues, contact AWS Support. | 
 
 ### rdsadmin.activate\_database errors
 <a name="db2-troubleshooting-activate-database-sp-errors"></a>
@@ -436,6 +467,84 @@ The database can’t be reactivated because it's in the process of being created
 ```
 
 Wait a few minutes, and then call the `rdsadmin.reactivate_database` stored procedure again.
+
+### Resolving rdsadmin.rename\_database errors
+<a name="db2-troubleshooting-rename-database-sp-errors"></a>
+
+You might see the following errors when you call the `rdsadmin.rename_database` stored procedure. Most of them come back in the output parameter, so no rename starts. A name that has an invalid character or is longer than 8 characters returns a SQL error instead.
++ [Current database name doesn't exist](#rename-database-sp-current-name-not-exist)
++ [New database name already exists](#rename-database-sp-new-name-exists)
++ [DB instance has a read replica](#rename-database-sp-active-replicas)
++ [Another rename is in progress](#rename-database-sp-already-in-progress)
++ [Database name contains an invalid character](#rename-database-sp-invalid-name)
++ [Database name is empty or too long](#rename-database-sp-name-length)
+
+#### Current database name doesn't exist
+<a name="rename-database-sp-current-name-not-exist"></a>
+
+This message means that no database with the current name exists on the DB instance:
+
+```text
+Database 'TESTDB' does not exist
+```
+
+Call the stored procedure again with the correct current name. To avoid this error, check the name first with [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases).
+
+#### New database name already exists
+<a name="rename-database-sp-new-name-exists"></a>
+
+This message means that a database with the new name already exists on the DB instance:
+
+```text
+Database 'PRODDB' already exists
+```
+
+Call the stored procedure again with a name that isn't in use. To avoid this error, check your database names first.
+
+#### DB instance has a read replica
+<a name="rename-database-sp-active-replicas"></a>
+
+Read replicas use high availability disaster recovery (HADR). This message means that the DB instance has a read replica:
+
+```text
+Cannot rename database with active HADR replicas. Delete replicas before renaming.
+```
+
+Delete the read replica, and then call the stored procedure again. To avoid this error, rename your databases before you create a read replica. For more information about read replicas, see [Working with replicas for Amazon RDS for Db2](db2-replication.md).
+
+#### Another rename is in progress
+<a name="rename-database-sp-already-in-progress"></a>
+
+Only one rename can run at a time on a DB instance. This message means that another rename is running or queued:
+
+```text
+A rename is already in progress or requested on this instance
+```
+
+Wait for the other rename to finish, and then call the stored procedure again. To check its status, use [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status).
+
+#### Database name contains an invalid character
+<a name="rename-database-sp-invalid-name"></a>
+
+This error means that one of the names doesn't start with a letter or has a character that isn't valid:
+
+```text
+SQL0438N Application raised error or warning with diagnostic text: "Invalid
+database name, can only have a-z,A-Z,@,_,$ characters". SQLSTATE=99985
+```
+
+Call the stored procedure again with names that start with a letter. Use only letters, digits, and underscores. Don't use the at sign (@) or the dollar sign ($). A rename to a name with either one fails.
+
+#### Database name is empty or too long
+<a name="rename-database-sp-name-length"></a>
+
+This message means that the new name is empty:
+
+```text
+NEW_DBNAME must be between 1 and 8 characters in length
+```
+
+If the current name is empty, then the message starts with `CURRENT_DBNAME` instead. A name that's longer than 8 characters doesn't return this message. Instead, the call fails with a SQL error that has SQLSTATE `22001`. Call the stored procedure again with names that are 1 to 8 characters long.
 
 ### rdsadmin.restore\_database errors
 <a name="db2-troubleshooting-restore-database-sp-errors"></a>

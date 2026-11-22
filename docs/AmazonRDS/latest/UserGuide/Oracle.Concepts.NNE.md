@@ -1,7 +1,6 @@
 
 
 # Using native network encryption with an RDS for Oracle DB instance
-<a name="Oracle.Concepts.NNE"></a>
 
 Oracle Database offers two ways to encrypt data over the network: native network encryption (NNE) and Transport Layer Security (TLS). NNE is a proprietary Oracle security feature, whereas TLS is an industry standard. RDS for Oracle supports NNE for all editions of Oracle Database.
 

@@ -1,7 +1,6 @@
 
 
 # databaseActivityEventList JSON array for database activity streams
-<a name="DBActivityStreams.AuditLog.databaseActivityEventList"></a>
 
 The audit log payload is an encrypted `databaseActivityEventList` JSON array. The following table lists alphabetically the fields for each activity event in the decrypted `DatabaseActivityEventList` array of an audit log. 
 

@@ -1,7 +1,6 @@
 
 
 # Working with replicas for Amazon RDS for Db2
-<a name="db2-replication"></a>
 
 RDS for Db2 supports creating replica databases to provide read scaling and disaster recovery capabilities. You can create replicas in two modes: read-only replicas for offloading read workloads, and standby replicas for cross-region disaster recovery. RDS for Db2 uses IBM Db2 High Availability Disaster Recovery (HADR) technology for replication. For more information, see [High availability disaster recovery (HADR)](https://www.ibm.com/docs/en/db2/11.5?topic=server-high-availability-disaster-recovery-hadr) in the IBM Db2 documentation.
 

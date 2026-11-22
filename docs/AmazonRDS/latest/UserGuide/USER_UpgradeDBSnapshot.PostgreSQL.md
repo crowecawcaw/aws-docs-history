@@ -1,7 +1,6 @@
 
 
 # Upgrading a PostgreSQL DB snapshot engine version
-<a name="USER_UpgradeDBSnapshot.PostgreSQL"></a>
 
 With Amazon RDS, you can create a storage volume DB snapshot of your PostgreSQL DB instance. When you create a DB snapshot, the snapshot is based on the engine version used by your Amazon RDS instance. You can upgrade the engine version for your DB snapshots. 
 

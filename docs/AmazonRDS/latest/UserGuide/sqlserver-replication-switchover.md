@@ -1,7 +1,6 @@
 
 
 # Performing a SQL Server switchover
-<a name="sqlserver-replication-switchover"></a>
 
 A *switchover* is a role reversal between a primary DB instance and a read replica. During a switchover, the primary DB instance becomes a replica. At the same time, the read replica becomes the new primary.
 

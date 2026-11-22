@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Db2
-<a name="CHAP_Db2"></a>
 
 Amazon RDS supports DB instances that run the following editions and versions of IBM Db2:
 

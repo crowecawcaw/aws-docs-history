@@ -1,7 +1,6 @@
 
 
 # IO:WALWrite
-<a name="wait-event.iowalwrite"></a>
 
 
 
@@ -20,6 +19,8 @@ This wait event information is supported for all versions of RDS for PostgreSQL 
 <a name="wait-event.iowalwrite.context"></a>
 
 Activity in the database that's generating write-ahead log data fills up the WAL buffers first and then writes to disk, asynchronously. The wait event `IO:WALWrite` is generated when the SQL session is waiting for the WAL data to complete writing to disk so that it can release the transaction's COMMIT call. 
+
+After the WAL buffers are written to the WAL file, the WAL file is flushed to durable storage. A process waits on the wait event `IO:WALSync` until the flush completes. For more information, see [IO:WALSync](wait-event.iowalsync.md).
 
 ## Likely causes of increased waits
 <a name="wait-event.iowalwrite.causes"></a>
@@ -69,7 +70,7 @@ There are two parameters that you can monitor to see how frequently your RDS for
 ### Scale up IO
 <a name="wait-event.iowalwrite.actions.scale-io"></a>
 
-This type of input/output (IO) wait event can remediated by scaling the input/output operations per second (IOPs) to provide faster IO. Scaling IO is preferable to scaling CPU, because scaling CPU can result in even more IO contention because the increased CPU can handle more work and thus make the IO bottleneck even worse. In general, we recommend that you consider tuning your workload before performing scaling operations.
+This type of input/output (IO) wait event can be remediated by scaling the input/output operations per second (IOPs) to provide faster IO. Scaling IO is preferable to scaling CPU, because scaling CPU can result in even more IO contention because the increased CPU can handle more work and thus make the IO bottleneck even worse. In general, we recommend that you consider tuning your workload before performing scaling operations.
 
 ### Dedicated log volume (DLV)
 <a name="wait-event.iowalwrite.actions.dlv"></a>

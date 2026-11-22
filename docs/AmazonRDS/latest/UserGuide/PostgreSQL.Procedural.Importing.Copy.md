@@ -1,7 +1,6 @@
 
 
 # Using the \\copy command to import data to a table on a PostgreSQL DB instance
-<a name="PostgreSQL.Procedural.Importing.Copy"></a>
 
 The PostgreSQL `\copy` command is a meta-command available from the `psql` interactive client tool. You can use `\copy` to import data into a table on your RDS for PostgreSQL DB instance. To use the `\copy` command, you need to first create the table structure on the target DB instance so that `\copy` has a destination for the data being copied.
 

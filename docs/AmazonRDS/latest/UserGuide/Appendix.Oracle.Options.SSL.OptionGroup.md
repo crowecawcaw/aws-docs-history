@@ -1,7 +1,6 @@
 
 
 # Adding the SSL option
-<a name="Appendix.Oracle.Options.SSL.OptionGroup"></a>
 
 To use SSL, your RDS for Oracle DB instance must be associated with an option group that includes the `SSL` option.
 
@@ -73,7 +72,7 @@ To use SSL, your RDS for Oracle DB instance must be associated with an option gr
 
    Alternatively, define the option in a JSON file and pass the file with `file://`. This approach works on any operating system and avoids quoting issues. For example, create a file named `ssl-option.json` with the following content.
 
-   ```
+   ```json
    [
      {
        "OptionName": "SSL",

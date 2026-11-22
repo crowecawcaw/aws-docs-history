@@ -1,7 +1,6 @@
 
 
 # Setting up PostgreSQL logical replication with Multi-AZ DB clusters for Amazon RDS
-<a name="USER_MultiAZDBCluster_LogicalRepl"></a>
 
 By using PostgreSQL logical replication with your Multi-AZ DB cluster, you can replicate and synchronize individual tables rather than the entire database instance. Logical replication uses a publish and subscribe model to replicate changes from a source to one or more recipients. It works by using change records from the PostgreSQL write-ahead log (WAL). For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md).
 

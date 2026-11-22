@@ -1,7 +1,6 @@
 
 
 # Preventing cross-service confused deputy problems
-<a name="cross-service-confused-deputy-prevention"></a>
 
 The *confused deputy problem* is a security issue where an entity that doesn't have permission to perform an action can coerce a more-privileged entity to perform the action. In AWS, cross-service impersonation can result in the confused deputy problem. 
 
@@ -22,7 +21,7 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle releases
-<a name="Oracle.Concepts.database-versions"></a>
 
 RDS for Oracle supports multiple Oracle Database releases.
 

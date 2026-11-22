@@ -1,7 +1,6 @@
 
 
 # Timeout:PgSleep
-<a name="wait-event.timeoutpgsleep"></a>
 
 The `Timeout:PgSleep` event occurs when a server process has called the `pg_sleep` function and is waiting for the sleep timeout to expire.
 

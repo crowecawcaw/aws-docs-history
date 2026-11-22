@@ -1,7 +1,6 @@
 
 
 # Enabling Database Mail
-<a name="SQLServer.DBMail.Enable"></a>
 
 Use the following process to enable Database Mail for your DB instance:
 

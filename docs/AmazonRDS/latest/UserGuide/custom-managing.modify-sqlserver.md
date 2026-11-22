@@ -1,7 +1,6 @@
 
 
 # Modifying an RDS Custom for SQL Server DB instance
-<a name="custom-managing.modify-sqlserver"></a>
 
 Modifying an RDS Custom for SQL Server DB instance is similar to doing this for Amazon RDS, but the changes that you can make are limited to the following:
 + Changing the DB instance class

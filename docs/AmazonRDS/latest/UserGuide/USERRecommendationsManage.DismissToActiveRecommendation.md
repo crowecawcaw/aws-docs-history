@@ -1,7 +1,6 @@
 
 
 # Modifying dismissed Amazon RDS recommendations to active recommendations
-<a name="USERRecommendationsManage.DismissToActiveRecommendation"></a>
 
 You can move one or more dismissed Amazon RDS recommendations to active recommendations using the Amazon RDS console, AWS CLI, or Amazon RDS API.
 

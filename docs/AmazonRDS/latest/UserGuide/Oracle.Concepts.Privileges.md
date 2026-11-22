@@ -1,7 +1,6 @@
 
 
 # RDS for Oracle users and privileges
-<a name="Oracle.Concepts.Privileges"></a>
 
 When you create an Amazon RDS for Oracle DB instance, the default master user has most of the maximum user permissions on the DB instance. Use the master user account for any administrative tasks, such as creating additional user accounts in your database. Because RDS is a managed service, you aren't allowed to log in as `SYS` and `SYSTEM`, and thus don't have `SYSDBA` privileges.
 

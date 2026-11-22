@@ -1,7 +1,6 @@
 
 
 # Deleting retained automated backups
-<a name="USER_WorkingWithAutomatedBackups-Deleting"></a>
 
 You can delete retained automated backups when they are no longer needed.
 

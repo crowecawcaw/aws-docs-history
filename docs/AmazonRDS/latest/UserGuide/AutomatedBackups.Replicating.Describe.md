@@ -1,7 +1,6 @@
 
 
 # Finding information about replicated backups for Amazon RDS
-<a name="AutomatedBackups.Replicating.Describe"></a>
 
 You can use the following CLI commands to find information about replicated backups:
 + [`describe-source-regions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-source-regions.html)

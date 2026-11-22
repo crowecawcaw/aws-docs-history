@@ -1,7 +1,6 @@
 
 
 # Tutorial: Restore an Amazon RDS DB instance from a DB snapshot
-<a name="CHAP_Tutorials.RestoringFromSnapshot"></a>
 
 Often, when working with Amazon RDS you might have a DB instance that you work with occasionally but don't need full time. For example, suppose that you have a quarterly customer survey that uses an Amazon EC2 instance to host a customer survey website. You also have a DB instance that is used to store the survey results. One way to save money on such a scenario is to take a DB snapshot of the DB instance after the survey is completed. You then delete the DB instance and restore it when you need to conduct the survey again.
 

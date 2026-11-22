@@ -1,7 +1,6 @@
 
 
 # Setting up Oracle GoldenGate
-<a name="Appendix.OracleGoldenGate.setting-up"></a>
 
 To set up Oracle GoldenGate using Amazon RDS, configure the hub on an Amazon EC2 instance, and then configure the source and target databases. The following sections give an example of how to set up Oracle GoldenGate for use with Amazon RDS for Oracle.
 
@@ -92,7 +91,7 @@ Make sure that you configure the source database to retain archived redo logs. C
 
 For example, set the retention period for archived redo logs to 24 hours.
 
-```
+```sql
 EXEC rdsadmin.rdsadmin_util.set_configuration('archivelog retention hours',24)
 ```
 
@@ -106,7 +105,7 @@ Not able to establish initial position for begin time 2022-03-06 06:16:55.
 
 Because your DB instance retains your archived redo logs, make sure that you have sufficient space for the files. To see how much space you have used in the last {{num\_hours}} hours, run the following query, replacing {{num\_hours}} with the number of hours.
 
-```
+```sql
 SELECT SUM(BLOCKS * BLOCK_SIZE) BYTES FROM V$ARCHIVED_LOG 
    WHERE NEXT_TIME>=SYSDATE-{{num_hours}}/24 AND DEST_ID=1;
 ```
@@ -118,7 +117,7 @@ Oracle GoldenGate runs as a database user and requires the appropriate database 
 
 The following statements create a user account named `oggadm1`. 
 
-```
+```sql
 CREATE TABLESPACE administrator;
 CREATE USER oggadm1  IDENTIFIED BY "{{password}}"
    DEFAULT TABLESPACE ADMINISTRATOR TEMPORARY TABLESPACE TEMP;
@@ -137,7 +136,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 1. Grant the necessary privileges to the Oracle GoldenGate user account using the SQL command `grant` and the `rdsadmin.rdsadmin_util` procedure `grant_sys_object`. The following statements grant privileges to a user named `oggadm1`.
 
-   ```
+   ```sql
    GRANT CREATE SESSION, ALTER SESSION TO oggadm1;
    GRANT RESOURCE TO oggadm1;
    GRANT SELECT ANY DICTIONARY TO oggadm1;
@@ -152,7 +151,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 1. Grant the privileges needed by a user account to be an Oracle GoldenGate administrator. Run the following PL/SQL program.
 
-   ```
+   ```sql
    EXEC rdsadmin.rdsadmin_dbms_goldengate_auth.grant_admin_privilege (
        grantee                 => 'OGGADM1',
        privilege_type          => 'capture',
@@ -167,7 +166,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 Add the following entry to `$ORACLE_HOME/network/admin/tnsnames.ora` in the Oracle home to be used by the `EXTRACT` process. For more information on the `tnsnames.ora` file, see the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-7F967CE5-5498-427C-9390-4A5C6767ADAA).
 
-```
+```bash
 OGGSOURCE=
    (DESCRIPTION= 
         (ENABLE=BROKEN)
@@ -200,7 +199,7 @@ Oracle GoldenGate runs as a database user and requires the appropriate database 
 
 The following statement creates a user named `oggadm1`.
 
-```
+```sql
 CREATE TABLESPACE administrator;
 CREATE USER oggadm1  IDENTIFIED BY "{{password}}" 
    DEFAULT TABLESPACE administrator 
@@ -220,7 +219,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 1. Grant necessary privileges to the Oracle GoldenGate user account on the target database. In the following example, you grant privileges to `oggadm1`.
 
-   ```
+   ```sql
    GRANT CREATE SESSION        TO oggadm1;
    GRANT ALTER SESSION         TO oggadm1;
    GRANT CREATE CLUSTER        TO oggadm1;
@@ -243,7 +242,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 1. Grant the privileges needed by a user account to be an Oracle GoldenGate administrator. Run the following PL/SQL program.
 
-   ```
+   ```sql
    EXEC rdsadmin.rdsadmin_dbms_goldengate_auth.grant_admin_privilege (
        grantee                 => 'OGGADM1',
        privilege_type          => 'apply',
@@ -258,7 +257,7 @@ In this task, you grant necessary account privileges for database users on your 
 
 Add the following entry to `$ORACLE_HOME/network/admin/tnsnames.ora` in the Oracle home to be used by the `REPLICAT` process. For Oracle Multitenant databases, make sure that the TNS alias points to the service name of the PDB. For more information on the `tnsnames.ora` file, see the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-7F967CE5-5498-427C-9390-4A5C6767ADAA).
 
-```
+```bash
 OGGTARGET=
     (DESCRIPTION= 
         (ENABLE=BROKEN)

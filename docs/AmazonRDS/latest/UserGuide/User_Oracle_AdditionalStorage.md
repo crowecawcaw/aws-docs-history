@@ -1,7 +1,6 @@
 
 
 # Working with storage in RDS for Oracle
-<a name="User_Oracle_AdditionalStorage"></a>
 
 Every RDS for Oracle instance has a primary storage volume. To increase storage capacity, you can attach up to three additional storage volumes to your DB instance. Depending on your workload requirements, choose between gp3 and io2 storage for each volume. For example, you might put frequently accessed data on an io2 volume and historical data on a gp3 volume.
 

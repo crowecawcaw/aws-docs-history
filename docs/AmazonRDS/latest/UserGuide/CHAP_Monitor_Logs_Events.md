@@ -1,7 +1,6 @@
 
 
 # Monitoring events, logs, and streams in an Amazon RDS DB instance
-<a name="CHAP_Monitor_Logs_Events"></a>
 
 When you monitor your Amazon RDS databases and your other AWS solutions, your goal is to maintain the following:
 + Reliability

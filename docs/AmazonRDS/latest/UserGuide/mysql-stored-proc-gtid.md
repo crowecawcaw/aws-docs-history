@@ -1,11 +1,10 @@
 
 
 # Replicating transactions using GTIDs
-<a name="mysql-stored-proc-gtid"></a>
 
 The following stored procedures control how transactions are replicated using global transaction identifiers (GTIDs) with RDS for MySQL. For more information about replication based on GTIDs with RDS for MySQL, see [Using GTID-based replication](mysql-replication-gtid.md).
 
-When using stored procedures to manage replication with a replication user configured with `caching_sha2_password`, you must configure TLS by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default authentication plugin for RDS for MySQL 8.4.
+When using stored procedures to manage replication with a replication user configured with `caching_sha2_password`, you must configure TLS by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default authentication plugin for RDS for MySQL 8.4 and higher.
 
 **Topics**
 + [mysql.rds\_skip\_transaction\_with\_gtid](#mysql_rds_skip_transaction_with_gtid)
@@ -23,7 +22,7 @@ You can use this procedure for disaster recovery when a specific GTID transactio
 
  
 
-```
+```sql
 CALL mysql.rds_skip_transaction_with_gtid (
 {{gtid_to_skip}}
 );
@@ -40,14 +39,14 @@ The GTID of the replication transaction to skip.
 
 The master user must run the `mysql.rds_skip_transaction_with_gtid` procedure.
 
-This procedure is supported for all RDS for MySQL 5.7 versions, all RDS for MySQL 8.0 versions, and all RDS for MySQL 8.4 versions.
+This procedure is supported for all RDS for MySQL 5.7 versions, all RDS for MySQL 8.0 versions, all RDS for MySQL 8.4 versions, and all RDS for MySQL 9.7 versions.
 
 ### Examples
 <a name="mysql_rds_skip_transaction_with_gtid-examples"></a>
 
 The following example skips replication of the transaction with the GTID `3E11FA47-71CA-11E1-9E33-C80AA9429562:23`.
 
-```
+```sql
 CALL mysql.rds_skip_transaction_with_gtid('3E11FA47-71CA-11E1-9E33-C80AA9429562:23');
 ```
 
@@ -61,7 +60,7 @@ Initiates replication from an RDS for MySQL DB instance and stops replication im
 
  
 
-```
+```sql
 CALL mysql.rds_start_replication_until_gtid({{gtid}});
 ```
 
@@ -76,7 +75,7 @@ The GTID after which replication is to stop.
 
 The master user must run the `mysql.rds_start_replication_until_gtid` procedure.
 
-This procedure is supported for all RDS for MySQL 5.7 versions, all RDS for MySQL 8.0 versions, and all RDS for MySQL 8.4 versions.
+This procedure is supported for all RDS for MySQL 5.7 versions, all RDS for MySQL 8.0 versions, all RDS for MySQL 8.4 versions, and all RDS for MySQL 9.7 versions.
 
 You can use this procedure with delayed replication for disaster recovery. If you have delayed replication configured, you can use this procedure to roll forward changes to a delayed read replica to the time just before a disaster. After this procedure stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md).
 
@@ -93,6 +92,6 @@ When the `gtid` parameter specifies a transaction that has already been run by t
 
 The following example initiates replication and replicates changes until it reaches GTID `3E11FA47-71CA-11E1-9E33-C80AA9429562:23`.
 
-```
+```sql
 call mysql.rds_start_replication_until_gtid('3E11FA47-71CA-11E1-9E33-C80AA9429562:23');
 ```

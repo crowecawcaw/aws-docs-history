@@ -1,7 +1,6 @@
 
 
 # Revoking system-level permissions
-<a name="SSRS.Access.Revoke"></a>
 
 The `RDS_SSRS_ROLE` system role doesn't have sufficient permissions to delete system-level role assignments. To remove a user or user group from `RDS_SSRS_ROLE`, use the same stored procedure that you used to grant the role but use the `SSRS_REVOKE_PORTAL_PERMISSION` task type.
 

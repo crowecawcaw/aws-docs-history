@@ -1,7 +1,6 @@
 
 
 # Importing data from any source to an Amazon RDS for MariaDB DB instance
-<a name="mariadb-importing-data-any-source"></a>
 
 With Amazon RDS, you can migrate existing MariaDB data from any source to an RDS for MariaDB DB instance. You can transfer data from on-premises databases, other cloud providers, or existing RDS for MariaDB DB instances to your target RDS for MariaDB DB instance. With this functionality, you can consolidate databases, implement disaster recovery solutions, or transition from self-managed databases. Common scenarios include moving from self-hosted MariaDB servers to fully managed Amazon RDS DB instances, consolidating multiple MariaDB databases into a single DB instance, or creating test environments with production data. The following sections provide step-by-step instructions for importing your MariaDB data using methods such as `mariadb-dump`, backup files, or replication.
 
@@ -16,7 +15,7 @@ The speed and efficiency of this procedure depends on keeping the size of the fi
 
 On Unix-like systems (including Linux), use the `split` command. For example, the following command splits the `sales.csv` file into multiple files of less than 1 GiB, splitting only at line breaks (-C 1024m). The names of the new files include ascending numerical suffixes. The following command produces files with names such as `sales.part_00` and `sales.part_01`. 
 
-```
+```bash
 split -C 1024m -d sales.csv sales.part_ 
 ```
 

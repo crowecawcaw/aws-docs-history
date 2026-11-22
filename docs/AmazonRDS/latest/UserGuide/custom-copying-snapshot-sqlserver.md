@@ -1,7 +1,6 @@
 
 
 # Copying an Amazon RDS Custom for SQL Server DB snapshot
-<a name="custom-copying-snapshot-sqlserver"></a>
 
 With RDS Custom for SQL Server, you can copy automated backups and manual DB snapshots. After copying a snapshot, the copy you create is a manual snapshot. You can make multiple copies of an automated backup or manual snapshot but each copy must have a unique identifier.
 
@@ -104,7 +103,7 @@ The following sample JSON policy grants the required permissions in addition to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Working with PostgreSQL features supported by Amazon RDS for PostgreSQL
-<a name="PostgreSQL.Concepts.General.FeatureSupport"></a>
 
 Amazon RDS for PostgreSQL supports many of the most common PostgreSQL features. For example, PostgreSQL has an autovacuum feature that performs routine maintenance on the database. The autovacuum feature is active by default. Although you can turn off this feature, we highly recommend that you keep it on. Understanding this feature and what you can do to make sure it works as it should is a basic task of any DBA. For more information about the autovacuum, see [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md). To learn more about other common DBA tasks, [Common DBA tasks for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md). 
 

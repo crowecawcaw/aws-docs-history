@@ -1,7 +1,6 @@
 
 
 # Working with AWS Managed Active Directory with RDS for Db2
-<a name="db2-managed-active-directory"></a>
 
 You can use Kerberos authentication to authenticate users when they connect to your Amazon RDS for Db2 DB instance. In this configuration, your DB instance works with AWS Directory Service for Microsoft Active Directory, also called AWS Managed Microsoft AD. You add the domain and other information of your AWS Managed Microsoft AD directory to your RDS for Db2 DB instance. When users authenticate with an RDS for Db2 DB instance joined to the trusting domain, authentication requests are forwarded to the AWS Managed Microsoft AD directory that you created with Directory Service. 
 

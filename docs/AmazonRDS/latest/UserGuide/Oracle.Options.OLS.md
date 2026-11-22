@@ -1,7 +1,6 @@
 
 
 # Oracle Label Security
-<a name="Oracle.Options.OLS"></a>
 
 Amazon RDS supports Oracle Label Security for the Enterprise Edition of Oracle Database through the use of the OLS option.
 
@@ -31,7 +30,7 @@ Consider the following:
 + When you work with Label Security, you perform all actions as the `LBAC_DBA` role. The master user for your DB instance is granted the `LBAC_DBA` role. You can grant the `LBAC_DBA` role to other users so that they can administer Label Security policies.
 + Make sure to grant access to the `OLS_ENFORCEMENT` package to any new users who require access to Oracle Label Security. To grant access to the `OLS_ENFORCEMENT` package, connect to the DB instance as the master user and run the following SQL statement:
 
-  ```
+  ```sql
   GRANT ALL ON LBACSYS.OLS_ENFORCEMENT TO {{username}};
   ```
 + You can configure Label Security through Oracle Enterprise Manager (OEM) Cloud Control. Amazon RDS supports OEM Cloud Control through the Management Agent option. For more information, see [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.OEMAgent.md). 

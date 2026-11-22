@@ -1,7 +1,6 @@
 
 
 # Cross-Availability Zone ENA Express support for Multi-AZ deployments
-<a name="Concepts.DBInstanceClass.CrossAZENAExpress"></a>
 
 Amazon RDS supports Cross-Availability Zone ENA Express for eligible DB instance classes in Multi-AZ deployments using AWS's Scalable Reliable Datagram (SRD) protocol. Cross-Availability Zone ENA Express increases single-flow network bandwidth enabling faster block-level data replication between primary and standby DB instances.
 

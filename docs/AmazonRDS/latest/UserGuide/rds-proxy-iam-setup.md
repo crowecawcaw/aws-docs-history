@@ -1,7 +1,6 @@
 
 
 # Configuring IAM authentication for RDS Proxy
-<a name="rds-proxy-iam-setup"></a>
 
 To set up AWS Identity and Access Management (IAM) authentication for RDS Proxy in Amazon RDS, create and configure an IAM policy that grants the necessary permissions. 
 
@@ -40,7 +39,7 @@ To authenticate your RDS Proxy to the database using IAM, create an IAM role wit
    + Substitute `us-east-2` with the where the proxy must reside.
    + Substitute the database resource IDs and user names with the ones you want to use. The resource ID format differs between RDS instances and Aurora clusters.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -143,7 +142,7 @@ To allow RDS Proxy to retrieve database credentials from Secrets Manager, create
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -184,7 +183,7 @@ To allow RDS Proxy to retrieve database credentials from Secrets Manager, create
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

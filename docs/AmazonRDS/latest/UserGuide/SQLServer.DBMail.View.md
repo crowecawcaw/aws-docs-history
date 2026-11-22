@@ -1,7 +1,6 @@
 
 
 # Viewing messages, logs, and attachments
-<a name="SQLServer.DBMail.View"></a>
 
 You use RDS stored procedures to view messages, event logs, and attachments.
 

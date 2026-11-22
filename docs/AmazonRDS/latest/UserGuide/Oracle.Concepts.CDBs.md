@@ -1,7 +1,6 @@
 
 
 # Overview of RDS for Oracle CDBs
-<a name="Oracle.Concepts.CDBs"></a>
 
 You can create an RDS for Oracle DB instance as a container database (CDB) when you run Oracle Database 19c or higher. Starting with Oracle Database 21c, all databases are CDBs. A CDB differs from a non-CDB because it can contain pluggable databases (PDBs), which are called tenant databases in RDS for Oracle. A PDB is a portable collection of schemas and objects that appears to an application as a separate database.
 

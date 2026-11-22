@@ -1,7 +1,6 @@
 
 
 # Setting up logical replication for RDS for PostgreSQL DB instance
-<a name="Appendix.PostgreSQL.CommonDBATasks.pglogical.setup-replication"></a>
 
 The following procedure shows you how to start logical replication between two RDS for PostgreSQL DB instances. The steps assume that both the source (publisher) and the target (subscriber) have the `pglogical` extension set up as detailed in [Setting up the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.basic-setup.md). 
 

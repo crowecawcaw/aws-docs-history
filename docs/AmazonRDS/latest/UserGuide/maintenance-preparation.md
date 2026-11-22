@@ -1,7 +1,6 @@
 
 
 # Maintenance preparation in RDS for Oracle
-<a name="maintenance-preparation"></a>
 
 Amazon RDS can prepare resources for minor version upgrades and operating system updates on an RDS for Oracle DB instance before the maintenance window starts. Before the window, the preparation does work that doesn't require downtime. This helps reduce the time that the maintenance takes.
 

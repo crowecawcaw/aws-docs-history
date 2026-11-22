@@ -1,7 +1,6 @@
 
 
 # Scenarios for accessing a DB instance in a VPC
-<a name="USER_VPC.Scenarios"></a>
 
 Amazon RDS supports the following scenarios for accessing a DB instance in a VPC:
 + [An Amazon EC2 instance in the same VPC](#USER_VPC.Scenario1)

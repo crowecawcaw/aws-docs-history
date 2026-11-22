@@ -1,7 +1,6 @@
 
 
 # Parameters for logging in RDS for PostgreSQL
-<a name="USER_LogAccess.Concepts.PostgreSQL.overview.parameter-groups"></a>
 
 You can customize the logging behavior for your RDS for PostgreSQL DB instance by modifying various parameters. In the following table you can find the parameters that affect how long the logs are stored, when to rotate the log, and whether to output the log as a CSV (comma-separated value) format. You can also find the text output sent to STDERR, among other settings. To change settings for the parameters that are modifiable, use a custom DB parameter group for your RDS for PostgreSQL instance. For more information, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md).
 

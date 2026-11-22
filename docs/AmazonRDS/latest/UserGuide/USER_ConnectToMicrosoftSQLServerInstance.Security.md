@@ -1,7 +1,6 @@
 
 
 # Security group considerations
-<a name="USER_ConnectToMicrosoftSQLServerInstance.Security"></a>
 
 To connect to your DB instance, your DB instance must be associated with a security group. This security group contains the IP addresses and network configuration that you use to access the DB instance. You might have associated your DB instance with an appropriate security group when you created your DB instance. If you assigned a default, no-configured security group when you created your DB instance, your DB instance firewall prevents connections.
 

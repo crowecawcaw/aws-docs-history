@@ -1,7 +1,6 @@
 
 
 # Local time zone for Amazon RDS for Db2 DB instances
-<a name="db2-time-zone"></a>
 
 The time zone of an Amazon RDS DB instance running Db2 is set by default. The default is UTC. To match the time zone of your applications, you can set the time zone of your DB instance to a local time zone instead.
 

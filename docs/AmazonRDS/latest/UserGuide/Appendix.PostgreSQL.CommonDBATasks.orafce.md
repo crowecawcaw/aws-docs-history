@@ -1,7 +1,6 @@
 
 
 # Using functions from the orafce extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.orafce"></a>
 
 The orafce extension provides functions and operators that emulate a subset of functions and packages from an Oracle database. The orafce extension makes it easier for you to port an Oracle application to PostgreSQL. RDS for PostgreSQL versions 9.6.6 and higher support this extension. For more information about orafce, see [orafce](https://github.com/orafce/orafce) on GitHub.
 
@@ -16,13 +15,13 @@ RDS for PostgreSQL doesn't support the `utl_file` package that is part of the or
 
 1. Turn on the orafce extension with the `CREATE EXTENSION` statement.
 
-   ```
+   ```sql
    CREATE EXTENSION orafce;
    ```
 
 1. Transfer ownership of the oracle schema to the rds\_superuser role with the `ALTER SCHEMA` statement.
 
-   ```
+   ```sql
    ALTER SCHEMA oracle OWNER TO rds_superuser;
    ```
 

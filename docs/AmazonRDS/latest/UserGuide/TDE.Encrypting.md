@@ -1,7 +1,6 @@
 
 
 # Encrypting data on RDS for SQL Server
-<a name="TDE.Encrypting"></a>
 
 When the TDE option is added to an option group, Amazon RDS generates a certificate that's used in the encryption process. You can then use the certificate to run SQL statements that encrypt data in a database on the DB instance.
 

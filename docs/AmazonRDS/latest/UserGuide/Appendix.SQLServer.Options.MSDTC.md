@@ -1,7 +1,6 @@
 
 
 # Support for Microsoft Distributed Transaction Coordinator in RDS for SQL Server
-<a name="Appendix.SQLServer.Options.MSDTC"></a>
 
 A *distributed transaction* is a database transaction in which two or more network hosts are involved. RDS for SQL Server supports distributed transactions among hosts, where a single host can be one of the following:
 + RDS for SQL Server DB instance

@@ -1,7 +1,6 @@
 
 
 # Automated backups with unsupported MariaDB storage engines
-<a name="Overview.BackupDeviceRestrictionsMariaDB"></a>
 
 For the MariaDB DB engine, automated backups are only supported with the InnoDB storage engine. Using these features with other MariaDB storage engines, including Aria, can lead to unreliable behavior when you're restoring from backups. Even though Aria is a crash-resistant alternative to MyISAM, your tables can still be corrupted in the event of a crash. For this reason, we encourage you to use the InnoDB storage engine. 
 + To convert existing Aria tables to InnoDB tables, you can use the `ALTER TABLE` command. For example: `ALTER TABLE {{table_name}} ENGINE=innodb, ALGORITHM=COPY;` 

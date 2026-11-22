@@ -1,7 +1,6 @@
 
 
 # Upgrading a DB instance engine version
-<a name="USER_UpgradeDBInstance.Upgrading"></a>
 
 Amazon RDS provides newer versions of each supported database engine so you can keep your DB instance up-to-date. Newer versions can include bug fixes, security enhancements, and other improvements for the database engine. When Amazon RDS supports a new version of a database engine, you can choose how and when to upgrade your database DB instances.
 

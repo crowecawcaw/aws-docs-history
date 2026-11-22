@@ -1,7 +1,6 @@
 
 
 # Configuring UTL\_HTTP access using certificates and an Oracle wallet
-<a name="Oracle.Concepts.ONA"></a>
 
 Amazon RDS supports outbound network access on your RDS for Oracle DB instances. To connect your DB instance to the network, you can use the following PL/SQL packages:
 
@@ -162,7 +161,7 @@ In this step, you upload your Oracle wallet to Amazon S3, and then download the 
 
    The following example downloads the wallet named {{cwallet.sso}} from the Amazon S3 bucket named {{my\_s3\_bucket}} to the DB instance directory named {{WALLET\_DIR}}.
 
-   ```
+   ```sql
    SELECT rdsadmin.rdsadmin_s3_tasks.download_from_s3(
          p_bucket_name    =>  '{{my_s3_bucket}}', 
          p_s3_prefix      =>  '{{cwallet.sso}}', 

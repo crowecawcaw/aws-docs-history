@@ -1,7 +1,6 @@
 
 
 # Transporting PostgreSQL databases between DB instances
-<a name="PostgreSQL.TransportableDB"></a>
 
 By using PostgreSQL transportable databases for Amazon RDS, you can move a PostgreSQL database between two DB instances. This is a very fast way to migrate large databases between different DB instances. To use this approach, your DB instances must both run the same major version of PostgreSQL. 
 
@@ -33,7 +32,7 @@ During transport, you can't restore the destination DB instance to a point in ti
 
 If the transport fails, the `pg_transport` extension attempts to undo all changes to the source and destination DB instances. This includes removing the destination's partially transported database. Depending on the type of failure, the source database might continue to reject write-enabled queries. If this happens, use the following command to allow write-enabled queries.
 
-```
+```sql
 ALTER DATABASE {{db-name}} SET default_transaction_read_only = false;
 ```
 

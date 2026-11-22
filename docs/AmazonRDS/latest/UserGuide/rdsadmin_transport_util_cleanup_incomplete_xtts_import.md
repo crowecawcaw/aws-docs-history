@@ -1,14 +1,13 @@
 
 
 # Deleting orphaned data files after a tablespace import
-<a name="rdsadmin_transport_util_cleanup_incomplete_xtts_import"></a>
 
 Use the `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to delete data files that were orphaned after a tablespace import. Running this command generates a log file that uses the name format `rds-xtts-delete_xtts_orphaned_files-{{YYYY-MM-DD.HH24-MI-SS.FF}}.log` in the `BDUMP` directory. Use the procedure `rdsadmin.rdsadmin_transport_util.cleanup_incomplete_xtts_import` to find the orphaned files. You can read the log file by calling the procedure `rdsadmin.rds_file_util.read_text_file`. For more information, see [Phase 6: Clean up leftover files](oracle-migrating-tts.md#oracle-migrating-tts.cleanup).
 
 ## Syntax
 <a name="rdsadmin_transport_util_cleanup_incomplete_xtts_import-syntax"></a>
 
-```
+```sql
 PROCEDURE cleanup_incomplete_xtts_import(
     p_directory_name IN VARCHAR2);
 ```
@@ -27,7 +26,7 @@ PROCEDURE cleanup_incomplete_xtts_import(
 
 The following example deletes the orphaned data files in {{DATA\_PUMP\_DIR}}.
 
-```
+```sql
 BEGIN
   rdsadmin.rdsadmin_transport_util.cleanup_incomplete_xtts_import('{{DATA_PUMP_DIR}}');
 END;

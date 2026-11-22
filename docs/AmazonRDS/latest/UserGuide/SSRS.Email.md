@@ -1,7 +1,6 @@
 
 
 # Using reporting services email to send reports
-<a name="SSRS.Email"></a>
 
 SSRS and PBIRS include an email extension that you can use to send reports to users.
 
@@ -55,7 +54,7 @@ If you change the secret later, you must also update the `SSRS` or `PBIRS` optio
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement" : [ {

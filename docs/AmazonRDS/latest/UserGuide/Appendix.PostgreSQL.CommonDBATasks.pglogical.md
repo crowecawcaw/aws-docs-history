@@ -1,7 +1,6 @@
 
 
 # Using pglogical to synchronize data across instances
-<a name="Appendix.PostgreSQL.CommonDBATasks.pglogical"></a>
 
 All currently available RDS for PostgreSQL versions support the `pglogical` extension. The pglogical extension predates the functionally similar logical replication feature that was introduced by PostgreSQL in version 10. For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md).
 

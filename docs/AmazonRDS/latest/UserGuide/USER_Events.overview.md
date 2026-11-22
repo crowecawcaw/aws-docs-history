@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon RDS event notification
-<a name="USER_Events.overview"></a>
 
 Amazon RDS groups events into categories that you can subscribe to so that you can be notified when an event in that category occurs.
 

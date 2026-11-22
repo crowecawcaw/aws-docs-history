@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB instance using IAM authentication from the command line: AWS CLI and mysql client
-<a name="UsingWithRDS.IAMDBAuth.Connecting.AWSCLI"></a>
 
 You can connect from the command line to an Amazon RDS DB instance with the AWS CLI and `mysql` command line tool as described following.
 

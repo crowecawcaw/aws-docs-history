@@ -1,7 +1,6 @@
 
 
 # Crosschecking archived redo logs
-<a name="Appendix.Oracle.CommonDBATasks.Crosscheck"></a>
 
 You can crosscheck archived redo logs using the Amazon RDS procedure `rdsadmin.rdsadmin_rman_util.crosscheck_archivelog`.
 
@@ -29,7 +28,7 @@ This procedure is supported for the following Amazon RDS for Oracle DB engine ve
 
 The following example marks archived redo log records in the control file as expired, but does not delete the records.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.crosscheck_archivelog(
         p_delete_expired      => {{FALSE}},  
@@ -40,7 +39,7 @@ END;
 
 The following example deletes expired archived redo log records from the control file.
 
-```
+```sql
 BEGIN
     rdsadmin.rdsadmin_rman_util.crosscheck_archivelog(
         p_delete_expired      => {{TRUE}},  

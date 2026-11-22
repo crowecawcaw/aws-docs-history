@@ -1,7 +1,6 @@
 
 
 # Local time zone for Microsoft SQL Server DB instances
-<a name="SQLServer.Concepts.General.TimeZone"></a>
 
 The time zone of an Amazon RDS DB instance running Microsoft SQL Server is set by default. The current default is Coordinated Universal Time (UTC). You can set the time zone of your DB instance to a local time zone instead, to match the time zone of your applications.
 
@@ -21,11 +20,15 @@ The following are limitations to setting the local time zone on your DB instance
 
 You can set your local time zone to one of the values listed in the following table.
 
+**Note**  
+The `Alberta Standard Time`, `British Columbia Standard Time`, and `Manitoba Standard Time` time zones are currently available only in AWS commercial Regions in the United States and Canada.
+
 
 | Time zone | Standard time offset | Description | Notes | 
 | --- | --- | --- | --- | 
 | Afghanistan Standard Time | (UTC\+04:30) | Kabul | This time zone doesn't observe daylight saving time. | 
 | Alaskan Standard Time | (UTC–09:00) | Alaska |  | 
+| Alberta Standard Time | (UTC–06:00) | Mountain Time (Alberta) | This time zone doesn't observe daylight saving time. | 
 | Aleutian Standard Time | (UTC–10:00) | Aleutian Islands |  | 
 | Altai Standard Time | (UTC\+07:00) | Barnaul, Gorno-Altaysk |  | 
 | Arab Standard Time | (UTC\+03:00) | Kuwait, Riyadh | This time zone doesn't observe daylight saving time. | 
@@ -43,6 +46,7 @@ You can set your local time zone to one of the values listed in the following ta
 | Bangladesh Standard Time | (UTC\+06:00) | Dhaka | This time zone doesn't observe daylight saving time. | 
 | Belarus Standard Time | (UTC\+03:00) | Minsk | This time zone doesn't observe daylight saving time. | 
 | Bougainville Standard Time | (UTC\+11:00) | Bougainville Island |  | 
+| British Columbia Standard Time | (UTC–07:00) | Pacific Time (British Columbia) | This time zone doesn't observe daylight saving time. | 
 | Canada Central Standard Time | (UTC–06:00) | Saskatchewan | This time zone doesn't observe daylight saving time. | 
 | Cape Verde Standard Time | (UTC–01:00) | Cabo Verde Is. | This time zone doesn't observe daylight saving time. | 
 | Caucasus Standard Time | (UTC\+04:00) | Yerevan |  | 
@@ -89,6 +93,7 @@ You can set your local time zone to one of the values listed in the following ta
 | Lord Howe Standard Time | (UTC\+10:30) | Lord Howe Island |  | 
 | Magadan Standard Time | (UTC\+11:00) | Magadan | This time zone doesn't observe daylight saving time. | 
 | Magallanes Standard Time | (UTC–03:00) | Punta Arenas |  | 
+| Manitoba Standard Time | (UTC–05:00) | Manitoba | This time zone doesn't observe daylight saving time. | 
 | Marquesas Standard Time | (UTC–09:30) | Marquesas Islands |  | 
 | Mauritius Standard Time | (UTC\+04:00) | Port Louis | This time zone doesn't observe daylight saving time. | 
 | Middle East Standard Time | (UTC\+02:00) | Beirut |  | 

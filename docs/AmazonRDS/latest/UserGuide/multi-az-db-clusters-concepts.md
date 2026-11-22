@@ -1,7 +1,6 @@
 
 
 # Multi-AZ DB cluster deployments for Amazon RDS
-<a name="multi-az-db-clusters-concepts"></a>
 
 A *Multi-AZ DB cluster deployment* is a semisynchronous, high availability deployment mode of Amazon RDS with two readable replica DB instances. A Multi-AZ DB cluster has a writer DB instance and two reader DB instances in three separate Availability Zones in the same AWS Region. Multi-AZ DB clusters provide high availability, increased capacity for read workloads, and lower write latency when compared to Multi-AZ DB instance deployments.
 
@@ -113,7 +112,7 @@ When you are using RDS for MySQL Multi-AZ DB clusters, flow control is turned on
 
 To view the current delay injected by flow control, show the parameter `Rpl_semi_sync_master_flow_control_current_delay` by running the following query.
 
-```
+```sql
 SHOW GLOBAL STATUS like '%flow_control%';
 ```
 

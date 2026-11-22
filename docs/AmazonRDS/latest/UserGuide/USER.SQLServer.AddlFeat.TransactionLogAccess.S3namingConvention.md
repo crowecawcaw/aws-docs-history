@@ -1,7 +1,6 @@
 
 
 # Amazon S3 bucket folder and file structure
-<a name="USER.SQLServer.AddlFeat.TransactionLogAccess.S3namingConvention"></a>
 
 Transaction log backups have the following standard structure and naming convention within an Amazon S3 bucket:
 + A new folder is created under the `target_s3_arn` path for each database with the naming structure as `{db_id}.{family_guid}`.

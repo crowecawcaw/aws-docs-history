@@ -1,7 +1,6 @@
 
 
 # Listing available transaction log backups
-<a name="USER.SQLServer.AddlFeat.TransactionLogAccess.Listing"></a>
 
 With RDS for SQL Server, databases configured to use the full recovery model and a DB instance backup retention set to one or more days have transaction log backups automatically enabled. By enabling access to transaction log backups, up to seven days of those transaction log backups are made available for you to copy into your Amazon S3 bucket.
 

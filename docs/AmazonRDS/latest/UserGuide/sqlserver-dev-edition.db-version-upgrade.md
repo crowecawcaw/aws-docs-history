@@ -1,7 +1,6 @@
 
 
 # Applying database version upgrades
-<a name="sqlserver-dev-edition.db-version-upgrade"></a>
 
 RDS for SQL Server Developer Edition supports both minor and major version upgrades using Custom Engine Versions (CEVs). Upgrading requires creating a new CEV with the latest Cumulative Update (CU) and applying it to your instance. Database version upgrades for SQL Server Developer Edition involve the following steps:
 

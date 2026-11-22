@@ -1,7 +1,6 @@
 
 
 # Modifying settings for General Purpose SSD (gp3) storage
-<a name="USER_PIOPS.gp3"></a>
 
 You can modify the settings for a DB instance that uses General Purpose SSD (gp3) storage by using the Amazon RDS console, AWS CLI, or Amazon RDS API. Specify the storage type, allocated storage, amount of Provisioned IOPS, and storage throughput that you require.
 
