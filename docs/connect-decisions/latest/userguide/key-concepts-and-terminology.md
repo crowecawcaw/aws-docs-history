@@ -1,7 +1,6 @@
 
 
 # Key Concepts and Terminology
-<a name="key-concepts-and-terminology"></a>
 
 ## Decisioning
 <a name="key-concepts-decisioning"></a>

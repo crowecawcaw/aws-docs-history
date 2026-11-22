@@ -1,7 +1,6 @@
 
 
 # Creating and Configuring a Demand Plan (Self-Tuning)
-<a name="creating-and-configuring-a-demand-plan-self-tuning"></a>
 
 ## Overview
 <a name="creating-and-configuring-a-demand-plan-self-tuning-overview"></a>

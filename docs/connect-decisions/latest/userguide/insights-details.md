@@ -1,7 +1,6 @@
 
 
 # Insights Details
-<a name="insights-details"></a>
 
 The Insights Details page provides comprehensive information about a specific insight, including root cause analysis, key metrics, recommendations, and related insights. This page helps you understand the issue, assess its impact, and determine the appropriate actions to resolve it.
 

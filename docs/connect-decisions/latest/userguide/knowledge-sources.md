@@ -1,7 +1,6 @@
 
 
 # Knowledge Sources
-<a name="knowledge-sources"></a>
 
 Knowledge Sources are documents you share with Amazon Connect Decisions that give it context about your operations and monitoring requirements. Amazon Connect Decisions analyzes them and uses that understanding to inform how metrics, rules, and guidelines are configured in subsequent steps. Typical sources include SOPs, business policies, and operational guidelines.
 

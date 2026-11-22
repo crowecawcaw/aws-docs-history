@@ -1,7 +1,6 @@
 
 
 # Configuring Insights
-<a name="decisioning-configuring-insights"></a>
 
 Insights configuration is how you teach Amazon Connect Decisions what to watch for, how to interpret what it finds, and how to prioritize what surfaces to your team. Configuration applies to both demand and supply monitoring. There are four areas to work through in sequence: Knowledge Sources, Detection (Metrics and Rules), Root Causes and Recommendations (Guidelines), and Prioritization (Severity). A preview is available at each step so you can validate before activating any configurations.
 

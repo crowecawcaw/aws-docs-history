@@ -1,7 +1,6 @@
 
 
 # Creating and Configuring a Demand Plan
-<a name="creating-and-configuring-a-demand-plan"></a>
 
 **To create a demand plan:**
 

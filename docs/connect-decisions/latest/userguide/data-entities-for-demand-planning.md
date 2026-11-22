@@ -1,7 +1,6 @@
 
 
 # Data Entities for Demand Planning
-<a name="data-entities-for-demand-planning"></a>
 
 The following table lists the data entities and columns used by Demand Planning.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding Your Homepage
-<a name="understanding-your-homepage"></a>
 
 Welcome to Amazon Connect Decisions. The homepage is your central hub for supply chain decision intelligence. This guide walks you through each section of the homepage so you can quickly orient yourself and start taking action. Homepage is comprised of four key sections - Section 1: Metrics; Section 2: Top topics for today; Section 3 - AI supply chain teammate; and (4) Navigation bar.
 

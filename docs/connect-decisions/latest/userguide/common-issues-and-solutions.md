@@ -1,7 +1,6 @@
 
 
 # Common Issues and Solutions
-<a name="common-issues-and-solutions"></a>
 
 ## Common Data Issues
 <a name="common-issues-common-data-issues"></a>

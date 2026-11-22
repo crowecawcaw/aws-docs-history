@@ -1,7 +1,6 @@
 
 
 # Rerun Demand Plans for the Next Planning Cycle
-<a name="rerun-demand-plans-for-the-next-planning-cycle"></a>
 
 After the plan is published, you can rerun the plan to produce a new forecast that uses the most up-to-date historical demand data as well as any additional input updates.
 

@@ -1,7 +1,6 @@
 
 
 # Data Requirements for Supply Planning
-<a name="data-requirements-for-supply-planning"></a>
 
 **Data Entities for Supply Planning**
 

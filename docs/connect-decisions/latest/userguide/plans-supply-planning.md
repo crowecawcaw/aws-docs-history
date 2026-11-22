@@ -1,7 +1,6 @@
 
 
 # Supply Planning
-<a name="plans-supply-planning"></a>
 
  Amazon Connect Decisions generates constraint-based supply plans that translate your demand forecasts into feasible, actionable production and procurement schedules. Supply plans respect real-world operational constraints like material availability, lead times, production capacity, and warehouse space limits so you can move from planning to execution with confidence. 
 

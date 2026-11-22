@@ -1,7 +1,6 @@
 
 
 # Reviewing and Analyzing Plans
-<a name="reviewing-and-analyzing-plans"></a>
 
 **To review a demand plan:**
 

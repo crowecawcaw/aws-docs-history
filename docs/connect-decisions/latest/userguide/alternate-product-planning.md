@@ -1,7 +1,6 @@
 
 
 # Alternate Product Planning
-<a name="alternate-product-planning"></a>
 
 The Alternate Product Planning feature enables customers to define alternate product relationships in supply planning. When an alternate product relationship is defined, supply planning considers available inventory and supply of the alternate product at the same site when fulfilling demand for the main product. The system consumes the available alternate product supply first. Once that supply is exhausted, the system will then create new planned orders for the main product.
 

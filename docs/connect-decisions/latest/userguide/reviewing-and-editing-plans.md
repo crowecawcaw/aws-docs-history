@@ -1,7 +1,6 @@
 
 
 # Reviewing and Editing Plans
-<a name="reviewing-and-editing-plans"></a>
 
 To review a supply plan:
 

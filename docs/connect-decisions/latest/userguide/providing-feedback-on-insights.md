@@ -1,7 +1,6 @@
 
 
 # Providing Feedback on Insights
-<a name="providing-feedback-on-insights"></a>
 
 Amazon Connect Decisions enables you to provide feedback on any insight — including Root Cause Analysis (RCA) findings and Recommendations generated for insights — directly through the Natural Language Interface (NLI). Your feedback helps Amazon Connect Decisions agents learn and improve the accuracy of future analyses and recommendations. There are two ways to provide feedback: **Natural Language feedback in the NLI and Thumbs Up/Down ratings** to the agent's response in the NLI.
 

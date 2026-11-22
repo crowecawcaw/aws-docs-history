@@ -1,7 +1,6 @@
 
 
 # What is Amazon Connect Decisions
-<a name="what-is-amazon-connect-decisions"></a>
 
 Amazon Connect Decisions is a supply chain planning and intelligence solution with AI teammates that work alongside your team harmonizing demand signals into consensus forecasts, generating constraint-aware supply plans, and actively monitoring your operations to prevent problems, resolve issues, and identify root causes for continuous improvement.
 

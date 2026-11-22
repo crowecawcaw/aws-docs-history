@@ -1,7 +1,6 @@
 
 
 # Demand Planning
-<a name="plans-demand-planning"></a>
 
 A plan is created for a defined time horizon and refreshed periodically through rolling time windows (planning cycles). Each demand plan can contain multiple versions within a planning cycle to support refinement of plan for any incremental data received within a planning cycle.
 

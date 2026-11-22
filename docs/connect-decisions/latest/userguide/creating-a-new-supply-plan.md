@@ -1,7 +1,6 @@
 
 
 # Creating a New Supply Plan
-<a name="creating-a-new-supply-plan"></a>
 
  **To create a supply plan:** 
 

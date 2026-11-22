@@ -1,7 +1,6 @@
 
 
 # Filtering and Sorting Insights
-<a name="filtering-and-sorting-insights"></a>
 
 Amazon Connect Decisions provides comprehensive filtering and sorting capabilities that help you quickly focus on the insights most relevant to your supply chain responsibilities. You can navigate to the Insights page from multiple entry points and apply filters based on product hierarchies, site hierarchies, insight properties, and custom business segments.
 

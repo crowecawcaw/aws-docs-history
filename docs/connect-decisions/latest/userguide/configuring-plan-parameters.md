@@ -1,7 +1,6 @@
 
 
 # Configuring Plan Parameters
-<a name="configuring-plan-parameters"></a>
 
 ## Configure an existing Supply Plan
 <a name="configuring-plan-parameters-configure-existing-supply-plan"></a>

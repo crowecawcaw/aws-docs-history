@@ -1,7 +1,6 @@
 
 
 # Editing Forecasts
-<a name="editing-forecasts"></a>
 
 You can adjust forecasts based on your business knowledge and market insights.
 

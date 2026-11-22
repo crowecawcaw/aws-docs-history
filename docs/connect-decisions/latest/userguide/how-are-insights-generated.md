@@ -1,12 +1,11 @@
 
 
 # How are Insights generated?
-<a name="how-are-insights-generated"></a>
 
 Amazon Connect Decisions uses a systematic process to monitor your supply chain data, detect issues, and generate insights with actionable recommendations. Understanding this process helps you configure effective rules and interpret the insights you receive.
 
 ## The Insight Generation Process
-<a name="how-are-insights-generated-insight-generation-process"></a>
+<a name="how-are-insights-generated-process"></a>
 
 Insight generation follows a four-stage process that transforms your supply chain data into actionable intelligence:
 
@@ -53,7 +52,7 @@ When a rule is triggered, Amazon Connect Decisions automatically performs root c
 
 Policy-based rules guide this analysis by providing qualitative guidelines on how the system should consider and analyze problems. For example, a policy-based rule might state: "For inventory shortage insights, always analyze the following root causes: demand forecast error, supplier lead time issues, production capacity constraints."
 
-The root cause analysis identifies the primary drivers behind the issue and provides detailed explanation of contributing factors. To avoid unwanted long delays when iterating on configurations, the automatic root cause analysis and recommendation generation are subject to a daily processing quota for your instance. If the quota is reached, remaining exceptions are not automatically processed that day - you can still investigate any exception you choose using an on-demand investigation. See "On-demand Investigations" for how to trigger them.
+The root cause analysis identifies the primary drivers behind the issue and provides detailed explanation of contributing factors. To avoid unwanted long delays when iterating on configurations, the automatic root cause analysis and recommendation generation are subject to a daily processing quota for your instance. If the quota is reached, remaining insights are not automatically processed that day - you can still investigate any insight you choose using an on-demand investigation. See "On-demand Investigations" for how to trigger them.
 
 ### 4. Insight Creation and Recommendation Generation
 <a name="how-are-insights-generated-insight-creation"></a>

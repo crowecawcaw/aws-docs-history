@@ -1,7 +1,6 @@
 
 
 # Acting on Recommendations
-<a name="acting-on-recommendations"></a>
 
 The Insights Details page allows you to review and act on system-generated recommendations designed to resolve supply chain issues. This page explains how to evaluate recommendations and execute the suggested actions. You can configure Amazon Connect Decisions to interact with an external system to perform certain operations on your behalf; when enabled, Amazon Connect Decisions will offer to perform the actions recommended through the Insights (e.g.: creating, updating, or canceling Purchase Orders).
 

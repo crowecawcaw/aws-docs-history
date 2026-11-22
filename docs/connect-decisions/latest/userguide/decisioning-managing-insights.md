@@ -1,7 +1,6 @@
 
 
 # Managing Insights
-<a name="decisioning-managing-insights"></a>
 
 Once Amazon Connect Decisions generates insights based on your configured rules, your day-to-day work centers on reviewing, prioritizing, and acting on them. The pages in this section walk you through that process — from finding the right insights to taking action and closing the loop.
 

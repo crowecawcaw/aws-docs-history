@@ -1,7 +1,6 @@
 
 
 # Plans
-<a name="plans"></a>
 
 ## Planning with Amazon Connect Decisions
 <a name="plans-planning-with-amazon-connect-decisions"></a>

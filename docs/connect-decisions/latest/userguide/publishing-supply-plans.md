@@ -1,7 +1,6 @@
 
 
 # Publishing Supply Plans
-<a name="publishing-supply-plans"></a>
 
 After planners have reviewed and refined the supply plan, you can publish the final plan to make it available for downstream processes.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Forecast Performance
-<a name="monitoring-forecast-performance"></a>
 
 Amazon Connect Decisions tracks five standard statistical metrics to measure forecast accuracy for the user specified prediction lead time in the plan configuration:
 + **MAPE (Mean Absolute Percentage Error)**: (1/n) × Σ \|Actual - Forecast\| / \|Actual\| × 100%
