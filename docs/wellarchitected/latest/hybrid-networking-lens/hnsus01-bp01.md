@@ -1,7 +1,6 @@
 
 
 # HNSUS01-BP01 Decommission unused assets and consolidate redundant resources
-<a name="hnsus01-bp01"></a>
 
  Regularly audit your workload to identify and remove unused or redundant assets (for example, orphaned storage volumes, inactive EC2 instances, and outdated datasets). Consolidate overlapping resources (for example, duplicate reports and redundant databases) to eliminate waste. 
 

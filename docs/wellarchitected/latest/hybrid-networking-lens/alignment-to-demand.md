@@ -1,7 +1,6 @@
 
 
 # Alignment to demand
-<a name="alignment-to-demand"></a>
 
  In hybrid networking architectures, aligning network capacity with actual demand is fundamental to sustainability. Over-provisioned network connections waste energy through unused bandwidth and idle hardware, while under-provisioned links can cause retransmission and increased power consumption. By implementing demand-based capacity management and intelligent routing, organizations can optimize their network resource utilization while maintaining required performance levels. 
 

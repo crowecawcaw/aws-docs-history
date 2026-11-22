@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="data-protection"></a>
 
  Organizations should implement robust encryption methods for data in transit, establish clear access control policies that work consistently across hybrid boundaries. 
 

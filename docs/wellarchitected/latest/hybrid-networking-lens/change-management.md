@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
  Being aware of how change affects a system enables you to plan proactively, and monitoring enables you to quickly identify trends that could lead to capacity issues or SLA breaches. 
 

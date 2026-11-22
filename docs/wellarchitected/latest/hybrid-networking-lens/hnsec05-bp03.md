@@ -1,7 +1,6 @@
 
 
 # HNSEC05-BP03 Use application layer encryption
-<a name="hnsec05-bp03"></a>
 
  Applying TLS encryption at the application layer ensures data confidentiality even when transmitted over untrusted networks. For optimal security, use certificates for authentication where available and ensure encryption requirements follow the latest standards and best practices, allowing only secure protocols with strong cipher suites that are regularly monitored and updated. 
 

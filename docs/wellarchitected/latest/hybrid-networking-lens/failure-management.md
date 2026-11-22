@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
  Effective failure management for hybrid networking requires implementing robust strategies to maintain connectivity between on-premises infrastructure and AWS environments during disruptions. 
 

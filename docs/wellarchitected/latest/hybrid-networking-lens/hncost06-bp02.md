@@ -1,7 +1,6 @@
 
 
 # HNCOST06-BP02 Separate traffic classes for dedicated connections
-<a name="hncost06-bp02"></a>
 
  Create multiple dedicated connections for distinct traffic classes such as production versus backups. Assign guaranteed bandwidth to critical dedicated connections and use best-effort routing for dedicated connections. 
 

@@ -1,7 +1,6 @@
 
 
 # HNSEC04-BP04 Implement DNS security controls
-<a name="hnsec04-bp04"></a>
 
  DNS security control protects against DNS threats such as data exfiltration. You can create blocklists and allowlists to manage which domains your resources can query through DNS. 
 

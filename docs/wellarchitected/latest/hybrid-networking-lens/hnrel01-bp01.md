@@ -1,7 +1,6 @@
 
 
 # HNREL01-BP01 Implement redundant power infrastructure
-<a name="hnrel01-bp01"></a>
 
  Deploy dual power feeds, redundant uninterruptible power supply (UPS) systems, and backup generators for all critical network equipment. Regularly test and maintain power systems to ensure continuous operation during outages. 
 

@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 +  **Availability:** Percentage of time a connection is usable. 
 +  **Border gateway protocol (BGP):** Standardized routing protocol that enables autonomous networks to exchange routing information and determine optimal paths for data to travel across the internet. 
 +  **Bidirectional forwarding detection (BFD):** A detection protocol that provides fast forwarding path failure detection times. These fast failure detection times facilitate faster routing reconvergence times. 

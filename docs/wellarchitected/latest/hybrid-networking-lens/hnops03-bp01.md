@@ -1,7 +1,6 @@
 
 
 # HNOPS03-BP01 Monitor hybrid networking components
-<a name="hnops03-bp01"></a>
 
  Monitoring solutions serve as an essential tool to provide visibility across your hybrid network infrastructure. It enables collection, visualization, and analysis of metrics from network connectivity components like virtual private networks, dedicated connections, and network transit hubs, allowing teams to set alarms for performance thresholds and detect anomalies before they impact connectivity. 
 

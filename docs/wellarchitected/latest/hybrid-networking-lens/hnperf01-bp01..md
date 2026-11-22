@@ -1,7 +1,6 @@
 
 
 # HNPERF01-BP01 Determine and define your performance requirements using bandwidth, latency and jitter values.
-<a name="hnperf01-bp01."></a>
 
  Before you design the best performing architecture, define what performance means for you and the parameters involved. Typically, performance metrics are based around bandwidth (rate of data transfer), latency (round trip time for a network packet to travel form source to destination), and jitter (variation in latency). Start by estimating the bandwidth and latency requirements of your hybrid networking applications.  Match these estimates with the options available from cloud providers such as dedicated connection vs internet-based connection to determine which technology you should choose, and the appropriate configuration. 
 

@@ -1,7 +1,6 @@
 
 
 # HNPERF02-BP02 Choose the right physical PoP location for dedicated connectivity
-<a name="hnperf02-bp02"></a>
 
  Points of Presence (PoPs) serve as strategic interconnection locations between on-premises and cloud environments. These physical connection points are distributed across various geographic locations to enable low-latency private network connectivity. Organizations should understand how PoP locations impact network performance, as the distance between your infrastructure and these interconnection points directly affects latency and overall application performance. For mission-critical applications requiring consistent, high-performance connectivity, leveraging multiple PoPs can provide both reduced latency and enhanced reliability 
 

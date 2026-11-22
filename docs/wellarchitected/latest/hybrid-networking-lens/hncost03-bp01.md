@@ -1,7 +1,6 @@
 
 
 # HNCOST03-BP01 Implement tiered connectivity based on workload requirements
-<a name="hncost03-bp01"></a>
 
  Hybrid networking connectivity must balance performance, reliability, and cost. Workloads with varying requirements for throughput, latency, and uptime should leverage different connectivity solutions. For example, non-critical workloads (for example, development or testing) can use cost-effective internet-based VPNs, while mission-critical production workloads may require dedicated connections like AWS Direct Connect. A tiered approach ensures you only pay for the level of connectivity your workloads actually need. 
 

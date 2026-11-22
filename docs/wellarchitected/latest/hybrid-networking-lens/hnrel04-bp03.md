@@ -1,7 +1,6 @@
 
 
 # HNREL04-BP03 Use dynamic routing for automatic failover
-<a name="hnrel04-bp03"></a>
 
  Implement dynamically routing for dedicated connections and IPSec VPN connections using BGP to enable automatic load balancing and failover across redundant links. 
 

@@ -1,7 +1,6 @@
 
 
 # HNCOST02-BP02 Set up alerts to proactively notify hybrid networking cost thresholds
-<a name="hncost02-bp02"></a>
 
  Implement a comprehensive cost monitoring system for your hybrid networking infrastructure that automatically alerts stakeholders when spending approaches or exceeds predefined thresholds. Integrate these alerts with notification systems that provide timely updates to both technical teams and business stakeholders, enabling rapid response to cost spikes before they significantly impact your budget. This proactive approach allows organizations to recognize network flow costs, optimize data transfer paths, and make informed decisions about hybrid connectivity options 
 

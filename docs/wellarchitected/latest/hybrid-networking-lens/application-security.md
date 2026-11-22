@@ -1,7 +1,6 @@
 
 
 # Application security
-<a name="application-security"></a>
 
  Application security describes the overall process of how you design, build, and test the security properties of the workloads you develop. You should have appropriately trained people in your organization, understand the security properties of your build and release infrastructure, and use automation to identify security issues. 
 

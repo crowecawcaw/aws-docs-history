@@ -1,7 +1,6 @@
 
 
 # HNSEC02-BP05 Tag networking resources for accountability and access control
-<a name="hnsec02-bp05"></a>
 
  Implementing consistent tagging for networking resources is essential in hybrid environments to establish clear ownership, enforce access controls, and ensure proper governance across cloud and on-premises infrastructure. By applying standardized tags to networking components, organizations can effectively track resource ownership, control who can modify critical network configurations, and enforce the principle of least privilege. These tags enable granular access policies where permissions can be dynamically granted based on tag values, creating a strong foundation for identity and access management while providing the accountability needed for security audits and compliance requirements. 
 

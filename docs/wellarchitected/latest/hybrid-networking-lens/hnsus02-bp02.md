@@ -1,7 +1,6 @@
 
 
 # HNSUS02-BP02 Perform lifecycle assessments for sustainability trade-offs
-<a name="hnsus02-bp02"></a>
 
  Evaluate the environmental impact of architectural decisions (for example, regional placement, instance types, storage classes). Compare trade-offs between performance, cost, and sustainability. 
 

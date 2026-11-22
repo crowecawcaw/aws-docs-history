@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="expenditure-and-usage-awareness"></a>
 
  Effective expenditure and usage awareness requires comprehensive monitoring and integration of both on-premises and cloud-based network resources. Organizations should implement monitoring solutions that provide visibility of network traffic patterns and costs across hybrid infrastructure. Understanding the costs of hybrid connectivity enables organizations to optimize their network architecture, select appropriate connectivity methods based on workload requirements, and implement proper cost allocation models for shared network resources. 
 

@@ -1,7 +1,6 @@
 
 
 # Manage demand and supply resources
-<a name="manage-demand-and-supply-resources"></a>
 
  Effectively managing demand and supply resources in hybrid networking environments requires a strategic approach that balances on-premises infrastructure with cloud resources. Organizations should implement scaling mechanisms that dynamically adjust network resources based on real-time traffic patterns and application demands. 
 

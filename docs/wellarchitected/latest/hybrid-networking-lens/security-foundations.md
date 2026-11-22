@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="security-foundations"></a>
 
  Securing your hybrid network includes identifying security incidents, protecting your systems and services, and maintaining the confidentiality and integrity of data through data protection. Unauthorized access to systems can cause financial loss and loss of compliance with regulatory obligations. Before creating a hybrid network, we recommend having a well-defined and practiced process for responding to security incidents. 
 

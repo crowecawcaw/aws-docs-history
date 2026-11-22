@@ -1,7 +1,6 @@
 
 
 # HNPERF02-BP01 Use tradeoffs to improve network performance
-<a name="hnperf02-bp01"></a>
 
  When deciding on which technology to choose (VPN vs dedicated circuits) or which termination endpoint to choose, Consider how performance, cost, and deployment effort compare across your options. Understanding the tradeoffs will help you choose the right tool for the right job. To avoid a one-size-fits-all solution in your workload, use trade-offs to achieve the peak performance based on your business and technical requirements. 
 

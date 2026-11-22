@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="identity-and-access-management"></a>
 
  To secure and control access to your hybrid networking environment, consider the roles and responsibilities of your teams managing and operating your workloads using the principle of least privilege. Isolate your networking services and implement separation of duties between the network specialists and application owners. Regardless of your operating model, this will allow the different teams to have required access to network services based on their roles. 
 

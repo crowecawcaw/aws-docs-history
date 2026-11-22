@@ -1,7 +1,6 @@
 
 
 # HNOPS01-BP01 Have a team responsible for operating the hybrid networking environment
-<a name="hnops01-bp01"></a>
 
  **Desired outcome:** Create a specialized group that handles the complexities of hybrid network architectures. This team effectively designs, implements, and manages network infrastructure that spans both on-premises and cloud environments, while maintaining consistent operations and standardized practices. 
 

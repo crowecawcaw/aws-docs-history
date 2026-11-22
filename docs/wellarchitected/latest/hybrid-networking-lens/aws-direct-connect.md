@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect
-<a name="aws-direct-connect"></a>
 
 ![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image2.png)
 

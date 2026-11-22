@@ -1,7 +1,6 @@
 
 
 # HNPERF02-BP03 Choose the right termination endpoint in the cloud
-<a name="hnperf02-bp03"></a>
 
  When establishing cloud connectivity through Points of Presence (PoPs), organizations carefully choose their network termination endpoints. There are options available to connect to directly to one cloud network or through transit cloud constructs for multiple cloud networks. Each option offers different benefits in terms of cost, performance, scalability, and management complexity. 
 

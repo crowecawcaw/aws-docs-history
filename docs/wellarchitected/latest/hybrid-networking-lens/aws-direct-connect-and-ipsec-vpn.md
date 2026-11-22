@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect and IPSec VPN
-<a name="aws-direct-connect-and-ipsec-vpn"></a>
 
 ![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image3.png)
 

@@ -1,7 +1,6 @@
 
 
 # HNCOST01-BP01 Implement a comprehensive tagging strategy for hybrid networking resources
-<a name="hncost01-bp01"></a>
 
  Apply consistent tags to all hybrid networking components to enable cost allocation and usage analysis. Teams gain visibility into resource usage patterns, improve cost attribution, and enhance operational governance. 
 

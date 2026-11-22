@@ -1,7 +1,6 @@
 
 
 # HNSEC06-BP01 Monitor your environment for malicious behavior
-<a name="hnsec06-bp01"></a>
 
  Responding to any cyber incident requires the ability to detect threats and establish a baseline for normal operations in a hybrid environment. Continuously monitors your environment for malicious behavior to protect your accounts and workloads. 
 

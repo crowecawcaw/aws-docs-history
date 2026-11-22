@@ -1,7 +1,6 @@
 
 
 # HNSEC05-BP02 Use MACsec encryption for dedicated connections
-<a name="hnsec05-bp02"></a>
 
  Dedicated connections allow hybrid network connectivity over a private network link. MACsec encrypts traffic at Layer 2 to securely pass high bandwidth workloads between cloud and on-premises infrastructure. It provides native, point-to-point encryption to protect data communications. To use MACsec, both the dedicated connection and your on-premises equipment must support it. 
 

@@ -1,7 +1,6 @@
 
 
 # HNSEC07-BP01 Enforce End-to-End TLS Encryption
-<a name="hnsec07-bp01"></a>
 
  Protect data integrity and confidentiality by enforcing TLS encryption for all application-layer communication, both within your cloud environment and across hybrid connections to on-premises systems. End-to-end TLS ensures that sensitive data is always encrypted in transit, even if it traverses untrusted networks. 
 

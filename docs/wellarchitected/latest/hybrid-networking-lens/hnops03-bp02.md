@@ -1,7 +1,6 @@
 
 
 # HNOPS03-BP02 Consider flow logs for enhanced network visibility when needed
-<a name="hnops03-bp02"></a>
 
  Flow logs capture detailed information about network traffic traversing your cloud infrastructure network components. While not essential for all deployments, implementing flow logs is recommended for environments requiring in-depth network analysis and security auditing. The logs provide valuable insights into network behavior, enabling teams to troubleshoot connectivity issues, monitor traffic patterns, detect security anomalies, ensure compliance with network policies, and optimize network performance. By leveraging this feature, organizations can enhance their network visibility, improve security posture, and gain actionable insights for network optimization. 
 

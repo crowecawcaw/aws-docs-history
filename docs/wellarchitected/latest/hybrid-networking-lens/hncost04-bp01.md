@@ -1,7 +1,6 @@
 
 
 # HNCOST04-BP01 Implement data transfer optimization techniques
-<a name="hncost04-bp01"></a>
 
  Optimizing data transfer between AWS and on-premises environments through compression and efficient transfer protocols is crucial for reducing hybrid networking costs. Implementing appropriate optimization techniques can significantly reduce bandwidth consumption while maintaining required performance levels across hybrid connections. 
 

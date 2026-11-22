@@ -1,7 +1,6 @@
 
 
 # HNSEC02-BP01 Implement a landing zone
-<a name="hnsec02-bp01"></a>
 
  Implementing a landing zone establishes a standardized, secure foundation for hybrid networking infrastructure. A landing zone provides centralized identity and access management, standardized security controls, governance mechanisms, network architecture, and account structures that enable scalable growth while maintaining compliance. By automating resource provisioning and implementing guardrails from the start, organizations can avoid costly rework later while accelerating their cloud adoption journey with confidence, knowing they have established proper security boundaries and operational efficiency from day one. 
 

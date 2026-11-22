@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
  When designing hybrid network connectivity solutions, organizations must prioritize redundant physical infrastructure across multiple data centers and implement diverse connectivity options through redundant hardware and telecommunications providers. Dynamic routing with active/active configurations enables automatic load balancing and failover, while sufficient network capacity ensures that redundant connections do not become overwhelmed when failures occur. These foundational elements must be complemented by appropriate bandwidth sizing based on workload requirements and regular testing of failover scenarios to validate configurations and recovery procedures. 
 

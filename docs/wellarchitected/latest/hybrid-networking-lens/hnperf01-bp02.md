@@ -1,7 +1,6 @@
 
 
 # HNPERF01-BP02 Identify what applications and types of data will be transmitted over the network
-<a name="hnperf01-bp02"></a>
 
  Applications can have their own bandwidth considerations. Some applications might require deterministic performance over a high-bandwidth connection, while others can require both deterministic performance and high bandwidth. An application may need specific configuration to use multiple traffic flows in parallel if it is hitting per traffic flow bandwidth limits, allowing it to use more of the connection's bandwidth. 
 

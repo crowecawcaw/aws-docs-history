@@ -1,7 +1,6 @@
 
 
 # IPSec VPN
-<a name="ipsec-vpn"></a>
 
 ![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image1.png)
 

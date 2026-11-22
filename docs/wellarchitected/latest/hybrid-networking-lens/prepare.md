@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
  Many operational issues can be avoided by following best practices when designing the workload, and fixes are less expensive to implement in design phases rather than in production. 
 

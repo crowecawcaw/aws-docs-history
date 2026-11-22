@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar provides guidance to help you apply best practices and current recommendations in the design, delivery, and maintenance of secure hybrid networking workloads. While this lens focuses on connectivity between on-premises environments and cloud, each of the best practices identified in the [Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) whitepaper also apply. 
 

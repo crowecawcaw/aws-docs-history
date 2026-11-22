@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The following design principles can help you deploy and maintain efficient hybrid network connectivity between AWS and your on-premises locations: 
 +  **Deploy connectivity for scalability:** Hybrid network connectivity scales dynamically with your business and application needs. Your application performance requirements will determine which network factors to prioritized: bandwidth, latency, jitter, and packet loss. Bandwidth determines your connection's data transfer rate. Latency measures packet travel time between endpoints and increases with distance due to the speed of light. Jitter indicates how consistent your network latency remains over time. Packet loss quantifies what percentage of network traffic fails to reach its destination. As your business evolves, performance requirements may shift. You might need to prioritize different factors or implement solutions that address multiple performance considerations simultaneously. 

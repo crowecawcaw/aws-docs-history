@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
  Define standards, procedures, and monitoring capabilities for your on-premises network environment that can provide you with real-time metrics important for your specific business needs. Aggregate these metrics, visualize them in a dashboard, and set automated alerts that can notify the operations team. In addition, develop a runbook that provides procedures for different alerts and alarms. 
 

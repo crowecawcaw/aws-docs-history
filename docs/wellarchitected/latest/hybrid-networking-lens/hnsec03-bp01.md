@@ -1,7 +1,6 @@
 
 
 # HNSEC03-BP01 Implement network traffic monitoring and threat detection
-<a name="hnsec03-bp01"></a>
 
  Monitor and implement an immediate response process that detects and reacts to any suspicious or malicious activity. Continuously monitoring workloads helps to identify security incidents faster. At a minimum, the metadata of logs should be captured for hybrid network connections with private connections. 
 

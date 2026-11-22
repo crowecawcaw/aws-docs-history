@@ -1,7 +1,6 @@
 
 
 # HNSEC02-BP02 Use a central networking account to host all hybrid networking resources
-<a name="hnsec02-bp02"></a>
 
  A central networking account makes it easier to manage network infrastructure and control access to it. By consolidating networking components in a centralized account, organizations gain improved visibility across their entire network topology, reduce redundant connections, streamline troubleshooting, and enable more efficient scaling as business needs evolve. This centralized model also supports separation of duties, allowing networking specialists to maintain connectivity services while application teams focus on their core responsibilities. 
 

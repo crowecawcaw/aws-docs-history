@@ -1,7 +1,6 @@
 
 
 # HNREL03-BP01 Monitor the bandwidth and scale the bandwidth as needed
-<a name="hnrel03-bp01"></a>
 
  Regularly monitor the bandwidth usage of your dedicated connection. If usage consistently approaches the connection limit, order additional dedicated connections and aggregate them into a LAG to increase bandwidth and resilience with minimal downtime. 
 

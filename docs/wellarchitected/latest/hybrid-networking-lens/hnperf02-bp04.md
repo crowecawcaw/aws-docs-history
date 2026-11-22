@@ -1,7 +1,6 @@
 
 
 # HNPERF02-BP04 Select the most appropriate region for your workloads
-<a name="hnperf02-bp04"></a>
 
  Selecting the optimal region for your workloads in a hybrid networking environment requires careful consideration of latency, data residency requirements, and connectivity options to your on-premises infrastructure. Choose regions geographically proximate to your physical data centers and end users to minimize network latency while ensuring compliance with data sovereignty regulations specific to your industry. The region selection will ultimately balance performance needs with compliance requirements and cost considerations for your hybrid architecture 
 
