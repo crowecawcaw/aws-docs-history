@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Develop Hyperledger Fabric Chaincode
-<a name="managed-blockchain-hyperledger-develop-chaincode"></a>
 
 Smart contracts in Hyperledger Fabric are known as *chaincode*.
 + For a conceptual overview of chaincode, see [Smart Contracts](https://hyperledger-fabric.readthedocs.io/en/release-2.2/whatis.html#smart-contracts) and [Developing Applications](https://hyperledger-fabric.readthedocs.io/en/release-2.2/developapps/application.html#) in the Hyperledger Fabric documentation.

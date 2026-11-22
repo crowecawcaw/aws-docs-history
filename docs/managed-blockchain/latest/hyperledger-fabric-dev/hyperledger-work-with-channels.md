@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Work with Channels
-<a name="hyperledger-work-with-channels"></a>
 
 A *channel* is a private communication pathway between two or more members of a Hyperledger Fabric network on Amazon Managed Blockchain (AMB). Each transaction on a Hyperledger Fabric network occurs on a channel. A network must contain at least one channel and a network on AMB Access can have up to eight channels.
 
@@ -467,7 +466,7 @@ In the following examples, the client machine directory `/home/ec2-user` is mapp
    + {{ourchannel}} is the channel ID that will be used for the channel.
    + {{/opt/home/}} for the `--configPath` option is the container location where the `configtx.yaml` file is saved.
 
-   ```
+   ```bash
    docker exec cli configtxgen \
    -outputCreateChannelTx {{/opt/home/ourchannel.pb}} \
    -profile {{TwoOrgChannel}} -channelID {{ourchannel}} \
@@ -494,7 +493,7 @@ In the following examples, the client machine directory `/home/ec2-user` is mapp
 
    1. Using the channel genesis block file created above, each member uses the Hyperledger Fabric [peer channel join](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-join) command to join their member's peer node to the channel. 
 
-      ```
+      ```bash
       docker exec cli peer channel join -b {{/opt/home/ourchannel.block}} \
       -o $ORDERER --cafile /opt/home/managedblockchain-tls-chain.pem --tls
       ```

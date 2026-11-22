@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Configuring Security Groups for Amazon Managed Blockchain (AMB) Hyperledger Fabric
-<a name="managed-blockchain-security-sgs"></a>
 
 Security groups act as virtual firewalls. They control inbound and outbound traffic between your Hyperledger Fabric client and network resources on AMB Access through the VPC endpoint in your account. By default, security group rules are restrictive, so you must add rules that allow traffic for any resources, such as client computers, that must access the network. The following tables list the minimum required security group rules that must be associated with the VPC endpoint and the Hyperledger Fabric client.
 

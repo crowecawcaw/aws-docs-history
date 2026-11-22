@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Create a Hyperledger Fabric Blockchain Network on Amazon Managed Blockchain (AMB)
-<a name="create-network"></a>
 
 When a user in an AWS account creates a Hyperledger Fabric network on Amazon Managed Blockchain (AMB), they also create the first member in the network. This first member has no peer nodes associated with it until you create them. After you create the network and the first member, you can use that member to create an invitation proposal for other members in the same AWS account or in other AWS accounts. Any member can create an invitation proposal.
 

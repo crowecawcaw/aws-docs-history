@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Step 7: Install and Run Chaincode
-<a name="get-started-chaincode"></a>
 
 In this section, you create and install a package for [golang sample chaincode](https://github.com/hyperledger/fabric-samples/blob/release-2.2/chaincode/abstore/go/abstore.go) on your peer node. You also approve, commit, and verify the chaincode.
 
@@ -14,7 +13,7 @@ You then use the chaincode's `init` command to initialize values attributed to e
 
 Run the following commands to enable *vendoring* for the Go module dependencies of your example chaincode.
 
-```
+```bash
 sudo chown -R ec2-user:ec2-user fabric-samples/
 cd fabric-samples/chaincode/abstore/go/
 GO111MODULE=on go mod vendor
@@ -26,7 +25,7 @@ cd -
 
 Run the following command to create the example chaincode package.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode package ./abstore.tar.gz \
 --path fabric-samples/chaincode/abstore/go/ \
 --label abstore_1
@@ -37,7 +36,7 @@ docker exec cli peer lifecycle chaincode package ./abstore.tar.gz \
 
 Run the following command to install the chaincode package on the peer node.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode install abstore.tar.gz
 ```
 
@@ -46,7 +45,7 @@ docker exec cli peer lifecycle chaincode install abstore.tar.gz
 
 Run the following command to verify that the chaincode package is installed on the peer node.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode queryinstalled
 ```
 
@@ -62,7 +61,7 @@ Package ID: {{MyPackageID}}, Label: abstore_1
 
 Run the following commands to approve the chaincode definition for your organization. Replace {{MyPackageID}} with the *Package ID* value returned in the previous step [Step 7.4: Verify the Package](#get-started-chaincode-verify-package).
 
-```
+```bash
 export CC_PACKAGE_ID={{MyPackageID}}
 docker exec cli peer lifecycle chaincode approveformyorg \
 --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
@@ -74,7 +73,7 @@ docker exec cli peer lifecycle chaincode approveformyorg \
 
 Run the following command to check whether the chaincode definition is ready to be committed on the channel.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode checkcommitreadiness \
 --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel --name mycc --version v0 --sequence 1
@@ -92,7 +91,7 @@ m-LVQMIJ75CNCUZATGHLDP24HUHM: true
 
 Run the following command to commit the chaincode definition on the channel.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode commit \
 --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel --name mycc --version v0 --sequence 1
@@ -103,7 +102,7 @@ docker exec cli peer lifecycle chaincode commit \
 
 You might have to wait a minute or two for the commit to propagate to the peer node. Run the following command to verify that the chaincode is committed.
 
-```
+```bash
 docker exec cli peer lifecycle chaincode querycommitted \
 --channelID mychannel
 ```
@@ -120,7 +119,7 @@ Name: mycc, Version: v0, Sequence: 1, Endorsement Plugin: escc, Validation Plugi
 
 Run the following command to initialize the chaincode.
 
-```
+```bash
 docker exec cli peer chaincode invoke \
 --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel \
@@ -138,7 +137,7 @@ The command returns the following when the chaincode is initialized.
 
 You might need to wait a brief moment for the initialization from the previous command to complete before you run the following command to query a value.
 
-```
+```bash
 docker exec cli peer chaincode query \
 --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel \
@@ -152,7 +151,7 @@ The command should return the value of `a`, which you initialized with a value o
 
 In the previous steps, you initialized the key `a` with a value of `100` and queried to verify. Using the `invoke` command in the following example, you subtract `10` from that initial value.
 
-```
+```bash
 docker exec cli peer chaincode invoke \
 --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel \
@@ -167,7 +166,7 @@ The command returns the following when the chaincode is invoked.
 
 Lastly, you again query the value of `a` using the following command.
 
-```
+```bash
 docker exec cli peer chaincode query \
 --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
 --channelID mychannel \

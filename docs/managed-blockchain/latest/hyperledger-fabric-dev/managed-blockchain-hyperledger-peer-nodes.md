@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Work with Hyperledger Fabric Peer Nodes on AMB Access
-<a name="managed-blockchain-hyperledger-peer-nodes"></a>
 
 Hyperledger Fabric peer nodes do the work for your member on the network. They keep a local copy of the shared ledger, let you query the ledger, and interact with clients and other peer nodes to perform transactions. A new member has no peer nodes. Create at least one peer node per member.
 

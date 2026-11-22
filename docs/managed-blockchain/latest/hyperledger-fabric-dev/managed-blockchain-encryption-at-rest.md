@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Encryption at Rest for AMB Access Hyperledger Fabric
-<a name="managed-blockchain-encryption-at-rest"></a>
 
 Amazon Managed Blockchain (AMB) offers fully managed encryption at rest. AMB Access *encryption at rest* provides enhanced security by encrypting all data at rest on networks, members, and peer nodes using keys in AWS Key Management Service (AWS KMS). This functionality helps reduce the operational burden and complexity involved in protecting sensitive data. With encryption at rest, you can build security-sensitive blockchain applications that meet strict encryption compliance and regulatory requirements.
 
@@ -149,7 +148,7 @@ When you specify a customer managed key to protect your member, AMB Access sends
 The grants that AMB Access creates are specific to a member and its peer nodes. The principal in the `CreateGrant` request is the user who created the member or peer node.  
 The event that records the `CreateGrant` operation is similar to the following example event. The parameters include the Amazon Resource Name (ARN) of the customer managed key, the grantee principal and retiring principal (the AMB Access service), and the operations that the grant covers.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

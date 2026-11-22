@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Add an Anchor Peer to a Channel
-<a name="hyperledger-anchor-peers"></a>
 
 Anchor peers within an organization enable cross-organization communication among peer nodes using the Hyperledger Fabric gossip protocol. In general, the gossip protocol identifies other available member peers, disseminates ledger data across peers on a channel, and brings new peers up to date quickly.
 
@@ -32,17 +31,17 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
 
 1. Create a directory on your Hyperledger Fabric client machine, {{channel-artifacts}}, that you can use to save channel configuration artifacts that you create.
 
-   ```
+   ```bash
    cd /home/ec2-user
    ```
 
-   ```
+   ```bash
    mkdir {{channel-artifacts}}
    ```
 
 1. Use the Hyperledger Fabric [peer channel]() `fetch` sub-command to get the channel configuration and save it locally, as shown in the following command. In this example, {{ourchannel}} is the Channel ID. This Channel ID is the same one established in the [step for creating the multi-member channel](get-started-joint-channel.md#get-started-joint-channel-create-channel) in the [Getting Started](managed-blockchain-get-started-tutorial.md) tutorial of this guide. The command saves the configuration file to the directory you created in a protobuf file named {{ourchannelCfg.pb}}.
 
-   ```
+   ```bash
    docker exec cli peer channel fetch config \ 
    /opt/home/channel-artifacts/{{ourchannelCfg.pb}} \
    -c {{ourchannel}} -o $ORDERER \
@@ -51,7 +50,7 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
 
 1. Decode the `ourchannelCfg.pb` configuration from protobuf into a JSON object as shown in the following command.
 
-   ```
+   ```bash
    docker exec cli configtxlator proto_decode \
    --input /opt/home/channel-artifacts/ourchannelCfg.pb --type common.Block \
    --output /opt/home/channel-artifacts/config_block.json
@@ -59,17 +58,17 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
 
 1. Switch directories to the `channel-artifacts` directory.
 
-   ```
+   ```bash
    cd channel-artifacts
    ```
 
 1. Convert the JSON object that you created from the protobuf file into a streamlined JSON file named `config.json`, and then copy it to `config_copy.json`, as shown in the following commands.
 
-   ```
+   ```bash
    sudo jq .data.data[0].payload.data.config config_block.json > config.json
    ```
 
-   ```
+   ```bash
    cp config.json config_copy.json
    ```
 
@@ -78,27 +77,27 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
    +  {{PeerNodeDNS}} is the endpoint, minus the port identifier, of the peer node. For example, `nd-6EAJ5VA43JGGNPXOUZP7Y47E4Y.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{us-east-1}}.amazonaws.com`.
    +  {{PortNumber}} is the port number included in the **peer node endpoint** in the console or the `PeerEndpoint` in the Amazon Managed Blockchain (AMB) API for the peer. For example `30003`.
 
-   ```
+   ```bash
    jq '.channel_group.groups.Application.groups["{{OrgMemberID}}"].values += {"AnchorPeers":{"mod_policy": "Admins","value":{"anchor_peers": [{"host": "{{PeerNodeDNS}}","port": {{PortNumber}}}]},"version": "0"}}' config_copy.json > modified_config.json
    ```
 
 1. Return the configuration JSON files to protobuf format, calculate the difference between them, and then generate a new `config_update.json` configuration file as shown in the following commands.
 
-   ```
+   ```bash
    docker exec cli configtxlator proto_encode \
    --input /opt/home/channel-artifacts/config.json \
    --type common.Config \
    --output /opt/home/channel-artifacts/config.pb
    ```
 
-   ```
+   ```bash
    docker exec cli configtxlator proto_encode \
    --input /opt/home/channel-artifacts/modified_config.json \
    --type common.Config \
    --output /opt/home/channel-artifacts/modified_config.pb
    ```
 
-   ```
+   ```bash
    docker exec cli configtxlator compute_update \
    --channel_id {{ourchannel}} \
    --original /opt/home/channel-artifacts/config.pb \
@@ -106,7 +105,7 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
    --output /opt/home/channel-artifacts/config_update.pb
    ```
 
-   ```
+   ```bash
    docker exec cli configtxlator proto_decode \
    --input /opt/home/channel-artifacts/config_update.pb \
    --type common.ConfigUpdate \
@@ -115,11 +114,11 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
 
 1. Change permissions for the `config_update.json` file you created above so that you can pipe its contents along with transaction envelope parameters to the `jq` tool and create the `config_update_in_envelope.json` file, as shown in the following commands.
 
-   ```
+   ```bash
    sudo chmod 755 config_update.json
    ```
 
-   ```
+   ```bash
    echo '{"payload":{"header":{"channel_header":{"channel_id":"{{ourchannel}}", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . > config_update_in_envelope.json
    ```
 
@@ -131,7 +130,7 @@ A peer node must already be joined to a channel to be set up as an anchor peer. 
 
 1. Specify the `config_update_in_envelope.pb` configuration file to update the channel configuration on the orderer for the AMB Access Hyperledger Fabric network as shown in the following command.
 
-   ```
+   ```bash
    docker exec cli peer channel update \
    -f /opt/home/channel-artifacts/config_update_in_envelope.pb \
    -c {{ourchannel}} -o $ORDERER \

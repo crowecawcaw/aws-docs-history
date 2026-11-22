@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Work with Private Data Collections in AMB Access Hyperledger Fabric
-<a name="managed-blockchain-hyperledger-create-pdc"></a>
 
 Network members that participate on a Hyperledger Fabric channel on AMB Access may want to keep some data private from other members on the same channel. Hyperledger Fabric *private data collections* allow you to accomplish this. Private data collections allow a subset of members on a channel to endorse, commit, and query private data without having to create a separate channel to exclude other members. Private data reduces the overhead associated with channel creation and maintenance. In addition, private data is disseminated only between authorized peers using the Hyperledger Fabric *gossip protocol*, so the data is kept confidential from the ordering service.
 

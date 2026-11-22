@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Example IAM Role Permissions Policy for Hyperledger Fabric Client EC2 Instance
-<a name="security_iam_hyperledger_ec2_client"></a>
 
 When you administer, develop, and deploy chaincode using an EC2 instance as a Hyperledger Fabric client, the permissions policies attached to the AWS Identity and Access Management *instance profile* and *instance role* associated with the instance determine its permissions to interact with other AWS resources, including AMB Access. The permissions policy shown in the following procedure provides sufficient privileges when it is attached to the IAM role of the instance. 
 
@@ -24,7 +23,7 @@ For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Work with Proposals for a Hyperledger Fabric Network on Amazon Managed Blockchain (AMB)
-<a name="managed-blockchain-proposals"></a>
 
 To make a change to a Hyperledger Fabric network on Amazon Managed Blockchain (AMB) that requires consensus among network members, network members create *proposals*. For example, a member can create a proposal to invite another AWS account to become a member, to invite multiple accounts, or to remove one or more members in different AWS accounts.
 
@@ -78,13 +77,13 @@ Proposals have one of the following statuses:
 **To view proposals for a network using the AWS CLI**
 + Enter a command similar to the following example. Replace {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}} with the network ID for which you want to list proposals.
 
-  ```
+  ```bash
   aws managedblockchain list-proposals --network-id {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}}
   ```
 
   The command returns output similar to the following:
 
-  ```
+  ```json
   {
       "Proposals": [
           {
@@ -104,13 +103,13 @@ Proposals have one of the following statuses:
 **To view the details of a proposal using the AWS CLI**
 + Enter a command similar to the following. Replace {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}} with the network ID and {{p-ZR7KUD2YYNESLNG6RQ33X3FUFE}} with the proposal ID to view.
 
-  ```
+  ```bash
   aws managedblockchain get-proposal --network-id {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}} --proposal-id {{p-ZR7KUD2YYNESLNG6RQ33X3FUFE}}
   ```
 
   The command returns output similar to the following:
 
-  ```
+  ```json
   {
      "Proposal": { 
         "Actions": { 
@@ -156,7 +155,7 @@ You can use the AWS Management Console, the AWS CLI `vote-on-proposal` command, 
 <a name="w2aac27c11b5b3"></a>
 + Use the `vote-on-proposal` command as shown in the following example. Replace the values of `--network-id`, `--member-id`, and `--vote` as appropriate.
 
-  ```
+  ```bash
   aws managedblockchain vote-on-proposal --network-id n-MWY63ZJZU5HGNCMBQER7IN6OIU --proposal-id p-ZR7KUD2YYNESLNG6RQ33X3FUFE --member-id m-K46ICRRXJRCGRNNS4ES4XUUS5A --vote YES
   ```
 

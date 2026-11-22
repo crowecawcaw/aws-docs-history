@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Step 8: Invite Another AWS Account to be a Member and Create a Multi-Member Channel
-<a name="get-started-joint-channel"></a>
 
 Now that you have a Hyperledger Fabric network set up using Amazon Managed Blockchain (AMB), with an initial member in your AWS account and a VPC endpoint with a service name, you are ready to invite additional members. You invite additional members by creating a proposal for an invitation that existing members vote on. Since the blockchain network at this point consists of only one member, the first member always has the only vote on the invitation proposal for the second member. In the steps that follow, the network creator has an initial member named `org1` and the invited member is named `org2`. For proof of concept, you can create an invitation proposal for an additional member in the same AWS account that you used to create the network, or you can create an invitation proposal for a different AWS account.
 
@@ -142,7 +141,7 @@ In the following example, the channel creator is org1. The CA administrator for 
 
 On the channel creator's Hyperledger Fabric client, use the following commands to create directories to store the certificates, and then copy the certificates from the previous step to the new directories:
 
-```
+```bash
 mkdir /home/ec2-user/org2-msp
  mkdir /home/ec2-user/org2-msp/admincerts
  mkdir /home/ec2-user/org2-msp/cacerts
@@ -153,7 +152,7 @@ cp {{Org2CACerts}} /home/ec2-user/org2-msp/cacerts
 
 Org1 needs org2's member ID. You can get this by running the `list-members` command on org1's Hyperledger Fabric client as shown in the following example:
 
-```
+```bash
 aws managedblockchain list-members \
 --network-id {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}}
 ```
@@ -417,7 +416,7 @@ Profiles:
 
 Run the following command to generate the configtx peer block:
 
-```
+```bash
 docker exec cli configtxgen \
 -outputCreateChannelTx /opt/home/ourchannel.pb \
 -profile TwoOrgChannel -channelID ourchannel \
@@ -429,7 +428,7 @@ docker exec cli configtxgen \
 
 The channel creator (org1) uses the following command on their Hyperledger Fabric client to submit the channel to the orderer, which creates the channel `ourchannel`. The command example assumes that Docker environment variables have been configured as described in [Step 4.4: Configure and Run Docker Compose to Start the Hyperledger Fabric CLI](get-started-create-client.md#get-started-client-configure-peer-cli) and that the `$ORDERER` environment variable has been set on the client.
 
-```
+```bash
 docker exec cli peer channel create -c ourchannel \
 -f /opt/home/ourchannel.pb -o $ORDERER \ 
 --cafile /opt/home/managedblockchain-tls-chain.pem --tls
@@ -440,7 +439,7 @@ docker exec cli peer channel create -c ourchannel \
 
 Both org1 and org2 need to run the following command on their respective Hyperledger Fabric clients to get the channel's genesis (`oldest`) block. For more information about the `peer channel` command, see [peer channel](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html) in Hyperledger Fabric documentation.
 
-```
+```bash
 docker exec cli peer channel fetch oldest /opt/home/ourchannel.block \
 -c ourchannel -o $ORDERER \
 --cafile /opt/home/managedblockchain-tls-chain.pem --tls
@@ -451,7 +450,7 @@ docker exec cli peer channel fetch oldest /opt/home/ourchannel.block \
 
 Both org1 and org2 need to run the following command on their respective Hyperledger Fabric clients to join their peer nodes to the channel. For more information, see the `peer channel join` command example in [peer channel](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-join) section of in the Hyperledger Fabric documentation.
 
-```
+```bash
 docker exec cli peer channel join -b /opt/home/ourchannel.block \
 -o $ORDERER --cafile /opt/home/managedblockchain-tls-chain.pem --tls
 ```
@@ -465,13 +464,13 @@ Both org1 and org2 run the following commands on their respective Hyperledger Fa
 
 1. Install the example chaincode package on the peer node.
 
-   ```
+   ```bash
    docker exec cli peer lifecycle chaincode install abstore.tar.gz
    ```
 
 1. Verify that the chaincode package is installed on the peer node.
 
-   ```
+   ```bash
    docker exec cli peer lifecycle chaincode queryinstalled
    ```
 
@@ -484,7 +483,7 @@ Both org1 and org2 run the following commands on their respective Hyperledger Fa
 
 1. Approve the chaincode definition for the organization. Replace {{MyPackageID}} with the Package ID value returned in the previous step.
 
-   ```
+   ```bash
    export CC_PACKAGE_ID={{MyPackageID}}
    docker exec cli peer lifecycle chaincode approveformyorg \
    --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
@@ -493,7 +492,7 @@ Both org1 and org2 run the following commands on their respective Hyperledger Fa
 
 1. Check the commit readiness of the chaincode definition.
 
-   ```
+   ```bash
    docker exec cli peer lifecycle chaincode checkcommitreadiness \
    --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
    --channelID ourchannel --name myjointcc --version v0 --sequence 1
@@ -503,7 +502,7 @@ Both org1 and org2 run the following commands on their respective Hyperledger Fa
 
 1. Commit the chaincode definition on the channel.
 
-   ```
+   ```bash
    docker exec cli peer lifecycle chaincode commit \
    --orderer $ORDERER --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
    --channelID ourchannel --name myjointcc --version v0 --sequence 1
@@ -514,7 +513,7 @@ Both org1 and org2 run the following commands on their respective Hyperledger Fa
 
 Channel members can run the following command to query the chaincode:
 
-```
+```bash
 docker exec cli peer chaincode query -C ourchannel \
 -n myjointcc -c '{"Args":["query","a"]}'
 ```
@@ -528,7 +527,7 @@ You may need to wait a brief moment for the instantiation from the previous step
 
 With the channel created and configured with both members, and the chaincode instantiated with values and an endorsement policy, channel members can invoke chaincode. This example command is similar to the example in [Step 7.11: Invoke the Chaincode](get-started-chaincode.md#get-started-chaincode-invoke). However, the command uses the `--peerAddresses` option to specify the endpoints of peer nodes that belong to members in the endorsement policy. The example specifies {{Org2PeerNodeEndpoint}} in addition to {{Org1PeerEndpoint}}.
 
-```
+```bash
 docker exec cli peer chaincode invoke \ 
 -C ourchannel -n myjointcc -c '{"Args":["invoke","a","b","10"]}' \
 --peerAddresses {{Org1PeerEndpoint}} \
@@ -540,7 +539,7 @@ docker exec cli peer chaincode invoke \
 
 When we query again using the following command:
 
-```
+```bash
 docker exec cli peer chaincode query -C ourchannel \
 -n myjointcc -c '{"Args":["query","a"]}'
 ```

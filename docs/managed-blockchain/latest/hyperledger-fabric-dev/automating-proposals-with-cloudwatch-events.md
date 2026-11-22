@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Automating AMB Access Proposal Notifications with CloudWatch Events
-<a name="automating-proposals-with-cloudwatch-events"></a>
 
 Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system events. Events from AWS services are delivered to CloudWatch Events in near real time on a best-effort basis. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. With AMB Access, you can monitor CloudWatch Events events to respond to proposals, including invitations sent to your AWS account to join a network, and notification that proposals are `APPROVED` or `REJECTED`. Some examples include notifying an Amazon SNS topic or an AWS SMS queue when an invitation is sent or when a proposal made by a member in your account changes status.
 

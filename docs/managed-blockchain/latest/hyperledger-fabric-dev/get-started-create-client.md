@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Step 4: Create an Amazon EC2 Instance and Set Up the Hyperledger Fabric Client
-<a name="get-started-create-client"></a>
 
 To complete this step, you launch an Amazon EC2 instance using the Amazon Linux AMI. Consider the following requirements and recommendations when you create the Hyperledger Fabric client Amazon EC2 instance:
 + We recommend that you launch the client Amazon EC2 instance in the same VPC and using the same security group as the VPC Endpoint that you created in [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md). This simplifies connectivity between the Amazon EC2 instance and the Interface VPC Endpoint.
@@ -21,7 +20,7 @@ Your Hyperledger Fabric client needs some packages and samples installed so that
 
 While connected to the Amazon EC2 instance using SSH, run the following commands to install utilities, install docker, and configure the Docker user to be the default user for the Amazon EC2 instance:
 
-```
+```bash
 sudo yum update -y
 ```
 
@@ -41,7 +40,7 @@ Log out and log in again for the `usermod` command to take effect.
 
 Run the following commands to install Docker Compose.
 
-```
+```bash
 sudo curl -L \
 https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname \
 -s`-`uname -m` -o /usr/local/bin/docker-compose
@@ -53,11 +52,11 @@ sudo chmod a+x /usr/local/bin/docker-compose
 
 Run the following commands to install golang.
 
-```
+```bash
 wget https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
 ```
 
-```
+```bash
 tar -xzf go1.14.4.linux-amd64.tar.gz
 ```
 
@@ -71,7 +70,7 @@ sudo yum install git -y
 
 Use a text editor to set up variables such as `GOROOT` and `GOPATH` in your `~/.bashrc` or `~/.bash_profile` and save the updates. The following example shows entries in `.bash_profile`.
 
-```
+```bash
 # .bash_profile
 
 # Get the aliases and functions
@@ -103,7 +102,7 @@ export PATH=$PATH:/home/ec2-user/go/src/github.com/hyperledger/fabric-ca/bin
 
 After you update `.bash_profile`, apply the changes:
 
-```
+```bash
 source ~/.bash_profile 
 ```
 
@@ -114,13 +113,13 @@ After the installation, verify that you have the correct versions installed:
 
 To check the Docker version, run the following command:
 
-```
+```bash
 sudo docker version
 ```
 
 The command returns output similar to the following:
 
-```
+```bash
 Client:
  Version: 18.06.1-ce
  API version: 1.38
@@ -143,13 +142,13 @@ Server:
 
 To check the version of Docker Compose, run the following command:
 
-```
+```bash
 sudo /usr/local/bin/docker-compose version
 ```
 
 The command returns output similar to the following:
 
-```
+```bash
 docker-compose version 1.22.0, build f46880fe
 docker-py version: 3.4.1
 CPython version: 3.6.6
@@ -158,13 +157,13 @@ OpenSSL version: OpenSSL 1.1.0f  25 May 2017
 
 To check the version of go, run the following command:
 
-```
+```bash
 go version
 ```
 
 The command returns output similar to the following:
 
-```
+```bash
 go version go1.14.4 linux/amd64
 ```
 
@@ -175,7 +174,7 @@ In this step, you verify that you can connect to the Hyperledger Fabric CA using
 
 To verify connectivity to the Hyperledger Fabric CA, you need the `CAEndpoint`. Use the `get-member` command to get the CA endpoint for your member, as shown in the following example. Replace the values of `--network-id` and `--member-id` with the values returned in [Step 1: Create the Network and First Member](get-started-create-network.md).
 
-```
+```bash
 aws managedblockchain get-member \
 --network-id {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}} \
 --member-id {{m-K46ICRRXJRCGRNNS4ES4XUUS5A}}
@@ -183,13 +182,13 @@ aws managedblockchain get-member \
 
 Use `curl` or `telnet` to verify that the endpoint resolves. In the following example, the value of the variable `$CASERVICEENDPOINT` is the **CAEndpoint** returned by the `get-member` command.
 
-```
+```bash
 curl https://$CASERVICEENDPOINT/cainfo -k
 ```
 
 The command should return output similar to the following:
 
-```
+```bash
 {"result":{"CAName":"{{abcd1efghijkllmn5op3q52rst}}","CAChain":"{{LongStringOfCharacters}}","Version":"1.4.7-snapshot-"}
 ,"errors":[],"messages":[],"success":true}
 ```
@@ -198,13 +197,13 @@ Note that Hyperledger Fabric v2.2 networks should use version 1.4 of the CA clie
 
 Alternatively, you can connect to the Fabric CA using Telnet as shown in the following example. Use the same endpoint in the `curl` example, but separate the endpoint and the port as shown in the following example.
 
-```
+```bash
 telnet {{CaEndpoint-Without-Port}} {{CaPort}}
 ```
 
 The command should return output similar to the following:
 
-```
+```bash
 Trying 10.0.1.228...
 Connected to ca.{{m-K46ICRRXJRCGRNNS4ES4XUUS5A}}.{{n-MWY63ZJZU5HGNCMBQER7IN6OIU}}.managedblockchain.{{us-east-1}}.amazonaws.com.
 Escape character is '^]'.
@@ -217,7 +216,7 @@ Now that you have verified that you can connect to the Hyperledger Fabric CA, ru
 **Note**  
 If you are working with Hyperledger Fabric v1.2 networks, you need to install and build the correct client version, which is available at [https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz](https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz).
 
-```
+```bash
 mkdir -p /home/ec2-user/go/src/github.com/hyperledger/fabric-ca
 ```
 
@@ -239,7 +238,7 @@ tar -xzf hyperledger-fabric-ca-linux-amd64-1.4.7.tar.gz
 **Note**  
 If you are working with Hyperledger Fabric v1.2 or v1.4 networks, use `--branch v1.2.0` or `--branch v1.4.7` instead of `--branch v2.2.3` in the following commmands.
 
-```
+```bash
 cd /home/ec2-user
 ```
 
@@ -260,7 +259,7 @@ When you subsequently use the `cli` container to run commands—for example, `do
 If you are working with Hyperledger Fabric v1.2 or v1.4 networks, use `image: hyperledger/fabric-tools:1.2` or `image: hyperledger/fabric-tools:1.4` in the following example instead of `image: hyperledger/fabric-tools:2.2.3`.  
 In addition for v1.2, use `CORE_LOGGING_LEVEL=info` instead of `FABRIC_LOGGING_SPEC=info`.
 
-```
+```yaml
 version: '2'
 services:
   cli:
@@ -288,12 +287,12 @@ services:
 
 Run the following command to start the Hyperledger Fabric peer CLI container:
 
-```
+```bash
 docker-compose -f docker-compose-cli.yaml up -d
 ```
 
 If you restarted or logged out and back in after the `usermod` command in [Step 4.1: Install Packages](#get-started-client-install-packages), you shouldn't need to run this command with `sudo`. If the command fails, you can log out and log back in. Alternatively, you can run the command using `sudo`, as shown in the following example:
 
-```
+```bash
 sudo /usr/local/bin/docker-compose -f docker-compose-cli.yaml up -d
 ```

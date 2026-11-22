@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Create a Member and Join a Network
-<a name="managed-blockchain-hyperledger-create-member"></a>
 
 You can use the AMB Access console, the AWS CLI, or the AMB Access SDK [CreateMember](https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/>API_CreateMember.html) action to create a member in a network that your account is invited to. If you created the network, you create the first member when you create the network. All subsequent members must be invited to join by way of a member proposal.
 

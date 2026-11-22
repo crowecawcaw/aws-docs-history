@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Develop Hyperledger Fabric Chaincode Using Java on Amazon Managed Blockchain (AMB)
-<a name="java-chaincode"></a>
 
 Hyperledger Fabric 2.2 networks on Amazon Managed Blockchain (AMB) are based on the following components:
 + [JDK 8](https://www.oracle.com/java/technologies/downloads/#java8) or [higher](https://www.oracle.com/java/technologies/downloads/)
@@ -61,7 +60,7 @@ Because AMB Access peer nodes don't have internet access, the [Gradle Shadow plu
 
 1. Create a sub-directory in the Java chaincode working directory on the Hyperledger Fabric client machine where you want to download the plugin, and then switch to that directory. The example below uses a directory named `plugin`.
 
-   ```
+   ```bash
    mkdir plugin
    cd plugin
    ```
@@ -187,7 +186,7 @@ Run `gradle build` and `gradle getDeps` as shown in the following examples to bu
 
 1. Download chaincode project dependencies locally.
 
-   ```
+   ```bash
    gradle getDeps
    ```
 
@@ -204,7 +203,7 @@ Run `gradle build` and `gradle getDeps` as shown in the following examples to bu
 
 1. Verify that dependencies were downloaded to the libs sub-directory.
 
-   ```
+   ```bash
    ls libs/
    
    bcpkix-jdk15on-1.62.jar        error_prone_annotations-2.3.4.jar  grpc-protobuf-lite-1.31.1.jar   jsr305-3.0.2.jar
@@ -220,7 +219,7 @@ Run `gradle build` and `gradle getDeps` as shown in the following examples to bu
 
 1. Build the project using Gradle.
 
-   ```
+   ```bash
    gradle build
    ```
 
@@ -292,7 +291,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
 1. Before running the following chaincode commands, establish variables for the Hyperledger Fabric CLI Docker container as shown in the following example. Alternatively, you can configure a Docker compose file to establish these variables. For more information, see [Step 4.4: Configure and Run Docker Compose to Start the Hyperledger Fabric CLI](get-started-create-client.md#get-started-client-configure-peer-cli) in the getting started tutorial. Replace the values with those appropriate for your network. Set `CORE_PEER_ADDRESS` to the endpoint of the peer node for which you want to install the chaincode, set `CORE_PEER_LOCALMSPID` to the ID of the member that owns the peer node, and set `CORE_PEER_MSPCONFIGPATH` as shown, which is the location of the membership service provider directory on the peer node.
 
-   ```
+   ```bash
    docker exec -e "CORE_PEER_TLS_ENABLED=true" \
    -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem
    " \
@@ -308,7 +307,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
    For more information about options, see [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package) in Hyperledger Fabric documentation.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode package {{./abstorejava.tar.gz}} \
    -p /opt/home/{{fabric-samples/chaincode/abstore/java/}} \
    -l java \
@@ -317,13 +316,13 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
 1. The following example installs the chaincode package on the peer node.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode install {{abstorejava.tar.gz}}
    ```
 
 1. The following example queries the installed chaincodes on the peer node.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode queryinstalled
    ```
 
@@ -338,7 +337,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
    For more information about options, see [peer lifecycle chaincode approveformyorg](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-approveformyorg) in Hyperledger Fabric documentation.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode approveformyorg \
    -o orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{MyRegion}}.amazonaws.com:{{30001}} \
    --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
@@ -347,7 +346,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
 1. The following example checks whether the chaincode definition is ready to be committed on the channel.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode checkcommitreadiness \
    -o orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{MyRegion}}.amazonaws.com:{{30001}} \
    --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
@@ -356,7 +355,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
 1. The following example commits the chaincode definition on the channel.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode commit \
    -o orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{MyRegion}}.amazonaws.com:{{30001}} \
    --tls --cafile /opt/home/managedblockchain-tls-chain.pem \
@@ -365,7 +364,7 @@ Use the Hyperledger Fabric CLI to package the Java chaincode project and copy it
 
 1. The following example queries the committed chaincode definitions by channel on the peer node.
 
-   ```
+   ```bash
    cli peer lifecycle chaincode querycommitted \
    -C {{MyHLFChannelID}}
    ```

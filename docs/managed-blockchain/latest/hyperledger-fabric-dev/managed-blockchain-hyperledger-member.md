@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Accept an Invitation to Create a Member and Join a Hyperledger Fabric Network on Amazon Managed Blockchain (AMB)
-<a name="managed-blockchain-hyperledger-member"></a>
 
 In Amazon Managed Blockchain (AMB), a member is a distinct identity within the Hyperledger Fabric network associated with an AWS account. An AWS account can have multiple members on the network. Every member in a network must be invited to participate through a proposal made by an existing member and approved according to the network's voting policy. The exception is the first member, which is created along with the network. For more information, see [Work with Proposals for a Hyperledger Fabric Network on Amazon Managed Blockchain (AMB)](managed-blockchain-proposals.md). After the invitation is approved, the invited AWS account can create a member and join the network using the invitation ID.
 
