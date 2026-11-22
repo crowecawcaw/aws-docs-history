@@ -1,7 +1,6 @@
 
 
 # Manually add CloudWatch as a data source
-<a name="adding--CloudWatch-manual"></a>
 
 **To manually add the CloudWatch data source**
 
@@ -64,7 +63,7 @@ Grafana needs permissions granted through IAM to be able to read CloudWatch metr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Annotations API
-<a name="v12-Grafana-API-Annotations"></a>
 
 Use the Annotations API to create, update, delete, and work with annotations in the Amazon Managed Grafana workspace. 
 

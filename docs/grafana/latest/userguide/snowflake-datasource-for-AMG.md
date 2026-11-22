@@ -1,7 +1,6 @@
 
 
 # Connect to a Snowflake data source
-<a name="snowflake-datasource-for-AMG"></a>
 
  With the Snowflake Enterprise data source, you can visualize your Snowflake data alongside all of your other data sources in Grafana as well as log and metric data in context. This data source includes a powerful type-ahead query editor, supports complex annotations, set alerting thresholds, control access and permissions and more. 
 
@@ -79,7 +78,7 @@ Additionally, in workspaces that support version 9 or newer, this data source mi
 #### Layout of a Snowflake query
 <a name="layout-of-a-snowflake-query"></a>
 
-```
+```sql
 select
   <time_column>,
   <any_numerical_column>
@@ -96,7 +95,7 @@ where
 #### SQL query format for time series group by interval
 <a name="sql-query-format-for-timeseries-group-by-interval"></a>
 
-```
+```sql
 select
   $__timeGroup(created_ts, '1h'), // group time by interval of 1h
   <time_column>, 
@@ -113,7 +112,7 @@ group by <time_column>
 #### SQL query format for tables
 <a name="sql-query-format-for-tables"></a>
 
-```
+```sql
 select
   <time_column>, // optional if result format option is table
   <any_column_1>
@@ -134,7 +133,7 @@ where
 
  You can include template variables in queries, as shown in the following example. 
 
-```
+```sql
  select
    <column>
  from 
@@ -144,7 +143,7 @@ where
 
  The following example shows using multi-value variables in a query. 
 
-```
+```sql
 select
   <column>
 from 
@@ -164,7 +163,7 @@ WHERE <column> regexp '${variable:regex}'
 
  Example: 
 
-```
+```sql
 SELECT DISTINCT query_type from account_usage.query_history;
 ```
 
@@ -192,7 +191,7 @@ All DESCRIBE USE UNKNOWN GRANT SELECT CREATE DROP SHOW
 
  The following example code shows a query to annotate all failed logins to Snowflake. 
 
-```
+```sql
 SELECT
   EVENT_TIMESTAMP as time,
   EVENT_TYPE,

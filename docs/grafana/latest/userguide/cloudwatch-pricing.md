@@ -1,7 +1,6 @@
 
 
 # Pricing
-<a name="cloudwatch-pricing"></a>
 
  The Amazon CloudWatch data source for Grafana uses the `ListMetrics` and `GetMetricData` CloudWatch API calls to list and retrieve metrics. Pricing for CloudWatch Logs is based on the amount of data ingested, archived, and analyzed via CloudWatch Logs Insights queries. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing). 
 

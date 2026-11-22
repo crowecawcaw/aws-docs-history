@@ -1,7 +1,6 @@
 
 
 # Exploring alerting
-<a name="v9-alerting-explore"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

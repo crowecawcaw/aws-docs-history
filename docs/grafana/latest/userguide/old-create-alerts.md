@@ -1,7 +1,6 @@
 
 
 # Creating alerts
-<a name="old-create-alerts"></a>
 
 ****  
 This documentation topic discusses legacy alerting in Grafana. Legacy alerting is removed in Amazon Managed Grafana version 12. You must migrate to Grafana alerting before upgrading to v12. For more information, see one of the following topics.  
@@ -58,7 +57,7 @@ Do not use `For` with the `If no data or all values are null` setting set to `No
 #### Query condition example
 <a name="old-query-condition-example"></a>
 
-```
+```sql
 avg() OF query(A, 15m, now) IS BELOW 14
 ```
 +  `avg()` Controls how the values for **each** series should be reduced to a value that can be compared against the threshold. Choose the function to change it to another aggregation function. 

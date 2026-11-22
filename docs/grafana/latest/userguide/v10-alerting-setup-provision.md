@@ -1,7 +1,6 @@
 
 
 # Provisioning Grafana Alerting resources
-<a name="v10-alerting-setup-provision"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

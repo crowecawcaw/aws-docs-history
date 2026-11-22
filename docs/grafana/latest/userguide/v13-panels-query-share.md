@@ -1,7 +1,6 @@
 
 
 # Share query results with another panel
-<a name="v13-panels-query-share"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

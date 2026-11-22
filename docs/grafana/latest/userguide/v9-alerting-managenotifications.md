@@ -1,7 +1,6 @@
 
 
 # Manage your alert notifications
-<a name="v9-alerting-managenotifications"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

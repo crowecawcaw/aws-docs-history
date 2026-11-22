@@ -1,7 +1,6 @@
 
 
 # Add or edit panels
-<a name="v9-dash-edit-panels"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

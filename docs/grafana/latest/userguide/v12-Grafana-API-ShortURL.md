@@ -1,7 +1,6 @@
 
 
 # Short URL API
-<a name="v12-Grafana-API-ShortURL"></a>
 
 Use the Short URL API to create shortened URLs. A short URL represents a longer URL containing complex query parameters in a smaller and simpler format.
 

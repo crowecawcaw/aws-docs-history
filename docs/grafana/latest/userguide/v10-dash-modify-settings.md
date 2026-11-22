@@ -1,7 +1,6 @@
 
 
 # Modifying dashboard settings
-<a name="v10-dash-modify-settings"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

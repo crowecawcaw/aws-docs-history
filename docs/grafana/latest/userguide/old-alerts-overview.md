@@ -1,7 +1,6 @@
 
 
 # Classic dashboard alerts
-<a name="old-alerts-overview"></a>
 
 ****  
 This documentation topic discusses legacy alerting in Grafana. Legacy alerting is removed in Amazon Managed Grafana version 12. You must migrate to Grafana alerting before upgrading to v12. For more information, see one of the following topics.  

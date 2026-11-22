@@ -1,7 +1,6 @@
 
 
 # Profiles Drilldown
-<a name="v12-drilldown-profiles"></a>
 
 The Profiles Drilldown app integrates with Pyroscope, the open-source continuous profiling platform, providing a queryless experience for browsing and analyzing profiling data.
 

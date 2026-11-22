@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon Managed Service for Prometheus and open-source Prometheus data sources
-<a name="prometheus-data-source"></a>
 
  In Amazon Managed Grafana, the Prometheus data source supports using both self-managed Prometheus servers and Amazon Managed Service for Prometheus workspaces as data sources. For more information about Amazon Managed Service for Prometheus, see [What is Amazon Managed Service for Prometheus?](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
 

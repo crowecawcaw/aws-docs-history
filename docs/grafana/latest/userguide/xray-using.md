@@ -1,7 +1,6 @@
 
 
 # Using the X-Ray data source
-<a name="xray-using"></a>
 
 ## Query editor
 <a name="xray-query-editor"></a>

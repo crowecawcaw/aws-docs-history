@@ -1,7 +1,6 @@
 
 
 # Namespaces, folders and groups
-<a name="v13-alerting-rules-grouping"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

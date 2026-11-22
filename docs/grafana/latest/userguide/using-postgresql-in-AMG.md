@@ -1,7 +1,6 @@
 
 
 # Connect to a PostgreSQL data source
-<a name="using-postgresql-in-AMG"></a>
 
  You can use the PostgreSQL data source to query and visualize data from your Amazon Aurora PostgreSQL databases. 
 
@@ -64,7 +63,7 @@ In *Grafana version 9*, the PostgreSQL data source sets up the root certificate 
 
 The following example code shows creating a specifice PostgreSQL user with restricted permissions. 
 
-```
+```sql
  CREATE USER grafanareader WITH PASSWORD 'password';
  GRANT USAGE ON SCHEMA schema TO grafanareader;
  GRANT SELECT ON schema.table TO grafanareader;
@@ -168,7 +167,7 @@ You can add further value columns by choosing the plus button and selecting **Co
 
  The following example code shows a `metric` column. 
 
-```
+```sql
 SELECT
   $__timeGroup("time_date_time",'5m'),
   min("value_double"),
@@ -181,7 +180,7 @@ ORDER BY time
 
  The folowing code example shows using the fill parameter in the $\_\_timeGroup macro to convert null values to be zero instead. 
 
-```
+```sql
 SELECT
   $__timeGroup("createdAt",'5m',0),
   sum(value) as value,
@@ -195,7 +194,7 @@ ORDER BY time
 
  The following example code shows multiple columns. 
 
-```
+```sql
 SELECT
   $__timeGroup("time_date_time",'5m'),
   min("value_double") as "min_value",
@@ -220,31 +219,31 @@ ORDER BY time
 
  For example, you can have a variable that contains all values for the `hostname` column in a table if you specify a query such as this in the templating variable *Query* setting. 
 
-```
+```sql
 SELECT hostname FROM host
 ```
 
  A query can return multiple columns and Grafana will automatically create a list from them. For example, the following query will return a list with values from `hostname` and `hostname2`. 
 
-```
+```sql
 SELECT host.hostname, other_host.hostname2 FROM host JOIN other_host ON host.city = other_host.city
 ```
 
  To use time range dependent macros such as `$__timeFilter(column)` in your query, the refresh mode of the template variable must be set to *On Time Range Change*. 
 
-```
+```sql
 SELECT event_name FROM event_log WHERE $__timeFilter(time_column)
 ```
 
  Another option is a query that can create a key/value variable. The query should return two columns that are named `__text` and `__value`. The `__text` column value should be unique (if it is not unique, the first value is used). The options in the dropdown list will have a text and value that allows you to have a friendly name as text and an id as the value. An example query with `hostname` as the text and `id` as the value: 
 
-```
+```sql
 SELECT hostname AS __text, id AS __value FROM host
 ```
 
  You can also create nested variables. Using a variable named `region`, you could have the hosts variable show only hosts from the current selected region. The following code example shows a query such as this (if `region` is a multi-value variable, use the `IN` comparison operator rather than `=` to match against multiple values). 
 
-```
+```sql
 SELECT hostname FROM host  WHERE region IN($region)
 ```
 
@@ -258,7 +257,7 @@ SELECT hostname FROM host  WHERE region IN($region)
 
  The following example shows how to use `__searchFilter` as part of the query field to enable searching for `hostname` while the user types in the dropdown select box. 
 
-```
+```sql
 SELECT hostname FROM my_host  WHERE hostname LIKE '$__searchFilter'
 ```
 
@@ -273,7 +272,7 @@ SELECT hostname FROM my_host  WHERE hostname LIKE '$__searchFilter'
 
  `$<varname>` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   atimestamp as time,
   aint as value
@@ -284,7 +283,7 @@ ORDER BY atimestamp ASC
 
  `[[varname]]` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   atimestamp as time,
   aint as value
@@ -309,7 +308,7 @@ ORDER BY atimestamp ASC
 
  The following example code shows a query using a time column with epoch values. 
 
-```
+```sql
 SELECT
   epoch_time as time,
   metric1 as text,
@@ -325,7 +324,7 @@ WHERE
 **Note**  
  This is available only in Grafana v6.6\+. 
 
-```
+```sql
 SELECT
   epoch_time as time,
   epoch_time_end as timeend,
@@ -339,7 +338,7 @@ WHERE
 
  The following example code shows a query using a time column of native SQL date/time data type. 
 
-```
+```sql
 SELECT
   native_date_time as time,
   metric1 as text,

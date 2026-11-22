@@ -1,7 +1,6 @@
 
 
 # Managing your access to Amazon Managed Grafana Enterprise plugins
-<a name="AMG-workspace-manage-enterprise"></a>
 
 **To manage your access to Enterprise plugins**
 

@@ -1,7 +1,6 @@
 
 
 # Folder API
-<a name="v13-Grafana-API-Folder"></a>
 
 Use the Folder API to work with folders in the Amazon Managed Grafana workspace. 
 

@@ -1,7 +1,6 @@
 
 
 # Delete a Amazon Managed Grafana workspace
-<a name="AMG-edit-delete-workspace"></a>
 
 If you delete an Amazon Managed Grafana workspace, all the configuration data for that workspace is also deleted. This includes dashboards, data source configuration, alerts, and snapshots.
 

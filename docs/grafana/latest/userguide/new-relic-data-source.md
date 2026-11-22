@@ -1,7 +1,6 @@
 
 
 # Connect to a New Relic data source
-<a name="new-relic-data-source"></a>
 
  This section covers New Relic [APM](https://newrelic.com/products/application-monitoring) and [Insights](https://newrelic.com/products/insights) for Grafana. 
 

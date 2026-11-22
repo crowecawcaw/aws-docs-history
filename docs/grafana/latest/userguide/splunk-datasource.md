@@ -1,7 +1,6 @@
 
 
 # Connect to a Splunk data source
-<a name="splunk-datasource"></a>
 
 **Note**  
 This data source is for Grafana Enterprise only. For more information, see [Manage access to Enterprise plugins](upgrade-to-enterprise-plugins.md).  

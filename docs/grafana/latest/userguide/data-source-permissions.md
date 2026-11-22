@@ -1,7 +1,6 @@
 
 
 # Data source permissions
-<a name="data-source-permissions"></a>
 
 By default, data sources can be queried by any user. For example, a user with the `Viewer` role can issue any possible query to a data source, not just queries that exist on dashboards to which they have access.
 

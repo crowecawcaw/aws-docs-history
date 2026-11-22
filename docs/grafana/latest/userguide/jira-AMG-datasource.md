@@ -1,7 +1,6 @@
 
 
 # Connect to a Jira data source
-<a name="jira-AMG-datasource"></a>
 
 Get the whole picture of your development process by combining issue data from Jira with application performance data from other sources.
 

@@ -1,7 +1,6 @@
 
 
 # Use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source
-<a name="amazon-AMP-adding-AWS-config"></a>
 
 **Note**  
 The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.

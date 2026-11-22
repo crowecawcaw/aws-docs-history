@@ -1,7 +1,6 @@
 
 
 # Metrics Drilldown
-<a name="v12-drilldown-metrics"></a>
 
 The Metrics Drilldown app provides a queryless, point-and-click experience for exploring Prometheus metric data. You can quickly find related metrics without needing to write PromQL queries.
 

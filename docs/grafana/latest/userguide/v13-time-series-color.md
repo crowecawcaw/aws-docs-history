@@ -1,7 +1,6 @@
 
 
 # Color options
-<a name="v13-time-series-color"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

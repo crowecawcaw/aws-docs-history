@@ -1,7 +1,6 @@
 
 
 # Managing dashboard version history
-<a name="v9-dash-manage-version-history"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

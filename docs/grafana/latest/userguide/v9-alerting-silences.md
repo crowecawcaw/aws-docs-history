@@ -1,7 +1,6 @@
 
 
 # Silencing alert notifications for Prometheus data sources
-<a name="v9-alerting-silences"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

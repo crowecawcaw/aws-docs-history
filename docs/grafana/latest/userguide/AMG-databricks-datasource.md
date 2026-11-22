@@ -1,7 +1,6 @@
 
 
 # Connect to a Databricks data source
-<a name="AMG-databricks-datasource"></a>
 
 The Databricks data source enables you to query and visualize Databricks data within Amazon Managed Grafana. It includes a SQL editor to format and color code your queries.
 
@@ -49,7 +48,7 @@ To create a multi-line time series visualization, the query must include at leas
 
 The following is an example of a query that will return multi-line time series options.
 
-```
+```sql
 SELECT log_time AS time, machine_group, avg(disk_free) AS avg_disk_free
 FROM mgbench.logs1
 GROUP BY machine_group, log_time

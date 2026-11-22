@@ -1,7 +1,6 @@
 
 
 # Connect to an SAP HANA data source
-<a name="saphana-AMG-datasource"></a>
 
 [SAP HANA](https://www.sap.com/products/technology-platform/hana.html)is a high-performance, in-memory database that speeds up data-driven, real-time decisions and \\ actions. It is developed and marketed by SAP. The SAP HANA data source plugin helps you to connect your SAP HANA instance with Grafana.
 

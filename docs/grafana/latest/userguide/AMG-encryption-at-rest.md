@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="AMG-encryption-at-rest"></a>
 
 By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS owned encryption keys.
 + **AWS owned keys** – Amazon Managed Grafana uses these keys to automatically encrypt data of your workspace. You can't view, manage or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS-owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS KMS Developer Guide*.
@@ -67,6 +66,8 @@ You can create a symmetric customer managed key by using the AWS Management Cons
 **To create a symmetric customer managed key**
 + Follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS KMS Developer Guide*.
 
+**Key policy**
+
 Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS KMS Developer Guide*.
 
 To use your customer managed key with your Amazon Managed Grafana workspaces, the following API operations must be permitted in the key policy:
@@ -77,7 +78,7 @@ To use your customer managed key with your Amazon Managed Grafana workspaces, th
 
 The following are policy statement examples you can add for Amazon Managed Grafana:
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -141,6 +142,8 @@ The following are policy statement examples you can add for Amazon Managed Grafa
 
 When you create a workspace, you can specify the customer managed key by entering a KMS Key ARN, which Amazon Managed Grafana uses to encrypt the data stored by the workspace.
 
+**Using the AWS Management Console**
+
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/).
 
 1. Choose **Create workspace**.
@@ -150,6 +153,8 @@ When you create a workspace, you can specify the customer managed key by enterin
 1. Enter the ARN of your customer managed key in the **KMS Key ARN** field.
 
 1. Complete the remaining workspace configuration and choose **Create workspace**.
+
+**Using the AWS CLI**
 
 You can specify a customer managed key when creating a workspace using the `--kms-key-id` parameter:
 
@@ -170,11 +175,13 @@ When you use an AWS KMS customer managed key with your Amazon Managed Grafana wo
 
 The following examples are AWS CloudTrail events for `CreateGrant`, `DescribeKey`, `GenerateDataKey`, and `Decrypt` to monitor KMS operations called by Amazon Managed Grafana to access data encrypted by your customer managed key:
 
+**CreateGrant**
+
 When you use an AWS KMS customer managed key to encrypt your workspace, Amazon Managed Grafana sends `CreateGrant` requests on your behalf to access the KMS key you specified. The grants that Amazon Managed Grafana creates are specific to the resource associated with the AWS KMS customer managed key.
 
 The following example event records a `CreateGrant` operation:
 
-```
+```JSON
 {
 "eventVersion": "1.08",
 "userIdentity": {
@@ -241,11 +248,13 @@ The following example event records a `CreateGrant` operation:
 }
 ```
 
+**DescribeKey**
+
 Amazon Managed Grafana uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your workspace exists in the account and region.
 
 The following example event records the `DescribeKey` operation:
 
-```
+```JSON
 {
 "eventVersion": "1.08",
 "userIdentity": {
@@ -297,11 +306,13 @@ The following example event records the `DescribeKey` operation:
 }
 ```
 
+**GenerateDataKey**
+
 Amazon Managed Grafana uses the `GenerateDataKey` operation to generate data keys that are used to encrypt workspace data.
 
 The following example event records the `GenerateDataKey` operation:
 
-```
+```JSON
 {
 "eventVersion": "1.08",
 "userIdentity": {
@@ -354,11 +365,13 @@ The following example event records the `GenerateDataKey` operation:
 }
 ```
 
+**Decrypt**
+
 Amazon Managed Grafana uses the `Decrypt` operation to decrypt encrypted data keys so that they can be used to decrypt workspace data.
 
 The following example event records the `Decrypt` operation:
 
-```
+```JSON
 {
 "eventVersion": "1.08",
 "userIdentity": {

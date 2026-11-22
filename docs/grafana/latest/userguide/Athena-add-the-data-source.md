@@ -1,7 +1,6 @@
 
 
 # Manually adding the Athena data source
-<a name="Athena-add-the-data-source"></a>
 
 ## Prerequisites
 <a name="Athena-prerequisites2"></a>

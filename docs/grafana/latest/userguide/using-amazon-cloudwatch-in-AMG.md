@@ -1,7 +1,6 @@
 
 
 # Connect to an Amazon CloudWatch data source
-<a name="using-amazon-cloudwatch-in-AMG"></a>
 
 With Amazon Managed Grafana, you can add Amazon CloudWatch as a data source by using the AWS data source configuration option in the Grafana workspace console. This feature simplifies adding CloudWatch as a data source by discovering your existing CloudWatch accounts and manages the configuration of the authentication credentials that are required to access CloudWatch. You can use this method to set up authentication and add CloudWatch as a data source. Alternatively, you can manually set up the data source and the necessary authentication credentials using the same method that you would on a self-managed Grafana server.
 

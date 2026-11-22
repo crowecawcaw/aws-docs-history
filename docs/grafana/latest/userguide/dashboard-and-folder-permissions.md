@@ -1,7 +1,6 @@
 
 
 # Dashboard and folder permissions
-<a name="dashboard-and-folder-permissions"></a>
 
 For dashboards and dashboard folders, you can use the **Permissions** page to remove the default role based permissions for **Editors** and **Viewers**. On this page, you can add and assign permissions to specific **Users** and **Teams**.
 

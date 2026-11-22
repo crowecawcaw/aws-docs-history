@@ -1,7 +1,6 @@
 
 
 # Dashboard URL variables
-<a name="v9-dash-dashboard-url-variables"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

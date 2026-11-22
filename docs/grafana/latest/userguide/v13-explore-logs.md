@@ -1,7 +1,6 @@
 
 
 # Logs in Explore
-<a name="v13-explore-logs"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

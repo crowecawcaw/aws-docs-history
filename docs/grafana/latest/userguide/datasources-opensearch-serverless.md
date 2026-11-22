@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service Serverless
-<a name="datasources-opensearch-serverless"></a>
 
 **Note**  
 OpenSearch Service Serverless support is only available with Grafana workspaces that are running Grafana version 9.4 and later.

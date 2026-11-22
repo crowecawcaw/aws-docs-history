@@ -1,7 +1,6 @@
 
 
 # Connect to built-in data sources
-<a name="AMG-data-sources-builtin"></a>
 
 The following data sources are supported in every Amazon Managed Grafana workspace.
 

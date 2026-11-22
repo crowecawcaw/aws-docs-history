@@ -1,7 +1,6 @@
 
 
 # Using the Prometheus data source
-<a name="amazon-using-prometheus-datasource"></a>
 
 **Note**  
 The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.

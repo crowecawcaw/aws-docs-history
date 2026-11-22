@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Grafana permissions and policies for AWS data sources
-<a name="AMG-manage-permissions"></a>
 
 Amazon Managed Grafana offers three permission modes:
 + Service-managed permissions for current account
@@ -25,7 +24,7 @@ For workspaces that used CloudWatch before the **AmazonGrafanaCloudWatchAccess**
 Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaOpenSearchPolicy-{{random-id}}**. The Get/Post permissions are needed for data source access. The List/Describe permissions are used by Amazon Managed Grafana for data source discovery, but they aren’t required for the data source plugin to work. The contents of the policy are as follows:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ Amazon Managed Grafana attaches the AWS managed policy **AmazonGrafanaAthenaAcce
 Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaPrometheusPolicy-{{random-id}}**. The List/Describe permissions are used by Amazon Managed Grafana for data source discovery, they aren’t required for the plugin to work. The contents of the policy are as follows:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ Amazon Managed Grafana creates a customer-managed policy with the name **AmazonG
 Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaSNSPolicy-{{random-id}}**. The policy restricts you to only using SNS topics in your account that start with the string `grafana`. This is not necessary if you create your own policy. The contents of the policy are as follows:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -128,7 +127,7 @@ To use this mode, you must enable CloudFormation Stacksets as a trusted service 
 
 Here is the content of the **AmazonGrafanaStackSet-{{random-id}}** stack set:
 
-```
+```yaml
 Parameters:
   IncludePrometheusPolicy:
     Description: Whether to include Amazon Prometheus access in the role
@@ -313,7 +312,7 @@ Here is the content of **AmazonGrafanaOrgAdminPolicy-{{random-id}}**.
 
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -353,7 +352,7 @@ The following is an example of such a policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

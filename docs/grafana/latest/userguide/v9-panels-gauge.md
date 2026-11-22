@@ -1,7 +1,6 @@
 
 
 # Gauge panel
-<a name="v9-panels-gauge"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

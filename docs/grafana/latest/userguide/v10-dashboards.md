@@ -1,7 +1,6 @@
 
 
 # Dashboards in Grafana version 10
-<a name="v10-dashboards"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

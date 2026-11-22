@@ -1,7 +1,6 @@
 
 
 # Connect to a Tempo data source
-<a name="tempo-data-source"></a>
 
  Tempo is a high-volume, minimal dependency trace storage, OSS tracing solution from Grafana Labs. 
 

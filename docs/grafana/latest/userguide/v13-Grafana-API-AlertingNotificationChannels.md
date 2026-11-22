@@ -1,7 +1,6 @@
 
 
 # Alerting contact points API
-<a name="v13-Grafana-API-AlertingNotificationChannels"></a>
 
 In Grafana version 13, notifications are managed through Grafana's unified alerting. The legacy notification channels API (the `/api/alert-notifications` endpoints) was removed together with legacy alerting in Grafana version 11 and is no longer available. Instead, use the alerting provisioning API to work with *contact points*, which are the unified alerting replacement for notification channels.
 

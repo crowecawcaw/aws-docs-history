@@ -1,7 +1,6 @@
 
 
 # Extend your workspace with plugins
-<a name="grafana-plugins"></a>
 
 *Grafana plugins* add the ability to connect to new data sources, or add visualization or other functionality to the workspace. Broadly, plugins have three types:
 + **Panel plugins** – Panel plugins add new visualization types that are available for use in your dashboards. These define the rendering of the data in the frontend.

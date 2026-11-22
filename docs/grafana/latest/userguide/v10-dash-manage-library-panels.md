@@ -1,7 +1,6 @@
 
 
 # Managing library panels
-<a name="v10-dash-manage-library-panels"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

@@ -1,7 +1,6 @@
 
 
 # Query management in Explore
-<a name="v9-explore-manage"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

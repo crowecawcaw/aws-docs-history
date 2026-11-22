@@ -1,7 +1,6 @@
 
 
 # Logs Drilldown
-<a name="v12-drilldown-logs"></a>
 
 The Logs Drilldown app provides a queryless experience for browsing Loki logs. You can discover or narrow down your search by using volume and text patterns without needing to compose LogQL queries.
 

@@ -1,7 +1,6 @@
 
 
 # Annotating visualizations
-<a name="v9-panels-annotate-visualizations"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

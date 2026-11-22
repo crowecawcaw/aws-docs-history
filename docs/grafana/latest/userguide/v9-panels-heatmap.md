@@ -1,7 +1,6 @@
 
 
 # Heatmap panel
-<a name="v9-panels-heatmap"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

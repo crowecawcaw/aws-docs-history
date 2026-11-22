@@ -1,7 +1,6 @@
 
 
 # Use AWS data source configuration to add Amazon Athena as a data source
-<a name="Athena-adding-AWS-config"></a>
 
 ## Prerequisites
 <a name="Athena-prerequisites"></a>

@@ -1,7 +1,6 @@
 
 
 # Connect to an Azure Monitor data source
-<a name="using-azure-monitor-in-AMG"></a>
 
  The Azure Monitor data source supports multiple services in the Azure cloud: 
 +  **Azure Monitor service** is the platform service that provides a single source for monitoring Azure resources. For more information, see [Querying the Azure Monitor service](#query-the-azure-monitor-service). 
@@ -42,7 +41,7 @@
 
  Alternatively on step 4, if you are creating a new Azure Entra ID App, use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest): 
 
-```
+```bash
 az ad sp create-for-rbac -n "http://localhost:3000"
 ```
 

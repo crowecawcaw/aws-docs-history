@@ -1,7 +1,6 @@
 
 
 # Visualizations available in Grafana version 13
-<a name="v13-panels-viz"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

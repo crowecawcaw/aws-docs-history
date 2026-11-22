@@ -1,7 +1,6 @@
 
 
 # Using the metric query option to query CloudWatch Metrics Insights data
-<a name="CloudWatch-using-the-metric-query"></a>
 
 **Note**  
 Amazon CloudWatch Metrics Insights is in preview. CloudWatch Metrics Insights features are open to all AWS accounts. Features might be subject to change. 
@@ -15,7 +14,7 @@ Amazon CloudWatch Metrics Insights is in preview. CloudWatch Metrics Insights fe
 
 CloudWatch Metrics Insights uses a dialect of SQL. The following example shows the query syntax.
 
-```
+```SQL
 SELECT {{FUNCTION}}({{metricName}})
 FROM {{namespace }}| [ SCHEMA({{namespace}}[, labelKey [, ...] ]) ]
      [ WHERE {{labelKey}} OPERATOR labelValue [AND|OR|([...])*] [, ...] ]
@@ -43,28 +42,28 @@ FROM {{namespace }}| [ SCHEMA({{namespace}}[, labelKey [, ...] ]) ]
 The following are some examples: 
 + 
 
-  ```
+  ```SQL
   SELECT AVG(CPUUtilization) FROM "AWS/EC2" 
   ```
 
    Matches all `CPUUtilization` metrics in the `AWS/EC2` namespace, ignoring their dimensions, and returns a single aggregated time series. 
 + 
 
-  ```
+  ```SQL
   SELECT AVG(CPUUtilization) FROM SCHEMA("AWS/EC2")
   ```
 
    Matches only the `CPUUtilization` metrics in the `AWS/EC2` namespace that do not have any dimensions defined.
 + 
 
-  ```
+  ```SQL
   SELECT AVG(CPUUtilization) FROM SCHEMA("AWS/EC2", InstanceId)
   ```
 
    Matches only the `CPUUtilization`metrics that were reported to CloudWatch with exactly one dimension, `InstanceId`.
 + 
 
-  ```
+  ```SQL
   SELECT SUM(RequestCount) FROM SCHEMA("AWS/ApplicationELB", LoadBalancer,
   AvailabilityZone)
   ```

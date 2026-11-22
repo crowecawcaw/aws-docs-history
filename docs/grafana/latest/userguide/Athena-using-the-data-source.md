@@ -1,7 +1,6 @@
 
 
 # Using Athena data source
-<a name="Athena-using-the-data-source"></a>
 
 ## IAM policies
 <a name="Athena-policies"></a>

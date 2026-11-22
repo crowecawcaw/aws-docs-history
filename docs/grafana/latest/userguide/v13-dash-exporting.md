@@ -1,7 +1,6 @@
 
 
 # Exporting dashboards
-<a name="v13-dash-exporting"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

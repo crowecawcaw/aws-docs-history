@@ -1,7 +1,6 @@
 
 
 # Connect to your workspace
-<a name="connect-to-workspace"></a>
 
 Before you can use your Amazon Managed Grafana workspace you must connect to it by signing in with the identity provider that you have set up. If you have not set up an authentication method via some identity provider, see [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md) for more information.
 

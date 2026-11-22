@@ -1,7 +1,6 @@
 
 
 # Customize notifications
-<a name="v12-alerting-manage-notifications"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

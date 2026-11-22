@@ -1,7 +1,6 @@
 
 
 # User API
-<a name="v12-Grafana-API-User"></a>
 
 Use the User API to work with users in an Amazon Managed Grafana workspace. 
 

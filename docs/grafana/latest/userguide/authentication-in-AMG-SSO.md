@@ -1,7 +1,6 @@
 
 
 # Use AWS IAM Identity Center with your Amazon Managed Grafana workspace
-<a name="authentication-in-AMG-SSO"></a>
 
 Amazon Managed Grafana integrates with AWS IAM Identity Center to provide identity federation for your workforce. Using Amazon Managed Grafana and IAM Identity Center, users are redirected to their existing company directory to sign in with their existing credentials. Then, they are seamlessly signed in to their Amazon Managed Grafana workspace. This ensures that security settings such as password policies and two-factor authentication are enforced. Using IAM Identity Center does not impact your existing IAM configuration.
 

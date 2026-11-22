@@ -1,7 +1,6 @@
 
 
 # Panel editor overview
-<a name="v10-panels-editor-overview"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

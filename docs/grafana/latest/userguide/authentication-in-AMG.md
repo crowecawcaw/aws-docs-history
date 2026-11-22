@@ -1,7 +1,6 @@
 
 
 # Authenticate users in Amazon Managed Grafana workspaces
-<a name="authentication-in-AMG"></a>
 
 Individual users sign into your workspaces, to edit and view your dashboards. You can assign users to your workspaces and [give them user, editor, or administrator permissions](AMG-manage-users-and-groups-AMG.md). To get started, you create (or use an existing) identity provider to authenticate users.
 

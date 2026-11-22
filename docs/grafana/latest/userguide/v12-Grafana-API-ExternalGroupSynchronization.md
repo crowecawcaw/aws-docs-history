@@ -1,7 +1,6 @@
 
 
 # External Group Synchronization API
-<a name="v12-Grafana-API-ExternalGroupSynchronization"></a>
 
 **Note**  
 To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.

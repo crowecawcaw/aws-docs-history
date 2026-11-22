@@ -1,7 +1,6 @@
 
 
 # Configure value mappings
-<a name="v10-panels-configure-value-mappings"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

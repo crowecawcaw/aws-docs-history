@@ -1,7 +1,6 @@
 
 
 # FAQ for AWS Marketplace Enterprise users
-<a name="AMG-ws-mp-license-faq"></a>
 
 Previously, you may have purchased a license for Grafana Enterprise through AWS Marketplace. You can no longer purchase new licenses through AWS Marketplace, and you can not renew any license that was previously purchased through AWS Marketplace. The following FAQ may help you depending on the state of your AWS Marketplace license.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Amazon CloudWatch Logs query editor
-<a name="CloudWatch-using-the-logs-query-editor"></a>
 
  To query CloudWatch Logs, select the Region and up to 20 log groups that you want to query. Use the main input area to write your query. For more information, see [CloudWatch Logs Insights query syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html). 
 

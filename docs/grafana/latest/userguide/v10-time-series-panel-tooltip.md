@@ -1,7 +1,6 @@
 
 
 # Tooltip options
-<a name="v10-time-series-panel-tooltip"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

@@ -1,7 +1,6 @@
 
 
 # Managing dashboard links
-<a name="v10-dash-manage-dashboard-links"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

@@ -1,7 +1,6 @@
 
 
 # Configure Grafana managed alert rules
-<a name="v12-alerting-configure-grafanamanaged"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

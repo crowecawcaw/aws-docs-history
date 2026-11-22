@@ -1,7 +1,6 @@
 
 
 # Alerting API
-<a name="v10-Grafana-API-Alerting"></a>
 
 **Note**  
 This section only applies to classic alerting. For more information, see [Overview](v10-alerting-overview.md).

@@ -1,7 +1,6 @@
 
 
 # Dashboard Versions API
-<a name="v10-Grafana-API-DashboardVersions"></a>
 
 Use the Dashboard Versions API to retrieve dashboard versions and restore a dashboard to a specified version.
 

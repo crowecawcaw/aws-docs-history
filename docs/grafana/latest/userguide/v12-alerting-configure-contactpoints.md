@@ -1,7 +1,6 @@
 
 
 # Configure contact points
-<a name="v12-alerting-configure-contactpoints"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

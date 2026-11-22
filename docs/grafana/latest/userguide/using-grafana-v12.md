@@ -1,7 +1,6 @@
 
 
 # Working in Grafana version 12
-<a name="using-grafana-v12"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

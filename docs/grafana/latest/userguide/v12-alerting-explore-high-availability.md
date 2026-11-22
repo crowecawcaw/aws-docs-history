@@ -1,7 +1,6 @@
 
 
 # Alerting high availability
-<a name="v12-alerting-explore-high-availability"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

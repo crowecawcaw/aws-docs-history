@@ -1,7 +1,6 @@
 
 
 # Inspect Variables
-<a name="v13-dash-variable-add-inspect"></a>
 
 The variables page lets you easily identify whether a variable is being referenced (or used) in other variables or dashboard.
 

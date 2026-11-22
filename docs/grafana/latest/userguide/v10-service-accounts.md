@@ -1,7 +1,6 @@
 
 
 # Use service accounts to authenticate with the Grafana HTTP APIs
-<a name="v10-service-accounts"></a>
 
 You can use a service account to run automated workloads in Grafana, such as dashboard provisioning, configuration, or report generation. Create service accounts and tokens to authenticate applications, such as Terraform, with the Grafana console or the [Amazon Managed Grafana API](https://docs.aws.amazon.com/grafana/latest/APIReference/API_CreateWorkspaceServiceAccount.html).
 

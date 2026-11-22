@@ -1,7 +1,6 @@
 
 
 # Connect to a Wavefront data source (VMware Tanzu Observability by Wavefront)
-<a name="wavefront-datasource-for-AMG"></a>
 
  The Wavefront (VMware Tanzu Observability by Wavefront) data source enables Amazon Managed Grafana users to query and visualize the data they’re collecting directly from Wavefront and easily visualize it alongside any other metric, log, tracing, or other data source. This flexible, single-pane view makes it easier to track system health and debug issues. 
 

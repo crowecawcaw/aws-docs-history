@@ -1,7 +1,6 @@
 
 
 # Folder Permissions API
-<a name="v13-Grafana-API-FolderPermissions"></a>
 
 Use the Folder API to update or retrieve the permissions for a folder. 
 

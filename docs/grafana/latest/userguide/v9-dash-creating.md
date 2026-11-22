@@ -1,7 +1,6 @@
 
 
 # Creating dashboards
-<a name="v9-dash-creating"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

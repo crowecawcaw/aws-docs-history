@@ -1,7 +1,6 @@
 
 
 # Grafana version 12 API reference
-<a name="api-reference-v12"></a>
 
 You can use Grafana HTTP APIs with Amazon Managed Grafana workspaces. The following sections describe how to use the APIs, and then list which Grafana APIs are supported.
 

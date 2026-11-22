@@ -1,7 +1,6 @@
 
 
 # Connect to an Alertmanager data source
-<a name="data-source-alertmanager"></a>
 
 Grafana includes built-in support for Prometheus Alertmanager. Once Grafana alerting is configured, you can use the Grafana alerting UI to manage silences, contact points as well as notification policies. A drop-down option in these pages allows you to switch between Grafana and any configured Alertmanager data sources.
 

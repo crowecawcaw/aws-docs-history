@@ -1,7 +1,6 @@
 
 
 # Manage user and group access to Amazon Managed Grafana workspaces
-<a name="AMG-manage-users-and-groups-AMG"></a>
 
 You access Amazon Managed Grafana workspaces with users that are set up in your Identity provider (IdP) or AWS IAM Identity Center. You must give those users (or groups that they belong to) permissions to the workspace. You can give them `User`, `Editor`, or `Admin` permissions.
 

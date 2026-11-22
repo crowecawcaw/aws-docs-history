@@ -1,7 +1,6 @@
 
 
 # Configure field overrides
-<a name="v12-panels-configure-overrides"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

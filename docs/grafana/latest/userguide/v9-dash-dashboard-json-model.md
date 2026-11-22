@@ -1,7 +1,6 @@
 
 
 # Dashboard JSON model
-<a name="v9-dash-dashboard-json-model"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
@@ -26,7 +25,7 @@ When a user creates a new dashboard, a new dashboard JSON object is initialized 
 **Note**  
 In the following JSON, id is shown as null, which is the default value assigned to it until a dashboard is saved. After a dashboard is saved, an integer value is assigned to the `id` field.
 
-```
+```json
 {
   "id": null,
   "uid": "cLV5GDCkz",
@@ -72,8 +71,8 @@ The following describes each field in the dashboard JSON.
 | **editable** | if a dashboard is editable or not | 
 | **graphTooltip** | 0 for no shared crosshair or tooltip (default), 1 for shared crosshair, 2 for shared crosshair and shared tooltip | 
 | **time** | time range for dashboard, such as *last 6 hours* or *last 7 days* | 
-| **timepicker** | timepicker metadata, see [timepicker section](#v9-dash-dashboard-json-model) for details | 
-| **templating** | templating metadata, see [templating section](#v9-dash-dashboard-json-model) for details | 
+| **timepicker** | timepicker metadata, see [timepicker section](v9-dash-dashboard-json-model.md) for details | 
+| **templating** | templating metadata, see [templating section](v9-dash-dashboard-json-model.md) for details | 
 | **annotations** | annotations metadata, see [annotations](v9-panels-annotate-visualizations.md) for how to add them | 
 | **refresh** | auto-refresh interval | 
 | **schemaVersion** | version of the JSON schema (integer), incremented each time a Grafana update brings changes to said schema | 
@@ -84,7 +83,7 @@ The following describes each field in the dashboard JSON.
 
 Panels are the building blocks of a dashboard. It consists of data source queries, type of graphs, aliases, and more. Panel JSON consists of an array of JSON objects, each representing a different panel. Most of the fields are common for all panels but some fields depend on the panel type. The following is an example of panel JSON of a text panel.
 
-```
+```json
 "panels": [
   {
     "type": "text",
@@ -113,7 +112,7 @@ The grid has a negative gravity that moves up panels if there is empty space abo
 
 **Timepicker**
 
-```
+```json
 "timepicker": {
     "collapse": false,
     "enable": true,
@@ -140,7 +139,7 @@ The grid has a negative gravity that moves up panels if there is empty space abo
 
 The `templating` field contains an array of template variables with their saved values along with some other metadata.
 
-```
+```json
 "templating": {
     "enable": true,
     "list": [

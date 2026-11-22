@@ -1,7 +1,6 @@
 
 
 # Snapshot API
-<a name="v10-Grafana-API-Snapshot"></a>
 
 Use the Snapshot API to work with snapshots in an Amazon Managed Grafana workspace. 
 

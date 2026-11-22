@@ -1,7 +1,6 @@
 
 
 # Traces
-<a name="v12-panels-traces"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

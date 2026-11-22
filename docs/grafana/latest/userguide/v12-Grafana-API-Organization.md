@@ -1,7 +1,6 @@
 
 
 # Organization API
-<a name="v12-Grafana-API-Organization"></a>
 
 Use the Organization API to work with organizations in an Amazon Managed Grafana workspace.
 

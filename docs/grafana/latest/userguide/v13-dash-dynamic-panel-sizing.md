@@ -1,7 +1,6 @@
 
 
 # Choosing how panels are sized
-<a name="v13-dash-dynamic-panel-sizing"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

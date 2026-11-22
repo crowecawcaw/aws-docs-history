@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Redshift data source
-<a name="Redshift-using-the-data-source"></a>
 
 ## IAM policies
 <a name="Redshift-policies"></a>

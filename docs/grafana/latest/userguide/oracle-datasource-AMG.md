@@ -1,7 +1,6 @@
 
 
 # Connect to an Oracle Database data source
-<a name="oracle-datasource-AMG"></a>
 
 **Note**  
 This data source is for Grafana Enterprise only. For more information, see [Manage access to Enterprise plugins](upgrade-to-enterprise-plugins.md).  
@@ -52,7 +51,7 @@ Additionally, in workspaces that support version 9 or newer, this data source mi
 **Note**  
 Use one notation type per query. If the query needs braces, all macros in the query must use braces. 
 
-```
+```sql
 $__timeGroup{"dateColumn",'5m'}
 $__timeGroup{SYS_DATE_UTC("SDATE"),'5m'}
 $__timeGroup{FROM_TZ(CAST("SDATE" as timestamp), 'UTC'), '1h'}
@@ -72,7 +71,7 @@ $__timeGroup{FROM_TZ(CAST("SDATE" as timestamp), 'UTC'), '1h'}
 
  The following code example shows the `metric` column. 
 
-```
+```sql
 SELECT
   $__timeGroup("time_date_time", '5m') AS time,
   MIN("value_double"),
@@ -86,7 +85,7 @@ ORDER BY time
 ### More queries – using oracle-fake-data-gen
 <a name="more-queries---using-oracle-fake-data-gen"></a>
 
-```
+```sql
 SELECT
   $__timeGroup("createdAt", '5m') AS time,
   MIN("value"),
@@ -99,7 +98,7 @@ ORDER BY time
 
  The following code example shows a Fake Data time series. 
 
-```
+```sql
 SELECT
   "createdAt",
   "value"
@@ -108,7 +107,7 @@ WHERE $__timeFilter("createdAt")
 ORDER BY "createdAt" ASC
 ```
 
-```
+```sql
 SELECT
   "createdAt" as time,
   "value" as value
@@ -119,7 +118,7 @@ ORDER BY time ASC
 
  The following example shows a useful table result. 
 
-```
+```sql
 select tc.table_name Table_name
 ,tc.column_id Column_id
 ,lower(tc.column_name) Column_name
@@ -144,31 +143,31 @@ WHERE tc.table_name = t.table_name
 
  For example, you can have a variable that contains all values for the `hostname` column in a table if you specify a query like this in the templating variable *Query* setting. 
 
-```
+```sql
 SELECT "hostname" FROM host
 ```
 
  A query can return multiple columns and Grafana will automatically create a list from them. For example, the following query will return a list with values from `hostname` and `hostname2`. 
 
-```
+```sql
 SELECT "host.hostname", "other_host.hostname2" FROM host JOIN other_host ON host.city = other_host.city
 ```
 
  To use time range dependent macros such as `$__timeFilter("time_column")` in your query the refresh mode of the template variable needs to be set to *On Time Range Change*. 
 
-```
+```sql
 SELECT "event_name" FROM event_log WHERE $__timeFilter("time_column")
 ```
 
  Another option is a query that can create a key/value variable. The query should return two columns that are named `__text` and `__value`. The `__text` column value should be unique (if it is not unique then the first value is used). The options in the dropdown list will have a text and value that allows you to have a friendly name as text and an id as the value. The following example code shows a query with `hostname` as the text and `id` as the value. 
 
-```
+```sql
 SELECT "hostname" AS __text, "id" AS __value FROM host
 ```
 
  You can also create nested variables. For example, if you had another variable named `region`. Then you could have the hosts variable only show hosts from the current selected region with a query like this (if `region` is a multi-value variable then use the `IN` comparison operator rather than `=` to match against multiple values). 
 
-```
+```sql
 SELECT "hostname" FROM host WHERE region IN('$region')
 ```
 
@@ -183,7 +182,7 @@ SELECT "hostname" FROM host WHERE region IN('$region')
 
  `$<varname>` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   "atimestamp" as time,
   "aint" as value
@@ -194,7 +193,7 @@ ORDER BY "atimestamp" ASC
 
  `[[varname]]` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   "atimestamp" as time,
   "aint" as value

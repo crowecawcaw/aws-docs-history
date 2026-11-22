@@ -1,7 +1,6 @@
 
 
 # Configure a Amazon Managed Grafana workspace
-<a name="AMG-configure-workspace"></a>
 
 Amazon Managed Grafana configuration can be separated into configuration of the Amazon Managed Grafana authentication and permissions, and configuration of the Grafana workspace. This section includes information regarding configuration of your Grafana workspace.
 

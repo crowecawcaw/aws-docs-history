@@ -1,7 +1,6 @@
 
 
 # Manage permissions for data sources and notification channels
-<a name="AMG-datasource-and-notification"></a>
 
 Your Amazon Managed Grafana workspace must have permission to access AWS data sources for your metrics and notification channels for your alerts. You can use the Amazon Managed Grafana console to have Amazon Managed Grafana automatically create AWS Identity and Access Management (IAM) policies and permissions for the AWS data sources and notification channels that you want to use in the Amazon Managed Grafana workspace.
 

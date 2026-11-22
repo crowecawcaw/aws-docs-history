@@ -1,7 +1,6 @@
 
 
 # Document history for User Guide
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon Managed Grafana. For notification about updates to this documentation, you can subscribe to an RSS feed.
 

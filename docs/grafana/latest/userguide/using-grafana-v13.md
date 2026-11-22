@@ -1,7 +1,6 @@
 
 
 # Working in Grafana version 13
-<a name="using-grafana-v13"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

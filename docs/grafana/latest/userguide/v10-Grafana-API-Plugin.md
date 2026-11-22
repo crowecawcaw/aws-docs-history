@@ -1,7 +1,6 @@
 
 
 # Plugin API
-<a name="v10-Grafana-API-Plugin"></a>
 
 Use the Plugin API to manage plugins in the Amazon Managed Grafana workspace. To make changes to plugins with this API, the workspace must have [plugin management enabled](AMG-configure-workspace.md) for your workspace. The user defined by the Grafana API key must also be an [admin](Grafana-user-roles.md) for the Amazon Managed Grafana workspace.
 

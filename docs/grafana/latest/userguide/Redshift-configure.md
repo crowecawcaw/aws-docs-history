@@ -1,7 +1,6 @@
 
 
 # Use AWS data source configuration to add Amazon Redshift as a data source
-<a name="Redshift-configure"></a>
 
 # To use AWS data source configuration to add Amazon Redshift as a data source
 

@@ -1,7 +1,6 @@
 
 
 # Manually adding the Timestream data source
-<a name="timestream-add-the-data-source"></a>
 
 **To manually add the Timestream data source**
 

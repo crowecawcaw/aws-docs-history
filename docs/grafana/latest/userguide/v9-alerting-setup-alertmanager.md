@@ -1,7 +1,6 @@
 
 
 # Add an external Alertmanager
-<a name="v9-alerting-setup-alertmanager"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

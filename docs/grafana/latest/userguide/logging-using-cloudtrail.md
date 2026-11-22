@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Managed Grafana API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Managed Grafana is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon Managed Grafana as events. The calls captured include calls from the Amazon Managed Grafana console and code calls to the Amazon Managed Grafana API operations.
 
@@ -41,7 +40,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail log entry for a CreateWorkspace action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -128,7 +127,7 @@ The following example shows a CloudTrail log entry for a CreateWorkspace action.
 
 The following example shows a CloudTrail log entry for an UpdateWorkspaceAuthentication action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -209,7 +208,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **User signs in to Amazon Managed Grafana workspace using AWS IAM Identity Center**
 
-```
+```json
 {
     "Records": [
         {
@@ -271,7 +270,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API POST /api/auth/keys**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -330,7 +329,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API DELETE /api/auth/keys/:id**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -391,7 +390,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API POST /api/alerts/:id/pause**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -453,7 +452,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana POST /api/alerts/test**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -512,7 +511,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API POST /api/alert-notifications**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -571,7 +570,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API PUT /api/alert-notifications/uid/:uid**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -633,7 +632,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API POST /api/annotations**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -692,7 +691,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API DELETE /api/dashboards/uid/:uid**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -753,7 +752,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API PUT /api/datasources/:datasourceId**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -815,7 +814,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API DELETE /api/teams/:teamId/groups/:groupId**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -877,7 +876,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API PUT /api/folders/:uid**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -941,7 +940,7 @@ Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls
 
 **Grafana API POST /api/teams**
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

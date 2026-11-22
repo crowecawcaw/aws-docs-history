@@ -1,7 +1,6 @@
 
 
 # Users, teams, and permissions
-<a name="Grafana-administration-authorization"></a>
 
 Permissions in Amazon Managed Grafana are managed across the Amazon Managed Grafana console and directly within the workspace.
 + **Users** – Users are [authenticated](authentication-in-AMG.md) in IAM Identity Center or an identity provider that you set up through SAML in the Amazon Managed Grafana console.

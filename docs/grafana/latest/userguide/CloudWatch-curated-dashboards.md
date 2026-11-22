@@ -1,7 +1,6 @@
 
 
 # Curated dashboards
-<a name="CloudWatch-curated-dashboards"></a>
 
  The updated CloudWatch data source ships with pre-configured dashboards for five of the most popular AWS services: 
 +  Amazon EC2 

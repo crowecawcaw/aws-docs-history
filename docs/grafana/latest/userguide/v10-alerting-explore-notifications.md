@@ -1,7 +1,6 @@
 
 
 # Notifications
-<a name="v10-alerting-explore-notifications"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

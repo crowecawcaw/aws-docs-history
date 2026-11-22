@@ -1,7 +1,6 @@
 
 
 # Table
-<a name="v10-panels-table"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

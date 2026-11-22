@@ -1,7 +1,6 @@
 
 
 # Connect to a ServiceNow data source
-<a name="grafana-enterprise-servicenow-datasource"></a>
 
 This is the ServiceNow data source that is used to connect to ServiceNow instances.
 

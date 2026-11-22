@@ -1,7 +1,6 @@
 
 
 # Team API
-<a name="v13-Grafana-API-Team"></a>
 
 Use the Team API to work with teams in an Amazon Managed Grafana workspace. All operations in this API require that you have the Admin role.
 

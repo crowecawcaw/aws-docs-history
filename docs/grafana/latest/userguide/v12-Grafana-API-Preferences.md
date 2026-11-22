@@ -1,7 +1,6 @@
 
 
 # Preferences API
-<a name="v12-Grafana-API-Preferences"></a>
 
 Use the Preferences API to work with user preferences in the Amazon Managed Grafana workspace. 
 

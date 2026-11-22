@@ -1,7 +1,6 @@
 
 
 # Visualize alerts from Amazon Managed Service for Prometheus
-<a name="amazon-amp-configure-alerts"></a>
 
 **Note**  
 The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.

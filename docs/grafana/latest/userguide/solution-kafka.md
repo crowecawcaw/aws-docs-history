@@ -1,7 +1,6 @@
 
 
 # Solution for monitoring Kafka applications with Amazon Managed Grafana
-<a name="solution-kafka"></a>
 
 Applications built on top of [Apache Kafka](https://kafka.apache.org) have specialized monitoring needs. This page describes a template that provides a solution for monitoring Kafka applications running in Java Virtual Machines on your Amazon EKS cluster. The solution can be installed using [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 

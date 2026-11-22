@@ -1,7 +1,6 @@
 
 
 # Using ec2\_instance\_attribute examples
-<a name="cloudwatch-ec2-instance-attribute-examples"></a>
 
 ## JSON filters
 <a name="json-filters"></a>
@@ -10,13 +9,13 @@
 
  The following code example shows the filters syntax. 
 
-```
+```javascript
 { filter_name1: [ filter_value1 ], filter_name2: [ filter_value2 ] }
 ```
 
  The following example shows the `ec2_instance_attribute()` query. 
 
-```
+```javascript
 ec2_instance_attribute(us - east - 1, InstanceId, { 'tag:Environment': ['production'] });
 ```
 
@@ -57,6 +56,6 @@ ec2_instance_attribute(us - east - 1, InstanceId, { 'tag:Environment': ['product
 
  The following example shows the `ec2_instance_attribute()` query. 
 
-```
+```javascript
 ec2_instance_attribute(us - east - 1, Tags.Name, { 'tag:Team': ['sysops'] });
 ```

@@ -1,7 +1,6 @@
 
 
 # Alerting on numeric data
-<a name="v13-alerting-overview-numeric"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  
@@ -41,7 +40,7 @@ For a MySQL table called "DiskSpace":
 
 You can query the data filtering on time, but without returning the time series to Grafana. For example, an alert that would trigger per Host, Disk when there is less than 5% free space:
 
-```
+```sql
 SELECT Host , Disk , CASE WHEN PercentFree  < 5.0 THEN PercentFree  ELSE 0 END FROM ( 
        SELECT
           Host, 

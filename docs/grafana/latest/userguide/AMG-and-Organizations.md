@@ -1,7 +1,6 @@
 
 
 # How Amazon Managed Grafana works with AWS Organizations for AWS data source access
-<a name="AMG-and-Organizations"></a>
 
 With AWS Organizations, you can centrally manage data source configuration and permission settings for multiple AWS accounts. In an AWS account with an Amazon Managed Grafana workspace, you can specify other organizational units to make their AWS data sources available for viewing in the primary account.
 

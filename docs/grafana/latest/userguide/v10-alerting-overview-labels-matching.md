@@ -1,7 +1,6 @@
 
 
 # How label matching works
-<a name="v10-alerting-overview-labels-matching"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

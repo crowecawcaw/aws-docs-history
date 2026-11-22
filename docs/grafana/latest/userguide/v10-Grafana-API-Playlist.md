@@ -1,7 +1,6 @@
 
 
 # Playlist API
-<a name="v10-Grafana-API-Playlist"></a>
 
 Use the Playlist API to work with playlists in the Amazon Managed Grafana workspace. 
 

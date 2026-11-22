@@ -1,7 +1,6 @@
 
 
 # Working in Grafana version 9
-<a name="using-grafana-v9"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

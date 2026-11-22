@@ -1,7 +1,6 @@
 
 
 # Adding and managing dashboard variables
-<a name="v9-dash-variables"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

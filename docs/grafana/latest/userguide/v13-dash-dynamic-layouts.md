@@ -1,7 +1,6 @@
 
 
 # Organizing dashboards with tabs, rows, and flexible layouts
-<a name="v13-dash-dynamic-layouts"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

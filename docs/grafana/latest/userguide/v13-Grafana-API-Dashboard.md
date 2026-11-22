@@ -1,7 +1,6 @@
 
 
 # Dashboard API
-<a name="v13-Grafana-API-Dashboard"></a>
 
 Use the Dashboard API to create, update, delete, and work with dashboards in the Amazon Managed Grafana workspace. 
 

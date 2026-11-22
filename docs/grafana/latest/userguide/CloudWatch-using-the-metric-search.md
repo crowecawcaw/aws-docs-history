@@ -1,7 +1,6 @@
 
 
 # Using the metric search option
-<a name="CloudWatch-using-the-metric-search"></a>
 
  To create a valid query in **Metric Search**, you must specify the namespace, metric name and at least one statistic. If **Match Exact** is turned on, you must also specify all dimensions of the metric that you’re querying. The metrics schema must match exactly. For more information, see [CloudWatch search expression syntax ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/search-expression-syntax.html).
 

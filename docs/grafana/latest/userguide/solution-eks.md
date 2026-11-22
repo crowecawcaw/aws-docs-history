@@ -1,7 +1,6 @@
 
 
 # Solution for Monitoring Amazon EKS infrastructure with Amazon Managed Grafana
-<a name="solution-eks"></a>
 
 Monitoring Amazon Elastic Kubernetes Service infrastructure is one of the most common scenarios for which Amazon Managed Grafana are used. This page describes a template that provides you with a solution for this scenario. The solution can be installed using [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/home.html) or with [Terraform](https://www.terraform.io/).
 

@@ -1,7 +1,6 @@
 
 
 # Showing and hiding content dynamically
-<a name="v13-dash-dynamic-show-hide"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

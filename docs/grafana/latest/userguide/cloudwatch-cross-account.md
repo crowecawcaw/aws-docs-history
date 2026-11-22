@@ -1,7 +1,6 @@
 
 
 # Cross-account observability
-<a name="cloudwatch-cross-account"></a>
 
 **Warning**  
 This feature requires your Grafana workspace to be version 9 or later.

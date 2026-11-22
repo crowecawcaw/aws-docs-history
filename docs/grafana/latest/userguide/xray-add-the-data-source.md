@@ -1,7 +1,6 @@
 
 
 # Manually adding the X-Ray data source
-<a name="xray-add-the-data-source"></a>
 
 **To manually add the X-Ray data source**
 

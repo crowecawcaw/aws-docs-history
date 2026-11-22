@@ -1,7 +1,6 @@
 
 
 # Correlations editor in Explore
-<a name="v12-explore-correlations"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

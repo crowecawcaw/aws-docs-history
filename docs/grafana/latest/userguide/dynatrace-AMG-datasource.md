@@ -1,7 +1,6 @@
 
 
 # Connect to a Dynatrace data source
-<a name="dynatrace-AMG-datasource"></a>
 
 Data source for [https://www.dynatrace.com/](https://www.dynatrace.com). To use this data source, you must have a Dynatrace account.
 

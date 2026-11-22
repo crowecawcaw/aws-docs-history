@@ -1,7 +1,6 @@
 
 
 # Legend options
-<a name="v13-time-series-panel-legend"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  

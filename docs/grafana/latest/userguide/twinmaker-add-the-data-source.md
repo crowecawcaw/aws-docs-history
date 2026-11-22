@@ -1,7 +1,6 @@
 
 
 # Manually adding the AWS IoT TwinMaker data source
-<a name="twinmaker-add-the-data-source"></a>
 
 ## Prerequisites
 <a name="twinmaker-prerequisites"></a>

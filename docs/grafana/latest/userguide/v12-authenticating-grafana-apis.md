@@ -1,7 +1,6 @@
 
 
 # Authenticate with service accounts
-<a name="v12-authenticating-grafana-apis"></a>
 
 ## Using service accounts
 <a name="v12-service-accounts"></a>

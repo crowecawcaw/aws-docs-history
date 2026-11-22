@@ -1,7 +1,6 @@
 
 
 # Write expression queries
-<a name="v9-panels-query-xform-expressions"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

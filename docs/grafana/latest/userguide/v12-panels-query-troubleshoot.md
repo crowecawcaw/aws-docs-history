@@ -1,7 +1,6 @@
 
 
 # Troubleshoot queries
-<a name="v12-panels-query-troubleshoot"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

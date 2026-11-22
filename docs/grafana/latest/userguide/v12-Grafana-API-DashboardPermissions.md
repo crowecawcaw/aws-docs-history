@@ -1,7 +1,6 @@
 
 
 # Dashboard Permissions API
-<a name="v12-Grafana-API-DashboardPermissions"></a>
 
 Use the Dashboard Permissions API to update or retrieve the permissions for a dashboard. 
 

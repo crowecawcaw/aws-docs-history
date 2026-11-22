@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="Athena-prereq"></a>
 
 To use the managed policies for Amazon Managed Grafana for Athena, complete the following tasks before you configure the Athena data source:
 + Tag your Athena work groups with `GrafanaDataSource: true`. 

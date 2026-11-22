@@ -1,7 +1,6 @@
 
 
 # Connect to a Microsoft SQL Server data source
-<a name="using-microsoft-sql-server-in-AMG"></a>
 
  Use the Microsoft SQL Server (MSSQL) data source to query and visualize data from any Microsoft SQL Server 2005 or newer, including Microsoft Azure SQL Database. 
 
@@ -62,7 +61,7 @@ To make your visualizations work as they did before, you might have to do some m
 
  The following example code shows creating a specific MSSQL user with restricted permissions. 
 
-```
+```sql
  CREATE USER grafanareader WITH PASSWORD 'password'
  GRANT SELECT ON dbo.YourTable3 TO grafanareader
 ```
@@ -116,7 +115,7 @@ To make your visualizations work as they did before, you might have to do some m
 
  The following example code shows a database table. 
 
-```
+```sql
 CREATE TABLE [event] (
   time_sec bigint,
   description nvarchar(100),
@@ -124,7 +123,7 @@ CREATE TABLE [event] (
 )
 ```
 
-```
+```sql
 CREATE TABLE [mssql_types] (
   c_bit bit, c_tinyint tinyint, c_smallint smallint, c_int int, c_bigint bigint, c_money money, c_smallmoney smallmoney, c_numeric numeric(10,5),
   c_real real, c_decimal decimal(10,2), c_float float,
@@ -144,13 +143,13 @@ SELECT
 
  The following example code shows a query. 
 
-```
+```sql
 SELECT * FROM [mssql_types]
 ```
 
  You can control the name of the Table panel columns by using regular `AS` SQL column selection syntax, as shown in the following example code. 
 
-```
+```sql
 SELECT
   c_bit as [column1], c_tinyint as [column2]
 FROM
@@ -168,7 +167,7 @@ FROM
 
  The following example code shows a database table. 
 
-```
+```sql
 CREATE TABLE [event] (
   time_sec bigint,
   description nvarchar(100),
@@ -176,7 +175,7 @@ CREATE TABLE [event] (
 )
 ```
 
-```
+```sql
 CREATE TABLE metric_values (
   time datetime,
   measurement nvarchar(100),
@@ -193,7 +192,7 @@ INSERT metric_values (time, measurement, valueOne, valueTwo) VALUES('2018-03-15 
 
  The following example code shows one `value` and one `metric` column. 
 
-```
+```sql
 SELECT
   time,
   valueOne,
@@ -209,7 +208,7 @@ ORDER BY 1
 
  The following example code shows multiple `value` columns. 
 
-```
+```sql
 SELECT
   time,
   valueOne,
@@ -225,7 +224,7 @@ ORDER BY 1
 
  The following example code shows using the $\_\_timeGroup macro. 
 
-```
+```sql
 SELECT
   $__timeGroup(time, '3m') as time,
   measurement as metric,
@@ -244,7 +243,7 @@ ORDER BY 1
 
  The following example code shows using the $\_\_timeGroup macro with fill parameter set to zero. 
 
-```
+```sql
 SELECT
   $__timeGroup(time, '3m', 0) as time,
   measurement as metric,
@@ -275,25 +274,25 @@ ORDER BY 1
 
  For example, you can have a variable that contains all values for the `hostname` column in a table if you specify a query such as this in the templating variable *Query* setting. 
 
-```
+```sql
 SELECT hostname FROM host
 ```
 
  A query can return multiple columns and Grafana will automatically create a list from them. For example, the following query will return a list with values from `hostname` and `hostname2`. 
 
-```
+```sql
 SELECT [host].[hostname], [other_host].[hostname2] FROM host JOIN other_host ON [host].[city] = [other_host].[city]
 ```
 
  Another option is a query that can create a key/value variable. The query should return two columns that are named `__text` and `__value`. The `__text` column value should be unique (if it is not unique then the first value is used). The options in the dropdown list will have a text and value that allow you to have a friendly name as text and an id as the value. An example query with `hostname` as the text and `id` as the value: 
 
-```
+```sql
 SELECT hostname __text, id __value FROM host
 ```
 
  You can also create nested variables. For example, if you had another variable named `region`. Then you could have the hosts variable only show hosts from the current selected region with a query such as this (if `region` is a multi-value variable, then use the `IN` comparison operator rather than `=` to match against multiple values). 
 
-```
+```sql
 SELECT hostname FROM host WHERE region IN ($region)
 ```
 
@@ -309,7 +308,7 @@ SELECT hostname FROM host WHERE region IN ($region)
 
  `$<varname>` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   atimestamp time,
   aint value
@@ -320,7 +319,7 @@ ORDER BY atimestamp
 
  `[[varname]]` Example with a template variable named `hostname`: 
 
-```
+```sql
 SELECT
   atimestamp as time,
   aint as value
@@ -355,7 +354,7 @@ ORDER BY atimestamp
 
  The following example code shows database tables. 
 
-```
+```sql
 CREATE TABLE [events] (
   time_sec bigint,
   description nvarchar(100),
@@ -367,7 +366,7 @@ CREATE TABLE [events] (
 
  The following example code shows a query using a time column with epoch values. 
 
-```
+```sql
 SELECT
   time_sec as time,
   description as [text],
@@ -381,7 +380,7 @@ ORDER BY 1
 
  The following example code shows a region query using time and timeend columns with epoch values. 
 
-```
+```sql
 SELECT
   time_sec as time,
   time_end_sec as timeend,
@@ -396,7 +395,7 @@ ORDER BY 1
 
  The following example code shows a query using a time column of native SQL date/time data type. 
 
-```
+```sql
 SELECT
   time,
   measurement as text,
@@ -422,7 +421,7 @@ ORDER BY 1
 
  The following example code shows the first query. 
 
-```
+```sql
 SELECT
   $__timeGroup(time, '5m') as time,
   measurement + ' - value one' as metric,
@@ -439,7 +438,7 @@ ORDER BY 1
 
  The following example code shows the second query. 
 
-```
+```sql
 SELECT
   $__timeGroup(time, '5m') as time,
   measurement + ' - value two' as metric,
@@ -459,7 +458,7 @@ ORDER BY 1
 
  This mimics the `$__timeGroup(time, '5m')` in the select and group by expressions, and that’s why numerous lengthy expressions are needed. These could be extracted to MSSQL functions, if wanted.
 
-```
+```sql
 CREATE PROCEDURE sp_test_epoch(
   @from int,
   @to   int
@@ -494,7 +493,7 @@ END
 
  Then you can use the following query for your graph panel. 
 
-```
+```sql
 DECLARE
   @from int = $__unixEpochFrom(),
   @to int = $__unixEpochTo()
@@ -509,7 +508,7 @@ EXEC dbo.sp_test_epoch @from, @to
 
  This mimics the `$__timeGroup(time, '5m')` in the select and group by expressions, and that’s why numerous lengthy expressions are needed. These could be extracted to MSSQL functions, if wanted. 
 
-```
+```sql
 CREATE PROCEDURE sp_test_datetime(
   @from datetime,
   @to   datetime
@@ -544,7 +543,7 @@ END
 
  Then you can use the following query for your graph panel. 
 
-```
+```sql
 DECLARE
   @from datetime = $__timeFrom(),
   @to datetime = $__timeTo()

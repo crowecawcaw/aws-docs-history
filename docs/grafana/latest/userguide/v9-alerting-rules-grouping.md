@@ -1,7 +1,6 @@
 
 
 # Namespaces and groups
-<a name="v9-alerting-rules-grouping"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

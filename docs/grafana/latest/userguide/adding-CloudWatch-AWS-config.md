@@ -1,7 +1,6 @@
 
 
 # Use AWS data source configuration to add CloudWatch as a data source
-<a name="adding-CloudWatch-AWS-config"></a>
 
 To use AWS data source configuration, first you use the Amazon Managed Grafana console to enable service-managed IAM roles that grant the workspace the IAM policies necessary to read the CloudWatch resources in your account or in your entire organizational unit. Then you use the Amazon Managed Grafana workspace console to add CloudWatch as a data source.
 

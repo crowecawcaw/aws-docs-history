@@ -1,7 +1,6 @@
 
 
 # Connect to a Google Cloud Monitoring data source
-<a name="using-google-cloud-monitoring-in-grafana"></a>
 
 **Note**  
  In earlier versions of Grafana, this data source was named Google Stackdriver. 

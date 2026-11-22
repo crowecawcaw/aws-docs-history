@@ -1,7 +1,6 @@
 
 
 # Data sources and Grafana alerting
-<a name="v12-alerting-overview-datasources"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

@@ -1,7 +1,6 @@
 
 
 # Connect to an AWS IoT TwinMaker data source
-<a name="AMG-iot-twinmaker"></a>
 
 ****  
 This plugin is supported in Grafana versions <=12.4.
@@ -51,7 +50,7 @@ In workspaces that support version 9 or newer, this data source might require yo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -79,7 +78,7 @@ In workspaces that support version 9 or newer, this data source might require yo
 
 ****  
 
-   ```
+   ```json
       {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

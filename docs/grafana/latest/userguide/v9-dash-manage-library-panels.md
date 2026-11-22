@@ -1,7 +1,6 @@
 
 
 # Adding a library panel to your dashboard
-<a name="v9-dash-manage-library-panels"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

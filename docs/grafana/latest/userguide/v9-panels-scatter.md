@@ -1,7 +1,6 @@
 
 
 # Scatter panel
-<a name="v9-panels-scatter"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

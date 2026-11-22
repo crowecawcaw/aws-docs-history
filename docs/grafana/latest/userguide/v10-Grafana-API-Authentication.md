@@ -1,7 +1,6 @@
 
 
 # Authentication API
-<a name="v10-Grafana-API-Authentication"></a>
 
 Use the Authentication API to work with authentication keys in an Amazon Managed Grafana workspace.
 

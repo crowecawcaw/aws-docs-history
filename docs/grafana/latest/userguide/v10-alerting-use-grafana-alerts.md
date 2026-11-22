@@ -1,7 +1,6 @@
 
 
 # Migrating classic dashboard alerts to Grafana alerting
-<a name="v10-alerting-use-grafana-alerts"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

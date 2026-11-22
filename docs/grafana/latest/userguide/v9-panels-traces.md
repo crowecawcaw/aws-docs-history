@@ -1,7 +1,6 @@
 
 
 # Traces panel (Beta)
-<a name="v9-panels-traces"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

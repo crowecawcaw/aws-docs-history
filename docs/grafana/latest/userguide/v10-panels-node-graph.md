@@ -1,7 +1,6 @@
 
 
 # Node graph
-<a name="v10-panels-node-graph"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

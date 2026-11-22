@@ -1,7 +1,6 @@
 
 
 # Using the Amazon OpenSearch Service data source
-<a name="ES-use-datasource"></a>
 
 ## Metric query editor
 <a name="ES-metric-query-editor"></a>

@@ -1,7 +1,6 @@
 
 
 # Bar gauge
-<a name="v10-panels-bar-gauge"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

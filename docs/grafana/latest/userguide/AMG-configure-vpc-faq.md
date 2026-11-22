@@ -1,7 +1,6 @@
 
 
 # Troubleshoot using VPC with Amazon Managed Grafana
-<a name="AMG-configure-vpc-faq"></a>
 
 Answers to common questions regarding using Amazon Virtual Private Cloud (Amazon VPC) with Amazon Managed Grafana.
 
@@ -69,7 +68,7 @@ Yes. You can connect data sources from both your VPC and public data sources to 
 ## What should I do if I'm unable to update an Amazon Managed Grafana workspace due to insufficient IP addresses?
 <a name="vpc-faq-ip-exhaustion"></a>
 
- You might encounter the following error when modifying your Amazon Managed Grafana workspace configuration: All subnets in the VPC configuration must have at least 15 available IP addresses. 
+ You might encounter the following error when modifying your Amazon Managed Grafana workspace configuration: `All subnets in the VPC configuration must have at least 15 available IP addresses`. 
 
  You will receive this error if one or more subnets connected to your workspace do not meet the minimum IP requirements. A minimum of 15 available IP addresses must be in each subnet connected to your workspace. When the number of available IP addresses for a subnet falls below 15, you might experience the following issues: 
 + Inability to make configuration changes to your workspace until you free up additional IP addresses or attach subnets with additional IP addresses

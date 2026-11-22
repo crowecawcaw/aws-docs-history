@@ -1,7 +1,6 @@
 
 
 # Visualizations available in Grafana version 9
-<a name="v9-panels-viz"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

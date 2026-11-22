@@ -1,7 +1,6 @@
 
 
 # View and filter by alert groups
-<a name="v12-alerting-manage-viewfiltergroups"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

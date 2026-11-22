@@ -1,7 +1,6 @@
 
 
 # Connect to a Jaeger data source
-<a name="jaeger-data-source"></a>
 
  The Jaeger data source provides open-source, end-to-end distributed tracing. 
 

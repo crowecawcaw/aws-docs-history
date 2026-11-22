@@ -1,7 +1,6 @@
 
 
 # Connect to a MongoDB data source
-<a name="AMG-mongodb-datasource"></a>
 
  The MongoDB Data source enables you to visualize data from MongoDB in Amazon Managed Grafana. 
 

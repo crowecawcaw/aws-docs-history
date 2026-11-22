@@ -1,7 +1,6 @@
 
 
 # Manage access to Enterprise plugins
-<a name="upgrade-to-enterprise-plugins"></a>
 
 You can use the Amazon Managed Grafana console to manage your workspace and gain access to Enterprise plugins. Upgrading gives you access to Enterprise plugins with support for data sources from a variety of third-party independent software vendors (ISVs), including the list below.
 

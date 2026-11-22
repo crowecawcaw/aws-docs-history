@@ -1,7 +1,6 @@
 
 
 # User roles
-<a name="Grafana-user-roles"></a>
 
 In Amazon Managed Grafana, each user enabled to use the Amazon Managed Grafana workspace are assigned to one of three [roles](AMG-manage-users-and-groups-AMG.md) in the Amazon Managed Grafana console.
 + **Admin role**— Users with the Admin role can do the following:

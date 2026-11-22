@@ -1,7 +1,6 @@
 
 
 # Update your workspace version
-<a name="AMG-workspace-version-update"></a>
 
 You can update your Amazon Managed Grafana workspace to a newer version of Grafana in the Amazon Managed Grafana console in two ways.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to an AppDynamics data source
-<a name="appdynamics-AMG-datasource"></a>
 
  The AppDynamics data source for Amazon Managed Grafana enables you to query metrics from AppDynamics using its Metrics API and visualize them in Grafana dashboards. 
 

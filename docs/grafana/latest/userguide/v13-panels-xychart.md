@@ -1,7 +1,6 @@
 
 
 # XY Chart
-<a name="v13-panels-xychart"></a>
 
 XY charts provide a way to visualize arbitrary x and y values in a graph so that you can easily show the relationship between two variables. XY charts are typically used to create scatter plots. you can also use them to create bubble charts, where field values determine the size of each bubble.
 

@@ -1,7 +1,6 @@
 
 
 # Creating Grafana Mimir or Loki managed alert rules
-<a name="v9-alerting-managerules-mimir-loki"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

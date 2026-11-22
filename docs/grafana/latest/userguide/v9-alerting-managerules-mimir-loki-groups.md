@@ -1,7 +1,6 @@
 
 
 # Grafana Mimir or Loki rule groups and namespaces
-<a name="v9-alerting-managerules-mimir-loki-groups"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

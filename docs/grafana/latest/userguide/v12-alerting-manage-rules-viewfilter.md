@@ -1,7 +1,6 @@
 
 
 # View and filter alert rules
-<a name="v12-alerting-manage-rules-viewfilter"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

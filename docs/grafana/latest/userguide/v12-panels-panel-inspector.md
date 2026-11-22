@@ -1,7 +1,6 @@
 
 
 # The panel inspect view
-<a name="v12-panels-panel-inspector"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

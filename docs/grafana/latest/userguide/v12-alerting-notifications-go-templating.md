@@ -1,7 +1,6 @@
 
 
 # Using Go’s templating language
-<a name="v12-alerting-notifications-go-templating"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  

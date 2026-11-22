@@ -1,7 +1,6 @@
 
 
 # State and health of alerting rules
-<a name="v9-alerting-explore-state"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

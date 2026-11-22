@@ -1,7 +1,6 @@
 
 
 # Configure standard options
-<a name="v10-panels-configure-standard-options"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  

@@ -1,7 +1,6 @@
 
 
 # Using the query editor
-<a name="CloudWatch-using-the-query-editor"></a>
 
 The CloudWatch data source in Amazon Managed Grafana provides a powerful query editor that allows you to retrieve and analyze metrics and logs from various AWS services that send data to CloudWatch. The query editor supports two distinct query modes: Metric Search and CloudWatch Logs.
 

@@ -1,7 +1,6 @@
 
 
 # Axis options
-<a name="v9-time-series-axis"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  

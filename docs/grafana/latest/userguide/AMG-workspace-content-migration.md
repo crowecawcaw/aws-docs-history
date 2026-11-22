@@ -1,7 +1,6 @@
 
 
 # Migrate content between Amazon Managed Grafana workspaces
-<a name="AMG-workspace-content-migration"></a>
 
 There are times that you want to migrate your content (including data sources, dashboards, folder, and alert rules) from one workspace to another. For example, you are migrating from an on-premise Grafana instance to an Amazon Managed Grafana workspace, and you want to migrate your existing content to the new workspace.
 

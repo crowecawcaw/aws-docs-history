@@ -1,7 +1,6 @@
 
 
 # Creating Grafana managed alert rules
-<a name="v9-alerting-managerules-grafana"></a>
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
