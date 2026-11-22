@@ -1,7 +1,6 @@
 
 
 # Set Up a Continuous Deployment Pipeline Using AWS CodePipeline
-<a name="continuous-deployment-pipeline"></a>
 
 
 |  |  | 
