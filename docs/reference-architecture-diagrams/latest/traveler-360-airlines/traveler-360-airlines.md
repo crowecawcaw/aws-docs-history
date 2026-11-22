@@ -1,7 +1,6 @@
 
 
 # Traveler 360 Data Platform for Airlines
-<a name="traveler-360-airlines"></a>
 
 Publication date: **November 11, 2020 ([Diagram history](#traveler-360-history))**
 
