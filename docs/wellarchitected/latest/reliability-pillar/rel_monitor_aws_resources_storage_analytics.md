@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL06-BP05 Analyze logs
-<a name="rel_monitor_aws_resources_storage_analytics"></a>
 
  Collect log files and metrics histories and analyze these for broader trends and workload insights. 
 

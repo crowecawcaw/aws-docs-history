@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL06-BP07 Monitor end-to-end tracing of requests through your system
-<a name="rel_monitor_aws_resources_end_to_end"></a>
 
 Trace requests as they process through service components so product teams can more easily analyze and debug issues and improve performance.
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL13-BP01 Define recovery objectives for downtime and data loss
-<a name="rel_planning_for_recovery_objective_defined_recovery"></a>
 
  Failures can impact your business in several ways. First, failures can cause service interruption (downtime). Second, failures can cause data to become lost, inconsistent, or stale. In order to guide how you respond and recover from failures, define a Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for each workload. *Recovery Time Objective (RTO)* is the maximum acceptable delay between the interruption of service and restoration of service. *Recovery Point Objective (RPO)*  is the maximum acceptable time after the last data recovery point. 
 
@@ -27,6 +30,8 @@
  Construct a matrix or worksheet to help guide your disaster recovery planning. In your matrix, create different workload categories or tiers based on their business impact (such as critical, high, medium, and low) and the associated RTOs and RPOs to target for each one. The following matrix provides an example (note that your RTO and RPO values may differ) you can follow: 
 
 ![Chart showing the disaster recovery matrix](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/disaster-recovery-matrix.png)
+
+*Example disaster recovery matrix*
 
 
  For each workload, investigate and understand the impact of downtime and lost data on your business. The impact typically grows with downtime and data loss, but the shape of the impact can differ based on the workload type. For example, downtime for up to an hour might have low impact, but after that, the impact could quickly intensify. Impact can take many forms, including financial impact (such as lost revenue), reputational impact (including loss of customer trust), operational impact (such as a missed payroll or decreased productivity), and regulatory risk. Once completed, assign the workload to the appropriate tier. 
@@ -58,6 +63,8 @@
  The following worksheet can aid your evaluation of each workload. You may modify this worksheet to suit your specific needs, such as adding additional questions. 
 
 <a name="worksheet"></a>![Worksheet](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/worksheet.png)
+
+*Worksheet*
 
 
 ### Implementation steps

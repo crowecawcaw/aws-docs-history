@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL03-BP01 Choose how to segment your workload
-<a name="rel_service_architecture_monolith_soa_microservice"></a>
 
  Workload segmentation is important when determining the resilience requirements of your application. Monolithic architecture should be avoided whenever possible. Instead, carefully consider which application components can be broken out into microservices. Depending on your application requirements, this may end up being a combination of a service-oriented architecture (SOA) with microservices where possible. Workloads that are capable of statelessness are more capable of being deployed as microservices. 
 
@@ -28,6 +31,8 @@
  One primary trade-off is that you now have a distributed compute architecture that can make it harder to achieve user latency requirements and there is additional complexity in the debugging and tracing of user interactions. You can use AWS X-Ray to assist you in solving this problem. Another effect to consider is increased operational complexity as you increase the number of applications that you are managing, which requires the deployment of multiple independency components. 
 
 ![Diagram showing a comparison between monolithic, service-oriented, and microservices architectures](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/monolith-soa-microservices-comparison.png)
+
+*Monolithic, service-oriented, and microservices architectures*
 
 
 ## Implementation steps

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Design your workload to adapt to changes in demand
-<a name="design-your-workload-to-adapt-to-changes-in-demand"></a>
 
  A scalable **workload** provides elasticity to add or remove resources automatically so that they closely match the current demand at any given point in time. 
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL12-BP04 Test resiliency using chaos engineering
-<a name="rel_testing_resiliency_failure_injection_resiliency"></a>
 
  Run chaos experiments regularly in environments that are in or as close to production as possible to understand how your system responds to adverse conditions. 
 
@@ -46,6 +49,8 @@ Chaos engineering is the discipline of experimenting on a system in order to bui
 
 ![Diagram showing AWS Fault Injection Service integrates with AWS resources to allow you to run fault injection experiments for your workloads.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/fault-injection-simulator.png)
 
+*AWS Fault Injection Service integrates with AWS resources to allow you to run fault injection experiments for your workloads.*
+
 
 There are also several third-party options for fault injection experiments. These include open-source tools such as [Chaos Toolkit](https://chaostoolkit.org/), [Chaos Mesh](https://chaos-mesh.org/), and [Litmus Chaos](https://litmuschaos.io/), as well as commercial options like Gremlin. To expand the scope of faults that can be injected on AWS, AWS FIS [integrates with Chaos Mesh and Litmus Chaos](https://aws.amazon.com/about-aws/whats-new/2022/07/aws-fault-injection-simulator-supports-chaosmesh-litmus-experiments/), allowing you to coordinate fault injection workflows among multiple tools. For example, you can run a stress test on a pod’s CPU using Chaos Mesh or Litmus faults while terminating a randomly selected percentage of cluster nodes using AWS FIS fault actions. 
 
@@ -69,7 +74,8 @@ There are also several third-party options for fault injection experiments. Thes
     Use the assigned priority to determine which faults to experiment with first and the order with which to develop new fault injection experiments. 
 
 1.  For each experiment that you perform, follow the chaos engineering and continuous resilience flywheel in the following figure.   
-![Diagram of the chaos engineering and continuous resilience flywheel, showing the Improvement, Steady state, Hypothesis, Run experiment, and Verify phases.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/chaos-engineering-flywheel.png)
+![Diagram of the chaos engineering and continuous resilience flywheel, showing the Improvement, Steady state, Hypothesis, Run experiment, and Verify phases.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/chaos-engineering-flywheel.png)  
+   *Chaos engineering and continuous resilience flywheel, using the scientific method by Adrian Hornsby.*
 
     
 

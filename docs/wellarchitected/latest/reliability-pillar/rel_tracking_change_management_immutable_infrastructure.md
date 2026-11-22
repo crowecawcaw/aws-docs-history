@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL08-BP04 Deploy using immutable infrastructure
-<a name="rel_tracking_change_management_immutable_infrastructure"></a>
 
  Immutable infrastructure is a model that mandates that no updates, security patches, or configuration changes happen in-place on production workloads. When a change is needed, the architecture is built onto new infrastructure and deployed into production. 
 
@@ -42,6 +45,8 @@
  [**Blue/green deployment**](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/bluegreen-deployments.html): Similar to the canary deployment, except that a full fleet of the application is deployed in parallel. You alternate your deployments across the two stacks (blue and green). Once again, you can send traffic to the new version, and fall back to the old version if you see problems with the deployment. Commonly all traffic is switched at once, however you can also use fractions of your traffic to each version to dial up the adoption of the new version using the weighted DNS routing capabilities of Amazon Route 53. AWS CodeDeploy and [AWS Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2020-05-18-ts-deploy.html) can be configured with a deployment configuration that allows a blue/green deployment. 
 
 ![Diagram showing blue/green deployment with AWS Elastic Beanstalk and Amazon Route 53](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/blue-green-deployment.png)
+
+*Figure 8: Blue/green deployment with AWS Elastic Beanstalk and Amazon Route 53*
 
 
  **Drift detection** 

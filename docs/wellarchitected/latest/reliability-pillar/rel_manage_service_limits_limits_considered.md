@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL01-BP02 Manage service quotas across accounts and regions
-<a name="rel_manage_service_limits_limits_considered"></a>
 
  If you are using multiple accounts or Regions, request the appropriate quotas in all environments in which your production workloads run. 
 

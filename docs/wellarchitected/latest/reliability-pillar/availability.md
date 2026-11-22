@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Availability
-<a name="availability"></a>
 
  *Availability* (also known as *service availability*) is both a commonly used metric to quantitatively measure resiliency, as well as a target resiliency objective. 
 +  **Availability** is the percentage of time that a workload is available for use. 

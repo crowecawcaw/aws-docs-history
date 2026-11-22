@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Back up data
-<a name="back-up-data"></a>
 
  Back up data, applications, and configuration to meet requirements for recovery time objectives (RTO) and recovery point objectives (RPO). 
 

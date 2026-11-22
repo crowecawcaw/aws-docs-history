@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Plan for Disaster Recovery (DR)
-<a name="plan-for-disaster-recovery-dr"></a>
 
  Having backups and redundant workload components in place is the start of your DR strategy. [RTO and RPO are your objectives](disaster-recovery-dr-objectives.md) for restoration of your workload. Set these based on business needs. Implement a strategy to meet these objectives, considering locations and function of workload resources and data. The probability of disruption and cost of recovery are also key factors that help to inform the business value of providing disaster recovery for a workload.
 

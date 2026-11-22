@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Resiliency, and the components of reliability
-<a name="resiliency-and-the-components-of-reliability"></a>
 
  Reliability of a workload in the cloud depends on several factors, the primary of which is *Resiliency*: 
 +  **Resiliency** is the ability of a workload to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions, such as misconfigurations or transient network issues. 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL12-BP03 Test scalability and performance requirements
-<a name="rel_testing_resiliency_test_non_functional"></a>
 
  Use techniques such as load testing to validate that the workload meets scaling and performance requirements. 
 

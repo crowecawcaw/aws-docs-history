@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL10-BP01 Deploy the workload to multiple locations
-<a name="rel_fault_isolation_multiaz_region_system"></a>
 
  Distribute workload data and resources across multiple Availability Zones or, where necessary, across AWS Regions. 
 
@@ -41,6 +44,8 @@
  If you are using self-managed storage, such as [Amazon Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) volumes or Amazon EC2 instance storage, you must manage multi-AZ replication yourself. 
 
 ![Diagram showing multi-tier architecture deployed across three Availability Zones. Note that Amazon S3 and Amazon DynamoDB are always Multi-AZ automatically. The ELB also is deployed to all three zones.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/multi-tier-architecture.png)
+
+*Figure 9: Multi-tier architecture deployed across three Availability Zones. Note that Amazon S3 and Amazon DynamoDB are always Multi-AZ automatically. The ELB also is deployed to all three zones.*
 
 
  **Using multiple AWS Regions** 

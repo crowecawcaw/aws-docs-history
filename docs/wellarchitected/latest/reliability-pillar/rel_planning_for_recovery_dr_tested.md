@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL13-BP03 Test disaster recovery implementation to validate the implementation
-<a name="rel_planning_for_recovery_dr_tested"></a>
 
 Regularly test failover to your recovery site to verify that it operates properly and that RTO and RPO are met.
 

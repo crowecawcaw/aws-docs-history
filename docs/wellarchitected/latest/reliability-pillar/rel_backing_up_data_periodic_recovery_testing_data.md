@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL09-BP04 Perform periodic recovery of the data to verify backup integrity and processes
-<a name="rel_backing_up_data_periodic_recovery_testing_data"></a>
 
 Validate that your backup process implementation meets your Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) by performing a recovery test.
 
@@ -53,6 +56,8 @@ Validate that your backup process implementation meets your Recovery Time Object
 1.  **Automate this process to run periodically**. For example, services like AWS Lambda or a State Machine in AWS Step Functions can be used to automate the restore and recovery processes, and Amazon EventBridge can be used to invoke this automation workflow periodically as shown in the architecture diagram below. Learn how to [Automate data recovery validation with AWS Backup](https://aws.amazon.com/blogs/storage/automate-data-recovery-validation-with-aws-backup/). Additionally, [this Well-Architected lab](https://wellarchitectedlabs.com/reliability/200_labs/200_testing_backup_and_restore_of_data/) provides a hands-on experience on one way to do automation for several of the steps here. 
 
 ![Diagram showing an automated backup and restore process](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/automated-backup-restore-process.png)
+
+*Figure 9. An automated backup and restore process*
 
 
  **Level of effort for the Implementation Plan:** Moderate to high depending on the complexity of the validation criteria. 

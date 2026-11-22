@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL10-BP03 Use bulkhead architectures to limit scope of impact
-<a name="rel_fault_isolation_use_bulkhead"></a>
 
 Implement bulkhead architectures (also known as cell-based architectures) to restrict the effect of failure within a workload to a limited number of components.
 
@@ -26,6 +29,8 @@ Implement bulkhead architectures (also known as cell-based architectures) to res
  The overall workload is partitioned cells by a partition key. This key needs to align with the *grain* of the service, or the natural way that a service's workload can be subdivided with minimal cross-cell interactions. Examples of partition keys are customer ID, resource ID, or any other parameter easily accessible in most API calls. A cell routing layer distributes requests to individual cells based on the partition key and presents a single endpoint to clients. 
 
 ![Diagram showing Cell-based architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/cell-based-architecture.png)
+
+*Figure 11: Cell-based architecture*
 
 
  **Implementation steps** 

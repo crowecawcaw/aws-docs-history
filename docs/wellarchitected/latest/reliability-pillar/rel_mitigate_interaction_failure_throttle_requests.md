@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL05-BP02 Throttle requests
-<a name="rel_mitigate_interaction_failure_throttle_requests"></a>
 
 Throttle requests to mitigate resource exhaustion due to unexpected increases in demand. Requests below throttling rates are processed while those over the defined limit are rejected with a return message indicating the request was throttled. 
 
@@ -29,6 +32,8 @@ Throttle requests to mitigate resource exhaustion due to unexpected increases in
  When your service requires a throttling implementation, consider implementing the token bucket algorithm, where a token counts for a request. Tokens are refilled at a throttle rate per second and emptied asynchronously by one token per request. 
 
 ![Diagram describing the token bucket algorithm.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/token-bucket-algorithm.png)
+
+*The token bucket algorithm.*
 
 
  

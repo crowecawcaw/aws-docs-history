@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL07-BP03 Obtain resources upon detection that more resources are needed for a workload
-<a name="rel_adapt_to_changes_proactive_adapt_auto"></a>
 
  One of the most valuable features of cloud computing is the ability to provision resources dynamically. 
 

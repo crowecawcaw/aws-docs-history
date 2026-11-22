@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources
-<a name="rel_backing_up_data_identified_backups_data"></a>
 
 Understand and use the backup capabilities of the data services and resources used by the workload. Most services provide capabilities to back up workload data. 
 
