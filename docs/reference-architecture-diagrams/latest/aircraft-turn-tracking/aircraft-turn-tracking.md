@@ -1,7 +1,6 @@
 
 
 # Aircraft Turn Tracking Passive Data Collection
-<a name="aircraft-turn-tracking"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#turn-tracking-history))**
 
