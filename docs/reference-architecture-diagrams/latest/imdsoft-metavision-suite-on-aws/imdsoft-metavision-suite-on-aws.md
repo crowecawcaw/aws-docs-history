@@ -1,7 +1,6 @@
 
 
 # iMDSoft MetaVision Suite on AWS
-<a name="imdsoft-metavision-suite-on-aws"></a>
 
 Publication date: **November 28, 2022 ([Diagram history](#diagram-history))**
 
