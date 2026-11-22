@@ -1,7 +1,6 @@
 
 
 # Personalization Using AI/ML for Airlines
-<a name="personalization-ai-ml-airlines"></a>
 
 Publication date: **November 14, 2019 ([Diagram history](#personalization-airlines-history))**
 
