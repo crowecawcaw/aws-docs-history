@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # What is AWS Migration Hub Refactor Spaces?
-<a name="what-is-mhub-refactor-spaces"></a>
 
 AWS Migration Hub Refactor Spaces is the starting point for incremental application refactoring to microservices in AWS. Refactor Spaces helps reduce the undifferentiated heavy lifting of building and operating AWS infrastructure for incremental refactoring. You can use Refactor Spaces to help reduce risk when you develop applications into microservices or extend existing applications with new features written in microservices. 
 

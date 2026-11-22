@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 2: Create an application
-<a name="getting-started-create-application"></a>
 
 This step describes how to create an application as part of the Refactor Spaces **Getting started** wizard. You can also create an application by choosing **Create application** under **Quick actions** in the Refactor Spaces navigation pane.
 

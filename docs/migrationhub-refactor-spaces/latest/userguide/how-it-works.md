@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # How Refactor Spaces works
-<a name="how-it-works"></a>
 
 When you start to use AWS Migration Hub Refactor Spaces, you can use one or more AWS accounts. You can use a single account for testing. However, when you're ready to refactor, we recommend that you start with the following three accounts:
 + One account for the existing application.

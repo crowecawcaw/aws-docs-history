@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Troubleshooting AWS Migration Hub Refactor Spaces identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Refactor Spaces and IAM.
 

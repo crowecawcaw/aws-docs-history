@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Using service-linked roles for Refactor Spaces
-<a name="using-service-linked-roles"></a>
 
 AWS Migration Hub Refactor Spaces uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Refactor Spaces. Service-linked roles are predefined by Refactor Spaces and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -100,7 +99,7 @@ Elastic Load Balancing; actions
 
 The following is the full policy showing which resources the preceding actions apply to:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

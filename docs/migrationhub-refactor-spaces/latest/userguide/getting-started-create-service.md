@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 4: Create a service
-<a name="getting-started-create-service"></a>
 
 Services provide the application’s business capabilities. Your existing application is represented by one or more services. Each service has an endpoint (either an HTTP/HTTPS URL or an AWS Lambda function).
 

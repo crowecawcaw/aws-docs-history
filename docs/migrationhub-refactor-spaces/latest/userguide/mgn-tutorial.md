@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Tutorial: Using Refactor Spaces with AWS Application Migration Service
-<a name="mgn-tutorial"></a>
 
 This tutorial shows how to automatically create a refactor environment and route traffic to your application after migrating an application using AWS Application Migration Service (AWS MGN), so that you can continue modernizing as soon as you've migrated an application. The AWS Migration Hub Refactor Spaces (Refactor Spaces) post-launch action in AWS MGN creates a Refactor Spaces environment, an application, a service, and a default route. 
 

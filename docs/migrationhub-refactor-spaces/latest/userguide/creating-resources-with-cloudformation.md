@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Creating Refactor Spaces resources with CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS Migration Hub Refactor Spaces is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as environments, applications, services, and routes), and CloudFormation provisions and configures those resources for you. 
 
@@ -23,7 +22,7 @@ The following example template creates a virtual private cloud (VPC) and Refacto
 
 **Example YAML Refactor Spaces template**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: This creates resources in one account.
 Resources:

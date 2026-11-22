@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Refactor Spaces concepts
-<a name="welcome-concepts"></a>
 
 This section describes the key components that you can create and manage when using AWS Migration Hub Refactor Spaces.
 

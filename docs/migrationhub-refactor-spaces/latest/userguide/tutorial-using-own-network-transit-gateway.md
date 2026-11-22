@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Tutorial: Using your own AWS Transit Gateway
-<a name="tutorial-using-own-network-transit-gateway"></a>
 
 The following tutorial presents an example of how to use your own AWS Transit Gateway with Refactor Spaces.
 

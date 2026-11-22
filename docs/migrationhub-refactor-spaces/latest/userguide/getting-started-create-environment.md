@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 1: Create an environment
-<a name="getting-started-create-environment"></a>
 
 This step describes how to create an environment as part of the Refactor Spaces **Getting started** wizard. You can also create an environment by choosing **Environments** under **App Refactor** in the Refactor Spaces navigation pane.
 

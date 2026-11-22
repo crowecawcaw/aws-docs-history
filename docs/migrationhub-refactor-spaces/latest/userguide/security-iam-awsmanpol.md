@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # AWS managed policies for AWS Migration Hub Refactor Spaces
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -61,7 +60,7 @@ You can get these extra permissions by creating an IAM policy using the followin
 
 The following policy grants the extra required permissions necessary to be able to use Refactor Spaces.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 3: Share your environment
-<a name="getting-started-share-environment"></a>
 
 This step describes how to share an environment as part of the Refactor Spaces **Getting started** wizard. You can also share an environment by choosing **Share environment** under **Quick actions** in the Refactor Spaces navigation pane.
 
