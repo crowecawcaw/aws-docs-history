@@ -1,7 +1,6 @@
 
 
 # Storage options for Amazon ECS tasks
-<a name="using_data_volumes"></a>
 
 Amazon ECS provides you with flexible, cost effective, and easy-to-use data storage options depending on your needs. Amazon ECS supports the following data volume options for containers:
 

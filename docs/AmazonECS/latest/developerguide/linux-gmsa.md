@@ -1,7 +1,6 @@
 
 
 # Using gMSA for EC2 Linux containers on Amazon ECS
-<a name="linux-gmsa"></a>
 
 Amazon ECS supports Active Directory authentication for Linux containers on EC2 through a special kind of service account called a *group Managed Service Account* (gMSA).
 
@@ -42,7 +41,7 @@ Before you use the gMSA for Linux containers feature with Amazon ECS, make sure 
 + You set up an Active Directory domain with the resources that you want your containers to access. Amazon ECS supports the following setups:
   + An Directory Service Active Directory. Directory Service is an AWS managed Active Directory that's hosted on Amazon EC2. For more information, see [Getting Started with AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started.html) in the *AWS Directory Service Administration Guide*.
   + An on-premises Active Directory. You must ensure that the Amazon ECS Linux container instance can join the domain. For more information, see [AWS Direct Connect](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.html).
-+ You have an existing gMSA account in the Active Directory. For more information, see [Using gMSA for EC2 Linux containers on Amazon ECS](#linux-gmsa).
++ You have an existing gMSA account in the Active Directory. For more information, see [Using gMSA for EC2 Linux containers on Amazon ECS](linux-gmsa.md).
 + You installed and are running the `credentials-fetcher` daemon on an Amazon ECS Linux container instance. You also added an initial set of credentials to the `credentials-fetcher` daemon to authenticate with the Active Directory.
 **Note**  
 The `credentials-fetcher` daemon is only available for Amazon Linux 2023 and Fedora 37 and later. The daemon isn't available for Amazon Linux 2. For more information, see [aws/credentials-fetcher](https://github.com/aws/credentials-fetcher) on GitHub.
@@ -121,7 +120,7 @@ Decide how the initial credentials are provided and configure the EC2 user data 
 
 **`cloud-config` YAML**
 
-     ```
+     ```yaml
      Content-Type: text/cloud-config
      package_reboot_if_required: true
      packages:
@@ -156,7 +155,7 @@ Decide how the initial credentials are provided and configure the EC2 user data 
 
      If you're more comfortable with bash scripts and have multiple variables to write to `/etc/ecs/ecs.config`, use the following `heredoc` format. This format writes everything between the lines beginning with **cat** and `EOF` to the configuration file.
 
-     ```
+     ```bash
      #!/usr/bin/env bash
      set -euxo pipefail
      
@@ -194,7 +193,7 @@ Do the following steps once for each application and each task definition. We re
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -228,7 +227,7 @@ If you use your own KMS key to encrypt your secret, you must add the necessary p
 
      Add the credential spec to an Amazon S3 bucket. Then, reference the Amazon Resource Name (ARN) of the Amazon S3 bucket in the `credentialSpecs` field of the task definition.
 
-     ```
+     ```JSON
      {
          "family": "",
          "executionRoleArn": "",
@@ -253,7 +252,7 @@ If you use your own KMS key to encrypt your secret, you must add the necessary p
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -280,7 +279,7 @@ If you use your own KMS key to encrypt your secret, you must add the necessary p
 
      Add the credential spec to an SSM Parameter Store parameter. Then, reference the Amazon Resource Name (ARN) of the SSM Parameter Store parameter in the `credentialSpecs` field of the task definition.
 
-     ```
+     ```JSON
      {
          "family": "",
          "executionRoleArn": "",
@@ -305,7 +304,7 @@ If you use your own KMS key to encrypt your secret, you must add the necessary p
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -329,7 +328,7 @@ Amazon ECS uses an Active Directory credential specification file (*CredSpec*). 
 
 The following is an example CredSpec file.
 
-```
+```JSON
 {
     "CmsPlugins": [
         "ActiveDirectory"

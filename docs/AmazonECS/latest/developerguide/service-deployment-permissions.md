@@ -1,7 +1,6 @@
 
 
 # Permissions required for viewing Amazon ECS service deployments
-<a name="service-deployment-permissions"></a>
 
  When you follow the best practice of granting least privilege, you need to add additional permissions in order to view service deployments in the console.
 
@@ -24,7 +23,7 @@ Replace the `account`, `cluster-name`, and `service-name` with your values.
 
 ****  
 
-```
+```json
 {
 "Statement": [
     {

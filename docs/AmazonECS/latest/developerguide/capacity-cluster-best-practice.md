@@ -1,7 +1,6 @@
 
 
 # Amazon ECS cluster capacity
-<a name="capacity-cluster-best-practice"></a>
 
 You can provide capacity to an Amazon ECS cluster in several ways. For example, you can launch Amazon EC2 instances and register them with the cluster at start-up using the Amazon ECS container agent. However, this method can be challenging because you need to manage scaling on your own. Therefore, we recommend that you use Amazon ECS capacity providers. Capacity providers manage resource scaling for you. There are three kinds of capacity providers: Amazon EC2, Fargate, and Fargate Spot. For more information about Fargate capacity providers, see [Amazon ECS clusters for Fargate workloads](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html) and for EC2 workloads, see [Amazon ECS clusters for EC2 workloads](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html).
 

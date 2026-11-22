@@ -1,7 +1,6 @@
 
 
 # Automatically scale your Amazon ECS service
-<a name="service-auto-scaling"></a>
 
 *Automatic scaling* is the ability to increase or decrease the desired number of tasks in your Amazon ECS service automatically. Amazon ECS leverages the Application Auto Scaling service to provide this functionality. For more information, see the [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html).
 

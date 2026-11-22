@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata endpoint version 4 for tasks on Fargate
-<a name="task-metadata-endpoint-v4-fargate"></a>
 
 **Important**  
 If you are using Amazon ECS tasks hosted on Amazon EC2 instances, see [Amazon ECS task metadata endpoint](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-metadata-endpoint.html).

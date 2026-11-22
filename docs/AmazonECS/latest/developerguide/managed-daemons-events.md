@@ -1,7 +1,6 @@
 
 
 # Daemon events
-<a name="managed-daemons-events"></a>
 
 Amazon ECS sends daemon events to to provide visibility into daemon task management and deployment lifecycle changes. You can use these events to monitor daemon health, track deployment progress, and trigger automated workflows.
 
@@ -28,7 +27,7 @@ Amazon ECS sends the `DAEMON_TASK_START_IMPAIRED` event when it is unable to suc
 
 The following event shows a daemon task that was created but failed to reach `RUNNING` status due to a container image pull failure.
 
-```
+```json
 {
     "version": "0",
     "id": "12345678-1234-1234-1234-123456789012",
@@ -62,7 +61,7 @@ The following event shows a daemon task that was created but failed to reach `RU
 
 The following event shows a daemon task that could not be created on the container instance due to insufficient CPU resources. The `taskArn` field is not present because no task was created.
 
-```
+```json
 {
     "version": "0",
     "id": "87654321-4321-4321-4321-210987654321",
@@ -115,7 +114,7 @@ Amazon ECS categorizes deployment state change events by the following event typ
 
 The following event shows a daemon deployment that Amazon ECS has initiated.
 
-```
+```json
 {
     "version": "0",
     "id": "3329f79b-3dca-07f8-b1c2-5fe99f0b5e87",
@@ -149,7 +148,7 @@ The following example event patterns show how to filter daemon events.
 ### Example: Match all daemon service action events
 <a name="managed-daemons-rule-all-service-action"></a>
 
-```
+```json
 {
     "source": ["aws.ecs"],
     "detail-type": ["ECS Daemon Service Action"]
@@ -159,7 +158,7 @@ The following example event patterns show how to filter daemon events.
 ### Example: Match a specific failure type
 <a name="managed-daemons-rule-failure-type"></a>
 
-```
+```json
 {
     "source": ["aws.ecs"],
     "detail-type": ["ECS Daemon Service Action"],
@@ -173,7 +172,7 @@ The following example event patterns show how to filter daemon events.
 ### Example: Match events for a specific cluster
 <a name="managed-daemons-rule-cluster"></a>
 
-```
+```json
 {
     "source": ["aws.ecs"],
     "detail-type": ["ECS Daemon Service Action"],
@@ -187,7 +186,7 @@ The following example event patterns show how to filter daemon events.
 ### Example: Match all deployment state change events
 <a name="managed-daemons-rule-deployment"></a>
 
-```
+```json
 {
     "source": ["aws.ecs"],
     "detail-type": ["ECS Daemon Deployment State Change"]

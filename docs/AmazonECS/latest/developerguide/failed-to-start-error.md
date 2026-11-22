@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS TaskFailedToStart errors
-<a name="failed-to-start-error"></a>
 
 The following are some `TaskFailedToStart` error messages and actions that you can take to fix the errors. 
 

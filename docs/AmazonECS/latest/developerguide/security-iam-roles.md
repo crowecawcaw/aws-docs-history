@@ -1,7 +1,6 @@
 
 
 # Best practices for IAM roles in Amazon ECS
-<a name="security-iam-roles"></a>
 
 The roles Amazon ECS requires depend on the task definition launch type and the features that you use. We recommend that you create separate roles in the table instead of sharing roles.
 
@@ -31,7 +30,7 @@ curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
 
 The expected output is as follows:
 
-```
+```JSON
 {
 	"RoleArn": "arn:aws:iam::123456789012:role/SSMTaskRole-SSMFargateTaskIAMRole-DASWWSF2WGD6",
 	"AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
@@ -100,19 +99,19 @@ When you run your tasks on Amazon EC2 instances, we strongly recommend that you 
 
 To prevent tasks running in **bridge** mode from accessing Amazon EC2 metadata, run the following command or update the instance's user data. For more instruction on updating the user data of an instance, see this [AWS Support Article](https://aws.amazon.com/premiumsupport/knowledge-center/ecs-container-ec2-metadata/). For more information about the task definition bridge mode, see [task definition network mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#network_mode).
 
-```
+```bash
 sudo yum install -y iptables-services; sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
 ```
 
 For this change to persist after a reboot, run the following command that's specific for your Amazon Machine Image (AMI):
 + Amazon Linux 2
 
-  ```
+  ```bash
   sudo iptables-save | sudo tee /etc/sysconfig/iptables && sudo systemctl enable --now iptables
   ```
 + Amazon Linux
 
-  ```
+  ```bash
   sudo service iptables save
   ```
 
@@ -132,13 +131,13 @@ We recommend that you remove any actions that were never used or haven't been us
 
 Run the following command to generate a report showing the last access information for the referenced policy:
 
-```
+```bash
 aws iam generate-service-last-accessed-details --arn arn:aws:iam::123456789012:policy/ExamplePolicy1
 ```
 
 use the `JobId` that was in the output to run the following command. After you do this, you can view the results of the report.
 
-```
+```bash
 aws iam get-service-last-accessed-details --job-id 98a765b4-3cde-2101-2345-example678f9
 ```
 
@@ -151,7 +150,7 @@ You can monitor AWS CloudTrail for any suspicious activity. Most AWS API calls a
 
 You can identify actions that are performed by tasks with an IAM role in AWS CloudTrail by looking at the event's `userIdentity` property. In the following example, the `arn` includes of the name of the assumed role, `s3-write-go-bucket-role`, followed by the name of the task, `7e9894e088ad416eb5cab92afExample`.
 
-```
+```JSON
 "userIdentity": {
     "type": "AssumedRole",
     "principalId": "AROA36C6WWEJ2YEXAMPLE:7e9894e088ad416eb5cab92afExample",

@@ -1,7 +1,6 @@
 
 
 # Runtime Monitoring for Amazon ECS Fargate workloads
-<a name="ecs-guard-configure-automatic"></a>
 
 If you use EC2 container instances, you must manually configure Runtime Monitoring. For more information, see [Runtime Monitoring for EC2 workloads on Amazon ECS](ecs-guard-duty-configure-manual.md).
 

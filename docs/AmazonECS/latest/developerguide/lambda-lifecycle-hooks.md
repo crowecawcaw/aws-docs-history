@@ -1,7 +1,6 @@
 
 
 # Lambda hooks for Amazon ECS service deployments
-<a name="lambda-lifecycle-hooks"></a>
 
 Lambda hooks are Lambda functions that Amazon ECS invokes at specific stages of a deployment. You can use hooks to run validation tests, enforce governance policies, or implement custom logic before the deployment proceeds.
 
@@ -17,7 +16,7 @@ The following are the valid `hookStatus` values:
 
 The following example shows how to return a `hookStatus` with a custom callback delay. In this example, Amazon ECS retries the hook after 60 seconds instead of the default 30 seconds:
 
-```
+```json
 {
     "hookStatus": "IN_PROGRESS",
     "callBackDelay": 60
@@ -33,7 +32,7 @@ The `hookDetails` field is a dictionary that you can use to pass data into your 
 
 The following example shows a lifecycle hook configuration in a service definition that passes an S3 bucket name to the function:
 
-```
+```json
 {
     "hookTargetArn": "arn:aws:lambda:us-west-2:123456789012:function:my-approval-hook",
     "roleArn": "arn:aws:iam::123456789012:role/ecs-lambda-invoke-role",
@@ -48,7 +47,7 @@ The following example shows a lifecycle hook configuration in a service definiti
 
 When your function returns `IN_PROGRESS`, you can also include `hookDetails` in the response. Amazon ECS merges this data and passes it back on the next invocation. Common use cases include passing metric counters or ARNs of external resources between invocations.
 
-```
+```json
 {
     "hookStatus": "IN_PROGRESS",
     "callBackDelay": 30,
@@ -61,7 +60,7 @@ When your function returns `IN_PROGRESS`, you can also include `hookDetails` in 
 
 On the next invocation, Amazon ECS includes the `hookDetails` in the event payload alongside `executionDetails`:
 
-```
+```json
 {
   "executionId": "e8d5a28f-eb01-4f3c-9454-a30ba6dc54bc",
   "lifecycleStage": "POST_TEST_TRAFFIC_SHIFT",
@@ -132,7 +131,7 @@ The `executionDetails` object contains the following fields:
 
 The following example shows the full event structure that your Lambda function receives:
 
-```
+```json
 {
   "executionId": "f4fcae0f-9bec-41c6-ba87-0eaa0cef8af5",
   "lifecycleStage": "PRODUCTION_TRAFFIC_SHIFT",
@@ -159,7 +158,7 @@ The following sections show example payloads for each lifecycle stage. In these 
 
 This stage occurs before Amazon ECS launches the green service revision tasks. The green service revision has not started, and no traffic is being routed to it.
 
-```
+```json
 {
   "executionId": "e8d5a28f-eb01-4f3c-9454-a30ba6dc54bc",
   "lifecycleStage": "PRE_SCALE_UP",
@@ -178,7 +177,7 @@ This stage occurs before Amazon ECS launches the green service revision tasks. T
 
 This stage occurs after Amazon ECS has launched the green service revision tasks and they are healthy. The green tasks are running but not yet receiving any traffic.
 
-```
+```json
 {
   "executionId": "8b095b05-7bb0-4c56-a223-a3f61f4f9295",
   "lifecycleStage": "POST_SCALE_UP",
@@ -197,7 +196,7 @@ This stage occurs after Amazon ECS has launched the green service revision tasks
 
 This stage occurs when Amazon ECS shifts test traffic to the green service revision. The `testTrafficWeights` show the green revision receiving 100% of test traffic while the blue revision receives 0%. Production traffic continues to flow to the blue revision.
 
-```
+```json
 {
   "executionId": "779085de-ab47-42bc-84ad-41f9914a8643",
   "lifecycleStage": "TEST_TRAFFIC_SHIFT",
@@ -219,7 +218,7 @@ This stage occurs when Amazon ECS shifts test traffic to the green service revis
 
 This stage occurs after Amazon ECS has completed the test traffic shift. The green service revision is handling 100% of test traffic.
 
-```
+```json
 {
   "executionId": "3a0345ba-b029-404b-890d-7da2a4b266aa",
   "lifecycleStage": "POST_TEST_TRAFFIC_SHIFT",
@@ -238,7 +237,7 @@ This stage occurs after Amazon ECS has completed the test traffic shift. The gre
 
 This stage occurs before Amazon ECS shifts production traffic to the green service revision. For linear and canary deployments, this stage is invoked before each traffic shift step.
 
-```
+```json
 {
   "executionId": "a2b3c4d5-e6f7-8901-abcd-ef1234567890",
   "lifecycleStage": "PRE_PRODUCTION_TRAFFIC_SHIFT",
@@ -260,7 +259,7 @@ This stage occurs before Amazon ECS shifts production traffic to the green servi
 
 This stage occurs when Amazon ECS shifts production traffic to the green service revision. The `productionTrafficWeights` show the green revision receiving 100% of production traffic while the blue revision receives 0%.
 
-```
+```json
 {
   "executionId": "f4fcae0f-9bec-41c6-ba87-0eaa0cef8af5",
   "lifecycleStage": "PRODUCTION_TRAFFIC_SHIFT",
@@ -282,7 +281,7 @@ This stage occurs when Amazon ECS shifts production traffic to the green service
 
 This stage occurs after Amazon ECS has completed the production traffic shift. The green service revision is now handling all production traffic.
 
-```
+```json
 {
   "executionId": "5f40ed04-7e54-437d-b95d-98bc872fec49",
   "lifecycleStage": "POST_PRODUCTION_TRAFFIC_SHIFT",
@@ -305,7 +304,7 @@ The `targetServiceRevisionArn` remains the green revision ARN because it is stil
 
 The following example shows a `PRODUCTION_TRAFFIC_SHIFT` payload during a rollback. Notice that the blue revision (`1920498462936580504`) now receives 100% of production traffic, while the green revision (`9313423515462893900`) receives 0%:
 
-```
+```json
 {
   "executionId": "70073435-cb99-457f-b900-6ee1dcad05ec",
   "lifecycleStage": "PRODUCTION_TRAFFIC_SHIFT",

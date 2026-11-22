@@ -1,7 +1,6 @@
 
 
 # Actions by Amazon ECS resource
-<a name="OperationList-query"></a>
 
 The following section lists the API actions by resource.
 

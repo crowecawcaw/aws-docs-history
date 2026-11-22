@@ -1,7 +1,6 @@
 
 
 # Send Amazon ECS logs to CloudWatch
-<a name="using_awslogs"></a>
 
 You can configure the containers in your tasks to send log information to CloudWatch Logs. If you're using Fargate for your tasks, you can view the logs from your containers. If you're using EC2, you can view different logs from your containers in one convenient location, and it prevents your container logs from taking up disk space on your container instances. 
 

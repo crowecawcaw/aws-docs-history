@@ -1,9 +1,10 @@
 
 
 # Draining Amazon ECS container instances
-<a name="container-instance-draining"></a>
 
 There might be times when you need to remove a container instance from your cluster, for example, to perform system updates or to scale down the cluster capacity. Amazon ECS provides the ability to transition a container instance to a `DRAINING` status. This is referred to as *container instance draining*. When a container instance is set to `DRAINING`, Amazon ECS prevents new tasks from being scheduled for placement on the container instance. 
+
+Besides draining a container instance yourself, two features can set it to `DRAINING`. Managed instance draining, which is on by default for new Auto Scaling group capacity providers, drains an instance when the capacity provider scales in or replaces it. Spot Instance draining, if you turn it on, drains an instance when it receives a Spot Instance interruption notice. Service tasks on Amazon EC2 container instances that are stopped this way have the stopped reason `Service {{service-name}}: container instance is in DRAINING state`. For more information, see [Safely stop Amazon ECS workloads running on EC2 instances](managed-instance-draining.md) and [Configuring Amazon ECS Linux container instances to receive Spot Instance notices](spot-instance-draining-linux-container.md).
 
 ## Draining behavior for services
 <a name="draining-service-behavior"></a>

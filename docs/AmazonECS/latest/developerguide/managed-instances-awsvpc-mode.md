@@ -1,7 +1,6 @@
 
 
 # Allocate a network interface for tasks on Amazon ECS Managed Instances
-<a name="managed-instances-awsvpc-mode"></a>
 
  Using the `awsvpc` network mode in Amazon ECS Managed Instances simplifies container networking because you have more control over how your applications communicate with each other and other services within your VPCs. The `awsvpc` network mode also provides greater security for your containers by allowing you to use security groups and network monitoring tools at a more granular level within your tasks.
 

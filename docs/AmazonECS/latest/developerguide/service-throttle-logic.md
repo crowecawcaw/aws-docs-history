@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service throttle logic
-<a name="service-throttle-logic"></a>
 
 The Amazon ECS service scheduler includes protective logic that throttles task launches when tasks repeatedly fail to start. This helps prevent unnecessary resource consumption and reduces costs.
 

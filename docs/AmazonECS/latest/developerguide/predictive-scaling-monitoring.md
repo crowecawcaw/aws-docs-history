@@ -1,7 +1,6 @@
 
 
 # Monitor predictive scaling metrics for Amazon ECS with CloudWatch
-<a name="predictive-scaling-monitoring"></a>
 
 You can use Amazon CloudWatch to monitor your data for predictive scaling. A predictive scaling policy collects data that is used to forecast your future load. The data collected is automatically stored in CloudWatch at regular intervals and can be used to visualize how well the policy performs over time. You can also create CloudWatch alarms to notify you when performance indicators change beyond the limits that you defined.
 

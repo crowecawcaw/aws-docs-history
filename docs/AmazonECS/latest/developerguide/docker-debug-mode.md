@@ -1,7 +1,6 @@
 
 
 # Configuring verbose output from the Docker daemon in Amazon ECS
-<a name="docker-debug-mode"></a>
 
 If you're having trouble with Docker containers or images, you can turn on debug mode on your Docker daemon. Using debugging provides more verbose output from the daemon, You can use this to retrive error messages that are sent from container registries, such as Amazon ECR.
 

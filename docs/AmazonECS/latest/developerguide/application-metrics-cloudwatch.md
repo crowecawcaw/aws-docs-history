@@ -1,7 +1,6 @@
 
 
 # Exporting application metrics to Amazon CloudWatch
-<a name="application-metrics-cloudwatch"></a>
 
 Amazon ECS on Fargate supports exporting your custom application metrics to Amazon CloudWatch as custom metrics. This is done by adding the AWS Distro for OpenTelemetry sidecar container to your task definition. The Amazon ECS console simplifies this process by adding the **Use metric collection** option when creating a new task definition. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md).
 
@@ -70,7 +69,7 @@ The Amazon ECS console simplifies the experience of creating the AWS Distro for 
 
 If you're not using the Amazon ECS console, you can add the AWS Distro for OpenTelemetry sidecar container to your task definition manually. The following task definition example shows the container definition for adding the AWS Distro for OpenTelemetry sidecar for Amazon CloudWatch integration.
 
-```
+```JSON
 {
 	"family": "otel-using-cloudwatch",
 	"taskRoleArn": "arn:aws:iam::111122223333:role/{{AmazonECS_OpenTelemetryCloudWatchRole}}",

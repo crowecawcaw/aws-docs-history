@@ -1,7 +1,6 @@
 
 
 # Amazon ECS interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-endpoints"></a>
 
 You can improve the security posture of your VPC by configuring Amazon ECS to use an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology that allows you to privately access Amazon ECS APIs by using private IP addresses. AWS PrivateLink restricts all network traffic between your VPC and Amazon ECS to the Amazon network. You don't need an internet gateway, a NAT device, or a virtual private gateway.
 

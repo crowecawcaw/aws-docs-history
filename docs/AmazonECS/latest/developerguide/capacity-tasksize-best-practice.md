@@ -1,7 +1,6 @@
 
 
 # Determining the task size for Amazon ECS
-<a name="capacity-tasksize-best-practice"></a>
 
 One of the most important choices when you deploy containers on Amazon ECS is your container and task sizes. Your container and task sizes are essential for scaling and capacity planning.
 

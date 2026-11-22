@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definitions for 64-bit ARM workloads
-<a name="ecs-arm64"></a>
 
 Amazon ECS supports using 64-bit ARM applications. You can run your applications on the platform that's powered by [AWS Graviton Processors](https://aws.amazon.com/ec2/graviton/). It's suitable for a wide variety of workloads. This includes workloads such as application servers, micro-services, high-performance computing, CPU-based machine learning inference, video encoding, electronic design automation, gaming, open-source databases, and in-memory caches.
 

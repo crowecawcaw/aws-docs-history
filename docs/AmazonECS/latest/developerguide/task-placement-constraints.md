@@ -1,7 +1,6 @@
 
 
 # Define which container instances Amazon ECS uses for tasks
-<a name="task-placement-constraints"></a>
 
 A task placement constraint is a rule about a container instance that Amazon ECS uses to determine if the task is allowed to run on the instance. At least one container instance must match the constraint. If there are no instances that match the constraint, the task remains in a `PENDING` state. When you create a new service or update an existing one, you can specify task placement constraints for the service's tasks. 
 

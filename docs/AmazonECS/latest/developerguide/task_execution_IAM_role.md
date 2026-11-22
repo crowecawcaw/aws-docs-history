@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task execution IAM role
-<a name="task_execution_IAM_role"></a>
 
 The task execution role grants the Amazon ECS container and Fargate agents permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. You can have multiple task execution roles for different purposes and services associated with your account.
 
@@ -71,7 +70,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -137,7 +136,7 @@ The following is an example inline policy that adds the permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -175,7 +174,7 @@ The following example policy adds the required permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -211,7 +210,7 @@ The following example policy adds the required permissions:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -250,7 +249,7 @@ The following task execution role policy provides an example for adding conditio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -297,7 +296,7 @@ If you're creating a custom policy, include the following permissions to allow p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -330,7 +329,7 @@ The following example policy adds the required permissions for retrieving a file
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -365,7 +364,7 @@ The following example policy adds the required permissions for retrieving a file
 
 **Recommended IAM Policy Condition:**
 
-```
+```json
                "Condition": {
                  "StringEquals": {
                    "aws:ResourceAccount": "{{TRUSTED-ACCOUNT-ID}}"

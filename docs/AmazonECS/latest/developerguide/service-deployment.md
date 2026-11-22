@@ -1,7 +1,6 @@
 
 
 # View service history using Amazon ECS service deployments
-<a name="service-deployment"></a>
 
 Service deployments provide a comprehensive view of your deployments. Service deployments provide the following information about the service:
 + The currently deployed workload configuration (the source service revision)

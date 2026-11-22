@@ -1,7 +1,6 @@
 
 
 # Using Amazon EventBridge Scheduler to schedule Amazon ECS tasks
-<a name="tasks-scheduled-eventbridge-scheduler"></a>
 
 EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. It provides one-time and recurring scheduling functionality independent of event buses and rules. EventBridge Scheduler is highly customizable, and offers improved scalability over EventBridge scheduled rules, with a wider set of target API operations and AWS services. EventBridge Scheduler provides the following schedules which you can configure for your tasks in the EventBridge Scheduler console:
 + Rate-based 

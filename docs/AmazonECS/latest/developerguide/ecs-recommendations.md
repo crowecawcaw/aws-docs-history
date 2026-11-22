@@ -1,7 +1,6 @@
 
 
 # AWS Compute Optimizer recommendations for Amazon ECS
-<a name="ecs-recommendations"></a>
 
 AWS Compute Optimizer generates recommendations for Amazon ECS task and container sizes. For more information, see [What is AWS Compute Optimizer?](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html) in the *AWS Compute Optimizer User Guide*.
 

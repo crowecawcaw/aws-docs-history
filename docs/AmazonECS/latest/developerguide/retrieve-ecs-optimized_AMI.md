@@ -1,7 +1,6 @@
 
 
 # Retrieving Amazon ECS-optimized Linux AMI metadata
-<a name="retrieve-ecs-optimized_AMI"></a>
 
 You can programmatically retrieve the Amazon ECS-optimized AMI metadata. The metadata includes the AMI name, Amazon ECS container agent version, and Amazon ECS runtime version which includes the Docker version. 
 

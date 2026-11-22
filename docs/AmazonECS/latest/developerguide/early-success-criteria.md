@@ -1,7 +1,6 @@
 
 
 # Complete Amazon ECS rolling deployments early with early success criteria
-<a name="early-success-criteria"></a>
 
 When you update a service that uses the rolling deployment strategy, Amazon ECS starts a deployment that replaces the tasks on the source service revision with new tasks on the target service revision. Amazon ECS completes the deployment after all of the following are true:
 + The target service revision reaches 100 percent of the desired count, and all of its tasks are running and healthy.
@@ -92,7 +91,7 @@ In the create service or update service flow, under Deployment configuration, tu
 AWS CLI  
 Set the `earlySuccessCriteria` values in the `--deployment-configuration` parameter when you create or update a service.  
 
-```
+```bash
 aws ecs update-service \
     --cluster MyCluster \
     --service MyService \

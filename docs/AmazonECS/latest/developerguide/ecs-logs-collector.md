@@ -1,7 +1,6 @@
 
 
 # Collecting container logs with Amazon ECS logs collector
-<a name="ecs-logs-collector"></a>
 
 **Note**  
 You can't use the Amazon ECS logs collector on Amazon ECS Managed Instances.

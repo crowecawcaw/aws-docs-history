@@ -1,7 +1,6 @@
 
 
 # Encrypt Amazon ECS Service Connect traffic
-<a name="service-connect-tls"></a>
 
 Amazon ECS Service Connect supports automatic traffic encryption with Transport Layer Security (TLS) certificates for Amazon ECS services. When you point your Amazon ECS services toward an [AWS Private Certificate Authority (AWS Private CA)](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html), Amazon ECS automatically provisions TLS certificates to encrypt traffic between your Amazon ECS Service Connect services. Amazon ECS generates, rotates, and distributes TLS certificates used for traffic encryption.
 
@@ -115,7 +114,7 @@ An example IAM policy that denies the `GetSecretValue` action to all secrets wit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ The following is an example AWS KMS policy. Replace the {{user input}} values wi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

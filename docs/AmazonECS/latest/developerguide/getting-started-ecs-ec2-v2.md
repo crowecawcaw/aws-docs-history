@@ -1,7 +1,6 @@
 
 
 # Learn how to create an Amazon ECS Windows task for EC2
-<a name="getting-started-ecs-ec2-v2"></a>
 
 Get started with Amazon ECS using EC2 by registering a task definition, creating a cluster, and creating a service in the console.
 

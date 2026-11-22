@@ -1,7 +1,6 @@
 
 
 # Use fault injection with your Amazon ECS and Fargate workloads
-<a name="fault-injection"></a>
 
 Customers can utilize fault injection with Amazon ECS on both Amazon EC2 and Fargate to test how their application responds to certain impairment scenarios. These tests provide information you can use to optimize your application's performance and resiliency.
 

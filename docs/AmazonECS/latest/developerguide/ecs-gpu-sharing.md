@@ -1,7 +1,6 @@
 
 
 # Share GPUs on Amazon ECS
-<a name="ecs-gpu-sharing"></a>
 
 Many GPU workloads, such as inference and small model serving, use only a fraction of a GPU's compute and memory. Without sharing, the rest of that capacity sits idle. With Amazon ECS, you can share a single physical NVIDIA GPU across multiple containers so that you can pack more workloads onto the same hardware and reduce GPU waste.
 
@@ -64,7 +63,7 @@ The following example task definition runs two inference containers that share o
 
 In the following example, replace {{account-id}} with your AWS account ID.
 
-```
+```json
 {
   "family": "mps-inference",
   "networkMode": "awsvpc",
@@ -165,7 +164,7 @@ You can confirm that a GPU is shared and track GPU usage with the Amazon ECS API
 
 To confirm that a GPU is shared, call the `DescribeContainerInstances` API. The response includes the `gpuDevices` field with the sharing mode, container count, and remaining memory for each GPU. The following is an example response.
 
-```
+```json
 {
   "containerInstances": [
     {
@@ -190,7 +189,7 @@ To confirm that a GPU is shared, call the `DescribeContainerInstances` API. The 
 
 To view the sharing configuration for each task, call the `DescribeTasks` API. Each container's `gpuSharingStrategy` shows its memory and compute limits, and containers that share a GPU list the same value in `gpuIds`. The following is an example response.
 
-```
+```json
 {
   "tasks": [
     {

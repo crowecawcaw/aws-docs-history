@@ -1,7 +1,6 @@
 
 
 # Task metadata available for Amazon ECS tasks on EC2
-<a name="ec2-metadata"></a>
 
 The Amazon ECS container agent provides a method to retrieve various task metadata and [Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats). This is referred to as the task metadata endpoint. The following versions are available:
 + Task metadata endpoint version 4 – Provides a variety of metadata and Docker stats to containers. Can also provide network rate data. Available for Amazon ECS tasks launched on Amazon EC2 Linux instances running at least version `1.39.0` of the Amazon ECS container agent. For Amazon EC2 Windows instances that use `awsvpc` network mode, the Amazon ECS container agent must be at least version `1.54.0`. For more information, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md).

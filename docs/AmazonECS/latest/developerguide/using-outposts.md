@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service on AWS Outposts
-<a name="using-outposts"></a>
 
 AWS Outposts enables native AWS services, infrastructure, and operating models in on-premises facilities. In AWS Outposts environments, you can use the same AWS APIs, tools, and infrastructure that you use in the AWS Cloud.
 
@@ -58,7 +57,7 @@ The following example creates an Amazon ECS cluster on an AWS Outposts.
 
    The `role-policy.json` file is the policy document that contains the effect and actions for resources. For information about the file format, see [PutRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html) in the *IAM API Reference*
 
-   ```
+   ```sh
    aws iam create-role –-role-name {{ecsRole}} \
        --assume-role-policy-document file://ecs-policy.json
    aws iam put-role-policy --role-name {{ecsRole}} --policy-name {{ecsRolePolicy}} \
@@ -67,7 +66,7 @@ The following example creates an Amazon ECS cluster on an AWS Outposts.
 
 1. Create an IAM instance profile with rights on AWS Outposts.
 
-   ```
+   ```sh
    aws iam create-instance-profile --instance-profile-name {{outpost}}
    aws iam add-role-to-instance-profile --instance-profile-name {{outpost}} \
        --role-name {{ecsRole}}
@@ -75,13 +74,13 @@ The following example creates an Amazon ECS cluster on an AWS Outposts.
 
 1. Create a VPC.
 
-   ```
+   ```sh
    aws ec2 create-vpc --cidr-block {{10.0.0.0/16}}
    ```
 
 1. Create a subnet associated with your AWS Outposts.
 
-   ```
+   ```sh
    aws ec2 create-subnet \
        --cidr-block {{10.0.3.0/24}} \
        --vpc-id {{vpc-xxxxxxxx}} \
@@ -91,7 +90,7 @@ The following example creates an Amazon ECS cluster on an AWS Outposts.
 
 1. Create a security group for the container instances, specifying the proper CIDR range for the AWS Outposts. (This step is different for AWS Outposts.)
 
-   ```
+   ```sh
    aws ec2 create-security-group --group-name {{MyOutpostSG}}
    aws ec2 authorize-security-group-ingress --group-name {{MyOutpostSG}} --protocol tcp \
        --port 22 --cidr {{10.0.3.0/24}}
@@ -103,7 +102,7 @@ The following example creates an Amazon ECS cluster on an AWS Outposts.
 
 1. Define the Amazon ECS container agent environment variables to launch the instance into the cluster created in the previous step and define any tags you want to add to help identify the cluster (for example, `Outpost` to indicate that the cluster is for an Outpost).
 
-   ```
+   ```bash
    #! /bin/bash
    cat << ‘EOF’ >> /etc/ecs/ecs.config
    ECS_CLUSTER=MyCluster
@@ -118,7 +117,7 @@ In order to avoid delays caused by pulling container images from Amazon ECR in t
 
    The `userdata.txt` file contains the user data the instance can use to perform common automated configuration tasks and even run scripts after the instance starts. For information about the file for API calls, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
 
-   ```
+   ```sh
    aws ec2 run-instances --count 1 --image-id {{ami-xxxxxxxx}} --instance-type {{c5.large}} \
        --key-name {{aws-outpost-key}} –-subnet-id {{subnet-xxxxxxxxxxxxxxxxx}} \
        --iam-instance-profile Name {{outpost}} --security-group-id {{sg-xxxxxx}} \

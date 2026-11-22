@@ -1,7 +1,6 @@
 
 
 # Migrating an CloudFormation CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
-<a name="migrate-codedeploy-to-ecs-bluegreen-cloudformation-template"></a>
 
 Migrate a CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS services to one that uses the native Amazon ECS blue/green deployment strategy. The migration follows the "Reuse the same Elastic Load Balancing resources used for CodeDeploy" approach. For more information, see [Migrate CodeDeploy blue/green deployments to Amazon ECS blue/green deployments](migrate-codedeploy-to-ecs-bluegreen.md).
 
@@ -15,7 +14,7 @@ This template uses the `AWS::CodeDeployBlueGreen` transform and `AWS::CodeDeploy
 
 This is the complete CloudFormation template using CodeDeploy blue/green deployment. For more information, see [Blue/green deployment template example](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green-template-example.html#blue-green-template-example.json) in the* AWS CloudFormation User Guide*:
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
@@ -349,7 +348,7 @@ You no longer need the following properties:
 
 Modify the `ALBListenerProdTraffic` resource to use a forward action with two target groups:
 
-```
+```json
 {
   "DefaultActions": [
     {
@@ -379,7 +378,7 @@ Update and add the following:
 + Add the `Strategy` property and set it to BLUE\_GREEN.
 + Add the `BakeTimeInMinutes` property.
 
-  ```
+  ```json
   {
     "DeploymentConfiguration": {
       "MaximumPercent": 200,
@@ -395,7 +394,7 @@ Update and add the following:
   ```
 + Add the load balancer configuration to the service:
 
-  ```
+  ```json
   {
     "LoadBalancers": [
       {
@@ -413,7 +412,7 @@ Update and add the following:
   ```
 + Add the task definition reference to the service:
 
-  ```
+  ```json
   {
     "TaskDefinition": {"Ref": "BlueTaskDefinition"}
   }
@@ -445,7 +444,7 @@ Add a new IAM role that allows Amazon ECS to manage load balancer resources. For
 
 This is the complete CloudFormation template using an Amazon ECS blue/green deployment:
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {

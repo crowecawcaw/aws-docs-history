@@ -1,7 +1,6 @@
 
 
 # Using Amazon ECS Windows containers with domainless gMSA using the AWS CLI
-<a name="tutorial-gmsa-windows"></a>
 
 The following tutorial shows how to create an Amazon ECS task that runs a Windows container that has credentials to access Active Directory with the AWS CLI. By using domainless gMSA, the container instance isn't joined to the domain, other applications on the instance can't use the credentials to access the domain, and tasks that join different domains can run on the same instance.
 
@@ -77,13 +76,13 @@ If you are using Directory Service, then you can skip this step.
 
    To check if the KDS root key has already been created, run the following PowerShell cmdlet with domain admin privileges on a domain controller using the `ActiveDirectory` PowerShell module. For more information about the module, see [ActiveDirectory Module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) on the Microsoft Learn website.
 
-   ```
+   ```powershell
    PS C:\> Get-KdsRootKey
    ```
 
    If the command returns a key ID, you can skip the rest of this step. Otherwise, create the KDS root key by running the following command:
 
-   ```
+   ```powershell
    PS C:\> Add-KdsRootKey -EffectiveImmediately
    ```
 
@@ -97,47 +96,47 @@ If you are using Directory Service, then you can skip this step.
 
    1. 
 
-      ```
+      ```powershell
       PS C:\> Install-WindowsFeature RSAT-AD-PowerShell
       ```
 
    1. 
 
-      ```
+      ```powershell
       PS C:\> New-ADGroup -Name "{{ExampleAccount}} Authorized Hosts" -SamAccountName "{{ExampleAccount}}Hosts" -GroupScope DomainLocal
       ```
 
    1. 
 
-      ```
+      ```powershell
       PS C:\> New-ADServiceAccount -Name "{{ExampleAccount}}" -DnsHostName "{{example-domain}}" -ServicePrincipalNames "host/{{ExampleAccount}}", "host/{{example-domain}}" -PrincipalsAllowedToRetrieveManagedPassword "{{ExampleAccount}}Hosts"
       ```
 
    1. Create a user with a permanent password that doesn't expire. These credentials are stored in AWS Secrets Manager and used by each task to join the domain. This is a separate user account from the gMSA account created previously. Replace `ExampleServiceUser` with the name you want for this service user account.
 
-      ```
+      ```powershell
       PS C:\> New-ADUser -Name "{{ExampleServiceUser}}" -AccountPassword (ConvertTo-SecureString -AsPlainText "{{Test123}}" -Force) -Enabled 1 -PasswordNeverExpires 1
       ```
 
    1. 
 
-      ```
+      ```powershell
       PS C:\> Add-ADGroupMember -Identity "{{ExampleAccount}}Hosts" -Members "{{ExampleServiceUser}}"
       ```
 
    1. Install the PowerShell module for creating CredSpec objects in Active Directory and output the CredSpec JSON.
 
-      ```
+      ```powershell
       PS C:\> Install-PackageProvider -Name NuGet -Force
       ```
 
-      ```
+      ```powershell
       PS C:\> Install-Module CredentialSpec
       ```
 
    1. 
 
-      ```
+      ```powershell
       PS C:\> New-CredentialSpec -AccountName {{ExampleAccount}}
       ```
 
@@ -153,7 +152,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
   The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-  ```
+  ```shell
   $ aws secretsmanager create-secret \
   --name {{gmsa-plugin-input}} \
   --description "{{Amazon ECS - gMSA Portable Identity.}}" \
@@ -169,7 +168,7 @@ Before uploading the CredSpec to one of the storage options, add information to 
 
    Note that the `PluginGUID` value must match the GUID in the following example snippet and is required.
 
-   ```
+   ```json
    "HostAccountConfig": {
          "PortableCcgVersion": "1",
          "PluginGUID": "{859E1386-BDB4-49E8-85C7-3070B13920E1}",
@@ -181,7 +180,7 @@ Before uploading the CredSpec to one of the storage options, add information to 
 
 1. After you modify the CredSpec file, it should look like the following example:
 
-   ```
+   ```json
    {
      "CmsPlugins": [
        "ActiveDirectory"
@@ -227,7 +226,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws s3 cp gmsa-cred-spec.json \
    s3://{{MyBucket/ecs-domainless-gmsa-credspec}}
    ```
@@ -241,7 +240,7 @@ You can create a cluster from the AWS Management Console, AWS CLI, SDKs, or Clou
 
 This step uses the AWS CLI. You can run these commands in AWS CloudShell in the default shell, which is `bash`.
 
-```
+```shell
 $ aws ecs create-cluster --cluster-name windows-domainless-gmsa-cluster
 ```
 
@@ -275,7 +274,7 @@ Amazon ECS can use a different IAM role for the permissions needed to start each
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -315,7 +314,7 @@ To create a task role using the AWS CLI, follow these steps.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -336,7 +335,7 @@ To create a task role using the AWS CLI, follow these steps.
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws iam create-role --role-name {{ecs-exec-demo-task-role}} \
    --assume-role-policy-document file://ecs-tasks-trust-policy.json
    ```
@@ -350,7 +349,7 @@ To create a task role using the AWS CLI, follow these steps.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -374,7 +373,7 @@ To create a task role using the AWS CLI, follow these steps.
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws iam put-role-policy \
        --role-name {{ecs-exec-demo-task-role}} \
        --policy-name ecs-exec-demo-task-role-policy \
@@ -392,7 +391,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
 1. Create a file called `windows-gmsa-domainless-task-def.json` with the following contents:
 
-   ```
+   ```json
    {
      "family": "windows-gmsa-domainless-task",
      "containerDefinitions": [
@@ -430,7 +429,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws ecs register-task-definition \
    --cli-input-json file://{{windows-gmsa-domainless-task-def.json}}
    ```
@@ -467,7 +466,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
 1. List the container instances in the cluster. Container instances have an ID that is different from the ID of the EC2 instance.
 
-   ```
+   ```shell
    $ aws ecs list-container-instances
    ```
 
@@ -487,7 +486,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws ecs describe-container-instances \
         ----container-instances MyContainerInstanceID
    ```
@@ -524,7 +523,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
 1. Run the following command to verify that the task has started. This command waits and doesn't return the shell prompt until the task starts. Replace `MyTaskID` with the task ID from the previous step.
 
-   ```
+   ```shell
    $ aws ecs wait tasks-running --task MyTaskID
    ```
 
@@ -539,7 +538,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws ecs execute-command \
    --task MyTaskID \
    --container windows_sample_app \
@@ -551,7 +550,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
 1. Run the following command in the PowerShell terminal inside the container.
 
-   ```
+   ```powershell
    PS C:\> klist get ExampleAccount$
    ```
 
@@ -566,7 +565,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
 1. Stop the task. Replace `MyTaskID` with the task ID from step 12, [Step 12: Run a Windows task](#tutorial-gmsa-windows-step12).
 
-   ```
+   ```shell
    $ aws ecs stop-task --task {{MyTaskID}}
    ```
 
@@ -574,13 +573,13 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    You can find and terminate the instance by using the Amazon EC2 console. Or, you can run the following command. To run the command, find the EC2 instance ID in the output of the `aws ecs describe-container-instances` command from step 1, [Step 11: Verify the container instance](#tutorial-gmsa-windows-step11). i-10a64379 is an example of an EC2 instance ID.
 
-   ```
+   ```shell
    $ aws ec2 terminate-instances --instance-ids {{MyInstanceID}}
    ```
 
 1. Delete the CredSpec file in Amazon S3. Replace `MyBucket` with the name of your Amazon S3 bucket.
 
-   ```
+   ```shell
    $ aws s3api delete-object --bucket {{MyBucket}} --key {{ecs-domainless-gmsa-credspec/gmsa-cred-spec.json}}
    ```
 
@@ -588,7 +587,7 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    The following command uses backslash continuation characters that are used by `sh` and compatible shells. This command isn't compatible with PowerShell. You must modify the command to use it with PowerShell.
 
-   ```
+   ```shell
    $ aws secretsmanager delete-secret --secret-id {{gmsa-plugin-input}} \
         --force-delete-without-recovery
    ```
@@ -597,19 +596,19 @@ This step uses the AWS CLI. You can run these commands in AWS CloudShell in the 
 
    1. Deregister the task definition by specifying the version. ECS automatically makes versions of task definitions, that are numbered starting from 1. You refer to the versions in the same format as the labels on container images, such as `:1`.
 
-      ```
+      ```shell
       $ aws ecs deregister-task-definition --task-definition {{windows-gmsa-domainless-task:1}}
       ```
 
    1. Delete the task definition.
 
-      ```
+      ```shell
       $ aws ecs delete-task-definitions --task-definition {{windows-gmsa-domainless-task:1}}
       ```
 
 1. (Optional) Delete the ECS cluster, if you created a cluster.
 
-   ```
+   ```shell
    $ aws ecs delete-cluster --cluster {{windows-domainless-gmsa-cluster}}
    ```
 

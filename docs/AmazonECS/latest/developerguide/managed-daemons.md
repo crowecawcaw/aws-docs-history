@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Managed Daemons
-<a name="managed-daemons"></a>
 
 Amazon ECS Managed Daemons enable you to deploy and manage software agents, such as security, observability, and networking agents, across your container infrastructure on Amazon ECS Managed Instances. Managed Daemons decouple daemon lifecycle management from application operations. You can deploy, update, and monitor agents independently, without redeploying workloads or coordinating changes across services.
 

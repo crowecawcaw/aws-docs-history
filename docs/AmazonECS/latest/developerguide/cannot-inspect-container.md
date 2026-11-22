@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS CannotInspectContainerError errors
-<a name="cannot-inspect-container"></a>
 
 The following are some CannotInspectContainerError error messages and actions that you can take to fix the errors.
 

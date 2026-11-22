@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Express Mode
-<a name="express-service-overview"></a>
 
 An Amazon ECS Express Mode service reduces the complexity of deploying containerized applications by providing sensible defaults and automating the configuration of supporting AWS services. Instead of managing configuration parameters across multiple services, an Express Mode service requires only three things to get started:
 + A container image

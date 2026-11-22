@@ -1,7 +1,6 @@
 
 
 # Viewing IAM role requests for Amazon ECS tasks
-<a name="task_iam_roles-logs"></a>
 
 When you use a provider for your task credentials in an IAM role, the provider requests saved in an audit log. The audit log inherits the same log rotation settings as the container agent log. The `ECS_LOG_ROLLOVER_TYPE`, `ECS_LOG_MAX_FILE_SIZE_MB`, and `ECS_LOG_MAX_ROLL_COUNT` container agent configuration variables can be set to affect the behavior of the audit log. For more information, see [Amazon ECS container agent log configuration parameters](ecs-agent-versions.md#agent-logs).
 
@@ -28,6 +27,6 @@ cat /var/log/ecs/audit.log.{{2016-07-13-16}}
 
 Output:
 
-```
+```JSON
 2016-07-13T16:11:53Z 200 172.17.0.5:52444 "/v1/credentials" "python-requests/2.7.0 CPython/2.7.6 Linux/4.4.14-24.50.amzn1.x86_64" {{TASK_ARN}} GetCredentials 1 {{CLUSTER_NAME}} {{CONTAINER_INSTANCE_ARN}}
 ```

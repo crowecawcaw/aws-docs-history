@@ -1,7 +1,6 @@
 
 
 # Updating Resources Outside of Express Mode
-<a name="express-service-advanced-customization"></a>
 
 Express Mode simplifies deployment by automatically provisioning and managing AWS resources on your behalf, but it's important to understand the responsibility model. While Express Mode creates and configures resources like Amazon ECS services, load balancers, and auto scaling policies, all resources remain in your AWS account and are fully accessible for direct management. You can modify these resources outside of Express Mode using the AWS Console, AWS CLI, or APIs, but doing so may affect Express Mode's ability to manage your service. This section explains which resources Express Mode manages, how to safely make changes outside of Express Mode, and what happens when you do.
 

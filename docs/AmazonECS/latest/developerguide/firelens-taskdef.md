@@ -1,7 +1,6 @@
 
 
 # Example Amazon ECS task definition: Route logs to FireLens
-<a name="firelens-taskdef"></a>
 
 To use custom log routing with FireLens, you must specify the following in your task definition:
 + A log router container that contains a FireLens configuration. We recommend that the container be marked as `essential`.
@@ -28,7 +27,7 @@ The following task definition example defines a log router container that uses F
 **Note**  
 For more example task definitions, see [Amazon ECS FireLens examples](https://github.com/aws-samples/amazon-ecs-firelens-examples) on GitHub.
 
-```
+```JSON
 {
   "family": "firelens-example-firehose",
   "taskRoleArn": "arn:aws:iam::123456789012:role/ecs_task_iam_role",
@@ -116,7 +115,7 @@ To specify a custom configuration file that's hosted in Amazon S3, ensure you ha
 
 The following shows the syntax required when specifying a custom configuration.
 
-```
+```JSON
 {
   "containerDefinitions": [
     {

@@ -1,7 +1,6 @@
 
 
 # Identify unauthorized behavior using Runtime Monitoring
-<a name="ecs-guard-duty-integration"></a>
 
 Amazon GuardDuty is a threat detection service that helps protect your accounts, containers, workloads, and the data within your AWS environment. Using machine learning (ML) models, and anomaly and threat detection capabilities, GuardDuty continuously monitors different log sources and runtime activity to identify and prioritize potential security risks and malicious activities in your environment.
 

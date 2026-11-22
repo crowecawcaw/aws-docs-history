@@ -1,7 +1,6 @@
 
 
 # Creating and managing daemons
-<a name="managed-daemons-create-manage"></a>
 
 After you register a daemon task definition, create a daemon to deploy it across your Amazon ECS Managed Instances capacity providers. Amazon ECS automatically places one daemon task on every Amazon EC2 instance in the associated capacity providers and manages the daemon lifecycle.
 
@@ -51,7 +50,7 @@ Create a JSON file with your daemon configuration and run the `create-daemon` co
 
 The following is an example JSON file:
 
-```
+```json
 {
     "clusterArn": "arn:aws:ecs:{{us-east-1}}:{{123456789012}}:cluster/{{my-daemon-cluster}}",
     "daemonName": "{{my-monitoring-daemon}}",

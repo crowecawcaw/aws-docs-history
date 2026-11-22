@@ -1,7 +1,6 @@
 
 
 # Clusters for Amazon ECS Managed Instances
-<a name="managed-instance-clusters"></a>
 
 Amazon ECS capacity providers manage the scaling of infrastructure for tasks in your clusters. After you create the cluster, you create one or more capacity providers and an optional capacity provider strategy for the cluster. The capacity provider strategy determines how the tasks are spread across the cluster's capacity providers. When you run a standalone task or create a service, you either use the cluster's default capacity provider strategy or a capacity provider strategy that overrides the default one.
 

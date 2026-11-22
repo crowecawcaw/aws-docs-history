@@ -1,7 +1,6 @@
 
 
 # Managing your Amazon ECS and AWS Fargate service quotas in the AWS Management Console
-<a name="service-quotas-manage"></a>
 
 Amazon ECS has integrated with Service Quotas, an AWS service that enables you to view and manage your quotas from a central location. For more information, see [What is Service Quotas?](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) in the *Service Quotas User Guide*.
 

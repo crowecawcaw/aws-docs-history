@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon ECS capacity provider
-<a name="update-capacity-provider-console-v2"></a>
 
 When you use an Auto Scaling group as a capacity provider, you can modify the group's scaling policy.
 

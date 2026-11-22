@@ -1,7 +1,6 @@
 
 
 # Protect your Amazon ECS tasks from being terminated by scale-in events
-<a name="task-scale-in-protection"></a>
 
 You can use Amazon ECS task scale-in protection to protect your tasks from being terminated by scale-in events from either service auto scaling or deployments.
 

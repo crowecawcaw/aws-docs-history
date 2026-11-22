@@ -1,7 +1,6 @@
 
 
 # Required resources for Amazon ECS blue/green deployments
-<a name="blue-green-deployment-implementation"></a>
 
 You can use Amazon ECS blue/green deployments with or without managed traffic shifting. When your service uses Elastic Load Balancing, Service Connect, or VPC Lattice, Amazon ECS manages the traffic shift between the blue and green service revisions for you. If your service doesn't use a load balancer, Service Connect, or VPC Lattice (headless service), you can still use blue/green deployments for controlled rollouts, but Amazon ECS doesn't manage the traffic shift automatically.
 

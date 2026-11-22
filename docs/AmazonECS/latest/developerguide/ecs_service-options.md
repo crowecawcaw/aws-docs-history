@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service deployment controllers and strategies
-<a name="ecs_service-options"></a>
 
 Before you deploy your service, determine the options for deploying it, and the features the service uses.
 
@@ -36,6 +35,8 @@ We recommend that you use the service rebalancing feature when you use the `REPL
 <a name="service_scheduler_daemon"></a>
 
 The *daemon* scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints specified in your cluster. The service scheduler evaluates the task placement constraints for running tasks, and stops tasks that don't meet the placement constraints. When you use this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
+
+If a container instance's attributes change so that it no longer meets the constraints, for example if you or your automation removes a custom attribute, Amazon ECS stops the daemon task on it with the stopped reason `Service{{service-name}} task running on instance that does not satisfy Daemon service placement constraints`. To run the task there again, restore the attribute or change the constraint. For more information, see [Amazon ECS container instance attributes](task-placement-constraints.md#attributes).
 
 Amazon ECS reserves container instance compute resources including CPU, memory, and network interfaces for the daemon tasks. When you launch a daemon service on a cluster with other replica services, Amazon ECS prioritizes the daemon task. This means that the daemon task is the first task to launch on the instances and the last task to stop after all replica tasks are stopped. This strategy ensures that resources aren't used by pending replica tasks and are available for the daemon tasks.
 

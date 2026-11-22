@@ -1,7 +1,6 @@
 
 
 # Creating a capacity provider for Amazon ECS Managed Instances
-<a name="create-capacity-provider-managed-instances"></a>
 
 Amazon ECS Managed Instances uses capacity providers to manage compute capacity for your workloads. When you create a capacity provider without specifying `instanceRequirements`, Amazon ECS automatically selects the most cost-optimized [general-purpose instance types](https://aws.amazon.com/ec2/instance-types/general-purpose/). You can create capacity providers with `instanceRequirements` to specify instance attributes such as instance types, CPU manufacturers, accelerator types, and other requirements.
 
@@ -85,7 +84,7 @@ You can create a capacity provider for Amazon ECS Managed Instances using the AW
 
    The following `capacity-provider-definition.json` can be used to specify basic instance requirements, instance storage size, and enable tag propagation:
 
-   ```
+   ```json
    {
        "name": "my-managed-instances-provider",
        "cluster": "my-cluster",

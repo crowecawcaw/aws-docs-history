@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definitions for deep learning instances
-<a name="ecs-dl1"></a>
 
 To use deep learning workloads on Amazon ECS, register [Amazon EC2 DL1](https://aws.amazon.com/ec2/instance-types/dl1/) instances to your clusters. Amazon EC2 DL1 instances are powered by Gaudi accelerators from Habana Labs (an Intel company). Use the Habana SynapseAI SDK to connect to the Habana Gaudi accelerators. The SDK supports the popular machine learning frameworks, TensorFlow and PyTorch.
 

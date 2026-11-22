@@ -1,7 +1,6 @@
 
 
 # Troubleshooting with AWS assistant
-<a name="troubleshooting-with-Q"></a>
 
 You can use the [AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html) in the Amazon ECS console to help diagnose and resolve issues with your Amazon ECS resources. For certain errors and status messages on containers, tasks, services, deployments, and task definitions, the console shows an **Inspect with AWS assistant** option. When you choose this option, the AWS assistant analyzes the issue in context and suggests possible causes and remediation steps.
 

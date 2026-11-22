@@ -1,7 +1,6 @@
 
 
 # What is Amazon Elastic Container Service?
-<a name="Welcome"></a>
 
 **Tip**  
 Join the upcoming hands-on workshops to learn best practices for Amazon ECS and AWS Fargate. [Register for a workshop](https://awsworkshop.io/ecs?trk=45cf05ef-a935-47d7-9cce-c8183367acc8&sc_channel=el).

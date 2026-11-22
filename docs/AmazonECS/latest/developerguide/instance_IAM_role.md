@@ -1,7 +1,6 @@
 
 
 # Amazon ECS container instance IAM role
-<a name="instance_IAM_role"></a>
 
 Amazon ECS container instances, including both Amazon EC2 and external instances, run the Amazon ECS container agent and require an IAM role for the service to know that the agent belongs to you. Before you launch container instances and register them to a cluster, you must create an IAM role for your container instances to use. The role is created in the account that you use to log into the console or run the AWS CLI commands.
 
@@ -51,7 +50,7 @@ Replace all {{user input}} with your own values.
 1. Create a file called `instance-role-trust-policy.json` with the following contents.  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -80,7 +79,7 @@ Replace all {{user input}} with your own values.
 
    Example response
 
-   ```
+   ```JSON
    {
        "InstanceProfile": {
            "InstanceProfileId": "AIPAJTLBPJLEGREXAMPLE",
@@ -130,7 +129,7 @@ The Amazon ECS container instance role that you use with your container instance
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ The container instance role that you use with your container instances must have
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -267,7 +266,7 @@ After you create the policy, attach the policy to the container instance role. F
 1. Create a file called `instance-cw-logs.json` with the following content.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

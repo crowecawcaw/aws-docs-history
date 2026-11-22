@@ -1,7 +1,6 @@
 
 
 # Pass Secrets Manager secrets through Amazon ECS environment variables
-<a name="secrets-envvar-secrets-manager"></a>
 
 When you inject a secret as an environment variable, you can specify the full contents of a secret, a specific JSON key within a secret. This helps you control the sensitive data exposed to your container. For more information about secret versioning, see [What's in a Secrets Manager secret?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/whats-in-a-secret.html#term_version) in the *AWS Secrets Manager User Guide*.
 
@@ -66,7 +65,7 @@ The following examples show ways in which you can reference Secrets Manager secr
 **Example referencing a full secret**  
 The following is a snippet of a task definition showing the format when referencing the full text of a Secrets Manager secret.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -81,7 +80,7 @@ To access the value of this secret from within the container you would need to c
 **Example referencing full secrets**  
 The following is a snippet of a task definition showing the format when referencing the full text of multiple Secrets Manager secrets.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
      "secrets": [
@@ -106,7 +105,7 @@ To access the value of this secret from within the container you would need to c
 **Example referencing a specific key within a secret**  
 The following shows an example output from a [get-secret-value](https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/get-secret-value.html) command that displays the contents of a secret along with the version staging label and version ID associated with it.  
 
-```
+```JSON
 {
     "ARN": "arn:aws:secretsmanager:{{region}}:{{aws_account_id}}:secret:{{appauthexample-AbCdEf}}",
     "Name": "{{appauthexample}}",
@@ -120,7 +119,7 @@ The following shows an example output from a [get-secret-value](https://docs.aws
 ```
 Reference a specific key from the previous output in a container definition by specifying the key name at the end of the ARN.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -134,7 +133,7 @@ Reference a specific key from the previous output in a container definition by s
 **Example referencing a specific secret version**  
 The following shows an example output from a [describe-secret](https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/describe-secret.html) command that displays the unencrypted contents of a secret along with the metadata for all versions of the secret.  
 
-```
+```JSON
 {
     "ARN": "arn:aws:secretsmanager:{{region}}:{{aws_account_id}}:secret:{{appauthexample-AbCdEf}}",
     "Name": "{{appauthexample}}",
@@ -155,7 +154,7 @@ The following shows an example output from a [describe-secret](https://docs.aws.
 ```
 Reference a specific version staging label from the previous output in a container definition by specifying the key name at the end of the ARN.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -167,7 +166,7 @@ Reference a specific version staging label from the previous output in a contain
 ```
 Reference a specific version ID from the previous output in a container definition by specifying the key name at the end of the ARN.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -181,7 +180,7 @@ Reference a specific version ID from the previous output in a container definiti
 **Example referencing a specific key and version staging label of a secret**  
 The following shows how to reference both a specific key within a secret and a specific version staging label.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -193,7 +192,7 @@ The following shows how to reference both a specific key within a secret and a s
 ```
 To specify a specific key and version ID, use the following syntax.  
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{

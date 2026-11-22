@@ -1,7 +1,6 @@
 
 
 # Use strategies to define Amazon ECS task placement
-<a name="task-placement-strategies"></a>
 
 For tasks that use the EC2 launch type, Amazon ECS must determine where to place the task based on the requirements specified in the task definition, such as CPU and memory. Similarly, when you scale down the task count, Amazon ECS must determine which tasks to terminate. You can apply task placement strategies and constraints to customize how Amazon ECS places and terminates tasks. 
 

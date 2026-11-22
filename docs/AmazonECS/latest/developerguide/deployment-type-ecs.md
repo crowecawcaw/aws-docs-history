@@ -1,7 +1,6 @@
 
 
 # Deploy Amazon ECS services by replacing tasks
-<a name="deployment-type-ecs"></a>
 
 When you create a service which uses the *rolling update* (`ECS`) deployment type, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration. 
 

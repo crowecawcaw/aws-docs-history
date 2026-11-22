@@ -1,7 +1,6 @@
 
 
 # Launch a GPU container instance for Amazon ECS
-<a name="gpu-launch"></a>
 
 To use a GPU instance on Amazon ECS on Amazon EC2, you need to create a launch template, a user data file, and launch the instance.
 

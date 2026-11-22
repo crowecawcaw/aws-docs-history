@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Linux container instance management
-<a name="manage-linux"></a>
 
 When you use EC2 instances for your Amazon ECS workloads, you are responsible for maintaining the instances
 

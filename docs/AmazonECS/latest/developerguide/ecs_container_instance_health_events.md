@@ -1,7 +1,6 @@
 
 
 # Amazon ECS container instance health change events
-<a name="ecs_container_instance_health_events"></a>
 
 The following scenarios cause container instance health change events.
 
@@ -42,7 +41,7 @@ Container instance health change events are delivered in the following format. F
 
 **Sample container runtime health event**
 
-```
+```JSON
 {
     "version": "0",
     "id": "EXAMPLE-48f8-c0ff-0dab-EXAMPLE2ac34",
@@ -75,7 +74,7 @@ Container instance health change events are delivered in the following format. F
 
 **Sample accelerated compute health event**
 
-```
+```JSON
 {
     "version": "0",
     "id": "EXAMPLE-46c3-a48a-1bef-EXAMPLE72f3c",
@@ -108,7 +107,7 @@ Container instance health change events are delivered in the following format. F
 
 **Sample daemon health event**
 
-```
+```JSON
 {
     "version": "0",
     "id": "EXAMPLE-febc-b5e3-054b-EXAMPLE1a1f4f",
@@ -141,7 +140,7 @@ Container instance health change events are delivered in the following format. F
 
 **Sample agent connectivity health event**
 
-```
+```JSON
 {
     "version": "0",
     "id": "EXAMPLE-7d2a-9f1c-4b6e-EXAMPLE9c8d1",

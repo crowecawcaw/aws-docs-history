@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Anywhere IAM role
-<a name="iam-role-ecsanywhere"></a>
 
 When you register an on-premises server or virtual machine (VM) to your cluster, the server or VM requires an IAM role to communicate with AWS APIs. You only need to create this IAM role once for each AWS account. However, this IAM role must be associated with each server or VM that you register to a cluster. This role is the `ECSAnywhereRole`. You can create this role manually. Alternatively, Amazon ECS can create the role on your behalf when you register an external instance in the AWS Management Console. You can use IAM console search to search for `ecsAnywhereRole` and see if your account already has the role. For more information, see [IAM console search](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_search.html) in the *IAM user guide*.
 
@@ -25,7 +24,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": {

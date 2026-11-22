@@ -1,7 +1,6 @@
 
 
 # Use FSx for Windows File Server volumes with Amazon ECS
-<a name="wfsx-volumes"></a>
 
 FSx for Windows File Server provides fully managed Windows file servers, that are backed by a Windows file system. When using FSx for Windows File Server together with ECS, you can provision your Windows tasks with persistent, distributed, shared, static file storage. For more information, see [What Is FSx for Windows File Server?](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html).
 

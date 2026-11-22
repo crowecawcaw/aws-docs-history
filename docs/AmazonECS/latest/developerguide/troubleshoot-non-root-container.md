@@ -1,7 +1,6 @@
 
 
 # Container can't write to Amazon EBS volume
-<a name="troubleshoot-non-root-container"></a>
 
 Non-root user without proper permissions  
 When you specify a non-root user in your container definition, Amazon ECS automatically configures the volume with group-based permissions to allow write access. However, if you're still experiencing permission issues:  

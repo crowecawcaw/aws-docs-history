@@ -1,7 +1,6 @@
 
 
 # Best practices for connecting Amazon ECS services in a VPC
-<a name="networking-connecting-services"></a>
 
 Using Amazon ECS tasks in a VPC, you can split monolithic applications into separate parts that can be deployed and scaled independently in a secure environment. This architecture is called service-oriented architecture (SOA) or microservices. However, it can be challenging to make sure that all of these parts, both in and outside of a VPC, can communicate with each other. There are several approaches for facilitating communication, all with different advantages and disadvantages.
 

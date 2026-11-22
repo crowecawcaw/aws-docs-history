@@ -1,7 +1,6 @@
 
 
 # Adding tags to Amazon ECS resources
-<a name="tag-resources-console"></a>
 
 You can tag new or existing tasks, services, task definitions, or clusters. For information about tagging your container instances, see [Adding tags to an Amazon EC2 container instance for Amazon ECS](instance-details-tags.md).
 

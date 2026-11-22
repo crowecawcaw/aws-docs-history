@@ -1,7 +1,6 @@
 
 
 # Required resources for Amazon ECS linear deployments
-<a name="linear-deployment-implementation"></a>
 
 To use a linear deployment with managed traffic shifting, your service must use one of the following features:
 + Elastic Load Balancing

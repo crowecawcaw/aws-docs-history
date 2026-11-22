@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS Service Connect with shared AWS Cloud Map namespaces
-<a name="service-connect-shared-namespaces-troubleshooting"></a>
 
 Use the following information to troubleshoot issues with shared AWS Cloud Map namespaces and Service Connect. For more information on locating error messages, see [Amazon ECS troubleshooting](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/troubleshooting.html).
 
@@ -12,7 +11,7 @@ You must use the `AWSRAMPermissionCloudMapECSFullPermission` managed permission 
 
 Error message appears in one of the following formats:
 
-An error occurred (ClientException) when calling the <OperationName> operation: User: arn:aws:iam::<account-id>:user/<user-name> is not authorized to perform: <ActionName> on resource: <ResourceArn> because no resource-based policy allows the <ActionName> action
+`An error occurred (ClientException) when calling the <OperationName> operation: User: arn:aws:iam::<account-id>:user/<user-name> is not authorized to perform: <ActionName> on resource: <ResourceArn> because no resource-based policy allows the <ActionName> action`
 
 The following scenarios can result in an error message in this format:
 
@@ -37,7 +36,7 @@ To resolve this issue:
 + Use the namespace ARN when calling the API, not the name.
 + Ensure the resource share is active and the invitation has been accepted.
 
-User: <iam-user> is not authorized to perform: <ActionName> on resource: <ResourceArn> with an explicit deny in an identity-based policy.
+`User: <iam-user> is not authorized to perform: <ActionName> on resource: <ResourceArn> with an explicit deny in an identity-based policy.`
 
 The following scenarios can result in an error message in this format:
 

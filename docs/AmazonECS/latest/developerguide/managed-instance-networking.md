@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task networking for Amazon ECS Managed Instances
-<a name="managed-instance-networking"></a>
 
 The networking behavior of Amazon ECS tasks running on Amazon ECS Managed Instances is determined by the *network mode* specified in the task definition. You must specify a network mode in the task definition. You will not be able to run tasks on Amazon ECS Managed Instances using a task definition that doesn't specify a network mode. Amazon ECS Managed Instances supports the following networking modes, ensuring backward compatibility for migrating workloads from Fargate or Amazon ECS on Amazon EC2:
 

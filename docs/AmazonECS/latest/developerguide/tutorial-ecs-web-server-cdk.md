@@ -1,7 +1,6 @@
 
 
 # Creating Amazon ECS resources using the AWS CDK
-<a name="tutorial-ecs-web-server-cdk"></a>
 
 The AWS Cloud Development Kit (AWS CDK) is an Infrastructure-as-Code (IAC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a containerized web server with Amazon Elastic Container Service (Amazon ECS) and the AWS CDK on Fargate. 
 
@@ -167,7 +166,7 @@ A stack is a unit of deployment. All resources must be in a stack, and all the r
 
 Update `lib/hello-ecs-stack.ts` so that it resembles the following.
 
-```
+```javascript
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
@@ -192,7 +191,7 @@ export class HelloEcsStack extends cdk.Stack {
 
 Update `lib/hello-ecs-stack.js` so that it resembles the following.
 
-```
+```javascript
 const cdk = require('aws-cdk-lib');
 const { Construct } = require('constructs');
 const ecs = require('aws-cdk-lib/aws-ecs');
@@ -219,7 +218,7 @@ module.exports = { HelloEcsStack }
 
 Update `hello-ecs/hello_ecs_stack.py` so that it resembles the following.
 
-```
+```python
 import aws_cdk as cdk
 from constructs import Construct
 
@@ -243,7 +242,7 @@ class HelloEcsStack(cdk.Stack):
 
 Update `src/main/java/com.myorg/HelloEcsStack.java` so that it resembles the following.
 
-```
+```java
 package com.myorg;
 
 import software.constructs.Construct;
@@ -277,7 +276,7 @@ public class HelloEcsStack extends Stack {
 
 Update `src/HelloEcs/HelloEcsStack.cs` so that it resembles the following.
 
-```
+```csharp
 using Amazon.CDK;
 using Constructs;
 using Amazon.CDK.AWS.ECS;
@@ -307,7 +306,7 @@ namespace HelloEcs
 
 Update `hello-ecs.go` so that it resembles the following.
 
-```
+```go
 package main
 
 import (
@@ -408,7 +407,7 @@ The preceding short snippet includes the following:
 
 Save the source file, then run the `cdk synth` command in your application's main directory. The AWS CDK runs the app and synthesizes an CloudFormation template from it, and then displays the template. The template is an approximately 600-line YAML file. The beginning of the file is shown here. Your template might differ from this example.
 
-```
+```yaml
 Resources:
   MyWebServerLB3B5FD3AB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer

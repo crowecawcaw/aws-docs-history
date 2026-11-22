@@ -1,7 +1,6 @@
 
 
 # Security considerations for Amazon ECS Managed Instances
-<a name="managed-instances-security"></a>
 
  Amazon ECS Managed Instances provides a fully managed container compute experience that enables you to run workloads on specific Amazon EC2 instance types while offloading security responsibilities to AWS. This topic describes the security model, features, and considerations when using Amazon ECS Managed Instances. 
 

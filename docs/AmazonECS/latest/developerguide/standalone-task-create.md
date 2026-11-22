@@ -1,7 +1,6 @@
 
 
 # Running an application as an Amazon ECS task
-<a name="standalone-task-create"></a>
 
 You can create a task for a one-time process using the AWS Management Console.
 

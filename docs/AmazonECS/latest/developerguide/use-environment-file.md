@@ -1,7 +1,6 @@
 
 
 # Pass environment variables to an Amazon ECS container
-<a name="use-environment-file"></a>
 
 **Important**  
 We recommend storing your sensitive data in either AWS Secrets Manager secrets or AWS Systems Manager Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md).  
@@ -47,7 +46,7 @@ Consider the following when specifying an environment variable file in a contain
 
 The following is a snippet of a task definition showing how to specify an environment variable file.
 
-```
+```JSON
 {
     "family": "",
     "containerDefinitions": [

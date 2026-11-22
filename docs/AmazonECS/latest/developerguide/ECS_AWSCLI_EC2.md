@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECS task for EC2 with the AWS CLI
-<a name="ECS_AWSCLI_EC2"></a>
 
 The following steps help you set up a cluster, register a task definition, run a task, and perform other common scenarios in Amazon ECS with the AWS CLI. Use the latest version of the AWS CLI. For more information on how to upgrade to the latest version, see [Installing or updating to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
@@ -50,7 +49,7 @@ aws ecs create-cluster --cluster-name {{MyCluster}}
 
 Output:
 
-```
+```json
 {
     "cluster": {
         "clusterName": "MyCluster",
@@ -171,7 +170,7 @@ aws ecs list-container-instances --cluster {{MyCluster}}
 
 Output:
 
-```
+```json
 {
     "containerInstanceArns": [
         "arn:aws:ecs:us-east-1:{{aws_account_id}}:container-instance/{{container_instance_ID}}"
@@ -190,7 +189,7 @@ aws ecs describe-container-instances --cluster {{MyCluster}} --container-instanc
 
 Output:
 
-```
+```json
 {
     "failures": [],
     "containerInstances": [
@@ -312,7 +311,7 @@ You can also find the Amazon EC2 instance ID that you can use to monitor the ins
 
 Before you can run a task on your Amazon ECS cluster, you must register a task definition. Task definitions are lists of containers grouped together. The following example is a simple task definition that uses an `nginx` image. For more information about the available task definition parameters, see [Amazon ECS task definitions](task_definitions.md).
 
-```
+```json
 {
     "family": "nginx-task",
     "containerDefinitions": [
@@ -346,7 +345,7 @@ aws ecs register-task-definition --cli-input-json {{file://$HOME/tasks/nginx.jso
 
 The **register-task-definition** returns a description of the task definition after it completes its registration.
 
-```
+```json
 {
     "taskDefinition": {
         "taskDefinitionArn": "arn:aws:ecs:us-east-1:123456789012:task-definition/nginx-task:1",
@@ -395,7 +394,7 @@ aws ecs list-task-definitions
 
 Output:
 
-```
+```json
 {
     "taskDefinitionArns": [
         "arn:aws:ec2:us-east-1:{{aws_account_id}}:task-definition/sleep360:1",
@@ -420,7 +419,7 @@ aws ecs create-service --cluster {{MyCluster}} --service-name {{nginx-service}} 
 
 Output:
 
-```
+```json
 {
     "service": {
         "serviceArn": "arn:aws:ecs:us-east-1:{{aws_account_id}}:service/MyCluster/nginx-service",
@@ -448,7 +447,7 @@ aws ecs list-services --cluster {{MyCluster}}
 
 Output:
 
-```
+```json
 {
     "taskArns": [
         "arn:aws:ecs:us-east-1:{{aws_account_id}}:task/{{task_ID}}"
@@ -467,7 +466,7 @@ aws ecs describe-services --cluster {{MyCluster}} --services {{nginx-service}}
 
 Output:
 
-```
+```json
 {
     "services": [
         {
@@ -504,7 +503,7 @@ aws ecs list-tasks --cluster {{MyCluster}} --service-name {{nginx-service}}
 
  Output: 
 
-```
+```json
 {
     "tasks": [
         {

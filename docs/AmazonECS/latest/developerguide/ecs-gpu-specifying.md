@@ -1,7 +1,6 @@
 
 
 # Specifying GPUs in an Amazon ECS task definition
-<a name="ecs-gpu-specifying"></a>
 
 To use the GPUs on a container instance and the Docker GPU runtime, make sure that you designate the number of GPUs your container requires in the task definition. You can specify an integer value, a decimal value for fractional GPUs, or `ALL`. When you specify `ALL`, all GPUs on the container instance are allocated to the container. When you specify a decimal value such as `0.25`, Amazon ECS places the task on a fractional GPU instance that provides the requested GPU capacity. As containers that support GPUs are placed, the Amazon ECS container agent pins the desired number of physical GPUs to the appropriate container. The number of GPUs reserved for all containers in a task cannot exceed the number of available GPUs on the container instance the task is launched on. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md).
 
@@ -32,7 +31,7 @@ You can also specify `ALL` as the value instead of a number to allocate all GPUs
 
 The following example demonstrates the syntax for a Docker container that specifies a GPU requirement. This container uses two GPUs, runs the `nvidia-smi` utility, and then exits.
 
-```
+```json
 {
   "containerDefinitions": [
     {
@@ -60,7 +59,7 @@ The following example demonstrates the syntax for a Docker container that specif
 
 The following example task definition shows a TensorFlow container that prints the number of available GPUs. The task runs on Amazon ECS Managed Instances, requires one GPU, and uses a `g4dn.xlarge` instance.
 
-```
+```json
 {
   "family": "tensorflow-gpu",
   "networkMode": "awsvpc",
@@ -104,7 +103,7 @@ The following example task definition shows a TensorFlow container that prints t
 
 Amazon ECS supports fractional GPU scheduling with Amazon EC2 G6f instances. G6f instances provide hardware-partitioned fractions of an NVIDIA L4 GPU, where each instance exposes a fixed GPU slice (1/8, 1/4, or 1/2) with dedicated GPU memory and compute. To use a fractional GPU, specify a decimal value in your container definition's `resourceRequirements`:
 
-```
+```json
 "resourceRequirements": [
   {
     "type": "GPU",
@@ -124,7 +123,7 @@ The supported fractional values and their corresponding G6f instance types are:
 
 The following example task definition runs a lightweight inference container on a fractional GPU with 1/4 of an NVIDIA L4 GPU (6 GB GPU memory):
 
-```
+```json
 {
   "family": "fractional-gpu-inference",
   "networkMode": "awsvpc",
@@ -158,6 +157,8 @@ The following example task definition runs a lightweight inference container on 
   "memory": "4096"
 }
 ```
+
+**Fractional GPU considerations**
 + Only one container per task can request a fractional GPU value. If a container specifies a fractional GPU, no other container in that task definition can have a GPU resource requirement.
 + Integer values (`1`, `2`, etc.) are treated as full GPU requests and only place on instances with full GPU capacity. Decimal values (`0.125`, `0.25`, `0.5`) are treated as fractional GPU requests and place on instances with the corresponding fractional GPU partition.
 + You can include both fractional GPU instances (G6f) and full GPU instances (such as g5 or g6) in the same capacity provider. Amazon ECS routes tasks to the correct instance type based on the declared GPU value. You do not need separate capacity providers per GPU family.

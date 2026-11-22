@@ -1,7 +1,6 @@
 
 
 # Learn how to configure FSx for Windows File Server file systems for Amazon ECS
-<a name="tutorial-wfsx-volumes"></a>
 
 Learn how to launch an Amazon ECS-Optimized Windows instance that hosts an FSx for Windows File Server file system and containers that can access the file system. To do this, you first create an Directory Service AWS Managed Microsoft Active Directory. Then, you create an FSx for Windows File Server File Server file system and cluster with an Amazon EC2 instance and a task definition. You configure the task definition for your containers to use the FSx for Windows File Server file system. Finally, you test the file system.
 
@@ -240,7 +239,7 @@ Before you can run Windows containers in your Amazon ECS cluster, you must regis
 
 1. In the JSON editor box, replace the values for your task execution role and the details about your FSx file system and then choose **Save**.
 
-   ```
+   ```JSON
    {
        "containerDefinitions": [
            {

@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon ECS Express Mode service
-<a name="express-service-update-full"></a>
 
 The Express Mode service simplifies the service update process by providing configurable options for networking, load balancing, and Application Auto Scaling and orchestrating changes across these services.
 

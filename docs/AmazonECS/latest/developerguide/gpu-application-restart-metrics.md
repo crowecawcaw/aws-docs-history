@@ -1,7 +1,6 @@
 
 
 # GPU application restart metrics
-<a name="gpu-application-restart-metrics"></a>
 
 For Amazon ECS Managed Instances running NVIDIA GPU-enabled Amazon EC2 instance types, the `TaskGPURestartAppXidCount` and `ContainerGPURestartAppXidCount` metrics count NVIDIA Xid errors whose immediate-action resolution bucket is `RESTART_APP`. These Xids indicate application-level faults where NVIDIA recommends restarting the affected application rather than the instance. Use these metrics to detect transient GPU faults affecting a specific task or container without implying underlying hardware failure.
 

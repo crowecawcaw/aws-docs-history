@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS SpotInterruption errors
-<a name="spot-interruption-errors"></a>
 
 The `SpotInterruption` error has different reasons for Fargate and EC2s. 
 

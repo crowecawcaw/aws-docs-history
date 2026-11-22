@@ -1,7 +1,6 @@
 
 
 # Create a predictive scaling policy for Amazon ECS service auto scaling
-<a name="predictive-scaling-create-policy"></a>
 
 Create a predictive scaling policy to have Amazon ECS increase or decrease the number of tasks that your service runs based on historical data. 
 
@@ -74,7 +73,7 @@ For more information about the CloudWatch metrics you can specify, see [Predicti
 
 The following is an example policy with a predefined memory configuration.
 
-```
+```json
 cat policy.json
 {
     "MetricSpecifications": [
@@ -106,7 +105,7 @@ aws application-autoscaling put-scaling-policy \
 
 If successful, this command returns the policy's ARN.
 
-```
+```json
 {
     "PolicyARN": "arn:aws:autoscaling:us-east-1:012345678912:scalingPolicy:d1d72dfe-5fd3-464f-83cf-824f16cb88b7:resource/ecs/service/MyCluster/test:policyName/predictive-scaling-policy-example",
     "Alarms": []
@@ -118,7 +117,7 @@ If successful, this command returns the policy's ARN.
 
 The following is an example policy with a predefined CPU configuration.
 
-```
+```json
 cat policy.json
 {
     "MetricSpecifications": [
@@ -150,7 +149,7 @@ aws aas put-scaling-policy \
 
 If successful, this command returns the policy's ARN.
 
-```
+```json
 {
     "PolicyARN": "arn:aws:autoscaling:us-east-1:012345678912:scalingPolicy:d1d72dfe-5fd3-464f-83cf-824f16cb88b7:resource/ecs/service/MyCluster/test:policyName/predictive-scaling-policy-example",
     "Alarms": []

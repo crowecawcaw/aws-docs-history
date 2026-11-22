@@ -1,7 +1,6 @@
 
 
 # Monitor a gateway
-<a name="gateway-monitoring"></a>
 
 You can monitor Amazon ECS Gateway to view the status of a gateway, identify the infrastructure that it manages, and inspect the connections between gateways and Amazon ECS services. You can also use Amazon CloudWatch and Elastic Load Balancing to monitor request traffic and the health of the targets receiving that traffic.
 
@@ -17,7 +16,7 @@ These statuses are independent. A gateway can be `ACTIVE` even if an individual 
 
 Use `describe-gateway` to view the configuration and current status of a gateway.
 
-```
+```bash
 aws ecs describe-gateway \
     --gateway my-gateway
 ```
@@ -26,13 +25,13 @@ The response includes the gateway's status, infrastructure IAM role, and configu
 
 To list the gateways in your account and Region, use `list-gateways`:
 
-```
+```bash
 aws ecs list-gateways
 ```
 
 To view the Amazon ECS clusters associated with a gateway, use `list-gateway-cluster-associations`:
 
-```
+```bash
 aws ecs list-gateway-cluster-associations \
     --gateway my-gateway
 ```
@@ -65,7 +64,7 @@ A gateway reporting `ACTIVE` does not mean every service behind it is healthy. G
 
 Use `describe-gateway-resources` to identify the ingress resources that a gateway manages for you.
 
-```
+```bash
 aws ecs describe-gateway-resources \
     --gateway my-gateway
 ```
@@ -74,7 +73,7 @@ For a `hostSharedAlb` gateway, the response groups resources by Application Load
 
 The response returns ARNs of resources that Amazon ECS manages, not live status of the resources. If the response returned state, that state could be stale or contradict what the owning service reports. For the real state of a resource, use the ARN with the owning AWS service to inspect current resource state. For example, to describe a managed Application Load Balancer, run:
 
-```
+```bash
 aws elbv2 describe-load-balancers \
     --load-balancer-arns arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/example/0123456789abcdef
 ```
@@ -91,14 +90,14 @@ Use gateway routes to monitor individual service connections. Each route has its
 
 To see all service connections through a gateway, run:
 
-```
+```bash
 aws ecs list-gateway-routes \
     --gateway my-gateway
 ```
 
 To find the routes for a particular service, specify the cluster and service:
 
-```
+```bash
 aws ecs list-gateway-routes \
     --cluster my-cluster \
     --service my-service
@@ -106,7 +105,7 @@ aws ecs list-gateway-routes \
 
 The response identifies the route ARN, the associated service and gateway, and the route status. You can filter routes by gateway, cluster, service, container port name, or status. To filter by service, pass either a full service ARN or a service name together with its cluster. A service name on its own is ambiguous, because service names are unique only within a cluster, so Amazon ECS returns an error. Use the status filter to find routes whose provisioning or update failed:
 
-```
+```bash
 aws ecs list-gateway-routes \
     --gateway my-gateway \
     --status CREATE_FAILED UPDATE_FAILED
@@ -119,7 +118,7 @@ A route in `CREATE_IN_PROGRESS` is still provisioning ingress resources, and a r
 
 To inspect a particular connection, run `describe-gateway-route` with the route ARN:
 
-```
+```bash
 aws ecs describe-gateway-route \
     --gateway-route-arn arn:aws:ecs:us-west-2:123456789012:gateway-route/my-gateway/a1b2c3d4/9f8e7d6c
 ```
@@ -131,7 +130,7 @@ The response includes the route's status and service URL, along with the identif
 
 Application teams can inspect the gateway connections recorded for a deployed Amazon ECS service revision. Use `describe-service-revisions`:
 
-```
+```bash
 aws ecs describe-service-revisions \
     --service-revision-arns arn:aws:ecs:us-west-2:123456789012:service-revision/my-cluster/my-service/1234567890123456789 \
     --query 'serviceRevisions[0].ecsManagedResources.gatewayConnections'
@@ -166,7 +165,7 @@ Elastic Load Balancing publishes a metric only while traffic is flowing, and it 
 
 Metrics show trends over time. To see the health of your targets right now, read the target group directly:
 
-```
+```bash
 aws elbv2 describe-target-health \
     --target-group-arn arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/example/0123456789abcdef
 ```

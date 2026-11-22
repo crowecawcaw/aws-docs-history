@@ -1,7 +1,6 @@
 
 
 # Create and manage an Amazon ECS Gateway
-<a name="gateway-managing"></a>
 
 An Amazon ECS Gateway is an account-level resource that holds the ingress configuration and security standards that connected services inherit. The platform team creates gateways, configures networking policies, and associates them with target Amazon ECS clusters. Application teams then opt in their services and the services then connect to the compatible gateways on the cluster. For more information, see [Connect Amazon ECS services to a gateway](gateway-connect-service.md).
 
@@ -21,7 +20,7 @@ Amazon ECS requires an infrastructure role to create, configure, and manage load
 
 Create an IAM role with a trust policy that allows the `ecs.amazonaws.com` service principal to assume it, and attach the AWS managed policy `AmazonECSInfrastructureRoleForGatewayHostSharedALB`. You can see the permissions that this policy grants in the [*AWS Managed Policy Reference*](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonECSInfrastructureRoleForGatewayHostSharedALB.html).
 
-```
+```bash
 aws iam create-role \
     --role-name ecsInfrastructureRoleForGateways \
     --assume-role-policy-document '{
@@ -44,7 +43,7 @@ aws iam attach-role-policy \
 
 The IAM user or role that creates or updates a gateway must have permission to pass the infrastructure role to Amazon ECS. The following policy scopes `iam:PassRole` to that specific infrastructure role rather than granting it broadly.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -72,7 +71,7 @@ When creating a gateway, you must specify a unique name, the infrastructure role
 
 **To create a gateway**
 
-```
+```bash
 aws ecs create-gateway \
     --name my-gateway \
     --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForGateways \
@@ -88,7 +87,7 @@ aws ecs create-gateway \
 
 Output:
 
-```
+```json
 {
     "gatewayArn": "arn:aws:ecs:us-west-2:123456789012:gateway/my-gateway/a1b2c3d4",
     "name": "my-gateway",
@@ -126,11 +125,11 @@ You can change the following settings at any time.
 ## Associate a gateway with Amazon ECS clusters
 <a name="gateway-associate-cluster"></a>
 
-A cluster's services can use a gateway only after you associate the gateway with their cluster. A gateway and the clusters it serves must be in the same AWS Region and account. Associating a gateway does not route any traffic on its own. It does not change how existing services receive traffic. Services in this cluster opt in separately, and start using the gateway on their next deployment.
+A cluster's services can use a gateway only after you associate the gateway with their cluster. A gateway and the clusters it serves must be in the same AWS Region and account. Associating a gateway does not route any traffic on its own. Services in this cluster opt in separately, and start using the gateway on their next deployment. A service that opts in without an access type filter also connects to a gateway you associate later, on its next deployment. Associating an internet-facing gateway can then make that service reachable from the internet.
 
 **To associate a gateway with a cluster**
 
-```
+```bash
 aws ecs associate-gateway-with-cluster \
     --gateway my-gateway \
     --cluster my-cluster
@@ -141,11 +140,11 @@ Associations are many-to-many. You can associate a gateway with up to 10,000 clu
 When a service with a gateway connector is deployed, Amazon ECS evaluates the gateways associated with its cluster. The service connects to compatible gateways based on its access type, VPC, and Availability Zones. Plan subnet coverage carefully, because it decides a gateway's reach. A gateway serves only the services in the VPC and Availability Zones that its subnets cover. Narrow coverage leaves the rest of the services in the cluster unable to use it. For more information, see [How Amazon ECS selects compatible gateways](gateway-connect-service.md#gateway-select-compatible).
 
 **Note**  
-When you associate a gateway with a cluster, existing services are not affected until their next deployment. Adding another gateway to a cluster does not automatically connect services that are already running.
+When you associate a gateway with a cluster, existing services are not affected until their next deployment. On that deployment, a service that's already running connects to the new gateway if the gateway matches its access type filter, VPC, and Availability Zones. The service itself doesn't need to change.
 
 **To list a gateway's cluster associations**
 
-```
+```bash
 aws ecs list-gateway-cluster-associations --gateway my-gateway
 ```
 
@@ -165,11 +164,11 @@ Updating a gateway changes the settings that every connected service inherits, i
 
 **Step 1: Get the current configuration**
 
-```
+```bash
 aws ecs describe-gateway --gateway my-gateway
 ```
 
-```
+```json
 {
     "gateway": {
         "gatewayArn": "arn:aws:ecs:us-west-2:123456789012:gateway/my-gateway/a1b2c3d4",
@@ -227,7 +226,7 @@ The infrastructure role is required in every `UpdateGateway` request. A request 
 
 This example changes `maxAlbCount` from `10` to `25`. It also includes `httpDesync`, which is not changing. Omitting it would return the gateway to the default of `defensive`.
 
-```
+```bash
 aws ecs update-gateway \
     --gateway my-gateway \
     --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForGateways \
@@ -247,7 +246,7 @@ If an update cannot be applied to one or more load balancers (such as an invalid
 
 **To check the progress of an update**
 
-```
+```bash
 aws ecs describe-gateway \
     --gateway my-gateway \
     --query 'gateway.{name:name,status:status}'
@@ -275,7 +274,7 @@ Before specifying an inbound security group, ensure that it allows the required 
 
 **To provide your own inbound security group**
 
-```
+```json
 "networkConfiguration": {
     "inboundSecurityGroup": "sg-085c0f8be53138a08"
 }
@@ -290,7 +289,7 @@ Amazon ECS applies the web ACL to every load balancer the gateway manages. The w
 
 **To associate a web ACL**
 
-```
+```json
 "webACLArn": "arn:aws:wafv2:us-west-2:123456789012:regional/webacl/my-waf/a1b2c3d4"
 ```
 
@@ -303,7 +302,7 @@ If you are considering `strictest`, start with `monitor` so that you can see wha
 
 **To set the desync mitigation mode**
 
-```
+```json
 "httpDesync": "strictest"
 ```
 
@@ -314,7 +313,7 @@ Access logs are disabled until you provide an Amazon S3 bucket. Amazon ECS does 
 
 **To enable access logs**
 
-```
+```json
 "accessLogs": {
     "destination": {
         "s3": { "bucket": "my-gateway-logs", "prefix": "alb" }
@@ -333,7 +332,7 @@ You configure these rules on the gateway rather than on individual services, so 
 
 **To configure test traffic rules**
 
-```
+```json
 "testTrafficRules": {
     "header": { "name": "x-test-traffic", "values": ["canary"] }
 }
@@ -355,7 +354,7 @@ Amazon ECS does not rewrite an existing rule's match conditions. Changing the he
 
 **To raise the maximum load balancer count**
 
-```
+```json
 "maxAlbCount": 50
 ```
 
@@ -379,7 +378,7 @@ Before you disassociate a gateway, verify that the affected services have an alt
 
 **To disassociate a gateway from a cluster**
 
-```
+```bash
 aws ecs disassociate-gateway-from-cluster \
     --gateway my-gateway \
     --cluster my-cluster
@@ -400,7 +399,7 @@ Use the `list-gateway-routes` command to identify services that still have gatew
 
 **To find the gateway routes blocking a disassociation**
 
-```
+```bash
 aws ecs list-gateway-routes --gateway my-gateway --cluster my-cluster
 ```
 
@@ -418,7 +417,7 @@ While an association is in the `DISASSOCIATING` state, you can reactivate it. As
 
 **To reactivate an association**
 
-```
+```bash
 aws ecs associate-gateway-with-cluster \
     --gateway my-gateway \
     --cluster my-cluster
@@ -441,7 +440,7 @@ You can delete a gateway when it is no longer needed. Before you delete a gatewa
 
 Deletion protection is enabled by default, so make sure that it is disabled before you continue.
 
-```
+```bash
 aws ecs update-gateway --gateway my-gateway --no-deletion-protection
 ```
 
@@ -449,7 +448,7 @@ aws ecs update-gateway --gateway my-gateway --no-deletion-protection
 
 Run the following command for each associated cluster.
 
-```
+```bash
 aws ecs disassociate-gateway-from-cluster \
     --gateway my-gateway \
     --cluster my-cluster
@@ -459,7 +458,7 @@ Each association stays in `DISASSOCIATING` until every gateway route for that ga
 
 To find the routes that are holding an association open, run the following command.
 
-```
+```bash
 aws ecs list-gateway-routes --gateway my-gateway --cluster my-cluster
 ```
 
@@ -467,13 +466,13 @@ aws ecs list-gateway-routes --gateway my-gateway --cluster my-cluster
 
 Amazon ECS removes an association after its last route is gone. When the list is empty, you can delete the gateway.
 
-```
+```bash
 aws ecs list-gateway-cluster-associations --gateway my-gateway
 ```
 
 **Step 4: Delete the gateway**
 
-```
+```bash
 aws ecs delete-gateway --gateway my-gateway
 ```
 

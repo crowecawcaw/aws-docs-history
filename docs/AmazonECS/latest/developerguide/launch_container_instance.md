@@ -1,7 +1,6 @@
 
 
 # Launching an Amazon ECS Linux container instance
-<a name="launch_container_instance"></a>
 
 You can create Amazon ECS container instances using the Amazon EC2 console. 
 

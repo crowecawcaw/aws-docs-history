@@ -1,7 +1,6 @@
 
 
 # Migrating from a CodeDeploy blue/green to an Amazon ECS blue/green service deployment
-<a name="migrate-code-deploy-to-ecs-blue-green"></a>
 
  By using Amazon ECS blue/green deployments, you can make and test service changes before implementing them in a production environment. 
 

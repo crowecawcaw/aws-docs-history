@@ -1,7 +1,6 @@
 
 
 # Faster auto scaling with high-resolution metrics
-<a name="target-tracking-faster-auto-scaling"></a>
 
 By default, Amazon ECS publishes `CPUUtilization` and `MemoryUtilization` metrics at 60-second resolution. You can configure 20-second resolution to drive faster service auto scaling.
 
@@ -56,7 +55,7 @@ The following high-resolution predefined metrics are available for target tracki
 
 1. Create the service with monitoring configuration using the [create-service](https://docs.aws.amazon.com/cli/latest/reference/ecs/create-service.html) command.
 
-   ```
+   ```bash
    aws ecs create-service --region {{us-east-1}} \
        --cluster {{my-cluster}} \
        --service-name {{my-service}} \
@@ -67,7 +66,7 @@ The following high-resolution predefined metrics are available for target tracki
 
 1. Register the service as a scalable target using the [register-scalable-target](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/register-scalable-target.html) command.
 
-   ```
+   ```bash
    aws application-autoscaling register-scalable-target \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -79,7 +78,7 @@ The following high-resolution predefined metrics are available for target tracki
 
 1. Create a target tracking scaling policy with a high-resolution predefined metric using the [put-scaling-policy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) command.
 
-   ```
+   ```bash
    aws application-autoscaling put-scaling-policy \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -97,7 +96,7 @@ The following high-resolution predefined metrics are available for target tracki
 
 1. Verify the policy was created using the [describe-scaling-policies](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/describe-scaling-policies.html) command.
 
-   ```
+   ```bash
    aws application-autoscaling describe-scaling-policies \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -190,7 +189,7 @@ Option B: Update Service form
 
 1. Update the service with monitoring configuration using the [update-service](https://docs.aws.amazon.com/cli/latest/reference/ecs/update-service.html) command.
 
-   ```
+   ```bash
    aws ecs update-service --region {{us-east-1}} \
        --cluster {{my-cluster}} \
        --service {{my-service}} \
@@ -199,7 +198,7 @@ Option B: Update Service form
 
 1. Wait for the deployment to complete. You can monitor progress using the [describe-services](https://docs.aws.amazon.com/cli/latest/reference/ecs/describe-services.html) command and checking the deployment status.
 
-   ```
+   ```bash
    aws ecs describe-services --region {{us-east-1}} \
        --cluster {{my-cluster}} \
        --services {{my-service}}
@@ -207,14 +206,14 @@ Option B: Update Service form
 
 1. After the deployment completes, verify the monitoring configuration is active by describing the service revision. Get the active service revision ARN from the `describe-services` output, then run:
 
-   ```
+   ```bash
    aws ecs describe-service-revisions --region {{us-east-1}} \
        --service-revision-arns {{arn:aws:ecs:us-east-1:012345678910:service-revision/my-cluster/my-service/1234567890123456789}}
    ```
 
    Confirm the monitoring configuration appears in the response:
 
-   ```
+   ```json
    {
        "serviceRevisions": [
            {
@@ -237,7 +236,7 @@ Option B: Update Service form
 
 1. Register the service as a scalable target if not already registered, using the [register-scalable-target](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/register-scalable-target.html) command.
 
-   ```
+   ```bash
    aws application-autoscaling register-scalable-target \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -249,7 +248,7 @@ Option B: Update Service form
 
 1. Create a target tracking scaling policy with a high-resolution predefined metric using the [put-scaling-policy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) command. The following example targets 50% CPU utilization:
 
-   ```
+   ```bash
    aws application-autoscaling put-scaling-policy \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -267,7 +266,7 @@ Option B: Update Service form
 
 1. Verify the policy was created:
 
-   ```
+   ```bash
    aws application-autoscaling describe-scaling-policies \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \
@@ -302,7 +301,7 @@ Option B: Update Service form
 
 1. Alternatively, verify using the CLI:
 
-   ```
+   ```bash
    aws application-autoscaling describe-scaling-policies \
        --service-namespace ecs \
        --resource-id service/{{my-cluster}}/{{my-service}} \

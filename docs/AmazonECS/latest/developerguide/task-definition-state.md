@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definition states
-<a name="task-definition-state"></a>
 
 A task definition changes states when you create, deregister, or delete it. You can view the task definition state in the console, or by using `DescribeTaskDefinition`. 
 

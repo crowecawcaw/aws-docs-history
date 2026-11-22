@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service unhealthy event messages
-<a name="service-unhealthy-event-messages"></a>
 
 The following are examples of service unhealthy event messages.
 

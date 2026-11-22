@@ -1,7 +1,6 @@
 
 
 # Amazon ECS-optimized Bottlerocket AMIs
-<a name="ecs-bottlerocket"></a>
 
 Bottlerocket is a Linux based open-source operating system that is purpose built by AWS for running containers on virtual machines or bare metal hosts. The Amazon ECS-optimized Bottlerocket AMI is secure and only includes the minimum number of packages that's required to run containers. This improves resource usage, reduces security attack surface, and helps lower management overhead. The Bottlerocket AMI is also integrated with Amazon ECS to help reduce the operational overhead involved in updating container instances in a cluster. 
 

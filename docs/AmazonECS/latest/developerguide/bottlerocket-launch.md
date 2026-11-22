@@ -1,7 +1,6 @@
 
 
 # Launching a Bottlerocket instance for Amazon ECS
-<a name="bottlerocket-launch"></a>
 
 You can launch a Bottlerocket instance so that you can run your container workloads.
 

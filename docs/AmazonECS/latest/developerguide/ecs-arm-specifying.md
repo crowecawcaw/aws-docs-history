@@ -1,13 +1,12 @@
 
 
 # Specifying the ARM architecture in an Amazon ECS task definition
-<a name="ecs-arm-specifying"></a>
 
 To use the ARM architecture, specify `ARM64` for the `cpuArchitecture` task definition parameter. 
 
 In the following example, the ARM architecture is specified in a task definition. It's in JSON format.
 
-```
+```JSON
 {
     "runtimePlatform": {
         "operatingSystemFamily": "LINUX",
@@ -19,7 +18,7 @@ In the following example, the ARM architecture is specified in a task definition
 
 In the following example, a task definition for the ARM architecture displays "hello world."
 
-```
+```json
 {
  "family": "arm64-testapp",
  "networkMode": "awsvpc",

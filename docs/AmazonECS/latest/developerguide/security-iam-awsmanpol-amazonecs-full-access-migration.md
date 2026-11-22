@@ -1,7 +1,6 @@
 
 
 # Migrating to the `AmazonECS_FullAccess` managed policy
-<a name="security-iam-awsmanpol-amazonecs-full-access-migration"></a>
 
 The `AmazonEC2ContainerServiceFullAccess` managed IAM policy was phased out on January 29, 2021, in response to a security finding with the `iam:passRole` permission. This permission grants access to all resources including credentials to roles in the account. Now that the policy is phased out, you can't attach the policy to any new groups, users, or roles. Any groups, users, or roles that already have the policy attached can continue using it. However, we recommend that you update your groups, users, or roles to use the `AmazonECS_FullAccess` managed policy instead.
 

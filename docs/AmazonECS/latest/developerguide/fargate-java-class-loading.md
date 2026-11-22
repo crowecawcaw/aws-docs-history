@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Java class loading issues on Fargate
-<a name="fargate-java-class-loading"></a>
 
 Java applications running on Fargate may encounter class loading issues after platform updates, particularly when the application relies on non-deterministic class loading behavior. This can manifest as dependency injection errors, Spring Boot failures, or other runtime exceptions that were not present in previous deployments.
 

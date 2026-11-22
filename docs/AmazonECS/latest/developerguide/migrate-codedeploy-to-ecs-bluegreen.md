@@ -1,7 +1,6 @@
 
 
 # Migrate CodeDeploy blue/green deployments to Amazon ECS blue/green deployments
-<a name="migrate-codedeploy-to-ecs-bluegreen"></a>
 
 CodeDeploy blue/green and Amazon ECS blue/green deployments provide similar functionality, but they differ in how you configure and manage them.
 

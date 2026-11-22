@@ -1,7 +1,6 @@
 
 
 # Access Amazon ECS features with account settings
-<a name="ecs-account-settings"></a>
 
 You can go into Amazon ECS account settings to opt in or out of specific features. For each AWS Region, you can opt in to, or opt out of, each account setting at the account-level or for a specific user or role.
 
@@ -94,7 +93,7 @@ aws ecs put-account-setting --name containerInsights --value enhanced
 
 Example output
 
-```
+```json
 {
     "setting": {
         "name": "containerInsights",
@@ -126,7 +125,7 @@ aws ecs put-account-setting --name containerInsights --value enabled
 
 Example output
 
-```
+```json
 {
     "setting": {
         "name": "containerInsights",
@@ -168,7 +167,7 @@ The `fargateFIPSMode` account setting can only be changed using either the Amazo
 
   Example output
 
-  ```
+  ```json
   {
       "setting": {
           "name": "fargateFIPSMode",
@@ -199,7 +198,7 @@ Amazon ECS is introducing tagging authorization for resource creation. Users mus
 
   Example output
 
-  ```
+  ```json
   {
       "setting": {
           "name": "tagResourceAuthorization",
@@ -263,7 +262,7 @@ aws ecs put-account-setting-default --name fargateTaskRetirementWaitPeriod --val
 
 Example output
 
-```
+```json
 {
     "setting": {
         "name": "fargateTaskRetirementWaitPeriod",
@@ -322,7 +321,7 @@ aws ecs list-account-settings
 
 Example output
 
-```
+```json
 {
     "setting": {
         "name": "guardDutyActivate",

@@ -1,7 +1,6 @@
 
 
 # Encrypted container images
-<a name="ict-encrypted-container-images"></a>
 
 ## Overview
 <a name="ict-encrypted-container-images-overview"></a>
@@ -25,7 +24,7 @@ Before you encrypt an image, make sure you have the following:
 + The `nitro-sandbox-keyprovider` binary installed on your build machine. For instructions on downloading and verifying it, see [Getting the CLI tools](ict-get-cli-tools.md).
 + Create an ocicrypt keyprovider configuration file at `/etc/ocicrypt.json` with the following contents:
 
-  ```
+  ```json
   {
     "key-providers": {
       "awskms": {

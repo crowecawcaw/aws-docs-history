@@ -1,7 +1,6 @@
 
 
 # Amazon ECS applications in shared subnets, Local Zones, and Wavelength Zones
-<a name="cluster-regions-zones"></a>
 
 Amazon ECS supports workloads that use Local Zones, Wavelength Zones, and AWS Outposts for when low latency or local data processing is a requirement.
 + You can use Local Zones as an extension of an AWS Region to place resources in multiple locations closer to your end users.

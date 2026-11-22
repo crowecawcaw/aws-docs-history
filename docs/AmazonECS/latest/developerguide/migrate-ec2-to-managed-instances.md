@@ -1,7 +1,6 @@
 
 
 # Migrate from Amazon EC2 to Amazon ECS Managed Instances
-<a name="migrate-ec2-to-managed-instances"></a>
 
 Migrate existing workloads from Amazon EC2 to Amazon ECS Managed Instances. This migration allows you to access the full range of Amazon EC2 instance types, capacity reservations, and advanced capabilities while maintaining AWS-managed infrastructure.
 

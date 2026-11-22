@@ -1,7 +1,6 @@
 
 
 # Handling Amazon ECS events
-<a name="ecs_cwet_handling"></a>
 
 Amazon ECS sends events on an *at least once* basis. This means you might receive multiple copies of a given event. Additionally, events may not be delivered to your event listeners in the order in which the events occurred.
 
@@ -14,7 +13,7 @@ The following example shows a Lambda function written in Python 3.9 that capture
 + *ECSCtrInstanceState* – Stores the latest state for a container instance. The table ID is the `containerInstanceArn` value of the container instance.
 + *ECSTaskState* – Stores the latest state for a task. The table ID is the `taskArn` value of the task.
 
-```
+```json
 import json
 import boto3
 
@@ -83,7 +82,7 @@ def lambda_handler(event, context):
 
 The following Fargate example shows a Lambda function written in Python 3.9 that captures task state change events and saves them to the following Amazon DynamoDB table:
 
-```
+```json
 import json
 import boto3
 

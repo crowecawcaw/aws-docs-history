@@ -1,7 +1,6 @@
 
 
 # AWS Fargate Linux platform version deprecation
-<a name="platform-versions-retired"></a>
 
 The following table lists Linux platform versions that AWS Fargate has deprecated or have been scheduled for deprecation. These platform versions remain available until the published deprecation date.
 
@@ -44,7 +43,7 @@ The following is the changelog for platform version `1.3.0`.
 The following is the changelog for platform version `1.2.0`.
 
 **Note**  
-Platform version `1.2.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](#platform-versions-retired).
+Platform version `1.2.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](platform-versions-retired.md).
 + Added support for private registry authentication using AWS Secrets Manager. For more information, see [Using non-AWS container images in Amazon ECS](private-auth.md).
 
 ### 1.1.0
@@ -53,7 +52,7 @@ Platform version `1.2.0` is no longer available. For information about platform 
 The following is the changelog for platform version `1.1.0`.
 
 **Note**  
-Platform version `1.1.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](#platform-versions-retired).
+Platform version `1.1.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](platform-versions-retired.md).
 + Added support for the Amazon ECS task metadata endpoint. For more information, see [Amazon ECS task metadata available for tasks on Fargate](fargate-metadata.md).
 + Added support for Docker health checks in container definitions. For more information, see [Health check](task_definition_parameters.md#container_definition_healthcheck).
 + Added support for Amazon ECS service discovery. For more information, see [Use service discovery to connect Amazon ECS services with DNS names](service-discovery.md).
@@ -64,6 +63,6 @@ Platform version `1.1.0` is no longer available. For information about platform 
 The following is the changelog for platform version `1.0.0`.
 
 **Note**  
-Platform version `1.0.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](#platform-versions-retired).
+Platform version `1.0.0` is no longer available. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](platform-versions-retired.md).
 + Based on Amazon Linux 2017.09.
 + Initial release.

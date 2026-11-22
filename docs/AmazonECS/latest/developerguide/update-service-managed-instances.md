@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon ECS service to use a capacity provider
-<a name="update-service-managed-instances"></a>
 
 If you have an existing service that uses the Amazon EC2 or Fargate launchtype and you want to use Amazon ECS Managed Instances, you need to update the service to use your Amazon ECS Managed Instances capacity provider.
 

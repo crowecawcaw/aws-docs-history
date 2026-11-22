@@ -1,7 +1,6 @@
 
 
 # Deploying Fluent Bit on Amazon ECS Windows containers
-<a name="tutorial-deploy-fluentbit-on-windows"></a>
 
 Fluent Bit is a fast and flexible log processor and router supported by various operating systems. It can be used to route logs to various AWS destinations such as Amazon CloudWatch Logs, Firehose Amazon S3, and Amazon OpenSearch Service. Fluent Bit supports common partner solutions such as [Datadog](https://www.datadoghq.com/), [Splunk](https://www.splunk.com/), and custom HTTP servers. For more information about Fluent Bit, see the [Fluent Bit ](https://fluentbit.io/) website.
 
@@ -87,7 +86,7 @@ Create the Amazon ECS IAM roles.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -240,7 +239,7 @@ This task definition exposes Fluent Bit container port 24224 to the host port 24
    + {{task-iam-role}} with the Amazon Resource Name (ARN) of your task IAM role
    + {{region}} with the Region where your task runs
 
-   ```
+   ```json
    {
      "family": "ecs-windows-fluent-bit",
      "taskRoleArn": "{{task-iam-role}}",
@@ -342,7 +341,7 @@ This task uses the `default` network mode. However, you can also use the `awsvpc
 
 1. Create a file named `windows-app-task.json` with the following contents.
 
-   ```
+   ```json
    {
      "family": "windows-app-task",
      "containerDefinitions": [

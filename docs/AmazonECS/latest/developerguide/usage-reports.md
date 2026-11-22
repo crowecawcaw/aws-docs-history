@@ -1,7 +1,6 @@
 
 
 # Amazon ECS usage reports
-<a name="usage-reports"></a>
 
 AWS provides a reporting tool called Cost Explorer that you can use to analyze the cost and usage of your Amazon ECS resources.
 

@@ -1,7 +1,6 @@
 
 
 # Use Service Connect to connect Amazon ECS services with short names
-<a name="service-connect"></a>
 
 Amazon ECS Service Connect provides management of service-to-service communication as Amazon ECS configuration. It builds both service discovery and a service mesh in Amazon ECS. This provides the complete configuration inside each service that you manage by service deployments, a unified way to refer to your services within namespaces that doesn't depend on the VPC DNS configuration, and standardized metrics and logs to monitor all of your applications. Service Connect only interconnects services.
 

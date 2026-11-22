@@ -1,7 +1,6 @@
 
 
 # Prepare for AWS Fargate task retirement on Amazon ECS
-<a name="prepare-task-retirement"></a>
 
 In order to prepare for task retirement, perform the following operations:
 

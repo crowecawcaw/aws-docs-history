@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata v3 JSON response
-<a name="task-metadata-endpoint-v3-response"></a>
 
 The following information is returned from the task metadata endpoint (`${ECS_CONTAINER_METADATA_URI}/task`) JSON response.
 

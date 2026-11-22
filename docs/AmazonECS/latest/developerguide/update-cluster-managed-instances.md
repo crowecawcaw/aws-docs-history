@@ -1,7 +1,6 @@
 
 
 # Updating a cluster to use Amazon ECS Managed Instances
-<a name="update-cluster-managed-instances"></a>
 
 You can update an existing cluster to use Amazon ECS Managed Instances.
 

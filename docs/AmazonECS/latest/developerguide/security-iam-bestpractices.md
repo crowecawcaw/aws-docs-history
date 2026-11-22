@@ -1,7 +1,6 @@
 
 
 # IAM best practices for Amazon ECS
-<a name="security-iam-bestpractices"></a>
 
 You can use AWS Identity and Access Management (IAM) to manage and control access to your AWS services and resources through rule-based policies for authentication and authorization purposes. More specifically, through this service, you control access to your AWS resources by using policies that are applied to users, groups, or roles. Among these three, users are accounts that can have access to your resources. And, an IAM role is a set of permissions that can be assumed by an authenticated identity, which isn't associated with a particular identity outside of IAM. For more information, see [Amazon ECS overview of access management: Permissions and policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html).
 
@@ -30,7 +29,7 @@ When you need an added layer of security, add a condition to your policy. This c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -59,7 +58,7 @@ Tags applied to services are propagated to all the tasks that are part of that s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

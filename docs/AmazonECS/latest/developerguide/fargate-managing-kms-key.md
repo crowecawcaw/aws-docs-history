@@ -1,7 +1,6 @@
 
 
 # Managing AWS KMS keys for Fargate ephemeral storage for Amazon ECS
-<a name="fargate-managing-kms-key"></a>
 
 After creating or importing your AWS KMS key to encrypt your Fargate ephemeral storage, you manage it the same way you would any other AWS KMS key.
 

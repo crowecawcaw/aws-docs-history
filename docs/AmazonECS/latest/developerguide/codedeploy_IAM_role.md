@@ -1,7 +1,6 @@
 
 
 # Amazon ECS CodeDeploy IAM Role
-<a name="codedeploy_IAM_role"></a>
 
 Before you can use the CodeDeploy blue/green deployment type with Amazon ECS, the CodeDeploy service needs permissions to update your Amazon ECS service on your behalf. These permissions are provided by the CodeDeploy IAM role (`ecsCodeDeployRole`).
 
@@ -52,7 +51,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -155,7 +154,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

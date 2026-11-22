@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task state change events
-<a name="ecs_task_events"></a>
 
 The following scenarios cause task state change events:
 
@@ -36,7 +35,7 @@ Task state change events are delivered in the following format. Note the followi
 For more information about EventBridge parameters, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Amazon EventBridge Events Reference*.  
 For information about how to configure an Amazon EventBridge event rule that only captures task events where the task has stopped running because one of its essential containers has terminated, see [Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events](ecs_cwet2.md)  
 
-```
+```json
 {
     "version": "0",
     "id": "105f6bb1-4da6-c630-4965-35383018cbca",
@@ -201,7 +200,7 @@ For information about how to configure an Amazon EventBridge event rule that onl
 **Example**  
 The following is an example of a task state change event for EC2.  
 
-```
+```json
 {
     "version": "0",
     "id": "a65cf262-f104-0dd5-ceda-4b09ba71a441",

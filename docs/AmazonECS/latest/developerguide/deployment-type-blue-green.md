@@ -1,7 +1,6 @@
 
 
 # Amazon ECS blue/green deployments
-<a name="deployment-type-blue-green"></a>
 
 A blue/green deployment is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
 

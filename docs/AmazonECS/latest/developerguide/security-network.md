@@ -1,7 +1,6 @@
 
 
 # Network security best practices for Amazon ECS
-<a name="security-network"></a>
 
 Network security is a broad topic that encompasses several subtopics. These include encryption-in-transit, network segmentation and isolation, firewalling, traffic routing, and observability.
 
@@ -52,7 +51,7 @@ Amazon ECR and Amazon ECS both support endpoint policies. These policies allow y
 
 The following policy allows all AWS principals in your account to perform all actions against only your Amazon ECR repositories:
 
-```
+```JSON
 {
   "Statement": [
     {

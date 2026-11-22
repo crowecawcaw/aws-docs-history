@@ -1,7 +1,6 @@
 
 
 # Fargate Windows platform version change log
-<a name="platform-windows-fargate"></a>
 
 The following are the available platform versions for Windows containers.
 

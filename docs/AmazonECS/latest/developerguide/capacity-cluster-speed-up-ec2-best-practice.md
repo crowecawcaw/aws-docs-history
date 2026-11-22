@@ -1,7 +1,6 @@
 
 
 # Speeding up Amazon ECS cluster capacity provisioning with capacity providers on Amazon EC2
-<a name="capacity-cluster-speed-up-ec2-best-practice"></a>
 
 Customers who run Amazon ECS on Amazon EC2 can take advantage of [Amazon ECS Cluster Auto Scaling (CAS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html) to manage the scaling of Amazon EC2 Auto Scaling groups (ASG). With CAS, you can configure Amazon ECS to scale your ASG automatically, and just focus on running your tasks. Amazon ECS will ensure the ASG scales in and out as needed with no further intervention required. Amazon ECS capacity providers are used to manage the infrastructure in your cluster by ensuring there are enough container instances to meet the demands of your application. To learn how Amazon ECS CAS works, see [Deep Dive on Amazon ECS Cluster Auto Scaling](https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/).
 

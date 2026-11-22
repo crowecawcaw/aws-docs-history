@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Service Connect configuration overview
-<a name="service-connect-concepts"></a>
 
 When you use Service Connect, there are parameters you need to configure in your resources. 
 

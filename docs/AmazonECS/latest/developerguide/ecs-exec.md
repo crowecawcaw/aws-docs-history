@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon ECS containers with ECS Exec
-<a name="ecs-exec"></a>
 
 With Amazon ECS Exec, you can directly interact with containers without needing to first interact with the host container operating system, open inbound ports, or manage SSH keys. You can use ECS Exec to run commands in or get a shell to a container running on an Amazon EC2 instance or on AWS Fargate. This makes it easier to collect diagnostic information and quickly troubleshoot errors. For example, in a development context, you can use ECS Exec to easily interact with various process in your containers and troubleshoot your applications. And in production scenarios, you can use it to gain break-glass access to your containers to debug issues. 
 
@@ -120,7 +119,7 @@ aws ecs describe-tasks \
 
 The following output snippet is an example of what you might see.
 
-```
+```JSON
 {
     "tasks": [
         {
@@ -201,7 +200,7 @@ The following example policy adds the required Amazon CloudWatch Logs permission
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -232,7 +231,7 @@ The following example policy adds the required Amazon S3 permissions.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -275,7 +274,7 @@ You add the following inline policy to your task IAM role which requires the AWS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -301,7 +300,7 @@ The following example policy for your user or group contains the required permis
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -338,7 +337,7 @@ With the following example IAM policy, users can run commands in containers that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -371,7 +370,7 @@ With the following IAM policy example, users can't use the `execute-command` API
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -400,7 +399,7 @@ With the following IAM policy, users can only launch tasks when ECS Exec is turn
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -442,7 +441,7 @@ The following is an example IAM policy that denies access to the `ssm:start-sess
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -466,7 +465,7 @@ The following is an example IAM policy that denies access to the `ssm:start-sess
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

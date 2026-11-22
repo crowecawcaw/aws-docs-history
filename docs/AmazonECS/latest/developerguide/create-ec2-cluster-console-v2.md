@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECS cluster for Amazon EC2 workloads
-<a name="create-ec2-cluster-console-v2"></a>
 
 You create a cluster to define the infrastructure your tasks and services run on.
 

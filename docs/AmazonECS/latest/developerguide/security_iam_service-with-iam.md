@@ -1,7 +1,6 @@
 
 
 # How Amazon Elastic Container Service works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon ECS, learn what IAM features are available to use with Amazon ECS.
 
@@ -126,7 +125,7 @@ arn:${Partition}:ecs:${Region}:${Account}:cluster/${clusterName}
 
 To specify `my-cluster-1` and `my-cluster-2` cluster in your statement, use the following ARNs:
 
-```
+```JSON
 "Resource": [
          "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-1",
          "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-2"
@@ -134,7 +133,7 @@ To specify `my-cluster-1` and `my-cluster-2` cluster in your statement, use the 
 
 To specify all clusters that belong to a specific account, use the wildcard (\*):
 
-```
+```JSON
 "Resource": "arn:aws:ecs:us-east-1:123456789012:cluster/*"
 ```
 
@@ -142,13 +141,13 @@ For task definitions, you can specify the latest revision, or a specific revisio
 
 To specify all revisions of the task definition, use the wildcard (\*):
 
-```
+```JSON
 "Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:*"
 ```
 
 To specify a specific task definition revision, use ${TaskDefinitionRevisionNumber}:
 
-```
+```JSON
 "Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}"
 ```
 

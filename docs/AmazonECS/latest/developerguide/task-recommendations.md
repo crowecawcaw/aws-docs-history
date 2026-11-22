@@ -1,7 +1,6 @@
 
 
 # Optimize Amazon ECS task launch time
-<a name="task-recommendations"></a>
 
  In order to speed up your task launches, consider the following recommendations.
 + 

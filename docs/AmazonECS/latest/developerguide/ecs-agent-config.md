@@ -1,7 +1,6 @@
 
 
 # Amazon ECS container agent configuration
-<a name="ecs-agent-config"></a>
 
 **Applies to**: EC2 instances
 

@@ -1,11 +1,10 @@
 
 
 # Amazon ECS task metadata v3 examples for tasks on Fargate
-<a name="task-metadata-endpoint-fargate-example-task-metadata-response"></a>
 
 The following JSON response is for a single-container task.
 
-```
+```json
 {
   "Cluster": "default",
   "TaskARN": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",

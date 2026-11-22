@@ -1,7 +1,6 @@
 
 
 # Balancing an Amazon ECS service across Availability Zones
-<a name="service-rebalancing"></a>
 
 Starting September 5, 2025, Amazon ECS enables Availability Zone rebalancing for all services that are eligible for the feature. A service is eligible when Availability Zone spread is the first task placement strategy, or when there is no placement strategy.
 

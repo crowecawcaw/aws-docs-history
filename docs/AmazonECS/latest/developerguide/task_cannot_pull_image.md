@@ -1,7 +1,6 @@
 
 
 # CannotPullContainer task errors in Amazon ECS
-<a name="task_cannot_pull_image"></a>
 
 The following errors indicate that the task failed to start because Amazon ECS can't retrieve the specified container image.
 

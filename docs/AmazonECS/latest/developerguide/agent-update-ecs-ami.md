@@ -1,7 +1,6 @@
 
 
 # Updating the Amazon ECS container agent on an Amazon ECS-optimized AMI
-<a name="agent-update-ecs-ami"></a>
 
 If you are using an Amazon ECS-optimized AMI, you have several options to get the latest version of the Amazon ECS container agent (shown in order of recommendation):
 + Terminate the container instance and launch the latest version of the Amazon ECS-optimized Amazon Linux 2 AMI (either manually or by updating your Auto Scaling launch configuration with the latest AMI). This provides a fresh container instance with the most current tested and validated versions of Amazon Linux, Docker, `ecs-init`, and the Amazon ECS container agent. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md).

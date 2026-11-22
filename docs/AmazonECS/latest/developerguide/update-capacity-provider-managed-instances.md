@@ -1,7 +1,6 @@
 
 
 # Updating Amazon ECS Managed Instances monitoring
-<a name="update-capacity-provider-managed-instances"></a>
 
 You can modify the monitoring option for your Amazon ECS Managed Instances capacity provider to change between basic and detailed monitoring. This allows you to adjust the level of monitoring data collected without recreating the capacity provider.
 

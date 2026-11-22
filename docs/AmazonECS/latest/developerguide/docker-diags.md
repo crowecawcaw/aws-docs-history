@@ -1,7 +1,6 @@
 
 
 # Docker diagnostics in Amazon ECS
-<a name="docker-diags"></a>
 
 Docker provides several diagnostic tools that help you troubleshoot problems with your containers and tasks. For more information about all of the available Docker command line utilities, see the [Docker CLI reference](https://docs.docker.com/reference/cli/docker/) in the Docker documentation. You can access the Docker command line utilities by connecting to a container instance using SSH.
 

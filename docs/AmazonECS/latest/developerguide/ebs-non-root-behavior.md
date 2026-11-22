@@ -1,7 +1,6 @@
 
 
 # Non-root user behavior
-<a name="ebs-non-root-behavior"></a>
 
 When you specify a non-root user in your container definition, Amazon ECS automatically configures the Amazon EBS volume with group-based permissions that allow the specified user to read and write to the volume. The volume is mounted with the following characteristics:
 + The volume is owned by the root user and root group.

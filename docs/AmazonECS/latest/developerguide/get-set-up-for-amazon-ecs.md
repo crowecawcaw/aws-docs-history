@@ -1,7 +1,6 @@
 
 
 # Set up to use Amazon ECS
-<a name="get-set-up-for-amazon-ecs"></a>
 
 If you've already signed up for Amazon Web Services (AWS) and have been using Amazon Elastic Compute Cloud (Amazon EC2), you are close to being able to use Amazon ECS. The set-up process for the two services is similar. The following guide prepares you for launching your first Amazon ECS cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Instance selection best practices for Amazon ECS Managed Instances
-<a name="managed-instances-instance-selection-best-practices"></a>
 
 Selecting the right instance configuration for your Amazon ECS Managed Instances workloads is crucial for optimizing performance, cost, and resource utilization. Amazon ECS provides flexible instance selection options that allow you to balance your application requirements with cost efficiency. The following best practices help you make informed decisions about instance selection for your containerized workloads.
 

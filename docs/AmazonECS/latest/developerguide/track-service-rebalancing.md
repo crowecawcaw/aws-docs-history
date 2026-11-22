@@ -1,7 +1,6 @@
 
 
 # Track Amazon ECS Availability Zone rebalancing
-<a name="track-service-rebalancing"></a>
 
 You can verify if Availability Zone rebalancing is enabled for a service in the console or by calling `describe-services`. The following example can be used to see the status with the CLI.
 

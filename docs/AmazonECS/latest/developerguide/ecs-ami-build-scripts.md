@@ -1,7 +1,6 @@
 
 
 # Amazon ECS-optimized Linux AMI build script
-<a name="ecs-ami-build-scripts"></a>
 
 Amazon ECS has open-sourced the build scripts that are used to build the Linux variants of the Amazon ECS-optimized AMI. These build scripts are now available on GitHub. For more information, see [amazon-ecs-ami](https://github.com/aws/amazon-ecs-ami) on GitHub.
 

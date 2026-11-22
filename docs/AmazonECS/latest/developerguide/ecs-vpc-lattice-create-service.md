@@ -1,7 +1,6 @@
 
 
 # Create a service that uses VPC Lattice
-<a name="ecs-vpc-lattice-create-service"></a>
 
 You can use either the AWS Management Console or the AWS CLI to create a service with VPC Lattice.
 
@@ -60,7 +59,7 @@ Use the AWS CLI to create a service with VPC Lattice. Replace each {{user input 
 
 1. Create a target group configuration file. The following example is named `tg-config.json`
 
-   ```
+   ```json
    {
        "ipAddressType": "IPV4",
        "port": 443,
@@ -83,7 +82,7 @@ To create a service in an IPv6-only configuration, create target groups with an 
 
    Example output:
 
-   ```
+   ```json
    {
        "arn": "arn:aws:vpc-lattice:us-east-2:123456789012:targetgroup/tg-0eaa4b9ab4EXAMPLE",
        "config": {
@@ -115,7 +114,7 @@ To create a service in an IPv6-only configuration, create target groups with an 
 
 1. The following JSON file named {{ecs-service-vpc-lattice.json}} is an example used to attach an Amazon ECS service to a VPC Lattice target group. The `portName` in the following example is the same one you defined in your task definition's `portMappings` property's `name` field.
 
-   ```
+   ```json
    {
        "serviceName": "{{ecs-service-vpc-lattice}}",
        "taskDefinition": "{{ecs-task-def}}",

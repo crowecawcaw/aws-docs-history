@@ -1,7 +1,6 @@
 
 
 # Migrating from an Amazon Linux 2 to an Amazon Linux 2023 Amazon ECS-optimized AMI
-<a name="al2-to-al2023-ami-transition"></a>
 
 Following [Amazon Linux](https://aws.amazon.com/amazon-linux-2/faqs), Amazon ECS ends standard support for Amazon Linux 2 Amazon ECS-optimized AMIs effective June 30, 2026. After this date, the Amazon ECS agent version is pinned and new Amazon Linux 2 Amazon ECS-optimized AMIs are only published when the source Amazon Linux 2 AMI is updated. Complete End of Life (EOL) occurs on June 30, 2026, after which no more Amazon ECS-optimized Amazon Linux 2 AMIs are published, even if the source AMI is updated.
 

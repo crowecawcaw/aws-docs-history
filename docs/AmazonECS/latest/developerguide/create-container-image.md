@@ -1,7 +1,6 @@
 
 
 # Creating a container image for use on Amazon ECS
-<a name="create-container-image"></a>
 
 Amazon ECS uses Docker images in task definitions to launch containers. Docker is a technology that provides the tools for you to build, run, test, and deploy distributed applications in containers. 
 
@@ -88,7 +87,7 @@ Amazon ECS task definitions use container images to launch containers on the con
 
 1. Edit the `Dockerfile` you just created and add the following content.
 
-   ```
+   ```Bash/Shell
    FROM public.ecr.aws/amazonlinux/amazonlinux:latest
    
    # Update installed packages and install Apache

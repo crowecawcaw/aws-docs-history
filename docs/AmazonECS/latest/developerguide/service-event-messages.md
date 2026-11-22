@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS service event messages
-<a name="service-event-messages"></a>
 
 When troubleshooting a problem with a service, the first place you should check for the diagnostic information is the service event log. You can view service events using the `DescribeServices` API, the AWS CLI, or by using the AWS Management Console. 
 

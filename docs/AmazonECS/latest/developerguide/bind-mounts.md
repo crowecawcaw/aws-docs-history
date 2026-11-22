@@ -1,7 +1,6 @@
 
 
 # Use bind mounts with Amazon ECS
-<a name="bind-mounts"></a>
 
 With bind mounts, a file or directory on a host, such as an Amazon EC2 instance, is mounted into a container. Bind mounts are supported for tasks that are hosted on both Fargate and Amazon EC2 instances. Bind mounts are tied to the lifecycle of the container that uses them. After all of the containers that use a bind mount are stopped, such as when a task is stopped, the data is removed. For tasks that are hosted on Amazon EC2 instances, the data can be tied to the lifecycle of the host Amazon EC2 instance by specifying a `host` and optional `sourcePath` value in your task definition. For more information, see [Bind mounts](https://docs.docker.com/engine/storage/bind-mounts/) in the Docker documentation.
 
@@ -47,7 +46,7 @@ When using bind mounts, consider the following.
 
   To view a full list of writable paths, you can run a task on a Amazon ECS Managed Instance and use to inspect the instance's mount table. Create a task definition with the following settings to access the host filesystem:
 
-  ```
+  ```JSON
   {
       "pidMode": "host",
       "containerDefinitions": [{

@@ -1,7 +1,6 @@
 
 
 # Daemon deployments
-<a name="managed-daemons-deployments"></a>
 
 When you create or update a daemon, Amazon ECS performs a rolling deployment to run daemon tasks on all instances in the associated capacity providers. This section describes how daemon deployments work and how to configure deployment behavior.
 

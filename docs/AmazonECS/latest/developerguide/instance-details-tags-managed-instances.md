@@ -1,7 +1,6 @@
 
 
 # Tags for Amazon ECS Managed Instances
-<a name="instance-details-tags-managed-instances"></a>
 
 Amazon ECS Managed Instances support a combination of custom tags and tags added by AWS that can be used for cost optimization. For more information about using tags for billing, see [Use tags for billing](ecs-using-tags.md#tag-resources-for-billing).
 
@@ -23,7 +22,7 @@ You can add additional custom tags to Amazon ECS Managed Instances by adding tag
 
 The following example capacity provider definition shows how tags can be specified and propagated from the capacity provider when creating the capacity provider using the `CAPACITY_PROVIDER` value for `propagateTags`.
 
-```
+```json
 {
     "name": "my-cluster-managed-instances-cp",
     "cluster": "my-cluster",

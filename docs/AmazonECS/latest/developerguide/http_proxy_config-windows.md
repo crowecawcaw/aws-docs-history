@@ -1,7 +1,6 @@
 
 
 # Using an HTTP proxy for Amazon ECS Windows container instances
-<a name="http_proxy_config-windows"></a>
 
 You can configure your Amazon ECS container instances to use an HTTP proxy for both the Amazon ECS container agent and the Docker daemon. This is useful if your container instances do not have external network access through an Amazon VPC internet gateway, NAT gateway, or instance.
 
@@ -18,7 +17,7 @@ The following example user data PowerShell script configures the Amazon ECS cont
 To use this script when you launch a container instance, follow the steps in [Launching an Amazon ECS Windows container instance](launch_window-container_instance.md). Just copy and paste the PowerShell script that follows into the **User data** field (be sure to substitute the red example values with your own proxy and cluster information).  
 The `-EnableTaskIAMRole` option is required to enable IAM roles for tasks. For more information, see [Amazon EC2 Windows instance additional configuration](task-iam-roles.md#windows_task_IAM_roles).
 
-```
+```poweshell
 <powershell>
 Import-Module ECSTools
 

@@ -1,11 +1,10 @@
 
 
 # Specify an Amazon EFS file system in an Amazon ECS task definition
-<a name="specify-efs-config"></a>
 
 To use Amazon EFS file system volumes for your containers, you must specify the volume and mount point configurations in your task definition. The following task definition JSON snippet shows the syntax for the `volumes` and `mountPoints` objects for a container.
 
-```
+```JSON
 {
     "containerDefinitions": [
         {

@@ -1,13 +1,12 @@
 
 
 # Service definition template
-<a name="sd-template"></a>
 
 The following shows the JSON representation of an Amazon ECS service definition.
 
 EC2
 
-```
+```JSON
 {
     "cluster": "", 
     "serviceName": "", 

@@ -1,7 +1,6 @@
 
 
 # Verifying Amazon ECS stopped task connectivity
-<a name="verify-connectivity"></a>
 
 There are times when a task stops because of a network connectivity issue. It might be an intermittent issue, but it is most likely caused because the task cannot connect to an endpoint. 
 

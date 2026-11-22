@@ -1,7 +1,6 @@
 
 
 # Amazon ECS-optimized Linux AMIs
-<a name="ecs-optimized_AMI"></a>
 
 **Important**  
 The Amazon ECS-Optimized Amazon Linux 2 AMI reaches end-of-life on June 30, 2026, mirroring the same EOL date of the upstream Amazon Linux 2 operating system (for more information, see the [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/)). We encourage customers to upgrade their applications to use Amazon Linux 2023, which includes long term support through 2028. For information about migrating from Amazon Linux 2 to Amazon Linux 2023, see [Migrating from the Amazon Linux 2 Amazon ECS-optimized AMI to the Amazon Linux 2023 Amazon ECS-optimized AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/al2-to-al2023-ami-transition.html).

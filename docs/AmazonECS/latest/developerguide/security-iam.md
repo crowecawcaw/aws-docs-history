@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon Elastic Container Service
-<a name="security-iam"></a>
 
  
 

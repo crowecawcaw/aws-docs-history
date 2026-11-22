@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon ECS cluster
-<a name="update-cluster-v2"></a>
 
 You can modify the following cluster properties:
 + Set a default capacity provider

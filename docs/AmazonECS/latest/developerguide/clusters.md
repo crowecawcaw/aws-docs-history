@@ -1,7 +1,6 @@
 
 
 # Amazon ECS clusters
-<a name="clusters"></a>
 
 An Amazon ECS cluster is a logical grouping of tasks or services that provides the infrastructure capacity for your containerized applications. When creating a cluster, you choose from the three primary infrastructure types, each optimized for different use cases and operational requirements.
 

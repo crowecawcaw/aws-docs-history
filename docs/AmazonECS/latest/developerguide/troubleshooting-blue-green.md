@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS blue/green deployments
-<a name="troubleshooting-blue-green"></a>
 
 This following provides solutions for common issues you might encounter when using blue/green deployments with Amazon ECS. Blue/green deployment errors can occur during the following phases:
 + *Synchronous path*: Errors that appear immediately in response to `CreateService` or `UpdateService` API calls.
@@ -94,7 +93,7 @@ Missing trust policy on infrastructure role
 *Solution*: The IAM role specified for managing load balancer resources does not have the correct trust policy. Update the role's trust policy to allow the service to assume the role. The trust policy must include:    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -133,7 +132,7 @@ Incorrect trust policy on Lambda hook role
 *Solution*: The IAM role specified for the Lambda lifecycle hook does not have the correct trust policy. Update the role's trust policy to allow the service to assume the role. The trust policy must include:    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -161,7 +160,7 @@ Lambda function timeout or invalid response
 *Solution*: The Lambda function either timed out or returned an invalid response. Ensure that your Lambda function returns a valid response with a `hookStatus` field set to either `SUCCEEDED` or `FAILED`. Also, check that the Lambda function timeout is set appropriately for your validation logic. For more information, see [Lifecycle hooks for Amazon ECS service deployments](deployment-lifecycle-hooks.md).  
 Example of a valid Lambda response:  
 
-```
+```json
 {
   "hookStatus": "SUCCEEDED",
   "reason": "Validation passed"

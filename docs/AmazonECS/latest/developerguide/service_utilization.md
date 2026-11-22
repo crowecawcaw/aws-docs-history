@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service utilization metrics
-<a name="service_utilization"></a>
 
 The service utilization metrics are available for CPU, memory, and, when there is an EBS volume attached to your tasks, EBS filesystem utilization. The service level metrics are supported for services with tasks hosted on both Amazon EC2 instances and Fargate.
 

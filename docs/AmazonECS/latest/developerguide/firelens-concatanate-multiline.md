@@ -1,7 +1,6 @@
 
 
 # Concatenating multiline or stack-trace Amazon ECS log messages
-<a name="firelens-concatanate-multiline"></a>
 
 Beginning with AWS for Fluent Bit version 2.22.0, a multiline filter is included. The multiline filter helps concatenate log messages that originally belong to one context but were split across multiple records or log lines. For more information about the multiline filter, see the [ Fluent Bit documentation](https://docs.fluentbit.io/manual/pipeline/filters/multiline-stacktrace). 
 
@@ -104,7 +103,7 @@ This image will include the parser file where you specify the regular expression
 
    1. Paste the following contents in the parser file:
 
-      ```
+      ```bash
       [MULTILINE_PARSER]
           name          multiline-regex-test
           type          regex
@@ -134,7 +133,7 @@ This image will include the parser file where you specify the regular expression
 
    1. Paste the following contents in the file:
 
-      ```
+      ```bash
       [SERVICE]
           flush                 1
           log_level             info
@@ -155,7 +154,7 @@ You must use the absolute path of the parser.
 
    1. Paste the following contents in the file:
 
-      ```
+      ```dockerfile
       FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
       
       ADD parsers_multiline.conf /parsers_multiline.conf
@@ -216,7 +215,7 @@ When you run the task, the application simulates runs, then fails and creates a 
 
    1. Paste the following contents in the file:
 
-      ```
+      ```python
       import os
       import time
       file1 = open('/test.log', 'r')
@@ -261,7 +260,7 @@ When you run the task, the application simulates runs, then fails and creates a 
 
    1. Paste the following contents in the file:
 
-      ```
+      ```dockerfile
       FROM public.ecr.aws/amazonlinux/amazonlinux:latest
       ADD test.log /test.log
       
@@ -312,7 +311,7 @@ When you run the task, the application simulates runs, then fails and creates a 
 
 1. Paste the following contents in the `multiline-task-definition.json` file: 
 
-   ```
+   ```json
    {
        "family": "firelens-example-multiline",
        "taskRoleArn": "{{task role ARN}},
@@ -450,7 +449,7 @@ This image will include a configuration file that references the Fluent Bit pars
 
    1. Paste the following contents in the file:
 
-      ```
+      ```bash
       [FILTER]
           name                  multiline
           match                 *
@@ -464,7 +463,7 @@ This image will include a configuration file that references the Fluent Bit pars
 
    1. Paste the following contents in the file:
 
-      ```
+      ```dockerfile
       FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
       ADD extra.conf /extra.conf
       ```
@@ -521,7 +520,7 @@ This image will include a Python script file that runs the application and a sam
 
    1. Paste the following contents in the file:
 
-      ```
+      ```python
       import os
       import time
       file1 = open('/test.log', 'r')
@@ -610,7 +609,7 @@ This image will include a Python script file that runs the application and a sam
 
    1. Paste the following contents in the file:
 
-      ```
+      ```dockerfile
       FROM public.ecr.aws/amazonlinux/amazonlinux:latest
       ADD test.log /test.log
       
@@ -661,7 +660,7 @@ This image will include a Python script file that runs the application and a sam
 
 1. Paste the following contents in the `multiline-task-definition.json` file: 
 
-   ```
+   ```json
    {
        "family": "firelens-example-multiline",
        "taskRoleArn": "{{task role ARN}},

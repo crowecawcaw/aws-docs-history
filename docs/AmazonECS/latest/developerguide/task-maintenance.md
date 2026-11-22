@@ -1,7 +1,6 @@
 
 
 # Task retirement and maintenance for AWS Fargate on Amazon ECS
-<a name="task-maintenance"></a>
 
 AWS is responsible for maintaining the underlying infrastructure for AWS Fargate. AWS determines when a platform version revision needs to be replaced with a new revision for the infrastructure. This is known as task retirement. AWS sends a task retirement notification when a platform version revision is retired. We routinely update our supported platform versions to introduce a new revision containing updates to the Fargate runtime software and underlying dependencies such as the operating system and container runtime. After a newer revision is made available, we retire the older revision in order to ensure all customer workloads run on the most up to date revision of the Fargate platform version. When a revision is retired, all tasks running on that revision are stopped.
 
@@ -13,9 +12,17 @@ For service tasks, you do not need to take any action to task retirement unless 
 
 For standalone task retirement, AWS stops the task on or after the task retirement date. Amazon ECS doesn’t launch a replacement task when a task is stopped. If you need these tasks to continue to run, you need to stop the running tasks and launch a replacement task before the time indicated in the notification. Therefore, we recommend that customers monitor the state of standalone tasks and if required, implement logic to replace the stopped tasks.
 
-When a task is stopped in any of the scenarios, you can run `describe-tasks`. The `stoppedReason` in the response is `ECS is performing maintenance on the underlying infrastructure hosting the task`.
+When a task is stopped for task retirement, you can run `describe-tasks` to see its `stoppedReason`. The following table lists the `stoppedReason` for each kind of task.
 
-Task maintenance applies when there is a new platform version revision needs to be replaced with a new revision. If there is an issue with an underlying Fargate host, Amazon ECS replaces the host without a task retirement notice.
+
+| Task | `stoppedReason` | 
+| --- | --- | 
+| A service task that the service replaces before the task retirement date, unless the next row applies | `Service {{service-name}}: ECS is performing maintenance on the underlying infrastructure hosting the task` | 
+| A service task that the service replaces before the task retirement date, when you use Amazon EC2 event windows and a platform version revision is retired | `Scaling activity initiated by (deployment {{deployment-ID}})` | 
+| A service task that the service hasn't replaced by the task retirement date | `TERMINATION` | 
+| A standalone task | `TERMINATION` | 
+
+Task maintenance applies when there is a new platform version revision needs to be replaced with a new revision. If there is an issue with the underlying Fargate host, Amazon ECS replaces service tasks without a task retirement notice. For a standalone task, you get a task retirement notice through AWS Health, and AWS stops the task on or after the task retirement date in the notice. Standalone tasks aren't replaced.
 
 ## Task retirement notice overview
 <a name="task-retirement-notice"></a>
@@ -115,7 +122,7 @@ AWS sends a task retirement notification to the Health Dashboard and to the prim
 ## Can I change a task retirement after it is scheduled?
 <a name="task-retirement-change"></a>
 
- No. The schedule is based on the task retirement wait time which has a default of 7 days. If you need more time, you can choose to configure the wait period to 14 days. For more information, see [Step 2: Capture task retirement notifications to alert teams and take actions](prepare-task-retirement.md#prepare-task-retirement-capture-task-events). 
+ No. The schedule is based on the task retirement wait time which has a default of 7 days. If you need more time, you can choose to configure the wait period to 14 days. For more information, see [Step 1: Set the task wait time or use Amazon EC2 event windows](prepare-task-retirement.md#prepare-task-retirement-set-time). 
 
 As of 12/18/2025, Amazon ECS enables you to configure [Amazon EC2 event windows](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html) for your Fargate tasks. If you need precise control over the exact timing of task retirements, for example, scheduling them over weekends to avoid disruption during business hours, you can configure Amazon EC2 event windows for your tasks, services, or clusters, see [Step 1: Set the task wait time or use Amazon EC2 event windows](prepare-task-retirement.md#prepare-task-retirement-set-time). Note that the change in this configuration applies to retirements that will be scheduled in the future. Currently scheduled retirements are not impacted. Furthermore, when you configure an Amazon EC2 event window for your Fargate tasks, it takes precedence over your task retirement wait time configuration. If you have any further concerns, contact Support.
 

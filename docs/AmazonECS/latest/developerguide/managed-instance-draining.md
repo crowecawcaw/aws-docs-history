@@ -1,7 +1,6 @@
 
 
 # Safely stop Amazon ECS workloads running on EC2 instances
-<a name="managed-instance-draining"></a>
 
 Managed instance draining facilitates graceful termination of Amazon EC2 instances. This allows your workloads to stop safely and be rescheduled to non-terminating instances. Infrastructure maintenance and updates are performed without worrying about disruption to workloads. By using managed instance draining, you simplify your infrastructure management workflows that require replacement of Amazon EC2 instances while you ensure resilience and availability of your applications.
 

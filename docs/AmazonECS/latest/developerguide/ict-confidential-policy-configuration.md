@@ -1,7 +1,6 @@
 
 
 # Confidential policy configuration
-<a name="ict-confidential-policy-configuration"></a>
 
 A confidential task's attestation policy defines what the parent is allowed to do when communicating with the Nitro Sandbox: container admission (which containers can start and with what settings), runtime operations (task exec, log streaming), and service access (instance metadata, task credentials). You supply it as the `attestationPolicy` field of the task definition's `TrustedExecutionConfiguration`. The ECS sandbox agent enforces the policy; the parent instance cannot bypass it.
 
@@ -24,7 +23,7 @@ Amazon ECS provides a command line tool, `ecs-nitro-sandbox-genpolicy`, that gen
 
 Run the following `ecs-nitro-sandbox-genpolicy` command to produce the policy envelope, then set the output as the `attestationPolicy` in your task definition:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy --task-definition my-task-def.json
 ```
 
@@ -32,7 +31,7 @@ The `--task-definition` value can be a local JSON or YAML file (either a bare ta
 
 Replace {{aa-example-1}}, {{111122223333}}, and {{my-family}} with your values:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition arn:aws:ecs:aa-example-1:111122223333:task-definition/my-family:1
 ```
@@ -46,7 +45,7 @@ At environment launch, the ECS sandbox agent measures the environment and the ta
 
 You don't compute the PCR values by hand. The `ecs-nitro-sandbox-genpolicy` tool predicts them from your task definition, so you can configure your AWS KMS key policy before you launch a task. Run the tool with `--output pcrs` to print the KMS key policy condition for the task:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --output pcrs
@@ -83,7 +82,7 @@ The attestation policy pins your task definition's configuration, so any change 
 
 Run `ecs-nitro-sandbox-genpolicy` with the `--check` option to compare the `attestationPolicy` already embedded in a task definition against the policy that the current task definition would generate:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy --check --task-definition my-task-def.json
 ```
 
@@ -98,7 +97,7 @@ When you deploy a task definition revision that changes the policy, the old and 
 
 The `kms:RecipientAttestation:PCR17` condition key is single-valued in the request: each task presents exactly one PCR17 measurement. To accept more than one value, list them on a single `StringEqualsIgnoreCase` operator, which matches when the task's value equals any entry in the list. Do not use the `ForAnyValue` or `ForAllValues` set operators here; those are for keys that carry multiple values in the request, and using them with a single-valued key can make the policy overly permissive. For more information about single-valued versus multivalued context keys, see [Single-valued versus multivalued context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.html) in the *IAM User Guide*.
 
-```
+```json
 "Condition": {
     "StringEqualsIgnoreCase": {
         "kms:RecipientAttestation:PCR17": [
@@ -141,7 +140,7 @@ By default, each container's image is pinned to its digest, so only that exact i
 
 Replace {{aa-example-1}}, {{111122223333}}, {{my\_profile}}, and {{my-container-name}} with your values:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --require-any-signer arn:aws:signer:aa-example-1:111122223333:/signing-profiles/my_profile \
@@ -157,7 +156,7 @@ To pin the image-derived fields, the tool reads each container's image from the 
 
 For example, to generate a policy with no registry access:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --skip-image-fetch
@@ -171,7 +170,7 @@ These flags leave image-derived fields unpinned, which weakens host-tampering pr
 
 By default, the tool resolves image configuration for every Linux platform in a multi-architecture image, and those platforms must agree on the policy-relevant fields. To resolve and pin a single architecture, pass `--image-architecture` with `amd64` or `arm64`. Only nodes of that architecture can then run the image.
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --image-architecture arm64
@@ -184,7 +183,7 @@ When a container's user can't be resolved to a numeric user and group ID (for ex
 
 On an image with encrypted layers, declaring a numeric `uid:gid` is sufficient on its own: the user, the group, and the supplemental group set (the primary group only) are all pinned exactly.
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --allow-unpinned-identity
@@ -195,7 +194,7 @@ ecs-nitro-sandbox-genpolicy \
 
 By default, the environment variable set is pinned, so a container is denied if it starts with any variable the policy didn't pin. If the runtime injects environment variables that the tool can't predict at generation time, pass `--allow-additional-env` so the policy tolerates variables beyond the ones it pinned.
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --allow-additional-env
@@ -206,7 +205,7 @@ ecs-nitro-sandbox-genpolicy \
 
 By default, a confidential task's policy permits no `exec` beyond an `exec` health-check probe declared in the task definition. If you run the task with ECS Exec (for example, a task or service created with `enableExecuteCommand`), the policy must also permit the `exec` that launches the ECS Exec SSM agent, or the task is denied at startup. Pass `--allow-exec-command` when you generate the policy to permit that one exec, and only that exec.
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --allow-exec-command
@@ -227,7 +226,7 @@ As an alternative, you can require that an image carries a trusted AWS Signer si
 
 Generate the policy with one or more signer flags. Use `--require-any-signer` when a signature from any one of several profiles is sufficient (OR logic), or `--require-all-signers` when the image must be signed by every listed profile (AND logic, for example dual approval). Give each flag a profile-level AWS Signer signing profile ARN. The signature condition applies in addition to the image digest pins.
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --require-any-signer arn:aws:signer:aa-example-1:111122223333:/signing-profiles/my_profile
@@ -237,7 +236,7 @@ To let the image evolve without regenerating the policy, also pass `--skip-image
 
 Replace {{aa-example-1}}, {{111122223333}}, {{my\_profile}}, and {{my-container-name}} with your values:
 
-```
+```bash
 ecs-nitro-sandbox-genpolicy \
   --task-definition my-task-def.json \
   --require-any-signer arn:aws:signer:aa-example-1:111122223333:/signing-profiles/my_profile \

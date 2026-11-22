@@ -1,7 +1,6 @@
 
 
 # Launching an Amazon ECS Windows container instance
-<a name="launch_window-container_instance"></a>
 
 Your Amazon ECS container instances are created using the Amazon EC2 console. Before you begin, be sure that you've completed the steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md).
 

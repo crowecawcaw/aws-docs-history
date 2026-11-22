@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definition parameters for Amazon ECS Managed Instances
-<a name="task_definition_parameters-managed-instances"></a>
 
 Task definitions are split into separate parts: the task family, the AWS Identity and Access Management (IAM) task role, the network mode, container definitions, volumes, and capacity. The family and container definitions are required in a task definition. In contrast, task role, network mode, volumes, and capacity are optional.
 
@@ -446,7 +445,7 @@ For more information, see [Using non-AWS container images in Amazon ECS](private
 When you use the Amazon ECS API, AWS CLI, or AWS SDKs, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
 The following is a snippet of a task definition that shows the required parameters:  
 
-```
+```json
 "containerDefinitions": [
     {
         "image": "{{private-repo/private-image}}",

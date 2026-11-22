@@ -1,7 +1,6 @@
 
 
 # Pass an individual environment variable to an Amazon ECS container
-<a name="taskdef-envfiles"></a>
 
 **Important**  
 We recommend storing your sensitive data in either AWS Secrets Manager secrets or AWS Systems Manager Parameter Store parameters. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md).  
@@ -13,7 +12,7 @@ You can pass environment variables to your containers in the following ways:
 
 The following is a snippet of a task definition showing how to specify individual environment variables.
 
-```
+```JSON
 {
     "family": "",
     "containerDefinitions": [

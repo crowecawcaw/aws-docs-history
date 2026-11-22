@@ -1,7 +1,6 @@
 
 
 # How the Amazon ECS deployment circuit breaker detects failures
-<a name="deployment-circuit-breaker"></a>
 
 The deployment circuit breaker is the rolling update mechanism that determines if the tasks reach a steady state. The deployment circuit breaker has an option that will automatically roll back a failed deployment to the deployment that is in the `COMPLETED` state. You can customize how the circuit breaker counts failures and the threshold at which it triggers, so that rollback behavior matches your application's startup characteristics and your tolerance for task failures.
 
@@ -26,7 +25,7 @@ Consider the following when you use the deployment circuit breaker method on a s
 
 The following `create-service` AWS CLI example shows how to create a Linux service when the deployment circuit breaker is used with the rollback option.
 
-```
+```JSON
 aws ecs create-service \
      --service-name {{MyService}} \
      --deployment-controller type={{ECS}} \
@@ -41,7 +40,7 @@ aws ecs create-service \
 
 The following `create-service` AWS CLI example shows how to create a service with a custom deployment circuit breaker configuration that uses a fixed failure count of 5 and cumulative failure tracking.
 
-```
+```JSON
 aws ecs create-service \
      --service-name {{MyService}} \
      --deployment-controller type={{ECS}} \

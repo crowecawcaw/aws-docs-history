@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon ECS Service Connect with the AWS CLI
-<a name="create-service-connect"></a>
 
 You can create an Amazon ECS service for a Fargate task that uses Service Connect with the AWS CLI.
 
@@ -154,7 +153,7 @@ The Service Connect feature is intended for interconnecting multiple application
 This task definition uses a `logConfiguration` to send the nginx output from `stdout` and `stderr` to Amazon CloudWatch Logs. This task execution role doesn't have the extra permissions required to make the CloudWatch Logs log group. Create the log group in CloudWatch Logs using the AWS Management Console or AWS CLI. If you don't want to send the nginx logs to CloudWatch Logs you can remove the `logConfiguration`.  
 Replace the AWS account id in the task execution role with your AWS account id.
 
-      ```
+      ```json
       {
           "family": "service-connect-nginx",
           "executionRoleArn": "arn:aws:iam::{{123456789012}}:role/ecsTaskExecutionRole",
@@ -205,7 +204,7 @@ Replace the AWS account id in the task execution role with your AWS account id.
 
       This service uses a `logConfiguration` to send the service connect proxy output from `stdout` and `stderr` to Amazon CloudWatch Logs. This task execution role doesn't have the extra permissions required to make the CloudWatch Logs log group. Create the log group in CloudWatch Logs using the AWS Management Console or AWS CLI. We recommend that you create this log group and store the proxy logs in CloudWatch Logs. If you don't want to send the proxy logs to CloudWatch Logs you can remove the `logConfiguration`.
 
-      ```
+      ```json
       {
           "cluster": "tutorial",
           "deploymentConfiguration": {

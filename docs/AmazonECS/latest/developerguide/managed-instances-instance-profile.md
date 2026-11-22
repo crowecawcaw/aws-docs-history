@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Managed Instances instance profile
-<a name="managed-instances-instance-profile"></a>
 
 An instance profile is an IAM container that holds exactly one IAM role and allows Amazon ECS Managed Instances to assume that role securely. The instance profile contains an instance role that the ECS agent assumes to register instances with clusters and communicate with the ECS service.
 
@@ -21,7 +20,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -93,7 +92,7 @@ You can use AWS CloudFormation to create the instance role and instance profile.
 
 When you use the AWS-managed infrastructure policy, you must explicitly set `RoleName` to a value that starts with `ecsInstanceRole`. If you omit `RoleName`, CloudFormation auto-generates a name that does not match the managed policy's `iam:PassRole` condition, and tasks fail to launch.
 
-```
+```yaml
 Resources:
   EcsInstanceRole:
     Type: AWS::IAM::Role
@@ -122,7 +121,7 @@ Resources:
 
 If you prefer to let CloudFormation generate the role name, or you use a custom name that does not start with `ecsInstanceRole`, you must add an inline policy on your infrastructure role that grants `iam:PassRole` for the instance role.
 
-```
+```yaml
 Resources:
   EcsInstanceRole:
     Type: AWS::IAM::Role

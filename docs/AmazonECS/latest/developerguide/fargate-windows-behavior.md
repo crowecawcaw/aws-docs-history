@@ -1,7 +1,6 @@
 
 
 # Windows containers on Fargate container image pull behavior for Amazon ECS
-<a name="fargate-windows-behavior"></a>
 
 Fargate Windows caches the most recent month's, and the previous month's, servercore base image provided by Microsoft. These images match the KB/Build number patches updated each Patch Tuesday. For example, on April 9, 2024, Microsoft released KB5036896 (17763.5696) for Windows Server 2019. The previous month KB on March 12, 2024 was KB5035849 (17763.5576). So for the platforms `WINDOWS_SERVER_2019_CORE` and `WINDOWS_SERVER_2019_FULL` the following container images were cached:: 
 + `mcr.microsoft.com/windows/servercore:ltsc2019`

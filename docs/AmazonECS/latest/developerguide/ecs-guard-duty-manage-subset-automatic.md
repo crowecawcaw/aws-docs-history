@@ -1,7 +1,6 @@
 
 
 # Removing Runtime Monitoring from an Amazon ECS cluster
-<a name="ecs-guard-duty-manage-subset-automatic"></a>
 
 You might want to exclude certain clusters from protection, for example clusters that you use for testing. This causes GuardDuty to perform the following operations on resources in the cluster:
 + No longer deploy the GuardDuty security agent to new standalone Fargate tasks, or new service deployments.

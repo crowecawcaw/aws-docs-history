@@ -1,7 +1,6 @@
 
 
 # Using Amazon ECS dual-stack endpoints
-<a name="dual-stack-endpoint"></a>
 
 Amazon ECS dual-stack endpoints support requests to Amazon ECS over Internet Protocol version 4 (IPv4) and Internet Protocol version 6 (IPv6). For a list of all Amazon ECS endpoints, see [Amazon ECS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ecs-service.html) in the AWS General Reference.
 

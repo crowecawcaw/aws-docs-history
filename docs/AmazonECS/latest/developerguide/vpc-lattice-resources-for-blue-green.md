@@ -1,7 +1,6 @@
 
 
 # VPC Lattice resources for blue/green, linear, and canary deployments
-<a name="vpc-lattice-resources-for-blue-green"></a>
 
 To use Amazon VPC Lattice with Amazon ECS blue/green, linear, and canary deployments, you configure the following resources:
 + A pair of VPC Lattice target groups.

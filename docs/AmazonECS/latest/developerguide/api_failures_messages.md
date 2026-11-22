@@ -1,7 +1,6 @@
 
 
 # Amazon ECS API failure reasons
-<a name="api_failures_messages"></a>
 
 When an API action that you have triggered through the Amazon ECS API, console, or the AWS CLI exits with a `failures` error message, the following might assist in troubleshooting the cause. The failure returns a reason and the Amazon Resource Name (ARN) of the resource associated with the failure.
 

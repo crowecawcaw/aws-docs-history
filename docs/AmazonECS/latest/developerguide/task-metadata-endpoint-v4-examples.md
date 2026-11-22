@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata v4 examples
-<a name="task-metadata-endpoint-v4-examples"></a>
 
 The following examples show example outputs from each of the task metadata endpoints.
 
@@ -10,7 +9,7 @@ The following examples show example outputs from each of the task metadata endpo
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned only metadata about the container itself. The following is an example output from a task that runs as part of a service (MyService).
 
-```
+```JSON
 {
     "DockerId": "ea32192c8553fbff06c9340478a2ff089b2bb5646fb718b4ee206641c9086d66",
     "Name": "curl",
@@ -62,7 +61,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned o
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are returned metadata about the task the container is part of in addition to the metadata for each container within the task. The following is an example output.
 
-```
+```JSON
 {
     "Cluster": "default",
     "TaskARN": "arn:aws:ecs:us-west-2:111122223333:task/default/158d1c8083dd49d6b527399fd6414f5c",
@@ -166,7 +165,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are retur
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags` endpoint you are returned metadata about the task, including the task and container instance tags. The following is an example output.
 
-```
+```JSON
 {
     "Cluster": "default",
     "TaskARN": "arn:aws:ecs:us-west-2:111122223333:task/default/158d1c8083dd49d6b527399fd6414f5c",
@@ -276,7 +275,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags` endpoint you a
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/taskWithTags` endpoint you are returned metadata about the task, including the task and container instance tags. If there is an error retrieving the tagging data, the error is returned in the response. The following is an example output for when the IAM role associated with the container instance doesn't have the `ecs:ListTagsForResource` permission allowed.
 
-```
+```JSON
 {
     "Cluster": "default",
     "TaskARN": "arn:aws:ecs:us-west-2:111122223333:task/default/158d1c8083dd49d6b527399fd6414f5c",
@@ -400,7 +399,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}/stats` endpoint you are retu
 
 The following is an example output from an Amazon ECS task on Amazon EC2 that uses the `bridge` network mode.
 
-```
+```JSON
 {
     "read": "2020-10-02T00:51:13.410254284Z",
     "preread": "2020-10-02T00:51:12.406202398Z",
@@ -538,7 +537,7 @@ The following is an example output from an Amazon ECS task on Amazon EC2 that us
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats` endpoint you are returned network metrics about the task the container is part of. The following is an example output.
 
-```
+```JSON
 {
     "01999f2e5c6cf4df3873f28950e6278813408f281c54778efec860d0caad4854": {
         "read": "2020-10-02T00:51:32.51467703Z",

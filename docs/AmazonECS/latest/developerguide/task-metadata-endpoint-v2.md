@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata endpoint version 2
-<a name="task-metadata-endpoint-v2"></a>
 
 **Important**  
 The task metadata version 2 endpoint is no longer being actively maintained. We recommend that you update the task metadata version 4 endpoint to get the latest metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md).
@@ -138,7 +137,7 @@ The time stamp for when the tasks `DesiredStatus` moved to `STOPPED`. This occur
 
 The following JSON response is for a single-container task.
 
-```
+```json
 {
   "Cluster": "default",
   "TaskARN": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",

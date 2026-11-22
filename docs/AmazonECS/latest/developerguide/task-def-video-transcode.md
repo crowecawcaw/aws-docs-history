@@ -1,7 +1,6 @@
 
 
 # Specifying video transcoding in an Amazon ECS task definition
-<a name="task-def-video-transcode"></a>
 
 In the following example, the syntax that's used for a task definition of a Linux container on Amazon EC2 is provided. This task definition is for container images that are built following the procedure that's provided in the [Xilinx documentation](https://xilinx.github.io/video-sdk/v1.5/container_setup.html#creating-a-docker-image-for-vt1-usage). If you use this example, replace `image` with your own image, and copy your video files into the instance in the `/home/ec2-user` directory.
 
@@ -10,7 +9,7 @@ In the following example, the syntax that's used for a task definition of a Linu
 
 1. Create a text file that's named `vt1-3xlarge-ffmpeg-linux.json` with the following content.
 
-   ```
+   ```JSON
    {
        "family": "vt1-3xlarge-xffmpeg-processor",
        "requiresCompatibilities": ["EC2"],
@@ -84,7 +83,7 @@ In the following example, the syntax that's used for a task definition of a Linu
 
 1. Create a text file that's named `vt1-6xlarge-ffmpeg-linux.json` with the following content.
 
-   ```
+   ```JSON
    {
        "family": "vt1-6xlarge-xffmpeg-processor",
        "requiresCompatibilities": ["EC2"],
@@ -174,7 +173,7 @@ In the following example, the syntax that's used for a task definition of a Linu
 
 1. Create a text file that's named `vt1-24xlarge-ffmpeg-linux.json` with the following content.
 
-   ```
+   ```JSON
    {
        "family": "vt1-24xlarge-xffmpeg-processor",
        "requiresCompatibilities": ["EC2"],

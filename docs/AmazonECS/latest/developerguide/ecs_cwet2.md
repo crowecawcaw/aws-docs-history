@@ -1,7 +1,6 @@
 
 
 # Sending Amazon Simple Notification Service alerts for Amazon ECS task stopped events
-<a name="ecs_cwet2"></a>
 
 Configure an Amazon EventBridge event rule that only captures task events where the task has stopped running because one of its essential containers has terminated. The event sends only task events with a specific `stoppedReason` property to the designated Amazon SNS topic.
 
@@ -77,7 +76,7 @@ Verify that the rule is working by running a task that exits shortly after it st
 
 1. In the JSON editor box, edit your JSON file, copy the following into the editor.
 
-   ```
+   ```JSON
    {
       "containerDefinitions":[
          {

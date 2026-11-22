@@ -1,7 +1,6 @@
 
 
 # Migrating from a CodeDeploy blue/green to an Amazon ECS rolling update service deployment
-<a name="migrate-code-deploy-to-ecs-rolling"></a>
 
  You can migrate your service deployments from an CodeDeploy blue/green deployment to an Amazon ECS rolling update deployment. This moves you away from CodeDeploy dependency to using an integrated deployment.
 

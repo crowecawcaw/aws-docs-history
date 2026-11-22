@@ -1,7 +1,6 @@
 
 
 # Advanced predictive scaling policy using custom metrics for Amazon ECS
-<a name="predictive-scaling-custom-metrics"></a>
 
 You can use predefined or custom metrics in a predictive scaling policy. Custom metrics are useful when the predefined metrics, such as CPU, memory, etc) aren't enough to sufficiently describe your application load.
 
@@ -49,7 +48,7 @@ Sometimes, instead of specifying the metric directly, you might need to first pr
 
 The following is an example predictive scaling policy for this scenario. It specifies scaling and load metrics that are based on the Amazon SQS `ApproximateNumberOfMessagesVisible` metric, which is the number of messages available for retrieval from the queue. It also uses the Amazon EC2 Auto Scaling `GroupInServiceInstances` metric and a math expression to calculate the backlog per instance for the scaling metric.
 
-```
+```json
 aws application-autoscaling put-scaling-policy --policy-name {{my-sqs-custom-metrics-policy}} \
   --policy-type PredictiveScaling \
   --predictive-scaling-configuration {{file://config.json}}
@@ -132,7 +131,7 @@ aws application-autoscaling put-scaling-policy --policy-name {{my-sqs-custom-met
 
 The example returns the policy's ARN.
 
-```
+```json
 {
   "PolicyARN": "arn:aws:autoscaling:region:account-id:scalingPolicy:2f4f5048-d8a8-4d14-b13a-d1905620f345:autoScalingGroupName/my-asg:policyName/my-sqs-custom-metrics-policy",
   "Alarms": []

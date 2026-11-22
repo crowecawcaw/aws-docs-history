@@ -1,7 +1,6 @@
 
 
 # Correlate Amazon ECS application performance using application metrics
-<a name="metrics-data"></a>
 
 Amazon ECS on Fargate supports collecting metrics from your applications running on Fargate and exporting them to either Amazon CloudWatch or Amazon Managed Service for Prometheus. 
 

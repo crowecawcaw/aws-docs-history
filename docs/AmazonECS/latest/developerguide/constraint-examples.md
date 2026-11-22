@@ -1,7 +1,6 @@
 
 
 # Example Amazon ECS task placement constraints
-<a name="constraint-examples"></a>
 
 The following are task placement constraint examples.
 

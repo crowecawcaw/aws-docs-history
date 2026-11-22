@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS Amazon ECS Managed Instances errors
-<a name="managed-instances-errors"></a>
 
 The following are some Amazon ECS Managed Instances error messages and actions that you can take to fix the errors. 
 

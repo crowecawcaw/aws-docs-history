@@ -1,7 +1,6 @@
 
 
 # Log Amazon ECS API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Elastic Container Service is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon ECS as events. The calls captured include calls from the Amazon ECS console and code calls to the Amazon ECS API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon ECS, the IP address from which the request was made, when it was made, and additional details.
 
@@ -58,7 +57,7 @@ The following example shows a CloudTrail event that demonstrates the `CreateServ
 **Note**  
 This example has been formatted for improved readability. In a CloudTrail log file, all entries and events are concatenated into a single line. In addition, this example has been limited to a single Amazon ECS entry. In a real CloudTrail log file, you see entries and events from multiple AWS services.
 
-```
+```JSON
 {
     "eventVersion": "1.04",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Pass secrets for Amazon ECS logging configuration
-<a name="secrets-logconfig"></a>
 
 You can use the `secretOptions` parameter in `logConfiguration` to pass sensitive data used for logging.
 
@@ -14,7 +13,7 @@ Within your container definition, when specifying a `logConfiguration` you can s
 
 The following is a snippet of a task definition showing the format when referencing an Secrets Manager secret.
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "logConfiguration": [{
@@ -38,7 +37,7 @@ Within your container definition, specify `secrets` with the name of the environ
 
 The following is a snippet of a task definition showing the format when referencing a Systems Manager Parameter Store parameter. If the Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then specify the full ARN.
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{
@@ -61,7 +60,7 @@ If the Systems Manager Parameter Store parameter exists in the same Region as th
 
 The following is a snippet of a task definition showing the format when referencing a Systems Manager Parameter Store parameter.
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "logConfiguration": [{

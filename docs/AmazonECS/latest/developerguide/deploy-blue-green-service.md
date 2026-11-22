@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECS blue/green deployment
-<a name="deploy-blue-green-service"></a>
 
  By using Amazon ECS blue/green deployments, you can make and test service changes before implementing them in a production environment. 
 

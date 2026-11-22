@@ -1,7 +1,6 @@
 
 
 # Retrieving Amazon ECS-optimized Windows AMI metadata
-<a name="retrieve-ecs-optimized_windows_AMI"></a>
 
 The AMI ID, image name, operating system, container agent version, and runtime version for each variant of the Amazon ECS-optimized AMIs can be programmatically retrieved by querying the Systems Manager Parameter Store API. For more information about the Systems Manager Parameter Store API, see [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html).
 

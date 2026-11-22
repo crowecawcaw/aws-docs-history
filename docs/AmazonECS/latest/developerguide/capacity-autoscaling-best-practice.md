@@ -1,7 +1,6 @@
 
 
 # Optimizing Amazon ECS service auto scaling
-<a name="capacity-autoscaling-best-practice"></a>
 
 An Amazon ECS service is a managed collection of tasks. Each service has an associated task definition, a desired task count, and an optional placement strategy.
 

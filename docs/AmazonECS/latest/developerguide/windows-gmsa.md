@@ -1,7 +1,6 @@
 
 
 # Learn how to use gMSAs for EC2 Windows containers for Amazon ECS
-<a name="windows-gmsa"></a>
 
 Amazon ECS supports Active Directory authentication for Windows containers through a special kind of service account called a *group Managed Service Account* (gMSA).
 
@@ -77,7 +76,7 @@ Amazon ECS uses a credential spec file that contains the gMSA metadata used to p
 
 The following is an example credential spec file:
 
-```
+```JSON
 {
     "CmsPlugins": [
         "ActiveDirectory"
@@ -111,7 +110,7 @@ We recommend domainless gMSA instead of joining the container instances to a sin
 **Domainless gMSA credential format**  
 The following is the JSON format for the domainless gMSA credentials for your Active Directory. Store the credentials in Secrets Manager or SSM Parameter Store.
 
-   ```
+   ```json
    {
        "username":"{{WebApp01}}",
        "password":"{{Test123!}}",
@@ -123,7 +122,7 @@ The following is the JSON format for the domainless gMSA credentials for your Ac
 
    Note that the `PluginGUID` value must match the GUID in the following example snippet and is required.
 
-   ```
+   ```json
        "HostAccountConfig": {
            "PortableCcgVersion": "1",
            "PluginGUID": "{859E1386-BDB4-49E8-85C7-3070B13920E1}",
@@ -135,7 +134,7 @@ The following is the JSON format for the domainless gMSA credentials for your Ac
 
 1. After you modify the CredSpec file, it should look like the following example:
 
-   ```
+   ```json
    {
      "CmsPlugins": [
        "ActiveDirectory"
@@ -178,7 +177,7 @@ Amazon ECS supports the following ways to reference the file path in the `creden
 
 Add the credential spec to an Amazon S3 bucket and then reference the Amazon Resource Name (ARN) of the Amazon S3 bucket in the `credentialSpecs` field of the task definition.
 
-```
+```JSON
 {
     "family": "",
     "executionRoleArn": "",
@@ -203,7 +202,7 @@ You must also add the following permissions as an inline policy to the Amazon EC
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -230,7 +229,7 @@ You must also add the following permissions as an inline policy to the Amazon EC
 
 Add the credential spec to an SSM Parameter Store parameter and then reference the Amazon Resource Name (ARN) of the SSM Parameter Store parameter in the `credentialSpecs` field of the task definition.
 
-```
+```JSON
 {
     "family": "",
     "executionRoleArn": "",
@@ -255,7 +254,7 @@ You must also add the following permissions as an inline policy to the Amazon EC
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -277,7 +276,7 @@ You must also add the following permissions as an inline policy to the Amazon EC
 
 With the credential spec details in a local file, reference the file path in the `credentialSpecs` field of the task definition. The file path referenced must be relative to the `C:\ProgramData\Docker\CredentialSpecs` directory and use the backslash ('\\') as the file path separator.
 
-```
+```JSON
 {
     "family": "",
     "executionRoleArn": "",

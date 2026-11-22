@@ -1,7 +1,6 @@
 
 
 # Best practices for connecting Amazon ECS to AWS services from inside your VPC
-<a name="networking-connecting-vpc"></a>
 
 For Amazon ECS to function properly, the Amazon ECS container agent that runs on each host must communicate with the Amazon ECS control plane. If you're storing your container images in Amazon ECR, the Amazon EC2 hosts must communicate to the Amazon ECR service endpoint, and to Amazon S3, where the image layers are stored. If you use other AWS services for your containerized application, such as persisting data stored in DynamoDB, double-check that these services also have the necessary networking support.
 

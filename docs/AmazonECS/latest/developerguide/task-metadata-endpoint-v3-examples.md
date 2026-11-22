@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata v3 examples
-<a name="task-metadata-endpoint-v3-examples"></a>
 
 The following examples show sample outputs from the task metadata endpoints.
 
@@ -10,7 +9,7 @@ The following examples show sample outputs from the task metadata endpoints.
 
 When querying the `${ECS_CONTAINER_METADATA_URI}` endpoint you are returned only metadata about the container itself. The following is an example output.
 
-```
+```JSON
 {
     "DockerId": "43481a6ce4842eec8fe72fc28500c6b52edcc0917f105b83379f88cac1ff3946",
     "Name": "nginx-curl",
@@ -51,7 +50,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI}/task` endpoint you are returned
 
 The following JSON response is for a single-container task.
 
-```
+```json
 {
   "Cluster": "default",
   "TaskARN": "arn:aws:ecs:us-east-2:{{012345678910}}:task/9781c248-0edd-4cdb-9a93-f63cb662a5d3",

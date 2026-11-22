@@ -1,7 +1,6 @@
 
 
 # Operating Amazon ECS at scale
-<a name="operating-at-scale-best-practice"></a>
 
 As you begin operating Amazon ECS at scale, consider how service quotas and API throttles for Amazon ECS and the AWS services that integrate with Amazon ECS might affect you. 
 

@@ -1,7 +1,6 @@
 
 
 # Specify Amazon EBS volume configuration at Amazon ECS deployment
-<a name="configure-ebs-volume"></a>
 
 After you register a task definition with the `configuredAtLaunch` parameter set to `true`, you can configure an Amazon EBS volume at deployment when you run a standalone task, or when you create or update a service. For more information about deferring volume configuration to launch time using the `configuredAtLaunch` parameter, see [Defer volume configuration to launch time in an Amazon ECS task definition](specify-ebs-config.md).
 
@@ -18,7 +17,7 @@ For a container in your task to write to the mounted Amazon EBS volume, the cont
 
 The following JSON snippet shows all the parameters of an Amazon EBS volume that can be configured at deployment. To use these parameters for volume configuration, replace the `{{user input placeholders}}` with your own information. For more information about these parameters, see [Volume configurations](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_definition_parameters.html#sd-volumeConfigurations).
 
-```
+```json
 "volumeConfigurations": [
         {
             "name": "{{ebs-volume}}", 
@@ -65,7 +64,7 @@ The following are JSON snippet examples that show the configuration of Amazon EB
 
 The following snippet shows the syntax for configuring Amazon EBS volumes for attachment to a standalone task. The following JSON snippet shows the syntax for configuring the `volumeType`, `sizeInGiB`, `encrypted`, and `kmsKeyId` settings. The configuration specified in the JSON file is used to create and attach an EBS volume to the standalone task.
 
-```
+```json
 {
    "cluster": "{{mycluster}}",
    "taskDefinition": "{{mytaskdef}}",
@@ -89,7 +88,7 @@ The following snippet shows the syntax for configuring Amazon EBS volumes for at
 
 The following snippet shows the syntax for configuring Amazon EBS volumes for attachment to tasks managed by a service. The volumes are sourced from the snapshot specified using the `snapshotId` parameter at a rate of 200 MiB/s. The configuration specified in the JSON file is used to create and attach an EBS volume to each task managed by the service.
 
-```
+```json
 {
    "cluster": "{{mycluster}}",
    "taskDefinition": "{{mytaskdef}}",
@@ -113,7 +112,7 @@ The following snippet shows the syntax for configuring Amazon EBS volumes for at
 
 The following JSON snippet shows the syntax for updating a service that previously did not have Amazon EBS volumes configured for attachment to tasks. You must provide the ARN of a task definition revision with `configuredAtLaunch` set to `true`. The following JSON snippet shows the syntax for configuring the `volumeType`, `sizeInGiB`, `throughput`, and `iops`, and `filesystemType` settings. This configuration is used to create and attach an EBS volume to each task managed by the service.
 
-```
+```json
 {
    "cluster": "{{mycluster}}",
    "taskDefinition": "{{mytaskdef}}",
@@ -140,7 +139,7 @@ The following JSON snippet shows the syntax for updating a service that previous
 
 The following JSON snippet shows the syntax for updating a service to no longer utilize Amazon EBS volumes. You must provide the ARN of a task definition with `configuredAtLaunch` set to `false`, or a task definition without the `configuredAtLaunch` parameter. You must also provide an empty `volumeConfigurations` object.
 
-```
+```json
 {
    "cluster": "{{mycluster}}",
    "taskDefinition": "{{mytaskdef}}",
@@ -170,7 +169,7 @@ If you want to add Amazon ECS-managed tags to your volume, you must set `enableE
 
 The following JSON snippet shows the syntax for tagging each Amazon EBS volume that is attached to each task in a service with a user-defined tag. To use this example for creating a service, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
    "cluster": "{{mycluster}}",
    "taskDefinition": "{{mytaskdef}}",

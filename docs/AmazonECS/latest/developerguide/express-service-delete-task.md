@@ -1,7 +1,6 @@
 
 
 # Delete Amazon ECS Express Mode services
-<a name="express-service-delete-task"></a>
 
 When you delete an Express Mode service, you remove the service and delete its associated resources including the cluster, load balancer, and other infrastructure components.
 

@@ -1,7 +1,6 @@
 
 
 # Docker volume examples for Amazon ECS
-<a name="docker-volume-examples"></a>
 
 The following examples show how to provide ephemeral storage for a container and how to provide a shared volume for multiple containers, and how to provide NFS persistent storage for a container.
 

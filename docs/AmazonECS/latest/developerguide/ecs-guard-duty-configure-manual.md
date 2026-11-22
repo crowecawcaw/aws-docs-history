@@ -1,7 +1,6 @@
 
 
 # Runtime Monitoring for EC2 workloads on Amazon ECS
-<a name="ecs-guard-duty-configure-manual"></a>
 
 Use this option when you use EC2 instances for your capacity, or when you need granular control of Runtime Monitoring at the cluster-level on Fargate.
 

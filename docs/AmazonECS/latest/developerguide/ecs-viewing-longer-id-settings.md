@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS account settings using the console
-<a name="ecs-viewing-longer-id-settings"></a>
 
 View your account settings in the console to see which features you have access to.
 

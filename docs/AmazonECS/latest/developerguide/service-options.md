@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon ECS service parameters
-<a name="service-options"></a>
 
 To ensure that there's no application downtime, the deployment process is as follows:
 

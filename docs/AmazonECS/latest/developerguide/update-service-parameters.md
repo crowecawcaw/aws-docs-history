@@ -1,7 +1,6 @@
 
 
 # Update Amazon ECS service parameters
-<a name="update-service-parameters"></a>
 
 After you create a service, there are times when you might need to update the service parameters, for example, the number of tasks.
 

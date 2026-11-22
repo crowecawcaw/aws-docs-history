@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Service Connect zone-aware routing
-<a name="service-connect-zone-aware-routing"></a>
 
 With Amazon ECS Service Connect zone-aware routing, traffic stays within the same Availability Zone (AZ) as the client. This reduces cross-AZ data transfer costs and latency without requiring additional infrastructure or application code changes. When endpoints are balanced across AZs, more than 80% of traffic stays local while traffic weights dynamically adjust as endpoints scale to maintain balanced load across target services. Zone-aware routing is on by default for all new and existing services that use Service Connect.
 
@@ -27,19 +26,19 @@ On Amazon EC2 container instances that use the Docker runtime, you can inspect E
 
 1. Connect to the container instance with AWS Systems Manager Session Manager. Replace {{instance-id}} with your container instance ID.
 
-   ```
+   ```bash
    aws ssm start-session --target {{instance-id}}
    ```
 
 1. Open a shell in the Service Connect agent container.
 
-   ```
+   ```bash
    sudo docker exec -it $(sudo docker ps --filter "name=ecs-service-connect" -q | head -1) /bin/sh
    ```
 
 1. Query zone routing statistics from the Envoy admin interface.
 
-   ```
+   ```bash
    curl --unix-socket /tmp/envoy_admin.sock http://unix/stats | grep "lb_zone"
    ```
 

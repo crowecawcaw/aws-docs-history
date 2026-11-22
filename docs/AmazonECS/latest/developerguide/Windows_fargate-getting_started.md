@@ -1,7 +1,6 @@
 
 
 # Learn how to create an Amazon ECS Windows task for Fargate
-<a name="Windows_fargate-getting_started"></a>
 
 Get started with Amazon ECS on AWS Fargate by using Fargate for your tasks in the Regions where Amazon ECS supports AWS Fargate.
 

@@ -1,7 +1,6 @@
 
 
 # Pass Secrets Manager secrets programmatically in Amazon ECS
-<a name="secrets-app-secrets-manager"></a>
 
 Instead of hardcoding sensitive information in plain text in your application, you can use Secrets Manager to store the sensitive data.
 

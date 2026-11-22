@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS Managed Instances
-<a name="troubleshooting-managed-instances"></a>
 
 When launching tasks with Amazon ECS Managed Instances, Amazon ECS first attempts to place tasks on existing capacity and requests additional capacity for tasks that cannot be placed. If instance provisioning fails, the Amazon EC2 request ID is included in the task failure message. You can use this request ID to look up details of the failed request in CloudTrail for further troubleshooting.
 

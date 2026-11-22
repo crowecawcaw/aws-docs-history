@@ -1,7 +1,6 @@
 
 
 # Amazon ECS cluster utilization metrics
-<a name="cluster_utilization"></a>
 
 The cluster utilization metrics are available for CPU, memory, and, when there is an EBS volume attached to your tasks, EBS filesystem utilization. These metrics are only available for clusters with tasks or services hosted on Amazon EC2 instances. They're not supported on clusters with tasks hosted on AWS Fargate.
 

@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="ict-considerations-and-limitations"></a>
 
 Consider the following when you run isolated and confidential tasks.
 

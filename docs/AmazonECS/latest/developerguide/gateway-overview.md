@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Gateway
-<a name="gateway-overview"></a>
 
 Amazon ECS Gateway simplifies ingress networking for containerized applications. It automatically provisions and manages the infrastructure that routes traffic to your Amazon Elastic Container Service (Amazon ECS) services. Instead of configuring Application Load Balancers, listeners, target groups, security groups, and certificates for each service, you define ingress settings once on a gateway and share that infrastructure across many services.
 
@@ -19,7 +18,7 @@ Amazon ECS Gateway separates infrastructure management from application deployme
   + **Operations**, such as where access logs go, how much load balancer capacity to allow, and which request header identifies test traffic during progressive deployments.
 
   You cannot change several of these settings after you create the gateway. For more information, see [Customizing a gateway](gateway-managing.md#gateway-customize).
-+ **Application teams** opt their services into a gateway by adding a gateway connector parameter when they create or update a service. The connector names the container port that receives traffic, and can also set an access type filter and health checks.
++ **Application teams** opt their services into a gateway by adding a gateway connector parameter when they create or update a service. The connector names the container port that receives traffic, and can also set an access type filter, health checks, and a deregistration delay.
 
 Setting up ingress through a gateway takes three steps:
 
@@ -50,7 +49,7 @@ The following table describes the concepts you work with when you use Amazon ECS
 | --- | --- | 
 | Gateway | An account-level resource, with its own ARN, that defines the ingress configuration and manages the underlying infrastructure for the services connected to it. Gateway names are unique within an account and Region. | 
 | Gateway-cluster association | A link between a gateway and a cluster that makes the gateway available to the services in that cluster. Associations are many-to-many: one gateway can serve multiple clusters, and one cluster can use multiple gateways. For more information, see [Gateway Service Limits](#gateway-service-quotas). | 
-| Gateway connector | An opt-in parameter on a service that connects it to all compatible gateways associated with its cluster. The connector specifies the name of the container port to expose and includes optional access type and health check settings. | 
+| Gateway connector | An opt-in parameter on a service that connects it to all compatible gateways associated with its cluster. The connector specifies the name of the container port to expose and includes optional access type, health check, and deregistration delay settings. | 
 | Gateway route | A resource with its own ARN that represents one connection between a service and a gateway. Amazon ECS creates a route when the service connects and deletes it when the service disconnects. The route reports the connection status, the service's URL, and the underlying service-specific resources. | 
 
 ## Infrastructure managed by Amazon ECS Gateway

@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definition differences for Fargate
-<a name="fargate-tasks-services"></a>
 
 In order to use Fargate, you must configure your task definition to use the Fargate launch type. There are additional considerations when using Fargate.
 
@@ -77,7 +76,7 @@ If you are using public subnets, decide whether to provide a public IP address f
 
 The following is an example of the `networkConfiguration` section for a Fargate service:
 
-```
+```JSON
 "networkConfiguration": { 
    "awsvpcConfiguration": { 
       "assignPublicIp": "ENABLED",
@@ -98,7 +97,7 @@ Amazon ECS tasks hosted on Fargate use the default resource limit values set by 
 
 The following is an example task definition snippet that shows how to define a custom `nofile` limit that has been doubled:
 
-```
+```JSON
 "ulimits": [
     {
        "name": "nofile",
@@ -130,7 +129,7 @@ Amazon ECS task definitions for AWS Fargate support the `awslogs`, `splunk`, and
 
 The `awslogs` log driver configures your Fargate tasks to send log information to Amazon CloudWatch Logs. The following shows a snippet of a task definition where the `awslogs` log driver is configured:
 
-```
+```JSON
 "logConfiguration": { 
    "logDriver": "awslogs",
    "options": { 

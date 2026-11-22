@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata v4 examples for tasks on Amazon ECS Managed Instances
-<a name="task-metadata-endpoint-v4-managed-instances-examples"></a>
 
 The following examples show sample outputs from the task metadata endpoints for Amazon ECS tasks run on Amazon ECS Managed Instances.
 
@@ -12,7 +11,7 @@ From the container, you can use curl followed by the task meta data endpoint to 
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned only metadata about the container itself. The following is an example output.
 
-```
+```JSON
 {
   "DockerId": "400c0466d1e54c0691aae0f86e0f9dc6-2531612879",
   "Name": "nginx",
@@ -60,7 +59,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}` endpoint you are returned o
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are returned metadata about the task the container is part of. The following is an example output.
 
-```
+```JSON
 {
   "Cluster": "arn:aws:ecs:us-west-2:111122223333:cluster/managed-instances-cluster",
   "TaskARN": "arn:aws:ecs:us-west-2:111122223333:task/managed-instances-cluster/400c0466d1e54c0691aae0f86e0f9dc6",
@@ -130,7 +129,7 @@ When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task` endpoint you are retur
 
 When querying the `${ECS_CONTAINER_METADATA_URI_V4}/task/stats` endpoint you are returned network metrics about the task the container is part of. The following is an example output.
 
-```
+```JSON
 {
   "400c0466d1e54c0691aae0f86e0f9dc6-2531612879": {
     "read": "2025-09-24T19:51:54.899736614Z",

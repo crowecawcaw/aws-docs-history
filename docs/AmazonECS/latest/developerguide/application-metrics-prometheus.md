@@ -1,7 +1,6 @@
 
 
 # Exporting application metrics to Amazon Managed Service for Prometheus
-<a name="application-metrics-prometheus"></a>
 
 Amazon ECS supports exporting your task-level CPU, memory, network, and storage metrics and your custom application metrics to Amazon Managed Service for Prometheus. This is done by adding the AWS Distro for OpenTelemetry sidecar container to your task definition. The Amazon ECS console simplifies this process by adding the **Use metric collection** option when creating a new task definition. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md).
 
@@ -41,7 +40,7 @@ The Amazon ECS console simplifies the experience of creating the AWS Distro for 
 
 If you're not using the Amazon ECS console, you can add the AWS Distro for OpenTelemetry sidecar container to your task definition manually. The following task definition example shows the container definition for adding the AWS Distro for OpenTelemetry sidecar for Amazon Managed Service for Prometheus integration.
 
-```
+```JSON
 {
 	"family": "otel-using-cloudwatch",
 	"taskRoleArn": "arn:aws:iam::111122223333:role/{{AmazonECS_OpenTelemetryCloudWatchRole}}",

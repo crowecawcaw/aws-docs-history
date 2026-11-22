@@ -1,7 +1,6 @@
 
 
 # Amazon ECS EC2 Container Instances
-<a name="ecs-agent-versions"></a>
 
 The Amazon ECS agent is a process that runs on every container instance that is registered with your cluster. It facilitates the communication between your container instances and Amazon ECS.
 
@@ -87,6 +86,6 @@ level=info time=2019-12-12T23:43:29Z msg="Restored from checkpoint file. I am ru
 
 The following is an example log file when the JSON format is used.
 
-```
+```JSON
 {"time": "2019-11-07T22:52:02Z", "level": "info", "msg": "Starting Amazon Elastic Container Service Agent", "module": "engine.go"}
 ```

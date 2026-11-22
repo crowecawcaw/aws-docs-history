@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon ECS task definition invalid CPU or memory errors
-<a name="task-cpu-memory-error"></a>
 
 When registering a task definition using the Amazon ECS API or AWS CLI, if you specify an invalid `cpu` or `memory` value, the following error is returned.
 

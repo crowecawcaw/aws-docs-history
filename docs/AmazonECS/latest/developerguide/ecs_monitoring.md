@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon ECS
-<a name="ecs_monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon ECS and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. Before you start monitoring Amazon ECS, create a monitoring plan that includes answers to the following questions:
 + What are your monitoring goals?

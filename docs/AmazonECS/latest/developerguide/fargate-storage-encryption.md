@@ -1,7 +1,6 @@
 
 
 # Customer managed keys for AWS Fargate ephemeral storage for Amazon ECS
-<a name="fargate-storage-encryption"></a>
 
 AWS Fargate supports customer managed keys to encrypt data for Amazon ECS tasks stored in ephemeral storage to help regulation-sensitive customers meet their internal security policies. Customers still get the serverless benefit of Fargate, while giving enhanced visibility on self-managed storage encryption to compliance auditors. While Fargate has Fargate-managed ephemeral storage encryption by default, customers can also use their own self-managed keys when encrypting sensitive data like financial or health related information.
 

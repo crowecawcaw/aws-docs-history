@@ -1,7 +1,6 @@
 
 
 # Migrating to Linux platform version 1.4.0 on Amazon ECS
-<a name="platform-version-migration"></a>
 
 Consider the following when migrating your Amazon ECS on Fargate tasks from platform version `1.0.0`, `1.1.0`, `1.2.0`, or `1.3.0` to platform version `1.4.0`. It is best practice to confirm your task works properly on platform version `1.4.0` before you migrate the tasks.
 + The network traffic behavior to and from tasks has been updated. Starting with platform version 1.4.0, all Amazon ECS on Fargate tasks receive a single elastic network interface (referred to as the task ENI) and all network traffic flows through that ENI within your VPC. The traffic is visible to you through your VPC flow logs. For more information see [Amazon ECS task networking options for Fargate](fargate-task-networking.md).

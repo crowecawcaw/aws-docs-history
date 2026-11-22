@@ -1,7 +1,6 @@
 
 
 # Create your first Express Mode service using the AWS CLI
-<a name="express-service-getting-started"></a>
 
 This tutorial shows you how to create an Express Mode service application using the AWS AWS CLI. You'll deploy a simple web application that demonstrates the core capabilities of Express Mode service.
 

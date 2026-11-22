@@ -1,7 +1,6 @@
 
 
 # Interconnect Amazon ECS services
-<a name="interconnecting-services"></a>
 
 Applications that run in Amazon ECS tasks often need to receive connections from the internet or to connect to other applications that run in Amazon ECS services. If you need external connections from the internet, we recommend using Elastic Load Balancing. For more information about integrated load balancing, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md).
 

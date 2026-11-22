@@ -1,7 +1,6 @@
 
 
 # Create your first Amazon ECS Express Mode service in the console
-<a name="express-service-first-run"></a>
 
 The console experience for Express Mode service provides a streamlined way to deploy your containerized application with minimal configuration required. Read more about prerequisites in [Amazon ECS Express Mode](express-service-overview.md). To learn more about what Express Mode creates and how it works, see [Resources created by Amazon ECS Express Mode services](express-service-work.md).
 

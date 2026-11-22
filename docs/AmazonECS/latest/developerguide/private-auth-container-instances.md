@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon ECS container instances for private Docker images
-<a name="private-auth-container-instances"></a>
 
 The Amazon ECS container agent can authenticate with private registries, using basic authentication. When you enable private registry authentication, you can use private Docker images in your task definitions. This feature is only supported by tasks using EC2.
 

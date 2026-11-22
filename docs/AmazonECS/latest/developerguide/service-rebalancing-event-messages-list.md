@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Availability Zone service rebalancing service event messages
-<a name="service-rebalancing-event-messages-list"></a>
 
 The following are examples of service event messages you might see.
 

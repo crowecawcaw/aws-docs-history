@@ -1,7 +1,6 @@
 
 
 # Amazon ECS MCP Server Tool Configurations
-<a name="ecs-mcp-tool-configurations"></a>
 
 This guide shows all the configurations available for the fully managed Amazon ECS MCP Server.
 

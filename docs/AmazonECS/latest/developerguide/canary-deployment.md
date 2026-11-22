@@ -1,7 +1,6 @@
 
 
 # Amazon ECS canary deployments
-<a name="canary-deployment"></a>
 
 Canary deployments first route a small percentage of traffic to the new revision for initial testing, then shift all remaining traffic at once after the canary phase completes successfully. With Amazon ECS canary deployments, validate new service revisions with real user traffic while minimizing risk exposure. This approach provides a controlled way to deploy changes with the ability to monitor performance and roll back quickly if issues are detected.
 

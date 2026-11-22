@@ -1,7 +1,6 @@
 
 
 # Amazon ECS-optimized Windows AMI versions
-<a name="ecs-windows-ami-versions"></a>
 
 View the current and previous versions of the Amazon ECS-optimized AMIs and their corresponding versions of the Amazon ECS container agent, Docker, and the `ecs-init` package.
 

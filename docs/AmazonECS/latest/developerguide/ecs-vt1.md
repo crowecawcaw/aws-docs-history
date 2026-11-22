@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definitions for video transcoding workloads
-<a name="ecs-vt1"></a>
 
 To use video transcoding workloads on Amazon ECS, register [Amazon EC2 VT1](https://aws.amazon.com/ec2/instance-types/vt1/) instances. After you registered these instances, you can run live and pre-rendered video transcoding workloads as tasks on Amazon ECS. Amazon EC2 VT1 instances use Xilinx U30 media transcoding cards to accelerate live and pre-rendered video transcoding workloads.
 

@@ -1,7 +1,6 @@
 
 
 # Connect Amazon ECS services to a gateway
-<a name="gateway-connect-service"></a>
 
 You can connect an Amazon ECS service to a gateway by configuring a gateway connector when you create or update the service. A gateway connector identifies the named container port that receives traffic. You can also configure health checks and specify which gateway access types the service can use.
 
@@ -22,7 +21,7 @@ Add a gateway connector to the service and set `portName` to the container port 
 
 **To connect a service to a gateway**
 
-```
+```bash
 aws ecs update-service \
     --cluster my-cluster \
     --service my-service \
@@ -34,7 +33,7 @@ During deployment, Amazon ECS selects the compatible gateways, provisions or reu
 ## Customize a gateway connector
 <a name="gateway-configure-connectors"></a>
 
-The `portName` is required. It refers to a named port in your task definition. Amazon ECS uses that port's number, protocol, and protocol version to configure the target group. If the name does not match a port in the task definition your service uses, the request fails. Health check settings and an access type filter are optional.
+The `portName` is required. It refers to a named port in your task definition. Amazon ECS uses that port's number, protocol, and protocol version to configure the target group. If the name does not match a port in the task definition your service uses, the request fails. Health check settings, an access type filter, and a deregistration delay are optional.
 
 ### Access type filter
 <a name="gateway-connector-access-type-filter"></a>
@@ -43,7 +42,7 @@ The `filters.accessTypes` narrows the gateways your service connects to. Set it 
 
 **To connect only to private gateways**
 
-```
+```bash
 aws ecs update-service \
     --cluster my-cluster \
     --service my-service \
@@ -67,7 +66,7 @@ Set a different path if `/` is slow or does real work, such as querying a databa
 
 **To set a health check path**
 
-```
+```bash
 aws ecs update-service \
     --cluster my-cluster \
     --service my-service \
@@ -79,8 +78,29 @@ aws ecs update-service \
 
 For what each setting controls, see [Health checks for Application Load Balancer target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html) in the *Application Load Balancers User Guide*.
 
+### Deregistration delay
+<a name="gateway-connector-deregistration-delay"></a>
+
+When Amazon ECS removes a task from a gateway route, such as during a deployment or when the service scales in, the load balancer stops sending new requests to the task. It then waits for the deregistration delay before it completes the removal. Requests already in progress can finish during that time. The delay is 300 seconds by default. To change it, set `deregistrationDelay.timeoutSeconds` to a value from 0 to 3600.
+
+Set a shorter delay when your requests complete in a few seconds, so that tasks drain faster. A value of `0` removes the task immediately. Set a longer delay when requests run for minutes, such as file uploads or long polling, so that they finish before the task is removed.
+
+**To set a deregistration delay**
+
+```bash
+aws ecs update-service \
+    --cluster my-cluster \
+    --service my-service \
+    --gateway-connectors '[{
+        "portName": "web",
+        "deregistrationDelay": { "timeoutSeconds": 30 }
+    }]'
+```
+
+For how the load balancer applies the delay, see [Deregistration delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay) in the *Application Load Balancers User Guide*.
+
 **Important**  
-A health check change replaces the target group, so you cannot make one on a service that uses the `ROLLING` deployment strategy. The request fails with `Target group properties cannot be changed with ROLLING deployment strategy`. Use a `BLUE_GREEN` or `CANARY` deployment strategy on the service, or set the health check configuration when you first connect the service.
+A health check or deregistration delay change replaces the target group, so you cannot make one on a service that uses the `ROLLING` deployment strategy. The request fails with `Target group properties cannot be changed with ROLLING deployment strategy`. Use a `BLUE_GREEN` or `CANARY` deployment strategy on the service, or set these options when you first connect the service.
 
 ## How Amazon ECS selects compatible gateways
 <a name="gateway-select-compatible"></a>
@@ -137,7 +157,7 @@ You get a revision ARN from the service's deployment. `describe-service-deployme
 
 **To verify a connection and get the service URL**
 
-```
+```bash
 aws ecs describe-service-revisions \
     --service-revision-arns arn:aws:ecs:us-west-2:123456789012:service-revision/my-cluster/my-service/1234567890123456789 \
     --query 'serviceRevisions[0].ecsManagedResources.gatewayConnections'
@@ -172,7 +192,7 @@ Disassociating a gateway affects all services using that cluster association. Pl
 
 **To disconnect a service from all gateways**
 
-```
+```bash
 aws ecs update-service \
     --cluster my-cluster \
     --service my-service \

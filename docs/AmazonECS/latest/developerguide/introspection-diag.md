@@ -1,7 +1,6 @@
 
 
 # Retrieve Amazon ECS diagnostic details with agent introspection
-<a name="introspection-diag"></a>
 
 The Amazon ECS agent introspection API provides information about the overall state of the Amazon ECS agent and the container instances.
 

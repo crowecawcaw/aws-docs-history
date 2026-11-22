@@ -1,7 +1,6 @@
 
 
 # Stopping Amazon ECS service deployments
-<a name="stop-service-deployment"></a>
 
 You can manually stop a deployment when a failing deployment was not detected by the circuit breaker or CloudWatch alarms. The following stop types are available:
 + Rollback - This option rolls back the service deployment to the previous service revision. 

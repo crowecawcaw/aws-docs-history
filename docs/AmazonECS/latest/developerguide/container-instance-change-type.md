@@ -1,7 +1,6 @@
 
 
 # Changing the instance type or size outside of the Auto Scaling group
-<a name="container-instance-change-type"></a>
 
 AWS recommends that you keep your infrastructure immutable. If you need to change instance sizes, you can either: 
 + Scale horizontally and add additional instances. Then, place additional tasks on those instances, or you 

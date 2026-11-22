@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Service Connect components
-<a name="service-connect-concepts-deploy"></a>
 
 When you use Amazon ECS Service Connect, you configure each Amazon ECS service to run a server application that receives network requests (client-server service) or to run a client application that makes the requests (client service).
 
@@ -92,7 +91,7 @@ Consider the following when using Service Connect:
 + Only the tasks that services create are supported. 
 + All endpoints must be unique within a namespace.
 + All discovery names must be unique within a namespace.
-+ You must redeploy existing services before the applications can resolve new endpoints. New endpoints that are added to the namespace after the most recent deployment won't be added to the task configuration. For more information, see [Amazon ECS Service Connect components](#service-connect-concepts-deploy).
++ You must redeploy existing services before the applications can resolve new endpoints. New endpoints that are added to the namespace after the most recent deployment won't be added to the task configuration. For more information, see [Amazon ECS Service Connect components](service-connect-concepts-deploy.md).
 + Service Connect doesn't delete namespaces when clusters are deleted. You must delete namespaces in AWS Cloud Map.
 + Application Load Balancer traffic defaults to routing through the Service Connect agent in `awsvpc` network mode. If you want non-service traffic to bypass the Service Connect agent, use the `[ingressPortOverride](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ServiceConnectService.html)` parameter in your Service Connect service configuration.
 + Service Connect with TLS does not support `bridge` networking mode. Only `awsvpc` networking mode is supported.

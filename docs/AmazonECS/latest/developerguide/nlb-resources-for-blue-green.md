@@ -1,7 +1,6 @@
 
 
 # Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments
-<a name="nlb-resources-for-blue-green"></a>
 
 To use a Network Load Balancer with Amazon ECS blue/green deployments, you need to configure specific resources that enable traffic routing between the blue and green service revisions. This section explains the required components and their configuration.
 

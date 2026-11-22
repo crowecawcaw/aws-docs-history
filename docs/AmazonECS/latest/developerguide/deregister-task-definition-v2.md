@@ -1,7 +1,6 @@
 
 
 # Deregistering an Amazon ECS task definition revision using the console
-<a name="deregister-task-definition-v2"></a>
 
 You can deregister the task definition revision so that it no longer displays in your `ListTaskDefinition` API calls or in the console when you want to run a task or update a service.
 

@@ -1,7 +1,6 @@
 
 
 # Additional metrics for Amazon ECS Managed Instances
-<a name="additional-metrics-managed-instances"></a>
 
 The following table lists the additional metrics available for Amazon ECS Managed Instances when using Container Insights.
 

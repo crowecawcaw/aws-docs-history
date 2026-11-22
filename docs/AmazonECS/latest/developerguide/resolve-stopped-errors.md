@@ -1,7 +1,6 @@
 
 
 # Resolve Amazon ECS stopped task errors
-<a name="resolve-stopped-errors"></a>
 
 When your task fails to start, you see an error message in the console and in the `describe-tasks` output parameters (`stoppedReason` and `stopCode`).
 

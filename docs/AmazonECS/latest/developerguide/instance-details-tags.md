@@ -1,7 +1,6 @@
 
 
 # Adding tags to an Amazon EC2 container instance for Amazon ECS
-<a name="instance-details-tags"></a>
 
 You can associate tags with your Amazon EC2 container instances for Amazon ECS using one of the following methods:
 + Method 1 – When creating the container instance using the Amazon EC2 API, CLI, or console, specify tags by passing user data to the instance using the container agent configuration parameter `ECS_CONTAINER_INSTANCE_TAGS`. This creates tags that are associated with the container instance in Amazon ECS only, they cannot be listed using the Amazon EC2 API. For more information, see [Bootstrapping Amazon ECS Linux container instances to pass data](bootstrap_container_instance.md).
@@ -39,7 +38,7 @@ If you launch your container instances using an Amazon EC2 Auto Scaling group, t
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Turn on event capture for an existing Amazon ECS cluster
-<a name="turn-on-event-capture-existing-cluster"></a>
 
 You can enable event capture on an existing Amazon ECS cluster to store Amazon ECS-generated events in Amazon CloudWatch Logs through EventBridge. This feature helps you monitor and troubleshoot task failures, service deployments, and other cluster activities.
 

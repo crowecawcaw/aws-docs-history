@@ -1,7 +1,6 @@
 
 
 # Pause hooks for Amazon ECS service deployments
-<a name="pause-lifecycle-hooks"></a>
 
 Pause hooks pause an Amazon ECS service deployment at a specific lifecycle stage and wait for you to call `ContinueServiceDeployment` before the deployment proceeds. Use pause hooks when you need manual approval or external validation before a deployment continues.
 
@@ -18,7 +17,7 @@ When a deployment reaches a lifecycle stage that has a pause hook configured, th
 
 You can retrieve the `hookId` by calling `DescribeServiceDeployments`. The response includes a `lifecycleHookDetails` array with the hook status:
 
-```
+```json
 {
     "serviceDeployments": [
         {
@@ -41,7 +40,7 @@ You can retrieve the `hookId` by calling `DescribeServiceDeployments`. The respo
 
 The following example shows a pause hook configuration in a service definition that pauses the deployment after the test traffic shift completes:
 
-```
+```json
 {
     "deploymentConfiguration": {
         "strategy": "BLUE_GREEN",
@@ -85,7 +84,7 @@ When a deployment is paused (the pause hook status is `AWAITING_ACTION`), call `
 
 To continue the deployment:
 
-```
+```bash
 aws ecs continue-service-deployment \
     --hook-id ecs-pause-e7tK9G_WRJqNF_EOMjztDXfKenlJuEUVjsNStf4WLKw \
     --action CONTINUE
@@ -93,7 +92,7 @@ aws ecs continue-service-deployment \
 
 To roll back the deployment:
 
-```
+```bash
 aws ecs continue-service-deployment \
     --hook-id ecs-pause-e7tK9G_WRJqNF_EOMjztDXfKenlJuEUVjsNStf4WLKw \
     --action ROLLBACK
@@ -141,7 +140,7 @@ Amazon ECS emits EventBridge events with the detail-type `ECS Hook State Change`
 
 The following example shows an EventBridge event emitted when a pause hook is awaiting action:
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

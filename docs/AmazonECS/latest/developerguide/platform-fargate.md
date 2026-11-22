@@ -1,7 +1,6 @@
 
 
 # Fargate platform versions for Amazon ECS
-<a name="platform-fargate"></a>
 
 AWS Fargate platform versions are used to refer to a specific runtime environment for Fargate task infrastructure. It is a combination of the kernel and container runtime versions. You select a platform version when you run a task or when you create a service to maintain a number of identical tasks.
 

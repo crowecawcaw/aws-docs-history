@@ -1,7 +1,6 @@
 
 
 # Defer volume configuration to launch time in an Amazon ECS task definition
-<a name="specify-ebs-config"></a>
 
 To configure an Amazon EBS volume for attachment to your task, you must specify the mount point configuration in your task definition and name the volume. You must also set `configuredAtLaunch` to `true` because Amazon EBS volumes can't be configured for attachment in the task definition. Instead, Amazon EBS volumes are configured for attachment during deployment.
 
@@ -14,7 +13,7 @@ The following task definition shows the syntax for the `mountPoints` and `volume
 ## Linux
 <a name="linux-example"></a>
 
-```
+```JSON
 {
     "family": {{"mytaskdef"}},
     "containerDefinitions": [
@@ -58,7 +57,7 @@ The following task definition shows the syntax for the `mountPoints` and `volume
 ## Windows
 <a name="windows-example"></a>
 
-```
+```JSON
 {
     "family": {{"mytaskdef"}},
      "memory": "4096",

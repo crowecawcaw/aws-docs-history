@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS deployment strategy updates
-<a name="troubleshooting-deployment-controller-migration"></a>
 
 This section provides solutions for common issues you might encounter when migrating deployment strategies.
 

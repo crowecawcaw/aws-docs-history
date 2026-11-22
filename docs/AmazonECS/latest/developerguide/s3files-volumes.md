@@ -1,7 +1,6 @@
 
 
 # Configuring S3 Files for Amazon ECS
-<a name="s3files-volumes"></a>
 
 S3 Files is a shared file system that connects any AWS compute resource directly with your data in Amazon S3. It provides fast, direct access to all of your S3 data as files with full file system semantics and low-latency performance, without your data ever leaving S3. You can read, write, and organize data using file and directory operations, while S3 Files keeps your file system and S3 bucket synchronized automatically. With Amazon ECS, you can define S3 file systems as volumes in your task definitions, giving your containers direct file system access to data stored in S3 buckets. To learn more about Amazon S3 Files and its capabilities, see the [Amazon S3 User Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/).
 

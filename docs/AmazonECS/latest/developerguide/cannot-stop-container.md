@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS CannotStopContainerError errors
-<a name="cannot-stop-container"></a>
 
 The following are some CannotStopContainerError error messages and actions that you can take to fix the errors.
 

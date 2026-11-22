@@ -1,7 +1,6 @@
 
 
 # Example Amazon ECS task definition: Route logs to CloudWatch
-<a name="specify-log-config"></a>
 
 Before your containers can send logs to CloudWatch, you must specify the `awslogs` log driver for containers in your task definition. For more information about the log parameters, see [Storage and logging](task_definition_parameters.md#container_definition_storage)
 

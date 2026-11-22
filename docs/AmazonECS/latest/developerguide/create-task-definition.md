@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECS task definition using the console
-<a name="create-task-definition"></a>
 
 You create a task definition so that you can define the application that you run as a task or service.
 

@@ -1,7 +1,6 @@
 
 
 # Permissions required for the Amazon ECS console
-<a name="console-permissions"></a>
 
 Following the best practice of granting least privilege, you can use the `AmazonECS_FullAccess` managed policy as a template for creating you own custom policy. That way, you can take away or add permissions to and from the managed policy based on your specific requirements. For more information, see [AmazonECS\_FullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonECS_FullAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -40,7 +39,7 @@ The following policy contains the required permissions, and limits the actions t
 
 ****  
 
-```
+```json
 {
 "Statement": [
       {
@@ -87,7 +86,7 @@ The following policy contains the required permissions, and limits the actions t
 
 ****  
 
-```
+```json
 {
 "Statement": [
     {
@@ -115,7 +114,7 @@ The following policy contains the required permissions, and limits the actions t
 
 ****  
 
-```
+```json
 {
 "Statement": [
       {
@@ -137,7 +136,7 @@ The following policy contains the required permissions, and limits the actions t
 
 ****  
 
-```
+```json
 {
 "Statement": [
     {
@@ -170,7 +169,7 @@ The following policy contains the required permissions, and limits the actions t
 
 ****  
 
-```
+```json
 {
  "Statement": [
     {
@@ -213,7 +212,7 @@ Replace the `account`, `cluster-name`, and `service-name` with your values.
 
 ****  
 
-```
+```json
 {
 "Statement": [
     {
@@ -248,7 +247,7 @@ The following permissions are required to view the lifecycle events. Add the fol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -280,7 +279,7 @@ The following permissions are required to configure the lifecycle events:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

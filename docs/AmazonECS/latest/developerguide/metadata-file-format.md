@@ -1,7 +1,6 @@
 
 
 # Amazon ECS container metadata file format
-<a name="metadata-file-format"></a>
 
 The following information is stored in the container metadata JSON file.
 

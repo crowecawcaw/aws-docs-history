@@ -1,7 +1,6 @@
 
 
 # Create an encryption key for Fargate ephemeral storage for Amazon ECS
-<a name="fargate-create-storage-key"></a>
 
 Create a customer managed key to encrypt data stored on Fargate ephemeral storage.
 
@@ -95,7 +94,7 @@ To create a customer managed key (CMK) to encrypt ephemeral storage for Fargate 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -125,7 +124,7 @@ To create a customer managed key (CMK) to encrypt ephemeral storage for Fargate 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": {

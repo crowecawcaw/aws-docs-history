@@ -1,7 +1,6 @@
 
 
 # Determine Amazon ECS task health using container health checks
-<a name="healthcheck"></a>
 
 When you create a task definition, you can configure a health check for your containers. Health checks are commands that run locally on a container and validate application health and availability. 
 
@@ -28,6 +27,8 @@ The following describes the possible health status values for a container:
 The health check commands run on the container. Therefore you must include the commands in the container image. 
 
 The health check connects to the application through the container's loopback interface at `localhost` or `127.0.0.1`. An exit code of `0` indicates success, and non-zero exit code indicates failure.
+
+If a task in a service becomes `UNHEALTHY` because of a container health check, the service replaces the task. The stopped task has the stopped reason `Task failed container health checks`. Standalone tasks aren't stopped. The service ignores health checks until its health check grace period (`healthCheckGracePeriodSeconds`) ends, which is separate from the health check's `startPeriod`. Check the container's logs and its health check command. If the application needs more time to start, increase the `startPeriod` or the service's health check grace period. For more information, see [Amazon ECS service definition parameters](service_definition_parameters.md).
 
 Consider the following when using container health checks:
 + Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. 
@@ -72,3 +73,5 @@ Consider the following task health example with 3 containers.
 <a name="healthcheck-agent-disconnect"></a>
 
 If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't cause a container to transition to an `UNHEALTHY` status. This is by design, to ensure that containers remain running during agent restarts or temporary unavailability. The health check status is the "last heard from" response from the Amazon ECS agent, so if the container was considered `HEALTHY` prior to the disconnect, that status will remain until the agent reconnects and another health check occurs. There are no assumptions made about the status of the container health checks.
+
+However, for a task in a service, if Amazon ECS doesn't receive an updated health status for 12 hours, for example because the agent stays disconnected, the service replaces the task. The stopped task has the stopped reason `Task failed container health checks`.

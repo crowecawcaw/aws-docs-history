@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECS rolling update deployment
-<a name="create-service-console-v2"></a>
 
 Create a service to run and maintain a specified number of instances of a task definition simultaneously in a cluster. If one of your tasks fails or stops, the Amazon ECS service scheduler launches another instance of your task definition to replace it. This helps maintain your desired number of tasks in the service.
 

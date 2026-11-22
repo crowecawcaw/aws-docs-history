@@ -1,7 +1,6 @@
 
 
 # Daemon metrics
-<a name="managed-daemons-metrics"></a>
 
 Amazon ECS publishes CloudWatch metrics for Managed Daemons. You can use these metrics to track CPU and memory utilization for daemon tasks across your cluster.
 

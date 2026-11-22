@@ -1,7 +1,6 @@
 
 
 # GPU auto repair for Amazon ECS managed instances
-<a name="managed-instances-gpu-auto-repair"></a>
 
 Amazon ECS monitors NVIDIA GPU health on Amazon ECS Managed Instances that use GPU hardware. When Amazon ECS detects a GPU hardware failure, it can automatically replace the impaired instance. GPU auto repair is enabled by default for Amazon ECS Managed Instances.
 

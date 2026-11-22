@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon ECS Express Mode services
-<a name="express-service-best-practices"></a>
 
 Learn about best practices and recommendations for using Express Mode service effectively in production environments.
 

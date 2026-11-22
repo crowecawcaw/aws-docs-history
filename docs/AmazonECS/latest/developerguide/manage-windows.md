@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Windows container instance management
-<a name="manage-windows"></a>
 
 When you use EC2 instances for your Amazon ECS workloads, you are responsible for maintaining the instances.
 

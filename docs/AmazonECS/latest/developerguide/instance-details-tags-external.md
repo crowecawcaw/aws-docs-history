@@ -1,7 +1,6 @@
 
 
 # Adding tags to External container instances for Amazon ECS
-<a name="instance-details-tags-external"></a>
 
 You can associate tags with your external container instances for Amazon ECS by using one of the following methods.
 + Method 1 – Before running the installation script to register your external instance with your cluster, create or edit the Amazon ECS container agent configuration file at `/etc/ecs/ecs.config` and add the `ECS_CONTAINER_INSTANCE_TAGS` container agent configuration parameter. This creates tags that are associated with the external instance.

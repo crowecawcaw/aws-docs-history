@@ -1,7 +1,6 @@
 
 
 # Enabling VPC Encryption control for Amazon ECS Managed Instances
-<a name="managed-instances-vpc-encryption"></a>
 
 Amazon ECS Managed Instances supports VPC Encryption Controls, a security and compliance feature that provides centralized control to monitor and enforce encryption in transit for all traffic flows within and across your VPCs in a region. When VPC Encryption Controls is enabled on your subnet, you can specify instance types that support encryption in transit in your Amazon ECS Managed Instances custom capacity provider, guaranteeing that Amazon ECS Managed Instances workloads run with encryption in transit.
 

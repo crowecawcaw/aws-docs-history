@@ -1,7 +1,6 @@
 
 
 # Amazon ECS stopped task error messages updates
-<a name="stopped-tasks-error-messages-updates"></a>
 
 Beginning June 14, 2024 the Amazon ECS team is changing the stopped task error messages as described in the following tables. The `stopCode` will not change. If your applications depend on exact error message strings, you must update your applications with the new strings. For help with questions or problems, contact AWS Support.
 

@@ -1,11 +1,10 @@
 
 
 # Amazon ECS service action events
-<a name="ecs_service_events"></a>
 
 Amazon ECS sends service action events with the detail type **ECS Service Action**. Unlike the container instance and task state change events, the service action events do not include a version number in the `details` response field. The following is an event pattern that is used to create an EventBridge rule for Amazon ECS service action events. For more information, see [Getting started with EventBridge ](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*.
 
-```
+```JSON
 {
     "source": [
         "aws.ecs"
@@ -74,7 +73,7 @@ The service was unable to describe the health data for tasks.
 **Example Service steady state event**  
 Service steady state events are delivered in the following format. For more information about EventBridge parameters, see [Events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 
-```
+```json
 {
     "version": "0",
     "id": "af3c496d-f4a8-65d1-70f4-a69d52e9b584",
@@ -98,7 +97,7 @@ Service steady state events are delivered in the following format. For more info
 **Example Capacity provider steady state event**  
 Capacity provider steady state events are delivered in the following format.  
 
-```
+```json
 {
     "version": "0",
     "id": "b9baa007-2f33-0eb1-5760-0d02a572d81f",
@@ -125,7 +124,7 @@ Capacity provider steady state events are delivered in the following format.
 **Example Service task start impaired event**  
 Service task start impaired events are delivered in the following format.  
 
-```
+```json
 {
     "version": "0",
     "id": "57c9506e-9d21-294c-d2fe-e8738da7e67d",
@@ -150,7 +149,7 @@ Service task start impaired events are delivered in the following format.
 Service task placement failure events are delivered in the following format. For more information, see [Events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 In the following example, the task was attempting to use the `FARGATE_SPOT` capacity provider but the service scheduler was unable to acquire any Fargate Spot capacity.  
 
-```
+```json
 {
     "version": "0",
     "id": "ddca6449-b258-46c0-8653-e0e3a6d0468b",
@@ -176,7 +175,7 @@ In the following example, the task was attempting to use the `FARGATE_SPOT` capa
 ```
 In the following example for EC2, the task was attempted to launch on the Container Instance `2dd1b186f39845a584488d2ef155c131` but the service scheduler was unable to place the task because of insufficient CPU.  
 
-```
+```json
 {
   "version": "0",
   "id": "ddca6449-b258-46c0-8653-e0e3a6d0468b",

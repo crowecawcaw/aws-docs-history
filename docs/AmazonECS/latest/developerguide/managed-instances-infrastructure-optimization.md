@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Managed Instances infrastructure optimization
-<a name="managed-instances-infrastructure-optimization"></a>
 
 Amazon ECS Managed Instances automatically provisions right-sized EC2 instances based on your Capacity Provider configuration and current workload demands, ensuring your containerized applications have the appropriate compute resources from the moment they're deployed. As your application traffic patterns evolve and workload requirements change over time, Amazon ECS Managed Instances continuously monitors and optimizes your infrastructure by intelligently adjusting instance sizes to match current needs, proactively replacing instances that have drifted from optimal configurations, and dynamically balancing cost efficiency, application performance, and system reliability. This resource management system operates without any manual intervention, reducing infrastructure cost while maintaining high availability for your applications.
 

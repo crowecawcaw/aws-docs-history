@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS service and task state change events
-<a name="viewing-state-events"></a>
 
 The Amazon ECS console provides event capture functionality that stores Amazon ECS-generated events, such as service actions and task state changes, to Amazon CloudWatch Logs through EventBridge. This feature includes a query interface with filtering capabilities to enhance monitoring and troubleshooting.
 

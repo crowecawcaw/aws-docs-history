@@ -1,7 +1,6 @@
 
 
 # Enabling access logs for Amazon ECS Service Connect
-<a name="service-connect-access-logs-configuration"></a>
 
 Access logs are not enabled by default for Amazon ECS services that use Service Connect. You can enable access logs in the following ways.
 

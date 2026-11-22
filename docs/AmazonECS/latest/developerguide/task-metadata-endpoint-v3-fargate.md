@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata endpoint version 3 for tasks on Fargate
-<a name="task-metadata-endpoint-v3-fargate"></a>
 
 **Important**  
 The task metadata version 3 endpoint is no longer being actively maintained. We recommend that you update the task metadata version 4 endpoint to get the latest metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md).

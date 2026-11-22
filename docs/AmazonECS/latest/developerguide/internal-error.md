@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS InternalError errors
-<a name="internal-error"></a>
 
 **Applies to**: Fargate
 

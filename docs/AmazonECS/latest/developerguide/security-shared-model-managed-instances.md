@@ -1,7 +1,6 @@
 
 
 # Shared responsibility model for Amazon ECS Managed Instances
-<a name="security-shared-model-managed-instances"></a>
 
 Amazon ECS Managed Instances provides a managed solution for containerized workloads that combines the operational simplicity of Fargate with access to the full range of Amazon EC2 instance types and capabilities. AWS handles infrastructure provisioning, patching, scaling, and maintenance while customers retain control over their applications and specific configurations.
 

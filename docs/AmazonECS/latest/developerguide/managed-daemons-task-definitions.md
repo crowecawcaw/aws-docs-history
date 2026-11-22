@@ -1,7 +1,6 @@
 
 
 # Daemon task definitions
-<a name="managed-daemons-task-definitions"></a>
 
 A daemon task definition is the blueprint for your daemon. Amazon ECS Managed Daemons use a dedicated daemon task definition resource, distinct from standard Amazon ECS task definitions. You register a daemon task definition to specify the container image, resource requirements, and configuration for your daemon.
 
@@ -41,7 +40,7 @@ Register a daemon task definition by creating a JSON file and using the `registe
 
 The following is an example JSON file:
 
-```
+```json
 {
     "family": "my-daemon-task",
     "containerDefinitions": [
@@ -97,7 +96,7 @@ You can grant capabilities in two ways:
 
 **Full privileged mode** grants all Linux capabilities to the container. Use this when your agent requires broad system access:
 
-```
+```json
 {
     "containerDefinitions": [{
         "name": "security-daemon",
@@ -109,7 +108,7 @@ You can grant capabilities in two ways:
 
 **Individual capabilities** grant only the permissions your daemon needs, following the principle of least privilege. Use the `linuxParameters.capabilities` field to add individual capabilities such as `SYS_ADMIN`, `NET_ADMIN`, `SYS_PTRACE`, `BPF`, and `PERFMON`:
 
-```
+```json
 {
     "containerDefinitions": [{
         "name": "monitoring-daemon",
@@ -144,7 +143,7 @@ The IPC namespace mode for the daemon. If `none` is specified or no value is pro
 
 The following example shows a daemon task definition with both PID and IPC namespace sharing enabled:
 
-```
+```json
 {
     "family": "my-monitoring-daemon",
     "pidMode": "shared",
@@ -181,7 +180,7 @@ A host bind mount lets daemon containers mount host directories to access logs, 
 
 The following example shows a log collector daemon with a bind mount:
 
-```
+```json
 {
     "containerDefinitions": [{
         "name": "log-collector",
@@ -209,7 +208,7 @@ The volume contains log files only for containers that set `json-file` as the lo
 
 To read the log files, mount the volume into a container in the daemon task with `mountPoints`. The following example shows a daemon task definition volume that uses `logDriverVolumeConfiguration`:
 
-```
+```json
 {
     "containerDefinitions": [{
         "name": "log-reader",

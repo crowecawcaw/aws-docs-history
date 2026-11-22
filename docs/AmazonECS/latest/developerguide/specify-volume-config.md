@@ -1,13 +1,12 @@
 
 
 # Specify a Docker volume in an Amazon ECS task definition
-<a name="specify-volume-config"></a>
 
 Before your containers can use data volumes, you must specify the volume and mount point configurations in your task definition. This section describes the volume configuration for a container. For tasks that use a Docker volume, specify a `dockerVolumeConfiguration`. For tasks that use a bind mount host volume, specify a `host` and optional `sourcePath`.
 
 The following task definition JSON shows the syntax for the `volumes` and `mountPoints` objects for a container.
 
-```
+```JSON
 {
     "containerDefinitions": [
         {

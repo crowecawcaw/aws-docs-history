@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS ResourceInitializationError errors
-<a name="resource-initialization-error"></a>
 
 The following are some `ResourceInitialization` error messages and actions that you can take to fix the errors.
 

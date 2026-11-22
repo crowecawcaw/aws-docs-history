@@ -1,7 +1,6 @@
 
 
 # Required resources for Amazon ECS canary deployments
-<a name="canary-deployment-implementation"></a>
 
 To use a canary deployment with managed traffic shifting, your service must use one of the following features:
 + Elastic Load Balancing

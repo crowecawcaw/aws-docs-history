@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS Managed Instances
-<a name="troubleshooting-managed-instances-complete"></a>
 
 Use the following procedures to troubleshoot Amazon ECS Managed Instances, including common issues, diagnostic techniques, and resolution steps.
 

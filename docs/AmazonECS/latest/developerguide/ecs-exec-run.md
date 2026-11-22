@@ -1,7 +1,6 @@
 
 
 # Running commands using ECS Exec
-<a name="ecs-exec-run"></a>
 
 You can use Amazon ECS Exec to collect diagnostic information related to your containers and troubleshoot errors that are encountered throughout the lifecycle of your containers.
 

@@ -1,7 +1,6 @@
 
 
 # Learn how to create a task for Amazon ECS Managed Instances with the AWS CLI
-<a name="getting-started-managed-instances-cli"></a>
 
  The following steps help you set up a cluster, create a capacity provider, register a task definition, run a Linux task, and perform other common scenarios in Amazon ECS with Amazon ECS Managed Instances using the AWS CLI. Use the latest version of the AWS CLI. For more information on how to upgrade to the latest version, see [Installing or updating to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). 
 

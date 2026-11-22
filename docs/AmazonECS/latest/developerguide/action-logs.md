@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon ECS operations with Action Logs
-<a name="action-logs"></a>
 
 ## Amazon ECS Action Logs overview
 <a name="action-logs-overview"></a>
@@ -27,6 +26,11 @@ Action Logs provide the following benefits for managing your Amazon ECS workload
 Action Logs capture actions for the following Amazon ECS operations:
 + **Service deployments** – State transitions, rollbacks, and lifecycle hook execution.
 + **Managed Daemon lifecycle** – Create, update, delete, and instance drain operations for Managed Daemons.
++ **Task lifecycle** – Tasks that fail to start, stop unexpectedly after reaching the running state, or can't release their resources while stopping. This category also covers tasks that the service scheduler stops after a load balancer or container health check fails. Entries include the stop code, the status reason, and the containers or volume attachments that caused the failure.
++ **Container instance lifecycle** – Registration failures, Amazon ECS-initiated draining, and deregistration for Amazon EC2 and external instances. Draining entries include the reason that Amazon ECS started the drain. Action Logs don't record instances that you drain yourself.
++ **Capacity provider lifecycle** – Create, update, and delete operations for capacity providers. Entries include asynchronous failures, such as a missing instance profile or an invalid security group.
++ **Capacity and scaling** – Managed scaling requests to raise or lower the desired capacity of an Auto Scaling group, including when the group reaches its maximum size. This category also covers instances that launch but never register with the cluster.
++ **Cluster lifecycle** – Cluster update and delete operations, including asynchronous failures.
 
 ## How Action Logs work
 <a name="action-logs-how-it-works"></a>
@@ -41,7 +45,7 @@ Action Logs use fire-and-forget publishing. Log publishing never blocks or degra
 <a name="action-logs-schema"></a>
 
 Each Action Log entry contains the following fields:
-+ `timestamp` – Unix milliseconds when the event occurred.
++ `eventTimestamp` – Unix milliseconds when the event occurred.
 + `logLevel` – The severity level: `INFO`, `WARN`, or `ERROR`.
 + `account` – The AWS account ID.
 + `region` – The AWS Region where the event occurred.

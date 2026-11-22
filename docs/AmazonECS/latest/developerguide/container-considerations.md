@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon ECS container images
-<a name="container-considerations"></a>
 
 A container image is a set of instructions on how to build the container. A container image holds your application code and all the dependencies that your application code requires to run. Application dependencies include the source code packages that your application code relies on, a language runtime for interpreted languages, and binary packages that your dynamically linked code relies on.
 

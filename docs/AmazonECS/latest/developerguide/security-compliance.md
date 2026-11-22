@@ -1,7 +1,6 @@
 
 
 # Compliance and security best practices for Amazon ECS
-<a name="security-compliance"></a>
 
 Your compliance responsibility when using Amazon ECS is determined by the sensitivity of your data, the compliance objectives of your company, and applicable laws and regulations. 
 

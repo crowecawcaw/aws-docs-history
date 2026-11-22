@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon EFS file systems for Amazon ECS using the console
-<a name="tutorial-efs-volumes"></a>
 
 Learn how to use Amazon Elastic File System (Amazon EFS) file systems with Amazon ECS.
 
@@ -170,7 +169,7 @@ The following task definition creates a data volume named `efs-html`. The `nginx
 
 1. In the JSON editor box, copy and paste the following JSON text, replacing the `fileSystemId` with the ID of your Amazon EFS file system.
 
-   ```
+   ```JSON
    {
        "containerDefinitions": [
            {
@@ -268,7 +267,7 @@ The task runs in the subnet that you defined for the cluster.
 
 1. Open a browser and enter the public IP address. You should see the following message:
 
-   ```
+   ```nolang
    It works!
    You are using an Amazon EFS file system for persistent container storage.
    ```

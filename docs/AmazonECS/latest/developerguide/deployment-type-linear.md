@@ -1,7 +1,6 @@
 
 
 # Amazon ECS linear deployments
-<a name="deployment-type-linear"></a>
 
 Linear deployments gradually shift traffic from the old service revision to the new one in equal increments over time, allowing you to monitor each step before proceeding to the next. With Amazon ECS linear deployments, control the pace of traffic shifting and validate new service revisions with increasing amounts of production traffic. This approach provides a controlled way to deploy changes with the ability to monitor performance at each increment.
 

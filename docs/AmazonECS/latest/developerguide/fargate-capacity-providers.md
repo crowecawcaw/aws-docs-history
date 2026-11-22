@@ -1,7 +1,6 @@
 
 
 # Amazon ECS clusters for Fargate
-<a name="fargate-capacity-providers"></a>
 
 With Amazon ECS on AWS Fargate capacity providers, you can use both Fargate and Fargate Spot capacity with your Amazon ECS tasks. 
 
@@ -34,7 +33,7 @@ To ensure that your containers exit gracefully before the task stops, you can co
 
 The following is a snippet of a task state change event. This snippet displays the stopped reason and stop code for a Fargate Spot interruption.
 
-```
+```JSON
 {
   "version": "0",
   "id": "9bcdac79-b31f-4d3d-9410-fbd727c29fab",
@@ -59,7 +58,7 @@ The following is a snippet of a task state change event. This snippet displays t
 
 The following is an event pattern that's used to create an EventBridge rule for Amazon ECS task state change events. You can optionally specify a cluster in the `detail` field. Doing so means that you will receive task state change events for that cluster. For more information about creating an EventBridge rule, see [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*.
 
-```
+```JSON
 {
     "source": [
         "aws.ecs"

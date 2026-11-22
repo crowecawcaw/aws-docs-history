@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a Service Using a Blue/Green Deployment
-<a name="create-blue-green"></a>
 
 Amazon ECS has integrated blue/green deployments into the Create Service wizard on the Amazon ECS console. For more information, see [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md).
 
@@ -102,7 +101,7 @@ Use the [register-task-definition](https://docs.aws.amazon.com/cli/latest/refere
 
 First, create a file named `fargate-task.json` with the following contents. Ensure that you use the ARN for your task execution role. For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md).
 
-```
+```JSON
 {
     "family": "sample-fargate",
     "networkMode": "awsvpc",

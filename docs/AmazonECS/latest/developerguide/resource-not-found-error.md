@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS ResourceNotFoundException errors
-<a name="resource-not-found-error"></a>
 
 The following are some ` ResourceNotFoundException` error messages and actions that you can take to fix the errors.
 

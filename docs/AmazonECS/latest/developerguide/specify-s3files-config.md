@@ -1,7 +1,6 @@
 
 
 # Specify an Amazon S3 Files volume in your Amazon ECS task definition
-<a name="specify-s3files-config"></a>
 
 You can configure S3 Files volumes in your Amazon ECS task definitions using the Amazon ECS console, the AWS CLI, or the AWS API.
 
@@ -43,7 +42,7 @@ To specify an S3 Files volume in a task definition using the AWS CLI, use the `r
 
 The following is an example task definition JSON snippet that defines an S3 Files volume and mounts it to a container:
 
-```
+```JSON
 {
   "family": "s3files-task-example",
   "taskRoleArn": "arn:aws:iam::{{123456789012}}:role/{{ecsTaskRole}}",
@@ -81,7 +80,7 @@ aws ecs register-task-definition --cli-input-json file://s3files-task-def.json
 
 To use an access point, include the `accessPointArn` parameter:
 
-```
+```JSON
 {
   "name": "my-s3files-volume",
   "s3filesVolumeConfiguration": {

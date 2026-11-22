@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata V4 JSON response
-<a name="task-metadata-endpoint-v4-response"></a>
 
 The following information is returned from the task metadata endpoint (`${ECS_CONTAINER_METADATA_URI_V4}/task`) JSON response. This includes metadata associated with the task in addition to the metadata for each container within the task.
 

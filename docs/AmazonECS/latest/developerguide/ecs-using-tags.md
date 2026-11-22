@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon ECS resources
-<a name="ecs-using-tags"></a>
 
 To help you manage your Amazon ECS resources, you can optionally assign your own metadata to each resource using *tags*. Each *tag* consists of a *key* and an optional *value*.
 

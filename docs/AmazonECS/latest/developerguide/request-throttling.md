@@ -1,7 +1,6 @@
 
 
 # Request throttling for the Amazon ECS API
-<a name="request-throttling"></a>
 
 Amazon Elastic Container Service throttles all API requests for each AWS account on a per-Region basis. We do this to ensure consistent performance and fair usage of the service for all Amazon ECS customers. Throttling ensures that calls to the Amazon ECS API do not exceed the maximum allowed API request quotas for both Amazon ECS and the other AWS services that it integrates with. API calls are subject to the request quotas whether they originate from:
 + A third-party application

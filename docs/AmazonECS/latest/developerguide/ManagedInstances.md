@@ -1,7 +1,6 @@
 
 
 # Architect for Amazon ECS Managed Instances
-<a name="ManagedInstances"></a>
 
 Amazon ECS Managed Instances is a fully managed compute option for Amazon ECS that enables you to run containerized workloads on the full range of Amazon EC2 instance types while offloading infrastructure management to AWS. With Amazon ECS Managed Instances, you can access specific compute capabilities such as GPU acceleration, particular CPU architectures, high network performance, and specialized instance types, while AWS handles provisioning, scaling, patching, and maintenance of the underlying infrastructure.
 
@@ -109,7 +108,7 @@ Amazon ECS Managed Instances supports configuring the size of the Amazon EBS dat
 
  The volume is attached during instance creation. You can specify the size of the volume, in GiB, when you create a Amazon ECS Managed Instances capacity provider by using the `storageConfiguration` parameter.
 
-```
+```json
 {
 ...
 
@@ -162,7 +161,7 @@ When you create a cluster using the AWS Management Console, the default managed 
 
 The following example shows a capacity provider configuration with local storage enabled and instance requirements that specify SSD-based instance store with a minimum of 50 GiB.
 
-```
+```json
 {
 ...
     "managedInstancesProvider": {

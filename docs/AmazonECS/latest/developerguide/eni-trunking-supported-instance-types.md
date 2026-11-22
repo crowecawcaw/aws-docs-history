@@ -1,7 +1,6 @@
 
 
 # Supported instances for increased Amazon ECS container network interfaces
-<a name="eni-trunking-supported-instance-types"></a>
 
 The following shows the supported Amazon EC2 instance types and how many tasks using the `awsvpc` network mode can be launched on each instance type before and after enabling the `awsvpcTrunking` account setting. 
 
@@ -372,6 +371,10 @@ The `c5n`, `d3`, `d3en`, `g3`, `g3s`, `g4dn`, `i3`, `i3en`, `inf1`, `m5dn`, `m5n
 | t8i.micro | 1 | 2 | 
 | t8i.small | 2 | 4 | 
 | t8i.medium | 2 | 4 | 
+| t9g.nano | 1 | 2 | 
+| t9g.micro | 1 | 2 | 
+| t9g.small | 2 | 4 | 
+| t9g.medium | 2 | 4 | 
 
 ## Compute optimized
 <a name="eni-branch-co"></a>

@@ -1,7 +1,6 @@
 
 
 # Tutorials for Amazon ECS
-<a name="ecs-tutorials"></a>
 
 The following tutorials show you how to perform common tasks when using Amazon ECS.
 

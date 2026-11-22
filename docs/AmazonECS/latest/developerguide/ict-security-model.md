@@ -1,7 +1,6 @@
 
 
 # Security model
-<a name="ict-security-model"></a>
 
 This section describes the trust boundaries of isolated and confidential tasks — what the parent instance controls, what it cannot observe, and the assumptions your workload should make.
 

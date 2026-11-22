@@ -1,7 +1,6 @@
 
 
 # Fargate Linux platform version change log
-<a name="platform-versions-changelog"></a>
 
 The following are the available Linux platform versions. For information about platform version deprecation, see [AWS Fargate Linux platform version deprecation](platform-versions-retired.md).
 

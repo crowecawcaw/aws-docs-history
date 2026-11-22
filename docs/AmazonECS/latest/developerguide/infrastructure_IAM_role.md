@@ -1,7 +1,6 @@
 
 
 # Amazon ECS infrastructure IAM role
-<a name="infrastructure_IAM_role"></a>
 
 An Amazon ECS infrastructure IAM role allows Amazon ECS to manage infrastructure resources in your clusters on your behalf, and is used when:
 + You want to attach Amazon EBS volumes to your Fargate or EC2 launch type Amazon ECS tasks. The infrastructure role allows Amazon ECS to manage Amazon EBS volumes for your tasks.
@@ -36,7 +35,7 @@ Replace all {{user input}} with your own information.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	  
      "Statement": [ 
@@ -107,7 +106,7 @@ To use an ECS infrastructure IAM role, you must grant your user permission to pa
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

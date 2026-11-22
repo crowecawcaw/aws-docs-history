@@ -1,7 +1,6 @@
 
 
 # Creating Amazon ECS resources using AWS CLI commands for CloudFormation
-<a name="ecs-cloudformation-cli"></a>
 
 Another way to use Amazon ECS with CloudFormation is through the AWS CLI. You can use commands to create your CloudFormation stacks for Amazon ECS components like task definitions, clusters, and services and deploy them. The following tutorial shows how you can use the AWS CLI to create Amazon ECS resources using an CloudFormation template.
 
@@ -15,7 +14,7 @@ Another way to use Amazon ECS with CloudFormation is through the AWS CLI. You ca
 
 To create a stack using the AWS CLI saved in a file called `ecs-tutorial-template.yaml`, run the following command.
 
-```
+```YAML
 cat << 'EOF' > ecs-tutorial-template.yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: '[AWSDocs] ECS: load-balanced-web-application'

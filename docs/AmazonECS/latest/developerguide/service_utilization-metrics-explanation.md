@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service utilization metrics use cases
-<a name="service_utilization-metrics-explanation"></a>
 
 The following list provides information about when to use the Amazon ECS metrics.
 + **Resource utilization monitoring**: Use average statistics to monitor CPU and memory consumption patterns, establish performance baselines, and detect gradual performance degradation trends.

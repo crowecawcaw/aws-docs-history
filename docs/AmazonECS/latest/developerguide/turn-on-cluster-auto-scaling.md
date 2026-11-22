@@ -1,7 +1,6 @@
 
 
 # Turning on Amazon ECS cluster auto scaling
-<a name="turn-on-cluster-auto-scaling"></a>
 
 You turn on cluster auto scaling so that Amazon ECS manages the scaling of Amazon EC2 instances that are registered to your cluster.
 

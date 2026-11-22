@@ -1,7 +1,6 @@
 
 
 # Pass Systems Manager Parameter Store secrets programmatically in Amazon ECS
-<a name="secrets-app-ssm-paramstore"></a>
 
 Systems Manager Parameter Store provides secure storage and management of secrets. You can store data such as passwords, database strings, EC2 instance IDs and AMI IDs, and license codes as parameter values, instead of hardcoding this information in your application. You can store values as plain text or encrypted data.
 

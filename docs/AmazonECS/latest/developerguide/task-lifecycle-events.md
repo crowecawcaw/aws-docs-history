@@ -1,7 +1,6 @@
 
 
 # Amazon ECS event capture in the console
-<a name="task-lifecycle-events"></a>
 
 The Amazon ECS console provides event capture functionality that stores Amazon ECS-generated events, such as service actions and task state changes, to Amazon CloudWatch Logs through EventBridge. This feature includes a query interface with filtering capabilities for monitoring and troubleshooting.
 

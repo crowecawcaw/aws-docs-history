@@ -1,7 +1,6 @@
 
 
 # Creating a cluster for Amazon ECS Managed Instances
-<a name="create-cluster-managed-instances"></a>
 
 You create a cluster to define the infrastructure your tasks and services run on. 
 

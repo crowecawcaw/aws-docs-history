@@ -1,7 +1,6 @@
 
 
 # Connect Amazon ECS applications to the internet
-<a name="networking-outbound"></a>
 
 Most containerized applications have a least some components that need outbound access to the internet. For example, the backend for a mobile app requires outbound access to push notifications.
 

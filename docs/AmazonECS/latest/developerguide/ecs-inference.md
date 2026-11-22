@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task definitions for AWS Neuron machine learning workloads
-<a name="ecs-inference"></a>
 
 You can use [Amazon EC2 Trn1](https://aws.amazon.com/ec2/instance-types/trn1/), [Amazon EC2 Trn2](https://aws.amazon.com/ec2/instance-types/trn2/), [Amazon EC2 Inf1](https://aws.amazon.com/ec2/instance-types/inf1/) (Inf1 is only supported on EC2 launch type), and [Amazon EC2 Inf2](https://aws.amazon.com/ec2/instance-types/inf2/) instances with your clusters for machine learning workloads.
 
@@ -43,7 +42,7 @@ To select Neuron-enabled instance types for your Managed Instances workloads, us
 
 The following example uses `allowedInstanceTypes`:
 
-```
+```JSON
 {
     "instanceRequirements": {
         "allowedInstanceTypes": ["inf*", "trn*"]

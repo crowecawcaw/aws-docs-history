@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS ContainerRuntimeError errors
-<a name="container-runtime-error"></a>
 
 The following are some ContainerRuntimeError error messages and actions that you can take to fix the errors.
 

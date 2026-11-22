@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon ECS logs for high throughput
-<a name="firelens-docker-buffer-limit"></a>
 
 For high log throughput scenarios, we recommend using the `awsfirelens` log driver with FireLens and Fluent Bit. Fluent Bit is a lightweight log processor that's efficient with resources and can handle millions of log records. However, achieving optimal performance at scale requires tuning its configuration.
 
@@ -28,7 +27,7 @@ By default, Fluent Bit uses memory buffering (`storage.type memory`). You can li
 
 The following example shows a memory-buffered input configuration:
 
-```
+```ini
 [INPUT]
     Name          tcp
     Tag           ApplicationLogs
@@ -60,7 +59,7 @@ Filesystem buffering provides the following advantages:
 
 To enable filesystem buffering, provide a custom Fluent Bit configuration file. The following example shows the recommended configuration:
 
-```
+```ini
 [SERVICE]
     # Flush logs every 1 second
     Flush 1
@@ -213,7 +212,7 @@ The `Grace` parameter in the `[SERVICE]` section sets the time Fluent Bit waits 
 
 The following example shows a complete Fluent Bit configuration with all recommended settings for high-throughput scenarios:
 
-```
+```ini
 [SERVICE]
     # Flush logs every 1 second
     Flush 1
@@ -267,7 +266,7 @@ The oldest buffered records are dropped when retry attempts are exhausted or whe
 Retry limit exceeded  
 Occurs after AWS plugin retries (if `auto_retry_requests true`) plus 1 initial Fluent Bit attempt plus `retry_limit` retries. To mitigate, set `retry_limit no_limits` per OUTPUT plugin for infinite retries:  
 
-```
+```ini
 [OUTPUT]
     Name                        cloudwatch_logs
     Match                       ApplicationLogs
@@ -279,7 +278,7 @@ Infinite retries prevent dropping records due to retry exhaustion, but may cause
 Storage limit reached (filesystem buffering)  
 Occurs when the output destination is unavailable longer than your configured `storage.total_limit_size` can buffer. For example, a 10 GB buffer at 1 MB/s log rate provides approximately 2.7 hours of buffering. To mitigate, increase `storage.total_limit_size` per OUTPUT plugin and provision adequate Amazon ECS task storage:  
 
-```
+```ini
 [OUTPUT]
     Name                        cloudwatch_logs
     Match                       ApplicationLogs
@@ -321,7 +320,7 @@ Multi-destination logging can provide the following benefits:
 
 The following Fluent Bit configuration sends logs to both CloudWatch Logs and Amazon S3:
 
-```
+```ini
 [OUTPUT]
     Name cloudwatch_logs
     Match *
@@ -359,7 +358,7 @@ To use this approach, your application must write logs to files instead of `stdo
 
 The following example shows a tail input configuration with best practices:
 
-```
+```ini
 [INPUT]
     Name tail
     # File path or glob pattern to tail
@@ -428,7 +427,7 @@ Consider the following when using this option:
 
 The following task definition shows how to configure `log-driver-buffer-limit`:
 
-```
+```JSON
 {
     "containerDefinitions": [
         {

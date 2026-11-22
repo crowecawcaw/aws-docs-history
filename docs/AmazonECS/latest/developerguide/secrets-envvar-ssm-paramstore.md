@@ -1,7 +1,6 @@
 
 
 # Pass Systems Manager parameters through Amazon ECS environment variables
-<a name="secrets-envvar-ssm-paramstore"></a>
 
 Amazon ECS allows you to inject sensitive data into your containers by storing your sensitive data in AWS Systems Manager Parameter Store parameters and then referencing them in your container definition.
 
@@ -37,7 +36,7 @@ Within your container definition in the task definition, specify `secrets` with 
 
 The following is a snippet of a task definition showing the format when referencing a Systems Manager Parameter Store parameter. If the Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then specify the full ARN.
 
-```
+```JSON
 {
   "containerDefinitions": [{
     "secrets": [{

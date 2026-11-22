@@ -1,7 +1,6 @@
 
 
 # Group related Amazon ECS tasks
-<a name="task-groups"></a>
 
 You can identify a set of related tasks and place them in a task group. All tasks with the same task group name are considered as a set when using the `spread` task placement strategy. For example, suppose that you're running different applications in one cluster, such as databases and web servers. To ensure that your databases are balanced across Availability Zones, add them to a task group named `databases` and then use the `spread` task placement strategy. For more information, see [Use strategies to define Amazon ECS task placement](task-placement-strategies.md).
 

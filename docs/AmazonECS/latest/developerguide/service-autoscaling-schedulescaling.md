@@ -1,7 +1,6 @@
 
 
 # Use scheduled actions to scale Amazon ECS services
-<a name="service-autoscaling-schedulescaling"></a>
 
 With scheduled scaling, you can set up automatic scaling for your application based on predictable load changes by creating scheduled actions that increase or decrease the number of tasks at specific times. This allows you to scale your application proactively to match predictable load changes.
 

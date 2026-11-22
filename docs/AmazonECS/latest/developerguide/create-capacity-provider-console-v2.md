@@ -1,7 +1,6 @@
 
 
 # Creating a capacity provider for Amazon ECS
-<a name="create-capacity-provider-console-v2"></a>
 
 After the cluster creation completes, you can create a new capacity provider (Auto Scaling group) for EC2. Capacity providers help to manage and scale your the infrastructure for your applications.
 

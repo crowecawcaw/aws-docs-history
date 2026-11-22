@@ -1,7 +1,6 @@
 
 
 # Reverting to the default Amazon ECS account settings
-<a name="ecs-reverting-account"></a>
 
 You can use the AWS Management Console to revert your Amazon ECS account settings to the default.
 

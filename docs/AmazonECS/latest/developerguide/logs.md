@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS container agent logs
-<a name="logs"></a>
 
 Amazon ECS stores logs in the `/var/log/ecs` folder of your container instances. There are logs available from the Amazon ECS container agent and from the `ecs-init` service that controls the state of the agent (start/stop) on the container instance. You can view these log files by connecting to a container instance using SSH.
 

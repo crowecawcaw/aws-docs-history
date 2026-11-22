@@ -1,7 +1,6 @@
 
 
 # Updating the Amazon ECS container agent
-<a name="ecs-agent-update"></a>
 
 Occasionally, you might need to update the Amazon ECS container agent to pick up bug fixes and new features. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with an Amazon ECS-optimized AMI or another operating system.
 

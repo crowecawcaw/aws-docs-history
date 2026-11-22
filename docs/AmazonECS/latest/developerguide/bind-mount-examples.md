@@ -1,7 +1,6 @@
 
 
 # Bind mount examples for Amazon ECS
-<a name="bind-mount-examples"></a>
 
 The following examples cover the common use cases for using a bind mount for your containers.
 
@@ -10,7 +9,7 @@ The following examples cover the common use cases for using a bind mount for you
 For Amazon ECS tasks that are hosted on Fargate using platform version `1.4.0` or later (Linux) or `1.0.0` (Windows), you can allocate more than the default amount of ephemeral storage for the containers in your task to use. This example can be incorporated into the other examples to allocate more ephemeral storage for your Fargate tasks.
 + In the task definition, define an `ephemeralStorage` object. The `sizeInGiB` must be an integer between the values of `21` and `200` and is expressed in GiB.
 
-  ```
+  ```JSON
   "ephemeralStorage": {
       "sizeInGiB": {{integer}}
   }
@@ -22,7 +21,7 @@ In some cases, you want to provide the containers in a task some scratch space. 
 
 1. In the task definition `volumes` section, define a bind mount with the name `database_scratch`.
 
-   ```
+   ```JSON
      "volumes": [
        {
          "name": "{{database_scratch}}"
@@ -32,7 +31,7 @@ In some cases, you want to provide the containers in a task some scratch space. 
 
 1. In the `containerDefinitions` section, create the database container definitions. This is so that they mount the volume.
 
-   ```
+   ```JSON
    "containerDefinitions": [
        {
          "name": "{{database1}}",
@@ -90,7 +89,7 @@ In this example, you have a Dockerfile that writes data that you want to mount i
 
 1. In the task definition `volumes` section, define a volume with the name `application_logs`.
 
-   ```
+   ```JSON
      "volumes": [
        {
          "name": "{{application_logs}}"
@@ -100,7 +99,7 @@ In this example, you have a Dockerfile that writes data that you want to mount i
 
 1. In the `containerDefinitions` section, create the application container definitions. This is so they mount the storage. The `containerPath` value must match the absolute path that's specified in the `VOLUME` directive from the Dockerfile.
 
-   ```
+   ```JSON
      "containerDefinitions": [
        {
          "name": "{{application1}}",
@@ -139,7 +138,7 @@ Amazon ECS doesn't sync your storage across Amazon EC2 instances. Tasks that use
 
 1. In the task definition `volumes` section, define a bind mount with `name` and `sourcePath` values. In the following example, the host Amazon EC2 instance contains data at `/ecs/webdata` that you want to mount inside the container.
 
-   ```
+   ```JSON
      "volumes": [
        {
          "name": "{{webdata}}",
@@ -152,7 +151,7 @@ Amazon ECS doesn't sync your storage across Amazon EC2 instances. Tasks that use
 
 1. In the `containerDefinitions` section, define a container with a `mountPoints` value that references the name of the bind mount and the `containerPath` value to mount the bind mount at on the container.
 
-   ```
+   ```JSON
      "containerDefinitions": [
        {
          "name": "web",
@@ -182,7 +181,7 @@ You can define a data volume in a task definition and mount that volume at diffe
 
 1. In the task definition `volumes` section, define a data volume with the name `webroot` and the source path `/data/webroot`.
 
-   ```
+   ```JSON
      "volumes": [
        {
          "name": "{{webroot}}",
@@ -195,7 +194,7 @@ You can define a data volume in a task definition and mount that volume at diffe
 
 1. In the `containerDefinitions` section, define a container for each web server with `mountPoints` values that associate the `webroot` volume with the `containerPath` value pointing to the document root for that container.
 
-   ```
+   ```JSON
      "containerDefinitions": [
        {
          "name": "{{web-server-1}}",
@@ -255,7 +254,7 @@ For tasks hosted on Amazon EC2 instances, you can define one or more volumes on 
 
 1. Create a task definition that defines your other volumes and mount points for the containers. In this example `volumes` section, you create an empty volume called `empty`, which the Docker daemon manages. There's also a host volume defined that's called `host_etc`. It exports the `/etc` folder on the host container instance.
 
-   ```
+   ```JSON
    {
      "family": "test-volumes-from",
      "volumes": [
@@ -274,7 +273,7 @@ For tasks hosted on Amazon EC2 instances, you can define one or more volumes on 
 
    In the container definitions section, create a container that mounts the volumes defined earlier. In this example, the `web` container mounts the `empty` and `host_etc` volumes. This is the container that uses the image built with a volume in the Dockerfile.
 
-   ```
+   ```JSON
    "containerDefinitions": [
        {
          "name": "web",

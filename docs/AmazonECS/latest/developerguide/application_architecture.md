@@ -1,7 +1,6 @@
 
 
 # Architect your application for Amazon ECS
-<a name="application_architecture"></a>
 
 You architect your application by creating a task definition for your application. The task definition contains the parameters that define information about the application, including:
 + The capacity to use, which determines the infrastructure that your tasks are hosted on.

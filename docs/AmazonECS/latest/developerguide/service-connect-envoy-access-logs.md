@@ -1,13 +1,12 @@
 
 
 # Amazon ECS Service Connect access logs
-<a name="service-connect-envoy-access-logs"></a>
 
 Amazon ECS Service Connect supports access logs to provide detailed telemetry about individual requests processed by the Service Connect proxy. Access logs complement existing application logs by capturing per-request traffic metadata such as HTTP methods, paths, response codes, flags, and timing information. This enables deeper observability into request-level traffic patterns and service interactions for effective troubleshooting and monitoring.
 
 To enable access logs, specify both the `logConfiguration` and `accessLogConfiguration` objects in the `serviceConnectConfiguration` object. You can configure the format of the logs and whether the logs should include query parameters in the `accessLogConfiguration`. The logs are delivered to the destination log group by the log driver specificied in the `logConfiguration`.
 
-```
+```json
 {
     "serviceConnectConfiguration": {
         "enabled": true,
@@ -63,7 +62,7 @@ The following command operators are included by default for HTTP logs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "start_time": "%START_TIME%",
   "method": "%REQ(:METHOD)%",
@@ -102,7 +101,7 @@ In addition to the command operators included for HTTP logs, HTTP2 logs include 
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "start_time": "%START_TIME%",
   "method": "%REQ(:METHOD)%",
@@ -142,7 +141,7 @@ In addition to the command operators included for HTTP logs, gRPC access logs in
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "start_time": "%START_TIME%",
   "method": "%REQ(:METHOD)%",
@@ -182,7 +181,7 @@ The following command operators are included by default in TCP access logs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "start_time": "%START_TIME%",
   "downstream_remote_address": "%DOWNSTREAM_REMOTE_ADDRESS%",

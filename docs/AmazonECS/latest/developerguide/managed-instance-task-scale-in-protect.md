@@ -1,7 +1,6 @@
 
 
 # Safely stop Amazon ECS workloads running on Amazon ECS Managed Instances
-<a name="managed-instance-task-scale-in-protect"></a>
 
 You can use Amazon ECS task scale-in protection to protect your tasks from being terminated by scale-in events from either service scaling or deployments.
 

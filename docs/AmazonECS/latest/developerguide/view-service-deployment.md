@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS service deployments
-<a name="view-service-deployment"></a>
 
 You can see the most recent 90-day history for deployments created on or after October 25, 2024. The service deployments can be in any of the following states:
 + In-progress 

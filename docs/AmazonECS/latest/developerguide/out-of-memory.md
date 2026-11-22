@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS OutOfMemoryError errors
-<a name="out-of-memory"></a>
 
 The following are some OutOfMemoryError error messages and actions that you can take to fix the errors.
 

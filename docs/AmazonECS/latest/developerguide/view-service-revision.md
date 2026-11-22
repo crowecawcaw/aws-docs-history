@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS service revision details
-<a name="view-service-revision"></a>
 
 You can view information about the following service revision types that were created on or after October 25, 2024:
 + Source -The currently deployed workload configuration

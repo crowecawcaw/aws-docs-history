@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task metadata endpoint version 4
-<a name="task-metadata-endpoint-v4"></a>
 
 The Amazon ECS container agent injects an environment variable into each container, referred to as the *task metadata endpoint* which provides various task metadata and [Docker stats](https://docs.docker.com/engine/api/v1.30/#operation/ContainerStats) to the container.
 

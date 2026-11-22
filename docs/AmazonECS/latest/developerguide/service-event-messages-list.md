@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service event messages
-<a name="service-event-messages-list"></a>
 
 The following are examples of service event messages you may see in the Amazon ECS console.
 
@@ -229,10 +228,12 @@ The Amazon ECS container agent on the closest matching container instance for ta
 
 The task set for the service is failing health checks because the target group isn't found. The message includes the task ID to help identify which specific task is failing health checks. You should delete and recreate the service. Don't delete any Elastic Load Balancing target group unless the corresponding Amazon ECS service is already deleted.
 
+Tasks stopped for this reason have the stopped reason `Task failed ELB health checks in (target-group {{target-group-ARN}}) because target group is not found`.
+
 ## service ({{service-name}}) task set ({{taskSet-ID}}) (task {{task-id}}) is not healthy in target-group ({{targetGroup-ARN)}}) due to `TARGET IS NOT FOUND`.
 <a name="service-event-messages-19"></a>
 
-The task set for the service is failing health checks because the target isn't found. The message includes the task ID to help identify which specific task is failing health checks.
+The task set for the service is failing health checks because the task's target isn't in the target group, for example because it was deregistered outside of Amazon ECS. The message includes the task ID to help identify which specific task is failing health checks. Tasks stopped for this reason have the stopped reason `Task failed ELB health checks in (target-group {{target-group-ARN}}) because target is not found`. Amazon ECS registers and deregisters the targets of a service's target groups, so leave target registration to Amazon ECS. The service starts a replacement task and registers it.
 
 ## IAM permissions policies have been misconfigured or changed, and ECS can no longer maintain your service
 <a name="service-event-messages-20"></a>

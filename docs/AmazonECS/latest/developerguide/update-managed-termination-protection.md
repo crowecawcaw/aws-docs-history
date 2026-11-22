@@ -1,7 +1,6 @@
 
 
 # Updating managed termination protection for Amazon ECS capacity providers
-<a name="update-managed-termination-protection"></a>
 
 When you use managed termination protection, you need to update the setting for existing capacity providers.
 

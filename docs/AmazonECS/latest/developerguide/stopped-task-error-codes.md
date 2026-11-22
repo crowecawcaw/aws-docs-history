@@ -1,7 +1,6 @@
 
 
 # Amazon ECS stopped tasks error messages
-<a name="stopped-task-error-codes"></a>
 
 The following are the possible error messages you may receive when your task stops unexpectedly.
 

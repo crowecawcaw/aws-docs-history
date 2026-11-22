@@ -1,7 +1,6 @@
 
 
 # Schedule your containers on Amazon ECS
-<a name="scheduling_tasks"></a>
 
 Amazon Elastic Container Service (Amazon ECS) is a shared state, optimistic concurrency system that provides flexible scheduling capabilities for your containerized workloads. The Amazon ECS schedulers use the same cluster state information as the Amazon ECS API to make appropriate placement decisions.
 

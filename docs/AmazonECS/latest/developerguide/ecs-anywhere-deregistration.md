@@ -1,7 +1,6 @@
 
 
 # Deregistering an Amazon ECS external instance
-<a name="ecs-anywhere-deregistration"></a>
 
 We recommend that you deregister the instance from both Amazon ECS and AWS Systems Manager after you are done with the instance. Following deregistration, the external instance is no longer able to accept new tasks.
 

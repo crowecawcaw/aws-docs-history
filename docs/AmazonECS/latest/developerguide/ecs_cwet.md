@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon ECS to listen for CloudWatch Events events
-<a name="ecs_cwet"></a>
 
 Learn how to set up a simple Lambda function that listens for task events and writes them out to a CloudWatch Logs log stream.
 
@@ -31,7 +30,7 @@ In this procedure, you create a simple Lambda function to serve as a target for 
 
 1. In the **Function code** section, edit the sample code to match the following example:
 
-   ```
+   ```json
    import json
    
    def lambda_handler(event, context):
@@ -81,7 +80,7 @@ Create a task definition.
 
 1. Copy and paste the following example task definition into the box and then choose **Save**.
 
-   ```
+   ```JSON
    {
       "containerDefinitions": [ 
          { 

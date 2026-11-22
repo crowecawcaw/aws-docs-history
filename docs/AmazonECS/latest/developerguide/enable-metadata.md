@@ -1,7 +1,6 @@
 
 
 # Turning on Amazon ECS container metadata
-<a name="enable-metadata"></a>
 
 You can turn on container metadata at the container instance level by setting the `ECS_ENABLE_CONTAINER_METADATA` container agent variable to `true`. You can set this variable in the `/etc/ecs/ecs.config` configuration file and restart the agent. You can also set it as a Docker environment variable at runtime when the agent container is started. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md).
 

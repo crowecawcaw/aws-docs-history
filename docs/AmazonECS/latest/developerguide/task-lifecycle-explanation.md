@@ -1,7 +1,6 @@
 
 
 # Amazon ECS task lifecycle
-<a name="task-lifecycle-explanation"></a>
 
 When a task is started, either manually or as part of a service, it can pass through several states before it finishes on its own or is stopped manually. Some tasks are meant to run as batch jobs that naturally progress through from `PENDING` to `RUNNING` to `STOPPED`. Other tasks, which can be part of a service, are meant to continue running indefinitely, or to be scaled up and down as needed.
 

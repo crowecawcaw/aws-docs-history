@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECS ContainerRuntimeTimeoutError errors
-<a name="container-runtime-timeout-error"></a>
 
 The following are some ContainerRuntimeTimeoutError error messages and actions that you can take to fix the errors.
 

@@ -1,7 +1,6 @@
 
 
 # Modifying Amazon ECS account settings
-<a name="ecs-modifying-longer-id-settings"></a>
 
 Modify your account settings to access Amazon ECS features.
 

@@ -1,7 +1,6 @@
 
 
 # Migrate an Amazon ECS short service ARN to a long ARN
-<a name="service-arn-migration"></a>
 
 Amazon ECS assigns a unique Amazon Resource Name (ARN) to each service. Services that were created before 2021 have a short ARN format:
 
@@ -69,7 +68,7 @@ Perform the following operations before you migrate the service ARN.
 
    Example output
 
-   ```
+   ```json
    {
        "setting": {
            "name": "serviceLongArnFormat",
@@ -90,7 +89,7 @@ Perform the following operations before you migrate the service ARN.
 
    Example output
 
-   ```
+   ```json
    {
        "setting": {
            "name": "taskLongArnFormat",
