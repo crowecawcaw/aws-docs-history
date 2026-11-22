@@ -1,7 +1,6 @@
 
 
 # How Infrastructure Performance works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 The following sections describe how Infrastructure Performance works with IAM.
 

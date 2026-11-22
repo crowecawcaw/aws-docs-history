@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch subscriptions for Infrastructure Performance
-<a name="nmip-subscriptions-cw"></a>
 
 Infrastructure Performance subscriptions publish network performance metrics in five-minute periods to Amazon CloudWatch for any pair of inter Regions, inter-Availability Zones, or intra-Availability Zones that you optionally subscribe to. Once a subscription is enabled, performance metrics continue to publish to CloudWatch for those pairs until you unsubscribe any pair that you no longer want to publish performance metrics for.
 

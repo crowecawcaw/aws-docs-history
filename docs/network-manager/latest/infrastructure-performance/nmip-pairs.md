@@ -1,7 +1,6 @@
 
 
 # Monitor Infrastructure Performance using the AWS Network Manager console
-<a name="nmip-pairs"></a>
 
 View the network performance between two Regions, between two Availability Zones, or in the two connections within an Availability Zone. After you choose a starting and ending date, and a period by which to aggregate performance, the network performance metrics display in the **Health status timeline** and **Network latency timeline** for that time period. You can also subscribe or unsubscribe performance metrics from Amazon CloudWatch. When you subscribe, you're able to view performance metrics in CloudWatch.
 

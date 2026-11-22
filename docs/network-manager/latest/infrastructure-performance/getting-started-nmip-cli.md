@@ -1,7 +1,6 @@
 
 
 # Manage CloudWatch subscriptions using the AWS CLI
-<a name="getting-started-nmip-cli"></a>
 
 Use the AWS CLI or APIs to get Infrastructure Performance metrics in AWS Network Manager and to enable or disable Amazon CloudWatch subscriptions. 
 

@@ -1,7 +1,6 @@
 
 
 # What is Infrastructure Performance for AWS Network Manager?
-<a name="what-is-nmip"></a>
 
 Infrastructure Performance allows you to obtain near real-time and historical network latency across AWS Regions and across or within Availability Zones for a specified time period. However, network performance data is not available prior to Oct 26 2022 00:00:00 GMT\+000. Performance metrics are aggregated according to a time period that you choose. Network performance results are returned for that time period, showing whether the performance was healthy or if there was any performance degradation. This can help you to more easily evaluate whether network performance might affect your applications. Infrastructure Performance also supports publishing metrics as subscriptions to Amazon CloudWatch, allowing you to view performance metrics in CloudWatch. There is no cost associated with using Infrastructure Performance. However, you might incur charges when using subscriptions to view performance in CloudWatch. For more information about CloudWatch pricing guidelines, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 

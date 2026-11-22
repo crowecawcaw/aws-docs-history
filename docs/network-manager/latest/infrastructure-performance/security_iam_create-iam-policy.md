@@ -1,7 +1,6 @@
 
 
 # Allow IAM users or groups to access Infrastructure Performance
-<a name="security_iam_create-iam-policy"></a>
 
 Any user user that signs in to the AWS Management Console or AWS Command Line Interface (AWS CLI) must have permissions to access specific resources. You provide those permissions by using AWS Identity and Access Management (IAM), through policies. 
 
@@ -32,7 +31,7 @@ Create a policy that provides users full access to Infrastructure Performance. T
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [
