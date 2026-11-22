@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # List sessions
-<a name="data-api-calling-cli-list-sessions"></a>
 
 To list the sessions that you created in the last 24 hours, use the `aws redshift-data list-sessions` AWS CLI command. By default, the command returns only sessions with a status of `AVAILABLE` or `BUSY`. You can filter the results by session status, compute target (cluster or serverless workgroup), or database. Your IAM permissions determine whether you can run this command. For more information about sessions, see [Running SQL statements with session reuse when calling the Amazon Redshift Data API](data-api.md#data-api-calling-considerations-session-reuse).
 
@@ -16,7 +15,7 @@ The following AWS CLI command lists the sessions that ran on a cluster:
 
 The following is an example of the response:
 
-```
+```json
 {
     "Sessions": [
         {
@@ -56,7 +55,7 @@ aws redshift-data list-sessions
 
 The following is an example of the response:
 
-```
+```json
 {
     "Sessions": [
         {

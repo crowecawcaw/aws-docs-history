@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Authentication with the Spark connector
-<a name="redshift-spark-connector-authentication"></a>
 
 The following diagram describes the authentication between Amazon S3, Amazon Redshift, the Spark driver, and Spark executors.
 
@@ -33,7 +32,7 @@ You also must make sure that Amazon Redshift can assume the IAM role during `COP
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

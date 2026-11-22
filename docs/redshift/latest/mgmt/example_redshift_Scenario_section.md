@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Learn the basics of Amazon Redshift with an AWS SDK
-<a name="example_redshift_Scenario_section"></a>
 
 The following code examples show how to:
 + Create a Redshift cluster.
@@ -21,7 +20,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 Create a Redshift wrapper class to manage operations.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for Amazon Redshift operations.
 /// </summary>
@@ -495,7 +494,7 @@ public class RedshiftWrapper
 ```
 Run an interactive scenario demonstrating Redshift basics.  
 
-```
+```csharp
 /// <summary>
 /// Amazon Redshift Getting Started Scenario.
 /// </summary>
@@ -776,7 +775,7 @@ public class RedshiftBasics
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
-```
+```go
 package scenarios
 
 import (
@@ -1187,7 +1186,7 @@ func (runner *RedshiftBasicsScenario) QueryMoviesByYear(ctx context.Context, clu
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 Run an interactive scenario demonstrating Amazon Redshift features.  
 
-```
+```java
 import com.example.redshift.User;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
@@ -1565,7 +1564,7 @@ public class RedshiftScenario {
 ```
 A wrapper class for Amazon Redshift SDK methods.  
 
-```
+```java
 public class RedshiftActions {
 
     private static final Logger logger = LoggerFactory.getLogger(RedshiftActions.class);
@@ -2024,7 +2023,7 @@ public class RedshiftActions {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
-```
+```python
 class RedshiftScenario:
     """Runs an interactive scenario that shows how to get started with Redshift."""
 
@@ -2312,7 +2311,7 @@ class RedshiftScenario:
 ```
 Main function showing scenario implementation.  
 
-```
+```python
 def main():
     redshift_client = boto3.client("redshift")
     redshift_data_client = boto3.client("redshift-data")
@@ -2325,7 +2324,7 @@ def main():
 ```
 The wrapper functions used in the scenario.   
 
-```
+```python
     def create_cluster(
         self,
         cluster_identifier,

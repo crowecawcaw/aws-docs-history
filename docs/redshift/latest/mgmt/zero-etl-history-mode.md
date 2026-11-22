@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # History mode
-<a name="zero-etl-history-mode"></a>
 
 With history mode, you can configure your zero-ETL integrations to track every version (including updates and deletes) of your records in source tables, directly in Amazon Redshift. You can run advanced analytics on all your data, such as, run a historical analysis, build look-back reports, perform trend analysis, and send incremental updates to downstream applications built on top of Amazon Redshift. History mode is supported with multiple Amazon Redshift zero-ETL integrations, including Amazon Aurora MySQL, Amazon Aurora PostgreSQL, Amazon RDS for MySQL, and Amazon DynamoDB. History mode is also supported by several applications, such as Salesforce, SAP, ServiceNow, and Zendesk.
 
@@ -42,7 +41,7 @@ For information about what to consider when using history mode, see [Considerati
 
    You can delete inactive records from a history mode table by filtering on records where the column `_record_is_active` is false. The following SQL DELETE command deletes inactive records from a table where the id column is less than or equal to 100. After you delete records, when automatic vacuum delete runs, storage for the deleted records is reclaimed.
 
-   ```
+   ```sql
    DELETE FROM myschema.mytable where not _record_is_active AND id <= 100;
    ```
 **Note**  
@@ -50,7 +49,7 @@ This `DELETE` applies only to rows whose inactive state zero-ETL has already per
 
    When history mode is turned `off`, Amazon Redshift makes a copy of your table in the target database with active records and without the added history columns. Amazon Redshift renames your table to `{{table-name}}_historical_{{timestamp}}` for your use. You can drop this copy of your table if you no longer need it. You can rename these tables using the ALTER TABLE command. For example:
 
-   ```
+   ```sql
    ALTER TABLE {{[schema-name.]}}{{table-name_historical_timestamp}} RENAME TO {{new_table_name}};
    ```
 

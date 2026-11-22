@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Fetch the results of a SQL statement
-<a name="data-api-calling-cli-get-statement-result"></a>
 
 To fetch the result from a SQL statement that ran, use the `redshift-data get-statement-result` or `redshift-data get-statement-result-v2` AWS CLI command. The results from `get-statement-result` are in JSON format. The results from `get-statement-result-v2` are in CSV format. You can provide an `Id` that you receive in response to `execute-statement` or `batch-execute-statement`. The `Id` value for a SQL statement run by `batch-execute-statement` can be retrieved in the result of `describe-statement` and is suffixed by a colon and sequence number such as `b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2`. If you run multiple SQL statements with `batch-execute-statement`, each SQL statement has an `Id` value as shown in `describe-statement`. Authorization to run this command is based on the caller's IAM permissions. 
 
@@ -25,7 +24,7 @@ aws redshift-data get-statement-result
 
 The following is an example of the response to a call to `get-statement-result` where the SQL result is returned in JSON format in the `Records` key of the response.
 
-```
+```json
 {
     "ColumnMetadata": [
         {
@@ -269,7 +268,7 @@ aws redshift-data get-statement-result
     --id d468d942-6df9-4f85-8ae3-bac01a61aec3
 ```
 
-```
+```json
 {
     "Records": [
         [
@@ -381,7 +380,7 @@ aws redshift-data get-statement-result-v2
     --id d468d942-6df9-4f85-8ae3-bac01a61aec3
 ```
 
-```
+```json
 {
     "Records": [
         {

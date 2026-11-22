@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use SHOW commands
-<a name="discovering-metadata-show-commands"></a>
 
 If the driver metadata API doesn't cover your use case, you can use Amazon Redshift `SHOW` commands to retrieve metadata. `SHOW` commands are optimized for fast metadata retrieval. They're useful when you need metadata in an interactive SQL session, or when your application connects through a client that doesn't expose the driver metadata API.
 
@@ -21,7 +20,7 @@ The following `SHOW` commands are supported for common discovery operations:
 ## Examples
 <a name="r_SHOW_LIST-examples"></a>
 
-```
+```sql
 SHOW SCHEMAS FROM DATABASE dev;
 
 database_name |     schema_name      | schema_owner | schema_type |         schema_acl          | source_database | schema_option 
@@ -33,7 +32,7 @@ dev           | information_schema   |            1 | local       | jpuser=UC/jp
 dev           | schemad79cd6d93bf043 |            1 | local       |                             |                 |
 ```
 
-```
+```sql
 SHOW TABLES FROM SCHEMA dev.s1 LIKE '%view' LIMIT 1;
 
 database_name | schema_name |    table_name     | table_type |              table_acl               | remarks | owner | last_altered_time | last_modified_time | dist_style |   table_subtype   
@@ -41,7 +40,7 @@ database_name | schema_name |    table_name     | table_type |              tabl
 dev           | s1          | late_binding_view | VIEW       | {alice=arwdRxtDPA/alice,bob=d/alice} |         | alice |                   |                    |            | LATE BINDING VIEW
 ```
 
-```
+```sql
 SHOW COLUMNS FROM TABLE second_db.public.t22;
 
  database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable |          data_type          | character_maximum_length | numeric_precision | numeric_scale | remarks | sort_key_type | sort_key | dist_key | encoding | collation 

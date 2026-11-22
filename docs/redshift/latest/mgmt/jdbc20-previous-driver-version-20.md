@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Previous versions of JDBC driver version 2.x
-<a name="jdbc20-previous-driver-version-20"></a>
 
 Download a previous version of the Amazon Redshift JDBC driver version 2.x only if your tool requires a specific version of the driver. 
 

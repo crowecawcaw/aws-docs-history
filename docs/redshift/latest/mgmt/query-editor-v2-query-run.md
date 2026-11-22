@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Authoring queries with Amazon Redshift
-<a name="query-editor-v2-query-run"></a>
 
 You can enter a query in the editor or select a saved query from the **Queries** list and choose **Run**.
 
@@ -106,7 +105,7 @@ When you run these example queries, confirm that you choose the correct database
 
 The following command sets the `search_path` server configuration parameter to *public* for the session. For more information, see [SET](https://docs.aws.amazon.com/redshift/latest/dg/r_SET.html) and [search\_path](https://docs.aws.amazon.com/redshift/latest/dg/r_search_path.html) in the *Amazon Redshift Database Developer Guide*. 
 
-```
+```sql
 set search_path to public;
 ```
 
@@ -115,7 +114,7 @@ set search_path to public;
 
 The following query finds the event with the most sales. 
 
-```
+```sql
 select eventname, count(salesid) totalorders, sum(pricepaid) totalsales
 from sales, event
 where sales.eventid=event.eventid
@@ -143,7 +142,7 @@ Indigo Girls            57             45399
 
 The following query finds sales where the quantity sold is greater than the parameter specified by `${numberoforders}`. When the parameter value is `7`, the result is 60 rows. When you run the query, the query editor v2 displays a **Run query form** window to gather the value of parameters in the SQL statement. 
 
-```
+```sql
 select salesid, qtysold
 from sales 
 where qtysold > ${numberoforders}
@@ -171,7 +170,7 @@ salesid	qtysold
 
 The following statement creates the temporary table *eventsalestemp* by selecting information from the *sales* and *event* tables. 
 
-```
+```sql
 create temporary table eventsalestemp as
 select eventname, count(salesid) totalorders, sum(pricepaid) totalsales
 from sales, event
@@ -184,7 +183,7 @@ group by eventname;
 
 The following statement selects events, total orders, and total sales from the temporary table *eventsalestemp*, ordered by total orders. 
 
-```
+```sql
 select eventname,  totalorders,  totalsales
 from eventsalestemp
 order by 2;

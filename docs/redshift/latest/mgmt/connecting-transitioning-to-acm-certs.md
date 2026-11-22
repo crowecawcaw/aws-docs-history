@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Transitioning to ACM certificates for SSL connections
-<a name="connecting-transitioning-to-acm-certs"></a>
 
 Amazon Redshift is replacing the SSL certificates on your clusters with [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/) issued certificates. ACM is a trusted public certificate authority (CA) that is trusted by most current systems. You might need to update your current trust root CA certificates to continue to connect to your clusters using SSL. 
 

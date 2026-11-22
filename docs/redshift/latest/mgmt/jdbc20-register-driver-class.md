@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Registering the driver class
-<a name="jdbc20-register-driver-class"></a>
 
 Make sure that you register the appropriate class for your application. You use following classes to connect the Amazon Redshift JDBC driver to Amazon Redshift data stores:
 + `Driver` classes extend `java.sql.Driver`.
@@ -15,7 +14,7 @@ The driver supports the following fully qualified class names that are independe
 
 The following example shows how to use the DriverManager class to establish a connection for JDBC 4.2.
 
-```
+```java
             private static Connection connectViaDM() throws Exception
 {
 Connection connection = null;
@@ -26,7 +25,7 @@ return connection;
 
 The following example shows how to use the `DataSource` class to establish a connection.
 
-```
+```java
  private static Connection connectViaDS() throws Exception
 {
 Connection connection = null;

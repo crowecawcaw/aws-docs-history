@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Get started with serverless data warehouses using the CLI
-<a name="example_redshift_GettingStarted_038_section"></a>
 
 The following code example shows how to:
 + Use secrets-manager CreateSecret
@@ -20,7 +19,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/038-redshift-serverless) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Redshift Serverless Tutorial Script with Secrets Manager (No jq dependency)

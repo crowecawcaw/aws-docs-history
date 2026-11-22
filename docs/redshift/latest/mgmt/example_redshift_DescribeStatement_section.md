@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `DescribeStatement` with an AWS SDK
-<a name="example_redshift_DescribeStatement_section"></a>
 
 The following code examples show how to use `DescribeStatement`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Describe a statement execution.
     /// </summary>
@@ -54,7 +53,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 
-```
+```java
     /**
      * Checks the status of an SQL statement asynchronously and handles the completion of the statement.
      *
@@ -103,7 +102,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
-```
+```python
 class RedshiftDataWrapper:
     """Encapsulates Amazon Redshift data."""
 
@@ -134,7 +133,7 @@ class RedshiftDataWrapper:
 ```
 The following code instantiates the RedshiftDataWrapper object.   
 
-```
+```python
     client = boto3.client("redshift-data")
     redshift_data_wrapper = RedshiftDataWrapper(client)
 ```
@@ -146,7 +145,7 @@ The following code instantiates the RedshiftDataWrapper object.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example values: iv_statement_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
         oo_result = lo_rsd->describestatement(

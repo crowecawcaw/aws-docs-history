@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Create a zero-ETL integration for DynamoDB
-<a name="zero-etl-setting-up.create-integration-ddb"></a>
 
 Before creating a zero-ETL integration, review the considerations and requirements outlined in [Considerations when using zero-ETL integrations with Amazon Redshift](zero-etl.reqs-lims.md). Follow this general flow to create a zero-ETL integration from DynamoDB to Amazon Redshift
 
@@ -180,7 +179,7 @@ When creating zero-ETL integrations, your sign in credentials must have permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -249,7 +248,7 @@ The following sample key policy statements demonstrate the permissions required 
 
 The following policy statement allows the requester account or role to retrieve information about a KMS key.
 
-```
+```json
 {
    "Effect":"Allow",
    "Principal":{
@@ -262,7 +261,7 @@ The following policy statement allows the requester account or role to retrieve 
 
 The following policy statement allows the requester account or role to add a grant to a KMS key. The [`kms:ViaService`](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-via-service) condition key limits use of the KMS key to requests from Amazon Redshift.
 
-```
+```json
 {
    "Effect":"Allow",
    "Principal":{
@@ -288,7 +287,7 @@ The following policy statement allows the requester account or role to add a gra
 
 The following policy statement allows the Amazon Redshift service principal to add a grant to a KMS key.
 
-```
+```json
 {
    "Effect":"Allow",
    "Principal":{

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating an alarm
-<a name="performance-metrics-alarms"></a>
 
 Alarms you create in the Amazon Redshift console are CloudWatch alarms. They are useful because they help you make proactive decisions about your cluster or serverless instance. You can set one or more alarms on any of the metrics listed in [Performance data in Amazon Redshift](metrics-listing.md). For example, setting an alarm for high `CPUUtilization` on a cluster node helps indicate when the node is overutilized. An alarm for high `DataStorage` would keep track of the storage space that your serverless namespace is using for your data.
 

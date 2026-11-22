@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Viewing database performance data
-<a name="performance-metrics-database-performance"></a>
 
 You can use database performance metrics in Amazon Redshift to do the following:
 + Analyze the time spent by queries by processing stages. You can look for unusual trends in the amount of time spent in a stage. 

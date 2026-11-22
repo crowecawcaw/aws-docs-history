@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Opening query editor v2
-<a name="query-editor-v2-open"></a>
 
 With Amazon Redshift, you can execute SQL queries against your data warehouse cluster using the query editor v2 in the Amazon Redshift console. The query editor v2 is a web-based tool that provides a user-friendly interface for running ad-hoc queries, exploring data, and performing data analysis tasks. The following sections guide you through the process of opening the query editor v2 in the console and utilizing its functionalities effectively.
 
@@ -75,7 +74,7 @@ Consider the following when working with query editor v2.
 + You can save a query up to 30,000 characters long. 
 + By default, query editor v2 auto-commits each individual SQL command that runs. When a BEGIN statement is provided, statements within BEGIN-COMMIT or BEGIN-ROLLBACK block are run as a single transaction. For more information about transactions, see [BEGIN](https://docs.aws.amazon.com/redshift/latest/dg/r_BEGIN.html) in the *Amazon Redshift Database Developer Guide.*
 + The maximum number of warnings that query editor v2 displays while running a SQL statement is `10`. For example, when a stored procedure is run, no more than 10 RAISE statements are displayed.
-+ The query editor v2 doesn't support an IAM `RoleSessionName` that contains commas (,). You might see an error similar to the following: Error Message : "'AROA123456789EXAMPLE:mytext,yourtext' is not a valid value for TagValue - it contains illegal characters" This issue arises when you define an IAM `RoleSessionName` that includes a comma and then use query editor v2 with that IAM role.
++ The query editor v2 doesn't support an IAM `RoleSessionName` that contains commas (,). You might see an error similar to the following: `Error Message : "'AROA123456789EXAMPLE:mytext,yourtext' is not a valid value for TagValue - it contains illegal characters"` This issue arises when you define an IAM `RoleSessionName` that includes a comma and then use query editor v2 with that IAM role.
 
   For more information about an IAM `RoleSessionName`, see [RoleSessionName SAML attribute](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html#saml_role-session-attribute) in the *IAM User Guide*. 
 

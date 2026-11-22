@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # API reference for the Amazon Redshift Python connector
-<a name="python-api-reference"></a>
 
 Following, you can find a description of the Amazon Redshift Python connector API operations.
 
@@ -120,7 +119,7 @@ Returns a list of all columns in a specific table in an Amazon Redshift database
 
 Following is the syntax for the AdfsCredentialsProvider plugin API operation for the Amazon Redshift Python connector. 
 
-```
+```Python
 redshift_connector.plugin.AdfsCredentialsProvider()
 ```
 
@@ -129,7 +128,7 @@ redshift_connector.plugin.AdfsCredentialsProvider()
 
 Following is the syntax for the AzureCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.AzureCredentialsProvider()
 ```
 
@@ -138,7 +137,7 @@ redshift_connector.plugin.AzureCredentialsProvider()
 
 Following is the syntax for the BrowserAzureCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.BrowserAzureCredentialsProvider()
 ```
 
@@ -147,7 +146,7 @@ redshift_connector.plugin.BrowserAzureCredentialsProvider()
 
 Following is the syntax for the BrowserSamlCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.BrowserSamlCredentialsProvider()
 ```
 
@@ -156,7 +155,7 @@ redshift_connector.plugin.BrowserSamlCredentialsProvider()
 
 Following is the syntax for the OktaCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.OktaCredentialsProvider()
 ```
 
@@ -165,7 +164,7 @@ redshift_connector.plugin.OktaCredentialsProvider()
 
 Following is the syntax for the PingCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.PingCredentialsProvider()
 ```
 
@@ -174,6 +173,6 @@ redshift_connector.plugin.PingCredentialsProvider()
 
 Following is the syntax for the SamlCredentialsProvider plugin API operation for the Amazon Redshift Python connector.
 
-```
+```Python
 redshift_connector.plugin.SamlCredentialsProvider()
 ```

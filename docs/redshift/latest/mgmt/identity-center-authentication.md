@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connect to Redshift with Identity-enhanced IAM role sessions
-<a name="identity-center-authentication"></a>
 
 You can use IAM Identity Center to provide federated access to your Amazon Redshift clusters and serverless workgroups. This approach allows users to authenticate using their Identity Center credentials.
 
@@ -55,7 +54,7 @@ For provisioned Amazon Redshift clusters, use the `GetIdentityCenterAuthToken` A
 #### Request syntax
 <a name="provisioned-request-syntax"></a>
 
-```
+```json
 {
    "ClusterIds": [ "string" ]
 }
@@ -95,7 +94,7 @@ For Amazon Redshift Serverless workgroups, use the `GetIdentityCenterAuthToken` 
 #### Request syntax
 <a name="serverless-request-syntax"></a>
 
-```
+```json
 {
    "WorkgroupNames": [ "string" ]
 }
@@ -132,7 +131,7 @@ aws redshift-serverless get-identity-center-auth-token \
 
 Both APIs return the same response structure:
 
-```
+```json
 {
    "AuthorizedToken": "string",
    "ExpirationTime": "timestamp"
@@ -153,7 +152,7 @@ Type: Timestamp
 #### Example response
 <a name="identity-center-response-example"></a>
 
-```
+```json
 {
     "AuthorizedToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNjQwOTk1MjAwLCJleHAiOjE2NDA5OTg4MDAsImNsdXN0ZXJzIjpbIm15LWNsdXN0ZXIiXX0...",
     "ExpirationTime": "2024-01-01T12:00:00Z"
@@ -185,7 +184,7 @@ For detailed information about Identity Center authentication plugins and driver
 
 Sample Java code to connect using Identity Center authentication:
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -230,7 +229,7 @@ For serverless workgroups, your enhanced IAM role session must have:
 
 **Example policy for provisioned clusters:**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -249,7 +248,7 @@ For serverless workgroups, your enhanced IAM role session must have:
 
 **Example policy for serverless workgroups:**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -268,7 +267,7 @@ For serverless workgroups, your enhanced IAM role session must have:
 
 **Example policy for multiple resources:**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

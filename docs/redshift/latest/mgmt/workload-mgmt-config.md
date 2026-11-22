@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Workload management
-<a name="workload-mgmt-config"></a>
 
 In Amazon Redshift, you use workload management (WLM) to define the number of query queues that are available, and how queries are routed to those queues for processing. WLM is part of parameter group configuration. A cluster uses the WLM configuration that is specified in its associated parameter group. 
 
@@ -374,7 +373,7 @@ aws redshift modify-cluster-parameter-group --parameter-group-name myclusterpara
 
 The arguments for `--parameters` are stored in file `modify_pg.json`. The file location is specified in the format for your operating system. For more information, see [Loading parameters from a file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-usage-parameters-file). The following shows examples of the content of the `modify_pg.json` JSON file.
 
-```
+```json
 [
     {
         "ParameterName": "wlm_json_configuration",
@@ -383,7 +382,7 @@ The arguments for `--parameters` are stored in file `modify_pg.json`. The file l
 ]
 ```
 
-```
+```json
 [
     {
         "ParameterName": "wlm_json_configuration",

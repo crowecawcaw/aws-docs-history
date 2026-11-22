@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Interacting with Amazon Q generative SQL
-<a name="query-editor-v2-generative-ai"></a>
 
 **Note**  
 Amazon Q generative SQL support is only available in the following AWS Regions:  
@@ -37,7 +36,7 @@ Submit text of errors you receive from running generated SQL as prompts back to 
 
 Add your schema to the SQL search path to signal that schema should be used. For example, add the tickit schema when the data is in the tickit schema rather than the public schema.
 
-```
+```sql
 set search_path to '$user', tickit;
 ```
 
@@ -54,7 +53,7 @@ Consider the following when working in the chat panel.
 + Generative AI technology is new and there can be mistakes, sometimes called hallucinations, in the responses. Test and review all code for errors and vulnerabilities before using it in your environment or workload.
 + You can improve recommendations by sharing the SQL queries run by other users in your account. Your account administrator can run the following SQL commands to allow access to the account's query history.
 
-  ```
+  ```sql
   GRANT ROLE SYS:MONITOR to "IAMR:{{role-name}}";
   GRANT ROLE SYS:MONITOR to "IAM:{{user-name}}";
   GRANT ROLE SYS:MONITOR to "{{database-username}}";
@@ -119,7 +118,7 @@ The following example custom context shows you the format of the JSON file and d
 + Defines custom documents and guardrails to use when generating SQL.
 + Defines the DDL for additional tables to use when generating SQL.
 
-```
+```json
 {
     "resources": [
         {

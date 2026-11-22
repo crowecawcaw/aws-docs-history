@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `DescribeClusters` with an AWS SDK or CLI
-<a name="example_redshift_DescribeClusters_section"></a>
 
 The following code examples show how to use `DescribeClusters`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Describe Amazon Redshift clusters.
     /// </summary>
@@ -135,7 +134,7 @@ For more information, see [Amazon Redshift provisioned clusters](https://docs.aw
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -181,7 +180,7 @@ func (actor RedshiftActions) DescribeClusters(ctx context.Context, clusterId str
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 Describe the cluster.  
 
-```
+```java
     /**
      * Waits asynchronously for the specified cluster to become available.
      * @param clusterId the identifier of the cluster to wait for
@@ -245,7 +244,7 @@ Describe the cluster.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples). 
 Create the client.  
 
-```
+```javascript
 import { RedshiftClient } from "@aws-sdk/client-redshift";
 // Set the AWS Region.
 const REGION = "REGION";
@@ -255,7 +254,7 @@ export { redshiftClient };
 ```
 Describe your clusters.  
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import { DescribeClustersCommand } from "@aws-sdk/client-redshift";
 import { redshiftClient } from "./libs/redshiftClient.js";
@@ -284,7 +283,7 @@ run();
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples). 
 Describe the cluster.  
 
-```
+```kotlin
 suspend fun describeRedshiftClusters() {
     RedshiftClient.fromEnvironment { region = "us-west-2" }.use { redshiftClient ->
         val clusterResponse = redshiftClient.describeClusters(DescribeClustersRequest {})
@@ -307,7 +306,7 @@ suspend fun describeRedshiftClusters() {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
-```
+```python
 class RedshiftWrapper:
     """
     Encapsulates Amazon Redshift cluster operations.
@@ -349,7 +348,7 @@ class RedshiftWrapper:
 ```
 The following code instantiates the RedshiftWrapper object.   
 
-```
+```python
     client = boto3.client("redshift")
     redhift_wrapper = RedshiftWrapper(client)
 ```
@@ -362,7 +361,7 @@ The following code instantiates the RedshiftWrapper object.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples). 
 Describe the cluster.  
 
-```
+```sap-abap
     TRY.
         " Example values: iv_cluster_identifier = 'my-redshift-cluster' (optional)
         oo_result = lo_rsh->describeclusters(

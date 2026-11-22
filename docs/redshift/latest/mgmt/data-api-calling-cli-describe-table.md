@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Describe a table
-<a name="data-api-calling-cli-describe-table"></a>
 
 To get metadata that describes a table, use the `aws redshift-data describe-table` AWS CLI command.
 
@@ -20,7 +19,7 @@ aws redshift-data describe-table
 
 The following is an example of the response.
 
-```
+```json
 {
     "ColumnList": [
         {
@@ -66,7 +65,7 @@ aws redshift-data describe-table
 
 The following is an example of the response.
 
-```
+```json
 {
     "ColumnList": [
         {

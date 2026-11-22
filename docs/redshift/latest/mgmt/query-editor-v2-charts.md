@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Visualizing query results
-<a name="query-editor-v2-charts"></a>
 
 After you run a query and the results display, you can turn on **Chart** to display a graphic visualization of the current page of results. You can use the following controls to define the content, structure, and appearance of your chart:
 
@@ -107,7 +106,7 @@ Perform the steps in this example to create a chart that combines a bar chart fo
 
 Following is the query that you run to provide the data for the chart.
 
-```
+```SQL
 select eventname, total_price, total_qty_sold
 from  (select eventid, total_price, total_qty_sold, ntile(1000) over(order by total_price desc) as percentile
        from (select eventid, sum(pricepaid) total_price, sum(qtysold) total_qty_sold

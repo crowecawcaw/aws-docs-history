@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sharing a snapshot
-<a name="working-with-snapshot-share-snapshot"></a>
 
 You can share an existing manual snapshot with other AWS customer accounts by authorizing access to the snapshot. You can authorize up to 20 for each snapshot and 100 for each AWS Key Management Service (AWS KMS) key. That is, if you have 10 snapshots that are encrypted with a single KMS key, then you can authorize 10 AWS accounts to restore each snapshot, or other combinations that add up to 100 accounts and do not exceed 20 accounts for each snapshot. A person logged in as a user in one of the authorized accounts can then describe the snapshot or restore it to create a new Amazon Redshift cluster under their account. For example, if you use separate AWS customer accounts for production and test, a user can log on using the production account and share a snapshot with users in the test account. Someone logged on as a test account user can then restore the snapshot to create a new cluster that is owned by the test account for testing or diagnostic work. 
 
@@ -19,7 +18,7 @@ After you have authorized access to an AWS customer account, no users in that ac
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -46,7 +45,7 @@ After you have authorized access to an AWS customer account, no users in that ac
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -71,7 +70,7 @@ After you have authorized access to an AWS customer account, no users in that ac
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -133,7 +132,7 @@ In the following key-policy example, user `111122223333` is the owner of the KMS
 
 ****  
 
-```
+```json
 {
     "Id": "key-policy-1",
     "Version":"2012-10-17",		 	 	 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Document history
-<a name="document-history"></a>
 
 **Note**  
 For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com/redshift/whats-new).
@@ -17,7 +16,7 @@ For a list of the changes to the *Amazon Redshift Database Developer Guide*, see
 | Change | Description | Date | 
 | --- |--- |--- |
 | [Amazon Redshift patch 207 released.](cluster-versions.md#cluster-version-207) | A new Amazon Redshift patch is being deployed. It takes several weeks for a new version to become available in all Amazon Redshift supported AWS Regions. For more information about this version, see [Amazon Redshift patch 207](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-207).  | November 6, 2026 | 
-| [Dense compute (DC2) node types are no longer available](#document-history) | Removed dense compute (DC2) node type references from the Amazon Redshift documentation. DC2 node types are no longer available. | November 2, 2026 | 
+| [Dense compute (DC2) node types are no longer available](document-history.md) | Removed dense compute (DC2) node type references from the Amazon Redshift documentation. DC2 node types are no longer available. | November 2, 2026 | 
 | [Amazon Redshift patch 206 released.](cluster-versions.md#cluster-version-206) | A new Amazon Redshift patch is being deployed. It takes several weeks for a new version to become available in all Amazon Redshift supported AWS Regions. For more information about this version, see [Amazon Redshift patch 206](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-206).  | October 13, 2026 | 
 | [Amazon Redshift patch 205 released.](cluster-versions.md#cluster-version-205) | A new Amazon Redshift patch is being deployed. It takes several weeks for a new version to become available in all Amazon Redshift supported AWS Regions. For more information about this version, see [Amazon Redshift patch 205](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-205).  | September 16, 2026 | 
 | [Amazon Redshift patch 204 released.](cluster-versions.md#cluster-version-204) | A new Amazon Redshift patch is being deployed. It takes several weeks for a new version to become available in all Amazon Redshift supported AWS Regions. For more information about this version, see [Amazon Redshift patch 204](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-204).  | August 11, 2026 | 

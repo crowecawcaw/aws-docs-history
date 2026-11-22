@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples of using the Amazon Redshift Python connector
-<a name="python-connect-examples"></a>
 
 Following are examples of how to use the Amazon Redshift Python connector. To run them, you must first install the Python connector. For more information on installing the Amazon Redshift Python connector, see [Installing the Amazon Redshift Python connector](python-driver-install.md). For more information on configuration options you can use with the Python connector, see [Configuration options for the Amazon Redshift Python connector](python-configuration-options.md).
 
@@ -18,7 +17,7 @@ Following are examples of how to use the Amazon Redshift Python connector. To ru
 
 The following example guides you through connecting to an Amazon Redshift cluster using your AWS credentials, then querying a table and retrieving the query results.
 
-```
+```python
 #Connect to the cluster
 >>> import redshift_connector
 >>> conn = redshift_connector.connect(
@@ -46,7 +45,7 @@ The following example guides you through connecting to an Amazon Redshift cluste
 
 The autocommit property is off by default, following the Python Database API Specification. You can use the following commands to turn on the connection's autocommit property after performing a rollback command to make sure that a transaction is not in progress.
 
-```
+```python
 #Connect to the cluster
 >>> import redshift_connector
 >>> conn = redshift_connector.connect(...)
@@ -112,7 +111,7 @@ A text file named `category_csv.txt` containing the following data is uploaded t
 
 Following is an example of the Python code, which first connects to the Amazon Redshift database. It then creates a table called `category` and copies the CSV data from the S3 bucket into the table.
 
-```
+```python
 #Connect to the cluster and create a Cursor
 >>> import redshift_connector
 >>> with redshift_connector.connect(...) as conn:

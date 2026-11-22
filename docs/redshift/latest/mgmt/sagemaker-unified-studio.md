@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using Amazon Sagemaker Unified Studio to query your databases in Amazon Redshift and the SageMaker lakehouse
-<a name="sagemaker-unified-studio"></a>
 
 Amazon SageMaker Unified Studio provides an off-console development environment and supports SQL analytics on data in the SageMaker lakehouse, Amazon Redshift, and Amazon Athena for SQL analytics. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and use your SSO or AWS credentials to log in. For more information about setting up your first project, see [Getting started](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/getting-started.html) in the *Amazon SageMaker Unified Studio User Guide*.
 

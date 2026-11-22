@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying replicated data in Amazon Redshift
-<a name="zero-etl-using.querying-and-creating-materialized-views"></a>
 
 After you add data to your source, it's replicated in near real time to the Amazon Redshift data warehouse, and it's ready for querying. For information about integration metrics and table statistics, see [Metrics for zero-ETL integrations](zero-etl-using.metrics.md).
 
@@ -18,7 +17,7 @@ As a database is the same as a schema in MySQL, MySQL database level maps to Ama
 
 1. Use a SELECT statement to select all replicated data from the schema and table that you created in the source. For case sensitivity, use double quotes (" ") for schema, table, and column names. For example:
 
-   ```
+   ```sql
    SELECT * FROM "{{schema_name}}"."{{table_name}}";
    ```
 
@@ -31,7 +30,7 @@ You can create materialized views in your local Amazon Redshift database to tran
 
 Use the following example to create and insert sample data into the {{sales\_zetl}} and {{event\_zetl}} tables from the source {{tickit\_zetl}}. The tables are replicated into the Amazon Redshift database {{zetl\_int\_db}}.
 
-```
+```sql
 CREATE TABLE sales_zetl (
         salesid integer NOT NULL primary key,
         eventid integer NOT NULL,
@@ -53,7 +52,7 @@ INSERT INTO event_zetl VALUES(2, "Event 2");
 
 You can create a materialized view to get total sales per event using the three-part notation:
 
-```
+```sql
 --three part notation zetl-database-name.schema-name.table-name 
 CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_3p 
 AUTO REFRESH YES
@@ -66,7 +65,7 @@ GROUP BY 1);
 
 You can create a materialized view to get total sales per event using the two-part notation:
 
-```
+```sql
 --two part notation external-schema-name.table-name notation
 CREATE EXTERNAL schema ext_tickit_zetl
 FROM REDSHIFT
@@ -86,7 +85,7 @@ AS
 
 To view the materialized views you created, use the following example.
 
-```
+```sql
 SELECT * FROM mv_transformed_sales_per_event_3p;
  
 +-----------+-------------+
@@ -113,7 +112,7 @@ When you replicate data from Amazon DynamoDB to a Amazon Redshift database, it i
 
 For this example, the following data is stored in DynamoDB.
 
-```
+```json
 {
     "key1": {
         "S": "key_1"
@@ -136,7 +135,7 @@ For this example, the following data is stored in DynamoDB.
 
 The Amazon Redshift materialized view is defined as the following.
 
-```
+```sql
 CREATE MATERIALIZED VIEW mv_sales
                     BACKUP NO
                     AUTO REFRESH YES
@@ -147,6 +146,6 @@ CREATE MATERIALIZED VIEW mv_sales
 
 To view the data in the materialized view run an SQL command. 
 
-```
+```sql
 SELECT first_payload FROM mv_sales;
 ```

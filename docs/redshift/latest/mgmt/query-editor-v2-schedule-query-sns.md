@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Monitoring the scheduled query
-<a name="query-editor-v2-schedule-query-sns"></a>
 
 For the Amazon SNS topic that you specify to send email notifications, create the Amazon SNS topic using the query editor v2 by navigating to the **SNS notifications** section, **Turn on** monitoring, and create the topic with **Create SNS topic**. The query editor v2 creates the Amazon SNS topic and adds a service principal to the access policy for Amazon EventBridge. The following is an example **Access policy** that is created in the Amazon SNS topic. In the example, the AWS Region {{us-west-2}}, AWS account {{123456789012}}, and Amazon SNS topic {{select-version-pdx-testunload}} are used.
 
@@ -12,7 +11,7 @@ For the Amazon SNS topic that you specify to send email notifications, create th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "__default_policy_ID",

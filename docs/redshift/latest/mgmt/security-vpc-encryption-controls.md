@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # VPC encryption controls with Amazon Redshift
-<a name="security-vpc-encryption-controls"></a>
 
 Amazon Redshift supports [ VPC encryption controls](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html), a security feature that helps you enforce encryption in transit for all traffic within and across VPCs in a Region. This document describes how to use VPC encryption controls with Amazon Redshift clusters and serverless workgroups.
 

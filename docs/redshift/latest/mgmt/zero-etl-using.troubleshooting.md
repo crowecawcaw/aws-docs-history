@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Troubleshooting zero-ETL integrations
-<a name="zero-etl-using.troubleshooting"></a>
 
 Use the following sections to help troubleshoot problems that you have with zero-ETL integrations.
 
@@ -51,7 +50,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
-```
+```sql
 ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
@@ -168,7 +167,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
-```
+```sql
 ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
@@ -280,7 +279,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
-```
+```sql
 ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
@@ -398,7 +397,7 @@ Amazon Redshift can't load data from a zero-ETL integration.
 
 To resolve this issue, refresh the integration with ALTER DATABASE.
 
-```
+```sql
 ALTER DATABASE {{sample_integration_db}} INTEGRATION REFRESH ALL TABLES
 ```
 
@@ -421,7 +420,7 @@ To resolve this issue, create a database for the integration. See [Creating dest
 
 Enabling PITR is required for DynamoDB to export data. Ensure PITR is always enabled. If you ever turn off PITR while the integration is active, you’ll need to follow instructions in the error message and refresh the integration using ALTER DATABASE.
 
-```
+```sql
 ALTER DATABASE {{sample_integration_db}} INTEGRATION REFRESH ALL TABLES
 ```
 
@@ -462,7 +461,7 @@ In the destination database, one or more of the tables don't have a primary key 
 
 To resolve this issue, go to the **Table statistics** tab on the integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables. You can add primary keys to the tables and Amazon Redshift will resynchronize the tables. You can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
-```
+```sql
 ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 

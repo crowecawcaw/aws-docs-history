@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using AWS IAM Identity Center authentication with enhanced VPC routing
-<a name="redshift-iam-access-control-idp-connect-evr"></a>
 
 When [enhanced VPC routing](https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html) is turned on, Redshift routes traffic through your virtual private cloud (VPC) instead of over the internet. This includes the calls that Redshift makes to authenticate an AWS IAM Identity Center user. This applies whether the user signs in interactively or connects with an AWS IAM Identity Center token obtained through trusted identity propagation. For these connections to succeed, Redshift must be able to reach AWS IAM Identity Center from your VPC. Interface VPC endpoints are the recommended way to provide this connectivity. They let your provisioned cluster or Amazon Redshift Serverless workgroup reach AWS IAM Identity Center over the AWS network.
 

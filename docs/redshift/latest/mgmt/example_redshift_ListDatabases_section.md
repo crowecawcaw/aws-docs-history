@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `ListDatabases` with an AWS SDK
-<a name="example_redshift_ListDatabases_section"></a>
 
 The following code examples show how to use `ListDatabases`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `ListDatabases`.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List databases in a Redshift cluster.
     /// </summary>
@@ -63,7 +62,7 @@ The following code examples show how to use `ListDatabases`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 
-```
+```java
     /**
      * Lists all databases asynchronously for the specified cluster, database user, and database.
      * @param clusterId the identifier of the cluster to list databases for
@@ -100,7 +99,7 @@ The following code examples show how to use `ListDatabases`.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Example values: iv_cluster_identifier = 'redshift-cluster-movies'
         " Example values: iv_database_name = 'dev'

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Compute capacity for Amazon Redshift Serverless
-<a name="serverless-capacity"></a>
 
 With Amazon Redshift Serverless compute capacity scales automatically up and down to match your workload requirements. Compute capacity refers to the processing power and memory allocated to your Amazon Redshift Serverless workloads. Common use cases include handling peak traffic periods, running complex analytics, or processing large volumes of data efficiently. The following terms provide details on how Amazon Redshift manages compute capacity.
 
@@ -155,7 +154,7 @@ You can monitor AI-driven scaling and optimization in the following ways:
 
 Use the following example to query the `SYS_QUERY_HISTORY` view. Replace the sample value with your query text.
 
-```
+```sql
 select query_id,query_text,start_time,end_time, elapsed_time/1000000.0 duration_in_seconds
 from sys_query_history
 where query_text like '{{<query_text>}}'

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # System table integration with S3 Tables
-<a name="system-table-s3-tables"></a>
 
 Use system table integration with [Amazon S3 Tables](https://aws.amazon.com/s3/features/tables/) to retain your Amazon Redshift [system table](https://docs.aws.amazon.com/redshift/latest/dg/serverless_views-monitoring.html) data beyond the 7-day in-cluster retention period. This helps you meet compliance, auditing, and observability requirements. When you enable this feature, Redshift writes system table logs to S3 Tables in [Apache Iceberg](https://aws.amazon.com/what-is/apache-iceberg/) format and manages partitioning, compaction, and snapshot maintenance. You can keep this data for as long as you need for analysis and auditing. Because the data is stored in open Iceberg format, you can query it with Redshift, [Amazon Athena](https://aws.amazon.com/athena/), or any other Iceberg-compatible engine. You can also use AI agent skills for natural-language queries (see [System table skills for AWS Agent Toolkit](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/system-table-skills) on the GitHub website).
 
@@ -130,7 +129,7 @@ The following parameters configure S3 Tables publishing:
 
 **Enable delivery.** `--log-exports` accepts `all` or a space-separated list of supported system tables, and `--s3-table-granularity` accepts `cluster` (per-warehouse) or `account` (consolidated).
 
-```
+```bash
 aws redshift enable-logging \
     --cluster-identifier my-redshift-cluster \
     --log-destination-type s3table \
@@ -140,7 +139,7 @@ aws redshift enable-logging \
 
 To enable delivery for specific system tables only:
 
-```
+```bash
 aws redshift enable-logging \
     --cluster-identifier my-redshift-cluster \
     --log-destination-type s3table \
@@ -150,14 +149,14 @@ aws redshift enable-logging \
 
 **Check delivery status.**
 
-```
+```bash
 aws redshift describe-logging-status \
     --cluster-identifier my-redshift-cluster
 ```
 
 **Disable delivery** for all system tables, or for specific tables with `--log-exports`:
 
-```
+```bash
 aws redshift disable-logging \
     --cluster-identifier my-redshift-cluster \
     --log-destination-type s3table \
@@ -171,7 +170,7 @@ In Redshift Serverless, you configure the feature per namespace with `update-nam
 
 **Enable delivery.**
 
-```
+```bash
 aws redshift-serverless update-namespace \
     --namespace-name my-namespace \
     --log-destination-type s3table \
@@ -182,7 +181,7 @@ aws redshift-serverless update-namespace \
 
 **Disable delivery** for specific system tables (or `all`):
 
-```
+```bash
 aws redshift-serverless update-namespace \
     --namespace-name my-namespace \
     --log-destination-type s3table \
@@ -192,7 +191,7 @@ aws redshift-serverless update-namespace \
 
 **Check delivery status.**
 
-```
+```bash
 aws redshift-serverless get-namespace \
     --namespace-name my-namespace
 ```
@@ -211,7 +210,7 @@ For integration instructions, see [Integrating Amazon S3 Tables with AWS Glue Da
 
 By default, data delivered to S3 Tables is encrypted with Amazon S3-managed keys (SSE-S3). To use an AWS KMS customer managed key instead, specify its ARN with `--s3-table-kms-key-id` when you enable delivery:
 
-```
+```bash
 aws redshift enable-logging \
     --cluster-identifier my-redshift-cluster \
     --log-destination-type s3table \
@@ -222,7 +221,7 @@ aws redshift enable-logging \
 
 If you use a customer managed key, its key policy must allow the Redshift system table integration service principal to generate data keys when it writes your system tables, and the S3 Tables maintenance service principal to use the key during table maintenance (such as compaction). Add the following statements to the key policy, replacing {{PARTITION}}, {{REGION}}, {{ACCOUNT}}, and {{KEY\_ID}} with your own values.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

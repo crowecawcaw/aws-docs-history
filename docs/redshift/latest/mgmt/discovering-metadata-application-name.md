@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Set the application name connection property
-<a name="discovering-metadata-application-name"></a>
 
 When you connect to Amazon Redshift, set the optional application name driver property. This property identifies which application or tool established each connection, which makes it easier to monitor, audit, and troubleshoot your Amazon Redshift environment.
 

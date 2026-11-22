@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Considerations when using zero-ETL integrations with Amazon Redshift
-<a name="zero-etl.reqs-lims"></a>
 
 The following considerations apply to zero-ETL integrations with Amazon Redshift. 
 + Your target Amazon Redshift data warehouse must meet the following prerequisites:
@@ -39,13 +38,13 @@ The following considerations apply when using history mode on the target databas
 + When a row in a table is set to inactive, it can be deleted only after zero-ETL persists its inactive state in the table. Queries show the row as inactive immediately. However, zero-ETL takes longer to persist that state in the background, usually within an hour but can take longer for a table with infrequent changes. Additional changes to the source table can cause the inactive state to be persisted earlier. A DELETE that runs before the inactive state is persisted completes successfully, but leaves the inactive row in place. If you see the inactive rows after a successful DELETE command, run the DELETE command again later, for example on a schedule. To delete inactive rows, connect to your zero-ETL database with query editor v2 or another SQL client.
 + You can only delete inactive rows from a table with history mode on. For example, a SQL command similar to the following only deletes inactive rows.
 
-  ```
+  ```sql
   delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56'
   ```
 
   This is equivalent to a SQL command like the following.
 
-  ```
+  ```sql
   delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56' and _record_is_active = False
   ```
 + When turning history mode off for a table, all historical data is saved to table named with `<schema>.<table-name>_historical_<timestamp>` while the original table named `<schema>.<table-name>` is refreshed.

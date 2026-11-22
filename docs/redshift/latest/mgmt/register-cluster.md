@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Registering a cluster to the AWS Glue Data Catalog
-<a name="register-cluster"></a>
 
 You can register entire clusters to the AWS Glue Data Catalog and create catalogs managed by AWS Glue. You can access these catalogs with any SQL engine that supports the Apache Iceberg REST API. For more information on creating Apache Iceberg-compatible catalogs from Amazon Redshift see [ Apache Iceberg compatibility for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-integration_overview.html) in the Amazon Redshift Database Developer Guide.
 

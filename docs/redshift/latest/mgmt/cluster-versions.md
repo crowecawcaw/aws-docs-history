@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Cluster versions for Amazon Redshift
-<a name="cluster-versions"></a>
 
 Amazon Redshift regularly releases cluster versions. Your Amazon Redshift clusters are patched during your system maintenance window. The timing of the patch depends on your AWS Region and maintenance window settings. You can view or change your maintenance window settings from the Amazon Redshift console. For more information about maintenance, see [Cluster maintenance](managing-cluster-considerations.md#rs-cluster-maintenance). 
 
 You can view the cluster version of your cluster on the Amazon Redshift console on the **Maintenance** tab of the cluster details. Or you can see the cluster version in the output of the SQL command:
 
-```
+```sql
 SELECT version();
 ```
 
@@ -62,6 +61,7 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 <a name="cluster-version-207"></a>
 
 Cluster versions in this patch:
++ 1.0.567997 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 17, 2026
 + 1.0.539508 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 10, 2026
 + 1.0.539507 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 6, 2026
 
@@ -86,7 +86,11 @@ Cluster versions in this patch:
 <a name="cluster-version-206"></a>
 
 Cluster versions in this patch:
-+ 1.0.535482 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 3, 2026
++ 1.0.563144 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 17, 2026
+
+  1.0.563144 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 17, 2026
+
+  1.0.535482 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 3, 2026
 
   1.0.520420 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 27, 2026
 
@@ -111,6 +115,7 @@ Cluster versions in this patch:
 + Materialized View internal backing tables are now stored in an internal protected schema.
 + AQMV support for MVs on Iceberg tables
 + Changed how tables load after a cluster restart so that commits no longer wait for all tables to load. The first commit can complete up to 15 minutes sooner, with minimal impact on query performance. This improvement is currently enabled for a limited set of Amazon Redshift Serverless workgroups and will be extended in future patches.
++ Amazon Redshift now supports IANA Time Zone Database version 2026f
 + Fixed a rare issue where a disk error during internal cluster maintenance could cause an unexpected node restart.
 + Fixed a rare issue where memory pressure could cause an unexpected node restart.
 + Fixed an issue where files belonging to dropped databases were not cleaned up promptly under heavy `DROP DATABASE` activity.
@@ -770,7 +775,7 @@ Cluster versions in this patch:
 ### New features and improvements in this patch
 <a name="cluster-version-2024-10-22-features"></a>
 + Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integrations with Amazon Aurora MySQL, Amazon Aurora PostgreSQL, Amazon RDS for MySQL, and Amazon DynamoDB.
-+ Improves how Amazon Redshift rewrites queries with correlated single-row subqueries, such as `SELECT … WHERE key = (SELECT … correlated subquery)`. Note that such queries are only valid if the subquery yields a single row. Due to the improved rewrite, certain queries that violate this condition might now fail with ERROR: single-row subquery returns more than one row in cases where they were previously permitted. To avoid this, such subqueries might need to be corrected so that they are guaranteed to return a single row, for example, by adding a MIN() or MAX() aggregate.
++ Improves how Amazon Redshift rewrites queries with correlated single-row subqueries, such as `SELECT … WHERE key = (SELECT … correlated subquery)`. Note that such queries are only valid if the subquery yields a single row. Due to the improved rewrite, certain queries that violate this condition might now fail with `ERROR: single-row subquery returns more than one row` in cases where they were previously permitted. To avoid this, such subqueries might need to be corrected so that they are guaranteed to return a single row, for example, by adding a MIN() or MAX() aggregate.
 + Adds a SQL Identifier 'KAFKA' in Amazon Redshift to support streaming from external Kafka sources into Amazon Redshift with direct streaming ingestion. These sources include external Kafka sources such as Confluent Managed Cloud and Apache Kafka.
 + Adds support for multi-warehouse writes using data sharing so that you can scale your write workloads and achieve better performance for extract, transform, and load (ETL) workloads by using different warehouses of various types and sizes, based on your workload needs.
 +  You can now run `SELECT` queries on Apache Iceberg tables managed in Amazon S3 Tables using Amazon Redshift For more information, see [ Accessing Amazon S3 tables with Amazon Redshift ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-redshift.html) in the *Amazon Simple Storage Service User Guide*. 
@@ -921,7 +926,7 @@ Cluster versions in this patch:
 + Resolves the issue with resuming Amazon Redshift Serverless instances, enabling an existing database user to resume a Serverless instance when connecting to databases in Amazon Redshift query editor v2, using the IAM Identity Center authentication method.
 + Optimizes CDC replication and reduced resource utilization on Redshift compute by moving to table-based sharding.
 + Improves query performance using enhanced resource prediction in workload management (WLM).
-+ Fixes queries failing on concurrency scaling clusters with the message: ran out of WLM queues for restart.
++ Fixes queries failing on concurrency scaling clusters with the message: `ran out of WLM queues for restart`.
 + Fixes a workload management (WLM) issue where Amazon Redshift falls back to manual WLM when customers try to apply an invalid WLM configuration.
 + Allows data sharing consumers to run read queries even when the producer is down due to planned maintenance or an unplanned outage.
 + Fixes a rare cluster restart issue that occurs when the ANY\_VALUE function is used in queries that aggregate data, for example, the COUNT(DISTINCT) aggregation function.

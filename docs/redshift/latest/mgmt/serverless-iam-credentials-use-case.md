@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Accessing Amazon Redshift Serverless database objects with database-role permissions
-<a name="serverless-iam-credentials-use-case"></a>
 
 This procedure shows how to grant permission to query a table through an [Amazon Redshift database role](https://docs.aws.amazon.com/redshift/latest/dg/t_Roles.html). The role is assigned by means of a tag that's attached to a user in IAM and passed to Amazon Redshift when they sign in. It's an explanation by example of the concepts in [Defining database roles to grant to federated users in Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-federated-db-roles.html). The benefit of completing these steps is that you can associate a user with a database role and avoid setting their permissions for each database object. It simplifies managing the user's ability to query, modify, or add data to tables and to perform other actions.
 

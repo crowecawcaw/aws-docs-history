@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying system tables
-<a name="discovering-metadata-system-tables"></a>
 
 If neither the driver metadata API nor `SHOW` commands meet your needs, you can query PostgreSQL catalog tables (`pg_*`), the information schema (`information_schema`), or Amazon Redshift system views such as `SVV_TABLE_INFO` directly.
 
@@ -17,7 +16,7 @@ When you query system tables, follow these practices:
 ## Example Anti-pattern vs. Recommended Queries
 <a name="r_QUERY_LIST-examples"></a>
 
-```
+```sql
 -- Avoid:
 SELECT * FROM svv_all_columns;
 
@@ -25,7 +24,7 @@ SELECT * FROM svv_all_columns;
 SELECT * FROM svv_all_columns WHERE database_name = 'dev' and schema_name = 'public' AND table_name = 'sales';
 ```
 
-```
+```sql
 -- Avoid:
 SELECT * FROM svv_all_columns WHERE LOWER(schema_name) = 'public';
 
@@ -33,7 +32,7 @@ SELECT * FROM svv_all_columns WHERE LOWER(schema_name) = 'public';
 SELECT * FROM svv_all_columns WHERE schema_name = 'public' AND table_name LIKE 'sales%';
 ```
 
-```
+```sql
 -- Avoid:
 SELECT * FROM svv_all_columns WHERE database_name || '.' || schema_name || '.' || table_name = 'dev.public.sales';
 
@@ -41,7 +40,7 @@ SELECT * FROM svv_all_columns WHERE database_name || '.' || schema_name || '.' |
 SELECT * FROM svv_all_columns WHERE database_name = 'dev' and schema_name = 'public' AND table_name = 'sales';
 ```
 
-```
+```sql
 -- Avoid:
 SELECT * FROM svv_all_columns WHERE CONCAT(database_name, '.', schema_name) = 'dev.public';
 

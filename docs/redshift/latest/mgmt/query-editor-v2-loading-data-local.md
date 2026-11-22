@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading data from a local file setup and workflow
-<a name="query-editor-v2-loading-data-local"></a>
 
 You can load data from a local file into an existing or new table.
 
@@ -18,7 +17,7 @@ Your query editor v2 administrator must specify the common Amazon S3 bucket in t
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -55,7 +54,7 @@ Your query editor v2 administrator must specify the common Amazon S3 bucket in t
 
 ****  
 
-  ```
+  ```json
   {
    "Version":"2012-10-17",		 	 	 
       "Statement": [

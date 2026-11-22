@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying data lake tables with enhanced VPC routing
-<a name="spectrum-enhanced-vpc"></a>
 
 When enhanced VPC routing is turned on, Amazon Redshift routes traffic through your VPC. Data lake tables store their data in Amazon S3 and their metadata in the AWS Glue Data Catalog, both of which are outside your VPC. For data lake queries to succeed, your cluster or workgroup must be able to reach Amazon S3 and AWS Glue. If your data lake tables are managed by AWS Lake Formation, it must also be able to reach Lake Formation. Enhanced VPC routing affects the way that Amazon Redshift accesses these external resources, so queries might fail unless you configure your VPC correctly.
 
@@ -54,7 +53,7 @@ The following example bucket policy permits access to the specified bucket owned
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -90,7 +89,7 @@ The role attached to your cluster should have a trust relationship that permits 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

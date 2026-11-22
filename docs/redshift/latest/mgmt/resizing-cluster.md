@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Resizing a cluster
-<a name="resizing-cluster"></a>
 
 As your data warehousing capacity and performance needs change, you can resize your cluster to make the best use of Amazon Redshift's computing and storage options. 
 
  When you resize a cluster, you specify a number of nodes or node type that is different from the current configuration of the cluster. While the cluster is in the process of resizing, you cannot run any write or read/write queries on the cluster; you can run only read queries. 
 
- For more information about resizing clusters, including walking through the process of resizing clusters using different approaches, see [Resizing a cluster](#resizing-cluster). 
+ For more information about resizing clusters, including walking through the process of resizing clusters using different approaches, see [Resizing a cluster](resizing-cluster.md). 
 
 **To resize a cluster**
 
@@ -63,7 +62,7 @@ Elastic resize has the following constraints:
 + *Data transfer from a shared snapshot* - To run an elastic resize on a cluster that is transferring data from a shared snapshot, at least one backup must be available for the cluster. You can view your backups on the Amazon Redshift console snapshots list, the `describe-cluster-snapshots` CLI command, or the `DescribeClusterSnapshots` API operation.
 + *Platform restriction* - Elastic resize is available only for clusters that use the EC2-VPC platform. For more information, see [Use EC2 to create your cluster](working-with-clusters.md#cluster-platforms). 
 + *Storage considerations* - Make sure that your new node configuration has enough storage for existing data. You may have to add additional nodes or change configuration. 
-+ *Source vs target cluster size* - The number of nodes and node type that it's possible to resize to with elastic resize is determined by the number of nodes in the source cluster and the node type chosen for the resized cluster. To determine the possible configurations available, you can use the console. Or you can use the `describe-node-configuration-options` AWS CLI command with the `action-type resize-cluster` option. For more information about the resizing using the Amazon Redshift console, see [Resizing a cluster](#resizing-cluster). 
++ *Source vs target cluster size* - The number of nodes and node type that it's possible to resize to with elastic resize is determined by the number of nodes in the source cluster and the node type chosen for the resized cluster. To determine the possible configurations available, you can use the console. Or you can use the `describe-node-configuration-options` AWS CLI command with the `action-type resize-cluster` option. For more information about the resizing using the Amazon Redshift console, see [Resizing a cluster](resizing-cluster.md). 
 
   The following example CLI command describes the configuration options available. In this example, the cluster named `mycluster` is a `rg.4xl` 8-node cluster.
 
@@ -182,7 +181,7 @@ The following table compares behavior between the two resize types.
 ### Scheduling a resize
 <a name="rs-restore-resize-overview-schedule"></a>
 
-You can schedule resize operations for your cluster to scale up to anticipate high use or to scale down for cost savings. Scheduling works for both elastic resize and classic resize. You can set up a schedule on the Amazon Redshift console. For more information, see [Resizing a cluster](#resizing-cluster), under **Managing clusters using the console**. You can also use AWS CLI or Amazon Redshift API operations to schedule a resize. For more information, see [create-scheduled-action](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-scheduled-action.html) in the *AWS CLI Command Reference* or [CreateScheduledAction](https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateScheduledAction.html) in the *Amazon Redshift API Reference*.
+You can schedule resize operations for your cluster to scale up to anticipate high use or to scale down for cost savings. Scheduling works for both elastic resize and classic resize. You can set up a schedule on the Amazon Redshift console. For more information, see [Resizing a cluster](resizing-cluster.md), under **Managing clusters using the console**. You can also use AWS CLI or Amazon Redshift API operations to schedule a resize. For more information, see [create-scheduled-action](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-scheduled-action.html) in the *AWS CLI Command Reference* or [CreateScheduledAction](https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateScheduledAction.html) in the *Amazon Redshift API Reference*.
 
 ### Snapshot, restore, and resize
 <a name="rs-tutorial-snapshot-restore-resize-overview"></a>

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `DeleteCluster` with an AWS SDK or CLI
-<a name="example_redshift_DeleteCluster_section"></a>
 
 The following code examples show how to use `DeleteCluster`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an Amazon Redshift cluster without a final snapshot.
     /// </summary>
@@ -180,7 +179,7 @@ For more information, see [Shutting down and deleting a cluster](https://docs.aw
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -236,7 +235,7 @@ func (actor RedshiftActions) DeleteCluster(ctx context.Context, clusterId string
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 Delete the cluster.  
 
-```
+```java
     /**
      * Deletes a Redshift cluster asynchronously.
      *
@@ -274,7 +273,7 @@ Delete the cluster.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples). 
 Create the client.  
 
-```
+```javascript
 import { RedshiftClient } from "@aws-sdk/client-redshift";
 // Set the AWS Region.
 const REGION = "REGION";
@@ -284,7 +283,7 @@ export { redshiftClient };
 ```
 Create the cluster.  
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import { DeleteClusterCommand } from "@aws-sdk/client-redshift";
 import { redshiftClient } from "./libs/redshiftClient.js";
@@ -315,7 +314,7 @@ run();
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples). 
 Delete the cluster.  
 
-```
+```kotlin
 suspend fun deleteRedshiftCluster(clusterId: String?) {
     val request =
         DeleteClusterRequest {
@@ -337,7 +336,7 @@ suspend fun deleteRedshiftCluster(clusterId: String?) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
-```
+```python
 class RedshiftWrapper:
     """
     Encapsulates Amazon Redshift cluster operations.
@@ -370,7 +369,7 @@ class RedshiftWrapper:
 ```
 The following code instantiates the RedshiftWrapper object.   
 
-```
+```python
     client = boto3.client("redshift")
     redhift_wrapper = RedshiftWrapper(client)
 ```
@@ -383,7 +382,7 @@ The following code instantiates the RedshiftWrapper object.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples). 
 Delete the cluster.  
 
-```
+```sap-abap
     TRY.
         " Example values: iv_cluster_identifier = 'my-redshift-cluster'
         lo_rsh->deletecluster(

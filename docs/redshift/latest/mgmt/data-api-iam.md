@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Configuring IAM permissions
-<a name="data-api-iam"></a>
 
 Amazon Redshift provides the `AmazonRedshiftDataFullAccess` managed policy. This policy provides full access to Amazon Redshift Data API operations. This policy also allows scoped access to specific Amazon Redshift, AWS Secrets Manager, and IAM API operations needed to authenticate and access an Amazon Redshift cluster or Redshift Serverless workgroup. 
 
@@ -30,7 +29,7 @@ To run a query on a cluster that is owned by another account, the owning account
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ Finally, the Account A IAM role needs to be able to assume the Account B IAM rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -79,7 +78,7 @@ You can specify resource ARNs in your identity-based policy to control access to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ By default, Amazon Redshift Data API treats the IAM role used when calling `Exec
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -156,7 +155,7 @@ The following IAM policy allows only the session owner to get statement results.
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [

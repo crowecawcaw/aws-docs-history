@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Query profiler
-<a name="using-query-plan-profiler"></a>
 
 This document describes Query profiler, a graphical tool for analyzing a query's components and performance.
 
@@ -14,7 +13,7 @@ Query profiler is a query monitoring and troubleshooting feature that's viewable
   + **Temp table query**: The text of this child query starts with the `CREATE TEMP TABLE` command. This child query creates temporary tables for other child queries to process.
   + **Statistics query**: Query profiler adds the following comment to the start of this child query to help identify it:
 
-    ```
+    ```sql
     -- collect statistics of child query {{queryID}}
     ```
 
@@ -45,7 +44,7 @@ Use the following policy to add minimum permissions to your IAM user account or 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with provisioned data warehouse clusters
-<a name="example_redshift_GettingStarted_039_section"></a>
 
 The following code example shows how to:
 + Create a Redshift cluster
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/039-redshift-provisioned) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Redshift Provisioned Cluster Tutorial Script

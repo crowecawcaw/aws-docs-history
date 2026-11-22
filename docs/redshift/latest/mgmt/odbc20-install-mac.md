@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Downloading and installing the Amazon Redshift ODBC driver
-<a name="odbc20-install-mac"></a>
 
 Use the following procedure to download and install the Amazon Redshift ODBC driver on Apple macOS. Only use a different driver if you're running a third-party application that is certified for use with Amazon Redshift, and that application requires that specific driver.
 
 To download and install the ODBC driver: 
 
-1. Download the following driver: [64-bit ODBC driver version 2.3.0.0](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.3.0.0/AmazonRedshiftODBC-64-bit.2.3.0.0.universal.pkg) 
+1. Download the following driver: [64-bit ODBC driver version 2.3.1.0](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.3.1.0/AmazonRedshiftODBC-64-bit.2.3.1.0.universal.pkg) 
 
    This driver is supported on both x86\_64 and arm64 architectures. The name for this driver is **Amazon Redshift ODBC Driver (x64)**.
 

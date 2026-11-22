@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Differences between the 2.x and 1.x versions of the ODBC driver
-<a name="odbc20-odbc10-driver-differences"></a>
 
 This section describes the differences between the [ODBC 1.x driver](configure-odbc-connection.md) and the [ODBC 2.x driver](odbc20-install.md), and provides guidance about how to migrate to the 2.x driver. It describes the changes that might affect your application and how to address them.
 

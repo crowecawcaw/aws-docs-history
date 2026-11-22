@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Hello Amazon Redshift
-<a name="example_redshift_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Redshift.
 
@@ -13,7 +12,7 @@ The following code examples show how to get started using Amazon Redshift.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Main method to run the Hello Amazon Redshift example.
     /// </summary>
@@ -62,7 +61,7 @@ The following code examples show how to get started using Amazon Redshift.
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -113,7 +112,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.redshift.RedshiftClient;
 import software.amazon.awssdk.services.redshift.paginators.DescribeClustersIterable;
@@ -153,7 +152,7 @@ public class HelloRedshift {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
-```
+```python
 import boto3
 
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Migrating a provisioned cluster to Amazon Redshift Serverless
-<a name="serverless-migration"></a>
 
 You can migrate your existing provisioned clusters to Amazon Redshift Serverless, enabling on-demand and automatic scaling of compute resources. Migrating a provisioned cluster to Amazon Redshift Serverless allows you to optimize costs by paying only for the resources you use and automatically scaling capacity based on workload demands. Common use cases for the migration include running ad-hoc queries, periodic data processing jobs, or handling unpredictable workloads without over-provisioning resources. Perform the following set of tasks to migrate your provisioned Amazon Redshift cluster to the serverless deployment option.
 
@@ -60,7 +59,7 @@ jdbc:redshift://<{{workgroup-name}}>.<{{account-number}}>.<{{aws-region}}>.redsh
 
 To establish a connection using the Amazon Redshift Python connector with password-based authentication, use the following syntax:
 
-```
+```python
 import redshift_connector
 with redshift_connector.connect(
     host='<{{workgroup-name}}>.<{{account-number}}>.<{{aws-region}}>.redshift-serverless.amazonaws.com',
@@ -98,7 +97,7 @@ Ensure that your AWS identity has the correct IAM policy for the `redshift-serve
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -116,7 +115,7 @@ Ensure that your AWS identity has the correct IAM policy for the `redshift-serve
 
 To establish a connection using the Amazon Redshift Python connector with IAM based authentication, use `iam=true` in your code, as shown in the following syntax:
 
-```
+```python
 import redshift_connector
 with redshift_connector.connect(
     iam=True,
@@ -161,7 +160,7 @@ Following is a sample IAM policy with the permissions required to use `GetCluste
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ jdbc:redshift:iam://redshift-serverless-<{{workgroup-name}}>:<{{aws-region}}>/<{
 
 To establish a connection using the Amazon Redshift Python connector with `GetClusterCredentials`, use the following syntax:
 
-```
+```python
 import redshift_connector
 with redshift_connector.connect(
     iam=True,

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Passing SQL statements to an Amazon Redshift data warehouse
-<a name="pass-sql-statements"></a>
 
 The examples in this page cover different ways to pass a SQL statement to your data warehouse
 
@@ -26,7 +25,7 @@ aws redshift-data execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598323175.823,
@@ -48,7 +47,7 @@ aws redshift-data execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598306924.632,
@@ -69,7 +68,7 @@ aws redshift-data execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
  "CreatedAt": "2022-02-11T06:25:28.748000+00:00",
  "Database": "dev",
@@ -92,7 +91,7 @@ aws redshift-data execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598323175.823,
@@ -121,7 +120,7 @@ aws redshift-data batch-execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598306924.632,
@@ -144,7 +143,7 @@ aws redshift-data batch-execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1623979777.126,
@@ -209,7 +208,7 @@ aws redshift-data execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598323175.823,
@@ -424,7 +423,7 @@ aws redshift-data batch-execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598306924.632,
@@ -447,7 +446,7 @@ aws redshift-data batch-execute-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598306924.632,

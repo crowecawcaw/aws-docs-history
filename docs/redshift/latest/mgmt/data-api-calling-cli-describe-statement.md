@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Describe metadata about a SQL statement
-<a name="data-api-calling-cli-describe-statement"></a>
 
 To get descriptions of metadata for a SQL statement, use the `aws redshift-data describe-statement` AWS CLI command. You can also use this command to describe individual sub-statements within a batch by providing the sub-statement ID. Authorization to run this command is based on the caller's IAM permissions. 
 
@@ -18,7 +17,7 @@ aws redshift-data describe-statement
 
 The following is an example of the response.
 
-```
+```json
 {
     "ClusterIdentifier": "mycluster-test",
     "CreatedAt": 1598306924.632,
@@ -36,7 +35,7 @@ The following is an example of the response.
 
 The following is an example of a `describe-statement` response after running a `batch-execute-statement` command with multiple SQL statements.
 
-```
+```json
 {
     "ClusterIdentifier": "mayo",
     "CreatedAt": 1623979777.126,
@@ -87,7 +86,7 @@ aws redshift-data describe-statement
 
 The following is an example of the response. The parent statement status is `STARTED` because the batch has not yet completed. The `SubStatements` array contains only the requested sub-statement.
 
-```
+```json
 {
     "ClusterIdentifier": "mayo",
     "CreatedAt": 1623979777.126,

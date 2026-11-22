@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift Python connector
-<a name="python-redshift-driver"></a>
 
 By using the Amazon Redshift connector for Python, you can integrate work with [the AWS SDK for Python (Boto3)](https://github.com/boto/boto3), and also pandas and Numerical Python (NumPy). For more information on pandas, see the [pandas GitHub repository](https://github.com/pandas-dev/pandas). For more information on NumPy, see the [NumPy GitHub repository](https://github.com/numpy/numpy). 
 

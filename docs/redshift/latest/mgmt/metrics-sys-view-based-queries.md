@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sys View-based Queries and Database Monitoring
-<a name="metrics-sys-view-based-queries"></a>
 
 This document describes the `SYS` views that provide data for the Queries and Database Monitoring page in the Amazon Redshift Console, a tool for analyzing a query's components and performance. For information about the Queries and Database Monitoring page, see [Query and Database Monitoring](metrics-enhanced-query-monitoring.md).
 
@@ -18,7 +17,7 @@ By default, you can only view your own queries. To view queries owned by other u
 
 To grant the privilege to view queries owned by all users to a database user or role, run the following commands:
 
-```
+```sql
 grant role sys:monitor to "IAM:{{role-name}}";
 grant role sys:monitor to "IAM:{{user-name}}";
 ```
@@ -42,7 +41,7 @@ To update the IAM role used for query monitoring, do the following:
 
 To add database credentials to a user, run the following command:
 
-```
+```sql
 grant role sys:monitor to {{<username>}}
 ```
 

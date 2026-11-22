@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Reduce API calls with long polling
-<a name="data-api-calling-considerations-long-polling"></a>
 
 By default, Data API operations return an immediate response. If the operation is against an in-progress statement, you must poll repeatedly until the statement reaches a terminal state. With long polling, set `WaitTimeSeconds` to a value between 1 and 30. The API will delay returning a synchronous response until the statement finishes, or `WaitTimeSeconds` is reached, whichever comes sooner.
 

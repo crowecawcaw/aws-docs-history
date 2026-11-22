@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use the Amazon Redshift driver metadata API for applications and tools
-<a name="discovering-metadata-driver-api"></a>
 
 For applications and tools that connect to Amazon Redshift, such as a business intelligence tool or query editor, we recommend that you use the driver metadata API provided by the Amazon Redshift [JDBC 2.x](jdbc20-install.md), [ODBC 2.x](odbc20-install.md), or [Python](python-redshift-driver.md) drivers to discover metadata about your data warehouse objects, including databases, schemas, tables, columns, and data types. As alternatives, you can use Amazon Redshift `SHOW` commands.
 
@@ -15,7 +14,7 @@ Use the driver metadata API for the following benefits:
 ## Example: Using JDBC DatabaseMetaData.getTables() to retrieve table metadata
 <a name="discovering-metadata-example-jdbc"></a>
 
-```
+```java
 DatabaseMetaData dbmd = connection.getMetaData();
 
 // getTables(catalog, schemaPattern, tableNamePattern, types)
@@ -29,7 +28,7 @@ ResultSet rs = dbmd.getTables("test", "test_pattern", null, new String[] {"TABLE
 ## Example: Using Python cursor.get\_columns() to retrieve column metadata
 <a name="discovering-metadata-example-python"></a>
 
-```
+```python
 cursor: redshift_connector.Cursor = conn.cursor()
 
 # get_columns(catalog, schema_pattern, table_name_pattern, column_name_pattern)
@@ -43,7 +42,7 @@ result: tuple = cursor.get_columns('test', 'test_pattern', 'testabc', '%')
 ## Example: Using ODBC SQLPrimaryKeys() to retrieve primary key metadata
 <a name="discovering-metadata-example-odbc"></a>
 
-```
+```c
 // SQLPrimaryKeys(hstmt, catalog, catalog_len, schema, schema_len, table, table_len)
 //   catalog: "test"         — filters to the database named "test"
 //   schema:  "test_schema"  — filters to the schema named "test_schema"
@@ -67,7 +66,7 @@ The ODBC API does not provide separate functions for listing catalogs or schemas
 
 Call `SQLTables()` with `CatalogName` set to `SQL_ALL_CATALOGS`. Set `SchemaName` and `TableName` to empty strings. The result set returns valid values only in the `TABLE_CAT` column. All other columns contain NULLs.
 
-```
+```c
 // List all catalogs (databases) available on the data source.
 retcode = SQLTables(hstmt,
     (SQLCHAR *)SQL_ALL_CATALOGS, SQL_NTS, // CatalogName = "%" (SQL_ALL_CATALOGS)
@@ -80,7 +79,7 @@ retcode = SQLTables(hstmt,
 
 Call `SQLTables()` with `SchemaName` set to `SQL_ALL_SCHEMAS`. Set `CatalogName` and `TableName` to empty strings.
 
-```
+```c
 // List all schemas available on the data source.
 retcode = SQLTables(hstmt,
     (SQLCHAR *)"", 0,                     // CatalogName = "" (empty string)

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating an IAM role as default for Amazon Redshift
-<a name="default-iam-role"></a>
 
  When you create IAM roles through the Redshift console, Amazon Redshift programmatically creates the roles in your AWS account and automatically attaches existing AWS managed policies to them. This approach means that you can stay within the Redshift console and don't have to switch to the IAM console for role creation. For more granular control of permissions for an existing IAM role that was created in the Amazon Redshift console, you can attach a customized managed policy to the IAM role. 
 
@@ -278,7 +277,7 @@ aws redshift create-cluster \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster",
@@ -315,7 +314,7 @@ aws redshift modify-cluster-iam-roles \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster",
@@ -360,7 +359,7 @@ aws redshift modify-cluster-iam-roles \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster",
@@ -405,7 +404,7 @@ aws redshift modify-cluster-iam-roles \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster",
@@ -443,7 +442,7 @@ aws redshift modify-cluster-iam-roles \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster",
@@ -488,7 +487,7 @@ aws redshift restore-from-cluster-snapshot \
 
 The following snippet is an example of the response.
 
-```
+```json
 {
     "Cluster": {
         "ClusterIdentifier": "mycluster-clone",

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using prepared statement support
-<a name="jdbc20-prepared-statement-support"></a>
 
 The Amazon Redshift JDBC driver supports prepared statements. You can use prepared statements to improve the performance of parameterized queries that need to be run multiple times during the same connection.
 
@@ -13,7 +12,7 @@ For more information about prepared statements, see "Using Prepared Statements" 
 
 You can prepare a statement that contains multiple queries. For example, the following prepared statement contains two INSERT queries:
 
-```
+```sql
 PreparedStatement pstmt = conn.prepareStatement("INSERT INTO
 MyTable VALUES (1, 'abc'); INSERT INTO CompanyTable VALUES
 (1, 'abc');");
@@ -23,7 +22,7 @@ Take care that these queries don't depend on the results of other queries that a
 
 For example, the following prepared statement, which creates a table and then inserts values into that newly-created table, is not allowed:
 
-```
+```sql
 PreparedStatement pstmt = conn.prepareStatement("CREATE
 TABLE MyTable(col1 int, col2 varchar); INSERT INTO myTable
 VALUES (1, 'abc');");

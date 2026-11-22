@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Adding a query monitoring policy
-<a name="serverless-monitor-access"></a>
 
 A superuser can provide access to users who aren't superusers so that they can perform query monitoring for all users. First, you add a policy for a user or a role to provide query monitoring access. Then, you grant query monitoring permission to the user or role. 
 
@@ -22,7 +21,7 @@ A superuser can provide access to users who aren't superusers so that they can p
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Configure authorization for your Amazon Redshift data warehouse
-<a name="zero-etl-using.redshift-iam"></a>
 
 To replicate data from your integration source into your Amazon Redshift data warehouse, you must initially add the following two entities:
 + *Authorized principal* – identifies the user or role that can create zero-ETL integrations into the data warehouse.
@@ -92,7 +91,7 @@ To control the source that can create an inbound integration into the namespace,
 
 The following is a sample resource policy.
 
-```
+```JSON
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ Where `rs-rp.json` contains:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

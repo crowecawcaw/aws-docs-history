@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Generating database credentials for an IAM identity using the Amazon Redshift CLI or API
-<a name="generating-iam-credentials-cli-api"></a>
 
 To programmatically generate temporary database user credentials, Amazon Redshift provides the [get-cluster-credentials](https://docs.aws.amazon.com/cli/latest/reference/redshift/get-cluster-credentials.html) command for the AWS Command Line Interface (AWS CLI) and the [GetClusterCredentials](https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html) API operation. Or you can configure your SQL client with Amazon Redshift JDBC or ODBC drivers that manage the process of calling the `GetClusterCredentials` operation, retrieving the database user credentials, and establishing a connection between your SQL client and your Amazon Redshift database. For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials).
 

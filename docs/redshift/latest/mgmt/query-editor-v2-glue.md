@@ -3,42 +3,41 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying the AWS Glue Data Catalog
-<a name="query-editor-v2-glue"></a>
 
 You can use query editor v2 to query data cataloged in your AWS Glue Data Catalog by using specific SQL commands and granting the permissions outlined in this section. By default, the AWS Glue Data Catalog is listed as a query editor v2 database named `awsdatacatalog`. Querying the AWS Glue Data Catalog is not available in all Amazon Redshift AWS Regions. Use the SHOW command to determine if this capability is available. For more information about AWS Glue, see [What is AWS Glue?](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) in the *AWS Glue Developer Guide*.
 
 You can configure your data warehouse and view the AWS Glue database objects cataloged using the following SQL commands:
 + SHOW – to display whether `awsdatacatalog` is mounted for the currently connected data warehouse. For example, to show the `data_catalog_auto_mount` parameter value, run:
 
-  ```
+  ```sql
   SHOW data_catalog_auto_mount;
   ```
 
   For more information, see [SHOW](https://docs.aws.amazon.com/redshift/latest/dg/r_SHOW.html) in the *Amazon Redshift Database Developer Guide*.
 + ALTER SYSTEM – to change the system-level configuration of `data_catalog_auto_mount`. For example, to change the `data_catalog_auto_mount` parameter value to `on`, run:
 
-  ```
+  ```sql
   ALTER SYSTEM SET data_catalog_auto_mount = on;
   ```
 
   The change takes effect when a provisioned cluster is rebooted or a serverless workgroup is automatically paused and resumed. For more information, see [ALTER SYSTEM](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_SYSTEM.html) in the *Amazon Redshift Database Developer Guide*.
 + SHOW SCHEMAS – shows a list of schemas. The schemas in the database named `awsdatacatalog` represent the AWS Glue databases cataloged in the AWS Glue Data Catalog. For example, to show these schemas, run:
 
-  ```
+  ```sql
   SHOW SCHEMAS FROM DATABASE awsdatacatalog;
   ```
 
   For more information, see [SHOW SCHEMAS](https://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_SCHEMAS.html) in the *Amazon Redshift Database Developer Guide*.
 + SHOW TABLES – shows a list of tables in a schema. For example, to show the tables in the AWS Glue Data Catalog database named `awsdatacatalog` that are in schema `myglue` run:
 
-  ```
+  ```sql
   SHOW TABLES FROM SCHEMA awsdatacatalog.myschema;
   ```
 
   For more information, see [SHOW TABLES](https://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_TABLES.html) in the *Amazon Redshift Database Developer Guide*.
 + SHOW COLUMNS – shows a list of columns in a table. For example, to show the columns in the AWS Glue Data Catalog database named `awsdatacatalog` that are in schema `myglue` and table `mytable` run:
 
-  ```
+  ```sql
   SHOW COLUMNS FROM TABLE awsdatacatalog.myglue.mytable;
   ```
 
@@ -50,7 +49,7 @@ You can configure your data warehouse and view the AWS Glue database objects cat
 
 1. In an editor tab, run the following SQL statement to grant an IAM user access to the AWS Glue Data Catalog.
 
-   ```
+   ```sql
    GRANT USAGE ON DATABASE awsdatacatalog to "{{IAM:myIAMUser}}"
    ```
 
@@ -64,7 +63,7 @@ You can configure your data warehouse and view the AWS Glue database objects cat
 
 After connecting, you can use query editor v2 to query data cataloged in AWS Glue Data Catalog. On the query editor v2 tree-view pane, choose the cluster or workgroup and `awsdatacatalog` database. In the editor or notebook pane, confirm the correct cluster or workgroup is chosen. The database chosen should be the initial Amazon Redshift database such as `dev`. For information about authoring queries, see [Authoring queries with Amazon Redshift](query-editor-v2-query-run.md) and [Notebooks in Amazon Redshift](query-editor-v2-notebooks.md). The database named `awsdatacatalog` is reserved to reference the external Data Catalog database in your account. Queries against the `awsdatacatalog` database can only be read-only. Use three-part notation to reference the table in your SELECT statement. Where the first part is the database name, the second part is the AWS Glue database name, and the third part is the AWS Glue table name.
 
-```
+```sql
 SELECT * FROM awsdatacatalog.{{<aws-glue-db-name}}>.<{{aws-glue-table-name}}>;
 ```
 
@@ -72,7 +71,7 @@ You can perform various scenarios that read the AWS Glue Data Catalog data and p
 
 The following example SQL joins two tables that are defined in AWS Glue.
 
-```
+```sql
 SELECT pn.emp_id, alias, role, project_name 
 FROM "awsdatacatalog"."empl_db"."project_name_table" pn, 
 "awsdatacatalog"."empl_db"."project_alias_table" pa
@@ -81,7 +80,7 @@ WHERE pn.emp_id = pa.emp_id;
 
 The following example SQL creates an Amazon Redshift table and populates it with data from a join of two AWS Glue tables.
 
-```
+```sql
 CREATE TABLE dev.public.glue AS
 SELECT pn.emp_id, alias, role, project_name 
 FROM "awsdatacatalog"."empl_db"."project_name_table" pn, 

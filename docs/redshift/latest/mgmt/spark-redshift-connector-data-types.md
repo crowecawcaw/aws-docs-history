@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Supported data types
-<a name="spark-redshift-connector-data-types"></a>
 
 The following data types in Amazon Redshift are supported with the Spark connector. For a complete list of supported data types in Amazon Redshift, see [Data types](https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html). If a data type is not in the table below, it's not supported in the Spark connector.
 
@@ -39,7 +38,7 @@ When you write DataFrames from the connector, any column of type `MapType` (usin
 
 The following example demonstrates how to create a table with a SUPER data type that contains a struct
 
-```
+```sql
 create table contains_super (a super);
 ```
 

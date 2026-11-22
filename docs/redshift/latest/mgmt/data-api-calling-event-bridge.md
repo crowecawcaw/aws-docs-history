@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Scheduling Amazon Redshift Data API operations with Amazon EventBridge
-<a name="data-api-calling-event-bridge"></a>
 
 You can create rules that match selected events and route them to targets to take action. You can also use rules to take action on a predetermined schedule. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/). 
 
@@ -33,7 +32,7 @@ aws events put-targets
 
 The input data.json file is as follows. The `Sql` JSON key indicates there is a single SQL statement. The `Arn` JSON value contains a cluster identifier. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
-```
+```json
 {
     "Rule": "test-redshift-cluster-data",
     "EventBusName": "default",
@@ -74,7 +73,7 @@ aws events put-targets
 
 The input data.json file is as follows. The `Sql` JSON key indicates there is a single SQL statement. The `Arn` JSON value contains a workgroup name. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
-```
+```json
 {
     "Rule": "test-redshift-serverless-workgroup-data", 
     "EventBusName": "default", 
@@ -114,7 +113,7 @@ aws events put-targets
 
 The input data.json file is as follows. The `Sqls` JSON key indicates there are multiple SQL statements. The `Arn` JSON value contains a cluster identifier. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
-```
+```json
 {
     "Rule": "test-redshift-cluster-data", 
     "EventBusName": "default", 
@@ -154,7 +153,7 @@ aws events put-targets
 
 The input data.json file is as follows. The `Sqls` JSON key indicates there are multiple SQL statements. The `Arn` JSON value contains a workgroup name. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
-```
+```json
 {
     "Rule": "test-redshift-serverless-workgroup-data", 
     "EventBusName": "default", 

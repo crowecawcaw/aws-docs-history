@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using AWS KMS with the Amazon Redshift Data API
-<a name="data-api-kms"></a>
 
 When you encrypt your Amazon Redshift cluster or Redshift Serverless workgroup with a customer managed key, the Amazon Redshift Data API uses that same customer managed key to store and encrypt your queries and results.
 
