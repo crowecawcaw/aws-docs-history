@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # About This Guide
-<a name="about-cf-cg"></a>
 
 This guide is intended for engineers who are performing the initial configuration on one or more AWS Elemental nodes that are in an AWS Elemental Conductor File cluster. In other words, this guide describes how to set up AWS Elemental Server nodes in a Conductor File cluster. 
 

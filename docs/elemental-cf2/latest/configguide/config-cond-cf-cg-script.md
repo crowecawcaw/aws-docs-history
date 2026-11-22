@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Run the Configuration Script for AWS Elemental Conductor File
-<a name="config-cond-cf-cg-script"></a>
 
 Perform this procedure if one of these applies:
 + You have two Conductor File nodes.

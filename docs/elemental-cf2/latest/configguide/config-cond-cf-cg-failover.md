@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Set Failover Timing for the Cluster
-<a name="config-cond-cf-cg-failover"></a>
 
 This section describes how to set the timeout rate for failover.
 

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # View Folder for Database Backups
-<a name="config-cond-cf-cg-bkup-view"></a>
 
 1. On the primary Conductor web interface, choose **Configuration** (cog icon) on the main menu.
 

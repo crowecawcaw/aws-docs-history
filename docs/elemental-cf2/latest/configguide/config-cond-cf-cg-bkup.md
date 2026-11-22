@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Work with Database Backups for AWS Elemental Conductor File
-<a name="config-cond-cf-cg-bkup"></a>
 
 **Important**  
 To set up database backup for the entire cluster, you need perform this setup only on the Conductor node. If you have two Conductor nodes, you need perform this setup only on the primary Conductor node. 

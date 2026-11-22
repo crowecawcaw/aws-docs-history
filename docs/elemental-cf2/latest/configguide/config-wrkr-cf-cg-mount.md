@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Add Mount Points to AWS Elemental Server Nodes
-<a name="config-wrkr-cf-cg-mount"></a>
 
 If you have mounted remote shares on the Conductor node or nodes, we strongly recommend that you mount the same shares on all worker nodes. 
 

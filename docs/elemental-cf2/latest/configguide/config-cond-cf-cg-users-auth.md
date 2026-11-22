@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Configure Authentication Settings
-<a name="config-cond-cf-cg-users-auth"></a>
 
 1. On the primary Conductor web interface, hover over **Configuration** (cog icon) on the main menu and choose **Authentication** from the drop-down menu.
 

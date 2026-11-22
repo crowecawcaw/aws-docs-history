@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Add AWS Elemental Server Nodes to the Cluster
-<a name="config-wrkr-cf-cg-add"></a>
 
 Add all of the worker nodes to the cluster so that they can be controlled by the Conductor node.
 

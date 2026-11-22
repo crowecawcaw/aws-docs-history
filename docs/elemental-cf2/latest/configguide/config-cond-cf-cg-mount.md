@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Add Mount Points to AWS Elemental Conductor File Nodes
-<a name="config-cond-cf-cg-mount"></a>
 
 You might want to specify files as the input sources for jobs. You might also have assets such as scripts and image files that you want to use in jobs that are stored in a folder on a remote server. 
 

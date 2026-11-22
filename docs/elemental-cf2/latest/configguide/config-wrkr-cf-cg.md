@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Configuring the Worker Node
-<a name="config-wrkr-cf-cg"></a>
 
 **Topics**
 + [Configure Ethernet Devices on AWS Elemental Server Nodes](config-wrkr-cf-cg-ethernet.md)
