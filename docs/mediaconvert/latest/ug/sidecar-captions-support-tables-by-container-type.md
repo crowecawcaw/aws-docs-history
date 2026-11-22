@@ -1,7 +1,6 @@
 
 
 # Supported input captions, within sidecar files
-<a name="sidecar-captions-support-tables-by-container-type"></a>
 
 The following tables show the captions formats you can create in your outputs when your input captions are in a sidecar format. *Sidecar captions* are captions that you provide as a separate input file from your video.
 

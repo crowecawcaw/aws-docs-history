@@ -1,7 +1,6 @@
 
 
 # Setting the fragment length for streaming outputs
-<a name="setting-the-fragment-length"></a>
 
 For all ABR streaming output groups other than HLS (CMAF, DASH, and Microsoft Smooth Streaming), the value that you specify for **Fragment length** (`FragmentLength`) must work with the other output settings that you specify. If you set **Fragment length** incorrectly, when viewers watch the output video, their player might crash. This can happen because the player expects additional segments at the end of the video and requests segments that don't exist. 
 
@@ -62,7 +61,7 @@ You can set the fragment length using either the console or the JSON job specifi
 **To find the **Fragment length** setting (JSON job specification)**
 + Find `FragmentLength` as a child of `OutputGroupSettings`, as in the following example.
 
-  ```
+  ```json
   {
     "Settings": {
       ...
@@ -103,7 +102,7 @@ Your ABR stack has multiple outputs. Make sure to set these values in each outpu
 
 Find `GopClosedCadence`, `GopSize`, `FramerateNumerator`, and `FramerateDenominator` as children of the codec settings, as in the following example. In this example, the codec is `H_264`, so the parent of the codec settings is `H264Settings`.
 
-  ```
+  ```json
   {
     "Settings": {
       ...

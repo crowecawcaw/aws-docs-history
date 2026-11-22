@@ -1,7 +1,6 @@
 
 
 # Content authenticity with C2PA manifests
-<a name="c2pa-manifest"></a>
 
 When you create MP4 outputs with AWS Elemental MediaConvert, you can optionally embed a C2PA manifest to provide content provenance and authenticity for your media. C2PA (Coalition for Content Provenance and Authenticity) is a standardized method for providing verifiable information about the origin and history of digital content.
 

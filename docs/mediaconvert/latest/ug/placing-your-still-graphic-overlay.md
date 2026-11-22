@@ -1,7 +1,6 @@
 
 
 # Placing your image overlay
-<a name="placing-your-still-graphic-overlay"></a>
 
 Whether your still image overlay is in input or output, set up the **Start time** and **Duration**. The following image shows how to specify settings so that an overlay starts two minutes into the video and remains on the video for two minutes. In the default settings, the overlay begins at the first frame of the input or output. The overlay remains on the video for the duration of the input or output.
 

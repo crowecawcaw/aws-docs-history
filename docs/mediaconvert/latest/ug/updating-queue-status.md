@@ -1,7 +1,6 @@
 
 
 # Updating queues
-<a name="updating-queue-status"></a>
 
 You can update an existing queue to change its **Name**, **Concurrent jobs**, or **Status**.
 

@@ -1,7 +1,6 @@
 
 
 # Creating audio-only outputs
-<a name="audio-only"></a>
 
 You can use AWS Elemental MediaConvert to create outputs that contain only audio, without video. With audio-only outputs, MediaConvert supports a more limited number of codec and container combinations for input and output files.
 

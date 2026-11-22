@@ -1,7 +1,6 @@
 
 
 # Working with image insertion (overlays)
-<a name="graphic-overlay"></a>
 
 With the image inserter feature, you can insert a still image or motion image at a specified time. You can also display it as an overlay on the underlying video for a specified duration. This feature includes fade-in and fade-out capability and adjustable opacity.
 

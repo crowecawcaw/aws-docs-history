@@ -1,7 +1,6 @@
 
 
 # Configuring automatically detected rotation
-<a name="automatic-rotation"></a>
 
 If your video has embedded rotation metadata, AWS Elemental MediaConvert can detect it and automatically rotate your video content so that it's oriented correctly in your outputs.
 

@@ -1,7 +1,6 @@
 
 
 # Requirements for TAMS inputs
-<a name="tams-input-requirements"></a>
 
 To process content from TAMS servers with MediaConvert, you need the following:
 
@@ -10,7 +9,7 @@ A TAMS server that implements the BBC TAMS API specification and is accessible f
 For more information about the BBC TAMS specification, see: [https://bbc.github.io/tams/main/index.html](https://bbc.github.io/tams/main/index.html)
 
 **EventBridge connection**  
-An Amazon EventBridge connection configured with OAuth credentials for your TAMS server. The connection must include the required OAuth scopes: `tams-api/read`, `tams-api/write`, and `tams-api/delete`.  
+An Amazon EventBridge connection configured with OAuth credentials for your TAMS server. The connection must include the required OAuth scopes: `tams-api/read`.  
 For information about EventBridge connections, see the [EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-connections.html).
 
 **Valid source ID**  
@@ -20,7 +19,7 @@ A UUID that identifies a valid multi-format source on your TAMS server. The sour
 Your MediaConvert service role must have permissions to access the specified EventBridge connection. Add the following permissions to your service role:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

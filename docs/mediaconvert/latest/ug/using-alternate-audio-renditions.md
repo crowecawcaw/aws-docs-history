@@ -1,7 +1,6 @@
 
 
 # Alternate HLS audio rendition requirements
-<a name="using-alternate-audio-renditions"></a>
 
 With HLS rendition groups, you can use the audio selector settings to indicate which alternate audio rendition you want MediaConvert to use. To be eligible for selection, your alternate audio renditions must conform to the following requirements:
 + The renditions must be included in `EXT-X-MEDIA` tags in the input multivariant playlist.

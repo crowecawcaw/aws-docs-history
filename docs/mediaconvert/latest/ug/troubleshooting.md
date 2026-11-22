@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This chapter describes errors and warnings that you can use to troubleshoot AWS Elemental MediaConvert.
 

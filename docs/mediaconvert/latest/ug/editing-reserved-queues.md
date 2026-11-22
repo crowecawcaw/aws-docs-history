@@ -1,7 +1,6 @@
 
 
 # Editing a reserved queue
-<a name="editing-reserved-queues"></a>
 
 When you edit a queue, you can change the following:
 + The description, which helps you identify it in the queue dashboard.

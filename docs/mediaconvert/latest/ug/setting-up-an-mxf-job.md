@@ -1,7 +1,6 @@
 
 
 # Job settings to create an MXF output
-<a name="setting-up-an-mxf-job"></a>
 
 To set up a job with an MXF output, you create the output in the **File group** output group. Then specify MXF as the output's container.
 

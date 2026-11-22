@@ -1,7 +1,6 @@
 
 
 # Creating Dolby Vision outputs with AWS Elemental MediaConvert
-<a name="dolby-vision"></a>
 
 Dolby Vision video uses an extended color palette and contrast range with dynamic, per-frame metadata. With AWS Elemental MediaConvert, you can create Profile 5 or Profile 8.1 Dolby Vision outputs from supported sources.
 

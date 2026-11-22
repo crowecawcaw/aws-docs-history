@@ -1,7 +1,6 @@
 
 
 # Troubleshooting share requests
-<a name="share-troubleshooting"></a>
 
 If you encounter issues when you create share requests, check the following:
 

@@ -1,7 +1,6 @@
 
 
 # Setting up captions in outputs
-<a name="set-up-captions-in-outputs"></a>
 
 The location of the captions in a job depends on your output captions format: Your captions might be in the same output as your video, a separate output in the same output group as your video, or in an entirely separate output group. How you set up multiple captions tracks also depends on the output captions format. 
 

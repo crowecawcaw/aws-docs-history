@@ -1,7 +1,6 @@
 
 
 # IMSC input captions (as part of an IMF source)
-<a name="IMSC-in-MXF"></a>
 
 AWS Elemental MediaConvert supports IMSC as an input captions format either as a sidecar file or as part of an IMF source. If your input IMSC captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions](sidecar-input.md).
 
@@ -16,7 +15,7 @@ Specify which captions you want by providing a track number. The track numbers c
 **In your JSON job specification**  
 If you use the API or an SDK, you can find these settings in the JSON file of your job. These settings are under `Inputs`, as in the following example:
 
-```
+```json
 "Inputs": [
 
  

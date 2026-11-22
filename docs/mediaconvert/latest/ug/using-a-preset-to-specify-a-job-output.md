@@ -1,7 +1,6 @@
 
 
 # Specifying a preset
-<a name="using-a-preset-to-specify-a-job-output"></a>
 
 When you specify the outputs of your MediaConvert job, you can use an output preset instead of choosing each output setting separately.
 

@@ -1,7 +1,6 @@
 
 
 # Per-frame metric reports in AWS Elemental MediaConvert
-<a name="per-frame-metrics"></a>
 
 ![Diagram showing per-frame metrics workflow in MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/mediaconvert_per_frame_metrics_diagram.png)
 

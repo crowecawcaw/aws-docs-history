@@ -1,7 +1,6 @@
 
 
 # MXF output requirements
-<a name="mxf-job-limitations"></a>
 
 MediaConvert restricts MXF jobs in these ways:
 + You can put MXF outputs in a **File group** output group only.

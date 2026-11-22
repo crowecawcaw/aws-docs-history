@@ -1,7 +1,6 @@
 
 
 # Monitoring MediaConvert job progress
-<a name="how-mediaconvert-jobs-progress"></a>
 
 MediaConvert provides status information for each job that you create. You can monitor a job's status to determine what is happening with your job, track its progress, or toubleshoot issues.
 

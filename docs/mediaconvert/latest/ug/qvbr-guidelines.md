@@ -1,7 +1,6 @@
 
 
 # Configuring quality-defined variable bitrate mode
-<a name="qvbr-guidelines"></a>
 
 When you use QVBR, you can specify the quality level for your output and the maximum peak bitrate. For reasonable values of those settings, the encoder chooses how many bits to use for each part of the video. When you apply the same settings to several assets, your job outputs for simpler assets (such as cartoons) have smaller file sizes than your outputs for visually complex assets (such as high-motion sports with brightly dressed crowds in the background).
 

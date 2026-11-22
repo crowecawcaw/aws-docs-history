@@ -1,7 +1,6 @@
 
 
 # How to shrink content during ad playback (merge squeeze)
-<a name="overlay-shrink"></a>
 
 The following procedure describes how to reduce the size of your primary content (to 75 percent) while displaying an advertisement beneath it. In steps 3 through 12, you specify a full screen ad. In steps 12 through 17, you temporarily shrink your base input video.
 

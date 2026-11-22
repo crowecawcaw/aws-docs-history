@@ -1,7 +1,6 @@
 
 
 # Accelerated transcoding job settings requirements
-<a name="job-requirements"></a>
 
 Before you enable Accelerated transcoding, make sure that your job conforms to the following requirements and limitations.
 

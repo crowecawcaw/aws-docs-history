@@ -1,11 +1,10 @@
 
 
 # Microsoft Smooth Streaming group
-<a name="microsoft-smooth-streaming-group"></a>
 
 The following is an EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for a Microsoft Smooth Streaming group.
 
-```
+```JSON
 {
     "detail": {
         "status": "COMPLETE",

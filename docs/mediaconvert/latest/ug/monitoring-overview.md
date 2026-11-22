@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Elemental MediaConvert
-<a name="monitoring-overview"></a>
 
 You can track a job's progress, including the status, phase, and percentage of completion. For information, see [Monitoring MediaConvert job progress](how-mediaconvert-jobs-progress.md).
 

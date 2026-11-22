@@ -1,7 +1,6 @@
 
 
 # Setting priority for hopped jobs
-<a name="job-priority-and-queue-hopping"></a>
 
 When you set up a job for queue hopping, you can specify the priority for the job in the new queue. If you don't specify a new priority, the job keeps the priority number from its submission queue. 
 

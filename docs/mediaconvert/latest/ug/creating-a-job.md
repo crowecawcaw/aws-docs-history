@@ -1,7 +1,6 @@
 
 
 # Creating a job
-<a name="creating-a-job"></a>
 
 To create a job, you specify your input settings, output settings, and any job-wide settings. For a detailed step-by-step procedure, see [Tutorial: Configuring job settings](setting-up-a-job.md). The following procedure is a high level overview of how to create a job using the AWS Management Console.
 

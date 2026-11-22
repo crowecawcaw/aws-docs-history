@@ -1,7 +1,6 @@
 
 
 # MediaConvert features
-<a name="features"></a>
 
 This chapter contains detailed information for implementing AWS Elemental MediaConvert features. You set up these features when you create a job.
 

@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="share-requirements"></a>
 
 To share a job with Support, the following requirements apply:
 
@@ -13,7 +12,7 @@ Your IAM user or role must have the `mediaconvert:CreateResourceShare` permissio
 The following is an example IAM policy that allows the operation `mediaconvert:CreateResourceShare` for a specific MediaConvert job :    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

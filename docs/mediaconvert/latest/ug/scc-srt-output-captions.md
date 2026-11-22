@@ -1,7 +1,6 @@
 
 
 # SCC, SRT, and SMI (sidecar) output captions
-<a name="scc-srt-output-captions"></a>
 
  This section covers how to configure SCC, SRT, and SMI (sidecar) output captions in AWS Elemental MediaConvert. The main topics include:
 + Where to specify the captions.

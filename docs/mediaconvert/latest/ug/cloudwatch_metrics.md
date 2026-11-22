@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch with MediaConvert
-<a name="cloudwatch_metrics"></a>
 
 You can use Amazon CloudWatch to gather metrics about your AWS Elemental MediaConvert jobs. Here are some examples of what you can do with CloudWatch:
 

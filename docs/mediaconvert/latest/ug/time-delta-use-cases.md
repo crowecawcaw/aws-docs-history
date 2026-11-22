@@ -1,7 +1,6 @@
 
 
 # Use cases for time delta
-<a name="time-delta-use-cases"></a>
 
 How you use **Time delta (TimeDelta)** depends on the problem you're trying to solve and the captions format that you're working with.
 

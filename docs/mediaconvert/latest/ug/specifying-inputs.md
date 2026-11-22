@@ -1,7 +1,6 @@
 
 
 # Specifying input files and input clips
-<a name="specifying-inputs"></a>
 
 You can use MediaConvert for *assembly workflows*. An assembly workflow is a MediaConvert job that performs basic input clipping and stitching to assemble output assets from different sources without requiring separate editing software. For example, an assembly workflow can put together a bumper followed by feature content that is interleaved with advertisements. The feature content might have a logo graphic overlay at the beginning of each feature segment.
 

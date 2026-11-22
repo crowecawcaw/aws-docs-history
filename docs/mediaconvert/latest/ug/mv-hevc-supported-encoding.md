@@ -1,7 +1,6 @@
 
 
 # Supported encoding settings for MV-HEVC
-<a name="mv-hevc-supported-encoding"></a>
 
 MV-HEVC outputs support the same H.265 encoding settings as standard H.265 outputs, including all resolutions, frame rates, rate control modes, and codec profiles. For details about H.265 encoding settings, see [HEVC (H.265)](supported-containers-codecs-details.md#codec-hevc).
 

@@ -1,7 +1,6 @@
 
 
 # Events with ERROR status
-<a name="ev_status_error"></a>
 
 MediaConvert sends the event for `ERROR` when at least one output has an error. It contains the error code or codes, messages, and warnings or other ephemeral job information about the job's error status. For more information about error codes, see [Error codes](mediaconvert_error_codes.md).
 

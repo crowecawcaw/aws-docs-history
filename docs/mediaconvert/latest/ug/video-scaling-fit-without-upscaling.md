@@ -1,7 +1,6 @@
 
 
 # Configuring fit without upscaling scaling
-<a name="video-scaling-fit-without-upscaling"></a>
 
 If you choose **Fit without upscaling** for your **Scaling behavior**, MediaConvert decreases the size of your input image until it fits inside the dimensions of your output resolution, without going over any of the dimensions of your output resolution. If your input image is smaller than your output image, MediaConvert does not increase the size of your image.
 

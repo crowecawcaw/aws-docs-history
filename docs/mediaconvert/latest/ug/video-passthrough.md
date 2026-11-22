@@ -1,7 +1,6 @@
 
 
 # Video passthrough
-<a name="video-passthrough"></a>
 
 MediaConvert supports video passthrough for **AVC (H.264)**, **HEVC (H.265)**, and **I-frame only** inputs. For AVC and HEVC inputs, you can create an output with any supported container type. For I-frame only inputs, you can create MXF or QuickTime outputs. Use video passthrough to repackage one or more inputs without any video encoding.
 

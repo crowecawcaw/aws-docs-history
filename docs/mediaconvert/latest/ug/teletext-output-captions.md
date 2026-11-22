@@ -1,7 +1,6 @@
 
 
 # Teletext output captions
-<a name="teletext-output-captions"></a>
 
  This section covers how to configure teletext output captions in AWS Elemental MediaConvert. The main topics include:
 + Teletext to Teletext passthrough.

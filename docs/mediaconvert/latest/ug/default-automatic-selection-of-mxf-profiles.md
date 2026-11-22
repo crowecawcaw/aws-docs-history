@@ -1,7 +1,6 @@
 
 
 # Working with default MXF profiles
-<a name="default-automatic-selection-of-mxf-profiles"></a>
 
 When you choose MXF as your output video container and keep **MXF profile** out of your job settings, MediaConvert automatically chooses your MXF profile for you and creates your output accordingly. How MediaConvert makes the MXF profile selection depends on your output video codec.
 
@@ -32,7 +31,7 @@ For your output resolution and frame rate, you can specify an allowed value expl
 
 This excerpt from a JSON job specification shows the same settings as you would submit them programmatically:
 
-```
+```json
 {
   "height": 512,
   "width": 720,

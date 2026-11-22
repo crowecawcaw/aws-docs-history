@@ -1,11 +1,10 @@
 
 
 # Apple HLS group
-<a name="apple-hls-group"></a>
 
 The following is an Amazon EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for an Apple HLS group.
 
-```
+```JSON
 {
     "detail": {
         "status": "COMPLETE",

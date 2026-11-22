@@ -1,7 +1,6 @@
 
 
 # Protecting your media assets with encryption and DRM using AWS Elemental MediaConvert
-<a name="using-encryption"></a>
 
 Use encryption to protect your content from unauthorized access. You can use any combination of these encryption options with AWS Elemental MediaConvert:
 + Server-side encryption: Keep your output files secure in the Amazon S3 buckets that AWS Elemental MediaConvert reads from and writes to.

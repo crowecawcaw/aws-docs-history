@@ -1,7 +1,6 @@
 
 
 # Events with QUEUE\_HOP status
-<a name="ev_status_queue_hop"></a>
 
 MediaConvert sends the `QUEUE_HOP` event when a job hops queues. It contains the ARNs for both queues and the job's priority within the queues.
 

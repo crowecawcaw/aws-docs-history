@@ -1,7 +1,6 @@
 
 
 # Configuring a job with Accelerated transcoding
-<a name="setting-up-accelerated-transcoding"></a>
 
 You set up Accelerated transcoding for your AWS Elemental MediaConvert jobs in the same way that you set up unaccelerated jobs, except that you enable acceleration.
 

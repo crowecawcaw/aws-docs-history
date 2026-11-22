@@ -1,7 +1,6 @@
 
 
 # Audio descriptions
-<a name="audio-descriptions"></a>
 
 AWS Elemental MediaConvert supports two different workflows for including broadcast audio descriptions in your output.
 

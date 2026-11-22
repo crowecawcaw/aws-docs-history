@@ -1,7 +1,6 @@
 
 
 # Supported input captions, within video containers
-<a name="captions-support-tables-by-container-type"></a>
 
 To look up whether MediaConvert supports your captions workflow, choose the topic from the following list that corresponds to your video output container. Then find the row that corresponds to your input captions container and format. Check the supported output captions format column to see the available output captions formats.
 

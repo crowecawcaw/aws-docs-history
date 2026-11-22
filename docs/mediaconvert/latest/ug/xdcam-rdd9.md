@@ -1,7 +1,6 @@
 
 
 # XDCAM RDD9 output requirements
-<a name="xdcam-rdd9"></a>
 
 MediaConvert supports the following combinations of encoding settings when your output **MXF profile** is **XDCAM RDD9**. 
 

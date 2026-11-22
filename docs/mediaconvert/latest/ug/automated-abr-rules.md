@@ -1,7 +1,6 @@
 
 
 # Applying automated ABR rules
-<a name="automated-abr-rules"></a>
 
 Use **Automated ABR rules** to specify restrictions for the rendition sizes that MediaConvert creates in your automated ABR stack. We recommend using these rules if your ABR workflow has specific rendition size requirements, but you still want MediaConvert to optimize for video quality and overall file size.
 

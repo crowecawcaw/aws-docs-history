@@ -1,7 +1,6 @@
 
 
 # Example ESAM XML Manifest Confirm Condition Notification
-<a name="example-esam-xml-manifest-conditioning"></a>
 
 This ESAM manifest confirm condition (MCC) XML document generates HLS manifest cue tags for two 30-second ad breaks. The first begins at 10 seconds in; the second begins at 75 seconds in. These cue manifest tags also contain data that can be used by a downstream client for ad replacement and insertion. Outputs generated with this MCC document contain a SCTE-35 message embedded into the transport stream file at the first ad break, but not at the second one.
 
@@ -9,7 +8,7 @@ Note the `dataPassThrough` attribute on the first ad break. When this attribute 
 
 MediaConvert supports manifest conditioning with ESAM only in HLS packages.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ns2:ManifestConfirmConditionNotification xmlns:ns2="http://www.cablelabs.com/namespaces/metadata/xsd/confirmation/2" xmlns="http://www.cablelabs.com/namespaces/metadata/xsd/core/2" xmlns:ns3="http://www.cablelabs.com/namespaces/metadata/xsd/signaling/2">
   <ns2:ManifestResponse acquisitionPointIdentity="ExampleESAM" acquisitionSignalID="1" duration="PT30S" dataPassThrough="true"> 

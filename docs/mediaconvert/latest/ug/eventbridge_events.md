@@ -1,7 +1,6 @@
 
 
 # Using EventBridge with AWS Elemental MediaConvert
-<a name="eventbridge_events"></a>
 
 You can use Amazon EventBridge to monitor your AWS Elemental MediaConvert jobs. Here are some examples of what you can do with EventBridge:
 

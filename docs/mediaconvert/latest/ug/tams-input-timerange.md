@@ -1,7 +1,6 @@
 
 
 # Time range format
-<a name="tams-input-timerange"></a>
 
 TAMS inputs use a specific time range format that provides nanosecond precision for content selection. The format follows the pattern `[start:nanoseconds_end:nanoseconds)`, where brackets indicate whether the boundary is inclusive or exclusive.
 

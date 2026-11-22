@@ -1,7 +1,6 @@
 
 
 # Deleting a queue
-<a name="deleting-a-queue"></a>
 
 You can delete any queue other than the default queue. You can't delete a queue that contains unprocessed jobs. The following tabs show how to delete an on-demand queue.
 

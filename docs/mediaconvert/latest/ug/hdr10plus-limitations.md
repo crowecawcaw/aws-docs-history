@@ -1,7 +1,6 @@
 
 
 # Requirements for creating HDR10\+ outputs
-<a name="hdr10plus-limitations"></a>
 
 For information about which devices play back HDR 10\+ content and test content, see [https://hdr10plus.org. ](https://hdr10plus.org/) 
 

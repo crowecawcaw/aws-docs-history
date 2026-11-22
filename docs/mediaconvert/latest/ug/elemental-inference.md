@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConvert features that use AWS Elemental Inference
-<a name="elemental-inference"></a>
 
  AWS Elemental Inference is a managed media service that uses AI to generate metadata from media files. For more information, see [Elemental Inference](https://aws.amazon.com/elemental-inference/) on the AWS website. 
 
@@ -51,7 +50,7 @@
 
  The following IAM policy outlines the additional permissions required to use Smart features. For more information about creating a MediaConvert IAM role, see the [Setting up IAM permissions](iam-role.md) guide. 
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

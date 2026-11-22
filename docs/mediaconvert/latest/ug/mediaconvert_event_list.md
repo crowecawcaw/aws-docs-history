@@ -1,7 +1,6 @@
 
 
 # List of MediaConvert EventBridge events
-<a name="mediaconvert_event_list"></a>
 
 AWS Elemental MediaConvert emits an event to Amazon EventBridge when the status of a job changes. You can create [EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) for any of these events. 
 

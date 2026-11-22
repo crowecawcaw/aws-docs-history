@@ -1,7 +1,6 @@
 
 
 # Understanding overlay layers
-<a name="using-multiple-overlays"></a>
 
 The **Layer** setting specifies how overlapping image overlays appear in the video. The service overlays images with higher values for **Layer** on top of overlays with lower values for **Layer**. Each overlay must have a unique value for **Layer**; you can't assign the same layer number to more than one overlay.
 

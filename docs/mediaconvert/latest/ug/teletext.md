@@ -1,7 +1,6 @@
 
 
 # Teletext input captions
-<a name="teletext"></a>
 
 How you set up your Teletext input captions selectors depends on how you plan to use the captions in your output. You can use Teletext captions in one of the following ways:
 + [Teletext to Teletext passthrough](#input-teletext-to-output-teletext-passthrough)

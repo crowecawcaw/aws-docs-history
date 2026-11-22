@@ -1,7 +1,6 @@
 
 
 # Setting job priority
-<a name="setting-the-priority-of-a-job"></a>
 
 Within a queue, AWS Elemental MediaConvert processes jobs in parallel until all the resources available to the queue are used. After a job finishes and the resources are again available in the queue, MediaConvert selects the next job to process based on the job's *priority*. 
 

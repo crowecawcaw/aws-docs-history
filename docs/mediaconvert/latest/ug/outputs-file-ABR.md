@@ -1,7 +1,6 @@
 
 
 # Using output groups to specify a streaming package type or standalone file
-<a name="outputs-file-ABR"></a>
 
 AWS Elemental MediaConvert output functions differ based on which type of output group it is a part of.
 

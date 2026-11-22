@@ -1,7 +1,6 @@
 
 
 # List of MediaConvert CloudWatch metrics
-<a name="metrics"></a>
 
 AWS Elemental MediaConvert sends the following metrics to CloudWatch at the end of every job.
 

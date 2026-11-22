@@ -1,7 +1,6 @@
 
 
 # Purchasing additional RTS
-<a name="purchasing-additional-capacity-for-a-reserved-queue"></a>
 
 To increase the number of jobs that your reserved queue can process at once, you can purchase additional capacity for it. To purchase additional capacity, you extend your existing commitment with a new 12-month commitment for a larger number of reserved transcode slots (RTS). The new commitment begins when you purchase the additional capacity. You can't decrease the number of RTS in your reserved queue. You can't cancel your commitment or revert to your original commitment after you increase the capacity.
 

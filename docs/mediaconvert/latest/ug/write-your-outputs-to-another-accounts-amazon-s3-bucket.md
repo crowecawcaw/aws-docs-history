@@ -1,7 +1,6 @@
 
 
 # Writing your outputs to an Amazon S3 bucket in another account
-<a name="write-your-outputs-to-another-accounts-amazon-s3-bucket"></a>
 
 When you want the outputs of your MediaConvert jobs to reside in an Amazon S3 bucket that is owned by another AWS account, you work together with the administrator of that account to add a bucket permissions policy that grants you access to write the files and to add an Amazon S3 canned access control list (ACL) to the outputs. Then you set up your MediaConvert job to write to that bucket and to automatically add the canned ACL `bucket-owner-full-control` as it does so.
 

@@ -1,7 +1,6 @@
 
 
 # Video overlay feature limitations
-<a name="video-overlays-restrictions"></a>
 
 Video overlays have the following restrictions:
 + MediaConvert does not support audio playback or separate captions for video overlays. During a video overlay, any audio or captions from your base input video will continue uninterrupted.

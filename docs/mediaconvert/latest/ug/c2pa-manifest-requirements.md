@@ -1,7 +1,6 @@
 
 
 # Requirements for C2PA manifests
-<a name="c2pa-manifest-requirements"></a>
 
 To include C2PA manifests in your MediaConvert outputs, you need the following:
 
@@ -21,7 +20,7 @@ For information about AWS KMS, see the [AWS KMS user guide](https://docs.aws.ama
 Your MediaConvert service role must have permissions to access the specified Secrets Manager secret and AWS KMS key. Add the following permissions to your service role:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

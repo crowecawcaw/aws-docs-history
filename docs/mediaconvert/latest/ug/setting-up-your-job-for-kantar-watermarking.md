@@ -1,7 +1,6 @@
 
 
 # Configuring a job for Kantar watermarking
-<a name="setting-up-your-job-for-kantar-watermarking"></a>
 
 After you've established your relationship with Kantar, stored your Kantar credentials in AWS Secrets Manager, and granted permission to AWS Elemental MediaConvert to get these credentials, set up your MediaConvert job to encode the Kantar watermarks.
 

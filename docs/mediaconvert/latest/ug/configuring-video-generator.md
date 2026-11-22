@@ -1,7 +1,6 @@
 
 
 # How to generate black video
-<a name="configuring-video-generator"></a>
 
 In the following steps, you will include **Video generator** to generate a black video. When you do, also specify a numerical value for **Duration** in milliseconds from `50` to `86400000`. This creates a video input with black frames for that duration without an audio track.
 

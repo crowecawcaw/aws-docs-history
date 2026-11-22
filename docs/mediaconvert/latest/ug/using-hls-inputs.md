@@ -1,7 +1,6 @@
 
 
 # HLS input requirements
-<a name="using-hls-inputs"></a>
 
  When you specify an HLS package as an input for your MediaConvert job, you need to specify the correct input file URL and ensure that the HLS input package conforms to the requirements listed on this page. 
 

@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Elemental MediaConvert
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify MediaConvert resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -40,7 +39,7 @@ To ensure that users and roles can still use the MediaConvert console, also atta
 
 The following sample policy grants the IAM user permissions to all AWS Elemental MediaConvert actions (such as `ListJobs`, `CreateJob`, and so on) on all MediaConvert resources (such as jobs, queues, and output presets). It also grants the IAM actions required for the IAM user to specify the service role that MediaConvert will assume in order to run the job. It also grants Amazon S3 actions that allow the IAM user to use the **Browse** button to choose input and output locations. The Amazon S3 permissions aren't required to run the job; without them, the IAM user can specify the URL of the bucket instead. In this example, the account number is {{111122223333}} and the role name is {{MediaConvertRole}}.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -86,7 +85,7 @@ The following sample policy grants the IAM user permissions to all AWS Elemental
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 The following example policy grants the basic permissions to operate AWS Elemental MediaConvert. In this example, the account number is {{111122223333}} and the role name is {{MediaConvertRole}}. If you are using encryption, or if your Amazon S3 buckets have default encryption enabled, you need additional permissions. For more information, see [Protecting your media assets with encryption and DRM using AWS Elemental MediaConvert](using-encryption.md).
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -179,7 +178,7 @@ The following example policy grants permissions to certain AWS Elemental MediaCo
 **Note**  
 You can't grant cross-account permissions to AWS Elemental MediaConvert resources, such as queues, output presets, and jobs. You can grant cross-account permissions to your input and output media files stored in Amazon S3.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -220,7 +219,7 @@ The following policy grants access to all actions on all MediaConvert resources 
 **Note**  
 This policy demonstrates the IAM principle that, in the case where policies both allow and deny action on a resource, the denial takes precedence. Therefore, the IAM user with this attached policy can't perform the denied actions, even if they have a different policy that allows administrative permissions to all MediaConvert resources.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

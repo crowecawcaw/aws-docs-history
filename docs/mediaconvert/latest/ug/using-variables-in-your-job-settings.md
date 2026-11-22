@@ -1,7 +1,6 @@
 
 
 # Using variables in your job settings
-<a name="using-variables-in-your-job-settings"></a>
 
 You can use variables, also called *format identifiers*, in your job settings. Format identifiers are values that you can put in your job settings that resolve differently in your outputs depending on the characteristics of the input files or the job. They are particularly useful in output presets, job templates, and jobs that you intend to duplicate and re-use. Note that variables are case sensitive.
 
@@ -72,7 +71,7 @@ In your output file names, `$Time$` resolves to the duration, in milliseconds, o
 For example, if you specify **video180\_\_$Time$** for **Name modifier**, the service creates segment files named `video180__345600.mp4`, `video180__331680.mp4`, and so on. In these examples, the segment durations are 345,600 ms and 331,680 ms.  
 In the manifest, AWS Elemental MediaConvert includes `SegmentTimeline` inside the `SegmentTemplate` element, like this:   
 
-```
+```xml
 <Representation id="5" width="320" height="180" bandwidth="200000" codecs="avc1.4d400c">
         <SegmentTemplate media="video180_$Time$.mp4" initialization="videovideo180_init.mp4">
           <SegmentTimeline>

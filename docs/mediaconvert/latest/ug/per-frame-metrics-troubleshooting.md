@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="per-frame-metrics-troubleshooting"></a>
 
 The following is a list of troubleshooting tips for issues that you might encounter while working with per-frame metric reports:
 

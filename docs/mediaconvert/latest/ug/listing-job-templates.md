@@ -1,7 +1,6 @@
 
 
 # Listing templates
-<a name="listing-job-templates"></a>
 
 You can list the system job templates that are included with MediaConvert and the custom job templates that you have added in a AWS Region. You can also view the settings for an individual job template.
 

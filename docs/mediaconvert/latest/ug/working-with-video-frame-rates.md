@@ -1,7 +1,6 @@
 
 
 # Working with frame rate conversion
-<a name="working-with-video-frame-rates"></a>
 
 The *frame rate* of a video asset represents how quickly video player devices play back the frames of a video, in frames per second (fps). For example, films have a frame rate of 24 fps, NTSC television broadcasts are 29.97/59.94 fps, and PAL television broadcasts are 50/25 fps. If you keep the MediaConvert default settings in your job, your output video will have the same frame rate as your input video.
 

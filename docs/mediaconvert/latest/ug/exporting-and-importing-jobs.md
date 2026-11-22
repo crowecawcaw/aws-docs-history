@@ -1,7 +1,6 @@
 
 
 # Exporting and importing jobs
-<a name="exporting-and-importing-jobs"></a>
 
 Completed MediaConvert jobs remain on the **Jobs** page for three months. If you want to run a new job based on a completed job more than three months after you run it, export the job after it is complete and save it. Depending on how many jobs you run, exporting and then importing a job can be simpler than finding a particular job in your list and duplicating it.
 

@@ -1,7 +1,6 @@
 
 
 # Moving a job to a different queue
-<a name="setting-up-queue-hopping-to-avoid-long-waits"></a>
 
 A job stays in a `SUBMITTED` state, waiting to be processed, until the queue that you submit it to has available resources. To prevent long wait times, you can configure your job to automatically move to another queue after a set amount of time. This is called *queue hopping*. 
 

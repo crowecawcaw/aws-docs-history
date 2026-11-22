@@ -1,7 +1,6 @@
 
 
 # Working with telecine in AWS Elemental MediaConvert
-<a name="working-with-telecine-and-inverse-telecine"></a>
 
 When you convert the frame rate from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally use the **Telecine** setting to enable hard or soft telecine. *Hard telecine* produces a 29.97i output by duplicating interlaced video frame fields onto multiple frames. *Soft telecine* produces a 23.976 fps output that signals to the video player device to do the conversion during play back. Generally, broadcasters use telecine when preparing film assets for broadcasting to NTSC set-top boxes.
 

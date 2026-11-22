@@ -1,7 +1,6 @@
 
 
 # Granting IAM permissions to your Kantar credentials
-<a name="granting-permissions-for-mediaconvert-to-access-secrets-manager-secret"></a>
 
 When you use AWS Elemental MediaConvert, you specify an IAM service role that grants permissions to the service to access the resources it needs to run your job. For example, your MediaConvert service role grants MediaConvert permissions to read your job input files from Amazon S3. For information about setting up that service role, see [Setting up IAM permissions](iam-role.md).
 

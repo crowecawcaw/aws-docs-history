@@ -1,7 +1,6 @@
 
 
 # Configuring motion image insertion
-<a name="setting-up-motion-graphic-overlays"></a>
 
 Motion graphic overlays apply to every output in the job. Therefore, set them up as a processor in the settings that apply to the entire job.
 

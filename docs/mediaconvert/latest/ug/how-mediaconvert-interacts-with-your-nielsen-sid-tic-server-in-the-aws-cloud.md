@@ -1,7 +1,6 @@
 
 
 # Nielsen SID/TIC server requirements in the AWS Cloud
-<a name="how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud"></a>
 
 The following diagram shows, at a high level, how MediaConvert interacts with the other parts of the system.
 

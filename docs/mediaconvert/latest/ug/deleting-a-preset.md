@@ -1,7 +1,6 @@
 
 
 # Deleting a custom preset
-<a name="deleting-a-preset"></a>
 
 You can delete the custom presets that you added in an AWS Region. You can't delete the system presets.
 

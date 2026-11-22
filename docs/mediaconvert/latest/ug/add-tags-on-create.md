@@ -1,7 +1,6 @@
 
 
 # Adding tags when you create an AWS Elemental MediaConvert resource
-<a name="add-tags-on-create"></a>
 
 The following procedures show you how to add tags to your MediaConvert queues, job templates, and output presets when you create them.
 
@@ -38,7 +37,7 @@ You can add tags when you create a queue, job template, or output preset.
 
 When you create a job, job template, output preset, or queue using the AWS Elemental MediaConvert API or the AWS CLI, submit your JSON specification for the resource as usual. Include tags as shown in the following JSON example, in `tags`:
 
-```
+```JSON
 {
 	"name": "Job Template Test with Resource Tags",
 	"description": "Job Template Test",

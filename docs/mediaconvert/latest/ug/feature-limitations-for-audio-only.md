@@ -1,7 +1,6 @@
 
 
 # Audio-only job settings limitations
-<a name="feature-limitations-for-audio-only"></a>
 
 In any job that contains audio-only outputs, you can't use these features:
 + Job progress status update

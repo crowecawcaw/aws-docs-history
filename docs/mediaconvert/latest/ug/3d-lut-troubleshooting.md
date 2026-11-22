@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="3d-lut-troubleshooting"></a>
 
 The following is a list of issues you might encounter while working with 3D LUT files and troubleshooting tips:
 

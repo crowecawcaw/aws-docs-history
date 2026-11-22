@@ -1,7 +1,6 @@
 
 
 # Configuring fill scaling
-<a name="video-scaling-fill-ratio"></a>
 
 If you choose **Fill** for your **Scaling behavior**, MediaConvert scales your input image until it fills the dimensions of your output resolution, and crops anything that exceeds the dimensions of your output resolution.
 

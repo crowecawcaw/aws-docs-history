@@ -1,7 +1,6 @@
 
 
 # Configuring Dolby Vision
-<a name="setting-up-a-dolby-vision-job"></a>
 
 Use the following steps to set up a Dolby Vision job. For more information about jobs, see [Tutorial: Configuring job settings](setting-up-a-job.md).
 

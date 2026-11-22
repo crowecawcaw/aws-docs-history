@@ -1,7 +1,6 @@
 
 
 # Creating outputs
-<a name="output-settings"></a>
 
 A single MediaConvert job can create outputs as a standalone file (for example, an .mp4 file), a set of files for adaptive bitrate (ABR) streaming (for example, an Apple HLS package), or combinations of both. When you create output groups and the outputs within them, you specify the number and types of files that your job generates.
 

@@ -1,7 +1,6 @@
 
 
 # Granting permissions for MediaConvert to access encrypted Amazon S3 buckets
-<a name="granting-permissions-for-mediaconvert-to-access-encrypted-s3-buckets"></a>
 
 When you [enable Amazon S3 default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html#bucket-encryption-how-to-set-up), Amazon S3 automatically encrypts your objects as you upload them. You can optionally choose to use AWS Key Management Service (AWS KMS) to manage the key. This is called SSE-KMS encryption.
 
@@ -23,7 +22,7 @@ This policy grants permissions for both `kms:Decrypt` and `kms:GenerateDataKey`.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

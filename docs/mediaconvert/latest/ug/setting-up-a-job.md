@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configuring job settings
-<a name="setting-up-a-job"></a>
 
 This page provides step-by-step guidance on how to configure a job in MediaConvert.
 

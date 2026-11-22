@@ -1,7 +1,6 @@
 
 
 # Events with NEW\_WARNING status
-<a name="ev_status_new_warning"></a>
 
 MediaConvert sends an event for `NEW_WARNING` when a warning condition arises. A warning condition doesn't stop the job from running. It contains the submission queue ARN, the job ID, and a warning message. Warning messages inform you about conditions that don't stop the job but might indicate that the job is not progressing as you planned.
 

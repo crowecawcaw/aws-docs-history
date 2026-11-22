@@ -1,7 +1,6 @@
 
 
 # IMSC, TTML, and WebVTT (sidecar) output captions
-<a name="ttml-and-webvtt-output-captions"></a>
 
  This section covers how to configure IMSC, TTML, and WebVTT (sidecar) output captions in AWS Elemental MediaConvert. The main topics include:
 + Where to specify the captions.

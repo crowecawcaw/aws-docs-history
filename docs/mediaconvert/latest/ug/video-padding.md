@@ -1,7 +1,6 @@
 
 
 # Padding video with black video frames
-<a name="video-padding"></a>
 
 AWS Elemental MediaConvert can pad video tracks with black video frames so that video and audio durations align.
 

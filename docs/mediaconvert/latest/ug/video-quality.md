@@ -1,7 +1,6 @@
 
 
 # Recommended encoding settings for video quality
-<a name="video-quality"></a>
 
 When you create a job with AWS Elemental MediaConvert, the encoding settings that you choose affect video quality, file size, and player compatibility. 
 

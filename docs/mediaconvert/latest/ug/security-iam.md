@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Elemental MediaConvert
-<a name="security-iam"></a>
 
 
 

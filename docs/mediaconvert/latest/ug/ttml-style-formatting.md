@@ -1,7 +1,6 @@
 
 
 # TTML style formatting
-<a name="ttml-style-formatting"></a>
 
 AWS Elemental MediaConvert reads the style formatting of your input captions when your job runs. If you notice issues with the style formatting of your output, we recommend checking the formatting of your input captions or setting **Style passthrough** to Enabled. The following topics provide guidance for using fonts, heritable and non-heritable attributes, and right to left languages in your TTML input captions.
 

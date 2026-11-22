@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="encryption-requirements"></a>
 
 When implementing content encryption for MediaConvert, refer to the following limitations and requirements:
 + Use the AWS Secure Packager and Encoder Key Exchange (SPEKE) API to facilitate integration with a digital rights management (DRM) system provider. For information about SPEKE, see [What is Secure Packager and Encoder Key Exchange?](https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html)

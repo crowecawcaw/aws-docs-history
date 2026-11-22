@@ -1,7 +1,6 @@
 
 
 # Supported containers and codecs reference tables
-<a name="supported-containers-codecs-details"></a>
 
 The following sections provide reference tables for containers and codecs that MediaConvert supports. 
 
@@ -199,7 +198,7 @@ For information about using IMF inputs to create Dolby Vision outputs, see [Dolb
 </tbody>
 </table>
 
-MOV inputs must be self-contained. References to external files are not supported.  
+MOV inputs can contain data reference entries that point to media stored outside of the input file. For more information, including recommendations for inputs that you receive from sources that you don't control, see [External references in MP4 and MOV inputs](mp4-mov-external-references.md).  
 For information about using MOV inputs to create Dolby Vision outputs, see [Dolby Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md).
 
 **MP3 (MPEG-1 Layer 3)**  
@@ -232,7 +231,8 @@ MediaConvert does not read ID3 metadata or tags from MP3 inputs.
 </tbody>
 </table>
 
-MediaConvert doesn't support fragmented MP4 initialization segments. Your MP4 input must be self-contained.   
+MediaConvert doesn't support fragmented MP4 initialization segments.  
+MP4 inputs can contain data reference entries that point to media stored outside of the input file. For more information, including recommendations for inputs that you receive from sources that you don't control, see [External references in MP4 and MOV inputs](mp4-mov-external-references.md).  
 For information about creating MV-HEVC stereoscopic video outputs in MP4 containers, see [Creating MV-HEVC spatial video outputs with AWS Elemental MediaConvert](mv-hevc-spatial-video.md).
 
 **MPEG-1 (MPEG-1 System Stream)**  

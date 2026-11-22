@@ -1,7 +1,6 @@
 
 
 # Creating a job from a template
-<a name="using-a-job-template"></a>
 
 Job templates apply to an entire transcoding job and provide values for settings that stay the same across multiple jobs. You specify the input settings and the AWS Identity and Access Management (IAM) service role in the job itself. These values are not saved in the template because they are likely to vary from job to job.
 

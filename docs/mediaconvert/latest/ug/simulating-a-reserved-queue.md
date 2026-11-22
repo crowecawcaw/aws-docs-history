@@ -1,7 +1,6 @@
 
 
 # Simulating a reserved queue
-<a name="simulating-a-reserved-queue"></a>
 
 You can run a job in a *simulated* reserved queue to test its performance. When you do, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. Take note of how long you job takes to complete and use this job completion time when calculating how many RTS you need.
 

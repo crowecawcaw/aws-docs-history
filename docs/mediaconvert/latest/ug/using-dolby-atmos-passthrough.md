@@ -1,7 +1,6 @@
 
 
 # Configuring Dolby Atmos passthrough
-<a name="using-dolby-atmos-passthrough"></a>
 
 AWS Elemental MediaConvert can create Dolby Digital Plus with Atmos outputs by either encoding audio in 9.1.6, 7.1.4, or 5.1.4 PCM mono channels, or by passing through already encoded Dolby Digital Plus with Atmos content.
 

@@ -1,7 +1,6 @@
 
 
 # QuickTime captions track or captions in MXF VANC data (ancillary) input captions
-<a name="ancillary"></a>
 
 If your input captions are in either of the following formats, the service handles them as "ancillary" data:
 + QuickTime captions track (format QTCC)

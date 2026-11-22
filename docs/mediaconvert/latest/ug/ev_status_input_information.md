@@ -1,7 +1,6 @@
 
 
 # Events with INPUT\_INFORMATION status
-<a name="ev_status_input_information"></a>
 
 MediaConvert sends the event for `INPUT_INFORMATION` after a job begins processing and after MediaConvert reads information about your input. The event primarily contains media information about your input, such as frame height and width, frame rate, and codec.
 

@@ -1,7 +1,6 @@
 
 
 # Supported inputs and outputs
-<a name="supported-inputs-outputs"></a>
 
 This chapter provides reference tables and detailed information for input and output formats that AWS Elemental MediaConvert supports. It covers supported input and output containers, codecs, and captions. 
 

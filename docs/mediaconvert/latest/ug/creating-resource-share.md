@@ -1,7 +1,6 @@
 
 
 # Sharing a job
-<a name="creating-resource-share"></a>
 
 You can share a job by using the MediaConvert console, AWS CLI, or API/SDK.
 

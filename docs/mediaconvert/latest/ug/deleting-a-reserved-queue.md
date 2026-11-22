@@ -1,7 +1,6 @@
 
 
 # Deleting a reserved queue
-<a name="deleting-a-reserved-queue"></a>
 
 You can delete any queue other than the default queue. You can't delete a reserved queue that has an active pricing plan or that contains unprocessed jobs. The following tabs show two options for deleting a reserved queue. 
 

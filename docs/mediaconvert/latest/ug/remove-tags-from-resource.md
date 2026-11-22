@@ -1,7 +1,6 @@
 
 
 # Removing tags from an AWS Elemental MediaConvert resource
-<a name="remove-tags-from-resource"></a>
 
 The following procedure shows you how to remove tags from existing job templates, output presets, and queues using the AWS Elemental MediaConvert console.
 

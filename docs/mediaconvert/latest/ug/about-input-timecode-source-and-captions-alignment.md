@@ -1,7 +1,6 @@
 
 
 # Input timecode source and captions alignment
-<a name="about-input-timecode-source-and-captions-alignment"></a>
 
 When you adjust your input timeline by setting the input **Timecode source** to **Start at 0** or **Specified start**, MediaConvert behaves as though your input has embedded timecodes that start when you specify. But MediaConvert doesn't change the timecodes or timestamps in your sidecar captions files. Therefore, the way that you align your captions depends on your captions format.
 

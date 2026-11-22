@@ -1,7 +1,6 @@
 
 
 # IMSC requirements
-<a name="imsc-captions-support"></a>
 
 Current support for IMSC captions workflows is restricted as follows:
 + Text profile is the only supported IMSC profile.

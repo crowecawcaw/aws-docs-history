@@ -1,7 +1,6 @@
 
 
 # Using metadata tags with AWS Elemental MediaConvert jobs
-<a name="user-metadata-tags"></a>
 
 Unless you have existing integrations or workflows that rely on metadata (`userMetadata`) tags, we recommend that you use standard AWS tags for both automatic integration with AWS services and for custom integrations and workflows. For more information, see [Tagging AWS Elemental MediaConvert resources](tagging-mediaconvert-resources.md).
 
@@ -11,7 +10,7 @@ You add metadata tags to jobs in one of the following ways:
 + Through the MediaConvert console on the **Job settings** page, in the **Metadata** pane. 
 + Through the MediaConvert API in your job settings JSON payload. Include tags as shown in the following JSON snippet, in `userMetadata`. For more information, see the [Jobs](https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html) endpoint section of the *MediaConvert API Reference*.
 
-  ```
+  ```JSON
   {
   	"name": "Job Template Test with Resource Tags",
   	"description": "Job Template Test",

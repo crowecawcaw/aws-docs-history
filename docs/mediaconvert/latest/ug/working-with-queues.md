@@ -1,7 +1,6 @@
 
 
 # Working with queues in AWS Elemental MediaConvert
-<a name="working-with-queues"></a>
 
 A queue is a set of resources that processes jobs. All jobs run in a queue.
 

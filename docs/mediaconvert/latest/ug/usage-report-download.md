@@ -1,7 +1,6 @@
 
 
 # Downloading the MediaConvert usage report
-<a name="usage-report-download"></a>
 
 You can download a usage report as an XML or a comma-separated values (CSV) file.
 

@@ -1,7 +1,6 @@
 
 
 # Using variable frame rate inputs in AWS Elemental MediaConvert
-<a name="using-variable-frame-rate-inputs"></a>
 
 Some videos have a frame rate that varies over the duration of the video. Some cameras—for example, the cameras in many smartphones—automatically generate video that uses more frames for high-action sequences and fewer frames for sequences with less motion. MediaConvert supports variable frame rate (VFR) inputs, but creates only constant frame rate (CFR) outputs.
 

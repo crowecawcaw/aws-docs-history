@@ -1,7 +1,6 @@
 
 
 # Viewing on-demand queue details
-<a name="listing-queues"></a>
 
 You can list the queues that are associated with your AWS account and get details about those queues. 
 

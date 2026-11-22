@@ -1,7 +1,6 @@
 
 
 # Feature Restrictions for Dolby Atmos Passthrough
-<a name="feature-restrictions-for-dolby-atmos-passthrough"></a>
 
 Note the following restrictions in the AWS Elemental MediaConvert implementation of Dolby Atmos passthrough:
 + **Output codec:** You can create Dolby Atmos audio outputs encoded with only the Dolby Digital Plus (EAC3) codec.

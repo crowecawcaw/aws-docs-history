@@ -1,7 +1,6 @@
 
 
 # WebVTT input captions (as part of an HLS source)
-<a name="WebVTT-in-HLS"></a>
 
 AWS Elemental MediaConvert supports WebVTT as an input captions format either as a sidecar file or as part of an HLS source. If your input WebVTT captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions](sidecar-input.md).
 
@@ -22,7 +21,7 @@ Specify which captions group you want by providing an ISO 639-3 language code. T
 **In your JSON job specification**  
 If you use the API or an SDK, you can find these settings in the JSON file of your job. These settings are under `Inputs`, as in the following example:
 
-```
+```json
 "Inputs": [
 
  

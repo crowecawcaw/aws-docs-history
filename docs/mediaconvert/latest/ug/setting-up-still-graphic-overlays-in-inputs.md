@@ -1,7 +1,6 @@
 
 
 # Configuring input overlays
-<a name="setting-up-still-graphic-overlays-in-inputs"></a>
 
 Because you are setting up an input overlay, set up image insertion in each input where you want the service to overlay imagess on your video. The overlays that you specify appear in every output. For information about setting up an overlay that appears on only specific outputs, see [Choosing between input and output overlays](choosing-between-input-overlay-and-output-overlay.md).
 

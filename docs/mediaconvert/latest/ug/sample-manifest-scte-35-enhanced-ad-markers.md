@@ -1,7 +1,6 @@
 
 
 # Sample manifest: SCTE-35 enhanced ad markers
-<a name="sample-manifest-scte-35-enhanced-ad-markers"></a>
 
 To generate the following sample manifest, choose **Apple HLS group settings**, **Advanced**, **Ad markers**, **SCTE-35 enhanced**:
 

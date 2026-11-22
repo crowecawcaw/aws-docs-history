@@ -1,7 +1,6 @@
 
 
 # Configuring ad avail blanking
-<a name="ad-avail-blanking"></a>
 
 You can enable ad avail blanking to remove video content, remove any captions, and mute audio during the portions of the output that are marked as available for ads (ad avails). 
 

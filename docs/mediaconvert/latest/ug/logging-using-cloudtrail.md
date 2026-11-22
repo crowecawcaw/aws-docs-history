@@ -1,7 +1,6 @@
 
 
 # Logging AWS Elemental MediaConvert API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Elemental MediaConvert integrates with AWS CloudTrail, a service that provides a record of operations taken by a user, role, or an AWS service. CloudTrail captures all operations (API calls) you perform, including those from the MediaConvert Console, as events. Events contain information about requests to MediaConvert, including the IP address, who made the request, when it was made, the MediaConvert operation, and additional details. For more information about CloudTrail events, see [What are CloudTrail events?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-events)
 

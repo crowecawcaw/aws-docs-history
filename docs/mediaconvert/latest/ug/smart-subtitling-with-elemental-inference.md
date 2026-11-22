@@ -1,7 +1,6 @@
 
 
 # Configuring Smart subtitling with AWS Elemental Inference
-<a name="smart-subtitling-with-elemental-inference"></a>
 
  The **Smart subtitling** feature uses AI to generate captions from audio. Using Smart subtitling reduces manual captioning effort and increases delivery speed of your video content. 
 

@@ -1,7 +1,6 @@
 
 
 # Understanding queue hopping with paused queues
-<a name="queue-hopping-with-paused-queues"></a>
 
 Pausing a queue affects a job's queue hopping behavior. Jobs don't hop from a queue while it's paused, but they do hop freely to paused queues. This section describes what happens when you configure queue hopping *from* a paused queue or *to* a paused queue.
 

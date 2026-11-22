@@ -1,7 +1,6 @@
 
 
 # Creating a job with automated ABR
-<a name="creating-an-automated-abr-stack"></a>
 
 When you know whether you want to specify values for the optional limits, use one of the following procedures to set up automated ABR in your job. For more information about these optional settings, see [Understanding how automated ABR works](auto-abr.md#how-automated-abr-works).
 

@@ -1,11 +1,10 @@
 
 
 # DASH ISO group
-<a name="dash-iso-group"></a>
 
 The following is an Amazon EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for a DASH ISO group.
 
-```
+```JSON
 {
     "detail": {
         "status": "COMPLETE",

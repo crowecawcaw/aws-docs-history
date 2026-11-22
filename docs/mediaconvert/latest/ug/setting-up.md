@@ -1,7 +1,6 @@
 
 
 # Prerequisites to start using MediaConvert
-<a name="setting-up"></a>
 
 Before you start using MediaConvert, you need an AWS account, at least one input file stored in Amazon S3 or on an HTTP/HTTPS server, an Amazon S3 bucket for your output files, and an IAM role with the correct permissions. 
 

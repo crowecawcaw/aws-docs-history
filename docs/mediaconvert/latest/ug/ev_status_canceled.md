@@ -1,7 +1,6 @@
 
 
 # Events with CANCELED status
-<a name="ev_status_canceled"></a>
 
 MediaConvert sends the event for `CANCELED` when the job is canceled. It contains basic job details including `timestamp`, `accountID`, `queue`, `jobId`, and `userMetadata`.
 

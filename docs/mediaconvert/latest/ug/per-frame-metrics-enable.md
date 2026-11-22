@@ -1,7 +1,6 @@
 
 
 # Generating per-frame metric reports
-<a name="per-frame-metrics-enable"></a>
 
 Configure per-frame metric reports at either the output group level or the individual output level.
 

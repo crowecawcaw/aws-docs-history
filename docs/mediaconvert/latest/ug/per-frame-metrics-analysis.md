@@ -1,7 +1,6 @@
 
 
 # Metric analysis techniques
-<a name="per-frame-metrics-analysis"></a>
 
 This section provides techniques for analyzing your per-frame metrics and applying best practices to optimize your encoding workflow.
 

@@ -1,7 +1,6 @@
 
 
 # How to shrink content during ad playback (picture-in-picture)
-<a name="overlay-shrink-pip"></a>
 
 The following procedure describes how to reduce the size of your primary content (to 20 percent) while displaying an advertisement in full screen. In steps 3 through 7, you specify a full screen ad. In steps 8 through 12, you temporarily shrink your base input video.
 

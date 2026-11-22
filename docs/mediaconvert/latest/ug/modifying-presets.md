@@ -1,7 +1,6 @@
 
 
 # Modifying a preset
-<a name="modifying-presets"></a>
 
 You can adjust the settings and field values in your custom presets. You can't change system presets, but you can duplicate them and modify the duplicate, as described in [Creating a preset, based on a system preset](create-custom-preset-from-system-preset.md).
 

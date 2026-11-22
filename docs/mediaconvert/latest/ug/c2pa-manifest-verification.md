@@ -1,7 +1,6 @@
 
 
 # Verifying C2PA manifests
-<a name="c2pa-manifest-verification"></a>
 
 After creating MP4 outputs with C2PA manifests, you can verify the manifests using C2PA-compatible tools. These tools can extract and validate the manifest, including checking the digital signature and asset hash.
 

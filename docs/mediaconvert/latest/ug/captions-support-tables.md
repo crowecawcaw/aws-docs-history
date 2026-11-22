@@ -1,7 +1,6 @@
 
 
 # Captions reference tables
-<a name="captions-support-tables"></a>
 
 MediaConvert supports a wide range of captions conversion workflows. But you can't convert every supported input captions format to every supported output captions format. Each video container supports a subset of all possible captions types. Furthermore, MediaConvert supports a subset of all transformations theoretically allowed within the input and output video container type.
 

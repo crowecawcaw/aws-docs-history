@@ -1,7 +1,6 @@
 
 
 # Configuring stretch to output scaling
-<a name="video-scaling-stretch-ratio"></a>
 
 If you choose **Stretch to output** for your **Scaling behavior**, MediaConvert stretches or shrinks your video image to your output resolution.
 

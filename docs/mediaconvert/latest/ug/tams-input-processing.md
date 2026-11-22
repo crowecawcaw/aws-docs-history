@@ -1,7 +1,6 @@
 
 
 # How MediaConvert processes TAMS content
-<a name="tams-input-processing"></a>
 
 When you submit a job with TAMS inputs, MediaConvert automatically handles the complexity of retrieving and processing your content. MediaConvert constructs the proper API endpoints by appending paths like `/sources/{sourceId}` and `/flows/{flowId}/segments` to your base TAMS server URL. 
 

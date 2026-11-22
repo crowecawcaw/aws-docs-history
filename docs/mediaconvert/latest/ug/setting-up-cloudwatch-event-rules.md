@@ -1,7 +1,6 @@
 
 
 # Setting up EventBridge rules
-<a name="setting-up-cloudwatch-event-rules"></a>
 
 To set up Amazon EventBridge rules: Create a rule that links the event from AWS Elemental MediaConvert and the target service that responds to your job status change, such as Amazon Simple Notification Service (Amazon SNS) or AWS Lambda. 
 

@@ -1,7 +1,6 @@
 
 
 # Working with on-demand queues
-<a name="working-with-on-demand-queues"></a>
 
 Your account starts with one on-demand queue, which is the default queue when you create jobs. With on-demand queues, you pay based on usage. For pricing details, see [AWS Elemental MediaConvert pricing](https://aws.amazon.com/mediaconvert/pricing/). 
 

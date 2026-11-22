@@ -1,7 +1,6 @@
 
 
 # Working with Nielsen watermarking
-<a name="nielsen-watermarking"></a>
 
 Nielsen is a company that tracks how often video assets are watched by viewers. One form of that tracking uses tones in a media asset's audio that are audible to machines but not humans. These tones are encoded directly in the audio stream and can also be cued in the metadata. To use this Nielsen audio watermarking with MediaConvert, you must first establish a relationship with Nielsen.
 

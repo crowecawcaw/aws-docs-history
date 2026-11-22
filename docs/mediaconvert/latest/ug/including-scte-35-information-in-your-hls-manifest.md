@@ -1,7 +1,6 @@
 
 
 # Including SCTE-35 information in your HLS manifest
-<a name="including-scte-35-information-in-your-hls-manifest"></a>
 
 For outputs in an HLS package, you can have the service include information in the HLS manifest about the SCTE-35 markers that are in each of the outputs.
 

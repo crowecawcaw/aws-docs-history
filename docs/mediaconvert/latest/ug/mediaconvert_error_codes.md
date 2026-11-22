@@ -1,7 +1,6 @@
 
 
 # Error codes
-<a name="mediaconvert_error_codes"></a>
 
 MediaConvert returns error codes when transcoding jobs run into problems. You can use Amazon EventBridge to track the error codes that the service returns.
 
@@ -25,12 +24,12 @@ To resolve this issue:
 + Try playing the file in a media player to verify its integrity.
 For more information about supported input formats and codecs, see [Supported input formats](reference-codecs-containers-input.md).  
 Example error messages:  
-Unable to open input file [*s3://amzn-s3-demo-bucket/VIDEO.MP4*]: Failed probe/open: [No parser found for container]]   
-Unable to open input file [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]: [Failed probe/open: [The manifest file at this URL isn't formed correctly: [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]. It contains more than one \#EXT-X-VERSION tag. Fix the manifest and resubmit your job.]]  
-Unable to open input file [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]: [Failed probe/open: [The version of the manifest file at this URL is more recent than we support: [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]. We support versions up to [4].]]  
-Unable to open input file [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]: [Failed probe/open: [The child manifest at this URL isn't formed correctly: [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/VARIANT.M3U8*]. It specifies a larger segment duration in \#EXTINF than in \#EXT-X-TARGETDURATION. The problem is on this line: [\#EXTINF:13,]. Fix the manifest and resubmit your job.]]  
-Failed to initialize pipeline [Caption file [*s3://amzn-s3-demo-bucket/CAPTIONS.VTT*] does not appear to be the correct type.]. (IS)  
-Failed to download *s3://amzn-s3-demo-bucket/IMAGE.PNG*
+`Unable to open input file [s3://amzn-s3-demo-bucket/VIDEO.MP4]: Failed probe/open: [No parser found for container]] `  
+`Unable to open input file [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]: [Failed probe/open: [The manifest file at this URL isn't formed correctly: [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]. It contains more than one #EXT-X-VERSION tag. Fix the manifest and resubmit your job.]]`  
+`Unable to open input file [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]: [Failed probe/open: [The version of the manifest file at this URL is more recent than we support: [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]. We support versions up to [4].]]`  
+`Unable to open input file [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]: [Failed probe/open: [The child manifest at this URL isn't formed correctly: [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/VARIANT.M3U8]. It specifies a larger segment duration in #EXTINF than in #EXT-X-TARGETDURATION. The problem is on this line: [#EXTINF:13,]. Fix the manifest and resubmit your job.]]`  
+`Failed to initialize pipeline [Caption file [s3://amzn-s3-demo-bucket/CAPTIONS.VTT] does not appear to be the correct type.]. (IS)`  
+`Failed to download s3://amzn-s3-demo-bucket/IMAGE.PNG`
 
 **1020 \| Missing video error**  
 MediaConvert can't find any video in your input stream.  
@@ -41,11 +40,11 @@ To resolve this issue:
 + Try re-encoding the file with a standard video codec.
 For more information about supported video codecs and containers, see [Supported input formats](reference-codecs-containers-input.md).  
 Example error messages:  
-Your input file [*s3://amzn-s3-demo-bucket/VIDEO.MP4*] doesn't have video that the transcoder can consume. Check your input video codec against this list of supported input video codec and container combinations: [https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html\#reference-codecs-containers-input-video](https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html#reference-codecs-containers-input-video).  
-Video sync did not read enough good frames to process successfully  
-No video found in program [1]  
-No video found for stream index [1] with PID [256].  
-Invalid program id specified for job. 0 is not a valid program id.
+`Your input file [s3://amzn-s3-demo-bucket/VIDEO.MP4] doesn't have video that the transcoder can consume. Check your input video codec against this list of supported input video codec and container combinations: [https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html\#reference-codecs-containers-input-video](https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html#reference-codecs-containers-input-video).`  
+`Video sync did not read enough good frames to process successfully`  
+`No video found in program [1]`  
+`No video found for stream index [1] with PID [256].`  
+`Invalid program id specified for job. 0 is not a valid program id.`
 
 **1021 \| Missing audio error**  
 MediaConvert can't find any audio in your input stream.  
@@ -56,8 +55,8 @@ To resolve this issue:
 + Verify that the audio codec is supported by MediaConvert.
 For more information about supported audio codecs and containers, see [Supported input formats](reference-codecs-containers-input.md).  
 Example error messages:  
-No audio frames decoded on [selector-(*Audio Selector 1)*-track-1-drc]  
-Demuxer and decoder cancelled on [selector-(*Audio Selector 1*)-track-1-drc] before any frames were decoded
+`No audio frames decoded on [selector-(Audio Selector 1)-track-1-drc]`  
+`Demuxer and decoder cancelled on [selector-(Audio Selector 1)-track-1-drc] before any frames were decoded`
 
 **1022 \| Timecode error**  
 MediaConvert could not find or read timecode in your input.  
@@ -68,7 +67,7 @@ To resolve this issue:
 + Modify your timecode source to "Start at 0" if your file doesn't have embedded timecodes.
 For more information about timecode configuration options, see [Setting up timecodes](setting-up-timecode.md).  
 Example error messages:  
-You set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM (USE\_MDPM), but no MDPM timecode was found in your input. Leave Embedded timecode override blank, or set to None (NONE), and resubmit your job.
+`You set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM (USE_MDPM), but no MDPM timecode was found in your input. Leave Embedded timecode override blank, or set to None (NONE), and resubmit your job.`
 
 **1030 \| Unsupported codec error**  
 MediaConvert doesn't support the codec or container of the input file.  
@@ -78,10 +77,10 @@ To resolve this issue:
 + If possible, obtain your content in a different format.
 For more information about supported input formats and codecs, see [Supported input formats](reference-codecs-containers-input.md).  
 Example error messages:  
-Audio codec [*adpcm\_ms*] for track [1] is not a supported input audio codec  
-Unsupported video input: [*High 4:4:4 Predictive profile* is unsupported]  
-Video codec [*unknown*] is not a supported input video codec  
-Video codec [*svq1*] is not a supported input video codec
+`Audio codec [adpcm_ms] for track [1] is not a supported input audio codec`  
+`Unsupported video input: [High 4:4:4 Predictive profile is unsupported]`  
+`Video codec [unknown] is not a supported input video codec`  
+`Video codec [svq1] is not a supported input video codec`
 
 **1040 \| Job settings compatibility error**  
 One or more of the job's encoding settings aren't supported in the combination specified. Or, the encoding settings aren't compatible with the input.  
@@ -93,15 +92,15 @@ To resolve this issue:
 + Verify that your input and output paths are different.
 For more information about configuring job settings correctly, see [Tutorial: Configuring job settings](setting-up-a-job.md).  
 Example error messages:  
-You did not specify resolution for Video description [*1*] and there is no input resolution to follow. To resolve: Specify a width and height, and resumbit your job.  
-You did not specify framerate for Video description [*1*] and there is no input framerate to follow. To resolve: Specify framerate, and resumbit your job.  
-Invalid audio track specified for audio\_selector [*1*]. Audio track [*1*] not found in input container.  
-video\_description [*1*] is not a valid AVC-Intra operating point. Invalid frame rate [*30/1*]. Supported frame rates for AVC Intra class 100, 1920x1080, PROGRESSIVE are [*25/1, 60000/1001, 30000/1001, 24000/1001, 50/1*]  
-Invalid resolution [*640 x 1159*], only even values are supported. video\_description [*1*].  
-video\_description [*1*] is not a valid AVC-Intra operating point. Invalid frame rate [*30/1*]. Supported frame rates for AVC Intra class 100, 1920x1080, PROGRESSIVE are [*25/1, 60000/1001, 30000/1001, 24000/1001, 50/1*]  
-Frame rate is set to follow, but there is no frame rate information in the input stream info  
-Duplicate input and output path [*s3://amzn-s3-demo-bucket/VIDEO.MP4*] found in job.  
-Error initializing encoder for video target [*1*] [initialization failed: Invalid level specified for the selected framerate or resolution.]
+`You did not specify resolution for Video description [1] and there is no input resolution to follow. To resolve: Specify a width and height, and resumbit your job.`  
+`You did not specify framerate for Video description [1] and there is no input framerate to follow. To resolve: Specify framerate, and resumbit your job.`  
+`Invalid audio track specified for audio_selector [1]. Audio track [1] not found in input container.`  
+`video_description [1] is not a valid AVC-Intra operating point. Invalid frame rate [30/1]. Supported frame rates for AVC Intra class 100, 1920x1080, PROGRESSIVE are [25/1, 60000/1001, 30000/1001, 24000/1001, 50/1]`  
+`Invalid resolution [640 x 1159], only even values are supported. video_description [1].`  
+`video_description [1] is not a valid AVC-Intra operating point. Invalid frame rate [30/1]. Supported frame rates for AVC Intra class 100, 1920x1080, PROGRESSIVE are [25/1, 60000/1001, 30000/1001, 24000/1001, 50/1]`  
+`Frame rate is set to follow, but there is no frame rate information in the input stream info`  
+`Duplicate input and output path [s3://amzn-s3-demo-bucket/VIDEO.MP4] found in job.`  
+`Error initializing encoder for video target [1] [initialization failed: Invalid level specified for the selected framerate or resolution.]`
 
 **1041 \| Acceleration compatibility error**  
 Your job settings aren't compatible with accelerated transcoding.  
@@ -113,7 +112,7 @@ To resolve this issue:
 + Consider disabling accelerated transcoding if you need the incompatible features.
 For more information about accelerated transcoding requirements and limitations, see [Accelerated transcoding job settings requirements](job-requirements.md).  
 Example error messages:  
-Your job settings aren't compatible with accelerated transcoding. Adjust your job settings as follows: [Disable interpolated frame rate conversion in the following output: [*1*]. Disable inverse telecine by choosing Deinterlace as the deinterlacer mode in the following output: [*2*].]
+`Your job settings aren't compatible with accelerated transcoding. Adjust your job settings as follows: [Disable interpolated frame rate conversion in the following output: [1]. Disable inverse telecine by choosing Deinterlace as the deinterlacer mode in the following output: [2].]`
 
 **1042 \| Acceleration requirement error**  
 This job doesn't require enough processing power to benefit from accelerated transcoding.  
@@ -123,7 +122,7 @@ To resolve this issue:
 + Consider using accelerated transcoding for more complex jobs that would take 10 or more minutes to run.
 + Consider batching smaller jobs together if appropriate.
 Example error messages:  
-This job doesn't require enough processing power to benefit from accelerated transcoding. Disable accelerated transcoding, and resubmit your job.
+`This job doesn't require enough processing power to benefit from accelerated transcoding. Disable accelerated transcoding, and resubmit your job.`
 
 **1043 \| Acceleration input error**  
 MediaConvert can't use accelerated transcoding with your input files.  
@@ -132,7 +131,7 @@ To resolve this issue:
 + Disable accelerated transcoding for this job.
 + Review the compatible input requirements.
 Example error messages:  
-Your input files aren't compatible with accelerated transcoding. Disable accelerated transcoding and resubmit your job.
+`Your input files aren't compatible with accelerated transcoding. Disable accelerated transcoding and resubmit your job.`
 
 **1056 \| File open error**  
 The service can't open an input or output file.  
@@ -143,9 +142,9 @@ To resolve this issue:
 + Verify that you're using a [supported file format](reference-codecs-containers-input.md).
 + Use the Browse button in the console to verify the correct S3 path.
 Example error messages:  
-Demuxer: [The transcoder can't read this media segment: [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/SEGMENT\_00001.TS*]. The segment is listed in this HLS child manifest: [*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8*]. Check the segment to make sure that it's formed correctly and not corrupt.]  
-MGILoaderMOV [*s3://amzn-s3-demo-bucket/VIDEO.MOV*] file contains unsupported pixel format.  
-MGILoaderMOV unable to open [*s3://amzn-s3-demo-bucket/VIDEO.MOV*] file : [-1094995529]
+`Demuxer: [The transcoder can't read this media segment: [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/SEGMENT_00001.TS]. The segment is listed in this HLS child manifest: [https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/MANIFEST.M3U8]. Check the segment to make sure that it's formed correctly and not corrupt.]`  
+`MGILoaderMOV [s3://amzn-s3-demo-bucket/VIDEO.MOV] file contains unsupported pixel format.`  
+`MGILoaderMOV unable to open [s3://amzn-s3-demo-bucket/VIDEO.MOV] file : [-1094995529]`
 
 **1060 \| Timecode clipping error**  
 The start and end timecodes specified for an input clip don't exist in the associated input stream.  
@@ -157,10 +156,10 @@ To resolve this issue:
 + Use a media analysis tool to check the actual duration and timecode range of your input.
 For more information about how MediaConvert handles timecodes and input timelines, see [Input timelines](specifying-inputs.md#input-timelines).  
 Example error messages:  
-The clipping start timecode [*00:12:55;00*] was not found in input number [*1*]  
-Decoder closed. No pictures decoded.  
-Demuxer unable to seek to clipping start timecode [*00:16:37:00*]  
-The clipping region [*00:00:00:00*] to [*00:00:07:12*] was not found in input number [*1*]
+`The clipping start timecode [00:12:55;00] was not found in input number [1]`  
+`Decoder closed. No pictures decoded.`  
+`Demuxer unable to seek to clipping start timecode [00:16:37:00]`  
+`The clipping region [00:00:00:00] to [00:00:07:12] was not found in input number [1]`
 
 **1075 \| Demux structure error**  
 MediaConvert couldn't recover from a problematic file when demuxing.  
@@ -172,11 +171,11 @@ To resolve this issue:
 + If the issue persists, contact Support.
 For more information about supported input formats and requirements, see [Supported input formats](reference-codecs-containers-input.md).  
 Example error messages:  
-Unable to open input file [*s3://amzn-s3-demo-bucket/file.mp4*]: [Failed probe/open: [no moov box found in file]]  
-Error initializing demux info for file [*s3://amzn-s3-demo-bucket/audio.mp4*] (Incompatible audio stream)  
-Demuxer: [elst box outside of track]  
-Error initializing demux info for file [s3://amzn-s3-demo-bucket/captions.vtt] (Incompatible container headers)  
-Demuxer: [invalid AVC header]
+`Unable to open input file [s3://amzn-s3-demo-bucket/file.mp4]: [Failed probe/open: [no moov box found in file]]`  
+`Error initializing demux info for file [s3://amzn-s3-demo-bucket/audio.mp4] (Incompatible audio stream)`  
+`Demuxer: [elst box outside of track]`  
+`Error initializing demux info for file [s3://amzn-s3-demo-bucket/captions.vtt] (Incompatible container headers)`  
+`Demuxer: [invalid AVC header]`
 
 **1076 \| File truncation error**  
 MediaConvert couldn't read from one of the input files. The file might have an unexpected end of file.  
@@ -188,8 +187,8 @@ To resolve this issue:
 + Verify that your input file is valid and that it's truncated properly.
 For more information about troubleshooting file upload issues, see [Troubleshooting Amazon S3 upload issues](https://docs.aws.amazon.com/AmazonS3/latest/userguide/troubleshooting-upload-issues.html).  
 Example error messages:  
-Demuxer: [ReadPacketData File read failed - end of file hit at length [*93524619*]. Is file truncated?]  
-Audio input pipeline error: [Demuxer: [ReadPacketData File read failed - end of file hit at length [*123251788*]. Is file truncated?]]
+`Demuxer: [ReadPacketData File read failed - end of file hit at length [93524619]. Is file truncated?]`  
+`Audio input pipeline error: [Demuxer: [ReadPacketData File read failed - end of file hit at length [123251788]. Is file truncated?]]`
 
 **1080 \| MXF configuration error**  
 There is a problem in the way that the MXF output settings are configured in your job.  
@@ -200,7 +199,7 @@ To resolve this issue:
 + Consider using an MXF profile preset as a starting point.
 For more information about MXF output requirements and specifications, see [Creating MXF outputs](mxf.md).  
 Example error messages:  
-MXF\_muxer [1]: BadFilePath (status 0x7)
+`MXF_muxer [1]: BadFilePath (status 0x7)`
 
 **1091 \| Output encryption error**  
 There was an error encrypting one or more of the job outputs.  
@@ -212,11 +211,11 @@ To resolve this issue:
 + See guidance on proper role configuration.
 For more information about setting up DRM encryption, see [Content encryption and DRM in AWS Elemental MediaConvert](implementing-digital-rights-management-drm.md).  
 Example error messages:  
-SPEKE keyserver request failed:*-Unable to parse response xml Response code [200]HTTP/1.1 200 OK Date:*...  
-SPEKE keyserver request failed:*-Response code [403]HTTP/1.1 403 Forbidden Date:*...  
-SPEKE keyserver request failed:*-Response code [500]HTTP/1.1 500 Internal Server Error Date*...  
-SPEKE keyserver request failed:*-OpenSSL SSL\_connect: Connection reset by peer in connection to abcdefg123.execute-api.us-west-2.amazonaws.com:443*  
-[GenerateKey] Failed to find key [*0*] for [*https://abcdefg123.execute-api.ap-south-1.amazonaws.com/UAT/encryptionKeys*]
+`SPEKE keyserver request failed:-Unable to parse response xml Response code [200]HTTP/1.1 200 OK Date:...`  
+`SPEKE keyserver request failed:-Response code [403]HTTP/1.1 403 Forbidden Date:...`  
+`SPEKE keyserver request failed:-Response code [500]HTTP/1.1 500 Internal Server Error Date...`  
+`SPEKE keyserver request failed:-OpenSSL SSL_connect: Connection reset by peer in connection to abcdefg123.execute-api.us-west-2.amazonaws.com:443`  
+`[GenerateKey] Failed to find key [0] for [https://abcdefg123.execute-api.ap-south-1.amazonaws.com/UAT/encryptionKeys]`
 
 **1092 \| Audio decode error**  
 MediaConvert can't decode one or more of your input audio streams.  
@@ -227,7 +226,7 @@ To resolve this issue:
 + Verify that your audio stream uses standard settings for its codec.
 + MediaConvert supports the codec and container, but there is a problem with the audio source that prevents the transcoder from reading it.
 Example error messages:  
-Decoder: [Dolby decoder error: The transcoder couldn't decode the audio frame header in the first 100 frames of your input. Your audio source is either corrupt or in a format that the transcoder doesn't support. For a list of supported audio inputs, see the documentation. For MediaConvert, see https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html.]
+`Decoder: [Dolby decoder error: The transcoder couldn't decode the audio frame header in the first 100 frames of your input. Your audio source is either corrupt or in a format that the transcoder doesn't support. For a list of supported audio inputs, see the documentation. For MediaConvert, see https://docs.aws.amazon.com/mediaconvert/latest/ug/reference-codecs-containers-input.html.]`
 
 **1093 \| Audio description error**  
 MediaConvert encountered an error with audio description settings.  
@@ -238,7 +237,7 @@ To resolve this issue:
 + Review the documentation for proper configuration.
 For more information about configuring audio descriptions correctly, see [Audio descriptions](audio-descriptions.md).  
 Example error messages:  
-You specified an audio description (AD) data channel that does not contain an AD data stream. This is required when you specify an AD audio channel. To resolve: Specify the channel in your input that contains your AD data stream, or remove both AD audio channel and AD data channel from your output remix settings. Then resubmit your job.
+`You specified an audio description (AD) data channel that does not contain an AD data stream. This is required when you specify an AD audio channel. To resolve: Specify the channel in your input that contains your AD data stream, or remove both AD audio channel and AD data channel from your output remix settings. Then resubmit your job.`
 
 **1401 \| S3 access denied error**  
 Amazon S3 denied access to a file or bucket.  
@@ -250,11 +249,11 @@ To resolve this issue:
 + See [Set Up IAM Permissions](iam-role.md) for guidance.
 For more information about Amazon S3 access permissions and bucket policies, see [Using bucket policies and user policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) in the *Amazon S3 User Guide*.  
 Example error messages:  
-Unable to open input file [*s3://amzn-s3-demo-bucket/file.webm*]: [Failed probe/open: [Can't read input stream: [Failed to read data: Access denied to [*s3://amzn-s3-demo-bucket/file.webm]*]]]  
-Demuxer: [Failed to read data: Error caching file]  
-Unable to write to output file [*s3://amzn-s3-demo-bucket/file\_00001.ts*]: [Failed to write data: Access Denied]  
-Audio input pipeline error: [Demuxer: [Failed to read data: Error caching file]]  
-The role you provided is not authorized to perform kms:Decrypt on your destination S3 bucket. Check that your role has the correct permissions and that that you've specified the correct S3 bucket.
+`Unable to open input file [s3://amzn-s3-demo-bucket/file.webm]: [Failed probe/open: [Can't read input stream: [Failed to read data: Access denied to [s3://amzn-s3-demo-bucket/file.webm]]]]`  
+`Demuxer: [Failed to read data: Error caching file]`  
+`Unable to write to output file [s3://amzn-s3-demo-bucket/file_00001.ts]: [Failed to write data: Access Denied]`  
+`Audio input pipeline error: [Demuxer: [Failed to read data: Error caching file]]`  
+`The role you provided is not authorized to perform kms:Decrypt on your destination S3 bucket. Check that your role has the correct permissions and that that you've specified the correct S3 bucket.`
 
 **1404 \| File not found error**  
 MediaConvert could not find a file or Amazon S3 bucket.  
@@ -266,7 +265,7 @@ To resolve this issue:
 + Try using the console's Browse button to select your files.
 For more information about Amazon S3 buckets and access control, see [Working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) and [Using bucket policies and user policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) in the Amazon S3 documentation.  
 Example error messages:  
-Unable to open input file [*s3://amzn-s3-demo-bucket/file.mp4*]: [Failed probe/open: [Can't read input stream: [Failed to read data: HeadObject failed]]]
+`Unable to open input file [s3://amzn-s3-demo-bucket/file.mp4]: [Failed probe/open: [Can't read input stream: [Failed to read data: HeadObject failed]]]`
 
 **1432 \| IAM role permission error**  
 The role specified in your MediaConvert job settings doesn't have the necessary permissions or has another problem.  
@@ -278,7 +277,7 @@ To resolve this issue:
 + See [Set Up IAM Permissions](iam-role.md) for guidance.
 For more information about setting up IAM roles with proper permissions for MediaConvert, see [Set Up IAM Permissions](iam-role.md).  
 Example error messages:  
-Unable to open input file [*s3://amzn-s3-demo-bucket/file.mp4*]: [Failed probe/open: [Can't read input stream: [Failed to read data: Invalid role provided in RESOURCE\_ROLE\_ARN]]]
+`Unable to open input file [s3://amzn-s3-demo-bucket/file.mp4]: [Failed probe/open: [Can't read input stream: [Failed to read data: Invalid role provided in RESOURCE_ROLE_ARN]]]`
 
 **1433 \| IAM role missing error**  
 The role specified in your MediaConvert job settings doesn't exist.  
@@ -290,7 +289,7 @@ To resolve this issue:
 + Verify that the job has the right IAM role specified.
 For more information about creating and configuring IAM roles for MediaConvert, see [Set Up IAM Permissions](iam-role.md).  
 Example error messages:  
-Unable to assume role. Check that the role exists and that MediaConvert is a trusted entity.
+`Unable to assume role. Check that the role exists and that MediaConvert is a trusted entity.`
 
 **1434 \| IAM trust policy error**  
 The role specified in your MediaConvert job settings doesn't have the necessary permissions.  
@@ -302,7 +301,7 @@ To resolve this issue:
 + Verify that the job has the right IAM role specified and that the role has MediaConvert as a trusted entity.
 For more information about setting up trust relationships for IAM roles, see [Set Up IAM Permissions](iam-role.md).  
 Example error messages:  
-Unable to open input file *s3://amzn-s3-demo-bucket/file.mp4*]: [Failed probe/open: [Can't read input stream: [Failed to read data: AssumeRole failed]]]
+`Unable to open input file s3://amzn-s3-demo-bucket/file.mp4]: [Failed probe/open: [Can't read input stream: [Failed to read data: AssumeRole failed]]]`
 
 **1515 \| IAM role format error**  
 The role specified in your MediaConvert job settings doesn't have the necessary permissions or is malformed.  
@@ -315,7 +314,7 @@ To resolve this issue:
 + Verify that the job has the right IAM role specified and that the role has the correct permissions.
 For more information about IAM role ARN format and permissions, see [Set Up IAM Permissions](iam-role.md).  
 Example error messages:  
-Invalid role ARN format. Please check the role ARN and try again.
+`Invalid role ARN format. Please check the role ARN and try again.`
 
 **1517 \| S3 Write Error**  
 MediaConvert encountered an error when writing to Amazon S3.  
@@ -334,7 +333,7 @@ To resolve this issue:
 + Contact Support for assistance.
 + Consider breaking very large jobs into smaller segments.
 Example error messages:  
-An internal error has occurred and your job timed out. Contact Support.
+`An internal error has occurred and your job timed out. Contact Support.`
 
 **1550 \| Acceleration system error**  
 There is an unexpected internal error with accelerated transcoding.  
@@ -343,7 +342,7 @@ To resolve this issue:
 + If the issue persists, contact Support.
 For more information about accelerated transcoding, see [Accelerated transcoding](accelerated-transcoding.md).  
 Example error messages:  
-Acceleration fault
+`Acceleration fault`
 
 **1601 \| Nielsen Watermark Error**  
 MediaConvert encountered an error with Nielsen Watermarking.  
@@ -384,7 +383,7 @@ To resolve this issue:
 + If the problem persists, contact Support.
 For more information about Dolby Vision processing in MediaConvert, see [Creating Dolby Vision outputs with AWS Elemental MediaConvert](dolby-vision.md).  
 Example error messages:  
-Your input [%i] contains invalid Dolby Vision metadata on frame X. To resolve: Check your input for valid Dolby Vision metadata. Then resubmit your job.
+`Your input [%i] contains invalid Dolby Vision metadata on frame X. To resolve: Check your input for valid Dolby Vision metadata. Then resubmit your job.`
 
 **1999 \| Unexpected system error**  
 There is an unexpected error.  
@@ -394,15 +393,15 @@ To resolve this issue:
 + For audio/video sync issues, try setting Audio duration to Match video duration.
 + If the error persists, contact Support.
 Example error messages:  
-Your input has a low framerate and audio that continues past the end of the video. MediaConvert could not synchronize audio and video, and could not create an output. To resolve: Set Audio duration to Match video duration in the output audio container settings, or manually trim your input so that audio and video durations exactly match. Then resubmit your job.  
-Post Transcode work failed. See previous log messages for the reason for failure.  
-Unknown error  
-Job failed with unexpected error: std::bad\_alloc  
-Video sync did not find a valid series of timestamps in the input  
-Could not commit single file  
-Video pipeline failed to start  
-*empty error message*  
-Encoder runtime error on gpu [0] pipeline [Error processing GOP data in reorder FIFO].
+`Your input has a low framerate and audio that continues past the end of the video. MediaConvert could not synchronize audio and video, and could not create an output. To resolve: Set Audio duration to Match video duration in the output audio container settings, or manually trim your input so that audio and video durations exactly match. Then resubmit your job.`  
+`Post Transcode work failed. See previous log messages for the reason for failure.`  
+`Unknown error`  
+`Job failed with unexpected error: std::bad_alloc`  
+`Video sync did not find a valid series of timestamps in the input`  
+`Could not commit single file`  
+`Video pipeline failed to start`  
+`empty error message`  
+`Encoder runtime error on gpu [0] pipeline [Error processing GOP data in reorder FIFO].`
 
 **3400 \| HLS manifest error**  
 Your HLS input doesn't conform to the requirements for MediaConvert supported HLS inputs.  
@@ -414,10 +413,10 @@ To resolve this issue:
 + Review HLS input requirements.
 For more information about HTTP input requirements and HLS manifest specifications, see [HLS input requirements](using-hls-inputs.md).  
 Example error messages:  
-3400: MediaConvert can't open the following HLS input*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/...excessively\_long\_example\_URL\_truncated\_for\_docs.../index.m3u8*. The input URL exceeded a character count limit of 900 characters. Reduce the character count to 900 characters or less, and resubmit your job. To find the input URL character count, combine the input you entered with the individually referenced files within the HLS manifest. For example, if your input is https://www.example.com/manifest.m3u8?key1=value1&key2=value2, and lists a segment with the path file/path/segment\_ts\_720\_0001.ts, the input URL will be https://www.example.com/file/path/segment\_ts\_720\_0001.ts?key1=value1&key2=value2 which is 80 characters long.  
-3400: MediaConvert can't open the following HLS input: *https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8*. This manifest is malformed: *https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/sub-manifest.m3u8*. Fix the manifest and then resubmit your job.  
-3400: MediaConvert can't open the following HLS input: *https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8*. The file size of this manifest is larger than MediaConvert supports: *https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/sub-manifest.m3u8*. MediaConvert supports manifest file sizes up to 16 MB.  
-3400: MediaConvert can't open the following input: *https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8*. Reason:...
+`3400: MediaConvert can't open the following HLS inputhttps://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/...excessively_long_example_URL_truncated_for_docs.../index.m3u8. The input URL exceeded a character count limit of 900 characters. Reduce the character count to 900 characters or less, and resubmit your job. To find the input URL character count, combine the input you entered with the individually referenced files within the HLS manifest. For example, if your input is https://www.example.com/manifest.m3u8?key1=value1&key2=value2, and lists a segment with the path file/path/segment_ts_720_0001.ts, the input URL will be https://www.example.com/file/path/segment_ts_720_0001.ts?key1=value1&key2=value2 which is 80 characters long.`  
+`3400: MediaConvert can't open the following HLS input: https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8. This manifest is malformed: https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/sub-manifest.m3u8. Fix the manifest and then resubmit your job.`  
+`3400: MediaConvert can't open the following HLS input: https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8. The file size of this manifest is larger than MediaConvert supports: https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/sub-manifest.m3u8. MediaConvert supports manifest file sizes up to 16 MB.`  
+`3400: MediaConvert can't open the following input: https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/HLS/manifest.m3u8. Reason:...`
 
 **3401 \| HTTP authentication error**  
 You specified an HTTP(S) URL for an input file that requires authentication.  
@@ -427,7 +426,7 @@ To resolve this issue:
 + Download the file and upload it to Amazon S3 instead.
 For more information about HTTP input requirements and limitations, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3401: Access to '*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true*' requires authorization.
+`3401: Access to 'https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true' requires authorization.`
 
 **3403 \| HTTP forbidden error**  
 You specified an HTTP URL for an input file, but the HTTP server refuses the request.  
@@ -438,7 +437,7 @@ To resolve this issue:
 + Consider downloading the file and uploading it to Amazon S3 instead.
 For more information about HTTP input requirements and limitations, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3403: Access to '*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true*' is forbidden.
+`3403: Access to 'https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true' is forbidden.`
 
 **3404 \| HTTP not found error**  
 You specified an HTTP URL for an input file, but the HTTP server doesn't have the file.  
@@ -449,7 +448,7 @@ To resolve this issue:
 + Verify if the file has been moved or renamed.
 For more information about HTTP input requirements and troubleshooting, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3404: '*https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true*' not found.
+`3404: 'https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com/index.m3u8REMOVED=true' not found.`
 
 **3408 \| HTTP upload error**  
 You specified an HTTP URL for an input file, but the upload failed for a reason that is unrelated to errors 3401, 3403, and 3404.  
@@ -461,7 +460,7 @@ To resolve this issue:
 + If the issue persists, contact Support.
 For more information about HTTP input requirements and troubleshooting, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3408: Error uploading file from HTTP source: Connection timed out.
+`3408: Error uploading file from HTTP source: Connection timed out.`
 
 **3450 \| HTTP server error**  
 You specified an HTTP URL for an input file, but the HTTP server returned an error or failed.  
@@ -472,7 +471,7 @@ To resolve this issue:
 + Consider downloading the file and uploading it to Amazon S3 instead.
 For more information about HTTP input requirements and troubleshooting, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3450: Error encountered when accessing: '*s3://amzn-s3-demo-bucket/file.mp4*'.
+`3450: Error encountered when accessing: 's3://amzn-s3-demo-bucket/file.mp4'.`
 
 **3451 \| HTTP connection error**  
 You specified an HTTP URL for an input file, but MediaConvert couldn't connect to the HTTP server.  
@@ -484,7 +483,7 @@ To resolve this issue:
 + Consider downloading the file and uploading it to Amazon S3 instead.
 For more information about HTTP input requirements and network connectivity, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3451: Server could not be reached when accessing: '*s3://amzn-s3-demo-bucket/file.mp4*'.
+`3451: Server could not be reached when accessing: 's3://amzn-s3-demo-bucket/file.mp4'.`
 
 **3457 \| Input policy restriction error**  
 You specified an input location that your policy disallows.  
@@ -496,7 +495,7 @@ To resolve this issue:
 + Specify an allowed input location and resubmit your job.
 For more information about input policies and restrictions, see [How to allow or disallow input location types using an Input policy](disallow-inputs.md#input-policies).  
 Example error messages:  
-3457: You specified an input location that your policy disallows: '*s3://amzn-s3-demo-bucket/file.mp4*. Specify an allowed input location and resubmit your job.
+`3457: You specified an input location that your policy disallows: 's3://amzn-s3-demo-bucket/file.mp4. Specify an allowed input location and resubmit your job.`
 
 **3452 \| Malformed URL with spaces error**  
 The URL you specified for your HTTP input is malformed.  
@@ -507,7 +506,7 @@ To resolve this issue:
 + Test the URL in a web browser to verify it's accessible.
 For more information about HTTP input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3452: URL '*http://example.com/invalid url with spaces*' is malformed.
+`3452: URL 'http://example.com/invalid url with spaces' is malformed.`
 
 **3453 \| HTTP redirect error**  
 MediaConvert can't follow redirects when accessing your HTTP input.  
@@ -518,7 +517,7 @@ To resolve this issue:
 + Consider downloading the file and uploading it to Amazon S3 instead.
 For more information about HTTP input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3453: MediaConvert can't follow redirects when accessing your input: *http://example.com/redirect-url*. For information about HTTP(S) input requirements, see https://docs.aws.amazon.com/mediaconvert/latest/ug/upload-input-files.html\#http-input-requirements.
+`3453: MediaConvert can't follow redirects when accessing your input: http://example.com/redirect-url. For information about HTTP(S) input requirements, see https://docs.aws.amazon.com/mediaconvert/latest/ug/upload-input-files.html#http-input-requirements.`
 
 **3454 \| DNS resolution error**  
 Name resolution failed when accessing your HTTP input.  
@@ -530,7 +529,7 @@ To resolve this issue:
 + Consider using an IP address instead of a domain name if possible.
 For more information about HTTP input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3454: Name resolution failed when accessing: '*http://nonexistent-domain.example.com/video.mp4*'.
+`3454: Name resolution failed when accessing: 'http://nonexistent-domain.example.com/video.mp4'.`
 
 **3455 \| SSL/TLS error**  
 SSL failures encountered when accessing your HTTPS input.  
@@ -541,7 +540,7 @@ To resolve this issue:
 + Ensure the server supports modern SSL/TLS protocols.
 For more information about HTTPS input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3455: SSL failures encountered when accessing: '*https://example.com/video.mp4*'.
+`3455: SSL failures encountered when accessing: 'https://example.com/video.mp4'.`
 
 **3456 \| Invalid HTTP server address**  
 The HTTP server address for your input URL is invalid.  
@@ -552,7 +551,7 @@ To resolve this issue:
 + Ensure the port number (if specified) is valid.
 For more information about HTTP input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3456: HTTP server address '*invalid-server-address*' for URL '*http://invalid-server-address/video.mp4*' is invalid.
+`3456: HTTP server address 'invalid-server-address' for URL 'http://invalid-server-address/video.mp4' is invalid.`
 
 **3458 \| Ranged-GET not supported**  
 The URL you provided doesn't support ranged-GET requests.  
@@ -563,7 +562,7 @@ To resolve this issue:
 + Use a different HTTP server that supports ranged-GET requests.
 For more information about HTTP input requirements, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3458: The URL you provided doesn't support ranged-GET requests: '*http://example.com/video.mp4*'.
+`3458: The URL you provided doesn't support ranged-GET requests: 'http://example.com/video.mp4'.`
 
 **3999 \| HTTP unexpected error**  
 There was an unexpected error related to retrieving your input file from an HTTP server.  
@@ -575,4 +574,4 @@ To resolve this issue:
 + If you can download it but still get this error with Amazon S3, contact Support.
 For more information about HTTP input requirements and troubleshooting, see [HTTP input requirements](http-input-requirements.md).  
 Example error messages:  
-3999: Unexpected error when accessing HTTP input: Internal server error.
+`3999: Unexpected error when accessing HTTP input: Internal server error.`

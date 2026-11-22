@@ -1,7 +1,6 @@
 
 
 # Using accelerated transcoding with hopped jobs
-<a name="accelerated-transcoding-queue-hopping"></a>
 
 To reduce the transcoding time for certain jobs, use accelerated transcoding. In most cases, you submit accelerated jobs to on-demand queues, because reserved queues cannot run accelerated jobs. However, you can submit a job with **Accelerated transcoding** set **Preferred** to a reserved queue. When you do, if the job hops to an on-demand queue, it will run with acceleration enabled. For more information about accelerated transcoding, see [Accelerated transcoding](accelerated-transcoding.md) in the MediaConvert User Guide.
 

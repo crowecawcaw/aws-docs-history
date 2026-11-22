@@ -1,7 +1,6 @@
 
 
 # Example job settings JSONs
-<a name="example-job-settings"></a>
 
 The job settings in these examples represent the simplest valid jobs you can run. They work well for experimenting with the service. When you want to perform more complex transcodes or create different outputs, use the console to set up your job and to generate your JSON job specification. To do so, in the **Job** pane on the left, under **Job settings**, choose **Show job JSON**.
 

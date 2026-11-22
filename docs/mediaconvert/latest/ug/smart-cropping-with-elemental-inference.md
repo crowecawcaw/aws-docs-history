@@ -1,7 +1,6 @@
 
 
 # Configuring Smart cropping with AWS Elemental Inference
-<a name="smart-cropping-with-elemental-inference"></a>
 
  The **Smart cropping** feature uses AI to infer the region of interest in the input video. Next, MediaConvert crops the video to the specified aspect ratio, keeping the region of interest in the center of the output. 
 

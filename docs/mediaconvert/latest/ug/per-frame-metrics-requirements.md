@@ -1,7 +1,6 @@
 
 
 # Requirements and processing impact
-<a name="per-frame-metrics-requirements"></a>
 
 To use per-frame metric reports, your job settings must include the following:
 + Your output must use one of the following video codecs: H.264, H.265, AV1, MPEG-2, AVC-Intra, or XAVC 

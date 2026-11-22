@@ -1,7 +1,6 @@
 
 
 # Viewing tags on an AWS Elemental MediaConvert resource
-<a name="view-tags-on-resource"></a>
 
 The following procedure shows you how to view tags on existing queues, job templates, and output presets using the AWS Elemental MediaConvert console.
 

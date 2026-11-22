@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Elemental MediaConvert
-<a name="mediaconvert-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Elemental MediaConvert as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

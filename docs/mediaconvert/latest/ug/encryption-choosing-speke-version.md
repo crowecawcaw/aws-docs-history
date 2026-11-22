@@ -1,7 +1,6 @@
 
 
 # Container and DRM system support with SPEKE
-<a name="encryption-choosing-speke-version"></a>
 
 MediaConvert supports both [SPEKE Version 1.0](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api.html) and [SPEKE Version 2.0](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2.html). For more information, see the [SPEKE partner and customer guide](https://docs.aws.amazon.com/speke/latest/documentation/speke-api-specification.html).
 

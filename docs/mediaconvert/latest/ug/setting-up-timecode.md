@@ -1,7 +1,6 @@
 
 
 # Setting up timecodes
-<a name="setting-up-timecode"></a>
 
 AWS Elemental MediaConvert manages transcoded video frames by their timecode. The service uses the timecodes from the input and output timelines that it constructs to line up the elements of your output assets. For information about which features are affected by each type of timeline, and about how timelines work, see [How MediaConvert uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs).
 

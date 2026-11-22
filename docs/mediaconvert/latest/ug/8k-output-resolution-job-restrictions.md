@@ -1,7 +1,6 @@
 
 
 # 8K output requirements
-<a name="8k-output-resolution-job-restrictions"></a>
 
 When your MediaConvert job has outputs with 8k (8192x4320) resolutions, your job is restricted in these ways:
 + You can't create Dolby Vision outputs.

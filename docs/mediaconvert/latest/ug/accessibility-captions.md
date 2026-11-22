@@ -1,7 +1,6 @@
 
 
 # Settings for accessibility captions
-<a name="accessibility-captions"></a>
 
 When you create an HLS or CMAF HLS output and include an ISMC or WebVTT captions track, you can add accessibility attributes for captions to your output manifest. MediaConvert adds these attributes according to sections 4.5 and 4.6 of the [HLS authoring specification for Apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
 

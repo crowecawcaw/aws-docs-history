@@ -1,7 +1,6 @@
 
 
 # HLS player version support
-<a name="hls-player-version-support"></a>
 
 AWS Elemental MediaConvert automatically sets the player version metadata based on the features that you enable. Most HLS assets that you create with MediaConvert are compatible with HLS players version 2 and later.
 

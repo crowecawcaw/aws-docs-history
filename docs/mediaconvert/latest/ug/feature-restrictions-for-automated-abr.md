@@ -1,7 +1,6 @@
 
 
 # Job settings limitations for automated ABR
-<a name="feature-restrictions-for-automated-abr"></a>
 
 Jobs that include automated ABR output groups are restricted in the following ways:
 + You must use an on-demand queue. You can't use a reserved queue.

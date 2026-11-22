@@ -1,7 +1,6 @@
 
 
 # Burning in timecodes on the video frames
-<a name="timecode-burn-in"></a>
 
 The **Timecode burn-in** setting determines whether a given output has visible timecodes inscribed into the video frames themselves. The timecodes are not an overlay, but rather a permanent part of the video frames.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a queue
-<a name="creating-queues"></a>
 
 AWS Elemental MediaConvert provides a default on-demand queue. A default queue is available in all AWS Regions. Other queues appear only in the AWS Region where they are created. To add additional resources to your account, you can create your own on-demand queues. 
 
