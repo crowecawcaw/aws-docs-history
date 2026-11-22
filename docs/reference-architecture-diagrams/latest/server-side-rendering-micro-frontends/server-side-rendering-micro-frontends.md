@@ -1,7 +1,6 @@
 
 
 # Server-Side Rendering Micro-Frontends in AWS
-<a name="server-side-rendering-micro-frontends"></a>
 
 Publication date: **September 9, 2022 ([Diagram history](#diagram-history))**
 
