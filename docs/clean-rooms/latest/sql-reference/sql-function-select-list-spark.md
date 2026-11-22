@@ -1,7 +1,6 @@
 
 
 # SELECT list
-<a name="sql-function-select-list-spark"></a>
 
 The SELECT list names the columns, functions, and expressions that you want the query to return. The list represents the output of the query.
 

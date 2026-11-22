@@ -1,7 +1,6 @@
 
 
 # SUBSTRING function
-<a name="SUBSTRING"></a>
 
 Returns the subset of a string based on the specified start position.
 

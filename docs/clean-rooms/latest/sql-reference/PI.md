@@ -1,7 +1,6 @@
 
 
 # PI function
-<a name="PI"></a>
 
 The PI function returns the value of pi to 14 decimal places. 
 
@@ -22,7 +21,7 @@ PI()
 
 To return the value of pi, use the following example.
 
-```
+```sql
 SELECT PI();
 
 +-------------------+

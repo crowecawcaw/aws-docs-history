@@ -1,7 +1,6 @@
 
 
 # RANDOM function
-<a name="RANDOM"></a>
 
 The RANDOM function generates a random value between 0.0 (inclusive) and 1.0 (exclusive). 
 

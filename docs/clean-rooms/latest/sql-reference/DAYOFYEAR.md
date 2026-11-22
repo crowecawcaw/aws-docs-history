@@ -1,7 +1,6 @@
 
 
 # DAYOFYEAR function
-<a name="DAYOFYEAR"></a>
 
 The DAYOFYEAR function is a date extraction function that takes a date or timestamp as input and returns the day of the year (a value between 1 and 366, depending on the year and whether it's a leap year).
 

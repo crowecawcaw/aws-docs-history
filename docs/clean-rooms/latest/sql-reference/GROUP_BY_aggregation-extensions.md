@@ -1,7 +1,6 @@
 
 
 # Aggregation extensions
-<a name="GROUP_BY_aggregation-extensions"></a>
 
 AWS Clean Rooms supports aggregation extensions to do the work of multiple GROUP BY operations in a single statement.
 

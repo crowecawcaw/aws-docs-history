@@ -1,7 +1,6 @@
 
 
 # ROW\_NUMBER window function
-<a name="WF_ROW_NUMBER"></a>
 
 Determines the ordinal number of the current row within a group of rows, counting from 1, based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is present, the ordinal numbers are reset for each group of rows. Rows with equal values for the ORDER BY expressions receive the different row numbers nondeterministically. 
 

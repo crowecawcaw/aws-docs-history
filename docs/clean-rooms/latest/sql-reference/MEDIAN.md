@@ -1,7 +1,6 @@
 
 
 # MEDIAN function
-<a name="MEDIAN"></a>
 
 ## Syntax
 <a name="MEDIAN-synopsis"></a>

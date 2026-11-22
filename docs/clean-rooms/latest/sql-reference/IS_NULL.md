@@ -1,7 +1,6 @@
 
 
 # IS\_NULL expression
-<a name="IS_NULL"></a>
 
 The IS\_NULL conditional expression is used to check if a value is null.
 

@@ -1,7 +1,6 @@
 
 
 # ARRAY function
-<a name="array"></a>
 
 Creates an array with the given elements.
 

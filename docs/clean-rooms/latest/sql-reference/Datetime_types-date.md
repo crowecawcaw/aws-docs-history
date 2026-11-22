@@ -1,7 +1,6 @@
 
 
 # DATE
-<a name="Datetime_types-date"></a>
 
 Use the DATE data type to store simple calendar dates without timestamps.
 

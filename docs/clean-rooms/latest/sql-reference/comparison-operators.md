@@ -1,7 +1,6 @@
 
 
 # Comparison operators
-<a name="comparison-operators"></a>
 
 Comparison conditions state logical relationships between two values. All comparison conditions are binary operators with a Boolean return type. 
 

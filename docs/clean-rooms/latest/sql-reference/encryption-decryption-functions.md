@@ -1,7 +1,6 @@
 
 
 # Encryption and decryption functions
-<a name="encryption-decryption-functions"></a>
 
 Encryption and decryption functions help SQL developers protect sensitive data from unauthorized access or misuse by converting it between a readable, plaintext form and an unreadable, ciphertext form.
 

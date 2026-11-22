@@ -1,7 +1,6 @@
 
 
 # JOIN clause
-<a name="join-clause"></a>
 
 A SQL JOIN clause is used to combine the data from two or more tables based on common fields. The results might or might not change depending on the join method specified. Left and right outer joins retain values from one of the joined tables when no match is found in the other table. 
 
@@ -46,7 +45,7 @@ An optional clause that can be used to filter the result set further, based on a
 
 The following example is a join between two tables with the USING clause. In this case, the columns listid and eventid are used as the join columns. The results are limited to five rows.
 
-```
+```sql
 select listid, listing.sellerid, eventid, listing.dateid, numtickets
 from listing join sales
 using (listid, eventid)

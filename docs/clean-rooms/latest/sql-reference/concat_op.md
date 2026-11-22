@@ -1,7 +1,6 @@
 
 
 # \|\| (Concatenation) operator
-<a name="concat_op"></a>
 
 Concatenates two expressions on either side of the \|\| symbol and returns the concatenated expression. 
 

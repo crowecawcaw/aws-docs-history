@@ -1,7 +1,6 @@
 
 
 # FLOOR function
-<a name="FLOOR"></a>
 
 The FLOOR function rounds a number down to the next whole number. 
 

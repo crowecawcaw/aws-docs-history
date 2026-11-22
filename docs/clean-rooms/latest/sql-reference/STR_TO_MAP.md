@@ -1,7 +1,6 @@
 
 
 # STR\_TO\_MAP function
-<a name="STR_TO_MAP"></a>
 
 The STR\_TO\_MAP function is a string-to-map conversion function. It converts a string representation of a map (or dictionary) into an actual map data structure.
 

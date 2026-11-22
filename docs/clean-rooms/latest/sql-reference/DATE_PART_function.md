@@ -1,7 +1,6 @@
 
 
 # DATE\_PART function
-<a name="DATE_PART_function"></a>
 
 DATE\_PART extracts date part values from an expression. DATE\_PART is a synonym of the PGDATE\_PART function. 
 
@@ -31,7 +30,7 @@ If *field* is 'SECOND', a DECIMAL(8, 6). In all other cases, an INTEGER.
 
 The following example extracts the day of the year (DOY) from a date value. The output shows that the day of the year for the date "2019-08-12" is `224`. This means that August 12, 2019 is the 224th day of the year 2019.
 
-```
+```sql
 SELECT datepart('doy', DATE'2019-08-12');
  224
 ```

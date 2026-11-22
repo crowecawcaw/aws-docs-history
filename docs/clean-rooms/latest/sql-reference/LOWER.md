@@ -1,7 +1,6 @@
 
 
 # LOWER function
-<a name="LOWER"></a>
 
 Converts a string to lowercase. LOWER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 

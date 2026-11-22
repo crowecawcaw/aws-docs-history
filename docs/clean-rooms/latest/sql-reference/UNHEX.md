@@ -1,7 +1,6 @@
 
 
 # UNHEX function
-<a name="UNHEX"></a>
 
 The UNHEX function converts a hexadecimal string back to its original string representation.
 

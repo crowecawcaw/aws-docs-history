@@ -1,7 +1,6 @@
 
 
 # IS\_NOT\_NULL expression
-<a name="IS_NOT_NULL"></a>
 
 The IS\_NOT\_NULL conditional expression is used to check if a value is not null.
 

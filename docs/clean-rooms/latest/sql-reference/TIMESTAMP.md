@@ -1,7 +1,6 @@
 
 
 # TIMESTAMP function
-<a name="TIMESTAMP"></a>
 
 The TIMESTAMP function takes a value (typically a number) and converts it to a timestamp data type.
 

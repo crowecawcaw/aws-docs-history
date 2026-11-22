@@ -1,7 +1,6 @@
 
 
 # TO\_NUMBER
-<a name="TO_NUMBER"></a>
 
 TO\_NUMBER converts a string to a numeric (decimal) value. 
 

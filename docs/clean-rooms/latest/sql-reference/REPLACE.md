@@ -1,7 +1,6 @@
 
 
 # REPLACE function
-<a name="REPLACE"></a>
 
 Replaces all occurrences of a set of characters within an existing string with other specified characters. 
 

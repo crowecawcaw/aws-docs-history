@@ -1,7 +1,6 @@
 
 
 # YEAR function
-<a name="YEAR"></a>
 
 The YEAR function is a date extraction function that takes a date or timestamp as input and returns the year component (a four-digit number).
 

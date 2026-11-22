@@ -1,7 +1,6 @@
 
 
 # RLIKE
-<a name="RLIKE"></a>
 
 The RLIKE operator allows you to check if a string matches a specified regular expression pattern.
 

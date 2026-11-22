@@ -1,7 +1,6 @@
 
 
 # Binary type
-<a name="binary-data-type"></a>
 
 Use the BINARY data type to store and manage fixed-length, uninterpreted binary data, providing efficient storage and comparison capabilities for specific use cases.
 

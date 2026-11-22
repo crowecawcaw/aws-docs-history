@@ -1,7 +1,6 @@
 
 
 # Example UNION ALL query
-<a name="example_unionall_query"></a>
 
 The following example uses a UNION ALL operator because duplicate rows, if found, need to be retained in the result. For a specific series of event IDs, the query returns 0 or more rows for each sale associated with each event, and 0 or 1 row for each listing of that event. Event IDs are unique to each row in the LISTING and EVENT tables, but there might be multiple sales for the same combination of event and listing IDs in the SALES table.
 
@@ -9,7 +8,7 @@ The third column in the result set identifies the source of the row. If it comes
 
 In this case, the result set consists of three sales rows for listing 500, event 7787. In other words, three different transactions took place for this listing and event combination. The other two listings, 501 and 502, did not produce any sales, so the only row that the query produces for these list IDs comes from the LISTING table (SALESROW = 'No').
 
-```
+```sql
 select eventid, listid, 'Yes' as salesrow
 from sales
 where listid in(500,501,502)

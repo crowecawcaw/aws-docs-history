@@ -1,7 +1,6 @@
 
 
 # Example EXCEPT query
-<a name="Example_EXCEPT_query"></a>
 
 The CATEGORY table in the database contains the following 11 rows: 
 

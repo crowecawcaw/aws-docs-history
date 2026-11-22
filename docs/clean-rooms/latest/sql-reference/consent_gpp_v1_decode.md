@@ -1,7 +1,6 @@
 
 
 # consent\_gpp\_v1\_decode function
-<a name="consent_gpp_v1_decode"></a>
 
 The `consent_gpp_v1_decode` function is used to decode Global Privacy Platform (GPP) v1 consent data. It takes the encoded consent string as input and returns the decoded consent data, which includes information about the user's privacy preferences and consent choices. This function is useful when working with data that includes GPP v1 consent information, as it allows you to access and analyze the consent data in a structured format.
 

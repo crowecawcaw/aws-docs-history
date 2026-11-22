@@ -1,7 +1,6 @@
 
 
 # BOOL\_OR function
-<a name="BOOL_OR"></a>
 
 The BOOL\_OR function operates on a single Boolean or integer column or expression. This function applies similar logic to the BIT\_AND and BIT\_OR functions. For this function, the return type is a Boolean value (`true`, `false`, or `NULL`).
 
@@ -46,7 +45,7 @@ BC    | t
 
 The following example returns NULL.
 
-```
+```sql
 SELECT BOOL_OR(NULL = '123')
                bool_or
 ------                  

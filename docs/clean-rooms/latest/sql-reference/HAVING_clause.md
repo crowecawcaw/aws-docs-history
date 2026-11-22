@@ -1,7 +1,6 @@
 
 
 # HAVING clause
-<a name="HAVING_clause"></a>
 
 The HAVING clause applies a condition to the intermediate grouped result set that a query returns.
 

@@ -1,7 +1,6 @@
 
 
 # LAST\_VALUE window function
-<a name="WF_last_value"></a>
 
  Given an ordered set of rows, The LAST\_VALUE function returns the value of the expression with respect to the last row in the frame. 
 
@@ -57,7 +56,7 @@ The following example returns the seating capacity for each venue in the VENUE t
 
 For California, `Shoreline Amphitheatre` is returned for every row in the partition because it has the lowest number of seats (`22000`). 
 
-```
+```sql
 select venuestate, venueseats, venuename,
 last_value(venuename)
 over(partition by venuestate

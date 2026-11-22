@@ -1,7 +1,6 @@
 
 
 # ARRAY\_CONTAINS function
-<a name="array_contains"></a>
 
 The ARRAY\_CONTAINS function can be used to perform basic membership checks on array data structures. The ARRAY\_CONTAINS function is useful when you need to check if a specific value is present within an array.
 

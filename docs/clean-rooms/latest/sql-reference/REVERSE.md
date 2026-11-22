@@ -1,7 +1,6 @@
 
 
 # REVERSE function
-<a name="REVERSE"></a>
 
 The REVERSE function operates on a string and returns the characters in reverse order. For example, `reverse('abcde')` returns `edcba`. This function works on numeric and date data types as well as character data types; however, in most cases it has practical value for character strings. 
 

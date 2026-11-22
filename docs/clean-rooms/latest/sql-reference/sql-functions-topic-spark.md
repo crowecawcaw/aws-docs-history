@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms Spark SQL functions
-<a name="sql-functions-topic-spark"></a>
 
 AWS Clean Rooms Spark SQL supports the following SQL functions:
 

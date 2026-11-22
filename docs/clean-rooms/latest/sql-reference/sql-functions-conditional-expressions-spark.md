@@ -1,7 +1,6 @@
 
 
 # Conditional expressions
-<a name="sql-functions-conditional-expressions-spark"></a>
 
 In SQL, conditional expressions are used to make decisions based on certain conditions. They allow you to control the flow of your SQL statements and return different values or perform different actions based on the evaluation of one or more conditions.
 

@@ -1,7 +1,6 @@
 
 
 # REGEXP\_REPLACE function
-<a name="REGEXP_REPLACE"></a>
 
 Searches a string for a regular expression pattern and replaces every occurrence of the pattern with the specified string. REGEXP\_REPLACE is similar to the [REPLACE function](REPLACE.md), but lets you search a string for a regular expression pattern. 
 

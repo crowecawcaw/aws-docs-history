@@ -1,104 +1,69 @@
 
 
 # TRUNC function
-<a name="TRUNC"></a>
 
-The TRUNC function truncates numbers to the previous integer or decimal. 
+The TRUNC function truncates a date to the first day of the date part that you specify, such as the month or year, and returns a value of type DATE.
 
-The TRUNC function can optionally include a second argument as an integer to indicate the number of decimal places for rounding, in either direction. When you don't provide the second argument, the function rounds to the nearest whole number. When the second argument *>n*is specified, the function rounds to the nearest number with *>n* decimal places of precision. This function also truncates a timestamp and returns a date.
+**Note**  
+TRUNC is different from [DATE\_TRUNC](DATE_TRUNC.md). TRUNC takes the date first and the format second and returns a DATE. DATE\_TRUNC takes the format first and a datetime value second and returns a timestamp.
 
 ## Syntax
 <a name="TRUNC-synopsis"></a>
 
 ```
-TRUNC (number [ , integer ] |
-timestamp )
+TRUNC(date, format)
 ```
 
 ## Arguments
 <a name="TRUNC-arguments"></a>
 
- *number*   
-A number or expression that evaluates to a number. It can be the DECIMAL or FLOAT8 type. AWS Clean Rooms can convert other data types per the implicit conversion rules. 
+ *date*   
+A DATE or TIMESTAMP column, or a string that represents a date, such as `'2024-03-15'`. TRUNC truncates a TIMESTAMP to a DATE.
 
- *integer* (optional)   
-An integer that indicates the number of decimal places of precision, in either direction. If no integer is provided, the number is truncated as a whole number; if an integer is specified, the number is truncated to the specified decimal place. 
-
- *timestamp*   
-The function can also return the date from a timestamp. (To return a timestamp value with `00:00:00` as the time, cast the function result to a timestamp.) 
+ *format*   
+A string that specifies the date part to truncate to. AWS Clean Rooms Spark SQL supports the following formats:  
++ `YEAR` (also `YYYY` or `YY`) - the first day of the year
++ `QUARTER` - the first day of the quarter
++ `MONTH` (also `MM` or `MON`) - the first day of the month
++ `WEEK` - the Monday of the week
 
 ## Return type
 <a name="TRUNC-return-type"></a>
 
-TRUNC returns the same data type as the first input argument. For timestamps, TRUNC returns a date. 
+TRUNC returns a DATE.
+
+## Usage notes
+<a name="TRUNC-usage-notes"></a>
+
+TRUNC requires both a date and a format. The numeric form `TRUNC(number, decimal_places)` returns the error `An argument passed to function 'trunc' has an unsupported data type`. The single-argument form `TRUNC(date)` returns the error `Invalid number of arguments`.
+
+TRUNC supports only the WEEK, MONTH, QUARTER, and YEAR formats and their aliases. With any other format, such as `DAY` or `HOUR`, TRUNC returns NULL instead of an error.
 
 ## Examples
 <a name="TRUNC-examples"></a>
 
-Truncate the commission paid for a given sales transaction. 
+The `impressions` table has `event_date` values of `2024-03-01`, `2024-03-15`, and `2024-03-20`. The following example truncates each date to the first day of its month.
 
 ```
-select commission, trunc(commission)
-from sales where salesid=784;
+SELECT TRUNC(event_date, 'MONTH') AS month_start
+FROM impressions;
 
-commission | trunc
------------+-------
-    111.15 |   111
-
-(1 row)
+month_start
+-----------
+2024-03-01
+2024-03-01
+2024-03-01
 ```
 
-Truncate the same commission value to the first decimal place. 
+The following example truncates the same dates to the first day of their year.
 
 ```
-select commission, trunc(commission,1)
-from sales where salesid=784;
+SELECT TRUNC(event_date, 'YEAR') AS year_start
+FROM impressions;
 
-commission | trunc
------------+-------
-    111.15 | 111.1
-
-(1 row)
-```
-
-Truncate the commission with a negative value for the second argument; `111.15` is rounded down to `110`. 
-
-```
-select commission, trunc(commission,-1)
-from sales where salesid=784;
-
-commission | trunc
------------+-------
-    111.15 |   110
-(1 row)
-```
-
-Return the date portion from the result of the SYSDATE function (which returns a timestamp): 
-
-```
-select sysdate;
-
-timestamp
-----------------------------
-2011-07-21 10:32:38.248109
-(1 row)
-
-select trunc(sysdate);
-
-trunc
-------------
-2011-07-21
-(1 row)
-```
-
-Apply the TRUNC function to a TIMESTAMP column. The return type is a date. 
-
-```
-select trunc(starttime) from event
-order by eventid limit 1;
-
-trunc
-------------
-2008-01-25
-(1 row)
+year_start
+----------
+2024-01-01
+2024-01-01
+2024-01-01
 ```

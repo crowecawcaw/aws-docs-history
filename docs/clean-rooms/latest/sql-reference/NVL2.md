@@ -1,7 +1,6 @@
 
 
 # NVL2 function
-<a name="NVL2"></a>
 
 Returns one of two values based on whether a specified expression evaluates to NULL or NOT NULL.
 

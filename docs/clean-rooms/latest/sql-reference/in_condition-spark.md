@@ -1,7 +1,6 @@
 
 
 # IN condition
-<a name="in_condition-spark"></a>
 
 An IN condition tests a value for membership in a set of values or in a subquery. 
 

@@ -1,7 +1,6 @@
 
 
 # MINUTE function
-<a name="MINUTE"></a>
 
 The MINUTE function is a time extraction function that takes a time or timestamp as input and returns the minute component (a value between 0 and 60).
 

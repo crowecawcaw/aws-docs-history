@@ -1,7 +1,6 @@
 
 
 # Hyperloglog functions
-<a name="hyperloglog-functions"></a>
 
 The HyperLogLog (HLL) functions in SQL provide a way to efficiently estimate the number of unique elements (cardinality) in a large dataset, even when the actual set of unique elements isn't stored. 
 

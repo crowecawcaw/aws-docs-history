@@ -1,7 +1,6 @@
 
 
 # MONTH function
-<a name="MONTH"></a>
 
 The MONTH function is a time extraction function that takes a time or timestamp as input and returns the month component (a value between 0 and 12).
 

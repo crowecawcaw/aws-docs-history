@@ -1,7 +1,6 @@
 
 
 # SPLIT\_PART function
-<a name="SPLIT_PART"></a>
 
 Splits a string on the specified delimiter and returns the part at the specified position.
 
@@ -35,7 +34,7 @@ A CHAR or VARCHAR string, the same as the *string* parameter.
 
 The following example splits a string literal into parts using the `$` delimiter and returns the second part.
 
-```
+```sql
 select split_part('abc$def$ghi','$',2)
 
 split_part
@@ -45,7 +44,7 @@ def
 
 The following example splits a string literal into parts using the `$` delimiter. It returns an empty string because part `4` is not found.
 
-```
+```sql
 select split_part('abc$def$ghi','$',4)
 
 split_part
@@ -54,7 +53,7 @@ split_part
 
 The following example splits a string literal into parts using the `#` delimiter. It returns the entire string, which is the first part, because the delimiter is not found. 
 
-```
+```sql
 select split_part('abc$def$ghi','#',1)
 
 split_part
@@ -64,7 +63,7 @@ abc$def$ghi
 
 The following example splits the timestamp field LISTTIME into year, month, and day components.
 
-```
+```sql
 select listtime, split_part(listtime,'-',1) as year,
 split_part(listtime,'-',2) as month, 
 split_part(split_part(listtime,'-',3),' ',1) as day 
@@ -81,7 +80,7 @@ from listing limit 5;
 
 The following example selects the LISTTIME timestamp field and splits it on the `'-'` character to get the month (the second part of the LISTTIME string), then counts the number of entries for each month:
 
-```
+```sql
 select split_part(listtime,'-',2) as month, count(*)
 from listing
 group by split_part(listtime,'-',2)

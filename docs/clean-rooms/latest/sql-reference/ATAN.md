@@ -1,7 +1,6 @@
 
 
 # ATAN function
-<a name="ATAN"></a>
 
 ATAN is a trigonometric function that returns the arc tangent of a number. The return value is in radians and is between `-PI` and `PI`.
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc tangent of `1` and multiply it by 4, use the following example.
 
-```
+```sql
 SELECT ATAN(1) * 4 AS pi;
             
 +-------------------+

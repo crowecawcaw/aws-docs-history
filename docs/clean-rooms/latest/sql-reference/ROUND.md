@@ -1,7 +1,6 @@
 
 
 # ROUND function
-<a name="ROUND"></a>
 
 The ROUND function rounds numbers to the nearest integer or decimal. 
 

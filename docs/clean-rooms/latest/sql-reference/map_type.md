@@ -1,7 +1,6 @@
 
 
 # MAP type
-<a name="map_type"></a>
 
 Use the MAP type to represent values comprising a set of key-value pairs. 
 

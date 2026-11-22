@@ -1,7 +1,6 @@
 
 
 # REPEAT function
-<a name="REPEAT"></a>
 
 Repeats a string the specified number of times. If the input parameter is numeric, REPEAT treats it as a string. 
 

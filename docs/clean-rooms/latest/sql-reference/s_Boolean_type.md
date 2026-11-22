@@ -1,7 +1,6 @@
 
 
 # Boolean type
-<a name="s_Boolean_type"></a>
 
 Use the BOOLEAN data type to store true and false values in a single-byte column. The following table describes the three possible states for a Boolean value and the literal values that result in that state. Regardless of the input string, a Boolean column stores and outputs "t" for true and "f" for false. 
 

@@ -1,7 +1,6 @@
 
 
 # UPPER function
-<a name="UPPER"></a>
 
 Converts a string to uppercase. UPPER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 

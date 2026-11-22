@@ -1,7 +1,6 @@
 
 
 # Nested type
-<a name="s_Nested-data-type"></a>
 
 AWS Clean Rooms supports queries involving data with nested data types, specifically the AWS Glue STRUCT, ARRAY, and MAP column types. Only the custom analysis rule supports nested data types.
 

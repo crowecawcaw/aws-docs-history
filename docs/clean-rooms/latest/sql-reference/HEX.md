@@ -1,7 +1,6 @@
 
 
 # HEX function
-<a name="HEX"></a>
 
 The HEX function converts a numeric value (either an integer or a floating-point number) to its corresponding hexadecimal string representation.
 

@@ -1,7 +1,6 @@
 
 
 # CUME\_DIST window function
-<a name="WF_CUME_DIST"></a>
 
 Calculates the cumulative distribution of a value within a window or partition. Assuming ascending ordering, the cumulative distribution is determined using this formula:
 

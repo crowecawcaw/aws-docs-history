@@ -1,11 +1,10 @@
 
 
 # Example UNION queries
-<a name="example_union_query"></a>
 
 In the following UNION query, rows in the SALES table are merged with rows in the LISTING table. Three compatible columns are selected from each table; in this case, the corresponding columns have the same names and data types. 
 
-```
+```sql
 select listid, sellerid, eventid from listing
 union select listid, sellerid, eventid from sales
 
@@ -23,7 +22,7 @@ The following example shows how you can add a literal value to the output of a U
 
 The query identifies buyers and sellers for ticket transactions that cost $10,000 or more. The only difference between the two query expressions on either side of the UNION operator is the joining column for the SALES table. 
 
-```
+```sql
 select listid, lastname, firstname, username,
 pricepaid as price, 'S' as buyorsell
 from sales, users
@@ -52,7 +51,7 @@ The third column in the result set identifies the source of the row. If it comes
 
 In this case, the result set consists of three sales rows for listing 500, event 7787. In other words, three different transactions took place for this listing and event combination. The other two listings, 501 and 502, did not produce any sales, so the only row that the query produces for these list IDs comes from the LISTING table (SALESROW = 'No'). 
 
-```
+```sql
 select eventid, listid, 'Yes' as salesrow
 from sales
 where listid in(500,501,502)

@@ -1,7 +1,6 @@
 
 
 # VALUES clause
-<a name="VALUES"></a>
 
 The VALUES clause is used to provide a set of row values directly in the query, without the need to reference a table. 
 

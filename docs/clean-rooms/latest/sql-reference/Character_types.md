@@ -1,7 +1,6 @@
 
 
 # Character types
-<a name="Character_types"></a>
 
 Character data types include CHAR (character) and VARCHAR (character varying). 
 

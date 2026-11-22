@@ -1,7 +1,6 @@
 
 
 # SQRT function
-<a name="SQRT"></a>
 
  The SQRT function returns the square root of a numeric value. The square root is a number multiplied by itself to get the given value.
 

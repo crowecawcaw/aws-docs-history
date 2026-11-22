@@ -1,7 +1,6 @@
 
 
 # TO\_DATE function
-<a name="TO_DATE_function"></a>
 
 TO\_DATE converts a date represented by a character string to a DATE data type. 
 
@@ -37,7 +36,7 @@ If the conversion to *format* fails, then an error is returned.
 
  The following SQL statement converts the date `02 Oct 2001` into a date data type.
 
-```
+```sql
 select to_date('02 Oct 2001', 'dd MMM yyyy');
 
 to_date
@@ -48,7 +47,7 @@ to_date
 
  The following SQL statement converts the string `20010631` to a date.
 
-```
+```sql
 select to_date('20010631', 'yyyyMMdd');
 ```
 

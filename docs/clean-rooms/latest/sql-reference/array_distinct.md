@@ -1,7 +1,6 @@
 
 
 # ARRAY\_DISTINCT function
-<a name="array_distinct"></a>
 
 The ARRAY\_DISTINCT function can be used to remove duplicate values from an array. The ARRAY\_DISTINCT function is useful when you need to remove duplicates from an array and work with only the unique elements. This can be helpful in scenarios where you want to perform operations or analyses on a dataset without the interference of repeated values.
 

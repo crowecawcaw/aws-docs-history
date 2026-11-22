@@ -1,7 +1,6 @@
 
 
 # SQL naming rules
-<a name="sql-ref-naming"></a>
 
 The following sections explain the SQL naming rules in AWS Clean Rooms.
 

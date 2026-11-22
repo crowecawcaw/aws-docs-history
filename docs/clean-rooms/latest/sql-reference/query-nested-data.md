@@ -1,7 +1,6 @@
 
 
 # Querying nested data
-<a name="query-nested-data"></a>
 
 AWS Clean Rooms offers SQL-compatible access to relational and nested data. 
 

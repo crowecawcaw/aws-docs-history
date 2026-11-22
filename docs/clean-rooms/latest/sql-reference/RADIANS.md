@@ -1,7 +1,6 @@
 
 
 # RADIANS function
-<a name="RADIANS"></a>
 
 The RADIANS function converts an angle in degrees to its equivalent in radians. 
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the radian equivalent of 180 degrees, use the following example. 
 
-```
+```sql
 SELECT RADIANS(180);
 
 +-------------------+

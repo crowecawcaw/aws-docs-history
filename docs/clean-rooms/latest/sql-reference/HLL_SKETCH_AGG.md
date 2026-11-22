@@ -1,7 +1,6 @@
 
 
 # HLL\_SKETCH\_AGG function
-<a name="HLL_SKETCH_AGG"></a>
 
 The HLL\_SKETCH\_AGG aggregate function creates an HLL sketch from the values in the specified column. It returns an HLLSKETCH data type that encapsulates the input expression values. 
 

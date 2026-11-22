@@ -1,7 +1,6 @@
 
 
 # TIMESTAMP\_LTZ
-<a name="Datetime_types-timestamp_LTZ"></a>
 
 Use the TIMESTAMP\_LTZ data type to store complete timestamp values that include the date, the time of day, and the local time zone. 
 

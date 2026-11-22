@@ -1,7 +1,6 @@
 
 
 # EXPLODE function
-<a name="explode"></a>
 
 The EXPLODE function is used to transform a single row with an array or map column into multiple rows, where each row corresponds to a single element from the array or map.
 

@@ -1,7 +1,6 @@
 
 
 # ASIN function
-<a name="ASIN"></a>
 
 ASIN is a trigonometric function that returns the arc sine of a number. The return value is in radians and is between `PI/2` and `-PI/2`. 
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc sine of `1`, use the following example. 
 
-```
+```sql
 SELECT ASIN(1) AS halfpi;
 
 +--------------------+

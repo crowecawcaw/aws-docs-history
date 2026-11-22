@@ -1,7 +1,6 @@
 
 
 # LN function
-<a name="LN"></a>
 
 The LN function returns the natural logarithm of the input parameter. 
 

@@ -1,7 +1,6 @@
 
 
 # ACOS function
-<a name="ACOS"></a>
 
 ACOS is a trigonometric function that returns the arc cosine of a number. The return value is in radians and is between `0` and `PI`.
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc cosine of `-1`, use the following example. 
 
-```
+```sql
 SELECT ACOS(-1);
 
 +-------------------+

@@ -1,7 +1,6 @@
 
 
 # SQL reference conventions
-<a name="sql-ref-conventions"></a>
 
 This section explains the conventions that are used to write the syntax for the SQL expressions, commands, and functions.
 

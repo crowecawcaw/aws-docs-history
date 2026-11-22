@@ -1,7 +1,6 @@
 
 
 # CURRENT\_DATE function
-<a name="CURRENT_DATE_function"></a>
 
 CURRENT\_DATE returns a date in the current session time zone (UTC by default) in the default format: YYYY-MM-DD.
 
@@ -25,7 +24,7 @@ DATE
 
 The following example returns the current date (in the AWS Region where the function runs).
 
-```
+```sql
 select current_date;
 
    date

@@ -1,7 +1,6 @@
 
 
 # LTRIM function
-<a name="LTRIM"></a>
 
 Trims characters from the beginning of a string. Removes the longest string containing only characters in the trim characters list. Trimming is complete when a trim character doesn't appear in the input string.
 
@@ -31,7 +30,7 @@ The LTRIM function returns a character string that is the same data type as the 
 
 The following example trims the year from the `listime` column. The trim characters in string literal `'2008-'` indicate the characters to be trimmed from the left. If you use the trim characters `'028-'`, you achieve the same result. 
 
-```
+```sql
 select listid, listtime, ltrim(listtime, '2008-')
 from listing
 order by 1, 2, 3
@@ -53,7 +52,7 @@ listid |      listtime       |     ltrim
 
 LTRIM removes any of the characters in *trim\_chars* when they appear at the beginning of *string*. The following example trims the characters 'C', 'D', and 'G' when they appear at the beginning of VENUENAME, which is a VARCHAR column. 
 
-```
+```sql
 select venueid, venuename, ltrim(venuename, 'CDG')
 from venue
 where venuename like '%Park'
@@ -73,7 +72,7 @@ venueid | venuename                  | btrim
 
 The following example uses the trim character `2` which is retrieved from the `venueid` column.
 
-```
+```sql
 select ltrim('2008-01-24 06:43:29', venueid) 
 from venue where venueid=2;              
 
@@ -84,7 +83,7 @@ ltrim
 
 The following example does not trim any characters because a `2` is found before the `'0'` trim character. 
 
-```
+```sql
 select ltrim('2008-01-24 06:43:29', '0');              
 
 ltrim
@@ -94,7 +93,7 @@ ltrim
 
 The following example uses the default space trim character and trims the two spaces from the beginning of the string. 
 
-```
+```sql
 select ltrim('  2008-01-24 06:43:29');              
 
 ltrim

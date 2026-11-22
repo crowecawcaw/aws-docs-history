@@ -1,7 +1,6 @@
 
 
 # COLLECT\_SET function
-<a name="COLLECT_SET"></a>
 
 The COLLECT\_SET function collects and returns a set of unique elements. 
 
@@ -35,7 +34,7 @@ NULL values are excluded.
 
 The following query collects all the unique values from the col column into a set. The `VALUES` clause is used to create an inline table with three rows, where each row has a single column col with the values 1, 2, and 1 respectively. The `collect_set()` function is then used to aggregate all the unique values from the col column into a single set. The output of this SQL statement would be the set `[1,2]`, which contains the unique values from the col column. The duplicate value of 1 is only included once in the result.
 
-```
+```sql
 SELECT collect_set(col) FROM VALUES (1), (2), (1) AS tab(col);
  [1,2]
 ```

@@ -1,7 +1,6 @@
 
 
 # FLATTEN function
-<a name="flatten"></a>
 
 The FLATTEN function is used to "flatten" a nested array structure into a single flat array.
 

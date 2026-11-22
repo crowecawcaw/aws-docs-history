@@ -1,7 +1,6 @@
 
 
 # Pattern-matching conditions
-<a name="sql-contitions-pattern-matching-spark"></a>
 
 A pattern-matching operator searches a string for a pattern specified in the conditional expression and returns true or false depending on whether it finds a match. AWS Clean Rooms Spark SQL uses the following methods for pattern matching: 
 + LIKE expressions

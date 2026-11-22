@@ -1,7 +1,6 @@
 
 
 # Hash functions
-<a name="s_hash-functions"></a>
 
 A hash function is a mathematical function that converts a numerical input value into another value. 
 

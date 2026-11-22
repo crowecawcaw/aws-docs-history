@@ -1,7 +1,6 @@
 
 
 # DECODE function
-<a name="DECODE"></a>
 
 The DECODE function is the counterpart to the ENCODE function, which is used to convert a string to a binary format using a specific character encoding. The DECODE function takes the binary data and converts it back to a readable string format using the specified character encoding.
 

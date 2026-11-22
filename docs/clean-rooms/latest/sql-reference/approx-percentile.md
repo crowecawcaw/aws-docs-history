@@ -1,7 +1,6 @@
 
 
 # APPROX PERCENTILE function
-<a name="approx-percentile"></a>
 
 APPROX PERCENTILE is used to estimate the percentile value of a given expression or column without having to sort the entire dataset. This function is useful in scenarios where you need to quickly understand the distribution of a large dataset or track percentile-based metrics, without the computational overhead of performing an exact percentile calculation. However, it's important to understand the trade-offs between speed and accuracy, and to choose the appropriate error tolerance based on the specific requirements of your use case.
 
@@ -42,19 +41,19 @@ When percentage is an array, each value of the percentage array must be between 
 
 The following query estimates the 95th percentile of the `response_time` column, with a maximum relative error of 1% (0.01).
 
-```
+```sql
 SELECT APPROX_PERCENTILE(response_time, 0.95, 0.01) AS p95_response_time
 FROM my_table;
 ```
 
 The following query estimates the 50th, 40th, and 10th percentile values of the `col` column in the `tab` table.
 
-```
+```sql
 SELECT approx_percentile(col, array(0.5, 0.4, 0.1), 100) FROM VALUES (0), (1), (2), (10) AS tab(col)
 ```
 
 The following query estimates the 50th percentile (median) of the values in the col column.
 
-```
+```sql
 SELECT approx_percentile(col, 0.5, 100) FROM VALUES (0), (6), (7), (9), (10) AS tab(col)
 ```

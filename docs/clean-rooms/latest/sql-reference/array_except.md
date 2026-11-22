@@ -1,7 +1,6 @@
 
 
 # ARRAY\_EXCEPT function
-<a name="array_except"></a>
 
 The ARRAY\_EXCEPT function takes two arrays as arguments and returns a new array that contains only the elements that are present in the first array but not the second array.
 

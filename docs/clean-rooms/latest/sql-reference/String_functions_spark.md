@@ -1,7 +1,6 @@
 
 
 # String functions
-<a name="String_functions_spark"></a>
 
 String functions process and manipulate character strings or expressions that evaluate to character strings. When the *string* argument in these functions is a literal value, it must be enclosed in single quotation marks. Supported data types include CHAR and VARCHAR. 
 

@@ -1,7 +1,6 @@
 
 
 # LPAD and RPAD functions
-<a name="LPAD"></a>
 
 These functions prepend or append characters to a string, based on a specified length. 
 

@@ -1,7 +1,6 @@
 
 
 # STRUCT type
-<a name="struct_type"></a>
 
 Use the STRUCT type to represent values with the structure described by a sequence of StructFields (fields). 
 

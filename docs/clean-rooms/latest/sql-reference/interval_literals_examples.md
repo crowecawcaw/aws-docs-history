@@ -1,7 +1,6 @@
 
 
 # Examples of interval literals without qualifier syntax
-<a name="interval_literals_examples"></a>
 
 **Note**  
 The following examples demonstrate using an interval literal without a `YEAR TO MONTH` or `DAY TO SECOND` qualifier. For information about using the recommended interval literal with a qualifier, see [Interval data types and literals](interval_data_types_spark.md).

@@ -1,7 +1,6 @@
 
 
 # COT function
-<a name="COT"></a>
 
 COT is a trigonometric function that returns the cotangent of a number. The input parameter must be nonzero. 
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the cotangent of 1, use the following example. 
 
-```
+```sql
 SELECT COT(1);
 
 +--------------------+

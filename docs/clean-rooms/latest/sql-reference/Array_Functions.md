@@ -1,7 +1,6 @@
 
 
 # Array functions
-<a name="Array_Functions"></a>
 
 This section describes the array functions for SQL supported in AWS Clean Rooms. 
 

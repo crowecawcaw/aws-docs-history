@@ -1,7 +1,6 @@
 
 
 # LEFT and RIGHT functions
-<a name="LEFT"></a>
 
 These functions return the specified number of leftmost or rightmost characters from a character string.
 

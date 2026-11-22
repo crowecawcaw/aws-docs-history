@@ -1,7 +1,6 @@
 
 
 # DEGREES function
-<a name="DEGREES"></a>
 
 Converts an angle in radians to its equivalent in degrees. 
 
@@ -28,7 +27,7 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the degree equivalent of .5 radians, use the following example. 
 
-```
+```sql
 SELECT DEGREES(.5);
 
 +-------------------+
@@ -40,7 +39,7 @@ SELECT DEGREES(.5);
 
 To convert PI radians to degrees, use the following example. 
 
-```
+```sql
 SELECT DEGREES(pi());
 
 +---------+

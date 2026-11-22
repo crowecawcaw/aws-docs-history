@@ -1,7 +1,6 @@
 
 
 # IF expression
-<a name="IF"></a>
 
 The IF conditional function returns one of two values based on a condition. 
 

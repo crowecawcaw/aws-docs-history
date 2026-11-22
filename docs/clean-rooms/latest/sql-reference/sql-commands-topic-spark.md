@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms Spark SQL commands
-<a name="sql-commands-topic-spark"></a>
 
 The following SQL commands are supported in AWS Clean Rooms Spark SQL:
 

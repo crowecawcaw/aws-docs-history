@@ -1,7 +1,6 @@
 
 
 # MIN function
-<a name="MIN"></a>
 
  The MIN function returns the minimum value in a set of rows. DISTINCT or ALL might be used but do not affect the result.
 

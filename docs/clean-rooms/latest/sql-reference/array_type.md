@@ -1,7 +1,6 @@
 
 
 # ARRAY type
-<a name="array_type"></a>
 
 Use the ARRAY type to represent values comprising a sequence of elements with the type of `elementType`. 
 

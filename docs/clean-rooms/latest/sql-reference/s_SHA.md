@@ -1,7 +1,6 @@
 
 
 # SHA function
-<a name="s_SHA"></a>
 
 Synonym of SHA1 function. 
 

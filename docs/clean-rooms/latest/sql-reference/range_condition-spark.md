@@ -1,7 +1,6 @@
 
 
 # BETWEEN range condition
-<a name="range_condition-spark"></a>
 
 A `BETWEEN` condition tests expressions for inclusion in a range of values, using the keywords `BETWEEN` and `AND`. 
 

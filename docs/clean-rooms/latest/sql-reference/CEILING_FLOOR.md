@@ -1,7 +1,6 @@
 
 
 # CEILING (or CEIL) function
-<a name="CEILING_FLOOR"></a>
 
 The CEILING or CEIL function is used to round a number up to the next whole number. (The [FLOOR function](FLOOR.md) rounds a number down to the next whole number.) 
 

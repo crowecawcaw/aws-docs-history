@@ -1,7 +1,6 @@
 
 
 # TO\_JSON function
-<a name="TO_JSON"></a>
 
 The TO\_JSON function converts an input expression into a JSON string representation. The function handles the conversion of different data types (such as numbers, strings, and booleans) into their corresponding JSON representations.
 

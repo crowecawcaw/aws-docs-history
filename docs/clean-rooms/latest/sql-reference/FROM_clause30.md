@@ -1,7 +1,6 @@
 
 
 # FROM clause
-<a name="FROM_clause30"></a>
 
 The FROM clause in a query lists the table references (tables, views, and subqueries) that data is selected from. If multiple table references are listed, the tables must be joined, using appropriate syntax in either the FROM clause or the WHERE clause. If no join criteria are specified, the system processes the query as a cross-join (Cartesian product). 
 

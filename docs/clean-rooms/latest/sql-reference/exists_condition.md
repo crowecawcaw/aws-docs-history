@@ -1,7 +1,6 @@
 
 
 # EXISTS condition
-<a name="exists_condition"></a>
 
 EXISTS conditions test for the existence of rows in a subquery, and return true if a subquery returns at least one row. If NOT is specified, the condition returns true if a subquery returns no rows.
 

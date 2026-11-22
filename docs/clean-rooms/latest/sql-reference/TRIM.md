@@ -1,7 +1,6 @@
 
 
 # TRIM function
-<a name="TRIM"></a>
 
 Trims a string by removing leading and trailing blanks or by removing leading and trailing characters that match an optional specified string.
 
@@ -31,7 +30,7 @@ The TRIM function returns a VARCHAR or CHAR string. If you use the TRIM function
 
 The following example trims leading and trailing blanks from the string `' abc '`: 
 
-```
+```sql
 select '     abc    ' as untrim, trim('     abc    ') as trim;
 
 untrim    | trim
@@ -41,7 +40,7 @@ untrim    | trim
 
 The following example removes the double quotation marks that surround the string `"dog"`: 
 
-```
+```sql
 select trim('"' FROM '"dog"');
 
 btrim
@@ -51,7 +50,7 @@ dog
 
 TRIM removes any of the characters in *trim\_chars* when they appear at the beginning of *string*. The following example trims the characters 'C', 'D', and 'G' when they appear at the beginning of VENUENAME, which is a VARCHAR column. 
 
-```
+```sql
 select venueid, venuename, trim(venuename, 'CDG')
 from venue
 where venuename like '%Park'

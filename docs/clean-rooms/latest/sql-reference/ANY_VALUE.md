@@ -1,7 +1,6 @@
 
 
 # ANY\_VALUE function
-<a name="ANY_VALUE"></a>
 
 The ANY\_VALUE function returns any value from the input expression values nondeterministically. This function can return NULL if the input expression doesn't result in any rows being returned. 
 
@@ -36,7 +35,7 @@ If a statement that specifies the ANY\_VALUE function for a column also includes
 
 The following example returns an instance of any `dateid` where the `eventname` is `Eagles`. 
 
-```
+```sql
 select any_value(dateid) as dateid, eventname from event where eventname ='Eagles' group by eventname;
 ```
 
@@ -50,7 +49,7 @@ dateid | eventname
 
 The following example returns an instance of any `dateid` where the `eventname` is `Eagles` or `Cold War Kids`. 
 
-```
+```sql
 select any_value(dateid) as dateid, eventname from event where eventname in('Eagles', 'Cold War Kids') group by eventname;
 ```
 

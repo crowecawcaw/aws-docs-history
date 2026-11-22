@@ -1,7 +1,6 @@
 
 
 # ATAN2 function
-<a name="ATAN2"></a>
 
 ATAN2 is a trigonometric function that returns the arc tangent of one number divided by another number. The return value is in radians and is between `PI/2` and `-PI/2`. 
 
@@ -31,7 +30,7 @@ A `DOUBLE PRECISION` number.
 
 To return the arc tangent of `2/2` and multiply it by 4, use the following example. 
 
-```
+```sql
 SELECT ATAN2(2,2) * 4 AS PI;
 
 +-------------------+

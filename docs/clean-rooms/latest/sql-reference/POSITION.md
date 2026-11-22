@@ -1,7 +1,6 @@
 
 
 # POSITION function
-<a name="POSITION"></a>
 
 Returns the location of the specified substring within a string.
 

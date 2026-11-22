@@ -1,7 +1,6 @@
 
 
 # Aggregate functions
-<a name="sql-functions-agg-spark"></a>
 
 Aggregate functions in AWS Clean Rooms Spark SQL are used to perform calculations or operations on a group of rows and return a single value. They are essential for data analysis and summarization tasks.
 

@@ -1,7 +1,6 @@
 
 
 # GREATEST and LEAST expression
-<a name="GREATEST_LEAST"></a>
 
 Returns the largest or smallest value from a list of any number of expressions.
 

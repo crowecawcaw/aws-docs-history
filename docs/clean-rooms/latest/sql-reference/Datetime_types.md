@@ -1,7 +1,6 @@
 
 
 # Datetime types
-<a name="Datetime_types"></a>
 
 Datetime data types include DATE, TIME, TIMESTAMP\_LTZ, and TIMESTAMP\_NTZ.
 

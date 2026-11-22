@@ -1,7 +1,6 @@
 
 
 # Mathematical operator symbols
-<a name="OPERATOR_SYMBOLS"></a>
 
  The following table lists the supported mathematical operators. 
 

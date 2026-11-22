@@ -1,7 +1,6 @@
 
 
 # NULLIF function
-<a name="NULLIF_function"></a>
 
 Compares two arguments and returns null if the arguments are equal. If they aren't equal, the first argument is returned.
 
@@ -25,7 +24,7 @@ The target columns or expressions that are compared. The return type is the same
 
 In the following example, the query returns the string `first` because the arguments are not equal.
 
-```
+```sql
 SELECT NULLIF('first', 'second');
 
 case
@@ -35,7 +34,7 @@ first
 
 In the following example, the query returns `NULL` because the string literal arguments are equal.
 
-```
+```sql
 SELECT NULLIF('first', 'first');
 
 case
@@ -45,7 +44,7 @@ NULL
 
 In the following example, the query returns `1` because the integer arguments are not equal.
 
-```
+```sql
 SELECT NULLIF(1, 2);
 
 case
@@ -55,7 +54,7 @@ case
 
 In the following example, the query returns `NULL` because the integer arguments are equal.
 
-```
+```sql
 SELECT NULLIF(1, 1);
 
 case

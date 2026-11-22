@@ -1,7 +1,6 @@
 
 
 # SPLIT function
-<a name="split"></a>
 
 The SPLIT function allows you to extract substrings from a larger string and work with them as an array. The SPLIT function is useful when you need to break down a string into individual components based on a specific delimiter or pattern.
 

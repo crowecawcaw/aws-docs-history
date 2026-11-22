@@ -1,7 +1,6 @@
 
 
 # ARRAY\_INTERSECT function
-<a name="array_intersect"></a>
 
 The ARRAY\_INTERSECT function takes two arrays as arguments and returns a new array that contains the elements that are present in both input arrays. This function is useful when you need to find the common elements between two arrays. This can be helpful in scenarios where you need to perform set-like operations on arrays, such as finding the intersection between two sets of data.
 

@@ -1,7 +1,6 @@
 
 
 # Set operators
-<a name="UNION"></a>
 
 The *set operators* are used to compare and merge the results of two separate query expressions. 
 

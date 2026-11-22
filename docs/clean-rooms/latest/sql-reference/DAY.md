@@ -1,7 +1,6 @@
 
 
 # DAY function
-<a name="DAY"></a>
 
 The DAY function returns the day of month of the date/timestamp.
 

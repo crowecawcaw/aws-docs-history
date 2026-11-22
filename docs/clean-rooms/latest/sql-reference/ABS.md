@@ -1,7 +1,6 @@
 
 
 # ABS function
-<a name="ABS"></a>
 
  ABS calculates the absolute value of a number, where that number can be a literal or an expression that evaluates to a number. 
 

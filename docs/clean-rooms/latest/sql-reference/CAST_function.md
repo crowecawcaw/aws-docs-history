@@ -1,7 +1,6 @@
 
 
 # CAST function
-<a name="CAST_function"></a>
 
 The CAST function converts one data type to another compatible data type. For instance, you can convert a string to a date, or a numeric type to a string. CAST performs a runtime conversion, which means that the conversion doesn't change a value's data type in a source table. It's changed only in the context of the query.
 
@@ -47,7 +46,7 @@ select 12345678::smallint;
 
 The following two queries are equivalent. They both cast a decimal value to an integer: 
 
-```
+```sql
 select cast(pricepaid as integer)
 from sales where salesid=100;
 
@@ -57,7 +56,7 @@ pricepaid
 (1 row)
 ```
 
-```
+```sql
 select pricepaid::integer
 from sales where salesid=100;
 
@@ -69,7 +68,7 @@ pricepaid
 
 The following produces a similar result. It doesn't require sample data to run: 
 
-```
+```sql
 select cast(162.00 as integer) as pricepaid;
 
 pricepaid
@@ -80,7 +79,7 @@ pricepaid
 
 In this example, the values in a timestamp column are cast as dates, which results in removing the time from each result:
 
-```
+```sql
 select cast(saletime as date), salesid
 from sales order by salesid limit 10;
 
@@ -104,7 +103,7 @@ If you didn't use CAST as illustrated in the previous sample, the results would 
 
 The following query casts variable character data to a date. It doesn't require sample data to run. 
 
-```
+```sql
 select cast('2008-02-18 02:36:48' as date) as mysaletime;
 
 mysaletime    
@@ -115,7 +114,7 @@ mysaletime
 
 In this example, the values in a date column are cast as timestamps: 
 
-```
+```sql
 select cast(caldate as timestamp), dateid
 from date order by dateid limit 10;
 
@@ -139,7 +138,7 @@ In a case like the previous sample, you can gain additional control over output 
 
 In this example, an integer is cast as a character string: 
 
-```
+```sql
 select cast(2008 as char(4));
 
 bpchar
@@ -149,7 +148,7 @@ bpchar
 
 In this example, a DECIMAL(6,3) value is cast as a DECIMAL(4,1) value: 
 
-```
+```sql
 select cast(109.652 as decimal(4,1));
 
 numeric
@@ -159,7 +158,7 @@ numeric
 
 This example shows a more complex expression. The PRICEPAID column (a DECIMAL(8,2) column) in the SALES table is converted to a DECIMAL(38,2) column and the values are multiplied by 100000000000000000000: 
 
-```
+```sql
 select salesid, pricepaid::decimal(38,2)*100000000000000000000
 as value from sales where salesid<10 order by salesid;
 

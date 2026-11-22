@@ -1,7 +1,6 @@
 
 
 # WITH clause
-<a name="WITH_clause"></a>
 
 A WITH clause is an optional clause that precedes the SELECT list in a query. The WITH clause defines one or more *common\_table\_expressions*. Each common table expression (CTE) defines a temporary table, which is similar to a view definition. You can reference these temporary tables in the FROM clause. They're used only while the query they belong to runs. Each CTE in the WITH clause specifies a table name, an optional list of column names, and a query expression that evaluates to a table (a SELECT statement).
 

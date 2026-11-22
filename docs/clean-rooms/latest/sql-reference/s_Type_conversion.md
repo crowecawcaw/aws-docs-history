@@ -1,7 +1,6 @@
 
 
 # Type compatibility and conversion
-<a name="s_Type_conversion"></a>
 
 The following topics describe how type conversion rules and data type compatibility work in AWS Clean Rooms Spark SQL.
 

@@ -1,7 +1,6 @@
 
 
 # TO\_CHAR
-<a name="TO_CHAR"></a>
 
 TO\_CHAR converts a timestamp or numeric expression to a character-string data format. 
 
@@ -153,7 +152,7 @@ CXXV
 
 The following example displays the day of the week.
 
-```
+```sql
 SELECT to_char(current_timestamp, 'FMDay, FMDD HH12:MI:SS');
                to_char
 -----------------------
@@ -162,7 +161,7 @@ Wednesday, 31 09:34:26
 
 The following example displays the ordinal number suffix for a number.
 
-```
+```sql
 SELECT to_char(482, '999th');
                to_char
 -----------------------

@@ -1,7 +1,6 @@
 
 
 # DAYOFWEEK function
-<a name="DAYOFWEEK"></a>
 
 The DAYOFWEEK function takes a date or timestamp as input and returns the day of the week as a number (1 for Sunday, 2 for Monday, ..., 7 for Saturday).
 

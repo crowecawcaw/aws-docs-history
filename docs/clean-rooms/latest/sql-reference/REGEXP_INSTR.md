@@ -1,7 +1,6 @@
 
 
 # REGEXP\_INSTR function
-<a name="REGEXP_INSTR"></a>
 
 Searches a string for a regular expression pattern and returns an integer that indicates the beginning position or ending position of the matched substring. If no match is found, then the function returns 0. REGEXP\_INSTR is similar to the [POSITION](POSITION.md) function, but lets you search a string for a regular expression pattern. 
 

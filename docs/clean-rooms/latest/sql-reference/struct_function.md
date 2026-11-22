@@ -1,7 +1,6 @@
 
 
 # STRUCT constructor function
-<a name="struct_function"></a>
 
 The STRUCT constructor function creates a struct with the given field values.
 
@@ -32,7 +31,7 @@ If the arguments are named references, the names are used to name the field. Oth
 
 The following example creates a new struct with three fields: The first field is assigned the value 1. The second field is assigned the value 2. The third field is assigned the value 3. By default, the fields in the resulting struct are named `col1`, `col2`, and `col3`, based on their position in the argument list. The resulting struct is then returned as the output of the SQL statement.
 
-```
+```sql
 SELECT struct(1, 2, 3);
  {"col1":1,"col2":2,"col3":3}
 ```

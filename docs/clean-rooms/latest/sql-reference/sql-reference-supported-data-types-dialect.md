@@ -1,7 +1,6 @@
 
 
 # Data type support by SQL engine
-<a name="sql-reference-supported-data-types-dialect"></a>
 
 AWS Clean Rooms supports multiple SQL engines and dialects. Understanding the data type systems across these implementations is crucial for successful data collaboration and analysis. The following tables show the equivalent data types across AWS Clean Rooms SQL, Snowflake SQL, and Spark SQL. 
 

@@ -1,7 +1,6 @@
 
 
 # FORMAT\_STRING function
-<a name="FORMAT_STRING"></a>
 
 The FORMAT\_STRING function creates a formatted string by substituting placeholders in a template string with the provided arguments. It returns a formatted string from printf-style format strings. 
 

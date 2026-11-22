@@ -1,7 +1,6 @@
 
 
 # Data type formatting functions
-<a name="Data_type_formatting"></a>
 
 Using a data type formatting function, you can convert values from one data type to another. For each of these functions, the first argument is always the value to be formatted and the second argument contains the template for the new format. 
 

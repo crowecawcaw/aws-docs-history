@@ -1,7 +1,6 @@
 
 
 # Examples with datetime types
-<a name="Examples_with_datetime_types"></a>
 
 The following examples show you how to work with datetime types that are supported by AWS Clean Rooms.
 

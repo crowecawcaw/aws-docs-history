@@ -1,7 +1,6 @@
 
 
 # CONCAT function
-<a name="CONCAT"></a>
 
 The CONCAT function concatenates two expressions and returns the resulting expression. To concatenate more than two expressions, use nested CONCAT functions. The concatenation operator (`||`) between two expressions produces the same results as the CONCAT function. 
 

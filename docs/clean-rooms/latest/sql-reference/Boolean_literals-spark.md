@@ -1,7 +1,6 @@
 
 
 # Boolean literals
-<a name="Boolean_literals-spark"></a>
 
 The following rules are for working with Boolean literals that are supported by AWS Clean Rooms Spark SQL.
 

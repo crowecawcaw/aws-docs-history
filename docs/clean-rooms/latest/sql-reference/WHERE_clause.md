@@ -1,9 +1,8 @@
 
 
 # WHERE clause
-<a name="WHERE_clause"></a>
 
-The WHERE clause contains conditions that either join tables or apply predicates to columns in tables. Tables can be inner-joined by using appropriate syntax in either the WHERE clause or the FROM clause. Outer join criteria must be specified in the FROM clause. 
+The WHERE clause filters the rows that a query returns by applying one or more conditions to columns in the configured tables that the query reads. A condition is an expression that evaluates to a Boolean result, such as a comparison or a combination of comparisons joined by `AND`, `OR`, and `NOT`.
 
 ## Syntax
 <a name="WHERE_clause-synopsis"></a>
@@ -15,64 +14,60 @@ The WHERE clause contains conditions that either join tables or apply predicates
 ## *condition*
 <a name="WHERE_clause-synopsis-condition"></a>
 
-Any search condition with a Boolean result, such as a join condition or a predicate on a table column. The following examples are valid join conditions: 
+Any search condition that returns a Boolean result, such as a predicate on a table column. The following examples are valid conditions:
 
 ```
-sales.listid=listing.listid
-sales.listid<>listing.listid
+region = 'west'
+spend > 100
+campaign_id IN ('c-1', 'c-2')
+region LIKE 'w%'
 ```
 
-The following examples are valid conditions on columns in tables: 
+You can combine conditions with `AND`, `OR`, and `NOT`, and you can use parentheses to group them. In the following example, parentheses group two conditions:
 
 ```
-catgroup like 'S%'
-venueseats between 20000 and 50000
-eventname in('Jersey Boys','Spamalot')
-year=2008
-length(catdesc)>25
-date_part(month, caldate)=6
-```
-
-Conditions can be simple or complex; for complex conditions, you can use parentheses to isolate logical units. In the following example, the join condition is enclosed by parentheses. 
-
-```
-where (category.catid=event.catid) and category.catid in(6,7,8)
+WHERE region = 'west'
+    AND (spend > 100 OR campaign_id = 'c-1')
 ```
 
 ## Usage notes
 <a name="WHERE_clause_usage_notes"></a>
 
-You can use aliases in the WHERE clause to reference select list expressions. 
+You can't use aggregate functions in the WHERE clause. To filter on the result of an aggregate function, use the HAVING clause instead.
 
-You can't restrict the results of aggregate functions in the WHERE clause; use the HAVING clause for this purpose. 
+Columns that you reference in the WHERE clause must come from the tables in the FROM clause.
 
-Columns that are restricted in the WHERE clause must derive from table references in the FROM clause. 
-
-## Example
+## Examples
 <a name="SELECT_synopsis-example"></a>
 
-The following query uses a combination of different WHERE clause restrictions, including a join condition for the SALES and EVENT tables, a predicate on the EVENTNAME column, and two predicates on the STARTTIME column. 
+The following example returns the rows of the `impressions` table where `region` is `west` and `spend` is greater than `100`. For input rows `(u-100, west, 150)`, `(u-101, east, 90)`, and `(u-103, west, 220)`, the query returns two rows.
 
 ```
-select eventname, starttime, pricepaid/qtysold as costperticket, qtysold
-from sales, event
-where sales.eventid = event.eventid
-and eventname='Mary Major'
-and date_part(quarter, starttime) in(1,2)
-and date_part(year, starttime) = 2008
-order by 3 desc, 4, 2, 1 limit 10;
+SELECT user_id,
+    region,
+    spend
+FROM impressions
+WHERE region = 'west'
+    AND spend > 100;
 
- eventname  |      starttime      | costperticket | qtysold
-------------+---------------------+---------------+---------
- Mary Major | 2008-06-07 14:00:00 | 1706.00000000 |       2
- Mary Major | 2008-05-01 19:00:00 | 1658.00000000 |       2
- Mary Major | 2008-06-07 14:00:00 | 1479.00000000 |       1
- Mary Major | 2008-06-07 14:00:00 | 1479.00000000 |       3
- Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       1
- Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       2
- Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       4
- Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       1
- Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       2
- Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       4
-(10 rows)
+user_id | region | spend
+--------+--------+------
+u-100   | west   |   150
+u-103   | west   |   220
+```
+
+The following example joins the `impressions` and `purchases` tables by putting the join condition in the WHERE clause, and keeps only purchases over `50`. For impressions rows `(u-100, c-1)` and `(u-103, c-2)` and purchases rows `(u-100, 80)`, `(u-103, 120)`, and `(u-101, 40)`, the query returns two rows.
+
+```
+SELECT i.user_id,
+    i.campaign_id,
+    p.amount
+FROM impressions i, purchases p
+WHERE i.user_id = p.user_id
+    AND p.amount > 50;
+
+user_id | campaign_id | amount
+--------+-------------+-------
+u-100   | c-1         |     80
+u-103   | c-2         |    120
 ```

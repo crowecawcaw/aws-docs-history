@@ -1,7 +1,6 @@
 
 
 # GET\_JSON\_OBJECT function
-<a name="GET_JSON_OBJECT"></a>
 
 The GET\_JSON\_OBJECT function extracts a json object from `path`. 
 

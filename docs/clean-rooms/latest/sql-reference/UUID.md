@@ -1,7 +1,6 @@
 
 
 # UUID function
-<a name="UUID"></a>
 
 The UUID function generates a Universally Unique Identifier (UUID).
 

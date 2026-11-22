@@ -1,7 +1,6 @@
 
 
 # HLL\_UNION function
-<a name="HLL_UNION"></a>
 
 The HLL\_UNION function combines two HLL sketches into a single, unified sketch. It uses the HyperLogLog (HLL) algorithm to combine two sketches into a single sketch. Queries can use the resulting buffers to compute approximate unique counts as long integers with the `hll_sketch_estimate` function.
 

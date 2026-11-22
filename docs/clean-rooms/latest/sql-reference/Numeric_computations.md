@@ -1,7 +1,6 @@
 
 
 # Computations with numeric values
-<a name="Numeric_computations"></a>
 
 In AWS Clean Rooms, *computation* refers to binary mathematical operations: addition, subtraction, multiplication, and division. This section describes the expected return types for these operations, as well as the specific formula that is applied to determine precision and scale when DECIMAL data types are involved. 
 

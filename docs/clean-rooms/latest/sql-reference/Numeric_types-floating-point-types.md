@@ -1,7 +1,6 @@
 
 
 # Floating-point types
-<a name="Numeric_types-floating-point-types"></a>
 
 Use the REAL and DOUBLE PRECISION data types to store numeric values with *variable precision*. These types are *inexact* types, meaning that some values are stored as approximations, such that storing and returning a specific value may result in slight discrepancies. If you require exact storage and calculations (such as for monetary amounts), use the DECIMAL data type.
 

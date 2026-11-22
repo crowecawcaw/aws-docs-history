@@ -1,7 +1,6 @@
 
 
 # LOG function
-<a name="LOG"></a>
 
 Returns the logarithm of `expr` with `base`.
 

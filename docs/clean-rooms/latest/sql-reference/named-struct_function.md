@@ -1,7 +1,6 @@
 
 
 # NAMED\_STRUCT constructor function
-<a name="named-struct_function"></a>
 
 The NAMED\_STRUCT constructor function creates a struct with the given field names and values.
 
@@ -33,7 +32,7 @@ The NAMED\_STRUCT function returns a struct with field 1 matching the type of *v
 
 The following example creates a new struct with three named fields: The field `"a"` is assigned the value `1`. The field `"b"` is assigned the value `2.` The field `"c"` is assigned the value `3`. The resulting struct is then returned as the output of the SQL statement. 
 
-```
+```sql
 SELECT named_struct("a", 1, "b", 2, "c", 3);
  {"a":1,"b":2,"c":3}
 ```

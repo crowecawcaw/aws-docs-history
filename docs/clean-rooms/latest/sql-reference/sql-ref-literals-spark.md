@@ -1,7 +1,6 @@
 
 
 # Literals
-<a name="sql-ref-literals-spark"></a>
 
 A literal or constant is a fixed data value, composed of a sequence of characters or a numeric constant. 
 

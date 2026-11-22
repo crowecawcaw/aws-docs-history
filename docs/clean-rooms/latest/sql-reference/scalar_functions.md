@@ -1,7 +1,6 @@
 
 
 # Scalar functions
-<a name="scalar_functions"></a>
 
 This section describes the scalar functions supported in AWS Clean Rooms Spark SQL. A scalar function is a function that takes one or more values as input and returns a single value as output. Scalar functions operate on individual rows or elements and produce a single result for each input. 
 

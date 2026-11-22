@@ -1,7 +1,6 @@
 
 
 # Subquery examples
-<a name="Subquery_examples"></a>
 
 The following examples show different ways in which subqueries fit into SELECT queries. See [Example](join-clause.md#Join_examples) for another example of the use of subqueries. 
 

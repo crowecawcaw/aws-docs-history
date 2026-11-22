@@ -1,7 +1,6 @@
 
 
 # VARCHAR or CHARACTER VARYING
-<a name="Character_types-varchar-or-character-varying"></a>
 
 Use a VARCHAR or CHARACTER VARYING column to store variable-length strings with a fixed limit. These strings are not padded with blanks, so a VARCHAR(120) column consists of a maximum of 120 single-byte characters, 60 two-byte characters, 40 three-byte characters, or 30 four-byte characters.
 

@@ -1,7 +1,6 @@
 
 
 # CARDINALITY function
-<a name="CARDINALITY"></a>
 
 The CARDINALITY function returns the size of an ARRAY or MAP expression (*expr*).
 
@@ -34,7 +33,7 @@ Otherwise, the function returns `-1` for null input. With the default settings, 
 
 The following query calculates the cardinality, or the number of elements, in the given array. The array (`'b', 'd', 'c', 'a'`) has 4 elements, so the output of this query would be `4`.
 
-```
+```sql
 SELECT cardinality(array('b', 'd', 'c', 'a'));
  4
 ```

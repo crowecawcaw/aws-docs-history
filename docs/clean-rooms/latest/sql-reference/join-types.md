@@ -1,7 +1,6 @@
 
 
 # Join types
-<a name="join-types"></a>
 
 ## INNER
 <a name="inner-join"></a>
@@ -21,7 +20,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows where there is a matching customer\_id value between the customers and orders tables. The result set will contain the customer\_id, name, order\_id, and order\_date columns.
 
-```
+```SQL
 SELECT customers.customer_id, customers.name, orders.order_id, orders.order_date
 FROM customers
 INNER JOIN orders
@@ -30,7 +29,7 @@ ON customers.customer_id = orders.customer_id;
 
 The following query is an inner join (without the JOIN keyword) between the LISTING table and SALES table, where the LISTID from the LISTING table is between 1 and 5. This query matches LISTID column values in the LISTING table (the left table) and SALES table (the right table). The results show that LISTID 1, 4, and 5 match the criteria.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from listing, sales
 where listing.listid = sales.listid
@@ -47,7 +46,7 @@ listid | price  |  comm
 
 The following example is an inner join with the ON clause. In this case, NULL rows are not returned.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from sales join listing
 on sales.listid=listing.listid and sales.eventid=listing.eventid
@@ -64,7 +63,7 @@ listid | price  |  comm
 
 The following query is an inner join of two subqueries in the FROM clause. The query finds the number of sold and unsold tickets for different categories of events (concerts and shows). The FROM clause subqueries are *table* subqueries; they can return multiple columns and rows.
 
-```
+```sql
 select catgroup1, sold, unsold
 from
 (select catgroup, sum(qtysold) as sold
@@ -105,7 +104,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from the customers table, along with the matching rows from the orders table. If a customer has no orders, the result set will still include that customer's information, with NULL values for the order\_id and order\_date columns.
 
-```
+```SQL
 SELECT customers.customer_id, customers.name, orders.order_id, orders.order_date
 FROM customers
 LEFT OUTER JOIN orders
@@ -114,7 +113,7 @@ ON customers.customer_id = orders.customer_id;
 
 The following query is a left outer join. Left and right outer joins retain values from one of the joined tables when no match is found in the other table. The left and right tables are the first and second tables listed in the syntax. NULL values are used to fill the "gaps" in the result set. This query matches LISTID column values in the LISTING table (the left table) and the SALES table (the right table). The results show that LISTIDs 2 and 3 didn't result in any sales.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from listing left outer join sales on sales.listid = listing.listid
 where listing.listid between 1 and 5
@@ -148,7 +147,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from the customers table, along with the matching rows from the orders table. If a customer has no orders, the result set will still include that customer's information, with NULL values for the order\_id and order\_date columns.
 
-```
+```SQL
 SELECT orders.order_id, orders.order_date, customers.customer_id, customers.name
 FROM orders
 RIGHT OUTER JOIN customers
@@ -157,7 +156,7 @@ ON orders.customer_id = customers.customer_id;
 
 The following query is a right outer join. This query matches LISTID column values in the LISTING table (the left table) and the SALES table (the right table). The results show that LISTIDs 1, 4, and 5 match the criteria.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from listing right outer join sales on sales.listid = listing.listid
 where listing.listid between 1 and 5
@@ -189,7 +188,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from both the customers and orders tables. If a customer has no orders, the result set will still include that customer's information, with NULL values for the order\_id and order\_date columns. If an order has no associated customer, the result set will include that order, with NULL values for the customer\_id and name columns.
 
-```
+```SQL
 SELECT customers.customer_id, customers.name, orders.order_id, orders.order_date
 FROM customers
 FULL OUTER JOIN orders
@@ -198,7 +197,7 @@ ON customers.customer_id = orders.customer_id;
 
 The following query is a full join. Full joins retain values from the joined tables when no match is found in the other table. The left and right tables are the first and second tables listed in the syntax. NULL values are used to fill the "gaps" in the result set. This query matches LISTID column values in the LISTING table (the left table) and the SALES table (the right table). The results show that LISTIDs 2 and 3 didn't result in any sales.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from listing full join sales on sales.listid = listing.listid
 where listing.listid between 1 and 5
@@ -216,7 +215,7 @@ listid | price  |  comm
 
 The following query is a full join. This query matches LISTID column values in the LISTING table (the left table) and the SALES table (the right table). Only rows that do not result in any sales (LISTIDs 2 and 3) are in the results.
 
-```
+```sql
 select listing.listid, sum(pricepaid) as price, sum(commission) as comm
 from listing full join sales on sales.listid = listing.listid
 where listing.listid between 1 and 5
@@ -248,7 +247,7 @@ ON table1.column = table2.column;
 
 The following query will return only the customer\_id and name columns from the customers table, for the customers who have at least one order in the orders table. The result set won't include any columns from the orders table.
 
-```
+```SQL
 SELECT customers.customer_id, customers.name
 FROM customers
 LEFT SEMI JOIN orders
@@ -317,7 +316,7 @@ CROSS JOIN products;
 
 The following query is a cross join or Cartesian join of the LISTING table and the SALES table with a predicate to limit the results. This query matches LISTID column values in the SALES table and the LISTING table for LISTIDs 1, 2, 3, 4, and 5 in both tables. The results show that 20 rows match the criteria.
 
-```
+```sql
 select sales.listid as sales_listid, listing.listid as listing_listid
 from sales cross join listing
 where sales.listid between 1 and 5
@@ -379,7 +378,7 @@ NATURAL JOIN departments d;
 
 The following example is a natural join between two tables. In this case, the columns listid, sellerid, eventid, and dateid have identical names and data types in both tables and so are used as the join columns. The results are limited to five rows.
 
-```
+```sql
 select listid, sellerid, eventid, dateid, numtickets
 from listing natural join sales
 order by 1
@@ -400,7 +399,7 @@ listid | sellerid  | eventid | dateid | numtickets
 AWS Clean Rooms doesn't support the following with a LEFT SEMI JOIN or LEFT ANTI JOIN:
 + NATURAL LEFT SEMI JOIN and NATURAL LEFT ANTI JOIN. Specify the join condition with ON instead.
 
-  ```
+  ```sql
   -- Not supported
   SELECT a.campaign FROM ad_exposures a NATURAL LEFT SEMI JOIN purchases p;
   -- Supported
@@ -408,7 +407,7 @@ AWS Clean Rooms doesn't support the following with a LEFT SEMI JOIN or LEFT ANTI
   ```
 + A parenthesized join as the right side. Use a subquery instead.
 
-  ```
+  ```sql
   -- Not supported
   SELECT a.campaign
   FROM ad_exposures a
@@ -424,7 +423,7 @@ AWS Clean Rooms doesn't support the following with a LEFT SEMI JOIN or LEFT ANTI
   ```
 + A subquery in the ON condition. Filter the right table in a subquery before the join instead.
 
-  ```
+  ```sql
   -- Not supported
   SELECT a.campaign
   FROM ad_exposures a

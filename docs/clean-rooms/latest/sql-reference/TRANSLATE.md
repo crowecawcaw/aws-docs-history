@@ -1,7 +1,6 @@
 
 
 # TRANSLATE function
-<a name="TRANSLATE"></a>
 
 For a given expression, replaces all occurrences of specified characters with specified substitutes. Existing characters are mapped to replacement characters by their positions in the *characters\_to\_replace* and *characters\_to\_substitute* arguments. If more characters are specified in the *characters\_to\_replace* argument than in the *characters\_to\_substitute* argument, the extra characters from the *characters\_to\_replace* argument are omitted in the return value.
 

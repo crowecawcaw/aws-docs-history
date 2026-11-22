@@ -1,7 +1,6 @@
 
 
 # SUM and SUM DISTINCT functions
-<a name="sum-function"></a>
 
 The SUM function returns the sum of the input column or expression values. The SUM function works with numeric values and ignores NULL values. 
 

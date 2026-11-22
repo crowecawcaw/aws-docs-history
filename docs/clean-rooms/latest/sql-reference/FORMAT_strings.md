@@ -1,7 +1,6 @@
 
 
 # Datetime format strings
-<a name="FORMAT_strings"></a>
 
 You can use datetime patterns in the following common scenarios:
 + When working with CSV and JSON data sources to parse and format datetime content

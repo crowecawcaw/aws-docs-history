@@ -1,7 +1,6 @@
 
 
 # Math functions
-<a name="Math_functions-spark"></a>
 
 This section describes the mathematical operators and functions supported in AWS Clean Rooms Spark SQL. 
 
@@ -32,4 +31,3 @@ This section describes the mathematical operators and functions supported in AWS
 + [SIGN function](SIGN.md)
 + [SIN function](SIN.md)
 + [SQRT function](SQRT.md)
-+ [TRUNC function](TRUNC.md)

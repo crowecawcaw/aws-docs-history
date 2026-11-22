@@ -1,7 +1,6 @@
 
 
 # Interval literals
-<a name="Interval_literals"></a>
 
 Following are rules for working with interval literals that are supported by AWS Clean Rooms Spark SQL.
 

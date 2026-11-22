@@ -1,7 +1,6 @@
 
 
 # DIV function
-<a name="DIV"></a>
 
 The DIV operator returns the integral part of the division of dividend by divisor. 
 

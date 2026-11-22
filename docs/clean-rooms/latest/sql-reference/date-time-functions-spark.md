@@ -1,7 +1,6 @@
 
 
 # Date and time functions
-<a name="date-time-functions-spark"></a>
 
 Date and time functions allow you to perform a wide range of operations on date and time data, such as extracting parts of a date, performing date calculations, formatting dates and times, and working with the current date and time. These functions are essential for tasks such as data analysis, reporting, and data manipulation involving temporal data.
 
@@ -28,5 +27,6 @@ AWS Clean Rooms supports the following date and time functions:
 + [SECOND function](SECOND.md)
 + [TIMESTAMP function](TIMESTAMP.md)
 + [TO\_TIMESTAMP function](TO_TIMESTAMP.md)
++ [TRUNC function](TRUNC.md)
 + [YEAR function](YEAR.md)
 + [Date parts for date or timestamp functions](Dateparts_for_datetime_functions.md)

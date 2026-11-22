@@ -1,14 +1,13 @@
 
 
 # AES\_DECRYPT function
-<a name="AES_DECRYPT"></a>
 
 The AES\_DECRYPT function is used for decrypting data using the Advanced Encryption Standard (AES) algorithm.
 
 ## Syntax
 <a name="AES_DECRYPT-syntax"></a>
 
-```
+```SQL
 aes_decrypt(expr, key[, mode[, padding[, aad]]])
 ```
 

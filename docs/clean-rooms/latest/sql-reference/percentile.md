@@ -1,7 +1,6 @@
 
 
 # PERCENTILE function
-<a name="percentile"></a>
 
 The PERCENTILE function is used to calculates the exact percentile value by first sorting the values in the `col` column and then finding the value at the specified `percentage`.
 
@@ -43,7 +42,7 @@ The value of frequency should be positive integral
 
 The following query finds the value that is greater than or equal to 30% of the values in the `col` column. Since the values are 0 and 10, the 30th percentile is 3.0, because it is the value that is greater than or equal to 30% of the data.
 
-```
+```sql
 SELECT percentile(col, 0.3) FROM VALUES (0), (10) AS tab(col);
  3.0
 ```
