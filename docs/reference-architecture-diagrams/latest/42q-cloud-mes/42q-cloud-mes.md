@@ -1,7 +1,6 @@
 
 
 # 42Q Cloud MES on AWS
-<a name="42q-cloud-mes"></a>
 
 Publication date: **October 13, 2022 ([Diagram history](#42q-diagram-history))**
 
