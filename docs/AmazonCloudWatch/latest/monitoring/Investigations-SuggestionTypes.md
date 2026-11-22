@@ -1,7 +1,6 @@
 
 
 # Insights that CloudWatch investigations can surface in investigations
-<a name="Investigations-SuggestionTypes"></a>
 
 CloudWatch investigations can surface the following types of items and add them to the **Suggestions** tab of an investigation. For hypotheses involving multiple resources, visual diagrams may also be provided to illustrate causal relationships.
 + Hypotheses about root causes

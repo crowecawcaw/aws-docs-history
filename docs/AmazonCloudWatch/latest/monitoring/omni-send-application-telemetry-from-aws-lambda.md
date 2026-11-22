@@ -1,7 +1,6 @@
 
 
 # Send application telemetry from AWS Lambda
-<a name="omni-send-application-telemetry-from-aws-lambda"></a>
 
 Lambda functions send traces and logs to CloudWatch without a collector. Turn on active tracing so Lambda records the service segments, add a trace SDK for spans around your handler logic, and emit structured logs that join their traces.
 
@@ -15,7 +14,7 @@ If your application runs on Amazon EC2, ECS, EKS, or Microsoft Azure, see [Send 
 ## Step 1: Enable active tracing
 <a name="omni-send-application-telemetry-from-aws-lambda-step-1-enable-active-tracing"></a>
 
-```
+```bash
 aws lambda update-function-configuration --function-name <my-function> --tracing-config Mode=Active
 aws iam attach-role-policy --role-name <my-function-role> --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
 ```
@@ -25,7 +24,7 @@ aws iam attach-role-policy --role-name <my-function-role> --policy-arn arn:aws:i
 ------
 #### [ CDK TypeScript ]
 
-```
+```typescript
 import { Function, Runtime, Code, Tracing } from 'aws-cdk-lib/aws-lambda';
 
 new Function(this, 'CheckoutFn', {
@@ -61,7 +60,7 @@ resource "aws_iam_role_policy_attachment" "xray" {
 ------
 #### [ CloudFormation ]
 
-```
+```yaml
 Resources:
   CheckoutFn:
     Type: AWS::Lambda::Function
@@ -93,14 +92,14 @@ The ADOT layer ARN is Region-, runtime-, and version-specific. Look up the curre
 ------
 #### [ Python ]
 
-```
+```bash
 # Attach the ADOT Python Lambda layer, then set the exec wrapper:
 AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument
 ```
 
 **app.py**
 
-```
+```python
 from opentelemetry import trace
 
 def handler(event, context):
@@ -112,14 +111,14 @@ def handler(event, context):
 ------
 #### [ Node.js ]
 
-```
+```bash
 # Attach the ADOT JavaScript Lambda layer, then set the exec wrapper:
 AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler
 ```
 
 **index.js**
 
-```
+```javascript
 const { trace } = require('@opentelemetry/api');
 
 exports.handler = async (event) => {
@@ -131,7 +130,7 @@ exports.handler = async (event) => {
 ------
 #### [ Java ]
 
-```
+```bash
 # Attach the ADOT Java Lambda layer, then set the exec wrapper:
 AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler   # auto-instrumentation agent
 # For the SDK-only wrapper, use /opt/otel-proxy-handler
@@ -139,7 +138,7 @@ AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler   # auto-instrumentation agent
 
 **Handler.java**
 
-```
+```java
 import io.opentelemetry.api.trace.Span;
 
 public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
@@ -155,7 +154,7 @@ There is no auto-instrumentation exec wrapper layer for .NET; configure the Open
 
 **Function.cs**
 
-```
+```csharp
 using System.Diagnostics;
 using OpenTelemetry;
 using OpenTelemetry.Trace;
@@ -181,7 +180,7 @@ public APIGatewayProxyResponse Handler(APIGatewayProxyRequest req, ILambdaContex
 ### Structured log example (Python shown; the same fields apply in every language)
 <a name="omni-send-application-telemetry-from-aws-lambda-step-3-emit-structured-logs-app-py-python-shown-the-same-fields-apply-in-every-language"></a>
 
-```
+```python
 import json, logging
 from opentelemetry import trace
 

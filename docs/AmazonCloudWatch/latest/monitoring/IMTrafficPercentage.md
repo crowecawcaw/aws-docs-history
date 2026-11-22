@@ -1,7 +1,6 @@
 
 
 # Choose a percentage of traffic to monitor for your application
-<a name="IMTrafficPercentage"></a>
 
 The coverage that you choose for the percentage of application traffic to monitor determines how many city-networks (client locations and ASNs, typically internet service providers) for your application are monitored, up to an optional city-networks maximum limit that you can also set.
 

@@ -1,11 +1,10 @@
 
 
 # Troubleshooting Container Insights on Amazon EKS
-<a name="container-insights-eks-troubleshooting"></a>
 
 This section covers common issues that you might encounter when you set up or operate Container Insights on Amazon EKS. Use the following tables and diagnostic commands to identify and resolve problems regardless of whether you use the OTel or Classic approach.
 
-For approach-specific setup guidance, see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md) or [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md). To compare approaches, see [Compare Container Insights approaches](container-insights-eks-compare.md).
+For approach-specific setup guidance, see [OTel Container Insights quick start](container-insights-eks-otel-quickstart.md) or [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md). To compare approaches, see [Compare Container Insights approaches](container-insights-eks-compare.md).
 
 ## Metrics not appearing in CloudWatch
 <a name="container-insights-eks-troubleshooting-metrics"></a>
@@ -77,7 +76,7 @@ If you experience issues while migrating between Container Insights approaches, 
 ## OTel Container Insights issues
 <a name="container-insights-eks-troubleshooting-otel"></a>
 
-The following issues are specific to the OTel Container Insights approach. For general setup guidance, see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md).
+The following issues are specific to the OTel Container Insights approach. For general setup guidance, see [OTel Container Insights quick start](container-insights-eks-otel-quickstart.md).
 
 
 | Symptom | Cause | Resolution | 
@@ -97,37 +96,37 @@ Use the following commands to gather information about your Container Insights d
 
 To check agent pod status, run the following command.
 
-```
+```bash
 kubectl get pods -n amazon-cloudwatch
 ```
 
 To view agent pod logs, run the following command.
 
-```
+```bash
 kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --tail=50
 ```
 
 To check the agent DaemonSet status, run the following command.
 
-```
+```bash
 kubectl get daemonset -n amazon-cloudwatch
 ```
 
 To verify the IAM role on a service account, run the following command.
 
-```
+```bash
 kubectl get serviceaccount -n amazon-cloudwatch -o yaml
 ```
 
 To check the cluster add-on status, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks describe-addon --cluster-name {{cluster-name}} --addon-name amazon-cloudwatch-observability
 ```
 
 To list Container Insights log groups, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws logs describe-log-groups --log-group-name-prefix "/aws/containerinsights/{{cluster-name}}"
 ```
 
@@ -135,7 +134,7 @@ aws logs describe-log-groups --log-group-name-prefix "/aws/containerinsights/{{c
 <a name="container-insights-eks-troubleshooting-related"></a>
 
 For more information about setting up and operating Container Insights on Amazon EKS, see the following topics.
-+ [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md) – Set up OTel Container Insights
++ [OTel Container Insights quick start](container-insights-eks-otel-quickstart.md) – Set up OTel Container Insights
 + [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md) – Set up Classic Container Insights
 + [Migration guides](container-insights-eks-migration-hub.md) – Migrate between approaches
 + [Compare Container Insights approaches](container-insights-eks-compare.md) – Compare Container Insights approaches

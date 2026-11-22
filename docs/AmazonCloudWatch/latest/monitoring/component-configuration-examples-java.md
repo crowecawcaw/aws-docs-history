@@ -1,11 +1,10 @@
 
 
 # Java
-<a name="component-configuration-examples-java"></a>
 
 The following example shows a component configuration in JSON format for Java.
 
-```
+```json
 {
   "alarmMetrics": [ {
     "alarmMetricName": "java_lang_threading_threadcount",

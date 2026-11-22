@@ -1,7 +1,6 @@
 
 
 # Monitor AI agents
-<a name="omni-monitor-ai-agents"></a>
 
 CloudWatch Omni agent observability includes tracing, evaluations, datasets, and experiments. Agent telemetry is ingested into the same CloudWatch Omni space and CloudWatch Dataset as your other telemetry.
 

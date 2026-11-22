@@ -1,11 +1,10 @@
 
 
-# Deploy OTel Container Insights with CloudFormation
-<a name="container-insights-eks-otel-cfn"></a>
+# Deploy with CloudFormation
 
 You can deploy OTel Container Insights as infrastructure as code by using a CloudFormation template. This approach is best for teams that manage clusters through IaC pipelines and want repeatable, version-controlled deployments.
 
-The template installs the `amazon-cloudwatch-observability` EKS add-on with OTel Container Insights enabled. If you prefer Kubernetes-native package management, see [Deploy OTel Container Insights with Helm](container-insights-eks-otel-helm.md).
+The template installs the `amazon-cloudwatch-observability` EKS add-on with OTel Container Insights enabled. If you prefer Kubernetes-native package management, see [Deploy with Helm](container-insights-eks-otel-helm.md).
 
 ## Prerequisites
 <a name="container-insights-eks-otel-cfn-prereqs"></a>
@@ -27,7 +26,7 @@ Use a CloudFormation template to deploy the CloudWatch Observability add-on, the
 
 The following template creates the complete set of resources that you need to enable OTel Container Insights on your Amazon EKS cluster.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Deploy OTel Container Insights on an EKS cluster
 
@@ -89,7 +88,7 @@ Use the AWS CLI to create the CloudFormation stack from the template.
 
 1. Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-   ```
+   ```bash
    aws cloudformation create-stack \
      --stack-name otel-container-insights \
      --template-body file://otel-container-insights.yaml \
@@ -99,14 +98,14 @@ Use the AWS CLI to create the CloudFormation stack from the template.
 
 1. Wait for the stack creation to complete.
 
-   ```
+   ```bash
    aws cloudformation wait stack-create-complete \
      --stack-name otel-container-insights
    ```
 
 1. Verify that the stack status is `CREATE_COMPLETE`.
 
-   ```
+   ```bash
    aws cloudformation describe-stacks \
      --stack-name otel-container-insights \
      --query "Stacks[0].StackStatus" \
@@ -122,7 +121,7 @@ After the CloudFormation stack creation completes, verify that the add-on is run
 
 1. Confirm that the CloudWatch agent pods are running.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
    ```
 
@@ -141,7 +140,7 @@ Metrics typically appear in CloudWatch within 3 to 5 minutes after the deploymen
 
 To remove all resources that the CloudFormation template created, delete the stack.
 
-```
+```bash
 aws cloudformation delete-stack \
   --stack-name otel-container-insights
 ```

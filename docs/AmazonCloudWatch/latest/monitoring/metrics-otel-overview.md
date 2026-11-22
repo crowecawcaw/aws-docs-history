@@ -1,7 +1,6 @@
 
 
 # CloudWatch OpenTelemetry Metrics
-<a name="metrics-otel-overview"></a>
 
 OpenTelemetry metrics in CloudWatch use the OpenTelemetry Protocol (OTLP) for ingestion and PromQL for querying. This model supports open-source metric names, up to 150 labels per data point, and includes 15 months of storage with no per-metric charges.
 

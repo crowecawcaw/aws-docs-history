@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Slack Audit Log
-<a name="slack-auditlog-pipeline-setup"></a>
 
 Collects event logs from Slack using API token authentication.
 
 Configure the Slack source with the following parameters:
 
-```
+```yaml
 source:
   slack_auditlogs:
     authentication:

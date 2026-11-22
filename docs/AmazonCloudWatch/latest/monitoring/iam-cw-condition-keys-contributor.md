@@ -1,7 +1,6 @@
 
 
 # Condition keys for Contributor Insights log group access
-<a name="iam-cw-condition-keys-contributor"></a>
 
 To create a rule in Contributor Insights and see its results, a user must have the `cloudwatch:PutInsightRule` permission. By default, a user with this permission can create a rule that evaluates any log group in CloudWatch Logs and then view the results. Results can include contributor data from those log groups, which might contain sensitive information.
 
@@ -38,7 +37,7 @@ The following policy grants permission to create Contributor Insights rules for 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ The following policy allows creating rules for any log group by default, but exp
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ The following policy allows creating rules for any log group by default, but exp
 
 The following policy denies creation of rules that target log groups with `/production/` in the ARN path.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

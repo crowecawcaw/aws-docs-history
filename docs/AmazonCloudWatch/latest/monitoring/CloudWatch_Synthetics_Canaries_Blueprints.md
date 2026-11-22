@@ -1,7 +1,6 @@
 
 
 # Using canary blueprints
-<a name="CloudWatch_Synthetics_Canaries_Blueprints"></a>
 
 This section provides details about each of the canary blueprints and the tasks each blueprint is best suited for. Blueprints are provided for the following canary types: 
 
@@ -89,7 +88,7 @@ The visual monitoring blueprint includes code to compare screenshots taken durin
 
 The visual monitoring blueprint includes the following line of code in the default blueprint canary script, which enables visual monitoring.
 
-```
+```nodejs
 syntheticsConfiguration.withVisualCompareWithBaseRun(true);
 ```
 

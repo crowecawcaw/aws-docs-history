@@ -1,7 +1,6 @@
 
 
 # Details about custom widgets in CloudWatch
-<a name="add_custom_widget_dashboard_about"></a>
 
 Custom widgets work as follows:
 
@@ -9,7 +8,7 @@ Custom widgets work as follows:
 
 1. The Lambda function returns a string of HTML, JSON, or Markdown. Markdown is returned as JSON in the following format:
 
-   ```
+   ```json
    {"markdown":"{{markdown content}}"}
    ```
 
@@ -21,7 +20,7 @@ The default style of HTML elements such as links and tables follow the styling o
 
 Every call by a custom widget to Lambda includes a `widgetContext` element with the following contents, to provide the Lambda function developer with useful context information.
 
-```
+```json
 {
   "widgetContext": {
     "dashboardName": "Name-of-current-dashboard",
@@ -66,7 +65,7 @@ Every call by a custom widget to Lambda includes a `widgetContext` element with 
 Custom widgets provide the following default CSS styling elements:
 + You can use the CSS class **btn** to add a button. It turns an anchor (`<a>`) into a button as in the following example:
 
-  ```
+  ```cmd
   <a class="btn" href=https://amazon.com”>Open Amazon</a>
   ```
 + You can use the CSS class **btn btn-primary** to add a primary button.
@@ -81,7 +80,7 @@ If you include the **describe** parameter, the Lambda function returns the docum
 
 When you create a custom widget in the console, after you select the Lambda function a **Get documentation** button appears. If you choose this button, the function is invoked with the **describe** parameter and the function's documentation is returned. If the documentation is well-formatted in markdown, CloudWatch parses the first entry in the documentation that is surrounded by three single backtick characters (```) in YAML. Then, it automatically populates the documentation in the parameters. The following is an example of such well-formatted documentation. 
 
-```
+```yaml
 ``` yaml
 echo: <h1>Hello world</h1>
 ```

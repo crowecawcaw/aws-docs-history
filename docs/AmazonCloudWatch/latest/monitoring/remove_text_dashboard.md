@@ -1,7 +1,6 @@
 
 
 # Removing a text widget from a CloudWatch dashboard
-<a name="remove_text_dashboard"></a>
 
 **To remove a text widget from a dashboard**
 

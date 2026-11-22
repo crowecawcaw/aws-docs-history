@@ -1,7 +1,6 @@
 
 
 # Collect AI inference telemetry
-<a name="omni-send-ai-inference-telemetry"></a>
 
 In CloudWatch Omni, AI Inference Insights is the monitoring experience for inference telemetry. It covers self-hosted vLLM engines that run on Amazon ECS or on Amazon EKS. Setting it up needs no application code changes, because you configure your engine and a collector rather than your application.
 
@@ -23,7 +22,7 @@ You can install the add-on in any of the following ways:
 + With the `aws eks create-addon` command, or from the Amazon EKS console.
 + With the CloudWatch Observability Helm chart, if you manage cluster components with Helm.
 
-For the add-on setup steps, see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md). For the accelerator metrics that the same add-on collects, see [Get started with Accelerated Compute Insights](Accelerated-Compute-Insights-Get-Started.md).
+For the add-on setup steps, see [OTel Container Insights quick start](container-insights-eks-otel-quickstart.md). For the accelerator metrics that the same add-on collects, see [Get started with Accelerated Compute Insights](Accelerated-Compute-Insights-Get-Started.md).
 
 On this path, the add-on declares the workload as AI inference for you. The add-on's vLLM pipeline sets the `aws.service.type` resource attribute to `ai_inference` on the engine's metrics, so you do not set it yourself. For KServe workloads, the add-on sets the attribute on the predictor revision of an InferenceService. It does not set the attribute on transformer or explainer revisions, or on a plain Knative service, because those do not run the model. For more information about the attribute, see [Declare the workload as AI inference](#omni-ai-inference-declare-workload).
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for GitLab
-<a name="gitlab-source-config"></a>
 
 ## Integrating with GitLab
 <a name="gitlab-integration"></a>

@@ -1,7 +1,6 @@
 
 
 # Create a CPU usage alarm
-<a name="US_AlarmAtThresholdEC2"></a>
 
 You can create an CloudWatch alarm that sends a notification using Amazon SNS when the alarm changes state from `OK` to `ALARM`.
 

@@ -1,7 +1,6 @@
 
 
 # Sinks
-<a name="pipeline-sinks"></a>
 
 Sinks define the destination where processed data is sent. Logs pipelines use the `cloudwatch_logs` sink and can route events among multiple log groups. Metrics pipelines use exactly one `cloudwatch_metrics` sink.
 
@@ -22,7 +21,7 @@ Configure the sink with the following parameters:
 
 **Example Non-CloudWatch Logs source configuration**  
 
-```
+```yaml
 sink:
   cloudwatch_logs:
     log_group: "/aws/my-application/logs"
@@ -30,7 +29,7 @@ sink:
 
 **Example CloudWatch Logs source configuration**  
 
-```
+```yaml
 sink:
   cloudwatch_logs:
     log_group: "@original"
@@ -50,7 +49,7 @@ When present, stores a copy of each raw log event before any transformation take
 
 **Example CloudWatch Logs sink with original log preservation**  
 
-```
+```yaml
 sink:
   - cloudwatch_logs:
       log_group: "@original"
@@ -64,7 +63,7 @@ A logs pipeline can contain up to 10 `cloudwatch_logs` sinks, including the defa
 
 **Example Route by log level and return unmatched events to the source log group**  
 
-```
+```yaml
 sink:
   - cloudwatch_logs:
       log_group: "/app/errors"
@@ -117,7 +116,7 @@ For metrics pipelines, the `cloudwatch_metrics` sink stores processed metrics in
 **Configuration**  
 The `cloudwatch_metrics` sink has no parameters:
 
-```
+```yaml
 sink:
   - cloudwatch_metrics: {}
 ```

@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="alarm-concepts"></a>
 
 CloudWatch alarms monitor metrics and trigger actions when thresholds are breached. Understanding how alarms evaluate data and respond to conditions is essential for effective monitoring.
 

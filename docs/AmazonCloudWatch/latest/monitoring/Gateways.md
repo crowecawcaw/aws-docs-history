@@ -1,7 +1,6 @@
 
 
 # Gateways
-<a name="Gateways"></a>
 
 Monitor how your agents discover and interact with external tools and services through AgentCore Gateway. For more information on Amazon Bedrock AgentCore Gateway, see [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html). Gateway observability includes comprehensive monitoring across multiple areas:
 + Track API transformation success rates and response times for external service calls

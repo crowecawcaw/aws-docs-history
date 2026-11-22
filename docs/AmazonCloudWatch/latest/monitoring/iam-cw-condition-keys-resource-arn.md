@@ -1,7 +1,6 @@
 
 
 # Condition keys for resource metrics configuration access
-<a name="iam-cw-condition-keys-resource-arn"></a>
 
 This topic explains how the `cloudwatch:ResourceArn` condition key works and how to use it to limit the resources that a principal can enable or disable detailed monitoring for.
 
@@ -17,7 +16,7 @@ For example, to allow a principal to manage detailed monitoring for only one res
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -49,7 +48,7 @@ The following policy uses `StringLike` with wildcards to allow the principal to 
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

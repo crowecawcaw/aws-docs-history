@@ -1,7 +1,6 @@
 
 
 # Setting up bearer token authentication for Metrics
-<a name="CloudWatch-OTLP-MetricsBearerTokenAuth"></a>
 
 **Note**  
 This page covers bearer token authentication for the CloudWatch Metrics OTLP endpoint. For CloudWatch Logs bearer token authentication, see [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html) in the *CloudWatch Logs User Guide*. For traces bearer token authentication, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*. Each service requires its own API key.

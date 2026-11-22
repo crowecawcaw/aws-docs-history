@@ -1,7 +1,6 @@
 
 
 # Edit a monitor
-<a name="nw-monitor-edit"></a>
 
 You can edit information for a Network Synthetic Monitor, including change the name, setting a new aggregation period, or adding or removing tags. Changing a monitor's information does not change any of its associated probes.
 

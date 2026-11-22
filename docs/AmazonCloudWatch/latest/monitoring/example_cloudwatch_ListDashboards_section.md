@@ -1,7 +1,6 @@
 
 
 # Use `ListDashboards` with an AWS SDK or CLI
-<a name="example_cloudwatch_ListDashboards_section"></a>
 
 The following code examples show how to use `ListDashboards`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get a list of dashboards.
     /// </summary>
@@ -75,7 +74,7 @@ For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Lists the available dashboards.
      *
@@ -104,7 +103,7 @@ For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun listDashboards() {
     CloudWatchClient { region = "us-east-1" }.use { cwClient ->
         cwClient
@@ -125,7 +124,7 @@ suspend fun listDashboards() {
 **Tools for PowerShell V4**  
 **Example 1: Returns the collection of dashboards for your account.**  
 
-```
+```powershell
 Get-CWDashboardList
 ```
 **Output:**  
@@ -137,7 +136,7 @@ arn:...      Dashboard1    7/6/2017 8:14:15 PM 252
 ```
 **Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**  
 
-```
+```powershell
 Get-CWDashboardList -DashboardNamePrefix dev
 ```
 +  For API details, see [ListDashboards](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -145,7 +144,7 @@ Get-CWDashboardList -DashboardNamePrefix dev
 **Tools for PowerShell V5**  
 **Example 1: Returns the collection of dashboards for your account.**  
 
-```
+```powershell
 Get-CWDashboardList
 ```
 **Output:**  
@@ -157,7 +156,7 @@ arn:...      Dashboard1    7/6/2017 8:14:15 PM 252
 ```
 **Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**  
 
-```
+```powershell
 Get-CWDashboardList -DashboardNamePrefix dev
 ```
 +  For API details, see [ListDashboards](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Delete a monitor
-<a name="nw-monitor-delete"></a>
 
 Before you can delete a monitor in Network Synthetic Monitor, you must deactivate or delete all probes associated with the monitor, regardless of the monitor **State**. After a monitor is deleted, you are no longer be charged for probes in the monitor. Be aware that you can't restore a deleted monitor.
 

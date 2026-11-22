@@ -1,7 +1,6 @@
 
 
 # Use `GetMetricData` with an AWS SDK or CLI
-<a name="example_cloudwatch_GetMetricData_section"></a>
 
 The following code examples show how to use `GetMetricData`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get data for CloudWatch metrics.
     /// </summary>
@@ -181,7 +180,7 @@ For more information, see [Using math expressions with CloudWatch metrics](https
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Retrieves custom metric data from the AWS CloudWatch service.
      *
@@ -266,7 +265,7 @@ For more information, see [Using math expressions with CloudWatch metrics](https
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun getMetData() {
     val start =
         aws.smithy.kotlin.runtime.time.Instant

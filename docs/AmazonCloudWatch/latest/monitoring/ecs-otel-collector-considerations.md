@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="ecs-otel-collector-considerations"></a>
 + **Network metrics with `awsvpc` networking** Containers in a task that uses the `awsvpc` network mode share one network interface. Each container's network metrics report the traffic of the whole task, so don't add them up across the containers in a task. Use the task-level network metrics instead.
 + **Launch type filters** For tasks on Amazon ECS Managed Instances, `aws.ecs.launchtype` isn't set. To filter by launch type, use `aws.ecs.task.launch_type`.
 + **Image tags** For images pulled by digest, `container.image.tag` is `latest`.

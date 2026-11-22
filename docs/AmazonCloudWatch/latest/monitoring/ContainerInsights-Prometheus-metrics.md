@@ -1,7 +1,6 @@
 
 
 # Prometheus metrics collected by the CloudWatch agent
-<a name="ContainerInsights-Prometheus-metrics"></a>
 
 The CloudWatch agent with Prometheus support automatically collects metrics from several services and workloads. The metrics that are collected by default are listed in the following sections. You can also configure the agent to collect more metrics from these services, and to collect Prometheus metrics from other applications and services. For more information about collecting additional metrics, see [CloudWatch agent configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config).
 

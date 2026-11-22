@@ -1,7 +1,6 @@
 
 
 # SAP NetWeaver
-<a name="appinsights-metrics-sap-netweaver"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

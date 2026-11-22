@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a CloudWatch Lambda dashboard with function name as the variable
-<a name="cloudwatch_dashboard_variables_property"></a>
 
 The steps in this procedure illustrate how to create a flexible dashboard that shows a variety of metric graphs, using a property variable. This includes a dropdown selection box on the dashboard that you can use to switch the metrics in all the graphs between different Lambda functions. 
 

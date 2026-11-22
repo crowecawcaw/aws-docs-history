@@ -1,7 +1,6 @@
 
 
 # Using Amazon CloudWatch dashboards
-<a name="CloudWatch_Dashboards"></a>
 
 Amazon CloudWatch includes automatic pre-built dashboards and also enables you to create your own dashboards. Dashboards help you to monitor your resources in a single view, even those resources that are spread across different Regions. You can use CloudWatch dashboards to create customized views of the telemetry data for your AWS resources.
 
@@ -68,7 +67,7 @@ The following examples illustrate the JSON source for widgets in a cross-account
 
 This example sets the `accountId` field to the ID of the sharing account at the widget level. This specifies that all metrics in this widget will come from that sharing account and Region.
 
-```
+```JSON
 {
   "widgets": [
     {
@@ -87,7 +86,7 @@ This example sets the `accountId` field to the ID of the sharing account at the 
 
 This example sets the `accountId` field differently at the level of each metric. In this example, the different metrics in this metric math expression come from different sharing accounts and different Regions.
 
-```
+```JSON
 {
   "widgets": [
     {
@@ -137,7 +136,7 @@ This example sets the `accountId` field differently at the level of each metric.
 
 This example shows an alarm widget.
 
-```
+```JSON
 {
   "type": "metric",
   "x": 6,
@@ -160,7 +159,7 @@ This example shows an alarm widget.
 
 This example is for a CloudWatch Logs Insights widget.
 
-```
+```JSON
 {
   "type": "log",
   "x": 0,

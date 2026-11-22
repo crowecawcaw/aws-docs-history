@@ -1,7 +1,6 @@
 
 
 # Enable Application Signals on Amazon ECS using AWS CDK
-<a name="CloudWatch-Application-Signals-EKS-CDK"></a>
 
 To enable Application Signals on Amazon ECS using AWS CDK, do the following.
 

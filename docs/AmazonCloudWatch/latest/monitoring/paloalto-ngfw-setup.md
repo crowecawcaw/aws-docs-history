@@ -1,7 +1,6 @@
 
 
 # Palo Alto Networks Next-Generation Firewalls integration configuration
-<a name="paloalto-ngfw-setup"></a>
 
 CloudWatch pipelines enables you to collect network security logs from Palo Alto Networks Next-Generation Firewalls. Palo Alto Networks provides network security solutions, including firewall, VPN, and threat detection services.
 

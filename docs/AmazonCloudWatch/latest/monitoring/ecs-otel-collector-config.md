@@ -1,11 +1,10 @@
 
 
 # Step 2: Create the collector configuration
-<a name="ecs-otel-collector-config"></a>
 
 Save the following configuration. You pass it to the collector in step 3.
 
-```
+```yaml
 extensions:
   sigv4auth/cloudwatch:
     region: ${env:AWS_REGION}

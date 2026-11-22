@@ -1,7 +1,6 @@
 
 
 # Groups
-<a name="CloudWatch_Synthetics_Groups"></a>
 
 You can create *groups* to associate canaries with each other, including cross-Region canaries. Using groups can help you with managing and automating your canaries, and you can also view aggregated run results and statistics for all canaries in a group. 
 

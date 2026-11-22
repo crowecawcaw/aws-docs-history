@@ -1,7 +1,6 @@
 
 
 # Disabling telemetry configuration
-<a name="telemetry-config-turn-off"></a>
 
 When you no longer need telemetry configuration, you can turn it off. When telemetry configuration is turned off, it no longer shows the status of telemetry for resources in your account or organization. You can turn on telemetry configuration again at any time. For more information, see [Setting up telemetry configuration](telemetry-config-turn-on.md).
 

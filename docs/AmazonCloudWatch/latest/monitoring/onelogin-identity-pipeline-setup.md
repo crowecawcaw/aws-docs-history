@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for OneLogin Identity
-<a name="onelogin-identity-pipeline-setup"></a>
 
 Collects event logs from OneLogin using OAuth2 authentication.
 
 Configure the OneLogin Identity source with the following parameters:
 
-```
+```yaml
 source:
   onelogin_identity:
     range: "P7D"

@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Microsoft Entra ID
-<a name="entraid-pipeline-setup"></a>
 
 Collects log data from Microsoft Entra ID (formerly Azure Active Directory) using OAuth2 authentication.
 
 Configure the Microsoft Entra ID source with the following parameters:
 
-```
+```yaml
 source:
   microsoft_entraid:
     tenant_id: "<example-tenant-ID>"

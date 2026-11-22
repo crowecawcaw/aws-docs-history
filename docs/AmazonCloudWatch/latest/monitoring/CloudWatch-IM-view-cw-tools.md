@@ -1,7 +1,6 @@
 
 
 # Exploring your data with CloudWatch tools and the Internet Monitor query interface
-<a name="CloudWatch-IM-view-cw-tools"></a>
 
 In addition to visualizing your performance and availability for your application with the Internet Monitor dashboard, there are several methods that you can use to dive deeper into the data that Internet Monitor generates for you. These methods include using CloudWatch tools with Internet Monitor data stored in CloudWatch Log files and using the Internet Monitor query interface. The tools that you can use include CloudWatch Logs Insights, CloudWatch Metrics, CloudWatch Contributor Insights, and Amazon Athena. You can use some or all these tools, as well as the dashboard, to explore Internet Monitor data, depending on your needs. 
 

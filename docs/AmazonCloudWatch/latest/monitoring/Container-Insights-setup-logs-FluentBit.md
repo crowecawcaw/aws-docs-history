@@ -1,7 +1,6 @@
 
 
 # Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs
-<a name="Container-Insights-setup-logs-FluentBit"></a>
 
 The following sections help you deploy Fluent Bit to send logs from containers to CloudWatch Logs.
 
@@ -127,7 +126,7 @@ By default, we send Fluent Bit application logs and Kubernetes metadata to Cloud
 
 To stop Fluent Bit application logs, remove the following section from the `Fluent Bit configuration` file.
 
-```
+```yaml
 [INPUT]
   Name                tail
   Tag                 application.*

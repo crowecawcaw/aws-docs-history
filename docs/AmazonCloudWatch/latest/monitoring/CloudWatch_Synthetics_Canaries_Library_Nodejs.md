@@ -1,7 +1,6 @@
 
 
 # Library functions available for Node.js canary scripts using Puppeteer
-<a name="CloudWatch_Synthetics_Canaries_Library_Nodejs"></a>
 
 This section describes the library functions available for Node.js canary scripts.
 
@@ -46,7 +45,7 @@ You should track errors as execution errors only if they are not important to in
 
 An example of the use of `addExecutionError` is the following. You are monitoring the availability of your endpoint and taking screenshots after the page has loaded. Because the failure of taking a screenshot doesn't determine availability of the endpoint, you can catch any errors encountered while taking screenshots and add them as execution errors. Your availability metrics will still indicate that the endpoint is up and running, but your canary status will be marked as failed. The following sample code block catches such an error and adds it as an execution error.
 
-```
+```nodejs
 try {
     await synthetics.takeScreenshot(stepName, "loaded");
 } catch(ex) {
@@ -437,7 +436,7 @@ Accepts a Boolean argument, which indicates whether to take a screenshot after a
 
 First, import the synthetics dependency and fetch the configuration.
 
-```
+```nodejs
 // Import Synthetics dependency
 const synthetics = require('@aws/synthetics-puppeteer');
 
@@ -447,7 +446,7 @@ const synConfig = synthetics.getConfiguration();
 
 Then, set the configuration for each option by calling the setConfig method using one of the following options.
 
-```
+```nodejs
 // Set configuration values
     synConfig.setConfig({
         screenshotOnStepStart: true,
@@ -458,7 +457,7 @@ Then, set the configuration for each option by calling the setConfig method usin
 
 Or
 
-```
+```nodejs
 synConfig.withScreenshotOnStepStart(false).withScreenshotOnStepSuccess(true).withScreenshotOnStepFailure(true)
 ```
 
@@ -483,7 +482,7 @@ Visual monitoring compares screenshots taken during a canary run with screenshot
 
 To enable visual monitoring, add the following line of code to the canary script. For more details, see [SyntheticsConfiguration class](#CloudWatch_Synthetics_Library_SyntheticsConfiguration).
 
-```
+```nodejs
 syntheticsConfiguration.withVisualCompareWithBaseRun(true);
 ```
 
@@ -613,7 +612,7 @@ This example uses the following sample URL: ` https://example.com/learn/home?acc
 
 The first step is to set the Synthetics configuration.
 
-```
+```nodejs
 // Import Synthetics dependency
 const synthetics = require('@aws/synthetics-puppeteer');
 
@@ -643,7 +642,7 @@ logger.info('My example url is: ' + sanitizedUrl);
 
 Next, sanitize and log the URL
 
-```
+```nodejs
 // Import SyntheticsLogHelper dependency
 const syntheticsLogHelper = require('@aws/synthetics-log-helper');
 
@@ -658,7 +657,7 @@ My example url is: https://example.com/learn/home?access_token=REDACTED&token_ty
 
 You can override the Synthetics configuration for a URL by passing in an optional parameter containing Synthetics configuration options, as in the following example.
 
-```
+```nodejs
 const urlConfig = {
    restrictedUrlParameters = ['*']
 };
@@ -668,7 +667,7 @@ logger.info('My example url is: ' + sanitizedUrl);
 
 The preceding example redacts all query parameters, and is logged as follows:
 
-```
+```nodejs
 My example url is: https://example.com/learn/home?access_token=REDACTED&token_type=REDACTED&expires_in=REDACTED
 ```
 
@@ -687,7 +686,7 @@ This example uses the following error: ` Failed to load url: https://example.com
 
 The first step is to set the Synthetics configuration.
 
-```
+```nodejs
 // Import Synthetics dependency
 const synthetics = require('@aws/synthetics-puppeteer');
 
@@ -705,7 +704,7 @@ synConfig.setConfig({
 
 Next, sanitize and log the error message
 
-```
+```nodejs
 // Import SyntheticsLogHelper dependency
 const syntheticsLogHelper = require('@aws/synthetics-log-helper');
 
@@ -811,7 +810,7 @@ Starting with `syn-nodejs-2.2`, you can optionally pass step configurations to o
 
 The following example overrides the default `false` configuration for ` continueOnStepFailure` to `true` and specifies when to take screenthots.
 
-```
+```nodejs
 var stepConfig = {
     'continueOnStepFailure': true,
     'screenshotOnStepStart': false,
@@ -904,7 +903,7 @@ await synthetics.launch({
 
 You can disable web security by adding a `--disable-web-security` flag to args in the CloudWatch Synthetics launch parameters:
 
-```
+```nodejs
 // This function adds the --disable-web-security flag to the launch parameters
 const defaultOptions = await synthetics.getDefaultLaunchOptions();
 const launchArgs = [...defaultOptions.args, '--disable-web-security'];
@@ -1201,13 +1200,13 @@ The following series of examples build on each other to illustrate the various u
 
 This first example configures request parameters. You can pass a URL as ** requestOptions**:
 
-```
+```nodejs
 let requestOptions = 'https://www.amazon.com';
 ```
 
 Or you can pass a set of options:
 
-```
+```nodejs
 let requestOptions = {
         'hostname': 'myproductsEndpoint.com',
         'method': 'GET',
@@ -1219,7 +1218,7 @@ let requestOptions = {
 
 The next example creates a callback function which accepts a response. By default, if you do not specify **callback**, CloudWatch Synthetics validates that the status is between 200 and 299 inclusive.
 
-```
+```nodejs
 // Handle validation for positive scenario
     const callback = async function(res) {
         return new Promise((resolve, reject) => {
@@ -1242,7 +1241,7 @@ The next example creates a callback function which accepts a response. By defaul
 
 The next example creates a configuration for this step that overrides the global CloudWatch Synthetics configuration. The step configuration in this example allows request headers, response headers, request body (post data), and response body in your report and restrict 'X-Amz-Security-Token' and 'Authorization' header values. By default, these values are not included in the report for security reasons. If you choose to include them, the data is only stored in your S3 bucket.
 
-```
+```nodejs
 // By default headers, post data, and response body are not included in the report for security reasons.
 // Change the configuration at global level or add as step configuration for individual steps
 let stepConfig = {
@@ -1256,7 +1255,7 @@ let stepConfig = {
 
 This final example passes your request to **executeHttpStep** and names the step.
 
-```
+```nodejs
 await synthetics.executeHttpStep('Verify GET products API', requestOptions, callback, stepConfig);
 ```
 

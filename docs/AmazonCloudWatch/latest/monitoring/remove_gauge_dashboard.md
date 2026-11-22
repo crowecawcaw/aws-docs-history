@@ -1,7 +1,6 @@
 
 
 # Removing a gauge widget from a CloudWatch dashboard
-<a name="remove_gauge_dashboard"></a>
 
 **To remove a gauge widget from a dashboard**
 

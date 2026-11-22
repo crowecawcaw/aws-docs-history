@@ -1,7 +1,6 @@
 
 
 # Alarm suppression
-<a name="alarm-suppression"></a>
 
 Composite alarm action suppression allows you to temporarily disable alarm actions without deleting or modifying the alarm configuration. This is useful during planned maintenance, deployments, or when investigating known issues.
 

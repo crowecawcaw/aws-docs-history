@@ -1,7 +1,6 @@
 
 
 # Managed Prometheus collectors
-<a name="CloudWatch-OTLPManagedPrometheusCollectors"></a>
 
 Amazon CloudWatch managed Prometheus collectors provide a fully managed, agentless way to collect Prometheus-compatible metrics from your AWS resources and deliver them to the CloudWatch OTLP endpoint. You don't install, patch, or scale any collection infrastructure yourself, and you query the collected metrics with PromQL.
 

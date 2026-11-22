@@ -1,7 +1,6 @@
 
 
 # Using dependencies with CloudWatch Synthetics canaries
-<a name="CloudWatch_Synthetics_Canaries_dependencies"></a>
 
 This section explains how to use `Dependencies` in CloudWatch Synthetics canaries. The `Dependencies` field allows you to specify dependencies for your canaries, enabling you to include additional libraries or custom code that your canary scripts can use.
 

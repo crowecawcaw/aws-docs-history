@@ -1,7 +1,6 @@
 
 
 # Viewing your metrics and logs in the console
-<a name="CloudWatch_Embedded_Metric_Format_View"></a>
 
  After you generate embedded metric format logs that extract metrics, you can use the CloudWatch console to view the metrics. Embedded metrics have the dimensions that you specified when you generated the logs. Also, the embedded metrics that you generated using the client libraries have the following default dimensions: 
 + ServiceType 

@@ -1,7 +1,6 @@
 
 
 # Percentile-based alarms and low data samples
-<a name="percentiles-with-low-samples"></a>
 
 When you set a percentile as the statistic for an alarm, you can specify what to do when there is not enough data for a good statistical assessment. You can choose to have the alarm evaluate the statistic anyway and possibly change the alarm state. Or, you can have the alarm ignore the metric while the sample size is low, and wait to evaluate it until there is enough data to be statistically significant.
 

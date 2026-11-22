@@ -1,7 +1,6 @@
 
 
 # Query metrics from other data sources
-<a name="MultiDataSourceQuerying"></a>
 
 You can use CloudWatch to query, visualize, and create alarms for metrics from other data sources. To do so, you connect CloudWatch to the other data sources. This gives you a single, consolidated monitoring experience within the CloudWatch console. You can have a unified view of your infrastructure and application metrics regardless of where the data is stored, helping you identify and resolve issues faster. 
 

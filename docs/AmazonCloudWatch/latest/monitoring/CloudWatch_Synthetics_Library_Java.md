@@ -1,7 +1,6 @@
 
 
 # Runtime versions using Java
-<a name="CloudWatch_Synthetics_Library_Java"></a>
 
 The following sections contain information about the CloudWatch Synthetics runtime versions for Java. These runtimes do not include a browser or framework.
 

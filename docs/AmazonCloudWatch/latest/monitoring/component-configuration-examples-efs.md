@@ -1,11 +1,10 @@
 
 
 # Amazon Elastic File System (Amazon EFS)
-<a name="component-configuration-examples-efs"></a>
 
 The following example shows a component configuration in JSON format for Amazon EFS.
 
-```
+```json
 {
    "alarmMetrics": [
      {

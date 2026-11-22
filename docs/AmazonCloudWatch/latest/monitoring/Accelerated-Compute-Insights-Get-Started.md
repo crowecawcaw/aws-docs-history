@@ -1,7 +1,6 @@
 
 
 # Get started with Accelerated Compute Insights
-<a name="Accelerated-Compute-Insights-Get-Started"></a>
 
 Amazon CloudWatch Accelerated Compute Insights monitors self-hosted AI inference workloads that run on accelerated compute in Amazon EKS clusters. Collection uses the Amazon CloudWatch Observability Amazon EKS add-on with OTel Container Insights enabled.
 
@@ -25,13 +24,13 @@ Accelerator collection requires no per-accelerator configuration flags. A GPU no
 ## Enabling collection
 <a name="Accelerated-Compute-Insights-Get-Started-enable-addon"></a>
 
-Accelerated Compute Insights collects telemetry through the same `amazon-cloudwatch-observability` add-on that OTel Container Insights uses. If you have not installed the add-on yet, follow the setup in [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md).
+Accelerated Compute Insights collects telemetry through the same `amazon-cloudwatch-observability` add-on that OTel Container Insights uses. If you have not installed the add-on yet, follow the setup in [OTel Container Insights quick start](container-insights-eks-otel-quickstart.md).
 
 For more information about the add-on and its configuration, see [OTel Container Insights (Recommended)](container-insights-eks-otel.md).
 
 To enable OTel Container Insights on a cluster that already has the add-on, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -54,7 +53,7 @@ After you enable collection, confirm that the collector pods run on your acceler
 
 The add-on runs an exporter on the nodes that have an accelerator. To list the collector pods and the nodes that run them, run the following command.
 
-```
+```bash
 kubectl -n amazon-cloudwatch get pods -o wide
 ```
 
@@ -73,7 +72,7 @@ To confirm that accelerator metrics arrive, count the series for one metric in Q
 
 1. Run the following query. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-   ```
+   ```promql
    count(DCGM_FI_DEV_GPU_UTIL{"@resource.k8s.cluster.name"="{{cluster-name}}"})
    ```
 

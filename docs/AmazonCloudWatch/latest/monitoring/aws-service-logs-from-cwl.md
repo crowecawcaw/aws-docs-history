@@ -1,7 +1,6 @@
 
 
 # AWS service logs from CloudWatch Logs
-<a name="aws-service-logs-from-cwl"></a>
 
 Intercepts log events from CloudWatch Logs that match the log event metadata configuration.
 
@@ -11,7 +10,7 @@ Pipelines with processors mutate the log events in the original CloudWatch log g
 **Configuration**  
 Configure the CloudWatch Logs source with the following parameters:
 
-```
+```yaml
 source:
   cloudwatch_logs:
     aws:

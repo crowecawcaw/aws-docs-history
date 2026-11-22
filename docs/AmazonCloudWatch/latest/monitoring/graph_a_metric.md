@@ -1,7 +1,6 @@
 
 
 # Graph a metric
-<a name="graph_a_metric"></a>
 
 You can select metrics and create graphs of the metric data using the CloudWatch console.
 

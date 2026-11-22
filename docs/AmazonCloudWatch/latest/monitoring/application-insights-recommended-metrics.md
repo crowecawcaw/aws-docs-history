@@ -1,7 +1,6 @@
 
 
 # Recommended metrics
-<a name="application-insights-recommended-metrics"></a>
 
 The following table lists the recommended metrics for each component type.
 

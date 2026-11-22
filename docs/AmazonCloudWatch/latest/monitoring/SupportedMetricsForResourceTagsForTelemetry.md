@@ -1,7 +1,6 @@
 
 
 # Supported metrics for resource tags for telemetry
-<a name="SupportedMetricsForResourceTagsForTelemetry"></a>
 
 The following sections list the metrics that CloudWatch enriches with AWS resource tags, grouped by namespace. For each namespace, the supported resource types are listed, with a table of metrics and the dimensions you can use with each.
 

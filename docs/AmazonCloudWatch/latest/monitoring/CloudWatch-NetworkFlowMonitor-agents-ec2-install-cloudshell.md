@@ -1,7 +1,6 @@
 
 
 # Install agents via CloudShell script
-<a name="CloudWatch-NetworkFlowMonitor-agents-ec2-install-cloudshell"></a>
 
 The Network Flow Monitor console provides a one-click installation option that uses to automatically install and configure the Network Flow Monitor agent on your EC2 instances. This is the fastest way to get started with Network Flow Monitor, because the script handles the entire setup process for you—including configuring permissions, installing the agent, and activating it.
 

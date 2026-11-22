@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="alarm-getting-started"></a>
 
 **Topics**
 + [Create alarms](Create-Alarms.md)

@@ -1,7 +1,6 @@
 
 
 # Creating flexible CloudWatch dashboards with dashboard variables
-<a name="cloudwatch_dashboard_variables"></a>
 
 Use *dashboard variables* to create flexible dashboards that can quickly display different content in multiple widgets, depending on the value of an input field within the dashboard. For example, you can create a dashboard that can quickly switch between different Lambda functions or Amazon EC2 instance IDs, or one that can switch to different AWS Regions.
 

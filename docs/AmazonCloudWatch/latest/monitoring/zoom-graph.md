@@ -1,7 +1,6 @@
 
 
 # Zoom in on a line graph or stacked area graph
-<a name="zoom-graph"></a>
 
  In the CloudWatch console, you can use the mini-map zoom feature to focus on sections of line graphs and stacked area graphs without changing between zoomed-in and zoomed-out views. For example, you can use the mini-map zoom feature to focus on a peak in a line graph, so that you can compare the spike against other metrics in your dashboard from the same timeline. The procedures in this section describe how to use the zoom feature. 
 

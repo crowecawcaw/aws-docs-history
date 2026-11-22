@@ -1,7 +1,6 @@
 
 
 # Components and features of Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-components"></a>
 
 Network Flow Monitor uses or references the following concepts.
 
@@ -30,7 +29,7 @@ The *network health indicator* (NHI) is a binary value that informs you whether 
 For more information, see [View Network Flow Monitor metrics in CloudWatch](CloudWatch-NetworkFlowMonitor-cw-metrics.md).
 
 **Scope**  
-In Network Flow Monitor, the *scope* is the account or accounts that you have observability for when you look at network performance indicators. If you sign in as a management account and configure AWS Organizations with CloudWatch, you can set your scope to more than one account in your organization (up to 100 accounts total). Otherwise, if you sign in with an AWS account that does not have management permissions in Organizations, or if you have not configured Organizations with CloudWatch, Network Flow Monitor sets your scope to the account that you're signed in with.  
+In Network Flow Monitor, the *scope* is the set of account-Region pairs that you have observability for when you look at network performance indicators. A scope can include up to 1,000 account-Region pairs. If you sign in as a management account and configure AWS Organizations with CloudWatch, you can add other accounts in your organization to your scope, and choose the Regions for each account. If you sign in with a member account, or if you haven't configured Organizations with CloudWatch, you can add your current account and multiple Regions to your scope.  
 After you have configured Organizations, you can change your scope by adding or removing accounts. However, whenever you change the scope, Network Flow Monitor must create a new topology of the resources in the scope. For more information, see [Add multiple accounts to your scope](CloudWatch-NetworkFlowMonitor-multi-account.md#CloudWatch-NetworkFlowMonitor-multi-account.config-scope).  
 Network Flow Monitor generates a unique **scope ID** for the scope. Queries for metrics data use the scope ID to determine the resources that the Network Flow Monitor generates metrics for. (You must install agents to gather and submit metrics data before you can view the performance metrics for an account with Network Flow Monitor.)
 

@@ -1,7 +1,6 @@
 
 
 # Send telemetry to CloudWatch Omni
-<a name="omni-send-telemetry"></a>
 
 CloudWatch Omni reads what Amazon CloudWatch has ingested. Configure your application, OpenTelemetry exporter, or collector to send telemetry to a CloudWatch OTLP endpoint. After that telemetry is in the CloudWatch Dataset for your space, it is available in CloudWatch Omni.
 
@@ -42,7 +41,7 @@ To manage the integration directly — for example, with the AWS CLI or infrastr
 
 **Step 1. Create an execution role for the CloudWatch Logs service to assume.** This example uses the name `CloudWatchOmniDatasetIntegrationRole`; you can use any name. The role must be in the same account as the Dataset and the integration — IAM does not support passing a role across accounts. Use this trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -61,7 +60,7 @@ In both `Condition` values, `<account-id>` is the account that owns the role, th
 
 **Step 2. Attach this permissions policy to the role.** The `log-group:*` resource forwards all log groups in the account except Delivery-class log groups; to forward only specific log groups, replace `*` with a log group name. If your space's Dataset is encrypted with a customer managed AWS KMS key, the key's policy must also allow this role `kms:Encrypt`, `kms:Decrypt`, and `kms:GenerateDataKey` on records entering the Dataset — see the `AllowCallerDatasetForwarding` statement in the sample key policy in [Data encryption in CloudWatch Omni](omni-data-encryption-in-cloudwatch-omni.md).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -81,7 +80,7 @@ In both `Condition` values, `<account-id>` is the account that owns the role, th
 
 **Step 3. Create the Dataset integration, passing the execution role.** Creating or updating the integration requires `iam:PassRole` on the execution role.
 
-```
+```bash
 aws observabilityadmin create-dataset-integration \
     --role-arn arn:aws:iam::<account-id>:role/CloudWatchOmniDatasetIntegrationRole \
     --region <region>

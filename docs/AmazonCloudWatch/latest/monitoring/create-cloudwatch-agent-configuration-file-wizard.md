@@ -1,9 +1,8 @@
 
 
 # Create the CloudWatch agent configuration file with the wizard
-<a name="create-cloudwatch-agent-configuration-file-wizard"></a>
 
- The agent configuration file wizard, `amazon-cloudwatch-agent-config-wizard`, asks a series of questions to help you configure the CloudWatch agent for your needs. This section describes the credentials required for the configuration file. It describes how to run the CloudWatch agent configuration wizard. It also describes the metrics that are predefined in the wizard. 
+ The agent configuration file wizard, `amazon-cloudwatch-agent-config-wizard`, asks a series of questions to help you configure the CloudWatch agent for your needs. The wizard creates Classic configurations only. To use the OpenTelemetry configuration, create the file as described in [Create a CloudWatch agent configuration for OpenTelemetry](CloudWatch-Agent-OpenTelemetry-config.md). This section describes the credentials required for the configuration file. It describes how to run the CloudWatch agent configuration wizard. It also describes the metrics that are predefined in the wizard. 
 
 ## Required credentials
 <a name="create-cloudwatch-agent-wizard-credentials"></a>

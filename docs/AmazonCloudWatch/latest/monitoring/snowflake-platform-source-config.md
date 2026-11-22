@@ -1,7 +1,6 @@
 
 
 # Source configuration for Snowflake Platform
-<a name="snowflake-platform-source-config"></a>
 
 ## Prerequisites
 <a name="snowflake-platform-prerequisites"></a>
@@ -36,7 +35,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
 1. Create a role for the pipeline and grant it the Snowflake database roles that read the audit views. Replace {{role-name}}, {{warehouse-name}}, and {{user-name}} with your own values, and then run the following statements:
 
-   ```
+   ```sql
    CREATE ROLE {{role-name}};
    
    GRANT DATABASE ROLE SNOWFLAKE.GOVERNANCE_VIEWER TO ROLE {{role-name}};
@@ -58,7 +57,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
 1. Grant the role access to the `ACCOUNT_USAGE` views and the default event table so that the pipeline can query them. Replace {{role-name}} with the role from the previous step, and then run the following statements:
 
-   ```
+   ```sql
    GRANT USAGE ON DATABASE SNOWFLAKE TO ROLE {{role-name}};
    GRANT USAGE ON SCHEMA SNOWFLAKE.ACCOUNT_USAGE TO ROLE {{role-name}};
    GRANT SELECT ON ALL VIEWS IN SCHEMA SNOWFLAKE.ACCOUNT_USAGE TO ROLE {{role-name}};
@@ -69,7 +68,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
 1. Generate an RSA key pair of at least 2048 bits that the pipeline uses to sign in. In a terminal, run the following commands:
 
-   ```
+   ```bash
    $ openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8 -nocrypt
    $ openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
    ```
@@ -82,7 +81,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
 1. Assign the public key to the Snowflake user so that Snowflake can verify the pipeline's sign-in requests. Replace {{user-name}} and {{public-key}} with your own values, and then run the following statement:
 
-   ```
+   ```sql
    ALTER USER {{user-name}} SET RSA_PUBLIC_KEY='{{public-key}}';
    ```
 
@@ -94,7 +93,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
    The pipeline configuration references each value with the syntax `${{aws_secrets:{{secret-name}}:{{key-name}}}}`. The following example shows the secret value for a secret named `snowflake-credentials`, which matches the pipeline configuration later in this topic:
 
-   ```
+   ```json
    {
      "user": "{{user-name}}",
      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBg...\n-----END PRIVATE KEY-----"
@@ -103,7 +102,7 @@ To read audit data, the pipeline signs in to your Snowflake account as a dedicat
 
    The following example shows the secret value for an encrypted private key, which also includes the passphrase:
 
-   ```
+   ```json
    {
      "user": "{{user-name}}",
      "private_key": "-----BEGIN ENCRYPTED PRIVATE KEY-----\n...\n-----END ENCRYPTED PRIVATE KEY-----",

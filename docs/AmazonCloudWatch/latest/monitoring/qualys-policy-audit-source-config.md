@@ -1,7 +1,6 @@
 
 
 # Source configuration for Qualys Policy Audit
-<a name="qualys-policy-audit-source-config"></a>
 
 ## Prerequisites
 <a name="qualys-policy-audit-prerequisites"></a>

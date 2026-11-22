@@ -1,7 +1,6 @@
 
 
 # Edit a probe
-<a name="nw-monitor-probe-edit"></a>
 
 You can change any information for an existing probe, regardless of whether that probe is active or inactive.
 
@@ -27,7 +26,7 @@ You can work with monitors and probes by using either the Amazon CloudWatch cons
 
 1.  If the **Protocol** is **TCP**, enter the following information: 
    + Enter the **Port** that your network uses to connect. The port must be a number from **1** to **65535**.
-   + Enter the **Packet size**. This is the size, in bytes, of each packet sent along the probe between the source and destination. Packet size must be a number from **56** to **8500**.
+   + Enter the **Packet size**. This is the size, in bytes, of each packet sent along the probe between the source and destination. This is the size of the TCP segment: the 20-byte TCP header plus any data. The IP header (20 bytes for IPv4, 40 bytes for IPv6) and the 14-byte Ethernet header are added on top. Enter a valid packet size, a number from **20** to **8500**. For example: **20**. A value of **20** sends TCP SYN packets that carry no data. With a larger value, each SYN carries (packet size minus 20) bytes of data. For example, a packet size of **56** sends SYN packets with 36 bytes of data. Some firewalls drop SYN packets that carry data. If your destination is behind such a firewall, use **20**.
 
 1. (Optional) Add, change, or remove Tags for the probe. 
 

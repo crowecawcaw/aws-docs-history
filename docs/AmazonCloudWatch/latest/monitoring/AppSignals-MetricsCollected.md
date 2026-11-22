@@ -1,7 +1,6 @@
 
 
 # Metrics collected by Application Signals
-<a name="AppSignals-MetricsCollected"></a>
 
 Application Signals collects both [standard application metrics](#AppSignals-StandardMetrics) and [runtime metrics](#AppSignals-StandardMetrics) from the applications that you enable it for.
 
@@ -184,7 +183,7 @@ env:
 
 To disable runtime metrics in Amazon EKS applications at the cluster level, apply the configuration to the advanced configuration of your Amazon CloudWatch Observability EKS add-on.
 
-```
+```json
 {
   "agent": {
     "config": {

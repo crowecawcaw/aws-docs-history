@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Auto Scaling groups
-<a name="appinsights-metrics-as"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

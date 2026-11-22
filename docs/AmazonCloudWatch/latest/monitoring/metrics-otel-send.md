@@ -1,7 +1,6 @@
 
 
 # Publish custom metrics with OpenTelemetry
-<a name="metrics-otel-send"></a>
 
 You can publish custom metrics to CloudWatch using the OpenTelemetry Protocol (OTLP). You can use OTel SDKs (Java, Python, Go, .NET, Node.js), the OTel Collector, or any OTLP-compatible client.
 
@@ -26,7 +25,7 @@ Authentication uses standard AWS SigV4 signing. The service name is `monitoring`
 
 Configure an OTel Collector with the OTLP HTTP exporter and SigV4 authentication:
 
-```
+```yaml
 receivers:
   otlp:
     protocols:
@@ -67,7 +66,7 @@ For detailed setup instructions, see [Getting started](CloudWatch-OTLPGettingSta
 ### Option 2: OTel SDK (Python example)
 <a name="metrics-otel-send-python"></a>
 
-```
+```python
 from opentelemetry import metrics
 from opentelemetry.sdk.metrics import MeterProvider
 from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
@@ -90,7 +89,7 @@ counter.add(1, {"method": "GET", "path": "/api/users", "status": "200"})
 ### Option 3: OTel SDK (Java example)
 <a name="metrics-otel-send-java"></a>
 
-```
+```java
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.metrics.LongCounter;
 
@@ -111,7 +110,7 @@ counter.add(1, Attributes.of(
 
 The identity sending metrics needs the `cloudwatch:PutMetricData` permission. For SigV4 authentication, attach the following policy:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [

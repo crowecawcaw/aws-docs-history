@@ -1,7 +1,6 @@
 
 
 # Monitor and optimize with the Internet Monitor dashboard
-<a name="CloudWatch-IM-monitor-and-optimize"></a>
 
 Using the Internet Monitor dashboard in the AWS Management Console, you can visualize data and get insights and suggestions about your AWS application's internet traffic, and configure options for your monitor.
 

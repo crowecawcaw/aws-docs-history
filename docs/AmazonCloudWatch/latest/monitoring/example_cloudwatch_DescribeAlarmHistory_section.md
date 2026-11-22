@@ -1,7 +1,6 @@
 
 
 # Use `DescribeAlarmHistory` with an AWS SDK or CLI
-<a name="example_cloudwatch_DescribeAlarmHistory_section"></a>
 
 The following code examples show how to use `DescribeAlarmHistory`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `DescribeAlarmHistory`.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Describe the history of an alarm for a number of days in the past.
     /// </summary>
@@ -82,7 +81,7 @@ For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amaz
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Retrieves the alarm history for a given alarm name and date range.
      *
@@ -148,7 +147,7 @@ For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amaz
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun getAlarmHistory(
     alarmNameVal: String,
     startDateVal: String,

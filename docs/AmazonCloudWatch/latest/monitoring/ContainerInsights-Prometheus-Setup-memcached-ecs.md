@@ -1,7 +1,6 @@
 
 
 # Tutorial for adding a new Prometheus scrape target: Memcached on Amazon ECS
-<a name="ContainerInsights-Prometheus-Setup-memcached-ecs"></a>
 
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics of a sample Memcached application on an Amazon Amazon ECS cluster with the EC2 launch type. The Memcached Prometheus exporter target will be auto-discovered by the CloudWatch agent by ECS task definition-based service discovery.
 
@@ -15,7 +14,7 @@ The Docker images in the following two Docker Hub repositories are used in this 
 
 **Prerequisite**
 
-To collect metrics from a sample Prometheus workload for Amazon ECS, you must be running Container Insights in the cluster. For information about installing Container Insights, see [Amazon ECS](deploy-container-insights-ECS.md).
+To collect metrics from a sample Prometheus workload for Amazon ECS, you must be running Container Insights in the cluster. For information about installing Container Insights, see [Container Insights for Amazon ECS](deploy-container-insights-ECS.md).
 
 **Topics**
 + [Set the Amazon ECS EC2 cluster environment variables](#ContainerInsights-Prometheus-Setup-memcached-ecs-environment)

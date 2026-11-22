@@ -1,7 +1,6 @@
 
 
 # Monitor applications with the application map
-<a name="omni-monitor-applications-with-the-application-map"></a>
 
 Use the application map to understand how your applications and services interact with each other and to identify what needs the most attention. The application map shows your application services, their dependencies, and related cloud resources. You can also organize your application map by other dimensions such as environment, resource type, or related services.
 

@@ -1,7 +1,6 @@
 
 
 # Metrics with data points requirements
-<a name="appinsights-metrics-datapoint-requirements"></a>
 
 For metrics without an obvious default threshold to alarm on, Application Insights waits until the metric has enough data points to predict a reasonable threshold to alarm on. The metric data points requirement that CloudWatch Application Insights checks before an alarm is created are: 
 + The metric has at least 100 data points from the past 15 to the past 2 days.

@@ -1,7 +1,6 @@
 
 
 # Global internet weather map in Internet Monitor
-<a name="CloudWatch-InternetMonitor.outage-map"></a>
 
 Internet Monitor displays a global internet weather map that is available to all AWS customers. To view the map, in the Amazon CloudWatch console, navigate to **Network Monitoring**, and then choose **Internet monitors**.
 

@@ -1,7 +1,6 @@
 
 
 # Permissions required for Application Signals
-<a name="Application_Signals_Permissions"></a>
 
 This section explains the permissions necessary for you to enable, manage, and operate Application Signals.
 
@@ -22,7 +21,7 @@ These permissions include `iam:PassRole` with `Resource "*”` and `eks:CreateAd
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ The Application Signals dashboard shows the AWS Service Catalog AppRegistry appl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ To see which AWS Service Catalog AppRegistry Applications that your SLOs are ass
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ To check if Application Signals on Amazon EKS using the [Amazon CloudWatch Obser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

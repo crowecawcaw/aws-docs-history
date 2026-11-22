@@ -1,7 +1,6 @@
 
 
 # Upgrade IAM policies to IPv6
-<a name="security_iam_cwim_security-ipv6-upgrade"></a>
 
 Internet Monitor customers use IAM policies to set an allowed range of IP addresses, to prevent any IP addresses outside the configured range from being able to access Internet Monitor APIs.
 
@@ -50,7 +49,7 @@ If you use an Internet Monitor SDK, start by verifying which endpoint your code 
 
 You can run the following code example to determine the Internet Monitor endpoint that you're using. For this example, we’re using the Internet Monitor SDK for Go in the US East (N. Virginia) Region.
 
-```
+```go
 package main
 
 import (

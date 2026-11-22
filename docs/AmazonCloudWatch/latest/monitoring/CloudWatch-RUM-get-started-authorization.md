@@ -1,7 +1,6 @@
 
 
 # Authorize your web application to send data to AWS
-<a name="CloudWatch-RUM-get-started-authorization"></a>
 
 You have four options to set up data authentication:
 + Use Amazon Cognito and let CloudWatch RUM create a new Amazon Cognito identity pool for the application. This method requires the least effort to set up.
@@ -29,7 +28,7 @@ You also must add the following permissions to the IAM policy that is attached t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ After you configure Amazon Cognito to work with your identity provider, you also
 
 ****  
 
-  ```
+  ```json
   { 
    "Version":"2012-10-17",		 	 	 
    "Statement": [ 

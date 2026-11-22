@@ -1,7 +1,6 @@
 
 
 # Manage CloudWatch custom metrics and alarms using an AWS SDK
-<a name="example_cloudwatch_Usage_MetricsAlarms_section"></a>
 
 The following code example shows how to:
 + Create an alarm to watch a single CloudWatch metric.
@@ -16,7 +15,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 Create a class that wraps CloudWatch operations.  
 
-```
+```python
 from datetime import datetime, timedelta, timezone
 import logging
 from pprint import pprint
@@ -219,7 +218,7 @@ class CloudWatchWrapper:
 ```
 Use the wrapper class to put data in a metric, trigger an alarm that watches the metric, and get data from the alarm.  
 
-```
+```python
 def usage_demo():
     print("-" * 88)
     print("Welcome to the Amazon CloudWatch metrics and alarms demo!")

@@ -1,7 +1,6 @@
 
 
 # Create a storage throughput alarm that sends email
-<a name="US_AlarmAtThresholdEBS"></a>
 
 You can set up an SNS notification and configure an alarm that is triggered when Amazon EBS exceeds 100 MB throughput.
 

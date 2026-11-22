@@ -1,7 +1,6 @@
 
 
 # Source configuration for Jamf Protect
-<a name="jamf-protect-source-config"></a>
 
 ## Integrating with Jamf Protect
 <a name="jamf-protect-integration"></a>
@@ -39,7 +38,7 @@ Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "AllowS3ToSQS",
@@ -91,7 +90,7 @@ Configure Jamf Protect to deliver log data directly to your Amazon S3 bucket.
 
 Apply the following bucket policy to your Amazon S3 bucket to allow the Jamf IAM user to write objects:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

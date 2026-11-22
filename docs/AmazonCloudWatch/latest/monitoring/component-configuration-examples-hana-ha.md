@@ -1,11 +1,10 @@
 
 
 # SAP HANA High Availability on Amazon EC2
-<a name="component-configuration-examples-hana-ha"></a>
 
 The following example shows a component configuration in JSON format for SAP HANA High Availability on Amazon EC2.
 
-```
+```json
 {
   "subComponents": [
     {

@@ -1,7 +1,6 @@
 
 
 # Collecting vLLM metrics with OTel Container Insights
-<a name="container-insights-eks-otel-vllm"></a>
 
 vLLM is an open-source inference engine that serves large language models through an OpenAI-compatible API. You can run it as your own Kubernetes Deployment, or as the model server of a KServe InferenceService. Container Insights collects the metrics that each vLLM server exports on its `/metrics` endpoint. You do not need to set up Prometheus or Grafana manually, and you do not need to label or annotate your pods.
 
@@ -19,7 +18,7 @@ For the other parts of a KServe deployment, see [Collecting KServe metrics with 
 vLLM metrics collection is enabled by default when the following requirements are met.
 + Amazon EKS cluster running Kubernetes 1.28 or later
 + One or more vLLM servers running in the cluster
-+ OTel Container Insights enabled on the cluster (see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md))
++ OTel Container Insights enabled on the cluster (see [Quick start](container-insights-eks-otel-quickstart.md))
 + The `amazon-cloudwatch-observability` add-on in `ACTIVE` status
 
 ## Configuring vLLM metrics collection
@@ -31,7 +30,7 @@ To disable vLLM metrics collection, set `otelContainerInsights.solutions.vllm.en
 
 The following Helm values show the default configuration.
 
-```
+```yaml
 otelContainerInsights:
   solutions:
     enabled: true
@@ -41,7 +40,7 @@ otelContainerInsights:
 
 To disable vLLM metrics using the Amazon EKS add-on, run the following AWS CLI command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -51,7 +50,7 @@ aws eks update-addon \
 
 To disable vLLM metrics using the Helm chart, run the following command.
 
-```
+```bash
 helm upgrade amazon-cloudwatch-observability \
   aws-observability/amazon-cloudwatch-observability \
   -n amazon-cloudwatch \
@@ -74,7 +73,9 @@ The agent resolves the port in the following order, highest precedence first:
 
 1. The server's default: 8080 on KServe pods, otherwise 8000, the default of `vllm serve`
 
-The agent does not read `prometheus.io/scrape` or other scrape annotations from your pods. A vLLM server outside KServe that runs from an image without `vllm` in its name is not found automatically. To collect its metrics, add a scrape configuration for it (see [Advanced configuration for OTel Container Insights on Amazon EKS](container-insights-eks-otel-advanced.md)).
+The agent does not read `prometheus.io/scrape` or other scrape annotations from your pods. A vLLM server outside KServe that runs from an image without `vllm` in its name is not found automatically. To collect its metrics, describe it with a PodMonitor (see [Scraping ServiceMonitor and PodMonitor targets](eks-observability-addon-prometheus-monitors.md)).
+
+Pods that KubeRay labels `ray.io/is-ray-node=yes` are left to the Ray solution, which collects the engine metrics of Ray Serve LLM as `ray_vllm_*` (see [Collecting Ray metrics with OTel Container Insights](container-insights-eks-otel-ray.md)).
 
 ## vLLM metrics pipeline architecture
 <a name="container-insights-eks-otel-vllm-architecture"></a>

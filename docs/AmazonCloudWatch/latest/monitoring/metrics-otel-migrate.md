@@ -1,7 +1,6 @@
 
 
 # Migrate from Classic to OTel metrics
-<a name="metrics-otel-migrate"></a>
 
 Customers currently publishing custom metrics through PutMetricData or EMF can migrate incrementally to the OTel path. There is no flag day — migration happens workload by workload at your own pace.
 
@@ -23,7 +22,7 @@ The migration follows four phases:
 
 Add the OTel SDK alongside your existing PutMetricData calls. Both paths can publish simultaneously — you don't lose data.
 
-```
+```python
 # Existing Classic publishing (keep running during migration)
 cloudwatch.put_metric_data(
     Namespace='MyApp',

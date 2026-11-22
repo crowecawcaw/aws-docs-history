@@ -1,7 +1,6 @@
 
 
 # Viewing and managing muted alarms
-<a name="viewing-managing-muted-alarms"></a>
 
  **Viewing muted alarms:** You can easily identify which alarms are currently muted through the CloudWatch console. In both the alarms list view and individual alarm detail pages, a mute icon appears next to alarms whose actions are currently being muted by active mute rules. This visual indicator helps you quickly understand which alarms actions are being currently muted until the mute window expires. 
 

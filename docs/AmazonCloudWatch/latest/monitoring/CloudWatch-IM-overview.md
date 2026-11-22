@@ -1,7 +1,6 @@
 
 
 # Track real-time performance and availability in Internet Monitor (Overview page)
-<a name="CloudWatch-IM-overview"></a>
 
 The **Overview** page in the Internet Monitor console shows you a high-level view of performance and availability for the traffic that your monitor tracks, and a timeline of when health events have impacted your monitored traffic. The page also provides the top suggestion for a configuration change that could reduce latency for clients who use your application in your top client location (by traffic volume).
 

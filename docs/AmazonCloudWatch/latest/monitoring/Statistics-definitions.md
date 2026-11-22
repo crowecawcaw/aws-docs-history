@@ -1,7 +1,6 @@
 
 
 # CloudWatch statistics definitions
-<a name="Statistics-definitions"></a>
 
 Statistics are metric data aggregations over specified periods of time. When you graph or retrieve the statistics for a metric, you specify the *Period* of time, such as five minutes, to use to calculate each statistical value. For example, if the **Period** is five minutes, the **Sum** is the sum of all sample values collected during the five-minute period, while the **Minimum** is the lowest value collected during the five-minute period.
 

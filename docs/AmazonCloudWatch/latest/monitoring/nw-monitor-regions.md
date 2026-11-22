@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions for Network Synthetic Monitor
-<a name="nw-monitor-regions"></a>
 
 The AWS Regions where Network Synthetic Monitor is supported are listed in this section. For more information about Regions that Network Synthetic Monitor is supported in, including opt-in Regions, see [Network Synthetic Monitor endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/cwnm_region.html) in the *Amazon Web Services General Reference*.
 

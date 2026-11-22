@@ -1,7 +1,6 @@
 
 
 # Changing the time range or time zone format of a CloudWatch dashboard
-<a name="change_dashboard_time_format"></a>
 
 You can change the time range to display dashboard data over minutes, hours, days, or weeks. You also can change the time zone format to display dashboard data in UTC or local time. Local time is the time zone that's specified in your computer's operating system. 
 

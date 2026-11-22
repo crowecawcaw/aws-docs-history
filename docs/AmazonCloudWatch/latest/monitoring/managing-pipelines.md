@@ -1,7 +1,6 @@
 
 
 # Managing pipelines
-<a name="managing-pipelines"></a>
 
 After creating pipelines, you can monitor their performance and manage their configuration through the Pipelines tab.
 

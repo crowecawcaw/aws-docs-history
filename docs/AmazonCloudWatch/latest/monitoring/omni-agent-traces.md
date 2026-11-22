@@ -1,7 +1,6 @@
 
 
 # Agent traces
-<a name="omni-agent-traces"></a>
 
 Use Agent traces to find the agent runs you need to inspect, open a run to see what the agent did, and act on what you find: score runs with evaluators, turn failures into dataset test cases, and compare runs side by side. A trace records one complete agent run; a span records one operation within it, such as a model invocation, a tool call, or a retrieval. For the full trace, span, and session vocabulary, see [Monitor AI agents](omni-monitor-ai-agents.md).
 

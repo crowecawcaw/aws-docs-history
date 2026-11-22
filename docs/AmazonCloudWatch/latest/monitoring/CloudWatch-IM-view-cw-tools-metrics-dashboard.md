@@ -1,7 +1,6 @@
 
 
 # View Internet Monitor metrics or set alarms in CloudWatch Metrics
-<a name="CloudWatch-IM-view-cw-tools-metrics-dashboard"></a>
 
 You can view or set alarms on Internet Monitor metrics by using CloudWatch alarms and CloudWatch Metrics in the CloudWatch console. Internet Monitor publishes metrics to your account, including metrics for performance, availability, round-trip time, and throughput (bytes per second). To find all metrics for your monitor, in the CloudWatch Metrics dashboard, see the custom namespace `AWS/InternetMonitor`. 
 

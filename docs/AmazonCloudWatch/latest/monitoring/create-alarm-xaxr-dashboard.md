@@ -1,7 +1,6 @@
 
 
 # Adding an alarm from a different account to a CloudWatch cross-account dashboard
-<a name="create-alarm-xaxr-dashboard"></a>
 
 1. Sign in to the monitoring account.
 

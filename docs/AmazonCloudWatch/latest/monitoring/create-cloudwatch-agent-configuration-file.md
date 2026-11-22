@@ -1,13 +1,12 @@
 
 
-# Create the CloudWatch agent configuration file
-<a name="create-cloudwatch-agent-configuration-file"></a>
+# Create the Classic CloudWatch agent configuration file
 
-Before running the CloudWatch agent on any servers, you must create one or more CloudWatch agent configuration files. 
+In the Classic configuration, the agent configuration file is a JSON file whose `metrics`, `logs`, and `traces` sections specify the metrics, logs, and traces that the agent collects. Metrics are published as CloudWatch metrics in a namespace.
 
-The agent configuration file is a JSON file that specifies the metrics, logs, and traces that the agent is to collect, including custom metrics. You can create it by using the wizard or by creating it yourself from scratch. You could also use the wizard to initially create the configuration file and then modify it manually. If you create or modify the file manually, the process is more complex, but you have more control over the metrics collected and can specify metrics not available through the wizard.
+You can create the configuration file with the wizard, or create it yourself. You can also use the wizard to create a starting file and then edit it. If you create or edit the file yourself, you have more control over the metrics collected and can specify metrics that the wizard doesn't offer.
 
-Any time you change the agent configuration file, you must then restart the agent to have the changes take effect. To restart the agent, follow the instructions in [(Optional) Modify the common configuration and named profile for CloudWatch agent](installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet).
+Any time you change the agent configuration file, you must then restart the agent to have the changes take effect. To restart the agent, run the `fetch-config` command again. For more information, see [Starting the CloudWatch agent](start-CloudWatch-Agent-on-premise-SSM-onprem.md).
 
 After you have created a configuration file, you can save it manually as a JSON file and then use this file when installing the agent on your servers. Alternatively, you can store it in Systems Manager Parameter Store if you're going to use Systems Manager when you install the agent on servers.
 
@@ -56,7 +55,7 @@ The following example configuration files illustrate a use for this feature. The
 
 **infrastructure.json**
 
-```
+```json
 {
   "metrics": {
     "metrics_collected": {
@@ -97,7 +96,7 @@ The following example configuration files illustrate a use for this feature. The
 
 **app.json**
 
-```
+```json
 {
     "logs": {
         "logs_collected": {
@@ -117,6 +116,8 @@ The following example configuration files illustrate a use for this feature. The
 Any configuration files appended to the configuration must have different file names from each other and from the initial configuration file. If you use `append-config` with a configuration file with the same file name as a configuration file that the agent is already using, the append command overwrites the information from the first configuration file instead of appending to it. This is true even if the two configuration files with the same file name are on different file paths.
 
 The preceding example shows the use of two configuration files, but there is no limit to the number of configuration files that you can append to the agent configuration. You can also mix the use of configuration files located on servers and configurations located in Parameter Store.
+
+You can also split an `opentelemetry` section across multiple configuration files. For the merge rules, see [Split the configuration across files](CloudWatch-Agent-OpenTelemetry-config.md#CloudWatch-Agent-OpenTelemetry-config-multiple).
 
 ## Log collection patterns and limitations
 <a name="CloudWatch-Agent-log-collection-patterns"></a>

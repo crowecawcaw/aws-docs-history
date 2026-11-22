@@ -1,7 +1,6 @@
 
 
 # Internet Monitor cross-account observability
-<a name="cwim-cross-account"></a>
 
 With Internet Monitor cross-account observability, you can monitor your applications that span multiple AWS accounts within a single AWS Region.
 

@@ -1,7 +1,6 @@
 
 
 # Get suggestions to optimize application performance in Internet Monitor (Optimize page)
-<a name="CloudWatch-IM-insights"></a>
 
 Use the **Optimize** page in the Internet Monitor console to get suggestions for how to optimize application performance for your clients. Internet Monitor evaluates your monitored application traffic, and determines if you can reduce latency by changing the AWS Regions that you've configured for your application. Optionally, you can also view latency changes if you choose to include Amazon CloudFront in the suggestions. 
 

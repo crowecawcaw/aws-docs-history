@@ -1,7 +1,6 @@
 
 
 # Create a CloudWatch alarm based on a static threshold
-<a name="ConsoleAlarms"></a>
 
 You choose a CloudWatch metric for the alarm to watch, and the threshold for that metric. The alarm goes to `ALARM` state when the metric breaches the threshold for a specified number of evaluation periods.
 

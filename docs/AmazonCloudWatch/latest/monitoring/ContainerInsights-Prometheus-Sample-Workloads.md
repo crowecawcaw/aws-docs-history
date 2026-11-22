@@ -1,7 +1,6 @@
 
 
 # (Optional) Set up sample containerized Amazon EKS workloads for Prometheus metric testing
-<a name="ContainerInsights-Prometheus-Sample-Workloads"></a>
 
 To test the Prometheus metric support in CloudWatch Container Insights, you can set up one or more of the following containerized workloads. The CloudWatch agent with Prometheus support automatically collects metrics from each of these workloads. To see the metrics that are collected by default, see [Prometheus metrics collected by the CloudWatch agent](ContainerInsights-Prometheus-metrics.md).
 

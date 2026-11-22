@@ -1,7 +1,6 @@
 
 
 # Condition keys for CloudWatch Observability Admin
-<a name="condition-keys-observabilityadmin"></a>
 
 You can use IAM policies to control access to Amazon CloudWatch Observability Admin resources and actions by using condition keys.
 
@@ -24,7 +23,7 @@ Filters access by the backup region specified for centralization rules.
 **Example JSON policy with observabilityadmin:CentralizationBackupRegion**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -52,7 +51,7 @@ Filters access by the destination region specified for centralization rules.
 **Example JSON policy with observabilityadmin:CentralizationDestinationRegion**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -80,7 +79,7 @@ Filters access by the source regions specified for centralization rules.
 **Example JSON policy with observabilityadmin:CentralizationSourceRegions**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

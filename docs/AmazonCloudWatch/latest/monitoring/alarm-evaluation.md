@@ -1,7 +1,6 @@
 
 
 # Alarm evaluation
-<a name="alarm-evaluation"></a>
 
 ## Metric alarm states
 <a name="alarm-states"></a>

@@ -1,7 +1,6 @@
 
 
 # Metrics and attributes
-<a name="ecs-otel-collector-metrics"></a>
 
 For each running task, the receiver emits about 28 task-level metrics (`ecs.task.*`). It also emits about 26 container-level metrics (`container.*`) for each running container. The following table lists commonly used metrics.
 

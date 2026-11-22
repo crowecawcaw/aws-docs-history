@@ -1,7 +1,6 @@
 
 
 # Enable resource tags on telemetry
-<a name="EnableResourceTagsOnTelemetry"></a>
 
 To add tag information to your telemetry data, enable resource tags for telemetry from the CloudWatch console, AWS SDK, CLI, or CloudFormation. The feature remains active until you turn it off. For more information, see [Disable resource tags on telemetry](DisableResourceTagsOnTelemetry.md).
 

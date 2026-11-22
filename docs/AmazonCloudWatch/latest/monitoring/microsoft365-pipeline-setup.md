@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Microsoft 365
-<a name="microsoft365-pipeline-setup"></a>
 
 Collects log data from Microsoft Office 365 Management API using OAuth2 authentication.
 
 Configure the Microsoft Office 365 source with the following parameters:
 
-```
+```yaml
 source:
   microsoft_office365:
     tenant_id: "<example-tenant-ID>"

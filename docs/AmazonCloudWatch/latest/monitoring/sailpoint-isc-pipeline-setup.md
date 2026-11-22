@@ -1,11 +1,10 @@
 
 
 # CloudWatch pipelines configuration for SailPoint ISC
-<a name="sailpoint-isc-pipeline-setup"></a>
 
 The following pipeline configuration collects identity governance audit events from SailPoint ISC using OAuth 2.0 client credentials authentication. Replace the placeholder values shown between `<<` and `>>` with values for your environment.
 
-```
+```yaml
 extension:
   aws:
     secrets:

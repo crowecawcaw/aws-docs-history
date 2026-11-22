@@ -1,7 +1,6 @@
 
 
 # Create a CloudWatch alarm based on a metric math expression
-<a name="Create-alarm-on-metric-math-expression"></a>
 
 Metric alarms are designed to evaluate time series that you define from either a single metric, or a metric math expression that combines or transforms one or more metrics into a time series that deliver insights more closely aligned to your unique needs. To create an alarm based on a metric math expression, choose one or more CloudWatch metrics to use in the expression. Then, specify the expression, threshold, and evaluation periods.
 

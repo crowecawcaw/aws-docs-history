@@ -1,7 +1,6 @@
 
 
 # String manipulation processors
-<a name="string-processors"></a>
 
 String processors modify text values within log events through operations like case conversion, trimming, and pattern matching.
 
@@ -13,7 +12,7 @@ Converts specified fields to lowercase.
 **Configuration**  
 Configure the lowercase\_string processor with the following parameters:
 
-```
+```yaml
 processor:
   - lowercase_string:
       with_keys: ["status", "method"]
@@ -33,7 +32,7 @@ Converts specified fields to uppercase.
 **Configuration**  
 Configure the uppercase\_string processor with the following parameters:
 
-```
+```yaml
 processor:
   - uppercase_string:
       with_keys: ["status_code", "method"]
@@ -53,7 +52,7 @@ Removes leading and trailing whitespace from specified fields.
 **Configuration**  
 Configure the trim\_string processor with the following parameters:
 
-```
+```yaml
 processor:
   - trim_string:
       with_keys: ["message", "user_input"]
@@ -73,7 +72,7 @@ Performs string substitution using regular expressions.
 **Configuration**  
 Configure the substitute\_string processor with the following parameters:
 
-```
+```yaml
 processor:
   - substitute_string:
       entries:
@@ -111,7 +110,7 @@ Truncates field values to specified length.
 **Configuration**  
 Configure the truncate processor with the following parameters:
 
-```
+```yaml
 processor:
   - truncate:
       source_keys: ["message", "description"]
@@ -139,7 +138,7 @@ Extracts values using regular expressions.
 **Configuration**  
 Configure the extract\_value processor with the following parameters:
 
-```
+```yaml
 processor:
   - extract_value:
       entries:
@@ -185,7 +184,7 @@ Converts field values between different data types.
 **Configuration**  
 Configure the convert\_entry\_type processor with the following parameters:
 
-```
+```yaml
 processor:
   - convert_entry_type:
       key: "count"
@@ -209,7 +208,7 @@ Parses and formats date/time fields.
 **Configuration**  
 Configure the date processor with the following parameters:
 
-```
+```yaml
 processor:
   - date:
       match:
@@ -255,7 +254,7 @@ Extracts structured data using pattern matching.
 **Configuration**  
 Configure the dissect processor with the following parameters:
 
-```
+```yaml
 processor:
   - dissect:
       map:
@@ -276,7 +275,7 @@ Converts array fields to map structures.
 **Configuration**  
 Configure the list\_to\_map processor with the following parameters:
 
-```
+```yaml
 processor:
   - list_to_map:
       source: "tags"
@@ -314,7 +313,7 @@ Renames fields in log events.
 **Configuration**  
 Configure the rename\_keys processor with the following parameters:
 
-```
+```yaml
 processor:
   - rename_keys:
       entries:
@@ -352,7 +351,7 @@ Selects only specified fields from events.
 **Configuration**  
 Configure the select\_entries processor with the following parameters:
 
-```
+```yaml
 processor:
   - select_entries:
       include_keys: ["timestamp", "level", "message"]
@@ -372,7 +371,7 @@ Translates field values using lookup tables.
 **Configuration**  
 Configure the translate processor with the following parameters:
 
-```
+```yaml
 processor:
   - translate:
       mappings:

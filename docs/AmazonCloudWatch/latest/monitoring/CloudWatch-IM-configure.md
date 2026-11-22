@@ -1,7 +1,6 @@
 
 
 # Monitoring details in Internet Monitor (Configure page)
-<a name="CloudWatch-IM-configure"></a>
 
 On the **Configure** page, you can see details about your monitor, including a list of resources that you monitor traffic for and the thresholds for when health events are triggered. You can also explore and compare values for the traffic percentage for your monitor, and its impact on how many city-networks are included for (monitored by) your monitor. Finally, you can view information about measurements that are published to an Amazon S3 bucket.
 

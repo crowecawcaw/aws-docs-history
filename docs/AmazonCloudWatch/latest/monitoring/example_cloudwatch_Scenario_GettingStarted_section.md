@@ -1,7 +1,6 @@
 
 
 # Get started with CloudWatch alarms using an AWS SDK
-<a name="example_cloudwatch_Scenario_GettingStarted_section"></a>
 
 The following code example shows how to:
 + Create an alarm.
@@ -15,7 +14,7 @@ The following code example shows how to:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
-```
+```sap-abap
     DATA lt_alarmnames TYPE /aws1/cl_cwtalarmnames_w=>tt_alarmnames.
     DATA lo_alarmname TYPE REF TO /aws1/cl_cwtalarmnames_w.
 

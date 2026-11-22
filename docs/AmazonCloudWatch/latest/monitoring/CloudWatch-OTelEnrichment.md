@@ -1,7 +1,6 @@
 
 
 # AWS vended metrics in OpenTelemetry format
-<a name="CloudWatch-OTelEnrichment"></a>
 
 **Tip**  
 To learn more about OpenTelemetry on CloudWatch, check out the [Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement) on the AWS Experience website.

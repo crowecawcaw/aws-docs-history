@@ -1,7 +1,6 @@
 
 
 # Costs associated with CloudWatch investigations
-<a name="investigations-costs"></a>
 
 CloudWatch investigations might incur AWS service usage including telemetry and resource queries and other API usage. While the majority of these will not be charged to your AWS bill, there are exceptions including, but not limited to:
 + CloudWatch APIs (`ListMetrics`, `GetDashboard`, `ListDashboards`, and `GetInsightRuleReport`)

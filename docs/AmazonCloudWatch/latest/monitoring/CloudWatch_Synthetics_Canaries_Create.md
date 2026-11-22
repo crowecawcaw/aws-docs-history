@@ -1,7 +1,6 @@
 
 
 # Creating a canary
-<a name="CloudWatch_Synthetics_Canaries_Create"></a>
 
 **Important**  
 Make sure that you use Synthetics canaries to monitor only endpoints and APIs where you have ownership or permissions. Depending on the canary frequency settings, these endpoints might experience increased traffic.

@@ -1,7 +1,6 @@
 
 
 # Customer managed policy examples
-<a name="customer-managed-policies-cw"></a>
 
 In this section, you can find example user policies that grant permissions for various CloudWatch actions. These policies work when you are using the CloudWatch API, AWS SDKs, or the AWS CLI.
 
@@ -25,7 +24,7 @@ The following policy allows a user read-only access to CloudWatch and view Amazo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -65,7 +64,7 @@ The following policy allows an CloudWatch alarm action to stop or terminate an E
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

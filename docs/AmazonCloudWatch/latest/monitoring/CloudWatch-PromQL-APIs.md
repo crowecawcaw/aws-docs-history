@@ -1,7 +1,6 @@
 
 
 # Prometheus-compatible APIs
-<a name="CloudWatch-PromQL-APIs"></a>
 
 **Topics**
 + [QueryMetrics](CloudWatch-PromQL-API-QueryMetrics.md)

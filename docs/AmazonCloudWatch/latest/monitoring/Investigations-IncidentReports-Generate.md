@@ -1,7 +1,6 @@
 
 
 # Generate a report from an investigation
-<a name="Investigations-IncidentReports-Generate"></a>
 
 You can generate incident reports from in-progress or completed investigations. Incident reports generated early in an investigation may not include key facts such as root causes and recommended actions. When the investigation is active you can edit the facts available to supplement the investigation with additional information. After the investigation is ended, you can't edit or add facts to the investigation.
 

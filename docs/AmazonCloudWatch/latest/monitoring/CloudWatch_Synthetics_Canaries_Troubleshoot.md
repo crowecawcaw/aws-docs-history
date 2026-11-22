@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a failed canary
-<a name="CloudWatch_Synthetics_Canaries_Troubleshoot"></a>
 
 If your canary fails, check the following for troubleshooting.
 

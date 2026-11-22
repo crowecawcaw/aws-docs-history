@@ -1,7 +1,6 @@
 
 
 # Prerequisites to configure an application for monitoring
-<a name="appinsights-prereqs"></a>
 
 You must complete the following prerequisites to configure an application with CloudWatch Application Insights:
 + **AWS Systems Manager enablement** – Install Systems Manager Agent (SSM Agent) on your Amazon EC2 instances, and enable the instances for SSM. For information about how to install the SSM Agent, see [Setting up AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html) in the *AWS Systems Manager User Guide*.

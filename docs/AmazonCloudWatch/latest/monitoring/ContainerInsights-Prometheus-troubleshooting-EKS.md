@@ -1,7 +1,6 @@
 
 
 # Prometheus metrics troubleshooting on Amazon EKS and Kubernetes clusters
-<a name="ContainerInsights-Prometheus-troubleshooting-EKS"></a>
 
 This section provides help for troubleshooting your Prometheus metrics setup on Amazon EKS and Kubernetes clusters. 
 

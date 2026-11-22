@@ -1,7 +1,6 @@
 
 
 # Delete a monitor in Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-configure-monitors-delete"></a>
 
 To delete a monitor in Network Flow Monitor, follow the steps here. 
 

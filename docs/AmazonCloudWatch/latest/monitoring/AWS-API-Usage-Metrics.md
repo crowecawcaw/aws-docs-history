@@ -1,7 +1,6 @@
 
 
 # AWS API usage metrics
-<a name="AWS-API-Usage-Metrics"></a>
 
 Most APIs that support AWS CloudTrail logging also report usage metrics to CloudWatch. API usage metrics in CloudWatch allow you to proactively manage API usage by visualizing metrics in the CloudWatch console, creating custom dashboards, detecting changes in activity with CloudWatch anomaly detection, and configuring alarms that alert when usage approaches a threshold.
 

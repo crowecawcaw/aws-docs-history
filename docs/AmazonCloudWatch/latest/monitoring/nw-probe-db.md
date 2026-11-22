@@ -1,7 +1,6 @@
 
 
 # Probe dashboards
-<a name="nw-probe-db"></a>
 
 You can use a **Probe** dashboard in Network Synthetic Monitor to view the network health indicator (NHI) for a probe, as well as information about round-trip time and packet loss for specific probes. There are two dashboards for probes: an **Overview** page and** Probe details** page.
 

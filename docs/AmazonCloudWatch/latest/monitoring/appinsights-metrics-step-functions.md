@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions
-<a name="appinsights-metrics-step-functions"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

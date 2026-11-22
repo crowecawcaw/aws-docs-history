@@ -1,7 +1,6 @@
 
 
 # Source configuration for Entrust IDaaS
-<a name="entrust-idaas-source-setup"></a>
 
 ## Integrating with Entrust IDaaS
 <a name="entrust-idaas-integration"></a>

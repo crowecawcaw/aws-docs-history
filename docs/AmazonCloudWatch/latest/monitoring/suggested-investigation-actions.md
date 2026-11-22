@@ -1,7 +1,6 @@
 
 
 # Reviewing and executing suggested runbook remediations for CloudWatch investigations
-<a name="suggested-investigation-actions"></a>
 
 When you add a hypothesis to the **Feed** area of an active investigation, CloudWatch investigations might display **Show suggested actions**. One suggested action might be to view documentation with information to help you remediate a problem manually.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch Metrics (OTel)
-<a name="metrics-pipeline-selection-criteria"></a>
 
 Selection criteria determine which OTel metrics enter a pipeline for processing. Each criterion is an expression of the form `<path> == "<value>"` that matches against a specific attribute of the incoming metric. At least one selection criterion is required.
 
@@ -28,7 +27,7 @@ The following OTTL paths are supported in selection criteria:
 
 Selection criteria are defined in the `source` section of the pipeline configuration:
 
-```
+```yaml
 pipeline:
   source:
     cloudwatch_metrics:
@@ -48,7 +47,7 @@ pipeline:
 
 The following example uses all supported path types:
 
-```
+```yaml
 pipeline:
   source:
     cloudwatch_metrics:
@@ -112,7 +111,7 @@ No overlapping criteria across pipelines
 Each metric datapoint must match at most one pipeline. If a datapoint matches both new and existing pipeline criteria, pipeline creation fails. To prevent overlap, include at least one attribute path with distinct values in each pipeline's selection criteria.  
 For example, the following two selection criteria overlap because Pipeline A selects all metrics from `payment-service`, which includes the specific metric that Pipeline B targets:  
 
-```
+```yaml
 # Pipeline A — selects ALL metrics from payment-service
 selection_criteria:
   - match_all:

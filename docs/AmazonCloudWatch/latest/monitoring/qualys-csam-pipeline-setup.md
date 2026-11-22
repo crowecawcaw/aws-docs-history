@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Qualys CSAM
-<a name="qualys-csam-pipeline-setup"></a>
 
 With this pipeline, you can collect asset inventory, software component, External Attack Surface Management (EASM) vulnerability finding, and domain intelligence data from Qualys CSAM. The pipeline uses the Global AssetView (GAV) and CSAM REST APIs with OAuth 2.0 authentication and a JWT exchange.
 
 The following example shows the complete pipeline configuration:
 
-```
+```yaml
 extension:
   aws:
     secrets:

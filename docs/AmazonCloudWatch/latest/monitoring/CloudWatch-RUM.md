@@ -1,7 +1,6 @@
 
 
 # CloudWatch RUM
-<a name="CloudWatch-RUM"></a>
 
 With CloudWatch RUM, you can perform real user monitoring to collect and view client-side data about your web and mobile application performance from actual user sessions in near real time. For Web applications, you can analyze page load times, client-side errors, and user behavior. For Mobile applications, you can monitor screen load times, app launch times, network errors, crashes, and platform-specific issues such as Android Application Not Responding (ANR) and iOS App Hangs. When you view this data, you can see it all aggregated together and also see breakdowns by device types, operating systems, and other characteristics of your application usage.
 

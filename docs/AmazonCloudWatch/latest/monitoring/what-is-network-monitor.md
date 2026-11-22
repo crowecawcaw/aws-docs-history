@@ -1,7 +1,6 @@
 
 
 # Using Network Synthetic Monitor
-<a name="what-is-network-monitor"></a>
 
 Network Synthetic Monitor provides visibility into the performance of the network connecting your AWS hosted applications to your on-premises destinations, and allows you to identify the source of any network performance degradation within minutes. Network Synthetic Monitor is fully managed by AWS, and doesn't require separate agents on monitored resources. Use Network Synthetic Monitor to visualize packet loss and latency of your hybrid network connections, and set alerts and thresholds. Then, based on this information, you can take action to improve your end users' experience. 
 

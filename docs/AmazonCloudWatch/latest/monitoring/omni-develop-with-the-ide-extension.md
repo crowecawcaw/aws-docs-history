@@ -1,7 +1,6 @@
 
 
 # Develop with the IDE extension
-<a name="omni-develop-with-the-ide-extension"></a>
 
 Use the CloudWatch Omni extension to build, test, and evaluate your agent from your IDE. The extension is available for VS Code, Kiro, and Cursor.
 
@@ -44,7 +43,7 @@ Onboarding instruments your project and connects the extension to your running a
 
 1. **Connect to your agent.** The coding agent sets your start command and port and starts the local server, detects your agent's request and response schema from your code and saves it, then sends a test request. Onboarding is complete when that request produces a trace.
 
-Start onboarding from the extension's Getting Started view.
+Start onboarding from the extension's **Welcome to Omni** tab.
 
 **Onboard manually instead.** A coding agent is not required. Each step is also available on its own from the configuration view, so you can set the start command, the port, and the schema yourself, and re-run a single step without repeating the others. The "Test your agent locally" section of this page walks through the start command, the server, and the test request by hand.
 
@@ -76,7 +75,7 @@ To start your agent yourself, switch the extension to external server mode. The 
 
 The extension includes AI assistance for working on your agent:
 + **Analyze with AI** — ask about a trace or a failure and get an explanation based on your telemetry.
-+ **Prompt recommendations** — get suggestions to improve a prompt.
++ **Suggested prompts** — after your evaluators score a Playground run, the Playground suggests an improvement to the prompt, which you can test with **Try suggested prompt**.
 
 You can use AI coding agents through the Omni skills in the Agent Toolkit for AWS. See [Use Omni skills](omni-use-omni-skills.md). For the AI assistant in the Omni web UI, see [Ask the Omni agent](omni-ask-the-omni-agent.md).
 

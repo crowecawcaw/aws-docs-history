@@ -1,7 +1,6 @@
 
 
 # View overall service activity and operational health with the Services page
-<a name="Services-page"></a>
 
 Use the Services page to see a list of your services that are [enabled for Application Signals](CloudWatch-Application-Signals-Enable.md). You can also view operational metrics and quickly see which services have unhealthy service level indicators (SLIs). Drill down to look for performance anomalies as you identify the root cause of operational issues. To view this page, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) and choose **Services** under the **Application Signals** section in the left navigation pane.
 

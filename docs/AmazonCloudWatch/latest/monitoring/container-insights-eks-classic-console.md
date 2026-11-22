@@ -1,7 +1,6 @@
 
 
 # Enable Enhanced Container Insights (Classic) from the console
-<a name="container-insights-eks-classic-console"></a>
 
 You can enable Enhanced Container Insights (Classic) directly from the Amazon EKS console. This approach installs the Amazon CloudWatch Observability add-on (version prior to v6.2.0) with the Classic metric pipeline. This is ideal if you prefer a UI-driven experience and want to enable observability without writing infrastructure code or running CLI commands.
 

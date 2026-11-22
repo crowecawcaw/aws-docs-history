@@ -1,7 +1,6 @@
 
 
 # Using the embedded metric format with Lambda
-<a name="CloudWatch_Embedded_Metric_Format_Lambda"></a>
 
 You do not need to install the CloudWatch agent to publish embedded metric format logs from Lambda functions. Lambda automatically sends everything that your function writes to standard output (STDOUT) to a CloudWatch Logs log group, and CloudWatch Logs extracts metrics from any log events that follow the embedded metric format specification. On hosts and containers, the agent forwards logs to CloudWatch Logs, but Lambda delivers the logs for you, so you do not need the agent.
 

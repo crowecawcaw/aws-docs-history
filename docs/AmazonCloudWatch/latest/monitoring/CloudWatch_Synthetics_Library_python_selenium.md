@@ -1,7 +1,6 @@
 
 
 # Runtime versions using Python and Selenium Webdriver
-<a name="CloudWatch_Synthetics_Library_python_selenium"></a>
 
 The following sections contain information about the CloudWatch Synthetics runtime versions for Python and Selenium Webdriver. Selenium is an open-source browser automation tool. For more information about Selenium, see [ www.selenium.dev/](https://www.selenium.dev)
 

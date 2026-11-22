@@ -1,7 +1,6 @@
 
 
 # Source configuration for SailPoint ISC
-<a name="sailpoint-isc-source-config"></a>
 
 ## Supported API and schema versions
 <a name="sailpoint-isc-supported-versions"></a>

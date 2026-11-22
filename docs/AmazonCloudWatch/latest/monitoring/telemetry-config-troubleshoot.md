@@ -1,7 +1,6 @@
 
 
 # Troubleshooting telemetry configuration
-<a name="telemetry-config-troubleshoot"></a>
 
 This section describes common issues you might encounter when using telemetry configuration and how to resolve them.
 

@@ -1,7 +1,6 @@
 
 
 # Canaries and X-Ray tracing
-<a name="CloudWatch_Synthetics_Canaries_tracing"></a>
 
 You can enable active AWS X-Ray tracing for canaries that use a Node.js and Puppeteer runtime (`syn-nodejs-puppeteer-*`) or a Java runtime (`syn-java-*`). With tracing enabled, traces are sent for all calls made by the canary that use the browser, the AWS SDK, or HTTP or HTTPS modules. Canaries with tracing enabled appear on the [X-Ray Trace Map](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-servicemap.html), and within [Application Signals](CloudWatch-Application-Monitoring-Sections.md) after you have enabled it for your application. 
 
@@ -21,7 +20,7 @@ A canary with tracing enabled must use a role with the following permissions. If
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

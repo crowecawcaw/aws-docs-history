@@ -1,7 +1,6 @@
 
 
 # Use the AWS CLI to enable Lambda Insights on an existing Lambda function
-<a name="Lambda-Insights-Getting-Started-cli"></a>
 
 Follow these steps to use the AWS CLI to enable Lambda Insights on an existing Lambda function.
 

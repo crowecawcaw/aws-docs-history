@@ -1,7 +1,6 @@
 
 
 # How Network Synthetic Monitor works with IAM
-<a name="security_iam_service-with-iam-nw"></a>
 
 Before you use IAM to manage access to Network Synthetic Monitor, learn what IAM features are available to use with Network Synthetic Monitor.
 

@@ -1,7 +1,6 @@
 
 
 # Alarm evaluation window
-<a name="alarm-evaluation-window"></a>
 
 When CloudWatch evaluates a metric alarm, it retrieves metric data for a time range called the *evaluation window*. The length of the window is `Period` multiplied by `Evaluation Periods`. Where the boundaries of that window fall is controlled by the `EvaluationWindow` parameter on the [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) API. `EvaluationWindow` accepts one of two configurations:
 + `SlidingWindow` – the default. The window advances each time the alarm is evaluated, forming a rolling time window.

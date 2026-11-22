@@ -1,7 +1,6 @@
 
 
 # SAP ASE High Availability on Amazon EC2
-<a name="appinsights-metrics-sap-ase-ha"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

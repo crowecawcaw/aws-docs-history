@@ -1,7 +1,6 @@
 
 
 # Agent view
-<a name="agent-view"></a>
 
 The *Agent view* provides a curated dashboard for your account's agents. You can view data from agents hosted on AWS native services like AgentCore Runtime, Lambda, or Amazon EC2. The view also displays agents that emit telemetry to CloudWatch.
 

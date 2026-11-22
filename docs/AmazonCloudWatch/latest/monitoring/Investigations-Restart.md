@@ -1,7 +1,6 @@
 
 
 # Restart an archived investigation
-<a name="Investigations-Restart"></a>
 
 You can restart archived investigations.
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Ping Identity PingAccess
-<a name="pingidentity-pingaccess-source-setup"></a>
 
 ## Integrating with Ping Identity PingAccess
 <a name="pingidentity-pingaccess-integration"></a>
@@ -45,7 +44,7 @@ Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "AllowS3ToSQS",
@@ -76,7 +75,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 
 Enable JSON logging on PingAccess by editing `<PA_HOME>/conf/log4j2.xml`. Add the following RollingFile appenders:
 
-```
+```xml
 <RollingFile name="AdminAudit-JsonTemplateLayout"
              fileName="${sys:pa.log.dir}/admin_audit_json.log"
              filePattern="${sys:pa.log.dir}/admin_audit_json.%d{yyyy-MM-dd}.log"
@@ -100,7 +99,7 @@ Enable JSON logging on PingAccess by editing `<PA_HOME>/conf/log4j2.xml`. Add th
 
 Update the Loggers section to reference the new appenders:
 
-```
+```xml
 <Logger name="com.pingidentity.pa.admin.audit" level="INFO" additivity="false">
     <AppenderRef ref="AdminAudit-JsonTemplateLayout"/>
 </Logger>
@@ -117,7 +116,7 @@ Update the Loggers section to reference the new appenders:
 
 Configure Fluent Bit to collect both audit log files and deliver them to Amazon S3:
 
-```
+```ini
 ########################################
 # SERVICE SECTION
 ########################################
@@ -190,7 +189,7 @@ Use only the default PingAccess-provided JSON templates.
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

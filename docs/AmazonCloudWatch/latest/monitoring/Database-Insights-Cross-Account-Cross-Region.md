@@ -1,7 +1,6 @@
 
 
 # Set up cross-account cross-region monitoring for CloudWatch Database Insights
-<a name="Database-Insights-Cross-Account-Cross-Region"></a>
 
  CloudWatch Database Insights supports cross-account and cross-region database fleet monitoring, enabling centralized observability across your entire database AWS infrastructure. It allows you to monitor, troubleshoot, and optimize databases spanning multiple AWS accounts and regions from a single unified console experience. 
 

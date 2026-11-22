@@ -1,7 +1,6 @@
 
 
 # Use metric streams
-<a name="CloudWatch-Metric-Streams"></a>
 
 You can use *metric streams* to continually stream CloudWatch metrics to a destination of your choice, with near-real-time delivery and low latency. Supported destinations include AWS destinations such as Amazon Simple Storage Service and several third-party service provider destinations.
 

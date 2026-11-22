@@ -1,7 +1,6 @@
 
 
 # Using condition keys to limit alarm actions
-<a name="iam-cw-condition-keys-alarm-actions"></a>
 
 When CloudWatch alarms change state, they can perform different actions such as stopping and terminating EC2 instances and performing Systems Manager actions. These actions can be initiated when the alarm changes to any state, including ALARM, OK, or INSUFFICIENT\_DATA.
 
@@ -16,7 +15,7 @@ The following policy limits the user to creating alarms that can only send Amazo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Set up OpenAI Codex for an enterprise rollout
-<a name="coding-agents-codex-enterprise"></a>
 
 Use this path when you operate Codex across a fleet of developers and want consistent, automatically attributed telemetry without distributing long-term credentials. Developers authenticate through your corporate identity provider (IdP), so identity and organizational attributes are derived from your directory rather than entered by hand. Metrics still arrive in Amazon CloudWatch with identity and organizational data carried as OTel *resource* attributes, so the same Coding Agent Insights dashboards populate.
 

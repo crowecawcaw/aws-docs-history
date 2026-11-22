@@ -1,7 +1,6 @@
 
 
 # Translations with OpenTelemetry 1.0.0 format in CloudWatch
-<a name="CloudWatch-metric-streams-formats-opentelemetry-translation-100"></a>
 
 CloudWatch performs some transformations to put CloudWatch data into OpenTelemetry format.
 

@@ -1,7 +1,6 @@
 
 
 # Install and Configure Amazon CloudWatch Agent with Workload Detection in the CloudWatch console
-<a name="install-cloudwatch-agent-workload-detection"></a>
 
 ## Introduction
 <a name="workload-detection-introduction"></a>

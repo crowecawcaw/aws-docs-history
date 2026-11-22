@@ -1,7 +1,6 @@
 
 
 # Using 5 Whys analysis in incident reports
-<a name="incident-report-5whys"></a>
 
 When generating incident reports, CloudWatch investigations can perform a 5 Whys root cause analysis to systematically identify the underlying causes of operational issues. This structured approach enhances your incident reports with deeper insights and actionable remediation steps.
 

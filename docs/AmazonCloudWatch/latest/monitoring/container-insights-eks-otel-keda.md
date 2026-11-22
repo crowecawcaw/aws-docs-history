@@ -1,7 +1,6 @@
 
 
 # Collecting KEDA metrics with OTel Container Insights
-<a name="container-insights-eks-otel-keda"></a>
 
 KEDA (Kubernetes Event-Driven Autoscaling) is an open-source project that allows you to scale Kubernetes workloads based on external metrics from sources like Amazon SQS, Amazon CloudWatch, or custom Prometheus queries. Container Insights collects KEDA metrics through Prometheus scraping. With Container Insights, you gain built-in visibility into ScaledObject status, scaler health, and scale loop performance. You do not need to set up Prometheus or Grafana manually.
 
@@ -16,7 +15,7 @@ KEDA metrics help you answer operational questions such as:
 KEDA metrics collection is enabled by default when the following requirements are met.
 + Amazon EKS cluster running Kubernetes 1.28 or later
 + KEDA installed and running in the cluster (default namespace: `keda`)
-+ OTel Container Insights enabled on the cluster (see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md))
++ OTel Container Insights enabled on the cluster (see [Quick start](container-insights-eks-otel-quickstart.md))
 + The `amazon-cloudwatch-observability` add-on in `ACTIVE` status
 
 ## Configuring KEDA metrics collection
@@ -30,7 +29,7 @@ To disable KEDA metrics collection, set `otelContainerInsights.solutions.keda.en
 
 The following Helm values show the default configuration.
 
-```
+```yaml
 otelContainerInsights:
   solutions:
     enabled: true
@@ -40,7 +39,7 @@ otelContainerInsights:
 
 To disable KEDA metrics using the Amazon EKS add-on, run the following AWS CLI command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -50,7 +49,7 @@ aws eks update-addon \
 
 To disable KEDA metrics using the Helm chart, run the following command.
 
-```
+```bash
 helm upgrade amazon-cloudwatch-observability \
   aws-observability/amazon-cloudwatch-observability \
   -n amazon-cloudwatch \

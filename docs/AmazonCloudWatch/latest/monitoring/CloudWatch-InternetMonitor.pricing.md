@@ -1,7 +1,6 @@
 
 
 # Pricing for Internet Monitor
-<a name="CloudWatch-InternetMonitor.pricing"></a>
 
 With Internet Monitor, there are no upfront costs or long-term commitments. Pricing for Internet Monitor has two components: a per monitored resource fee and a per city-network fee. A *city-network* is the location where clients access your application resources from and the network (ASN, such as an internet service provider or ISP) that clients access the resources through. Note that you are also charged standard CloudWatch prices for logs and any additional metrics, dashboards, alarms, or insights that you create.
 

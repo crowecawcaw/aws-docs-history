@@ -1,7 +1,6 @@
 
 
 # Managing multilocation canaries
-<a name="CloudWatch_Synthetics_MultiLocation_Managing"></a>
 
 ## Creating a multilocation canary
 <a name="CloudWatch_Synthetics_MultiLocation_Create_Manage"></a>

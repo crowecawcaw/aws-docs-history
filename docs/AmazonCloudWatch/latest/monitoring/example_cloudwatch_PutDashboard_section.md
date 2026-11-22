@@ -1,7 +1,6 @@
 
 
 # Use `PutDashboard` with an AWS SDK or CLI
-<a name="example_cloudwatch_PutDashboard_section"></a>
 
 The following code examples show how to use `PutDashboard`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Wrapper to create or add to a dashboard with metrics.
     /// </summary>
@@ -68,7 +67,7 @@ For more information, see [Creating a CloudWatch dashboard](https://docs.aws.ama
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Creates a new dashboard with the specified name and body.
      *
@@ -111,7 +110,7 @@ For more information, see [Creating a CloudWatch dashboard](https://docs.aws.ama
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun createDashboard(
     dashboardNameVal: String,
     dashboardBodyVal: String,
@@ -146,7 +145,7 @@ suspend fun createDashboard(
 **Tools for PowerShell V4**  
 **Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**  
 
-```
+```powershell
 $dashBody = @"
 {
     "widgets":[
@@ -200,7 +199,7 @@ Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
 ```
 **Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**  
 
-```
+```powershell
 $dashBody = @"
 {
 ...
@@ -214,7 +213,7 @@ $dashBody | Write-CWDashboard -DashboardName Dashboard1
 **Tools for PowerShell V5**  
 **Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**  
 
-```
+```powershell
 $dashBody = @"
 {
     "widgets":[
@@ -268,7 +267,7 @@ Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
 ```
 **Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**  
 
-```
+```powershell
 $dashBody = @"
 {
 ...

@@ -1,7 +1,6 @@
 
 
 # Use `ListAlarmMuteRules` with an AWS SDK
-<a name="example_cloudwatch_ListAlarmMuteRules_section"></a>
 
 The following code examples show how to use `ListAlarmMuteRules`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List the alarm mute rules in the account, optionally filtered to the rules that
     /// target one alarm.
@@ -58,7 +57,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/AlarmMuteRuleStatus.h>
@@ -67,7 +66,7 @@ Include the required files.
 ```
 List the alarm mute rules.  
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -107,7 +106,7 @@ List the alarm mute rules.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Lists the alarm mute rules in the account, optionally filtered to the rules that
      * target one alarm.
@@ -151,7 +150,7 @@ List the alarm mute rules.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 
-```
+```javascript
 import { ListAlarmMuteRulesCommand } from "@aws-sdk/client-cloudwatch";
 import { client } from "../libs/client.js";
 
@@ -192,7 +191,7 @@ export default run();
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun listAlarmMuteRules(alarmNameVal: String? = null): List<AlarmMuteRuleSummary> {
     val summaries = mutableListOf<AlarmMuteRuleSummary>()
 
@@ -226,7 +225,7 @@ suspend fun listAlarmMuteRules(alarmNameVal: String? = null): List<AlarmMuteRule
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
-```
+```python
 class CloudWatchOTelWrapper:
     """Encapsulates the OpenTelemetry-oriented Amazon CloudWatch operations."""
 
@@ -290,7 +289,7 @@ class CloudWatchOTelWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
-```
+```ruby
 # Lists the alarm mute rules in the account, optionally filtered to the rules that
 # target one alarm.
 #

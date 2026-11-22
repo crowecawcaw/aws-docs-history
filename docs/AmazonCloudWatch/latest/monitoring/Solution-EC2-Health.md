@@ -1,7 +1,6 @@
 
 
 # CloudWatch solution: Amazon EC2 health
-<a name="Solution-EC2-Health"></a>
 
 This solution helps you configure out-of-the-box metric collection using CloudWatch agents for workloads running on EC2 instances. Additionally, it helps you set up a pre-configured CloudWatch dashboard.
 
@@ -102,7 +101,7 @@ If you wish to make any modifications to the agent configuration, you must apply
 
 Use the following CloudWatch agent configuration on Amazon EC2 instances where your workloads are deployed.
 
-```
+```json
 {
     "agent": {
       "metrics_collection_interval": 60,

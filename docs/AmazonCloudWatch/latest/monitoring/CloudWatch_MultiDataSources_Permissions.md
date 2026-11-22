@@ -1,7 +1,6 @@
 
 
 # Managing access to data sources
-<a name="CloudWatch_MultiDataSources_Permissions"></a>
 
  CloudWatch uses CloudFormation to create the required resources in your account. We recommend that you use the `cloudformation:TemplateUrl` condition to control access to CloudFormation templates when you grant `CreateStack` permissions to IAM users. 
 
@@ -15,7 +14,7 @@ You can find template URLs for data sources on the **Create stack** page in the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

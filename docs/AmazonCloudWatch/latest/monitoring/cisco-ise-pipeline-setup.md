@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Cisco ISE
-<a name="cisco-ise-pipeline-setup"></a>
 
 The Cisco ISE setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the Cisco ISE source with the following parameters:
 
-```
+```yaml
 source:
   s3:
     aws:

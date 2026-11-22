@@ -1,11 +1,10 @@
 
 
 # Delete scope for Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-disable"></a>
 
 If you decide that you no longer want to monitor network flows using Network Flow Monitor, you can delete your Network Flow Monitor scope. When you delete your scope, you can no longer see network performance information.
 
-Before you can delete your scope, you must delete all monitors. Be aware that it can take about 15 minutes to complete removing monitors after you request to delete them. For more information, see [Delete a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-delete.md). 
+Before you can delete your scope, you must delete all of your Network Flow Monitor and Performance Monitor monitors. Be aware that it can take about 15 minutes to complete removing monitors after you request to delete them. For more information, see [Delete a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-delete.md). 
 
 **To delete your scope**
 
@@ -13,6 +12,8 @@ Before you can delete your scope, you must delete all monitors. Be aware that it
 
 1. In the left navigation pane, under **Network Monitoring**, choose **Flow monitors**.
 
-1. On the **Settings** tab, choose **Delete scope**.
+1. Choose **Account Configuration**.
+
+1. On the **Account Configuration** page, choose **Delete scope**.
 
 1. In the dialog box, enter confirmation text, and then choose **Delete scope**.

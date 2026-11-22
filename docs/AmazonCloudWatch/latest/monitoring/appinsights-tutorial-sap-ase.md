@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up monitoring for SAP ASE
-<a name="appinsights-tutorial-sap-ase"></a>
 
 This tutorial demonstrates how to configure CloudWatch Application Insights to set up monitoring for your SAP ASE databases. You can use CloudWatch Application Insights automatic dashboards to visualize problem details, accelerate troubleshooting, and help mean time to resolution (MTTR) for your SAP ASE databases.
 
@@ -82,7 +81,7 @@ You must perform the following prerequisites to configure an SAP ASE database wi
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -109,7 +108,7 @@ You must perform the following prerequisites to configure an SAP ASE database wi
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

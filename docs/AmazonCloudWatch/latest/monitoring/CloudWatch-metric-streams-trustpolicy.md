@@ -1,7 +1,6 @@
 
 
 # Trust between CloudWatch and Firehose
-<a name="CloudWatch-metric-streams-trustpolicy"></a>
 
 The Firehose delivery stream must trust CloudWatch through an IAM role that has write permissions to Firehose. These permissions can be limited to the single Firehose delivery stream that the CloudWatch metric stream uses. The IAM role must trust the `streams.metrics.cloudwatch.amazonaws.com` service principal.
 
@@ -12,7 +11,7 @@ If you use the CloudWatch console to create a metric stream, you can have CloudW
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -35,7 +34,7 @@ If you use the CloudWatch console to create a metric stream, you can have CloudW
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

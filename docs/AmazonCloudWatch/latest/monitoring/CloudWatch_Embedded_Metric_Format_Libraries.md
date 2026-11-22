@@ -1,7 +1,6 @@
 
 
 # Creating logs in embedded metric format using the client libraries
-<a name="CloudWatch_Embedded_Metric_Format_Libraries"></a>
 
  You can use the open-sourced client libraries that Amazon provides to create embedded metric format logs. Full examples for different setups can be found in our client libraries under **/examples**. The libraries and the instructions for how to use them are located on Github. 
 + [Node.Js](https://github.com/awslabs/aws-embedded-metrics-node)

@@ -1,7 +1,6 @@
 
 
 # Application traces
-<a name="omni-application-traces"></a>
 
 An application trace records one request as it passes through your services and dependencies. A span records one operation within that trace. Use this page to find a request, inspect the operations inside it, and open the related logs or service metrics.
 

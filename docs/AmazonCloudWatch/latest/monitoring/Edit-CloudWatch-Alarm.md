@@ -1,7 +1,6 @@
 
 
 # Edit or delete a CloudWatch alarm
-<a name="Edit-CloudWatch-Alarm"></a>
 
 You can edit or delete an existing alarm.
 

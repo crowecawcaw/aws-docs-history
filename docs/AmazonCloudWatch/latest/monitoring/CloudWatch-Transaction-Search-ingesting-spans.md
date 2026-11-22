@@ -1,7 +1,6 @@
 
 
 # Ingesting spans for complete visibility
-<a name="CloudWatch-Transaction-Search-ingesting-spans"></a>
 
  Recording all transaction spans provides comprehensive visibility into application issues. It enables you to debug customer support tickets or troubleshoot rarely occurring p99 API latency spikes, which is crucial when identifying the root cause of issues in customer-facing and mission-critical applications. You can create a cost-effective strategy to start capturing 100% of trace spans in CloudWatch by configuring the head sampling rate and then adjusting a lower span indexing rate. 
 

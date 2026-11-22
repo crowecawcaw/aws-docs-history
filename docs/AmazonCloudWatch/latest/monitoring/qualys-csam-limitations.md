@@ -1,7 +1,6 @@
 
 
 # Known Qualys CSAM platform limitations
-<a name="qualys-csam-limitations"></a>
 
 The following table describes known Qualys CSAM platform limitations.
 

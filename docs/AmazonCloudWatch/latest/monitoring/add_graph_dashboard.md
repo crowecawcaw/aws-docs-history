@@ -1,7 +1,6 @@
 
 
 # Adding a graph widget to a CloudWatch dashboard
-<a name="add_graph_dashboard"></a>
 
 The procedures in this section describe how to add and remove graphs from your dashboard. For information about how to edit a graph on your dashboard, see [ Edit a graph on a CloudWatch dashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/edit_graph_dashboard.html). 
 

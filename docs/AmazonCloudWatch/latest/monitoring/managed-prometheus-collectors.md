@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch managed Prometheus collectors
-<a name="managed-prometheus-collectors"></a>
 
 Amazon CloudWatch managed Prometheus collectors provides a fully managed, agentless scraper, or collector, that automatically discovers and pulls Prometheus-compatible metrics. With Amazon CloudWatch managed Prometheus collectors, you eliminate the operational overhead of running and scaling your own metric collection infrastructure. The collectors automatically discover targets in your VPC, scrape Prometheus-compatible metrics, and deliver them to CloudWatch. You don't have to manage, install, patch, or maintain agents, collectors or scrapers for Prometheus metrics. Managed collectors automatically scale to provide highly available, reliable metric collection for your AWS infrastructure.
 

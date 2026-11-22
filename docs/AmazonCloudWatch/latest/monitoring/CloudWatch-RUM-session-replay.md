@@ -1,7 +1,6 @@
 
 
 # Session replay
-<a name="CloudWatch-RUM-session-replay"></a>
 
 CloudWatch RUM session replay allows you to capture end user sessions for your web application. You can play back these sessions to visually see what users experienced, helping you identify issues, understand user behavior, and troubleshoot problems.
 
@@ -14,7 +13,7 @@ To use session replay, import the `RRWebPlugin` from the `aws-rum-web` package a
 
 The following example shows how to enable session replay.
 
-```
+```javascript
 import { AwsRum, AwsRumConfig } from 'aws-rum-web';
 import { RRWebPlugin } from 'aws-rum-web';
 

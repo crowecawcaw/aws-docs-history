@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Cisco FTD
-<a name="cisco-ftd-pipeline-setup"></a>
 
 The Cisco FTD setup reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the Cisco FTD source with the following parameters:
 
-```
+```yaml
 source:
   s3:
     aws:

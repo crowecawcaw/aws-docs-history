@@ -1,7 +1,6 @@
 
 
 # Regionalization
-<a name="CloudWatch-RUM-Regionalization"></a>
 
 This section illustrates strategies for using CloudWatch RUM with applications in different Regions.
 

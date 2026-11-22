@@ -1,7 +1,6 @@
 
 
 # Edit or delete a canary
-<a name="synthetics_canaries_deletion"></a>
 
 You can edit or delete an existing canary.
 

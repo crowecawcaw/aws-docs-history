@@ -1,7 +1,6 @@
 
 
 # Source configuration for Zscaler Internet Access
-<a name="zscaler-zia-source-setup"></a>
 
 ## Integrating with Zscaler Internet Access
 <a name="zscaler-zia-integration"></a>
@@ -63,7 +62,7 @@ Amazon S3 bucket names can't contain underscores (`_`). Use hyphens (`-`) instea
 
 **Example IAM policy for the Cloud NSS user**
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -81,7 +80,7 @@ Amazon S3 bucket names can't contain underscores (`_`). Use hyphens (`-`) instea
 
 **Example IAM policy for Amazon SQS queue**
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Id": "PolicyForS3SendMessage",

@@ -1,7 +1,6 @@
 
 
 # Initialize Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-configure-begin"></a>
 
 Before you can view performance metrics for network flows, you must initialize Network Flow Monitor, which grants required permissions and creates an initial topology for your account or accounts. If you plan to monitor resources for multiple accounts, you must also configure AWS Organizations with Amazon CloudWatch. Then, you specify accounts for your Network Flow Monitor scope, so that Network Flow Monitor can create an initial topology for all the accounts that you'll be tracking performance metrics for.
 

@@ -1,7 +1,6 @@
 
 
 # Common features for CloudWatch Synthetics canaries
-<a name="CloudWatch_Synthetics_Canaries_CommonFeatures"></a>
 
 You can use the following features with all canary runtimes.
 
@@ -35,7 +34,7 @@ const URL = process.env.URL;
 
 The following complete script demonstrates both environment variables. When you create a canary using this script, you specify values for the `LOG_LEVEL` and `URL` environment variables.
 
-```
+```nodejs
 var synthetics = require('@aws/synthetics-puppeteer');
 const log = require('@aws/synthetics-logger');
 
@@ -140,7 +139,7 @@ When calling `CreateCanary` or `UpdateCanary`, specify the `KmsKeyArn` parameter
 #### Example: CreateCanary request with a customer managed key
 <a name="CloudWatch_Synthetics_function_encryption_configure_example"></a>
 
-```
+```json
 {
   "Name": "my-canary-EXAMPLE",
   "KmsKeyArn": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111",
@@ -192,7 +191,7 @@ You need the following permissions for encryption in transit:
 
 The following is an example IAM policy to attach to the canary execution role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -210,7 +209,7 @@ The following is an example IAM policy to attach to the canary execution role:
 
 To use an encrypted environment variable in your canary script, decrypt it at runtime. The following Node.js example shows how to decrypt an environment variable:
 
-```
+```nodejs
 const { KMSClient, DecryptCommand } = require('@aws-sdk/client-kms');
 const client = new KMSClient({ region: process.env.AWS_REGION });
 

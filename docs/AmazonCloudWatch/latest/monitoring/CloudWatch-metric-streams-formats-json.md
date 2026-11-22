@@ -1,7 +1,6 @@
 
 
 # CloudWatch metric stream output in JSON format
-<a name="CloudWatch-metric-streams-formats-json"></a>
 
 In a CloudWatch metric stream that uses the JSON format, each Firehose record contains multiple JSON objects separated by a newline character (\\n). Each object includes a single data point of a single metric.
 
@@ -11,7 +10,7 @@ In the JSON format, the valid values for `unit` are the same as for the value of
 
 The following is an example of the format. In this example, the JSON is formatted for easy reading, but in practice the whole format is on a single line.
 
-```
+```json
 {
     "metric_stream_name": "MyMetricStream",
     "account_id": "1234567890",
@@ -40,7 +39,7 @@ The following is an example of the format. In this example, the JSON is formatte
 
 The following is an example of a JSON representation of the `StorageDescriptor` for an AWS Glue table, which would then be used by Firehose. For more information about `StorageDescriptor`, see [ StorageDescriptor](https://docs.aws.amazon.com/glue/latest/webapi/API_StorageDescriptor.html).
 
-```
+```json
 {
   "Columns": [
     {

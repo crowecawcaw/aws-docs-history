@@ -1,7 +1,6 @@
 
 
 # Custom metrics and extended metrics that you can send to CloudWatch
-<a name="CloudWatch-RUM-custom-and-extended-metrics"></a>
 
 By default, RUM app monitors send metrics to CloudWatch. These default metrics and dimensions are listed in [CloudWatch metrics that you can collect with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html).
 
@@ -41,7 +40,7 @@ cwr('recordEvent', {
 
 Given this custom event, you can create a custom metric that counts the number of visits to the `amazonaws.com` URL from Chrome browsers. The following definition creates a metric named `AmazonVisitsCount` in your account, in the `RUM/CustomMetrics/PageVisits` namespace.
 
-```
+```json
 {
     "AppMonitorName":"customer-appMonitor-name",
     "Destination":"CloudWatch",

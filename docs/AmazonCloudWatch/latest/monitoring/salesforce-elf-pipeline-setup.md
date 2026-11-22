@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Salesforce ELF
-<a name="salesforce-elf-pipeline-setup"></a>
 
 Collects EventLogFile and Setup AuditTrail events from Salesforce using OAuth2 authentication.
 
 Configure the Salesforce ELF source with the following parameters:
 
-```
+```yaml
 source:
   salesforce_elf:
     instance_url: "<<your-instance-url>>"

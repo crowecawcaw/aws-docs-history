@@ -1,7 +1,6 @@
 
 
 # Cross-account investigations
-<a name="Investigations-cross-account"></a>
 
  Cross-account CloudWatch investigations enables you to investigate application issues that span multiple AWS accounts from a centralized monitoring account. This feature allows you to correlate telemetry data, metrics, and logs across up to 25 accounts, in addition to the monitoring account, to gain comprehensive visibility into distributed applications and troubleshoot complex multi-account scenarios. 
 
@@ -39,7 +38,7 @@
 
 ****  
 
-        ```
+        ```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": {
@@ -66,7 +65,7 @@
 
 ****  
 
-        ```
+        ```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -119,7 +118,7 @@
 
 ****  
 
-        ```
+        ```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": {
@@ -159,7 +158,7 @@
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

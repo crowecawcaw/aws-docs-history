@@ -1,7 +1,6 @@
 
 
 # Alarm Mute Rules
-<a name="alarm-mute-rules"></a>
 
  Alarm Mute Rules is a CloudWatch feature that provides you a mechanism to automatically mute alarm actions during predefined time windows. When you create a mute rule, you define specific time periods and target alarms whose actions will be muted. CloudWatch will continue monitoring and evaluating alarm states while preventing unwanted notifications or automated alarm actions during expected operational events. 
 

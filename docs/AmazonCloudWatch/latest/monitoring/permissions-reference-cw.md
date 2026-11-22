@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch permissions reference
-<a name="permissions-reference-cw"></a>
 
 The following table lists each CloudWatch API operation and the corresponding actions for which you can grant permissions to perform the action. You specify the actions in the policy's `Action` field, and you specify a wildcard character (\*) as the resource value in the policy's `Resource` field.
 
@@ -40,12 +39,15 @@ To specify an action, use the `cloudwatch:` prefix followed by the API operation
 | [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html) | `cloudwatch:GetMetricStatistics`<br />Required to view graphs in other parts of the CloudWatch console and in dashboard widgets. | 
 | [GetMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStream.html) | `cloudwatch:GetMetricStream`<br />Required to view information about a metric stream. | 
 | [GetMetricWidgetImage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricWidgetImage.html) | `cloudwatch:GetMetricWidgetImage`<br />Required to retrieve a snapshot graph of one or more CloudWatch metrics as a bitmap image. | 
+| GetMonitoringAssessment | `cloudwatch:GetMonitoringAssessment`<br />Required to view the status, progress, scope, and retention of a monitoring assessment. This is a read-level action. | 
 | [GetOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetOTelEnrichment.html) | `cloudwatch:GetOTelEnrichment`<br />Required to retrieve the status of OpenTelemetry enrichment for vended metrics. | 
 | [GetResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetResourceMetricsConfiguration.html) | `cloudwatch:GetResourceMetricsConfiguration`<br />Required to retrieve the resource metrics configuration for a resource.<br />To restrict which resources a principal can target, use the `cloudwatch:ResourceArn` condition key. See [Condition keys for resource metrics configuration access](iam-cw-condition-keys-resource-arn.md). | 
 | [ListDashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListDashboards.html) | `cloudwatch:ListDashboards`<br />Required to view the list of CloudWatch dashboards in your account. | 
 | ListEntitiesForMetric<br />(CloudWatch console-only permission) | `cloudwatch:ListEntitiesForMetric`<br />Required to find the entities associated with a metric. Required to explore related telemetry within the CloudWatch console. | 
 | [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) | `cloudwatch:ListMetrics`<br />Required to view or search metric names within the CloudWatch console and in the CLI. Required to select metrics on dashboard widgets. | 
 | [ListMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetricStreams.html) | `cloudwatch:ListMetricStreams`<br />Required to view or search the list of metric streams in the account. | 
+| ListMonitoringAssessmentResults | `cloudwatch:ListMonitoringAssessmentResults`<br />Required to list the recommendations that a monitoring assessment produced. This is a list-level action. | 
+| ListMonitoringAssessments | `cloudwatch:ListMonitoringAssessments`<br />Required to list the monitoring assessments in the account. This is a list-level action. | 
 | [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListTagsForResource.html) | `cloudwatch:ListTagsForResource`<br />Required to list the tags associated with a CloudWatch resource. | 
 | [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) | `cloudwatch:PutCompositeAlarm`<br />Required to create a composite alarm.<br />To create a composite alarm, your `cloudwatch:PutCompositeAlarm` permission must have a `*` scope. You can't return information about composite alarms if your `cloudwatch:PutCompositeAlarm` permission has a narrower scope. | 
 | [PutDashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutDashboard.html) | `cloudwatch:PutDashboard`<br />Required to create a dashboard or update an existing dashboard. | 
@@ -54,6 +56,7 @@ To specify an action, use the `cloudwatch:` prefix followed by the API operation
 | [PutMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricStream.html) | `cloudwatch:PutMetricStream`<br />Required to create a metric stream. | 
 | [SetAlarmState](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html) | `cloudwatch:SetAlarmState`<br />Required to manually set an alarm's state. | 
 | [StartMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartMetricStreams.html) | `cloudwatch:StartMetricStreams`<br />Required to start the flow of metrics in a metric stream. | 
+| StartMonitoringAssessment | `cloudwatch:StartMonitoringAssessment`<br />Required to start a monitoring assessment that produces recommendations to improve observability. This is a read-level action.<br />The caller must also have `cloudwatch:DescribeAlarms`, `cloudwatch:GetMetricData`, `cloudwatch:GetMetricStatistics`, `cloudwatch:GetOTelEnrichment`, and `cloudwatch:ListMetrics` permissions. | 
 | [StartOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartOTelEnrichment.html) | `cloudwatch:StartOTelEnrichment`<br />Required to enable OpenTelemetry enrichment for vended metrics, making them queryable via PromQL. | 
 | [StopMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartMetricStreams.html) | `cloudwatch:StopMetricStreams`<br />Required to temporarily stop the flow of metrics in a metric stream. | 
 | [StopOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StopOTelEnrichment.html) | `cloudwatch:StopOTelEnrichment`<br />Required to disable OpenTelemetry enrichment for vended metrics. | 

@@ -1,7 +1,6 @@
 
 
 # SQL inference
-<a name="cloudwatch-metrics-insights-inference"></a>
 
 CloudWatch Metrics Insights uses several mechanisms to infer the intention of a given SQL query.
 
@@ -17,7 +16,7 @@ Time series data points resulting from a query are rolled up into time buckets b
 
 For example, when a query is performed with a period of one minute, all the observations belonging to that minute until the next (excluded) are rolled up to the start time of the time bucket. This makes Metrics Insights SQL statements more concise and less verbose. 
 
-```
+```sql
 SELECT AVG(CPUUtilization)
 FROM SCHEMA("AWS/EC2", InstanceId)
 ```
@@ -31,7 +30,7 @@ Metrics Insights queries always return the timestamp projection. You don’t nee
 
 When using **GROUP BY**, each group name is also inferred and projected in the result, so that you can group the returned time series. 
 
-```
+```sql
 SELECT AVG(CPUUtilization)
 FROM SCHEMA("AWS/EC2", InstanceId)
 GROUP BY InstanceId
@@ -44,7 +43,7 @@ The previous query returns a time series for each Amazon EC2 instance. Each time
 
 When using **ORDER BY**, **FUNCTION()** infers which aggregate function that you want to order by (the data point values of the queried metrics). The aggregate operation is performed across all the matched data points of each individual time series across the queried time window. 
 
-```
+```sql
 SELECT AVG(CPUUtilization)
 FROM SCHEMA("AWS/EC2", InstanceId)
 GROUP BY InstanceId

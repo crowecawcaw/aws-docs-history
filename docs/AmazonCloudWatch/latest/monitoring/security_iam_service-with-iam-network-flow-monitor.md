@@ -1,7 +1,6 @@
 
 
 # How Network Flow Monitor works with IAM
-<a name="security_iam_service-with-iam-network-flow-monitor"></a>
 
 Before you use IAM to manage access to Network Flow Monitor, learn what IAM features are available to use with Network Flow Monitor.
 

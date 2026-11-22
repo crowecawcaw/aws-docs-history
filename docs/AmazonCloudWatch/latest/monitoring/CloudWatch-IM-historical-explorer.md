@@ -1,7 +1,6 @@
 
 
 # Analyze historical data in Internet Monitor (Analyze page)
-<a name="CloudWatch-IM-historical-explorer"></a>
 
 On the **Analyze** page in the Internet Monitor console, you can view your application's the top client locations for the traffic that you monitor, by traffic volume. You can also view graphs showing performance and availability scores for your traffic over time, as well as graphs of other internet traffic metrics for your application's monitored traffic.
 

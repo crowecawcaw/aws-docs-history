@@ -1,7 +1,6 @@
 
 
 # Source configuration for Microsoft Windows Events
-<a name="windows-events-source-setup"></a>
 
 ## Integrating with Windows Event
 <a name="windows-events-integration"></a>

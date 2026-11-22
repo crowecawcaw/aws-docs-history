@@ -1,7 +1,6 @@
 
 
 # Runtime versions update
-<a name="CloudWatch_Synthetics_Runtime_Version_Update"></a>
 
 You can update a canary's runtime version by using the CloudWatch console, AWS CloudFormation, the AWS CLI or the AWS SDK. When you use the CloudWatch console, you can update up to five canaries at once by selecting them in the canary list page and then choosing **Actions** , **Update Runtime**.
 
@@ -18,7 +17,7 @@ If you upgrade a canary and it fails, see [Troubleshooting a failed canary](Clou
 
 To upgrade a canary script to a supported runtime version, use the following script.
 
-```
+```nodejs
 const AWS = require('aws-sdk');
 
 // You need to configure your AWS credentials and Region.

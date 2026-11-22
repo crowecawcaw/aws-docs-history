@@ -1,7 +1,6 @@
 
 
 # View your application topology and monitor operational health with the CloudWatch application map
-<a name="ServiceMap"></a>
 
 **Note**  
 The CloudWatch application map replaces the Service Map. To see a map of your application based on AWS X-Ray traces, open the [X-Ray Trace Map](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-servicemap.html). Choose **Trace Map** under the **X-Ray** section in the left navigation pane of the CloudWatch console. 

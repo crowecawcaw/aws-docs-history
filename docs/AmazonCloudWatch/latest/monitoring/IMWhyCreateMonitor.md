@@ -1,7 +1,6 @@
 
 
 # Use a monitor in Internet Monitor
-<a name="IMWhyCreateMonitor"></a>
 
 There are several ways to use an Internet Monitor monitor after you create it: for example, you can view information in the CloudWatch dashboard, get information by using the AWS Command Line Interface, and set health alerts.
 

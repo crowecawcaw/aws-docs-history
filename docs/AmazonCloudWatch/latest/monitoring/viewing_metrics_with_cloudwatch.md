@@ -1,7 +1,6 @@
 
 
 # View available metrics
-<a name="viewing_metrics_with_cloudwatch"></a>
 
 Metrics are grouped first by namespace, and then by the various dimension combinations within each namespace. For example, you can view all EC2 metrics, EC2 metrics grouped by instance, or EC2 metrics grouped by Auto Scaling group.
 

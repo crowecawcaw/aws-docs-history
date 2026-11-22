@@ -1,7 +1,6 @@
 
 
 # CloudWatch pipelines IAM policies and permissions
-<a name="pipeline-iam-reference"></a>
 
 This section provides IAM requirements for CloudWatch pipelines. Permissions vary based on your data source and integration method.
 

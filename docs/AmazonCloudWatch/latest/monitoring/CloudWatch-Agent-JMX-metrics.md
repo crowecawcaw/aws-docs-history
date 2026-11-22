@@ -1,7 +1,6 @@
 
 
 # Collect Java Management Extensions (JMX) metrics
-<a name="CloudWatch-Agent-JMX-metrics"></a>
 
 You can use the CloudWatch agent to collect Java Management Extensions (JMX) metrics from your Java applications.
 
@@ -83,19 +82,19 @@ To start collecting JMX metrics, add a `jmx` section inside the `metrics_collect
     + `unit` – Specifies the unit to use for this metric, overriding the default unit for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
 
 The `jmx` section can also include the optional `append_dimensions` field:
-+ `append_dimensions` – Optional. Additional dimensions to use for only the process metrics. If you specify this field, it's used in addition to dimensions specified in the `append_dimensions` field that is used for all types of metrics collected by the agent.
++ `append_dimensions` – Optional. Additional dimensions to use for only the JMX metrics. If you specify this field, it's used in addition to dimensions specified in the `append_dimensions` field that is used for all types of metrics collected by the agent.
 
 **Fields only on Amazon EC2**  
 The following fields apply only when running the CloudWatch agent on Amazon EC2 instances.
 + `endpoint` – The address for the JMX client to connect to. The format is `ip:port`. If the endpoint is not localhost, both password authentication and SSL must be enabled.
-+ `metrics_collection_interval` – Optional. Specifies how often to collect the processes metrics, overriding the global `metrics_collection_interval` specified in the `agent` section of the configuration file.
++ `metrics_collection_interval` – Optional. Specifies how often to collect the JMX metrics, overriding the global `metrics_collection_interval` specified in the `agent` section of the configuration file.
 
   This value is specified in seconds. For example, specifying 10 causes metrics to be collected every 10 seconds, and setting it to 300 specifies metrics to be collected every 5 minutes.
 
   If you set this value below 60 seconds, each metric is collected as a high-resolution metric. For more information, see [High-resolution metrics](publishingMetrics.md#high-resolution-metrics). 
 
 If JMX was enabled with password authentication or SSL for remote access, you can use the following fields.
-+ `password_file` – Optional. Specifies a Java properties file of keys to passwords. The file must be read-only and restricted to the user running the CloudWatch agent. If password authentication is enabled, this requires the same username and password pair as the entry in the JMX password file provided in the `com.sun.management.jmxremote.password.file` property. If SSL is enabled, it requires entries for `keystore` and `truststore` and corresponds to the `javax.net.ssl.keyStorePassword` and `javax.net.ssl.trustStorePassword` respectively.
++ `password_file` – Required if `endpoint` isn't localhost. Specifies a Java properties file of keys to passwords. The file must be read-only and restricted to the user running the CloudWatch agent. If password authentication is enabled, this requires the same username and password pair as the entry in the JMX password file provided in the `com.sun.management.jmxremote.password.file` property. If SSL is enabled, it requires entries for `keystore` and `truststore` and corresponds to the `javax.net.ssl.keyStorePassword` and `javax.net.ssl.trustStorePassword` respectively.
 + `username` – If password authentication is enabled, specify the username that matches the username in the provided password file.
 + `keystore_path` – If SSL is enabled, specify the full path to the Java keystore, which consists of a private key and a certificate to the public key. Corresponds to the `javax.net.ssl.keyStore` property.
 + `keystore_type` – If SSL is enabled, specify the type of keystore being used. Corresponds to the `javax.net.ssl.keyStoreType` property.
@@ -108,7 +107,7 @@ If JMX was enabled with password authentication or SSL for remote access, you ca
 
 The following is an example of the `jmx` section of the CloudWatch agent configuration file.
 
-```
+```json
 {
   "metrics": {
     "metrics_collected": {
@@ -132,6 +131,7 @@ The following is an example of the `jmx` section of the CloudWatch agent configu
             ]
           },
           "username": "cwagent",
+          "password_file": "/path/to/password-file",
           "keystore_path": "/path/to/keystore",
           "keystore_type": "PKCS12",
           "truststore_path": "/path/to/truststore",

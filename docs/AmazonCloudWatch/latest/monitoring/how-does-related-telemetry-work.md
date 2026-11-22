@@ -1,7 +1,6 @@
 
 
 # How does CloudWatch find related telemetry?
-<a name="how-does-related-telemetry-work"></a>
 
 The CloudWatch **Explore related** pane shows you metrics and logs that are related to each other, but how does that work?
 

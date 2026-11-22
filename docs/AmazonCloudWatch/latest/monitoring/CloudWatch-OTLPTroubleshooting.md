@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="CloudWatch-OTLPTroubleshooting"></a>
 
 The following are the common troubleshooting scenarios and solutions for OTLP endpoint.
 

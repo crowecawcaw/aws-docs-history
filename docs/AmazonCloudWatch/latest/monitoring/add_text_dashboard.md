@@ -1,7 +1,6 @@
 
 
 # Adding a text widget to a CloudWatch dashboard
-<a name="add_text_dashboard"></a>
 
 **To add a text widget to a dashboard**
 

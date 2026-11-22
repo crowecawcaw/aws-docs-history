@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch anomaly detection
-<a name="CloudWatch_Anomaly_Detection"></a>
 
 When you enable *anomaly detection* for a metric, CloudWatch applies statistical and machine learning algorithms. These algorithms continuously analyze metrics of systems and applications, determine normal baselines, and surface anomalies with minimal user intervention.
 

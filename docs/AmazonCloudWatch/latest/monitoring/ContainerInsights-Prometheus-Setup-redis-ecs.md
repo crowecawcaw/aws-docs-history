@@ -1,7 +1,6 @@
 
 
 # Tutorial for scraping Redis OSS Prometheus metrics on Amazon ECS Fargate
-<a name="ContainerInsights-Prometheus-Setup-redis-ecs"></a>
 
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics of a sample Redis OSS application in an Amazon ECS Fargate cluster. The Redis OSS Prometheus exporter target will be auto-discovered by the CloudWatch agent with Prometheus metric support based on the container's Docker labels.
 
@@ -15,7 +14,7 @@ The Docker images in the following two Docker Hub repositories are used in this 
 
 **Prerequisite**
 
-To collect metrics from a sample Prometheus workload for Amazon ECS, you must be running Container Insights in the cluster. For information about installing Container Insights, see [Amazon ECS](deploy-container-insights-ECS.md).
+To collect metrics from a sample Prometheus workload for Amazon ECS, you must be running Container Insights in the cluster. For information about installing Container Insights, see [Container Insights for Amazon ECS](deploy-container-insights-ECS.md).
 
 **Topics**
 + [Set the Amazon ECS Fargate cluster environment variable](#ContainerInsights-Prometheus-Setup-redis-ecs-variable)

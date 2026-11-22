@@ -1,7 +1,6 @@
 
 
 # Set up, configure, and manage your application for monitoring from the CloudWatch console
-<a name="appinsights-setting-up-console"></a>
 
 This section provides steps to set up, configure, and manage your application for monitoring from the CloudWatch console.
 
@@ -158,11 +157,11 @@ From the Container Insights console, on the Container Insights **Performance mon
 **Enable Application Insights from the Application Insights console**  
 When ECS clusters appear in the component list, Application Insights automatically enables additional container monitoring with Container Insights. 
 
-For EKS clusters, you can enable additional monitoring with Container Insights to provide diagnostics information, such as container restart failures, to help you isolate and resolve problems. Additional steps are required to set up Container Insights for EKS. For information, see [Amazon EKS](deploy-container-insights-EKS.md) for steps to set up Container Insights on EKS. 
+For EKS clusters, you can enable additional monitoring with Container Insights to provide diagnostics information, such as container restart failures, to help you isolate and resolve problems. Additional steps are required to set up Container Insights for EKS. For information, see [Container Insights for Amazon EKS](ContainerInsights.md) for steps to set up Container Insights on EKS. 
 
 Additional monitoring for EKS with Container Insights is supported on Linux instances with EKS.
 
-For more information about Container Insights support for ECS and EKS clusters, see [Container Insights](ContainerInsights.md).
+For more information about Container Insights support for ECS and EKS clusters, see [Container Insights for Amazon EKS](ContainerInsights.md).
 
 ## Disable monitoring for an application component
 <a name="appinsights-disable-monitoring"></a>

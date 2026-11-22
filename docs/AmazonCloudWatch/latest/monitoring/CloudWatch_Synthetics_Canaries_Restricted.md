@@ -1,7 +1,6 @@
 
 
 # Limiting a user to viewing specific canaries
-<a name="CloudWatch_Synthetics_Canaries_Restricted"></a>
 
 You can limit a user's ability to view information about canaries, so that they can only see information about the canaries you specify. To do this, use an IAM policy with a ` Condition` statement similar to the following, and attach this policy to a user or an IAM role.
 
@@ -12,7 +11,7 @@ The following example limits the user to only viewing information about ` name-o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -44,7 +43,7 @@ You can also create a policy that uses a \*** as a wildcard in canary names that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

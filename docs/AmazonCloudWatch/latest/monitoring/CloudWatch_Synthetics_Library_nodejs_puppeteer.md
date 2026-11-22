@@ -1,7 +1,6 @@
 
 
 # Runtime versions using Node.js and Puppeteer
-<a name="CloudWatch_Synthetics_Library_nodejs_puppeteer"></a>
 
 The first runtime version for Node.js and Puppeteer was named `syn-1.0`. Later runtime versions have the naming convention `syn-{{language}} -{{majorversion}}.{{minorversion}}`. Starting with `syn-nodejs-puppeteer-3.0`, the naming convention is `syn-{{ language}}-{{framework}}-{{majorversion}} .{{minorversion}}` 
 

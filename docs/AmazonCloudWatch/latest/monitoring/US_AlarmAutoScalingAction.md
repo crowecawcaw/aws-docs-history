@@ -1,7 +1,6 @@
 
 
 # Create an alarm that triggers an Auto Scaling action
-<a name="US_AlarmAutoScalingAction"></a>
 
 With a metric alarm, you can trigger an Auto Scaling scaling policy to add or remove capacity when a metric breaches a threshold. This example scales an Auto Scaling group when the average CPU of the group exceeds a threshold.
 

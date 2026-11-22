@@ -1,11 +1,10 @@
 
 
 # Elastic Load Balancing
-<a name="component-configuration-examples-elb"></a>
 
 The following example shows a component configuration in JSON format for Elastic Load Balancing.
 
-```
+```json
 {
     "alarmMetrics": [
       {

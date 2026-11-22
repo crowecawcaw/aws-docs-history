@@ -1,7 +1,6 @@
 
 
 # Getting started with Internet Monitor using the console
-<a name="CloudWatch-IM-get-started"></a>
 
 To help you get started with Internet Monitor, this chapter provides the steps for creating and configuring a *monitor*. You create a monitor in Internet Monitor for your application by naming it, and then adding AWS resources that your application uses.
 

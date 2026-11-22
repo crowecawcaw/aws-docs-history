@@ -1,7 +1,6 @@
 
 
 # Source configuration for Proofpoint TAP
-<a name="proofpoint-tap-source-setup"></a>
 
 ## Integrating with Proofpoint TAP
 <a name="proofpoint-tap-integration"></a>

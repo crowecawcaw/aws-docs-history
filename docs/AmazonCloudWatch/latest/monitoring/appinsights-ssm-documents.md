@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager (SSM) Documents used by CloudWatch Application Insights
-<a name="appinsights-ssm-documents"></a>
 
 Application Insights uses the SSM Documents listed in this section to define the actions that AWS Systems Manager performs on your managed instances. These documents use the `Run Command` capability of Systems Manager to automate the tasks necessary for carrying out Application Insights monitoring capabilities. The run schedules for these documents are maintained by Application Insights and can't be altered.
 

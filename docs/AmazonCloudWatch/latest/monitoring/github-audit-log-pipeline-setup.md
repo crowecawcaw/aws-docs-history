@@ -1,7 +1,6 @@
 
 
 # CloudWatch pipelines configuration for GitHub Audit Log
-<a name="github-audit-log-pipeline-setup"></a>
 
 **Note**  
  Important: GitHub Enterprise accounts are required to use this connector. GitHub Personal or Organization accounts are not supported. 
@@ -10,7 +9,7 @@ Collects audit log data from GitHub organizations or enterprises using personal 
 
 Configure the GitHub Audit Log source with the following parameters:
 
-```
+```yaml
 source:
   github_auditlog:
     scope: "ORGANIZATION"

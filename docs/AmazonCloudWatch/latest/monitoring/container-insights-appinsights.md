@@ -1,7 +1,6 @@
 
 
 # Integration with Application Insights
-<a name="container-insights-appinsights"></a>
 
 Amazon CloudWatch Application Insights helps you monitor your applications and identifies and sets up key metrics, logs, and alarms across your application resources and technology stack. For more information, see [Detect common application problems with CloudWatch Application Insights](cloudwatch-application-insights.md).
 

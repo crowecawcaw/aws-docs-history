@@ -1,7 +1,6 @@
 
 
 # Using the resource health view in the CloudWatch console
-<a name="servicelens_resource_health"></a>
 
 You can use the resource health view to automatically discover, manage, and visualize the health and performance of hosts across their applications in a single view. You can visualize the health of their hosts by a performance dimension such as CPU or memory, and slice and dice hundreds of hosts in a single view using filters. You can filter by tags or by use cases, such as hosts in the same Auto Scaling group or hosts that use the same load balancer, 
 
@@ -28,7 +27,7 @@ To make sure that you get the full benefit of the resource health view, check th
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

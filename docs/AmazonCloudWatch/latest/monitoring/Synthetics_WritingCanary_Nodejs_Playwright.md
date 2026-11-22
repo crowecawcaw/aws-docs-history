@@ -1,7 +1,6 @@
 
 
 # Writing a Node.js canary script using the Playwright runtime
-<a name="Synthetics_WritingCanary_Nodejs_Playwright"></a>
 
 **Topics**
 + [Packaging your Node.js canary files for the Playwright runtime](#Synthetics_canary_Nodejs_Playwright_package)

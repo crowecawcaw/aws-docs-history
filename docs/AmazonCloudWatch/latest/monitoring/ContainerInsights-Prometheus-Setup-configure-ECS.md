@@ -1,7 +1,6 @@
 
 
 # Scraping additional Prometheus sources and importing those metrics
-<a name="ContainerInsights-Prometheus-Setup-configure-ECS"></a>
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the Prometheus metrics. One is for the standard Prometheus configurations as documented in [<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) in the Prometheus documentation. The other is for the CloudWatch agent configuration.
 
@@ -133,7 +132,7 @@ This example configures an embedded metric format section to be sent as a log ev
 
 The log event that is sent includes the following highlighted section:
 
-```
+```json
 {
    "CloudWatchMetrics":[
       {

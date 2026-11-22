@@ -1,7 +1,6 @@
 
 
 # Using the CloudWatch agent to send embedded metric format logs
-<a name="CloudWatch_Embedded_Metric_Format_Generation_CloudWatch_Agent"></a>
 
  This section describes how to install and use the CloudWatch agent. The first part of this section describes how to install the CloudWatch agent. The second part of this section describes how to use the CloudWatch agent to send embedded metric format logs. If you want to use this method, you must install the CloudWatch agent for the AWS services you want to send embedded metric format logs from. Then you can begin sending the events. The CloudWatch agent must be version 1.230621.0 or later.
 
@@ -16,7 +15,7 @@ Install the CloudWatch agent for each service that sends embedded metric format 
 
 After you install the agent, configure it to listen on a UDP or TCP port for the embedded metric format logs. The following example configuration listens on the default socket `tcp:25888`. For more information about agent configuration, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md).
 
-```
+```json
 {
   "logs": {
     "metrics_collected": {

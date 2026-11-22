@@ -1,7 +1,6 @@
 
 
 # Create a Contributor Insights rule in CloudWatch
-<a name="ContributorInsights-CreateRule"></a>
 
 You can create rules to analyze log data. Any logs in JSON or Common Log Format (CLF) can be evaluated. This includes your custom logs that follow one of these formats and logs from AWS services such as Amazon VPC flow logs, Amazon Route 53 DNS query logs, Amazon ECS container logs, and logs from AWS CloudTrail, Amazon SageMaker AI, Amazon RDS, AWS AppSync and API Gateway.
 

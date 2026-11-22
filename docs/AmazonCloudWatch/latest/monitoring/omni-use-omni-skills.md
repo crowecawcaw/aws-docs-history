@@ -1,7 +1,6 @@
 
 
 # Use Omni skills
-<a name="omni-use-omni-skills"></a>
 
 You can use CloudWatch Omni from the AI coding agent you already develop with — including Claude Code, Cursor, Kiro, and Codex — by installing the Omni skills from the [Agent Toolkit for AWS](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/quick-start.html). A skill is a set of task-focused instructions, reference material, and scripts that your coding agent loads when a task matches, so it can complete Omni tasks: set up instrumentation, query your telemetry, or work with alerts and dashboards.
 

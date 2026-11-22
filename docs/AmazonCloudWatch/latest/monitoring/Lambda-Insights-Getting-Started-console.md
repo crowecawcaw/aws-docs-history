@@ -1,7 +1,6 @@
 
 
 # Using the console to enable Lambda Insights on an existing Lambda function
-<a name="Lambda-Insights-Getting-Started-console"></a>
 
  Use the following steps in the Lambda Console to enable Lambda Insights on an existing Lambda function. 
 

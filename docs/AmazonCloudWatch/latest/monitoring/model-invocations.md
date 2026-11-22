@@ -1,7 +1,6 @@
 
 
 # Model Invocations
-<a name="model-invocations"></a>
 
 CloudWatch generative AI observability allows you to monitor Model Invocations performance. You can track metrics such as invocation count, token usage, and errors using out-of-box views. For detailed visibility into invocation content, such as inputs and outputs, enable **Bedrock Invocation logging** and send the logs to CloudWatch. For more information, see [Set up a CloudWatch Logs destination](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html#setup-cloudwatch-logs-destination) and [Help protect sensitive log data with masking ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 

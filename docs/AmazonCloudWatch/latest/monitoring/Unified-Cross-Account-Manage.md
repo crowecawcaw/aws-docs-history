@@ -1,7 +1,6 @@
 
 
 # Manage monitoring accounts and source accounts
-<a name="Unified-Cross-Account-Manage"></a>
 
 After you set up your monitoring accounts and source accounts, you can use the steps in these sections to manage them.
 

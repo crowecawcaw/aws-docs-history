@@ -1,7 +1,6 @@
 
 
 # CloudWatch metric stream output in OpenTelemetry 0.7.0 format
-<a name="CloudWatch-metric-streams-formats-opentelemetry"></a>
 
 OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis. OpenTelemetry is part of the Cloud Native Computing Foundation. For more information, see [OpenTelemetry](https://opentelemetry.io/).
 

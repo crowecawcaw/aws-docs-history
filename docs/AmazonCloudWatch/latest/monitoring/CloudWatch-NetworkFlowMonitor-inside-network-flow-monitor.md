@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="CloudWatch-NetworkFlowMonitor-inside-network-flow-monitor"></a>
 
 This section provides information about several aspects of how Network Flow Monitor works.
 

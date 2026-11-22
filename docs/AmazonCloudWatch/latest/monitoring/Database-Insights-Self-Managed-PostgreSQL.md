@@ -1,7 +1,6 @@
 
 
 # Monitoring Self-Managed PostgreSQL
-<a name="Database-Insights-Self-Managed-PostgreSQL"></a>
 
 The following sections describe how to set up CloudWatch Database Insights monitoring for a self-managed PostgreSQL database. You prepare the database, install the CloudWatch agent on the database host, configure the agent to collect from the database, and verify that telemetry appears in the console.
 

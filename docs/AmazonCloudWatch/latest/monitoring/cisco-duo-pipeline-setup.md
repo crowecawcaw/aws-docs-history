@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Cisco Duo
-<a name="cisco-duo-pipeline-setup"></a>
 
 Collects log data from Cisco Duo using HMAC authentication through the Duo Admin API.
 
 Configure the Cisco Duo source with the following parameters:
 
-```
+```yaml
 source:
   cisco_duo:
     api_host: "api-XXXXXXXX.duosecurity.com"

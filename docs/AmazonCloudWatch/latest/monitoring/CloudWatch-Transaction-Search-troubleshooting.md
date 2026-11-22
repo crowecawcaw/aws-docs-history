@@ -1,7 +1,6 @@
 
 
 # Troubleshooting application issues
-<a name="CloudWatch-Transaction-Search-troubleshooting"></a>
 
  With Application Signals, you can troubleshoot rarely occurring latency spikes in your applications. After you enable Transaction Search and configure a head sampling rate capturing 100% of spans, you get complete visibility into any application issue. The following scenario describes how Application Signals can be used with transaction spans to monitor your services and identify service quality issues. 
 

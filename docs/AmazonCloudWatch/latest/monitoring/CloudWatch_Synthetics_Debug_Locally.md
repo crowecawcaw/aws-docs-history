@@ -1,7 +1,6 @@
 
 
 # Test a canary locally
-<a name="CloudWatch_Synthetics_Debug_Locally"></a>
 
 This section explains how to modify, test, and debug CloudWatch Synthetics canaries directly within the Microsoft Visual Studio code editor or the JetBrains IDE code editor. The local debugging environment uses a Serverless Application Model (SAM) container to simulate a Lambda function to emulate the behavior of a Synthetics canary. 
 
@@ -81,7 +80,7 @@ Then do one of the following, depending on the language of your canaries.
 
 The Visual Studio launch configuration file is located at ` .vscode/launch.json`. It contains configurations to allow the template file to be discovered by Visual Studio code. It defines a Lambda payload with required parameters to invoke the canary successfully. Here's the launch configuration for a Node.js canary: 
 
-```
+```nodejs
 {
             ...
             ...
@@ -135,7 +134,7 @@ After you have the AWS Toolkit for JetBrains extension installed, be sure that t
 
 1. In the **Input** section, enter the payload for the canary as shown in the following screen.
 
-   ```
+   ```json
    {
     "canaryName": "LocalSyntheticsCanary",
     "artifactS3Location": {

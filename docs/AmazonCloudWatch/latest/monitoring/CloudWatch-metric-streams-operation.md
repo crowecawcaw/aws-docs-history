@@ -1,7 +1,6 @@
 
 
 # Metric stream operation and maintenance
-<a name="CloudWatch-metric-streams-operation"></a>
 
 Metric streams are always in one of two states, **Running** or **Stopped**.
 + **Running**— The metric stream is running correctly. There might not be any metric data streamed to the destination because of the filters on the stream.

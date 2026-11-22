@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="Investigations-Troubleshooting"></a>
 
 **Topics**
 + [CloudWatch investigations cannot assume the necessary IAM roles or permissions. Please verify required roles and permissions are correctly configured](#Investigations-Troubleshooting-Permissions)
@@ -46,7 +45,7 @@ Check that both your monitoring account and source account are set up correctly.
 
 1. The trust policy in the source account role must be properly scoped to have the Investigation Group arn in the `sts:ExternalId` context key:
 
-   ```
+   ```json
                "Condition": {
                    "StringEquals": {
                        "sts:ExternalId": "investigation-group-arn"

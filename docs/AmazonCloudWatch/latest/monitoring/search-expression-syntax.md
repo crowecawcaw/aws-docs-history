@@ -1,7 +1,6 @@
 
 
 # CloudWatch search expression syntax
-<a name="search-expression-syntax"></a>
 
 A valid search expression has the following format.
 

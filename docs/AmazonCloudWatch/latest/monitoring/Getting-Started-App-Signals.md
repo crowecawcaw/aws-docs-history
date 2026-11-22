@@ -1,7 +1,6 @@
 
 
 # Supported instrumentation setups
-<a name="Getting-Started-App-Signals"></a>
 
  You can enable CloudWatch Application Signals with different instrumentation setups. This topic describes each of the setup methods and recommendations based on the method you choose. 
 

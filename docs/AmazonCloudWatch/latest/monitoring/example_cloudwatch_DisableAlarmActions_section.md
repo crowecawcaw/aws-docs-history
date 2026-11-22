@@ -1,7 +1,6 @@
 
 
 # Use `DisableAlarmActions` with an AWS SDK or CLI
-<a name="example_cloudwatch_DisableAlarmActions_section"></a>
 
 The following code examples show how to use `DisableAlarmActions`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Disable the actions for a list of alarms from CloudWatch.
     /// </summary>
@@ -41,7 +40,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/DisableAlarmActionsRequest.h>
@@ -49,7 +48,7 @@ Include the required files.
 ```
 Disable the alarm actions.  
 
-```
+```cpp
         Aws::CloudWatch::CloudWatchClient cw;
 
         Aws::CloudWatch::Model::DisableAlarmActionsRequest disableAlarmActionsRequest;
@@ -92,7 +91,7 @@ For more information, see [Alarm actions](https://docs.aws.amazon.com/AmazonClou
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.CloudWatchClient;
 import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
@@ -157,7 +156,7 @@ public class DisableAlarmActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { DisableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch";
 import { client } from "../libs/client.js";
 
@@ -177,7 +176,7 @@ export default run();
 ```
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
@@ -189,7 +188,7 @@ export const client = new CloudWatchClient({});
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -218,7 +217,7 @@ cw.disableAlarmActions(
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun disableActions(alarmName: String) {
     val request =
         DisableAlarmActionsRequest {
@@ -238,7 +237,7 @@ suspend fun disableActions(alarmName: String) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
-```
+```python
 class CloudWatchWrapper:
     """Encapsulates Amazon CloudWatch functions."""
 
@@ -286,7 +285,7 @@ class CloudWatchWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
-```
+```ruby
 # Disables an alarm in Amazon CloudWatch.
 #
 # Prerequisites.
@@ -377,7 +376,7 @@ run_me if $PROGRAM_NAME == __FILE__
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
-```
+```sap-abap
     "Disables actions on the specified alarm. "
     TRY.
         lo_cwt->disablealarmactions(

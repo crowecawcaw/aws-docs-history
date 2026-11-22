@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="ResourceTagsTelemetryTroubleshooting"></a>
 
 ## CloudWatch cannot enable or disable resource tags for telemetry
 <a name="CannotEnableDisableResourceTags"></a>

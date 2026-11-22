@@ -1,7 +1,6 @@
 
 
 # Source configuration for Ping Identity PingFederate
-<a name="pingidentity-pingfederate-source-setup"></a>
 
 ## Integrating with Ping Identity PingFederate
 <a name="pingidentity-pingfederate-integration"></a>
@@ -45,7 +44,7 @@ Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "AllowS3ToSQS",
@@ -76,7 +75,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 
 Enable JSON logging on PingFederate by editing `<PF_HOME>/server/default/conf/log4j2.xml`. Add the following RollingFile appenders:
 
-```
+```xml
 <RollingFile name="AdminAudit-JsonTemplateLayout"
              fileName="${sys:pf.log.dir}/admin_json.log"
              filePattern="${sys:pf.log.dir}/admin_json.%d{yyyy-MM-dd}.log"
@@ -100,7 +99,7 @@ Enable JSON logging on PingFederate by editing `<PF_HOME>/server/default/conf/lo
 
 Update the Loggers section to reference the new appenders for the multiple audit loggers:
 
-```
+```xml
 <Logger name="org.sourceid.websso.profiles.sp.SpAuditLogger" level="INFO" additivity="false">
     <AppenderRef ref="SecurityAudit-JsonTemplateLayout"/>
 </Logger>
@@ -126,7 +125,7 @@ Update the Loggers section to reference the new appenders for the multiple audit
 
 Configure Fluent Bit to collect both audit log files and deliver them to Amazon S3:
 
-```
+```ini
 ########################################
 # SERVICE SECTION
 ########################################
@@ -199,7 +198,7 @@ Use only the default PingFederate-provided JSON templates. Modifying the `.json`
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

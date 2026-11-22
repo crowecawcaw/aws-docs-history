@@ -1,7 +1,6 @@
 
 
 # Experiments
-<a name="omni-agents-experiments"></a>
 
 An experiment tells you whether a change made your agent better or worse before you ship it. It works by controlling the variables: the same dataset and the same evaluators run against two or more agent versions, so a difference in scores can only come from the change you made.
 

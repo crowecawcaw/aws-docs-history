@@ -1,7 +1,6 @@
 
 
 # Filtering enrichment by namespace and metric
-<a name="CloudWatch-OTelEnrichment-Filtering"></a>
 
 CloudWatch OTel enrichment decorates your account's vended metrics with resource ARN and resource tag labels. You can then group and filter by resource attributes in PromQL and Query Studio. By default, enrichment applies to every namespace that CloudWatch supports for enrichment. You can narrow enrichment to a chosen subset of namespaces and metric names by using two optional parameters, `IncludeFilters` and `ExcludeFilters`. You can also change those filters on a running account with the `UpdateOTelEnrichment` operation. Use filtering to optimize enrichment cost when you need only some of your metrics in OTel.
 

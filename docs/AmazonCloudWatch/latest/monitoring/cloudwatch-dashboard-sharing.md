@@ -1,7 +1,6 @@
 
 
 # Sharing CloudWatch dashboards
-<a name="cloudwatch-dashboard-sharing"></a>
 
 You can share your CloudWatch dashboards with people who do not have direct access to your AWS account. This enables you to share dashboards across teams, with stakeholders, and with people external to your organization. You can even display dashboards on big screens in team areas, or embed them in Wikis and other webpages.
 
@@ -31,7 +30,7 @@ To be able to share dashboards using any of the following methods and to see whi
 
 To share dashboards, your IAM user or role must have the permissions in the following policy statement:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -79,7 +78,7 @@ The CloudWatch dashboard sharing feature requires the `cognito-idp:*` and `cogni
 
 To be able to see which dashboards are shared, but not be able to share dashboards, a user or an IAM role can include a policy statement similar to the following:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -233,13 +232,13 @@ If you want these people to be able to see CloudWatch Logs widgets, you must add
 
 If your IAM policy for dashboard sharing already includes the preceding permissions with `*` as the resource, we strongly recommend that you change the policy and specify only the ARNs of the log groups that you want shared. For example, if your `Resource` section for these permissions was the following:
 
-```
+```json
 "Resource": "*"
 ```
 
 Change the policy to specify only the ARNs of the log groups that you want shared, as in the following example:
 
-```
+```json
 "Resource": [
   "{{SharedLogGroup1ARN}}",
   "{{SharedLogGroup2ARN}}"
@@ -287,13 +286,13 @@ If you want these people to be able to see custom widgets, you must add permissi
 
 If your IAM policy for dashboard sharing already includes that permission with `*` as the resource, we strongly recommend that you change the policy and specify only the ARNs of the Lambda functions that you want shared. For example, if your `Resource` section for these permissions was the following:
 
-```
+```json
 "Resource": "*"
 ```
 
 Change the policy to specify only the ARNs of the custom widgets that you want shared, as in the following example:
 
-```
+```json
 "Resource": [
   "{{LambdaFunction1ARN}}",
   "{{LambdaFunction2ARN}}"

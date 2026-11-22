@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager (SSM) packages used by CloudWatch Application Insights
-<a name="appinsights-ssm-packages"></a>
 
 The packages listed in this section are used by Application Insights, and can be independently managed and deployed with AWS Systems Manager Distributor. For more information about SSM Distributor, see [AWS Systems Manager Distributor](https://docs.aws.amazon.com/systems-manager/latest/userguide/distributor.html) in the *AWS Systems Manager User Guide*.
 
@@ -171,7 +170,7 @@ To use [AWS Systems Manager Distributor](https://docs.aws.amazon.com/systems-man
 + Linux operating system (SUSE Linux, RedHat Linux)
 + A secret with SAP HANA database monitoring credentials, using AWS Secrets Manager. Create a secret using the key/value pairs format, specify the key username, and enter the database user for the value. Add a second key password, and then enter the password for the value. For more information about how to create secrets, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*. The secret must be formatted as follows:
 
-  ```
+  ```json
   {
     "username": "<database_user>",
     "password": "<database_password>"
@@ -191,7 +190,7 @@ In this example, the export runs only on the Amazon EC2 instance with the active
 
 1. Create an SSM parameter in [SSM Parameter Store](https://console.aws.amazon.com/systems-manager/parameters) to store the Exporter metrics queries. The package can accept more than one metrics parameter. Each parameter must have a valid JSON object format. The following is an example parameter value:
 
-   ```
+   ```json
    {\"SELECT MAX(TIMESTAMP) TIMESTAMP, HOST, MEASURED_ELEMENT_NAME CORE, SUM(MAP(CAPTION, 'User Time', TO_NUMBER(VALUE), 0)) USER_PCT, SUM(MAP(CAPTION, 'System Time', TO_NUMBER(VALUE), 0)) SYSTEM_PCT, SUM(MAP(CAPTION, 'Wait Time', TO_NUMBER(VALUE), 0)) WAITIO_PCT, SUM(MAP(CAPTION, 'Idle Time', 0, TO_NUMBER(VALUE))) BUSY_PCT, SUM(MAP(CAPTION, 'Idle Time', TO_NUMBER(VALUE), 0)) IDLE_PCT FROM sys.M_HOST_AGENT_METRICS WHERE MEASURED_ELEMENT_TYPE = 'Processor' GROUP BY HOST, MEASURED_ELEMENT_NAME;\":{\"enabled\":true,\"metrics\":[{\"name\":\"hanadb_cpu_user\",\"description\":\"Percentage of CPU time spent by HANA DB in user space, over the last minute (in seconds)\",\"labels\":[\"HOST\",\"CORE\"],\"value\":\"USER_PCT\",\"unit\":\"percent\",\"type\":\"gauge\"},{\"name\":\"hanadb_cpu_system\",\"description\":\"Percentage of CPU time spent by HANA DB in Kernel space, over the last minute (in seconds)\",\"labels\":[\"HOST\",\"CORE\"],\"value\":\"SYSTEM_PCT\",\"unit\":\"percent\",\"type\":\"gauge\"},{\"name\":\"hanadb_cpu_waitio\",\"description\":\"Percentage of CPU time spent by HANA DB in IO mode, over the last minute (in seconds)\",\"labels\":[\"HOST\",\"CORE\"],\"value\":\"WAITIO_PCT\",\"unit\":\"percent\",\"type\":\"gauge\"},{\"name\":\"hanadb_cpu_busy\",\"description\":\"Percentage of CPU time spent by HANA DB, over the last minute (in seconds)\",\"labels\":[\"HOST\",\"CORE\"],\"value\":\"BUSY_PCT\",\"unit\":\"percent\",\"type\":\"gauge\"},{\"name\":\"hanadb_cpu_idle\",\"description\":\"Percentage of CPU time not spent by HANA DB, over the last minute (in seconds)\",\"labels\":[\"HOST\",\"CORE\"],\"value\":\"IDLE_PCT\",\"unit\":\"percent\",\"type\":\"gauge\"}]}}
    ```
 
@@ -325,7 +324,7 @@ To use [AWS Systems Manager Distributor](https://docs.aws.amazon.com/systems-man
   ```
 + A secret containing the database connection string using AWS Secrets Manager. For more information about how to create secrets, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*. The secret must be formatted as follows:
 
-  ```
+  ```json
   {
     "data_source_name":"sqlserver://<username>:<password>@localhost:1433"
   }

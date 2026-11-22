@@ -1,7 +1,6 @@
 
 
 # Sample code for canary scripts
-<a name="CloudWatch_Synthetics_Canaries_Samples"></a>
 
 This section contains code samples that illustrate some possible functions for CloudWatch Synthetics canary scripts.
 
@@ -13,7 +12,7 @@ This section contains code samples that illustrate some possible functions for C
 
 The following script is an example of a Node.js Playwright canary with multiple steps.
 
-```
+```nodejs
 import { synthetics } from '@aws/synthetics-playwright';
 
 export async function handler(event, context) {
@@ -63,7 +62,7 @@ export async function handler(event, context) {
 
 The following script is an example of a Node.js Playwright canary setting three cookies.
 
-```
+```nodejs
 import { synthetics } from '@aws/synthetics-playwright';
 
 export const handler = async (event, context) => {
@@ -158,7 +157,7 @@ You can write scripts that emulate various devices so that you can approximate h
 
 The following sample emulates an iPhone 6 device. For more information about emulation, see [ page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions) in the Puppeteer documentation.
 
-```
+```nodejs
 var synthetics = require('@aws/synthetics-puppeteer');
 const log = require('@aws/synthetics-logger');
 const puppeteer = require('puppeteer-core');
@@ -202,7 +201,7 @@ This sample code demonstrates an API canary with two HTTP steps: testing the sam
 
 When this script is used as a canary, you can view details about each step and the associated HTTP requests such as step pass/fail, duration, and performance metrics like DNS look up time and first byte time. You can view the number of 2xx, 4xx and 5xx for your canary run. 
 
-```
+```nodejs
 var synthetics = require('@aws/synthetics-puppeteer');
 const log = require('@aws/synthetics-logger');
 
@@ -301,7 +300,7 @@ exports.handler = async () => {
 
 The following sample Selenium code is a canary that fails with a custom error message when a target element is not loaded.
 
-```
+```python
 from aws_synthetics.selenium import synthetics_webdriver as webdriver
 from aws_synthetics.common import synthetics_logger as logger
 from selenium.webdriver.support.ui import WebDriverWait

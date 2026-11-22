@@ -1,7 +1,6 @@
 
 
 # Enhanced Container Insights (Classic)
-<a name="container-insights-eks-classic"></a>
 
 Enhanced Container Insights (Classic) is a managed Amazon EKS add-on configuration that deploys the CloudWatch agent and Fluent Bit as a DaemonSet on your cluster. It provides Container Insights with Enhanced Observability, collecting infrastructure metrics, application logs, and performance data from your Amazon EKS workloads.
 
@@ -67,3 +66,4 @@ For step-by-step instructions to move from Enhanced Container Insights (Classic)
 + [Deploy Enhanced Container Insights (Classic) with CloudFormation or Helm](container-insights-eks-classic-iac.md)
 + [Enhanced Container Insights (Classic) metric reference](container-insights-eks-classic-metrics.md)
 + [Send logs to CloudWatch Logs](Container-Insights-EKS-logs.md)
++ [Application Signals (Classic)](eks-observability-addon-application-signals.md)

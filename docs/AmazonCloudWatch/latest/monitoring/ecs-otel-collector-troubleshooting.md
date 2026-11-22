@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="ecs-otel-collector-troubleshooting"></a>
 
 
 | Issue | Cause and resolution | 

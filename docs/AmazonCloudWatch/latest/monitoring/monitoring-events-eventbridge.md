@@ -1,7 +1,6 @@
 
 
 # Monitoring canary events with Amazon EventBridge
-<a name="monitoring-events-eventbridge"></a>
 
 Amazon EventBridge event rules can notify you when canaries change status or complete runs. EventBridge delivers a near-real-time stream of system events that describe changes in AWS resources. CloudWatch Synthetics sends these events to EventBridge on a *best effort* basis. Best effort delivery means that CloudWatch Synthetics attempts to send all events to EventBridge, but in some rare cases an event might not be delivered. EventBridge processes all received events at least once. Additionally, your event listeners might not receive the events in the order that the events occurred.
 
@@ -25,7 +24,7 @@ In this event type, the values of `current-state` and `previous-state` can be th
 
 `CREATING` \| `READY` \| `STARTING` \| `RUNNING` \| `UPDATING` \| `STOPPING` \| `STOPPED` \| `ERROR`
 
-```
+```json
 {
                 "version": "0",
                 "id": "8a99ca10-1e97-2302-2d64-316c5dedfd61",
@@ -63,7 +62,7 @@ In this event type, the values of `current-state` and `previous-state` can be th
 
  **Successful canary run completed** 
 
-```
+```json
 {
                 "version": "0",
                 "id": "989EXAMPLE-f4a5-57a7-1a8f-d9cc768a1375",
@@ -92,7 +91,7 @@ In this event type, the values of `current-state` and `previous-state` can be th
 
  **Failed canary run completed** 
 
-```
+```json
 {
                 "version": "0",
                 "id": "2644b18f-3e67-5ebf-cdfd-bf9f91392f41",

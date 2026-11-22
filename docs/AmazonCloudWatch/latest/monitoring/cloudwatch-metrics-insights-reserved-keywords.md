@@ -1,7 +1,6 @@
 
 
 # Reserved keywords
-<a name="cloudwatch-metrics-insights-reserved-keywords"></a>
 
 The following are reserved keywords in CloudWatch Metrics Insights. If any of these words are in a namespace, metric name, or label key in a query, you must enclose them in double quote marks. Reserved keywords are not case sensitive.
 

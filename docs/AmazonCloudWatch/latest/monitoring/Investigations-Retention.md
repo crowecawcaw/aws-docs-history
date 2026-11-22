@@ -1,7 +1,6 @@
 
 
 # CloudWatch investigations data retention
-<a name="Investigations-Retention"></a>
 
 The retention period that you set for an investigation group determines how long that investigation data is kept. Valid values are seven days to 90 days.
 

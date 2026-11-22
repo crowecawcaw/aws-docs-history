@@ -1,7 +1,6 @@
 
 
 # Using Internet Monitor with Amazon EventBridge
-<a name="CloudWatch-IM-EventBridge-integration"></a>
 
 Health events that Internet Monitor creates for networking issues are published with Amazon EventBridge, so that you can send notifications about a degradation in end users' experience for your application. Both overall (global) health events and local health events are published to EventBridge. Global health events have an impact type of `AVAILABILITY` or `PERFORMANCE`, and local health events have an impact type of `LOCAL_AVAILABILITY` or `LOCAL_PERFORMANCE`.
 
@@ -13,7 +12,7 @@ To use EventBridge to work with Internet Monitor health events, follow the guida
 
 1. In Step 2, select **Other** for the event source, and then, under **Event pattern**, match the following source.
 
-   ```
+   ```None
    {
      "source": ["aws.internetmonitor"]
    }
@@ -30,7 +29,7 @@ You can use event patterns to filter health events by impact type. This is usefu
 
 **Receive only global health events:**
 
-```
+```JSON
 {
   "source": ["aws.internetmonitor"],
   "detail": {
@@ -41,7 +40,7 @@ You can use event patterns to filter health events by impact type. This is usefu
 
 **Receive only local health events:**
 
-```
+```JSON
 {
   "source": ["aws.internetmonitor"],
   "detail": {
@@ -52,7 +51,7 @@ You can use event patterns to filter health events by impact type. This is usefu
 
 **Receive all health events (default):**
 
-```
+```JSON
 {
   "source": ["aws.internetmonitor"]
 }

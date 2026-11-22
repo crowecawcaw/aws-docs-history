@@ -1,7 +1,6 @@
 
 
 # Alarms and tagging
-<a name="CloudWatch_alarms_and_tagging"></a>
 
 *Tags* are key-value pairs that can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. For more general information about tagging resources, see [ Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
 

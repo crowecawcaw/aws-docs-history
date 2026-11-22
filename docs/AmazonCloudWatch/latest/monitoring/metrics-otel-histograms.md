@@ -1,7 +1,6 @@
 
 
 # How CloudWatch stores histogram metrics
-<a name="metrics-otel-histograms"></a>
 
 Histogram metrics describe the distribution of many measurements, such as request latency or payload size, instead of a single value. OpenTelemetry defines two histogram types, and Amazon CloudWatch (CloudWatch) stores both as exponential histograms:
 + **Explicit-bucket histograms** – also called fixed-boundary histograms. You choose the bucket boundaries in advance, and every measurement is counted into the bucket that contains it. This is the default aggregation for the `Histogram` instrument in most OpenTelemetry SDKs, and it is the format that Prometheus classic histograms use.

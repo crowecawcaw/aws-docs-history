@@ -1,7 +1,6 @@
 
 
 # Collect telemetry from compiled applications using eBPF
-<a name="CloudWatch-OTLP-NoCodeEbpf"></a>
 
 You cannot instrument some applications by adding an OpenTelemetry SDK to the source. Examples include compiled binaries (such as Go, Rust, or C/C\+\+), third-party or vendor binaries whose source you do not own, and applications whose libraries an in-process agent cannot attach to. For these applications, you can use eBPF-based auto-instrumentation to generate OpenTelemetry telemetry without changing application code. You then send that telemetry to CloudWatch through the CloudWatch agent.
 
@@ -43,7 +42,7 @@ Before you begin, complete the following prerequisites:
 
 Add an `opentelemetry` section to your CloudWatch agent configuration file and include the `otlp` source under `collect`. Bind the receiver to `127.0.0.1` so that the agent accepts OTLP only from the local host. In containerized deployments where producers run outside the agent's own container network—for example an Amazon ECS sidecar, or the Amazon EKS add-on's `cloudwatch-agent` Service—set the endpoints to `0.0.0.0` instead. The task, pod, or Service boundary then controls what can reach the ports.
 
-```
+```json
 {
   "opentelemetry": {
     "collect": {

@@ -1,7 +1,6 @@
 
 
 # ARM64 platforms
-<a name="Lambda-Insights-extension-versionsARM"></a>
 
 This section lists the versions of the Lambda Insights extension for ARM64 platforms, and the ARNs to use for these extensions in each AWS Region.
 

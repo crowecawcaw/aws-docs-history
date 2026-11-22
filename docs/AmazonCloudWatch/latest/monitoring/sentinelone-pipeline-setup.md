@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for SentinelOne
-<a name="sentinelone-pipeline-setup"></a>
 
 The SentinelOne setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the SentinelOne source using the following parameters:
 
-```
+```yaml
 source:
   s3:
     aws:

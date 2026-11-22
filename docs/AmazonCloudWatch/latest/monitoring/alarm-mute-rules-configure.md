@@ -1,7 +1,6 @@
 
 
 # Configure alarm mute rules
-<a name="alarm-mute-rules-configure"></a>
 
  The steps in this section explain how to use the CloudWatch console to create an alarm mute rule. You can also use the API or AWS CLI to create an alarm mute rule. For more information, see [PutAlarmMuteRule](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutAlarmMuteRule.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Set up Claude Code with the Claude apps gateway
-<a name="coding-agents-claude-code-gateway"></a>
 
 The Claude apps gateway is a self-hosted service that sits between your developers' Claude Code clients and the model provider. Developers sign in with your corporate identity provider (IdP) instead of holding API keys or cloud credentials. The gateway holds the upstream credential, enforces model access and managed settings by IdP group, and relays usage telemetry to your observability stack—including Amazon CloudWatch.
 
@@ -46,7 +45,7 @@ The following procedure summarizes the quickstart steps. For detailed instructio
 
 1. Write a `gateway.yaml` configuration file. The following example shows a minimal configuration that uses Amazon Bedrock as the upstream.
 
-   ```
+   ```yaml
    listen:
      host: 0.0.0.0
      port: 8080
@@ -89,7 +88,7 @@ The following procedure summarizes the quickstart steps. For detailed instructio
 
 To point developer machines to your gateway, distribute the following managed settings keys through mobile device management (MDM) or your configuration management tool.
 
-```
+```json
 {
   "forceLoginMethod": "gateway",
   "forceLoginGatewayUrl": "https://{{claude-gateway.internal.example.com}}"

@@ -1,7 +1,6 @@
 
 
 # Investigate with the AWS DevOps Agent
-<a name="omni-investigate-with-the-aws-devops-agent"></a>
 
 CloudWatch Omni uses AWS DevOps Agent as the native agent for root cause analysis and incident investigation. You must link CloudWatch Omni to a DevOps Agent space before you can start an investigation.
 

@@ -1,7 +1,6 @@
 
 
 # Cross-service confused deputy prevention
-<a name="security-iam-cwim-confused-deputy"></a>
 
 A confused deputy is an entity (a service or an account) that is coerced by a different entity to perform an action. This type of impersonation can happen cross-account and cross-service.
 
@@ -23,7 +22,7 @@ The following is an example of an assume role policy that shows how you can prev
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

@@ -1,7 +1,6 @@
 
 
 # Elastic Block Store (EBS)
-<a name="appinsights-metrics-ebs"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

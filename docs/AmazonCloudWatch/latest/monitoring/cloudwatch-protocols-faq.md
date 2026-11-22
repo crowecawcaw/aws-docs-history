@@ -1,7 +1,6 @@
 
 
 # FAQs on CloudWatch supported protocols
-<a name="cloudwatch-protocols-faq"></a>
 
 CloudWatch SDKs started using two additional protocols: [AWS JSON 1.0](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html) and [Smithy RPC v2 CBOR](https://smithy.io/2.0/additional-specs/protocols/smithy-rpc-v2.html). These protocols are more performant than AWS Query that was previously utilized by the CloudWatch SDKs and CLIs. AWS SDKs will prioritize the protocol that is the most performant for each language.
 

@@ -1,7 +1,6 @@
 
 
 # Prompt playground
-<a name="omni-prompt-playground"></a>
 
 The Prompt playground is an interactive space to try changes and see the effect immediately, without deploying your agent. Where datasets and experiments give you repeatable measurement, the playground is for quick iteration: form a hypothesis, try it, and see the result. Then formalize what worked into a dataset case or an experiment.
 

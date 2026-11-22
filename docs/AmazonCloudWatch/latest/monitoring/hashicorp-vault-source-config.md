@@ -1,7 +1,6 @@
 
 
 # Source configuration for HashiCorp Vault
-<a name="hashicorp-vault-source-config"></a>
 
 ## Integrating with HashiCorp Vault
 <a name="hashicorp-vault-integration"></a>
@@ -45,7 +44,7 @@ Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "AllowS3ToSQS",
@@ -76,20 +75,20 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 
 Enable the Vault file audit device to write audit logs:
 
-```
+```bash
 vault audit enable file file_path=/var/log/vault/audit.log
 ```
 
 Configure JSON operational logs in the Vault server configuration file (`vault.hcl`):
 
-```
+```hcl
 log_level = "info"
 log_format = "json"
 ```
 
 Configure Fluent Bit to collect both audit and operational logs and deliver them to Amazon S3:
 
-```
+```ini
 ########################################
 # SERVICE SECTION
 ########################################
@@ -151,7 +150,7 @@ Configure Fluent Bit to collect both audit and operational logs and deliver them
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

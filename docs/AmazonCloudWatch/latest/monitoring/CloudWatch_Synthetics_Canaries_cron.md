@@ -1,7 +1,6 @@
 
 
 # Scheduling canary runs using cron
-<a name="CloudWatch_Synthetics_Canaries_cron"></a>
 
 Using a cron expression gives you flexibility when you schedule a canary. Cron expressions contain five or six fields in the order listed in the following table. The fields are separated by spaces. The syntax differs depending on whether you are using the CloudWatch console to create the canary, or the AWS CLI or AWS SDKs. When you use the console, you specify only the first five fields. When you use the AWS CLI or AWS SDKs, you specify all six fields, and you must specify `*` for the `Year` field.
 

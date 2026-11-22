@@ -1,7 +1,6 @@
 
 
 # Evaluate network flows with workload insights
-<a name="CloudWatch-NetworkFlowMonitor-configure-evaluate-flows"></a>
 
 Network Flow Monitor provides workload insights about the network flows in the scope that you enable monitoring for. By surfacing top contributor network flows for each metric type, you can see which flows are potentially experiencing issues. You can view these top contributor metrics in the console on the **Workload insights** tab. In Network Flow Monitor, top contributors are network flows that have the highest values for each network performance metric. 
 

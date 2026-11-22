@@ -1,7 +1,6 @@
 
 
 # Best practice alarm recommendations for AWS services
-<a name="Best-Practice-Alarms"></a>
 
 CloudWatch provides out-of-the box alarm recommendations. These are CloudWatch alarms that CloudWatch recommends that you create for metrics that are published by other AWS services. These recommendations can help you identify the metrics that you should set alarms for to follow best practices for monitoring. The recommendations also suggest the alarm thresholds to set. Following these recommendations can help you not miss important monitoring of your AWS infrastructure.
 

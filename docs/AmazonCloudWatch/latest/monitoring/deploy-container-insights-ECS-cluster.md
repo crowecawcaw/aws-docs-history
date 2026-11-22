@@ -1,7 +1,6 @@
 
 
 # Setting up Container Insights on Amazon ECS
-<a name="deploy-container-insights-ECS-cluster"></a>
 
 You can set up Container Insights with enhanced observability or Container Insights on new and existing Amazon ECS clusters using either the Amazon ECS console or the AWS CLI. Container Insights collects metrics at the cluster, task, and service levels. Container Insights with enhanced observability provides additional dimensions and metrics, allowing you to deep dive down to container level visibility. 
 
@@ -30,7 +29,7 @@ aws ecs put-account-setting --name containerInsights --value enhanced
 
 Example output
 
-```
+```json
 {
   "setting": {
       "name": "containerInsights",
@@ -91,7 +90,7 @@ aws ecs put-account-setting --name containerInsights --value enabled
 
 Example output
 
-```
+```json
 {
   "setting": {
       "name": "container Insights",

@@ -1,7 +1,6 @@
 
 
 # OpenTelemetry Collector
-<a name="CloudWatch-OTLPSimplesetup"></a>
 
 The OpenTelemetry Collector is an open source, vendor-agnostic agent that receives, processes, and exports telemetry data. It acts as a central pipeline between your applications and Amazon CloudWatch, collecting metrics, logs, and traces from multiple sources and sending them to CloudWatch using the OpenTelemetry Protocol (OTLP).
 

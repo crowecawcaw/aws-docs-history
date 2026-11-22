@@ -1,7 +1,6 @@
 
 
 # Source configuration for Salesforce ELF
-<a name="salesforce-elf-source-config"></a>
 
 ## Prerequisites
 <a name="salesforce-elf-prerequisites"></a>

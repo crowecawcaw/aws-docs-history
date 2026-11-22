@@ -1,7 +1,6 @@
 
 
 # Using Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor"></a>
 
 Network Flow Monitor gives you near real-time visibility into network performance for traffic between compute resources (Amazon EC2 and Amazon Elastic Kubernetes Service), traffic to other AWS services (Amazon S3 and Amazon DynamoDB), and traffic to the edge of another AWS Region. Network Flow Monitor collects data from lightweight software agents that you install on your instances. These agents gather performance statistics from TCP connections and send this data to the Network Flow Monitor backend service, which calculates the top contributors for each metric type.
 

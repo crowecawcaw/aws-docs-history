@@ -1,11 +1,10 @@
 
 
 # Amazon EC2 Auto Scaling (ASG)
-<a name="component-configuration-examples-asg"></a>
 
 The following example shows a component configuration in JSON format for Amazon EC2 Auto Scaling (ASG).
 
-```
+```json
 {
     "alarmMetrics" : [
       {

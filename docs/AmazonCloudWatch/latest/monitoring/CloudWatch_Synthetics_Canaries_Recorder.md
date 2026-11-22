@@ -1,7 +1,6 @@
 
 
 # Using the CloudWatch Synthetics Recorder for Google Chrome
-<a name="CloudWatch_Synthetics_Canaries_Recorder"></a>
 
 Amazon provides a CloudWatch Synthetics Recorder to help you create canaries more easily. The recorder is a Google Chrome extension.
 

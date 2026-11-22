@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Jamf Pro
-<a name="jamf-pro-pipeline-setup"></a>
 
 Collects computer inventory data from Jamf Pro using OAuth2 Client Credentials authentication.
 
 Configure the Jamf Pro source with the following parameters:
 
-```
+```yaml
 source:
   jamf_pro:
     hostname: "<<your-instance>>.jamfcloud.com"

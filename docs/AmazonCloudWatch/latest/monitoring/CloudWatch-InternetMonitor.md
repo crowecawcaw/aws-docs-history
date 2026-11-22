@@ -1,7 +1,6 @@
 
 
 # Using Internet Monitor
-<a name="CloudWatch-InternetMonitor"></a>
 
 Internet Monitor provides visibility into how internet issues impact the performance and availability between your applications hosted on AWS and your end users. It can reduce the time it takes for you to diagnose internet issues from days to minutes. Internet Monitor uses the connectivity data that AWS captures from its global networking footprint to calculate a baseline of performance and availability for internet-facing traffic. This is the same data that AWS uses to monitor internet uptime and availability. With those measurements as a baseline, Internet Monitor raises awareness for you when there are significant problems for your end users (clients) in the different geographic locations where your application runs.
 

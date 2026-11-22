@@ -1,7 +1,6 @@
 
 
 # Memory
-<a name="Memory"></a>
 
 Understand how your agents store, retrieve, and use contextual information to provide personalized experiences. For more information on Amazon Bedrock AgentCore Memory, see [Add memory to your AI agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html). Memory observability includes three key monitoring areas:
 + **Memories** – Monitor memory storage and retrieval patterns

@@ -1,7 +1,6 @@
 
 
 # Set up the CloudWatch agent with security-enhanced Linux (SELinux)
-<a name="CloudWatch-Agent-SELinux"></a>
 
 If your system has security-enhanced Linux (SELinux) enabled, you must apply the appropriate security policies to ensure that the CloudWatch agent runs in a confined domain. 
 

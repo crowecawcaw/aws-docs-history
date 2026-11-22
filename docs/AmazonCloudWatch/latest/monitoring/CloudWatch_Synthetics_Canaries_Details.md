@@ -1,7 +1,6 @@
 
 
 # Viewing canary statistics and details
-<a name="CloudWatch_Synthetics_Canaries_Details"></a>
 
 You can view details about your canaries and see statistics about their runs.
 

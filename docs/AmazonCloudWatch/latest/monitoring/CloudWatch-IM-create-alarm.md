@@ -1,7 +1,6 @@
 
 
 # Create alarms with Internet Monitor
-<a name="CloudWatch-IM-create-alarm"></a>
 
 You can create Amazon CloudWatch alarms based on Internet Monitor metrics, just as you can for other Amazon CloudWatch metrics.
 

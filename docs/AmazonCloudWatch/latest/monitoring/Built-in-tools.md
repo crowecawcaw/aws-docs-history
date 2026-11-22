@@ -1,7 +1,6 @@
 
 
 # Built-in tools
-<a name="Built-in-tools"></a>
 
 Use CloudWatch to gain visibility into how your agents use built-in tools like `Code interpreter tool` and `Browser use tool` to complete tasks. CloudWatch provides monitoring capabilities for each tool. For more information on Amazon Bedrock AgentCore built-in tools, see [Use Amazon Bedrock AgentCore built-in tools to interact with your applications ](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/built-in-tools.html).
 

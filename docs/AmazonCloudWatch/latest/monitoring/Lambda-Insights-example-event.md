@@ -1,7 +1,6 @@
 
 
 # Example telemetry event in CloudWatch Lambda Insights
-<a name="Lambda-Insights-example-event"></a>
 
 Each invocation of a Lambda function that has Lambda Insights enabled writes a single log event to the `/aws/lambda-insights` log group. Each log event contains metrics in embedded metric format. For more information about embedded metric format, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md).
 
@@ -12,7 +11,7 @@ To analyze these log events, you can use the following methods:
 
 The following is an example of a Lambda Insights log event with embedded metric format.
 
-```
+```json
 {
     "_aws": {
         "Timestamp": 1605034324256,
@@ -73,7 +72,7 @@ The following is an example of a Lambda Insights log event with embedded metric 
 
 The following is an example of a Lambda Insights log event for a Lambda function running on Lambda Managed Instances.
 
-```
+```json
 {
     "total_network": 16443,
     "tmp_free": 531492864,

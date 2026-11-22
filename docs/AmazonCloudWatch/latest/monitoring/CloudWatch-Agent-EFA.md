@@ -1,7 +1,6 @@
 
 
 # Collect EFA metrics
-<a name="CloudWatch-Agent-EFA"></a>
 
  You can use the CloudWatch agent to collect Elastic Fabric Adapter (EFA) metrics from Linux servers that have EFA devices attached. To set this up, add an `efa` section inside the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Linux-section). 
 
@@ -51,7 +50,7 @@ To append additional dimensions such as `InstanceId`, use the `append_dimensions
 
 The following example configuration collects a subset of EFA metrics every 60 seconds and appends the `InstanceId` dimension to each metric.
 
-```
+```JSON
 {
   "metrics": {
     "append_dimensions": {

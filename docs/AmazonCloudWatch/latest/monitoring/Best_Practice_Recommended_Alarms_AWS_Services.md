@@ -1,7 +1,6 @@
 
 
 # Recommended alarms (Classic)
-<a name="Best_Practice_Recommended_Alarms_AWS_Services"></a>
 
 The following sections list the metrics that we recommend that you set best practice alarms for. For each metric, the dimensions, alarm intent, recommended threshold, threshold justification, and the period length and number of datapoints is also displayed.
 

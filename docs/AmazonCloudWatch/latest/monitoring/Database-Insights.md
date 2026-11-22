@@ -1,7 +1,6 @@
 
 
 # CloudWatch Database Insights
-<a name="Database-Insights"></a>
 
 **Note**  
 AWS announced that the end-of-life date for Performance Insights was July 31, 2026, and has migrated Performance Insights users to Database Insights. Standard mode supports flexible retention of 1–24 months at the same price as Performance Insights. Advanced mode supports flexible retention of 1–24 months, at no extra cost.

@@ -1,13 +1,12 @@
 
 
 # Create a Log Alarm on high latency per endpoint
-<a name="US_LogAlarmLatencyByEndpoint"></a>
 
 You can create a multi-contributor Log Alarm that monitors average latency grouped by endpoint. The alarm transitions to `ALARM` state if any endpoint exceeds the latency threshold.
 
 The following example creates a Log Alarm that enters `ALARM` state when any endpoint has average latency greater than 1000 ms in 3 out of 5 query executions.
 
-```
+```bash
 aws cloudwatch put-log-alarm \
     --alarm-name "EndpointLatency" \
     --alarm-description "Alarm when any endpoint latency exceeds 1000ms" \

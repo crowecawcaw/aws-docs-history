@@ -1,7 +1,6 @@
 
 
 # Set up and configure Prometheus metrics collection on Amazon EKS and Kubernetes clusters
-<a name="ContainerInsights-Prometheus-install-EKS"></a>
 
 To collect Prometheus metrics from clusters running Amazon EKS or Kubernetes, you can use the CloudWatch agent as a collector or use the AWS Distro for OpenTelemetry collector. For information about using the AWS Distro for OpenTelemetry collector, see [https://aws-otel.github.io/docs/getting-started/container-insights/eks-prometheus](https://aws-otel.github.io/docs/getting-started/container-insights/eks-prometheus).
 

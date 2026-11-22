@@ -1,7 +1,6 @@
 
 
 # Use `GetMetricWidgetImage` with an AWS SDK or CLI
-<a name="example_cloudwatch_GetMetricWidgetImage_section"></a>
 
 The following code examples show how to use `GetMetricWidgetImage`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetMetricWidgetImage`.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get an image for a metric graphed over time.
     /// </summary>
@@ -86,7 +85,7 @@ For more information, see [Graphing metrics](https://docs.aws.amazon.com/AmazonC
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Retrieves and saves a custom metric image to a file.
      *
@@ -150,7 +149,7 @@ For more information, see [Graphing metrics](https://docs.aws.amazon.com/AmazonC
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun getAndOpenMetricImage(fileName: String) {
     println("Getting image data for a custom metric.")
     val myJSON = """{

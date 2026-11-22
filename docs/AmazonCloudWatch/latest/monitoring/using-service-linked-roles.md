@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for CloudWatch
-<a name="using-service-linked-roles"></a>
 
 Amazon CloudWatch uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to CloudWatch. Service-linked roles are predefined by CloudWatch and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -62,7 +61,7 @@ The complete contents of the AWSObservabilityAdminServiceRolePolicy policy are a
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -172,7 +171,7 @@ The complete contents of the AWSObservabilityAdminServiceRolePolicy policy are a
 The `AWSObservabilityAdminTelemetryEnablementServiceRolePolicy` grants permissions necessary to enable and manage telemetry configurations for AWS resources based on telemetry rules.
 
 This policy grants permissions for:
-+ Basic telemetry operations including describing VPCs, flow logs, log groups. It also includes permissions to enable logging configuration for EKS cluster logging, WAF put logging configuration, enabling NLB logs, Route53 Resolver query logging, Amazon EC2 detailed monitoring, AWS Security Hub, Amazon Bedrock Agentcore Gateway, Amazon Bedrock Agentcore Memory, Amazon CloudFront distribution, S3 bucket server access logs, MSK Cluster, OpenTelemetry Enrichment, Amazon Bedrock Agentcore Workload Identity, Amazon Bedrock AgentCore Payment Manager, AWS X-Ray Transaction Search, and Amazon EKS Container Insights. 
++ Basic telemetry operations including describing VPCs, flow logs, log groups. It also includes permissions to enable logging configuration for EKS cluster logging, WAF put logging configuration, enabling NLB logs, Route53 Resolver query logging, Amazon EC2 detailed monitoring, AWS Security Hub, Amazon Bedrock Agentcore Gateway, Amazon Bedrock Agentcore Memory, Amazon CloudFront distribution, S3 bucket server access logs, MSK Cluster, OpenTelemetry Enrichment, Amazon Bedrock Agentcore Workload Identity, Amazon Bedrock AgentCore Payment Manager, AWS X-Ray Transaction Search, Amazon EKS Container Insights, and AWS Network Firewall logging configuration. 
 + Resource tagging operations with the `CloudWatchTelemetryRuleManaged` tag for tracking managed resources
 + Log delivery configuration for services like AWS Bedrock and VPC Flow Logs
 + Configuration recorder management for telemetry enablement tracking
@@ -208,7 +207,7 @@ The complete contents of **CloudWatchApplicationSignalsServiceRolePolicy** are a
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -363,7 +362,7 @@ The **AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights** service-linked role h
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

@@ -1,7 +1,6 @@
 
 
 # Trace sampling rate
-<a name="Application-Signals-SampleRate"></a>
 
 By default, when you enable Application Signals X-Ray centralized sampling is enabled using the default sampling rate settings of `reservoir=1/s` and `fixed_rate=5%`. The environment variables for the AWS Distro for OpenTelemetry (ADOT) SDK agent as set as follows.
 

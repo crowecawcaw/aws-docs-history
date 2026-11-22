@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Entrust IDaaS
-<a name="entrust-idaas-pipeline-setup"></a>
 
 Collects identity and access management audit logs from Entrust IDaaS using OAuth2 authentication.
 
 Configure the Entrust IDaaS source with the following parameters:
 
-```
+```yaml
 source:
   entrust_idaas:
     hostname: "<hostname>"

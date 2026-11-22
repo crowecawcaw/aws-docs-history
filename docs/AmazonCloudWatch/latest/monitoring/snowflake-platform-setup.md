@@ -1,7 +1,6 @@
 
 
 # Snowflake Platform integration configuration
-<a name="snowflake-platform-setup"></a>
 
 Snowflake is a cloud-based data platform for data warehousing, analytics, and data processing. With CloudWatch pipelines, you can collect audit records from your Snowflake account. These records include user activity, authentication events, session lifecycle, role assignments, data access, and query execution history.
 

@@ -1,7 +1,6 @@
 
 
 # AWS services where investigations are supported
-<a name="Investigations-Services"></a>
 
 You can launch investigations from telemetry data (such as CloudWatch metrics, alarms, and logs), review generated anomaly signals, and explore hypotheses on investigations. CloudWatch investigations work best when helping you with automated troubleshooting guidance on the AWS services listed below:
 + Amazon API Gateway
@@ -28,7 +27,7 @@ The list of services will continue to be expanded over time. CloudWatch investig
 
 While CloudWatch investigations will continue to analyze telemetry data and provide suggestions without the following features enabled, for optimal quality and performance for CloudWatch investigations, we recommend you complete the following steps:
 + 1For both Amazon EC2 and Amazon EBS, update your CloudWatch agent to version 1.30049.1 or later. For more information, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md).
-+ 2For Amazon ECS, enable CloudWatch Container Insights. For more information, see [Container Insights](ContainerInsights.md).
-+ 3For Amazon EKS, enable CloudWatch Container Insights and configure Amazon EKS Access Entries. For more information, see [Container Insights](ContainerInsights.md) and [Integration with Amazon EKS](EKS-Integration.md).
++ 2For Amazon ECS, enable CloudWatch Container Insights. For more information, see [Container Insights for Amazon ECS](deploy-container-insights-ECS.md).
++ 3For Amazon EKS, enable CloudWatch Container Insights and configure Amazon EKS Access Entries. For more information, see [Container Insights for Amazon EKS](ContainerInsights.md) and [Integration with Amazon EKS](EKS-Integration.md).
 + 4For Amazon RDS, enable CloudWatch Database Insights in the **Advanced mode**. For more information, see [Turning on the Advanced mode of Database Insights for Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.html) in the *Aurora User Guide*. 
 + Enable CloudWatch Application Signals and X-Ray. For more information, see [Application Signals](CloudWatch-Application-Monitoring-Sections.md) and [What is AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html). 

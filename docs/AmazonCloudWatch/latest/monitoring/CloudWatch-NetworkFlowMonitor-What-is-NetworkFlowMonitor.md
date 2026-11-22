@@ -1,7 +1,6 @@
 
 
 # What is Network Flow Monitor?
-<a name="CloudWatch-NetworkFlowMonitor-What-is-NetworkFlowMonitor"></a>
 
 Network Flow Monitor is a feature of Amazon CloudWatch Network Monitoring. Network Flow Monitor uses fully-managed agents that you install in your AWS workloads to return performance and availability metrics about network flows. Using Network Flow Monitor, you can access near real-time metrics, including retransmissions and data transferred, for your actual workloads. You can also identify whether an underlying AWS network issue occurred for the network flows tracked by a monitor, by checking network health indicator (NHI) values. 
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Zeek
-<a name="zeek-source-setup"></a>
 
 ## Integrating with Zeek
 <a name="zeek-integration"></a>

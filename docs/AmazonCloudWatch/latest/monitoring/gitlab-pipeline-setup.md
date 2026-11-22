@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for GitLab
-<a name="gitlab-pipeline-setup"></a>
 
 Collects log data from GitLab using Personal Access Token authentication through the GitLab REST API and GraphQL API.
 
 Configure the GitLab source with the following parameters:
 
-```
+```yaml
 source:
   gitlab:
     authentication:

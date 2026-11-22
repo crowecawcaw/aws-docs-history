@@ -1,7 +1,6 @@
 
 
 # Create a fleet health view for CloudWatch Database Insights
-<a name="Database-Insights-fleet-views-create"></a>
 
 To create a fleet health view, use the following procedure.
 

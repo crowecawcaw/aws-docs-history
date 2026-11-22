@@ -1,7 +1,6 @@
 
 
 # Use Metrics Insights queries with metric math
-<a name="cloudwatch-metrics-insights-math"></a>
 
 You can use a Metrics Insights query as an input to a metric math function. For more information about metric math, see [Math expressions with metrics](using-metric-math.md).
 
@@ -11,7 +10,7 @@ A Metrics Insights query that includes a **GROUP BY** clause returns multiple ti
 
 For example, the following query returns the total number of bytes downloaded for each bucket in the Region, as an array of time series:
 
-```
+```sql
 SELECT SUM(BytesDownloaded) 
 FROM SCHEMA("AWS/S3", BucketName, FilterId) 
 WHERE FilterId = 'EntireBucket'

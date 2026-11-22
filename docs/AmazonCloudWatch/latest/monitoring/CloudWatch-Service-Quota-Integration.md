@@ -1,7 +1,6 @@
 
 
 # AWS usage metrics
-<a name="CloudWatch-Service-Quota-Integration"></a>
 
 CloudWatch collects metrics that track the usage of some AWS resources and APIs. These metrics are published in the `AWS/Usage` namespace. Usage metrics in CloudWatch allow you to proactively manage usage by visualizing metrics in the CloudWatch console, creating custom dashboards, detecting changes in activity with CloudWatch anomaly detection, and configuring alarms that alert you when usage approaches a threshold.
 

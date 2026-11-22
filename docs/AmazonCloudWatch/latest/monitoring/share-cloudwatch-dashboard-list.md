@@ -1,7 +1,6 @@
 
 
 # Seeing which of your CloudWatch dashboards are shared
-<a name="share-cloudwatch-dashboard-list"></a>
 
 You can use the CloudWatch console to see which of your dashboards are currently being shared with others.
 

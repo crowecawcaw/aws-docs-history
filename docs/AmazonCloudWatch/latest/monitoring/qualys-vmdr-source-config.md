@@ -1,7 +1,6 @@
 
 
 # Source configuration for Qualys VMDR
-<a name="qualys-vmdr-source-config"></a>
 
 ## Integrating with Qualys VMDR
 <a name="qualys-vmdr-integration"></a>

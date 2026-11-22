@@ -1,7 +1,6 @@
 
 
 # Use Quick Amazon S3 setup
-<a name="CloudWatch-metric-streams-setup-Quick-S3"></a>
 
 The **Quick S3 Setup** method works well if you want to quickly set up a stream to Amazon S3 and you don't need any formatting transformation beyond the supported JSON, OpenTelemetry 1.0.0, and OpenTelemetry 0.7.0 formats. CloudWatch will create all necessary resources including the Firehose delivery stream and the necessary IAM roles. The default format for this option is JSON, but you can change the format while you set up the stream.
 

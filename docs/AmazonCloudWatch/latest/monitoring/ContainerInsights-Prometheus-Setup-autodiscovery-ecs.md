@@ -1,7 +1,6 @@
 
 
 # Detailed guide for autodiscovery on Amazon ECS clusters
-<a name="ContainerInsights-Prometheus-Setup-autodiscovery-ecs"></a>
 
 Prometheus provides dozens of dynamic service-discovery mechanisms as described in [<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config). However there is no built-in service discovery for Amazon ECS. The CloudWatch agent adds this mechanism.
 
@@ -102,7 +101,7 @@ This section includes examples that demonstrate ECS service discovery.
 
 **Example 1**
 
-```
+```json
 "ecs_service_discovery": {
   "sd_frequency": "1m",
   "sd_result_file": "/tmp/cwagent_ecs_auto_sd.yaml",
@@ -121,7 +120,7 @@ The default value of `sd_job_name_label` in the `docker_label` section is `job`.
 
 **Example 2**
 
-```
+```json
 "ecs_service_discovery": {
   "sd_frequency": "15s",
   "sd_result_file": "/tmp/cwagent_ecs_auto_sd.yaml",
@@ -136,7 +135,7 @@ This example enables Docker label-based service discovery. THe CloudWatch agent 
 
 **Example 3**
 
-```
+```json
 "ecs_service_discovery": {
   "sd_frequency": "5m",
   "sd_result_file": "/tmp/cwagent_ecs_auto_sd.yaml",
@@ -166,7 +165,7 @@ Two task definition ARN regular expresion sections are defined:
 
 **Example 4**
 
-```
+```json
 "ecs_service_discovery": {
   "sd_frequency": "5m",
   "sd_result_file": "/tmp/cwagent_ecs_auto_sd.yaml",
@@ -196,7 +195,7 @@ Two service name regular expresion sections are defined:
 
 **Example 5**
 
-```
+```json
 "ecs_service_discovery": {
   "sd_frequency": "1m30s",
   "sd_result_file": "/tmp/cwagent_ecs_auto_sd.yaml",

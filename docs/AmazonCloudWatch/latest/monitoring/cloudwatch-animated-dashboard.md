@@ -1,7 +1,6 @@
 
 
 # Viewing an animated CloudWatch dashboard
-<a name="cloudwatch-animated-dashboard"></a>
 
 You can view an animated dashboard that replays CloudWatch metric data that was captured over time. This can help you see trends, make presentations, or analyze issues after they occur.
 

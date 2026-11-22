@@ -1,13 +1,12 @@
 
 
 # Pipeline configuration for Zscaler Internet Access
-<a name="zscaler-zia-pipeline-setup"></a>
 
 The Zscaler setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the Zscaler source using the following parameters:
 
-```
+```yaml
 source:
   s3:
     aws:

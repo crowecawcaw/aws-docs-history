@@ -1,7 +1,6 @@
 
 
 # Logging Amazon CloudWatch API and console operations with AWS CloudTrail
-<a name="logging_cw_api_calls"></a>
 
 Amazon CloudWatch, CloudWatch Synthetics, CloudWatch RUM, Amazon Q Developer operational investigations, Network Flow Monitor, and Internet Monitor are integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls made by or on behalf of your AWS account. The captured calls include calls from the CloudWatch console and code calls to CloudWatch API operations. Using the information collected by CloudTrail, you can determine the request that was made to CloudWatch, the IP address from which the request was made, when it was made, and additional details.
 
@@ -91,7 +90,7 @@ CloudWatch supports logging the following actions as events in CloudTrail log fi
 
 The following example shows a CloudTrail log entry that demonstrates the `PutMetricAlarm` action.
 
-```
+```json
 {
     "Records": [{
         "eventVersion": "1.01",
@@ -249,7 +248,7 @@ When you view the **GetMetricData** events in CloudTrail, you might see more cal
 
 The following is an example of a CloudTrail event for a **GetMetricData** operation.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -330,7 +329,7 @@ The following is an example of a CloudTrail event for a **GetMetricData** operat
 
 The following is an example of a CloudTrail event for a **PutMetricData** operation.
 
-```
+```json
 {
       "eventVersion": "1.11",
       "userIdentity": {
@@ -396,7 +395,7 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
 
 The following is an example of a CloudTrail event for a **PutMetricData** operation for metrics that were sent using the OpenTelemetry Protocol (OTLP).
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -453,7 +452,7 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
 
 The following is an example of a CloudTrail event for a **QueryMetrics** (PromQL) operation.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -500,7 +499,7 @@ CloudTrail logging for Query generator console events is also supported. Query g
 
 The following example shows a CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Metrics Insights. 
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -573,7 +572,7 @@ Amazon Q Developer operational investigations supports logging the following act
 
 The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the `CreateInvestigationGroup` action.
 
-```
+```json
 {
 	"eventVersion": "1.09",
 	"userIdentity": {
@@ -752,7 +751,7 @@ Network Flow Monitor supports logging the following actions as events in CloudTr
 
 The following example shows a Network Flow Monitor CloudTrail log file entry that demonstrates the `CreateMonitor` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -827,7 +826,7 @@ The following example shows a Network Flow Monitor CloudTrail log file entry tha
 }
 ```
 
-```
+```json
 {
         "eventVersion": "1.08",
         "userIdentity": {
@@ -902,7 +901,7 @@ The following are data plane APIs in Network Flow Monitor.
 
 The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.html) action.
 
-```
+```json
 {
   "eventVersion": "1.09",
   "userIdentity": {
@@ -957,7 +956,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetQue
 
 The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html) action.
 
-```
+```json
 {
   "eventVersion": "1.09",
   "userIdentity": {
@@ -1034,7 +1033,7 @@ Internet Monitor supports logging the following actions as events in CloudTrail 
 
 The following example shows a CloudTrail Internet Monitor log entry that demonstrates the `ListMonitors` action.
 
-```
+```json
 {
         "eventVersion": "1.08",
         "userIdentity": {
@@ -1162,7 +1161,7 @@ When you add, update, or remove replica locations for a multilocation canary, re
 
 The following example shows a CloudTrail Synthetics log entry that demonstrates the `DescribeCanaries` action.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -1333,7 +1332,7 @@ This section contains example CloudTrail entries for some CloudWatch RUM APIs.
 
 The following example shows a CloudTrail log entry that demonstrates the [CreateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html) action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1401,7 +1400,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Create
 
 The following example shows a CloudTrail log entry that demonstrates the [PutRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html) action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1447,7 +1446,7 @@ The following example shows a CloudTrail log entry that demonstrates the [PutRum
 
 The following example shows a CloudTrail log entry that demonstrates the [BatchCreateRumMetricsDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html) action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1527,7 +1526,7 @@ Using the information that CloudTrail collects, you can identify a specific requ
 
 The following example shows a CloudTrail log entry that demonstrates the [PutRumEvents](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumEvents.html) action.
 
-```
+```json
 {
  "Records": [
      {
@@ -1623,7 +1622,7 @@ Network Synthetic Monitor supports logging the following actions as events in Cl
 
 The following example shows a Network Synthetic Monitor CloudTrail log entry that demonstrates the `CreateMonitor` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1696,7 +1695,7 @@ CloudWatch Observability Access Manager supports logging the following actions a
 
 The following example shows a CloudWatch Observability Access Manager CloudTrail log entry that demonstrates the `CreateSink` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1761,7 +1760,7 @@ CloudWatch Observability Admin supports logging the following actions as events 
 
 The following example shows a CloudWatch Observability Admin CloudTrail log entry that demonstrates the `StartTelemetryEvaluation` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1828,7 +1827,7 @@ CloudWatch Application Signals supports logging the following actions as events 
 
 The following example shows a CloudWatch Application Signals CloudTrail log entry that demonstrates the `CreateServiceLevelObjective` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -1917,7 +1916,7 @@ CloudWatch Application Insights supports logging the following actions as events
 
 The following example shows a CloudWatch Application Insights CloudTrail log entry that demonstrates the `CreateApplication` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

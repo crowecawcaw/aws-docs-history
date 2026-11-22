@@ -1,7 +1,6 @@
 
 
 # Metrics collected by the CloudWatch agent
-<a name="metrics-collected-by-CloudWatch-agent"></a>
 
  You can collect metrics from servers by installing the CloudWatch agent on the server. You can install the agent on both Amazon EC2 instances and on-premises servers. You can also install the agent on computers running Linux, Windows Server, or macOS. If you install the agent on an Amazon EC2 instance, the metrics the agent collects are in addition to the metrics enabled by default on Amazon EC2 instances. For information about installing the CloudWatch agent on an instance, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md). You can use this section to learn about metrics the CloudWatch agent collects. 
 

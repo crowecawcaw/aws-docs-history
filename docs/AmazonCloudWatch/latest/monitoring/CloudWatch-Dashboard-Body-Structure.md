@@ -1,7 +1,6 @@
 
 
 # Dashboard Body Structure and Syntax
-<a name="CloudWatch-Dashboard-Body-Structure"></a>
 
 **Topics**
 + [Overall Structure](#Dashboard-Body-Overall-Structure)
@@ -21,7 +20,7 @@ A `DashboardBody` is a string in JSON format. It can include an array of between
 
 The following is an example of this structure with one metric widget and one text widget, a time range starting six hours before the current time, and each graph's period setting always being obeyed.
 
-```
+```json
 {
    "start": "-PT6H",
    "periodOverride": "inherit",
@@ -67,7 +66,7 @@ The following is an example of this structure with one metric widget and one tex
 
 The next example displays three Lambda per-function metrics, and uses a dashboard variable so that dashboard users can switch between different Lambda function names and see all three metrics for each function. This helps you create a single flexible dashboard that can display key metrics for different resources. In this example the functions are discovered by a metric search query, so the dashboard automatically discovers new Lambda functions when they are created.
 
-```
+```json
 {
     "widgets": [{
             "height": 6,
@@ -137,7 +136,7 @@ The next example displays three Lambda per-function metrics, and uses a dashboar
 
 The next example has two widgets. The first includes two metrics and a math expression that sums their total. The second widget is a search expression that displays the `CPUUtilization` for all EC2 instances in the Region.
 
-```
+```json
 {
    "start": "-PT9H",
    "periodOverride": "inherit",
@@ -286,7 +285,7 @@ If your `inputType` is `select` or `radio` and you want to define the possible v
 If you specify a `values` array it must include at least one item, and can include as many as 500.  
 For example, the following creates a list of three possible Regions to use as the values for a variable.  
 
-```
+```json
 "values": [
     { "label": "US East (IAD)", "value": "us-east-1" },
     { "label": "US West (SFO)", "value": "us-west-1" },
@@ -340,7 +339,7 @@ Required: No
 
 The following example uses a property variable for changing the Region of all widgets, using a text input field. When the dashboard is first opened, the default value of `us-east-1` is used for the variable.
 
-```
+```json
 "variables": [
      {
         "type": "property", 
@@ -356,7 +355,7 @@ The following example uses a property variable for changing the Region of all wi
 
 The following example uses a pattern variable for changing the Region of all widgets, in the case where sometimes the Region is set in the middle of a string such as an ARN.
 
-```
+```json
 "variables": [
     {
         "type": "pattern",
@@ -372,7 +371,7 @@ The following example uses a pattern variable for changing the Region of all wid
 
 The following example generates a Lambda function variable, with a radio button for each function. Functions are discovered by a metric query search.
 
-```
+```json
 "variables": [
     {
         "type": "pattern",
@@ -390,7 +389,7 @@ The following example generates a Lambda function variable, with a radio button 
 
 The following sample displays how to specify multiple variables in a dashboard, and demonstrates several types of variables.
 
-```
+```json
 "variables": [{
         "type": "property",
         "property": "region",
@@ -788,7 +787,7 @@ Type: String
 Required: Yes, for an expression  
 Example of an expression for a Metrics Insights query:  
 
-```
+```json
 [ { "expression": "SELECT MAX(CPUUtilization) FROM SCHEMA(\"AWS/EC2\", InstanceId) GROUP BY InstanceId LIMIT 10", "label": "View the 10 max CPU Utilization", "id": "q1" } ]
 ```
 
@@ -1200,7 +1199,7 @@ Required: No
 
 For example, the following JSON creates a table displaying the minimum and maximum of each metric in the table.
 
-```
+```JSON
 "table": {
     "summaryColumns": ["MIN", "MAX"],
     "layout": "vertical",
@@ -1303,7 +1302,7 @@ Required: No
 
 The following example displays three metrics for each of the account's running EC2 instances, with the graphs in the widget split by availability zone. Within each graph, the metrics are aggregated by instance type.
 
-```
+```json
 {
     "widgets": [
         {
@@ -1775,7 +1774,7 @@ Required: No
 
 The following example renders a line chart that plots a PromQL query against AWS vended metrics in `us-east-1`.
 
-```
+```json
 {
     "type": "chart",
     "x": 0,
@@ -1810,7 +1809,7 @@ The following example renders a line chart that plots a PromQL query against AWS
 
 The following example shows a line chart that plots two queries against the same metric, one written in PromQL and one written in CloudWatch Metrics Insights SQL.
 
-```
+```json
 {
     "type": "chart",
     "x": 0,

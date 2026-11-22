@@ -1,7 +1,6 @@
 
 
 # Source configuration for Palo Alto Prisma Cloud
-<a name="paloalto-prismacloud-source-setup"></a>
 
 ## Integrating with Palo Alto Prisma Cloud
 <a name="paloalto-prismacloud-integration"></a>

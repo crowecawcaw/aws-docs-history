@@ -1,11 +1,10 @@
 
 
 # Sending logs to Amazon CloudWatch
-<a name="container-insights-eks-otel-logs"></a>
 
 OTel Container Insights collects and sends container logs to Amazon CloudWatch Logs by using the OpenTelemetry Collector's log pipeline. The Amazon CloudWatch Observability EKS add-on deploys an OpenTelemetry Collector as a DaemonSet that uses the filelog receiver to tail container log files, enrich them with Kubernetes metadata, and export them to CloudWatch Logs through the CloudWatch Logs exporter.
 
-No additional setup is required for basic log collection. Log collection is enabled by default when you follow the [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md).
+No additional setup is required for basic log collection. Log collection is enabled by default when you follow the [Quick start](container-insights-eks-otel-quickstart.md).
 
 **Log collection costs**  
 Enabling log collection ingests all container stdout and stderr from every pod in the cluster, which can significantly increase CloudWatch Logs costs. To control cost, filter logs before ingestion and set a retention policy on the log groups. For information about filtering, see [Log filtering](container-insights-eks-otel-advanced.md#container-insights-eks-otel-advanced-log-filtering). For information about retention policies, see [Set log retention](#container-insights-eks-otel-logs-retention).
@@ -64,7 +63,7 @@ To disable log collection entirely, update the add-on configuration with contain
 **To disable log collection**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-  ```
+  ```bash
   aws eks update-addon \
     --cluster-name {{cluster-name}} \
     --addon-name amazon-cloudwatch-observability \
@@ -80,7 +79,7 @@ By default, CloudWatch Logs retains log data indefinitely. To control storage co
 **To set log retention**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster. Replace {{30}} with the number of days to retain logs.
 
-  ```
+  ```bash
   aws logs put-retention-policy \
     --log-group-name "/aws/containerinsights/{{cluster-name}}/application" \
     --retention-in-days {{30}}
@@ -94,7 +93,7 @@ To verify that log collection is working, check that the expected log groups exi
 **To verify log collection**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-  ```
+  ```bash
   aws logs describe-log-groups \
     --log-group-name-prefix "/aws/containerinsights/{{cluster-name}}" \
     --query "logGroups[].{Name:logGroupName,StoredBytes:storedBytes}" \
@@ -130,13 +129,13 @@ Use the following guidance to resolve common log collection issues.
 
 1. Check that the collector DaemonSet pod has a volume mount for `/var/log/pods`.
 
-   ```
+   ```bash
    kubectl get daemonset -n amazon-cloudwatch -o yaml | grep -A 5 "var/log/pods"
    ```
 
 1. Check the collector logs for file access errors.
 
-   ```
+   ```bash
    kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --tail=50 | grep -i "error\|permission"
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Runtime versions support policy
-<a name="CloudWatch_Synthetics_Runtime_Support_Policy"></a>
 
 Synthetics runtime versions are subject to maintenance and security updates. When any component of a runtime version is no longer supported, that Synthetics runtime version is deprecated.
 

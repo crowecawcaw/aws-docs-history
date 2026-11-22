@@ -1,7 +1,6 @@
 
 
 # Source configuration for Okta SSO
-<a name="okta-sso-source-setup"></a>
 
 ## Integrating with Okta SSO
 <a name="okta-sso-integration"></a>

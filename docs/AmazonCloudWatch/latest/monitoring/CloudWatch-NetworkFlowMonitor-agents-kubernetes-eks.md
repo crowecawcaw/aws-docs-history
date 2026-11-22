@@ -1,7 +1,6 @@
 
 
 # Install the EKS AWS Network Flow Monitor Agent add-on
-<a name="CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks"></a>
 
 Follow the steps in this section to install the AWS Network Flow Monitor Agent add-on for Amazon Elastic Kubernetes Service (Amazon EKS), to send Network Flow Monitor metrics to the Network Flow Monitor backend from Kubernetes clusters. After you complete the steps, AWS Network Flow Monitor Agent pods will be running on all of your Kubernetes cluster nodes.
 

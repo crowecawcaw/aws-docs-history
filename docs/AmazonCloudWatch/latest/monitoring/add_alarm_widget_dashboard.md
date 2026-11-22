@@ -1,7 +1,6 @@
 
 
 # Adding an alarm status widget to a CloudWatch dashboard
-<a name="add_alarm_widget_dashboard"></a>
 
 **To add an alarm status widget to a dashboard**
 

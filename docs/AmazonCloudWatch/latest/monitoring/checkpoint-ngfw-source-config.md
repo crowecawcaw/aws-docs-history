@@ -1,7 +1,6 @@
 
 
 # Source configuration for Check Point NGFW
-<a name="checkpoint-ngfw-source-config"></a>
 
 ## Integrating with Check Point NGFW
 <a name="checkpoint-ngfw-integration"></a>
@@ -45,7 +44,7 @@ Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "AllowS3ToSQS",
@@ -76,13 +75,13 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 
 On the Check Point appliance, configure `cp_log_export` to forward logs to your syslog receiver:
 
-```
+```bash
 cp_log_export add name my_export target-server <syslog-host> target-port 514 protocol udp format syslog
 ```
 
 On the syslog receiver host, install Fluent Bit and configure it to tail the Check Point NGFW log files and upload them to Amazon S3. Use the following example configuration:
 
-```
+```ini
 ########################################
 # SERVICE SECTION
 ########################################
@@ -139,7 +138,7 @@ Replace `<<Bucket name>>` with your actual Amazon S3 bucket name.
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

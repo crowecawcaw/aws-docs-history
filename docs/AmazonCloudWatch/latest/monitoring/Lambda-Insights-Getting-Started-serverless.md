@@ -1,7 +1,6 @@
 
 
 # Use Serverless Framework to enable Lambda Insights on an existing Lambda function
-<a name="Lambda-Insights-Getting-Started-serverless"></a>
 
 Follow these steps to use Serverless Framework to enable Lambda Insights on an existing Lambda function. For more information about Serverless Framework, see [serverless.com](https://www.serverless.com/).
 
@@ -13,13 +12,13 @@ If you don't already have the latest version of the Serverless command-line inte
 
 1. Install the Serverless plugin for Lambda Insights by running the following command in your Serverless directory:
 
-   ```
+   ```cmd
    npm install --save-dev serverless-plugin-lambda-insights
    ```
 
 1. In your `serverless.yml` file, add the plugin in the `plugins` section as shown:
 
-   ```
+   ```yaml
    provider:
      name: aws
    plugins:
@@ -29,7 +28,7 @@ If you don't already have the latest version of the Serverless command-line inte
 1. Enable Lambda Insights.
    + You can enable Lambda Insights individually per function by adding the following property to the serverless.yml file
 
-     ```
+     ```yaml
      functions:
        {{myLambdaFunction}}:
          handler: src/app/index.handler
@@ -37,7 +36,7 @@ If you don't already have the latest version of the Serverless command-line inte
      ```
    + You can enable Lambda Insights for all functions within the `serverless.yml` file by adding the following custom section:
 
-     ```
+     ```yaml
      custom:
        lambdaInsights:
          defaultLambdaInsights: true #enables Lambda Insights for all functions
@@ -45,7 +44,7 @@ If you don't already have the latest version of the Serverless command-line inte
 
 1. Re-deploy the Serverless service by entering the following command:
 
-   ```
+   ```cmd
    serverless deploy
    ```
 

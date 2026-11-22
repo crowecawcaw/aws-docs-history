@@ -1,7 +1,6 @@
 
 
 # CloudWatch pipelines extensions
-<a name="pipeline-extensions"></a>
 
 CloudWatch pipelines extensions provide additional functionality to the pipeline. You can use the AWS Secrets Manager integration for credential management.
 
@@ -13,7 +12,7 @@ Configures access to AWS Secrets Manager for retrieving credentials and sensitiv
 **Configuration**  
 Configure the AWS Secrets Manager extension with the following parameters:
 
-```
+```yaml
 extension:
   aws:
     secrets:
@@ -45,13 +44,13 @@ Whether to disable automatic secret refresh. Defaults to false.
 
 Reference secrets in your pipeline configuration using the following syntax:
 
-```
+```yaml
 ${{aws_secrets:<secret-name>:<key>}}
 ```
 
 For example, to reference a client ID and secret:
 
-```
+```yaml
 source:
   microsoft_office365:
     authentication:

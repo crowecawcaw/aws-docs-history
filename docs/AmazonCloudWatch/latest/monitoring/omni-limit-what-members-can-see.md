@@ -1,7 +1,6 @@
 
 
 # Limit what members can see
-<a name="omni-limit-what-members-can-see"></a>
 
 By default, every member of the space can read all of its telemetry. To give a member a narrower view, add a **data scope** to their grant. A data scope is a set of conditions that a row of telemetry must match for that member to see it. Rows that do not match are filtered out at read time, before results reach the member. The stored data is not changed. To control what telemetry is captured or stored in the first place, see [Protect sensitive data](omni-data-protection.md).
 
@@ -58,7 +57,7 @@ The By agent, By service, and By account pickers suggest values found in your re
 
 The `JSON` view of the add-grants form shows the grant definition, and you can edit it directly. You can also reuse it with the API, the AWS CDK, or the AWS CLI. It carries the grant name, permission level, action scopes, and tags. The principal comes from the `Name` picker and is not part of the JSON. A data scope is an action scope on a `DataSet` resource. This example limits a Viewer to traces from two agents, or to any trace whose deployment environment is `prod`. Logs stay unrestricted: the scope names only `TRACES` in `signalTypes`, so the `READ` permission level keeps its default full access to logs.
 
-```
+```json
 {
   "name": "checkout-team-viewer",
   "permission": "READ",
@@ -105,7 +104,7 @@ The `JSON` view of the add-grants form shows the grant definition, and you can e
 
 The example above uses a single group. This one uses two groups, each with two conditions, so it shows both axes at once. It limits a Viewer to traces from the `checkout-agent` **in `prod`**, or to any trace from the `returns-service` **in account `111122223333`**. Logs stay unrestricted, since `signalTypes` names only `TRACES`.
 
-```
+```json
 {
   "name": "returns-reviewer",
   "permission": "READ",

@@ -1,7 +1,6 @@
 
 
 # Monitor a service
-<a name="omni-monitor-a-service"></a>
 
 ## Open a service
 <a name="omni-monitor-a-service-open-a-service"></a>

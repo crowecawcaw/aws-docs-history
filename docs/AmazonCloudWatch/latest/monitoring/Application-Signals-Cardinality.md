@@ -1,7 +1,6 @@
 
 
 # Manage high-cardinality operations
-<a name="Application-Signals-Cardinality"></a>
 
 Application Signals includes settings in the CloudWatch agent that you can use to manage the cardinality of your operations and manage the metric exportation to optimize costs. By default, the metric limiting function becomes active when the number of distinct operations for a service over time exceeds the default threshold of 500. You can tune the behavior by adjusting the configuration settings. 
 
@@ -27,7 +26,7 @@ High-cardinality operations can sometimes be caused by inappropriate unique valu
 
 In cases where there is a surge in generating numerous different metrics through individual `RemoteOperation` calls, such as `PUT /api/customer/owners/123`, `PUT /api/customer/owners/456`, and similar requests, Application Signals recommends that you consolidate these operations into a single `RemoteOperation`. One approach is to standardize all `RemoteOperation` calls that start with `PUT /api/customer/owners/` to a uniform format, specifically `PUT /api/customer/owners/{ownerId}`. The following example illustrates this. For information about other customization rules, see [Enable CloudWatch Application Signals](CloudWatch-Agent-Application_Signals.md).
 
-```
+```json
 {
    "logs":{
       "metrics_collected":{
@@ -57,7 +56,7 @@ In cases where there is a surge in generating numerous different metrics through
 
 In other cases, high-cardinality metrics might have been aggregated to `AllOtherRemoteOperations`, and it might be unclear what specific metrics are included. The CloudWatch agent is able to log the dropped operations. To identify dropped operations, use the configuration in the following example to activate logging until the problem resurfaces. Then inspect the CloudWatch agent logs (accessible by container `stdout` or EC2 log files) and search for the keyword `drop metric data`.
 
-```
+```json
 {
   "agent": {
     "config": {
@@ -91,7 +90,7 @@ If the default metric limiting configuration doesn't address the cardinality for
 
 The following example lowers the threshold of metric limiting from 500 distinct metrics to 100.
 
-```
+```json
 {
   "logs": {
     "metrics_collected": {

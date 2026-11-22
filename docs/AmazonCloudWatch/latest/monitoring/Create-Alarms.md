@@ -1,7 +1,6 @@
 
 
 # Create alarms
-<a name="Create-Alarms"></a>
 
 **Topics**
 + [Create an alarm using a PromQL query](Create_PromQL_Alarm.md)

@@ -1,7 +1,6 @@
 
 
 # Alarm events and EventBridge
-<a name="cloudwatch-and-eventbridge"></a>
 
 CloudWatch sends events to Amazon EventBridge whenever a CloudWatch alarm is created, updated, deleted, or changes alarm state. You can use EventBridge and these events to write rules that take actions, such as notifying you, when an alarm changes state. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html)
 
@@ -391,7 +390,7 @@ Events generated when a composite alarm changes state. These events include supp
 
 Events generated when a single-value log alarm (without a BY clause) changes state.
 
-```
+```json
 {
     "version": "0",
     "id": "c4c1c1c9-6542-e61b-6ef0-8c4d36933a92",
@@ -457,7 +456,7 @@ Events generated when a single-value log alarm (without a BY clause) changes sta
 
 Events generated when a contributor of a multi-contributor log alarm (with a BY clause) changes state. Each contributor generates a separate event.
 
-```
+```json
 {
     "version": "0",
     "id": "6d226bbc-07f0-9a31-3359-1736968f8ded",
@@ -603,7 +602,7 @@ Events generated when new alarms are created. These events include the initial a
 
 **Log Alarm Example**
 
-```
+```json
 {
     "version": "0",
     "id": "91535fdd-1e9c-849d-624b-9a9f2b1d09d0",
@@ -793,7 +792,7 @@ Events generated when existing alarms are modified. These events contain both `c
 
 **Log Alarm Update Example**
 
-```
+```json
 {
     "version": "0",
     "id": "bc7d3391-47f8-ae47-f457-1b4d06118d50",
@@ -986,7 +985,7 @@ Events generated when alarms are deleted. These events include the final alarm c
 
 **Log Alarm Deletion Example**
 
-```
+```json
 {
     "version": "0",
     "id": "f171d220-9e1c-c252-5042-2677347a83ed",

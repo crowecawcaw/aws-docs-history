@@ -1,7 +1,6 @@
 
 
 # Example: Use Application Signals to resolve an operational health issue
-<a name="Services-example-scenario"></a>
 
 The following scenario provides an example of how Application Signals can be used to monitor your services and identify service quality issues. Drill down to identify potential root causes and take action to resolve the issue. This example is focused on a pet clinic application composed of several microservices that call AWS services such as DynamoDB. 
 

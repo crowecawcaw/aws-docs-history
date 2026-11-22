@@ -1,11 +1,10 @@
 
 
 # Amazon EKS cluster
-<a name="component-configuration-examples-eks-cluster"></a>
 
 The following example shows a component configuration in JSON format for Amazon EKS cluster.
 
-```
+```json
 {
     "alarmMetrics":[
        {

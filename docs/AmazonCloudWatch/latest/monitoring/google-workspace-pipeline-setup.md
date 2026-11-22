@@ -1,14 +1,13 @@
 
 
 # CloudWatch pipelines configuration for Google Workspace
-<a name="google-workspace-pipeline-setup"></a>
 
 Collects audit logs from Google Workspace using OAuth 2.0 service account authentication with domain-wide delegation.
 
 ## YAML configuration
 <a name="google-workspace-yaml-configuration"></a>
 
-```
+```yaml
 extension:
   aws:
     secrets:

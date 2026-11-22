@@ -1,7 +1,6 @@
 
 
 # Writing a Node.js canary script using the Puppeteer runtime
-<a name="CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup"></a>
 
 **Topics**
 + [Creating a CloudWatch Synthetics canary from scratch](#CloudWatch_Synthetics_Canaries_write_from_scratch)
@@ -22,7 +21,7 @@ You must define an entry point function for the canary script. To see how files 
 
 After the script runs, the pass/fail status and the duration metrics are published to CloudWatch and the files under`/tmp` are uploaded to an S3 bucket.
 
-```
+```javascript.js
 const basicCustomEntryPoint = async function () {
 
     // Insert your code here
@@ -52,7 +51,7 @@ exports.handler = async () => {
 
 Next, expand the script to use Synthetics logging and make a call using the AWS SDK. For demonstration purposes, this script will create an Amazon DynamoDB client and make a call to the DynamoDB listTables API. It logs the response to the request and logs either pass or fail depending on whether the request was successful.
 
-```
+```javascript.js
 const log = require('@aws/synthetics-logger');
 const AWS = require('aws-sdk');
 // Require any dependencies that your script needs

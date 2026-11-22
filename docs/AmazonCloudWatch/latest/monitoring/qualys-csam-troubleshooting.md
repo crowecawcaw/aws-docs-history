@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the Qualys CSAM integration
-<a name="qualys-csam-troubleshooting"></a>
 
 ## Common errors
 <a name="qualys-csam-common-errors"></a>

@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon EKS
-<a name="managed-prometheus-collectors-eks-setup"></a>
 
 An Amazon CloudWatch managed Prometheus collector scrapes metrics that are Prometheus-compatible. For more information about Prometheus-compatible metrics, see [What are Prometheus-compatible metrics?](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-prometheus-compatible-metrics.html). Amazon EKS clusters expose metrics for the API server. Amazon EKS clusters that are Kubernetes version 1.28 or above also expose metrics for the kube-scheduler and kube-controller-manager. For more information, see [Fetch control plane raw metrics in Prometheus format](https://docs.aws.amazon.com/eks/latest/userguide/prometheus.html) in the *Amazon EKS User Guide*.
 
@@ -20,7 +19,7 @@ You can use [GetDefaultScraperConfiguration](https://docs.aws.amazon.com/prometh
 
 Use the `CreateScraper` API operation to create a scraper with a CloudWatch destination. Replace the AWS account, security group, subnet, Amazon EKS cluster, and dataset information with your own values.
 
-```
+```json
 POST /scrapers HTTP/1.1
 
 {
@@ -48,7 +47,7 @@ POST /scrapers HTTP/1.1
 
 Use the `create-scraper` command to create a scraper with a CloudWatch destination. Replace the AWS account, security group, subnet, Amazon EKS cluster, and dataset information with your own values.
 
-```
+```bash
 aws amp create-scraper \
   --alias "eks-metrics-scraper" \
   --source eksConfiguration="{clusterArn='arn:aws:eks:{{us-west-2}}:{{123456789012}}:cluster/{{my-cluster}}', \

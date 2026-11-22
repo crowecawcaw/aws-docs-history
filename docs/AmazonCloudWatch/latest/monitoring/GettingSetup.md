@@ -1,7 +1,6 @@
 
 
 # Quickstart: Send metrics, logs, and traces to CloudWatch with OpenTelemetry
-<a name="GettingSetup"></a>
 
 In about 20 minutes, you send three signals from one application to CloudWatch: a metric, a log record, and a trace. You see the metric in Query Studio, the log in CloudWatch Logs, and the trace in Transaction Search.
 
@@ -41,12 +40,12 @@ Before you begin this quickstart, make sure that you have the following:
 Traces that you send to the X-Ray OTLP endpoint require Transaction Search to be enabled. This is a one-time, account-wide setting. It switches all X-Ray span ingestion into CloudWatch Logs collection mode, billed under CloudWatch pricing, with 1 percent of spans indexed for free. Metrics and logs don't require this setting.  
 To enable Transaction Search, run the following command.  
 
-```
+```bash
 aws xray update-trace-segment-destination --destination CloudWatchLogs --region aa-example-1
 ```
 To verify, run the following command. The destination is ready when `Status` is `ACTIVE` and `Destination` is `CloudWatchLogs`.  
 
-```
+```bash
 aws xray get-trace-segment-destination --region aa-example-1
 ```
 
@@ -66,13 +65,13 @@ Your application sends telemetry to a local Collector, not directly to CloudWatc
 
 The following command installs the SDK and the OTLP HTTP exporter. The HTTP exporter package provides the metric, span, and log exporters that this quickstart uses.
 
-```
+```bash
 pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http
 ```
 
 Create `app.py`. It records one counter (orders placed) and one histogram (checkout latency), wraps each checkout in a trace span, and writes a log record for each order. All three signals go to the local Collector.
 
-```
+```python
 import logging, random, time
 from opentelemetry import metrics, trace
 from opentelemetry._logs import set_logger_provider
@@ -148,13 +147,13 @@ Sending metrics, logs, and traces to CloudWatch incurs charges. For more informa
 The Collector receives all three signals from your application and exports each one to its CloudWatch OTLP endpoint. Use a distribution that includes the `sigv4auth` extension, such as the OpenTelemetry Collector Contrib distribution or the AWS Distro for OpenTelemetry (ADOT) Collector.
 
 **Note**  
-The CloudWatch agent is an alternative. It can receive OpenTelemetry Protocol (OTLP) data and send it to CloudWatch, so you can use it instead of running a separate OpenTelemetry Collector. For more information, see [Collect metrics and traces with OpenTelemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-OpenTelemetry-metrics.html).
+The CloudWatch agent is an alternative. It can receive OpenTelemetry Protocol (OTLP) data and send it to the CloudWatch OTLP endpoints, so you can use it instead of running a separate OpenTelemetry Collector. For more information, see [Create a CloudWatch agent configuration for OpenTelemetry](CloudWatch-Agent-OpenTelemetry-config.md).
 
 The logs exporter sends to the log group and log stream that you set in the `x-aws-log-group` and `x-aws-log-stream` headers. This example uses a `/otel/quickstart` log group and a `default` stream. Create them in CloudWatch Logs first, or change the values to a log group and stream that already exist.
 
 Create `collector.yaml`. In the following example, replace `aa-example-1` with your Region.
 
-```
+```yaml
 extensions:
   sigv4auth/metrics:
     service: monitoring        # always "monitoring" for metrics
@@ -223,14 +222,14 @@ service:
 
 The logs endpoint writes to an existing log group and log stream. Before you start the Collector, create the log group and stream named in the `x-aws-log-group` and `x-aws-log-stream` headers of your `collector.yaml` logs exporter. Otherwise, CloudWatch rejects your logs with `The specified log group does not exist`.
 
-```
+```bash
 aws logs create-log-group --log-group-name /otel/quickstart --region aa-example-1
 aws logs create-log-stream --log-group-name /otel/quickstart --log-stream-name default --region aa-example-1
 ```
 
 Run the Collector locally with your credentials, and then start the application:
 
-```
+```bash
 docker run --rm -p 4317:4317 -p 4318:4318 \
   -v "$PWD/collector.yaml:/etc/otelcol-contrib/config.yaml" \
   -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN \
@@ -275,7 +274,7 @@ Counters need `rate()` or `increase()`, because a raw counter only increases. Yo
 
 In Logs Insights, select the `/otel/quickstart` log group and run the following query to find your records:
 
-```
+```sql
 fields @timestamp, severityText, body, traceId, spanId
 | filter @message like /checkout/
 | sort @timestamp desc
@@ -288,7 +287,7 @@ CloudWatch stores the OpenTelemetry log record as JSON, with resource attributes
 
 Transaction Search stores spans in the `aws/spans` log group. You can search them in the CloudWatch Transaction Search console, filtered by the `checkout` service, or with a Logs Insights query on `aws/spans`. In Logs Insights, select the `aws/spans` log group and run the following query. This query filters on the top-level span name to avoid nested-field-path issues.
 
-```
+```sql
 fields @timestamp, name, durationNano, attributes.payment_method, status.code, traceId
 | filter name = "checkout"
 | sort @timestamp desc

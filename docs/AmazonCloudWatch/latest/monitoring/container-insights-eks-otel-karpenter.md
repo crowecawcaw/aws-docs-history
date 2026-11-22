@@ -1,7 +1,6 @@
 
 
 # Collecting Karpenter metrics with OTel Container Insights
-<a name="container-insights-eks-otel-karpenter"></a>
 
 Karpenter is the recommended node autoscaler for Amazon EKS. Container Insights collects Karpenter metrics through Prometheus scraping. With Container Insights, you gain built-in visibility into node provisioning, scaling speed, and resource use. You do not need to set up Prometheus or Grafana manually.
 
@@ -16,7 +15,7 @@ Karpenter metrics help you answer operational questions such as:
 Karpenter metrics collection is enabled by default when the following requirements are met.
 + Amazon EKS cluster running Kubernetes 1.28 or later
 + Karpenter installed and running in the cluster (default namespace: `kube-system`)
-+ OTel Container Insights enabled on the cluster (see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md))
++ OTel Container Insights enabled on the cluster (see [Quick start](container-insights-eks-otel-quickstart.md))
 + The `amazon-cloudwatch-observability` add-on in `ACTIVE` status
 
 ## Configuring Karpenter metrics collection
@@ -30,7 +29,7 @@ To disable Karpenter metrics collection, set `otelContainerInsights.solutions.ka
 
 The following Helm values show the default configuration.
 
-```
+```yaml
 otelContainerInsights:
   solutions:
     enabled: true
@@ -40,7 +39,7 @@ otelContainerInsights:
 
 To disable Karpenter metrics using the Amazon EKS add-on, run the following AWS CLI command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -50,7 +49,7 @@ aws eks update-addon \
 
 To disable Karpenter metrics using the Helm chart, run the following command.
 
-```
+```bash
 helm upgrade amazon-cloudwatch-observability \
   aws-observability/amazon-cloudwatch-observability \
   -n amazon-cloudwatch \

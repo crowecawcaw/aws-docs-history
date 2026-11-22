@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Proofpoint TAP
-<a name="proofpoint-tap-pipeline-setup"></a>
 
 Collects email security event data from Proofpoint TAP using HTTP Basic authentication.
 
 Configure the Proofpoint TAP source with the following parameters:
 
-```
+```yaml
 source:
   proofpoint_tap:
     authentication:

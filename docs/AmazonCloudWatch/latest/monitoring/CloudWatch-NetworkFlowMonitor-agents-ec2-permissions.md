@@ -1,7 +1,6 @@
 
 
 # Configure permissions for agents
-<a name="CloudWatch-NetworkFlowMonitor-agents-ec2-permissions"></a>
 
 To enable agents to send metrics to the Network Flow Monitor ingestion backend, the EC2 instances that the agents run in must use a role that has a policy attached with the correct permissions. To provide the required permissions, use a role that has the following AWS managed policy attached: [CloudWatchNetworkFlowMonitorAgentPublishPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.html). Attach this policy to the IAM roles of the EC2 instances where you plan to install Network Flow Monitor agents.
 

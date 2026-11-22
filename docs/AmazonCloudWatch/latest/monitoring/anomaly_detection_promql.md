@@ -1,7 +1,6 @@
 
 
 # Anomaly detection using PromQL
-<a name="anomaly_detection_promql"></a>
 
 You can build anomaly detection bands for any Prometheus-compatible metric by using standard PromQL functions such as `quantile_over_time`, `stddev_over_time`, and `avg_over_time`. This approach computes a baseline and adds or subtracts a scaled standard deviation to define upper and lower bounds that adapt to your metric's natural patterns.
 

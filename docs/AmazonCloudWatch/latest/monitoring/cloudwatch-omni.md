@@ -1,7 +1,6 @@
 
 
 # CloudWatch Omni
-<a name="cloudwatch-omni"></a>
 
 CloudWatch Omni is an AI-powered observability experience in Amazon CloudWatch for your applications and AI agents, either alone or together. You reach Omni through a dedicated URL for your organization and sign in with the identities you already manage; Omni is accessible outside the AWS Management Console.
 
@@ -45,7 +44,7 @@ Omni is an interface and set of workflows built on Amazon CloudWatch. It is not 
 + **No re-instrumentation.** Instrumentation you already run (the CloudWatch agent, OTLP pipelines, and AWS SDKs) keeps sending telemetry without changes, and that telemetry appears in Omni.
 + **Centralization stays with CloudWatch.** Omni does not aggregate telemetry across accounts and Regions on its own. Telemetry you centralize with CloudWatch centralization rules appears in your space like any other telemetry. See [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).
 
-You continue to configure how telemetry is collected and stored (log groups, retention, and ingestion endpoints) in the CloudWatch console.
+You continue to configure how telemetry is collected and stored (log groups, retention, and ingestion endpoints) in the CloudWatch console. You set up platform telemetry from Microsoft Azure in the Omni web UI or with the AWS CLI and the setup scripts. See [Send platform telemetry from Microsoft Azure](omni-send-platform-telemetry-from-microsoft-azure.md).
 
 ## Get started
 <a name="cloudwatch-omni-get-started"></a>

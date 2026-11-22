@@ -1,7 +1,6 @@
 
 
 # Source configuration for F5 BIG-IP
-<a name="f5-bigip-source-setup"></a>
 
 ## Integrating with F5 BIG-IP
 <a name="f5-bigip-integration"></a>

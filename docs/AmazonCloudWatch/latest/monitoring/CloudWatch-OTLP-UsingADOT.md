@@ -1,7 +1,6 @@
 
 
 # Exporting collector-less telemetry using AWS Distro for OpenTelemetry (ADOT) SDK
-<a name="CloudWatch-OTLP-UsingADOT"></a>
 
 You can use the ADOT SDKs to go collector-less and to send metrics, traces and logs directly to the OTLP endpoints.
 
@@ -59,7 +58,7 @@ Follow these steps to attach the necessary IAM policies to your role:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

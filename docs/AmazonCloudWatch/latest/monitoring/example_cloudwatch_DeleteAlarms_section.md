@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAlarms` with an AWS SDK or CLI
-<a name="example_cloudwatch_DeleteAlarms_section"></a>
 
 The following code examples show how to use `DeleteAlarms`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete a list of alarms from CloudWatch.
     /// </summary>
@@ -44,7 +43,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/DeleteAlarmsRequest.h>
@@ -52,7 +51,7 @@ Include the required files.
 ```
 Delete the alarm.  
 
-```
+```cpp
         Aws::CloudWatch::CloudWatchClient cw;
         Aws::CloudWatch::Model::DeleteAlarmsRequest request;
         request.AddAlarmNames(alarm_name);
@@ -92,7 +91,7 @@ For more information, see [Edit or delete a CloudWatch alarm](https://docs.aws.a
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Deletes a CloudWatch alarm.
      *
@@ -125,7 +124,7 @@ For more information, see [Edit or delete a CloudWatch alarm](https://docs.aws.a
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch";
 import { client } from "../libs/client.js";
 
@@ -145,7 +144,7 @@ export default run();
 ```
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
@@ -157,7 +156,7 @@ export const client = new CloudWatchClient({});
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -187,7 +186,7 @@ cw.deleteAlarms(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun deleteAlarm(alarmNameVal: String) {
     val request =
         DeleteAlarmsRequest {
@@ -208,7 +207,7 @@ suspend fun deleteAlarm(alarmNameVal: String) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
-```
+```python
 class CloudWatchWrapper:
     """Encapsulates Amazon CloudWatch functions."""
 
@@ -248,7 +247,7 @@ class CloudWatchWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_cwt->deletealarms(
           it_alarmnames = it_alarm_names ).

@@ -1,11 +1,10 @@
 
 
 # Query components and syntax in CloudWatch Metrics Insights
-<a name="cloudwatch-metrics-insights-querylanguage"></a>
 
 CloudWatch Metrics Insights syntax is as follows.
 
-```
+```sql
 SELECT {{FUNCTION}}({{metricName}})
 FROM {{namespace}} | SCHEMA(...)
 [ WHERE {{labelKey}} OPERATOR {{labelValue}} [AND ... ] ]
@@ -96,14 +95,14 @@ This section illustrates building a full example that uses all possible clauses,
 
 You can start with the following query, which aggregates all of the Application Load Balancer `RequestCount` metrics that are collected with both the dimensions `LoadBalancer` and `AvailabilityZone`.
 
-```
+```sql
 SELECT SUM(RequestCount) 
 FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone)
 ```
 
 To see metrics only from a specific load balancer, you can add a **WHERE** clause to limit the metrics returned to only those metrics where the value of the `LoadBalancer` dimension is `app/load-balancer-1`.
 
-```
+```sql
 SELECT SUM(RequestCount) 
 FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone)
 WHERE LoadBalancer = 'app/load-balancer-1'
@@ -111,7 +110,7 @@ WHERE LoadBalancer = 'app/load-balancer-1'
 
 The preceding query aggregates the `RequestCount` metrics from all Availability Zones for this load balancer into one time series. If you want to see different time series for each Availability Zone, we can add a **GROUP BY** clause.
 
-```
+```sql
 SELECT SUM(RequestCount) 
 FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone)
 WHERE LoadBalancer = 'app/load-balancer-1'
@@ -120,7 +119,7 @@ GROUP BY AvailabilityZone
 
 Next, you can order the results to see the highest values first. The following **ORDER BY** clause orders the time series in descending order, by the maximum value reported by each time series during the query time range:
 
-```
+```sql
 SELECT SUM(RequestCount) 
 FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone)
 WHERE LoadBalancer = 'app/load-balancer-1'
@@ -130,19 +129,19 @@ ORDER BY MAX() DESC
 
 You can also use tags to further filter the results. For example, if you want to see results only for load balancers tagged with a specific environment, you can add tag filtering to the WHERE clause:
 
-```
+```sql
 SELECT SUM(RequestCount) FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone) WHERE LoadBalancer = 'app/load-balancer-1' AND tag.Environment = 'prod' GROUP BY AvailabilityZone ORDER BY MAX() DESC
 ```
 
 You can also group the results by tag values instead of (or in addition to) dimensions. For example, grouping by the Application tag:
 
-```
+```sql
 SELECT SUM(RequestCount) FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone) WHERE tag.Environment = 'prod' GROUP BY tag.Application ORDER BY MAX() DESC
 ```
 
 Finally, if we are primarily interested in a "Top N" type of query, we can use a **LIMIT** clause. This final example limits the results to only the time series with the five highest `MAX` values.
 
-```
+```sql
 SELECT SUM(RequestCount) 
 FROM SCHEMA("AWS/ApplicationELB", LoadBalancer, AvailabilityZone)
 WHERE LoadBalancer = 'app/load-balancer-1'
@@ -158,7 +157,7 @@ These examples are valid when run in an account set up as a monitoring account i
 
 The following example searches all Amazon EC2 instances in the source account 123456789012 and returns the average.
 
-```
+```sql
 SELECT AVG(CpuUtilization) 
 FROM "AWS/EC2" 
 WHERE AWS.AccountId ='123456789012'
@@ -166,7 +165,7 @@ WHERE AWS.AccountId ='123456789012'
 
 The following example queries the `CPUUtilization` metric in `AWS/EC2` in all the linked source accounts, and groups the results by account ID and instance type.
 
-```
+```sql
 SELECT AVG(CpuUtilization) 
 FROM "AWS/EC2" 
 GROUP BY AWS.AccountId, InstanceType
@@ -174,7 +173,7 @@ GROUP BY AWS.AccountId, InstanceType
 
 The following example queries the `CPUUtilization` in the monitoring account itself.
 
-```
+```sql
 SELECT AVG(CpuUtilization) 
 FROM "AWS/EC2" 
 WHERE AWS.AccountId = CURRENT_ACCOUNT_ID()

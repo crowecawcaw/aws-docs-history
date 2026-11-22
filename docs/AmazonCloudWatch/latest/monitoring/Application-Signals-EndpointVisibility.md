@@ -1,7 +1,6 @@
 
 
 # Configure HTTP endpoint visibility
-<a name="Application-Signals-EndpointVisibility"></a>
 
 This page provides guidance for Application Signals customers who expect to see their HTTP service operations separated by specific endpoint names, but instead see multiple endpoints grouped into the same metric. By default, Application Signals truncates the `Operation` metric dimension to the first URL path segment for HTTP services (for example, `/api/v1/users` becomes `GET /api`) to preserve low-cardinality metrics. As a result, users may find that services with multiple endpoints sharing the same prefix have limited visibility into the operational health of individual endpoints. You can follow the steps below to configure service operation endpoints to your desired granularity.
 
@@ -70,7 +69,7 @@ Use the [transform processor](https://github.com/open-telemetry/opentelemetry-co
 
 Order rules from shallowest to deepest – statements run sequentially, so more specific matches later in the list override the general ones set earlier. In the following example, the value of the span attribute `url.path` is matched and the resulting span name is set to the request method followed by the desired URL pattern.
 
-```
+```yaml
 processors:
   transform/operation_names:
     trace_statements:
@@ -106,7 +105,7 @@ You can manually set the span name for server spans in your application code usi
 
 **Java**
 
-```
+```java
 import io.opentelemetry.api.trace.Span;
 
 // Inside your request handler
@@ -115,7 +114,7 @@ Span.current().updateName("GET /api/contests/{id}/leaderboard");
 
 **Python**
 
-```
+```python
 from opentelemetry import trace
 
 # Inside your request handler
@@ -125,7 +124,7 @@ span.update_name("GET /api/contests/{id}/leaderboard")
 
 **Go**
 
-```
+```go
 import "go.opentelemetry.io/otel/trace"
 
 // Inside your request handler
@@ -135,7 +134,7 @@ span.SetName("GET /api/contests/{id}/leaderboard")
 
 **Node.js**
 
-```
+```javascript
 import { trace } from '@opentelemetry/api';
 
 // Inside your request handler

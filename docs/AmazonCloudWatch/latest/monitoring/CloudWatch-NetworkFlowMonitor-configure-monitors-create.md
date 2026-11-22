@@ -1,7 +1,6 @@
 
 
 # Create a monitor in Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-configure-monitors-create"></a>
 
 As you review top contributors in the **Workload insights** tab, if you see one or several network flows that you want to follow over time, or that you want more details about, you can create a monitor directly from **Workload insights**. This simplifies the process for creating a monitor for specific network flows.
 

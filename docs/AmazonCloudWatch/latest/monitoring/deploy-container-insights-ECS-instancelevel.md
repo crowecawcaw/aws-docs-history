@@ -1,7 +1,6 @@
 
 
 # Deploying the CloudWatch agent to collect EC2 instance-level metrics on Amazon ECS
-<a name="deploy-container-insights-ECS-instancelevel"></a>
 
 To deploy the CloudWatch agent to collect instance-level metrics from Amazon ECS clusters that are hosted on EC2 instance, use a quick start setup with a default configuration, or install the agent manually to be able to customize it.
 
@@ -191,7 +190,7 @@ Optionally, you can use SSM to specify other configuration options for the Cloud
 
 The following is an example of a customized configuration:
 
-```
+```json
 {
   "agent": {
       "region": "us-east-1"
@@ -237,7 +236,7 @@ The following is an example of a customized configuration:
 
 1. Modify the task definition file. Remove the following section:
 
-   ```
+   ```json
    "environment": [
                  {
                      "name": "USE_DEFAULT_CONFIG",
@@ -248,7 +247,7 @@ The following is an example of a customized configuration:
 
    Replace that section with the following:
 
-   ```
+   ```json
    "secrets": [
                  {
                      "name": "CW_CONFIG_CONTENT",

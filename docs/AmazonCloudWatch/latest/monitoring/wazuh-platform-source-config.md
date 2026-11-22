@@ -1,7 +1,6 @@
 
 
 # Source configuration for Wazuh Platform
-<a name="wazuh-platform-source-config"></a>
 
 ## Integrating with Wazuh Platform
 <a name="wazuh-platform-integration"></a>
@@ -41,7 +40,7 @@ Follow these steps to configure authentication:
 
 1. In AWS Secrets Manager, create a secret that will hold the Wazuh Indexer credentials. The secret's value must be a JSON object with keys for `username` and `password`. For example, create a secret named `wazuh-credentials` with the following JSON value:
 
-   ```
+   ```json
    {"username": "admin", "password": "your-wazuh-indexer-password"}
    ```
 

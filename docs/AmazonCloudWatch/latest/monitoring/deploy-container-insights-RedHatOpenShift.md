@@ -1,7 +1,6 @@
 
 
 # Setting up Container Insights on Red Hat OpenShift on AWS (ROSA)
-<a name="deploy-container-insights-RedHatOpenShift"></a>
 
 CloudWatch Container Insights with enhanced observability supports Red Hat OpenShift on AWS (ROSA). This version supports enhanced observability for ROSA clusters. After you install the CloudWatch agent operator Helm chart, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment. It then displays this performance data in curated dashboards removing the heavy lifting in observability setup. 
 

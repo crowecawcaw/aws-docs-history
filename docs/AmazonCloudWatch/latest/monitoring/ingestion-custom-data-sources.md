@@ -1,7 +1,6 @@
 
 
 # Custom log data from CloudWatch Logs or an Amazon S3 bucket
-<a name="ingestion-custom-data-sources"></a>
 
 You can create pipelines for custom data sources using the following approaches:
 
@@ -15,7 +14,7 @@ You can create pipelines for custom data sources using the following approaches:
 
    In the console, choose **CloudWatch Logs syslog service** and select RFC 5424, RFC 3164, Cisco, or F5. For API or AWS CLI configuration, use the `cloudwatch_logs` source with `syslog` as the data source name and the corresponding data source type: `rfc5424`, `rfc3164`, `cisco`, or `f5_bigip`.
 
-   ```
+   ```yaml
    source:
      cloudwatch_logs:
        aws:
@@ -31,7 +30,7 @@ You can create pipelines for custom data sources using the following approaches:
 
 1. **S3 Custom Sources** – Process arbitrary logs stored in S3 buckets by configuring source for the pipeline:
 
-   ```
+   ```yaml
    source:
      s3:
        aws:

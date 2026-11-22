@@ -1,7 +1,6 @@
 
 
 # Learn core operations for CloudWatch using an AWS SDK
-<a name="example_cloudwatch_GetStartedMetricsDashboardsAlarms_section"></a>
 
 The following code examples show how to:
 + List CloudWatch namespaces and metrics.
@@ -19,7 +18,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```csharp
 public class CloudWatchScenario
 {
     /*
@@ -554,7 +553,7 @@ public class CloudWatchScenario
 ```
 Wrapper methods used by the scenario for the CloudWatch OpenTelemetry actions.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for the OpenTelemetry features of Amazon CloudWatch: turning on OTel
 /// enrichment so that CloudWatch vended metrics are queryable with PromQL, alarming on a
@@ -585,7 +584,7 @@ public class CloudWatchOTelWrapper
 ```
 Wrapper methods used by the scenario for the metric, statistic, and dashboard actions.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for Amazon CloudWatch methods.
 /// </summary>
@@ -1074,7 +1073,7 @@ public class CloudWatchWrapper
 ```
 Example settings.json values for the scenario.  
 
-```
+```csharp
 {
   "dashboardName": "example-new-dashboard",
   "exampleAlarmName": "example-metric-alarm",
@@ -1190,7 +1189,7 @@ Example settings.json values for the scenario.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/core/utils/json/JsonSerializer.h>
 #include <aws/monitoring/CloudWatchClient.h>
@@ -2011,7 +2010,7 @@ bool runCloudWatchScenario(const Aws::String &query,
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.cloudwatch.model.AlarmContributor;
@@ -2454,7 +2453,7 @@ public class CloudWatchScenario {
 ```
 A wrapper class for the CloudWatch SDK methods that the scenario calls.  
 
-```
+```java
 public class CloudWatchActions {
 
     private static CloudWatchAsyncClient cloudWatchAsyncClient;
@@ -3738,7 +3737,7 @@ public class CloudWatchActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
-```
+```javascript
 import {
   Scenario,
   ScenarioAction,
@@ -4351,7 +4350,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
-```
+```kotlin
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.
@@ -4905,7 +4904,7 @@ suspend fun listNameSpaces(): ArrayList<String> {
 ```
 The OpenTelemetry functions that the scenario calls.  
 
-```
+```kotlin
 suspend fun getOTelEnrichmentStatus(): OTelEnrichmentStatus? {
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
         val response = cwClient.getOTelEnrichment(GetOTelEnrichmentRequest {})
@@ -5132,7 +5131,7 @@ suspend fun stopOTelEnrichment() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
-```
+```python
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 import json
@@ -5621,7 +5620,7 @@ if __name__ == "__main__":
 ```
 The class that wraps the CloudWatch OpenTelemetry operations the scenario calls.  
 
-```
+```python
 import logging
 import time
 
@@ -5923,7 +5922,7 @@ class CloudWatchOTelWrapper:
 ```
 The metric, statistic, and dashboard operations the scenario calls.  
 
-```
+```python
     def list_all_metrics(self):
         """
         Gets every metric in the account, without filtering by namespace or name. Use
@@ -6054,7 +6053,7 @@ The metric, statistic, and dashboard operations the scenario calls.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
-```
+```ruby
 DASHES = ('-' * 80).freeze
 DEFAULT_QUERY = 'avg by (host) (system_cpu_utilization) > 80'.freeze
 

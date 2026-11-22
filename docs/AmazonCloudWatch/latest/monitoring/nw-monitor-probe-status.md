@@ -1,7 +1,6 @@
 
 
 # Activate or deactivate a probe
-<a name="nw-monitor-probe-status"></a>
 
 You can activate or deactivate a probe in a monitor in Network Synthetic Monitor. You might want to deactivate a probe, for example, if you aren't currently using it but might want to use it again in the future. By deactivating a probe instead of deleting it, you won't need to spend time setting it up again. You are not billed for deactivated probes. 
 

@@ -1,7 +1,6 @@
 
 
 # ElastiCache Insights
-<a name="ElastiCache-Insights"></a>
 
 With ElastiCache Insights, you can monitor and troubleshoot your node‐based Amazon ElastiCache for Valkey clusters. ElastiCache Insights is a prebuilt dashboard in the CloudWatch console. It shows the OpenTelemetry metrics from your cache engine and from the host that each node runs on.
 

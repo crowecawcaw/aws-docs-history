@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service (Amazon ECS)
-<a name="appinsights-metrics-ecs"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

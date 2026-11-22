@@ -1,7 +1,6 @@
 
 
 # Source configuration for ServiceNow CMDB Audit Log
-<a name="servicenow-cmdb-source-setup"></a>
 
 ## Integrating with ServiceNow CMDB
 <a name="servicenow-cmdb-integration"></a>

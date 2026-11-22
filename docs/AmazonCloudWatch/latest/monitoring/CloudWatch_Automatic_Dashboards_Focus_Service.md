@@ -1,7 +1,6 @@
 
 
 # Viewing a CloudWatch dashboard for a single AWS service
-<a name="CloudWatch_Automatic_Dashboards_Focus_Service"></a>
 
 On the CloudWatch home page, you can focus the view to a single AWS service. You can drill down further by focusing on both a single AWS service and a resource group at the same time. The following procedure shows only how to focus on an AWS service.
 

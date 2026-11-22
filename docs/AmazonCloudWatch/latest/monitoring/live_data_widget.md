@@ -1,7 +1,6 @@
 
 
 # Using live data for a CloudWatch dashboard widget
-<a name="live_data_widget"></a>
 
 **To choose whether to use live data on a single widget**
 

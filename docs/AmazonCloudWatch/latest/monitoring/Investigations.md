@@ -1,7 +1,6 @@
 
 
 # CloudWatch investigations
-<a name="Investigations"></a>
 
 The CloudWatch investigations feature is a generative AI-powered assistant that can help you respond to incidents in your system. It uses generative AI to scan your system's telemetry and quickly surface telemetry data and suggestions that might be related to your issue. These suggestions include metrics, logs, deployment events, and root-cause hypotheses with visual representations when multiple resources are involved. For a complete list of types of data that the AI assistant can surface, see [Insights that CloudWatch investigations can surface in investigations](Investigations-SuggestionTypes.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Drupal Core
-<a name="drupal-core-source-setup"></a>
 
 ## Integrating with Drupal Core
 <a name="drupal-core-integration"></a>

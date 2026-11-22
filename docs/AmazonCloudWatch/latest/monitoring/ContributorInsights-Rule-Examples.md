@@ -1,13 +1,12 @@
 
 
 # CloudWatch Contributor Insights rule examples
-<a name="ContributorInsights-Rule-Examples"></a>
 
 This section contains examples that illustrate use cases for Contributor Insights rules.
 
 **VPC Flow Logs: Byte transfers by source and destination IP address**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",
@@ -36,7 +35,7 @@ This section contains examples that illustrate use cases for Contributor Insight
 
 **VPC Flow Logs: Highest number of HTTPS requests**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",
@@ -69,7 +68,7 @@ This section contains examples that illustrate use cases for Contributor Insight
 
 **VPC Flow Logs: Rejected TCP connections**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",
@@ -109,7 +108,7 @@ This section contains examples that illustrate use cases for Contributor Insight
 
 **Route 53 NXDomain responses by source address**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",
@@ -138,7 +137,7 @@ This section contains examples that illustrate use cases for Contributor Insight
 
 **Route 53 resolver queries by domain name**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",
@@ -160,7 +159,7 @@ This section contains examples that illustrate use cases for Contributor Insight
 
 **Route 53 resolver queries by query type and source address**
 
-```
+```json
 {
     "Schema": {
         "Name": "CloudWatchLogRule",

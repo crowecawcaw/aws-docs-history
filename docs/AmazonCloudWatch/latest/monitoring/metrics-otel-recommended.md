@@ -1,7 +1,6 @@
 
 
 # OpenTelemetry Metrics (Recommended)
-<a name="metrics-otel-recommended"></a>
 
 OpenTelemetry is an open-source observability framework that provides vendor-agnostic instrumentation for collecting metrics, logs, and traces from your applications. Amazon CloudWatch supports OpenTelemetry natively, enabling you to use community-standard SDKs and collectors to send metrics directly to CloudWatch without vendor lock-in.
 

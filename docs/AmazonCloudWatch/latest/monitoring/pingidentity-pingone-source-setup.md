@@ -1,7 +1,6 @@
 
 
 # Source configuration for PingIdentity PingOne
-<a name="pingidentity-pingone-source-setup"></a>
 
 ## Integrating with PingIdentity PingOne
 <a name="pingidentity-pingone-integration"></a>

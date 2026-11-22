@@ -1,7 +1,6 @@
 
 
 # Set up Omni
-<a name="omni-set-up-omni"></a>
 
 Setting up CloudWatch Omni involves two steps: creating a **domain** (the identity and access boundary for your organization) and creating a **space** (where you work with your telemetry). Depending on your scenario, these steps might happen together in one session or separately across teams.
 

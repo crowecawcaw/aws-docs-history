@@ -1,7 +1,6 @@
 
 
 # Source configuration for Box
-<a name="box-source-config"></a>
 
 ## Prerequisites
 <a name="box-prerequisites"></a>

@@ -1,7 +1,6 @@
 
 
 # Start a CloudWatch investigations from an alarm
-<a name="Start-Investigation-Alarm"></a>
 
 Start a CloudWatch investigations from an alarm, or from any point in the last two weeks of a CloudWatch alarm's history.
 

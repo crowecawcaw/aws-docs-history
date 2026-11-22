@@ -1,11 +1,10 @@
 
 
 # Kubernetes on Amazon EC2
-<a name="component-configuration-examples-kubernetes-ec2"></a>
 
 The following example shows a component configuration in JSON format for Kubernetes on Amazon EC2.
 
-```
+```json
 {
     "alarmMetrics":[
        {

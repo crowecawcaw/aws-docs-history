@@ -1,7 +1,6 @@
 
 
 # Getting started with CloudWatch automatic dashboards
-<a name="GettingStarted"></a>
 
 The CloudWatch home page automatically displays metrics about every AWS service you use. You can additionally create custom dashboards to display metrics about your custom applications, and display custom collections of metrics that you choose.
 

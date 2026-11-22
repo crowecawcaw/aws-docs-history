@@ -1,7 +1,6 @@
 
 
 # Opting out of using your data for service improvement
-<a name="omni-opting-out-of-using-your-data-for-service-improvement"></a>
 
 CloudWatch Omni does not use your content to develop or improve the service or its AI features, and your content is not used to train any foundation models. Your content is used only to provide the service to you.
 
@@ -17,7 +16,7 @@ For where those requests are processed, and the Regions they can reach, see [Cro
 ## Other AWS services that process your content
 <a name="omni-opting-out-of-using-your-data-for-service-improvement-other-services-that-process-your-content"></a>
 
-Several features send your content to another AWS service. CloudWatch Omni makes those calls using your own AWS credentials, in your own AWS account.
+Several features send your content to another AWS service. The Omni agent, AI-assisted dashboard creation, and AI-assisted summaries call Amazon Bedrock from an AWS account that CloudWatch Omni owns. The prompt playground and evaluations call it with your own AWS credentials, in your own AWS account.
 
 
 | Feature | Content sent | AWS service | 
@@ -46,7 +45,7 @@ AgentCore is not covered by the AI services opt-out policy.
 
 Amazon Transcribe and Amazon Polly process the audio and text for voice input and voice playback. Both services can use content for service improvement, and both are covered by the AI services opt-out policy. To opt out for these services, create an AI services opt-out policy that includes the `transcribe` and `polly` service keys.
 
-```
+```json
 {
     "services": {
         "transcribe": {
@@ -70,7 +69,7 @@ For instructions, see [AI services opt-out policies](https://docs.aws.amazon.com
 
 Other Amazon CloudWatch features that use artificial intelligence (including natural language query generation for CloudWatch Metrics Insights and CloudWatch Logs Insights, and CloudWatch investigations) can use your content for service improvement. Those features are covered by the AI services opt-out policy under the `cloudwatch` service key. Opting out with that key does not change CloudWatch Omni, which does not use your content for service improvement.
 
-```
+```json
 {
     "services": {
         "cloudwatch": {

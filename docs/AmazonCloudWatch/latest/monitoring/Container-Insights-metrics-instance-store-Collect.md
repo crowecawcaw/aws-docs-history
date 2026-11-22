@@ -1,7 +1,6 @@
 
 
 # Collect Amazon EC2 instance store volume NVMe driver metrics
-<a name="Container-Insights-metrics-instance-store-Collect"></a>
 
 For CloudWatch agent to collect AWS NVMe driver metrics for instance store volumes attached to an Amazon EC2 instance, add the `diskio` section inside the `metrics_collected` section of the CloudWatch agent configuration file.
 

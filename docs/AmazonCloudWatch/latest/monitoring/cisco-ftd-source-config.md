@@ -1,7 +1,6 @@
 
 
 # Source configuration for Cisco FTD
-<a name="cisco-ftd-source-config"></a>
 
 ## Integrating with Cisco FTD
 <a name="cisco-ftd-integration"></a>
@@ -30,7 +29,7 @@ Before you begin, make sure you have the following:
 
    In IAM, create a user with programmatic (CLI) access for Fluent Bit to write logs to Amazon S3. Attach a policy scoped to the target bucket:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -58,7 +57,7 @@ Before you begin, make sure you have the following:
 
    Add a resource policy to the Amazon SQS queue allowing Amazon S3 to send event notifications:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [{

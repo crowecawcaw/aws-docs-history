@@ -1,7 +1,6 @@
 
 
 # Analyze agent behavior
-<a name="omni-agents-analyze"></a>
 
 Use these views to understand what your agent did and why: to debug failures, find slow steps, and follow multi-turn conversations. They read the traces your agent sends. For the underlying concepts, see [Monitor AI agents](omni-monitor-ai-agents.md).
 + [Agent traces](omni-agent-traces.md) — inspect a single agent run, span by span.

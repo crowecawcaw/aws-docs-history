@@ -1,7 +1,6 @@
 
 
 # Required roles and permissions for CloudWatch canaries
-<a name="CloudWatch_Synthetics_Canaries_Roles"></a>
 
 Both the users who create and manage canaries, and the canaries themselves, must have certain permissions.
 
@@ -32,7 +31,7 @@ Here are the contents of the `CloudWatchSyntheticsFullAccess` policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -265,7 +264,7 @@ Here are the contents of the `CloudWatchSyntheticsReadOnlyAccess` policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This section covers common issues you might encounter when working with CloudWatch pipelines and their solutions.
 

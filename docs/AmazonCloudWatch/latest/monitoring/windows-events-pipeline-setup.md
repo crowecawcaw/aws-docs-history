@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Microsoft Windows Events
-<a name="windows-events-pipeline-setup"></a>
 
 Collects log data from Microsoft Windows Event logs using OAuth2 authentication.
 
 Configure the Microsoft Windows Event source with the following parameters:
 
-```
+```yaml
 source:
   microsoft_windows:
     tenant_id: "<example-tenant-ID>"

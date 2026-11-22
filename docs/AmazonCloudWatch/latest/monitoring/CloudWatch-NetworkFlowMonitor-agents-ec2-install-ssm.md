@@ -1,7 +1,6 @@
 
 
 # Install agents on EC2 instances with SSM
-<a name="CloudWatch-NetworkFlowMonitor-agents-ec2-install-ssm"></a>
 
 Network Flow Monitor agents provide performance metrics about network flows. Follow the steps in this section to install and work with Network Flow Monitor agents on EC2 instances, by using AWS Systems Manager. If you use Kubernetes, skip to the next sections for information about installing agents with Amazon EKS clusters or self-managed Kubernetes clusters.
 

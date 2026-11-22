@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Netskope
-<a name="netskope-pipeline-setup"></a>
 
 Collects security events and alerts from Netskope using REST API v2 token-based authentication.
 
 Configure the Netskope source with the following parameters:
 
-```
+```yaml
 source:
   netskope_cloudexchange:
     tenant_url: "<<your-tenant-url>>"

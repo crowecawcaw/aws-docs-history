@@ -1,7 +1,6 @@
 
 
 # Enable your applications on Amazon EC2
-<a name="CloudWatch-Application-Signals-Enable-EC2Main"></a>
 
 Enable CloudWatch Application Signals on Amazon EC2 by using the custom setup steps described in this section.
 
@@ -32,7 +31,7 @@ You must first enable Application Signals in your account. If you haven't, see [
 
    We recommend that you place this file at `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json` on Linux systems.
 
-   ```
+   ```json
    {
      "traces": {
        "traces_collected": {
@@ -196,7 +195,7 @@ If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvi
 
 1. Download the latest version of the AWS Distro for OpenTelemetry Python auto-instrumentation agent. Install it by running the following command.
 
-   ```
+   ```cmd
    pip install aws-opentelemetry-distro
    ```
 
@@ -328,7 +327,7 @@ If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvi
 
    For Linux, download and install the Bash installation script from the GitHub releases page:
 
-   ```
+   ```bash
    # Download and Install
    curl -L -O https://github.com/aws-observability/aws-otel-dotnet-instrumentation/releases/latest/download/aws-otel-dotnet-install.sh
    chmod +x ./aws-otel-dotnet-install.sh
@@ -341,7 +340,7 @@ If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvi
 
    For Windows Server, download and install the PowerShell installation script from the GitHub releases page:
 
-   ```
+   ```bash
    # Download and Install
    $module_url = "https://github.com/aws-observability/aws-otel-dotnet-instrumentation/releases/latest/download/AWS.Otel.DotNet.Auto.psm1"
    $download_path = Join-Path $env:temp "AWS.Otel.DotNet.Auto.psm1"
@@ -367,7 +366,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
 1. Download the latest version of the AWS Distro for OpenTelemetry JavaScript auto-instrumentation agent for Node.js. Install it by running the following command.
 
-   ```
+   ```cmd
    npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation
    ```
 

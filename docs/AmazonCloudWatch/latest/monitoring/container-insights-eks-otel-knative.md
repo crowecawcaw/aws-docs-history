@@ -1,7 +1,6 @@
 
 
 # Collecting Knative Serving metrics with OTel Container Insights
-<a name="container-insights-eks-otel-knative"></a>
 
 Knative Serving is an open-source platform that runs request-driven services on Kubernetes and scales them with load, including to zero. KServe uses it in its default Serverless mode: each InferenceService becomes a Knative service. Container Insights collects two kinds of Knative metrics:
 + **Data plane** – Request metrics from the queue-proxy sidecar that Knative adds to every revision pod. Each request to the service passes through it.
@@ -21,7 +20,7 @@ Knative metrics collection is enabled by default when the following requirements
 + Amazon EKS cluster running Kubernetes 1.28 or later
 + Knative Serving installed and running in the cluster (default namespace: `knative-serving`)
 + On Knative Serving 1.19 and later, Knative configured to serve Prometheus metrics (see [Turning on metrics in Knative Serving 1.19 and later](#container-insights-eks-otel-knative-119))
-+ OTel Container Insights enabled on the cluster (see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md))
++ OTel Container Insights enabled on the cluster (see [Quick start](container-insights-eks-otel-quickstart.md))
 + The `amazon-cloudwatch-observability` add-on in `ACTIVE` status
 
 ## Configuring Knative metrics collection
@@ -33,7 +32,7 @@ Data plane and control plane collection are both enabled by default, and you can
 
 To disable all solutions at once, set `otelContainerInsights.solutions.enabled` to `false`. The following Helm values show the default configuration.
 
-```
+```yaml
 otelContainerInsights:
   solutions:
     enabled: true
@@ -48,7 +47,7 @@ otelContainerInsights:
 
 To disable Knative metrics using the Amazon EKS add-on, run the following AWS CLI command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -58,7 +57,7 @@ aws eks update-addon \
 
 To disable Knative metrics using the Helm chart, run the following command.
 
-```
+```bash
 helm upgrade amazon-cloudwatch-observability \
   aws-observability/amazon-cloudwatch-observability \
   -n amazon-cloudwatch \
@@ -76,7 +75,7 @@ After you enable Knative metrics, the CloudWatch agent scrapes the following tar
 
 Knative Serving 1.19 moved to the OpenTelemetry SDK and exports no metrics by default: ports 9090 and 9091 refuse connections until Knative is told to serve Prometheus metrics. The `metrics-protocol` setting covers the control plane, and `request-metrics-protocol` covers the queue-proxy. To turn both on, run the following commands.
 
-```
+```bash
 kubectl -n knative-serving patch configmap config-observability --type merge \
   -p '{"data":{"metrics-protocol":"prometheus","request-metrics-protocol":"prometheus"}}'
 kubectl -n knative-serving rollout restart deployment
@@ -109,7 +108,7 @@ Data plane metrics are pod-scoped. Control plane metrics are cluster-scoped.
 
 KServe and Knative do not inject Istio sidecars into revision pods by default. If you turn on sidecar injection in a namespace and enforce `STRICT` mutual TLS, the sidecar rejects the agent's plain HTTP scrape, because the agent is not part of the mesh. Allow plain text on the metrics port of those pods. The following example does this for KServe predictor pods. Replace {{model-namespace}} with the namespace of your models.
 
-```
+```yaml
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:

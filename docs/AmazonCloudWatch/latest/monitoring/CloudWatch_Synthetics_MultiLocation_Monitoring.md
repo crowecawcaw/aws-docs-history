@@ -1,7 +1,6 @@
 
 
 # Monitoring and troubleshooting multilocation canaries
-<a name="CloudWatch_Synthetics_MultiLocation_Monitoring"></a>
 
 When you create a multilocation canary, CloudWatch Synthetics consolidates run data, artifacts, and key metrics in the primary Region, giving you a unified view of your canary's performance across all locations. If the primary Region becomes unavailable, you can still access run data, metrics, and logs directly in each replica Region.
 

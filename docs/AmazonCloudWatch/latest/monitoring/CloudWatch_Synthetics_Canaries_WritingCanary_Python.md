@@ -1,11 +1,10 @@
 
 
 # Writing a Python canary script
-<a name="CloudWatch_Synthetics_Canaries_WritingCanary_Python"></a>
 
 This script passes as a successful run, and returns a string. To see what a failing canary looks like, change fail = False to fail = True
 
-```
+```python
 def basic_custom_script():
     # Insert your code here
     # Perform multi-step pass/fail check
@@ -38,7 +37,7 @@ You can quickly modify an existing script for Python and Selenium to be used as 
 
 For this example, start with the following Selenium script:
 
-```
+```python
 from selenium import webdriver
 
 def basic_selenium_script():
@@ -55,7 +54,7 @@ The conversion steps are as follows.
 
 1. Change the `import` statement to use Selenium from the ` aws_synthetics` module:
 
-   ```
+   ```python
    from aws_synthetics.selenium import synthetics_webdriver as webdriver
    ```
 
@@ -65,7 +64,7 @@ The conversion steps are as follows.
 
    If you are using `syn-python-selenium-1.0`, the handler function must be named `handler`. If you are using `syn-python-selenium-1.1` or later, the function can have any name, but it must be the same name that is used in the script. Also, if you are using `syn-python-selenium-1.1` or later, you can store your scripts under any folder and specify that folder as part of the handler name.
 
-   ```
+   ```python
    def handler(event, context):
        basic_selenium_script()
    ```
@@ -74,7 +73,7 @@ The script is now updated to be a CloudWatch Synthetics canary. Here is the upda
 
 The `webdriver` is an instance of the class [ SyntheticsWebDriver](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library_Python.html#CloudWatch_Synthetics_Library_Python_SyntheticsWebDriver) and the browser returned by `webdriver.Chrome()` is an instance of [ SyntheticsBrowser](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library_Python.html#CloudWatch_Synthetics_Library_Python_SyntheticsBrowser).
 
-```
+```python
 from aws_synthetics.selenium import synthetics_webdriver as webdriver
 
 def basic_selenium_script():

@@ -1,7 +1,6 @@
 
 
 # Security in CloudWatch investigations
-<a name="Investigations-Security"></a>
 
 This section includes topics about how CloudWatch investigations integrate with AWS security and permissions features.
 
@@ -44,7 +43,7 @@ Users with **AIOpsConsoleAdminPolicy** can generate, edit, and copy incident rep
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ The policy statement should include a context key for encryption context to help
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -179,7 +178,7 @@ aws kms create-key
 
 The command output includes the key ID and the Amazon Resource Name (ARN) of the key. You will need those in later steps in this section. The following is an example of this output.
 
-```
+```json
 {
 "KeyMetadata": {
 "Origin": "AWS_KMS",
@@ -222,7 +221,7 @@ This policy provides permissions for service principals for the following reason
 The following policy assumes that you follow the recommendation of using three IAM principals, and granting one of them the **AIOpsConsoleAdminPolicy** IAM policy, granting another the **AIOpsOperatorAccess** policy, and granting the third the **AIOpsReadOnlyAccess** policy. These principals could be either IAM roles (recommended) or IAM users. Then your users who work with CloudWatch investigations would sign on with one of these principals.  
 For the following policy, you'll need the ARNs of those three principals.
 
-```
+```json
 {
     "Sid": "Enable AI Operations Admin for the DescribeKey permissions",
     "Effect": "Allow",

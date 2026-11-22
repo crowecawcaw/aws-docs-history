@@ -1,7 +1,6 @@
 
 
 # Configuring how CloudWatch alarms treat missing data
-<a name="alarms-and-missing-data"></a>
 
 Sometimes, not every expected data point for a metric gets reported to CloudWatch. For example, this can happen when a connection is lost, a server goes down, or when a metric reports data only intermittently by design.
 
@@ -104,7 +103,7 @@ This alarm logic applies to M out of N alarms as well. If the oldest breaching d
 
  ** Alarms based on Metrics Insights queries that aggregate to a single time series ** 
 
- The missing data scenarios and their effects upon alarm evaluation are the same as a standard metric alarm in terms of the configured missing data treatment. See, [Configuring how CloudWatch alarms treat missing data](#alarms-and-missing-data). 
+ The missing data scenarios and their effects upon alarm evaluation are the same as a standard metric alarm in terms of the configured missing data treatment. See, [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md). 
 
  ** Alarms based on Metrics Insights queries that produce multiple time series ** 
 

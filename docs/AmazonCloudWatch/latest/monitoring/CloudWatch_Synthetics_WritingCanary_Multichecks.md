@@ -1,7 +1,6 @@
 
 
 # Writing a JSON configuration for Node.js multi Checks blueprint
-<a name="CloudWatch_Synthetics_WritingCanary_Multichecks"></a>
 
 The Node.js multi checks blueprint allows you to create canaries that perform multiple validation checks within a single canary run. This blueprint is useful when you want to test multiple endpoints, validate different aspects of your application, or perform a series of related checks in sequence. 
 
@@ -29,7 +28,7 @@ The root configuration defines the overall structure of your advanced API bluepr
 
  **Example** 
 
-```
+```json
 {
   "globalSettings": {
     "stepTimeout": 30000,
@@ -69,7 +68,7 @@ Global settings provide default configurations that apply to all steps unless ov
 
  **Example** 
 
-```
+```json
 {
   "globalSettings": {
     "stepTimeout": 60000
@@ -99,7 +98,7 @@ Variables allow you to define reusable values that can be referenced throughout 
 
  **Example** 
 
-```
+```json
 {
   "variables": {
     "baseUrl": "https://api.example.com",
@@ -112,7 +111,7 @@ Variables allow you to define reusable values that can be referenced throughout 
 
  **Configuration usage** 
 
-```
+```json
 {
   "steps": {
     "1": {
@@ -201,7 +200,7 @@ Monitor web endpoints and APIs with comprehensive request and response validatio
 
  **Example** 
 
-```
+```json
 {
   "stepName": "createUser",
   "checkerType": "HTTP",
@@ -366,7 +365,7 @@ Test TCP port connectivity and response validation.
 
  **No authentication** 
 
-```
+```json
 {
   "type": "NONE"
 }

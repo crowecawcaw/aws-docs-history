@@ -1,7 +1,6 @@
 
 
 # Publishing logs with the embedded metric format
-<a name="CloudWatch_Embedded_Metric_Format_Generation"></a>
 
  You can generate embedded metric format logs using the following methods: 
 +  Generate and send the logs by using the [open-sourced client libraries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Libraries.html). 

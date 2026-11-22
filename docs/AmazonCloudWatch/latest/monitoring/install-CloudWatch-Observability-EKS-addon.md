@@ -1,11 +1,10 @@
 
 
 # Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart
-<a name="install-CloudWatch-Observability-EKS-addon"></a>
 
 You can use either the Amazon CloudWatch Observability EKS add-on or the Amazon CloudWatch Observability Helm chart to install the CloudWatch Agent and the Fluent-bit agent on an Amazon EKS cluster. You can also use the Helm chart to install the CloudWatch Agent and the Fluent-bit agent on a Kubernetes cluster that is not hosted on Amazon EKS.
 
-Using either method on an Amazon EKS cluster enables both [Container Insights](deploy-container-insights-EKS.md) for Amazon EKS and [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md) by default. Both features help you to collect infrastructure metrics, application performance telemetry, and container logs from the cluster.
+Using either method on an Amazon EKS cluster enables both [Container Insights](ContainerInsights.md) for Amazon EKS and [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md) by default. Both features help you to collect infrastructure metrics, application performance telemetry, and container logs from the cluster. From version 8.0.0, the add-on and the chart also serve an OTLP endpoint and scrape ServiceMonitor and PodMonitor targets by default. For the full list, see [Features that are on by default](#install-CloudWatch-Observability-EKS-addon-defaults).
 
 From version `v6.2.0-eksbuild.1` or later of the add-on, Container Insights with OpenTelemetry metrics can be enabled, which collects metrics using the OpenTelemetry Protocol (OTLP) and supports PromQL queries. For more information, see [OTel Container Insights (Recommended)](container-insights-eks-otel.md).
 
@@ -20,6 +19,7 @@ When you install the add-on or the Helm chart, you must also grant IAM permissio
 + Use an IAM role for service accounts for the agent pods, and attach the policy to this role. This works only for Amazon EKS clusters. This option gives CloudWatch access only to the appropriate agent pods. 
 
 **Topics**
++ [Features that are on by default](#install-CloudWatch-Observability-EKS-addon-defaults)
 + [Option 1: Install using EKS Pod Identity](#install-CloudWatch-Observability-EKS-pod-identity)
 + [Option 2: Install with IAM permissions on worker nodes](#install-CloudWatch-Observability-EKS-addon-workernodes)
 + [Option 3: Install using IAM service account role (applies only to using the add-on)](#install-CloudWatch-Observability-EKS-addon-serviceaccountrole)
@@ -32,6 +32,23 @@ When you install the add-on or the Helm chart, you must also grant IAM permissio
 + [Considerations for Amazon EKS Hybrid Nodes](#install-CloudWatch-Observability-EKS-addon-hybrid)
 + [Troubleshooting the Amazon CloudWatch Observability EKS add-on or the Helm chart](#Container-Insights-setup-EKS-addon-troubleshoot)
 + [Opt out of Application Signals](#Opting-out-App-Signals)
+
+## Features that are on by default
+<a name="install-CloudWatch-Observability-EKS-addon-defaults"></a>
+
+The following table lists what version 8.0.0 and later of the add-on and the Helm chart turn on when you install them without configuration values, by top-level configuration value. To change a default, pass the configuration value in the second column. Each feature page lists the settings under its value. For how to pass configuration values, see [Configuring the add-on and the Helm chart](eks-observability-addon-configure.md).
+
+
+| Feature | Configuration value | Default | 
+| --- | --- | --- | 
+| [Enhanced Container Insights (Classic)](container-insights-eks-classic.md) | containerInsights.enabled | On | 
+| Container logs, collected by Fluent Bit | containerLogs.enabled | On | 
+| [Application Signals (Classic)](eks-observability-addon-application-signals.md) | applicationSignals.enabled | On | 
+| [OTLP ingestion](eks-observability-addon-otlp-endpoint.md) | otlp.enabled | On | 
+| [Scraping ServiceMonitor and PodMonitor targets](eks-observability-addon-prometheus-monitors.md) | otelPrometheusMonitor.enabled | On | 
+| [OpenTelemetry service identity](eks-observability-addon-service-identity.md) | otelServiceIdentity | Always on | 
+| [Telemetry filters](eks-observability-addon-telemetry-filters.md) | otelFilters | Nothing filtered, except a built-in list of high-cardinality pod and node labels | 
+| [OTel Container Insights (Recommended)](container-insights-eks-otel.md) | otelContainerInsights.enabled | Off | 
 
 ## Option 1: Install using EKS Pod Identity
 <a name="install-CloudWatch-Observability-EKS-pod-identity"></a>
@@ -109,7 +126,7 @@ aws eks create-addon \
 
 1. Then create the following resource. Replace `{{my-cluster-name}}` with the name of your cluster, replace {{111122223333}} with your account ID, and replace {{my-role}} with the IAM role created in EKS Pod Identity association step. For more information, see [ AWS::EKS::Addon](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html).
 
-   ```
+   ```JSON
    {
    "Resources": {
        "EKSAddOn": {
@@ -218,7 +235,7 @@ aws eks create-addon --addon-name amazon-cloudwatch-observability --cluster-name
 **To use CloudFormation to install the Amazon CloudWatch Observability EKS add-on**  
 Replace `{{my-cluster-name}}` with the name of your cluster. For more information, see [ AWS::EKS::Addon](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html).
 
-```
+```JSON
 {
 "Resources": {
     "EKSAddOn": {
@@ -266,7 +283,7 @@ resource "aws_eks_addon" "example" {
 <a name="install-CloudWatch-Observability-EKS-addon-serviceaccountrole"></a>
 
 This method is valid only if you are using the Amazon CloudWatch Observability EKS add-on. Before using this method, verify the following prerequisites:
-+ You have a functional Amazon EKS cluster with nodes attached in one of the AWS Regions that supports Container Insights. For the list of supported Regions, see [Container Insights](ContainerInsights.md).
++ You have a functional Amazon EKS cluster with nodes attached in one of the AWS Regions that supports Container Insights. For the list of supported Regions, see [Container Insights for Amazon EKS](ContainerInsights.md).
 + You have `kubectl` installed and configured for the cluster. For more information, see [Installing `kubectl`](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) in the *Amazon EKS User Guide*.
 + You have `eksctl` installed. For more information, see [Installing or updating `eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html) in the *Amazon EKS User Guide*.
 
@@ -388,7 +405,7 @@ As an example, the default Fluent Bit configuration for version 1.7.0 can be fou
 
 We recommend that you provide the `config` as YAML when you supply it using the Amazon EKS add-on's advanced config or when you supply it as value overrides for your Helm installation. Be sure that the YAML conforms to the following structure.
 
-```
+```yaml
 containerLogs:
   fluentBit:
 config:
@@ -407,7 +424,7 @@ config:
 
 The following example `config` changes the global setting for the flush interval to be 45 seconds. Even though the only modification is to the `Flush` field, you must still provide the full `SERVICE` definition for the service sub-section. Because this example didn't specify overrides for the other sub-sections, the defaults are used for them.
 
-```
+```yaml
 containerLogs:
   fluentBit:
 config:
@@ -426,7 +443,7 @@ config:
 
 The following example configuration includes an extra Fluent bit `conf` file. In this example, you are adding a custom `my-service.conf` under `extraFiles` and it will be included in addition to the three default `extraFiles`.
 
-```
+```yaml
 containerLogs:
   fluentBit:
 config:
@@ -453,7 +470,7 @@ config:
 
 The next example removes an existing `conf` file entirely from `extraFiles`. This excludes the `application-log.conf` entirely by overriding it with an empty string. Simply omitting `application-log.conf` from `extraFiles` would instead imply to use the default, which is not what you are trying to achieve in this example. The same applies to removing any custom `conf` file that you might have previously added to `extraFiles`.
 
-```
+```yaml
 containerLogs:
   fluentBit:
 config:
@@ -468,14 +485,14 @@ Starting with version 1.7.0 of the Amazon CloudWatch Observability EKS add-on, t
 
 The default tolerations set by the add-on or the Helm chart are as follows:
 
-```
+```yaml
 tolerations:
 - operator: Exists
 ```
 
 You can override the default tolerations by setting the `tolerations` field at the root level when using the add-on advanced config or when you install or upgrade the Helm chart with value overrides. An example would look like the following:
 
-```
+```yaml
 tolerations:
 - key: "key1"
   operator: "Exists"
@@ -484,7 +501,7 @@ tolerations:
 
 To omit tolerations completely, you can use a config that looks like the following:
 
-```
+```yaml
 tolerations: []
 ```
 
@@ -503,7 +520,7 @@ AWS Elastic Fabric Adapter (EFA) metrics from Linux nodes on Amazon EKS clusters
 
 You can opt out of collecting these metrics by setting the `accelerated_compute_metrics` field in the CloudWatch agent configuration file to `false`. This field is in the `kubernetes` section of the `metrics_collected` section in the CloudWatch configuration file. The following is an example of an opt-out configuration. For more information about how to use custom CloudWatch agent configurations, see the following section, [Use a custom CloudWatch agent configuration](#CloudWatch-Observability-EKS-addon-CustomAgentConfig).
 
-```
+```json
 {
   "logs": {
 "metrics_collected": {
@@ -525,7 +542,7 @@ To collect other metrics, logs or traces using the CloudWatch agent, you can spe
 Any custom configuration that you provide using additional configuration settings overrides the default configuration used by the agent. Be cautious not to unintentionally disable functionality that is enabled by default, such as Container Insights with enhanced observability and CloudWatch Application Signals. In the scenario that you are required to provide a custom agent configuration, we recommend using the following default configuration as a baseline and then modifying it accordingly.
 + For using the Amazon CloudWatch observability EKS add-on
 
-  ```
+  ```json
   --configuration-values '{
     "agent": {
   "config": {
@@ -548,7 +565,7 @@ Any custom configuration that you provide using additional configuration setting
   ```
 + For using the Helm chart
 
-  ```
+  ```json
   --set agent.config='{
     "logs": {
   "metrics_collected": {
@@ -568,7 +585,7 @@ Any custom configuration that you provide using additional configuration setting
 
 The following example shows the default agent configuration for the CloudWatch agent on Windows. The CloudWatch agent on Windows does not support custom configuration.
 
-```
+```json
 {
   "logs": {
 "metrics_collected": {
@@ -627,7 +644,7 @@ If you want to collect Amazon EBS volume IDs in the performance logs, you must a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -663,7 +680,7 @@ Before you install Kueue in your Amazon EKS cluster, make the following updates 
 
 1. Enable the optional cluster queue resource metrics for Kueue. To do this, modify the in-line `controller_manager_config.yaml` in the `kueue-system` ConfigMap. In the `metrics` section, add or uncomment the line `enableClusterQueueResources: true`.
 
-   ```
+   ```yaml
    apiVersion: v1
    data:
      controller_manager_config.yaml: |
@@ -678,7 +695,7 @@ Before you install Kueue in your Amazon EKS cluster, make the following updates 
 
 1. By default, all `k8s` services are available cluster-wide. Kueue creates a service `kueue-controller-manager-metrics-service` for exposing metrics. To prevent duplicate observations for metrics, modify this service to allow access only to the metrics service from the same node. To do this, add the line `internalTrafficPolicy: Local` to the `kueue-controller-manager-metrics-service` definition.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -699,7 +716,7 @@ Before you install Kueue in your Amazon EKS cluster, make the following updates 
 
 1. Lastly, the `kueue-controller-manager` pod creates a `kube-rbac-proxy` container. This container currently has a high level of logging verbosity, which causes the cluster's bearer token to be logged by that container when the metrics scraper accesses the `kueue-controller-manager-metrics-service`. We recommend that you decrease this logging verbosity. The default value in the manifest distributed by Kueue is 10, we recommend to change it to 0.
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -743,7 +760,7 @@ After you have successfully installed the EKS Observability add-on with one of t
 
   The following is an example of the JSON file with the configuration values.
 
-  ```
+  ```json
   {
   "agent": {
       "config": {
@@ -779,7 +796,7 @@ After you have successfully installed the EKS Observability add-on with one of t
 
 1. Find the **Amazon CloudWatch Observability** add-on in the list, and install it. When you do so, choose **Optional configuration** and include the following JSON configuration values.
 
-   ```
+   ```json
    {
    "agent": {
        "config": {
@@ -810,9 +827,11 @@ After you have successfully installed the EKS Observability add-on with one of t
 The CloudWatch agent supports supplemental OpenTelemetry collector configuration files alongside its own configuration files. This feature allows you to use CloudWatch agent features such as CloudWatch Application Signals or Container Insights through the CloudWatch agent configuration and bring in your existing OpenTelemetry collector configuration with a single agent.
 
 To prevent merge conflicts with pipelines automatically created by CloudWatch agent, add a custom suffix to each of the components and pipelines in your OpenTelemetry collector configuration. This will prevent clashing and merge conflicts.
+
+In version 8.0.0 and later, the add-on and the chart serve their own OTLP endpoint on ports 4317 and 4318 by default. An OTLP receiver in your configuration must use other ports, as in the following examples, or the agent can't bind the port and doesn't start. For more information, see [OTLP ingestion](eks-observability-addon-otlp-endpoint.md).
 + If you are using the Amazon CloudWatch Observability EKS add-on
 
-  ```
+  ```yaml
   --configuration-values file://values.yaml
   ```
 
@@ -825,7 +844,8 @@ To prevent merge conflicts with pipelines automatically created by CloudWatch ag
     receivers:
       otlp/custom-suffix:
         protocols:
-          http: {}
+          http:
+            endpoint: 0.0.0.0:14318
     exporters:
       awscloudwatchlogs/custom-suffix:
         log_group_name: "test-group"
@@ -844,7 +864,8 @@ To prevent merge conflicts with pipelines automatically created by CloudWatch ag
     receivers:
   otlp/custom-suffix:
     protocols:
-      http: {}
+      http:
+        endpoint: 0.0.0.0:14318
     exporters:
   awscloudwatchlogs/custom-suffix:
     log_group_name: "test-group"
@@ -993,7 +1014,7 @@ The deployment agent configuration must enable only Container Insights. Don't en
 
 The following example shows an advanced configuration that separates the agent into two installations.
 
-```
+```yaml
 agents:
   - name: cloudwatch-agent
 env:
@@ -1027,7 +1048,7 @@ You can further customize each agent installation by adding `nodeSelector`, `tol
 ## Considerations for Amazon EKS Hybrid Nodes
 <a name="install-CloudWatch-Observability-EKS-addon-hybrid"></a>
 
-Node-level metrics aren't available for hybrid nodes because [Container Insights](ContainerInsights.md) depends on the availability of the [EC2 Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDS) for node-level metrics. Cluster, workload, Pod, and container-level metrics are available for hybrid nodes.
+Node-level metrics aren't available for hybrid nodes because [Container Insights for Amazon EKS](ContainerInsights.md) depends on the availability of the [EC2 Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDS) for node-level metrics. Cluster, workload, Pod, and container-level metrics are available for hybrid nodes.
 
 After you install the add-on, patch the `amazoncloudwatchagents` resource to add the `RUN_WITH_IRSA` environment variable so the agent runs successfully on hybrid nodes:
 

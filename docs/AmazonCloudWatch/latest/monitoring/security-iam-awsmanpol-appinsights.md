@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon CloudWatch Application Insights
-<a name="security-iam-awsmanpol-appinsights"></a>
 
 
 
@@ -61,7 +60,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -151,7 +150,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

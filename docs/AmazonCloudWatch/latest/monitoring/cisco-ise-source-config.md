@@ -1,7 +1,6 @@
 
 
 # Source configuration for Cisco ISE
-<a name="cisco-ise-source-config"></a>
 
 ## Integrating with Cisco ISE
 <a name="cisco-ise-integration"></a>

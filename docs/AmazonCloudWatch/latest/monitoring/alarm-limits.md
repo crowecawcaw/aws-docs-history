@@ -1,7 +1,6 @@
 
 
 # Limits
-<a name="alarm-limits"></a>
 
 ## General CloudWatch quotas
 <a name="general-cloudwatch-quotas"></a>

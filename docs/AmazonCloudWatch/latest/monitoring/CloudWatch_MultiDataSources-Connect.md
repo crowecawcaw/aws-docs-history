@@ -1,7 +1,6 @@
 
 
 # Connect to a prebuilt data source with a wizard
-<a name="CloudWatch_MultiDataSources-Connect"></a>
 
  This topic provides instructions for using the wizard to connect CloudWatch to the following data sources. 
 + Amazon OpenSearch Service
@@ -80,7 +79,7 @@ If your OpenSearch domain is only accessible within a Virtual Private Cloud (VPC
 <a name="MultiDataSources-Amazon_RDS_PostGre_SQL"></a>
 
 **Creating the data source**
-+ If your data source is only accessible in a VPC, you must include the VPC configuration for the connector, as described in [Connect to a prebuilt data source with a wizard](#CloudWatch_MultiDataSources-Connect). If the data source is to connect to the VPC for credentials, the endpoint must be configured in the VPC. For more information, see [Using an AWS Secrets Manager VPC endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html). 
++ If your data source is only accessible in a VPC, you must include the VPC configuration for the connector, as described in [Connect to a prebuilt data source with a wizard](CloudWatch_MultiDataSources-Connect.md). If the data source is to connect to the VPC for credentials, the endpoint must be configured in the VPC. For more information, see [Using an AWS Secrets Manager VPC endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html). 
 
   Additionally, you must create a VPC endpoint for the Amazon RDS service. For more information, see [Amazon RDS API and interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/vpc-interface-endpoints.html).
 
@@ -157,7 +156,7 @@ If no timestamp is provided, the values for each metric are summed to single val
 
 **Creating the data source**
 + You must provide the Prometheus endpoint and the user and password required to query Prometheus. The credentials will be stored in AWS Secrets Manager. 
-+ If your data source is only accessible in a VPC, you must include the VPC configuration for the connector, as described in [Connect to a prebuilt data source with a wizard](#CloudWatch_MultiDataSources-Connect). If the data source is to connect to for credentials, the endpoint must be configured in the VPC. For more information, see [Using an AWS Secrets Manager VPC endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html). 
++ If your data source is only accessible in a VPC, you must include the VPC configuration for the connector, as described in [Connect to a prebuilt data source with a wizard](CloudWatch_MultiDataSources-Connect.md). If the data source is to connect to for credentials, the endpoint must be configured in the VPC. For more information, see [Using an AWS Secrets Manager VPC endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html). 
 
 **Updating data source configuration**
 + You can update your data source manually by doing the following:

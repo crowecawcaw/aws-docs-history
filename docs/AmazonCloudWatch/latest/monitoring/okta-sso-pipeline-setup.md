@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Okta SSO
-<a name="okta-sso-pipeline-setup"></a>
 
 Collects log data from Okta SSO using OAuth2 authentication.
 
 Configure the Okta SSO source with the following parameters:
 
-```
+```yaml
 source:
   okta_sso:
     domain: "<example-domain-name>"

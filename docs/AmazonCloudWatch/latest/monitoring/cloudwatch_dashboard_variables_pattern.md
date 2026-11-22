@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a dashboard that uses a regular expression pattern to switch between AWS Regions
-<a name="cloudwatch_dashboard_variables_pattern"></a>
 
 The steps in this procedure illustrate how to create a flexible dashboard that can switch between Regions. This tutorial uses a regular expression *pattern variable* instead of a property variable. For a tutorial that uses a property variable, see [Tutorial: Creating a CloudWatch Lambda dashboard with function name as the variable](cloudwatch_dashboard_variables_property.md). 
 

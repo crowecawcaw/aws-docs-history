@@ -1,7 +1,6 @@
 
 
 # Security best practices for CloudWatch Omni
-<a name="omni-security-best-practices-for-cloudwatch-omni"></a>
 
 CloudWatch Omni provides a number of security features to consider as you develop and implement your own security policies. The following best practices are general guidelines and do not represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 

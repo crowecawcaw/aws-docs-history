@@ -1,7 +1,6 @@
 
 
 # What is Internet Monitor?
-<a name="CloudWatch-InternetMonitor.what-is-cwim"></a>
 
 With Internet Monitor, you can monitor your application's internet performance and availability, so that you can visualize data and get insights and suggestions about your AWS application's internet traffic. You can also get suggestions for ways to reduce latency for your application, by using different Regions or AWS services, like Amazon CloudFront.
 

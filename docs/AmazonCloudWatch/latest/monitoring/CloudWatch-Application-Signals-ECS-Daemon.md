@@ -1,7 +1,6 @@
 
 
 # Deploy using the daemon strategy
-<a name="CloudWatch-Application-Signals-ECS-Daemon"></a>
 
 ## Step 1: Enable Application Signals in your account
 <a name="Application-Signals-ECS-Grant-Daemon"></a>
@@ -21,7 +20,7 @@ For more information about creating IAM roles, see [Creating IAM Roles](https://
 
 First, prepare the agent configuration with Application Signals enabled. To do this, create a local file named `/tmp/ecs-cwagent.json`. 
 
-```
+```json
 {
   "traces": {
     "traces_collected": {
@@ -54,7 +53,7 @@ Create the following task definition and deploy it to your application cluster. 
 **Note**  
 The daemon service exposes two ports on the host, with 4316 used as endpoint for receiving metrics and traces and 2000 as the CloudWatch trace sampler endpoint. This setup allows the agent to collect and transmit telemetry data from all application tasks running on the host. Make sure that these ports are not used by other services on the host to avoid conflicts.
 
-```
+```json
 {
   "family": "ecs-cwagent-daemon",
   "taskRoleArn": "{{$TASK_ROLE_ARN}}",
@@ -112,7 +111,7 @@ The next step is to instrument your application for Application Signals.
 
 1. First, specify a bind mount. The volume will be used to share files across containers in the next steps. You will use this bind mount later in this procedure.
 
-   ```
+   ```json
    "volumes": [
      {
        "name": "opentelemetry-auto-instrumentation"
@@ -122,7 +121,7 @@ The next step is to instrument your application for Application Signals.
 
 1. Append a new container `init` to your application's task definition. Replace {{$IMAGE}} with the latest image from the [AWS Distro for OpenTelemetry Amazon ECR image repository](https://gallery.ecr.aws/aws-observability/adot-autoinstrumentation-java). 
 
-   ```
+   ```json
    {
      "name": "init",
      "image": "{{$IMAGE}}",
@@ -144,7 +143,7 @@ The next step is to instrument your application for Application Signals.
 
 1. Add a dependency on the `init` container to make sure that this container finishes before your application container starts.
 
-   ```
+   ```json
    "dependsOn": [
      {
        "containerName": "init",
@@ -177,7 +176,7 @@ The next step is to instrument your application for Application Signals.
 
 1. Mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure. If you don't need to enable log correlation with metrics and traces, use the following example for a Java application. If you want to enable log correlation, see the next step instead.
 
-   ```
+   ```json
    {
      "name": "{{my-app}}",
       ...
@@ -253,7 +252,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. First, specify a bind mount. The volume will be used to share files across containers in the next steps. You will use this bind mount later in this procedure.
 
-   ```
+   ```json
    "volumes": [
      {
        "name": "opentelemetry-auto-instrumentation-python"
@@ -263,7 +262,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. Append a new container `init` to your application's task definition. Replace {{$IMAGE}} with the latest image from the [AWS Distro for OpenTelemetry Amazon ECR image repository](https://gallery.ecr.aws/aws-observability/adot-autoinstrumentation-python).
 
-   ```
+   ```json
    {
        "name": "init",
        "image": "$IMAGE",
@@ -286,7 +285,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. Add a dependency on the `init` container to make sure that this container finishes before your application container starts.
 
-   ```
+   ```json
    "dependsOn": [
      {
        "containerName": "init",
@@ -322,7 +321,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. Mount the volume `opentelemetry-auto-instrumentation-python` that you defined in step 1 of this procedure. If you don't need to enable log correlation with metrics and traces, use the following example for a Python application. If you want to enable log correlation, see the next step instead. 
 
-   ```
+   ```json
    {
      "name": "{{my-app}}",
      ...
@@ -400,7 +399,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
    The following is an example. To enable log correlation, use this example when you mount the volume `opentelemetry-auto-instrumentation-python` that you defined in step 1 of this procedure.
 
-   ```
+   ```json
    {
      "name": "{{my-app}}",
      ...
@@ -481,7 +480,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. First, specify a bind mount. The volume will be used to share files across containers in the next steps. You will use this bind mount later in this procedure.
 
-   ```
+   ```json
    "volumes": [
      {
        "name": "opentelemetry-auto-instrumentation"
@@ -493,7 +492,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
    For a Linux container instance, use the following.
 
-   ```
+   ```json
    {
      "name": "init",
      "image": "{{$IMAGE}}",
@@ -516,7 +515,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
    For a Windows Server container instance, use the following.
 
-   ```
+   ```json
    {
      "name": "init",
      "image": "{{$IMAGE}}",
@@ -547,7 +546,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. Add a dependency on the `init` container to make sure that container finishes before your application container starts.
 
-   ```
+   ```json
    "dependsOn": [
        {
            "containerName": "init",
@@ -587,7 +586,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
 1. Mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure. For Linux, use the following.
 
-   ```
+   ```json
    {
        "name": "{{my-app}}",
       ...
@@ -697,7 +696,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
    For Windows Server, use the following.
 
-   ```
+   ```json
    {
        "name": "{{my-app}}",
       ...
@@ -809,7 +808,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
 1. First, specify a bind mount. The volume will be used to share files across containers in the next steps. You will use this bind mount later in this procedure.
 
-   ```
+   ```json
    "volumes": [
      {
        "name": "opentelemetry-auto-instrumentation-node"
@@ -819,7 +818,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
 1. Append a new container `init` to your application's task definition. Replace {{$IMAGE}} with the latest image from the [AWS Distro for OpenTelemetry Amazon ECR image repository](https://gallery.ecr.aws/aws-observability/adot-autoinstrumentation-node). 
 
-   ```
+   ```json
    {
      "name": "init",
      "image": "{{$IMAGE}}",
@@ -842,7 +841,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
 1. Add a dependency on the `init` container to make sure that this container finishes before your application container starts.
 
-   ```
+   ```json
    "dependsOn": [
      {
        "containerName": "init",
@@ -878,7 +877,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
    For your Application Container, add a dependency on the `init` container to make sure that container finishes before your application container starts.
 
-   ```
+   ```json
    {
      "name": "{{my-app}}",
       ...
@@ -944,7 +943,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
 
    The following is an example. Use this example to enable log correlation when you mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure.
 
-   ```
+   ```json
    {
      "name": "{{my-app}}",
       ...
@@ -1023,7 +1022,7 @@ For the ESM module format, using the `init` container to inject the Node.js inst
 
 1. In steps 4 and 5 in the previous procedure, remove the mounting of the volume `opentelemetry-auto-instrumentation-node`:
 
-   ```
+   ```json
    "mountPoints": [
        {
            "sourceVolume": "opentelemetry-auto-instrumentation-node",
@@ -1035,7 +1034,7 @@ For the ESM module format, using the `init` container to inject the Node.js inst
 
    Replace the node options with the following.
 
-   ```
+   ```json
    {
        "name": "NODE_OPTIONS",
        "value": "--import @aws/aws-distro-opentelemetry-node-autoinstrumentation/register --experimental-loader=@opentelemetry/instrumentation/hook.mjs"

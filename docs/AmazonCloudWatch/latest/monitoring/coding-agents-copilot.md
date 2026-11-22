@@ -1,7 +1,6 @@
 
 
 # Set up OpenTelemetry for GitHub Copilot
-<a name="coding-agents-copilot"></a>
 
 GitHub Copilot emits OpenTelemetry (OTel) metrics about token usage, requests, tool calls, and latency. When you send these metrics to Amazon CloudWatch, they populate the GitHub Copilot tab of the Coding Agent Insights dashboards. For more information about the dashboards, see [Coding Agent Insights](coding-agents-insights.md).
 

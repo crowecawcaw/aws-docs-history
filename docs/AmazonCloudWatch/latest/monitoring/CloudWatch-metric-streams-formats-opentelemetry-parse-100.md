@@ -1,7 +1,6 @@
 
 
 # How to parse OpenTelemetry 1.0.0 messages
-<a name="CloudWatch-metric-streams-formats-opentelemetry-parse-100"></a>
 
 This section provides information to help you get started with parsing OpenTelemetry 1.0.0.
 
@@ -34,7 +33,7 @@ The following section includes examples of using the language-specific bindings 
 
 **Java**
 
-```
+```java
 package com.example;
 
 import io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceRequest;
@@ -76,7 +75,7 @@ The data argument of the function `parseRecord` can be one of the following type
 + `Buffer` optimal under node
 + `Array.{{number}}` 8-bit integers
 
-```
+```javascript
 const pb = require('google-protobuf')
 const pbMetrics =
     require('./opentelemetry/proto/collector/metrics/v1/metrics_service_pb')
@@ -120,7 +119,7 @@ function parseRecord(data) {
 
 You must read the `var-int` delimiters yourself or use the internal methods `_VarintBytes(size)` and `_DecodeVarint32(buffer, position)`. These return the position in the buffer just after the size bytes. The read-side constructs a new buffer that is limited to reading only the bytes of the message. 
 
-```
+```python
 size = my_metric.ByteSize()
 f.write(_VarintBytes(size))
 f.write(my_metric.SerializeToString())

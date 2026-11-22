@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Insights dashboard
-<a name="SageMaker-AI-Insights-Dashboard"></a>
 
 The SageMaker AI Insights dashboard is organized into three tabs: **Performance**, **Capacity**, and **Reliability**. Each tab provides a focused view of your inference endpoint health.
 

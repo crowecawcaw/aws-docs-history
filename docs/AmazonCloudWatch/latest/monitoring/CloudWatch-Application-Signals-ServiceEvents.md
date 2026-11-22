@@ -1,7 +1,6 @@
 
 
 # Monitor service events
-<a name="CloudWatch-Application-Signals-ServiceEvents"></a>
 
 Service Events provides automated deep observability for services monitored with CloudWatch Application Signals. It captures error metrics, function-level performance data, incident snapshots (when requests exceed latency thresholds or throw exceptions), and deployment events — without additional code changes.
 
@@ -178,7 +177,7 @@ Set the following environment variables on your application containers or proces
 
 In your GitHub Actions workflow, use the built-in environment variables to populate deployment metadata. Add the following to your deployment step or container environment:
 
-```
+```yaml
 env:
   OTEL_AWS_SERVICE_EVENTS_GIT_COMMIT_SHA: ${{ github.sha }}
   OTEL_AWS_SERVICE_EVENTS_GIT_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
@@ -194,7 +193,7 @@ If you deploy container images, pass these values as environment variables in yo
 
 In your GitLab CI/CD pipeline, use the predefined CI/CD variables to populate deployment metadata. Add the following to your deployment job:
 
-```
+```yaml
 deploy:
   variables:
     OTEL_AWS_SERVICE_EVENTS_GIT_COMMIT_SHA: $CI_COMMIT_SHA

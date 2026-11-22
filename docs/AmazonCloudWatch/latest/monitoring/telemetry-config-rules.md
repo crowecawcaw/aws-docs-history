@@ -1,7 +1,6 @@
 
 
 # Telemetry enablement rules
-<a name="telemetry-config-rules"></a>
 
 You can create telemetry enablement rules to automatically configure telemetry collection for your AWS resources. Rules help you standardize telemetry collection across your organization or accounts and make sure consistent monitoring coverage.
 
@@ -68,7 +67,7 @@ When a replicated rule is created, updated, or deleted in a spoke Region, AWS Cl
 
 The following is an example AWS CloudTrail event recorded when a replicated rule is created in a spoke Region:
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -184,7 +183,7 @@ You can encrypt log groups created by telemetry enablement rules using a custome
 
 Your AWS KMS key policy must allow the CloudWatch Logs service to use the key for encryption. Add the following statement to your key policy:
 
-```
+```JSON
 {
     "Sid": "AllowCloudWatchLogsToUseKey",
     "Effect": "Allow",
@@ -376,3 +375,11 @@ When enabling Transaction Search:
 + CloudWatch does not change accounts that already have Transaction Search enabled.
 + You can create only one Transaction Search rule per scope. An account-level rule and an organization-level rule are tracked separately, so both can exist at the same time and both act on the same account-wide setting.
 + Deleting the rule does not turn Transaction Search off, and does not delete the log groups or their resource policies. To turn Transaction Search off, set the X-Ray trace segment destination back to X-Ray yourself.
+
+**AWS Network Firewall Logs**  
+When enabling AWS Network Firewall logging:  
++ Supports the LOGS telemetry type on the `AWS::NetworkFirewall::Firewall` resource type, with log types `FLOW_LOGS`, `ALERT_LOGS`, and `TLS_LOGS`. If you do not specify log types, the rule enables `FLOW_LOGS` and `ALERT_LOGS`. `TLS_LOGS` requires TLS inspection on the firewall.
++ Supports only CloudWatch Logs as the destination type. Uses default CloudWatch log group pattern /aws/network-firewall/<firewall-name> if none specified.
++ CloudWatch does not change log types that already have a logging destination, such as Amazon S3, Firehose, or CloudWatch Logs. The rule adds only the missing log types.
++ If a log group with the destination name already exists and CloudWatch telemetry rules did not create it, CloudWatch does not modify the log group or enable logging for that firewall.
++ Deleting the rule does not remove the logging configuration from your firewalls. Log delivery and the associated charges continue until you remove the logging destinations from each firewall.

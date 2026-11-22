@@ -1,7 +1,6 @@
 
 
 # Troubleshooting SageMaker AI Insights
-<a name="SageMaker-AI-Insights-Troubleshooting"></a>
 
 The following sections describe common issues and resolutions for the CloudWatch SageMaker AI Insights dashboard. If your issue is not listed here, verify that your endpoint is `InService` and that OTel enrichment is enabled in your account.
 

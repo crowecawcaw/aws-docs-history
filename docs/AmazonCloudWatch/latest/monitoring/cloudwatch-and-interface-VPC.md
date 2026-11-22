@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints
-<a name="cloudwatch-and-interface-VPC"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC, CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring features. You can use these connections to enable these services to communicate with resources in your VPC without going through the public internet.
 

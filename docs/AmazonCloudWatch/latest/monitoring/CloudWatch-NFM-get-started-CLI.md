@@ -1,7 +1,6 @@
 
 
 # Examples of using the CLI with Network Flow Monitor
-<a name="CloudWatch-NFM-get-started-CLI"></a>
 
 This section includes examples for using the AWS Command Line Interface with Network Flow Monitor operations. 
 
@@ -38,7 +37,7 @@ aws networkflowmonitor create-monitor \
 
 Output:
 
-```
+```json
 {
         "monitorArn": "arn:aws:networkflowmonitor:us-east-1:111122223333:monitor/demo",
         "monitorName": "demo",
@@ -60,7 +59,7 @@ aws networkflowmonitor get-monitor --monitor-name "TestMonitor"
 
 Output:
 
-```
+```json
 {
     "ClientLocationType": "city",
     "CreatedAt": "2022-09-22T19:27:47Z",
@@ -89,7 +88,7 @@ aws networkflowmonitor create-scope \
 
 Output:
 
-```
+```json
     {
         "scopeId": "sample-aaaa-bbbb-cccc-11112222333",
         "status": "IN_PROGRESS",

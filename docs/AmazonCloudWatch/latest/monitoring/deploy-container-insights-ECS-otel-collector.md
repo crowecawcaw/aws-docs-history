@@ -1,7 +1,6 @@
 
 
 # Collecting Amazon ECS metrics with the OpenTelemetry Collector
-<a name="deploy-container-insights-ECS-otel-collector"></a>
 
 You can use the OpenTelemetry Collector to collect task-level and container-level metrics from your Amazon ECS tasks. The collector sends them to CloudWatch over OpenTelemetry Protocol (OTLP), and you query them with PromQL. This works on AWS Fargate, Amazon EC2, and Amazon ECS Managed Instances.
 

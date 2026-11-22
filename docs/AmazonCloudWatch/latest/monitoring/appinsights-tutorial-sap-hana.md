@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up monitoring for SAP HANA
-<a name="appinsights-tutorial-sap-hana"></a>
 
 This tutorial demonstrates how to configure CloudWatch Application Insights to set up monitoring for your SAP HANA databases. You can use CloudWatch Application Insights automatic dashboards to visualize problem details, accelerate troubleshooting, and facilitate mean time to resolution (MTTR) for your SAP HANA databases.
 
@@ -71,7 +70,7 @@ You must perform the following prerequisites to configure an SAP HANA database w
 **Example**  
 The following SQL commands create a user with monitoring roles.
 
-  ```
+  ```sql
   su - <sid>adm
   hdbsql -u SYSTEM -p <SYSTEMDB password> -d SYSTEMDB
   CREATE USER CW_HANADB_EXPORTER_USER PASSWORD <Monitoring user password> NO FORCE_FIRST_PASSWORD_CHANGE;
@@ -98,7 +97,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -125,7 +124,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -306,7 +305,7 @@ Component cannot have more than 60 monitored metrics
 Use the following information to find out why SAP metrics don't appear on the dashboard after the onboarding process. The first step is to troubleshoot why the SAP metrics don't appear using the AWS Management Console or Exporter logs from an Amazon EC2 instance. Next, review the error output to find a resolution.
 
 #### Troubleshoot why SAP metrics don't appear after onboarding
-<a name="w2aac23c32c27c27b7b5"></a>
+<a name="w2aac23c34c27c27b7b5"></a>
 
 You can use the AWS Management Console or exporter logs from an Amazon EC2 instance for troubleshooting.
 

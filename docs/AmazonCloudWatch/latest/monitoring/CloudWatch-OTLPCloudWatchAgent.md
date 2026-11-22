@@ -1,22 +1,21 @@
 
 
 # Amazon CloudWatch agent
-<a name="CloudWatch-OTLPCloudWatchAgent"></a>
 
 The CloudWatch agent is built on the OpenTelemetry Collector, so you can use it to receive OpenTelemetry data and send it to the CloudWatch OTLP endpoints. In most cases, this is the recommended way to send OpenTelemetry data to CloudWatch, because a single agent can also power curated experiences such as CloudWatch Application Signals and CloudWatch Enhanced Container Insights. For more information about installing the agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md).
 
 You can configure the agent to send OpenTelemetry data to the CloudWatch OTLP endpoints in two ways:
-+ **Using the agent configuration file (recommended)** – Add an `opentelemetry` section to your CloudWatch agent configuration file and enable the `otlp` source. The agent receives OTLP metrics, logs, and traces and forwards each signal to the correct CloudWatch OTLP endpoint. The agent sets the endpoints, the Region, and request signing for you, so you do not specify endpoint URLs or a `sigv4auth` extension. For the fields you can set, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-OpenTelemetrysection).
++ **Using the agent configuration file (recommended)** – Add an `opentelemetry` section to your CloudWatch agent configuration file and enable the `otlp` source. The agent receives OTLP metrics, logs, and traces and forwards each signal to the correct CloudWatch OTLP endpoint. The agent sets the endpoints, the Region, and request signing for you, so you do not specify endpoint URLs or a `sigv4auth` extension. For the fields you can set, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-OpenTelemetrysection.md).
 + **Appending an OpenTelemetry collector configuration in YAML (advanced)** – Supply an OpenTelemetry collector configuration in YAML and append it to the agent's own configuration. Use this approach when you need components or pipeline topologies that the agent configuration file does not expose.
 
 ## Send OpenTelemetry data using the agent configuration file
 <a name="CloudWatch-OTLPCloudWatchAgent-ConfigFile"></a>
 
-Add an `opentelemetry` section to your CloudWatch agent configuration file and include the `otlp` source under `collect`. When the agent starts with this configuration, it listens for OTLP data and forwards the received metrics, logs, and traces to the CloudWatch OTLP endpoints. For the fields you can set, their defaults, and the minimum agent version, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-OpenTelemetrysection).
+Add an `opentelemetry` section to your CloudWatch agent configuration file and include the `otlp` source under `collect`. When the agent starts with this configuration, it listens for OTLP data and forwards the received metrics, logs, and traces to the CloudWatch OTLP endpoints. For the fields you can set, their defaults, and the minimum agent version, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-OpenTelemetrysection.md).
 
 The following example configures the agent to receive OTLP data over gRPC and HTTP.
 
-```
+```json
 {
   "opentelemetry": {
     "collect": {
@@ -41,7 +40,7 @@ The agent signs requests to the CloudWatch OTLP endpoints with its own credentia
 ## Append an OpenTelemetry collector configuration in YAML
 <a name="CloudWatch-OTLPCloudWatchAgent-YAML"></a>
 
-For pipelines that the agent configuration file does not expose, you can append an OpenTelemetry collector configuration in YAML. For the append procedure and the OpenTelemetry components that the agent supports, see [Appending OpenTelemetry collector configuration files](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-appending-OpenTelemetry-config-files). The following examples show the YAML to append for each signal.
+For pipelines that the agent configuration file does not expose, you can append an OpenTelemetry collector configuration in YAML. For the append procedure and the OpenTelemetry components that the agent supports, see [Appending OpenTelemetry collector configuration files](CloudWatch-Agent-appending-OpenTelemetry-config-files.md). The following examples show the YAML to append for each signal.
 
 ### Configuration examples
 <a name="CloudWatch-OTLPCloudWatchAgent-Examples"></a>
@@ -135,13 +134,13 @@ service:
 This example sends application metrics through the CloudWatch agent to the CloudWatch OpenTelemetry Protocol (OTLP) endpoints. Instrument your application with an OpenTelemetry SDK and export OTLP to the agent that runs alongside it. The agent forwards the metrics to CloudWatch.
 
 **You might no longer need a separate collector**  
-If you set up OpenTelemetry metrics collection before the agent's OTLP receiver was available, you might be running a standalone ADOT or OpenTelemetry collector alongside the agent that you no longer need. After you upgrade to agent version 1.300070.0 or later, you can remove that collector. The agent handles AWS SigV4 signing, Region, and endpoint selection, so you no longer need to configure them in a collector. Keep the ADOT SDK and auto-instrumentation that generate telemetry in your application. For more information about configuring the agent's OTLP receiver, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-OpenTelemetrysection).
+If you set up OpenTelemetry metrics collection before the agent's OTLP receiver was available, you might be running a standalone ADOT or OpenTelemetry collector alongside the agent that you no longer need. After you upgrade to agent version 1.300070.0 or later, you can remove that collector. The agent handles AWS SigV4 signing, Region, and endpoint selection, so you no longer need to configure them in a collector. Keep the ADOT SDK and auto-instrumentation that generate telemetry in your application. For more information about configuring the agent's OTLP receiver, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-OpenTelemetrysection.md).
 
 ### Prerequisites
 <a name="CloudWatch-OTLPCloudWatchAgent-Example-Prerequisites"></a>
 
 Before you begin, complete the following prerequisites:
-+ Install CloudWatch agent version 1.300070.0 or later. Earlier versions do not support the agent's OTLP receiver. Some Linux package repositories offer an earlier version, so check the installed version before you continue. For more information, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-OpenTelemetrysection).
++ Install CloudWatch agent version 1.300070.0 or later. Earlier versions do not support the agent's OTLP receiver. Some Linux package repositories offer an earlier version, so check the installed version before you continue. For more information, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-OpenTelemetrysection.md).
 + Attach the `CloudWatchAgentServerPolicy` managed policy, which grants the agent permission to send metrics, logs, and traces to the CloudWatch OTLP endpoints. The agent signs these requests with its own credentials.
 + Instrument your application with an OpenTelemetry SDK or ADOT, and configure the application to export OTLP to the agent over gRPC (port 4317) or HTTP (port 4318).
 
@@ -154,7 +153,7 @@ The following steps are the same regardless of where the agent runs.
 
 1. Point your application's OTLP exporter at the local agent instead of the public CloudWatch endpoint (for example, `http://localhost:4318`). The agent forwards the metrics for you. The following Python example uses the OpenTelemetry SDK to export metrics to the agent.
 
-   ```
+   ```python
    from opentelemetry import metrics
    from opentelemetry.sdk.metrics import MeterProvider
    from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
@@ -191,7 +190,7 @@ On Amazon EKS, install or upgrade the CloudWatch Observability EKS add-on to ver
 
 You must also supply the agent `opentelemetry` and `otlp` configuration to the add-on through its configuration values. The add-on does not enable the OTLP receiver by default. Supply the following configuration values to the add-on.
 
-```
+```json
 {
   "agent": {
     "config": {

@@ -1,7 +1,6 @@
 
 
-# Enable OTel Container Insights from the console
-<a name="container-insights-eks-otel-console"></a>
+# Enable from the console
 
 You can enable OTel Container Insights directly from the AWS Management Console with a minimal-click workflow. This approach is ideal if you prefer a UI-driven experience and want to enable full observability on an existing Amazon EKS cluster without writing infrastructure code or running CLI commands.
 

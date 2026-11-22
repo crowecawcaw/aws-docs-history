@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon OpenSearch Service
-<a name="managed-prometheus-collectors-opensearch-setup"></a>
 
 With an Amazon CloudWatch managed Prometheus collector, you can automatically collect Prometheus-compatible metrics from your Amazon OpenSearch Service domains. The managed collector connects to your VPC, collects cluster, node, and index metrics from the domain, and delivers these metrics directly to CloudWatch. With this integration, you can monitor the health and performance of your domains in CloudWatch without deploying any agents or exporters.
 
@@ -21,7 +20,7 @@ This procedure assumes that you are familiar with Amazon OpenSearch Service doma
 
 The following is an example scrape configuration for Amazon OpenSearch Service. The managed collector connects to the domain that you specify and collects its metrics automatically, so you do not specify scrape targets in the configuration. The configuration must include a `scrape_configs` section with a job whose `job_name` is exactly `opensearch-exporter`. You reference this configuration when you create the scraper in the next step. For more information about configuration options, see [Scraper configuration](managed-prometheus-collectors-scraper-configuration.md).
 
-```
+```yaml
 global:
   external_labels:
     domain_name: {{my-opensearch-domain}}
@@ -41,7 +40,7 @@ Create the scraper with a CloudWatch destination. You specify the domain to coll
 
 Use the `CreateScraper` API operation to create a scraper with a CloudWatch destination. Replace the subnet, security group, domain, and dataset information with your own values.
 
-```
+```json
 POST /scrapers HTTP/1.1
 
 {
@@ -75,7 +74,7 @@ POST /scrapers HTTP/1.1
 
 Use the `create-scraper` command to create a scraper with a CloudWatch destination. Replace the subnet, security group, domain, and dataset information with your own values.
 
-```
+```bash
 aws amp create-scraper \
   --alias "opensearch-metrics-scraper" \
   --source '{
@@ -114,7 +113,7 @@ For a complete list of available metrics, see [Metrics collected from Amazon Ope
 
 To confirm that the collector is delivering metrics from your domain, run the following query in CloudWatch with [Query Studio](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL-QueryStudio.html). The query returns the cluster health status for your domain. If it returns data points, the collector is collecting metrics from your domain successfully.
 
-```
+```bash
 opensearch_cluster_health_status
 ```
 

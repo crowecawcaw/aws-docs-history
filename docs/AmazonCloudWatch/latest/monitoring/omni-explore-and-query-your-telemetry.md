@@ -1,7 +1,6 @@
 
 
 # Explore and query your telemetry
-<a name="omni-explore-and-query-your-telemetry"></a>
 
 Explore is where you query your telemetry directly. For how telemetry reaches your space, see [Send telemetry to CloudWatch Omni](omni-send-telemetry.md). Everything in your space (logs, metrics, and traces) is queryable from one surface, so an investigation can move from a chart into the raw records behind it without changing tools. The other web UI views answer predetermined questions; Explore answers the questions you write yourself.
 
@@ -31,7 +30,7 @@ You can also describe what you want in natural language and let Omni draft the q
 
 A SQL query addresses a signal through its table name: `"logs.default"`, `"traces.default"`. Each result row also carries system fields: `@timestamp` for time filtering, and `@record`, a JSON document holding the fully parsed telemetry record. Quote system field names in backticks:
 
-```
+```sql
 SELECT `@timestamp`, `@record`
 FROM "logs.default"
 WHERE `@timestamp` BETWEEN now() - INTERVAL '1' DAY AND now()
@@ -42,7 +41,7 @@ By default, the time range you select in Explore applies to your query. You can 
 
 Both logs and traces are stored in the same Dataset, so a single query can cover both. Running a query against the `"default"` Dataset looks up a trace by ID across multiple applications and agents.
 
-```
+```sql
 SELECT `@timestamp`, `@record`
 FROM "default"
 WHERE traceId = '<trace-id>'

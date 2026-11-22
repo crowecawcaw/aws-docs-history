@@ -1,7 +1,6 @@
 
 
 # (Optional) Try out Application Signals with a sample app
-<a name="CloudWatch-Application-Signals-Enable-EKS-sample"></a>
 
 To try out CloudWatch Application Signals on a sample app before you instrument your own applications with it, follow the instructions in this section. These instructions use scripts to help you create an Amazon EKS cluster, install a sample application, and instrument the sample application to work with Application Signals.
 
@@ -34,7 +33,7 @@ To build and push the sample application images, [follow these instructions](htt
 ### Step 3: Deploy and enable Application Signals and the sample application
 <a name="CloudWatch-Application-Signals-Enable-EKS-sample-deploy"></a>
 
-Be sure that you have completed the requirements listed in [(Optional) Try out Application Signals with a sample app](#CloudWatch-Application-Signals-Enable-EKS-sample) before you complete the following steps.
+Be sure that you have completed the requirements listed in [(Optional) Try out Application Signals with a sample app](CloudWatch-Application-Signals-Enable-EKS-sample.md) before you complete the following steps.
 
 **To deploy and enable Application Signals and the sample application**
 

@@ -1,7 +1,6 @@
 
 
 # Detect common application problems with CloudWatch Application Insights
-<a name="cloudwatch-application-insights"></a>
 
 You can use Amazon CloudWatch Application Insights to detect problems with your applications. CloudWatch Application Insights facilitates observability for your applications and underlying AWS resources. It helps you set up the best monitors for your application resources to continuously analyze data for signs of problems with your applications. Application Insights, which is powered by [SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/wahtis.html) and other AWS technologies, provides automated dashboards that show potential problems with monitored applications, which help you to quickly isolate ongoing issues with your applications and infrastructure. The enhanced visibility into the health of your applications that Application Insights provides helps reduce mean time to repair (MTTR) to troubleshoot your application issues.
 

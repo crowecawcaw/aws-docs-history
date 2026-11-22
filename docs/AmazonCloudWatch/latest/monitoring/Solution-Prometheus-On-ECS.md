@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch solution: Prometheus metric collection on Amazon ECS
-<a name="Solution-Prometheus-On-ECS"></a>
 
 This solution helps you collect Prometheus-compatible metrics from your Amazon ECS tasks without running or scaling your own collection infrastructure. Your tasks expose metrics through Prometheus exporters, and a Amazon CloudWatch managed Prometheus collector discovers the tasks in your VPC through DNS-based service discovery, scrapes their `/metrics` endpoints, and delivers the metrics to CloudWatch. Because Amazon ECS tasks are ephemeral and their IP addresses change, this solution uses AWS Cloud Map service discovery so that the collector always scrapes the current set of tasks. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md). For more information about managed collectors, see [Amazon CloudWatch managed Prometheus collectors](managed-prometheus-collectors.md).
 
@@ -42,7 +41,7 @@ Add the exporter to your task definition and expose its metrics port by followin
 
 Confirm that the security group for your Amazon ECS tasks allows inbound traffic from the collector on the metrics port. When your tasks and the collector share a security group, add a self-referencing ingress rule so that resources in the same security group can communicate. The following command allows inbound traffic on port 80 from the same security group:
 
-```
+```bash
 aws ec2 authorize-security-group-ingress \
   --group-id {{sg-security-group-id}} \
   --ip-permissions IpProtocol=tcp,FromPort=80,ToPort=80,UserIdGroupPairs='[{GroupId={{sg-security-group-id}}}]'
@@ -53,7 +52,7 @@ aws ec2 authorize-security-group-ingress \
 
 For Amazon ECS tasks that you register with AWS Cloud Map, use DNS-based service discovery (`dns_sd_configs`) to automatically find and scrape your tasks as they start and stop. The `dns_sd_configs` section directs the collector to query the AWS Cloud Map DNS name and scrape all returned IP addresses. When Amazon ECS replaces a task, the collector picks up the change on its next DNS query. The `relabel_configs` section adds consistent labels to your metrics so that you can query and filter across services. For the full set of supported configuration options, see [Scraper configuration](managed-prometheus-collectors-scraper-configuration.md).
 
-```
+```yaml
 global:
   scrape_interval: 30s
   scrape_timeout: 10s
@@ -88,7 +87,7 @@ You can use [GetDefaultScraperConfiguration](https://docs.aws.amazon.com/prometh
 
 Use the `CreateScraper` API operation to create a scraper with a CloudWatch destination. Replace the subnet, security group, and dataset information with your own values.
 
-```
+```json
 POST /scrapers HTTP/1.1
 
 {
@@ -115,7 +114,7 @@ POST /scrapers HTTP/1.1
 
 Use the `create-scraper` command to create a scraper with a CloudWatch destination. Replace the subnet, security group, and dataset information with your own values.
 
-```
+```bash
 aws amp create-scraper \
   --alias "ecs-payforadoption-scraper" \
   --source '{
@@ -139,7 +138,7 @@ aws amp create-scraper \
 
 After the collector begins delivering metrics, run an ad-hoc query in CloudWatch using [Query Studio](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL-QueryStudio.html) to confirm that your metrics arrive. For example, the following query returns the average requests per second to the Amazon ECS task over the last five minutes:
 
-```
+```bash
 rate(payforadoption_requests_total[5m])
 ```
 

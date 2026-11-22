@@ -1,11 +1,12 @@
 
 
 # Examples of configuration files
-<a name="create-cloudwatch-agent-configuration-file-examples"></a>
+
+The following examples use the Classic configuration. For OpenTelemetry configuration examples, see [Create a CloudWatch agent configuration for OpenTelemetry](CloudWatch-Agent-OpenTelemetry-config.md).
 
 **Basic system metrics configuration** 
 
-```
+```json
 {
   "agent": {
     "metrics_collection_interval": 60,
@@ -35,7 +36,7 @@
 
 **Web server monitoring configuration ** 
 
-```
+```json
 {
   "agent": {
     "metrics_collection_interval": 60,
@@ -80,7 +81,7 @@
 
 **Database server configuration **
 
-```
+```json
 {
   "agent": {
     "metrics_collection_interval": 30,

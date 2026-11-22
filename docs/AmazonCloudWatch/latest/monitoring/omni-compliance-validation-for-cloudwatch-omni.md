@@ -1,7 +1,6 @@
 
 
 # Compliance validation for CloudWatch Omni
-<a name="omni-compliance-validation-for-cloudwatch-omni"></a>
 
 Third-party auditors assess the security and compliance of AWS services as part of multiple AWS compliance programs. To learn whether CloudWatch Omni is within the scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/) and choose the compliance program that you are interested in.
 

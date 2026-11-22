@@ -1,7 +1,6 @@
 
 
 # Sample NGINX Plus workload for Amazon ECS clusters
-<a name="ContainerInsights-Prometheus-Setup-nginx-plus-ecs"></a>
 
 NGINX Plus is the commerical version of NGINX. You must have a licence to use it. For more information, see [ NGINX Plus](https://www.nginx.com/products/nginx/)
 
@@ -189,7 +188,7 @@ This task definition enables the collection and export of NGINX Plus Prometheus 
 
 1. Create a task definition JSON file with the following content. Replace {{your-customized-nginx-plus-image}} with the image URI for your customized NGINX Plus image, and replace {{your-web-server-app-image}} with the image URI for your web server app image.
 
-   ```
+   ```JSON
    {
      "containerDefinitions": [
        {
@@ -284,7 +283,7 @@ The final step is to configure the CloudWatch agent to scrape the NGINX metrics.
 
 1. Open the file with a text editor, and find the full CloudWatch agent confguration in the `value` key in the `resource:CWAgentConfigSSMParameter` section. Then, in the `ecs_service_discovery` section, add the following `service_name_list_for_tasks` section.
 
-   ```
+   ```json
    "service_name_list_for_tasks": [
      {
        "sd_job_name": "nginx-plus-prometheus-exporter",
@@ -297,7 +296,7 @@ The final step is to configure the CloudWatch agent to scrape the NGINX metrics.
 
 1. In the same file, add the following section in the `metric_declaration` section to allow NGINX Plus metrics. Be sure to follow the existing indentation pattern.
 
-   ```
+   ```json
    {
      "source_labels": ["job"],
      "label_matcher": "^nginx-plus.*",

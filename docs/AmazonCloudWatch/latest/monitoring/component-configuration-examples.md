@@ -1,7 +1,6 @@
 
 
 # Component configuration examples
-<a name="component-configuration-examples"></a>
 
 The following examples show component configurations in JSON format for relevant services.
 

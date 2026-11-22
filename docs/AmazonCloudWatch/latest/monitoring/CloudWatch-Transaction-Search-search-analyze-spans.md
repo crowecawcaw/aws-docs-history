@@ -1,7 +1,6 @@
 
 
 # Searching and analyzing spans
-<a name="CloudWatch-Transaction-Search-search-analyze-spans"></a>
 
  Transaction Search provides you with a visual editor to search and analyze all ingested spans using attributes. You can use the visual editor to narrow down transaction spans and create interactive visualizations to troubleshoot issues in your distributed applications. You can also use the CloudWatch Logs Insights query language to analyze your spans. This topic describes how to access and use the visual editor. 
 

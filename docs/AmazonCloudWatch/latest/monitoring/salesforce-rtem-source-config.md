@@ -1,7 +1,6 @@
 
 
 # Source configuration for Salesforce RTEM
-<a name="salesforce-rtem-source-config"></a>
 
 ## Prerequisites
 <a name="salesforce-rtem-prerequisites"></a>

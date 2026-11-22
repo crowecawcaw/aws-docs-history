@@ -1,7 +1,6 @@
 
 
-# Quick start: OTel Container Insights on Amazon EKS
-<a name="container-insights-eks-otel-quickstart"></a>
+# Quick start
 
 This guide walks you through enabling OTel Container Insights on an existing Amazon EKS cluster. By the end of this procedure, your cluster sends infrastructure metrics and container logs to Amazon CloudWatch with Enhanced Observability enabled.
 
@@ -35,7 +34,7 @@ The AWS Management Console provides the fastest path to enable OTel Container In
 
 1. Choose **Enable Container Insights** and follow the on-screen instructions.
 
-For a detailed console walkthrough, see [Enable OTel Container Insights from the console](container-insights-eks-otel-console.md).
+For a detailed console walkthrough, see [Enable from the console](container-insights-eks-otel-console.md).
 
 ## Enable OTel Container Insights (AWS CLI)
 <a name="container-insights-eks-otel-quickstart-cli"></a>
@@ -51,7 +50,7 @@ Create an IAM role that allows the CloudWatch Observability add-on to send data 
 
 1. Run the following command to create the role with a trust policy for EKS Pod Identity.
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name EKS-CloudWatch-Observability-Role \
      --assume-role-policy-document '{
@@ -66,7 +65,7 @@ Create an IAM role that allows the CloudWatch Observability add-on to send data 
 
 1. Attach the `CloudWatchAgentServerPolicy` managed policy to the role.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name EKS-CloudWatch-Observability-Role \
      --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
@@ -80,7 +79,7 @@ Associate the IAM role with the CloudWatch agent service account in your cluster
 **To create the Pod Identity association**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster and {{account-id}} with your AWS account ID.
 
-  ```
+  ```bash
   aws eks create-pod-identity-association \
     --cluster-name {{cluster-name}} \
     --namespace amazon-cloudwatch \
@@ -96,7 +95,7 @@ Install the `amazon-cloudwatch-observability` add-on with OTel Container Insight
 **To install the add-on**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-  ```
+  ```bash
   aws eks create-addon \
     --cluster-name {{cluster-name}} \
     --addon-name amazon-cloudwatch-observability \
@@ -113,7 +112,7 @@ Confirm that the add-on installed successfully.
 **To verify the add-on status**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-  ```
+  ```bash
   aws eks describe-addon \
     --cluster-name {{cluster-name}} \
     --addon-name amazon-cloudwatch-observability \
@@ -131,7 +130,7 @@ Verify that the CloudWatch agent pods are running in the `amazon-cloudwatch` nam
 **To confirm agent pods are running**
 + Run the following command.
 
-  ```
+  ```bash
   kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
   ```
 
@@ -158,7 +157,7 @@ After you complete the setup, Container Insights data appears in CloudWatch with
 
 To verify that log groups exist for your cluster, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws logs describe-log-groups \
   --log-group-name-prefix "/aws/containerinsights/{{cluster-name}}" \
   --query "logGroups[].logGroupName" \
@@ -193,7 +192,7 @@ Use the following guidance to resolve common issues when you enable OTel Contain
 
 1. Run the following command to check for detailed error information. Replace {{cluster-name}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -206,7 +205,7 @@ Use the following guidance to resolve common issues when you enable OTel Contain
 
 1. Delete the failed add-on and reinstall it after you resolve the issue.
 
-   ```
+   ```bash
    aws eks delete-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability
@@ -223,13 +222,13 @@ Use the following guidance to resolve common issues when you enable OTel Contain
 
 1. Check the pod events for detailed error messages.
 
-   ```
+   ```bash
    kubectl describe pod -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
    ```
 
 1. Check the agent container logs for startup errors.
 
-   ```
+   ```bash
    kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --tail=50
    ```
 
@@ -237,7 +236,7 @@ Use the following guidance to resolve common issues when you enable OTel Contain
 
 1. Verify that the EKS Pod Identity Agent add-on is installed and running.
 
-   ```
+   ```bash
    kubectl get pods -n kube-system -l app.kubernetes.io/name=eks-pod-identity-agent
    ```
 
@@ -254,7 +253,7 @@ Use the following guidance to resolve common issues when you enable OTel Contain
 
 1. Check the agent logs for permission errors or connection timeouts.
 
-   ```
+   ```bash
    kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --tail=100 | grep -i "error\|timeout\|denied"
    ```
 

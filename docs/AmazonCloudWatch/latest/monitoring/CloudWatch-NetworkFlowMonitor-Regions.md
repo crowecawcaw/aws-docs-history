@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions for Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-Regions"></a>
 
 Network Flow Monitor is currently available in the following AWS Regions:
 

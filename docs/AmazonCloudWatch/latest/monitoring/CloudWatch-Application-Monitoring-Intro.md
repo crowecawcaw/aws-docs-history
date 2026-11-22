@@ -1,7 +1,6 @@
 
 
 # Application performance monitoring (APM)
-<a name="CloudWatch-Application-Monitoring-Intro"></a>
 
 CloudWatch Application Signals provides application performance monitoring (APM) features such as pre-built, standardized dashboards for critical application metrics, correlated trace spans, and a application map to enable you to visualize interactions between applications and their dependencies. You can also search and analyze transaction spans and trace summaries to debug distributed application issues in a business context, for cases such as troubleshooting customer support tickets or finding top impacted customers. You can also create Service Level Objectives (SLOs) to closely track the performance KPIs of critical operations in your application, enabling you to easily identify and triage operations that do not meet your business KPIs.
 

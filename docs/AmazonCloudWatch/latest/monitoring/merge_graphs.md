@@ -1,7 +1,6 @@
 
 
 # Merge two graphs into one
-<a name="merge_graphs"></a>
 
 You can merge two different graphs into one, and then the resulting graph shows both metrics. This can be useful if you already have different metrics displayed in different graphs and want to combine them, or you want to easily create a single graph with metrics from different Regions.
 

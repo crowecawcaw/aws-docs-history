@@ -1,7 +1,6 @@
 
 
 # Create a monitor
-<a name="getting-started-nw"></a>
 
 The following sections describe how to create a monitor in Network Synthetic Monitor, including the required probes. When you create a monitor, you specify probes by choosing source subnets, and then adding up to four destinations for each one. Each source-destination pair is a probe.
 
@@ -77,7 +76,7 @@ Don't enter a reserved or AWS-internal IP address as a destination, such as an a
 
    1. Enter the **Port** that your network uses to connect. The port must be a number from **1** to **65535**.
 
-   1. Enter the **Packet size**. This is the size, in bytes, of each packet that's sent on the probe, between the source and destination. Packet size must be a number from **56** to **8500**.
+   1. Enter the **Packet size**. This is the size, in bytes, of each packet that's sent on the probe, between the source and destination. This is the size of the TCP segment: the 20-byte TCP header plus any data. The IP header (20 bytes for IPv4, 40 bytes for IPv6) and the 14-byte Ethernet header are added on top. Enter a valid packet size, a number from **20** to **8500**. For example: **20**. A value of **20** sends TCP SYN packets that carry no data. With a larger value, each SYN carries (packet size minus 20) bytes of data. For example, a packet size of **56** sends SYN packets with 36 bytes of data. Some firewalls drop SYN packets that carry data. If your destination is behind such a firewall, use **20**.
 
 1. Choose **Add destination** to add another on-premises destination to the monitor. Repeat these steps for each destination that you want to add.
 

@@ -1,7 +1,6 @@
 
 
 # Dashboards
-<a name="omni-dashboards"></a>
 
 A dashboard is a saved arrangement of panels (charts, tables, maps, and text) that shows your team one agreed view of a system. Most panels are backed by a query against your space's telemetry. Build one per audience: a service's health for its on-call, an agent fleet's quality trends for its owners, a cross-signal view for an operations review.
 

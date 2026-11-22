@@ -1,7 +1,6 @@
 
 
 # Creating a CloudWatch RUM app monitor for a web application
-<a name="CloudWatch-RUM-get-started-create-app-monitor"></a>
 
 To start using CloudWatch RUM with your application, you create an *app monitor*. When the app monitor is created, RUM generates a code snippet for you to paste into your application. The snippet pulls in the RUM client code. The RUM client captures data from your application's user sessions and sends it to RUM.
 

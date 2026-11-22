@@ -1,7 +1,6 @@
 
 
 # Source configuration for Netskope
-<a name="netskope-source-setup"></a>
 
 ## Integrating with Netskope
 <a name="netskope-integration"></a>

@@ -1,7 +1,6 @@
 
 
-# Deploy OTel Container Insights with Helm
-<a name="container-insights-eks-otel-helm"></a>
+# Deploy with Helm
 
 The Amazon CloudWatch Observability Helm chart provides a flexible deployment option for OTel Container Insights. It installs the CloudWatch agent (OTel-based) with the OpenTelemetry filelog receiver for log collection. The Helm chart is maintained at [https://github.com/aws-observability/helm-charts](https://github.com/aws-observability/helm-charts).
 
@@ -37,14 +36,14 @@ Add the AWS Observability Helm chart repository to your local Helm configuration
 
 1. Run the following command to add the repository.
 
-   ```
+   ```bash
    helm repo add aws-observability \
      https://aws-observability.github.io/helm-charts
    ```
 
 1. Update the repository to get the latest chart versions.
 
-   ```
+   ```bash
    helm repo update
    ```
 
@@ -57,7 +56,7 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
 
 1. Retrieve the OIDC issuer URL for your cluster. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-   ```
+   ```bash
    aws eks describe-cluster \
      --name {{cluster-name}} \
      --query "cluster.identity.oidc.issuer" \
@@ -66,7 +65,7 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
 
 1. Create the IAM role with a trust policy for IRSA. Replace the example account ID (`111122223333`) with your AWS account ID, and replace {{oidc-id}} with the OIDC provider ID from the preceding step (the portion after `https://oidc.eks.region.amazonaws.com/id/`).
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name EKS-CW-Observability-Role \
      --assume-role-policy-document '{
@@ -88,7 +87,7 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
 
 1. Attach the `CloudWatchAgentServerPolicy` managed policy to the role.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name EKS-CW-Observability-Role \
      --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
@@ -102,7 +101,7 @@ Install the Amazon CloudWatch Observability Helm chart with OTel Container Insig
 **To install the Helm chart**
 + Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
-  ```
+  ```bash
   helm install amazon-cloudwatch-observability \
     aws-observability/amazon-cloudwatch-observability \
     --namespace amazon-cloudwatch \
@@ -125,19 +124,19 @@ Confirm that the Helm release and agent pods deployed successfully.
 
 1. Verify that the Helm release status shows `deployed`.
 
-   ```
+   ```bash
    helm list -n amazon-cloudwatch
    ```
 
 1. Confirm that the operator pod is running.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=amazon-cloudwatch-observability
    ```
 
 1. Confirm that the CloudWatch agent pods are running on all nodes.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
    ```
 
@@ -210,13 +209,13 @@ You can use cert-manager to automate certificate issuance and renewal. This appr
 
 1. Verify that cert-manager is installed in your cluster.
 
-   ```
+   ```bash
    kubectl get pods -n cert-manager
    ```
 
 1. Install the Helm chart with cert-manager enabled. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
-   ```
+   ```bash
    helm install amazon-cloudwatch-observability \
      aws-observability/amazon-cloudwatch-observability \
      --namespace amazon-cloudwatch \
@@ -246,13 +245,13 @@ Version 7.0.0 of the chart removes some labels, attributes, and duplicate series
 
 1. Update the Helm repository to get the latest chart versions.
 
-   ```
+   ```bash
    helm repo update
    ```
 
 1. Run the upgrade command with your desired values. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
-   ```
+   ```bash
    helm upgrade amazon-cloudwatch-observability \
      aws-observability/amazon-cloudwatch-observability \
      --namespace amazon-cloudwatch \
@@ -265,7 +264,7 @@ Version 7.0.0 of the chart removes some labels, attributes, and duplicate series
 
 1. Verify that the upgrade completed successfully.
 
-   ```
+   ```bash
    helm list -n amazon-cloudwatch
    ```
 
@@ -283,20 +282,20 @@ To remove OTel Container Insights from your cluster, uninstall the Helm release.
 
 1. Run the following command to uninstall the release.
 
-   ```
+   ```bash
    helm uninstall amazon-cloudwatch-observability \
      --namespace amazon-cloudwatch
    ```
 
 1. Optionally, delete the namespace if it is no longer needed.
 
-   ```
+   ```bash
    kubectl delete namespace amazon-cloudwatch
    ```
 
 After you uninstall the Helm chart, the IAM role and OIDC provider configuration remain in your AWS account. Delete these resources separately if they are no longer needed.
 
-```
+```bash
 aws iam detach-role-policy \
   --role-name EKS-CW-Observability-Role \
   --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
@@ -326,7 +325,7 @@ After you install the Helm chart, Container Insights data appears in CloudWatch 
 
 To verify that log groups exist for your cluster, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws logs describe-log-groups \
   --log-group-name-prefix "/aws/containerinsights/{{cluster-name}}" \
   --query "logGroups[].logGroupName" \
@@ -349,25 +348,25 @@ Use the following guidance to resolve common issues when you deploy OTel Contain
 
 1. Check the operator pod logs for certificate-related errors.
 
-   ```
+   ```bash
    kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=amazon-cloudwatch-observability --tail=50
    ```
 
 1. Verify that the webhook TLS secret exists in the namespace.
 
-   ```
+   ```bash
    kubectl get secrets -n amazon-cloudwatch | grep webhook
    ```
 
 1. If you use cert-manager, verify that the `Certificate` resource status shows `Ready`.
 
-   ```
+   ```bash
    kubectl get certificate -n amazon-cloudwatch
    ```
 
 1. If the certificate is missing or invalid, uninstall and reinstall the chart to regenerate certificates.
 
-   ```
+   ```bash
    helm uninstall amazon-cloudwatch-observability -n amazon-cloudwatch
    ```
 
@@ -382,19 +381,19 @@ Use the following guidance to resolve common issues when you deploy OTel Contain
 
 1. Check the DaemonSet status for scheduling issues.
 
-   ```
+   ```bash
    kubectl get daemonset -n amazon-cloudwatch cloudwatch-agent
    ```
 
 1. Check for unschedulable pods and view their events.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --field-selector=status.phase!=Running
    ```
 
 1. If nodes have taints, add tolerations to the Helm chart values. For example, to tolerate all taints, upgrade the chart with the following flag.
 
-   ```
+   ```bash
    helm upgrade amazon-cloudwatch-observability \
      aws-observability/amazon-cloudwatch-observability \
      --namespace amazon-cloudwatch \
@@ -404,6 +403,6 @@ Use the following guidance to resolve common issues when you deploy OTel Contain
 
 1. Verify that the agent pods now run on all nodes.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent -o wide
    ```

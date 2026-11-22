@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Box
-<a name="box-pipeline-setup"></a>
 
 Collects enterprise events, user inventory, group inventory, group memberships, and group collaborations from Box using OAuth2 Client Credentials authentication.
 
 Configure the Box source with the following parameters:
 
-```
+```yaml
 source:
   box:
     enterprise_id: "123456789"

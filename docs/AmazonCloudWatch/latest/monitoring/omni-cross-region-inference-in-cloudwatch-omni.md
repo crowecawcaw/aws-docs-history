@@ -1,7 +1,6 @@
 
 
 # Cross-Region inference in CloudWatch Omni
-<a name="omni-cross-region-inference-in-cloudwatch-omni"></a>
 
 CloudWatch Omni includes features that use artificial intelligence (AI), such as the Omni agent, AI-assisted dashboard creation, and evaluations that score agent behavior with a judge model. When you use one of these features, CloudWatch Omni sends data from your space, such as telemetry content and your natural language input, to a large language model. CloudWatch Omni uses cross-Region inference to distribute that traffic across AWS Regions.
 

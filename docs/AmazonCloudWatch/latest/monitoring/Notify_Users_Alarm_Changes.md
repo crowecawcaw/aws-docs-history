@@ -1,7 +1,6 @@
 
 
 # Notifying users on alarm changes
-<a name="Notify_Users_Alarm_Changes"></a>
 
 This section explains how you can use AWS User Notifications or Amazon Simple Notification Service to have users be notified of alarm changes.
 
@@ -14,7 +13,7 @@ The notification configurations you create with AWS User Notifications do not co
 
 The following example of an advanced filter matches an alarm state change from OK to ALARM on the alarm named `ServerCpuTooHigh`. 
 
-```
+```json
 {
 "detail": {
     "alarmName": ["ServerCpuTooHigh"],
@@ -220,7 +219,7 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
 
 **Schema when a metric alarm changes state**
 
-```
+```json
 {
   "AlarmName": "string",
   "AlarmDescription": "string",
@@ -267,7 +266,7 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
 
 **Schema when a composite alarm changes state**
 
-```
+```json
 {
   "AlarmName": "string",
   "AlarmDescription": "string",
@@ -295,7 +294,7 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
 
 **Schema when a log alarm changes state**
 
-```
+```json
 {
   "AlarmName": "string",
   "AlarmDescription": "string",

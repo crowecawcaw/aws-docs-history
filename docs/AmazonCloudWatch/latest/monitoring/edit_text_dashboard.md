@@ -1,7 +1,6 @@
 
 
 # Editing a text widget on a CloudWatch dashboard
-<a name="edit_text_dashboard"></a>
 
 **To edit a text widget on a dashboard**
 

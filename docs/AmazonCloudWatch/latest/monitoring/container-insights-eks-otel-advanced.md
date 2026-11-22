@@ -1,7 +1,6 @@
 
 
-# Advanced configuration for OTel Container Insights on Amazon EKS
-<a name="container-insights-eks-otel-advanced"></a>
+# Advanced configuration
 
 This topic covers advanced configuration scenarios for OTel Container Insights on Amazon EKS. Use these configurations to customize metric collection, filter logs, collect telemetry across accounts, add custom dimensions, and tune resource allocation for large clusters.
 
@@ -20,7 +19,7 @@ Before you configure advanced settings, verify that you meet the following requi
 
 All advanced configurations follow the same pattern. You pass a JSON configuration to the `amazon-cloudwatch-observability` add-on by using the `aws eks update-addon` command.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -40,7 +39,7 @@ You can reduce CloudWatch Logs costs by excluding logs that match specific crite
 
 1. Run the following command to update the add-on with a log filter configuration. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-   ```
+   ```bash
    aws eks update-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -71,7 +70,7 @@ You can reduce CloudWatch Logs costs by excluding logs that match specific crite
 
 1. Verify that the add-on status is `ACTIVE` after the update.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -95,7 +94,7 @@ You can send telemetry from workload accounts to a central monitoring account by
 
 1. In the central monitoring account, create an IAM role with a trust policy that allows the workload account to assume it. Replace the example account ID (`111122223333`) with the AWS account ID of the workload account.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -116,7 +115,7 @@ You can send telemetry from workload accounts to a central monitoring account by
 
 1. In the workload account, update the add-on to assume the cross-account role. Replace {{cluster-name}} with the name of your Amazon EKS cluster and {{monitoring-account-id}} with the AWS account ID of the central monitoring account.
 
-   ```
+   ```bash
    aws eks update-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -137,7 +136,7 @@ You can send telemetry from workload accounts to a central monitoring account by
 
 1. Verify that the add-on status is `ACTIVE` after the update.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -154,7 +153,7 @@ You can add custom dimensions derived from Kubernetes labels to your Container I
 
 1. Run the following command to configure custom dimensions. Replace {{cluster-name}} with the name of your Amazon EKS cluster and {{label-key}} with the Kubernetes label to use as a dimension.
 
-   ```
+   ```bash
    aws eks update-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -182,7 +181,7 @@ You can add custom dimensions derived from Kubernetes labels to your Container I
 
 1. Verify that the add-on status is `ACTIVE` after the update.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -211,7 +210,7 @@ The following table provides sizing guidelines based on cluster size.
 
 1. Run the following command to set resource requests and limits. Replace {{cluster-name}} with the name of your Amazon EKS cluster and the resource values with values from the preceding table.
 
-   ```
+   ```bash
    aws eks update-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -237,7 +236,7 @@ The following table provides sizing guidelines based on cluster size.
 
 1. Verify that the add-on status is `ACTIVE` and that agent pods restart with the new resource allocation.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -247,7 +246,7 @@ The following table provides sizing guidelines based on cluster size.
 
 1. Confirm that the agent pods are running with the new resource limits.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent -o jsonpath='{.items[0].spec.containers[0].resources}'
    ```
 
@@ -260,7 +259,7 @@ After you apply any advanced configuration, verify that the add-on is healthy an
 
 1. Check that the add-on status is `ACTIVE`. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-   ```
+   ```bash
    aws eks describe-addon \
      --cluster-name {{cluster-name}} \
      --addon-name amazon-cloudwatch-observability \
@@ -270,7 +269,7 @@ After you apply any advanced configuration, verify that the add-on is healthy an
 
 1. Verify that agent pods restarted and are in `Running` status.
 
-   ```
+   ```bash
    kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
    ```
 
@@ -292,7 +291,7 @@ Use the following guidance to resolve common issues with advanced configurations
 
 1. Validate your JSON configuration by using a JSON linter or by running the following command.
 
-   ```
+   ```bash
    echo '{{your-json-configuration}}' | python3 -m json.tool
    ```
 
@@ -315,7 +314,7 @@ Use the following guidance to resolve common issues with advanced configurations
 
 1. Check the agent logs for `AssumeRole` errors.
 
-   ```
+   ```bash
    kubectl logs -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent --tail=100 | grep -i "AssumeRole\|AccessDenied"
    ```
 

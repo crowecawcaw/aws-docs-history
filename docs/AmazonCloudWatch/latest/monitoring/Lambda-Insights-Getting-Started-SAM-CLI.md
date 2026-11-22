@@ -1,7 +1,6 @@
 
 
 # Use the AWS SAM CLI to enable Lambda Insights on an existing Lambda function
-<a name="Lambda-Insights-Getting-Started-SAM-CLI"></a>
 
 Follow these steps to use the AWS SAM AWS CLI to enable Lambda Insights on an existing Lambda function.
 
@@ -11,7 +10,7 @@ If you don't already have the latest version of the AWS SAM CLI installed, you m
 
 To make the Lambda Insights extension available to all of your Lambda functions, add a `Layers` property to the `Globals` section of your SAM template with the ARN of the Lambda Insights layer. The example below uses the layer for the initial release of Lambda Insights. For the latest release version of the Lambda Insights extension layer, see [Available versions of the Lambda Insights extension](Lambda-Insights-extension-versions.md).
 
-```
+```yaml
 Globals:
   Function:
     Layers:
@@ -20,7 +19,7 @@ Globals:
 
 To enable this layer for only a single function, add the `Layers` property to the function as shown in this example.
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Serverless::Function
@@ -35,7 +34,7 @@ For each function, add the **CloudWatchLambdaInsightsExecutionRolePolicy** IAM p
 
 AWS SAM doesn't support global policies, so you must enable those on each function individually, as shown in this example. For more information about globals, see [ Globals Section](https://github.com/aws/serverless-application-model/blob/master/docs/globals.rst). 
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Serverless::Function
@@ -52,7 +51,7 @@ The AWS SAM CLI supports Lambda extensions. However, every locally executed invo
 
 To troubleshoot your Lambda Insights installation, add the following environment variable to your Lambda function to enable debug logging.
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Serverless::Function

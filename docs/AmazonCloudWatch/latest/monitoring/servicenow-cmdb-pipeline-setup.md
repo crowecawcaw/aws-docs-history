@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for ServiceNow CMDB Audit Log
-<a name="servicenow-cmdb-pipeline-setup"></a>
 
 Collects configuration management database (CMDB) data from ServiceNow using OAuth2 authentication.
 
 Configure the ServiceNow CMDB source with the following parameters:
 
-```
+```yaml
 source:
   servicenow_cmdb:
     instance_url: "<example-instance-url>"

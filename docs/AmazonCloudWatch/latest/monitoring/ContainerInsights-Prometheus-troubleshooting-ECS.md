@@ -1,7 +1,6 @@
 
 
 # Prometheus metrics troubleshooting on Amazon ECS
-<a name="ContainerInsights-Prometheus-troubleshooting-ECS"></a>
 
 This section provides help for troubleshooting your Prometheus metrics setup on Amazon ECS clusters. 
 
@@ -67,7 +66,7 @@ aws ecs update-service --cluster $ECS_CLUSTER_NAME \
 
 The ECS task definition of the CloudWatch agent enables the logs by default in the section below. The logs are sent to CloudWatch Logs in the log group **/ecs/ecs-cwagent-prometheus**.
 
-```
+```yaml
 LogConfiguration:
   LogDriver: awslogs
     Options:

@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch solution: Amazon MSK insights
-<a name="Solution-Prometheus-On-MSK"></a>
 
 This solution helps you monitor your Amazon MSK clusters in CloudWatch without running or scaling your own collection infrastructure. When you enable Open Monitoring on an Amazon MSK cluster, the cluster exposes Prometheus metrics through the JMX Exporter and Node Exporter, and an Amazon CloudWatch managed Prometheus collector scrapes those metrics and delivers them to CloudWatch. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md). For the complete collector setup walkthrough, including scraper creation and the example scrape configuration, see [Integrate Amazon MSK](managed-prometheus-collectors-msk-setup.md).
 

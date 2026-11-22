@@ -1,7 +1,6 @@
 
 
 # Adding a line graph widget to a CloudWatch dashboard
-<a name="add_line_dashboard"></a>
 
 **To add a line widget to a dashboard**
 

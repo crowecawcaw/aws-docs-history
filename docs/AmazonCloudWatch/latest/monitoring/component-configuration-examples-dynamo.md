@@ -1,11 +1,10 @@
 
 
 # Amazon DynamoDB table
-<a name="component-configuration-examples-dynamo"></a>
 
 The following example shows a component configuration in JSON format for Amazon DynamoDB table.
 
-```
+```json
 {
   "alarmMetrics": [
     {

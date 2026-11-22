@@ -1,7 +1,6 @@
 
 
 # Monitor and analyze network flows with a Network Flow Monitor monitor
-<a name="CloudWatch-NetworkFlowMonitor-monitor-and-analyze"></a>
 
 Network Flow Monitor data and graphs help you to visualize and track network issues. You can create monitors to see detailed information about specific network segments for your AWS workloads, including a view of the network path for individual network flows. After you create one or more monitors in Network Flow Monitor, you can observe performance and metrics, and explore historical data, to find anomalies. 
 

@@ -1,7 +1,6 @@
 
 
 # Contributor Insights rule syntax in CloudWatch
-<a name="ContributorInsights-RuleSyntax"></a>
 
 This section explains the syntax for Contributor Insights rules. Use this syntax only when you are creating a rule by entering a JSON block. If you use the wizard to create a rule, you don't need to know the syntax. For more information about creating rules using the wizard, see [Create a Contributor Insights rule in CloudWatch](ContributorInsights-CreateRule.md).
 

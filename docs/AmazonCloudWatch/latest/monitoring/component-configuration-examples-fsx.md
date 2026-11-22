@@ -1,11 +1,10 @@
 
 
 # Amazon FSx
-<a name="component-configuration-examples-fsx"></a>
 
 The following example shows a component configuration in JSON format for Amazon FSx.
 
-```
+```json
 {
   "alarmMetrics": [
     {

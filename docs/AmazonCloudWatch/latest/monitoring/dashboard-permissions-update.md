@@ -1,7 +1,6 @@
 
 
 # CloudWatch dashboard permissions update
-<a name="dashboard-permissions-update"></a>
 
 On May 1, 2018, AWS changed the permissions required to access CloudWatch dashboards. Dashboard access in the CloudWatch console now requires permissions that were introduced in 2017 to support dashboard API operations:
 + **cloudwatch:GetDashboard**

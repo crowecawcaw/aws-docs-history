@@ -1,7 +1,6 @@
 
 
 # Troubleshooting your Application Signals installation
-<a name="CloudWatch-Application-Signals-Enable-Troubleshoot"></a>
 
 This section contains troubleshooting tips for CloudWatch Application Signals.
 
@@ -90,7 +89,7 @@ Be sure that you are using the latest version of ADOT Python and the Amazon Clou
 
    For Gunicorn, use the `post_fork` hook:
 
-   ```
+   ```python
    # gunicorn.conf.py
    def post_fork(server, worker):
        from opentelemetry.instrumentation.auto_instrumentation import sitecustomize
@@ -98,7 +97,7 @@ Be sure that you are using the latest version of ADOT Python and the Amazon Clou
 
    For uWSGI, use the `import` directive.
 
-   ```
+   ```python
    #  uwsgi.ini
    [uwsgi]
    ; required for the instrumentation of worker processes
@@ -109,7 +108,7 @@ Be sure that you are using the latest version of ADOT Python and the Amazon Clou
 
    For Uvicorn, FastAPI, or other ASGI applications that you run with multiple workers, initialize the instrumentation inside the worker by calling `initialize()` before you import your application. Place the following at the top of your application's entry-point module:
 
-   ```
+   ```python
    from opentelemetry.instrumentation.auto_instrumentation import initialize
    
    initialize()
@@ -122,13 +121,13 @@ Be sure that you are using the latest version of ADOT Python and the Amazon Clou
 
    Then start the server as usual, for example:
 
-   ```
+   ```cmd
    uvicorn main:app --workers 2
    ```
 
    Alternatively, if you run an ASGI application under Gunicorn, you can use Gunicorn's `UvicornWorker`, which preserves background threads across the fork, together with the `post_fork` hook shown previously:
 
-   ```
+   ```cmd
    opentelemetry-instrument gunicorn \
      --workers 4 \
      --worker-class uvicorn.workers.UvicornWorker \
@@ -165,7 +164,7 @@ If metrics or traces are missing in the Application Signals dashboards, the foll
 
   Add the following to the CloudWatch agent configuration file to enable debugging logs, and then restart the agent.
 
-  ```
+  ```json
   "agent": {
   
     "region": "${REGION}",
@@ -176,7 +175,7 @@ If metrics or traces are missing in the Application Signals dashboards, the foll
   Then check for errors in the CloudWatch agent pods.
 + Check for configuration issues with the CloudWatch agent. Confirm that the following is still in the CloudWatch agent configuration file and the agent has been restarted since it was added.
 
-  ```
+  ```json
   "agent": {
     "region": "${REGION}",
     "debug": true

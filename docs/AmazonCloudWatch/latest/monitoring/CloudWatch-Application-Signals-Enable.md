@@ -1,7 +1,6 @@
 
 
 # Enable Application Signals in your account
-<a name="CloudWatch-Application-Signals-Enable"></a>
 
 If you haven't enabled Application Signals in this account yet, you must grant Application Signals the permissions it needs to discover your services. You need to do this only once for your account.
 

@@ -1,7 +1,6 @@
 
 
 # Discovering resource telemetry
-<a name="telemetry-config-view-resources"></a>
 
 The telemetry configuration experience displays AWS resources in two places: as an overview on the **Ingestion – Data sources** and in detail on the **Discovered resources** page.
 

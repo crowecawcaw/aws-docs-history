@@ -1,7 +1,6 @@
 
 
 # Create a composite alarm
-<a name="Create_Composite_Alarm"></a>
 
 The steps in this section explain how to use the CloudWatch console to create a composite alarm. You can also use the API or AWS CLI to create a composite alarm. For more information, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) or [put-composite-alarm](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-composite-alarm.html) 
 

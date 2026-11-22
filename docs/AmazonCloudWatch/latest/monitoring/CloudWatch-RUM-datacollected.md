@@ -1,7 +1,6 @@
 
 
 # Information collected by the CloudWatch RUM web client
-<a name="CloudWatch-RUM-datacollected"></a>
 
 This section documents the **PutRumEvents** schema, which defines the structure of the data that you can collect from user sessions using CloudWatch RUM.
 

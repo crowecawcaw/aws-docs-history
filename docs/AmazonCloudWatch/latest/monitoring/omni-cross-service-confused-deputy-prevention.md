@@ -1,7 +1,6 @@
 
 
 # Cross-service confused deputy prevention
-<a name="omni-cross-service-confused-deputy-prevention"></a>
 
 The confused deputy problem is a security issue where an entity that does not have permission to perform an action can coerce a more-privileged entity to perform the action. In AWS, cross-service impersonation can result in the confused deputy problem. Cross-service impersonation can occur when one service (the *calling service*) calls another service (the *called service*). The calling service can be manipulated to use its permissions to act on another customer's resources in a way it should not otherwise have permission to access. To prevent this, AWS provides tools that help you protect your data for all services with service principals that have been given access to resources in your account.
 
@@ -14,7 +13,7 @@ CloudWatch Omni assumes IAM roles in your account to read your telemetry, both d
 
 The space operator role trusts the CloudWatch Omni service principal `cloudwatch.amazonaws.com`. When you set up a space in a single account, CloudWatch Omni creates this role and applies the following trust policy. If you supply your own role instead, give it the same trust policy.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -37,7 +36,7 @@ The `aws:SourceAccount` condition limits CloudWatch Omni to assuming this role o
 
 Dataset integration reads your CloudWatch Logs data through a role that CloudWatch Logs assumes on your behalf. Because the calling service is CloudWatch Logs rather than CloudWatch Omni, this role's trust policy uses both `aws:SourceAccount` and `aws:SourceArn` to restrict the assumption to dataset integrations in your own account.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

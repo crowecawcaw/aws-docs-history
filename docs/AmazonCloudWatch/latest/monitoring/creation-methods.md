@@ -1,7 +1,6 @@
 
 
 # Methods to create an investigation
-<a name="creation-methods"></a>
 
 You can create investigations in the following ways:
 + From within many AWS consoles. For example, you can start an investigation when viewing a CloudWatch metric or alarm in the CloudWatch console, or from a Lambda function's **Monitor** tab on its properties page.

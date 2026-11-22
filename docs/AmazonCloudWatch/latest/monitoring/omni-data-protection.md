@@ -1,7 +1,6 @@
 
 
 # Protect sensitive data
-<a name="omni-data-protection"></a>
 
 Agent telemetry can contain sensitive information: prompts and responses often include user messages, retrieved documents, and personal data. You control what is captured and who can see it. CloudWatch Omni does not automatically detect or redact personally identifiable information (PII); no data is removed unless you configure it. Choose where in the pipeline filtering happens based on your compliance requirements.
 
@@ -19,13 +18,13 @@ Strip or redact fields before spans leave your application, using standard OpenT
 
 `AWS_REDACT_SPAN_ATTRIBUTES` takes a comma-separated list of span attributes to redact. Matching values in spans, span events, and span links are all replaced with `REDACTED`. This applies to all span attributes, not only those from ADOT instrumentation.
 
-```
+```bash
 export AWS_REDACT_SPAN_ATTRIBUTES=gen_ai.input.messages,gen_ai.output.messages
 ```
 
 The variable also accepts wildcard patterns, so you can redact a group of attributes without naming each one. For example, to redact all input and output message attributes from a third-party instrumentation library:
 
-```
+```bash
 export AWS_REDACT_SPAN_ATTRIBUTES='llm.input_messages.*,llm.output_messages.*'
 ```
 
@@ -35,14 +34,14 @@ export AWS_REDACT_SPAN_ATTRIBUTES='llm.input_messages.*,llm.output_messages.*'
 
 To redact all prompt and response content from an agent instrumented with OpenInference, set the OpenInference environment flags before your agent starts. Content is replaced with `__REDACTED__` before spans are created:
 
-```
+```bash
 OPENINFERENCE_HIDE_INPUTS=True
 OPENINFERENCE_HIDE_OUTPUTS=True
 ```
 
 For finer control, add a custom span processor that removes specific attributes. This is standard OpenTelemetry and works with the AWS Distro for OpenTelemetry (ADOT), OpenInference, and other OpenTelemetry SDKs. The span-processor API differs by language, and the following example is Python. **JavaScript does not provide an equivalent custom span-processor approach, so we recommend the environment variable approach described above.**
 
-```
+```python
 from opentelemetry.sdk.trace import SpanProcessor, Span, ReadableSpan
 
 class SensitiveDataRedactingProcessor(SpanProcessor):

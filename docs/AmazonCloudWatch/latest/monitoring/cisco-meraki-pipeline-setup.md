@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Cisco Meraki
-<a name="cisco-meraki-pipeline-setup"></a>
 
 Collects log data from the Cisco Meraki Dashboard REST API v1 using API key authentication.
 
 Configure the Cisco Meraki source with the following parameters:
 
-```
+```yaml
 source:
   cisco_meraki:
     organization_id: "<meraki-organization-ID>"

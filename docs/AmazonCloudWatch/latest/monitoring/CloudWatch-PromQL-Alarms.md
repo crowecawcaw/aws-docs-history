@@ -1,7 +1,6 @@
 
 
 # Using PromQL in alarms
-<a name="CloudWatch-PromQL-Alarms"></a>
 
 You can create CloudWatch alarms that use PromQL queries to monitor your metrics. PromQL alarms evaluate a PromQL expression and trigger alarm state changes based on the query results.
 

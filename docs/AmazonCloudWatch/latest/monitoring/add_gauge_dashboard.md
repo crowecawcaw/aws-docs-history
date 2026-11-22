@@ -1,7 +1,6 @@
 
 
 # Adding a gauge widget to a CloudWatch dashboard
-<a name="add_gauge_dashboard"></a>
 
 **Note**  
  Only the new interface in the CloudWatch console supports creation of the gauge widget. You must set a gauge range when you create this widget. 

@@ -1,7 +1,6 @@
 
 
 # What is telemetry discovery and enablement?
-<a name="telemetry-config-what-is"></a>
 
 CloudWatch telemetry configuration gives you two core capabilities:
 + **Discovery and auditing** – Discover AWS resources across your account or organization and audit which resources have telemetry enabled. The experience shows the configuration status at the resource-type level and at more granular telemetry-detail levels.
@@ -34,6 +33,7 @@ In addition to the resource types above, telemetry **enablement rules** (using t
 + Amazon Bedrock AgentCore Payment Manager
 + AWS X-Ray Transaction Search
 + Amazon EKS Container Insights
++ AWS Network Firewall Logs
 
 When you enable telemetry configuration, CloudWatch creates AWS Config service-linked configuration recorders that discover resources and their associated telemetry configuration metadata. For more information, see [Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-recorder) in the AWS Config Developer Guide.
 

@@ -1,7 +1,6 @@
 
 
 # Ask the Omni agent
-<a name="omni-ask-the-omni-agent"></a>
 
 The Omni agent is the AI assistant built into the CloudWatch Omni web UI. Ask about your systems in plain language, and the agent answers from the telemetry available to it: it writes and runs queries, correlates signals across telemetry, and builds views and dashboards on demand.
 
@@ -38,7 +37,7 @@ The agent can do the same work as the pages in the web UI. Some examples, by tas
 
 **Investigations.** A status question gets a quick lookup. When you ask why something is broken, the agent runs a multi-step investigation: it checks for anomalies, maps the services involved, and gathers evidence across your telemetry, then reports the likely cause with the concrete numbers and log lines behind it. It proposes the next step, and you choose the direction. You can also start an investigation from a service page. See [Monitor a service](omni-monitor-a-service.md).
 
-**Alerts.** The agent creates Omni alerts, not CloudWatch alarms. It can create an alert from a plain-language condition, change an existing one, and answer questions about the alerts you have. Creating and changing are deliberate: the agent grounds the threshold in your data, shows you the specific alert it intends to create or change, and acts only after you confirm. It does not delete alerts. Manage them on the Alerts page. See [Alerts](omni-alerts.md).
+**Alerts.** The agent creates Omni alerts, not CloudWatch alarms. It can create an alert from a plain-language condition, change or delete an existing one, and answer questions about the alerts you have. Creating and changing are deliberate: the agent grounds the threshold in your data, shows you the specific alert it intends to create or change, and acts only after you confirm. It deletes an alert only after you confirm which one. You can also manage alerts on the Alerts page. See [Alerts](omni-alerts.md).
 
 **Dashboards.** Describe the dashboard you want and the agent composes it in your thread, where you can refine it section by section and save it. It can also turn a finished investigation into a dashboard. See [Dashboards](omni-dashboards.md).
 
@@ -54,7 +53,7 @@ The agent is scoped to observability. It declines unrelated work, such as genera
 ## Limitations
 <a name="omni-ask-the-omni-agent-limitations"></a>
 + It reads only your space and your own conversations. It cannot read another person's threads.
-+ It creates and changes alerts with your confirmation, but never deletes them, and it cannot rename an alert. You delete an alert yourself on the **Alerts** page.
++ It creates, changes, and deletes alerts only with your confirmation, and it cannot rename an alert.
 + It can be wrong. It shows its queries and evidence so you can verify. Check both before acting on a finding, and use the feedback controls on a response to rate it.
 
 ## Permissions and data access

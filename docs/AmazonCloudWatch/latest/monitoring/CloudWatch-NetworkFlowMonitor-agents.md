@@ -1,7 +1,6 @@
 
 
 # Install Network Flow Monitor agents on EC2 and self-managed Kubernetes instances
-<a name="CloudWatch-NetworkFlowMonitor-agents"></a>
 
 To provide performance metrics for network flows in your AWS workloads, Network Flow Monitor relies on *agents* that you install, which send the metrics to Network Flow Monitor. You install Network Flow Monitor agents on your instances, and then set the correct permissions for the agents so that they can send metrics to the Network Flow Monitor backend.
 

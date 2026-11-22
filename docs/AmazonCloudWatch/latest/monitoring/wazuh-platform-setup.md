@@ -1,7 +1,6 @@
 
 
 # Wazuh Platform integration configuration
-<a name="wazuh-platform-setup"></a>
 
 Wazuh is an open-source security platform that provides unified XDR and SIEM capabilities including threat detection, integrity monitoring, incident response, and compliance across on-premises, cloud, and hybrid environments. The Wazuh Platform is the central component built on OpenSearch that stores and indexes security alerts, providing near real-time search and analytics through a RESTful API. Use CloudWatch pipelines with the Wazuh Platform API to retrieve security alerts, vulnerability findings, system inventory, and agent monitoring data.
 

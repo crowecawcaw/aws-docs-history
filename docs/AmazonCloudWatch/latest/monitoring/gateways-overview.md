@@ -1,7 +1,6 @@
 
 
 # Gateway details - Overview
-<a name="gateways-overview"></a>
 
 The **Overview** tab provides insights derived from sampled spans after transaction search is enabled.
 

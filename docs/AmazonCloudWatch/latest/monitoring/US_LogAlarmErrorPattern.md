@@ -1,13 +1,12 @@
 
 
 # Create a Log Alarm on error patterns
-<a name="US_LogAlarmErrorPattern"></a>
 
 You can create a Log Alarm that monitors your logs for error patterns and sends a notification when the error count exceeds a threshold.
 
 The following example creates a Log Alarm that transitions to `ALARM` state when more than 10 ERROR messages appear in 3 out of 5 query executions.
 
-```
+```bash
 aws cloudwatch put-log-alarm \
     --alarm-name "LambdaErrors" \
     --alarm-description "Alarm when Lambda error count exceeds 10" \

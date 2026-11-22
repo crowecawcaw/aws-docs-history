@@ -1,7 +1,6 @@
 
 
 # Grafana integration
-<a name="CloudWatch-PromQL-Grafana"></a>
 
 After you ingest OpenTelemetry metrics into CloudWatch and make them queryable with PromQL, you can visualize and explore that data in Grafana and Amazon Managed Grafana. We recommend that you use the **PromQL** query type in the **Amazon CloudWatch** data source plugin. It uses the same authentication and Region settings as your other CloudWatch queries, so you don't need to configure a separate data source. For more information, see [Querying with the CloudWatch data source](#CloudWatch-PromQL-Querying-CloudWatch-datasource).
 

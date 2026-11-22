@@ -1,7 +1,6 @@
 
 
 # Update the Lambda Insights extension version on a function
-<a name="Lambda-Insights-Update-Extension"></a>
 
 As a best practice, we recommend that you keep your Lambda Insights extension updated to the latest version. The topics in this page explain how to do so.
 
@@ -66,7 +65,7 @@ Resources:
 
 To update the Lambda Insights Extension version by using CloudFormation, update the extension layer in the `Layers` property within the function's CloudFormation resource, as in the following example. For information about the latest release version of the Lambda Insights extension layer, see [Available versions of the Lambda Insights extension](Lambda-Insights-extension-versions.md).
 
-```
+```yaml
 Resources:
   {{MyFunction}}:
     Type: AWS::Lambda::Function

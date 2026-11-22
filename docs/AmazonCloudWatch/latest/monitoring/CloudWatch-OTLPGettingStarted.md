@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="CloudWatch-OTLPGettingStarted"></a>
 
 To get started with OpenTelemetry in CloudWatch, you can choose from several options to send telemetry to the CloudWatch OTLP endpoints. For most customers, the CloudWatch agent is the recommended path. The CloudWatch agent is an AWS-managed OpenTelemetry Collector with CloudWatch components pre-built, and it provides the most integrated monitoring experience in CloudWatch.
 

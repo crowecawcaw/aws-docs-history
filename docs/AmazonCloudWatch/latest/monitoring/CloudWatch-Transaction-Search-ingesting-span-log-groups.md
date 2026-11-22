@@ -1,7 +1,6 @@
 
 
 # Spans
-<a name="CloudWatch-Transaction-Search-ingesting-span-log-groups"></a>
 
  Spans sent to X-Ray are ingested and managed in a log group called `aws/spans`. This topic describes which CloudWatch Logs features are available for transaction spans. 
 

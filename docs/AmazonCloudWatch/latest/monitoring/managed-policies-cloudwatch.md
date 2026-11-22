@@ -1,7 +1,6 @@
 
 
 # AWS managed (predefined) policies for CloudWatch
-<a name="managed-policies-cloudwatch"></a>
 
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed. For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*. 
 
@@ -36,6 +35,7 @@ View details about updates to AWS managed policies for CloudWatch since this ser
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [CloudWatchFullAccessV2](#managed-policies-cloudwatch-CloudWatchFullAccessV2) – Updated policy | CloudWatch updated the `kms:DescribeKey` permission in **CloudWatchFullAccessV2** so that you can also use it for requests that CloudWatch makes on your behalf (`kms:ViaService`), in addition to requests from CloudWatch Logs. The permission still applies only to keys in your own account. | November 18, 2026 | 
 |  [CloudWatchAgentServerPolicy](#managed-policies-cloudwatch-CloudWatchAgentServerPolicy) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAgentServerPolicy**.<br />With this permission, the CloudWatch agent can send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics, logs, and traces. | November 6, 2026 | 
 |  [CloudWatchAgentAdminPolicy](#managed-policies-cloudwatch-CloudWatchAgentAdminPolicy) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAgentAdminPolicy**.<br />With this permission, the CloudWatch agent can send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics, logs, and traces. | November 6, 2026 | 
 |  [CloudWatchAPIKeyAccess](#managed-policies-cloudwatch-CloudWatchAPIKeyAccess) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAPIKeyAccess**, scoped to CloudWatch dataset resources.<br />With this permission, you can use an API key to send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics. The policy still grants no permission to read or query data. | November 6, 2026 | 
@@ -133,7 +133,7 @@ It includes Amazon OpenSearch Service permissions to support vended logs dashboa
 
 It includes `rum`, `synthetics`, and `xray` permissions so that users can have full access to CloudWatch Synthetics, AWS X-Ray, and CloudWatch RUM, all of which are under the CloudWatch service.
 
-It includes the `kms:DescribeKey` permission. CloudWatch Logs requires this permission from the caller to create a log group with a customer managed AWS KMS key or to associate a key with a log group. You also need it to encrypt the `aws/spans` log group with a customer managed key when you enable [Transaction Search](CloudWatch-Transaction-Search.md). You can use this permission only for requests that CloudWatch Logs makes on your behalf, and only for keys in your own account.
+It includes the `kms:DescribeKey` permission. CloudWatch Logs requires this permission from the caller to create a log group with a customer managed AWS KMS key or to associate a key with a log group. You also need it to encrypt the `aws/spans` log group with a customer managed key when you enable [Transaction Search](CloudWatch-Transaction-Search.md). You can use this permission only for requests that CloudWatch Logs or CloudWatch makes on your behalf, and only for keys in your own account.
 
 To see the full contents of the policy, see [CloudWatchFullAccessV2](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchFullAccessV2.html) in the *AWS Managed Policy Reference Guide*.
 

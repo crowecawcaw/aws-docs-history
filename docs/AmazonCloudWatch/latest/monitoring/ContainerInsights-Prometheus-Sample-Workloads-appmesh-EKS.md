@@ -1,7 +1,6 @@
 
 
 # Set up AWS App Mesh sample workload on an Amazon EKS cluster with the EC2 launch type or a Kubernetes cluster
-<a name="ContainerInsights-Prometheus-Sample-Workloads-appmesh-EKS"></a>
 
 Use these instructions if you are setting up App Mesh on a cluster running Amazon EKS with the EC2 launch type, or a Kubernetes cluster.
 

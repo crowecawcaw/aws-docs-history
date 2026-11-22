@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Drupal Core
-<a name="drupal-core-pipeline-setup"></a>
 
 Collects audit logs from Drupal Core using basic authentication.
 
 Configure the Drupal source with the following parameters:
 
-```
+```yaml
 source:
   drupal_core:
     range: "P7D"

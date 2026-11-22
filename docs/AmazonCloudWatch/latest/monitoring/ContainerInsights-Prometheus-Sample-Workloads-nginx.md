@@ -1,7 +1,6 @@
 
 
 # Set up NGINX with sample traffic on Amazon EKS and Kubernetes
-<a name="ContainerInsights-Prometheus-Sample-Workloads-nginx"></a>
 
 NGINX is a web server that can also be used as a load balancer and reverse proxy. For more information about how Kubernetes uses NGINX for ingress , see [kubernetes/ingress-nginx](https://github.com/kubernetes/ingress-nginx).
 

@@ -1,7 +1,6 @@
 
 
 # Monitor agents in the web UI
-<a name="omni-monitor-agents-in-the-web-ui"></a>
 
 Use the Omni web UI to monitor your agents in production, including individual agent traces and sessions, aggregate metrics such as request volume, errors, latency, and token usage, and dependency relationships through the application map (see [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md)).
 

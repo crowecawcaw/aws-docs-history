@@ -1,7 +1,6 @@
 
 
 # Step 4: Verify that metrics arrive
-<a name="ecs-otel-collector-verify"></a>
 
 1. In the Amazon ECS console, confirm that the `otel-collector` container is running in the task.
 

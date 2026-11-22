@@ -1,7 +1,6 @@
 
 
 # Configure alarms to create investigations
-<a name="Investigations-configure-alarms"></a>
 
 You can configure an existing CloudWatch alarm to automatically create investigations in CloudWatch investigations. When the alarm enters the ALARM state, CloudWatch automatically creates a new investigation or adds to an existing investigation based on the deduplication string.
 

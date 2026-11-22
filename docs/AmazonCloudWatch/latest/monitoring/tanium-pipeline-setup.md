@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Tanium
-<a name="tanium-pipeline-setup"></a>
 
 The Tanium setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the S3 source with the following parameters:
 
-```
+```yaml
 source:
   s3:
     acknowledgments: true

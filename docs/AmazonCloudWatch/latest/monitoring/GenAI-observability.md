@@ -1,7 +1,6 @@
 
 
 # Generative AI observability
-<a name="GenAI-observability"></a>
 
 With Amazon CloudWatch, you can observe generative AI workloads, including [Amazon Bedrock AgentCore agents](https://aws.amazon.com/bedrock/agentcore/), and gain insights into AI performance, health, and accuracy. CloudWatch provides pre-configured views into latency, usage, and errors of your AI workloads, allowing you to detect issues faster in components like models and agents. End-to-end prompt tracing helps you quickly identify issues in components such as knowledge bases, tools, and models. CloudWatch's AI monitoring capabilities are compatible with popular generative AI orchestration frameworks such as [AWS Strands](https://strandsagents.com/latest/), LangChain, and LangGraph, offering flexibility with your choice of framework.
 

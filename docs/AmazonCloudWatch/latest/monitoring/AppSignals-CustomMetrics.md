@@ -1,7 +1,6 @@
 
 
 # Custom metrics with Application Signals
-<a name="AppSignals-CustomMetrics"></a>
 
 To monitor application performance and availability, Application Signals collects standard metrics (faults, errors, and latency) and runtime metrics from discovered applications after you enable it.
 
@@ -36,7 +35,7 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
 1. Configure the agent or collector.
    + When using the CloudWatch agent, you must [configure](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-OpenTelemetry-metrics.html) `metrics_collected` with an `otlp`. For example, `cloudwatch-config.json`
 
-     ```
+     ```json
      {
        "traces": {
          "traces_collected": {
@@ -56,7 +55,7 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
      ```
    + When using OpenTelemetry Collector, configure a metrics pipeline. You must use [CloudWatch EMF Exporter for OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter) and enable [Resource Attributes to Metric Labels](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter#resource-attributes-to-metric-labels). It's recommended to configure ` dimension_rollup_option: NoDimensionRollup` to avoid emitting many metric aggregations. For example, `config.yaml`:
 
-     ```
+     ```yaml
      receivers:
        otlp:
          protocols:
@@ -114,7 +113,7 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
 1. Configure metric export to the CloudWatch agent or OpenTelemetry Collector. You can use one of the following approach:
    + (Recommended) Custom export pipeline – In the application code, create a dedicated [MeterProvider](https://opentelemetry.io/docs/specs/otel/metrics/sdk/#meterprovider) exporting to the configured agent or collector endpoint. For example:
 
-     ```
+     ```java
      Resource resource = Resource.getDefault().toBuilder()
              .put(AttributeKey.stringKey("service.name"), serviceName)
              .put(AttributeKey.stringKey("deployment.environment.name"), environment)
@@ -144,13 +143,13 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
 
      In application code, rely on global MeterProvider created by the agent. For example:
 
-     ```
+     ```java
      Meter meter = GlobalOpenTelemetry.getMeter("myMeter");
      ```
 
 1. Using the [OTEL Metrics SDK](https://opentelemetry.io/docs/specs/otel/metrics/sdk/) in the application code, add the OTEL Metrics. For example, to add the OTEL metrics in Python:
 
-   ```
+   ```python
    counter = meter.counterBuilder("myCounter").build();
    counter.add(value);
    counter.add(value, Attributes.of(AttributeKey.stringKey("Operation"), "myOperation"));
@@ -173,12 +172,12 @@ Custom Span metrics currently only work with Transaction Search. With custom Spa
 1. Add span attributes using the [OTEL Traces SDK](https://opentelemetry.io/docs/specs/otel/trace/sdk/). There are two ways:
    + [Recommended] Add attributes to automatically generated spans. For example:
 
-     ```
+     ```python
      Span.current().setAttribute("myattribute", value);
      ```
    + Add attributes to manually generated spans. For example:
 
-     ```
+     ```python
      Span span = tracer.spanBuilder("myspan").startSpan();
      try (Scope scope = span.makeCurrent()) {
         span.setAttribute("myattribute",  value);

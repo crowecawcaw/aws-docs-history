@@ -1,14 +1,13 @@
 
 
 # Get statistics for a metric (GetMetricStatistics)
-<a name="getting-metric-statistics"></a>
 
 `GetMetricStatistics` is the legacy single-metric API. For new code, use [Retrieve metric data (GetMetricData)](metrics-classic-getdata.md) instead — it supports batch queries and math expressions.
 
 ## Usage
 <a name="getting-metric-statistics-usage"></a>
 
-```
+```bash
 aws cloudwatch get-metric-statistics \
   --namespace "AWS/EC2" \
   --metric-name "CPUUtilization" \

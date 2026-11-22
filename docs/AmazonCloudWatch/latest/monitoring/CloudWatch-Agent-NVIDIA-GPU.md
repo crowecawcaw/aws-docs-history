@@ -1,7 +1,6 @@
 
 
 # Collect NVIDIA GPU metrics
-<a name="CloudWatch-Agent-NVIDIA-GPU"></a>
 
  You can use the CloudWatch agent to collect NVIDIA GPU metrics from Linux servers. To set this up, add a `nvidia_gpu` section inside the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Linux-section). 
 

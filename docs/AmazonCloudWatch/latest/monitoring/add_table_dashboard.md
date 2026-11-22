@@ -1,7 +1,6 @@
 
 
 # Adding a data table widget to a CloudWatch dashboard
-<a name="add_table_dashboard"></a>
 
 **To add a data table widget to a dashboard**
 

@@ -1,11 +1,10 @@
 
 
 # Amazon EKS and Kubernetes Container Insights with enhanced observability metrics
-<a name="Container-Insights-metrics-enhanced-EKS"></a>
 
 The following tables list the metrics and dimensions that Container Insights with enhanced observability collects for Amazon EKS and Kubernetes. These metrics are in the `ContainerInsights` namespace. For more information, see [Metrics](cloudwatch_concepts.md#Metric).
 
-If you do not see any Container Insights with enhanced observability metrics in your console, be sure that you have completed the setup of Container Insights with enhanced observability. Metrics do not appear before Container Insights with enhanced observability has been set up completely. For more information, see [Container Insights](ContainerInsights.md).
+If you do not see any Container Insights with enhanced observability metrics in your console, be sure that you have completed the setup of Container Insights with enhanced observability. Metrics do not appear before Container Insights with enhanced observability has been set up completely. For more information, see [Container Insights for Amazon EKS](ContainerInsights.md).
 
 If you are using version 1.5.0 or later of the Amazon EKS add-on or version 1.300035.0 of the CloudWatch agent, most metrics listed in the following table are collected for both Linux and Windows nodes. See the **Metric Name** column of the table to see which metrics are not collected for Windows.
 
@@ -163,7 +162,7 @@ By default, GPU metrics are collected and ingested at 60-second intervals. With 
 
 To enable detailed GPU monitoring, update your CloudWatch agent configuration to include the `accelerated_compute_gpu_metrics_collection_interval` parameter in the `kubernetes` section, as in the following example.
 
-```
+```json
 {  
     "logs": {  
         "metrics_collected": {  

@@ -1,12 +1,12 @@
 
 
-# Infrastructure monitoring
-<a name="CloudWatch-Insights-Sections"></a>
+# CloudWatch Insights
 
-The topics in this section explain CloudWatch features that can help you gain operational visibility into your AWS resources.
+The topics in this section explain the CloudWatch Insights features, which collect and summarize telemetry for specific AWS resources and give you operational visibility into them. They start with Container Insights for Amazon EKS and for Amazon ECS.
 
 **Topics**
-+ [Container Insights](ContainerInsights.md)
++ [Container Insights for Amazon EKS](ContainerInsights.md)
++ [Container Insights for Amazon ECS](deploy-container-insights-ECS.md)
 + [Lambda Insights](Lambda-Insights.md)
 + [CloudWatch Database Insights](Database-Insights.md)
 + [SageMaker AI Insights](SageMaker-Insights.md)

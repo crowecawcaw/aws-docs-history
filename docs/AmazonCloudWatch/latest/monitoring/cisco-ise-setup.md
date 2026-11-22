@@ -1,7 +1,6 @@
 
 
 # Cisco ISE integration configuration
-<a name="cisco-ise-setup"></a>
 
 Cisco Identity Services Engine (ISE) is the Cisco enterprise Network Access Control (NAC) and identity policy engine, providing AAA services (Authentication, Authorization, Accounting) using RADIUS and TACACS\+ across wired, wireless, and VPN connections. ISE enforces who and what can connect to the network, under what conditions, and with what privileges, while providing rich session context including user identity, device type, posture, and location to other security tools.
 

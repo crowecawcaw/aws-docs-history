@@ -1,7 +1,6 @@
 
 
 # Set up an investigation group
-<a name="Investigations-GetStarted-Group"></a>
 
 To set up CloudWatch investigations in your account for use with an enhanced investigation, you create an *investigation group*. Creating an investigation group is a one-time setup task, after it's created it is used to conduct other investigations. Settings in the investigation group help you centrally manage the common properties of your investigations, such as the following:
 + Who can access the investigations
@@ -48,7 +47,7 @@ CloudWatch investigations uses *cross-Region inference* to distribute traffic ac
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

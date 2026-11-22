@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon MSK
-<a name="managed-prometheus-collectors-msk-setup"></a>
 
 With an Amazon CloudWatch managed Prometheus collector, you can automatically discover and collect Prometheus metrics from your Amazon MSK clusters. When you enable Open Monitoring on your Amazon MSK cluster, it exposes Prometheus metrics through the Java Management Extensions (JMX) Exporter and Node Exporter. The managed collector connects to your VPC and scrapes these metrics from all brokers using DNS-based service discovery and delivers these metrics directly to CloudWatch. With this integration, you can monitor host-level metrics, JVM-level metrics, and Kafka broker metrics in CloudWatch without deploying any agents.
 
@@ -24,7 +23,7 @@ This procedure assumes familiarity with Amazon MSK cluster administration and Am
 
 Enable Open Monitoring on your Amazon MSK cluster to expose Prometheus metrics. For instructions on enabling Open Monitoring, see [Open Monitoring with Prometheus](https://docs.aws.amazon.com/msk/latest/developerguide/open-monitoring.html) in the *Amazon MSK Developer Guide*.
 
-```
+```bash
 aws kafka update-monitoring \
   --cluster-arn "arn:aws:kafka:{{us-west-2}}:{{123456789012}}:cluster/{{my-cluster}}/{{abc123-def456}}" \
   --current-version "{{K1A2B3C4D5}}" \
@@ -46,7 +45,7 @@ Amazon MSK provides a cluster-level DNS name that resolves to all broker IPs. Us
 
 Get your cluster DNS name (remove the broker-specific prefix like `b-1.` or `b-2.`):
 
-```
+```bash
 aws kafka get-bootstrap-brokers --cluster-arn "arn:aws:kafka:{{us-west-2}}:{{123456789012}}:cluster/{{my-cluster}}/{{abc123-def456}}"
 ```
 
@@ -57,7 +56,7 @@ For example, if the bootstrap broker returns `b-1.my-cluster.abc123.c4.kafka.us-
 
 The following is an example scrape configuration for Amazon MSK. You reference this configuration when you create the scraper in the next step. For more information about configuration options, see [Scraper configuration](managed-prometheus-collectors-scraper-configuration.md).
 
-```
+```yaml
 global:
   scrape_interval: 60s
   external_labels:
@@ -103,7 +102,7 @@ Create the scraper with a CloudWatch destination, using the scrape configuration
 
 Use the `CreateScraper` API operation to create a scraper with a CloudWatch destination. Replace the subnet, security group, and dataset information with your own values.
 
-```
+```json
 POST /scrapers HTTP/1.1
 
 {
@@ -130,7 +129,7 @@ POST /scrapers HTTP/1.1
 
 Use the `create-scraper` command to create a scraper with a CloudWatch destination. Replace the subnet, security group, and dataset information with your own values.
 
-```
+```bash
 aws amp create-scraper \
   --alias "msk-metrics-scraper" \
   --source '{
@@ -163,13 +162,13 @@ To confirm that the collector is delivering both JMX and Node Exporter metrics, 
 
 The following query returns a broker-level Kafka metric from the JMX Exporter (port 11001). It reports the mean rate of broker topic activity, such as messages and bytes flowing through the brokers. Data points confirm that the collector is scraping Kafka broker metrics.
 
-```
+```bash
 kafka_server_BrokerTopicMetrics_MeanRate
 ```
 
 The following query returns host-level CPU utilization from the Node Exporter (port 11002). It subtracts the average idle CPU rate over a five-minute window from 100 to give the percentage of CPU that the brokers are using. Data points confirm that the collector is scraping host-level metrics.
 
-```
+```bash
 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
 ```
 

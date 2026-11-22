@@ -1,14 +1,13 @@
 
 
 # Manually create or edit the CloudWatch agent configuration file
-<a name="CloudWatch-Agent-Configuration-File-Details"></a>
 
  The CloudWatch agent configuration file is a JSON file with five sections: `agent`, `metrics`, `logs`, `traces`, and `opentelemetry`. 
-+ The `agent` section includes fields for the overall configuration of the agent. 
-+ The `metrics` section specifies the custom metrics for collection and publishing to CloudWatch. If you're using the agent only to collect logs, you can omit the `metrics` section from the file.
-+ The `logs` section specifies what log files are published to CloudWatch Logs. This can include events from the Windows Event Log if the server runs Windows Server.
-+ The `traces` section specifies the sources for traces that are collected and sent to AWS X-Ray. 
-+ The `opentelemetry` section specifies the sources of metrics, logs, and traces for the agent to collect and send to the CloudWatch OpenTelemetry Protocol (OTLP) endpoints. For more information, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md).
++ The `agent` section includes fields for the overall configuration of the agent. It applies to both configuration models.
++ The `metrics` section (Classic) specifies the custom metrics for collection and publishing to CloudWatch. If you're using the agent only to collect logs, you can omit the `metrics` section from the file.
++ The `logs` section (Classic) specifies what log files are published to CloudWatch Logs. This can include events from the Windows Event Log if the server runs Windows Server.
++ The `traces` section (Classic) specifies the sources for traces that are collected and sent to AWS X-Ray. 
++ The `opentelemetry` section specifies the sources of metrics, logs, and traces for the agent to collect and send to the CloudWatch OpenTelemetry Protocol (OTLP) endpoints. For the field reference, see [CloudWatch agent configuration file: OpenTelemetry section](CloudWatch-Agent-Configuration-File-OpenTelemetrysection.md).
 
  This section explains the structure and fields of the CloudWatch agent configuration file. You can view the schema definition for this configuration file. The schema definition is located at `{{installation-directory}}/doc/amazon-cloudwatch-agent-schema.json` on Linux servers and at `{{installation-directory}}/amazon-cloudwatch-agent-schema.json` on servers running Windows Server. 
 
@@ -36,7 +35,7 @@ The `agent` section can include the following fields. The wizard doesn't create 
 + `credentials` – Specifies an IAM role to use when sending metrics, logs, and traces to a different AWS account. If specified, this field contains one parameter, `role_arn`.
   + `role_arn` – Specifies the Amazon Resource Name (ARN) of an IAM role to use for authentication when sending metrics, logs, and traces to a different AWS account. For more information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account).
 + `debug` – Optional. Specifies running the CloudWatch agent with debug log messages. The default value is `false`. 
-+ `aws_sdk_log_level` – Optional. Supported only in versions 1.247350.0 and later of the CloudWatch agent.
++ `aws_sdk_log_level` – Optional.
 
   You can specify this field to have the agent perform logging for AWS SDK endpoints. The value for this field can include one or more of the following options. Separate multiple options with the `|` character.
   + `LogDebug`
@@ -44,8 +43,6 @@ The `agent` section can include the following fields. The wizard doesn't create 
   + `LogDebugWithHTTPBody`
   + `LogDebugRequestRetries`
   + `LogDebugWithEventStreamBody`
-
-  For more information about these options, see [LogLevelType](https://docs.aws.amazon.com/sdk-for-go/api/aws/#LogLevelType).
 + `logfile` – Specifies the location where the CloudWatch agent writes log messages. If you specify an empty string, the log goes to stderr. If you don't specify this option, the default locations are the following:
   + Linux: `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log`
   + Windows Server: `c:\\ProgramData\\Amazon\\CloudWatchAgent\\Logs\\amazon-cloudwatch-agent.log` 
@@ -114,7 +111,7 @@ On servers running either Linux or Windows Server, the `metrics` section include
 
   For example, the following part of the metrics section of the configuration file sets the agent to use a VPC Endpoint when sending metrics. 
 
-  ```
+  ```json
   {
     "metrics": {
       "endpoint_override": "vpce-XXXXXXXXXXXXXXXXXXXXXXXXX.monitoring.us-east-1.vpce.amazonaws.com",
@@ -130,9 +127,14 @@ On servers running either Linux or Windows Server, the `metrics` section include
   + `amp` – Amazon Managed Service for Prometheus.
     + `workspace_id` – The ID corresponding to the Amazon Managed Service for Prometheus workspace.
 
-  ```
+  ```json
   {
     "metrics": {
+      "metrics_collected": {
+        "cpu": {
+          "measurement": ["usage_active"]
+        }
+      },
       "metrics_destinations": {
         "cloudwatch": {},
         "amp": {
@@ -304,7 +306,7 @@ The `disk` metrics have a dimension for `Partition`, which means that the number
     + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
   + `metrics_collection_interval` – Optional. Specifies how often to collect the NVIDIA GPU metrics, overriding the global `metrics_collection_interval` specified in the `agent` section of the configuration file.
 + `jmx` – Optional. Specifies that you want to retrieve Java Management Extensions (JMX) metrics from the instance. For more information about the parameters that you can use in this section and the metrics that you can collect, see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md). 
-+  `otlp` – Optional. Specifies that you want to collect metrics from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md). 
++  `otlp` – Optional. Specifies that you want to collect metrics from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Receive OTLP data with the Classic configuration (legacy)](CloudWatch-Agent-OpenTelemetry-metrics.md). 
 + `procstat` – Optional. Specifies that you want to retrieve metrics from individual processes. For more information about the configuration options available for procstat, see [Collect process metrics with the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md). 
 + `statsd` – Optional. Specifies that you want to retrieve custom metrics using the `StatsD` protocol. The CloudWatch agent acts as a daemon for the protocol. You use any standard `StatsD` client to send the metrics to the CloudWatch agent. For more information about the configuration options available for StatsD, see [Retrieve custom metrics with StatsD](CloudWatch-Agent-custom-metrics-statsd.md). 
 + `ethtool` – Optional. Specifies that you want to retrieve network metrics using the `ethtool` plugin. This plugin can import both the metrics collected by the standard ethtool utility, as well as network performance metrics from Amazon EC2 instances. For more information about the configuration options available for ethtool, see [Collect network performance metrics](CloudWatch-Agent-network-performance.md). 
@@ -386,13 +388,13 @@ Within the subsection for each object, you specify a `measurement` array of the 
 
 Powershell:
 
-```
+```powershell
 Get-Counter -ListSet *
 ```
 
 Command line (not Powershell):
 
-```
+```cmd
 TypePerf.exe –q
 ```
 
@@ -413,7 +415,7 @@ There are other optional sections that you can include in `metrics_collected`:
 + `statsd` – Enables you to retrieve custom metrics using the `StatsD` protocol. The CloudWatch agent acts as a daemon for the protocol. You use any standard `StatsD` client to send the metrics to the CloudWatch agent. For more information, see [Retrieve custom metrics with StatsD](CloudWatch-Agent-custom-metrics-statsd.md).
 + `procstat` – Enables you to retrieve metrics from individual processes. For more information, see [Collect process metrics with the procstat plugin](CloudWatch-Agent-procstat-process-metrics.md).
 +  `jmx` – Optional. Specifies that you want to retrieve Java Management Extensions (JMX) metrics from the instance. For more information about the fields that you can use in this section and the metrics that you can collect, see [Collect Java Management Extensions (JMX) metrics](CloudWatch-Agent-JMX-metrics.md). 
-+  `otlp` – Optional. Specifies that you want to collect metrics from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md). 
++  `otlp` – Optional. Specifies that you want to collect metrics from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Receive OTLP data with the Classic configuration (legacy)](CloudWatch-Agent-OpenTelemetry-metrics.md). 
 
 The following is an example `metrics` section for use on Windows Server. In this example, many Windows metrics are collected, and the computer is also set to receive additional metrics from a `StatsD` client.
 
@@ -568,7 +570,7 @@ The CloudWatch agent doesn't check the performance of any regular expression tha
 
         For example, the following excerpt of the CloudWatch agent configuration file publishes logs that are PUT and POST requests to CloudWatch Logs, but excluding logs that come from Firefox.
 
-        ```
+        ```json
         "collect_list": [ 
           {
             "file_path": "/opt/aws/amazon-cloudwatch-agent/logs/test.log", 
@@ -599,7 +601,7 @@ This parameter is not considered when the `file_path` is set to `amazon-cloudwat
 
         If a single log entry contains two time stamps that match the format, the first time stamp is used.
 
-        This list of symbols is different than the list used by the older CloudWatch Logs agent. For a summary of these differences, see [Timestamp differences between the CloudWatch agent and the earlier CloudWatch Logs agent](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-logs-timestamp-differences)  
+        The agent supports the following symbols:  
 `%y`  
 Year without century as a zero-padded decimal number. For example, `19` to represent 2019.  
 `%Y`  
@@ -803,7 +805,7 @@ Running the agent as any user other than root requires the user to be added to t
     + In the fourth entry, the agent uses compound filtering to collect logs from the `systemd-logind` unit that are also from the root user (`_UID` of `0`).
     + For the last entry, the agent collects journald logs from the `sshd` service and applies layered regex filtering.
 
-    ```
+    ```json
     "journald": {
         "collect_list": [
             {
@@ -858,7 +860,7 @@ When you combine `units`, `priority`, and `matches` filters in a single entry, a
 
   For example, the following part of the logs section of the configuration file sets the agent to use a VPC Endpoint when sending logs. 
 
-  ```
+  ```json
   {
     "logs": {
       "endpoint_override": "vpce-XXXXXXXXXXXXXXXXXXXXXXXXX.logs.us-east-1.vpce.amazonaws.com",
@@ -867,17 +869,13 @@ When you combine `units`, `priority`, and `matches` filters in a single entry, a
   }
   ```
 + `force_flush_interval` – Specifies in seconds the maximum amount of time that logs remain in the memory buffer before being sent to the server. No matter the setting for this field, if the size of the logs in the buffer reaches 1 MB, the logs are immediately sent to the server. The default value is 5.
-
-  If you are using the agent to report high-resolution metrics in embedded metric format, and you are setting alarms on those metrics, keep this parameter set to the default value of 5. Otherwise, the metrics are reported with a delay that can cause alarming on partial or incomplete data.
 + `credentials` – Specifies an IAM role to use when sending logs to a different AWS account. If specified, this field contains one parameter, `role_arn`.
   + `role_arn` – Specifies the ARN of an IAM role to use for authentication when sending logs to a different AWS account. For more information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account). If specified here, this overrides the `role_arn` specified in the `agent` section of the configuration file, if any.
-+ `metrics_collected` – This field can contain sections to specify that the agent is to collect logs to enable use cases such as CloudWatch Application Signals and Container Insights with enhanced observability for Amazon EKS.
++ `metrics_collected` – Turns on CloudWatch Application Signals and Container Insights with enhanced observability for Amazon EKS. This field can contain the following sections.
   + `application_signals` (Optional) Specifies that you want to enable [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md) For more information about this configuration, see [Enable CloudWatch Application Signals](CloudWatch-Agent-Application_Signals.md).
   + `kubernetes` – This field can contain an `enhanced_container_insights` parameter, which you can use to enable Container Insights with enhanced observability for Amazon EKS.
-    + `enhanced_container_insights` – Set this to `true` to enable Container Insights with enhanced observability for Amazon EKS. For more information, see [Amazon EKS](deploy-container-insights-EKS.md).
+    + `enhanced_container_insights` – Set this to `true` to enable Container Insights with enhanced observability for Amazon EKS. For more information, see [Container Insights for Amazon EKS](ContainerInsights.md).
     + `accelerated_compute_metrics` – Set this to `false` to opt out of collecting Nvidia GPU metrics on Amazon EKS clusters. For more information, see [NVIDIA GPU metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU).
-  + `emf` – To collect metrics embedded in logs, it is no longer necessary to add this `emf` field. This is a legacy field that specified that the agent is to collect logs that are in embedded metric format. You can generate metric data from these logs. For more information, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md).
-  + `otlp` – Optional. Specifies that you want to collect metrics from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md).
 
 The following is an example of a `logs` section.
 
@@ -934,12 +932,7 @@ The following is an example of a `logs` section.
                ]
            }
        },
-       "log_stream_name": "my_log_stream_name",
-       "metrics_collected": {
-        "kubernetes": {
-        "enhanced_container_insights": true
-      }
-    }
+       "log_stream_name": "my_log_stream_name"
   }
 ```
 
@@ -953,7 +946,7 @@ The agent's IAM role or IAM user must have the **AWSXrayWriteOnlyAccess** policy
 
 For a quick start for collecting traces, you can add just the following to the CloudWatch agent configuration file.
 
-```
+```json
 "traces_collected": {
         "xray": {
         },
@@ -964,7 +957,7 @@ For a quick start for collecting traces, you can add just the following to the C
 
 If you add the previous section to the CloudWatch agent configuration file and restart the agent, this causes the agent to start collecting traces using the following default options and values. For more information about these parameters, see the parameter definitions later in this section.
 
-```
+```json
 "traces_collected": {
         "xray": {
             "bind_address": "127.0.0.1:2000",
@@ -992,7 +985,7 @@ The `traces` section can include the following fields:
       + `bind_address` – Optional. Specifies the TCP address to which the CloudWatch agent should set up the proxy. The format is `ip:port`. This address must match the address set in the X-Ray SDK.
 
         If you omit this field, the default of `127.0.0.1:2000` is used.
-  + `otlp` – Optional. Specifies that you want to collect traces from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md)). For more information about the AWS Distro for OpenTelemetry, see [AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/). For more information about the AWS Distro for OpenTelemetry SDKs, see [Introduction](https://aws-otel.github.io/docs/introduction).
+  + `otlp` – Optional. Specifies that you want to collect traces from the OpenTelemetry SDK. For more information about the fields that you can use in this section, see [Receive OTLP data with the Classic configuration (legacy)](CloudWatch-Agent-OpenTelemetry-metrics.md)). For more information about the AWS Distro for OpenTelemetry, see [AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/). For more information about the AWS Distro for OpenTelemetry SDKs, see [Introduction](https://aws-otel.github.io/docs/introduction).
 
     This section can include the following fields:
     + `grpc_endpoint` – Optional. Specifies the address for the CloudWatch agent to use to listen for OpenTelemetry traces sent using gRPC Remote Procedure Calls. The format is `ip:port`. This address must match the address set for the gRPC exporter in the OpenTelemetry SDK.
@@ -1014,72 +1007,6 @@ The `traces` section can include the following fields:
   + `role_arn` – Specifies the ARN of an IAM role to use for authentication when sending traces to a different AWS account. For more information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account). If specified here, this overrides the `role_arn` specified in the `agent` section of the configuration file, if any.
 + `transit_spans_in_otlp_format` – Optional. If `true`, sends traces to X-Ray in the OpenTelemetry Protocol format, which supports span events in Transaction Search. For more information, see [Adding custom attributes](CloudWatch-Transaction-Search-add-custom-attributes.md). The default is `false`. 
 
-## CloudWatch agent configuration file: OpenTelemetry section
-<a name="CloudWatch-Agent-Configuration-File-OpenTelemetrysection"></a>
-
-The `opentelemetry` section depends on the agent's OTLP receiver, which was introduced in CloudWatch agent version 1.300070.0. Earlier versions do not support it. To check the installed version, read `/opt/aws/amazon-cloudwatch-agent/bin/CWAGENT_VERSION`.
-
-**Note**  
-On Amazon Linux 2023, the `yum install amazon-cloudwatch-agent` and `dnf install amazon-cloudwatch-agent` commands install a version that meets this minimum. If your package repository offers a version earlier than 1.300070.0, install the agent from the CloudWatch agent download instead. For more information, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md).
-
-The `opentelemetry` section can include the following fields:
-+ `cluster_name` – Optional. Specifies the name of the Kubernetes cluster. The agent applies this value to all telemetry collected under the `opentelemetry` section.
-+ `resource_attributes` – Optional. Specifies additional resource attributes to add to every metric, log, and trace collected under the `opentelemetry` section. This field is an object of string key-value pairs. You can specify up to 30 attributes. The maximum length of each value is 1024 characters. For attributes that the agent detects automatically, such as `cloud.region`, `host.id`, and `cloud.provider`, the detected value takes precedence. Use this field for attributes that the agent does not detect on its own.
-+ `collect` – Required. Specifies which telemetry sources the agent collects. You must include at least one of the following fields:
-  + `otlp` – Optional. Specifies that the agent receives metrics, traces, and logs sent to it over the OpenTelemetry Protocol (OTLP). This section can include the following fields:
-    + `grpc_endpoint` – Optional. Specifies the address the agent uses to listen for OTLP data sent using gRPC. The format is `ip:port`. This address must match the address set for the gRPC exporter in the OpenTelemetry SDK. If you omit this field, the agent uses the default `127.0.0.1:4317`. In a containerized deployment, set this to `0.0.0.0:4317` so the agent accepts traffic from other pods.
-    + `http_endpoint` – Optional. Specifies the address the agent uses to listen for OTLP data sent over HTTP. The format is `ip:port`. This address must match the address set for the HTTP exporter in the OpenTelemetry SDK. If you omit this field, the agent uses the default `127.0.0.1:4318`. In a containerized deployment, set this to `0.0.0.0:4318` so the agent accepts traffic from other pods.
-    + `span_metrics_enabled` – Optional. If `true`, the agent derives request, error, and duration metrics from received traces. The default value is `false`.
-  + `files` – Optional. Specifies that the agent collects log files from the host. It contains one field, `collect_list`.
-    + `collect_list` – Required if `files` is included. Contains an array of entries, each of which specifies one set of log files to collect. The array must contain at least one entry. Each entry can include the following fields:
-      + `file_path` – Required. Specifies the path or glob pattern of the log files to collect. The maximum length is 4096 characters.
-      + `log_group_name` – Optional. Specifies the log group name to use in CloudWatch Logs. The maximum length is 512 characters. You can use `{instance_id}`, `{hostname}`, `{local_hostname}`, and `{ip_address}` as variables within the name. If you omit this field, the agent uses `/aws/cwagent/files`. On Kubernetes, the agent includes the cluster name, as in `/aws/cwagent/{cluster_name}/files`.
-      + `log_stream_name` – Optional. Specifies the log stream name to use in CloudWatch Logs. The maximum length is 512 characters. This field supports the same variables as `log_group_name`. If you omit this field, the agent uses the host identifier and the log file name, separated by a slash (for example, `i-0123456789abcdef0/app.log`).
-      + `multi_line_start_pattern` – Optional. Specifies a regular expression that marks the start of a new log entry. The agent appends lines that don't match the pattern to the previous entry. Specify the value `{timestamp_format}` to derive the pattern from `timestamp_format`.
-      + `timestamp_format` – Optional. Specifies the format used to parse timestamps from log lines. For example, `%Y-%m-%d %H:%M:%S`.
-      + `timezone` – Optional. Specifies the time zone to use when parsing timestamps. Valid values are `UTC` and `Local`. The default value is `Local`.
-      + `encoding` – Optional. Specifies the encoding of the log files. If you omit this field, the agent uses the default `utf-8`.
-  + `windows_events` – Optional. Specifies that the agent collects events from the Windows Event Log. This source is available only on servers running Windows Server. It contains one field, `collect_list`.
-    + `collect_list` – Required if `windows_events` is included. Contains an array of entries, each of which specifies one Windows Event Log channel to collect. The array must contain at least one entry. Each entry can include the following fields:
-      + `event_name` – Required. Specifies the Windows Event Log channel to collect from, such as `System` or `Application`. The maximum length is 255 characters.
-      + `event_levels` – Optional. Specifies the event severity levels to collect. Valid values are `CRITICAL`, `ERROR`, `WARNING`, `INFORMATION`, and `VERBOSE`. If you omit this field, the agent collects events of all levels.
-      + `event_ids` – Optional. Specifies a list of specific event IDs to collect. Each ID must be between 0 and 65535.
-      + `event_format` – Optional. Specifies the output format. Valid values are `xml`, which sends the raw XML of the event, and `text`, which sends a structured representation. If you omit this field, the agent uses `text`.
-      + `log_group_name` – Optional. Specifies the log group name to use in CloudWatch Logs. The maximum length is 512 characters. If you omit this field, the agent uses `/aws/cwagent/windows_events`.
-      + `log_stream_name` – Optional. Specifies the log stream name to use in CloudWatch Logs. The maximum length is 512 characters. If you omit this field, the agent uses the host identifier and the event channel name, separated by a slash.
-  + `host_metrics` – Optional. Specifies that the agent collects host-level system metrics. This section can include the following field:
-    + `collection_interval` – Optional. Specifies how often the agent collects the metrics, in seconds. If you omit this field, the agent uses the `metrics_collection_interval` value from the `agent` section, or 30 seconds if that is also omitted.
-  + `prometheus` – Optional. Specifies that the agent scrapes metrics from Prometheus targets. This section can include the following field:
-    + `config_path` – Required. Specifies the path to the Prometheus scrape configuration file.
-
-**Note**  
-Make sure Transaction Search is enabled before you send traces to the OTLP traces endpoint.
-
-The following is an example of an `opentelemetry` section that collects OTLP telemetry and a log file.
-
-```
-"opentelemetry": {
-  "collect": {
-    "otlp": {
-      "grpc_endpoint": "0.0.0.0:4317",
-      "http_endpoint": "0.0.0.0:4318",
-      "span_metrics_enabled": true
-    },
-    "files": {
-      "collect_list": [
-        {
-          "file_path": "/var/log/app/*.log",
-          "log_group_name": "/app/{instance_id}",
-          "log_stream_name": "{hostname}",
-          "timestamp_format": "%Y-%m-%d %H:%M:%S",
-          "timezone": "UTC"
-        }
-      ]
-    }
-  }
-}
-```
-
 ## CloudWatch agent configuration file: Complete examples
 <a name="CloudWatch-Agent-Configuration-File-Complete-Example"></a>
 
@@ -1089,7 +1016,7 @@ The items listed in the `measurement` sections for the metrics you want to colle
 
 This example includes both ways of specifying metrics in the `measurement` section.
 
-```
+```json
     {
       "agent": {
         "metrics_collection_interval": 10,
@@ -1217,19 +1144,14 @@ This example includes both ways of specifying metrics in the `measurement` secti
           }
         },
         "log_stream_name": "my_log_stream_name",
-        "force_flush_interval" : 15,
-        "metrics_collected": {
-           "kubernetes": {
-                "enhanced_container_insights": true
-      }
-    }
+        "force_flush_interval" : 15
   }
 }
 ```
 
 The following is an example of a complete CloudWatch agent configuration file for a server running Windows Server.
 
-```
+```json
 {
       "agent": {
         "metrics_collection_interval": 60,
@@ -1265,9 +1187,9 @@ The following is an example of a complete CloudWatch agent configuration file fo
           },
           "{{customizedObjectName}}": {
             "metrics_collection_interval": 60,
-            "{{customizedCounterName}}": [
-              "{{metric1}}",
-              "{{metric2}}"
+            "measurement": [
+              "{{customizedCounterName1}}",
+              "{{customizedCounterName2}}"
             ],
             "resources": [
               "{{customizedInstances}}"
@@ -1358,11 +1280,6 @@ The following is an example of a complete CloudWatch agent configuration file fo
       }
     }
 ```
-
-## Save the CloudWatch agent configuration file manually
-<a name="Saving-Agent-Configuration-File"></a>
-
-If you create or edit the CloudWatch agent configuration file manually, you can give it any name. After you have created the file, you can copy it to other servers where you want to run the agent.
 
 ## Update the CloudWatch agent configuration file manually
 <a name="Update-CloudWatch-Agent-Configuration-File-Manually"></a>

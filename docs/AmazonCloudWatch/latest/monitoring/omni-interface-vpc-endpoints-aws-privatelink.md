@@ -1,7 +1,6 @@
 
 
 # Interface VPC endpoints (AWS PrivateLink)
-<a name="omni-interface-vpc-endpoints-aws-privatelink"></a>
 
 You can establish a private connection between your virtual private cloud (VPC) and CloudWatch Omni by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/), which you can use to privately access CloudWatch Omni without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not need public IP addresses to communicate with the service, and traffic between your VPC and CloudWatch Omni does not leave the AWS network.
 

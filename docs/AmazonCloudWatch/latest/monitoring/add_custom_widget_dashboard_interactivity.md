@@ -1,7 +1,6 @@
 
 
 # Interactivity in the custom widget in CloudWatch
-<a name="add_custom_widget_dashboard_interactivity"></a>
 
 Even though JavaScript is not allowed, there are other ways to allow interactivity with the returned HTML.
 + Any element in the returned HTML can be tagged with special configuration in a `<cwdb-action>` tag, which can display information in pop-ups, ask for confirmation on clicks, and call any Lambda function when that element is chosen. For example, you can define buttons that call any AWS API using a Lambda function. The returned HTML can be set to either replace the existing Lambda widget's content, or display inside a modal.
@@ -46,7 +45,7 @@ The following is an example of how to use the `<cwdb-action>` tag to create a bu
 
 The next example displays more information in a pop-up.
 
-```
+```lambda
 <a>Click me for more info in popup</a>
 <cwdb-action display="popup"> 
    <h1>Big title</h1>
@@ -56,7 +55,7 @@ The next example displays more information in a pop-up.
 
 This example is a **Next** button that replaces the content of a widget with a call to a Lambda function.
 
-```
+```lambda
 <a class="btn btn-primary">Next</a>
 <cwdb-action action="call" endpoint="arn:aws:lambda:us-east-1:123456:function:nextPage"> 
    { "pageNum": 2 }

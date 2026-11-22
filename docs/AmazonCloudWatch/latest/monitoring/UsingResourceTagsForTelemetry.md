@@ -1,7 +1,6 @@
 
 
 # Using resource tags for telemetry
-<a name="UsingResourceTagsForTelemetry"></a>
 
 Once you have enabled resource tags for telemetry, you can use this enriched data to create powerful monitoring solutions that scale with your infrastructure. Use tag-based queries to group and filter metrics across multiple resources, create dynamic alarms that automatically adapt to resource changes, and gain insights into your AWS environment organized by meaningful business or operational categories. This approach enables you to monitor resources by team, environment, application, or any other tagging strategy you use in your organization.
 + **Creating tag-based Metrics Insights queries** – After you enable resource tags for telemetry in your account, you can create tag-based Metrics Insights queries to discover and visualize your AWS infrastructure metrics by tag. Example queries using tags can be seen in the [CloudWatch Metrics Insights query builder documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-buildquery.html). *Monitoring accounts* can also make tag-based queries for metrics in *source accounts* which have enabled resource tags on their telemetry.

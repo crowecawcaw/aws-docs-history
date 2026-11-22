@@ -1,7 +1,6 @@
 
 
 # Configuring your canary to retry automatically
-<a name="CloudWatch_Synthetics_Canaries_autoretry"></a>
 
 When you create or update a canary, you can configure your canaries to automatically attempt additional runs when the scheduled one fails. This helps differentiate between genuine failures and temporary glitches, providing more reliable results. This feature is ideal for building more resilient monitoring systems while reducing false alarms and manual intervention.
 

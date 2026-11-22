@@ -1,7 +1,6 @@
 
 
 # Amazon FSx
-<a name="appinsights-metrics-fsx"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

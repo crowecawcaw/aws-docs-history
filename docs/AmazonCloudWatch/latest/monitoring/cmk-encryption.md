@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for OpenTelemetry metrics
-<a name="cmk-encryption"></a>
 
 ## What is a CloudWatch Dataset
 <a name="cmk-encryption-dataset-overview"></a>
@@ -14,7 +13,7 @@ Datasets can be encrypted and tagged like other AWS resources. The dataset ARN h
 
 To view the current encryption configuration of your dataset, use the `GetDataset` API:
 
-```
+```bash
 aws cloudwatch get-dataset \
     --dataset-identifier default
 ```
@@ -64,7 +63,7 @@ The caller who associates or uses the Dataset must have `kms:Decrypt` permission
 
 **Example Key policy for CloudWatch Dataset encryption**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -138,7 +137,7 @@ Use the `AssociateDatasetKmsKey` API to associate a customer managed key with a 
 
 To associate a customer managed key by using the AWS CLI, run the following command:
 
-```
+```bash
 aws cloudwatch associate-dataset-kms-key \
     --dataset-identifier default \
     --kms-key-arn arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}
@@ -162,7 +161,7 @@ If the currently associated key has been deleted, is scheduled for deletion, is 
 
 To remove the customer managed key and revert to AWS owned key encryption, call `DisassociateDatasetKmsKey`. The caller must have `kms:Decrypt` permission on the currently associated key.
 
-```
+```bash
 aws cloudwatch disassociate-dataset-kms-key \
     --dataset-identifier default
 ```
@@ -192,7 +191,7 @@ If the key is permanently deleted or otherwise unrecoverable, you can remove the
 
 Call `DisassociateDatasetKmsKey` to remove the association with the unusable key. CloudWatch reverts to AWS owned key encryption for new data. Existing data that was encrypted with the deleted key is no longer readable.
 
-```
+```bash
 aws cloudwatch disassociate-dataset-kms-key \
     --dataset-identifier default
 ```
@@ -202,7 +201,7 @@ aws cloudwatch disassociate-dataset-kms-key \
 
 Call `AssociateDatasetKmsKey` with a new, valid KMS key ARN. CloudWatch validates the new key and associates it with your dataset. Access to the previously associated key is not required. Existing data that was encrypted with the deleted key is no longer readable, but new data is encrypted with the new key.
 
-```
+```bash
 aws cloudwatch associate-dataset-kms-key \
     --dataset-identifier default \
     --kms-key-arn arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{new-key-id}}
@@ -237,7 +236,7 @@ You can use conditions in the key policy to limit access to your AWS KMS key.
 Encryption context condition  
 Use the `kms:EncryptionContext:aws:cloudwatch:arn` condition key to restrict key usage to your `default` Dataset.  
 
-```
+```JSON
 "Condition": {
     "StringEquals": {
         "kms:EncryptionContext:aws:cloudwatch:arn": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:dataset/default"
@@ -248,7 +247,7 @@ Use the `kms:EncryptionContext:aws:cloudwatch:arn` condition key to restrict key
 Confused deputy protection  
 Use the `aws:SourceArn` and `aws:SourceAccount` conditions to prevent cross-account confused deputy attacks.  
 
-```
+```JSON
 "Condition": {
     "StringEquals": {
         "aws:SourceAccount": "{{111122223333}}"
@@ -262,7 +261,7 @@ Use the `aws:SourceArn` and `aws:SourceAccount` conditions to prevent cross-acco
 kms:ViaService condition  
 Use the `kms:ViaService` condition key to restrict key usage to requests that come from CloudWatch.  
 
-```
+```JSON
 "Condition": {
     "StringEquals": {
         "kms:ViaService": "cloudwatch.{{us-east-1}}.amazonaws.com"

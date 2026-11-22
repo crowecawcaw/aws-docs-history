@@ -1,7 +1,6 @@
 
 
 # Prometheus metric type conversion by the CloudWatch Agent
-<a name="ContainerInsights-Prometheus-metrics-conversion"></a>
 
 The Prometheus client libraries offer four core metric types: 
 + Counter

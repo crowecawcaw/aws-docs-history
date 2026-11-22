@@ -1,7 +1,6 @@
 
 
 # Use `GetDashboard` with an AWS SDK or CLI
-<a name="example_cloudwatch_GetDashboard_section"></a>
 
 The following code examples show how to use `GetDashboard`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get information on a dashboard.
     /// </summary>
@@ -64,7 +63,7 @@ For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon
 **Tools for PowerShell V4**  
 **Example 1: Returns the arn the body of the specified dashboard.**  
 
-```
+```powershell
 Get-CWDashboard -DashboardName Dashboard1
 ```
 **Output:**  
@@ -79,7 +78,7 @@ arn:aws:cloudwatch::123456789012:dashboard/Dashboard1 {...
 **Tools for PowerShell V5**  
 **Example 1: Returns the arn the body of the specified dashboard.**  
 
-```
+```powershell
 Get-CWDashboard -DashboardName Dashboard1
 ```
 **Output:**  

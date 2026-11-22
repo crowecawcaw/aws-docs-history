@@ -1,7 +1,6 @@
 
 
 # Set up OpenAI Codex with a bearer token
-<a name="coding-agents-codex-bearer-token"></a>
 
 On this path, OpenAI Codex sends OpenTelemetry (OTel) metrics directly to the Amazon CloudWatch native OTLP metrics endpoint and authenticates with a bearer token (a CloudWatch metrics API key). No OpenTelemetry collector is required. This is the fastest way for an individual developer or a small team to get Codex metrics into the Coding Agent Insights dashboards.
 

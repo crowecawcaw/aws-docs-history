@@ -1,7 +1,6 @@
 
 
 # Create an investigation from a CloudWatch Application Signals Service Level Objective (SLO)
-<a name="Investigations-CreateInvestigation-SLO"></a>
 
 You can start an investigation from a CloudWatch Application Signals Service Level Objective (SLO) metric.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch metric stream output in OpenTelemetry 1.0.0 format
-<a name="CloudWatch-metric-streams-formats-opentelemetry-100"></a>
 
 **Note**  
 With the OpenTelemetry 1.0.0 format, metric attributes are encoded as a list of `KeyValue` objects instead of the `StringKeyValue` type used in the 0.7.0 format. As a consumer, this is the only major change between the 0.7.0 and 1.0.0 formats. A parser generated from the 0.7.0 proto files won't parse metric attributes encoded in the 1.0.0 format. The same is true in reverse, a parser generated from the 1.0.0 proto files will not parse metric attributes encoded in the 0.7.0 format.

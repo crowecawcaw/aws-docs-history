@@ -1,7 +1,6 @@
 
 
 # Monitoring your metric streams with CloudWatch metrics
-<a name="CloudWatch-metric-streams-monitoring"></a>
 
 Metric streams emit CloudWatch metrics about their health and operation in the `AWS/CloudWatch/MetricStreams` namespace. The following metrics are emitted. These metrics are emitted with a `MetricStreamName` dimension and with no dimension. You can use the metrics with no dimensions to see aggregated metrics for all of your metric streams. You can use the metrics with the `MetricStreamName` dimension to see the metrics about only that metric stream.
 

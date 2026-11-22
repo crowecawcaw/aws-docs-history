@@ -1,7 +1,6 @@
 
 
 # Manage space members and permissions
-<a name="omni-manage-space-members-and-permissions"></a>
 
 Add members to your space, give them grants, and remove access when it is no longer needed. Only a Space Admin can add, edit, or delete grants. For what grants and permission levels are and how they combine, see [Control access to your space](omni-control-access-to-your-space.md).
 

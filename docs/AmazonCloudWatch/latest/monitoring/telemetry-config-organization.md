@@ -1,7 +1,6 @@
 
 
 # Enable telemetry configuration for your organization
-<a name="telemetry-config-organization"></a>
 
 To turn on telemetry configuration for your organization, you must use a AWS Organization management account or a delegated administrator account. CloudWatch uses this account to discover your organization's AWS resources and configure their telemetry.
 

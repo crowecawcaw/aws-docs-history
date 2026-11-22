@@ -1,7 +1,6 @@
 
 
 # Use `DeleteDashboards` with an AWS SDK or CLI
-<a name="example_cloudwatch_DeleteDashboards_section"></a>
 
 The following code examples show how to use `DeleteDashboards`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete a list of CloudWatch dashboards.
     /// </summary>
@@ -56,7 +55,7 @@ For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Deletes the specified dashboard.
      *
@@ -87,7 +86,7 @@ For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun deleteDashboard(dashboardName: String) {
     val dashboardsRequest =
         DeleteDashboardsRequest {
@@ -107,7 +106,7 @@ suspend fun deleteDashboard(dashboardName: String) {
 **Tools for PowerShell V4**  
 **Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**  
 
-```
+```powershell
 Remove-CWDashboard -DashboardName Dashboard1
 ```
 +  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -115,7 +114,7 @@ Remove-CWDashboard -DashboardName Dashboard1
 **Tools for PowerShell V5**  
 **Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**  
 
-```
+```powershell
 Remove-CWDashboard -DashboardName Dashboard1
 ```
 +  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

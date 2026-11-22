@@ -1,7 +1,6 @@
 
 
 # Get started with CloudWatch Database Insights
-<a name="Database-Insights-Get-Started"></a>
 
 The Standard mode of Database Insights is enabled by default for your Amazon RDS and Aurora databases. To get started with the Advanced mode of Database Insights, you can create a new database or modify a database.
 
@@ -22,7 +21,7 @@ For information about setting up monitoring for a self-managed database, see the
 + [Monitoring Self-Managed PostgreSQL](Database-Insights-Self-Managed-PostgreSQL.md)
 
 ## Required permissions for Database Insights
-<a name="w2aac23c13c33c21"></a>
+<a name="w2aac23c15c33c21"></a>
 
 Certain IAM permissions are required to use Database Insights. Database Insights requires permissions for CloudWatch, CloudWatch Logs, Amazon RDS, and Amazon RDS Performance Insights. You might not need to provide these permissions to your user or role if you have broader permissions.
 
@@ -71,7 +70,7 @@ The following sample policy contains the permissions required for full access to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

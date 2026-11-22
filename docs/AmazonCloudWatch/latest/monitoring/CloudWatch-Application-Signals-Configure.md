@@ -1,7 +1,6 @@
 
 
 # (Optional) Configuring Application Signals
-<a name="CloudWatch-Application-Signals-Configure"></a>
 
 This section contains information about configuring CloudWatch Application Signals.
 

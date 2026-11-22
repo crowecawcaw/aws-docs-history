@@ -1,7 +1,6 @@
 
 
 # Qualys VMDR integration configuration
-<a name="qualys-vmdr-setup"></a>
 
 Qualys Vulnerability Management, Detection and Response (VMDR) is a cloud-native vulnerability management platform. It provides continuous discovery, assessment, prioritization, and remediation of vulnerabilities across on-premises, cloud, container, and hybrid environments. It combines asset discovery and vulnerability scanning with prioritization based on TruRisk, the proprietary Qualys risk-scoring model, and integrated patch management.
 

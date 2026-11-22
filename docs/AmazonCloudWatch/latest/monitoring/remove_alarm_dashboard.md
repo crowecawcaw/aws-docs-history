@@ -1,7 +1,6 @@
 
 
 # Removing an alarm widget from a CloudWatch dashboard
-<a name="remove_alarm_dashboard"></a>
 
 **To remove an alarm widget from a dashboard**
 

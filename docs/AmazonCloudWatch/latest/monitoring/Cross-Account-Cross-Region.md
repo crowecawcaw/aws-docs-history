@@ -1,7 +1,6 @@
 
 
 # Cross-account cross-Region CloudWatch console
-<a name="Cross-Account-Cross-Region"></a>
 
 **Note**  
 We recommend that you use CloudWatch cross-account observability to get the richest cross-account observability and discovery experience for your metrics, logs, and traces within a Region. For more information, see [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md).
@@ -82,7 +81,7 @@ This grants the read-only permissions listed in the policies shown in step 5 of 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -106,7 +105,7 @@ This grants the read-only permissions listed in the policies shown in step 5 of 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -169,7 +168,7 @@ When you complete the following procedure, CloudWatch creates a service role tha
 
 You can also set up a monitoring account without using the console. Define the **ServiceRoleForCloudWatchCrossAccountV2** role as infrastructure as code. Use this approach when you manage multiple monitoring accounts. It deploys the role consistently across all of them. The following example uses the AWS CDK in TypeScript to define the role with the required trust policy and an inline permissions policy:
 
-```
+```typescript
 import { Role, ServicePrincipal, PolicyDocument, PolicyStatement, Effect } from 'aws-cdk-lib/aws-iam';
 
 new Role(this, 'ServiceRoleForCloudWatchCrossAccountV2', {
@@ -201,7 +200,7 @@ To deploy the role to many accounts at once, use the synthesized template with C
 When you define the role with the AWS CDK, the inline permissions policy grants `sts:AssumeRole` permission. CloudWatch uses this permission to assume the **CloudWatch-CrossAccountSharingRole** in your sharing accounts. To follow the principle of least privilege, limit the `Resource` of the `sts:AssumeRole` action to only the accounts that the monitoring account needs. You can scope access in the following ways, from most restrictive to least restrictive:
 + **An entire organization** – Allow the monitoring account to assume the sharing role only in accounts that belong to your organization. Replace {{org-id}} with the ID of your organization (for example, `o-a1b2c3d4e5`). Use the following JSON inline policy:
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -220,7 +219,7 @@ When you define the role with the AWS CDK, the inline permissions policy grants 
   ```
 + **A list of accounts** – Allow the monitoring account to assume the sharing role only in the accounts that you list. Replace each example account ID (such as `111122223333`) with the ID of a sharing account. Use the following JSON inline policy:
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -237,7 +236,7 @@ When you define the role with the AWS CDK, the inline permissions policy grants 
   ```
 + **Any account** – Allow the monitoring account to assume the sharing role in any account. This matches the permissions of the role that CloudWatch creates for you, but it is the least restrictive option. Use the following JSON inline policy:
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -316,7 +315,7 @@ To start a Logs query in a source account, you must have wildcard (\*) access to
 
 **Supported - wildcard resource:**
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "logs:StartQuery",
@@ -326,7 +325,7 @@ To start a Logs query in a source account, you must have wildcard (\*) access to
 
 **Not supported - specific ARN:**
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "logs:StartQuery",

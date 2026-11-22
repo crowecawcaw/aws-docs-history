@@ -1,7 +1,6 @@
 
 
 # Use Amazon Athena to query internet measurements in Amazon S3 log files
-<a name="CloudWatch-IM-view-cw-tools.S3_athena"></a>
 
 You can use Amazon Athena to query and view the internet measurements that Internet Monitor publishes to an Amazon S3 bucket. There's an option in Internet Monitor to publish internet measurements for your application to an S3 bucket for internet-facing traffic for your monitored city-networks (client locations and ASNs, typically internet service providers or ISPs). Regardless of whether you choose to publish measurements to S3, Internet Monitor automatically publishes internet measurements to CloudWatch Logs every five minutes for the top 500 (by traffic volume) city-networks for each monitor. 
 
@@ -20,7 +19,7 @@ Follow the steps in this procedure to create a table in Athena based on the S3 l
 
 1. In the Athena query editor, enter a query statement to generate a table with Internet Monitor internet measurements. Replace the value for the LOCATION parameter with the location of S3 bucket where your Internet Monitor internet measurements are stored. 
 
-   ```
+   ```json
    CREATE EXTERNAL TABLE internet_measurements (
        version INT,
        timestamp INT,
@@ -42,7 +41,7 @@ Follow the steps in this procedure to create a table in Athena based on the S3 l
 
 1. Enter a statement to create a partition to read the data. For example, the following query creates a single partition for a specified date and location:
 
-   ```
+   ```json
    ALTER TABLE internet_measurements
    ADD PARTITION (year = 'YYYY', month = 'MM', day = 'dd')
    LOCATION
@@ -55,7 +54,7 @@ Follow the steps in this procedure to create a table in Athena based on the S3 l
 
 The following is an example of a statement to generate a table:
 
-```
+```json
 CREATE EXTERNAL TABLE internet_measurements (
     version INT,
     timestamp INT,
@@ -76,7 +75,7 @@ TBLPROPERTIES ('skip.header.line.count' = '1');
 
 The following is an example of a statement to create a partition to read the data:
 
-```
+```json
 ALTER TABLE internet_measurements
 ADD PARTITION (year = '2023', month = '04', day = '07')
 LOCATION 's3://internet-measurements/TestMonitor/AWSLogs/1111222233332/internetmonitor/us-east-2/2023/04/07/'
@@ -91,7 +90,7 @@ This section includes example queries that you can use with Amazon Athena to get
 
 Run this Athena query to return your top 10 impacted (by total percentage of traffic) city-networks—that is, client locations and ASNs, typically internet service providers. 
 
-```
+```json
 SELECT json_extract_scalar(clientLocation, '$.city') as city,
     json_extract_scalar(clientLocation, '$.networkname') as networkName,
     sum(percentageoftotaltraffic) as percentageoftotaltraffic
@@ -106,7 +105,7 @@ limit 10
 
 Run this Athena query to return your top 10 impacted (by total percentage of traffic) city-networks—that is, client locations and ASNs, typically internet service providers. 
 
-```
+```json
 SELECT json_extract_scalar(clientLocation, '$.city') as city,
     json_extract_scalar(clientLocation, '$.networkname') as networkName,
     sum(
@@ -128,7 +127,7 @@ limit 10
 
 Run this Athena query to return your top 10 impacted (by latency impact) city-networks—that is, client locations and ASNs, typically internet service providers. 
 
-```
+```json
 SELECT json_extract_scalar(clientLocation, '$.city') as city,
     json_extract_scalar(clientLocation, '$.networkname') as networkName,
     sum(
@@ -150,7 +149,7 @@ limit 10
 
 Run this Athena query to return traffic highlights, including availability score, performance score, and time to first byte for your city-networks—that is, client locations and ASNs, typically internet service providers. .
 
-```
+```json
 SELECT json_extract_scalar(clientLocation, '$.city') as city,
     json_extract_scalar(clientLocation, '$.subdivision') as subdivision,
     json_extract_scalar(clientLocation, '$.country') as country,

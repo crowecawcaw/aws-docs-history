@@ -1,7 +1,6 @@
 
 
 # Using Context Graph
-<a name="omni-using-context-graph"></a>
 
 Use the Context Graph to understand the services, resources, and relationships that Omni has identified in your environment. Omni builds the graph from your telemetry and from resources it discovers in your account. A dependency is one kind of relationship: evidence that one component called another. The application map is a visual view of this graph. For the node and relationship types shown on the map, see [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md).
 

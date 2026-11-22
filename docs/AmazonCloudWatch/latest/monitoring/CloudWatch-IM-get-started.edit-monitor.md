@@ -1,7 +1,6 @@
 
 
 # Edit a monitor in Internet Monitor
-<a name="CloudWatch-IM-get-started.edit-monitor"></a>
 
 Using the **Action** menu, you can edit a monitor in Amazon CloudWatch Internet Monitor after you create it. For example, you can edit a monitor to do the following:
 + Change the percentage of application traffic to monitor

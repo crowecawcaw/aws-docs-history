@@ -1,7 +1,6 @@
 
 
 # Metrics Insights quotas
-<a name="cloudwatch-metrics-insights-limits"></a>
 
 CloudWatch Metrics Insights currently has the following quotas:
 + Query up to two weeks of data for visualization in your metrics, widgets, and alarm graphs. You can query the most recent three hours of data for alarm condition evaluations.

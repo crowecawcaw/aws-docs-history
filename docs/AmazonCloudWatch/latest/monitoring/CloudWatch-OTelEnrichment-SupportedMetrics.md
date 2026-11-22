@@ -1,7 +1,6 @@
 
 
 # Supported AWS resources and metrics for OpenTelemetry enrichment
-<a name="CloudWatch-OTelEnrichment-SupportedMetrics"></a>
 
 When you enable OTel enrichment, CloudWatch republishes selected metrics from the following AWS services as OpenTelemetry time series. Each CloudWatch namespace maps to an OpenTelemetry instrumentation scope named `cloudwatch.aws/{{service}}` — for example, the `AWS/EC2` namespace maps to the scope `cloudwatch.aws/ec2`. All enriched instruments use Delta temporality.
 

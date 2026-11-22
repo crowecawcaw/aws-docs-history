@@ -1,11 +1,10 @@
 
 
 # RDS PostgreSQL
-<a name="component-configuration-examples-rds-postgre-sql"></a>
 
 The following example shows a component configurations in JSON format for RDS PostgreSQL.
 
-```
+```json
 {
   "alarmMetrics": [
     {

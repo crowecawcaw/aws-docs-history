@@ -1,11 +1,10 @@
 
 
 # Amazon ECS services
-<a name="component-configuration-examples-ecs-service"></a>
 
 The following example shows a component configuration in JSON format for an Amazon ECS service.
 
-```
+```json
 {
     "alarmMetrics":[
        {

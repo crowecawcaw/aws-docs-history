@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="AgentCore-GettingStarted"></a>
 
 Amazon Bedrock AgentCore provides built-in metrics, logs, and traces to monitor the performance of your AgentCore modular services. You can view this data in Amazon CloudWatch. To access the full range of observability data from all AgentCore module services, instrument your code using the AWS Distro for OpenTelemetry (ADOT) SDK.
 

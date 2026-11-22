@@ -1,7 +1,6 @@
 
 
 # Creating a Metrics Insights CloudWatch alarm
-<a name="cloudwatch-metrics-insights-alarm-create"></a>
 
 **To create an alarm on a Metrics Insights query using the console**
 
@@ -67,6 +66,6 @@ To create an alarm that performs an SSM Incident Manager action, you must have c
 
 Use the `put-metric-alarm` command and specify a Metrics Insights query in the `metrics` parameter. For example, the following command sets an alarm that goes into ALARM state if any of your instances go above 80% in CPU utilization.
 
-```
+```cmd
 aws cloudwatch put-metric-alarm --alarm-name Prod-App-CPU-Alarm --evaluation-periods 1 --comparison-operator GreaterThanThreshold --metrics '[{"Id":"m1","Expression":"SELECT MAX(CPUUtilization) FROM \"AWS/EC2\" WHERE tag.Environment = '\''Prod'\'' AND tag.Application = '\''OrderService'\''", "Period":60}]' --threshold 80
 ```

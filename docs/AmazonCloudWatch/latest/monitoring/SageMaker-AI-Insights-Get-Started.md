@@ -1,7 +1,6 @@
 
 
 # Get started with CloudWatch SageMaker AI Insights
-<a name="SageMaker-AI-Insights-Get-Started"></a>
 
 Follow these steps to enable and access SageMaker AI Insights for your inference endpoints.
 

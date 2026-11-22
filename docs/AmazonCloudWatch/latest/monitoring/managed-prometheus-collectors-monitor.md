@@ -1,7 +1,6 @@
 
 
 # Monitor collectors
-<a name="managed-prometheus-collectors-monitor"></a>
 
 Amazon CloudWatch managed Prometheus collectors automatically vend logs to CloudWatch Logs so you can monitor scraper health, diagnose connectivity issues, and track scraping activity. These logs include information about target discovery, scrape successes and failures, and configuration errors. For more information about collector logging, see [Logging for managed collectors](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-logging.html) in the *Amazon Managed Service for Prometheus User Guide*.
 
@@ -10,13 +9,13 @@ Amazon CloudWatch managed Prometheus collectors automatically vend logs to Cloud
 
 Use the following command to list all scrapers in your account and Region:
 
-```
+```bash
 aws amp list-scrapers
 ```
 
 To filter scrapers by alias:
 
-```
+```bash
 aws amp list-scrapers --filters alias={{my-scraper-alias}}
 ```
 
@@ -25,7 +24,7 @@ aws amp list-scrapers --filters alias={{my-scraper-alias}}
 
 To view the details and current status of a specific scraper:
 
-```
+```bash
 aws amp describe-scraper --scraper-id {{scraper-id}}
 ```
 
@@ -34,7 +33,7 @@ aws amp describe-scraper --scraper-id {{scraper-id}}
 
 To delete a scraper that is no longer needed:
 
-```
+```bash
 aws amp delete-scraper --scraper-id {{scraper-id}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch observability solutions
-<a name="Monitoring-Solutions"></a>
 
 CloudWatch observability solutions offer a catalog of readily available configurations to help you quickly implement monitoring for various AWS services and common workloads, such as Java Virtual Machines (JVM), Apache Kafka, Apache Tomcat, and NGINX. These solutions provide focused guidance on key monitoring tasks, including the installation and configuration of the CloudWatch agent, deployment of pre-defined custom dashboards, and setup of metric alarms. They are designed to assist developers and operations teams in leveraging AWS monitoring and observability tools more effectively.
 

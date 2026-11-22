@@ -1,11 +1,10 @@
 
 
 # AWS Lambda Function
-<a name="component-configuration-examples-lambda"></a>
 
 The following example shows a component configuration in JSON format for AWS Lambda Function.
 
-```
+```json
 {
   "alarmMetrics": [
     {

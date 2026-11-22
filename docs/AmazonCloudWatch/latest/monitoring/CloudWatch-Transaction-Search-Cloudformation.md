@@ -1,7 +1,6 @@
 
 
 # Using Transaction Search with CloudFormation
-<a name="CloudWatch-Transaction-Search-Cloudformation"></a>
 
 You can use CloudFormation to enable and configure X-Ray Transaction Search.
 
@@ -25,7 +24,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **YAML**
 
-   ```
+   ```yaml
    Resources:
      LogsResourcePolicy:
        Type: AWS::Logs::ResourcePolicy
@@ -61,7 +60,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **JSON**
 
-   ```
+   ```json
    {
        "Resources": {
            "LogsResourcePolicy": {
@@ -81,7 +80,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **YAML**
 
-   ```
+   ```yaml
    Resources:
      XRayTransactionSearchConfig:
        Type: AWS::XRay::TransactionSearchConfig
@@ -89,7 +88,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **JSON**
 
-   ```
+   ```json
    {
      "Resources": {
        "XRayTransactionSearchConfig": {
@@ -103,7 +102,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **YAML**
 
-   ```
+   ```yaml
    Resources:
      XRayTransactionSearchConfig:
        Type: AWS::XRay::TransactionSearchConfig
@@ -113,7 +112,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **JSON**
 
-   ```
+   ```json
    {
      "Resources": {
        "XRayTransactionSearchConfig": {
@@ -132,7 +131,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **YAML**
 
-   ```
+   ```yaml
    Resources:
      XRayTransactionSearchConfig:
        Type: AWS::XRay::TransactionSearchConfig
@@ -143,7 +142,7 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    **JSON**
 
-   ```
+   ```json
    {
      "Resources": {
        "XRayTransactionSearchConfig": {
@@ -169,7 +168,7 @@ The following example includes both the resource policy and the TransactionSearc
 
 **YAML**
 
-```
+```yaml
 Resources:
   LogsResourcePolicy:
     Type: AWS::Logs::ResourcePolicy
@@ -210,7 +209,7 @@ Resources:
 
 **JSON**
 
-```
+```json
 {
     "Resources": {
         "LogsResourcePolicy": {

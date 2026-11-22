@@ -1,7 +1,6 @@
 
 
 # Add a metrics explorer widget to a CloudWatch dashboard
-<a name="add_metrics_explorer_dashboard"></a>
 
 The following steps explain how to add a metrics explorer widget to a dashboard using the console. You can also add it programmatically or by using CloudFormation. For more information, see [ Metrics Explorer Widget Object Definition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Metric-Explorer-Object) and [ AWS::CloudWatch::Dashboard](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html).
 

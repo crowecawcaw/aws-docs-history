@@ -1,7 +1,6 @@
 
 
 # Application Insights cross-account observability
-<a name="appinsights-cross-account"></a>
 
 With CloudWatch Application Insights cross-account observability, you can monitor and troubleshoot your applications that span multiple AWS accounts within a single Region.
 

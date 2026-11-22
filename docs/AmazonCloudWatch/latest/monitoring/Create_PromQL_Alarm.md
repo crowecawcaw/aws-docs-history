@@ -1,7 +1,6 @@
 
 
 # Create an alarm using a PromQL query
-<a name="Create_PromQL_Alarm"></a>
 
 You can create a CloudWatch alarm that uses a PromQL instant query to monitor metrics ingested through the CloudWatch OTLP endpoint. All matching time series returned by the query are considered breaching, and the alarm tracks each breaching time series as a contributor. For more information about how PromQL alarms work, see [PromQL alarms](alarm-promql.md).
 
@@ -47,7 +46,7 @@ Use the [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/API
 **Example: PromQL alarm that triggers when the 5xx error rate for a service exceeds 5 percent**  
 This alarm notifies an Amazon SNS topic when the 5xx error rate exceeds 5 percent. It waits 60 seconds (the pending period) before entering the `ALARM` state, and 300 seconds (the recovery period) before returning to `OK`.  
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name MyPromQLAlarm \
   --evaluation-criteria '{"PromQLCriteria":{"Query":"sum(rate({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\", \"http.response.status_code\"=~\"5..\"}[5m])) / sum(rate({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[5m])) * 100 > 5","PendingPeriod":60,"RecoveryPeriod":300}}' \
@@ -58,7 +57,7 @@ aws cloudwatch put-metric-alarm \
 **Example: PromQL alarm for p99 request latency with a pending period**  
 This alarm waits 300 seconds (5 minutes) before transitioning to the `ALARM` state, and waits 600 seconds (10 minutes) before recovering.  
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name HighLatencyAlarm \
   --evaluation-criteria '{"PromQLCriteria":{"Query":"histogram_quantile(0.99, {\"http.server.request.duration\", \"@resource.service.name\"=\"checkout-api\"}) > 0.5","PendingPeriod":300,"RecoveryPeriod":600}}' \
@@ -67,7 +66,7 @@ aws cloudwatch put-metric-alarm \
 
 **Example Create a PromQL alarm with an SNS notification action**  
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name MyPromQLAlarmWithAction \
   --evaluation-criteria '{"PromQLCriteria":{"Query":"avg by (\"@resource.k8s.pod.name\") (rate(container_cpu_usage_seconds_total{\"@resource.k8s.namespace.name\"=\"production\"}[5m])) * 100 > 80","PendingPeriod":0,"RecoveryPeriod":0}}' \
@@ -78,7 +77,7 @@ aws cloudwatch put-metric-alarm \
 **Example: PromQL anomaly-detection alarm using a statistical band**  
 A PromQL alarm can detect anomalies without a separate anomaly detector. Instead of the `ANOMALY_DETECTION_BAND` metric-math function that standard metric alarms use, you build the expected range directly in the query with functions such as `quantile_over_time` and `stddev_over_time`. The following query alerts when the request count for the checkout-api service moves more than three standard deviations from its one-hour median in either direction. The `clamp_min` function keeps the lower bound from going negative.  
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name RequestCountAnomaly \
   --evaluation-criteria '{"PromQLCriteria":{"Query":"1 * {\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"} > quantile_over_time(0.5, {\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[60m] offset 1m) + 3 * stddev_over_time({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[60m] offset 1m) or 1 * {\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"} < clamp_min(quantile_over_time(0.5, {\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[60m] offset 1m) - 3 * stddev_over_time({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[60m] offset 1m), 0)"}}' \
@@ -88,7 +87,7 @@ aws cloudwatch put-metric-alarm \
 **Example: PromQL alarm that triggers an Application Auto Scaling step scaling policy**  
 You can attach a PromQL alarm to an Application Auto Scaling step scaling policy. First, create the step scaling policy with the `put-scaling-policy` command. The command returns a policy ARN.  
 
-```
+```bash
 aws application-autoscaling put-scaling-policy \
   --service-namespace ecs \
   --scalable-dimension ecs:service:DesiredCount \
@@ -99,7 +98,7 @@ aws application-autoscaling put-scaling-policy \
 ```
 Then create the PromQL alarm, setting `--alarm-actions` to the policy ARN from the previous output. This alarm scales out the service when the 5xx error rate for the checkout-api service exceeds 5 percent. When a PromQL alarm triggers an Auto Scaling action, the query must return a single time series and include a comparison. Wrap the expression in an aggregation function such as `avg`, `sum`, `max`, or `min`, followed by the comparison, as shown in the following command.  
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name checkout-5xx-scale-out \
   --evaluation-criteria '{"PromQLCriteria":{"Query":"avg(sum(rate({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\", \"http.response.status_code\"=~\"5..\"}[5m])) / sum(rate({\"http.server.request.count\", \"@resource.service.name\"=\"checkout-api\"}[5m])) * 100) > 5","PendingPeriod":60,"RecoveryPeriod":300}}' \

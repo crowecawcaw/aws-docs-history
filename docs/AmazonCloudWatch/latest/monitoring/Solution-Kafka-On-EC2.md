@@ -1,7 +1,6 @@
 
 
 # CloudWatch solution: Kafka workload on Amazon EC2
-<a name="Solution-Kafka-On-EC2"></a>
 
 This solution helps you configure out-of-the-box metric collection using CloudWatch agents for Kafka workloads (brokers, producers, and consumers) running on EC2 instances. Additionally, it helps you set up a pre-configured CloudWatch dashboard. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md).
 
@@ -145,7 +144,7 @@ Use the following CloudWatch agent configuration on EC2 instances where Kafka br
 
 The EC2 metrics shown in this configuration (configuration shown outside the JMX block) only work for Linux and macOS instances. If you are using Windows instances, you can choose to omit these metrics in the configuration. For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent).
 
-```
+```json
 {
   "metrics": {
     "namespace": "CWAgent",
@@ -227,7 +226,7 @@ Use the following CloudWatch agent configuration on Amazon EC2 instances where K
 
  The solution doesn’t enable JVM metrics for Kafka producers because the solution dashboard doesn’t display JVM metrics related to JVM for producers. You can customize the agent configuration to emit JVM metrics as well, however, JVM metrics related to producers are not visible on the solution dashboard.
 
-```
+```json
 {
   "metrics": {
     "namespace": "CWAgent",
@@ -265,7 +264,7 @@ Use the following CloudWatch agent configuration on EC2 instances where Kafka co
 
 The solution doesn’t enable JVM metrics for Kafka consumers because the solution dashboard doesn’t display JVM metrics related to JVM for consumers. You can customize the agent configuration to emit JVM metrics as well, however JVM metrics related to consumer are not visible on the solution dashboard.
 
-```
+```json
 {
   "metrics": {
     "append_dimensions": {
@@ -495,7 +494,7 @@ The individual configurations for Kafka roles listed in [CloudWatch agent config
 
 The following example shows a CloudWatch agent configuration where the producer and consumer roles are running on one instance as part of the same JVM process. In this case, the port number must be the same in both the producer and consumer parts of the configuration below. If instead the two roles were running as part of different JVM processes, you could specify different port numbers for each, according to the JMX port of each individual JVM process.
 
-```
+```json
 {
   "metrics": {
     "namespace": "CWAgent",

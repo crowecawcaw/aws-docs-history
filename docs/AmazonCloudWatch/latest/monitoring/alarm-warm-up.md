@@ -1,7 +1,6 @@
 
 
 # Alarm warm-up periods
-<a name="alarm-warm-up"></a>
 
 A warm-up period delays alarm evaluation after you create or update an alarm. This reduces noise from missing data while a new resource or service starts to publish data. During warm-up, the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch solution: JVM workload on Amazon EC2
-<a name="Solution-JVM-On-EC2"></a>
 
 This solution helps you configure out-of-the-box metric collection using CloudWatch agents for JVM application running on EC2 instances. Additionally, it helps you set up a pre-configured CloudWatch dashboard. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md).
 
@@ -128,7 +127,7 @@ Replace {{ProcessGroupName}} with the name of your process group. Replace {{port
 
 The EC2 metrics shown in this configuration (configuration shown outside the JMX block) only work for Linux and macOS instances. If you are using Windows instances, you can choose to omit these metrics in the configuration. For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent).
 
-```
+```json
 {
   "metrics": {
     "namespace": "CWAgent",

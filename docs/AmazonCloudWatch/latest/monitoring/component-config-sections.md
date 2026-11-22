@@ -1,7 +1,6 @@
 
 
 # Component configuration sections
-<a name="component-config-sections"></a>
 
 A component configuration includes several major sections. Sections in a component configuration can be listed in any order.
 + **alarmMetrics (optional)**
@@ -40,7 +39,7 @@ A component configuration includes several major sections. Sections in a compone
 
 The following example shows the syntax for the **subComponents section fragment** in JSON format.
 
-```
+```json
 [
   {
     "subComponentType" : "AWS::EC2::Instance",
@@ -90,7 +89,7 @@ Defines a metric to be monitored for the component.
 
 **JSON** 
 
-```
+```json
 {
   "alarmMetricName" : "{{monitoredMetricName}}",
   "monitor" : {{true/false}}
@@ -112,7 +111,7 @@ Defines a log to be monitored for the component.
 
 **JSON** 
 
-```
+```json
 {
   "logGroupName" : "{{logGroupName}}",
   "logPath" : "{{logPath}}",
@@ -173,7 +172,7 @@ Defines a process to be monitored for the component.
 
 **JSON** 
 
-```
+```json
 {
   "processName" : "{{monitoredProcessName}}",
   "alarmMetrics" : [
@@ -197,7 +196,7 @@ Defines the JMX Prometheus Exporter settings.
 
 **JSON** 
 
-```
+```json
 "JMXPrometheusExporter": {
   "jmxURL" : "{{JMX URL}}",
   "hostPort" : "{{The host and port}}",
@@ -223,7 +222,7 @@ Defines the HANA Prometheus Exporter settings.
 
 **JSON** 
 
-```
+```json
 "hanaPrometheusExporter": {
     "hanaSid": "SAP HANA  SID",
     "hanaPort": "HANA database port",
@@ -253,7 +252,7 @@ Defines the HA Cluster Prometheus Exporter settings.
 
 **JSON** 
 
-```
+```json
 "haClusterPrometheusExporter": {
     "prometheusPort": "Target port to emit Prometheus metrics"
 }
@@ -271,7 +270,7 @@ Defines the NetWeaver Prometheus Exporter settings.
 
 **JSON** 
 
-```
+```json
 "netWeaverPrometheusExporter": {
     "sapSid": "SAP NetWeaver  SID",
     "instanceNumbers": [ "Array of instance Numbers of SAP NetWeaver system "],
@@ -299,7 +298,7 @@ Defines the SAP ASE Prometheus Exporter settings.
 
 **JSON** 
 
-```
+```json
 "sapASEPrometheusExporter": {
     "sapAseSid": "SAP ASE SID",
     "sapAsePort": "SAP ASE database port",
@@ -330,7 +329,7 @@ Defines Windows Events to log.
 
 **JSON** 
 
-```
+```json
 {
   "logGroupName" : "{{logGroupName}}",
   "eventName" : "{{eventName}}",
@@ -360,7 +359,7 @@ Defines a CloudWatch alarm to be monitored for the component.
 
 **JSON** 
 
-```
+```json
 {
   "alarmName" : "{{monitoredAlarmName}}",
   "severity" : {{HIGH/MEDIUM/LOW}}

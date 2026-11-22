@@ -1,7 +1,6 @@
 
 
 # Use page groups
-<a name="CloudWatch-RUM-page-groups"></a>
 
 Use page groups to associate different pages in your application with each other so that you can see aggregated analytics for groups of pages. For example, you might want to see the aggregated page load times of all of your landing pages. 
 

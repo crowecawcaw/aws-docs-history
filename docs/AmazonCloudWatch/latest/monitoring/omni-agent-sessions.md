@@ -1,7 +1,6 @@
 
 
 # Agent sessions
-<a name="omni-agent-sessions"></a>
 
 The Agent sessions view groups the traces that belong to the same conversation or user interaction, so you can follow a multi-turn exchange from start to finish and see where it went wrong across turns. For how traces, spans, and sessions relate, see [Monitor AI agents](omni-monitor-ai-agents.md).
 
@@ -39,7 +38,7 @@ Omni groups traces into sessions using the OpenTelemetry `session.id` span attri
 
 Set `session.id` on the root span of every turn that belongs to the same conversation, reusing one stable ID per conversation and starting a fresh ID when a new conversation starts:
 
-```
+```python
 from opentelemetry import trace
 
 # Reuse the SAME id for every turn in one conversation.

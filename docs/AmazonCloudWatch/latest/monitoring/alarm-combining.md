@@ -1,7 +1,6 @@
 
 
 # Composite alarms
-<a name="alarm-combining"></a>
 
 With CloudWatch, you can combine several alarms into one *composite alarm* to create a summarized, aggregated health indicator over a whole application or group of resources. Composite alarms are alarms that determine their state by monitoring the states of other alarms. You define rules to combine the status of those monitored alarms using Boolean logic.
 

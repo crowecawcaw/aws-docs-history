@@ -1,7 +1,6 @@
 
 
 # Removing a number widget from a CloudWatch dashboard
-<a name="remove_number_dashboard"></a>
 
 **To remove a number widget from a dashboard**
 

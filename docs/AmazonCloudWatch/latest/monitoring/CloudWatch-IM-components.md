@@ -1,7 +1,6 @@
 
 
 # Components and terms for Internet Monitor
-<a name="CloudWatch-IM-components"></a>
 
 Internet Monitor uses or references the following concepts.
 

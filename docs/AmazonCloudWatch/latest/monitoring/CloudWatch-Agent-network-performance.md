@@ -1,11 +1,10 @@
 
 
 # Collect network performance metrics
-<a name="CloudWatch-Agent-network-performance"></a>
 
-EC2 instances running on Linux that use the Elastic Network Adapter (ENA) publish network performance metrics. Version 1.246396.0 and later of the CloudWatch agent enable you to import these network performance metrics into CloudWatch. When you import these network performance metrics into CloudWatch, they are charged as CloudWatch custom metrics.
+Amazon EC2 instances that use the Elastic Network Adapter (ENA) publish network performance metrics. The CloudWatch agent can import these metrics into CloudWatch. When you import these network performance metrics into CloudWatch, they are charged as CloudWatch custom metrics.
 
-For more information about the ENA driver, see [ Enabling enhanced networking with the Elastic Network Adapter (ENA) on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html) and [ Enabling enhanced networking with the Elastic Network Adapter (ENA) on Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking-ena.html).
+For more information about the ENA driver, see [Enable enhanced networking with ENA on your Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html) in the *Amazon EC2 User Guide*.
 
 How you set up the collection of network performance metrics differs on Linux servers and Windows servers.
 
@@ -14,16 +13,16 @@ The following table lists these network performance metrics enabled by the ENA a
 
 | Metric | Description | 
 | --- | --- | 
-| Name on Linux servers: `bw_in_allowance_exceeded`<br />Name on Windows servers: `Aggregate inbound BW allowance exceeded` | The number of packets queued and/or dropped because the inbound aggregate bandwidth exceeded the maximum for the instance.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Collect network performance metrics](#CloudWatch-Agent-network-performance)<br />Unit: None | 
-|  Name on Linux servers: `bw_out_allowance_exceeded`<br />Name on Windows servers: `Aggregate outbound BW allowance exceeded` | The number of packets queued and/or dropped because the outbound aggregate bandwidth exceeded the maximum for the instance.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Collect network performance metrics](#CloudWatch-Agent-network-performance)<br />Unit: None | 
-| Name on Linux servers:`conntrack_allowance_available`<br />Name on Windows servers: `Available connection tracking allowance` | Reports the number of tracked connections that can be established by the instance before hitting the Connections Tracked allowance of that instance type. This metric is available only on Nitro-based EC2 instances using the Linux driver for Elastic Network Adapter (ENA) starting from version 2.8.1, and on computers using the Windows driver for Elastic Network Adapter (ENA) starting from version 2.6.0.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Collect network performance metrics](#CloudWatch-Agent-network-performance)<br />Unit: None | 
+| Name on Linux servers: `bw_in_allowance_exceeded`<br />Name on Windows servers: `Aggregate inbound BW allowance exceeded` | The number of packets queued and/or dropped because the inbound aggregate bandwidth exceeded the maximum for the instance.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux setup](#CloudWatch-Agent-network-performance-Linux)<br />Unit: None | 
+|  Name on Linux servers: `bw_out_allowance_exceeded`<br />Name on Windows servers: `Aggregate outbound BW allowance exceeded` | The number of packets queued and/or dropped because the outbound aggregate bandwidth exceeded the maximum for the instance.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux setup](#CloudWatch-Agent-network-performance-Linux)<br />Unit: None | 
+| Name on Linux servers:`conntrack_allowance_available`<br />Name on Windows servers: `Available connection tracking allowance` | Reports the number of tracked connections that can be established by the instance before hitting the Connections Tracked allowance of that instance type. This metric is available only on Nitro-based EC2 instances using the Linux driver for Elastic Network Adapter (ENA) starting from version 2.8.1, and on computers using the Windows driver for Elastic Network Adapter (ENA) starting from version 2.6.0.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux setup](#CloudWatch-Agent-network-performance-Linux)<br />Unit: None | 
 | Name on Linux servers:`ena_srd_mode`<br />Name on Windows servers: `ena srd mode` | Describes which ENA Express features are enabled. For more information about ENA Express, see [ Improve network performance with ENA Express on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html) Values are as follows:+  `0` = ENA Express off, UDP off <br />+  `1` = ENA Express on, UDP off <br />+  `2` = ENA Express off, UDP on  This happens only when ENA Express was originally enabled, and UDP was configured to use it. The prior value is retained for UDP traffic.  <br />+  `3` = ENA Express on, UDP on  | 
 | Name on Linux servers:`ena_srd_eligible_tx_pkts`<br />Name on Windows servers: `ena srd eligible tx pkts` | The number of network packets sent within a given time period that meet AWS Scalable Reliable Datagram (SRD) requirements for eligibility, as follows:+  Both sending and receiving instance types are supported. <br />+  Both sending and receiving instances must have ENA Express configured. <br />+  The sending and receiving instances must be on the same subnet. <br />+  The network path between the instances must not include middleware boxes. ENA Express doesn't currently support middleware boxes.  | 
 | Name on Linux servers:`ena_srd_tx_pkts`<br />Name on Windows servers: `ena srd tx pkts` | The number of SRD packets transmitted within a given time period. | 
 | Name on Linux servers:`ena_srd_rx_pkts`<br />Name on Windows servers: `ena srd rx pkts` | The number of SRD packets received within a given time period. | 
 | Name on Linux servers:`ena_srd_resource_utilization`<br />Name on Windows servers: `ena srd resource utilization` | The percentage of the maximum allowed memory utilization for concurrent SRD connections that the instance has consumed. | 
-| Name on Linux servers: `linklocal_allowance_exceeded`<br />Name on Windows servers: `Link local packet rate allowance exceeded` | The number of packets dropped because the PPS of the traffic to local proxy services exceeded the maximum for the network interface. This impacts traffic to the DNS service, the Instance Metadata Service, and the Amazon Time Sync Service, but does not impact traffic to custom DNS resolvers.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Collect network performance metrics](#CloudWatch-Agent-network-performance)<br />Unit: None | 
-| Name on Linux servers: `pps_allowance_exceeded`<br />Name on Windows servers: `PPS allowance exceeded` | The number of packets queued and/or dropped because the bidirectional PPS exceeded the maximum for the instance. <br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Collect network performance metrics](#CloudWatch-Agent-network-performance)<br />Unit: None | 
+| Name on Linux servers: `linklocal_allowance_exceeded`<br />Name on Windows servers: `Link local packet rate allowance exceeded` | The number of packets dropped because the PPS of the traffic to local proxy services exceeded the maximum for the network interface. This impacts traffic to the DNS service, the Instance Metadata Service, and the Amazon Time Sync Service, but does not impact traffic to custom DNS resolvers.<br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux setup](#CloudWatch-Agent-network-performance-Linux)<br />Unit: None | 
+| Name on Linux servers: `pps_allowance_exceeded`<br />Name on Windows servers: `PPS allowance exceeded` | The number of packets queued and/or dropped because the bidirectional PPS exceeded the maximum for the instance. <br />This metric is collected only if you have listed it in the `ethtool` subsection of the `metrics_collected` section of the CloudWatch agent configuration file. For more information, see [Linux setup](#CloudWatch-Agent-network-performance-Linux)<br />Unit: None | 
 
 ## Linux setup
 <a name="CloudWatch-Agent-network-performance-Linux"></a>
@@ -50,7 +49,7 @@ The following example displays part of the CloudWatch agent configuration file. 
 
 For more information about the CloudWatch agent configuration file, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md).
 
-```
+```json
 {
 "metrics": {
     "append_dimensions": {
@@ -81,7 +80,7 @@ On Windows servers, the network performance metrics are available through Window
 
 The following is a sample configuration file to collect network performance metrics from Windows. For more information about editing the CloudWatch agent configuration file, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md).
 
-```
+```json
 {
     "metrics": {
         "append_dimensions": {

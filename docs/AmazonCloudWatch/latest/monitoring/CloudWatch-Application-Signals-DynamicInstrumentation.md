@@ -1,7 +1,6 @@
 
 
 # Debug applications with Dynamic Instrumentation
-<a name="CloudWatch-Application-Signals-DynamicInstrumentation"></a>
 
 With Dynamic Instrumentation, you can capture runtime state from a live application without restarting or redeploying. Runtime state includes variable values, method arguments, return values, and stack traces. You define instrumentation configurations that specify where in your code to capture data, and the running agent instruments the application at runtime.
 
@@ -100,7 +99,7 @@ Key parameters when creating a configuration:
 
 The following example creates a breakpoint on a Java method:
 
-```
+```bash
 aws application-signals create-instrumentation-configuration \
     --instrumentation-type BREAKPOINT \
     --service "my-service" \

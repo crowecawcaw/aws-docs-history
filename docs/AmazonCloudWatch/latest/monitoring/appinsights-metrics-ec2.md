@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud (EC2)
-<a name="appinsights-metrics-ec2"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

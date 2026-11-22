@@ -1,7 +1,6 @@
 
 
 # Using condition keys to limit access to CloudWatch
-<a name="reference_policies_condition-keys"></a>
 
 See the following topics to learn about the service-specific condition keys that can be used in the `Condition` element of an IAM policy. You can use these keys to further refine the conditions under which the policy statement applies.
 + [Using condition keys to limit access to CloudWatch namespaces](iam-cw-condition-keys-namespace.md)

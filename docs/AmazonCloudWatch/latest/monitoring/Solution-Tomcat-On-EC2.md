@@ -1,7 +1,6 @@
 
 
 # CloudWatch solution: Tomcat workload on Amazon EC2
-<a name="Solution-Tomcat-On-EC2"></a>
 
 This solution helps you configure out-of-the-box metric collection using CloudWatch agents for Tomcat server running on EC2 instances. Additionally, it helps you set up a pre-configured CloudWatch dashboard. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md).
 
@@ -121,7 +120,7 @@ Replace {{AppName}} with a meaningful name that represents the Tomcat applicatio
 
 The EC2 metrics shown in this configuration (configuration shown outside the JMX block) only work for Linux and macOS instances. If you are using Windows instances, you can choose to omit these metrics in the configuration. For information about metrics collected on Windows instances, see [Metrics collected by the CloudWatch agent on Windows Server instances](metrics-collected-by-CloudWatch-agent.md#windows-metrics-enabled-by-CloudWatch-agent).
 
-```
+```json
 {
   "metrics": {
     "namespace": "CWAgent",

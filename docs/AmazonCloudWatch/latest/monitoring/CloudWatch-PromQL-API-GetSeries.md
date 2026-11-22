@@ -1,7 +1,6 @@
 
 
 # GetSeries
-<a name="CloudWatch-PromQL-API-GetSeries"></a>
 
 The `GetSeries` operation returns the list of time series whose labels match one or more selectors.
 

@@ -1,7 +1,6 @@
 
 
 # Tag or untag resources
-<a name="nw-monitor-tags-cli"></a>
 
 You can work with resource tags in Network Synthetic Monitor, to add or remove tags.
 

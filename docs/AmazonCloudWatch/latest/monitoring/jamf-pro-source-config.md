@@ -1,7 +1,6 @@
 
 
 # Source configuration for Jamf Pro
-<a name="jamf-pro-source-config"></a>
 
 ## Prerequisites
 <a name="jamf-pro-prerequisites"></a>

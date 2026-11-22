@@ -1,7 +1,6 @@
 
 
 # Use the Internet Monitor query interface
-<a name="CloudWatch-IM-view-cw-tools-cwim-query"></a>
 
 An option for understanding more about internet traffic for your AWS application is to use the Internet Monitor *query interface*. To use the query interface, you create a query with data filters that you choose, and then run the query to return a subset of your Internet Monitor data. Exploring the data that the query returns can give you insights into how your application is performing on the internet.
 
@@ -71,7 +70,7 @@ To illustrate how query types and filter parameters work, let's look at some exa
 
 Let's say that you want to retrieve all of your monitor's log file data for a specific country, except for one city. The following example shows filter parameters for a query that you could create with the `StartQuery` operation for this scenario.
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -96,7 +95,7 @@ Let's say that you want to retrieve all of your monitor's log file data for a sp
 
 As another example, let's say that you want to see your top locations by metropolitan area. You could use the following example query for this scenario.
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -118,7 +117,7 @@ Now, let's say that you want to see the top city-network combinations in the Los
 
 Here's the example query that you could use:
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -145,7 +144,7 @@ Next, let's say that you want to retrieve TTFB data for a specific subdivision (
 
 The following is an example query for this scenario:
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -167,7 +166,7 @@ Now, let's say that you want to retrieve TTFB data for every location where your
 
 The following is an example query for this scenario:
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -193,7 +192,7 @@ Let's say that you want to retrieve TTFB data for a specific new AWS Region.
 
 The following is an example query for this scenario:
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -219,7 +218,7 @@ A final example is to retrieve data for specific DNS resolvers.
 
 The following is an example query for this scenario:
 
-```
+```json
 {
    MonitorName: "TestMonitor"
    StartTime: "2023-07-12T20:00:00Z"
@@ -257,7 +256,7 @@ The `top locations` query type groups data by location, and provides the data av
 `aws_location, city, metro, subdivision, country, asn, availability, performance, bytes_in, bytes_out, current_fbl, best_ec2, best_ec2_region, best_cf_fbl`  
 Note that `city`, `metro`, and `subdivision` are only returned if you choose that location type for the `geo` field. The following location fields are returned, depending on the location type that you specify for `geo`:  
 
-```
+```json
 city = city, metro, subdivision, country
 metro = metro, subdivision, country
 subdivision = subdivision, country
@@ -289,7 +288,7 @@ When you run the `GetQueryResults` API operation, Internet Monitor returns the f
 
 If errors are returned when you use query interface API operations, verify that you have the required permissions to use Internet Monitor. Specifically, make sure that you have the following permissions:
 
-```
+```json
 internetmonitor:StartQuery
 internetmonitor:GetQueryStatus
 internetmonitor:GetQueryResults

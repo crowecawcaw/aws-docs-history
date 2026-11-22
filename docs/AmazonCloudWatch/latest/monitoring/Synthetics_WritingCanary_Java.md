@@ -1,7 +1,6 @@
 
 
 # Writing a canary script using the Java runtime
-<a name="Synthetics_WritingCanary_Java"></a>
 
 **Topics**
 + [Java project structure for a canary](#Synthetics_canary_Java_package)

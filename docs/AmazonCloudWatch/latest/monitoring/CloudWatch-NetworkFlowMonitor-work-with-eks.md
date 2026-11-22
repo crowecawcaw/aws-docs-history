@@ -1,7 +1,6 @@
 
 
 # Work with EKS
-<a name="CloudWatch-NetworkFlowMonitor-work-with-eks"></a>
 
 Using Network Flow Monitor, you can collect performance metrics for workloads that use Amazon Elastic Kubernetes Service (Amazon EKS). This chapter shows you how to install the agent step-by-step and describes the different EKS scenarios you can monitor. You'll also find detailed descriptions of the metadata that Network Flow Monitor provides for Amazon EKS in the console to help you understand network performance.
 

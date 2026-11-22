@@ -1,7 +1,6 @@
 
 
 # Service-linked roles for Network Flow Monitor
-<a name="using-service-linked-roles-network-flow-monitor"></a>
 
 Network Flow Monitor uses AWS Identity and Access Management (IAM) [ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Network Flow Monitor. The service-linked role is predefined by Network Flow Monitor and includes all the permissions that the service requires to call other AWS services on your behalf. 
 

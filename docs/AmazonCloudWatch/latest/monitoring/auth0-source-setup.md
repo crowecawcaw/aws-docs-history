@@ -1,7 +1,6 @@
 
 
 # Source configuration for Okta Auth0
-<a name="auth0-source-setup"></a>
 
 ## Integrating with Okta Auth0
 <a name="auth0-integration"></a>

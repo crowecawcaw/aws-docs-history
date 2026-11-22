@@ -1,7 +1,6 @@
 
 
 # Qualys Policy Audit integration configuration
-<a name="qualys-policy-audit-setup"></a>
 
 Qualys Policy Audit (PA) is a cloud-native configuration assessment and compliance monitoring solution. It evaluates IT assets against security benchmarks, such as CIS, DISA STIG, and vendor hardening guides, and regulatory frameworks, such as PCI-DSS, HIPAA, SOX, and NIST.
 

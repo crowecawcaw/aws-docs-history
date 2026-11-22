@@ -1,7 +1,6 @@
 
 
 # Source configuration for SentinelOne
-<a name="sentinelone-source-setup"></a>
 
 ## Integrating with SentinelOne Singularity Endpoint
 <a name="sentinelone-integration"></a>

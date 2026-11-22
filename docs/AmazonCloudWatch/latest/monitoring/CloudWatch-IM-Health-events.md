@@ -1,7 +1,6 @@
 
 
 # View health events and metrics in Internet Monitor (Health events page)
-<a name="CloudWatch-IM-Health-events"></a>
 
 The **Health events** page in the Internet Monitor console provides a map of health events that impact the client locations and ASNs for your application. You can click circles on the map for more details about an event. The **Health events** tables lists locations that have been impacted by an event, and specifics about the impact.
 

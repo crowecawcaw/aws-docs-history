@@ -1,7 +1,6 @@
 
 
 # Runtime versions using Node.js and Playwright
-<a name="CloudWatch_Synthetics_Library_nodejs_playwright"></a>
 
 The following sections contain information about the CloudWatch Synthetics runtime versions for Node.js and Playwright. Playwright is an open-source automation library for browser testing. For more information about Playwright, see [ https://playwright.dev/](https://playwright.dev) 
 

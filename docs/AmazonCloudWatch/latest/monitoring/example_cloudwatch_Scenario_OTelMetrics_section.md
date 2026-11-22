@@ -1,7 +1,6 @@
 
 
 # Send OpenTelemetry metrics to CloudWatch and alarm on them with PromQL using an AWS SDK
-<a name="example_cloudwatch_Scenario_OTelMetrics_section"></a>
 
 The following code examples show how to:
 + Send OTLP metrics to the CloudWatch metrics endpoint with an OpenTelemetry Collector.
@@ -17,7 +16,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 Wrapper code for the CloudWatch OpenTelemetry operations.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for the OpenTelemetry features of Amazon CloudWatch: turning on OTel
 /// enrichment so that CloudWatch vended metrics are queryable with PromQL, alarming on a
@@ -314,7 +313,7 @@ public class CloudWatchOTelWrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 A wrapper class for the CloudWatch OpenTelemetry SDK operations.  
 
-```
+```java
 import software.amazon.awssdk.services.cloudwatch.CloudWatchClient;
 import software.amazon.awssdk.services.cloudwatch.model.AlarmContributor;
 import software.amazon.awssdk.services.cloudwatch.model.AlarmMuteRuleSummary;
@@ -665,7 +664,7 @@ public class CloudWatchOTelActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 Create a class that wraps the CloudWatch OpenTelemetry operations.  
 
-```
+```python
 import logging
 import time
 
@@ -981,7 +980,7 @@ class CloudWatchOTelWrapper:
 ```
 Use the wrapper class to alarm on OpenTelemetry metrics with a PromQL query, inspect the contributors to the alarm, and mute it.  
 
-```
+```python
 def usage_demo():
     """
     Walks through the OpenTelemetry metrics workflow in CloudWatch: turn on
@@ -1076,7 +1075,7 @@ def usage_demo():
 ```
 Configure an OpenTelemetry Collector to send the OTLP metrics that this example alarms on to the CloudWatch metrics endpoint. Metric ingestion over OTLP is not an AWS SDK operation, so this half of the example is collector configuration rather than SDK code.  
 
-```
+```python
 # Purpose
 #
 # An OpenTelemetry Collector configuration that sends OTLP metrics to the Amazon
@@ -1195,7 +1194,7 @@ service:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 Define wrapper code that calls the CloudWatch OpenTelemetry operations.  
 
-```
+```ruby
 # Turns on OTel enrichment for the account. Once enrichment is running, CloudWatch vended
 # metrics that carry a resource identifier dimension, such as the Amazon EC2
 # CPUUtilization metric with its InstanceId dimension, are decorated with resource ARN
@@ -1430,7 +1429,7 @@ end
 ```
 Alarm on OpenTelemetry metrics with a PromQL query, inspect the contributors to the alarm, and mute it.  
 
-```
+```ruby
 # Turns on OpenTelemetry enrichment if the account doesn't already have it on. Enrichment
 # is an account-wide setting, so an example should only turn it off again if it was the
 # one that turned it on.

@@ -1,7 +1,6 @@
 
 
 # Enable your applications on Lambda
-<a name="CloudWatch-Application-Signals-Enable-LambdaMain"></a>
 
 You can enable Application Signals for your Lambda functions. Application Signals automatically instruments your Lambda functions using enhanced AWS Distro for OpenTelemetry (ADOT) libraries, provided through a Lambda layer. This AWS Lambda Layer for OpenTelemetry packages and deploys the libraries that are required for auto-instrumentation for Application Signals.
 

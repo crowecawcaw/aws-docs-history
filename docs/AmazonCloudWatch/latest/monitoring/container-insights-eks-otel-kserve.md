@@ -1,7 +1,6 @@
 
 
 # Collecting KServe metrics with OTel Container Insights
-<a name="container-insights-eks-otel-kserve"></a>
 
 KServe is an open-source model serving platform for Kubernetes. You describe a model in an InferenceService resource, and the KServe controller creates and maintains the pods that serve it. Container Insights collects the controller's own metrics, so you can see whether KServe is reconciling your InferenceServices.
 
@@ -18,7 +17,7 @@ The KServe controller is not in the request path. Metrics about the requests tha
 KServe metrics collection is enabled by default when the following requirements are met.
 + Amazon EKS cluster running Kubernetes 1.28 or later
 + KServe installed and running in the cluster (default namespace: `kserve`)
-+ OTel Container Insights enabled on the cluster (see [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md))
++ OTel Container Insights enabled on the cluster (see [Quick start](container-insights-eks-otel-quickstart.md))
 + The `amazon-cloudwatch-observability` add-on in `ACTIVE` status
 
 ## Configuring KServe metrics collection
@@ -30,7 +29,7 @@ If KServe runs in a namespace other than `kserve`, set `otelContainerInsights.so
 
 The following Helm values show the default configuration.
 
-```
+```yaml
 otelContainerInsights:
   solutions:
     enabled: true
@@ -42,7 +41,7 @@ otelContainerInsights:
 
 To disable KServe metrics using the Amazon EKS add-on, run the following AWS CLI command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name {{cluster-name}} \
   --addon-name amazon-cloudwatch-observability \
@@ -52,7 +51,7 @@ aws eks update-addon \
 
 To disable KServe metrics using the Helm chart, run the following command.
 
-```
+```bash
 helm upgrade amazon-cloudwatch-observability \
   aws-observability/amazon-cloudwatch-observability \
   -n amazon-cloudwatch \

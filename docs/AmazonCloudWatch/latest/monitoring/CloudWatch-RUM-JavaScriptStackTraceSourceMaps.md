@@ -1,7 +1,6 @@
 
 
 # Enabling unminification of JavaScript error stack traces
-<a name="CloudWatch-RUM-JavaScriptStackTraceSourceMaps"></a>
 
 When your web application JavaScript source code is minified, error stack traces can be difficult to read. You can enable unminification to the stack traces by uploading your source maps to Amazon S3. CloudWatch RUM will retrieve the source maps to map the line and column numbers in the minified source code back to the original unminified source code. This will improve readability of your error stack traces and help identify the location of the error in the original source code. 
 
@@ -36,7 +35,7 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ If you are using AWS KMS keys to encrypt the data, make sure the key’s resourc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -120,7 +119,7 @@ my-application-source-maps
 
 To automate uploading your source maps, you can create the following bash script and execute it as part of your build process.
 
-```
+```bash
 #!/bin/bash
 # Ensure the script is called with required arguments
 if [ "$#" -ne 2 ]; then

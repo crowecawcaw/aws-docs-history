@@ -1,7 +1,6 @@
 
 
 # Receive notifications for detected problems
-<a name="appinsights-problem-notifications"></a>
 
 You can use Amazon SNS notifications, Systems Manager OpsCenter, or CloudWatch Events to receive notifications about problems that are detected in your applications. 
 
@@ -13,7 +12,7 @@ You can configure Amazon SNS notifications using the AWS Management Console or t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Use CloudWatch Logs Insights to explore Internet Monitor measurements
-<a name="CloudWatch-IM-view-cw-tools-logs-insights"></a>
 
 You can use CloudWatch Logs Insights queries to filter a subset of logs for a specific city or geography (client location), client ASN (ISP), and AWS source location. Internet Monitor publishes granular measurements of availability and round-trip time to CloudWatch Logs that you can explore using CloudWatch Logs Insights. 
 

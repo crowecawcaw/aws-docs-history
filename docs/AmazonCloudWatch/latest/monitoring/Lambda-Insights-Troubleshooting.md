@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and known issues for CloudWatch Lambda Insights
-<a name="Lambda-Insights-Troubleshooting"></a>
 
 The first step to troubleshooting any issues is to enable debug logging on the Lambda Insights extension. To do this, set the following environment variable on your Lambda function: `LAMBDA_INSIGHTS_LOG_LEVEL=info`. For more information, see [ Using AWS Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 

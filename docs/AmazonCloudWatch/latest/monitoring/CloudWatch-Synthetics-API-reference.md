@@ -1,7 +1,6 @@
 
 
 # Network Synthetic Monitor API operations
-<a name="CloudWatch-Synthetics-API-reference"></a>
 
 The following table lists Network Synthetic Monitor API operations that you can use with Amazon CloudWatch. Refer to this table for links to relevant documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Library functions available for Node.js canary scripts using Playwright
-<a name="CloudWatch_Synthetics_Canaries_Nodejs_Playwright"></a>
 
 This section describes the library functions that are available for canary scripts using the Node.js Playwright runtime.
 
@@ -19,7 +18,7 @@ This function launches a Chromium browser using a Playwright launch function, an
 
  **Usage** 
 
-```
+```nodejs
 const browser = await synthetics.launch();
 ```
 
@@ -33,7 +32,7 @@ Promise `<Browser>` where [Browser](https://playwright.dev/docs/api/class-browse
 
 If this function is called again, a previously-opened browser is closed before initiating a new browser. You can override launch parameters used by CloudWatch Synthetics, and pass additional parameters when launching the browser. For example, the following code snippet launches a browser with default arguments and a default executable path, but with a viewport of 800 x 600 pixels. For more information, see [Playwright launch options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch) in the Playwright documentation.
 
-```
+```nodejs
 const browser = await synthetics.launch({
   defaultViewport: {
       "deviceScaleFactor": 1,
@@ -44,7 +43,7 @@ const browser = await synthetics.launch({
 
  You can also add or override Chromium flags passed on by default to the browser. For example, you can disable web security by adding a `--disable-web-security` flag to arguments in the CloudWatch Synthetics launch parameters: 
 
-```
+```nodejs
 // This function adds the --disable-web-security flag to the launch parameters
 const defaultOptions = await synthetics.getDefaultLaunchOptions();
 const launchArgs = [...defaultOptions.args, '--disable-web-security'];
@@ -64,13 +63,13 @@ Use `newPage()` in either of the following ways:
 
  **1. Creating a new page in a new browser context:** 
 
-```
+```nodejs
 const page = await synthetics.newPage(browser);
 ```
 
  **2. Creating a new page in a specified browser context:** 
 
-```
+```nodejs
 // Create a new browser context
 const browserContext = await browser.newContext();
 
@@ -93,7 +92,7 @@ Closes the currently-opened browser.
 
  **Usage** 
 
-```
+```nodejs
 await synthetics.close();
 ```
 
@@ -114,7 +113,7 @@ The `getDefaultLaunchOptions()` function returns the browser launch options that
 
  **Usage** 
 
-```
+```nodejs
 const defaultOptions = await synthetics.getDefaultLaunchOptions();
 ```
 
@@ -136,7 +135,7 @@ The `executeStep` function is used to execute a step in a Synthetics script. In 
 
  **Usage** 
 
-```
+```nodejs
 await synthetics.executeStep("mystepname", async function () {
   await page.goto(url, { waitUntil: 'load', timeout: 30000 });
 }

@@ -1,7 +1,6 @@
 
 
 # Enable your applications on Amazon EKS clusters
-<a name="CloudWatch-Application-Signals-Enable-EKS"></a>
 
 CloudWatch Application Signals is supported for Java, Python, Node.js, and .NET applications. To enable Application Signals for your applications on an existing Amazon EKS cluster, you can use the AWS Management Console, AWS CDK, or CloudWatch Observability add-on Auto monitor advanced configuration.
 
@@ -37,7 +36,7 @@ If you haven't already enabled Application Signals, follow the instructions in [
 
    1. Select the check box for **Amazon CloudWatch Observability** and choose **Next**.
 
-      The CloudWatch Observability EKS add-on enables both Application Signals and CloudWatch Container Insights with enhanced observability for Amazon EKS. For more information about Container Insights, see [Container Insights](ContainerInsights.md).
+      The CloudWatch Observability EKS add-on enables both Application Signals and CloudWatch Container Insights with enhanced observability for Amazon EKS. For more information about Container Insights, see [Container Insights for Amazon EKS](ContainerInsights.md).
 
    1. Select the most recent version of the add-on to install.
 
@@ -200,7 +199,7 @@ For the ESM module format, enabling Application Signals through the console or b
 
 1. Add the environmental variables `OTEL_RESOURCE_ATTRIBUTES_POD_NAME`, `OTEL_RESOURCE_ATTRIBUTES_NODE_NAME`, `OTEL_RESOURCE_ATTRIBUTES_DEPLOYMENT_NAME`, `POD_NAMESPACE` and `OTEL_RESOURCE_ATTRIBUTES` to the deployment yaml file for the application. For example:
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:

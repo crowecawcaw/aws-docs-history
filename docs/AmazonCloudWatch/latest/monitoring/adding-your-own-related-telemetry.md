@@ -1,7 +1,6 @@
 
 
 # How to add related information to custom telemetry sent to CloudWatch
-<a name="adding-your-own-related-telemetry"></a>
 
 When you publish your own metrics and logs to CloudWatch, the entity information needed for related telemetry is not there by default. When you send metrics to CloudWatch or logs to CloudWatch Logs (with the [PutMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html) or [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html) operations), you can add entity information to those logs or metrics. The entity information is associated with the telemetry, and used in the **Explore related** feature to find related telemetry that is associated with the same entity.
 

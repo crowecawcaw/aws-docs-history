@@ -1,7 +1,6 @@
 
 
 # Adding an alarm to a CloudWatch dashboard
-<a name="add_alarm_dashboard"></a>
 
 **To add a single alarm, including its graph, to a dashboard**
 

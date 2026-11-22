@@ -1,7 +1,6 @@
 
 
 # Using AI agents to install and troubleshoot Network Flow Monitor agents
-<a name="CloudWatch-NetworkFlowMonitor-agents-install-ai"></a>
 
 You can use Model Context Protocol (MCP)-compatible AI agents to install, configure, and troubleshoot Network Flow Monitor agents on your workloads. The `aws-network-monitoring` skill from the [Agent Toolkit for AWS](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/what-is-agent-toolkit.html) can help with the following:
 + **Agent installation** – Install Network Flow Monitor agents using AWS Systems Manager Distributor or command-line install. The skill guides the assistant through attaching the `CloudWatchNetworkFlowMonitorAgentPublishPolicy` managed policy to the instance role, running the install document, and activating the agents.
@@ -18,7 +17,7 @@ A skill is a curated package of instructions and reference materials that helps 
 
 Use the AWS CLI to install the skill for your agent. For more information about the install command, see [Using the AWS CLI](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/aws-cli.html) in the *AWS Agent Toolkit User Guide*.
 
-```
+```bash
 aws agent-toolkit add-skill --skill-name aws-network-monitoring
 ```
 

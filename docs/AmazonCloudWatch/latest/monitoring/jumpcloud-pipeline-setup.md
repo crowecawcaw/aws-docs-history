@@ -1,11 +1,10 @@
 
 
 # CloudWatch pipelines configuration for JumpCloud
-<a name="jumpcloud-pipeline-setup"></a>
 
 The following pipeline configuration collects security and audit events from JumpCloud using API key authentication, and transforms the events from the directory, Single Sign-On (SSO), RADIUS, systems, LDAP, and alerts services into Open Cybersecurity Schema Framework (OCSF) format. Replace the placeholder values shown between `<<` and `>>` with values for your environment.
 
-```
+```yaml
 extension:
   aws:
     secrets:

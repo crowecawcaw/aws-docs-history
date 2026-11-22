@@ -1,7 +1,6 @@
 
 
 # How CloudWatch investigations finds data for suggestions
-<a name="data-usage-considerations"></a>
 
 CloudWatch investigations uses a wide range of data sources to determine dependency relationships and plan analysis paths, including telemetry data configurations, service configurations, and observed relationships. These dependency relationships are found more easily if you use CloudWatch Application Signals and AWS X-Ray. When Application Signals and X-Ray aren't available, CloudWatch investigations will attempt to infer dependency relationships through co-occurring telemetry anomalies.
 

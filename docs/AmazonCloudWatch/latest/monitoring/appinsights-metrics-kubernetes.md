@@ -1,7 +1,6 @@
 
 
 # Kubernetes on AWS
-<a name="appinsights-metrics-kubernetes"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Slack Audit Log
-<a name="slack-auditlog-source-setup"></a>
 
 ## Integrating with Slack Audit Log
 <a name="slack-auditlog-integration"></a>

@@ -1,7 +1,6 @@
 
 
 # Analyzing, optimizing, and reducing CloudWatch costs
-<a name="cloudwatch_billing"></a>
 
 This section describes how Amazon CloudWatch features generate costs. It also provides methods that can help you analyze, optimize, and reduce CloudWatch costs. Throughout this section, this guide sometimes refers to pricing when describing CloudWatch features. For information about pricing, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls).
 
@@ -655,7 +654,7 @@ The best way to reduce costs is to remove all unnecessary or unused alarms. For 
 **Example of using `DescribeAlarms` to check for alarms in `INSUFFICIENT_DATA` state**  
 If you delete a resource, but not the metric alarms that the resource emits, the alarms still exist and typically will go into the `INSUFFICIENT_DATA` state. To check for alarms that are in the `INSUFFICIENT_DATA` state, use the following AWS Command Line Interface (AWS CLI) command.   
 
-```
+```bash,zsh,sh
 aws cloudwatch describe-alarms –state-value INSUFFICIENT_DATA
 ```
 For more information, see [ Automating Amazon CloudWatch Alarm Cleanup at Scale](https://aws.amazon.com/blogs/mt/automating-amazon-cloudwatch-alarm-cleanup-at-scale/). 

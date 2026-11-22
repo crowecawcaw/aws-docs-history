@@ -1,7 +1,6 @@
 
 
 # Available versions of the Lambda Insights extension
-<a name="Lambda-Insights-extension-versions"></a>
 
 This section lists the versions of the Lambda Insights extension, and the ARNs to use for these extensions in each AWS Region.
 

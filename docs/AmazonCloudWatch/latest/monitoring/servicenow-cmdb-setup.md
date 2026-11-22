@@ -1,7 +1,6 @@
 
 
 # ServiceNow CMDB Audit Log
-<a name="servicenow-cmdb-setup"></a>
 
 ServiceNow is an enterprise platform that provides IT service management (ITSM) and configuration management database (CMDB) capabilities for tracking and managing IT assets, configurations, and changes across organizations.
 

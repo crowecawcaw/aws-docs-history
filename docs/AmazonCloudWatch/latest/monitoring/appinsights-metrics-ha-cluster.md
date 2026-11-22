@@ -1,7 +1,6 @@
 
 
 # HA Cluster
-<a name="appinsights-metrics-ha-cluster"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

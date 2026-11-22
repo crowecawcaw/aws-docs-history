@@ -1,7 +1,6 @@
 
 
 # Qualys CSAM integration configuration
-<a name="qualys-csam-setup"></a>
 
 Qualys CyberSecurity Asset Management (CSAM) provides visibility into your IT asset inventory, software components, and domain intelligence. It discovers and catalogs assets across on-premises, cloud, and container environments, and it tracks the software installed on them, including lifecycle and authorization status. It also identifies vulnerabilities in your internet-facing assets through External Attack Surface Management (EASM), and it detects unresolved and typosquatted domains.
 

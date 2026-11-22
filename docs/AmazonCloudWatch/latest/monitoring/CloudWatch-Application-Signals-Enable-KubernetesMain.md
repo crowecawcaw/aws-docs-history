@@ -1,7 +1,6 @@
 
 
 # Enable your applications on Kubernetes
-<a name="CloudWatch-Application-Signals-Enable-KubernetesMain"></a>
 
 Enable CloudWatch Application Signals on Kubernetes by using the custom setup steps described in this section.
 
@@ -90,7 +89,7 @@ If your Kubernetes cluster is hosted on-premises, you must use the instructions 
 
 1. While your file editor is open mount the AWS credentials into the CloudWatch agent container by adding the following configuration to the top of the deployment. Replace the path `/home/{{user}}/.aws/credentials` with the location of your local AWS credentials file.
 
-   ```
+   ```yaml
    apiVersion: cloudwatch.aws.amazon.com/v1alpha1
    kind: AmazonCloudWatchAgent
    metadata:
@@ -232,7 +231,7 @@ For the ESM module format, enabling Application Signals by annotating the manife
 
 1. Add the environmental variables `OTEL_RESOURCE_ATTRIBUTES_POD_NAME`, `OTEL_RESOURCE_ATTRIBUTES_NODE_NAME`, `OTEL_RESOURCE_ATTRIBUTES_DEPLOYMENT_NAME`, `POD_NAMESPACE` and `OTEL_RESOURCE_ATTRIBUTES` to the deployment yaml file for the application. For example:
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:

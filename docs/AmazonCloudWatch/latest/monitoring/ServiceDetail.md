@@ -1,7 +1,6 @@
 
 
 # View detailed service activity and operational health with the service detail page
-<a name="ServiceDetail"></a>
 
 When you instrument your application, [Amazon CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md) maps all of the services that your application discovers. Use the service detail page to see an overview of your services, operations, dependencies, canaries, and client requests for a single service. To view the service detail page, do the following:
 + Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/).

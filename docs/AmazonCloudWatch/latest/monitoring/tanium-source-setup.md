@@ -1,7 +1,6 @@
 
 
 # Source configuration for Tanium
-<a name="tanium-source-setup"></a>
 
 ## Integrating with Tanium
 <a name="tanium-integration"></a>

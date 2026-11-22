@@ -1,7 +1,6 @@
 
 
 # Download the CloudWatch agent package
-<a name="download-CloudWatch-Agent-on-EC2-Instance-commandline-first"></a>
 
 **Note**  
 To download the CloudWatch agent, your connection must use TLS 1.2 or later.

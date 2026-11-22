@@ -1,7 +1,6 @@
 
 
 # Connect Slack
-<a name="omni-connect-slack"></a>
 
 An integration connects CloudWatch Omni to a tool your team already uses. Slack delivers alert notifications to your team's channels, and lets your team mention the Omni agent there. You manage it in **Settings**, on the **Integrations** page, and a connection applies to your whole space.
 
@@ -35,7 +34,7 @@ The grant covers three things:
 
 If you author grants through the API instead of the console, use your own integration ARN and channel names:
 
-```
+```json
 {
   "name": "slack-agent-integration",
   "permission": "CUSTOM",
@@ -57,7 +56,7 @@ If you author grants through the API instead of the console, use your own integr
 
 Pair it with a viewer grant:
 
-```
+```json
 { "name": "slack-agent-viewer", "permission": "READ" }
 ```
 

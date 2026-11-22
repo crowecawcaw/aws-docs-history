@@ -1,12 +1,11 @@
 
 
 # CloudWatch agent credentials preference
-<a name="CloudWatch-Agent-Credentials-Preference"></a>
 
  This section outlines the credentials provider chain the CloudWatch agent uses to obtain credentials when communicating with other AWS services and APIs. The ordering is as follows: 
 
 **Note**  
- The preferences listed in numbers two through five are the same preference order as defined in the AWS SDK. For more information, see [Specifying Credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials) in the SDK documentation. 
+ The preferences listed in numbers two through five are the same preference order as defined in the AWS SDK. For more information, see [AWS SDKs and Tools standardized credential providers](https://docs.aws.amazon.com/sdkref/latest/guide/standardized-credentials.html) in the *AWS SDKs and Tools Reference Guide*. 
 
 1. Shared config and credentials files as defined in the CloudWatch agent's `common-config.toml` file. For more information, see [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md).
 

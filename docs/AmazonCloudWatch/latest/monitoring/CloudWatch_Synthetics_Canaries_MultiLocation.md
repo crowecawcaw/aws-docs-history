@@ -1,7 +1,6 @@
 
 
 # Multilocation canaries
-<a name="CloudWatch_Synthetics_Canaries_MultiLocation"></a>
 
 Amazon CloudWatch Synthetics lets you run the same canary across multiple AWS Regions simultaneously from a single point of management. These are called *multilocation canaries*. You create and manage the canary in one Region (the *primary location*), and CloudWatch Synthetics automatically replicates it to the additional Regions (the *replica locations*) that you choose. All runs, metrics, and artifacts are consolidated in the primary Region, giving you a unified view of your application's performance and availability worldwide.
 

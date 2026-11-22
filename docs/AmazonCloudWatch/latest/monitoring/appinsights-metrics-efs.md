@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic File System (Amazon EFS)
-<a name="appinsights-metrics-efs"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

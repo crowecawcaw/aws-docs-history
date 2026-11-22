@@ -1,7 +1,6 @@
 
 
 # Identity and access management for CloudWatch Omni
-<a name="omni-identity-and-access-management-for-cloudwatch-omni"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use CloudWatch Omni resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -69,7 +68,7 @@ A *domain* and a *space* are distinct resources. A domain is the identity and fe
 ## AWS managed policies
 <a name="omni-identity-and-access-management-for-cloudwatch-omni-managed-policies"></a>
 
-The space operator role carries `CloudWatchOmniSpaceAccessPolicy` as its base policy, and can also carry two optional policies chosen during setup: `CloudWatchOmniModelInferencePolicy` (described below) and `CloudWatchOmniAWSIntegrationPolicy`, which lets CloudWatch Omni discover resources and their relationships for Context Graph. CloudWatch Omni provides further managed policies for other roles, including `CloudWatchOmniDomainAccessPolicy` for organization domain administration. For the complete set and each policy's contents, see [AWS managed policies for CloudWatch Omni](omni-aws-managed-policies-for-cloudwatch-omni.md).
+The space operator role carries `CloudWatchOmniSpaceAccessPolicy` as its base policy, and can also carry two optional policies chosen during setup: `CloudWatchOmniModelInferencePolicy` (described below) and `CloudWatchOmniAWSIntegrationPolicy`, which lets CloudWatch Omni discover resources and their relationships for Context Graph. On the space operator role, replace `CloudWatchOmniAWSIntegrationPolicy` with `CloudWatchOmniAWSIntegrationPolicyV2`. See [The policies](omni-aws-managed-policies-for-cloudwatch-omni.md#omni-aws-managed-policies-for-cloudwatch-omni-the-policies). CloudWatch Omni provides further managed policies for other roles, including `CloudWatchOmniDomainAccessPolicy` for organization domain administration. For the complete set and each policy's contents, see [AWS managed policies for CloudWatch Omni](omni-aws-managed-policies-for-cloudwatch-omni.md).
 
 
 | Managed policy | What it grants | When it is attached | 

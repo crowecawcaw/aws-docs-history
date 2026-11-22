@@ -1,7 +1,6 @@
 
 
 # SAP HANA
-<a name="appinsights-metrics-sap-hana"></a>
 
 **Note**  
 CloudWatch Application Insights supports only single SID HANA environments. If multiple HANA SIDs are attached, monitoring will be set up for only the first detected SID.

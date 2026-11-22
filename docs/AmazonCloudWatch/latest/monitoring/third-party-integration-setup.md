@@ -1,7 +1,6 @@
 
 
 # Third-party data sources integration
-<a name="third-party-integration-setup"></a>
 
 Integrating CloudWatch pipelines with your third-party data source let you connect external security tools, identity providers, and monitoring platforms to CloudWatch pipelines for centralized data analysis. This integration consolidates security events, audit logs, and telemetry data from multiple sources.
 

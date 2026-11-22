@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon EKS
-<a name="EKS-Integration"></a>
 
 CloudWatch investigations investigation groups can utilize information directly from your Amazon EKS cluster. To get started, first grant access to the `Investigation Group` IAM role. We recommend using the default AWS managed *access policy* `AmazonAIOpsAssistantPolicy` that grants CloudWatch investigations investigation groups access to resources in the cluster. By using this policy you will automatically get policy updates as needed.
 

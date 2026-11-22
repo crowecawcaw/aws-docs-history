@@ -1,7 +1,6 @@
 
 
 # Install the CloudWatch agent on new instances using CloudFormation
-<a name="Install-CloudWatch-Agent-New-Instances-CloudFormation"></a>
 
  This section describes how to install the CloudWatch agent on new Amazon EC2 instances using AWS CloudFormation. 
 
@@ -41,7 +40,9 @@ The template location is [ Deploy the Amazon CloudWatch agent to EC2 instances u
   ```
 **Note**  
 In the inline templates, all placeholder variables must have an exclamation mark (\!) before them as an escape character. You can see this in the example template. If you add other placeholder variables, be sure to add an exclamation mark before the name.
-+ The templates in the `ssm` directory load an agent configuration file from Parameter Store. To use these templates, you must first create a configuration file and upload it to Parameter Store. You then provide the Parameter Store name of the file in the template. You can create the configuration file manually or by using the wizard. For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
+
+  To have the agent receive OpenTelemetry Protocol (OTLP) data from your applications, add an `opentelemetry` section to the agent configuration. For more information, see [Amazon CloudWatch agent](CloudWatch-OTLPCloudWatchAgent.md).
++ The templates in the `ssm` directory load an agent configuration file from Parameter Store. To use these templates, you must first create a configuration file and upload it to Parameter Store. You then provide the Parameter Store name of the file in the template. You can create the configuration file manually or by using the wizard. For more information, see [Create the Classic CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
 
 You can use both types of templates for installing the CloudWatch agent and for updating the agent configuration.
 
@@ -50,13 +51,13 @@ For information about setting up the agent on a system that has security-enhance
 ## Tutorial: Install and configure the CloudWatch agent using an CloudFormation inline template
 <a name="installing-CloudWatch-Agent-using-CloudFormation-Templates-inline"></a>
 
-This tutorial walks you through using CloudFormation to install the CloudWatch agent on a new Amazon EC2 instance. This tutorial installs on a new instance running Amazon Linux 2 using the inline templates, which don't require the use of the JSON configuration file or Parameter Store. The inline template includes the agent configuration in the template. In this tutorial, you use the default agent configuration contained in the template.
+This tutorial walks you through using CloudFormation to install the CloudWatch agent on a new Amazon EC2 instance. This tutorial installs on a new instance running AL2023 using the inline templates, which don't require the use of the JSON configuration file or Parameter Store. The inline template includes the agent configuration in the template. In this tutorial, you use the default agent configuration contained in the template.
 
 After the procedure for installing the agent, the tutorial continues with how to update the agent.
 
 **To use CloudFormation to install the CloudWatch agent on a new instance**
 
-1. Download the template from GitHub. In this tutorial, download the inline template for Amazon Linux 2 as follows:
+1. Download the template from GitHub. In this tutorial, download the inline template for Amazon Linux as follows:
 
    ```
    curl -O https://raw.githubusercontent.com/aws-cloudformation/aws-cloudformation-templates/main/Solutions/AmazonCloudWatchAgent/inline/amazon_linux.yaml
@@ -64,37 +65,34 @@ After the procedure for installing the agent, the tutorial continues with how to
 
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-1. Choose **Create stack**.
+1. Choose **Create stack**, **With new resources (standard)**.
 
-1. For **Choose a template**, select **Upload a template to Amazon S3**, choose the downloaded template, and choose **Next**.
+1. For **Prepare template**, choose **Choose an existing template**. For **Specify template**, choose **Upload a template file**, choose the downloaded template, and choose **Next**.
 
-1. On the **Specify Details** page, fill out the following parameters and choose **Next**:
+1. On the **Specify stack details** page, fill out the following parameters and choose **Next**:
    + **Stack name**: Choose a stack name for your CloudFormation stack. 
-   + **IAMRole**: Choose an IAM role that has permissions to write CloudWatch metrics, logs, and traces. For more information, see [Prerequisites](prerequisites.md).
-   + **InstanceAMI**: Choose an AMI that is valid in the Region where you're going to launch your stack.
+   + **IAMRole**: Enter the name of the instance profile for an IAM role that has the **CloudWatchAgentServerPolicy** policy attached. When you create a role for Amazon EC2 in the IAM console, the console creates an instance profile with the same name as the role. For more information, see [Prerequisites](prerequisites.md).
+   + **InstanceAMI**: Keep the default, which is a public Parameter Store parameter that resolves to the latest AL2023 AMI in the Region where you launch your stack.
    + **InstanceType**: Choose a valid instance type.
    + **KeyName**: To enable SSH access to the new instance, choose an existing Amazon EC2 key pair. If you don't already have an Amazon EC2 key pair, you can create one in the AWS Management Console. For more information, see [Amazon EC2 Key Pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide*.
-   + **SSHLocation**: Specifies the IP address range that can be used to connect to the instance using SSH. The default allows access from any IP address.
+   + **SSHLocation**: Specifies the IP address range that can be used to connect to the instance using SSH. The default, `0.0.0.0/0`, allows access from any IP address. We recommend that you restrict this range to the IP addresses that you connect from.
+   + **SubnetId**: Choose the subnet to launch the instance in. The instance must be able to reach the CloudWatch endpoints. For more information, see [Network requirements](prerequisites.md#CloudWatch-Agent-network-requirements).
 
-1. On the **Options** page, you can choose to tag your stack resources. Choose **Next**.
+1. On the **Configure stack options** page, you can choose to tag your stack resources. Choose **Next**.
 
-1. On the **Review** page, review your information, acknowledge that the stack might create IAM resources, and then choose **Create**.
+1. On the **Review and create** page, review your information, and then choose **Submit**.
 
    If you refresh the console, you see that the new stack has the `CREATE_IN_PROGRESS` status.
 
 1. When the instance is created, you can see it in the Amazon EC2 console. Optionally, you can connect to the host and check the progress.
 
-   Use the following command to confirm that the agent is installed:
+   Use the following command to confirm that the agent is installed and running:
 
    ```
-   rpm -qa amazon-cloudwatch-agent
+   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
    ```
 
-   Use the following command to confirm that the agent is running:
-
-   ```
-   ps aux | grep amazon-cloudwatch-agent
-   ```
+   The output shows the agent status, such as `"status": "running"`, and the agent version.
 
 The next procedure demonstrates using CloudFormation to update the CloudWatch agent using an inline template. The default inline template collects the `mem_used_percent` metric. In this tutorial, you change the agent configuration to stop collecting that metric.
 
@@ -113,20 +111,20 @@ The next procedure demonstrates using CloudFormation to update the CloudWatch ag
 
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-1. On the CloudFormation dashboard, select the stack that you created and choose **Update Stack**.
+1. On the **Stacks** page, select the stack that you created and choose **Update**.
 
-1. For **Select Template**, select **Upload a template to Amazon S3**, choose the template that you modified, and choose **Next**.
+1. Choose **Replace existing template**. For **Specify template**, choose **Upload a template file**, choose the template that you modified, and choose **Next**.
 
-1. On the **Options** page, choose **Next** and then **Next**.
+1. On the **Specify stack details** and **Configure stack options** pages, choose **Next**.
 
-1. On the **Review** page, review your information and choose **Update**.
+1. On the review page, review your information and choose **Update stack**.
 
    After some time, you see `UPDATE_COMPLETE`.
 
 ## Tutorial: Install the CloudWatch agent using CloudFormation and Parameter Store
 <a name="installing-CloudWatch-Agent-using-CloudFormation-Templates"></a>
 
-This tutorial walks you through using CloudFormation to install the CloudWatch agent on a new Amazon EC2 instance. This tutorial installs on a new instance running Amazon Linux 2 using an agent configuration file that you create and save in Parameter Store.
+This tutorial walks you through using CloudFormation to install the CloudWatch agent on a new Amazon EC2 instance. This tutorial installs on a new instance running AL2023 using an agent configuration file that you create and save in Parameter Store.
 
 After the procedure for installing the agent, the tutorial continues with how to update the agent.
 
@@ -134,48 +132,45 @@ After the procedure for installing the agent, the tutorial continues with how to
 
 1. If you haven't done so already, download the CloudWatch agent package to one of your computers so that you can create the agent configuration file. For more information and downloading the agent using Parameter Store, see [Download the CloudWatch agent package](download-CloudWatch-Agent-on-EC2-Instance-commandline-first.md).
 
-1. Create the agent configuration file and save it in Parameter Store. For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
+1. Create the agent configuration file and save it in Parameter Store. For more information, see [Create the Classic CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
 
 1. Download the template from GitHub as follows:
 
    ```
-   curl -O https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/solutions/AmazonCloudWatchAgent/ssm/amazon_linux.template
+   curl -O https://raw.githubusercontent.com/aws-cloudformation/aws-cloudformation-templates/main/Solutions/AmazonCloudWatchAgent/ssm/amazon_linux.yaml
    ```
 
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-1. Choose **Create stack**.
+1. Choose **Create stack**, **With new resources (standard)**.
 
-1. For **Choose a template**, select **Upload a template to Amazon S3**, choose the template that you downloaded, and choose **Next**.
+1. For **Prepare template**, choose **Choose an existing template**. For **Specify template**, choose **Upload a template file**, choose the template that you downloaded, and choose **Next**.
 
-1. On the **Specify Details** page, fill out the following parameters accordingly and choose **Next**:
+1. On the **Specify stack details** page, fill out the following parameters accordingly and choose **Next**:
    + **Stack name**: Choose a stack name for your CloudFormation stack. 
-   + **IAMRole**: Choose an IAM role that has permissions to write CloudWatch metrics, logs, and traces. For more information, see [Prerequisites](prerequisites.md).
-   + **InstanceAMI**: Choose an AMI that is valid in the Region where you're going to launch your stack.
+   + **IAMRole**: Enter the name of the instance profile for an IAM role that has the **CloudWatchAgentServerPolicy** policy attached. When you create a role for Amazon EC2 in the IAM console, the console creates an instance profile with the same name as the role. For more information, see [Prerequisites](prerequisites.md).
+   + **InstanceAMI**: Keep the default, which is a public Parameter Store parameter that resolves to the latest AL2023 AMI in the Region where you launch your stack.
    + **InstanceType**: Choose a valid instance type.
    + **KeyName**: To enable SSH access to the new instance, choose an existing Amazon EC2 key pair. If you don't already have an Amazon EC2 key pair, you can create one in the AWS Management Console. For more information, see [Amazon EC2 Key Pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide*.
-   + **SSHLocation**: Specifies the IP address range that can be used to connect to the instance using SSH. The default allows access from any IP address.
+   + **SSHLocation**: Specifies the IP address range that can be used to connect to the instance using SSH. The default, `0.0.0.0/0`, allows access from any IP address. We recommend that you restrict this range to the IP addresses that you connect from.
+   + **SubnetId**: Choose the subnet to launch the instance in. The instance must be able to reach the CloudWatch endpoints. For more information, see [Network requirements](prerequisites.md#CloudWatch-Agent-network-requirements).
    + **SSMKey**: Specifies the agent configuration file that you created and saved in Parameter Store.
 
-1. On the **Options** page, you can choose to tag your stack resources. Choose **Next**.
+1. On the **Configure stack options** page, you can choose to tag your stack resources. Choose **Next**.
 
-1. On the **Review** page, review your information, acknowledge that the stack might create IAM resources, and then choose **Create**.
+1. On the **Review and create** page, review your information, and then choose **Submit**.
 
    If you refresh the console, you see that the new stack has the `CREATE_IN_PROGRESS` status.
 
 1. When the instance is created, you can see it in the Amazon EC2 console. Optionally, you can connect to the host and check the progress.
 
-   Use the following command to confirm that the agent is installed:
+   Use the following command to confirm that the agent is installed and running:
 
    ```
-   rpm -qa amazon-cloudwatch-agent
+   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
    ```
 
-   Use the following command to confirm that the agent is running:
-
-   ```
-   ps aux | grep amazon-cloudwatch-agent
-   ```
+   The output shows the agent status, such as `"status": "running"`, and the agent version.
 
 The next procedure demonstrates using CloudFormation to update the CloudWatch agent, using an agent configuration that you saved in Parameter Store.
 
@@ -187,13 +182,13 @@ The next procedure demonstrates using CloudFormation to update the CloudWatch ag
 
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-1. On the CloudFormation dashboard, select the stack that you created and choose **Update Stack**.
+1. On the **Stacks** page, select the stack that you created and choose **Update**.
 
-1. For **Select Template**, select **Upload a template to Amazon S3**, select the template that you just modified, and choose **Next**.
+1. Choose **Replace existing template**. For **Specify template**, choose **Upload a template file**, choose the template that you modified, and choose **Next**.
 
-1. On the **Options** page, choose **Next** and then **Next**.
+1. On the **Specify stack details** and **Configure stack options** pages, choose **Next**.
 
-1. On the **Review** page, review your information and choose **Update**.
+1. On the review page, review your information and choose **Update stack**.
 
    After some time, you see `UPDATE_COMPLETE`.
 
@@ -210,4 +205,4 @@ If you use CloudFormation to update your CloudWatch agent configuration, and use
 ### Metrics are missing
 <a name="CloudWatch-Agent-troubleshooting-Cloudformation-missing-metrics"></a>
 
-If you don't see metrics that you expect to see after installing or updating the agent, confirm that the agent is configured to collect that metric. To do this, check the `amazon-cloudwatch-agent.json` file to make sure that the metric is listed, and check that you are looking in the correct metric namespace. For more information, see [CloudWatch agent files and locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations).
+If you don't see metrics that you expect to see after installing or updating the agent, confirm that the agent is configured to collect that metric. To do this, check the `amazon-cloudwatch-agent.json` file to make sure that the metric is listed. For metrics that the agent publishes as CloudWatch metrics, check that you are looking in the correct metric namespace. OpenTelemetry metrics don't use a namespace; query them by metric name with PromQL. For more information, see [CloudWatch agent files and locations](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-files-and-locations).

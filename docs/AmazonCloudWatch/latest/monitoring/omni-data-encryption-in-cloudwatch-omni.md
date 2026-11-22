@@ -1,7 +1,6 @@
 
 
 # Data encryption in CloudWatch Omni
-<a name="omni-data-encryption-in-cloudwatch-omni"></a>
 
 CloudWatch Omni encrypts your data at rest and in transit. This page describes what is encrypted, which keys are used, and what your AWS KMS key policy must allow.
 
@@ -41,7 +40,7 @@ If you use a customer managed AWS KMS key, your key policy must allow the follow
 
 The following sample key policy covers every way CloudWatch Omni uses your key: the space and Dataset checks described above, the material the service encrypts on your behalf, forwarded telemetry entering the Dataset, and reads by the space operator role. Add the statements you need to your key policy. Replace `111122223333` with your account ID and `us-east-1` with your Region.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "omni-cmk-key-policy",
@@ -252,7 +251,7 @@ What each group of statements is for:
 
 All communication with CloudWatch Omni service endpoints uses HTTPS with TLS. The public API endpoints require a minimum of TLS 1.2. We recommend TLS 1.3, and the service supports post-quantum hybrid key exchange. Amazon S3 access is TLS-enforced.
 
-Telemetry ingestion is over HTTPS and is authenticated with Signature Version 4. Unsigned requests are rejected with an HTTP 403 response.
+Telemetry ingestion is over HTTPS and is authenticated with Signature Version 4 or a bearer token. Unauthenticated requests are rejected with an HTTP 403 response.
 
 **Important**  
 CloudWatch Omni does not offer FIPS 140-3 validated endpoints. If you require FIPS 140-3 validated cryptographic modules, review this limitation before you send telemetry.

@@ -1,7 +1,6 @@
 
 
 # Visualizing your service quotas and setting alarms
-<a name="CloudWatch-Quotas-Visualize-Alarms"></a>
 
 For some AWS services, you can use the usage metrics to visualize your current service usage on CloudWatch graphs and dashboards. You can use a CloudWatch metric math function to display the service quotas for those resources on your graphs. You can also configure alarms that alert you when your usage approaches a service quota. For more information about service quotas, see [What Is Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) in the *Service Quotas User Guide*.
 

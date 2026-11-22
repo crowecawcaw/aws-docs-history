@@ -1,7 +1,6 @@
 
 
 # Choose a city-networks maximum limit
-<a name="IMCityNetworksMaximum"></a>
 
 In addition to setting a traffic percentage for your monitor in Internet Monitor, you can also set a maximum limit for the number of city-networks monitored. This section describes how the city-networks limit can help you manage billing costs, and provides information and an example to help you determine a limit to set, if you choose to set one.
 

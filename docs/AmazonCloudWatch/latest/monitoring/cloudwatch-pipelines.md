@@ -1,7 +1,6 @@
 
 
 # CloudWatch pipelines
-<a name="cloudwatch-pipelines"></a>
 
 CloudWatch pipelines is a fully managed data collector that ingests, transforms, and routes telemetry data—including logs and metrics—from AWS services, third-party applications, and custom sources to CloudWatch. Built-in processors let you enrich, filter, and standardize logs into formats like OCSF—without managing infrastructure or third-party tools. For metrics, CloudWatch pipelines processes and enriches OpenTelemetry (OTel) metrics inline during ingestion into CloudWatch.
 

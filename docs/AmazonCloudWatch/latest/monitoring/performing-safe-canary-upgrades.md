@@ -1,7 +1,6 @@
 
 
 # Performing safe canary updates
-<a name="performing-safe-canary-upgrades"></a>
 
 CloudWatch synthetics safe canary updates allows you to test the updates on your existing canaries before applying the changes. This feature helps you validate canary compatibility with new run times and other configuration changes such as code or memory changes. This will help minimize potential monitoring disruptions caused by erroneous updates.
 

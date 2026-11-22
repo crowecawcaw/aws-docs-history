@@ -1,7 +1,6 @@
 
 
 # Basic monitoring and detailed monitoring in CloudWatch
-<a name="cloudwatch-metrics-basic-detailed"></a>
 
 CloudWatch provides two categories of monitoring: *basic monitoring* and *detailed monitoring*.
 
@@ -38,6 +37,6 @@ Additionally, CloudWatch offers out-of-the-box monitoring solutions with more de
 | --- | --- | 
 | Lambda | [ Lambda Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights.html) | 
 | Amazon ECS | [ Container Insights for Amazon ECS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS.html) | 
-| Amazon EKS | [ Container Insights for Amazon EKS and Kubernetes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html) | 
+| Amazon EKS | [ Container Insights for Amazon EKS and Kubernetes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html) | 
 | Amazon RDS | [CloudWatch Database Insights](Database-Insights.md) | 
 | Amazon Aurora | [CloudWatch Database Insights](Database-Insights.md) | 

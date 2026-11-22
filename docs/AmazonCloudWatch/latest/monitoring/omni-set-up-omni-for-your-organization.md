@@ -1,7 +1,6 @@
 
 
 # Set up Omni for your organization
-<a name="omni-set-up-omni-for-your-organization"></a>
 
 Use this guide to set up CloudWatch Omni across an AWS Organization. An administrator creates an Organization domain once from the management account, and then any member account can create its own space, automatically linked to the domain.
 

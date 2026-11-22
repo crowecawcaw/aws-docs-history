@@ -1,7 +1,6 @@
 
 
 # Use dynamic labels
-<a name="graph-dynamic-labels"></a>
 
 You can use dynamic labels with your graphs. Dynamic labels add a dynamically updated value to the label for the selected metric. You can add a wide range of values to the labels, as shown in the following tables.
 

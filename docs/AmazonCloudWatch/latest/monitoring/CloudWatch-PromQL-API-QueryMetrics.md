@@ -1,7 +1,6 @@
 
 
 # QueryMetrics
-<a name="CloudWatch-PromQL-API-QueryMetrics"></a>
 
 The `QueryMetrics` operation evaluates a PromQL instant query at a single point in time, or evaluates a query over a range of time.
 

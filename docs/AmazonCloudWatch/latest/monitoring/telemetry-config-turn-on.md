@@ -1,7 +1,6 @@
 
 
 # Setting up telemetry configuration
-<a name="telemetry-config-turn-on"></a>
 
 Use the CloudWatch console to set up telemetry configuration for your AWS account or organization. For an organization, as a management account or a CloudWatch delegated administrator account, CloudWatch discovers AWS resources and provides visibility into the telemetry configurations across all the member accounts in the organization.
 
@@ -28,7 +27,7 @@ If you are not allowed to perform these actions, turning on telemetry configurat
 
 The following example JSON policy grants the additional permissions required to turn on telemetry configuration for an organization:
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

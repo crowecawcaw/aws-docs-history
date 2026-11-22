@@ -1,7 +1,6 @@
 
 
 # Query metrics with PromQL
-<a name="CloudWatch-PromQL"></a>
 
 **Topics**
 + [What is Prometheus Query Language (PromQL)?](#CloudWatch-PromQL-WhatIs)
@@ -54,16 +53,19 @@ The following table lists the limits and restrictions for PromQL:
 | Limit | Value | Additional information | Error code | 
 | --- | --- | --- | --- | 
 | Max TPS for query requests per account | 300 | Maximum number of query requests (/query, /query\_range) per second allowed per account. | 422 | 
-| Max TPS for discovery requests per account | 10 | Maximum number of discovery requests (/series, /label, /label\_values) per second allowed per account. | 422 | 
+| Max TPS for discovery requests per account | 10 | Maximum number of discovery requests (/series, /labels, /label\_values) per second allowed per account. | 422 | 
 | Max concurrent query requests per account | 30 | Maximum number of queries (/query, /query\_range) an account can have actively executing at the same time. | 429 | 
 | Max concurrent discovery requests per account | 30 | Maximum number of discovery requests (/series, /labels, /label\_values) an account can have actively executing at the same time. | 429 | 
 | Max series returned per query request | 500 | Maximum number of unique time series a query request (/query, /query\_range) can return. | 200 - truncated response | 
 | Max labels returned per discovery request | 10,000 | Maximum number of unique labels a discovery request (/series, /labels, /label\_values) can return. | 200 - truncated response | 
-| Max range per request | 7 days | Maximum time range a query can span, including range parameters and lookback periods. | 422 | 
+| Max range per request | 30 days | Maximum time between the `start` and `end` parameters in a request. Range selectors, such as `[5m]`, don't count toward this limit. The window can be positioned anywhere within metric retention; it is not restricted to the most recent 30 days. To cover a longer period, issue consecutive requests and combine the results. | 422 | 
+| Max label matcher value length | 5,000 bytes | This is the maximum length of the value in each label matcher: the string after `=` or `!=`, or the regular expression after `=~` or `!~`. For example, in `{service=~"api\|web"}` the value is `api\|web`. Label names have the same limit. This limit applies to query requests and to the `match[]` selectors of discovery requests. | 400 | 
 | Max series scanned per 24h window | 100,000 | Maximum number of unique time series that can be scanned per 24-hour window of query execution. | 422 | 
 | Max samples scanned per 24h window | 300,000,000 | Maximum number of samples that can be scanned per 24-hour window of query execution. | 422 | 
 | Max samples processed per 24h window | 3,000,000,000 | Maximum number of samples that can be processed per 24-hour window of query execution. | 422 | 
 | Execution timeout | 20 seconds | Maximum time the engine can spend evaluating a query, excluding time spent in queue and fetching data from storage. | 422 | 
+
+The resolution of the data that's available in a query window depends on the age of the data. For more information about how CloudWatch aggregates older data points, see [Metrics retention](cloudwatch_concepts.md#metrics-retention).
 
 ## Supported AWS Regions
 <a name="CloudWatch-PromQL-Regions"></a>

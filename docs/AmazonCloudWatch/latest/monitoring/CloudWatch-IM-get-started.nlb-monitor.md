@@ -1,7 +1,6 @@
 
 
 # Add a monitor with a Network Load Balancer
-<a name="CloudWatch-IM-get-started.nlb-monitor"></a>
 
 When you create a Network Load Balancer in the AWS Management Console, you can optionally choose to also set up monitoring for traffic to and from the Network Load Balancer using a monitor in Internet Monitor. You can add the Network Load Balancer to an existing monitor, or you can opt to create a new monitor for your Network Load Balancer traffic.
 

@@ -1,13 +1,12 @@
 
 
 # CloudWatch pipelines configuration for Palo Alto Prisma Cloud
-<a name="paloalto-prismacloud-pipeline-setup"></a>
 
 Collects security data from Palo Alto Prisma Cloud using Access Key and Secret Key authentication through the CSPM and Compute APIs.
 
 Configure the Palo Alto Prisma Cloud source with the following parameters:
 
-```
+```yaml
 source:
   paloaltonetworks_prismacloud:
     cspm_base_url: "https://api.prismacloud.io"

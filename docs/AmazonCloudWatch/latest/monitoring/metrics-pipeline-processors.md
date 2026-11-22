@@ -1,7 +1,6 @@
 
 
 # Metrics pipeline processors
-<a name="metrics-pipeline-processors"></a>
 
 Metrics pipeline processors transform OTel metric datapoints during ingestion. A metrics pipeline can have up to 20 processors, applied sequentially in the order they are defined.
 
@@ -25,7 +24,7 @@ Adds or overwrites attributes on metric datapoints. Works with all temporality t
 **Configuration**  
 Configure the add\_attributes processor with the following parameters:
 
-```
+```yaml
 processor:
   - add_attributes:
       attributes:
@@ -60,7 +59,7 @@ Removes specific attributes from metric datapoints. **Does not apply to cumulati
 **Configuration**  
 Configure the delete\_attributes processor with the following parameters:
 
-```
+```yaml
 processor:
   - delete_attributes:
       with_keys:
@@ -82,7 +81,7 @@ Renames attribute keys on metric datapoints. **Does not apply to cumulative metr
 **Configuration**  
 Configure the rename\_attributes processor with the following parameters:
 
-```
+```yaml
 processor:
   - rename_attributes:
       attributes:
@@ -113,7 +112,7 @@ Renames metric names. **Does not apply to cumulative metrics or vended metrics.*
 **Configuration**  
 Configure the rename\_metrics processor with the following parameters:
 
-```
+```yaml
 processor:
   - rename_metrics:
       metrics:
@@ -140,7 +139,7 @@ Maps attribute values by using a lookup table. **Does not apply to cumulative me
 **Configuration**  
 Configure the substitute\_attribute\_values processor with the following parameters:
 
-```
+```yaml
 processor:
   - substitute_attribute_values:
       attributes:
@@ -166,7 +165,7 @@ Replacement value.
 
 The following example uses all five processors in a single pipeline:
 
-```
+```yaml
 pipeline:
   source:
     cloudwatch_metrics:

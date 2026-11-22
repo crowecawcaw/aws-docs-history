@@ -1,11 +1,10 @@
 
 
 # SQL failover cluster instance
-<a name="component-configuration-examples-sql-failover-cluster"></a>
 
 The following example shows a component configuration in JSON format for SQL failover cluster instance.
 
-```
+```json
 {
   "subComponents" : [ {
     "subComponentType" : "AWS::EC2::Instance",

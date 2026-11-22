@@ -1,13 +1,18 @@
 
 
 # Retrieve custom metrics with collectd
-<a name="CloudWatch-Agent-custom-metrics-collectd"></a>
 
-You can retrieve additional metrics from your applications or services using the CloudWatch agent with the collectd protocol, which is supported only on Linux servers. collectd is a popular open-source solution with plugins that can gather system statistics for a wide variety of applications. By combining the system metrics that the CloudWatch agent can already collect with the additional metrics from collectd, you can better monitor, analyze, and troubleshoot your systems and applications. For more information about collectd, see [collectd - The system statistics collection daemon](https://collectd.org/).
+You can retrieve additional metrics from your applications or services using the CloudWatch agent with the collectd protocol, which is supported only on Linux servers. collectd is a popular open-source solution with plugins that can gather system statistics for a wide variety of applications. By combining the system metrics that the CloudWatch agent can already collect with the additional metrics from collectd, you can better monitor, analyze, and troubleshoot your systems and applications. For more information about collectd, see [collectd - The system statistics collection daemon](https://collectd.org/). To send these metrics as OpenTelemetry metrics instead, see [Example: Send collectd or StatsD metrics to OpenTelemetry](CloudWatch-Agent-appending-OpenTelemetry-config-collectd-statsd.md).
 
 You use the collectd software to send the metrics to the CloudWatch agent. For the collectd metrics, the CloudWatch agent acts as the server while the collectd plugin acts as the client.
 
-The collectd software is not installed automatically on every server. On a server running Amazon Linux 2, follow these steps to install collectd
+The collectd software is not installed automatically on every server. On a server running Amazon Linux 2023, install collectd with the following command:
+
+```
+sudo dnf install -y collectd
+```
+
+On a server running Amazon Linux 2, use the following command:
 
 ```
 sudo amazon-linux-extras install collectd
@@ -15,7 +20,7 @@ sudo amazon-linux-extras install collectd
 
 For information about installing collectd on other systems, see the [Download page for collectd.](https://www.collectd.org/download.html) 
 
-To collect these custom metrics, add a **"collectd": {}** line to the **metrics\_collected** section of the agent configuration file. You can add this line manually. If you use the wizard to create the configuration file, it is done for you. For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
+To collect these custom metrics, add a **"collectd": {}** line to the **metrics\_collected** section of the agent configuration file. You can add this line manually. If you use the wizard to create the configuration file, it is done for you. For more information, see [Create the Classic CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md).
 
 Optional parameters are also available. If you are using collectd and you do not use `/etc/collectd/auth_file` as your **collectd\_auth\_file**, you must set some of these options. 
 + **service\_address:** The service address to which the CloudWatch agent should listen. The format is `"udp://{{ip}}:{{port}}`. The default is `udp://127.0.0.1:25826`.
@@ -43,7 +48,7 @@ Optional parameters are also available. If you are using collectd and you do not
 
 The following is an example of the collectd section of the agent configuration file.
 
-```
+```json
 {
    "metrics":{
       "metrics_collected":{

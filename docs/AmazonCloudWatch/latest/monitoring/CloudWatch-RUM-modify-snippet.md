@@ -1,7 +1,6 @@
 
 
 # Modifying the code snippet to configure the CloudWatch RUM web client (optional)
-<a name="CloudWatch-RUM-modify-snippet"></a>
 
 You can modify the code snippet before inserting it into your application, to activate or deactivate several options. For more information, see the [ CloudWatch RUM web client documentation.](https://github.com/aws-observability/aws-rum-web/blob/main/docs/cdn_installation.md)
 
@@ -21,13 +20,13 @@ By default, the web client records page views when the page first loads and when
 
 **Embedded script example:**
 
-```
+```javascript
 cwr('recordPageView', { pageId: 'entityPageId' });
 ```
 
 **JavaScript module example:**
 
-```
+```javascript
 awsRum.recordPageView({ pageId: 'entityPageId' });
 ```
 
@@ -40,7 +39,7 @@ By default, these client-side traces are not connected to downstream server-side
 
 The following code block shows an example of adding client-side traces. Some configuration options are omitted from this sample for readibility.
 
-```
+```javascript
 <script>
     (function(n,i,v,r,s,c,u,x,z){...})(
         'cwr',

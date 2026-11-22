@@ -1,7 +1,6 @@
 
 
 # Create and work with monitors in Network Flow Monitor
-<a name="CloudWatch-NetworkFlowMonitor-configure-monitors"></a>
 
 You create a monitor to see details about the network performance for one or several network flows for a workload. For each monitor, Network Flow Monitor publishes end-to-end performance metrics and a network health indicator (NHI), and generates network paths of individual network flows. After you create a monitor, you can view information provided by the monitor in the console on the **Monitors** tab.
 

@@ -1,7 +1,6 @@
 
 
 # Alarming on logs
-<a name="Alarm-On-Logs"></a>
 
 You can create CloudWatch alarms that monitor your log data in two ways:
 + **Log Alarm approach** — Create a Log Alarm that runs a CloudWatch Logs Insights query on a schedule and evaluates the aggregated results directly against a threshold.
@@ -30,7 +29,7 @@ The scheduled query execution role allows CloudWatch Logs to run the query on yo
 
 The following example shows the trust policy for the scheduled query execution role.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ The following example shows the trust policy for the scheduled query execution r
 
 The following example shows the permissions policy. Scope the `Resource` to the log group ARNs that the query targets.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -72,7 +71,7 @@ The log lines role allows CloudWatch to fetch log lines for Amazon SNS email not
 
 The following example shows the trust policy for the log lines role.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ The following example shows the trust policy for the log lines role.
 
 The following example shows the permissions policy for the log lines role. The `logs:GetQueryResults` permission is required to fetch log lines. Scope the `Resource` to the log group ARNs that the query targets.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ You can use the AWS CLI `put-log-alarm` command to create a Log Alarm.
 
 The following example creates a Log Alarm that monitors error counts in a log group and transitions to `ALARM` state when the count exceeds 100 in 3 out of 5 query executions.
 
-```
+```bash
 aws cloudwatch put-log-alarm \
     --alarm-name "HighErrorCount" \
     --alarm-description "Alarm when error count exceeds 100" \
@@ -227,7 +226,7 @@ You can use the `AWS::CloudWatch::LogAlarm` resource type to create a Log Alarm 
 
 The following example template creates a Log Alarm that monitors error counts.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   HighErrorCountAlarm:

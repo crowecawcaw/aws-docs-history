@@ -1,11 +1,10 @@
 
 
 # Step 3: Add the collector to your task definition
-<a name="ecs-otel-collector-task-definition"></a>
 
 Add the following container definition to each task definition that you want to monitor. Replace {{region}} with your Region, and set the `OTEL_CONFIG` value to the configuration from step 2.
 
-```
+```json
 {
   "name": "otel-collector",
   "image": "otel/opentelemetry-collector-contrib:0.165.0",

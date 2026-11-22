@@ -1,7 +1,6 @@
 
 
 # Use metrics explorer to monitor resources by their tags and properties
-<a name="CloudWatch-Metrics-Explorer"></a>
 
 Metrics explorer is a tag-based tool that enables you to filter, aggregate, and visualize your metrics by tags and resource properties, to enhance observability for your services. This gives you a flexible and dynamic troubleshooting experience, so that you can create multiple graphs at a time and use these graphs to build your application health dashboards.
 

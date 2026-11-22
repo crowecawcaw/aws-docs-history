@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Container Insights
-<a name="ContainerInsights-troubleshooting"></a>
 
 The following sections can help if you're having trouble issues with Container Insights.
 
@@ -51,7 +50,7 @@ If you see an error message similar to the following, check to make sure that yo
 ## Metrics don't appear in the console
 <a name="ContainerInsights-setup-EKS-troubleshooting-nometrics"></a>
 
-If you don't see any Container Insights metrics in the AWS Management Console, be sure that you have completed the setup of Container Insights. Metrics don't appear before Container Insights has been set up completely. For more information, see [Container Insights](ContainerInsights.md).
+If you don't see any Container Insights metrics in the AWS Management Console, be sure that you have completed the setup of Container Insights. Metrics don't appear before Container Insights has been set up completely. For more information, see [Container Insights for Amazon EKS](ContainerInsights.md).
 
 ## Pod metrics missing on Amazon EKS or Kubernetes after upgrading cluster
 <a name="ContainerInsights-troubleshooting-podmetrics-missing"></a>
@@ -60,7 +59,7 @@ This section might be useful if all or some pod metrics are missing after you de
 
 These errors can be caused by changes in the container runtime, such as containerd or the Docker systemd cgroup driver. You can usually solve this by updating your deployment manifest so that the containerd socket from the host is mounted into the container. See the following example:
 
-```
+```yaml
 # For full example see https://github.com/aws-samples/amazon-cloudwatch-container-insights/blob/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cwagent/cwagent-daemonset.yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -106,7 +105,7 @@ Bottlerocket is a Linux-based open source operating system that is purpose-built
 
 Bottlerocket uses a different `containerd` path on the host, so you need to change the volumes to its location. If you don't, you see an error in the logs that includes `W! No pod metric collected`. See the following example.
 
-```
+```yaml
 volumes:
   # ... 
     - name: containerdsock

@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for CloudWatch Application Insights
-<a name="CHAP_using-service-linked-roles-appinsights"></a>
 
 CloudWatch Application Insights uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to CloudWatch Application Insights. Service-linked roles are predefined by CloudWatch Application Insights and include all of the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -21,7 +20,7 @@ The role permissions policy allows CloudWatch Application Insights to complete t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

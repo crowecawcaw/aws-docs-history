@@ -1,7 +1,6 @@
 
 
 # Removing a graph widget from a CloudWatch dashboard
-<a name="remove_graph_dashboard"></a>
 
 **To remove a graph from a dashboard**
 

@@ -1,7 +1,6 @@
 
 
 # Transformation processors
-<a name="transformation-processors"></a>
 
 Transformation processors modify the structure of log events by adding, copying, moving, or removing fields.
 
@@ -13,7 +12,7 @@ Adds static key-value pairs to log events. At most 1 `add_entries` processor can
 **Configuration**  
 Configure the add\_entries processor with the following parameters:
 
-```
+```yaml
 processor:
   - add_entries:
       entries:
@@ -51,7 +50,7 @@ Copies values from one field to another. At most 1 `copy_values` processor can b
 **Configuration**  
 Configure the copy\_values processor with the following parameters:
 
-```
+```yaml
 processor:
   - copy_values:
       entries:
@@ -89,7 +88,7 @@ Removes specified fields from log events.
 **Configuration**  
 Configure the delete\_entries processor with the following parameters:
 
-```
+```yaml
 processor:
   - delete_entries:
       with_keys: ["temp_field", "debug_info"]
@@ -109,7 +108,7 @@ Moves fields from one location to another.
 **Configuration**  
 Configure the move\_keys processor with the following parameters:
 
-```
+```yaml
 processor:
   - move_keys:
       entries:
@@ -147,7 +146,7 @@ Flattens nested object structures.
 **Configuration**  
 Configure the flatten processor with the following parameters:
 
-```
+```yaml
 processor:
   - flatten:
       source: "metadata"
@@ -182,7 +181,7 @@ If a lookup table is used in a pipeline, you must provide an execution role with
 **Configuration**  
 Configure the lookup processor with the following parameters:
 
-```
+```yaml
 processor:
   - lookup:
       lookup_table: "arn:aws:logs:us-east-1:123456789012:lookup-table:my_lookup_table"
@@ -238,7 +237,7 @@ Consider a lookup table named `network_assets` with the following rows:
 
 Given the following log event:
 
-```
+```json
 {
   "timestamp": "2026-05-04T12:00:00Z",
   "src_ip": "10.0.2.45",
@@ -249,7 +248,7 @@ Given the following log event:
 
 And the following processor configuration:
 
-```
+```yaml
 processor:
   - lookup:
       lookup_table: "arn:aws:logs:us-east-1:123456789012:lookup-table:network_assets"
@@ -268,7 +267,7 @@ processor:
 
 The processor produces the following enriched log event:
 
-```
+```json
 {
   "timestamp": "2026-05-04T12:00:00Z",
   "src_ip": "10.0.2.45",
@@ -283,7 +282,7 @@ The processor produces the following enriched log event:
 **IAM permissions**  
 When a pipeline uses the lookup processor, the pipeline's execution role must include `logs:GetLookupTable` permission for the referenced table. The following example policy statement grants this permission:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "logs:GetLookupTable",
@@ -299,7 +298,7 @@ The geoip processor enriches log events with geographic location data based on I
 **Configuration**  
 Configure the geoip processor with the following parameters:
 
-```
+```yaml
 processor:
   - geoip:
       entries:
@@ -348,7 +347,7 @@ Top-level conditional expression that determines whether this processor executes
 **Example**  
 The following example shows a sample log event with IP address fields:
 
-```
+```json
 {
   "timestamp": "2026-05-04T12:00:00Z",
   "src_ip": "203.0.113.50",
@@ -360,7 +359,7 @@ The following example shows a sample log event with IP address fields:
 
 The following processor configuration maps both source and destination IP fields to geographic enrichment targets:
 
-```
+```yaml
 processor:
   - geoip:
       entries:
@@ -383,7 +382,7 @@ processor:
 
 The processor produces the following enriched log event:
 
-```
+```json
 {
   "timestamp": "2026-05-04T12:00:00Z",
   "src_ip": "203.0.113.50",

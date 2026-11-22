@@ -1,7 +1,6 @@
 
 
 # Use natural language to generate and update CloudWatch Metrics Insights queries
-<a name="cloudwatch-metrics-insights-query-assist"></a>
 
  CloudWatch supports a natural language query capability to help you generate and update queries for [CloudWatch Metrics Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html) and [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html). 
 

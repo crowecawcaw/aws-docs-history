@@ -1,7 +1,6 @@
 
 
 # Send Claude Platform traces to Amazon CloudWatch
-<a name="CloudWatch-OTLP-ClaudePlatformTraces"></a>
 
 Anthropic's Claude Platform exports OpenTelemetry traces for Claude Managed Agents sessions and Messages API requests. Send these traces to Amazon CloudWatch (CloudWatch) to see each agent turn, model call, and tool call in Transaction Search, with latency, token usage, and identifiers, alongside the rest of your stack.
 

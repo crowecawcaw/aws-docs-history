@@ -1,7 +1,6 @@
 
 
 # Stopping using CloudWatch RUM or deleting an app monitor
-<a name="CloudWatch-RUM-delete-appmonitor"></a>
 
 To stop using CloudWatch RUM with an application, remove the code snippet that RUM generated from your application's code.
 

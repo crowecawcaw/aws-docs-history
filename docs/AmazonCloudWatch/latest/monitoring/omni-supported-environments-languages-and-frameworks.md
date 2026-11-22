@@ -1,7 +1,6 @@
 
 
 # Supported environments, languages, and frameworks
-<a name="omni-supported-environments-languages-and-frameworks"></a>
 
 The environments, languages, and frameworks with a documented path for sending telemetry to CloudWatch Omni.
 
@@ -18,6 +17,7 @@ The environments, languages, and frameworks with a documented path for sending t
 | Amazon Bedrock AgentCore | AI agents | The runtime exports traces. | Traces | AgentCore starter toolkit, CDK (TypeScript, Python), Terraform, CloudFormation | [AI agents](./omni-send-ai-agent-telemetry.html#agentcore) | 
 | Azure VM | Applications | CloudWatch agent on the VM, credentials federated from the VM's managed identity. | Traces, metrics, logs | Azure setup script | [Applications](./omni-send-application-telemetry.html#azure-vm) | 
 | Azure Kubernetes Service | Applications | CloudWatch Observability Helm chart, credentials federated from workload identity. | Traces, metrics, logs | Helm, kubectl | [Applications](./omni-send-application-telemetry.html#azure-aks) | 
+| Azure platform services | Azure resources | No agent. Diagnostic settings route resource logs and traces to Azure Event Hubs, VNet flow logs are read from an Azure Storage account, and platform metrics are polled from the Azure Monitor metrics API. | Resource logs, platform metrics, VNet flow logs. Traces from Application Insights resources only. | The Omni web UI (Settings › Ingestion, then Azure and Platform telemetry), or the AWS CLI and the setup scripts | [Azure platform telemetry](omni-send-platform-telemetry-from-microsoft-azure.md) | 
 | Google Compute Engine | Applications | CloudWatch agent on the instance, credentials federated from the instance's service account. | Traces, metrics, logs | Google Cloud setup script | [Applications](./omni-send-application-telemetry.html#google-compute-engine) | 
 | Google Kubernetes Engine | Applications | CloudWatch Observability Helm chart, credentials federated from the cluster's OIDC issuer. | Traces, metrics, logs | Helm, kubectl | [Applications](./omni-send-application-telemetry.html#google-kubernetes-engine) | 
 

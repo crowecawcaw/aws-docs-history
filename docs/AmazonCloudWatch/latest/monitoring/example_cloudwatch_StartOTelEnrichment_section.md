@@ -1,7 +1,6 @@
 
 
 # Use `StartOTelEnrichment` with an AWS SDK
-<a name="example_cloudwatch_StartOTelEnrichment_section"></a>
 
 The following code examples show how to use `StartOTelEnrichment`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Turn on OTel enrichment for the account. Once enrichment is running, CloudWatch
     /// vended metrics that carry a resource identifier dimension, such as the Amazon EC2
@@ -44,7 +43,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/StartOTelEnrichmentRequest.h>
@@ -52,7 +51,7 @@ Include the required files.
 ```
 Start OpenTelemetry enrichment.  
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -77,7 +76,7 @@ Start OpenTelemetry enrichment.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Turns on OTel enrichment for the account. Once enrichment is running, CloudWatch
      * vended metrics that carry a resource identifier dimension, such as the EC2
@@ -108,7 +107,7 @@ Start OpenTelemetry enrichment.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 
-```
+```javascript
 import { StartOTelEnrichmentCommand } from "@aws-sdk/client-cloudwatch";
 import { client } from "../libs/client.js";
 
@@ -139,7 +138,7 @@ export default run();
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun startOTelEnrichment() {
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
         cwClient.startOTelEnrichment(StartOTelEnrichmentRequest {})
@@ -155,7 +154,7 @@ suspend fun startOTelEnrichment() {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
-```
+```python
 class CloudWatchOTelWrapper:
     """Encapsulates the OpenTelemetry-oriented Amazon CloudWatch operations."""
 
@@ -205,7 +204,7 @@ class CloudWatchOTelWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
-```
+```ruby
 # Turns on OTel enrichment for the account. Once enrichment is running, CloudWatch vended
 # metrics that carry a resource identifier dimension, such as the Amazon EC2
 # CPUUtilization metric with its InstanceId dimension, are decorated with resource ARN

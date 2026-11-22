@@ -1,7 +1,6 @@
 
 
 # Set up HAProxy with a metric exporter on Amazon EKS and Kubernetes
-<a name="ContainerInsights-Prometheus-Sample-Workloads-haproxy"></a>
 
 HAProxy is an open-source proxy application. For more information, see [HAProxy](https://www.haproxy.org).
 

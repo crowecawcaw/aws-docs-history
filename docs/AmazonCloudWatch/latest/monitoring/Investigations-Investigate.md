@@ -1,7 +1,6 @@
 
 
 # Investigate operational issues in your environment
-<a name="Investigations-Investigate"></a>
 
 You can create investigations in several ways depending on your workflow and the source of the issue you're investigating. After an investigation is active, you can review AI-generated suggestions, accept or discard findings, and take remediation actions through automated runbooks.
 

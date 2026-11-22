@@ -1,7 +1,6 @@
 
 
 # Starting the CloudWatch agent
-<a name="start-CloudWatch-Agent-on-premise-SSM-onprem"></a>
 
 You can start the CloudWatch agent using either Systems Manager Run Command or the command line.
 
@@ -10,28 +9,20 @@ For information about setting up the agent on a system that has security-enhance
 ## Start the CloudWatch agent using the command line on Amazon EC2
 <a name="start-CloudWatch-Agent-EC2-commands-fleet"></a>
 
-Follow these steps to use the command line to start the CloudWatch agent on on Amazon EC2.
+Follow these steps to use the command line to start the CloudWatch agent on Amazon EC2.
 
-For information about setting up the agent on a system that has security-enhanced Linux (SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md).
-
-**To use the command line to start the CloudWatch agent on on Amazon EC2**
+**To use the command line to start the CloudWatch agent on Amazon EC2**
 
 1. Copy the agent configuration file that you want to use to the server where you're going to run the agent. Note the pathname where you copy it to.
 
 1. In this command, `-a fetch-config` causes the agent to load the latest version of the CloudWatch agent configuration file, and `-s` starts the agent.
 
-   Enter one of the following commands. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
+   Enter one of the following commands. Replace {{configuration-file-path}} with the path to the agent configuration file.
 
    On an EC2 instance running Linux, enter the following command. 
 
    ```
    sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:{{configuration-file-path}}
-   ```
-
-   On an on-premises server running Linux, enter the following:
-
-   ```
-   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
    ```
 
    On an EC2 instance running Windows Server, enter the following from the PowerShell console:
@@ -40,16 +31,10 @@ For information about setting up the agent on a system that has security-enhance
    & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:{{configuration-file-path}}
    ```
 
-   On an on-premises server running Windows Server, enter the following from the PowerShell console:
-
-   ```
-   & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
-   ```
-
 ## Start the CloudWatch agent on an on-premises server
 <a name="start-CloudWatch-Agent-on-premises"></a>
 
-Follow these steps to start the CloudWatch agent on an on-premises server.
+This topic explains how to start the CloudWatch agent on an on-premises server.
 
 **To use SSM Agent to start the CloudWatch agent on an on-premises server**
 
@@ -63,15 +48,19 @@ Follow these steps to start the CloudWatch agent on an on-premises server.
 
 1. Choose **Run command**.
 
-1. In the **Command document** list, select the button next to **AmazonCloudWatch-ManageAgent**.
+1. Choose the command document and the target:
 
-1. In the **Targets** area, select the instance where you installed the agent.
+   1. In the **Command document** list, select the button next to **AmazonCloudWatch-ManageAgent**.
 
-1. In the **Action** list, choose **configure**.
+   1. In the **Targets** area, select the instance where you installed the agent.
 
-1. In the **Mode** list, choose **onPremise**.
+1. Set the command parameters:
 
-1. In the **Optional Configuration Location** box, enter the name of the agent configuration file that you created with the wizard and stored in the Parameter Store.
+   1. In the **Action** list, choose **configure**.
+
+   1. In the **Mode** list, choose **onPremise**.
+
+   1. In the **Optional Configuration Location** box, enter the name of the Parameter Store parameter that contains your agent configuration file.
 
 1. Choose **Run**.
 
@@ -86,7 +75,7 @@ Follow these steps to start the CloudWatch agent on an on-premises server.
   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c ssm:{{configuration-parameter-store-name}}
   ```
 
-  Linux: If you saved the configuration file on the local computer, enter the following command. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
+  Linux: If you saved the configuration file on the local computer, enter the following command. Replace {{configuration-file-path}} with the path to the agent configuration file.
 
   ```
   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
@@ -98,7 +87,7 @@ Follow these steps to start the CloudWatch agent on an on-premises server.
   & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c ssm:{{configuration-parameter-store-name}}
   ```
 
-  Windows Server: If you saved the agent configuration file on the local computer, enter the following from the PowerShell console. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
+  Windows Server: If you saved the agent configuration file on the local computer, enter the following from the PowerShell console. Replace {{configuration-file-path}} with the path to the agent configuration file.
 
   ```
   & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}

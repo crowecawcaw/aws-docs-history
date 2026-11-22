@@ -1,7 +1,6 @@
 
 
 # Managing alarms
-<a name="Manage-CloudWatch-Alarm"></a>
 
 **Topics**
 + [Edit or delete a CloudWatch alarm](Edit-CloudWatch-Alarm.md)

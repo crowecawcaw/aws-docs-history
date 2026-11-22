@@ -1,7 +1,6 @@
 
 
 # Delete a connector to a data source
-<a name="CloudWatch_MultiDataSources-Delete"></a>
 
  The instructions in this section describe how to delete a connector to a data source. 
 

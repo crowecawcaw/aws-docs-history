@@ -1,15 +1,14 @@
 
 
 # Initialize Network Flow Monitor for multi-account monitoring
-<a name="CloudWatch-NetworkFlowMonitor-multi-account"></a>
 
 If you want to monitor network flows in Network Flow Monitor for resources that are owned by different accounts, you must first configure Amazon CloudWatch with AWS Organizations. To use multiple accounts in Network Flow Monitor, you're required to turn on trusted access for CloudWatch, and it's a best practice to also register a delegated administrator.
 
 In addition, if you plan to create monitors for network flows from the console, you must add a Network Flow Monitor policy to the role that is attached to your resources. The policy enables you to view resources from other accounts in the console, so that you can add the resources in multiple accounts to a monitor.
 
-To monitor network flows for resources that are owned by different accounts, there are additional configuration steps to take. First, as the management account, you must configure CloudWatch with AWS Organizations to turn on trusted access, and, typically, you'll also register a delegated administrator account. Then, using the delegated administrator account, you can add more accounts in your organization, to set the scope for your network observability to include resources in those accounts. (You can also add multiple accounts with a management account. However, it's a best practice in Organizations to use the delegated administrator account when you work with resources in a service. We provide steps that follow that guidance in the instructions here for Network Flow Monitor.)
+To monitor network flows for resources that are owned by different accounts, there are additional configuration steps to take. First, as the management account, you must configure CloudWatch with AWS Organizations to turn on trusted access, and, typically, you'll also register a delegated administrator account. Then, using the delegated administrator account, you can add more account-Region pairs in your organization, to set the scope for your network observability to include resources in those accounts. (You can also add multiple accounts with a management account. However, it's a best practice in Organizations to use the delegated administrator account when you work with resources in a service. We provide steps that follow that guidance in the instructions here for Network Flow Monitor.)
 
-Note that if you don’t need to monitor network flows for instances from multiple accounts, you can use Network Flow Monitor with a single account. The scope for Network Flow Monitor is automatically set to the AWS account that you sign in with.
+Note that if you don’t need to monitor network flows for instances from multiple accounts, you can use Network Flow Monitor with a single account. The scope for Network Flow Monitor is automatically set to the AWS account and current Region that you sign in with.
 
 Use the guidance in the following sections to complete these steps.
 
@@ -147,7 +146,7 @@ For each of the account in your scope, create a role, **NetworkFlowMonitorAccoun
 
 If you want to view Amazon EKS cluster resources from other accounts in the console, you must also add the following permissions to the **NetworkFlowMonitorAccountResourceAccess** role:
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

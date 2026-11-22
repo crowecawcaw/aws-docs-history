@@ -1,7 +1,6 @@
 
 
 # Using live data for a CloudWatch dashboard
-<a name="live_data_dashboard"></a>
 
 **To choose whether to use live data on your entire dashboard**
 

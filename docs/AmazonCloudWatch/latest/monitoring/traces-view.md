@@ -1,7 +1,6 @@
 
 
 # Traces view
-<a name="traces-view"></a>
 
 Trace view lists all traces from your agents in this account. To work with traces:
 

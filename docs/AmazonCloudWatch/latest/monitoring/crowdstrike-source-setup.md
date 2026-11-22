@@ -1,7 +1,6 @@
 
 
 # Source configuration for CrowdStrike
-<a name="crowdstrike-source-setup"></a>
 
 ## Integrating with CrowdStrike Falcon
 <a name="crowdstrike-integration"></a>

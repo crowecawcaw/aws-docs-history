@@ -1,7 +1,6 @@
 
 
 # Using log centralization with multilocation canaries
-<a name="CloudWatch_Synthetics_MultiLocation_Log_Centralization"></a>
 
 When you configure a canary to run from multiple locations, each execution produces logs in its respective Region. You can use CloudWatch Logs centralization to aggregate these logs into a single Region, making it easier to monitor and troubleshoot canary results from one place.
 
@@ -42,7 +41,7 @@ If you use the recommended settings above, logs from all canary execution Region
 
 You can use CloudWatch Logs Insights to query across all log entries. For example, to find failures from a specific Region:
 
-```
+```sql
 fields @timestamp, @message, @logStream
 | filter @aws.region like /us-west-2/
 | filter @message like /ERROR/

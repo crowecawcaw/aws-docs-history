@@ -1,7 +1,6 @@
 
 
 # Testing your CloudWatch app monitor setup by generating user events
-<a name="CloudWatch-RUM-get-started-generate-data"></a>
 
 After you have inserted the code snippet and your updated application is running, you can test it by manually generating user events. To test this, we recommend that you do the following. This testing incurs standard CloudWatch RUM charges.
 + Navigate between pages in your web application.

@@ -1,7 +1,6 @@
 
 
 # Set up Claude Code OpenTelemetry metrics for Amazon CloudWatch
-<a name="coding-agents-claude-code"></a>
 
 Claude Code emits OpenTelemetry (OTel) metrics about token usage, sessions, code edits, tool calls, and cost. When you send these metrics to Amazon CloudWatch, they populate the Claude Code tab of the Coding Agent Insights dashboards. For more information about the dashboards, see [Coding Agent Insights](coding-agents-insights.md).
 

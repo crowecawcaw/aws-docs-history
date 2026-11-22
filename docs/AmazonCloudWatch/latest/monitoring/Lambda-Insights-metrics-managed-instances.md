@@ -1,7 +1,6 @@
 
 
 # Managed Instances Lambda Functions
-<a name="Lambda-Insights-metrics-managed-instances"></a>
 
 The following metrics are available as time series aggregated data in CloudWatch Metrics in the `LambdaInsights` namespace for Lambda functions running on Managed Instances.
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for OneLogin Identity
-<a name="onelogin-identity-source-setup"></a>
 
 ## Integrating with OneLogin Identity
 <a name="onelogin-identity-integration"></a>

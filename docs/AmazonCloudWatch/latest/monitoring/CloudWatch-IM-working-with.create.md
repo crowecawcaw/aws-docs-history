@@ -1,7 +1,6 @@
 
 
 # Create a monitor in Internet Monitor using the console
-<a name="CloudWatch-IM-working-with.create"></a>
 
 You create a monitor in Internet Monitor to visualize and explore performance and availability data about your application's client traffic. You create a monitor by adding AWS resources that your application uses, and then setting several configuration options. The resources that you add to the monitor provide the information — for example, through resource flow logs — for Internet Monitor to learn which internet traffic is specific to your AWS application.
 

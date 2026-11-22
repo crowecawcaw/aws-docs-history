@@ -1,7 +1,6 @@
 
 
 # Integrations with other systems
-<a name="Investigations-Integrations"></a>
 
 **Topics**
 + [Integration with AWS Systems Manager Automation](#Investigations-Integrations-SSM)
@@ -41,7 +40,7 @@ Create an Amazon SNS topic in the same region as your investigation. For more in
 
 To enable CloudWatch investigations to send notifications, you must add an the following access policy to the Amazon SNS topic
 
-```
+```json
 {
     "Sid": "AIOPSChatPublish",
     "Effect": "Allow",

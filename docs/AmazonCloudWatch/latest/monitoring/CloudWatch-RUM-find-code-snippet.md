@@ -1,7 +1,6 @@
 
 
 # How do I find a code snippet that I've already generated?
-<a name="CloudWatch-RUM-find-code-snippet"></a>
 
 To find a CloudWatch RUM code snippet that you've already generated for an application, follow these steps.
 

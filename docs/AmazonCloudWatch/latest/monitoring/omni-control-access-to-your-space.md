@@ -1,7 +1,6 @@
 
 
 # Control access to your space
-<a name="omni-control-access-to-your-space"></a>
 
 Omni separates setting up access from managing it. You enable Omni, create your domain and space, and grant the first Space Admins in the Amazon CloudWatch console — the setup that [Set up Omni](omni-set-up-omni.md) covers. The identity that creates the space becomes its first Space Admin automatically: setup adds a system managed Space Admin grant for the IAM role or user that ran the setup flow. That grant cannot be removed while it is the last Space Admin grant. Space Admins are the one part of access you can keep managing in the CloudWatch console: it has a page for adding and removing them at any time after setup. Everything else is in the Omni web UI (the other permission levels, data scopes, and access profiles), where a Space Admin adds members and each member's grants decide what they can do and see. This page explains the model; the pages under it carry the procedures and the reference.
 

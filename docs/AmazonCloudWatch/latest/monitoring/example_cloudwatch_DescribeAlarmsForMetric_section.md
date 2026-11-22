@@ -1,7 +1,6 @@
 
 
 # Use `DescribeAlarmsForMetric` with an AWS SDK or CLI
-<a name="example_cloudwatch_DescribeAlarmsForMetric_section"></a>
 
 The following code examples show how to use `DescribeAlarmsForMetric`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Describe the current alarms for a specific metric.
     /// </summary>
@@ -42,7 +41,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/DescribeAlarmsRequest.h>
@@ -52,7 +51,7 @@ Include the required files.
 ```
 Describe the alarms.  
 
-```
+```cpp
         Aws::CloudWatch::CloudWatchClient cw;
         Aws::CloudWatch::Model::DescribeAlarmsRequest request;
         request.SetMaxRecords(1);
@@ -188,7 +187,7 @@ For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amaz
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
     /**
      * Checks for a metric alarm in AWS CloudWatch.
      *
@@ -272,7 +271,7 @@ For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amaz
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { DescribeAlarmsCommand } from "@aws-sdk/client-cloudwatch";
 import { client } from "../libs/client.js";
 
@@ -292,7 +291,7 @@ export default run();
 ```
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
@@ -303,7 +302,7 @@ export const client = new CloudWatchClient({});
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -332,7 +331,7 @@ cw.describeAlarms({ StateValue: "INSUFFICIENT_DATA" }, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun describeAlarmsForMetric(
     namespaceVal: String,
     metricNameVal: String,
@@ -365,7 +364,7 @@ suspend fun describeAlarmsForMetric(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
-```
+```python
 class CloudWatchWrapper:
     """Encapsulates Amazon CloudWatch functions."""
 
@@ -397,7 +396,7 @@ class CloudWatchWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
-```
+```ruby
 #
 # @param cloudwatch_client [Aws::CloudWatch::Client]
 #   An initialized CloudWatch client.
@@ -491,7 +490,7 @@ run_me if $PROGRAM_NAME == __FILE__
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_cwt->describealarmsformetric(          " oo_result is returned for testing purposes. "
           iv_namespace   = iv_namespace

@@ -1,7 +1,6 @@
 
 
 # Examples of using the CLI with Internet Monitor
-<a name="CloudWatch-IM-get-started-CLI"></a>
 
 This section includes examples for using the AWS Command Line Interface with Internet Monitor operations. 
 
@@ -36,7 +35,7 @@ aws internetmonitor create-monitor --monitor-name "TestMonitor" \
 				--internet-measurements-log-delivery S3Config="{BucketName=amzn-s3-demo-bucket,LogDeliveryStatus=ENABLED}"
 ```
 
-```
+```json
 {
     "Arn": "arn:aws:internetmonitor:us-east-1:111122223333:monitor/TestMonitor",
     "Status": "ACTIVE"
@@ -55,7 +54,7 @@ To view information about a monitor with the AWS CLI, you use the `get-monitor` 
 aws internetmonitor get-monitor --monitor-name "TestMonitor"
 ```
 
-```
+```json
 {
     "ClientLocationType": "city",
     "CreatedAt": "2022-09-22T19:27:47Z",
@@ -81,7 +80,7 @@ When performance degrades for your application's internet traffic, Internet Moni
 aws internetmonitor list-health-events --monitor-name "TestMonitor"
 ```
 
-```
+```json
 {
     "HealthEvents": [
         {
@@ -242,7 +241,7 @@ To see a more detailed information about a specific health event with the CLI, r
 aws internetmonitor get-monitor --monitor-name "TestMonitor" --event-id "health-event/TestMonitor/2021-06-03T01:02:03Z/latency" 
 ```
 
-```
+```json
 {
     "EventId": "2022-06-20T01-34-20Z/latency", 
     "Status": "RESOLVED", 
@@ -325,7 +324,7 @@ To see a list of all monitors in your account with the CLI, run the `list-monito
 aws internetmonitor list-monitors
 ```
 
-```
+```json
 {
     "Monitors": [
         {
@@ -351,7 +350,7 @@ The following example shows how to use the `update-monitor` command to change th
 aws internetmonitor update-monitor --monitor-name "TestMonitor" --max-city-networks-to-monitor 50000
 ```
 
-```
+```json
 {
     "MonitorArn": "arn:aws:internetmonitor:us-east-1:111122223333:monitor/TestMonitor",
     "Status": " ACTIVE "
@@ -366,7 +365,7 @@ aws internetmonitor update-monitor --monitor-name "TestMonitor" \
 				--resources-to-remove "arn:aws:ec2:us-east-1:111122223333:vpc/vpc-2222444455556666"
 ```
 
-```
+```json
 {
     "MonitorArn": "arn:aws:internetmonitor:us-east-1:111122223333:monitor/TestMonitor",
     "Status": "ACTIVE"
@@ -379,7 +378,7 @@ The following example shows how to use the `update-monitor` command to change th
 aws internetmonitor update-monitor --monitor-name "TestMonitor" --status "INACTIVE"
 ```
 
-```
+```json
 {
     "MonitorArn": "arn:aws:internetmonitor:us-east-1:111122223333:monitor/TestMonitor",
     "Status": "INACTIVE"
@@ -397,6 +396,6 @@ When the monitor status is `INACTIVE`, then you can use the CLI to run the `dele
 aws internetmonitor delete-monitor --monitor-name "TestMonitor"
 ```
 
-```
+```json
 {}
 ```

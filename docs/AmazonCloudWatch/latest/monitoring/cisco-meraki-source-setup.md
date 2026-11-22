@@ -1,7 +1,6 @@
 
 
 # Source configuration for Cisco Meraki
-<a name="cisco-meraki-source-setup"></a>
 
 ## Integrating with Cisco Meraki
 <a name="cisco-meraki-integration"></a>

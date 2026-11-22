@@ -1,7 +1,6 @@
 
 
 # Amazon Relational Database Service (RDS)
-<a name="appinsights-metrics-rds"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

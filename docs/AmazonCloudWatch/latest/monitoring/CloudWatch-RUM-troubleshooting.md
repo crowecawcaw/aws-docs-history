@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CloudWatch RUM
-<a name="CloudWatch-RUM-troubleshooting"></a>
 
 This section contains tips to help you troubleshoot CloudWatch RUM.
 

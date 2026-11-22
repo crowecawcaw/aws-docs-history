@@ -1,7 +1,6 @@
 
 
 # Viewing Contributor Insights reports in CloudWatch
-<a name="ContributorInsights-ViewReports"></a>
 
 To view graphs of report data and a ranked list of contributors found by your rules, follow these steps.
 

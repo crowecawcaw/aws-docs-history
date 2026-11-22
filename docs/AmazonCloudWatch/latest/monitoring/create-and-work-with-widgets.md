@@ -1,7 +1,6 @@
 
 
 # Using widgets on CloudWatch dashboards
-<a name="create-and-work-with-widgets"></a>
 
 You can use the following types of widgets on CloudWatch dashboards:
 + **Graph widget** – You can add graphs that contain one or more metrics to your CloudWatch dashboard. The types of graphs that you can add to your dashboard include ***Line***, ***Stacked area***, ***Number***, ***Gauge***, ***Bar***, and ***Pie***. You can remove graphs from your dashboard when you don't need them anymore. 

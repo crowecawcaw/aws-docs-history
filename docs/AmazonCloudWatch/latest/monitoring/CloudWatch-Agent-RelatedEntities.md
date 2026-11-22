@@ -1,7 +1,6 @@
 
 
 # Using the CloudWatch agent with related telemetry
-<a name="CloudWatch-Agent-RelatedEntities"></a>
 
 Metrics and logs that are sent to CloudWatch can include an optional entity to correlate telemetry. Entities are used in the [Explore related](ExploreRelated.md) pane. The CloudWatch agent sends entities with a service name and environment name included.
 

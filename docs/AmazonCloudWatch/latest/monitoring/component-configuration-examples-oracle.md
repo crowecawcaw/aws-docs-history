@@ -1,11 +1,10 @@
 
 
 # RDS Oracle
-<a name="component-configuration-examples-oracle"></a>
 
 The following example shows a component configuration in JSON format for RDS Oracle.
 
-```
+```json
 {
   "alarmMetrics": [
     {

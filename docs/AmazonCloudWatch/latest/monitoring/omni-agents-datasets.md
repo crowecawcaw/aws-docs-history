@@ -1,7 +1,6 @@
 
 
 # Datasets
-<a name="omni-agents-datasets"></a>
 
 A dataset is a curated collection of test cases that you evaluate against repeatedly. It gives you a repeatable measurement: because the test cases stay fixed, you can run them after every change and compare scores over time. These evaluation datasets are distinct from the CloudWatch Dataset, the store that holds your space's telemetry (see [CloudWatch Omni](cloudwatch-omni.md)).
 

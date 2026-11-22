@@ -1,7 +1,6 @@
 
 
 # Alerts
-<a name="omni-alerts"></a>
 
 An alert monitors your telemetry and notifies you when it crosses a threshold you set. You write a query to select what to monitor, set a condition that compares the query result against a threshold, and choose how often CloudWatch Omni evaluates it. When the condition is met, CloudWatch Omni sends a notification to the destinations you specify. Alerts read the same telemetry as the rest of CloudWatch Omni, so one alerting system covers both your applications and your AI agents: error rates and latency alongside evaluation scores and token usage.
 

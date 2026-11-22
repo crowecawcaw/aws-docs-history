@@ -1,7 +1,6 @@
 
 
 # Graph metrics manually on a CloudWatch dashboard
-<a name="add_old_metrics_to_graph"></a>
 
 **To add a metric that you can't find in search to a graph**
 
@@ -15,7 +14,7 @@
 
    A JSON block appears. The block specifies the widgets on the dashboard and their contents. The following is an example of one part of this block, which defines one graph.
 
-   ```
+   ```JSON
    {
      "type": "metric",
      "x": 0,

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Cisco Duo
-<a name="cisco-duo-source-config"></a>
 
 ## Integrating with Cisco Duo
 <a name="cisco-duo-integration"></a>

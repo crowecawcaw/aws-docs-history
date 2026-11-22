@@ -1,11 +1,10 @@
 
 
 # Viewing Container Insights metrics
-<a name="Container-Insights-view-metrics"></a>
 
 After you have Container Insights set up and it is collecting metrics, you can view those metrics in the CloudWatch console.
 
-For Container Insights metrics to appear on your dashboard, you must complete the Container Insights setup. For more information, see [Container Insights](ContainerInsights.md).
+For Container Insights metrics to appear on your dashboard, you must complete the Container Insights setup. For more information, see [Container Insights for Amazon EKS](ContainerInsights.md).
 
 This procedure explains how to view the metrics that Container Insights automatically generates from the collected log data. The rest of this section explains how to further dive into your data and use CloudWatch Logs Insights to see more metrics at more levels of granularity.
 

@@ -1,7 +1,6 @@
 
 
 # Source configuration for Qualys CSAM
-<a name="qualys-csam-source-config"></a>
 
 ## Supported API and platform versions
 <a name="qualys-csam-supported-versions"></a>
