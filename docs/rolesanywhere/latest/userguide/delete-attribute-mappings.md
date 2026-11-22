@@ -1,7 +1,6 @@
 
 
 # Delete attribute mappings
-<a name="delete-attribute-mappings"></a>
 
 ## Delete attribute mappings (command line interface)
 <a name="delete-attribute-mapping-cli"></a>
@@ -10,7 +9,7 @@
 
  To delete a mapping rule, using the following command: 
 
-```
+```bash
 $aws rolesanywhere delete-attribute-mapping \
         --certificate-field {{CERTIFICATE_FIELD}} \
         --specifiers {{SPECIFIERS}} \
@@ -21,7 +20,7 @@ $aws rolesanywhere delete-attribute-mapping \
 
 For example, to delete mapping rules for `x509Subject/CN` and `x509Subject/OU`, use the following command:
 
-```
+```bash
 $aws rolesanywhere delete-attribute-mapping \
         --certificate-field x509Subject \
         --specifiers CN OU \

@@ -1,7 +1,6 @@
 
 
 # IAM Roles Anywhere and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Identity and Access Management Roles Anywhere by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access IAM Roles Anywhere APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with IAM Roles Anywhere APIs. Traffic between your VPC and IAM Roles Anywhere does not leave the Amazon network. 
 
@@ -43,7 +42,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example: VPC endpoint policy for IAM Roles Anywhere actions**  
 The following is an example of an endpoint policy for IAM Roles Anywhere. When attached to an endpoint, this policy grants access to the listed IAM Roles Anywhere actions for all principals on all resources.
 
-```
+```json
 {
    "Statement":[
       {
@@ -73,12 +72,12 @@ arn:aws:rolesanywhere:{{region}}:{{account-id}}:trust-anchor/{{trust-anchor-id}}
 
 You can use wildcards to allow access to multiple trust anchors, or specify individual trust anchor ARNs for more restrictive access control.
 
-Specify a trust anchor by its canonical ARN, which contains the trust anchor ID. A statement that names a trust anchor's canonical ARN also applies when the `CreateSession` request names that trust anchor by its alias ARN. A statement that names an alias ARN doesn't apply to the trust anchor. For more information, see [Aliases and IAM policies](resource-aliases.md#resource-aliases-iam).
+Specify a trust anchor by its canonical ARN, which contains the trust anchor ID. A statement that names a trust anchor's canonical ARN also applies when the `CreateSession` request names that trust anchor by its alias ARN. A statement that names an alias ARN doesn't apply to the trust anchor. For more information, see [Permissions and IAM policies for aliases](resource-aliases.md#resource-aliases-iam).
 
 **VPC endpoint policy for CreateSession with a specific trust anchor**  
 The following is an example of an endpoint policy for `CreateSession` that restricts access to a specific trust anchor. When attached to an endpoint, this policy grants access to the `CreateSession` action only for the specified trust anchor.
 
-```
+```json
 {
    "Statement":[
       {
@@ -96,7 +95,7 @@ This policy allows `CreateSession` operations only for the specified trust ancho
 **VPC endpoint policy for CreateSession with wildcard trust anchors**  
 The following is an example of an endpoint policy for `CreateSession` that allows access to all trust anchors in a specific region and account. When attached to an endpoint, this policy grants access to the `CreateSession` action for any trust anchor in the specified region and account.
 
-```
+```json
 {
    "Statement":[
       {
@@ -114,7 +113,7 @@ This policy allows `CreateSession` operations for all trust anchors in the speci
 **VPC endpoint policy for CreateSession with certificate attribute conditions**  
 The following is an example of an endpoint policy for `CreateSession` that uses condition keys based on X.509 certificate attributes. When attached to an endpoint, this policy grants access to the `CreateSession` action only when the authenticating certificate's Common Name matches the specified value.
 
-```
+```json
 {
    "Statement":[
       {
@@ -144,7 +143,7 @@ You can use any X.509 subject or issuer attribute as a condition key to create f
 **VPC endpoint policy combining CreateSession and management operations**  
 Because the Principal required for `CreateSession` is `*`, consider adding two separate statements to the policy. The following is an example of an endpoint policy that combines multiple statements to control different types of access. This policy allows any principal to call `CreateSession` with trust anchor conditions, while restricting management operations to a specific IAM principal.
 
-```
+```json
 {
    "Statement":[
       {

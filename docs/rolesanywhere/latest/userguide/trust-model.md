@@ -1,7 +1,6 @@
 
 
 # The IAM Roles Anywhere trust model
-<a name="trust-model"></a>
 
  AWS Identity and Access Management Roles Anywhere works by bridging the trust model of IAM and Public Key Infrastructure (PKI). The model connects the role, the IAM Roles Anywhere service principal, and identities encoded in X.509 certificates, that are issued by a Certificate Authority (CA). 
 
@@ -19,11 +18,11 @@ Additionally, sessions issued by AWS have a Session Name property that is used a
 
 To examine the contents of a certificate, use the following command: 
 
-```
+```bash
 $openssl x509 -text -noout -in certificate.pem
 ```
 
-```
+```text
       Certificate:
       Data:
           Version: 3 (0x2)
@@ -94,7 +93,7 @@ These tags are also available to be used in conditions in the identity-based pol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ These tags are also available to be used in conditions in the identity-based pol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -171,7 +170,7 @@ These tags are also available to be used in conditions in the identity-based pol
 
 X.509v3 certificates may include an extension to define additional identities, call Subject Alternative Names (SANs). The SAN can have multiple values, each of which can be one of nine types – Domain Name System (DNS) names, Uniform Resource Indicators (URIs), Directory Names, IP addresses, "Other" names, EDI party names, X400 addresses, RFC 822 names, or registered OIDs. IAM Roles Anywhere will map the **first** value of the following types: `DNS Names`, `Directory Name (DN)`, and `URI Names`. The resulting tags will be prefixed with x509SAN, with a corresponding type code. The type code will be one of DNS, URI, or Name. For values of type DN, the individual RDNs will be parsed, as with Subject and Issuer.
 
-```
+```text
       Certificate:
       Data:
           Version: 3 (0x2)
@@ -193,7 +192,7 @@ X.509v3 certificates may include an extension to define additional identities, c
 
 For the above certificate, the session principal tags and the SAN fields will look like the following:
 
-```
+```text
         "aws:PrincipalTag/x509Subject/CN": "Alice",
         "aws:PrincipalTag/x509Issuer/C": "US",
         "aws:PrincipalTag/x509Issuer/O": "Amazon",
@@ -211,13 +210,13 @@ Some X.509 certificate fields can contain multiple values. For example, a Subjec
 
 For example, consider a certificate with these Subject values:
 
-```
+```text
 CN=alice, OU=Security, OU=Engineering, OU=Research
 ```
 
 IAM Roles Anywhere creates the following principal tag:
 
-```
+```text
 "aws:PrincipalTag/x509Subject/OU": "Security/Engineering/Research"
 ```
 
@@ -230,7 +229,7 @@ This same behavior applies to any certificate field that contains multiple value
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -280,7 +279,7 @@ In your role trust policies, always specify the trust anchor's canonical ARN, th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -318,7 +317,7 @@ In your role trust policies, always specify the trust anchor's canonical ARN, th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

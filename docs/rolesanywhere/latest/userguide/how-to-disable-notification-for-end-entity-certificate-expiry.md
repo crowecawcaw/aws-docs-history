@@ -1,7 +1,6 @@
 
 
 # Disabling a notification setting (console)
-<a name="how-to-disable-notification-for-end-entity-certificate-expiry"></a>
 
 1. Sign in to [IAM Roles Anywhere console](https://console.aws.amazon.com/rolesanywhere/home).
 

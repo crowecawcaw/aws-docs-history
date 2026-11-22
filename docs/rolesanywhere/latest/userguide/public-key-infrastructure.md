@@ -1,7 +1,6 @@
 
 
 # Public key infrastructure in IAM Roles Anywhere
-<a name="public-key-infrastructure"></a>
 
  AWS Identity and Access Management Roles Anywhere relies on public key infrastructure (PKI) to establish trust between your AWS account and certificate authorities that issue certificates to workloads running in your data centers. PKI involves the generation, distribution, and verification of digital certificates through public key encryption. Trust requires either uploading your CA's digital certificate as a trust anchor or referencing an existing [AWS Private Certificate Authority (AWS Private CA)](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html). Once a trust anchor is created, you can use client certificates issued by that certificate to authenticate and receive temporary credentials from IAM Roles Anywhere. 
 

@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for IAM Roles Anywhere
-<a name="using-service-linked-roles"></a>
 
 AWS Identity and Access Management Roles Anywhere uses IAM[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to IAM Roles Anywhere. Service-linked roles are predefined by IAM Roles Anywhere and include all the permissions that the service requires to publish CloudWatch metrics and ensure the private certificate authorities you use as trust anchors can be accessed as part of authenticating with IAM Roles Anywhere. They also ensure that you receive auditing information regarding IAM Roles Anywhere. Service-linked roles are different from the roles that you configure for the service and obtain temporary credentials for. 
 
@@ -31,7 +30,7 @@ For information about other services that support service-linked roles, see [AWS
 
 ****  
 
-```
+```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ For information about other services that support service-linked roles, see [AWS
 
 ****  
 
-```
+```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

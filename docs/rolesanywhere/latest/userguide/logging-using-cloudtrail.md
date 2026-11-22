@@ -1,7 +1,6 @@
 
 
 # Logging IAM Roles Anywhere API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Identity and Access Management Roles Anywhere is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in IAM Roles Anywhere. CloudTrail captures all API calls for IAM Roles Anywhere as events. The calls captured include calls from the IAM Roles Anywhere console and code calls to the IAM Roles Anywhere API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for IAM Roles Anywhere. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to IAM Roles Anywhere, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -20,7 +19,7 @@ For an ongoing record of events in your AWS account, including events for IAM Ro
 
 All IAM Roles Anywhere actions are logged by CloudTrail and are documented in the [IAM Roles Anywhere API Reference](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/Welcome.html). For example, calls to the `CreateTrustAnchor`, `ListProfiles`, and `CreateSession` operations generate entries in the CloudTrail log files. In addition, the userIdentity element's Role Session Name property is the hex-encoded serial number of the certificate the session was created with and can be used to track a session back to it.
 
-If you assign aliases to trust anchors, profiles, or certificate revocation lists (CRLs), the alias names and alias ARNs appear in the CloudTrail events for the operations that set or change them. For more information, see [Aliases in CloudTrail logs](resource-aliases.md#resource-aliases-cloudtrail).
+If you assign aliases to trust anchors, profiles, or certificate revocation lists (CRLs), the alias names and alias ARNs appear in the CloudTrail events for the operations that set or change them, and in the events for `CreateSession` requests that use an alias ARN. For more information, see [Aliases in CloudTrail logs](resource-aliases.md#resource-aliases-cloudtrail).
 
 Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
 + Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
@@ -36,7 +35,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `UpdateProfile` operation.
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -131,7 +130,7 @@ Specifies whether the signing algorithm declared in the `Authorization` header i
 
 A request that conforms to the IAM Roles Anywhere authentication signing process produces an `additionalEventData` block with an empty `missingSignedHeaders` list and `false` for both boolean fields, as shown in the following example:
 
-```
+```json
 "additionalEventData": {
   "missingSignedHeaders": [],
   "postEmptyBody": false,
@@ -141,7 +140,7 @@ A request that conforms to the IAM Roles Anywhere authentication signing process
 
 The following example shows the `additionalEventData` block for a request flagged for two non-conforming behaviors: two required headers were not covered by the signature, and the request sent parameters in the query string with an empty body:
 
-```
+```json
 "additionalEventData": {
   "missingSignedHeaders": ["host", "x-amz-date"],
   "postEmptyBody": true,

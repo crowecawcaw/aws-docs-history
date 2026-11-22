@@ -1,7 +1,6 @@
 
 
 # Troubleshooting IAM Roles Anywhere identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with IAM Roles Anywhere and IAM.
 
@@ -20,7 +19,7 @@ If the AWS Management Console tells you that you're not authorized to perform an
 
 The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a fictional `{{my-example-widget}}` resource but does not have the fictional `rolesanywhere:{{GetWidget}}` permissions.
 
-```
+```text
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: rolesanywhere:{{GetWidget}} on resource: {{my-example-widget}}
 ```
 

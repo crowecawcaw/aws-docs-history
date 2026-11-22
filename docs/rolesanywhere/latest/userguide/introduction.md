@@ -1,7 +1,6 @@
 
 
 # What is AWS Identity and Access Management Roles Anywhere?
-<a name="introduction"></a>
 
 You can use AWS Identity and Access Management Roles Anywhere to obtain [temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) for workloads such as servers, containers, and applications that run outside of AWS. Your workloads can use the same [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) and [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that you use with AWS applications to access AWS resources. Using IAM Roles Anywhere means you don't need to manage long-term AWS credentials for workloads running outside of AWS. 
 
@@ -26,7 +25,7 @@ Learn the basic terms and concepts used in IAM Roles Anywhere.
   To specify which roles IAM Roles Anywhere assumes and what your workloads can do with the temporary credentials, you create a profile. In a profile, you can define IAM session policies, which can be managed or inline, to limit the permissions created for a session. A profile can have many IAM roles, but only one session policy. Any session returned by a CreateSession call that references the profile will have its permissions limited by the session policy.
 + **Aliases**
 
-  You can give a trust anchor, profile, or certificate revocation list (CRL) an *alias*, a readable name that gives the resource a second ARN called its alias ARN. You can use the alias ARN in place of the resource ID or ARN in many operations, for example in your credential helper configuration. For more information, see [Resource aliases](resource-aliases.md).
+  An *alias* is an optional, readable name that you set on a trust anchor, profile, or certificate revocation list (CRL). An alias isn't a separate resource. It's a property of the resource that holds it, and you set it with the operations that create, import, and update that resource. A resource with an alias also has an alias ARN, which you can use in place of the resource ID or canonical ARN in many operations, for example in your credential helper configuration. For more information, see [Resource aliases](resource-aliases.md).
 
 **Note**  
 All IAM Roles Anywhere resources are regional and they must be created in the same account and region to be used together.

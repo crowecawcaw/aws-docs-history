@@ -1,7 +1,6 @@
 
 
 # Customize notification settings in IAM Roles Anywhere
-<a name="customize-notification-settings"></a>
 
  You can customize notification settings based on your [public key infrastructure](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/public-key-infrastructure.html). These settings are attached to your trust anchor and allow you to define custom thresholds for a notification event. IAM Roles Anywhere will consume these settings while evaluating for a notification event to send metrics/events/notifications through their respective notification channels. 
 

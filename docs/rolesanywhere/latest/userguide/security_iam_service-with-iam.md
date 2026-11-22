@@ -1,7 +1,6 @@
 
 
 # How IAM Roles Anywhere works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to IAM Roles Anywhere, learn what IAM features are available to use with IAM Roles Anywhere.
 
@@ -68,13 +67,13 @@ To see a list of IAM Roles Anywhere actions, see [Actions defined by AWS Identit
 
 Policy actions in IAM Roles Anywhere use the following prefix before the action:
 
-```
+```text
 rolesanywhere
 ```
 
 To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
       "rolesanywhere:{{action1}}",
       "rolesanywhere:{{action2}}"
@@ -102,7 +101,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 To see a list of IAM Roles Anywhere resource types and their ARNs, see [Resources defined by AWS Identity and Access Management Roles Anywhere](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsidentityandaccessmanagementrolesanywhere.html#awsidentityandaccessmanagementrolesanywhere-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS Identity and Access Management Roles Anywhere](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsidentityandaccessmanagementrolesanywhere.html#awsidentityandaccessmanagementrolesanywhere-actions-as-permissions).
 
-In policies, specify trust anchors, profiles, and certificate revocation lists (CRLs) by their canonical ARNs, which contain the resource ID. A policy statement that names a resource's alias ARN doesn't apply to that resource. For more information, see [Aliases and IAM policies](resource-aliases.md#resource-aliases-iam).
+In policies, specify trust anchors, profiles, and certificate revocation lists (CRLs) by their canonical ARNs, which contain the resource ID. A policy statement that names a resource's alias ARN doesn't apply to that resource. For more information, see [Permissions and IAM policies for aliases](resource-aliases.md#resource-aliases-iam).
 
 
 

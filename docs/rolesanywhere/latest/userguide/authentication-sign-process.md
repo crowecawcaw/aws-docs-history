@@ -1,7 +1,6 @@
 
 
 # The IAM Roles Anywhere authentication signing process
-<a name="authentication-sign-process"></a>
 
 The signing process is identical to SigV4, with the exception of the keys used, the signature algorithm, and the addition of headers related to the X.509 certificate and trust chain. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html), which should be treated as authoritative unless specifically addressed in this user guide.
 
@@ -22,7 +21,7 @@ The following example shows the pseudocode to create a canonical request.
 
 **Example Canonical request pseudocode**  
 
-```
+```python
     CanonicalRequest = 
       {{HttpRequestMethod}} + '\n' +
       {{CanonicalUri}} + '\n' +
@@ -38,7 +37,7 @@ The following examples shows how to construct the canonical form of a request to
 
 **Example Request**  
 
-```
+```text
     POST /sessions HTTP/1.1
     Host: rolesanywhere.us-east-1.amazonaws.com
     Content-Type: application/json
@@ -78,7 +77,7 @@ The following examples shows how to construct the canonical form of a request to
 
 1. The `CanonicalHeaders` is a string capturing the header key and value that are included in the signature. The field is structured as follows:
 
-   ```
+   ```text
        CanonicalHeaders =
          {{CanonicalHeadersEntry0 + CanonicalHeadersEntry1 + ... + CanonicalHeadersEntryN}}
        CanonicalHeadersEntry =
@@ -103,7 +102,7 @@ If the client is providing the chain of intermediate certificates, the `X-Amz-X5
 
    **Example Canonical request**
 
-   ```
+   ```text
        POST
        /sessions
        
@@ -125,7 +124,7 @@ The “string to sign” is the actual input to the signing algorithm, and inclu
 
 **Example StringToSign pseudocode**  
 
-```
+```text
  StringToSign = {{Algorithm}} + '\n' + {{RequestDateTime}} + '\n' + {{CredentialScope}} + '\n' + {{HashedCanonicalRequest}} 
 ```
 
@@ -142,7 +141,7 @@ The “string to sign” is the actual input to the signing algorithm, and inclu
 ## Task 3: Calculate the signature
 <a name="authentication-task3"></a>
 
-```
+```text
     Signature = HexEncode({{SigningAlgorithm(CertPrivateKey,StringToSign)}})
 ```
 
@@ -162,7 +161,7 @@ The signature derived from the previous step is added to the HTTP request in the
 
 **The structure of the field is as follows:**
 
-```
+```python
       Authorization: {{{Algorithm}}} Credential={{{CredentialString}}}, SignedHeaders={{{SignedHeaders}}}, Signature={{{Signature}}}
 ```
 
@@ -170,7 +169,7 @@ The signature derived from the previous step is added to the HTTP request in the
 
 1. The `Credential` is constructed via `{SerialNumber}/{Scope}` where serial number is the decimal representation of the serial number of the signing certificate, and `Scope` is the value constructed as input to the `StringToSign`. For example:
 
-   ```
+   ```text
        Credential=11111222223333344444/20201105/us-east-1/rolesanywhere/aws4_request
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Create IAM Roles Anywhere resources with AWS CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS Identity and Access Management Roles Anywhere is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as `AWS::RolesAnywhere::Crl`, `AWS::RolesAnywhere::Profile`, and `AWS::RolesAnywhere::TrustAnchor`), and CloudFormation provisions and configures those resources for you. For more information, see [ resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RolesAnywhere.html) in the AWS CloudFormation User Guide.
 

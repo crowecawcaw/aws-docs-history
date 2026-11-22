@@ -1,7 +1,6 @@
 
 
 # Control API access with IAM policies
-<a name="ip-access"></a>
 
 If you use IAM policies to control access to AWS services based on IP addresses, you might need to update your policies to include IPv6 address ranges. This guide explains the differences between IPv4 and IPv6 and describes how to update your IAM policies to support both protocols. Implementing these changes helps you maintain secure access to your AWS resources while supporting IPv6.
 
@@ -14,7 +13,7 @@ For more information, see the [VPC IPv6 web page](https://aws.amazon.com/vpc/ipv
 
 These are examples of IPv6 addresses:
 
-```
+```text
 2001:cdba:0000:0000:0000:0000:3257:9652 # This is a full, unabbreviated IPv6 address.
 2001:cdba:0:0:0:0:3257:9652             # The same address with leading zeros in each group omitted
 2001:cdba::3257:965                     # A compressed version of the same address.
@@ -57,7 +56,7 @@ The following is the [Denies access to AWS based on the source IP](https://docs.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -86,7 +85,7 @@ To update this policy, change the `Condition` element to include the IPv6 addres
 **Note**  
 Don't remove the existing IPv4 addresses. They're needed for backward compatibility.
 
-```
+```json
 "Condition": {
                 "NotIpAddress": {
                     "aws:SourceIp": [
@@ -114,7 +113,7 @@ Switch the AWS Region to the same Region where your service is located. In this 
 
 1. Determine if the endpoint resolves with an IPv6 address using the following `dig` command. 
 
-   ```
+   ```bash
    $ dig +short AAAA rolesanywhere.us-east-1.api.aws
    
    > 2600:1f18:e2f:4e05:1a8a:948e:7c08:c1c3
@@ -122,7 +121,7 @@ Switch the AWS Region to the same Region where your service is located. In this 
 
 1. Determine if the client network can make an IPv6 connection using the following `curl` command. A 404 response code means the connection succeeded, while a 0 response code means the connection failed.
 
-   ```
+   ```bash
    $ curl --ipv6 -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://rolesanywhere.us-east-1.api.aws
    
    > remote ip: 2600:1f18:e2f:4e05:1a8a:948e:7c08:c1c3
@@ -131,7 +130,7 @@ Switch the AWS Region to the same Region where your service is located. In this 
 
 If a remote IP was identified **and** the response code is not `0`, a network connection was successfully made to the endpoint using IPv6. The remote IP should be an IPv6 address because the operating system should select the protocol that is valid for the client. If the remote IP is not an IPv6 address, use the following command to force `curl` to use IPv4. 
 
-```
+```bash
 $ curl --ipv4 -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://rolesanywhere.us-east-1.api.aws
 
 > remote ip: 3.123.154.250
@@ -140,7 +139,7 @@ $ curl --ipv4 -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code
 
 If the remote IP is blank or the response code is `0`, the client network or the network path to the endpoint is IPv4-only. You can verify this configuration with the following `curl` command. 
 
-```
+```bash
 $ curl -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://rolesanywhere.us-east-1.api.aws
 
 > remote ip: 3.123.154.250

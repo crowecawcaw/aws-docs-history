@@ -1,7 +1,6 @@
 
 
 # The IAM Roles Anywhere authentication process
-<a name="authentication"></a>
 
 To provide credentials, AWS Identity and Access Management Roles Anywhere uses the [IAM Roles Anywhere CreateSession API](authentication-create-session.md). The API authenticates requests with a signature using keys associated with the X.509 certificate, which was used for authentication. It acts like `AssumeRole` – exchanging the signature for a standard SigV4-compatible session credential.
 

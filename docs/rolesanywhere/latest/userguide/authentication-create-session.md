@@ -1,14 +1,13 @@
 
 
 # IAM Roles Anywhere CreateSession API
-<a name="authentication-create-session"></a>
 
 The CreateSession API returns temporary security credentials for workloads that have been authenticated with IAM Roles Anywhere to access AWS resources. For endpoints, see [Roles Anywhere Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/rolesanywhere.html). To get temporary security credentials through this API, see [Get temporary security credentials from IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/credential-helper.html), or, for Java applications on the AWS SDK for Java v2, see [Get temporary security credentials with the IAM Roles Anywhere plugin for the AWS SDK for Java](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/java-plugin.html). 
 
 ## Request Syntax
 <a name="request-syntax"></a>
 
-```
+```text
     POST /sessions HTTP/1.1
     Content-type: application/json
     {
@@ -26,7 +25,7 @@ The CreateSession API returns temporary security credentials for workloads that 
 The request accepts the following as URI parameters or as JSON in the request body. Our examples put these in the request body.
 
 `profileArn`  
-The Amazon Resource Name (ARN) of the profile. You can specify the profile ARN or the profile's alias ARN. For more information, see [Resource aliases](resource-aliases.md).  
+The Amazon Resource Name (ARN) of the profile. You can specify the profile's canonical ARN or its alias ARN. For more information, see [Resource aliases](resource-aliases.md).  
 Type: String  
 Required: Yes
 
@@ -36,7 +35,7 @@ Type: String
 Required: Yes
 
 `trustAnchorArn`  
-The Amazon Resource Name (ARN) of the trust anchor. You can specify the trust anchor ARN or the trust anchor's alias ARN.  
+The Amazon Resource Name (ARN) of the trust anchor. You can specify the trust anchor's canonical ARN or its alias ARN.  
 Type: String  
 Required: Yes
 
@@ -51,7 +50,7 @@ Type: Number
 Required: No
 
 `profileArn`  
-The Amazon Resource Name (ARN) of the profile. You can specify the profile ARN or the profile's alias ARN.  
+The Amazon Resource Name (ARN) of the profile. You can specify the profile's canonical ARN or its alias ARN.  
 Type: String  
 Required: Yes
 
@@ -67,7 +66,7 @@ Type: String
 Required: No
 
 `trustAnchorArn`  
-The Amazon Resource Name (ARN) of the trust anchor. You can specify the trust anchor ARN or the trust anchor's alias ARN.  
+The Amazon Resource Name (ARN) of the trust anchor. You can specify the trust anchor's canonical ARN or its alias ARN.  
 Type: String  
 Required: Yes
 
@@ -79,7 +78,7 @@ Required: No
 ## Response Syntax
 <a name="response-syntax"></a>
 
-```
+```text
     HTTP/1.1 201
     Content-type: application/json
     {

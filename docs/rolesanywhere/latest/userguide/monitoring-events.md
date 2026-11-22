@@ -1,7 +1,6 @@
 
 
 # Monitoring IAM Roles Anywhere events in Amazon EventBridge
-<a name="monitoring-events"></a>
 
 You can monitor IAM Roles Anywhere events in [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/). Events from IAM Roles Anywhere are delivered to EventBridge in near-real time. You can write simple rules to indicate which events are of interest to you and the automated actions to take when an event matches a rule. With EventBridge, you can use events to trigger targets including AWS Lambda functions, AWS Batch jobs, Amazon SNS topics, and many others. For more information, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html).
 
@@ -19,7 +18,7 @@ IAM Roles Anywhere sends daily expiration event for each trust anchor certificat
 
 Expiration events have the following structure.
 
-```
+```json
 {
   "version": "0",
   "id": "9c95e8e4-96a4-ef3f-b739-b6aa5b193afb",
@@ -46,7 +45,7 @@ IAM Roles Anywhere sends an expiration event for intermediate or end-entity cert
 
 Expiration events have the following structure.
 
-```
+```json
 {
   "version": "0",
   "id": "9c95e8e4-96a4-ef3f-b739-b6aa5b193afb",

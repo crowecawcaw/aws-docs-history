@@ -1,7 +1,6 @@
 
 
 # Monitoring authentications with IAM Roles Anywhere subjects
-<a name="monitoring-subjects"></a>
 
 You can use the **Subject Activity** tab in the IAM Roles Anywhere console to visualize and audit activities for certificates that are authenticated with IAM Roles Anywhere. A *subject* represents a unique identity defined by the X.509 subject of any certificates you use to authenticate with IAM Roles Anywhere. IAM Roles Anywhere creates a subject for you at the time of authentication if there isn't one already for the X.509 subject. Each subject contains the most recent certificates you have used with IAM Roles Anywhere.
 

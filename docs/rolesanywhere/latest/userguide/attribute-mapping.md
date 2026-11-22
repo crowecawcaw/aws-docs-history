@@ -1,7 +1,6 @@
 
 
 # Certificate attribute mapping
-<a name="attribute-mapping"></a>
 
  IAM Roles Anywhere provides you with the capability to define a custom set of mapping rules, enabling you to specify which data are extracted from authenticating certificates as session tags for authorization policies. These customized attribute mappings are associated with a [profile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html). 
 
@@ -26,13 +25,13 @@ The following attributes are mapped by default when you create a profile. The de
 
  To view your current mappings associated with a profile, using the following command: 
 
-```
+```bash
 $ aws rolesanywhere get-profile --profile-id {{PROFILE_ID}}
 ```
 
  Default mapping rules in a JSON format: 
 
-```
+```json
 "attributeMappings": [
   {
     "mappingRules": [

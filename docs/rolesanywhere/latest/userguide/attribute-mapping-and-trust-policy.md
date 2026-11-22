@@ -1,7 +1,6 @@
 
 
 # Attribute mapping and trust policy
-<a name="attribute-mapping-and-trust-policy"></a>
 
  It is recommended to have condition statements in the Assume Role Policy Document to restrict authorization based on attributes that are extracted from an end-entity X.509 certificate. For more information about the role trust policy, see [Trust policy](trust-model.md#trust-policy). 
 
@@ -14,7 +13,7 @@ The following example shows trust policies that add a condition based on the `Is
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -52,7 +51,7 @@ If a profile is used with an Attribute Mapping field that lacks `specifier: CN` 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ Likewise, if the condition is `StringNotEquals`, the condition will evaluate to 
 
 Having the Attribute Mapping field provided below in a profile, the `StringEquals` condition for `x509Issuer/CN` will assess to `false`, or the `StringNotEquals` condition will assess to `true`.
 
-```
+```json
 "attributeMappings": [
   {
     "mappingRules": [

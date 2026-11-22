@@ -1,7 +1,6 @@
 
 
 # Put attribute mappings
-<a name="put-attribute-mapping"></a>
 
 ## Put attribute mappings (command line interface)
 <a name="put-attribute-mapping-cli"></a>
@@ -10,7 +9,7 @@
 
  To put a mapping rule, using the following command: 
 
-```
+```bash
 $aws rolesanywhere put-attribute-mapping \
         --certificate-field {{CERTIFICATE_FIELD}} \
         --mapping-rules specifier={{SPECIFIER}} \
@@ -21,7 +20,7 @@ $aws rolesanywhere put-attribute-mapping \
 
 For example, to add mapping rules for `x509Subject/CN` and `x509Subject/OU`, use the following command:
 
-```
+```bash
 $aws rolesanywhere put-attribute-mapping \
         --certificate-field x509Subject \
         --mapping-rules specifier=CN specifier=OU \

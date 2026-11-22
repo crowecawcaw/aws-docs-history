@@ -1,7 +1,6 @@
 
 
 # Mapping identities to your workloads with IAM Roles Anywhere
-<a name="workload-identities"></a>
 
 A key element to using IAM Roles Anywhere is managing how identities are assigned to workloads. Certificates are issued to compute instances (servers, containers), in which the identity is encoded as the `Subject` of the certificate. The subject may be a simple Common Name (CN), a Fully Qualified Distinguished Name (FQDN), that contains information about organizational structure, or a simple hostname. Alternatively, a standard such as [SPIFFE](https://spiffe.io) could be used to create a hierarchical namespace for the workload identities.
 

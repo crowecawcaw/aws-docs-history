@@ -1,7 +1,6 @@
 
 
 # Get temporary security credentials from IAM Roles Anywhere
-<a name="credential-helper"></a>
 
  To obtain temporary security credentials from AWS Identity and Access Management Roles Anywhere, use the credential helper tool that IAM Roles Anywhere provides. This tool is compatible with the `credential_process` feature available across the language SDKs. When used with an AWS SDK, these credentials automatically refresh before they expire, requiring no additional implementation for credential renewal. The helper manages the process of creating a signature with the certificate and calling the endpoint to obtain session credentials; it returns the credentials to the calling process in a standard JSON format. 
 
@@ -58,25 +57,25 @@ For securing keys through macOS Keychain, consider creating a dedicated Keychain
 
 1. Create a new Keychain:
 
-   ```
+   ```bash
    security create-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
    ```
 
 1. Unlock the Keychain:
 
-   ```
+   ```bash
    security unlock-keychain -p ${CREDENTIAL_HELPER_KEYCHAIN_PASSWORD} credential-helper.keychain
    ```
 
 1. Add the Keychain to the search list:
 
-   ```
+   ```bash
    EXISTING_KEYCHAINS=$(security list-keychains | cut -d '"' -f2) security list-keychains -s credential-helper.keychain $(echo ${EXISTING_KEYCHAINS} | awk -v ORS=" " '{print $1}')
    ```
 
 1. Import your certificate and private key:
 
-   ```
+   ```bash
    security import /path/to/identity.pfx -T /path/to/aws_signing_helper -P ${UNWRAPPING_PASSWORD} -k credential-helper.keychain
    ```
 
@@ -88,7 +87,7 @@ Since the official credential helper binary is signed, but not notarized, so it 
 
 To use Windows CNG for key storage, import your certificate and private key into your user's "MY" certificate store:
 
-```
+```bash
 certutil -user -p %UNWRAPPING_PASSWORD% -importPFX "MY" \path\to\identity.pfx
 ```
 
@@ -100,17 +99,17 @@ You can also use PowerShell cmdlets or Windows CNG/Cryptography APIs to import c
 The credential helper supports using certificates and keys from hardware or software PKCS\#11 tokens and HSMs using PKCS\#11 URIs:
 + Use a certificate from a PKCS\#11 token:
 
-  ```
+  ```bash
   --certificate 'pkcs11:manufacturer=piv_II;id=%01'
   ```
 + Use a certificate by object name:
 
-  ```
+  ```bash
   --certificate 'pkcs11:object=My%20RA%20key'
   ```
 + Use a certificate from a file but the key from a token:
 
-  ```
+  ```bash
   --certificate client-cert.pem --private-key 'pkcs11:model=SoftHSM%20v2;object=My%20RA%20key'
   ```
 
@@ -134,26 +133,26 @@ To create and use a TPM key with the credential helper:
 
 1. Create a primary key in the TPM owner hierarchy:
 
-   ```
+   ```bash
    tpm2_createprimary -G rsa -g sha256 -p ${TPM_PRIMARY_KEY_PASSWORD} -c parent.ctx -P ${OWNER_HIERARCHY_PASSWORD}
    ```
 
 1. Create a child key with the primary key as its parent:
 
-   ```
+   ```bash
    tpm2_create -C parent.ctx -u child.pub -r child.priv -P ${TPM_PRIMARY_KEY_PASSWORD} -p ${TPM_CHILD_KEY_PASSWORD}
    ```
 
 1. Load the child key into the TPM and make it persistent:
 
-   ```
+   ```bash
    tpm2_load -C parent.ctx -u child.pub -r child.priv -c child.ctx -P ${TPM_PRIMARY_KEY_PASSWORD}
    CHILD_HANDLE=$(tpm2_evictcontrol -c child.ctx | cut -d ' ' -f 2 | head -n 1)
    ```
 
 1. Create a CSR using the TPM key:
 
-   ```
+   ```bash
    openssl req -provider tpm2 -provider default -propquery '?provider=tpm2' \
                -new -key handle:${CHILD_HANDLE} \
                -out client-csr.pem
@@ -161,7 +160,7 @@ To create and use a TPM key with the credential helper:
 
 1. After obtaining a certificate from your CA, use it with the credential helper:
 
-   ```
+   ```bash
    ./aws_signing_helper credential-process \
        --certificate /path/to/certificate/file \
        --private-key handle:${CHILD_HANDLE} \
@@ -188,13 +187,13 @@ The credential helper includes diagnostic commands that can help you troubleshoo
 
 Reads and displays information about a certificate. This is useful for verifying certificate details and finding the correct certificate when multiple certificates match a selector.
 
-```
+```bash
 ./aws_signing_helper read-certificate-data --certificate /path/to/certificate.pem
 ```
 
 Or with a certificate selector:
 
-```
+```bash
 ./aws_signing_helper read-certificate-data --cert-selector Key=x509Subject,Value=CN=Subject
 ```
 
@@ -205,13 +204,13 @@ If multiple certificates match a selector, information about each of them is pri
 
 Signs a fixed test string to validate your private key and digest configuration:
 
-```
+```bash
 ./aws_signing_helper sign-string --private-key /path/to/private-key.pem
 ```
 
 Or with a certificate selector:
 
-```
+```bash
 ./aws_signing_helper sign-string --cert-selector Key=x509Subject,Value=CN=Subject
 ```
 
@@ -248,7 +247,7 @@ The credential-process command obtains temporary security credentials from IAM R
 ### Synopsis
 <a name="credential-helper-credential-process-synopsis"></a>
 
-```
+```bash
 ./aws_signing_helper credential-process \
     --certificate
     [--cert-selector]
@@ -282,12 +281,12 @@ Specifies which certificate (and associated private key) to use from OS-specific
 The selector can be specified either through a JSON file or directly on the command line. It allows searching by certificate Subject, Issuer, and Serial Number using the keys `x509Subject`, `x509Issuer`, and `x509Serial`.  
 Example using a JSON file:  
 
-```
+```bash
 --cert-selector file://path/to/selector.json
 ```
 Example using command line:  
 
-```
+```bash
 --cert-selector Key=x509Subject,Value=CN=Subject Key=x509Issuer,Value=CN=Issuer Key=x509Serial,Value=15D19632234BF759A32802C0DA88F9E8AFC8702D
 ```
 
@@ -327,7 +326,7 @@ Windows only: Specifies a system certificate store other than "MY" (the default)
 Boolean flag to use the latest expiring certificate when multiple certificates match a certificate selector. This can be useful when you have multiple valid certificates and want to use the one with the longest remaining validity period.
 
 `--profile-arn` (string)  
-Profile to pull policies, attribute mappings and other data from. Specify the profile ARN or the profile's alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
+Profile to pull policies, attribute mappings and other data from. Specify the profile's canonical ARN or its alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
 
 `--role-arn` (string)  
 Target role to assume.
@@ -336,7 +335,7 @@ Target role to assume.
 Duration, in seconds, for the resulting session (corresponds to the `durationSeconds` parameter in the `CreateSession` request). This is optional and can range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). Please see the `Expiration` subsection of the [Credentials Object](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object) section for more details on how this value is used in determining the expiration of the vended session.
 
 `--trust-anchor-arn` (string)  
-Trust anchor to use for authentication. Specify the trust anchor ARN or the trust anchor's alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
+Trust anchor to use for authentication. Specify the trust anchor's canonical ARN or its alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
 
 `--with-proxy`  
 To use the tool with a proxy. This is a boolean flag. Note that you will have to set the `HTTPS_PROXY` environment variable with the address of the proxy server.
@@ -353,7 +352,7 @@ An identifier for the role session. Please see [The relationship between CreateS
 
 The credential helper tool will return a JSON containing the credentials. This format allows the credentials to be consumed by the [external credential process](https://docs.aws.amazon.com/sdkref/latest/guide/feature-process-credentials.html) supported by the `credential_process`. 
 
-```
+```json
 {
     "Version": 1,
     "AccessKeyId": {{String}},
@@ -370,7 +369,7 @@ The credential helper tool will return a JSON containing the credentials. This f
 Use the following command to get temporary security credentials. Specify the Region where you want to make the request.  
 Before you run this command, make sure you have your certificate and private key. To get these credentials, follow the documentation from your certificate authority.
 
-```
+```bash
 $ ./aws_signing_helper credential-process \
               --certificate {{/path/to/certificate}} \
               --private-key {{/path/to/private-key}} \
@@ -383,7 +382,7 @@ $ ./aws_signing_helper credential-process \
 To use temporary security credentials with AWS SDKs and the AWS CLI, you can configure the credential helper tool as a credential process. For more information, see [Sourcing credentials with an external process](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html).  
 The following example shows a the `config` file that sets the helper tool as the credential process.   
 
-```
+```config
 [profile developer]
     credential_process = ./aws_signing_helper credential-process --certificate {{/path/to/certificate}} --private-key {{/path/to/private-key}} --trust-anchor-arn arn:aws:rolesanywhere:{{region}}:{{account}}:trust-anchor/{{TA_ID}} --profile-arn arn:aws:rolesanywhere:{{region}}:{{account}}:profile/{{PROFILE_ID}} --role-arn arn:aws:iam::{{account}}:role/{{role-name-with-path}}
     region = {{region}}
@@ -415,7 +414,7 @@ The serve command vends temporary security credentials from IAM Roles Anywhere t
 ### Synopsis
 <a name="credential-helper-serve-synopsis"></a>
 
-```
+```bash
 ./aws_signing_helper serve \
         --certificate
         [--cert-selector]
@@ -468,7 +467,7 @@ When using the serve command, be aware that any process running on the system th
 
 **Example Start a credential server on the default port**  
 
-```
+```bash
 $ ./aws_signing_helper serve \
                   --certificate {{/path/to/certificate}} \
                   --private-key {{/path/to/private-key}} \
@@ -479,7 +478,7 @@ $ ./aws_signing_helper serve \
 
 **Example Start a credential server on a custom port with restricted hop limit**  
 
-```
+```bash
 $ ./aws_signing_helper serve \
                   --certificate {{/path/to/certificate}} \
                   --private-key {{/path/to/private-key}} \
@@ -493,7 +492,7 @@ $ ./aws_signing_helper serve \
 **Example Use with AWS SDKs**  
 To use the credentials served by the credential helper with AWS SDKs, set the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable to point to your local endpoint:  
 
-```
+```bash
 $ export AWS_EC2_METADATA_SERVICE_ENDPOINT=http://127.0.0.1:9911
 ```
  Depending on which AWS SDK you are using, the above environment variable must not end in a trailing '/' character. 
@@ -507,7 +506,7 @@ The update command obtains temporary security credentials from IAM Roles Anywher
 ### Synopsis
 <a name="credential-helper-update-synopsis"></a>
 
-```
+```bash
 ./aws_signing_helper update \
         --certificate
         [--cert-selector]
@@ -563,7 +562,7 @@ Running the update command multiple times simultaneously, creating multiple proc
 
 **Example Update the default profile continuously**  
 
-```
+```bash
 $ ./aws_signing_helper update \
                   --certificate {{/path/to/certificate}} \
                   --private-key {{/path/to/private-key}} \
@@ -574,7 +573,7 @@ $ ./aws_signing_helper update \
 
 **Example Update a named profile once**  
 
-```
+```bash
 $ ./aws_signing_helper update \
                   --certificate {{/path/to/certificate}} \
                   --private-key {{/path/to/private-key}} \
@@ -588,12 +587,12 @@ $ ./aws_signing_helper update \
 **Example Use with AWS CLI**  
 After running the update command, you can use the AWS CLI with the updated profile:  
 
-```
+```bash
 $ aws s3 ls --profile developer
 ```
 If you updated the default profile, you don't need to specify the profile:  
 
-```
+```bash
 $ aws s3 ls
 ```
 

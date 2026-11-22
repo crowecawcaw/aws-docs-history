@@ -1,7 +1,6 @@
 
 
 # Configuring custom notification threshold (console)
-<a name="how-to-configure-custom-notification-settings"></a>
 
 1. Sign in to [IAM Roles Anywhere console](https://console.aws.amazon.com/rolesanywhere/home).
 
