@@ -1,7 +1,6 @@
 
 
 # Creating a session
-<a name="creating-session"></a>
 
 To use this console, you must create a session. A session is a span of time when the Amazon DCV server can accept connections from a client. By creating a new session, your default level of access is **owner**, which gives you admin permissions.
 

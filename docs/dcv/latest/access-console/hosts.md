@@ -1,7 +1,6 @@
 
 
 # Hosts
-<a name="hosts"></a>
 
 On the **Hosts** page, you can view a list of host machines (either cloud or on-premises) you have installed Amazon DCV servers configured with Amazon DCV Session Manager.
 

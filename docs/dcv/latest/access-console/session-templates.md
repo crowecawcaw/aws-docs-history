@@ -1,7 +1,6 @@
 
 
 # Session templates
-<a name="session-templates"></a>
 
 A Amazon DCV session template is created by admins to define the details of the session to be created.
 

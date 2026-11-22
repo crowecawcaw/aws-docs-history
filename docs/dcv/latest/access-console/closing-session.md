@@ -1,7 +1,6 @@
 
 
 # Closing a session
-<a name="closing-session"></a>
 
 After you’re completely done with your work, you can **Close** a session and release the underlying resource back to the host server.
 

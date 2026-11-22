@@ -1,7 +1,6 @@
 
 
 # Managing the component processes
-<a name="managing-component-process"></a>
 
 The Amazon DCV Access Console components, such as Authentication Server, Handler, Web Client, run while processes on their hosts and can be managed using the command `systemctl`. You can use this command to:
 + Check the status of a component

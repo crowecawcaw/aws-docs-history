@@ -1,7 +1,6 @@
 
 
 # Upgrading the Access Console
-<a name="upgrading-access-console"></a>
 
 The following section explains how to update Amazon DCV Access Console components on a single host and on separate multiple hosts.
 

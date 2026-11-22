@@ -1,7 +1,6 @@
 
 
 # Deleting a session template
-<a name="deleting-session-template"></a>
 
 You can delete a session template when you're completely done with it.
 

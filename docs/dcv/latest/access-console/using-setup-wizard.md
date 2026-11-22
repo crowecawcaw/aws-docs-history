@@ -1,7 +1,6 @@
 
 
 # Using the Setup Wizard
-<a name="using-setup-wizard"></a>
 
 The Setup Wizard is a CLI designed to help you install the Amazon DCV Access Console, and configure the hosts you plan to install the components on. The Setup Wizard can be used whether you install the Access Console components all on the same host, or on separate hosts. If you install the components on a single host, it will install the components and dependencies for the Access Console for you. If you install the components on separate hosts, the Setup Wizard will help you create the configuration files needed for each component. The Setup Wizard can optionally: 
 

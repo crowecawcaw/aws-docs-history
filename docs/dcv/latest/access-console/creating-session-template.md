@@ -1,7 +1,6 @@
 
 
 # Creating a session template
-<a name="creating-session-template"></a>
 
 A session template is required to create sessions within the console. The session template sets the parameters and details of the session.
 

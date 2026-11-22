@@ -1,7 +1,6 @@
 
 
 # Assigning a session template to users or groups
-<a name="assigning-session-template"></a>
 
 In order for users to create sessions, they must first have a session template assigned to them.
 

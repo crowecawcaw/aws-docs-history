@@ -1,7 +1,6 @@
 
 
 # Setting up on a single host
-<a name="set-up-one-host"></a>
 
 This section explains how to install the Amazon DCV Access Console components on a single host. Before proceeding, you must first ensure you have completed the necessary [Prerequisites](prerequisites.md).
 

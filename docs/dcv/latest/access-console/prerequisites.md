@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 Before setting up the Amazon DCV Access Console Access Manager, you must first install and configure the Session Manager Agent and Broker. For more information about setting up Amazon DCV Session Manager, see the [Amazon DCV Session Manager Administrator Guide](https://docs.aws.amazon.com/dcv/latest/sm-admin/what-is-sm.html).
 

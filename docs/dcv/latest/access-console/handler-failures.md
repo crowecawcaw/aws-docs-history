@@ -1,7 +1,6 @@
 
 
 # Handler fails to communicate with the broker
-<a name="handler-failures"></a>
 
 If there are communication failures between Handler component and Session Manager Broker, “Broker authentication error” will appear in the browser logs or `BrokerAuthenticationException: {"error":"unauthorized_client"}` in the handler logs. This is due to the fact that the Broker has incorrect property files or the Handler is unable to connect to the Broker.
 

@@ -1,7 +1,6 @@
 
 
 # Release Notes and Document History for Amazon DCV Access Console
-<a name="doc-history-release-notes"></a>
 
 This page provides the release notes and document history for Amazon DCV Access Console.
 

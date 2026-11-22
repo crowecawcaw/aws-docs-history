@@ -1,7 +1,6 @@
 
 
 # Step 3: Install the components
-<a name="install-components"></a>
 
 After preparing the Handler, Web Client, and Authentication Server components, you must install them on the hosts you prepared.
 

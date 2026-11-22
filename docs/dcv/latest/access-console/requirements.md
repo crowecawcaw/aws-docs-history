@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="requirements"></a>
 
 The Amazon DCV Access Console has the following requirements.
 

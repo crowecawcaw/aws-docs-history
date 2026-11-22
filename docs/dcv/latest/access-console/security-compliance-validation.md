@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon DCV
-<a name="security-compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS services as part of multiple AWS compliance programs. Using Amazon DCV to access a service does not alter that service's compliance.
 

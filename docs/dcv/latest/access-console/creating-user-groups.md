@@ -1,7 +1,6 @@
 
 
 # Creating user groups
-<a name="creating-user-groups"></a>
 
 You can create a user group directly from the Access Console, by selecting users and assigning templates.
 

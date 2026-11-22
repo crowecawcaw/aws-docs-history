@@ -1,7 +1,6 @@
 
 
 # Editing a session template
-<a name="editing-session-template"></a>
 
 If you need to adjust any sessions details, you can edit the parameters of an existing session template.
 

@@ -1,7 +1,6 @@
 
 
 # Verifying the setup
-<a name="verify-setup"></a>
 
 At this point, the Amazon DCV Access Console should be accessible at the public DNS of the Web Client host. Navigate to `https://{{web client DNS}}` in your web browser. It should redirect to the DNS of the Authentication Server.
 

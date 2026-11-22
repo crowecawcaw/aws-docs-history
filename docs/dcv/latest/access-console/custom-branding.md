@@ -1,7 +1,6 @@
 
 
 # Custom branding in the Amazon DCV Access Console
-<a name="custom-branding"></a>
 
 To create a familiar experience for your users when they Amazon DCV, you can customize the appearance of Amazon DCV Access Console with your own login background image, logo, login message, documentation links and client download links. When you customize the Amazon DCV Access Console, your branding is displayed to users rather than the default Amazon DCV branding.
 

@@ -1,7 +1,6 @@
 
 
 # User groups
-<a name="user-groups"></a>
 
 The Amazon DCV Access Console allows admins to manage user groups and their assigned templates. You can import user groups, or create and manage them from the Access Console itself.
 

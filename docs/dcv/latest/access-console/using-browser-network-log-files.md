@@ -1,7 +1,6 @@
 
 
 # Using browser and network log files
-<a name="using-browser-network-log-files"></a>
 
 The web browser communicates with the Handler component to view and modify resources. If there are issues with communication between the web browser and the Handler, you can troubleshoot using the browser and network log files.
 

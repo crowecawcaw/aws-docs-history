@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This section explains how to identify and troubleshoot problems that you might have with Amazon DCV Access Console.
 

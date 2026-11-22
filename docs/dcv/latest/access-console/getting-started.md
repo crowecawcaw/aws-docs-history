@@ -1,7 +1,6 @@
 
 
 # Getting started with the Amazon DCV Session Manager console
-<a name="getting-started"></a>
 
 The following topic describes how to use the Session Manager console.
 

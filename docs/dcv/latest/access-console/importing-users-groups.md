@@ -1,7 +1,6 @@
 
 
 # Importing users and groups
-<a name="importing-users-groups"></a>
 
 Users will only appear in the Amazon DCV Access Console if they have been directly imported from the Access Console, or have already logged in. Users are imported into the Access Console by uploading a CSV file. Once imported, user names populate on the **Users** page of the Access Console. 
 

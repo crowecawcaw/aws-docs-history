@@ -1,7 +1,6 @@
 
 
 # Step 1: Prepare your environment
-<a name="prepare-environment-multiple"></a>
 
 The Amazon DCV Access Console has three components Handler, Web Client, and Authentication Server. These components can be installed on multiple hosts. See Amazon DCV Access Console [Requirements](requirements.md) to ensure your setup meets the requirements.
 

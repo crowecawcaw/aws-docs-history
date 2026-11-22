@@ -1,7 +1,6 @@
 
 
 # Upgrading Amazon DCV Access Console on multiple hosts
-<a name="upgrading-multiple-hosts"></a>
 
 To upgrade the Handler, Authentication Server, and Web Client components, you must run the following commands. The components can be downloaded and extracted using the steps in [Prepare your environment](prepare-environment-multiple.md).
 

@@ -1,7 +1,6 @@
 
 
 # Certificates
-<a name="certificates"></a>
 
 In order to provide a HTTPS connection between the different components, a SSL certificate is required for each of the hosts. Customers are recommend to use their own manager certificates on each of the host. For non-production workloads, a self-signed SSL certificate can be used. For more information on creating a self-signed cert see [Generating a self-signed certificate](generate-certs.md).
 

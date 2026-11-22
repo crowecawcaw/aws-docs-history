@@ -1,7 +1,6 @@
 
 
 # Sessions
-<a name="sessions"></a>
 
 A session is a span of time when the Amazon DCV server is able to accept connections from a client. Each session has a specified owner and set of permissions. 
 

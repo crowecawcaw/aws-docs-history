@@ -1,7 +1,6 @@
 
 
 # Step 2: Run the Setup Wizard
-<a name="run-setup-wizard-multiple"></a>
 
 The Setup Wizard will install the components and dependencies for the Access Console, and configure a single host to run all of the Access Console components. For more information on how to use the Setup Wizard see [Using the Setup Wizard](using-setup-wizard.md).
 

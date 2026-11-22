@@ -1,7 +1,6 @@
 
 
 # Handler configuration files
-<a name="handler-config-files"></a>
 
 The Handler has two configuration files (`/etc/dcv-access-console-handler/access-console-handler.properties` and `/etc/dcv-access-console-handler/access-console-handler-secrets.properties`) that include parameters that can be configured to customize the Amazon DCV Access Console functionality connecting to different components.
 

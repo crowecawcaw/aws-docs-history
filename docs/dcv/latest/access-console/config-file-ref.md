@@ -1,7 +1,6 @@
 
 
 # Configuration file reference
-<a name="config-file-ref"></a>
 
 This section provides information about the Authentication Server, Handler and Web Client configuration files.
 

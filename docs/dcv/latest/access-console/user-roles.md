@@ -1,7 +1,6 @@
 
 
 # User roles
-<a name="user-roles"></a>
 
 There are two roles a user can have with the Amazon DCV Access Console: admin and user. Both of these user roles can create and connect to their own sessions. 
 

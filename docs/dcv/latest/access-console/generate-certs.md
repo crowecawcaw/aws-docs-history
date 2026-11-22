@@ -1,7 +1,6 @@
 
 
 # Generating a self-signed certificate
-<a name="generate-certs"></a>
 
 Every host that is running a Amazon DCV Access Console component needs to have a certificate. If you are bringing your own certificate, you don’t need to follow these instructions.
 

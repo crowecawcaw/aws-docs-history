@@ -1,7 +1,6 @@
 
 
 # I'm having problems logging in
-<a name="login-errors"></a>
 
 During login, the Web Client uses OAuth 2.0 with the Authentication Server to receive an access token that is used to obtain user information and other information from the Handler. If you experience errors logging in, it could be due to either an error contacting the Handler, or invalid PAM credentials if you configured your Console to use PAM.
 
