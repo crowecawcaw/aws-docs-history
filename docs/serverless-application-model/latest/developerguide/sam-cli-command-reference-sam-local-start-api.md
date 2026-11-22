@@ -1,7 +1,6 @@
 
 
 # sam local start-api
-<a name="sam-cli-command-reference-sam-local-start-api"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local start-api` subcommand.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
@@ -93,6 +92,7 @@ The local hostname or IP address to bind to (default: '127.0.0.1').
 The URI of the container image that you want to use for your Lambda functions.  
 For Lambda functions with `PackageType: Zip`, this overrides the runtime base image. By default, AWS SAM pulls the container image from Amazon ECR Public. Use this option to pull the image from another location.  
 For Lambda functions with `PackageType: Image`, this overrides the `ImageUri` from the built template. Use this to invoke a different application image locally without modifying your template.  
+For Lambda functions that use a customer-managed runtime (`Runtime: custom`), this overrides the runtime image that the AWS SAM CLI looks up from `RuntimeConfig`. For more information, see [Testing and debugging functions that use customer-managed runtimes](test-and-debug-customer-managed-runtimes.md).  
 You can specify this option multiple times. Each instance of this option can take either a string or a key-value pair. If you specify a string, it is the URI of the container image to use for all functions in your application. For example, `sam local start-api --invoke-image public.ecr.aws/sam/emu-python3.13`. If you specify a key-value pair, the key is the resource name, and the value is the URI of the container image to use for that resource. For example, `sam local start-api --invoke-image public.ecr.aws/sam/emu-python3.13 --invoke-image Function1=amazon/aws-sam-cli-emulation-image-python3.13`. With key-value pairs, you can specify different container images for different resources.
 
 `--layer-cache-basedir {{DIRECTORY}}`  <a name="ref-sam-cli-local-start-api-options-layer-cache-basedir"></a>

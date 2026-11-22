@@ -1,7 +1,6 @@
 
 
 # Installing Finch to use with the AWS SAM CLI
-<a name="install-finch"></a>
 
 Finch is AWS's container development tool that provides an alternative to Docker, particularly beneficial on macOS and Linux systems. For more information, see [Finch on GitHub](https://github.com/runfinch). With Finch, AWS SAM can provide a local environment similar to AWS Lambda as a container to build, test, and debug your serverless applications.
 

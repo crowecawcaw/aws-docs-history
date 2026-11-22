@@ -1,7 +1,6 @@
 
 
 # AWS::Serverless::WebSocketApi
-<a name="sam-resource-websocketapi"></a>
 
 Creates an Amazon API Gateway WebSocket API, which enables you to create two-way interactive communication applications. WebSocket APIs allow the server to send messages to clients without the client having to request them. For more information, see [Working with WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html) in the *API Gateway Developer Guide*.
 
@@ -22,7 +21,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-resource-websocketapi-syntax.yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::WebSocketApi
 Properties:
   [ApiKeySelectionExpression](#sam-websocketapi-apikeyselectionexpression): {{String}}
@@ -171,7 +170,7 @@ For more information about using the `Ref` function, see [`Ref`](https://docs.aw
 
 The following example creates a WebSocket API with three routes.
 
-```
+```yaml
 Resources:
   MyWebSocketApi:
     Type: AWS::Serverless::WebSocketApi
@@ -212,7 +211,7 @@ Resources:
 
 The following example creates a WebSocket API with a Lambda authorizer.
 
-```
+```yaml
 Resources:
   MyWebSocketApi:
     Type: AWS::Serverless::WebSocketApi

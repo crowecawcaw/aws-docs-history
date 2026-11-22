@@ -1,7 +1,6 @@
 
 
 # CognitoAuthorizer
-<a name="sam-property-api-cognitoauthorizer"></a>
 
 Define a Amazon Cognito User Pool authorizer.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-cognitoauthorizer-syntax.yaml"></a>
 
-```
+```yaml
   [AuthorizationScopes](#sam-api-cognitoauthorizer-authorizationscopes): {{List}}
   [Identity](#sam-api-cognitoauthorizer-identity): {{CognitoAuthorizationIdentity}}
   [UserPoolArn](#sam-api-cognitoauthorizer-userpoolarn): {{String | List}}
@@ -53,7 +52,7 @@ Cognito Auth Example
 #### YAML
 <a name="sam-property-api-cognitoauthorizer--examples--cognitoauth--yaml"></a>
 
-```
+```yaml
 Auth:
   Authorizers:
     MyCognitoAuth:

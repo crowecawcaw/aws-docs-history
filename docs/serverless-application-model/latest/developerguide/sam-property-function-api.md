@@ -1,7 +1,6 @@
 
 
 # Api
-<a name="sam-property-function-api"></a>
 
 The object describing an `Api` event source type. If an [AWS::Serverless::Api](sam-resource-api.md) resource is defined, the path and method values must correspond to an operation in the OpenAPI definition of the API.
 
@@ -17,7 +16,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-api-syntax.yaml"></a>
 
-```
+```yaml
   [Auth](#sam-function-api-auth): {{ApiFunctionAuth}}
   [Method](#sam-function-api-method): {{String}}
   [Path](#sam-function-api-path): {{String}}
@@ -95,7 +94,7 @@ When you specify this property, AWS SAM modifies your OpenAPI definition. The Op
 #### YAML
 <a name="sam-property-function-api--examples--apievent--yaml"></a>
 
-```
+```yaml
 Events:
   ApiEvent:
     Type: Api

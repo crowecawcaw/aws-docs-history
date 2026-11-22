@@ -1,7 +1,6 @@
 
 
 # Generated CloudFormation resources for AWS SAM
-<a name="sam-specification-generated-resources"></a>
 
 This section provides details on the CloudFormation resources that are created when AWS SAM processes your AWS template. The set of CloudFormation resources that AWS SAM generates differs depending on the scenarios you specify. A *scenario* is the combination of AWS SAM resources and properties specified in your template file. You can reference the generated CloudFormation resources elsewhere within your template file, similar to how you reference resources that you declare explicitly in your template file.
 

@@ -1,7 +1,6 @@
 
 
 # sam list endpoints
-<a name="sam-cli-command-reference-sam-list-endpoints"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam list endpoints` subcommand.
 
@@ -66,7 +65,7 @@ AWS SAM template file.
 
 Display an output, in json format, of deployed resource endpoints from your CloudFormation stack named `test-stack`.
 
-```
+```json
 $ sam list endpoints --stack-name test-stack --output json
 			
 [

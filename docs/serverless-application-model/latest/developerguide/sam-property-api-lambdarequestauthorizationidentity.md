@@ -1,7 +1,6 @@
 
 
 # LambdaRequestAuthorizationIdentity
-<a name="sam-property-api-lambdarequestauthorizationidentity"></a>
 
 This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.html).
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-lambdarequestauthorizationidentity-syntax.yaml"></a>
 
-```
+```yaml
   [Context](#sam-api-lambdarequestauthorizationidentity-context): {{List}}
   [Headers](#sam-api-lambdarequestauthorizationidentity-headers): {{List}}
   [QueryStrings](#sam-api-lambdarequestauthorizationidentity-querystrings): {{List}}
@@ -64,7 +63,7 @@ Converts the given stage variables to comma-separated string of mapping expressi
 #### YAML
 <a name="sam-property-api-lambdarequestauthorizationidentity--examples--lambdarequestidentity--yaml"></a>
 
-```
+```yaml
 Identity:
   QueryStrings:
     - auth

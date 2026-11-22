@@ -1,7 +1,6 @@
 
 
 # CloudFormation resources generated when AWS::Serverless::HttpApi is specified
-<a name="sam-specification-generated-resources-httpapi"></a>
 
 When an `AWS::Serverless::HttpApi` is specified, AWS Serverless Application Model (AWS SAM) generates an `AWS::ApiGatewayV2::Api` base CloudFormation resource.
 

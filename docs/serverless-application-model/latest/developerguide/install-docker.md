@@ -1,7 +1,6 @@
 
 
 # Installing Docker to use with the AWS SAM CLI
-<a name="install-docker"></a>
 
 Docker is an application that runs containers on your machine. With Docker, AWS SAM can provide a local environment similar to AWS Lambda as a container to build, test, and debug your serverless applications.
 

@@ -1,7 +1,6 @@
 
 
 # CapacityProviderConfig
-<a name="sam-property-function-capacityproviderconfig"></a>
 
 Configures the capacity provider to which published versions of the function will be attached. This enables the function to run on customer-owned EC2 instances managed by Lambda.
 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-capacityproviderconfig-syntax.yaml"></a>
 
-```
+```yaml
 [Arn](#sam-function-capacityproviderconfig-arn): {{String}}
 [ExecutionEnvironmentMemoryGiBPerVCpu](#sam-function-capacityproviderconfig-executionenvironmentmemorygibpervcpu): {{Float}}
 [PerExecutionEnvironmentMaxConcurrency](#sam-function-capacityproviderconfig-perexecutionenvironmentmaxconcurrency): {{Integer}}
@@ -52,7 +51,7 @@ The maximum number of concurrent executions per execution environment (sandbox).
 
 The following example shows a capacity provider configuration that references a capacity provider resource.
 
-```
+```yaml
 CapacityProviderConfig:
   Arn: !GetAtt {{MyCapacityProvider}}.Arn
   ExecutionEnvironmentMemoryGiBPerVCpu: 4.0

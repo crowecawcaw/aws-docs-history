@@ -1,7 +1,6 @@
 
 
 # Building .NET Lambda Event Functions with Native AOT compilation in AWS SAM
-<a name="build-dotnet7"></a>
 
 Build and package your .NET 8 AWS Lambda Event Functions with the AWS Serverless Application Model (AWS SAM), utilizing Native Ahead-of-Time (AOT) compilation to improve AWS Lambda cold-start times.
 
@@ -98,7 +97,7 @@ To define a .NET8 Lambda function in your AWS SAM template, do the following:
 **Install Docker**
 + Building with Native AOT, requires Docker to be installed. For installation instructions, see [Installing Docker to use with the AWS SAM CLI](install-docker.md).
 
-```
+```yaml
 Resources:
 HelloWorldFunction:
   Type: AWS::Serverless::Function

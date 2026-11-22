@@ -1,14 +1,13 @@
 
 
 # Building Lambda layers in AWS SAM
-<a name="building-layers"></a>
 
 
 
 You can use AWS SAM to build custom Lambda layers. Lambda layers allow you to extract code from a Lambda Event Function that can then be re-used across several Lambda functions. Building only Lambda layers (instead of building your entire application) can benefit you in a few ways. It can help you reduce the size of your deployment packages, separate core function logic from dependencies, and allow you to share dependencies across multiple functions. For information about layers, see [AWS Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) in the *AWS Lambda Developer Guide*.
 
 ## How to build a Lambda layer in AWS SAM
-<a name="w2aac18c23c19c34b7"></a>
+<a name="w2aac18c23c19c38b7"></a>
 
 **Note**  
 Before you can build a Lambda layer, you must first write a Lambda layer in your AWS SAM template. For information and examples on doing this, see [Increase efficiency using Lambda layers with AWS SAM](serverless-sam-cli-layers.md).
@@ -24,7 +23,7 @@ For more information, see [Including library dependencies in a layer](https://do
 
 The following is an example `Metadata` resource attribute section.
 
-```
+```yaml
     Metadata:
       BuildMethod: python3.12
       BuildArchitecture: arm64
@@ -45,7 +44,7 @@ When you include the `Metadata` resource attribute section, you can use the `sam
 
 The following example AWS SAM template builds a layer against the Python 3.12 runtime environment.
 
-```
+```yaml
 Resources:
   MyLayer:
     Type: AWS::Serverless::LayerVersion
@@ -62,7 +61,7 @@ Resources:
 
 The following example AWS SAM template uses a custom `makefile` to build the layer.
 
-```
+```yaml
 Resources:
   MyLayer:
     Type: AWS::Serverless::LayerVersion
@@ -76,7 +75,7 @@ Resources:
 
 The following `makefile` contains the build target and commands that will be executed. Note that the `ContentUri` property is set to `my_layer`, so the makefile must be located in the root of the `my_layer` subdirectory, and the filename must be `Makefile`. Note also that the build artifacts are copied into the `python/` subdirectory so that AWS Lambda will be able to find the layer code.
 
-```
+```yaml
 build-MyLayer:
   mkdir -p "$(ARTIFACTS_DIR)/python"
   cp *.py "$(ARTIFACTS_DIR)/python"

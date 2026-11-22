@@ -1,7 +1,6 @@
 
 
 # sam local callback heartbeat
-<a name="sam-cli-command-reference-sam-local-callback-heartbeat"></a>
 
 Send a heartbeat callback to a durable function execution.
 

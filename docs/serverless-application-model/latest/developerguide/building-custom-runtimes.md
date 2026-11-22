@@ -1,7 +1,6 @@
 
 
 # Building Lambda Event Functions with custom runtimes in AWS SAM
-<a name="building-custom-runtimes"></a>
 
 You can use the `sam build` command to build custom runtimes required for your Lambda Event Function. You declare your Lambda function to use a custom runtime by specifying `Runtime: provided` for the function.
 

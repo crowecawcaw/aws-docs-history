@@ -1,7 +1,6 @@
 
 
 # LambdaTokenAuthorizationIdentity
-<a name="sam-property-api-lambdatokenauthorizationidentity"></a>
 
 This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.html).
 
@@ -13,7 +12,7 @@ This property can be used to specify an IdentitySource in an incoming request fo
 ### YAML
 <a name="sam-property-api-lambdatokenauthorizationidentity-syntax.yaml"></a>
 
-```
+```yaml
   [Header](#sam-api-lambdatokenauthorizationidentity-header): {{String}}
   [ReauthorizeEvery](#sam-api-lambdatokenauthorizationidentity-reauthorizeevery): {{Integer}}
   [ValidationExpression](#sam-api-lambdatokenauthorizationidentity-validationexpression): {{String}}
@@ -51,7 +50,7 @@ Specify a validation expression for validating the incoming Identity.
 #### YAML
 <a name="sam-property-api-lambdatokenauthorizationidentity--examples--lambdatokenidentity--yaml"></a>
 
-```
+```yaml
 Identity:
   Header: MyCustomAuthHeader
   ValidationExpression: Bearer.*

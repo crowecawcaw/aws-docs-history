@@ -1,7 +1,6 @@
 
 
 # Local testing with AWS SAM CLI
-<a name="using-sam-cli-local-testing"></a>
 
 The AWS SAM CLI enables you to test serverless applications locally across different infrastructure as code (IaC) tools. This guide explains how to use the AWS SAM CLI for local testing with various IaC frameworks.
 

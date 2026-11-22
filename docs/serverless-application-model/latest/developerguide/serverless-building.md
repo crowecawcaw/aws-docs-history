@@ -1,7 +1,6 @@
 
 
 # Build your application with AWS SAM
-<a name="serverless-building"></a>
 
 After you have added your infrastructure as code (IaC) to your AWS SAM template, you’ll be ready to start building your application using the **sam build** command. This command creates build artifacts from the files in your application project directory (that is, your AWS SAM template file, application code, and any applicable language-specific files and dependencies). These build artifacts prepare your serverless application for later steps of your application's development, such as local testing and deploying to the AWS Cloud. Both testing and deploying use build artifacts as inputs.
 

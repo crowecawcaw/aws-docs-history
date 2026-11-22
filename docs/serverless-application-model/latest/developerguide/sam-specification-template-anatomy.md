@@ -1,7 +1,6 @@
 
 
 # AWS SAM template anatomy
-<a name="sam-specification-template-anatomy"></a>
 
 An AWS SAM template file closely follows the format of an CloudFormation template file, which is described in [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the *AWS CloudFormation User Guide*. The primary differences between AWS SAM template files and CloudFormation template files are the following:
 + **Transform declaration.** The declaration `Transform: AWS::Serverless-2016-10-31` is required for AWS SAM template files. This declaration identifies an CloudFormation template file as an AWS SAM template file. For more information about transforms, see [Transform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html) in the *AWS CloudFormation User Guide*.
@@ -15,7 +14,7 @@ All other sections of an AWS SAM template file correspond to the CloudFormation 
 
 The following example shows a YAML-formatted template fragment.
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 
 Globals:

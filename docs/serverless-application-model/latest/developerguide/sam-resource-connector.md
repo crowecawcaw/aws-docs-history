@@ -1,7 +1,6 @@
 
 
 # AWS::Serverless::Connector
-<a name="sam-resource-connector"></a>
 
 Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
 
@@ -23,7 +22,7 @@ We recommend using the embedded connectors syntax for most use cases. Being embe
 ### Embedded connectors
 <a name="sam-resource-connector-syntax-embedded"></a>
 
-```
+```yaml
 {{<source-resource-logical-id>}}:
   Connectors:
     {{<connector-logical-id}}:
@@ -36,7 +35,7 @@ We recommend using the embedded connectors syntax for most use cases. Being embe
 ### AWS::Serverless::Connector
 <a name="sam-resource-connector-syntax-connector"></a>
 
-```
+```yaml
 Type: AWS::Serverless::Connector
 Properties:
   [Destination](#sam-connector-destination): {{ResourceReference}} | {{List of ResourceReference}}
@@ -83,7 +82,7 @@ Use with the embedded connectors syntax when defining additional properties for 
 
 The following example uses embedded connectors to define a `Write` data connection between an AWS Lambda Event Function and Amazon DynamoDB table:
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
@@ -103,7 +102,7 @@ Resources:
 
 The following example uses embedded connectors to define `Read` and `Write` permissions:
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
@@ -124,7 +123,7 @@ Resources:
 
 The following example uses embedded connectors to define a source resource with a property other than `Id`:
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
@@ -148,9 +147,9 @@ Resources:
 ### AWS::Serverless::Connector
 <a name="sam-resource-connector--examples-connector"></a>
 
-The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have an AWS Lambda function read from, and write to an Amazon DynamoDB table:
+The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md) resource to have an AWS Lambda function read from, and write to an Amazon DynamoDB table:
 
-```
+```yaml
 MyConnector:
   Type: AWS::Serverless::Connector
   Properties:
@@ -163,9 +162,9 @@ MyConnector:
       - Write
 ```
 
-The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have a Lambda function write to an Amazon SNS topic, with both resources in the same template:
+The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md) resource to have a Lambda function write to an Amazon SNS topic, with both resources in the same template:
 
-```
+```yaml
 MyConnector:
   Type: AWS::Serverless::Connector
   Properties:
@@ -177,9 +176,9 @@ MyConnector:
       - Write
 ```
 
-The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have an Amazon SNS topic write to a Lambda function, which then writes to an Amazon DynamoDB table, with all resources in the same template:
+The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md) resource to have an Amazon SNS topic write to a Lambda function, which then writes to an Amazon DynamoDB table, with all resources in the same template:
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   Topic:
@@ -236,7 +235,7 @@ Resources:
 
 The following is the transformed AWS CloudFormation template from the example above:
 
-```
+```json
 "FunctionToTableConnectorPolicy": {
   "Type": "AWS::IAM::ManagedPolicy",
   "Metadata": {

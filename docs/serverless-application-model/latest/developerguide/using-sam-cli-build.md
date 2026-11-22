@@ -1,7 +1,6 @@
 
 
 # Introduction to building with AWS SAM
-<a name="using-sam-cli-build"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam build` command to prepare your serverless application for subsequent steps in your development workflow, such as local testing or deploying to the AWS Cloud. This command creates a `.aws-sam` directory that structures your application in a format and location that `sam local` and `sam deploy` require.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli).
@@ -37,6 +36,8 @@ Before using `sam build`, consider configuring the following:
    1. **Native runtime** – Author your Lambda functions in a supported Lambda runtime and build you functions to use a native Lambda runtime in the AWS Cloud.
 
    1. **Custom runtime** – Author your Lambda functions using any programming language and build your runtime using a custom process defined in a makefile or third-party builder such as esbuild. To learn more, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
+
+   1. **Customer-managed runtime** – Use a runtime that a runtime publisher manages. `sam build` builds the code with the function's `Metadata.BuildMethod`. To learn more, see [Building Lambda Event Functions with customer-managed runtimes in AWS SAM](building-customer-managed-runtimes.md).
 
 1. **Lambda package type** – Lambda functions can be packaged in the following Lambda deployment package types:
 
@@ -215,7 +216,7 @@ $ sam build --use-container --container-env-var-file {{<env.json>}}
 
 Example of the `env.json` file:
 
-```
+```json
 {
   "MyFunction1": {
     "GITHUB_TOKEN": "TOKEN1"

@@ -1,7 +1,6 @@
 
 
 # Pass multiple runtime arguments when debugging with AWS SAM
-<a name="serverless-sam-cli-using-debugging-additional-arguments"></a>
 
 You may choose to pass additional runtime arguments with AWS SAM to inspect issues and troubleshoot variables more effectively. Doing this provides added control and flexibility to your debugging process, which can help you with customized runtime configurations and environments.
 

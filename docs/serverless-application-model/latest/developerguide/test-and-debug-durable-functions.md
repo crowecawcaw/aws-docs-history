@@ -1,7 +1,6 @@
 
 
 # Testing and debugging durable functions
-<a name="test-and-debug-durable-functions"></a>
 
 Testing and debugging durable functions locally works similarly to regular Lambda functions, with automatic support for checkpointing and replay. This guide covers common testing scenarios and troubleshooting techniques.
 
@@ -38,7 +37,7 @@ When testing durable functions locally, the workflow differs from regular Lambda
 
 To test that your function properly checkpoints state:
 
-```
+```python
 # Example Python durable function
 def handler(event, context):
     # This will create a checkpoint

@@ -1,9 +1,8 @@
 
 
 # ScalingConfig
-<a name="sam-property-capacityprovider-scalingconfig"></a>
 
-Specifies how the capacity provider scales Amazon Elastic Compute Cloud (Amazon EC2) instances based on demand. You set the maximum number of vCPUs that the capacity provider can provision, and the target average CPU utilization that triggers scaling.
+Specifies how the capacity provider scales Amazon Elastic Compute Cloud (Amazon EC2) instances based on demand. You set the maximum number of vCPUs that the capacity provider can provision, and the target average CPU or GPU utilization that triggers scaling.
 
 ## Syntax
 <a name="sam-property-capacityprovider-scalingconfig-syntax"></a>
@@ -13,9 +12,10 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-capacityprovider-scalingconfig-syntax.yaml"></a>
 
-```
+```yaml
 [MaxVCpuCount](#sam-capacityprovider-scalingconfig-maxvcpucount): {{Integer}}
 [AverageCPUUtilization](#sam-capacityprovider-scalingconfig-averagecpuutilization): {{Double}}
+[AverageGPUUtilization](#sam-capacityprovider-scalingconfig-averagegpuutilization): {{Double}}
 ```
 
 ## Properties
@@ -33,6 +33,13 @@ The target average CPU utilization percentage (0-100) for scaling decisions. Whe
 *Required*: No  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent. 
 
+ `AverageGPUUtilization`   <a name="sam-capacityprovider-scalingconfig-averagegpuutilization"></a>
+The target average GPU utilization percentage (0-100) for scaling decisions. When the average GPU utilization exceeds this threshold, the capacity provider scales up GPU-enabled Amazon EC2 instances. When specified, AWS SAM constructs [CapacityProviderScalingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig) of an `AWS::Lambda::CapacityProvider` resource with the [ScalingMode](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig-scalingmode) set to `'Manual'` and adds `{PredefinedMetricType: 'LambdaCapacityProviderAverageGPUUtilization', TargetValue: <this value>}` to [ScalingPolicies](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html#cfn-lambda-capacityprovider-capacityproviderscalingconfig-scalingpolicies).   
+If you specify both `AverageCPUUtilization` and `AverageGPUUtilization`, AWS SAM creates one scaling policy for each metric.  
+*Type*: Double  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent. 
+
 ## Examples
 <a name="sam-property-capacityprovider-scalingconfig-examples"></a>
 
@@ -41,8 +48,19 @@ The target average CPU utilization percentage (0-100) for scaling decisions. Whe
 
 The following example shows a scaling configuration with maximum VCpu count and average CPU utilization.
 
-```
+```yaml
 ScalingConfig:
   MaxVCpuCount: 10
   AverageCPUUtilization: 70.0
+```
+
+### GPU utilization scaling
+<a name="sam-property-capacityprovider-scalingconfig-examples-gpu"></a>
+
+The following example shows a scaling configuration for GPU functions that scales on average GPU utilization.
+
+```yaml
+ScalingConfig:
+  MaxVCpuCount: 100
+  AverageGPUUtilization: 70.0
 ```

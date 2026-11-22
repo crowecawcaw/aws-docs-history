@@ -1,7 +1,6 @@
 
 
 # Customize builds with AWS SAM
-<a name="building-lambda-functions"></a>
 
 You can customize your build to include specific Lambda Event Functions or Lambda layers. A function is a resource that you can invoke to run your code in Lambda. A Lambda layer allows you to extract code from a Lambda function that can then be re-used across several Lambda functions. You may choose to customize your build with specific Lambda functions when you want to focus on developing and deploying individual serverless functions without the complexity of managing shared dependencies or resources. Additionally, you may choose to build a Lambda layer to help you reduce the size of your deployment packages, separate core function logic from dependencies, and allow you to share dependencies across multiple functions.
 
@@ -15,4 +14,5 @@ For more information on functions, see [Lambda concepts](https://docs.aws.amazon
 + [Building Rust Lambda Event Functions with Cargo Lambda in AWS SAM](building-rust.md)
 + [Building Python Lambda Event Functions with uv in AWS SAM](building-python-uv.md)
 + [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md)
++ [Building Lambda Event Functions with customer-managed runtimes in AWS SAM](building-customer-managed-runtimes.md)
 + [Building Lambda layers in AWS SAM](building-layers.md)

@@ -1,7 +1,6 @@
 
 
 # Amazon Cognito user pool example for AWS SAM
-<a name="serverless-controlling-access-to-apis-cognito-user-pool"></a>
 
 You can control access to your APIs by defining Amazon Cognito user pools within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md) data type.
 

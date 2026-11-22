@@ -1,7 +1,6 @@
 
 
 # Important reference notes for AWS SAM
-<a name="important-notes"></a>
 
 This section contains important notes and announcements for AWS Serverless Application Model (AWS SAM).
 

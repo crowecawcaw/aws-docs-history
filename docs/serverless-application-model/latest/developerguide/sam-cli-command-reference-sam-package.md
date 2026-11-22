@@ -1,7 +1,6 @@
 
 
 # sam package
-<a name="sam-cli-command-reference-sam-package"></a>
 
 The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) packages an AWS SAM application.
 

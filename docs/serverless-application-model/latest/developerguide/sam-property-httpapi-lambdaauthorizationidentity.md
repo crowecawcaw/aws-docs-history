@@ -1,7 +1,6 @@
 
 
 # LambdaAuthorizationIdentity
-<a name="sam-property-httpapi-lambdaauthorizationidentity"></a>
 
 Use property can be used to specify an IdentitySource in an incoming request for a Lambda authorizer. For more information about identity sources, see [Identity sources](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.identity-sources) in the *API Gateway Developer Guide*.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-httpapi-lambdaauthorizationidentity-syntax.yaml"></a>
 
-```
+```yaml
   [Context](#sam-httpapi-lambdaauthorizationidentity-context): {{List}}
   [Headers](#sam-httpapi-lambdaauthorizationidentity-headers): {{List}}
   [QueryStrings](#sam-httpapi-lambdaauthorizationidentity-querystrings): {{List}}
@@ -65,7 +64,7 @@ Lambda request identity example
 #### YAML
 <a name="sam-property-httpapi-lambdaauthorizationidentity--examples--lambdarequestidentity--yaml"></a>
 
-```
+```yaml
 Identity:
   QueryStrings:
     - auth

@@ -1,7 +1,6 @@
 
 
 # Control API access with your AWS SAM template
-<a name="serverless-controlling-access-to-apis"></a>
 
 Controlling access to your API Gateway APIs helps ensure your serverless application is secure and can only be accessed through the authorization you enable. You can enable authorization in your AWS SAM template to control who can access your API Gateway APIs.
 

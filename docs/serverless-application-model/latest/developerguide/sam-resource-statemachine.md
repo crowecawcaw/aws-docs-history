@@ -1,7 +1,6 @@
 
 
 # AWS::Serverless::StateMachine
-<a name="sam-resource-statemachine"></a>
 
 Creates an AWS Step Functions state machine, which you can use to orchestrate AWS Lambda Event Functions and other AWS resources to form complex and robust workflows.
 
@@ -20,7 +19,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-resource-statemachine-syntax.yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::StateMachine
 Properties:
   AutoPublishAlias: {{String}}
@@ -200,7 +199,7 @@ In this example, the `DefinitionSubstitution` entries allow the state machine to
 #### YAML
 <a name="sam-resource-statemachine--examples--state-machine-definition-file--yaml"></a>
 
-```
+```yaml
 MySampleStateMachine:
   Type: AWS::Serverless::StateMachine
   Properties:
@@ -223,7 +222,7 @@ In this example, the AWS SAM template file is written in YAML, so the state mach
 #### YAML
 <a name="sam-resource-statemachine--examples--inline-state-machine-definition--yaml"></a>
 
-```
+```yaml
 MySampleStateMachine:
   Type: AWS::Serverless::StateMachine
   Properties:

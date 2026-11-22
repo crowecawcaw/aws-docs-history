@@ -1,7 +1,6 @@
 
 
 # EndpointConfiguration
-<a name="sam-property-api-endpointconfiguration"></a>
 
 The endpoint type of a REST API.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-endpointconfiguration-syntax.yaml"></a>
 
-```
+```yaml
   [IpAddressType](#sam-api-endpointconfiguration-ipaddresstype): {{String}}
   [Type](#sam-api-endpointconfiguration-type): {{String}}
   [VPCEndpointIds](#sam-api-endpointconfiguration-vpcendpointids): {{List}}
@@ -53,7 +52,7 @@ Endpoint Configuration example
 #### YAML
 <a name="sam-property-api-endpointconfiguration--examples--endpointconfiguration--yaml"></a>
 
-```
+```yaml
 EndpointConfiguration:
   Type: PRIVATE
   VPCEndpointIds:

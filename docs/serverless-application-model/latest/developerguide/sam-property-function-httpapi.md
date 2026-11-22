@@ -1,7 +1,6 @@
 
 
 # HttpApi
-<a name="sam-property-function-httpapi"></a>
 
 The object describing an event source with type HttpApi.
 
@@ -17,7 +16,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-httpapi-syntax.yaml"></a>
 
-```
+```yaml
   [ApiId](#sam-function-httpapi-apiid): {{String}}
   [Auth](#sam-function-httpapi-auth): {{HttpApiFunctionAuth}}
   [Method](#sam-function-httpapi-method): {{String}}
@@ -93,7 +92,7 @@ HttpApi Event that uses the default path. All unmapped paths and methods on this
 #### YAML
 <a name="sam-property-function-httpapi--examples--default-httpapi-event--yaml"></a>
 
-```
+```yaml
 Events:
   HttpApiEvent:
     Type: HttpApi
@@ -107,7 +106,7 @@ HttpApi Event that uses a specific path and method.
 #### YAML
 <a name="sam-property-function-httpapi--examples--httpapi--yaml"></a>
 
-```
+```yaml
 Events:
   HttpApiEvent:
     Type: HttpApi
@@ -124,7 +123,7 @@ HttpApi Event that uses an Authorizer.
 #### YAML
 <a name="sam-property-function-httpapi--examples--httpapi-authorization--yaml"></a>
 
-```
+```yaml
 Events:
   HttpApiEvent:
     Type: HttpApi

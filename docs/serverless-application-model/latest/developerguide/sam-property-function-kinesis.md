@@ -1,7 +1,6 @@
 
 
 # Kinesis
-<a name="sam-property-function-kinesis"></a>
 
 The object describing a `Kinesis` event source type. For more information, see [Using AWS Lambda with Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html) in the *AWS Lambda Developer Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-kinesis-syntax.yaml"></a>
 
-```
+```yaml
   [BatchSize](#sam-function-kinesis-batchsize): {{Integer}}
   [BisectBatchOnFunctionError](#sam-function-kinesis-bisectbatchonfunctionerror): {{Boolean}}
   [DestinationConfig](#sam-function-kinesis-destinationconfig): {{[DestinationConfig](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig)}}
@@ -177,7 +176,7 @@ The following is an example of a Kinesis event source.
 #### YAML
 <a name="sam-property-function-kinesis--examples--kinesis-event-source--yaml"></a>
 
-```
+```yaml
 Events:
   KinesisEvent:
     Type: Kinesis

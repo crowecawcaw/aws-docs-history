@@ -1,7 +1,6 @@
 
 
 # Image repositories for AWS SAM
-<a name="serverless-image-repositories"></a>
 
 AWS SAM simplifies continuous integration and continuous delivery (CI/CD) tasks for serverless applications with the help of build container images. The images that AWS SAM provides include the AWS SAM command line interface (CLI) and build tools for a number of supported AWS Lambda runtimes. This make it easier to build and package serverless applications using the AWS SAM CLI. You can use these images with CI/CD systems to automate the building and deployment of AWS SAM applications. For examples, see [Deploy with CI/CD systems and pipelines](deploying-options.md#serverless-deploying-ci-cd).
 

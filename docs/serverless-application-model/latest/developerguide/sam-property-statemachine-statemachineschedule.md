@@ -1,7 +1,6 @@
 
 
 # Schedule
-<a name="sam-property-statemachine-statemachineschedule"></a>
 
 The object describing a `Schedule` event source type, which sets your state machine as the target of an EventBridge rule that triggers on a schedule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachineschedule-syntax.yaml"></a>
 
-```
+```yaml
   [DeadLetterConfig](#sam-statemachine-statemachineschedule-deadletterconfig): {{DeadLetterConfig}}
   [Description](#sam-statemachine-statemachineschedule-description): {{String}}
   [Enabled](#sam-statemachine-statemachineschedule-enabled): {{Boolean}}
@@ -106,7 +105,7 @@ CloudWatch Schedule Event Example
 #### YAML
 <a name="sam-property-statemachine-statemachineschedule--examples--cloudwatch-schedule-event--yaml"></a>
 
-```
+```yaml
 CWSchedule:
   Type: Schedule
   Properties:

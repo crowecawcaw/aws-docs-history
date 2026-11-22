@@ -1,7 +1,6 @@
 
 
 # CloudFormation language extensions support
-<a name="sam-specification-language-extensions"></a>
 
 The AWS SAM CLI supports templates that use the `AWS::LanguageExtensions` transform, including `Fn::ForEach`, `Fn::Length`, `Fn::ToJsonString`, and `Fn::FindInMap` with `DefaultValue`. For complete reference information about these constructs, see [AWS::LanguageExtensions transform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-languageextensions.html) in the *AWS CloudFormation User Guide*.
 
@@ -126,6 +125,7 @@ The recognized artifact properties are the same ones `sam package` rewrites toda
 | --- | --- | 
 | `AWS::Serverless::Function` | `CodeUri`, `ImageUri` | 
 | `AWS::Serverless::LayerVersion` | `ContentUri` | 
+| `AWS::Serverless::MicrovmImage` | `CodeUri` | 
 | `AWS::Serverless::Api` | `DefinitionUri` | 
 | `AWS::Serverless::HttpApi` | `DefinitionUri` | 
 | `AWS::Serverless::StateMachine` | `DefinitionUri` | 
@@ -133,6 +133,7 @@ The recognized artifact properties are the same ones `sam package` rewrites toda
 | `AWS::Serverless::Application` | `Location` | 
 | `AWS::Lambda::Function` | `Code`, `Code.ImageUri` | 
 | `AWS::Lambda::LayerVersion` | `Content` | 
+| `AWS::Lambda::MicrovmImage` | `CodeArtifact`, `CodeArtifact.Uri` | 
 | `AWS::ApiGateway::RestApi` | `BodyS3Location` | 
 | `AWS::ApiGatewayV2::Api` | `BodyS3Location` | 
 | `AWS::AppSync::GraphQLSchema` | `DefinitionS3Location` | 

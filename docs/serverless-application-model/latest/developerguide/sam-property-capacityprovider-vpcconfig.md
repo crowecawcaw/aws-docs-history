@@ -1,7 +1,6 @@
 
 
 # VpcConfig
-<a name="sam-property-capacityprovider-vpcconfig"></a>
 
 Configures the VPC settings for a capacity provider, including the subnets and security groups where EC2 instances will be launched.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-capacityprovider-vpcconfig-syntax.yaml"></a>
 
-```
+```yaml
 [SubnetIds](#sam-capacityprovider-vpcconfig-subnetids): {{List}}
 [SecurityGroupIds](#sam-capacityprovider-vpcconfig-securitygroupids): {{List}}
 ```
@@ -41,7 +40,7 @@ A list of security group IDs to associate with the EC2 instances. If not specifi
 
 The following example shows a VPC configuration with multiple subnets and security groups.
 
-```
+```yaml
 VpcConfig:
   SubnetIds:
     - {{subnet-12345678}}

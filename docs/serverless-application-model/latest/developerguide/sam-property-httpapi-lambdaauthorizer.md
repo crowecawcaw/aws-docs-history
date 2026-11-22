@@ -1,7 +1,6 @@
 
 
 # LambdaAuthorizer
-<a name="sam-property-httpapi-lambdaauthorizer"></a>
 
 Configure a Lambda authorizer to control access to your Amazon API Gateway HTTP API with an AWS Lambda Event Function.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-httpapi-lambdaauthorizer-syntax.yaml"></a>
 
-```
+```yaml
   [AuthorizerPayloadFormatVersion](#sam-httpapi-lambdaauthorizer-authorizerpayloadformatversion): {{String}}
   EnableFunctionDefaultPermissions: {{Boolean}}
   [EnableSimpleResponses](#sam-httpapi-lambdaauthorizer-enablesimpleresponses): {{Boolean}}
@@ -82,7 +81,7 @@ LambdaAuthorizer example
 #### YAML
 <a name="sam-property-httpapi-lambdaauthorizer--examples--lambdaauthorizer--yaml"></a>
 
-```
+```yaml
 Auth:
   Authorizers:
     MyLambdaAuthorizer:

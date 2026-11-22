@@ -1,7 +1,6 @@
 
 
 # CognitoAuthorizationIdentity
-<a name="sam-property-api-cognitoauthorizationidentity"></a>
 
 This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.html).
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-cognitoauthorizationidentity-syntax.yaml"></a>
 
-```
+```yaml
   [Header](#sam-api-cognitoauthorizationidentity-header): {{String}}
   [ReauthorizeEvery](#sam-api-cognitoauthorizationidentity-reauthorizeevery): {{Integer}}
   [ValidationExpression](#sam-api-cognitoauthorizationidentity-validationexpression): {{String}}
@@ -51,7 +50,7 @@ Specify a validation expression for validating the incoming Identity
 #### YAML
 <a name="sam-property-api-cognitoauthorizationidentity--examples--cognitoauthidentity--yaml"></a>
 
-```
+```yaml
 Identity:
   Header: MyCustomAuthHeader
   ValidationExpression: Bearer.*

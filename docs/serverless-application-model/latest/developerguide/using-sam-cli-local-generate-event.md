@@ -1,7 +1,6 @@
 
 
 # Introduction to testing with sam local generate-event
-<a name="using-sam-cli-local-generate-event"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local generate-event` subcommand to generate event payload samples for supported AWS services. You can then modify and pass these events to local resources for testing.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)

@@ -1,7 +1,6 @@
 
 
 # HttpApiDomainConfiguration
-<a name="sam-property-httpapi-httpapidomainconfiguration"></a>
 
 Configures a custom domain for an API.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-httpapi-httpapidomainconfiguration-syntax.yaml"></a>
 
-```
+```yaml
   [BasePath](#sam-httpapi-httpapidomainconfiguration-basepath): {{List}}
   [CertificateArn](#sam-httpapi-httpapidomainconfiguration-certificatearn): {{String}}
   [DomainName](#sam-httpapi-httpapidomainconfiguration-domainname): {{String}}
@@ -91,7 +90,7 @@ DomainName example
 #### YAML
 <a name="sam-property-httpapi-httpapidomainconfiguration--examples--domainname--yaml"></a>
 
-```
+```yaml
 Domain:
   DomainName: www.example.com
   CertificateArn: arn-example

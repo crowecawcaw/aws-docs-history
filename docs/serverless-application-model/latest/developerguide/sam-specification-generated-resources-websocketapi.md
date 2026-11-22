@@ -1,7 +1,6 @@
 
 
 # CloudFormation resources generated when AWS::Serverless::WebSocketApi is specified
-<a name="sam-specification-generated-resources-websocketapi"></a>
 
 When an `AWS::Serverless::WebSocketApi` is specified, AWS Serverless Application Model (AWS SAM) generates an `AWS::ApiGatewayV2::Api` base CloudFormation resource. In addition, it also always generates an `AWS::ApiGatewayV2::Stage` resource, and for each route defined in the `Routes` property, AWS SAM generates `AWS::ApiGatewayV2::Route`, `AWS::ApiGatewayV2::Integration`, and `AWS::Lambda::Permission` resources.
 

@@ -1,7 +1,6 @@
 
 
 # AWS::Serverless::GraphQLApi
-<a name="sam-resource-graphqlapi"></a>
 
 Use the AWS Serverless Application Model (AWS SAM) `AWS::Serverless::GraphQLApi` resource type to create and configure an AWS AppSync GraphQL API for your serverless application.
 
@@ -13,7 +12,7 @@ To learn more about AWS AppSync, see [What is AWS AppSync?](https://docs.aws.ama
 ### YAML
 <a name="sam-resource-graphqlapi-syntax-yaml"></a>
 
-```
+```yaml
 {{LogicalId}}:
   Type: AWS::Serverless::GraphQLApi
   Properties:
@@ -79,7 +78,7 @@ If you don’t specify this property, AWS SAM will generate `CloudWatchLogsRoleA
 + `FieldLogLevel: ALL`
 To opt out of logging, specify the following:  
 
-```
+```yaml
 Logging: false
 ```
 *Type*: [LogConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html)  
@@ -144,7 +143,7 @@ In this example, we create a GraphQL API that uses a DynamoDB table as a data so
 
 **schema.graphql**
 
-```
+```json
 schema {
   query: Query
   mutation: Mutation
@@ -171,7 +170,7 @@ type Post {
 
 **template.yaml**
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...
@@ -230,7 +229,7 @@ Resources:
 
 **createPostItem.js**
 
-```
+```javascript
 import { util } from "@aws-appsync/utils";
 
 export function request(ctx) {
@@ -249,7 +248,7 @@ export function response(ctx) {
 
 **getPostFromTable.js**
 
-```
+```javascript
 import { util } from "@aws-appsync/utils";
 
 export function request(ctx) {
@@ -273,7 +272,7 @@ function dynamoDBGetItemRequest(key) {
 
 **preprocessPostItem.js**
 
-```
+```javascript
 import { util } from "@aws-appsync/utils";
 
 export function request(ctx) {
@@ -294,7 +293,7 @@ Here is our resolver code:
 
 **getPost.js**
 
-```
+```javascript
 export function request(ctx) {
   return {};
 }
@@ -311,7 +310,7 @@ In this example, we create a GraphQL API that uses a Lambda Event Function as a 
 
 **template.yaml**
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...
@@ -371,7 +370,7 @@ Outputs:
 
 **schema.graphql**
 
-```
+```json
 schema {
   query: Query
   mutation: Mutation
@@ -396,7 +395,7 @@ Here are our functions:
 
 **lambda/index.js**
 
-```
+```javascript
 exports.handler = async (event) => {
   console.log("Received event {}", JSON.stringify(event, 3));
 
@@ -427,7 +426,7 @@ exports.handler = async (event) => {
 
 **invoker.js**
 
-```
+```javascript
 import { util } from "@aws-appsync/utils";
 
 export function request(ctx) {

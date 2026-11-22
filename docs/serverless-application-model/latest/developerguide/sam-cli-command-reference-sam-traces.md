@@ -1,7 +1,6 @@
 
 
 # sam traces
-<a name="sam-cli-command-reference-sam-traces"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam traces` command.
 

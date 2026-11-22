@@ -1,7 +1,6 @@
 
 
 # sam remote callback succeed
-<a name="sam-cli-command-reference-sam-remote-callback-succeed"></a>
 
 Send a callback success to a remote durable function execution.
 

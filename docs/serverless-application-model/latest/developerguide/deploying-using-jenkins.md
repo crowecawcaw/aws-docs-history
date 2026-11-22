@@ -1,7 +1,6 @@
 
 
 # Using Jenkins to deploy with AWS SAM
-<a name="deploying-using-jenkins"></a>
 
 To configure your [Jenkins](https://www.jenkins.io/) pipeline to automate the build and deployment of your AWS SAM application, your `Jenkinsfile` must contain lines that do the following:
 

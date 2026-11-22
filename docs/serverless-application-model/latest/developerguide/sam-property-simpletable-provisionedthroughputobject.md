@@ -1,7 +1,6 @@
 
 
 # ProvisionedThroughputObject
-<a name="sam-property-simpletable-provisionedthroughputobject"></a>
 
 The object describing the properties of a provisioned throughput.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="w2aac13c22c53c21b5b5"></a>
 
-```
+```yaml
   [ReadCapacityUnits](#sam-simpletable-provisionedthroughputobject-readcapacityunits): {{Integer}}
   [WriteCapacityUnits](#sam-simpletable-provisionedthroughputobject-writecapacityunits): {{Integer}}
 ```
@@ -44,7 +43,7 @@ Provisioned throughput example.
 #### YAML
 <a name="sam-property-simpletable-provisionedthroughputobject--examples--provisionedthroughput--yaml"></a>
 
-```
+```yaml
 Properties:
    ProvisionedThroughput:
      ReadCapacityUnits: {{5}}

@@ -1,7 +1,6 @@
 
 
 # Api
-<a name="sam-property-statemachine-statemachineapi"></a>
 
 The object describing an `Api` event source type. If an [AWS::Serverless::Api](sam-resource-api.md) resource is defined, the path and method values must correspond to an operation in the OpenAPI definition of the API. 
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachineapi-syntax.yaml"></a>
 
-```
+```yaml
   [Auth](#sam-statemachine-statemachineapi-auth): {{ApiStateMachineAuth}}
   [Method](#sam-statemachine-statemachineapi-method): {{String}}
   [Path](#sam-statemachine-statemachineapi-path): {{String}}
@@ -70,7 +69,7 @@ The following is an example of an event of the `Api` type.
 #### YAML
 <a name="sam-property-statemachine-statemachineapi--examples--apievent--yaml"></a>
 
-```
+```yaml
 Events:
   ApiEvent:
     Type: Api

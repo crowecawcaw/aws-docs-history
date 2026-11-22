@@ -1,7 +1,6 @@
 
 
 # DataSource
-<a name="sam-property-graphqlapi-datasource"></a>
 
 Configure a data source that your GraphQL API resolver can connect to. You can use AWS Serverless Application Model (AWS SAM) templates to configure connections to the following data sources:
 + Amazon DynamoDB
@@ -17,7 +16,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-graphqlapi-datasource-syntax-yaml"></a>
 
-```
+```yaml
 DynamoDb: {{DynamoDb}}
 Lambda: {{Lambda}}
 ```

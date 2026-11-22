@@ -1,9 +1,8 @@
 
 
 # AWS::Serverless::Application
-<a name="sam-resource-application"></a>
 
-Embeds a serverless application from the [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications) or from an Amazon S3 bucket as a nested application. Nested applications are deployed as nested [AWS::CloudFormation::Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html) resources, which can contain multiple other resources including other [AWS::Serverless::Application](#sam-resource-application) resources.
+Embeds a serverless application from the [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications) or from an Amazon S3 bucket as a nested application. Nested applications are deployed as nested [AWS::CloudFormation::Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html) resources, which can contain multiple other resources including other [AWS::Serverless::Application](sam-resource-application.md) resources.
 
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-resource-application-syntax.yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::Application
 Properties:
   [Location](#sam-application-location): {{String | ApplicationLocationObject}}
@@ -92,7 +91,7 @@ Application that uses a template from the Serverless Application Repository
 #### YAML
 <a name="sam-resource-application--examples--sar-application--yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::Application
 Properties:
   Location:
@@ -111,7 +110,7 @@ Application from an S3 url
 #### YAML
 <a name="sam-resource-application--examples--normal-application--yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::Application
 Properties:
   Location: https://s3.amazonaws.com/sam-s3-demo-bucket/template.yaml

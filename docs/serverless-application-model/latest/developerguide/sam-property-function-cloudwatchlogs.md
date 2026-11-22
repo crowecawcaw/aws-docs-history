@@ -1,7 +1,6 @@
 
 
 # CloudWatchLogs
-<a name="sam-property-function-cloudwatchlogs"></a>
 
 The object describing a `CloudWatchLogs` event source type.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-cloudwatchlogs-syntax.yaml"></a>
 
-```
+```yaml
   [FilterPattern](#sam-function-cloudwatchlogs-filterpattern): {{String}}
   [LogGroupName](#sam-function-cloudwatchlogs-loggroupname): {{String}}
 ```
@@ -46,7 +45,7 @@ Cloudwatchlogs Subscription filter Example
 #### YAML
 <a name="sam-property-function-cloudwatchlogs--examples--cloudwatchlogs-subscription-filter--yaml"></a>
 
-```
+```yaml
 CWLog:
   Type: CloudWatchLogs
   Properties:

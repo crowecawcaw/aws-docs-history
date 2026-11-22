@@ -1,7 +1,6 @@
 
 
 # sam remote execution stop
-<a name="sam-cli-command-reference-sam-remote-execution-stop"></a>
 
 Stop a running durable function execution in AWS Lambda.
 

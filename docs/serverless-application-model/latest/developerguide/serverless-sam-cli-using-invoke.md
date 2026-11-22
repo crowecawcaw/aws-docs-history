@@ -1,7 +1,6 @@
 
 
 # Locally invoke Lambda Event Functions with AWS SAM
-<a name="serverless-sam-cli-using-invoke"></a>
 
 Locally invoking a Lambda Event Function before testing or deploying in the cloud can have a variety of benefits. It allows you to test the logic of your function faster. Testing locally first reduces the likelihood of identifying issues when testing in the cloud or during deployment, which can help you avoid unnecessary costs. Additionally, local testing makes debugging easier to do.
 

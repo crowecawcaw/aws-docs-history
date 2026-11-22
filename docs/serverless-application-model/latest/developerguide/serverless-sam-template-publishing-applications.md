@@ -1,7 +1,6 @@
 
 
 # Publishing your application with the AWS SAM CLI
-<a name="serverless-sam-template-publishing-applications"></a>
 
 To make your AWS SAM application available for others to find and deploy, you can use the AWS SAM CLI to publish it to the AWS Serverless Application Repository. To publish your application using the AWS SAM CLI, you must define it using an AWS SAM template. You also must have tested it locally or in the AWS Cloud.
 
@@ -13,7 +12,7 @@ Follow the instructions in this topic to create a new application, create a new 
 Before you publish an application to the AWS Serverless Application Repository using the AWS SAM CLI, you must have the following:
 + The AWS SAM CLI installed. For more information, see [Install the AWS SAM CLI](install-sam-cli.md). To determine whether the AWS SAM CLI is installed, run the following command:
 
-  ```
+  ```sh
   sam --version
   ```
 + A valid AWS SAM template.
@@ -40,7 +39,7 @@ Before you publish an application to the AWS Serverless Application Repository u
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Hooks
-<a name="sam-property-function-hooks"></a>
 
 Validation Lambda Event Functions that are run before and after traffic shifting.
 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-hooks-syntax.yaml"></a>
 
-```
+```yaml
   [PostTraffic](#sam-function-hooks-posttraffic): {{String}}
   [PreTraffic](#sam-function-hooks-pretraffic): {{String}}
 ```
@@ -47,7 +46,7 @@ Example hook functions
 #### YAML
 <a name="sam-property-function-hooks--examples--hooks--yaml"></a>
 
-```
+```yaml
 Hooks:
   PreTraffic:
     Ref: PreTrafficLambdaFunction

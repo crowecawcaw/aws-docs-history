@@ -1,7 +1,6 @@
 
 
 # ScheduleV2
-<a name="sam-property-statemachine-statemachineschedulev2"></a>
 
 The object describing a `ScheduleV2` event source type, which sets your state machine as the target of an Amazon EventBridge Scheduler event that triggers on a schedule. For more information, see [What is Amazon EventBridge Scheduler?](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) in the *EventBridge Scheduler User Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachineschedulev2-syntax.yaml"></a>
 
-```
+```yaml
 DeadLetterConfig: {{DeadLetterConfig}}
 [Description](#sam-statemachine-statemachineschedulev2-description): {{String}}
 [EndDate](#sam-statemachine-statemachineschedulev2-enddate): {{String}}
@@ -142,7 +141,7 @@ The state of the schedule.
 ### Basic example of defining a ScheduleV2 resource
 <a name="sam-property-statemachine-statemachineschedulev2--examples--example1"></a>
 
-```
+```yaml
 StateMachine:
   Type: AWS::Serverless::StateMachine
   Properties:

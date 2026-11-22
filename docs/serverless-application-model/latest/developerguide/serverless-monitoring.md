@@ -1,7 +1,6 @@
 
 
 # Monitor your serverless application with AWS SAM
-<a name="serverless-monitoring"></a>
 
 After deploying your serverless application, you can monitor it to provide insights on its operations and detect anomalies, which can help with troubleshooting. This section provides details on monitoring your serverless application. This includes information on how to configure Amazon CloudWatch to notify you when it detects anomalies. It also provides information on working with logs, including error highlighting and tips for viewing, filtering, fetching, and tailing logs.
 

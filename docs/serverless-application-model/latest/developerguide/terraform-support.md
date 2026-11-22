@@ -1,7 +1,6 @@
 
 
 # AWS SAM CLI Terraform support
-<a name="terraform-support"></a>
 
 This section covers using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Terraform projects and Terraform Cloud.
 

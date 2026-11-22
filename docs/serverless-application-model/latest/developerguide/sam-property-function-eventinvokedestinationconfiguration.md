@@ -1,7 +1,6 @@
 
 
 # EventInvokeDestinationConfiguration
-<a name="sam-property-function-eventinvokedestinationconfiguration"></a>
 
 A configuration object that specifies the destination of an event after Lambda processes it.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-eventinvokedestinationconfiguration-syntax.yaml"></a>
 
-```
+```yaml
   [OnFailure](#sam-function-eventinvokedestinationconfiguration-onfailure): {{OnFailure}}
   [OnSuccess](#sam-function-eventinvokedestinationconfiguration-onsuccess): {{OnSuccess}}
 ```
@@ -44,7 +43,7 @@ OnSuccess example
 #### YAML
 <a name="sam-property-function-eventinvokedestinationconfiguration--examples--onsuccess--yaml"></a>
 
-```
+```yaml
 EventInvokeConfig:
   DestinationConfig:
     OnSuccess:

@@ -1,7 +1,6 @@
 
 
 # SQS
-<a name="sam-property-function-sqs"></a>
 
 The object describing an `SQS` event source type. For more information, see [Using AWS Lambda with Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html) in the *AWS Lambda Developer Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-sqs-syntax.yaml"></a>
 
-```
+```yaml
   [BatchSize](#sam-function-sqs-batchsize): {{Integer}}
   [Enabled](#sam-function-sqs-enabled): {{Boolean}}
   [FilterCriteria](#sam-function-sqs-filtercriteria): {{[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)}}
@@ -125,7 +124,7 @@ Resources:
 ### Basic SQS event
 <a name="sam-property-function-sqs--examples--sqs-event"></a>
 
-```
+```yaml
 Events:
   SQSEvent:
     Type: SQS
@@ -141,7 +140,7 @@ Events:
 ### Configure partial batch reporting for your SQS queue
 <a name="sam-property-function-sqs--examples--sqs-partial-batch"></a>
 
-```
+```yaml
 Events:
   SQSEvent:
     Type: SQS
@@ -156,7 +155,7 @@ Events:
 ### Lambda Event Function with an SQS event that has scaling configured
 <a name="sam-property-function-sqs--examples--sqs-event-scaling"></a>
 
-```
+```yaml
 MyFunction:
   Type: AWS::Serverless::Function
   Properties:
@@ -173,7 +172,7 @@ MyFunction:
 ### ProvisionedPollerConfig example
 <a name="sam-property-function-sqs-example-provisionedpollerconfig"></a>
 
-```
+```yaml
 MyFunction:
   Type: AWS::Serverless::Function
   Properties:

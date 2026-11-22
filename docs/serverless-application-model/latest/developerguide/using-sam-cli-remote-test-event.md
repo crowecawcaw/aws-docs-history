@@ -1,7 +1,6 @@
 
 
 # Introduction to cloud testing with sam remote test-event
-<a name="using-sam-cli-remote-test-event"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote test-event` command to access and manage shareable test events for your AWS Lambda Event Functions.
 

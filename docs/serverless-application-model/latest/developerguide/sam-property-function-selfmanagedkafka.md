@@ -1,7 +1,6 @@
 
 
 # SelfManagedKafka
-<a name="sam-property-function-selfmanagedkafka"></a>
 
 The object describing a `SelfManagedKafka` event source type. For more information, see [Using AWS Lambda with self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html) in the *AWS Lambda Developer Guide*.
 
@@ -17,7 +16,7 @@ To declare this entity in your AWS SAM template, use the following syntax.
 ### YAML
 <a name="sam-property-function-selfmanagedkafka-syntax.yaml"></a>
 
-```
+```yaml
   [BatchSize](#sam-function-selfmanagedkafka-batchsize): {{Integer}}
   [BisectBatchOnFunctionError](#sam-function-selfmanagedkafka-bisectbatchonfunctionerror): {{Boolean}}
   [ConsumerGroupId](#sam-function-selfmanagedkafka-consumergroupid): {{String}}
@@ -189,7 +188,7 @@ The name of the Kafka topic.
 
 The following example shows a complete setup including the required IAM role configuration for using Schema Registry:
 
-```
+```yaml
 Parameters:
   PreCreatedSubnetOne:
     Type: String
@@ -280,7 +279,7 @@ Resources:
 ### ProvisionedPollerConfig example
 <a name="sam-property-function-selfmanagedkafka-example-provisionedpollerconfig"></a>
 
-```
+```yaml
 ProvisionedPollerConfig:
   MinimumPollers: 1
   MaximumPollers: 200
@@ -294,7 +293,7 @@ The following is an example of a `SelfManagedKafka` event source type.
 #### YAML
 <a name="sam-property-function-selfmanagedkafka--examples--self-managed-kafka-event-source--yaml"></a>
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka
@@ -315,7 +314,7 @@ Events:
 
 The following example authenticates with SASL/OAUTHBEARER. The `OAUTHBEARER_AUTH` entry points to the secret that holds the OAuth 2.0 credentials, and each metadata entry carries a literal value that Lambda passes to your identity provider or brokers.
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka
@@ -346,7 +345,7 @@ Events:
 
 The following example authenticates with IAM. The `IAM_AUTH` entry takes no `URI` field because Lambda signs each connection with the credentials of your function's execution role. Grant your execution role the cluster permissions that Lambda requires, because AWS SAM doesn't add them.
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka
@@ -370,7 +369,7 @@ Events:
 
 The following example authenticates with `IAM_OAUTHBEARER_AUTH`. This entry takes no `URI` field, but you must pair it with an `OAUTHBEARER_AUDIENCE` entry whose `URI` is the audience that your brokers expect. Lambda requests a short-lived web identity token for the execution role, which needs the `sts:GetWebIdentityToken` permission, and your brokers must trust the AWS issuer and accept the audience value.
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka
@@ -396,7 +395,7 @@ Events:
 
 The following is an example of a `SelfManagedKafka` event source type configured with AWS Glue Schema Registry.
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka
@@ -426,7 +425,7 @@ Events:
 
 The following is an example of a `SelfManagedKafka` event source type configured with Confluent Schema Registry.
 
-```
+```yaml
 Events:
   SelfManagedKafkaEvent:
     Type: SelfManagedKafka

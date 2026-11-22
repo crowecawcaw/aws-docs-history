@@ -1,7 +1,6 @@
 
 
 # Serverless concepts for AWS Serverless Application Model
-<a name="what-is-concepts"></a>
 
 Learn about basic serverless concepts before using the AWS Serverless Application Model (AWS SAM).
 

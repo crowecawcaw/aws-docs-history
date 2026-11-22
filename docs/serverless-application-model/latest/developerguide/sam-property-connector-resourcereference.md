@@ -1,7 +1,6 @@
 
 
 # ResourceReference
-<a name="sam-property-connector-resourcereference"></a>
 
 A reference to a resource that the [AWS::Serverless::Connector](sam-resource-connector.md) resource type uses.
 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-connector-resourcereference-syntax.yaml"></a>
 
-```
+```yaml
   [Arn](#sam-connector-resourcereference-arn): {{String}}
   [Id](#sam-connector-resourcereference-id): {{String}}
   [Name](#sam-connector-resourcereference-name): {{String}}
@@ -92,7 +91,7 @@ The following example uses the [AWS::Serverless::Connector](sam-resource-connect
 #### YAML
 <a name="sam-property-connector-resourcereference--examples--api-gateway-invoking-a-lambda-function--yaml"></a>
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   MyRole:

@@ -1,7 +1,6 @@
 
 
 # sam local execution get
-<a name="sam-cli-command-reference-sam-local-execution-get"></a>
 
 Retrieve the details of a specific durable function execution.
 

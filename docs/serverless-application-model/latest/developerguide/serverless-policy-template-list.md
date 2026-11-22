@@ -1,7 +1,6 @@
 
 
 # AWS SAM policy template list
-<a name="serverless-policy-template-list"></a>
 
 The following are the available policy templates, along with the permissions that are applied to each one. AWS Serverless Application Model (AWS SAM) automatically populates the placeholder items (such as AWS Region and account ID) with the appropriate information.
 
@@ -90,7 +89,7 @@ The following are the available policy templates, along with the permissions tha
 
 Gives a permission to read a certificate from AWS Certificate Manager.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -116,7 +115,7 @@ Gives a permission to read a certificate from AWS Certificate Manager.
 
 Gives permission to describe Amazon Machine Images (AMIs).
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -133,7 +132,7 @@ Gives permission to describe Amazon Machine Images (AMIs).
 
 Gives permissions to execute Athena queries.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -185,7 +184,7 @@ Gives permissions to execute Athena queries.
 
 Gives permission to get the secret value for the specified AWS Secrets Manager secret.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -211,7 +210,7 @@ Gives permission to get the secret value for the specified AWS Secrets Manager s
 
 Gives permission to rotate a secret in AWS Secrets Manager.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -254,7 +253,7 @@ Gives permission to rotate a secret in AWS Secrets Manager.
 
 Gives permission to describe CloudFormation stacks.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -273,7 +272,7 @@ Gives permission to describe CloudFormation stacks.
 
 Gives permissions to put metrics to operate on CloudWatch dashboards.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -293,7 +292,7 @@ Gives permissions to put metrics to operate on CloudWatch dashboards.
 
 Gives permission to describe Amazon CloudWatch alarm history.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -310,7 +309,7 @@ Gives permission to describe Amazon CloudWatch alarm history.
 
 Gives permission to send metrics to CloudWatch.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -327,7 +326,7 @@ Gives permission to send metrics to CloudWatch.
 
 Gives permission for a Lambda Event Function invoked by AWS CodePipeline to report the status of the job.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -345,7 +344,7 @@ Gives permission for a Lambda Event Function invoked by AWS CodePipeline to repo
 
 Gives read permission to get details about a CodePipeline pipeline.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -371,7 +370,7 @@ Gives read permission to get details about a CodePipeline pipeline.
 
 Gives permissions to create, read, update, and delete objects within a specific CodeCommit repository.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -458,7 +457,7 @@ Gives permissions to create, read, update, and delete objects within a specific 
 
 Gives permissions to read objects within a specific CodeCommit repository.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -516,7 +515,7 @@ Gives permissions to read objects within a specific CodeCommit repository.
 
 Gives permission for detecting entities, key phrases, languages, and sentiments.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -540,7 +539,7 @@ Gives permission for detecting entities, key phrases, languages, and sentiments.
 
 Gives read-only permission to the read-only AWS Cost Explorer (Cost Explorer) APIs for billing history.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -562,7 +561,7 @@ Gives read-only permission to the read-only AWS Cost Explorer (Cost Explorer) AP
 
 Gives read and write permission to DynamoDB on-demand backups for a table.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -607,7 +606,7 @@ Gives read and write permission to DynamoDB on-demand backups for a table.
 
 Gives create, read, update, and delete permissions to an Amazon DynamoDB table.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -654,7 +653,7 @@ Gives create, read, update, and delete permissions to an Amazon DynamoDB table.
 
 Gives read-only permission to a DynamoDB table.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -696,7 +695,7 @@ Gives read-only permission to a DynamoDB table.
 
 Gives permission to reconfigure a DynamoDB table.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -722,7 +721,7 @@ Gives permission to reconfigure a DynamoDB table.
 
 Gives permission to restore a DynamoDB table from backup.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -770,7 +769,7 @@ Gives permission to restore a DynamoDB table from backup.
 
 Gives permission to describe and read DynamoDB streams and records.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -817,7 +816,7 @@ Gives permission to describe and read DynamoDB streams and records.
 
 Gives write-only permission to a DynamoDB table.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -857,7 +856,7 @@ Gives write-only permission to a DynamoDB table.
 
 Gives permission to copy Amazon EC2 images.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -883,7 +882,7 @@ Gives permission to copy Amazon EC2 images.
 
 Gives permission to describe Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -901,7 +900,7 @@ Gives permission to describe Amazon Elastic Compute Cloud (Amazon EC2) instances
 
 Gives permission to start a new task for a task definition.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -927,7 +926,7 @@ Gives permission to start a new task for a task definition.
 
 Gives permission to mount an Amazon EFS file system with write access.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -968,7 +967,7 @@ Gives permission to mount an Amazon EFS file system with write access.
 
 Gives permission to describe or list Amazon Elastic Kubernetes Service (Amazon EKS) clusters.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -986,7 +985,7 @@ Gives permission to describe or list Amazon Elastic Kubernetes Service (Amazon E
 
 Gives permission to add new steps to a running cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": "elasticmapreduce:AddJobFlowSteps",
@@ -1010,7 +1009,7 @@ Gives permission to add new steps to a running cluster.
 
 Gives permission to cancel a pending step or steps in a running cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": "elasticmapreduce:CancelSteps",
@@ -1034,7 +1033,7 @@ Gives permission to cancel a pending step or steps in a running cluster.
 
 Gives permission to list details and modify capacities for instance fleets within a cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -1061,7 +1060,7 @@ Gives permission to list details and modify capacities for instance fleets withi
 
 Gives permission to list details and modify settings for instance groups within a cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -1088,7 +1087,7 @@ Gives permission to list details and modify settings for instance groups within 
 
 Gives permission to set termination protection for a cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": "elasticmapreduce:SetTerminationProtection",
@@ -1112,7 +1111,7 @@ Gives permission to set termination protection for a cluster.
 
 Gives permission to shut down a cluster.
 
-```
+```json
 "Statement": [
   {
     "Action": "elasticmapreduce:TerminateJobFlows",
@@ -1136,7 +1135,7 @@ Gives permission to shut down a cluster.
 
 Gives POST and PUT permission to Amazon OpenSearch Service.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1163,7 +1162,7 @@ Gives POST and PUT permission to Amazon OpenSearch Service.
 
 Gives permissions to send events to Amazon EventBridge.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1187,7 +1186,7 @@ Gives permissions to send events to Amazon EventBridge.
 
 Gives permission to filter CloudWatch Logs events from a specified log group.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1213,7 +1212,7 @@ Gives permission to filter CloudWatch Logs events from a specified log group.
 
 Gives permission to create, write, update, and delete a Firehose delivery stream.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1244,7 +1243,7 @@ Gives permission to create, write, update, and delete a Firehose delivery stream
 
 Gives permission to write to a Firehose delivery stream.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1271,7 +1270,7 @@ Gives permission to write to a Firehose delivery stream.
 
 Gives permission to create, publish, and delete an Amazon Kinesis stream.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1310,7 +1309,7 @@ Gives permission to create, publish, and delete an Amazon Kinesis stream.
 
 Gives permission to list and read an Amazon Kinesis stream.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1349,7 +1348,7 @@ Gives permission to list and read an Amazon Kinesis stream.
 
 Gives permission to decrypt with an AWS Key Management Service (AWS KMS) key. Note that `keyId` must be an AWS KMS key ID, and not a key alias.
 
-```
+```json
 "Statement": [
   {
     "Action": "kms:Decrypt",
@@ -1373,7 +1372,7 @@ Gives permission to decrypt with an AWS Key Management Service (AWS KMS) key. No
 
 Gives permission to encrypt with an AWS KMS key. Note that keyId must be an AWS KMS key ID, and not a key alias.
 
-```
+```json
 "Statement": [
   {
     "Action": "kms:Encrypt",
@@ -1397,7 +1396,7 @@ Gives permission to encrypt with an AWS KMS key. Note that keyId must be an AWS 
 
 Gives permission to invoke an AWS Lambda function, alias, or version.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1423,7 +1422,7 @@ Gives permission to invoke an AWS Lambda function, alias, or version.
 
 Gives write-only permission to put event data for all application resources.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1440,7 +1439,7 @@ Gives write-only permission to put event data for all application resources.
 
 Gives read-only permission to list child account names and IDs.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1457,7 +1456,7 @@ Gives read-only permission to list child account names and IDs.
 
 Gives permission to get and update endpoints for an Amazon Pinpoint application.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1485,7 +1484,7 @@ Gives permission to get and update endpoints for an Amazon Pinpoint application.
 
 Gives full access permission to Amazon Polly lexicon resources.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1528,7 +1527,7 @@ Gives full access permission to Amazon Polly lexicon resources.
 
 Gives permission to detect faces, labels, and text.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1548,7 +1547,7 @@ Gives permission to detect faces, labels, and text.
 
 Gives permission to add, delete, and search faces in an Amazon Rekognition collection.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1578,7 +1577,7 @@ Gives permission to add, delete, and search faces in an Amazon Rekognition colle
 
 Gives permission to compare and detect faces and labels.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1596,7 +1595,7 @@ Gives permission to compare and detect faces and labels.
 
 Gives permission to detect object and moderation labels.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1614,7 +1613,7 @@ Gives permission to detect object and moderation labels.
 
 Gives permission to compare and detect faces and labels.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1643,7 +1642,7 @@ Gives permission to compare and detect faces and labels.
 
 Gives permission to list and search faces.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1672,7 +1671,7 @@ Gives permission to list and search faces.
 
 Gives permission to create collection and index faces.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1699,7 +1698,7 @@ Gives permission to create collection and index faces.
 
 Gives permission to change resource record sets in Route 53.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1725,7 +1724,7 @@ Gives permission to change resource record sets in Route 53.
 
 Gives create, read, update, and delete permission to act on the objects in an Amazon S3 bucket.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1771,7 +1770,7 @@ Gives create, read, update, and delete permission to act on the objects in an Am
 
 Gives full access permission to act on the objects in an Amazon S3 bucket.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1831,7 +1830,7 @@ Gives full access permission to act on the objects in an Amazon S3 bucket.
 
 Gives read-only permission to read objects in an Amazon Simple Storage Service (Amazon S3) bucket.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1873,7 +1872,7 @@ Gives read-only permission to read objects in an Amazon Simple Storage Service (
 
 Gives write permission to write objects into an Amazon S3 bucket.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1913,7 +1912,7 @@ Gives write permission to write objects into an Amazon S3 bucket.
 
 Gives permission to create an endpoint configuration in SageMaker AI.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -1939,7 +1938,7 @@ Gives permission to create an endpoint configuration in SageMaker AI.
 
 Gives permission to create an endpoint in SageMaker AI.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -1965,7 +1964,7 @@ Gives permission to create an endpoint in SageMaker AI.
 
 Gives permission to create and list applications in the AWS Serverless Application Repository (AWS SAM) service.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -1993,7 +1992,7 @@ Gives permission to send Amazon SES email, templated email, and templated bulk e
 **Note**  
  The `ses:SendTemplatedEmail` action requires a template ARN. Use `SESBulkTemplatedCrudPolicy_v2` instead.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2024,7 +2023,7 @@ Gives permission to send Amazon SES email, templated email, and templated bulk e
 
 Gives permission to send Amazon SES email, templated email, and templated bulk emails and to verify identity.
 
-```
+```json
 "Statement": [
   {
     "Action": [
@@ -2073,7 +2072,7 @@ Gives permission to send Amazon SES email, templated email, and templated bulk e
 
 Gives permission to send email and verify identity.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2102,7 +2101,7 @@ Gives permission to send email and verify identity.
 
 Gives permission to create, get, list, update, and delete Amazon SES email templates.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2124,7 +2123,7 @@ Gives permission to create, get, list, update, and delete Amazon SES email templ
 
 Gives SendBounce permission to an Amazon Simple Email Service (Amazon SES) identity.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2150,7 +2149,7 @@ Gives SendBounce permission to an Amazon Simple Email Service (Amazon SES) ident
 
 Gives permission to create, publish, and subscribe to Amazon SNS topics.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2180,7 +2179,7 @@ Gives permission to create, publish, and subscribe to Amazon SNS topics.
 
 Gives permission to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2206,7 +2205,7 @@ Gives permission to publish a message to an Amazon Simple Notification Service (
 
 Gives permission to poll an Amazon Simple Queue Service (Amazon SQS) queue.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2237,7 +2236,7 @@ Gives permission to poll an Amazon Simple Queue Service (Amazon SQS) queue.
 
 Gives permission to send message to an Amazon SQS queue.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2266,7 +2265,7 @@ Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) 
 **Note**  
 If you are not using default key, you will also need the `KMSDecryptPolicy` policy.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2304,7 +2303,7 @@ Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) 
 **Note**  
 If you are not using default key, you will also need the `KMSDecryptPolicy` policy.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2339,7 +2338,7 @@ If you are not using default key, you will also need the `KMSDecryptPolicy` poli
 
 Gives permission to start a Step Functions state machine execution.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2365,7 +2364,7 @@ Gives permission to start a Step Functions state machine execution.
 
 Gives access to detect and analyze documents with Amazon Textract.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2385,7 +2384,7 @@ Gives access to detect and analyze documents with Amazon Textract.
 
 Gives access to get detected and analyzed documents from Amazon Textract.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2403,7 +2402,7 @@ Gives access to get detected and analyzed documents from Amazon Textract.
 
 Gives full access to Amazon Textract.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",
@@ -2420,7 +2419,7 @@ Gives full access to Amazon Textract.
 
 Gives access to create, delete, describe, and detach elastic network interfaces.
 
-```
+```json
 "Statement": [
   {
     "Effect": "Allow",

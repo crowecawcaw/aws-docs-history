@@ -1,7 +1,6 @@
 
 
 # sam local execution stop
-<a name="sam-cli-command-reference-sam-local-execution-stop"></a>
 
 Stop a running durable function execution.
 

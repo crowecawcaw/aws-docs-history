@@ -1,7 +1,6 @@
 
 
 # ApiKeys
-<a name="sam-property-graphqlapi-apikeys"></a>
 
 Create a unique key that can be used to perform GraphQL operations requiring an API key.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-graphqlapi-apikeys-syntax-yaml"></a>
 
-```
+```yaml
 {{LogicalId}}:
   ApiKeyId: {{String}}
   Description: {{String}}

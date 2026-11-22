@@ -1,7 +1,6 @@
 
 
 # sam remote callback
-<a name="sam-cli-command-reference-sam-remote-callback"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote callback` command.
 

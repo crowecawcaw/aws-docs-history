@@ -1,7 +1,6 @@
 
 
 # InstanceRequirements
-<a name="sam-property-capacityprovider-instancerequirements"></a>
 
 Specifies the requirements for EC2 instances that will be launched by the capacity provider, including architectures and instance type constraints.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-capacityprovider-instancerequirements-syntax.yaml"></a>
 
-```
+```yaml
 [Architectures](#sam-capacityprovider-instancerequirements-architectures): {{List}}
 [AllowedTypes](#sam-capacityprovider-instancerequirements-allowedtypes): {{List}}
 [ExcludedTypes](#sam-capacityprovider-instancerequirements-excludedtypes): {{List}}
@@ -53,7 +52,7 @@ A list of EC2 instance types to exclude from the capacity provider.
 
 The following example shows instance requirements with specific architecture and instance type constraints.
 
-```
+```yaml
 InstanceRequirements:
   Architectures:
     - x86_64

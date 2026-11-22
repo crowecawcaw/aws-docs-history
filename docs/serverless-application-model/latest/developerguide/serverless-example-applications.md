@@ -1,7 +1,6 @@
 
 
 # Example serverless applications for AWS SAM
-<a name="serverless-example-applications"></a>
 
 This section includes two example applications: one that processes DynamoDB events and another that processes Amazon S3 events. Each example takes you through a step-by-step process of creating an application. Additionally, both include details on configuring event sources and AWS resources. Both start by identifying what must be done before you start and follow with steps for initializing, testing, packaging, and deploying your application.
 

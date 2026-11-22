@@ -1,7 +1,6 @@
 
 
 # FunctionScalingConfig
-<a name="sam-property-function-functionscalingconfig"></a>
 
 Configures the scaling behavior for Lambda Event Function versions, controlling the number of execution environments (sandboxes) that can be created. This configuration applies to both $LATEST.PUBLISHED and numeric function versions.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-functionscalingconfig-syntax.yaml"></a>
 
-```
+```yaml
 [MinExecutionEnvironments](#sam-function-functionscalingconfig-minexecutionenvironments): {{Integer}}
 [MaxExecutionEnvironments](#sam-function-functionscalingconfig-maxexecutionenvironments): {{Integer}}
 ```
@@ -45,7 +44,7 @@ The maximum number of execution environments that can be created for the functio
 
 The following example shows a function scaling configuration with minimum and maximum execution environments.
 
-```
+```yaml
 FunctionScalingConfig:
   MinExecutionEnvironments: 5
   MaxExecutionEnvironments: 100

@@ -1,7 +1,6 @@
 
 
 # Using GitHub Actions to deploy with AWS SAM
-<a name="deploying-using-github"></a>
 
 To configure your [GitHub](https://github.com/) pipeline to automate the build and deployment of your AWS SAM application, you must first install the AWS SAM command line interface (CLI) on your host. You can use [GitHub Actions](https://github.com/features/actions) in your GitHub workflow to help with this setup.
 

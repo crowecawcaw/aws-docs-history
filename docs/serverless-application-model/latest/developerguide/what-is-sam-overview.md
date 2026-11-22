@@ -1,7 +1,6 @@
 
 
 # How AWS SAM works
-<a name="what-is-sam-overview"></a>
 
 When working with AWS SAM to create your serverless application, you will interact with the following components:
 
@@ -43,7 +42,7 @@ Here’s an example of a basic serverless application. This application processe
 
 This application's infrastructure code can be defined in the following AWS SAM template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 Resources:
@@ -80,7 +79,7 @@ To provision this infrastructure, the template is deployed to CloudFormation. Du
 ### Transformed CloudFormation template
 <a name="what-is-sam-template-example-cfn"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {

@@ -1,7 +1,6 @@
 
 
 # S3
-<a name="sam-property-function-s3"></a>
 
 The object describing an `S3` event source type.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-s3-syntax.yaml"></a>
 
-```
+```yaml
   [Bucket](#sam-function-s3-bucket): {{String}}
   [Events](#sam-function-s3-events): {{String | List}}
   [Filter](#sam-function-s3-filter): {{[NotificationFilter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html)}}
@@ -51,7 +50,7 @@ Example of an S3 Event.
 #### YAML
 <a name="sam-property-function-s3--examples--s3-event--yaml"></a>
 
-```
+```yaml
 Events:
   S3Event:
     Type: S3

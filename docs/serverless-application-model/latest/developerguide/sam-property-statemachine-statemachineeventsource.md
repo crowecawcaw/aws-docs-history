@@ -1,7 +1,6 @@
 
 
 # EventSource
-<a name="sam-property-statemachine-statemachineeventsource"></a>
 
 The object describing the source of events which trigger the state machine. Each event consists of a type and a set of properties that depend on that type. For more information about the properties of each event source, see the subtopic corresponding to that type.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachineeventsource-syntax.yaml"></a>
 
-```
+```yaml
   [Properties](#sam-statemachine-statemachineeventsource-properties): {{Schedule | ScheduleV2 | CloudWatchEvent | EventBridgeRule | Api}}
   [Type](#sam-statemachine-statemachineeventsource-type): {{String}}
 ```
@@ -45,7 +44,7 @@ The following is an example of an event of the `API` type.
 #### YAML
 <a name="sam-property-statemachine-statemachineeventsource--examples--api--yaml"></a>
 
-```
+```yaml
 ApiEvent:
   Type: Api
   Properties:

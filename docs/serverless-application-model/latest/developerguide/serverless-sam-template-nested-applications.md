@@ -1,7 +1,6 @@
 
 
 # Reuse code and resources using nested applications in AWS SAM
-<a name="serverless-sam-template-nested-applications"></a>
 
 A serverless application can include one or more **nested applications**. A nested application is a part of a larger application and can be packaged and deployed either as a stand-alone artifact or as a component of the larger application. Nested applications allow you to turn frequently used code and into its own application that can then be reused across a larger serverless application or multiple serverless applications.
 

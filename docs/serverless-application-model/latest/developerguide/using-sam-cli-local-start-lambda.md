@@ -1,7 +1,6 @@
 
 
 # Introduction to testing with sam local start-lambda
-<a name="using-sam-cli-local-start-lambda"></a>
 
 Use the AWS SAM CLI subcommand `sam local start-lambda` to invoke your Lambda Event Function through the AWS CLI and SDKs. This command starts a local endpoint that emulates Lambda.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
@@ -68,7 +67,7 @@ When you run `sam local start-lambda`, the AWS SAM CLI assumes that your curren
 
    The following is an example using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    from botocore.config import Config
    from botocore import UNSIGNED

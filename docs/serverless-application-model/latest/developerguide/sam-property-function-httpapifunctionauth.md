@@ -1,7 +1,6 @@
 
 
 # HttpApiFunctionAuth
-<a name="sam-property-function-httpapifunctionauth"></a>
 
 Configures authorization at the event level.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-httpapifunctionauth-syntax.yaml"></a>
 
-```
+```yaml
   [AuthorizationScopes](#sam-function-httpapifunctionauth-authorizationscopes): {{List}}
   [Authorizer](#sam-function-httpapifunctionauth-authorizer): {{String}}
 ```
@@ -48,7 +47,7 @@ Specifing Authorization at Function level
 #### YAML
 <a name="sam-property-function-httpapifunctionauth--examples--function-auth--yaml"></a>
 
-```
+```yaml
 Auth:
   Authorizer: OpenIdAuth
   AuthorizationScopes:
@@ -64,7 +63,7 @@ Specifies IAM authorization at the event level. To use `AWS_IAM` authorization a
 #### YAML
 <a name="sam-property-function-httpapifunctionauth--examples--iam-authorization--yaml"></a>
 
-```
+```yaml
 Globals:
   HttpApi:
     Auth:

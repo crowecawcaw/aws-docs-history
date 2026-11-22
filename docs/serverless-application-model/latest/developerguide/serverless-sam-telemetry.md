@@ -1,7 +1,6 @@
 
 
 # Telemetry in the AWS SAM CLI
-<a name="serverless-sam-telemetry"></a>
 
 At AWS, we develop and launch services based on what we learn from interactions with customers. We use customer feedback to iterate on our product. Telemetry is additional information that helps us to better understand our customers' needs, diagnose issues, and deliver features that improve the customer experience.
 

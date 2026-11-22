@@ -1,7 +1,6 @@
 
 
 # How AWS SAM uploads local files at deployment
-<a name="deploy-upload-local-files"></a>
 
 When you deploy your application to the AWS Cloud, AWS CloudFormation requires that your local files are first uploaded to an accessible AWS service, such as Amazon Simple Storage Service (Amazon S3). This includes local files your AWS SAM template references. To meet this requirement, the AWS SAM CLI does the following when you use the `sam deploy` or `sam package` command:
 
@@ -73,7 +72,7 @@ demo
 
 Within our AWS SAM template, we reference the local path to our Lambda function code using the `CodeUri` property.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...
@@ -202,7 +201,7 @@ Successfully created/updated stack - demo in us-west-2
 
 During deployment, the AWS SAM CLI automatically uploads our Lambda function code to Amazon S3 and updates our template. Our modified template in the CloudFormation console reflects the Amazon S3 bucket path.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...
@@ -245,11 +244,13 @@ The following is a list of the supported resource types and their properties:
 | AWS::Glue::Job | Command.ScriptLocation | 
 | AWS::Lambda::Function | `Code`<br />`Code.ImageUri` | 
 | AWS::Lambda::LayerVersion | Content | 
+| AWS::Lambda::MicrovmImage | `CodeArtifact`<br />`CodeArtifact.Uri` | 
 | AWS::Serverless::Api | DefinitionUri | 
 | AWS::Serverless::Function | `CodeUri`<br />`ImageUri` | 
 | AWS::Serverless::GraphQLApi | `SchemaUri`<br />`Function.CodeUri`<br />`Resolver.CodeUri` | 
 | AWS::Serverless::HttpApi | DefinitionUri | 
 | AWS::Serverless::LayerVersion | ContentUri | 
+| AWS::Serverless::MicrovmImage | CodeUri | 
 | AWS::Serverless::StateMachine | DefinitionUri | 
 | AWS::StepFunctions::StateMachine | DefinitionS3Location | 
 

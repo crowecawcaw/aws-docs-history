@@ -1,7 +1,6 @@
 
 
 # HttpApiAuth
-<a name="sam-property-httpapi-httpapiauth"></a>
 
 Configure authorization to control access to your Amazon API Gateway HTTP API.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-httpapi-httpapiauth-syntax.yaml"></a>
 
-```
+```yaml
   [Authorizers](#sam-httpapi-httpapiauth-authorizers): {{OAuth2Authorizer | LambdaAuthorizer}}
   [DefaultAuthorizer](#sam-httpapi-httpapiauth-defaultauthorizer): {{String}}
   [EnableIamAuthorizer](#sam-httpapi-httpapiauth-enableiamauthorizer): {{Boolean}}
@@ -56,7 +55,7 @@ OAuth 2.0 authorizer example
 #### YAML
 <a name="sam-property-httpapi-httpapiauth--examples--oauth-2.0-authorizer--yaml"></a>
 
-```
+```yaml
 Auth:
   Authorizers:
     OAuth2Authorizer:
@@ -79,7 +78,7 @@ IAM authorizer example
 #### YAML
 <a name="sam-property-httpapi-httpapiauth--examples--iam-authorizer--yaml"></a>
 
-```
+```yaml
 Auth:
   EnableIamAuthorizer: true
   DefaultAuthorizer: AWS_IAM

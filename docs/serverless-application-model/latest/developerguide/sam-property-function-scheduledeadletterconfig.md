@@ -1,7 +1,6 @@
 
 
 # DeadLetterConfig
-<a name="sam-property-function-scheduledeadletterconfig"></a>
 
 The object used to specify the Amazon Simple Queue Service (Amazon SQS) queue where EventBridge sends events after a failed target invocation. Invocation can fail, for example, when sending an event to a Lambda Event Function that doesn’t exist, or insufficient permissions to invoke the Lambda function. For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html) in the *Amazon EventBridge User Guide*.
 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-scheduledeadletterconfig-syntax.yaml"></a>
 
-```
+```yaml
   [Arn](#sam-function-scheduledeadletterconfig-arn): {{String}}
   [QueueLogicalId](#sam-function-scheduledeadletterconfig-queuelogicalid): {{String}}
   [Type](#sam-function-scheduledeadletterconfig-type): {{String}}
@@ -58,7 +57,7 @@ DeadLetterConfig
 #### YAML
 <a name="sam-property-function-scheduledeadletterconfig--examples--deadletterconfig--yaml"></a>
 
-```
+```yaml
 DeadLetterConfig:
   Type: SQS
   QueueLogicalId: MyDLQ

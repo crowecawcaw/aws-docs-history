@@ -1,7 +1,6 @@
 
 
 # Validate your AWS SAM applications with CloudFormation Linter
-<a name="validate-cfn-lint"></a>
 
  AWS CloudFormation Linter (cfn-lint) is an open-source tool that you can use to perform detailed validation on your CloudFormation templates. Cfn-lint contains rules that are guided by the CloudFormation resource specification. Use cfn-lint to compare your resources against those rules to receive detailed messages on errors, warnings, or informational suggestions. Alternatively, create your own custom rules to validate against. To learn more about cfn-lint, see [cfn-lint](https://github.com/aws-cloudformation/cfn-lint) in the *CloudFormation GitHub repository*. 
 

@@ -1,7 +1,6 @@
 
 
 # sam local callback
-<a name="sam-cli-command-reference-sam-local-callback"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local callback` command.
 

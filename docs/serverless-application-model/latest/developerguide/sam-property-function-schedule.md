@@ -1,7 +1,6 @@
 
 
 # Schedule
-<a name="sam-property-function-schedule"></a>
 
 The object describing a `Schedule` event source type, which sets your serverless function as the target of an Amazon EventBridge rule that triggers on a schedule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
@@ -19,7 +18,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-schedule-syntax.yaml"></a>
 
-```
+```yaml
   [DeadLetterConfig](#sam-function-schedule-deadletterconfig): {{DeadLetterConfig}}
   [Description](#sam-function-schedule-description): {{String}}
   [Enabled](#sam-function-schedule-enabled): {{Boolean}}
@@ -97,7 +96,7 @@ CloudWatch Schedule Event Example
 #### YAML
 <a name="sam-property-function-schedule--examples--cloudwatch-schedule-event--yaml"></a>
 
-```
+```yaml
 CWSchedule:
   Type: Schedule
   Properties:

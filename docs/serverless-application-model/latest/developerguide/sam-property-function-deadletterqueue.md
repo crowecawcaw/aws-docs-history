@@ -1,7 +1,6 @@
 
 
 # DeadLetterQueue
-<a name="sam-property-function-deadletterqueue"></a>
 
 Specifies an SQS queue or SNS topic that AWS Lambda (Lambda) sends events to when it can't process them. For more information about dead letter queue functionality, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) in the *AWS Lambda Developer Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-deadletterqueue-syntax.yaml"></a>
 
-```
+```yaml
   [TargetArn](#sam-function-deadletterqueue-targetarn): {{String}}
   [Type](#sam-function-deadletterqueue-type): {{String}}
 ```
@@ -47,7 +46,7 @@ Dead Letter Queue example for an SNS topic.
 #### YAML
 <a name="sam-property-function-deadletterqueue--examples--deadletterqueue--yaml"></a>
 
-```
+```yaml
 DeadLetterQueue:
   Type: SNS
   TargetArn: arn:aws:sns:us-east-2:123456789012:my-topic

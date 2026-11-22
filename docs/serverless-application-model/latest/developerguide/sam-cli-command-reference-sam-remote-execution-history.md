@@ -1,7 +1,6 @@
 
 
 # sam remote execution history
-<a name="sam-cli-command-reference-sam-remote-execution-history"></a>
 
 Retrieve the execution history of a specific durable function execution from AWS Lambda.
 

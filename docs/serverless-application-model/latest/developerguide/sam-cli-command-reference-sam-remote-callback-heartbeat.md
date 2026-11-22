@@ -1,7 +1,6 @@
 
 
 # sam remote callback heartbeat
-<a name="sam-cli-command-reference-sam-remote-callback-heartbeat"></a>
 
 Send a callback heartbeat to a remote durable function execution.
 

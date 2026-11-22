@@ -1,7 +1,6 @@
 
 
 # Using CI/CD systems and pipelines to deploy with AWS SAM
-<a name="deploying-cicd-overview"></a>
 
 AWS SAM helps organizations create pipelines for their preferred CI/CD systems, so that they can realize the benefits of CI/CD with minimal effort, such as accelerating deployment frequency, shortening lead time for changes, and reducing deployment errors.
 

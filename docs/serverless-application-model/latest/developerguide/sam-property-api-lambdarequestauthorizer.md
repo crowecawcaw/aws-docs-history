@@ -1,7 +1,6 @@
 
 
 # LambdaRequestAuthorizer
-<a name="sam-property-api-lambdarequestauthorizer"></a>
 
 Configure a Lambda Authorizer to control access to your API with a Lambda Event Function.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-lambdarequestauthorizer-syntax.yaml"></a>
 
-```
+```yaml
 DisableFunctionDefaultPermissions: {{Boolean}}
 [FunctionArn](#sam-api-lambdarequestauthorizer-functionarn): {{String}}
 [FunctionInvokeRole](#sam-api-lambdarequestauthorizer-functioninvokerole): {{String}}
@@ -69,7 +68,7 @@ This property can be used to specify an `IdentitySource` in an incoming request 
 #### YAML
 <a name="sam-property-api-lambdarequestauthorizer--examples--lambdarequestauth--yaml"></a>
 
-```
+```yaml
 Authorizers:
   MyLambdaRequestAuth:
     FunctionPayloadType: REQUEST

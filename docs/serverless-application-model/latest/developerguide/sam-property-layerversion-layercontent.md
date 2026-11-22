@@ -1,7 +1,6 @@
 
 
 # LayerContent
-<a name="sam-property-layerversion-layercontent"></a>
 
 A ZIP archive that contains the contents of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-layerversion-layercontent-syntax.yaml"></a>
 
-```
+```yaml
   [Bucket](#sam-layerversion-layercontent-bucket): {{String}}
   [Key](#sam-layerversion-layercontent-key): {{String}}
   [StorageMode](#sam-layerversion-layercontent-storagemode): {{String}}
@@ -63,7 +62,7 @@ Layer Content example
 #### YAML
 <a name="sam-property-layerversion-layercontent--examples--layercontent--yaml"></a>
 
-```
+```yaml
 LayerContent:
   Bucket: amzn-s3-demo-bucket-name
   Key: mykey-name
@@ -78,7 +77,7 @@ The following `LayerContent` references the layer archive from your own Amazon S
 #### YAML
 <a name="sam-property-layerversion-layercontent--examples--storagemode--yaml"></a>
 
-```
+```yaml
 LayerContent:
   Bucket: amzn-s3-demo-bucket-name
   Key: mykey-name

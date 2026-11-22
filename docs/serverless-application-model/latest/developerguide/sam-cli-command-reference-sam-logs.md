@@ -1,7 +1,6 @@
 
 
 # sam logs
-<a name="sam-cli-command-reference-sam-logs"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam logs` command.
 

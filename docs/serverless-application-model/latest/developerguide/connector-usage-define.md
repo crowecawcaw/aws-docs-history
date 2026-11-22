@@ -1,11 +1,10 @@
 
 
 # Define Read and Write permissions in AWS SAM
-<a name="connector-usage-define"></a>
 
 In AWS SAM, `Read` and `Write` permissions can be provisioned within a single connector:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...

@@ -1,7 +1,6 @@
 
 
 # Using GitLab CI/CD to deploy with AWS SAM
-<a name="deploying-using-gitlab"></a>
 
 To configure your [GitLab](https://about.gitlab.com) pipeline to automate the build and deployment of your AWS SAM application, your `gitlab-ci.yml` file must contain lines that do the following:
 

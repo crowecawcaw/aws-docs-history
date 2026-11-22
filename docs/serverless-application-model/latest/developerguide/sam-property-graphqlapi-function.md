@@ -1,7 +1,6 @@
 
 
 # Function
-<a name="sam-property-graphqlapi-function"></a>
 
 Configure functions in GraphQL APIs to perform certain operations.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-graphqlapi-function-syntax-yaml"></a>
 
-```
+```yaml
 {{LogicalId}}:
   CodeUri: {{String}}
   DataSource: {{String}}

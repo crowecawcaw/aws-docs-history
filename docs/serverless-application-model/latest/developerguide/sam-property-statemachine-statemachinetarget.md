@@ -1,7 +1,6 @@
 
 
 # Target
-<a name="sam-property-statemachine-statemachinetarget"></a>
 
 Configures the AWS resource that EventBridge invokes when a rule is triggered.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachinetarget-syntax.yaml"></a>
 
-```
+```yaml
   [Id](#sam-statemachine-statemachinetarget-id): {{String}}
 ```
 
@@ -36,7 +35,7 @@ The value of `Id` can include alphanumeric characters, periods (`.`), hyphens (`
 #### YAML
 <a name="sam-property-statemachine-statemachinetarget--examples--target--yaml"></a>
 
-```
+```yaml
 EBRule:
   Type: EventBridgeRule
   Properties:

@@ -1,7 +1,6 @@
 
 
 # RouteConfiguration
-<a name="sam-property-websocketapi-routeconfiguration"></a>
 
 ## Syntax
 <a name="sam-property-websocketapi-routeconfiguration-syntax"></a>
@@ -11,7 +10,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-websocketapi-routeconfiguration-syntax.yaml"></a>
 
-```
+```yaml
 [ApiKeyRequired](#sam-routeconfiguration-apikeyrequired): {{Boolean}}
 [FunctionArn](#sam-routeconfiguration-functionarn): {{String}}
 [IntegrationTimeout](#sam-routeconfiguration-integrationtimeout): {{Integer}}
@@ -81,7 +80,7 @@ The route response selection expression for the route.
 
 The following example configures a simple route.
 
-```
+```yaml
 Routes:
   $connect:
     FunctionArn: !GetAtt ConnectFunction.Arn

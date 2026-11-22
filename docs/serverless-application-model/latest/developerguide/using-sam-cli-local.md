@@ -1,7 +1,6 @@
 
 
 # Introduction to testing with the sam local command
-<a name="using-sam-cli-local"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local` command to test your serverless applications locally.
 

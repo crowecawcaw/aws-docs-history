@@ -1,7 +1,6 @@
 
 
 # Set up and manage resource access in your AWS SAM template
-<a name="sam-permissions"></a>
 
 For your AWS resources to interact with one another, the proper access and permissions must be configured between your resources. Doing this requires the configuration of AWS Identity and Access Management (IAM) users, roles, and policies to accomplish your interaction in a secure manner.
 

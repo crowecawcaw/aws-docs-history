@@ -1,7 +1,6 @@
 
 
 # Using Bitbucket Pipelines to deploying with AWS SAM
-<a name="deploying-using-bitbucket"></a>
 
 To configure your [Bitbucket Pipeline](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/) to automate the build and deployment of your AWS SAM application, your `bitbucket-pipelines.yml` file must contain lines that do the following:
 

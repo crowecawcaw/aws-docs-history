@@ -1,7 +1,6 @@
 
 
 # Configuring the AWS SAM CLI
-<a name="using-sam-cli-configure"></a>
 
 One of the benefits of AWS SAM is that it optimizes a developer's time by removing repetitive tasks. AWS SAM CLI includes a configuration file named `samconfig` for this purpose. By default, no configuration to the AWS SAM CLI is needed, but you can update your configuration file to allow you to run commands with fewer parameters by allowing AWS SAM to instead reference your customized parameters in your configuration file. The examples in the following table show how you can optimize your commands:
 
@@ -56,7 +55,7 @@ Configuration files are structured by environment, command, and parameter value.
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    prod:
      global:
        parameters:
@@ -79,7 +78,7 @@ Configuration files are structured by environment, command, and parameter value.
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    prod:
      global:
        parameters:
@@ -113,7 +112,7 @@ Configuration files are structured by environment, command, and parameter value.
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    default:
      deploy:
        parameters:
@@ -135,7 +134,7 @@ Configuration files are structured by environment, command, and parameter value.
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    default:
      global:
        parameters:
@@ -218,7 +217,7 @@ watch = false
 
 The following is an example of a `samconfig.yaml` configuration file:
 
-```
+```yaml
 version 0.1
 default:
   global:

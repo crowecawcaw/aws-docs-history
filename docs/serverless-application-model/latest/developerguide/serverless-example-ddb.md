@@ -1,7 +1,6 @@
 
 
 # Process DynamoDB events with AWS SAM
-<a name="serverless-example-ddb"></a>
 
 
 

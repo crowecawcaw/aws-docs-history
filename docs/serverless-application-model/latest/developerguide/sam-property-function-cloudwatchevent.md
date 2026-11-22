@@ -1,7 +1,6 @@
 
 
 # CloudWatchEvent
-<a name="sam-property-function-cloudwatchevent"></a>
 
 The object describing a `CloudWatchEvent` event source type.
 
@@ -17,7 +16,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-cloudwatchevent-syntax.yaml"></a>
 
-```
+```yaml
   [Enabled](#sam-function-cloudwatchevent-enabled): {{Boolean}}
   [EventBusName](#sam-function-cloudwatchevent-eventbusname): {{String}}
   [Input](#sam-function-cloudwatchevent-input): {{String}}
@@ -81,7 +80,7 @@ The following is an example of a `CloudWatchEvent` event source type.
 #### YAML
 <a name="sam-property-function-cloudwatchevent--examples--cloudwatchevent--yaml"></a>
 
-```
+```yaml
 CWEvent:
   Type: CloudWatchEvent
   Properties:

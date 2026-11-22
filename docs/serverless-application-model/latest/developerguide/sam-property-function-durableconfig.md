@@ -1,7 +1,6 @@
 
 
 # DurableConfig
-<a name="sam-property-function-durableconfig"></a>
 
 Configures durable execution settings for AWS Lambda functions. Durable functions can run for up to one year and automatically checkpoint progress, enabling long-running workflows and fault-tolerant applications. For more information about durable functions, see [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) in the *AWS Lambda Developer Guide*.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-durableconfig-syntax.yaml"></a>
 
-```
+```yaml
   [ExecutionTimeout](#sam-function-durableconfig-executiontimeout): {{Integer}}
   [RetentionPeriodInDays](#sam-function-durableconfig-retentionperiodindays): {{Integer}}
 ```
@@ -49,7 +48,7 @@ Durable configuration example for a function with a 1-hour execution timeout and
 #### YAML
 <a name="sam-property-function-durableconfig--examples--durableconfig--yaml"></a>
 
-```
+```yaml
 DurableConfig:
   ExecutionTimeout: 3600
   RetentionPeriodInDays: 7

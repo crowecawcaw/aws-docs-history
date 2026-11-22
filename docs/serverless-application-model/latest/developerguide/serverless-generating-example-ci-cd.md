@@ -1,7 +1,6 @@
 
 
 # Generate a starter CI/CD pipeline with AWS SAM
-<a name="serverless-generating-example-ci-cd"></a>
 
 When you are ready automate deployment, you can use one of AWS SAM’s starter pipeline templates to generate a deployment pipeline for the CI/CD system you choose to use. Your deployment pipeline is what you configure and use to automate the deployment of your serverless application. A starter pipeline template is pre-configured to help you quickly set up your deployment pipeline for your serverless application. 
 

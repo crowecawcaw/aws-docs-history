@@ -1,7 +1,6 @@
 
 
 # VpcConfig
-<a name="sam-property-networkconnector-vpcconfig"></a>
 
 Configures the VPC egress settings for a network connector, including the subnets, security groups, and network protocol for elastic network interface (ENI) provisioning.
 
@@ -13,7 +12,8 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-networkconnector-vpcconfig-syntax.yaml"></a>
 
-```
+```yaml
+[ElasticIpConfiguration](#sam-networkconnector-vpcconfig-elasticipconfiguration): {{ElasticIpConfiguration}}
 [NetworkProtocol](#sam-networkconnector-vpcconfig-networkprotocol): {{String}}
 [SecurityGroupIds](#sam-networkconnector-vpcconfig-securitygroupids): {{List}}
 [SubnetIds](#sam-networkconnector-vpcconfig-subnetids): {{List}}
@@ -21,6 +21,13 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 
 ## Properties
 <a name="sam-property-networkconnector-vpcconfig-properties"></a>
+
+ `ElasticIpConfiguration`   <a name="sam-networkconnector-vpcconfig-elasticipconfiguration"></a>
+Specifies whether the service assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify this property, no Elastic IP addresses are assigned.  
+If you don't specify an [OperatorRole](sam-resource-networkconnector.md#sam-networkconnector-operatorrole), the role that AWS SAM creates includes the `ec2:AllocateAddress` and `ec2:AssociateAddress` permissions when you specify `ElasticIpConfiguration` with a `Type` other than `None`.  
+*Type*: [ElasticIpConfiguration](sam-property-networkconnector-elasticipconfiguration.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ElasticIpConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-elasticipconfiguration)` property of `Configuration.VpcEgressConfiguration` of an `AWS::Lambda::NetworkConnector` resource. 
 
  `NetworkProtocol`   <a name="sam-networkconnector-vpcconfig-networkprotocol"></a>
 The network protocol for the VPC egress connection.  
@@ -47,7 +54,7 @@ A list of subnet IDs where the service provisions ENIs for VPC egress connectivi
 ### VpcConfig example
 <a name="sam-property-networkconnector-vpcconfig-example-basic"></a>
 
-```
+```yaml
 VpcConfig:
   SubnetIds:
     - subnet-0abc123def4567890

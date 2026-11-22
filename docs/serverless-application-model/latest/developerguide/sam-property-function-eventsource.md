@@ -1,7 +1,6 @@
 
 
 # EventSource
-<a name="sam-property-function-eventsource"></a>
 
 The object describing the source of events which trigger the function. Each event consists of a type and a set of properties that depend on that type. For more information about the properties of each event source, see the topic corresponding to that type.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-eventsource-syntax.yaml"></a>
 
-```
+```yaml
   [Properties](#sam-function-eventsource-properties): {{AlexaSkill | Api | CloudWatchEvent | CloudWatchLogs | Cognito | DocumentDB | DynamoDB | EventBridgeRule | HttpApi | IoTRule | Kinesis | MQ | MSK | S3 | Schedule | ScheduleV2 | SelfManagedKafka | SNS | SQS}}
   [Type](#sam-function-eventsource-type): {{String}}
 ```
@@ -45,7 +44,7 @@ Example of using an API event
 #### YAML
 <a name="sam-property-function-eventsource--examples--apievent--yaml"></a>
 
-```
+```yaml
 ApiEvent:
   Type: Api
   Properties:

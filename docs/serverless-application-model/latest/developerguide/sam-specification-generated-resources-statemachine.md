@@ -1,7 +1,6 @@
 
 
 # CloudFormation resources generated when AWS::Serverless::StateMachine is specified
-<a name="sam-specification-generated-resources-statemachine"></a>
 
 When an `AWS::Serverless::StateMachine` is specified, AWS Serverless Application Model (AWS SAM) generates an `AWS::StepFunctions::StateMachine` base CloudFormation resource.
 

@@ -1,7 +1,6 @@
 
 
 # Manage time-based events with EventBridge Scheduler in AWS SAM
-<a name="using-eventbridge-scheduler"></a>
 
 The content in this topic provides details on what Amazon EventBridge Scheduler is, what support AWS SAM offers, how you can create Scheduler events, and examples you can reference when creating Scheduler events.
 
@@ -29,7 +28,7 @@ The AWS Serverless Application Model (AWS SAM) template specification provides a
 
 Set the `ScheduleV2` property as the event type in your AWS SAM template to define your EventBridge Scheduler event. This property supports the `AWS::Serverless::Function` and `AWS::Serverless::StateMachine` resource types.
 
-```
+```yaml
 MyFunction:
   Type: AWS::Serverless::Function
   Properties:
@@ -63,7 +62,7 @@ When a DLQ ARN is specified, AWS SAM configures permissions for the Scheduler sc
 ### Basic example of defining an EventBridge Scheduler event with AWS SAM
 <a name="using-eventbridge-scheduler-examples-example1"></a>
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   MyLambdaFunction:

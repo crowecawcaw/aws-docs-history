@@ -1,7 +1,6 @@
 
 
 # AWS SAM reference
-<a name="serverless-sam-reference"></a>
 
  This section contains AWS SAM reference material. This includes AWS SAM CLI reference material, like reference information on AWS SAM CLI commands and additional AWS SAM CLI information, like configuration, version control, and troubleshooting information. Additionally, this section includes reference information on the AWS SAM specification and the AWS SAM template, like reference information on connectors, image repositories, and deployments. 
 

@@ -1,7 +1,6 @@
 
 
 # DomainAccessAssociation
-<a name="sam-property-api-domainaccessassociation"></a>
 
 Configures a domain access association between an access association source and a private custom domain name. The only supported access association source is a VPC endpoint ID. For more information, see [Custom domain names for private APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-custom-domains.html).
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-api-domainaccessassociation-syntax.yaml"></a>
 
-```
+```yaml
  VpcEndpointId: {{String}}
 ```
 

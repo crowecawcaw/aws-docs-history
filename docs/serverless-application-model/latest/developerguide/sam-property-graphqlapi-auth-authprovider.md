@@ -1,7 +1,6 @@
 
 
 # AuthProvider
-<a name="sam-property-graphqlapi-auth-authprovider"></a>
 
 Optional authorization configuration for your additional GraphQL API authorization types.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-graphqlapi-auth-authprovider-syntax-yaml"></a>
 
-```
+```yaml
 LambdaAuthorizer: {{[LambdaAuthorizerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html)}}
 OpenIDConnect: {{[OpenIDConnectConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html)}}
 Type: {{String}}

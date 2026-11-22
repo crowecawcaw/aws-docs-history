@@ -1,7 +1,6 @@
 
 
 # Default build with AWS SAM
-<a name="serverless-sam-cli-using-build"></a>
 
 To build your serverless application, use the `sam build` command. This command also gathers the build artifacts of your application's dependencies and places them in the proper format and location for next steps, such as locally testing, packaging, and deploying.
 
@@ -268,7 +267,7 @@ To have AWS SAM skip a function when using **sam build**, configure the followin
 
 Here is an example, with `TestFunction` configured to be skipped. Its built resources are located at `built-resources/TestFunction.zip`.
 
-```
+```yaml
 TestFunction:
   Type: AWS::Serverless::Function
   Properties:
@@ -289,7 +288,7 @@ Now, when you run **sam build**, AWS SAM will do the following:
 
    Here is an example of the cached template for `TestFunction` in the `.aws-sam` build directory:
 
-   ```
+   ```yaml
    TestFunction:
      Type: AWS::Serverless::Function
      Properties:

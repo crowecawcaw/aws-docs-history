@@ -1,7 +1,6 @@
 
 
 # SourceReference
-<a name="sam-property-connector-sourcereference"></a>
 
 A reference to a source resource that the [AWS::Serverless::Connector](sam-resource-connector.md) resource type uses.
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-connector-sourcereference-syntax.yaml"></a>
 
-```
+```yaml
 [Qualifier](#sam-connector-sourcereference-qualifier): {{String}}
 ```
 
@@ -32,7 +31,7 @@ Qualifier definition varies per resource type. For a list of supported source an
 
 **The following example uses embedded connectors to define a source resource with a property other than `Id`:**
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:

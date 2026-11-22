@@ -1,7 +1,6 @@
 
 
 # EventBridgeRule
-<a name="sam-property-function-eventbridgerule"></a>
 
 The object describing an `EventBridgeRule` event source type, which sets your serverless function as the target of an Amazon EventBridge rule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-eventbridgerule-syntax.yaml"></a>
 
-```
+```yaml
   [DeadLetterConfig](#sam-function-eventbridgerule-deadletterconfig): {{DeadLetterConfig}}
   [EventBusName](#sam-function-eventbridgerule-eventbusname): {{String}}
   [Input](#sam-function-eventbridgerule-input): {{String}}
@@ -105,7 +104,7 @@ The following is an example of an `EventBridgeRule` event source type.
 #### YAML
 <a name="sam-property-function-eventbridgerule--examples--eventbridgerule--yaml"></a>
 
-```
+```yaml
 EBRule:
   Type: EventBridgeRule
   Properties:

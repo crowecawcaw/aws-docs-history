@@ -1,7 +1,6 @@
 
 
 # SqsSubscriptionObject
-<a name="sam-property-function-sqssubscriptionobject"></a>
 
 Specify an existing SQS queue option to SNS event
 
@@ -13,7 +12,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-sqssubscriptionobject-syntax.yaml"></a>
 
-```
+```yaml
   [BatchSize](#sam-function-sqssubscriptionobject-batchsize): {{String}}
   [Enabled](#sam-function-sqssubscriptionobject-enabled): {{Boolean}}
   [QueueArn](#sam-function-sqssubscriptionobject-queuearn): {{String}}
@@ -67,7 +66,7 @@ Example to add existing SQS queue for subscibing to an SNS topic.
 #### YAML
 <a name="sam-property-function-sqssubscriptionobject--examples--existing-sqs-for-sns-event--yaml"></a>
 
-```
+```yaml
 QueuePolicyLogicalId: CustomQueuePolicyLogicalId
 QueueArn:
   Fn::GetAtt: MyCustomQueue.Arn

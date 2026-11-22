@@ -1,9 +1,8 @@
 
 
 # AWS::Serverless::MicrovmImage
-<a name="sam-resource-microvmimage"></a>
 
- Creates a AWS Lambda MicroVM image from a code artifact stored in Amazon S3. A MicroVM image is a Firecracker snapshot built from a Dockerfile and application code, enabling sub-second startup for MicroVM instances. 
+ Creates a AWS Lambda MicroVM image from a code artifact stored in Amazon S3. You can also set [`CodeUri`](#sam-microvmimage-codeuri) to local source code, and the AWS SAM CLI uploads it to Amazon S3 when you run `sam package` or `sam deploy`. A MicroVM image is a Firecracker snapshot built from a Dockerfile and application code, enabling sub-second startup for MicroVM instances. 
 
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md). 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-resource-microvmimage-syntax.yaml"></a>
 
-```
+```yaml
 Type: AWS::Serverless::MicrovmImage
 Properties:
   [AdditionalOsCapabilities](#sam-microvmimage-additionaloscapabilities): {{List}}
@@ -65,13 +64,18 @@ The ARN of the IAM role that the MicroVM build service assumes to download your 
 *CloudFormation compatibility*: This property is similar to the `[BuildRoleArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-buildrolearn)` property of an `AWS::Lambda::MicrovmImage` resource. This is required in CloudFormation but not in AWS SAM. If you don't specify a role, AWS SAM creates one with a logical ID of `{{<resource-logical-id>}}BuildRole`. If your code artifact is encrypted with a customer managed key in AWS KMS, you must provide your own role with the appropriate `kms:Decrypt` permission. 
 
  `CodeUri`   <a name="sam-microvmimage-codeuri"></a>
-The Amazon S3 URI of the zip artifact containing the Dockerfile and application code.  
+The code artifact containing the Dockerfile and application code. Accepted values include:  
++ The Amazon S3 URI of a .zip file. For example, `s3://amzn-s3-demo-bucket/app.zip`.
++ The local path to a directory that has a Dockerfile at its root. For example, `./app`.
++ The local path to a .zip file. For example, `./app.zip`.
+If you provide a local path, use `sam package` or `sam deploy` to upload it. To learn more, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md).  
+When `CodeUri` is a local directory, the AWS SAM CLI zips and uploads everything in that directory, including files that your application doesn't need. Keep only the Dockerfile and your application code in the directory, for example in a dedicated `./app` subdirectory, or set `CodeUri` to a .zip file that you prepare.
 *Type*: String  
 *Required*: Yes  
 *CloudFormation compatibility*: This property is transformed to the `[CodeArtifact](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-codeartifact)` property of an `AWS::Lambda::MicrovmImage` resource. AWS SAM wraps the URI into the `CodeArtifact.Uri` structure. 
 
  `CpuConfigurations`   <a name="sam-microvmimage-cpuconfigurations"></a>
-A list of [CpuConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-microvmimage-cpuconfiguration.html) objects that specify the supported CPU architectures for the MicroVM. If you don't specify a value, the service uses the default CPU architecture.  
+A list of [CpuConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-microvmimage-cpuconfiguration.html) objects that specify the supported CPU architectures for the MicroVM. Valid values for `Architecture` are `ARM_64` and `X86_64`. If you don't specify a value, the service uses `ARM_64`.  
 *Type*: List  
 *Required*: No  
 *CloudFormation compatibility*: This property is passed directly to the `[CpuConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-cpuconfigurations)` property of an `AWS::Lambda::MicrovmImage` resource. 
@@ -174,7 +178,7 @@ The timestamp when the MicroVM image version was last updated.
 
 The following example creates a MicroVM image with only the required properties. AWS SAM automatically generates a build role.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
@@ -193,7 +197,7 @@ Resources:
 
 The following example creates a MicroVM image with all available properties configured.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 

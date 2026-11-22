@@ -1,7 +1,6 @@
 
 
 # AWS SAM CLI core commands
-<a name="using-sam-cli-corecommands"></a>
 
 AWS SAM CLI has some basic commands you use to create, build, test, deploy, and sync your serverless application. The table below lists these commands and provides links with more information for each.
 

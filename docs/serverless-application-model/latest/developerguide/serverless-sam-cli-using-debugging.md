@@ -1,7 +1,6 @@
 
 
 # Locally debug functions with AWS SAM
-<a name="serverless-sam-cli-using-debugging"></a>
 
 You can use AWS SAM with a variety of AWS toolkits and debuggers to test and debug your serverless applications locally. Step-through debugging of your Lambda Event Functions allows you to identify and fix issues in your application one line or instruction at a time in your local environment.
 

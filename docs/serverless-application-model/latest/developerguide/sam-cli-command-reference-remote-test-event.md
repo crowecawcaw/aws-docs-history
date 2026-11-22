@@ -1,7 +1,6 @@
 
 
 # sam remote test-event
-<a name="sam-cli-command-reference-remote-test-event"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote test-event` command.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)

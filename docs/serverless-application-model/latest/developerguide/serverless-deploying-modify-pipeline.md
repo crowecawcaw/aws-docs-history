@@ -1,7 +1,6 @@
 
 
 # Automate the deployment of your AWS SAM application
-<a name="serverless-deploying-modify-pipeline"></a>
 
 In AWS SAM, how you automate the deployment of your AWS SAM application varies depending on the CI/CD system you are using. For this reason, the examples in this section show you how to configure various CI/CD systems to automate building serverless applications in an AWS SAM build container image. These build container images make it easier to build and package serverless applications using the AWS SAM CLI.
 

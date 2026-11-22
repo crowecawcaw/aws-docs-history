@@ -1,7 +1,6 @@
 
 
 # Managing AWS SAM CLI versions
-<a name="manage-sam-cli-versions"></a>
 
 Manage your AWS Serverless Application Model Command Line Interface (AWS SAM CLI) versions through upgrading, downgrading, and uninstalling. Optionally, you can download and install the AWS SAM CLI nightly build.
 

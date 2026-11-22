@@ -1,7 +1,6 @@
 
 
 # Create your application in AWS SAM
-<a name="using-sam-cli-init"></a>
 
 After completing [Getting started](serverless-getting-started.md) and reading [How to use AWS Serverless Application Model (AWS SAM)](chapter-using-sam.md), you will be ready to create an AWS SAM project in your developer environment. Your AWS SAM project will serve as the starting point for writing your serverless application. For a list of AWS SAM CLI `sam init` command options, see [sam init](sam-cli-command-reference-sam-init.md).
 
@@ -220,7 +219,7 @@ You can choose to activate AWS X-Ray tracing. To learn more, see [What is AWS X-
 
 If you activate, the AWS SAM CLI configures your AWS SAM template. The following is an example:
 
-```
+```yaml
 Globals:
   Function:
     ...
@@ -236,7 +235,7 @@ You can choose to activate monitoring using Amazon CloudWatch Application Insigh
 
 If you activate, the AWS SAM CLI configures your AWS SAM template. The following is an example:
 
-```
+```yaml
 Resources:
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group

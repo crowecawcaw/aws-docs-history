@@ -1,7 +1,6 @@
 
 
 # ReplicaRegions
-<a name="sam-property-webfunction-replicaregions"></a>
 
 Specifies the Regions that a `MultiRegion` or `PerRegion` Web Function endpoint replicates the function to. You can specify a list of Region codes and Region groups, or an object that includes Regions and optionally excludes some of them.
 
@@ -22,7 +21,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-webfunction-replicaregions-syntax.yaml"></a>
 
-```
+```yaml
 [ExcludeRegions](#sam-webfunction-replicaregions-excluderegions): {{List}}
 [IncludeRegions](#sam-webfunction-replicaregions-includeregions): {{List}}
 ```
@@ -50,7 +49,7 @@ A list of Region codes and Region groups to replicate the function to. The list 
 
 The following example replicates the function to two Regions.
 
-```
+```yaml
 ReplicaRegions:
   - us-east-1
   - eu-west-1
@@ -61,7 +60,7 @@ ReplicaRegions:
 
 The following example replicates the function to the US Regions except `us-west-1`.
 
-```
+```yaml
 ReplicaRegions:
   IncludeRegions:
     - US

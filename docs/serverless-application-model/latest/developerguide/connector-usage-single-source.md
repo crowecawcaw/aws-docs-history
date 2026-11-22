@@ -1,11 +1,10 @@
 
 
 # Create multiple connectors from a single source in AWS SAM
-<a name="connector-usage-single-source"></a>
 
 Within a source resource, you can define multiple connectors, each with a different destination resource.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 ...

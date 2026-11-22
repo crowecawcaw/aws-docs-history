@@ -1,7 +1,6 @@
 
 
 # sam remote execution get
-<a name="sam-cli-command-reference-sam-remote-execution-get"></a>
 
 Retrieve the details of a specific durable function execution from AWS Lambda.
 

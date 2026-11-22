@@ -1,7 +1,6 @@
 
 
 # sam local callback fail
-<a name="sam-cli-command-reference-sam-local-callback-fail"></a>
 
 Send a failure callback to a durable function execution.
 

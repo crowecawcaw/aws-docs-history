@@ -1,7 +1,6 @@
 
 
 # Getting started with Terraform support for AWS SAM CLI
-<a name="gs-terraform-support"></a>
 
 This topic covers how to get started with using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with Terraform.
 
@@ -113,7 +112,7 @@ For Windows, you can install using [Chocolatey](https://chocolatey.org/). For in
 
 Use the `null_resource` Terraform resource type to define your Lambda build logic. The following is an example that uses a custom build script to build a Lambda Event Function.
 
-```
+```json
 resource "null_resource" "build_lambda_function" {
     triggers = {
         build_number = "${timestamp()}" 
@@ -140,7 +139,7 @@ The `sam metadata` resource is a `null_resource` Terraform resource type that pr
 
    The following is an example template:
 
-   ```
+   ```json
    resource "null_resource" "sam_metadata_{{...}}" {
      triggers = {
        resource_name = {{resource_name}}
@@ -156,7 +155,7 @@ The `sam metadata` resource is a `null_resource` Terraform resource type that pr
 
    The following is an example `sam metadata` resource:
 
-   ```
+   ```json
    resource "null_resource" "sam_metadata_aws_lambda_function_publish_book_review" {
        triggers = {
            resource_name = "aws_lambda_function.publish_book_review"

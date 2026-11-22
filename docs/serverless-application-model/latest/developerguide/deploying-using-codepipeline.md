@@ -1,7 +1,6 @@
 
 
 # Using AWS CodePipeline to deploy with AWS SAM
-<a name="deploying-using-codepipeline"></a>
 
 To configure your [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) pipeline to automate the build and deployment of your AWS SAM application, your CloudFormation template and `buildspec.yml` file must contain lines that do the following:
 

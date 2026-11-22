@@ -1,7 +1,6 @@
 
 
 # EventBridgeRule
-<a name="sam-property-statemachine-statemachineeventbridgerule"></a>
 
 The object describing an `EventBridgeRule` event source type, which sets your state machine as the target for an Amazon EventBridge rule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
@@ -15,7 +14,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-statemachine-statemachineeventbridgerule-syntax.yaml"></a>
 
-```
+```yaml
   DeadLetterConfig: {{DeadLetterConfig}}
   EventBusName: {{String}}
   Input: {{String}}
@@ -104,7 +103,7 @@ The following is an example of an `EventBridgeRule` event source type.
 #### YAML
 <a name="sam-property-statemachine-statemachineeventbridgerule--examples--eventbridgerule--yaml"></a>
 
-```
+```yaml
 EBRule:
   Type: EventBridgeRule
   Properties:

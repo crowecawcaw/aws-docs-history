@@ -1,7 +1,6 @@
 
 
 # Define your infrastructure with AWS SAM
-<a name="serverless-authoring"></a>
 
 Now that you have created your project, you are ready to define your application infrastructure with AWS SAM. Do this by configuring your AWS SAM template to define your application's resources and properties, which is the `template.yaml` file in your AWS SAM project.
 

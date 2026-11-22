@@ -1,7 +1,6 @@
 
 
 # Define application resources in your AWS SAM template
-<a name="authoring-define-resources"></a>
 
 You define the AWS resources your serverless application uses in the `Resources` section of your AWS SAM template. When you define a resource, you identify what the resource is, how it interacts with other resources, and how it can be accessed (that is, the permissions of the resource).
 

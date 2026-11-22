@@ -1,7 +1,6 @@
 
 
 # sam delete
-<a name="sam-cli-command-reference-sam-delete"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam delete` command.
 

@@ -1,7 +1,6 @@
 
 
 # Globals section of the AWS SAM template
-<a name="sam-specification-template-anatomy-globals"></a>
 
 Sometimes resources that you declare in an AWS SAM template have common configurations. For example, you might have an application with multiple `AWS::Serverless::Function` resources that have identical `Runtime`, `Memory`, `VPCConfig`, `Environment`, and `Cors` configurations. Instead of duplicating this information in every resource, you can declare them once in the `Globals` section and let your resources inherit them.
 
@@ -54,7 +53,7 @@ In this example, both `HelloWorldFunction` and `ThumbnailFunction` use "nodejs12
 
 AWS SAM supports the following resources and properties.
 
-```
+```yaml
 Globals:
   Api:
     AccessLogSetting:
@@ -90,6 +89,7 @@ Globals:
     VpcConfig:
   
   Function:
+    AcceleratorConfig:
     Architectures:
     AssumeRolePolicyDocument:
     AutoPublishAlias:
@@ -120,6 +120,7 @@ Globals:
     ReservedConcurrentExecutions:
     RolePath:
     Runtime:
+    RuntimeConfig:
     RuntimeManagementConfig:
     SnapStart:
     SourceKMSKeyArn:

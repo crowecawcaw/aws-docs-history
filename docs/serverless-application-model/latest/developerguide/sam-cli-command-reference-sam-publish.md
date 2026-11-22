@@ -1,7 +1,6 @@
 
 
 # sam publish
-<a name="sam-cli-command-reference-sam-publish"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam publish` command.
 

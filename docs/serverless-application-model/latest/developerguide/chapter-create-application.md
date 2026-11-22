@@ -1,7 +1,6 @@
 
 
 # Develop your serverless application with AWS SAM
-<a name="chapter-create-application"></a>
 
 This section contains topics about validating your AWS SAM template and building your application with dependencies. It also contains topics about using AWS SAM for certain use cases such as working with Lambda layers, using nested applications, controlling access to API Gateway APIs, orchestrating AWS resources with Step Functions, and code signing your applications. The three major milestones you need to complete to develop your application are listed below.
 

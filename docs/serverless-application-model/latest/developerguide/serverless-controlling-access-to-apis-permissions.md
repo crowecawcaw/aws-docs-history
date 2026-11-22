@@ -1,13 +1,12 @@
 
 
 # IAM permission example for AWS SAM
-<a name="serverless-controlling-access-to-apis-permissions"></a>
 
 You can control access to your APIs by defining IAM permissions within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md) data type.
 
 The following is an example AWS SAM template that uses for IAM permissions:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Resources:

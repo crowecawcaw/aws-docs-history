@@ -1,7 +1,6 @@
 
 
 # CloudFormation resources generated when AWS::Serverless::GraphQLApi is specified
-<a name="sam-specification-generated-resources-graphqlapi"></a>
 
 When you specify an `AWS::Serverless::GraphQLApi` resource in an AWS Serverless Application Model (AWS SAM) template, AWS SAM always creates the following base AWS CloudFormation resources.
 

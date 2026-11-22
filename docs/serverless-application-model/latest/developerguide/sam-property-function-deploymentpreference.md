@@ -1,7 +1,6 @@
 
 
 # DeploymentPreference
-<a name="sam-property-function-deploymentpreference"></a>
 
 Specifies the configurations to enable gradual Lambda deployments. For more information about configuring gradual Lambda deployments, see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md).
 
@@ -16,7 +15,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 <a name="sam-property-function-deploymentpreference-syntax.yaml"></a>
 
-```
+```yaml
   [Alarms](#sam-function-deploymentpreference-alarms): {{List}}
   [Enabled](#sam-function-deploymentpreference-enabled): {{Boolean}}
   [Hooks](#sam-function-deploymentpreference-hooks): {{Hooks}}
@@ -84,7 +83,7 @@ Example deployment preference that contains pre- and post-traffic hooks.
 #### YAML
 <a name="sam-property-function-deploymentpreference--examples--deploymentpreference-with-pre--and-post-traffic-hooks.--yaml"></a>
 
-```
+```yaml
 DeploymentPreference:
   Enabled: true
   Type: Canary10Percent10Minutes 
@@ -106,7 +105,7 @@ Example deployment preference that uses `Fn::If` for configuring alarms. In this
 #### YAML
 <a name="sam-property-function-deploymentpreference--examples--deploymentpreference-with-fn::if-intrinsic-function--yaml"></a>
 
-```
+```yaml
 DeploymentPreference:
   Enabled: true
   Type: Canary10Percent10Minutes 
