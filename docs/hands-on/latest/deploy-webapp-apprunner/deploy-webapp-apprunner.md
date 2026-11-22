@@ -1,7 +1,6 @@
 
 
 # Deploy a Web App on Nginx Server using AWS App Runner
-<a name="deploy-webapp-apprunner"></a>
 
 
 |  |  | 
