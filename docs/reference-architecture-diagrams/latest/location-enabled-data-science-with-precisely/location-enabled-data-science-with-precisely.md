@@ -1,7 +1,6 @@
 
 
 # Location-enabled Data Science with Precisely on AWS
-<a name="location-enabled-data-science-with-precisely"></a>
 
 Publication date: **September 06, 2023 ([Diagram history](#diagram-history))**
 
