@@ -1,7 +1,6 @@
 
 
 # Task 2: Initialize a Local Amplify App
-<a name="module-two"></a>
 
 
 |  |  | 

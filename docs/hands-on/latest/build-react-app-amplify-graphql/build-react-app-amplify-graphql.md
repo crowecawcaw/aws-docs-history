@@ -1,7 +1,6 @@
 
 
 # Build a Full Stack React Application
-<a name="build-react-app-amplify-graphql"></a>
 
 
 |  |  | 

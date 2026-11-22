@@ -1,7 +1,6 @@
 
 
 # Task 1: Deploy and Host a React App
-<a name="module-one"></a>
 
 
 |  |  | 

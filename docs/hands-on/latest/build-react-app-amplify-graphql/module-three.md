@@ -1,7 +1,6 @@
 
 
 # Task 3: Build the Frontend
-<a name="module-three"></a>
 
 
 |  |  | 

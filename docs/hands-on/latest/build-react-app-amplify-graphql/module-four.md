@@ -1,7 +1,6 @@
 
 
 # Task 4: Clean up resources
-<a name="module-four"></a>
 
 
 |  |  | 
