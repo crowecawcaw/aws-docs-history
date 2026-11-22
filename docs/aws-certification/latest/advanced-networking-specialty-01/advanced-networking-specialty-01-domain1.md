@@ -1,7 +1,6 @@
 
 
 # Content Domain 1: Network Design
-<a name="advanced-networking-specialty-01-domain1"></a>
 
 **Topics**
 + [Task 1.1: Design a solution that incorporates edge network services to optimize user performance and traffic management for global architectures](#advanced-networking-specialty-01-domain1-task1)

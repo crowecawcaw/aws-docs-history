@@ -1,7 +1,6 @@
 
 
 # AWS Certified Advanced Networking - Specialty (ANS-C01)
-<a name="advanced-networking-specialty-01"></a>
 
 The AWS Certified Advanced Networking - Specialty (ANS-C01) exam is intended for individuals who perform an AWS networking specialist's role. The exam validates a candidate's ability to design, implement, manage, and secure AWS and hybrid network architectures at scale.
 

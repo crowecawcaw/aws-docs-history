@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Network Management and Operation
-<a name="advanced-networking-specialty-01-domain3"></a>
 
 **Topics**
 + [Task 3.1: Maintain routing and connectivity on AWS and hybrid networks](#advanced-networking-specialty-01-domain3-task1)
