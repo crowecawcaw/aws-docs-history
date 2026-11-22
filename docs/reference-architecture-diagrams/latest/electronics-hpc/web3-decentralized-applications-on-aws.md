@@ -1,7 +1,6 @@
 
 
 # Web3 Decentralized Applications on AWS
-<a name="web3-decentralized-applications-on-aws"></a>
 
 Publication date: **August 3, 2023 ([Diagram history](diagram-history.md))**
 
@@ -17,7 +16,7 @@ Use this architecture as a reference for developing static hosted web applicatio
 
 1. The DApp is cached at the edge in CloudFront. The DApp files are distributed to the edge by a CloudFront distribution that makes a request to an [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/) (Amazon S3) bucket, where the DApp files are statically hosted. 
 
-    The Amazon S3 bucket is secured by blocking all traffic except for a configured origin Access Identity of the CloudFront Distribution. Refer to [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html). 
+    The Amazon S3 bucket is secured by blocking all traffic except for a configured origin access identity of the CloudFront distribution. Refer to [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html). 
 
 1. The DApp makes requests to the [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/) from the browser. 
 

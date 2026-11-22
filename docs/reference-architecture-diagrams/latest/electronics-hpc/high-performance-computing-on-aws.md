@@ -1,7 +1,6 @@
 
 
 # High Performance Computing on AWS
-<a name="high-performance-computing-on-aws"></a>
 
 Publication date: **September 1, 2021 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # Traffic Segmentation Options in AWS Direct Connect
-<a name="traffic-segmentation-aws-direct-connect"></a>
 
 Publication date: **November 9, 2023 ([Diagram history](diagram-history.md))**
 
@@ -33,7 +32,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several transit VIFs and Direct Connect gateways.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electronics-hpc/images/2-several-transit-vifs.png)
 
 
- Transit Virtual Interfaces (VIFs) are used to access [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/) by way of an Direct Connect gateway. Each VIF is configured with an unique virtual local area network (VLAN) tag, which means you can segment your traffic by using one VIF per virtual routing and forwarding (VRF) you have in your data center. Take into account the limits in the number of VIFs, depending the type of Direct Connect connection you have. You can have four transit VIFs with a max combination of 51 private, public, and transit VIFs per dedicated connection. For hosted connections, you can have only one transit VIF. In addition, you can have 30 transit VIFs associated with the same Direct Connect gateway. You can check the quotas in the [Direct Connect user guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/limits.html). 
+ Transit Virtual Interfaces (VIFs) are used to access [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/) through an Direct Connect gateway. Each VIF is configured with an unique virtual local area network (VLAN) tag, which means you can segment your traffic by using one VIF per virtual routing and forwarding (VRF) you have in your data center. Take into account the limits in the number of VIFs, depending the type of Direct Connect connection you have. You can have four transit VIFs with a max combination of 51 private, public, and transit VIFs per dedicated connection. For hosted connections, you can have only one transit VIF. In addition, you can have 30 transit VIFs associated with the same Direct Connect gateway. You can check the quotas in the [Direct Connect user guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/limits.html). 
 
 1.  Traffic initiated from an instance in Spoke VPC A and destined for the corporate data center server (in VRF A) is routed to AWS Transit Gateway according to the Spoke VPC A route table. 
 

@@ -1,7 +1,6 @@
 
 
 # EDA on AWS with IBM Spectrum LSF
-<a name="eda-ibm-spectrum-lsf"></a>
 
 Publication date: **February 18, 2021 ([Diagram history](diagram-history.md))**
 

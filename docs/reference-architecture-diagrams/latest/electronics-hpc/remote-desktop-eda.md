@@ -1,7 +1,6 @@
 
 
 # Remote Desktop for Electronic Design Automation
-<a name="remote-desktop-eda"></a>
 
 Publication date: **April 5, 2021 ([Diagram history](diagram-history.md))**
 

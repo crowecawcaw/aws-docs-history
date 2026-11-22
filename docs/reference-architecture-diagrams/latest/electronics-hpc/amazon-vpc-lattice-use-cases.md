@@ -1,7 +1,6 @@
 
 
 # Amazon VPC Lattice Reference Architectures
-<a name="amazon-vpc-lattice-use-cases"></a>
 
 Publication date: **October 16, 2023 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # Wafer Inspection with Machine Learning
-<a name="wafer-inspection-with-machine-learning-architecture"></a>
 
 Publication date: **September 16, 2022 ([Diagram history](diagram-history.md))**
 
@@ -21,7 +20,7 @@ This architecture shows you how computer vision wafer inspection accelerates def
 
 1. The Lambda function calls [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) for inference. Amazon Elastic Inference lowers the cost of inference by only attaching a graphics processing unit (GPU) when data needs to be processed. 
 
-1. The Lambda function adds the Inference results to the Amazon DynamoDB table. 
+1. The Lambda function adds the inference results to the Amazon DynamoDB table. 
 
 1. Users are notified in the UI of detected defects. The UI fetches the image and metadata of the defected wafer from Amazon API Gateway. Wafers without defects move faster to the next step. 
 

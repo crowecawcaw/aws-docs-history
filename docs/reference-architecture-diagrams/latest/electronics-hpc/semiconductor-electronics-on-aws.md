@@ -1,7 +1,6 @@
 
 
 # Semiconductor and Electronics on AWS
-<a name="semiconductor-electronics-on-aws"></a>
 
 Publication date: **February 21, 2020 ([Diagram history](diagram-history.md))**
 

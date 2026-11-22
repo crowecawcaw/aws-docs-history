@@ -1,7 +1,6 @@
 
 
 # Cloud Bursting EDA with Amazon FSx for NetApp ONTAP
-<a name="cloud-bursting-eda-fsx-netapp-ontap"></a>
 
 Publication date: **November 19, 2021 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # DescribeForMe Web App
-<a name="describe-for-me-web-app"></a>
 
 Publication date: **September 1, 2023 ([Diagram history](diagram-history.md))**
 
