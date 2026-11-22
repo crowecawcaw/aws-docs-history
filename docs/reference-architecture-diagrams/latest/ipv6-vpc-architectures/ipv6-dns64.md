@@ -1,7 +1,6 @@
 
 
 # DNS64
-<a name="ipv6-dns64"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-9-diagram-history))**
 

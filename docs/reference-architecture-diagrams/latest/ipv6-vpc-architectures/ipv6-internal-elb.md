@@ -1,7 +1,6 @@
 
 
 # Dual Stack Internal Application and Network Load Balancers
-<a name="ipv6-internal-elb"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-8-diagram-history))**
 

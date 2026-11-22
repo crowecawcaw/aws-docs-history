@@ -1,7 +1,6 @@
 
 
 # IPv6 Targets for Dual Stack Internet-facing Network Load Balancer
-<a name="ipv6-nlb-ipv6-targets"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-7-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # NAT64
-<a name="ipv6-nat64"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-10-diagram-history))**
 

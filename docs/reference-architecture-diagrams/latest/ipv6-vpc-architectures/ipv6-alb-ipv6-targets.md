@@ -1,7 +1,6 @@
 
 
 # IPv6 Targets for Dual Stack Internet-facing Application Load Balancer
-<a name="ipv6-alb-ipv6-targets"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-5-diagram-history))**
 

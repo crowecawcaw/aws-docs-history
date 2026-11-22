@@ -1,7 +1,6 @@
 
 
 # Dual Stack Hybrid Connectivity with AWS Direct Connect
-<a name="ipv6-direct-connect"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-15-diagram-history))**
 

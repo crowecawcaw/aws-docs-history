@@ -1,7 +1,6 @@
 
 
 # Centralized Egress Traffic with NAT64
-<a name="ipv6-centralized-egress-nat64"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-11-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # Dual Stack VPN Connectivity with AWS Transit Gateway
-<a name="ipv6-vpn-tgw"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-16-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # Dual Stack AWS Transit Gateway Connect
-<a name="ipv6-tgw-connect"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-17-diagram-history))**
 

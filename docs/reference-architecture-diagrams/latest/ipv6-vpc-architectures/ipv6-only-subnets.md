@@ -1,7 +1,6 @@
 
 
 # IPv6-only Subnets in a Dual Stack Amazon Amazon VPC
-<a name="ipv6-only-subnets"></a>
 
 Publication date: **June 23, 2022 ([Diagram history](#ipv6-2-diagram-history))**
 
