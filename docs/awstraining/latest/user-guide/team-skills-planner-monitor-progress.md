@@ -1,7 +1,6 @@
 
 
 # Monitor progress
-<a name="team-skills-planner-monitor-progress"></a>
 
 Each goal’s page shows the number of learners, created date, status, and its roles, with each role’s progress, cohort end date, and whether any roles are at risk. Choose **Download recommendations** to download the training recommendation PDF. If no baseline has run, the page notes that the plan assumes a Beginner level.
 

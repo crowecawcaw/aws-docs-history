@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="team-skills-planner-how-it-works"></a>
 
 Team Skills Planner follows one flow from goal to assigned training:
 +  **Goal** — You describe what your organization is working toward, or upload documents that describe it.

@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="personalized-learning-tracks-get-started"></a>
 
 This section describes how personalized learning tracks work and how to build your first learning track.
 
@@ -37,6 +36,8 @@ As you review, remove lessons you don’t need. If you already know some of the 
  **Step 5 — Save and start** 
 
 After you save your personalized learning track, choose **Start** on any lesson to see every available format for that lesson. Choose a format. Then work your way through each milestone of your personalized learning track.
+
+<a name="faqs"></a>**FAQs**
 
  **What if my goal doesn’t fit one of the types listed above in Step 3?** 
 

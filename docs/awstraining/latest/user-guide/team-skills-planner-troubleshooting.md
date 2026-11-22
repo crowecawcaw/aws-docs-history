@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="team-skills-planner-troubleshooting"></a>
 
 Common issues and resolutions:
 +  **I can’t edit my goal** — Goals can’t be edited after a baseline starts.

@@ -1,7 +1,6 @@
 
 
 # Access
-<a name="personalized-learning-tracks-access"></a>
 
  **Who can use personalized learning tracks?** 
 

@@ -1,7 +1,6 @@
 
 
 # Monitor progress
-<a name="personalized-learning-tracks-monitor-progress"></a>
 
 You can see the progress of your personalized learning tracks in three places:
 +  **Learner Dashboard** — Your saved personalized learning track appears as a card.

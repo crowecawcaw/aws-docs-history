@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="team-skills-planner-get-started"></a>
 
 To build and assign a training plan with Team Skills Planner, complete the following steps:
 

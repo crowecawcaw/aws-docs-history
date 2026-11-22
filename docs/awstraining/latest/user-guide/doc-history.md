@@ -1,7 +1,6 @@
 
 
 # AWS Training Document History
-<a name="doc-history"></a>
 
 
 | Change | Description | Date | 

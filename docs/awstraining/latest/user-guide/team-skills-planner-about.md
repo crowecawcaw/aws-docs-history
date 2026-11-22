@@ -1,7 +1,6 @@
 
 
 # What is Team Skills Planner?
-<a name="team-skills-planner-about"></a>
 
 Team Skills Planner is an AI feature in AWS Skill Builder that turns your organization’s business goal into a role-aligned training plan for your team. Instead of spending weeks on a manual learning needs analysis, you can state what your team needs to achieve, and Team Skills Planner identifies the roles, domains, and job tasks connected to that goal. You can optionally run a short baseline assessment to calibrate recommendations to your team’s current skill level, review recommended Digital and Classroom Training from the full AWS Training and Certification catalog, assign it to your team, and track progress toward the goal in the **Team Skills Planner** section of the **Admin Workspace**.
 

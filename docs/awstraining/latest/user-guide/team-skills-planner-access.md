@@ -1,7 +1,6 @@
 
 
 # Access
-<a name="team-skills-planner-access"></a>
 
 If you’re interested in Team Skills Planner and don’t have access, contact your AWS Training representative. Team Skills Planner is available globally, and some information is currently available in English only.
 

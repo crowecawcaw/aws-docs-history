@@ -1,7 +1,6 @@
 
 
 # Learner experience
-<a name="team-skills-planner-learner-experience"></a>
 
 What a learner sees depends on whether the Learning Administrator sends a baseline link or assigns training:
 +  **Baseline** — Learners receive a link from their Learning Administrator. They don’t need a Skill Builder account. They enter an alias, choose their role, and answer a short, timed quiz on product knowledge. Learners don’t see individual scores.

@@ -1,7 +1,6 @@
 
 
 # Learning Administrators
-<a name="personalized-learning-tracks-manage"></a>
 
 If you’re a Learning Administrator, use the following information to give your team access to personalized learning tracks and view their activity.
 
