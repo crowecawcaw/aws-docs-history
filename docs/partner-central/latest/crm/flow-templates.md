@@ -1,7 +1,6 @@
 
 
 # Using flow templates
-<a name="flow-templates"></a>
 
 Flow templates are pre-built Salesforce flows that integrate Salesforce with AWS Partner Central using the AWS Partner Central API integration method. These templates include data synchronization, field mapping, and error handling configurations.
 

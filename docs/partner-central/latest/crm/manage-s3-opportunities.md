@@ -1,7 +1,6 @@
 
 
 # Managing opportunities in a CRM with Amazon S3 integration
-<a name="manage-s3-opportunities"></a>
 
 The following topics explain how to use the CRM connector with a CRM with Amazon S3 integration.
 

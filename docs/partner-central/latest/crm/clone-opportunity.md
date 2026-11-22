@@ -1,7 +1,6 @@
 
 
 # Cloning an opportunity
-<a name="clone-opportunity"></a>
 
 Cloning enables you to create a new opportunity that contains details from an existing opportunity. The following steps explain how.
 

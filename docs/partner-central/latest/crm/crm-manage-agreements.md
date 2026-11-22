@@ -1,7 +1,6 @@
 
 
 # Managing AWS Marketplace agreements
-<a name="crm-manage-agreements"></a>
 
 The following topics explain how AWS sellers and Channel Partners can use the CRM connector to access agreements and view agreement details.
 

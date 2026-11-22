@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="quotas"></a>
 
 ## Inbound file to Amazon Web Services (AWS)
 <a name="inbound-file-to-aws"></a>

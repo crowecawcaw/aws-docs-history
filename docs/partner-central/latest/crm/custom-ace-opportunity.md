@@ -1,7 +1,6 @@
 
 
 # Sandbox testing with the custom ACE opportunity and ACE lead objects
-<a name="custom-ace-opportunity"></a>
 
 **Note**  
 If you are an existing CRM connector user, refer to [Upgrading AWS Partner CRM connector to the new data model](connector-upgrade-plan.md).

@@ -1,7 +1,6 @@
 
 
 # Technical FAQ—fields
-<a name="technical-faq-fields"></a>
 
  **Q: Does the integration support CSV format?**
 
@@ -57,7 +56,7 @@ If the format is incorrect, regardless of the case, the entire file is rejected.
 
 These are the key attributes to help you understand if the JSON file processed successfully. 
 
-```
+```json
 {
   "inboundApiResults": [
     {

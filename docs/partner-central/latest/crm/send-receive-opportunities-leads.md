@@ -1,7 +1,6 @@
 
 
 # Synchronizing opportunity and lead data
-<a name="send-receive-opportunities-leads"></a>
 
 To sync an opportunity or lead with APN, you must set the **Sync with Partner Central** field to **True**. Additional fields for integration include the **Last APN Sync Date** and **Eligible to Sync with APN** fields. Standard opportunities and leads include those fields. However, you set must create and map the fields for the corresponding object if the source objects are set to custom.
 + **Sync with Partner Central** – Included in the app for standard opportunities and leads. If you choose to map to custom objects, you must create and map this field as boolean.

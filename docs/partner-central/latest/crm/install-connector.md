@@ -1,7 +1,6 @@
 
 
 # Installing the connector
-<a name="install-connector"></a>
 
 The following sets of steps explain how to install and uninstall the AWS Partner Customer Relationship Management (CRM) connector. 
 

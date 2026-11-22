@@ -1,7 +1,6 @@
 
 
 # Upgrading from Amazon S3 to API-based integration
-<a name="upgrade-crm-api"></a>
 
 **Note**  
 The topics in this section assume you've completed the prerequisites for an AWS Partner Central integration, an AWS Marketplace integration, or both. For more information, refer to [Integration prerequisites](crm-integration-setting-up.md) and [Getting started](crm-integration-getting-started.md) earlier in this guide.  
@@ -297,5 +296,5 @@ After migrating, your Salesforce org receives real-time updates from Partner Cen
 <a name="upgrade-getting-help"></a>
 
 If you encounter issues that the preceding steps cannot resolve:
-+ **Open a support case:** [Partner Central → Support → Open New Case](https://partnercentral.awspartner.com/partnercentral2/s/newsupportcase) → CRM Integration
-+ **Migration assistance:** For complex migrations (500\+ opportunities, custom integrations, or prior production incidents), request white-glove support through your Alliance Lead.
++ **Open a support case** – In the AWS Partner Central left navigation pane, choose **Support**. On the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console, choose **Get support** and describe your CRM integration issue.
++ **Migration assistance** – For complex migrations (500\+ opportunities, custom integrations, or prior production incidents), request white-glove support through your Alliance Lead.

@@ -1,7 +1,6 @@
 
 
 # Setting up real-time notifications for AWS Partner Central and AWS Marketplace events
-<a name="set-up-real-time-notifications"></a>
 
 The following topics explain how to set up real-time EventBridge notifications for AWS Partner Central and AWS Marketplace events. You can set up notifications in Salesforce by configuring a connected app, or you can use AWS CloudFormation templates.
 
@@ -238,7 +237,7 @@ The following steps explain how to create change set events.
 
 1. Under **Event pattern**, select **Custom patterns (JSON editor)** and enter the following filter. You can use any combination of detail types.
 
-   ```
+   ```json
    {
      "source": [
        "aws.marketplacecatalog"
@@ -265,7 +264,7 @@ The following steps explain how to create change set events.
 
     The Input path must be:  
 
-   ```
+   ```json
    {
      "Name": "$.detail-type",
      "awsapn__Account_Number__c": "$.account",
@@ -275,7 +274,7 @@ The following steps explain how to create change set events.
 
     The template must be:  
 
-   ```
+   ```json
    {
      "Name": {{Name}},
      "awsapn__Account_Number__c": {{awsapn__Account_Number__c}},
@@ -305,7 +304,7 @@ The following steps explain how to create Offer Released events.
 
 1.  Under **Event pattern**, select **Custom patterns (JSON editor)**, then enter the following filter:  
 
-   ```
+   ```json
    {
      "source": [
        "aws.marketplacecatalog"
@@ -328,7 +327,7 @@ The following steps explain how to create Offer Released events.
 
     Use the following input path:  
 
-   ```
+   ```json
    {
       "Name":"$.detail-type",
       "awsapn__Account_Number__c":"$.account",
@@ -341,7 +340,7 @@ The following steps explain how to create Offer Released events.
 
     Use the following template:  
 
-   ```
+   ```json
    {
      "Name": {{Name}},
      "awsapn__Account_Number__c": {{awsapn__Account_Number__c}},
@@ -379,7 +378,7 @@ The following list describes the event types generated when partners work with o
 #### Example event
 <a name="example-event"></a>
 
-```
+```json
 {
     "version": "1",
     "id": ""{{d1example-0c9c-4655-15bf-c5exampleb08}}",

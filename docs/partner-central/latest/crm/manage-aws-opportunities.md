@@ -1,7 +1,6 @@
 
 
 # Managing opportunities in a Partner Central API integration
-<a name="manage-aws-opportunities"></a>
 
 The following topics explain how to complete the tasks specific to specific to a Partner Central API integration.
 

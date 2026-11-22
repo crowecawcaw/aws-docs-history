@@ -1,7 +1,6 @@
 
 
 # Glossary
-<a name="crm-integration-glossary"></a>
 
 The following table lists the acronyms and terms used in a CRM integration.
 

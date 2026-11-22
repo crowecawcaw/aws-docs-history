@@ -1,7 +1,6 @@
 
 
 # Creating the IAM user in your AWS Marketplace seller account
-<a name="create-iam-user-seller-account"></a>
 
 The steps in the following sections explain how to create the IAM user that enables Salesforce to connect to your AWS Marketplace seller account. You create the user, then you assign permissions that enable the user to connect to an Amazon S3 bucket and generate pre-signed URLs.
 

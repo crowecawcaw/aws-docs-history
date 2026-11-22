@@ -1,7 +1,6 @@
 
 
 # Troubleshooting an integration
-<a name="troubleshooting"></a>
 
 The following topics explain how to create a support case and troubleshoot common onboarding and integration errors.
 
@@ -14,15 +13,19 @@ The following topics explain how to create a support case and troubleshoot commo
 
 If you still have difficulties integrating your CRM with AWS, follow these steps to raise a support case. 
 
-1. Sign in to the [AWS Partner Central](https://partnercentral.awspartner.com) with your AWS Partner Network credentials. 
+1. Open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
-1. On the [Support Center for Partner Central](https://partnercentral.awspartner.com/support), choose **Open New Case** and complete the following fields:
-   + **Type of Support Case** – AWS Partner Central.
-   + **Question regarding** – Partner Central Tools or ACE leads and opportunities.
-   + **Get Specific** – Select the most appropriate CRM integration case type.
-   + **Subject** – Include a brief description of the request.
-   + **Description** – Provide a detailed description of issues, questions, errors, and troubleshooting steps.
-   + **Attachments** – Sync logs and screenshots, where applicable.
+1. Choose **Get support**.
+
+1. In the support chat, describe your CRM integration issue, including errors and the troubleshooting steps you tried.
+
+1. Answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in.
+
+1. Review the case form, and attach sync logs and screenshots.
+
+1. Choose **Submit**. The chat displays your case ID.
+
+For more information, see [Create a support case](https://docs.aws.amazon.com/partner-central/latest/getting-started/getting-support.html#how-support-chat-works).
 
 ## Onboarding error messages
 <a name="troubleshooting-during-crm-integration-onboarding"></a>

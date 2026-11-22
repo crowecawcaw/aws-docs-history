@@ -1,7 +1,6 @@
 
 
 # Working with referrals, leads, and opportunities
-<a name="crm-integration-business-flows"></a>
 
 The following topics describe how sales referrals become leads and opportunities. The topics also explain the differences between opportunities originated by AWS and those originated by partners.
 

@@ -1,7 +1,6 @@
 
 
 # Integration FAQ
-<a name="crm-integration-faq"></a>
 
 The following topics answer frequently asked questions about CRM integrations. 
 

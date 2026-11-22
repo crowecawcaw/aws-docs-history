@@ -1,7 +1,6 @@
 
 
 # What is AWS Partner CRM integration?
-<a name="aws-partner-crm-integration"></a>
 
 Customer relationship management (CRM) integration connects your CRM system with AWS Partner Central. In turn, that enables you to exchange selling engagements with AWS Sales, and with other AWS partners. If you use Salesforce, you can also integrate it with AWS Marketplace as a seller and attach offers to your opportunities.
 

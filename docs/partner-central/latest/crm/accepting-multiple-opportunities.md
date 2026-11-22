@@ -1,7 +1,6 @@
 
 
 # Accepting multiple opportunities
-<a name="accepting-multiple-opportunities"></a>
 
 You can accept multiple AWS-originated opportunities simultaneously using the bulk accept functionality. This feature streamlines the process of accepting opportunities, reducing manual effort.
 

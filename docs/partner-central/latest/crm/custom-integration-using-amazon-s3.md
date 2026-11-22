@@ -1,7 +1,6 @@
 
 
 # Using an earlier CRM with Amazon S3 integration
-<a name="custom-integration-using-amazon-s3"></a>
 
 **Important**  
 AWS Partner Central stopped accepting new requests for this type of integration in 2024. This section only applies to partners using Amazon S3.   

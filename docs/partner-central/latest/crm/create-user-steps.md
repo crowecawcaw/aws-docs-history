@@ -1,7 +1,6 @@
 
 
 # Creating the IAM user
-<a name="create-user-steps"></a>
 
 Follow these steps to create the IAM user in your AWS Marketplace seller account.
 

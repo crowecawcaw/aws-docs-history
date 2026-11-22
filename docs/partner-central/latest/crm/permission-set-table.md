@@ -1,7 +1,6 @@
 
 
 # CRM connector tabs and permission sets
-<a name="permission-set-table"></a>
 
 When you use the CRM connector app in Salesforce, a set of tabs appears. The tabs you see vary, depending on your permission settings. The following table lists the tabs provided by the connector app, and the permission sets allowed to use each tab.
 

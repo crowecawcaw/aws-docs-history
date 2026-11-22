@@ -1,7 +1,6 @@
 
 
 # Linking your AWS Partner Central and AWS Marketplace accounts
-<a name="link-pc-mkt-accounts"></a>
 
 The following steps explain how to link your AWS Partner Central and AWS Marketplace seller accounts. You must have Salesforce alliance lead permissions to complete these steps. You must link the accounts before you can create any type of CRM integration.
 

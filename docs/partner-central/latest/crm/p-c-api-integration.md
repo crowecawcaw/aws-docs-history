@@ -1,7 +1,6 @@
 
 
 # Configuring the connector for a Partner Central API integration
-<a name="p-c-api-integration"></a>
 
 The following sections explain how to configure the CRM connector for use with the AWS Partner Central APIs.
 

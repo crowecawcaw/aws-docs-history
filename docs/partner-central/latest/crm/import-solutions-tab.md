@@ -1,7 +1,6 @@
 
 
 # Importing solutions into Salesforce
-<a name="import-solutions-tab"></a>
 
  Partner Solutions are software products or consulting practices that AWS Partners create and deliver. They’re designed to help customers solve specific business challenges or achieve specific goals using AWS services. For more information, refer to [Creating a solution](https://docs.aws.amazon.com/partner-central/latest/builder-guide/creating-a-solution.html) in the *AWS Partner Central Builder Guide*. 
 

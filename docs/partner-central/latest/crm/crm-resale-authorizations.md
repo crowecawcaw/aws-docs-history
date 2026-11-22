@@ -1,7 +1,6 @@
 
 
 # Managing AWS Marketplace resale authorizations
-<a name="crm-resale-authorizations"></a>
 
 As an ISV, you can authorize an AWS Channel Partner to resell your products by creating a resale authorization directly within Salesforce using the AWS Partner CRM Connector. The connector allows you to specify a fixed rate per product dimension, which creates a wholesale price for the AWS Channel Partner. The Channel Partner can then mark up the wholesale price when creating private offers for buyers. The connector enables you to manage the entire lifecycle of resale authorizations, from creation and modification to deactivation and cloning, so you can handle all aspects of your channel partner relationships without leaving Salesforce.
 

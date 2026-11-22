@@ -1,7 +1,6 @@
 
 
 # Lead sharing
-<a name="custom-lead-sharing"></a>
 
 ## How AWS shares leads
 <a name="how-aws-shares-leads"></a>

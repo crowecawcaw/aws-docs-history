@@ -1,7 +1,6 @@
 
 
 # Managing ACE opportunities
-<a name="manage-ace-opportunities"></a>
 
 The following topics explain how to use the AWS Partner CRM connector to manage ACE opportunities. 
 

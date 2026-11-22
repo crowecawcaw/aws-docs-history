@@ -1,7 +1,6 @@
 
 
 # Sync logs and reports
-<a name="crm-connector-sync-logs-and-reports"></a>
 
 The following topics explain how to use sync logs and reports in the AWS Partner CRM connector app. The topics also list the log and report types, and the data they contain.
 

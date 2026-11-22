@@ -1,7 +1,6 @@
 
 
 # Integration prerequisites
-<a name="crm-integration-setting-up"></a>
 
 The following topics list the prerequisites needed for using the AWS Partner CRM connector, and for a Partner Central API integration. For information about the prerequisites for a third-party integration, contact your integration provider.
 

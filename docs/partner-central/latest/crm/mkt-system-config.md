@@ -1,7 +1,6 @@
 
 
 # Entering system configuration settings
-<a name="mkt-system-config"></a>
 
 After you onboard an AWS seller account, you enter several system settings. Follow these steps.
 

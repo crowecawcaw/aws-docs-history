@@ -1,7 +1,6 @@
 
 
 # Upgrading the connector to the latest version
-<a name="upgrading-from-previous-versions"></a>
 
 The following topics explain how to upgrade the AWS Partner CRM connector to latest version. Upgrading involves adding buttons, sync log details, and mapping values to your opportunity records.
 

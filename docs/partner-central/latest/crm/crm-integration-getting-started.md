@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="crm-integration-getting-started"></a>
 
 **Note**  
 To complete the steps listed in this section, you must first complete the [integration prerequisites](crm-integration-setting-up.md).

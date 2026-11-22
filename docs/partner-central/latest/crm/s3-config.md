@@ -1,7 +1,6 @@
 
 
 # Configuring the connector for a CRM with Amazon S3 integration
-<a name="s3-config"></a>
 
 **Important**  
 Starting in 2024, AWS Partner Central made this integration type unavailable to new users. 

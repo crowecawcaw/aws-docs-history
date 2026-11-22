@@ -1,7 +1,6 @@
 
 
 # FAQs
-<a name="faqs"></a>
 
  Use these common questions and answers to assist in the custom integration. 
 

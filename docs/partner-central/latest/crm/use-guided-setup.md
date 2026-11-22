@@ -1,7 +1,6 @@
 
 
 # Using guided setup
-<a name="use-guided-setup"></a>
 
 You always use Salesforce to configure the CRM connector, and you start on the **Guided setup** tab. The following steps explain how to start the tab:
 

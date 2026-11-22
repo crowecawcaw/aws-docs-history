@@ -1,7 +1,6 @@
 
 
 # Viewing opportunity records
-<a name="viewing-opportunities"></a>
 
 The following steps explain how to view opportunity records in the CRM connector app.
 

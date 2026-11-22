@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
  Use these best practices to optimize your custom integration development and maintenance.
 

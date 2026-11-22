@@ -1,7 +1,6 @@
 
 
 # Version history
-<a name="version-history"></a>
 
 Current fields version: 14 (November 15, 2023)
 

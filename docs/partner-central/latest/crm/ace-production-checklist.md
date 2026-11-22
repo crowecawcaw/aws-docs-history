@@ -1,7 +1,6 @@
 
 
 # Production checklist
-<a name="ace-production-checklist"></a>
 
 Follow these steps to complete the production installation of your AWS Partner CRM connector.
 

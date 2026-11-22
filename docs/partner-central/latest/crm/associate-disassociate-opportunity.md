@@ -1,7 +1,6 @@
 
 
 # Associating or dissociating an opportunity
-<a name="associate-disassociate-opportunity"></a>
 
 The following steps explain how to associate and disassociate an opportunity from Partner Solutions, AWS products, or AWS Marketplace offers. You can associate and disassociate an opportunity at any time during the opportunity's lifecycle.
 

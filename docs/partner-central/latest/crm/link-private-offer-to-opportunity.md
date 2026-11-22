@@ -1,7 +1,6 @@
 
 
 # Linking AWS Marketplace private offers to ACE opportunities
-<a name="link-private-offer-to-opportunity"></a>
 
 You can link private offers directly from the AWS delivered ACE opportunity record page in Salesforce.
 

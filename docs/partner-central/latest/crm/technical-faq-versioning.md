@@ -1,7 +1,6 @@
 
 
 # Technical FAQ—versioning and backward compatibility
-<a name="technical-faq-versioning"></a>
 
  **Q: What is a payload in Amazon Web Services (AWS) data exchange?**
 

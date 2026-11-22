@@ -1,7 +1,6 @@
 
 
 # Setting Amazon S3 permissions for the IAM user
-<a name="s3-iam-perms"></a>
 
 The IAM user created for an AWS Marketplace configuration must have permissions to interact with Amazon S3. The Amazon S3 policy shown below grants the IAM user permission to view a bucket, list its contents, upload objects to the bucket, and generate pre-signed URLs for objects in the bucket. The connector requires these permissions because it must upload a custom EULA to an Amazon S3 bucket and generate a pre-signed URL to pass to the AWS Marketplace Catalog API.
 
@@ -12,7 +11,7 @@ The following policy uses the ${amzn-s3-demo-bucket} fictitious name. Replace it
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
           "Statement": [

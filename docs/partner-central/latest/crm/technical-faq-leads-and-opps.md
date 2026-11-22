@@ -1,7 +1,6 @@
 
 
 # Technical FAQ—leads and opportunities
-<a name="technical-faq-leads-and-opps"></a>
 
 ## Send and receive leads and opportunities
 <a name="send-and-receive-leads-and-opportunities"></a>

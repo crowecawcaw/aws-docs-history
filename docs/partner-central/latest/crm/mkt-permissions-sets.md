@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace permission sets
-<a name="mkt-permissions-sets"></a>
 
 The CRM connector supports the following primary AWS Partner personas. Partners enable the personas by giving the Salesforce user the corresponding permission set included in the application.
 

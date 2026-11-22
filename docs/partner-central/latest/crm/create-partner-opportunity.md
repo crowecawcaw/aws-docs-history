@@ -1,7 +1,6 @@
 
 
 # Creating partner-originated opportunities
-<a name="create-partner-opportunity"></a>
 
 The following steps explain how to create a partner-originated opportunity.
 

@@ -1,7 +1,6 @@
 
 
 # Accepting or rejecting AWS originated opportunities
-<a name="accept-reject-aws-opportunity"></a>
 
 The following steps explain how to accept or reject an opportunity that originates from AWS Sales.
 

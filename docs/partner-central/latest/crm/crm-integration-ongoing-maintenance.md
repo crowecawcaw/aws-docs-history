@@ -1,7 +1,6 @@
 
 
 # Maintaining an integration
-<a name="crm-integration-ongoing-maintenance"></a>
 
 AWS Partner CRM integrations have the following routine maintenance requirements:
 +  **Monitoring AWS updates** – Stay current with AWS updates to processes and data models that may affect the CRM integration. 

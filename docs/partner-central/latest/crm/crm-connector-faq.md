@@ -1,7 +1,6 @@
 
 
 # AWS Partner CRM connector FAQ
-<a name="crm-connector-faq"></a>
 
 The topics in this section help answer frequently asked questions about AWS Partner CRM integration and using the CRM connector.
 
@@ -224,7 +223,7 @@ The app uses the following checkpoints:
 
 In Salesforce, you can create or update the formula field to add the dependency from the status or stage fields for a specific value. For example, you can set **Has Updates for AWS** to **True**. You can use the included field on the opportunity as a reference. The following example shows how:
 
-```
+```sql
 IF(
    OR( 
       AND
@@ -293,7 +292,7 @@ AWS uploads leads and opportunities to the Amazon S3 bucket every hour. As a res
 
 The following warning appears when a user performing object mapping doesn't have read access to the required fields:
 
-```
+```javascript
 pe.setFieldLengthWarning()@ -
 /modules/awsapn/fieldMappingRow.js:1:7831
 set salesforceFields()@- /modules/awsapn/fieldMappingRow.js:1:5624

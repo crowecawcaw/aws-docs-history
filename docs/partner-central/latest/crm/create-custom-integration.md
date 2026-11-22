@@ -1,7 +1,6 @@
 
 
 # Creating a custom integration with the Partner Central API
-<a name="create-custom-integration"></a>
 
 You use the AWS Partner Central API to create a custom CRM integration, and to use the CRM connector. The [ AWS Partner Central API reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/aws-partner-central-api-reference-guide.html) explains the prerequisites for a Partner Central API integration, and how to use the API actions that enable you to create and work with opportunities and engagements.
 

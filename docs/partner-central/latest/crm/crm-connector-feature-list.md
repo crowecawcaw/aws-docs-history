@@ -1,7 +1,6 @@
 
 
 # Available features
-<a name="crm-connector-feature-list"></a>
 
 The following topics describe the features provided by the AWS Partner CRM connector. The features support AWS Partner (APN) customer engagements, manage opportunities and leads, and integrate Salesforce with AWS Marketplace. You can enable any combination of the features as needed to meet your business needs and AWS engagement models.
 

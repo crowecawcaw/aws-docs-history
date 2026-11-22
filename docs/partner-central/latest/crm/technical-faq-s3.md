@@ -1,7 +1,6 @@
 
 
 # Technical FAQ—Amazon S3
-<a name="technical-faq-s3"></a>
 
  **Q: Where can I get the Amazon Simple Storage Service (Amazon S3) REST API documentation?**
 
