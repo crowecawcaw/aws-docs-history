@@ -1,7 +1,6 @@
 
 
 # Guidance for Driver-based Demand Planning with o9
-<a name="driver-based-demand-planning-o9"></a>
 
 Publication date: **April 25, 2022 ([Diagram history](#o9-driver-history))**
 
