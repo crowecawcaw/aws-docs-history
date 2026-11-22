@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower release notes
-<a name="release-notes"></a>
 
 The following sections show details about AWS Control Tower releases, since the inception of the service. Some releases require an update for an AWS Control Tower landing zone, and other releases are incorporated into the service automatically. 
 

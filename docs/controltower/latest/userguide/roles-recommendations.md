@@ -1,7 +1,6 @@
 
 
 # Recommendations for setting up groups, roles, and policies
-<a name="roles-recommendations"></a>
 
 As you set up your landing zone, it's a good idea to decide ahead of time which users will require access to certain accounts and why. For example, a security account should be accessible only to the security team, the management account should be accessible only to the cloud administrators' team, and so forth.
 

@@ -1,7 +1,6 @@
 
 
 # The AWSControlTowerExecution role, explained
-<a name="awscontroltowerexecution"></a>
 
 The `AWSControlTowerExecution` role must be present in all enrolled accounts. It allows AWS Control Tower to manage your individual accounts and report information about them to your Audit and Log Archive accounts.
 

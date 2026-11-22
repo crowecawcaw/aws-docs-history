@@ -1,7 +1,6 @@
 
 
 # Expectations for landing zone configuration with APIs
-<a name="getting-started-expectations-api"></a>
 
 The process of setting up your AWS Control Tower landing zone has multiple steps. Certain aspects of your AWS Control Tower landing zone are configurable. Other choices cannot be changed after setup.
 

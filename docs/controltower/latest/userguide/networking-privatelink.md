@@ -1,7 +1,6 @@
 
 
 # Access AWS Control Tower using an interface endpoint (AWS PrivateLink)
-<a name="networking-privatelink"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Control Tower. You can access AWS Control Tower as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS Control Tower.
 
@@ -45,7 +44,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for AWS Control Tower actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed AWS Control Tower actions for all principals on all resources.
 
-```
+```json
 {
    "Statement": [
       {

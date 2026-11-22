@@ -1,7 +1,6 @@
 
 
 # Step 1: Configure your landing zone
-<a name="lz-api-prereques"></a>
 
  The process of setting up your AWS Control Tower landing zone has multiple steps. Certain aspects of your AWS Control Tower landing zone are configurable, but other choices cannot be changed after setup. To learn more about these important considerations prior to launching your landing zone, review [Expectations for landing zone configuration](getting-started-configure.md). 
 
@@ -18,7 +17,7 @@
 
  Call the AWS Organizations `CreateOrganization` API and enable all features to create the **Foundational OU**. AWS Control Tower also recommends creating a designated **Security OU**. This Security OU should contain all of your service integration accounts. These would be the **log archive** account and the **audit** account for previous Landing Zone versions. 
 
-```
+```bash
 aws organizations create-organization --feature-set ALL
 ```
 
@@ -31,7 +30,7 @@ aws organizations create-organization --feature-set ALL
 
 1. Call the AWS Organizations `CreateAccount` API to create the **Log archive** account and **Audit** account in the **Security OU**.
 
-   ```
+   ```bash
    aws organizations create-account --email mylog@example.com --account-name "Logging Account"
    aws organizations create-account --email mysecurity@example.com --account-name "Security Account"
    ```
@@ -40,7 +39,7 @@ aws organizations create-organization --feature-set ALL
 
 1. Move the provisioned service integration accounts into the designated **Security OU**
 
-   ```
+   ```bash
    aws organizations move-account \
        --account-id 0123456789012 \
        --source-parent-id r-examplerootid111 \
@@ -63,7 +62,7 @@ aws organizations create-organization --feature-set ALL
 
  Create an IAM role with the necessary permissions to call all landing zone APIs. Alternatively, you can create an IAM Identity Center user and assign the necessary permissions. 
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	                    
     "Statement": [

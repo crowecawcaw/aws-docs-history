@@ -1,7 +1,6 @@
 
 
 # Pricing
-<a name="pricing"></a>
 
 No additional charge exists for using AWS Control Tower. You only pay for the AWS services enabled by AWS Control Tower, and the services you use in your landing zone. For example, you pay for Service Catalog for provisioning accounts with Account Factory, and AWS CloudTrail for events tracked in your landing zone. For information about the pricing and fees associated with AWS Control Tower, see [AWS Control Tower pricing](https://aws.amazon.com/controltower/pricing).
 

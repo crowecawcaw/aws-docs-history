@@ -1,7 +1,6 @@
 
 
 # Required roles
-<a name="aft-required-roles"></a>
 
 In general, roles and policies are part of identity and access management (IAM) in AWS. Refer to the [*AWS IAM User Guide*](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) for more information.
 
@@ -25,7 +24,7 @@ Here is the inline policy (JSON artifact) attached to the `AWSAFTAdmin` role:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -50,7 +49,7 @@ The following JSON artifact shows the trust relationship for the `AWSAFTAdmin` r
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ Trust policy for `AWSAFTExecution`
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -121,7 +120,7 @@ Trust policy for `AWSAFTService`
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

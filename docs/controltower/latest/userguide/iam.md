@@ -1,7 +1,6 @@
 
 
 # Manage Permissions for Entities with IAM
-<a name="iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service for controlling access to other AWS services. With IAM, you can centrally manage users, security credentials—such as access keys, and permissions—that designate the AWS resources to which your users and applications are granted access.
 

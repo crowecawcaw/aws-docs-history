@@ -1,7 +1,6 @@
 
 
 # Compliance Validation for AWS Control Tower
-<a name="compliance-validation"></a>
 
 AWS Control Tower is a well-architected service that can help your organization meet your compliance needs with controls and best practices. Additionally, third-party auditors assess the security and compliance of a number of the services you can use in your landing zone as a part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

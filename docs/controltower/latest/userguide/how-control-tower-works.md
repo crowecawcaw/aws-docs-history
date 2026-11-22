@@ -1,7 +1,6 @@
 
 
 # How AWS Control Tower works
-<a name="how-control-tower-works"></a>
 
 This section describes at a high level how AWS Control Tower works. Your landing zone is a well-architected multi-account environment for all of your AWS resources. You can use this environment to enforce compliance regulations on all of your AWS accounts.
 

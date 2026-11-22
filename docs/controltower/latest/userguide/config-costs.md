@@ -1,7 +1,6 @@
 
 
 # Manage AWS Config costs in AWS Control Tower
-<a name="config-costs"></a>
 
 This section describes how AWS Config records and bills you for changes to resources in your AWS Control Tower accounts. This information may help you understand how to manage the costs associated with AWS Config, when you're utilizing AWS Control Tower. AWS Control Tower adds no additional cost. 
 

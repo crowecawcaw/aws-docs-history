@@ -1,7 +1,6 @@
 
 
 # Limitations based on underlying AWS services
-<a name="region-stackset-limitations"></a>
 
 This page describes limitations that you may encounter due to limitations in other AWS services, and how AWS Control Tower works with those services. 
 

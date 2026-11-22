@@ -1,7 +1,6 @@
 
 
 # Examples for baseline API usage
-<a name="baseline-api-examples"></a>
 
  This section contains examples of input and output parameters for the AWS Control Tower baseline APIs.
 

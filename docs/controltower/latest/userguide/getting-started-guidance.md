@@ -1,7 +1,6 @@
 
 
 # Guidance for creating and modifying AWS Control Tower resources
-<a name="getting-started-guidance"></a>
 
 We recommend the following best practices as you create and modify resources in AWS Control Tower. This guidance might change as the service is updated. Remember that the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to your AWS Control Tower environment.
 

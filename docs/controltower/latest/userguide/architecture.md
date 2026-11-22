@@ -1,11 +1,12 @@
 
 
 # Architecture overview
-<a name="architecture"></a>
 
 Deploying CfCT builds the following environment in the AWS Cloud, with an Amazon S3 bucket as a configuration source.
 
 ![Customizations for AWS Control Tower architecture diagram](https://docs.aws.amazon.com/controltower/latest/userguide/images/customizations-for-aws-control-tower-architecture-diagram.png)
+
+**Figure 1: Customizations for AWS Control Tower architecture**
 
 
 CfCT includes an AWS CloudFormation template that you deploy in your AWS Control Tower management account. The template launches all the components necessary to build the workflows, so you can customize your AWS Control Tower landing zone.

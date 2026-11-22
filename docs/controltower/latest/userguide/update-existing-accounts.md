@@ -1,7 +1,6 @@
 
 
 # When to update AWS Control Tower OUs and accounts
-<a name="update-existing-accounts"></a>
 
 When you perform a landing zone update, you must update your enrolled accounts to apply new controls to those accounts.
 + You can perform an update to all accounts under an OU using the Re-Register or Reset option.

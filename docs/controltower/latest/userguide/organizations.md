@@ -1,7 +1,6 @@
 
 
 # Manage Accounts Through AWS Organizations
-<a name="organizations"></a>
 
 AWS Organizations is an account management service that lets you consolidate multiple AWS accounts into an organization that you create and centrally manage. With Organizations, you can create member accounts and invite existing accounts to join your organization. You can organize those accounts into groups and attach policy-based controls. For more information, see *[AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/)*.
 

@@ -1,7 +1,6 @@
 
 
 # Register an existing OU
-<a name="how-to-register-existing-ou"></a>
 
 In the AWS Control Tower console, on the **Organization** page, you can view all of of your organization's OUs and accounts in a hierarchy, including OUs that are registered with AWS Control Tower, and those that are not registered.
 

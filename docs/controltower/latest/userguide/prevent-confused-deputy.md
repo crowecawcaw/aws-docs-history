@@ -1,7 +1,6 @@
 
 
 # Prevent cross-service impersonation
-<a name="prevent-confused-deputy"></a>
 
  In AWS, cross-service impersonation can result in the *confused deputy problem*. When one service calls another service, cross-service impersonation occurs if one service manipulates another service to use its permissions to act on a customer's resources in a way that's not otherwise permitted. To prevent this attack, AWS provides tools to help you protect your data, so that only those services with legitimate permission can gain access to resources in your account.
 

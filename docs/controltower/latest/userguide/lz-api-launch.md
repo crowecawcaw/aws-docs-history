@@ -1,7 +1,6 @@
 
 
 # Step 2: Launch your landing zone using the AWS Control Tower APIs
-<a name="lz-api-launch"></a>
 
  You can use AWS Control Tower APIs to launch your landing zone. This section describes how to create the required *landing zone manifest file* and use it with the `CreateLandingZone` API operation. 
 
@@ -15,7 +14,7 @@
 
 Below is the complete structure of the manifest file with all available configurations:
 
-```
+```json
 {
     "accessManagement": {
         "enabled": true    // Required - Controls IAM Identity Center integration
@@ -85,7 +84,7 @@ Below is the complete structure of the manifest file with all available configur
 
 To send logs to an existing Amazon S3 bucket instead of a bucket that AWS Control Tower creates and manages, replace the `loggingBucket` and `accessLoggingBucket` objects with a `customLoggingBucket` object in the `centralizedLogging` integration, the `config` integration, or both. The `bucketArn` identifies the bucket, and the `bucketAccountId` identifies the account that owns it. The `kmsKeyArn` fields identify the AWS KMS keys used for encryption. The following example uses a custom logging bucket for both integrations:
 
-```
+```json
 {
     "accessManagement": {
         "enabled": true
@@ -142,13 +141,13 @@ You can't use `customLoggingBucket` together with `loggingBucket` or `accessLogg
 
 To create your landing zone using the API:
 
-```
+```bash
 aws controltower create-landing-zone --landing-zone-version 4.0 --manifest file://manifest.json
 ```
 
 The API will return a landing zone operation ID that you can use to track the progress of your landing zone creation. Sample response:
 
-```
+```json
 {
     "arn": "arn:aws:controltower:us-west-2:123456789012:landingzone/1A2B3C4D5E6F7G8H",
     "operationIdentifier": "55XXXXXX-e2XX-41XX-a7XX-446XXXXXXXXX"
@@ -157,7 +156,7 @@ The API will return a landing zone operation ID that you can use to track the pr
 
 You can monitor the operation status using `GetLandingZoneOperation` API which returns a **status** of `SUCCEEDED`, `FAILED`, or `IN_PROGRESS`:
 
-```
+```bash
 aws controltower get-landing-zone-operation --operation-identifier "55XXXXXX-eXXX-4XXX-aXXX-44XXXXXXXXXX"
 ```
 

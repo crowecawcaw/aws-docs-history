@@ -1,7 +1,6 @@
 
 
 # Collection of operational metrics
-<a name="cfct-metrics"></a>
 
  *Customizations for AWS Control Tower* (CfCT) includes an option to send anonymous operational metrics to AWS. AWS uses this data to understand how customers are using CfCT, as well as other related services and products. When data collection is enabled, the following information is sent to AWS: 
 + **Solution ID:** The AWS solution identifier

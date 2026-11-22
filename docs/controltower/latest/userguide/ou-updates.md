@@ -1,7 +1,6 @@
 
 
 # Update organizations
-<a name="ou-updates"></a>
 
 The quickest way to update an organizational unit (OU) or to update multiple accounts within an OU is to perform one of the following actions: 
 + Re-register the OU if `AWSControlTowerBaseline` is enabled.

@@ -1,7 +1,6 @@
 
 
 # About AWS accounts in AWS Control Tower
-<a name="accounts"></a>
 
 An AWS account is the container for all your owned resources. These resources include the AWS Identity and Access Management (IAM) identities accepted by the account, which determine who has access to that account. IAM identities can include users, groups, roles, and more. For more information about working with IAM, users, roles, and policies in AWS Control Tower, see [Identity and access management in AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/auth-access.html).
 

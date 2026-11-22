@@ -1,7 +1,6 @@
 
 
 # Key changes
-<a name="key-changes-lz-v4"></a>
 
 **Note**  
  The definition of “registered” and “enrolled” have shifted with this new version of AWS Control Tower. When your account/OU has any AWS Control Tower resource enabled on it (e.g. control or baseline), it will be considered a governed resource. The definition will no longer be driven by the presence of the `AWSControlTowerBaseline` baseline. 

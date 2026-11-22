@@ -1,7 +1,6 @@
 
 
 # Step 2b. Configure your organizational units (OUs)
-<a name="configure-ous"></a>
 
 If you accept the default names of these OUs, there's no action you need to take for setup to continue. To change the names of the OUs, enter the new names directly in the form field.
 + **Foundational OU** – AWS Control Tower relies upon a **Foundational OU** that is initially named the **Security OU**. You can change the name of this OU during initial setup and afterward, from the OU details page. This **Security OU** contains your two shared accounts, which by default are called the **log archive** account and the **audit** account.

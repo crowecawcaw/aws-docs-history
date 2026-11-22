@@ -1,7 +1,6 @@
 
 
 # Considerations for activating AWS opt-in Regions
-<a name="opt-in-region-considerations"></a>
 
 Although most AWS Regions are active by default for your AWS account, certain Regions are activated only when you manually select them. This document refers to those Regions as *opt-in Regions*. In contrast, Regions that are active by default, as soon as your AWS account is created, are referred to as *commercial Regions*, *default Regions*, or simply, *Regions*.
 

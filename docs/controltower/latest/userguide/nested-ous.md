@@ -1,7 +1,6 @@
 
 
 # Nested OUs in AWS Control Tower
-<a name="nested-ous"></a>
 
 This chapter lists the expectations and considerations you'll want to be aware of when working with nested OUs in AWS Control Tower. In most ways, working with nested OUs is the same as working with a flat OU structure. The **Register** and **Re-register** features work with nested OUs, except for the changed behaviors that are noted in this chapter.
 

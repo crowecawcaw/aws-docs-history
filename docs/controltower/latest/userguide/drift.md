@@ -1,7 +1,6 @@
 
 
 # Detect and resolve drift in AWS Control Tower
-<a name="drift"></a>
 
 Identifying and resolving drift is a regular operations task for AWS Control Tower management account administrators. Resolving drift helps to ensure your compliance with governance requirements.
 

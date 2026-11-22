@@ -1,7 +1,6 @@
 
 
 # Logging AWS Control Tower Actions with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Control Tower is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Control Tower. CloudTrail captures actions for AWS Control Tower as events. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Control Tower.
 
@@ -74,7 +73,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 The following example shows a CloudTrail log entry that shows the structure of a typical log file entry for a `SetupLandingZone` AWS Control Tower event, including a record of the identity of the user who initiated the action. 
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Best practices for AWS Control Tower administrators
-<a name="best-practices"></a>
 
 This topic is intended primarily for management account administrators.
 

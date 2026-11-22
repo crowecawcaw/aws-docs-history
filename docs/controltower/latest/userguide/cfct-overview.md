@@ -1,7 +1,6 @@
 
 
 # Customizations for AWS Control Tower (CfCT) overview
-<a name="cfct-overview"></a>
 
 *Customizations for AWS Control Tower* (CfCT) helps you customize your AWS Control Tower landing zone and stay aligned with AWS best practices. Customizations are implemented with AWS CloudFormation templates, service control policies (SCPs), and resource control policies (RCPs).
 

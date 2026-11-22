@@ -1,7 +1,6 @@
 
 
 # Update and move accounts with AWS Control Tower
-<a name="updating-account-factory-accounts"></a>
 
 The easiest way to update an enrolled account is through the AWS Control Tower console. Individual account updates are useful for resolving drift, such as [Moved member account](governance-drift.md#drift-account-moved). Account updates also are required as part of a full landing zone update.
 

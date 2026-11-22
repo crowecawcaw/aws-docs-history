@@ -1,7 +1,6 @@
 
 
 # Customize accounts with Account Factory Customization (AFC)
-<a name="af-customization-page"></a>
 
 **Note**  
 Single account provision, update and customization must target an organizational unit (OU) with AWSControlTowerBaseline enabled. If an OU does not have the AWSControlTowerBaseline enabled, you can activate account auto-enrollment or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and EnabledControls on that OU to enroll accounts. For details of AWSControlTowerBaseline, see: [Baseline types that apply at the OU level](types-of-baselines.md#ou-baseline-types). 
@@ -124,7 +123,7 @@ However, best practices suggest that you must restrict the permissions for Cloud
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -167,7 +166,7 @@ When you're creating an AWS Service Catalog External product with a Terraform co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

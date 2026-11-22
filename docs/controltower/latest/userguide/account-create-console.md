@@ -1,7 +1,6 @@
 
 
 # Provision accounts in the AWS Control Tower console
-<a name="account-create-console"></a>
 
  The following procedure describes how to create and provision accounts as a user in IAM Identity Center through the AWS Control Tower console. This procedure also is referred to as *manual account provisioning*. Optionally, you may be able to provision AWS Control Tower accounts programmatically, with the AWS CLI, with Service Catalog APIs, or with AWS Control Tower Account Factory for Terraform (AFT), or automatically enroll an existing account into a registered OU. You may be able to provision customized accounts in the console if you've previously set up custom blueprints. For more information about customization, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md).
 

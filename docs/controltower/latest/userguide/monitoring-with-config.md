@@ -1,7 +1,6 @@
 
 
 # Monitor resource changes with AWS Config
-<a name="monitoring-with-config"></a>
 
 AWS Control Tower enables AWS Config on all enrolled accounts, so that it can monitor compliance through detective controls, record resource changes, and deliver resource change logs to a centralized account. AWS Control Tower centralizes this AWS Config data so that you can review resource configuration changes from all enrolled accounts in one place, which helps you audit your environment and demonstrate compliance.
 

@@ -1,7 +1,6 @@
 
 
 # Provision accounts with AWS Control Tower Account Factory for Terraform (AFT)
-<a name="taf-account-provisioning"></a>
 
 AWS Control Tower Account Factory for Terraform (AFT) adopts a GitOps model that automates the process of account provisioning and updating in AWS Control Tower. 
 

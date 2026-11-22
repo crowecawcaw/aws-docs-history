@@ -1,7 +1,6 @@
 
 
 # Step 1. Launch the stack
-<a name="step1"></a>
 
 The CloudFormation template in this section deploys *Customizations for AWS Control Tower* (CfCT) in your account.
 

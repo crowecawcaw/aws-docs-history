@@ -1,7 +1,6 @@
 
 
 # AFT Architecture
-<a name="aft-architecture"></a>
 
 ## Order of operations
 <a name="aft-operation"></a>
@@ -19,3 +18,5 @@
 **AWS Control Tower Account Factory for Terraform – account provisioning workflow **
 
 ![Figure: AFT Workflow Diagram](https://docs.aws.amazon.com/controltower/latest/userguide/images/high-level-aft-diagram.png)
+
+**Figure 1: AWS Control Tower Account Factory for Terraform**

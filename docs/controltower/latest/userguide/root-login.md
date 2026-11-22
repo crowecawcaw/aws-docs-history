@@ -1,7 +1,6 @@
 
 
 # When to sign in as a root user
-<a name="root-login"></a>
 
 Certain administrative tasks require that you must sign in as a root user. You can sign in as a root user to an AWS account that was created by account factory in AWS Control Tower.
 

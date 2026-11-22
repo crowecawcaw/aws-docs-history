@@ -1,7 +1,6 @@
 
 
 # Viewing drift
-<a name="viewing-drift"></a>
 
 You can view the drift status for your accounts and OUs through the console or APIs, and identify when account and OU configurations are *drifted*, or out of sync. Drift status also is communicated with SNS messages. For more information about receiving these SNS messages, see [Guidance on subscribing to SNS Topics](https://docs.aws.amazon.com/controltower/latest/userguide/sns-guidance.html).
 

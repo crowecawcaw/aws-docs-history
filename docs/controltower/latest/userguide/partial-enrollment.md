@@ -1,7 +1,6 @@
 
 
 # Partial enrollment of accounts
-<a name="partial-enrollment"></a>
 
 When you're working with baselines, an account can be placed into a state called **Partially enrolled**.
 

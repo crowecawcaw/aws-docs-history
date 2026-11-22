@@ -1,7 +1,6 @@
 
 
 # Resilience in AWS Control Tower
-<a name="disaster-recovery-resiliency"></a>
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. 
 

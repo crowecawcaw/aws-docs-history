@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions to your AWS Control Tower resources
-<a name="access-control-overview"></a>
 
 Every AWS resource is owned by an AWS account, and permissions to create or gain access to a resource are governed by permissions policies. An account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles). Some services (such as AWS Lambda) also support attaching permissions policies to resources. 
 

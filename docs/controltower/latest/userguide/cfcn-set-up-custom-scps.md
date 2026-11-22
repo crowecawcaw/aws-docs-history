@@ -1,7 +1,6 @@
 
 
 # Set up a configuration package for SCPs or RCPs
-<a name="cfcn-set-up-custom-scps"></a>
 
 This section explains how to create a configuration package for service control policies (SCPs) or resource control policies (RCPs). The two main parts of this process are (1) prepare the CfCT manifest file, and (2) prepare your folder structure.
 
@@ -85,7 +84,7 @@ The following snippet is an example of a `block-s3-public.json` policy file.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

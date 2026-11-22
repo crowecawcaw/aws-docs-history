@@ -1,7 +1,6 @@
 
 
 # Remove AWS Control Tower Roles and Policies
-<a name="controltower-walkthrough-cleanup-identity"></a>
 
 These procedures walk you through how to clean up the roles and policies that AWS Control Tower created when your landing zone was set up, or later.
 

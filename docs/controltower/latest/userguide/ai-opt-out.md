@@ -1,7 +1,6 @@
 
 
 # AI-based services and AWS Control Tower
-<a name="ai-opt-out"></a>
 
 You can create service control policies (SCPs) that allow you to opt out of having your data stored by AI-based services on AWS. These SCP policies specify that AI-based services, such as Amazon Rekognition or Amazon CodeWhisperer, cannot store and use your data to improve other AI-based AWS services.
 

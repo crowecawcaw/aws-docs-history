@@ -1,7 +1,6 @@
 
 
 # Optionally configure AWS KMS keys
-<a name="configure-kms-keys"></a>
 
 If you wish to encrypt and decrypt your resources with an AWS KMS encryption key, select the checkbox. If you have existing keys, you'll be able to select them from identifiers displayed in a dropdown menu. You can generate a new key by choosing **Create a key**. You can add or change a KMS key any time you update your landing zone.
 

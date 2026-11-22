@@ -1,7 +1,6 @@
 
 
 # Deployment considerations
-<a name="cfct-considerations"></a>
 
 Be sure to launch *Customizations for AWS Control Tower * (CfCT) in the same account and Region where your AWS Control Tower landing zone is deployed; that is, you must deploy it in the AWS Control Tower management account in your AWS Control Tower home Region. By default, CfCT creates and runs the landing zone configuration package by setting up a configuration pipeline in that account and Region.
 

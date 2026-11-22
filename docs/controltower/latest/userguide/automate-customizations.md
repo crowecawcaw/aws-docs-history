@@ -1,7 +1,6 @@
 
 
 # Automate customizations outside the AWS Control Tower console
-<a name="automate-customizations"></a>
 
 Some customizations are not available through the AWS Control Tower console, but they can be implemented in other ways. For example:
 + You can customize accounts during provisioning, in a GitOps-style workflow, with [*Account Factory for Terraform (AFT)*](taf-account-provisioning.md).

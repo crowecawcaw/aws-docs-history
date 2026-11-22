@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="setting-up"></a>
 
 Before you use AWS Control Tower for the first time, follow the steps in this section to create an AWS account and protect your AWS Control Tower management account. For information on additional setup tasks specifically for AWS Control Tower, see [Getting started with AWS Control Tower](getting-started-with-control-tower.md).
 

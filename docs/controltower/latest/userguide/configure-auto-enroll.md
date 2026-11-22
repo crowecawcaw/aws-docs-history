@@ -1,7 +1,6 @@
 
 
 # Optionally configure auto-enrollment for accounts
-<a name="configure-auto-enroll"></a>
 
 When you enable this feature during setup, or later, accounts that are moved between two registered OUs, or moved into your AWS Control Tower environment for the first time, no longer show a state of inheritance drift. The accounts automatically inherit the baselines and controls that are enabled on the new OU. Controls and baselines from the previous OU are removed.
 

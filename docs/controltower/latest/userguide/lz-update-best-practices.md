@@ -1,7 +1,6 @@
 
 
 # Best practices for landing zone updates
-<a name="lz-update-best-practices"></a>
 
 This section gives some considerations and best practices to keep in mind when you are considering an upgrade of your landing zone version in AWS Control Tower. The change from the 2.0 landing zone version series into the 3.0 landing zone version series is especially important. When you upgrade your landing zone, AWS Control Tower automatically moves you to the latest available version.
 

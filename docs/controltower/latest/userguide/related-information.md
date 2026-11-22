@@ -1,7 +1,6 @@
 
 
 # Additional information and links
-<a name="related-information"></a>
 
 This topic includes links to relevant blog posts, technical documentation, and related information that can help you as you work with AWS Control Tower. The sources cover some common use cases and best practices for AWS Control Tower capabilities, and some additional enhancements. 
 

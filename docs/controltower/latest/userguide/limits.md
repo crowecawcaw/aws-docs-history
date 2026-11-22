@@ -1,7 +1,6 @@
 
 
 # Limitations and quotas in AWS Control Tower
-<a name="limits"></a>
 
 This chapter covers the AWS service limitations and quotas that you should keep in mind as you use AWS Control Tower. If you're unable to set up your landing zone due to a service quota issue, contact [AWS Support](https://aws.amazon.com/premiumsupport/).
 

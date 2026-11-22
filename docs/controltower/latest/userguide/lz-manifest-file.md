@@ -1,7 +1,6 @@
 
 
 # View the details of your landing zone manifest file
-<a name="lz-manifest-file"></a>
 
 The AWS Control Tower landing zone manifest file is a text file that describes your AWS Control Tower resources. The following sections show detailed definitions of entries in the landing zone manifest file.
 

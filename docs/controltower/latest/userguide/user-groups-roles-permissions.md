@@ -1,7 +1,6 @@
 
 
 # User groups, roles, and permission sets
-<a name="user-groups-roles-permissions"></a>
 
 User groups manage specialized *roles* that are defined within your shared accounts. Roles establish sets of permissions that belong together. All members of a group inherit the permission sets, or roles, associated with the group. You can create new groups for the end users of your member accounts, so that you can custom-assign only the roles that are needed for the specific tasks a group performs. 
 

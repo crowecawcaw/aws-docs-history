@@ -1,7 +1,6 @@
 
 
 # Types of governance drift
-<a name="governance-drift"></a>
 
 Governance drift, also called *organizational drift* occurs when OUs, SCPs, and member accounts are changed or updated. The types of governance drift that can be detected in AWS Control Tower are as follows: 
 + Account and OU governance drift

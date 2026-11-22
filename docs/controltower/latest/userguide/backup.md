@@ -1,7 +1,6 @@
 
 
 # AWS Backup and AWS Control Tower
-<a name="backup"></a>
 
 AWS Backup is a service that allows you to create plans for backing up your AWS resources automatically. To set up backups for your AWS Control Tower resources, you must follow four main steps:
 

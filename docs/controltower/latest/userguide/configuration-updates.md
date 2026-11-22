@@ -1,7 +1,6 @@
 
 
 # Configuration update management in AWS Control Tower
-<a name="configuration-updates"></a>
 
 It is the responsibility of the members of your central cloud administrators' team to keep your landing zone updated. Updating your landing zone ensures that AWS Control Tower is patched and updated. In addition, to protect your landing zone from potential compliance issues, the members of the central cloud administrator team should resolve drift issues as soon as they're detected and reported.
 

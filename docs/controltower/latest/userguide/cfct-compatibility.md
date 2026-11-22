@@ -1,7 +1,6 @@
 
 
 # Version upgrades for the CfCT manifest
-<a name="cfct-compatibility"></a>
 
 For information about the latest version of *Customizations for AWS Control Tower* (CfCT), see the [`CHANGELOG.md` file](https://github.com/aws-solutions/aws-control-tower-customizations/blob/master/CHANGELOG.md) in the GitHub repository. 
 

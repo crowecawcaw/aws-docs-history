@@ -1,7 +1,6 @@
 
 
 # Types of baselines
-<a name="types-of-baselines"></a>
 
 A *baseline* in AWS Control Tower is a group of resources and specific configurations that you can apply to a target. The most common baseline target may be an organizational unit (OU). For example, you can enable a baseline with an OU selected as a target, to register that OU into AWS Control Tower.
 

@@ -1,7 +1,6 @@
 
 
 # Provision accounts in the Service Catalog console, with Account Factory
-<a name="provision-as-end-user"></a>
 
  The following procedure describes how to create and provision accounts as a user in IAM Identity Center through AWS Service Catalog. This procedure also is referred to as *advanced account provisioning*, or *manual account provisioning*. Optionally, you may be able to provision AWS Control Tower accounts programmatically, with the AWS CLI, with Service Catalog APIs, or with AWS Control Tower Account Factory for Terraform (AFT). You may be able to provision customized accounts in the console if you've previously set up custom blueprints. For more information about customization, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md).
 

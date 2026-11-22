@@ -1,7 +1,6 @@
 
 
 # Integrated services
-<a name="integrated-services"></a>
 
 AWS Control Tower is a service that's built on top of other AWS services, to assist you in setting up a well-architected environment. This chapter provides a brief overview of these services, including configuration information about the underlying services and how they work in AWS Control Tower.
 

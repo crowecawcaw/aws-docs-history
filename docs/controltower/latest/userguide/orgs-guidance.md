@@ -1,7 +1,6 @@
 
 
 # AWS Organizations guidance
-<a name="orgs-guidance"></a>
 
 AWS Control Tower is closely associated with AWS Organizations. Here is some specific guidance about how they work together best to protect your AWS environment.
 + You can find guidance about best practices to protect the security of your AWS Control Tower management account and member accounts in the AWS Organizations documentation.

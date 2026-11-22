@@ -1,7 +1,6 @@
 
 
 # Use AWS CloudShell to work with AWS Control Tower
-<a name="using-aws-with-cloudshell"></a>
 
 AWS CloudShell is an AWS service that facilitates working in the AWS CLI — it's a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. There's no need to download or install command line tools. You can run AWS CLI commands for AWS Control Tower and other AWS services from your preferred shell (Bash, PowerShell or Z shell). 
 

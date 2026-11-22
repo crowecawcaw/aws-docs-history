@@ -1,7 +1,6 @@
 
 
 # Step 3. Review and set up the landing zone
-<a name="review-and-set-up"></a>
 
 The next section in the setup shows you the permissions that AWS Control Tower requires for your landing zone. Choose a checkbox to expand each topic. You'll be asked to agree to these permissions, which may affect multiple accounts, and to agree to the overall **Terms of Service**.
 

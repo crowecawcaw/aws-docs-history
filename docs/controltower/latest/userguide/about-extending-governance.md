@@ -1,7 +1,6 @@
 
 
 # Extend governance to an existing organization
-<a name="about-extending-governance"></a>
 
 You can add AWS Control Tower governance to an existing organization by setting up a landing zone (LZ) as outlined in the AWS Control Tower User Guide at [Getting Started, Step 2](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#step-two).
 

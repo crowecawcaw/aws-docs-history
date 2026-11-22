@@ -1,7 +1,6 @@
 
 
 # AWS Config Updates
-<a name="config-updates-v4"></a>
 +  **Dedicated resources for AWS Config and AWS CloudTrail: ** AWS Config and AWS CloudTrail now use separate dedicated S3 buckets and SNS topics instead of shared resources. Customers have restricted flexibility to use a single or separate accounts for multiple integrations. 
   +  When upgrading to AWS Control Tower landing zone version 4.0, existing data and S3 buckets are not moved. AWS CloudTrail integration continues to use the existing S3 bucket with prefix `aws-controltower-logs`. The new AWS Config data post the update operation will be stored in a new S3 bucket with prefix `aws-controltower-config` that AWS Control Tower creates in the account designated for the CentralConfigBaseline. 
 **Note**  

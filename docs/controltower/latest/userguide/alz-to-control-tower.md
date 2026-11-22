@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Move from ALZ to AWS Control Tower
-<a name="alz-to-control-tower"></a>
 
 Many AWS customers have adopted the [AWS Landing Zone solution (ALZ)](https://aws.amazon.com/solutions/implementations/aws-landing-zone/) to set up a secure, compliant, multi-account AWS environment. To reduce the burden of managing a landing zone, AWS created the managed service called AWS Control Tower.
 

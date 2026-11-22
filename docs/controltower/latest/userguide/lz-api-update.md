@@ -1,7 +1,6 @@
 
 
 # Update your landing zone
-<a name="lz-api-update"></a>
 
 When a new landing zone version is available, or to make other updates to your landing zone configuration, you can call the `UpdateLandingZone` API and reference an updated landing zone manifest file. This API returns an `OperationIdentifier`, which you can then use when calling the `GetLandingZoneOperation` API to check the update operation's status. 
 

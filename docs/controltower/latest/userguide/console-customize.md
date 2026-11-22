@@ -1,7 +1,6 @@
 
 
 # Customize from the AWS Control Tower console
-<a name="console-customize"></a>
 
 To make these customizations to your landing zone, follow the steps given by the AWS Control Tower console.
 

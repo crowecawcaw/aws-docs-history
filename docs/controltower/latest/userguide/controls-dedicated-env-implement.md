@@ -1,7 +1,6 @@
 
 
 # Implementation Process
-<a name="controls-dedicated-env-implement"></a>
 
  If you proceed without AWS Config, your environment will be immediately ready for preventive and proactive controls within the Control Catalog. 
 

@@ -1,7 +1,6 @@
 
 
 # Step 2c. Configure your shared accounts, logging, and encryption
-<a name="configure-shared-accounts"></a>
 
 In this section of the setup process, the panel shows the default selections for the names of your shared AWS Control Tower accounts. These accounts are an essential part of your landing zone. **Do not move or delete these shared accounts**. You can choose customized names for the **audit** and **log archive** accounts during setup. Alternatively, you have a one-time option to specify existing AWS accounts as your shared accounts.
 

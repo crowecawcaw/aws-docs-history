@@ -1,7 +1,6 @@
 
 
 # Landing Zone v4.0 migration guide
-<a name="landing-zone-v4-migration-guide"></a>
 
  AWS Control Tower Landing Zone 4.0 introduces a major overhaul of the landing zone architecture, offering a flexible dedicated controls experience and fully optional service integrations. Key enhancements include the ability to selectively enable AWS Config, AWS CloudTrail, SecurityRoles, and AWS Backup integrations, with dedicated resources for AWS Config and AWS CloudTrail for improved isolation. 
 

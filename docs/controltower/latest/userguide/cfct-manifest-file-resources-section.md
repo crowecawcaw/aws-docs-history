@@ -1,7 +1,6 @@
 
 
 # The resources section of the CfCT manifest file
-<a name="cfct-manifest-file-resources-section"></a>
 
  This topic describes the **resources** section of the CfCT manifest file, where you'll define the resources that are required for your customizations. This section of the CfCT manifest file begins at the keyword **resources** and continues to the end of the file. 
 

@@ -1,7 +1,6 @@
 
 
 # Common causes of failure during registration or re-registration
-<a name="common-eg-failures"></a>
 
 In general, when you register or re-register an OU, all accounts within that OU are enrolled in AWS Control Tower. However, it is possible that some accounts may fail to enroll, even if the OU as a whole is registered successfully. In these cases, you must resolve the pre-check failure related to the account and then try re-enrolling that account or OU.
 

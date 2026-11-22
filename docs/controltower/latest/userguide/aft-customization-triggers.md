@@ -1,7 +1,6 @@
 
 
 # Customization triggers
-<a name="aft-customization-triggers"></a>
 
 Account Factory for Terraform (AFT) customization triggers automate the re-execution of account and global customizations when accounts move between organizational units (OUs). As your organization evolves, accounts frequently transition between OUs to reflect changes in team ownership, compliance requirements, or workload classification. Without customization triggers, each move requires manual intervention to re-apply the customizations that align with the account's new organizational context.
 

@@ -1,7 +1,6 @@
 
 
 # Unenroll an account
-<a name="unmanage-account"></a>
 
 If you created an account in Account Factory or enrolled an AWS account, and you no longer want the account to be managed by AWS Control Tower in a landing zone, you can *unenroll* the account from the AWS Control Tower console. 
 

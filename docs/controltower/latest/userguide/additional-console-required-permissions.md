@@ -1,7 +1,6 @@
 
 
 # Permissions Required to use the AWS Control Tower console
-<a name="additional-console-required-permissions"></a>
 
 AWS Control Tower creates three roles automatically when you set up a landing zone. All three roles are required to allow console access. AWS Control Tower splits permissions into three roles as a best practice to restrict access to the minimal sets of actions and resources.
 
@@ -28,7 +27,7 @@ Here's an example showing the updated permissions in the policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

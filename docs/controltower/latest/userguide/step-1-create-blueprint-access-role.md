@@ -1,7 +1,6 @@
 
 
 # Step 1. Create the required role
-<a name="step-1-create-blueprint-access-role"></a>
 
 Before you begin to customize accounts, you must set up a role that contains a trust relationship between AWS Control Tower and your hub account. When assumed, the role grants AWS Control Tower access to administer the resources in the hub account. The role must be named **AWSControlTowerBlueprintAccess**. 
 
@@ -43,7 +42,7 @@ Here's an example trust policy, similar to one you will need to include for your
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

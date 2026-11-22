@@ -1,7 +1,6 @@
 
 
 # Important Notes
-<a name="controls-dedicated-env-notes"></a>
 
  Creating an AWS Control Tower environment establishes a trusted relationship with AWS Organizations, enabling drift detection for preventive controls, and tracking of account and OU changes. During setup, AWS Control Tower creates a landing zone configuration that serves as the foundation for your managed controls environment. 
 

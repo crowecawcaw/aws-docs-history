@@ -1,7 +1,6 @@
 
 
 # Change the name of an enrolled account
-<a name="change-account-name"></a>
 
 Follow the procedure in this section to change the name of an enrolled AWS Control Tower account.
 

@@ -1,7 +1,6 @@
 
 
 # Create a new OU
-<a name="create-new-ou"></a>
 
 Here's how to create an OU or a nested OU in AWS Control Tower.
 

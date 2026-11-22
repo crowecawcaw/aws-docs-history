@@ -1,7 +1,6 @@
 
 
 # Prerequisites for enrollment
-<a name="enrollment-prerequisites"></a>
 
 *This section describes how to enroll an existing AWS account into AWS Control Tower if you have not selected the optional auto-enroll feature on the landing zone **Settings** page, or if you are operating with a landing zone version previous to 3.1.*
 
@@ -23,7 +22,7 @@ The prerequisite to add the `AWSControlTowerExecution` role is not required if y
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS multi-account strategy for your AWS Control Tower landing zone
-<a name="aws-multi-account-landing-zone"></a>
 
 AWS Control Tower customers often seek guidance about how to set up their AWS environment and accounts for best results. AWS has created a unified set of recommendations, called the *multi-account strategy*, to help you make the best use of your AWS resources, including your AWS Control Tower landing zone.
 

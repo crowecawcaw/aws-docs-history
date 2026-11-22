@@ -1,7 +1,6 @@
 
 
 # How AWS Control Tower works with roles to create and manage accounts
-<a name="roles-how"></a>
 
 In general, roles are a part of identity and access management (IAM) in AWS. For general information about IAM and roles in AWS, see [ the IAM roles topic in the *AWS IAM User Guide*](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
@@ -35,7 +34,7 @@ Here is the IAM policy (JSON artifact) attached to the role:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -79,7 +78,7 @@ To deploy this functionality in the management account, the following permission
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ The following artifact shows the trust relationship for `aws-controltower-Admini
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -236,7 +235,7 @@ The following artifact shows the trust relationship for `aws-controltower-ReadOn
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

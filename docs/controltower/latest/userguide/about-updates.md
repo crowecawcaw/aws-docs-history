@@ -1,7 +1,6 @@
 
 
 # About landing zone updates
-<a name="about-updates"></a>
 
 Updates are required to correct governance drift, or to move to a new version of AWS Control Tower. To perform a complete update of AWS Control Tower, you must update your landing zone first and then update the enrolled accounts individually. You may need to perform three types of updates at different times.
 + **A landing zone update:** Most often this type of update is performed by choosing **Update** on the **Landing zone settings** page. You may need to perform a landing zone update to resolve certain types of drift, and you can choose **Reset** when necessary.

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for launching a landing zone using CloudFormation
-<a name="lz-apis-cfn-setup"></a>
 
 1. From the AWS CLI, use the AWS Organizations `CreateOrganization` API to create an organization and enable all features. 
 

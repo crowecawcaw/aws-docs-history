@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="backup-prerequisites"></a>
 
 Before you can set up AWS Backup for your AWS Control Tower resources, you must have an existing AWS Organizations organization. If you've already set up your AWS Control Tower landing zone, that serves as your existing organization.
 
@@ -21,7 +20,7 @@ Also, you must select or create a multi-Region AWS Key Management Service (KMS) 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "KMS key policy",

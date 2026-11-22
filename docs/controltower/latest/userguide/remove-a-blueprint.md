@@ -1,7 +1,6 @@
 
 
 # Remove a blueprint from an account
-<a name="remove-a-blueprint"></a>
 
 To remove a blueprint from an account, follow the **Update account** workflow to remove the blueprint and return the account to the AWS Control Tower default configurations. 
 

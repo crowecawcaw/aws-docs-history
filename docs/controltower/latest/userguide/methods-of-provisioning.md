@@ -1,7 +1,6 @@
 
 
 # Provision accounts within AWS Control Tower
-<a name="methods-of-provisioning"></a>
 
 AWS Control Tower provides several methods for creating and updating member accounts. Some methods are primarily console-based, and some methods are primarily automated.
 

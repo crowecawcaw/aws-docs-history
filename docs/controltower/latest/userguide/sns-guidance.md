@@ -1,7 +1,6 @@
 
 
 # Guidance on subscribing to SNS Topics
-<a name="sns-guidance"></a>
 
 Subscribe to SNS topics to get information about your AWS Control Tower environment.
 

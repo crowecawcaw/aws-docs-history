@@ -1,7 +1,6 @@
 
 
 # The CfCT manifest file
-<a name="the-manifest-file"></a>
 
 The CfCT `manifest.yaml` file is a text file that describes your AWS resources. The following example shows the structure of the CfCT manifest file.
 

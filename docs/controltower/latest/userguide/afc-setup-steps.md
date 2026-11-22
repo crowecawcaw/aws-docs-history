@@ -1,7 +1,6 @@
 
 
 # Set up for customization
-<a name="afc-setup-steps"></a>
 
 The next sections give steps to set up Account Factory for the customization process. We recommend that you set up [delegated admin](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-delegated-admin.html) for the hub account, before you begin these steps.
 

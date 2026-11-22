@@ -1,7 +1,6 @@
 
 
 # Update multiple accounts in the same OU
-<a name="update-multiple-accounts"></a>
 
 Repeat these steps for each OU in your AWS Control Tower organization, if you need to update all of your accounts and OUs.
 

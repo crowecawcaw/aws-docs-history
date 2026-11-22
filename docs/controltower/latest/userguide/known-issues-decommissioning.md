@@ -1,7 +1,6 @@
 
 
 # Setup after decommissioning a landing zone
-<a name="known-issues-decommissioning"></a>
 
 After you decommission your landing zone, you cannot successfully execute setup again until manual cleanup is complete. Also, without manual cleanup of these remaining resources, you may incur unexpected billing charges. You must attend to these issues:
 + The AWS Control Tower management account is part of the AWS Control Tower **Root OU**. Be sure that these IAM roles and IAM policies are removed from the management account: 

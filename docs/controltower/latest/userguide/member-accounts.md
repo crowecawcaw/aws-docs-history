@@ -1,7 +1,6 @@
 
 
 # About member accounts
-<a name="member-accounts"></a>
 
 Member accounts are the accounts through which your users perform their AWS workloads. AWS Control Tower member accounts can be created and customized by various methods, including automated methods. In some cases, you can bring existing AWS accounts into AWS Control Tower. When member accounts are created or enrolled, they must exist inside an organizational unit (OU) that was created in the AWS Control Tower console, or registered with AWS Control Tower. For more information, see these related topics:
 + [Methods of provisioning](https://docs.aws.amazon.com/controltower/latest/userguide/methods-of-provisioning.html)

@@ -1,7 +1,6 @@
 
 
 # Account customizations
-<a name="aft-account-customization-options"></a>
 
 AFT can deploy standard or customized configurations in provisioned accounts. In the AFT management account, AFT provides one pipeline for each account. With this pipeline, you can implement your customizations in all accounts, in a set of accounts, or in individual accounts. You can run Python scripts, bash scripts, and Terraform configurations, or you can interact with the AWS CLI as part of your account customizations stage.
 
@@ -132,7 +131,7 @@ You can include a `bypass_steps` parameter in the Step Functions input to skip s
 
 The following example shows a Step Functions input that re-invokes customizations for a specific account while bypassing provisioning and bootstrap steps.
 
-```
+```json
 {
   "include": [
     {
@@ -151,7 +150,7 @@ To preview the changes that AFT would make to an account without applying them, 
 
 The following example shows a Step Functions input that performs a plan-only run for a specific account by setting `plan_only` to `true` and specifying the account ID in the `include` block.
 
-```
+```json
 {
   "include": [
     {

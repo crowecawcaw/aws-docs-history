@@ -1,7 +1,6 @@
 
 
 # Bring your own Amazon S3 bucket for log delivery
-<a name="custom-logging-bucket"></a>
 
 When you set up or update a landing zone (version 4.0 or later), you can use your own Amazon S3 bucket for log delivery instead of the default bucket that AWS Control Tower creates and manages.
 
@@ -104,7 +103,7 @@ In these policies, the organization ID is the Amazon S3 key prefix for delivered
 
 Use the following JSON bucket policy when the bucket receives logs only from the AWS CloudTrail integration.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -167,7 +166,7 @@ Use the following JSON bucket policy when the bucket receives logs only from the
 
 Use the following JSON bucket policy when the bucket receives logs only from the AWS Config integration.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -230,7 +229,7 @@ Use the following JSON bucket policy when the bucket receives logs only from the
 
 Use the following JSON bucket policy when the same bucket receives logs from both the AWS CloudTrail integration and the AWS Config integration.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -316,7 +315,7 @@ Use the following service control policies (SCPs) to protect your custom logging
 
 This SCP prevents anyone in the bucket account from deleting the bucket or changing its policy. It denies `s3:DeleteBucket`, `s3:DeleteBucketPolicy`, and `s3:PutBucketPolicy` on the bucket. Replace `{{amzn-s3-demo-bucket}}` with your bucket name.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -339,7 +338,7 @@ This SCP prevents anyone in the bucket account from deleting the bucket or chang
 
 Consider applying an SCP that prevents the bucket account from leaving your organization. AWS Control Tower verifies during landing zone setup and update that the bucket account belongs to the organization. This SCP denies `organizations:LeaveOrganization` for the account that owns the bucket. Replace `{{111122223333}}` with the ID of that account. SCPs do not prevent the management account from removing a member account from the organization.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

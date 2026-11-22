@@ -1,7 +1,6 @@
 
 
 # Resources not removed during decommissioning
-<a name="resources-not-removed"></a>
 
 Decommissioning a landing zone does not fully reverse the AWS Control Tower setup process. Certain resources remain, which may be removed manually.
 

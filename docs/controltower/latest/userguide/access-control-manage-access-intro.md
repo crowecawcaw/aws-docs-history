@@ -1,7 +1,6 @@
 
 
 # Manage access to resources
-<a name="access-control-manage-access-intro"></a>
 
 A *permissions policy* describes who has access to what. The following section explains the available options for creating permissions policies.
 

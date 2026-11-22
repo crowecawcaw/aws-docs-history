@@ -1,7 +1,6 @@
 
 
 # Next steps
-<a name="getting-started-next"></a>
 
 Now that your landing zone is set up, it's ready for use.
 

@@ -1,7 +1,6 @@
 
 
 # Select a landing zone version
-<a name="lz-version-selection"></a>
 
 If you are running AWS Control Tower landing zone version 3.1 and above, you can choose to stay on the current version, or you can upgrade to a newer version, when you perform an **Update** or **Reset** operation on your landing zone configurations. The **Reset** operation is the best way to repair drift, in most situations.
 

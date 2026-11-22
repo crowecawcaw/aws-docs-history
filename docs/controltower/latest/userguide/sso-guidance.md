@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center guidance
-<a name="sso-guidance"></a>
 
 AWS Control Tower recommends that you use AWS Identity and Access Management (IAM) to regulate access to your AWS accounts. However, you have the option to choose whether AWS Control Tower sets up IAM Identity Center for you, whether you set up IAM Identity Center for yourself, in a way that meets your business requirements most effectively, or whether to select another method for account access.
 

@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center Groups for AWS Control Tower
-<a name="sso-groups"></a>
 
 AWS Control Tower offers preconfigured groups to organize users that perform specific tasks in your accounts. You can add users and assign them to these groups directly in IAM Identity Center. Doing so matches permission sets to users in groups within your accounts. For the latest guidance and best practices on configuring your groups, see [Best practices](https://docs.aws.amazon.com/singlesignon/latest/userguide/delegated-admin.html#delegated-admin-best-practices) in the *IAM Identity Center User Guide*.
 

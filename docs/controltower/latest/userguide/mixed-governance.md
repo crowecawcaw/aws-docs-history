@@ -1,7 +1,6 @@
 
 
 # Avoid mixed governance when configuring Regions
-<a name="mixed-governance"></a>
 
 It is important to update all accounts in an OU after you extend AWS Control Tower governance to a new AWS Region, and after you remove AWS Control Tower governance from a Region.
 

@@ -1,7 +1,6 @@
 
 
 # Overview of the decommissioning process
-<a name="decommissioning-process-overview"></a>
 
 When you request decommissioning of your landing zone, AWS Control Tower does the following actions.
 + Disables each detective control enabled in the landing zone. AWS Control Tower deletes the CloudFormation resources supporting the control.

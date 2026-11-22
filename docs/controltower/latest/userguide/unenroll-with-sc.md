@@ -1,7 +1,6 @@
 
 
 # Unenroll an account in Service Catalog
-<a name="unenroll-with-sc"></a>
 
  Unenrolling an account can be done in the Service Catalog console by an IAM Identity Center user in the `AWSAccountFactory` group, by terminating the Provisioned Product. For more information on IAM Identity Center users or groups, see [Manage users and access through AWS IAM Identity Center](https://docs.aws.amazon.com/controltower/latest/userguide/unmanage-account.html). The following procedure describes how to unenroll a member account in Service Catalog.
 

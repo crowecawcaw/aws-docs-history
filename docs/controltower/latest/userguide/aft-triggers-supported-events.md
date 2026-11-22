@@ -1,7 +1,6 @@
 
 
 # Supported event paths
-<a name="aft-triggers-supported-events"></a>
 
 The `account_move` trigger fires when AFT receives an `UpdateManagedAccount` AWS Control Tower lifecycle event. This event is emitted when:
 + An account's OU is changed through the AFT account request file (Terraform `ManagedOrganizationalUnit` parameter update).

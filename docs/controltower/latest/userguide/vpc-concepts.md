@@ -1,7 +1,6 @@
 
 
 # Overview of AWS Control Tower and VPCs
-<a name="vpc-concepts"></a>
 
 Here are some essential facts about AWS Control Tower VPCs:
 + The VPC created by AWS Control Tower when you provision an account in Account Factory is not the same as the AWS default VPC.

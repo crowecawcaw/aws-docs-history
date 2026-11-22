@@ -1,7 +1,6 @@
 
 
 # Enroll accounts that have existing AWS Config resources
-<a name="existing-config-resources"></a>
 
 This topic provides a step-by-step approach for how to enroll accounts that have existing AWS Config resources. For examples of how to check your existing resources, see [Enroll accounts with AWS Config resources](enroll-account.md#example-config-cli-commands).
 

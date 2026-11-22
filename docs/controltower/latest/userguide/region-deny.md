@@ -1,7 +1,6 @@
 
 
 # Configure the Region deny control
-<a name="region-deny"></a>
 
 AWS Control Tower offers two Region deny controls. One control, `AWS-GR_REGION_DENY`, when activated, applies to the entire landing zone. Another control, `CT.MULTISERVICE.PV.1`, when activated, can apply to specific OUs that you specify. For more information see [Deny access to AWS based on the requested AWS Region](https://docs.aws.amazon.com/controltower/latest/controlreference/primary-region-deny-policy.html) and [Region deny control applied to the OU](https://docs.aws.amazon.com/controltower/latest/controlreference/ou-region-deny.html).
 

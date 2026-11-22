@@ -1,7 +1,6 @@
 
 
 # Code pipeline overview
-<a name="cfct-codepipeline-overview"></a>
 
 The configuration package requires Amazon Simple Storage Service (Amazon S3) and AWS CodePipeline. The configuration package contains these items:
 + A manifest file

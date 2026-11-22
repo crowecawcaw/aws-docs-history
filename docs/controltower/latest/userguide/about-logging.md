@@ -1,7 +1,6 @@
 
 
 # About logging in AWS Control Tower
-<a name="about-logging"></a>
 
 AWS Control Tower accomplishes logging of actions and events automatically, through its integration with AWS CloudTrail and AWS Config, and it records them in CloudWatch. All actions are logged, including actions from the AWS Control Tower management account and from your organization's member accounts. Management account actions and events are viewable on the **Activities** page in the console. You can view member account actions and events in the log archive files.
 

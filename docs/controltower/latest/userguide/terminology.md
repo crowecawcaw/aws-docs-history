@@ -1,7 +1,6 @@
 
 
 # Terminology
-<a name="terminology"></a>
 
 Here’s a quick review of some terms you'll see in the AWS Control Tower documentation.
 

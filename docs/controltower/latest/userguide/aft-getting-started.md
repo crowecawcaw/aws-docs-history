@@ -1,7 +1,6 @@
 
 
 # Deploy AWS Control Tower Account Factory for Terraform (AFT)
-<a name="aft-getting-started"></a>
 
  This section is for administrators of AWS Control Tower environments who wish to set up Account Factory for Terraform (AFT) in their existing environment. It describes how to set up an Account Factory for Terraform (AFT) environment with a new, dedicated AFT management account. 
 

@@ -1,7 +1,6 @@
 
 
 # Check the AFT version
-<a name="check-aft-version"></a>
 
 You can check your deployed AFT version by querying the AWS SSM Parameter Store key:
 

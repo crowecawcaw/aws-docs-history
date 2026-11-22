@@ -1,7 +1,6 @@
 
 
 # Update the AFT version
-<a name="update-aft-version"></a>
 
 Sign in to the AWS Control Tower management account to initiate this AFT update.
 

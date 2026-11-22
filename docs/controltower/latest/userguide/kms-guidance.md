@@ -1,7 +1,6 @@
 
 
 # Guidance for KMS keys
-<a name="kms-guidance"></a>
 
 AWS Control Tower works with AWS Key Management Service (AWS KMS). Optionally, if you wish to encrypt and decrypt your AWS Control Tower resources with an encryption key that you manage, you can generate and configure AWS KMS keys. You can add or change a KMS key any time you update your landing zone. As a best practice, we recommend using your own KMS keys and changing them from time to time.
 

@@ -1,7 +1,6 @@
 
 
 # Examples: Set up an AWS Control Tower landing zone with APIs only
-<a name="walkthrough-api-setup"></a>
 
 This walkthrough of examples is a companion document. For explanations, caveats, and more information, see [Getting started with AWS Control Tower using APIs](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-apis.html).
 

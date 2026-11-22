@@ -1,7 +1,6 @@
 
 
 # Close an account created in Account Factory
-<a name="delete-account"></a>
 
 Accounts created in Account Factory are AWS accounts. For information about closing AWS accounts, see [Closing an account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html) in the [*AWS Account Management Reference Guide*](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html ).
 

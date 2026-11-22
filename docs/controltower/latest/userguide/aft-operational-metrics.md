@@ -1,7 +1,6 @@
 
 
 # Operational metrics
-<a name="aft-operational-metrics"></a>
 
 By default, *Account Factory for Terraform (AFT)* sends anonymous operational metrics to AWS. We use this data to understand how customers are using AFT so we can improve the quality and features of the solution. You can opt out of data collection by changing a parameter during AFT deployment. When collection is enabled, the following data is sent to AWS:
 + **Solution:** The AFT-specific identifier

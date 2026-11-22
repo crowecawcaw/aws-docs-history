@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Control Tower using APIs
-<a name="getting-started-apis"></a>
 
 This getting started procedure is intended for AWS Control Tower administrators. This procedure requires some prerequisites and includes two main steps. 
 

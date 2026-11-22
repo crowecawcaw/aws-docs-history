@@ -1,7 +1,6 @@
 
 
 # Component services
-<a name="aft-components"></a>
 
 When you deploy AFT, components are added to your AWS environment from each of these AWS services.
 + **[AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html)** – AFT uses AWS Control Tower Account Factory in the AWS Control Tower management account to provision accounts.

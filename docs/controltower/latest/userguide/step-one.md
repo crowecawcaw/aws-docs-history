@@ -1,7 +1,6 @@
 
 
 # Step 1: Create your shared account email addresses
-<a name="step-one"></a>
 
 If you're setting up your landing zone in a new AWS account, see [Setting up](setting-up.md).
 + To set up your landing zone with *new* shared accounts, AWS Control Tower requires two unique email addresses that aren't already associated with an AWS account. Each of these email addresses will serve as a collaborative inbox -- a shared email account -- intended for the various users in your enterprise that will do specific work related to AWS Control Tower.

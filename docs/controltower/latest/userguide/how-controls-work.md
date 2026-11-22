@@ -1,7 +1,6 @@
 
 
 # How controls work
-<a name="how-controls-work"></a>
 
 A control is a high-level rule that provides ongoing governance for your overall AWS environment. Each control enforces a single rule, and it's expressed in plain language. You can change the elective or strongly recommended controls that are in force, at any time, from the AWS Control Tower console or the AWS Control Tower APIs. Mandatory controls are always applied, and they can't be changed.
 

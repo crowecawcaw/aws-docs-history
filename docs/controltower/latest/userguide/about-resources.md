@@ -1,7 +1,6 @@
 
 
 # Resources in AWS Control Tower
-<a name="about-resources"></a>
 + For general information about resource ownership in AWS Control Tower, see [Overview of managing access permissions to your AWS Control Tower resources](access-control-overview.md).
 + For information about resources that AWS Control Tower creates in the shared accounts, see [Service integration accounts](special-accounts.md).
 + For information about resources that AWS Control Tower creates when it provisions an account through Account Factory, see [Resource Considerations for Account Factory](account-factory-considerations.md).

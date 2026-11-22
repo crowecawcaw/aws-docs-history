@@ -1,7 +1,6 @@
 
 
 # Update your landing zone
-<a name="update-controltower"></a>
 
 The easiest way to update your AWS Control Tower landing zone is through the **Landing zone settings** page, which you can reach by choosing **Landing zone settings** in the left navigation of the AWS Control Tower dashboard.
 

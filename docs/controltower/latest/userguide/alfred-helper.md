@@ -1,7 +1,6 @@
 
 
 # The ‘alfred’ helper and the CloudFormation parameter files
-<a name="alfred-helper"></a>
 
  CfCT provides you with a mechanism known as the *alfred* helper to get the value for an [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) key that's defined in the CloudFormation template. Using the *alfred* helper, you can use values that are stored in the SSM Parameter Store and without updating the CloudFormation template. For more information, see [What is an CloudFormation template?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html#gettingstarted.templatebasics.what) in the *CloudFormation User Guide*. 
 

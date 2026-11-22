@@ -1,7 +1,6 @@
 
 
 # Transfer an account to a different organization
-<a name="account-transfer"></a>
 
 You can transfer a member account that is enrolled in AWS Control Tower to a different AWS Organizations organization.
 

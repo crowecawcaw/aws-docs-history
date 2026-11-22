@@ -1,11 +1,10 @@
 
 
 # Configuring customization triggers
-<a name="aft-triggers-configuring"></a>
 
 To enable customization triggers, set the `aft_customization_triggers` variable in your AFT deployment module:
 
-```
+```hcl
 module "aft" {
   source = "github.com/aws-ia/terraform-aws-control_tower_account_factory"
 

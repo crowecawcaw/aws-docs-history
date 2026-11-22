@@ -1,7 +1,6 @@
 
 
 # Working with AWS IAM Identity Center and AWS Control Tower
-<a name="sso"></a>
 
 In AWS Control Tower, IAM Identity Center allows central cloud administrators and end-users to manage access to multiple AWS accounts and business applications. By default, AWS Control Tower uses this service to set up and manage access to the accounts created through Account Factory, unless you have selected the option to self-manage your identity and access control.
 

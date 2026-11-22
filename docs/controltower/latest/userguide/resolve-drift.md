@@ -1,7 +1,6 @@
 
 
 # Resolve drift with Reset and Re-register
-<a name="resolve-drift"></a>
 
 Drift often occurs as you and your organization members use the landing zone.
 

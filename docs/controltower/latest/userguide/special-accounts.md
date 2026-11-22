@@ -1,7 +1,6 @@
 
 
 # Service integration accounts
-<a name="special-accounts"></a>
 
 AWS Control Tower uses three special AWS accounts: the management account, the **Config aggregator** account, and the **CloudTrail administrator** account. AWS Control Tower refers to the Config aggregator account and the CloudTrail administrator account as *service integration accounts*.
 

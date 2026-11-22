@@ -1,7 +1,6 @@
 
 
 # Govern organizations and accounts with AWS Control Tower
-<a name="existing-orgs"></a>
 
 All organizational units (OUs) and accounts that you create in AWS Control Tower are governed automatically by AWS Control Tower. Also, if you have existing OUs and accounts that were created outside of AWS Control Tower, you can bring them into AWS Control Tower governance. 
 
