@@ -1,7 +1,6 @@
 
 
 # Siemens NX on Amazon WorkSpaces Applications
-<a name="siemens-nx-appstream"></a>
 
 Publication date: **2021 ([Diagram history](#snxa-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # Siemens NX with Amazon EBS shared folders
-<a name="snxa-ebs-shared-folders"></a>
 
 With this architecture, you can securely access Siemens NX hosted in AWS Cloud by using an [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs/latest/userguide/) (Amazon EBS) volume for shared folders. This architecture uses [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/), [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) (Amazon EC2), and [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/).
 

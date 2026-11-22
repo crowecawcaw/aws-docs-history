@@ -1,7 +1,6 @@
 
 
 # Siemens NX connected to Siemens Teamcenter
-<a name="snxa-teamcenter-fsx"></a>
 
 With this architecture, you can use [Amazon FSx](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/) as a storage option for Siemens NX streamed through [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/). This architecture uses [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/) for Microsoft Active Directory and connects to Siemens Teamcenter.
 
