@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Reflect your organization with context files and memory
-<a name="context-files-and-memory"></a>
 
 The agent uses two inputs to apply your organization's structure: context files that you upload, and memory that the agent records from your preference. The agent uses both automatically the next time it answers a question, generates a report, or runs an automation.
 
@@ -14,7 +13,7 @@ Context files let the agent answer using your organization's terms. Upload an ac
 
 Start with an account-to-team mapping. This is the most useful context file to upload first, because it lets the agent attribute cost to the team that owns each account.
 
-```
+```csv
 account_id,team_name,team_lead,email
 123456789012,Data Platform,Jane Smith,jsmith@example.com
 234567890123,ML Training,Alex Chen,achen@example.com

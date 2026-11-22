@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Event-triggered cost anomaly investigation
-<a name="automated-anomaly-response"></a>
 
 <a name="cost-anomaly-detection-automated-response"></a>This topic walks through setting up an end-to-end event-triggered workflow: the agent listens for AWS Cost Anomaly Detection events, investigates each anomaly for root cause, and posts the summary to a Slack channel. After you set this up once, anomalies are investigated and delivered to your team without manual triage.
 

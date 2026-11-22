@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Investigating cost anomalies
-<a name="cost-anomaly-detection"></a>
 
 Ask the agent to investigate why [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) anomalies occurred and perform root-cause analysis. The agent retrieves the anomaly details, analyzes the root causes ranked by cost impact, and presents its findings directly in the conversation.
 

@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # How AWS FinOps Agent works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS FinOps Agent, learn what IAM features are available to use with AWS FinOps Agent.
 
@@ -22,7 +21,7 @@ For more information about the AWS managed policies that AWS FinOps Agent uses, 
 | [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
 | [Principal permissions](#security_iam_service-with-iam-principal-permissions) |  Yes | 
 | [Service roles](#security_iam_service-with-iam-roles-service) |  Yes | 
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  No  | 
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  Yes | 
 
 To get a high-level view of how AWS FinOps Agent and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -45,9 +44,9 @@ To view examples of AWS FinOps Agent identity-based policies, see [Identity-base
 
 **Supports resource-based policies:** No 
 
-AWS FinOps Agent does not support resource-based policies. You cannot use a resource-based policy to grant cross-account access to an agent or its data. AWS FinOps Agent limits each agent role session to the permissions required by the service. Adding a policy to the agent role does not add supported access to additional AWS services or resources.
+AWS FinOps Agent does not support resource-based policies. You cannot use a resource-based policy to grant cross-account access to an agent or its data. AWS FinOps Agent limits each agent role session to the actions the service supports. Adding a policy to the agent role doesn't give the agent access to other AWS services or resources.
 
-To analyze organization-wide cost data, deploy AWS FinOps Agent in your organization's management account (the payer account). Cost Explorer in that account provides organization-wide visibility, subject to the IAM permissions you configure.
+To analyze organization-wide cost data, see [Setting up organization-wide access and a delegated administrator](setting-up-organization-access.md).
 
 ## Policy actions for AWS FinOps Agent
 <a name="security_iam_service-with-iam-id-based-policies-actions"></a>
@@ -154,7 +153,7 @@ Changing the permissions for a service role might break AWS FinOps Agent functio
 ## Service-linked roles for AWS FinOps Agent
 <a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:** No 
+**Supports service-linked roles:** Yes
 
  A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 
 

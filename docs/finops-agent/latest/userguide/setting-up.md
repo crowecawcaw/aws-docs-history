@@ -3,11 +3,10 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # AWS FinOps Agent IAM setup guide
-<a name="setting-up"></a>
 
 When you create an agent, the creation wizard can create the required IAM roles and attach the policies for you. Most customers do not need to configure IAM manually. For the standard flow, see [Creating an agent](creating-an-agent.md).
 
-Use this topic if your IAM administrator manages permissions centrally, or if you want to author the roles and policies yourself. AWS FinOps Agent uses 4 IAM policies and 2 IAM roles. This topic walks through each policy, the roles that the policies attach to, and how to enable the AWS services that the agent depends on.
+Use this topic if your IAM administrator manages permissions centrally, or if you want to author the roles and policies yourself. For account-scoped agents, this topic covers 4 IAM policies and 2 IAM roles, the relationships between them, and how to enable the AWS services that the agent depends on. Organization-wide agents use a service-linked role for data access and still need an operator role. For that setup, see [Setting up organization-wide access and a delegated administrator](setting-up-organization-access.md).
 
 ## Step 1: Create IAM policies
 <a name="setting-up-step-1"></a>
@@ -21,7 +20,7 @@ Sample name: `FinOpsAgentSetupPolicy`
 
 This policy grants the administrator permissions to create and manage AWS FinOps Agent instances, configure third-party integrations, and generate login sessions for web application users. Attach this policy directly to the administrator's IAM user or role.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -34,6 +33,8 @@ This policy grants the administrator permissions to create and manage AWS FinOps
         "finops-agent:ListAgentSpaces",
         "finops-agent:UpdateAgentSpace",
         "finops-agent:DeleteAgentSpace",
+        "finops-agent:ListAutomations",
+        "finops-agent:ListDocuments",
         "finops-agent:CreateConnection",
         "finops-agent:GetConnection",
         "finops-agent:ListConnections",
@@ -96,13 +97,15 @@ This policy grants the administrator permissions to create and manage AWS FinOps
 
 Sample name: `FinOpsAgentAgentPolicy`
 
-This policy defines what AWS services and data the AWS FinOps Agent can read in your account. The agent uses these permissions to query billing and cost data, retrieve optimization recommendations, look up infrastructure details, and correlate cost changes with operational metrics. This policy will be attached to the agent IAM role in [Step 2](#setting-up-step-2).
+This policy defines what AWS services and data an account-scoped agent can read. The agent uses these permissions to query cost and billing data, including credits, budgets, Free Tier usage, invoices, and billing views, retrieve optimization recommendations, look up infrastructure details, and correlate cost changes with operational metrics. Attach this policy to the agent IAM role in [Step 2](#setting-up-step-2).
+
+If you maintain a customer managed policy, include the required permissions for each data source you use and keep the policy up to date. Organization-wide agents use the service-linked role described in [Setting up organization-wide access and a delegated administrator](setting-up-organization-access.md).
 
 You have 2 options for creating this policy:
-+ **Option 1: Auto-create during agent creation (recommended).** The agent creation wizard creates the policy as an AWS managed policy and attaches it to the agent role automatically. You can skip this section and let the wizard handle it.
-+ **Option 2: Author the policy manually.** Create the policy with the JSON below if your IAM administrator manages all permissions centrally. You will need to attach this policy to the agent IAM role in [Step 2](#setting-up-step-2) manually.
++ **Option 1: Use the AWS managed policy during agent creation (recommended).** The agent creation wizard creates an agent role and attaches `FinOpsAgentAgentPolicy` automatically. You can skip manual policy creation and let the wizard handle it.
++ **Option 2: Author the policy manually.** Create a customer managed policy with the JSON below if your IAM administrator manages permissions centrally. The example includes permissions for the workflows described in this guide. Attach it to the agent IAM role in [Step 2](#setting-up-step-2). To review the current AWS managed policy document, see [FinOpsAgentAgentPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-FinOpsAgentAgentPolicy).
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -132,6 +135,14 @@ You have 2 options for creating this policy:
         "ce:ListCostAllocationTagBackfillHistory",
         "ce:DescribeCostCategoryDefinition",
         "ce:ListCostCategoryDefinitions",
+        "ce:StartCommitmentPurchaseAnalysis",
+        "ce:ListCommitmentPurchaseAnalyses",
+        "ce:GetCommitmentPurchaseAnalysis",
+        "ce:StartSavingsPlansPurchaseRecommendationGeneration",
+        "ce:ListSavingsPlansPurchaseRecommendationGeneration",
+        "ce:GetSavingsPlanPurchaseRecommendationDetails",
+        "budgets:DescribeBudgetActionsForAccount",
+        "budgets:DescribeBudgetActionsForBudget",
         "budgets:ViewBudget",
         "cost-optimization-hub:GetRecommendation",
         "cost-optimization-hub:ListRecommendations",
@@ -166,6 +177,7 @@ You have 2 options for creating this policy:
         "organizations:DescribeAccount",
         "rds:DescribeDBInstances",
         "rds:DescribeDBClusters",
+        "rds:DescribeDBMajorEngineVersions",
         "pricing:DescribeServices",
         "pricing:GetAttributeValues",
         "pricing:GetProducts",
@@ -182,7 +194,193 @@ You have 2 options for creating this policy:
         "cloudwatch:GetMetricStatistics",
         "cloudwatch:ListMetrics",
         "logs:StartQuery",
-        "logs:GetQueryResults"
+        "logs:GetQueryResults",
+        "billing:GetBillingView",
+        "billing:GetEnterpriseSupportChargeSummary",
+        "billing:GetEnterpriseSupportContractDetails",
+        "billing:ListBillingViews",
+        "billing:ListEnterpriseSupportLinkedAccountCharges",
+        "billing:ListSourceViewsForBillingView",
+        "billing:GetResourcePolicy",
+        "billingconductor:ListBillingGroups",
+        "billingconductor:ListAccountAssociations",
+        "billingconductor:ListBillingGroupCostReports",
+        "billingconductor:GetBillingGroupCostReport",
+        "billingconductor:ListCustomLineItems",
+        "billingconductor:ListCustomLineItemVersions",
+        "billingconductor:ListResourcesAssociatedToCustomLineItem",
+        "billingconductor:ListPricingRules",
+        "billingconductor:ListPricingPlans",
+        "billingconductor:ListPricingRulesAssociatedToPricingPlan",
+        "billingconductor:ListPricingPlansAssociatedWithPricingRule",
+        "invoicing:ListInvoiceSummaries",
+        "invoicing:ListInvoiceUnits",
+        "invoicing:GetInvoiceUnit",
+        "invoicing:BatchGetInvoiceProfile",
+        "invoicing:ListProcurementPortalPreferences",
+        "invoicing:GetProcurementPortalPreference",
+        "aco-automation:GetAutomationEvent",
+        "aco-automation:GetAutomationRule",
+        "aco-automation:GetEnrollmentConfiguration",
+        "aco-automation:ListAccounts",
+        "aco-automation:ListAutomationEvents",
+        "aco-automation:ListAutomationEventSteps",
+        "aco-automation:ListAutomationEventSummaries",
+        "aco-automation:ListAutomationRules",
+        "aco-automation:ListRecommendedActions",
+        "aco-automation:ListRecommendedActionSummaries",
+        "aco-automation:ListAutomationRulePreview",
+        "aco-automation:ListAutomationRulePreviewSummaries",
+        "aco-automation:ListTagsForResource",
+        "billing:GetCredits",
+        "billing:GetCreditAllocationHistory",
+        "health:DescribeEvents",
+        "savingsplans:DescribeSavingsPlans",
+        "savingsplans:DescribeSavingsPlanRates",
+        "savingsplans:DescribeSavingsPlansOfferings",
+        "savingsplans:DescribeSavingsPlansOfferingRates",
+        "savingsplans:ListTagsForResource",
+        "cost-optimization-hub:ListEfficiencyMetrics",
+        "cost-optimization-hub:ListEnrollmentStatuses",
+        "cost-optimization-hub:GetPreferences",
+        "billing:GetBillingPreferences",
+        "billing:ListBillingViewSegments",
+        "ce:ListCostCategoryResourceAssociations",
+        "ce:ListTagsForResource",
+        "bcm-data-exports:GetExport",
+        "bcm-data-exports:ListExports",
+        "cur:DescribeReportDefinitions",
+        "billing:GetBillingData",
+        "billing:GetBillingDetails",
+        "billing:GetBillingNotifications",
+        "billing:GetContractInformation",
+        "billing:GetIAMAccessPreference",
+        "billing:GetSellerOfRecord",
+        "billingconductor:ListTagsForResource",
+        "budgets:DescribeBudgetAction",
+        "budgets:DescribeBudgetActionHistories",
+        "budgets:ListTagsForResource",
+        "invoicing:GetInvoiceCorrection",
+        "invoicing:GetInvoiceEmailDeliveryPreferences",
+        "invoicing:GetInvoicePDF",
+        "invoicing:ListInvoiceCorrections",
+        "invoicing:ListProcurementPortalSuppliers",
+        "invoicing:ListProcurementPortals",
+        "invoicing:ListTagsForResource",
+        "purchase-orders:GetPurchaseOrder",
+        "purchase-orders:ListPurchaseOrderInvoices",
+        "purchase-orders:ListPurchaseOrders",
+        "purchase-orders:ListTagsForResource",
+        "purchase-orders:ViewPurchaseOrders",
+        "freetier:GetAccountActivity",
+        "freetier:GetAccountPlanState",
+        "freetier:GetFreeTierAlertPreference",
+        "freetier:ListAccountActivities",
+        "mapcredits:ListAssociatedPrograms",
+        "mapcredits:ListQuarterCredits",
+        "mapcredits:ListQuarterSpend",
+        "account:GetRegionOptStatus",
+        "account:ListRegions",
+        "consolidatedbilling:GetAccountBillingRole",
+        "consolidatedbilling:ListLinkedAccounts",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListChildren",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListParents",
+        "organizations:ListRoots",
+        "application-autoscaling:DescribeScalableTargets",
+        "application-autoscaling:DescribeScalingPolicies",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeReservedInstances",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeVpcEndpoints",
+        "lambda:GetFunctionConfiguration",
+        "dynamodb:DescribeContinuousBackups",
+        "dynamodb:DescribeTable",
+        "dynamodb:ListTables",
+        "elasticache:DescribeCacheClusters",
+        "elasticache:DescribeReplicationGroups",
+        "elasticache:DescribeReservedCacheNodes",
+        "elasticache:DescribeSnapshots",
+        "memorydb:DescribeClusters",
+        "memorydb:DescribeSnapshots",
+        "rds:DescribeDBClusterSnapshots",
+        "rds:DescribeDBEngineVersions",
+        "rds:DescribeDBSnapshots",
+        "rds:DescribeReservedDBInstances",
+        "redshift:DescribeClusterSnapshots",
+        "redshift:DescribeClusters",
+        "redshift:DescribeReservedNodes",
+        "sagemaker:DescribeEndpoint",
+        "sagemaker:DescribeEndpointConfig",
+        "sagemaker:DescribeNotebookInstance",
+        "sagemaker:ListApps",
+        "sagemaker:ListDomains",
+        "sagemaker:ListEndpointConfigs",
+        "sagemaker:ListEndpoints",
+        "sagemaker:ListNotebookInstances",
+        "workspaces:DescribeWorkspaces",
+        "workspaces:DescribeWorkspacesConnectionStatus",
+        "ram:GetResourceShares",
+        "resource-explorer-2:GetIndex",
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search",
+        "tag:GetResources",
+        "logs:DescribeLogGroups",
+        "logs:DescribeSubscriptionFilters"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "StorageResourceReadAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetBucketVersioning",
+        "s3:GetIntelligentTieringConfiguration",
+        "s3:GetInventoryConfiguration",
+        "s3:GetLifecycleConfiguration",
+        "s3:GetReplicationConfiguration",
+        "s3:GetStorageLensConfiguration",
+        "s3:ListAllMyBuckets"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid": "AwsOrgsScopedAccess",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "organizations:ServicePrincipal": [
+            "finops-agent.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "BCMDataHubQueryAccess",
+      "Effect": "Allow",
+      "Action": [
+        "bcm-data-hub:ListDatasets",
+        "bcm-data-hub:GetDataset",
+        "bcm-data-hub:GetDatasetSchema",
+        "bcm-data-hub:StartQueryExecution",
+        "bcm-data-hub:GetQueryExecution",
+        "bcm-data-hub:GetQueryExecutionResults",
+        "bcm-data-hub:CancelQueryExecution",
+        "bcm-data-hub:ListQueryExecutions"
       ],
       "Resource": "*"
     },
@@ -223,7 +421,7 @@ You have 2 options for creating this policy:
 }
 ```
 
-AWS FinOps Agent uses AWS EventBridge actions to manage event-triggered automations for cost anomaly investigation. Without these permissions, the agent cannot create event-triggered automations for cost anomaly investigation. The `events:ManagedBy` condition restricts the agent to managing only the EventBridge rules it created on your behalf, so rules you create directly are not affected. The `aws:ResourceAccount` condition limits the agent to managing rules in your own account.
+AWS FinOps Agent uses Amazon EventBridge actions to manage event-triggered automations for cost anomaly investigation. Without these permissions, the agent cannot create event-triggered automations for cost anomaly investigation. The `events:ManagedBy` condition restricts the EventBridge write actions to rules that the agent created on your behalf, so rules you create directly are not affected. The `aws:ResourceAccount` condition limits these EventBridge permissions to rules in your own account.
 
 The CloudTrail actions support cost anomaly investigation. The agent uses `cloudtrail:LookupEvents` to find the API activity behind a cost change.
 
@@ -240,7 +438,7 @@ You have 2 options for creating this policy:
 + **Option 1: Auto-create during agent creation (recommended).** The agent creation wizard creates the policy as an AWS managed policy and attaches it to the operator role automatically. You can skip this section and let the wizard handle it.
 + **Option 2: Author the policy manually.** Create the policy with the JSON below if your IAM administrator manages all permissions centrally. You will need to attach this policy to the operator IAM role in [Step 2](#setting-up-step-2) manually.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -297,7 +495,7 @@ This policy does not allow users to create or delete agents. To allow a user to 
 
 The Cost Explorer read actions in this policy are optional and not required to access the web application. They enable users to cross-validate the agent's findings by viewing cost data directly in Cost Explorer within the same console session. If your team does not need this, you can remove the `ce:*` actions from the policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -344,6 +542,9 @@ The **agent role** (sample name: `FinOpsAgentRole`) is the role the AWS FinOps A
 
 The **operator role** (sample name: `FinOpsAgentOperatorRole`) is the role the AWS FinOps Agent service assumes to perform web application operations. When you send a chat message, create a task, or upload a context file, the service uses this role's credentials to execute those actions. Attach [Policy 3 (`FinOpsAgentOperatorPolicy`)](#setting-up-operator-policy) to this role.
 
+**Note**  
+People using an agent act with its operator and agent roles, not their own IAM permissions.
+
 Create 2 IAM roles using the trust policy below, then attach the corresponding permissions policy from [Step 1](#setting-up-step-1).
 
 
@@ -357,7 +558,7 @@ Create 2 IAM roles using the trust policy below, then attach the corresponding p
 
 Both roles use the same trust policy. This trust policy allows the AWS FinOps Agent service account to assume the role using `sts:AssumeRole` and to stamp the calling user's identity onto the session using `sts:SetSourceIdentity`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

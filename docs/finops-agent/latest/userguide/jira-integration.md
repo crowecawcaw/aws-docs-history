@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Enable Jira with AWS FinOps Agent
-<a name="jira-integration"></a>
 
 Enable the agent to create issues, add comments, and read issues within the Jira projects you connect. The agent cannot update issue fields (assignee, priority, status transitions), delete issues, or manage Jira workflows. This setup requires Jira Cloud and does not support on-premises Jira.
 

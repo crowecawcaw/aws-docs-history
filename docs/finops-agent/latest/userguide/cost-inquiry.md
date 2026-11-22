@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Asking about costs
-<a name="cost-inquiry"></a>
 
 Ask questions about your AWS spend in natural language. The agent retrieves data from services, processes the results, and responds with answers based on your account data. The agent can break down spend by service, account, Region, or tag, compare time periods, and summarize Savings Plans and Reserved Instance utilization.
 

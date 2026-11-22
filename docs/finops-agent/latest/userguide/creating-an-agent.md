@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Creating an agent
-<a name="creating-an-agent"></a>
 
 This topic walks through creating a AWS FinOps Agent agent in the AWS FinOps Agent console. The wizard has five steps: name your agent, choose what AWS resources the agent can access, give the web app access to your agent, third-party integrations (optional), and review and create.
 
@@ -37,6 +36,8 @@ Choose the IAM role that AWS FinOps Agent assumes to read your AWS cost and oper
 **Option 1: Auto-create a new role (recommended).** The wizard creates the agent role with [`FinOpsAgentAgentPolicy`](setting-up.md#setting-up-agent-policy) attached and a trust policy scoped to your account and to this agent. No manual IAM configuration is required.
 
 **Option 2: Use an existing role.** Select a role you have already created. The role must have `FinOpsAgentAgentPolicy` (or an equivalent policy) attached, and must trust `finops-agent.amazonaws.com`. For the required actions and trust policy, see [`FinOpsAgentAgentPolicy`](setting-up.md#setting-up-agent-policy) and [Trust policy](setting-up.md#setting-up-trust-policy).
+
+**Data Hub (optional).** Select **Use Data Hub for this agent** to let the agent query a Data Hub dataset of your cost and usage data and answer at the individual resource level. You can create the dataset in the wizard or on the Data Hub page in the AWS Billing and Cost Management console. Creating an agent does not create a dataset. For prerequisites, permissions, and account scope, see [Connect AWS FinOps Agent to Data Hub](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/gs-create.html) in the *AWS Billing User Guide*.
 
 ### Step 3: Give the web app access to your agent
 <a name="creating-an-agent-step-3"></a>
@@ -108,6 +109,7 @@ To give other users access to the agent, share the AWS account ID and the agent 
 From the agent detail page in the console, you can do the following:
 + View the agent configuration, including IAM roles and integration connections.
 + Connect or disconnect Jira projects and Slack channels.
++ Connect or disconnect Data Hub. To turn on Data Hub for an agent you already have, choose **Connect** on the agent's **Billing and Cost Management Data Hub** tab. For more information, see [Connect an existing agent](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/gs-existing.html) in the *AWS Billing User Guide*.
 + Access the web application.
 + View and manage historical chat conversations in the web application.
 + Delete the agent.
@@ -120,3 +122,4 @@ To delete an agent, select it on the Agents page and choose **Delete**. You can 
 <a name="creating-an-agent-next-steps"></a>
 + Learn [how to interact with the agent](how-do-i-interact-with-the-agent.md) in the web application, including chatting, creating tasks, and uploading context files.
 + [Configure Jira](jira-integration.md) or [configure Slack](slack-integration.md) if you skipped these during setup.
++ To read cost and usage data across every account in your organization, see [Setting up organization-wide access and a delegated administrator](setting-up-organization-access.md).

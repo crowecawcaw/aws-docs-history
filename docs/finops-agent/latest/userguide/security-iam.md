@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Identity and access management for AWS FinOps Agent
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS FinOps Agent resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -69,7 +68,7 @@ Identity-based policies can be *inline policies* (embedded directly into a singl
 
 AWS FinOps Agent does not support resource-based policies. You cannot use a resource-based policy to grant another AWS account access to an agent or its data. AWS FinOps Agent uses the roles and policies described in the [IAM setup guide](setting-up.md). Adding a policy to the agent role does not add supported access to additional AWS services or resources.
 
-To analyze organization-wide cost data, deploy AWS FinOps Agent in your organization's management account (the payer account). Cost Explorer in that account provides organization-wide visibility, subject to the IAM permissions you configure.
+To analyze organization-wide cost data, see [Setting up organization-wide access and a delegated administrator](setting-up-organization-access.md).
 
 ### Other policy types
 <a name="security_iam_access-manage-other-policies"></a>

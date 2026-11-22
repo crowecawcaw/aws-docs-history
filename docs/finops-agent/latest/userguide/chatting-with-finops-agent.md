@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # AWS FinOps Agent use cases
-<a name="chatting-with-finops-agent"></a>
 
 The chat area in the web application is the primary way to interact with AWS FinOps Agent. From a single conversation, you can ask cost questions in plain language and get answers using your cost and usage data, investigate cost anomalies to root cause, surface optimization recommendations, and generate reports. The agent reads your context files, applies what it has remembered from previous sessions, and uses connected integrations such as Jira and Slack to create a Jira ticket or post results to a Slack channel.
 

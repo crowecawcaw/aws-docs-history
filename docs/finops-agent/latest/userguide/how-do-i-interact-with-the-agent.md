@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Using the web application
-<a name="how-do-i-interact-with-the-agent"></a>
 
 The web application is where you do day-to-day work with AWS FinOps Agent. From it, you can chat with the agent, manage tasks and automations, upload context files, and download generated artifacts.
 

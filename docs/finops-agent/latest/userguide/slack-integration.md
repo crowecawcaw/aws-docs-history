@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Enable Slack with AWS FinOps Agent
-<a name="slack-integration"></a>
 
 Enable the agent to post task and automation results to Slack channels you connect. During preview, the connection is one-way: the agent posts to Slack but does not read messages, accept commands, or respond to mentions. The agent cannot edit or delete posts, manage channel membership, or interact with threads after posting.
 

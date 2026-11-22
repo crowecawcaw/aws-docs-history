@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Getting started with AWS FinOps Agent
-<a name="getting-started"></a>
 
 To start using AWS FinOps Agent, sign in to the AWS Management Console, switch to the US East (N. Virginia) (us-east-1) Region, and open the AWS FinOps Agent Console page. Create your first agent with the creation wizard. The wizard creates the IAM roles the agent needs and attaches the required policies for you, so you can get started without configuring IAM manually. You can optionally connect Jira and Slack during creation so the agent can create tickets and post messages.
 

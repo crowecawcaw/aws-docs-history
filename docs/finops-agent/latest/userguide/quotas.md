@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Quotas
-<a name="quotas"></a>
 
 The following table describes the quotas for AWS FinOps Agent.
 

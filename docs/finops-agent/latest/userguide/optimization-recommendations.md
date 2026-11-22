@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Surfacing cost optimization recommendations
-<a name="optimization-recommendations"></a>
 
 Ask the agent to retrieve, filter, and present cost-saving opportunities from AWS Cost Optimization Hub and AWS Compute Optimizer. Each recommendation includes the affected resource, current and recommended configuration, estimated monthly savings, implementation effort, and implementation guidance.
 

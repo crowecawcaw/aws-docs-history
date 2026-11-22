@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Monitoring and observability
-<a name="monitoring-overview"></a>
 
 ## Logging AWS FinOps Agent API calls using AWS CloudTrail
 <a name="logging-using-cloudtrail"></a>

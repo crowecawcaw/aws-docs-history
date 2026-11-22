@@ -3,7 +3,6 @@
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Service improvement
-<a name="service-improvement"></a>
 
 ## Content used for service improvement
 <a name="service-improvement-content-use"></a>
