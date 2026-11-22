@@ -1,7 +1,6 @@
 
 
 # Chat with Amazon Connect Talent
-<a name="connect-talent-assistant"></a>
 
 In the chat, Amazon Connect Talent answers your questions about your work. It's aware of the page you are on, such as the job, candidate, or evaluation you are viewing, so its answers stay relevant to your task. It also surfaces information from across the application.
 

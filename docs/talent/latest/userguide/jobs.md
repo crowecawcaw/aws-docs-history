@@ -1,7 +1,6 @@
 
 
 # Jobs
-<a name="jobs"></a>
 
 In Amazon Connect Talent, a job is a role you're hiring for. Each job has a title and description. You can create jobs directly in Amazon Connect Talent or connect them from an applicant tracking system (ATS). You then use those jobs to create evaluations. An evaluation defines the AI-led interviews and assessments that candidates complete as part of your hiring process.
 

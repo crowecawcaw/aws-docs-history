@@ -1,7 +1,6 @@
 
 
 # How an evaluation is structured
-<a name="evaluations-structure"></a>
 
 An evaluation has three parts:
 + **An overview** – the job, the competencies, and the language.

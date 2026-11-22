@@ -1,7 +1,6 @@
 
 
 # How scoring works
-<a name="how-scoring-works"></a>
 
 Amazon Connect Talent is built to give you fair, evidence-based results that you can trust. This page explains the principles behind scoring, how scoring rubrics are generated, and what counts as evidence.
 

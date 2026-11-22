@@ -1,7 +1,6 @@
 
 
 # Evaluations
-<a name="evaluations"></a>
 
 An evaluation is what a candidate completes for a job. It can include assessments, an AI-led interview, or both. Amazon Connect Talent builds an evaluation from a job's key competencies. This chapter shows you how to create and edit evaluations and how to read the results.
 

@@ -1,7 +1,6 @@
 
 
 # Candidate experience
-<a name="candidate-experience"></a>
 
 Candidates experience a mobile-first, employer-customized evaluation process. They can complete their evaluation—all from their mobile device through a seamless web experience. AI agents are available around the clock, so candidates can complete interviews whenever it's convenient for them, not just during business hours.
 

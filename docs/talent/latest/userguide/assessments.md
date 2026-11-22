@@ -1,7 +1,6 @@
 
 
 # How assessments work
-<a name="assessments"></a>
 
 Assessments are one of the two instruments in an evaluation, alongside the AI-led interview. Each assessment maps to one or more of the job's competencies and has an estimated duration. When you create an evaluation, Amazon Connect Talent selects the most relevant assessments for the job's competencies from its assessment library and tailors each one to the role. Amazon Connect Talent chooses only from its library and shows you why it selected each assessment.
 
