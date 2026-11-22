@@ -1,7 +1,6 @@
 
 
 # Power Grid Simulation with High Performance Computing on AWS
-<a name="power-grid-simulation-with-high-performance-computing"></a>
 
 Publication date: **August 10, 2023 ([Diagram history](#diagram-history))**
 
