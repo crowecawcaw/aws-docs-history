@@ -1,7 +1,6 @@
 
 
 # Provide DaaS to Fleet Customers: Data flow
-<a name="provide-daas-data-flow"></a>
 
 Publication date: **February 16, 2023 ([Diagram history](#daas-flow-history))**
 
