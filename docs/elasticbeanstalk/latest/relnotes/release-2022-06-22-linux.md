@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux platform updates on June 22, 2022
-<a name="release-2022-06-22-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux. The release includes security updates. It also includes AMI, ECS based Docker, Go, .NET Core, Node.js, and PHP updates. 
 

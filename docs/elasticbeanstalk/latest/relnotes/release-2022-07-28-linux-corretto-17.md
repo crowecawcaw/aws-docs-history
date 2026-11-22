@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 Corretto platform updates on July 28, 2022
-<a name="release-2022-07-28-linux-corretto-17"></a>
 
 This release provides new versions for the AWS Elastic Beanstalk Corretto platforms based on Amazon Linux 2. It includes Amazon Linux 2 security updates. This release also introduces a new platform branch, **Corretto 17**, based on Amazon Linux 2.
 

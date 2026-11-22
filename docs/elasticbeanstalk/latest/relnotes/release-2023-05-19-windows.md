@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on May 19, 2023
-<a name="release-2023-05-19-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates. It also updates AWS components.
 

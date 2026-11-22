@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform updates on November 4, 2022
-<a name="release-2022-11-04-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates. It also includes AMI, nginx, ECS based Docker, Go, Corretto, Tomcat, .NET Core, Node.js, PHP, and Ruby updates. 
 

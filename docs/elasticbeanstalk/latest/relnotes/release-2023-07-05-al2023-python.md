@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2023 platform updates on July 05, 2023
-<a name="release-2023-07-05-al2023-python"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2023. The release includes security updates. It also includes AMI, nginx, and Python updates.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk introduces change history for environments on January 7, 2021
-<a name="release-2021-01-07-change-history"></a>
 
 AWS Elastic Beanstalk added the ability to view a history of configuration changes made to your Elastic Beanstalk environments. This information includes the configuration parameter that was changed and its new value, the date and time the change occurred, and the user that made the change.
 

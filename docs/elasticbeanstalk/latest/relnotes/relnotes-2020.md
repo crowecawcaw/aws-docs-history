@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk release notes for 2020
-<a name="relnotes-2020"></a>
 
 All of the AWS Elastic Beanstalk release notes for the year 2020, latest first, are under this page in the table of contents.
 

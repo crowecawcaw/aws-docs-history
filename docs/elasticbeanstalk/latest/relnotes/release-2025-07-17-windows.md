@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on July 17, 2025
-<a name="release-2025-07-17-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. It updates framework and AWS components and applies Windows security updates. This release also adds support for creating multiple IIS websites and installs the IIS ARR by default on Windows AMIs. 
 

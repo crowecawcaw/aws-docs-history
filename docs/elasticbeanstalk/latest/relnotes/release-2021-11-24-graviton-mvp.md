@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk supports AWS Graviton instance types based on 64-bit Arm architecture on November 24, 2021
-<a name="release-2021-11-24-graviton-mvp"></a>
 
 AWS Elastic Beanstalk supports AWS Graviton instance types based on 64-bit Arm architecture.
 

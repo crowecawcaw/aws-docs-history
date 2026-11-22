@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update and Windows Server 2019 support on January 15, 2020
-<a name="release-2020-01-15-windows-2019"></a>
 
 This release provides new Windows Server version 2 (v2) platform versions for AWS Elastic Beanstalk. Most notably, the release adds support for Windows Server 2019 platform versions.
 

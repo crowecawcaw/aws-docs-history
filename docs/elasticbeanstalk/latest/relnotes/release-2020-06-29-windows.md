@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on June 29, 2020
-<a name="release-2020-06-29-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates. It also fixes some feature gaps, and updates framework and AWS components.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform updates on December 17, 2018
-<a name="release-2018-12-17-linux"></a>
 
 This release applies security updates to Linux-based platforms for AWS Elastic Beanstalk, and updates platform configurations. The release also includes Multicontainer Docker, Go, and Node.js updates, bug fixes, and, for certain AWS Regions, support for additional Amazon EC2 instance types.
 

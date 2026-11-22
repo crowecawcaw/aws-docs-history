@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform updates on March 27, 2020
-<a name="release-2020-03-27-linux"></a>
 
 This release provides new Linux-based platform versions for AWS Elastic Beanstalk. The release includes security updates. It also includes Multicontainer Docker, Go, Java SE, Tomcat, PHP, and Python updates.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux AMI platforms are deprecated on July 8, 2021
-<a name="release-2021-07-08-linux"></a>
 
 This release announces the deprecation of AWS Elastic Beanstalk platforms based on Amazon Linux AMI (aka AL1). Final retirement date is set to June 30, 2022.
 

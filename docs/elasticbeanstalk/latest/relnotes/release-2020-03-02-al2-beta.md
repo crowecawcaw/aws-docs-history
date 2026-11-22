@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk public beta update for Amazon Linux 2 platforms on March 2, 2020
-<a name="release-2020-03-02-al2-beta"></a>
 
 AWS Elastic Beanstalk releases a Docker beta platform version based on the Amazon Linux 2 operating system (OS).
 

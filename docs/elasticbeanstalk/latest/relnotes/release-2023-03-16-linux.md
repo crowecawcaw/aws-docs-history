@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform updates for AWS China Regions. on March 16, 2023
-<a name="release-2023-03-16-linux"></a>
 
 This release provides new versions for the AWS Elastic Beanstalk Docker and Python platforms for the AWS China Regions. These two platform updates were not included in the last release for the AWS China Regions. This release also includes updates to Apache HTTP server for the Python platform, which is a security release.
 

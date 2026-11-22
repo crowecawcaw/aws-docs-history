@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux platform updates on March 31, 2022
-<a name="release-2022-03-31-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux. The release includes security updates. It also introduces .NET 6 support on the *.NET Core on Amazon Linux* platform and Graviton instance type support for the *Node.js 16* platform branch. Updates for AMI, Docker, Go, Tomcat, Node.js, PHP, and Ruby are also included.
 

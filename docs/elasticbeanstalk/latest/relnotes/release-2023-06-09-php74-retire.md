@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform branch PHP 7.4 retired on June 09, 2023
-<a name="release-2023-06-09-php74-retire"></a>
 
 This release announces the retirement of the PHP 7.4 platform branch based on Amazon Linux 2.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk managed policy updates on March 23, 2023
-<a name="release-2023-03-23-policy-updates"></a>
 
 AWS Elastic Beanstalk has released updates to five managed policies for tagging ECS resources.
 

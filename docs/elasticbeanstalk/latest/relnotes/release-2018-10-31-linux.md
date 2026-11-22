@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform updates on October 31, 2018
-<a name="release-2018-10-31-linux"></a>
 
 This release applies security updates to Linux-based platforms for AWS Elastic Beanstalk, and updates platform configurations. The release also includes Go, Node.js, PHP, and Ruby updates, and, for certain AWS Regions, support for additional Amazon EC2 instance types.
 

@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk Windows Server platform update on August 26, 2019
-<a name="release-2019-08-26-windows"></a>
 
 This release applies Windows August 2019 security updates to the Windows Server platform for Elastic Beanstalk, and updates platform versions.
 

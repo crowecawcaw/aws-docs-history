@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Node.js 18 on AL2023 and AL2 platform branches retired on August 11, 2025
-<a name="release-2025-08-11-nodejs18-retire"></a>
 
 This release announces the retirement of the following platform branches: Node.js 18 on AL2023 and AL2.
 

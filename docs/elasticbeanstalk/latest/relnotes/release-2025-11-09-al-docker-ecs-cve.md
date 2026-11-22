@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2023 and Amazon Linux 2 Docker platform updates on November 9, 2025
-<a name="release-2025-11-09-al-docker-ecs-cve"></a>
 
 This release is an emergent AWS Elastic Beanstalk Docker platform update for Amazon Linux 2023 and Amazon Linux 2. It addresses a regression in the runc-1.3.2-2 library that causes directory permission issues preventing the ECS agent from starting.
 

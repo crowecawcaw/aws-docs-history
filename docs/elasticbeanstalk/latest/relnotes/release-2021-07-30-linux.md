@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform updates on July 30, 2021
-<a name="release-2021-07-30-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates. It also includes a Corretto update.
 

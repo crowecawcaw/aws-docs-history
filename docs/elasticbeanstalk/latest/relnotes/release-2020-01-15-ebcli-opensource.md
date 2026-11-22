@@ -1,7 +1,6 @@
 
 
 # Release: EB CLI becomes open source on January 15, 2020
-<a name="release-2020-01-15-ebcli-opensource"></a>
 
 The AWS Elastic Beanstalk Command Line Interface (EB CLI) is now an open-source project hosted on GitHub.
 

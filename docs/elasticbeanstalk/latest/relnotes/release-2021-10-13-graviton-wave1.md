@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk supports first wave of Graviton gradual rollout on October 13, 2021
-<a name="release-2021-10-13-graviton-wave1"></a>
 
 AWS Elastic Beanstalk supports first wave of Graviton gradual rollout.
 

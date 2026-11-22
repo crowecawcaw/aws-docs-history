@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk launches new console design in AWS Region South America (São Paulo) on March 22, 2023
-<a name="release-2023-03-22-eb-console-region-saopaulo"></a>
 
 AWS Elastic Beanstalk launches new console design in AWS Region *South America (São Paulo)*.
 

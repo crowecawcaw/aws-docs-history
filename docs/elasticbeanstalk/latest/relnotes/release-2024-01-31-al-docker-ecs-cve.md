@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2023 and Amazon Linux 2 Docker platform updates on January 31, 2024
-<a name="release-2024-01-31-al-docker-ecs-cve"></a>
 
 This release is an emergent AWS Elastic Beanstalk Docker platform update for Amazon Linux 2023 and Amazon Linux 2. It addresses a security vulnerability and updates Docker Compose for the AL2023 platform.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform security updates on August 20, 2018
-<a name="release-2018-08-20-linux"></a>
 
 This release applies security updates to Linux-based platforms for AWS Elastic Beanstalk, and updates platform configurations.
 

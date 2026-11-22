@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server 2012 R2 platform branches retired on December 04, 2023
-<a name="release-2023-12-04-windows-2012-retire"></a>
 
 This release announces the retirement of Windows Server 2012 R2 and Windows Server 2012 R2 Core platform branches.
 

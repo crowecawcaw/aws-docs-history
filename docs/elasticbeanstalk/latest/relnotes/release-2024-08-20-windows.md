@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on August 20, 2024
-<a name="release-2024-08-20-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates and updates AWS components. It also includes updates that improve Windows deployment time.
 

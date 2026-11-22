@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux AMI platform update for Python on April 19, 2021
-<a name="release-2021-04-19-linux"></a>
 
 This release provides a new version for the AWS Elastic Beanstalk Python platform based on Amazon Linux AMI. The release includes security updates. It also includes a component update on the Python platform.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform updates on April 28, 2023
-<a name="release-2023-04-28-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates. It also includes AMI, Docker, ECS based Docker, Go, .NET Core, Node.js, PHP, Python updates, and Ruby updates. 
 

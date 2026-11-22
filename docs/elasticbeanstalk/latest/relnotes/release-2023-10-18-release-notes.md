@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk added support for tagging launch templates on October 18, 2023
-<a name="release-2023-10-18-release-notes"></a>
 
 AWS Elastic Beanstalk added support for tagging launch templates.
 

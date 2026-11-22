@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk Windows Server platform update on October 23, 2018
-<a name="release-2018-10-23-windows"></a>
 
 This release applies Windows October 2018 security updates to the Windows Server platform for Elastic Beanstalk, and updates platform configurations. The release also adds Amazon EC2 instance types in certain AWS Regions.
 

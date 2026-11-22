@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk introduces a maintenance service-linked role on April 18, 2019
-<a name="release-2019-04-18-maint-slr"></a>
 
 Elastic Beanstalk added a new service-linked role for maintenance, to join the monitoring service-linked role already in use.
 

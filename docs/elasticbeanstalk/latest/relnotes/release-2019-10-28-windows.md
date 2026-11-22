@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk Windows Server platform update on October 28, 2019
-<a name="release-2019-10-28-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates. It also adds support for .NET Core 3.0.0, removes Windows Server 2008 platform versions, and adds support for additional Amazon EC2 instance types in certain AWS Regions.
 

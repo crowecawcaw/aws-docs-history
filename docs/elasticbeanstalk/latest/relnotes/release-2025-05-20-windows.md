@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on May 20, 2025
-<a name="release-2025-05-20-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release adds support for .NET 9 and updates framework and AWS components.
 

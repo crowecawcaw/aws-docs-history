@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux Java and Tomcat platform updates on December 28, 2021
-<a name="release-2021-12-28-java"></a>
 
 This release provides new versions for AWS Elastic Beanstalk Java and Tomcat platforms. The release includes an additional Log4j-related security update.
 

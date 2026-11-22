@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk managed policy updates on May 10, 2023
-<a name="release-2023-05-10-policy-updates"></a>
 
 AWS Elastic Beanstalk has released updates to a managed policy.
 

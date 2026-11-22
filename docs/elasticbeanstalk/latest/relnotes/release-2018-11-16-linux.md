@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform updates on November 16, 2018
-<a name="release-2018-11-16-linux"></a>
 
 This release applies security updates to Linux-based platforms for AWS Elastic Beanstalk, and updates platform configurations. The release also includes Java SE, Java with Tomcat, and Node.js updates, and, for certain AWS Regions, support for additional Amazon EC2 instance types.
 

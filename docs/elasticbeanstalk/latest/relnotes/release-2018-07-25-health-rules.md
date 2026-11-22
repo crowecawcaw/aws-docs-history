@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk support for enhanced health rule customization on July 25, 2018
-<a name="release-2018-07-25-health-rules"></a>
 
 Elastic Beanstalk added the ability to ignore application HTTP 4xx errors when determining your environment's health.
 

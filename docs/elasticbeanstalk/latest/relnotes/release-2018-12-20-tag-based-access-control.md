@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk support for Tag-Based Access Control on December 20, 2018
-<a name="release-2018-12-20-tag-based-access-control"></a>
 
 Elastic Beanstalk added support for using tags in AWS Identity and Access Management (IAM) conditions in user policies.
 

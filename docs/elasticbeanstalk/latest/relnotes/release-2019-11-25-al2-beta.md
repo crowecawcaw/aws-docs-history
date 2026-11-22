@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk launches public beta Corretto platforms based on Amazon Linux 2 on November 25, 2019
-<a name="release-2019-11-25-al2-beta"></a>
 
 AWS Elastic Beanstalk is releasing Amazon Corretto platform versions based on the Amazon Linux 2 operating system (OS), available as a public beta program.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk GitHub Action for automated deployments on February 11, 2026
-<a name="release-2026-02-11-github-action"></a>
 
 AWS Elastic Beanstalk announces the Elastic Beanstalk Deploy GitHub Action, enabling automated application deployments to Elastic Beanstalk directly from GitHub Actions workflows.
 

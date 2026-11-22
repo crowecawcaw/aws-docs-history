@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk .NET 6 on AL2023 and Python 3.8 on Amazon Linux 2 platform branches retired on April 08, 2025
-<a name="release-2025-04-08-dotnet6-python38-retire"></a>
 
 This release announces the retirement of the following platform branches: .NET 6 on AL2023 and Python 3.8 on Amazon Linux 2.
 

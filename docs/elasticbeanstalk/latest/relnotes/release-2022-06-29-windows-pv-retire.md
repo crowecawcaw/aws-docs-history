@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform versions V0 and V1 retired on June 29, 2022
-<a name="release-2022-06-29-windows-pv-retire"></a>
 
 This release announces the retirement of the remainder of the Windows Server platform versions for version 0.1.0 and version 1.2.0.
 

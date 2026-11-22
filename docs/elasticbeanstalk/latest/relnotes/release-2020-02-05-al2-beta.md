@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk public beta update for Amazon Linux 2 platforms on February 5, 2020
-<a name="release-2020-02-05-al2-beta"></a>
 
 AWS Elastic Beanstalk releases a Python beta platform version based on the Amazon Linux 2 operating system (OS), and provides updated Amazon Corretto beta platform versions.
 

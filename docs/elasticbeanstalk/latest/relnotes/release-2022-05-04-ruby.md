@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 Ruby platform update on May 4, 2022
-<a name="release-2022-05-04-ruby"></a>
 
 This release provides a new version for the AWS Elastic Beanstalk Ruby platforms based on Amazon Linux 2. The release provides runtime updates to Ruby 3.0 along with security updates for the Amazon Linux 2 operating system running on the Ruby platforms.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 platform updates on September 2, 2021
-<a name="release-2021-09-02-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates. It also includes Docker, Go, Tomcat, .NET Core, Node.js, and Ruby updates.
 

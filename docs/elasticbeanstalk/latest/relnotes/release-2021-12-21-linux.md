@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux platform updates on December 21, 2021
-<a name="release-2021-12-21-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux. The release contains security updates, including the hotpatch for Apache Log4j. It also includes AMI, Go, Corretto, Tomcat, .NET Core, Node.js, Python, and Ruby updates.
 

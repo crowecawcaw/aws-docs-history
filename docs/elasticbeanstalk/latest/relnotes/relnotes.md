@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Beanstalk release notes
-<a name="relnotes"></a>
 
 This chapter contains all of the Elastic Beanstalk release notes, latest first, organized by year of release.
 
@@ -10,6 +9,8 @@ For release notes predating this document, which were published elsewhere on the
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Release: Elastic Beanstalk Amazon Linux 2023 platform updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-11-19-al2023.html) | This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2023. The release provides security updates, including updates to address CVE-2026-129289 for PHP, CVE-2026-123007 for nginx, and CVE-2026-132825 for Ruby. It also includes AMI, nginx, X-Ray daemon, Docker, ECS based Docker, Go, Corretto, Tomcat, PHP, Python, and Ruby updates. | November 19, 2026 | 
+| [Release: Elastic Beanstalk Windows Server platform update](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-11-16-windows.html) | This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates. It also updates framework and AWS components. | November 16, 2026 | 
 | [Release: Elastic Beanstalk Amazon Linux 2023 platform updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-11-13-al2023.html) | This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2023. The release provides security updates, including an update to address CVE-2026-119618 for Apache HTTP Server. It also includes AMI and Apache updates. | November 13, 2026 | 
 | [Release: Elastic Beanstalk Amazon Linux 2023 platform updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-11-12-al2023.html) | This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2023. The release includes security updates. It also includes AMI, Docker, Corretto, .NET Core, Node.js, PHP, and Python updates. | November 12, 2026 | 
 | [Release: Elastic Beanstalk Windows Server platform update](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-11-04-windows.html) | This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates. It also updates AWS components. | November 4, 2026 | 

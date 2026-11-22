@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux AMI platform updates on November 11, 2020
-<a name="release-2020-11-11-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux AMI. The release includes security updates. It also includes Apache HTTP Server, Multicontainer Docker, Preconfigured Docker, Go, Tomcat, Node.js, PHP, Python, and Ruby updates. Several language runtime, web server, and application server versions are reaching end of life with this release.
 

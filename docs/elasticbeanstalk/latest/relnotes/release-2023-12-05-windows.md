@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on December 05, 2023
-<a name="release-2023-12-05-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates and updates to framework components, adding support for .NET 8 in this release. It also updates AWS components.
 

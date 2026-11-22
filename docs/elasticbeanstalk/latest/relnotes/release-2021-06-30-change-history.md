@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk adds support for Amazon EBS gp3 volumes on June 30, 2021
-<a name="release-2021-06-30-change-history"></a>
 
 AWS Elastic Beanstalk added support for Amazon Elastic Block Store (Amazon EBS) gp3 volumes.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on March 26, 2025
-<a name="release-2025-03-26-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk, Windows security updates, and updates framework and AWS components. This release also introduces a feature that adds support for Elastic Beanstalk environment variables to store secrets and parameters from AWS Secrets Manager and AWS Systems Manager Parameter Store.
 

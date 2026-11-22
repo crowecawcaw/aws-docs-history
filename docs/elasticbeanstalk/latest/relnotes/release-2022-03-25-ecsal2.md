@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk introduces ECS running on Amazon Linux 2 to Docker platform on March 25, 2022
-<a name="release-2022-03-25-ecsal2"></a>
 
 This release introduces a new platform branch based on Amazon Linux 2 to the AWS Elastic Beanstalk Docker platform: **Amazon ECS running on 64bit Amazon Linux 2**.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk introduces .NET Core on Linux on June 23, 2020
-<a name="release-2020-06-23-dotnet-linux"></a>
 
 This release introduces *.NET Core on Linux*, a new AWS Elastic Beanstalk platform.
 

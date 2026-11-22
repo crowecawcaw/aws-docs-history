@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server 2016 platform branches retired on October 8, 2026
-<a name="release-2026-10-08-windows-10-2026-retire"></a>
 
 This release announces the retirement of the Windows Server 2016 with IIS 10.0 and Windows Server Core 2016 with IIS 10.0 platform branches.
 

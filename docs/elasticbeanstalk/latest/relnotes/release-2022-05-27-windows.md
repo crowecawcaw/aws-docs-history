@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on May 27, 2022
-<a name="release-2022-05-27-windows"></a>
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. It also introduces support for .NET 6 on the Windows Server platforms. The release applies Windows security updates and also updates framework and AWS components.
 

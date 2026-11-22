@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux platform updates on March 2, 2022
-<a name="release-2022-03-02-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux. The release includes security updates. It also introduces a new branch, **Node.js 16**, and announces the deprecation of two platform branches. It also includes AMI, Go, Corretto, Node.js, PHP, and Ruby updates.
 

@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux AMI platform updates on March 30, 2021
-<a name="release-2021-03-30-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux AMI. The release includes security updates. It also includes Multicontainer Docker, Go, Java, and Tomcat updates.
 

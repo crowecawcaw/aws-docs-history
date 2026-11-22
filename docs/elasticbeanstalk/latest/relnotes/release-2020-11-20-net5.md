@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk introduces .NET 5 on Linux and Windows Server platforms on November 20, 2020
-<a name="release-2020-11-20-net5"></a>
 
 This release introduces AWS Elastic Beanstalk support for .NET 5 on *both the Amazon Linux 2 and the Windows Server platforms.* The new platform version for Windows Server also provides Windows security updates, additional framework updates and AWS component updates.
 

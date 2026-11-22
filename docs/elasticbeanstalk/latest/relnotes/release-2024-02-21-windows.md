@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Windows Server platform update on February 21, 2024
-<a name="release-2024-02-21-windows"></a>
 
 This release provides support for Windows 2022 with two new platform branches: Windows Server 2022 and Windows Server Core 2022. This release also provides new Windows Server platform versions for AWS Elastic Beanstalk, along with Windows security updates. It also updates framework and AWS components.
 

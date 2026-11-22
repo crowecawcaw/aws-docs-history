@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk supports IPv6 in dualstack configuration for Application and Network Load Balancers on September 9, 2025
-<a name="release-2025-09-09-ipv6-dualstack-lb"></a>
 
 AWS Elastic Beanstalk adds support for IPv6 network protocol with dual stack configuration for Application and Network Load Balancers.
 

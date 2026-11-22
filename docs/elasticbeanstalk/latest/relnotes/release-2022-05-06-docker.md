@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 Docker platform update on May 6, 2022
-<a name="release-2022-05-06-docker"></a>
 
 This release provides a new version for the *AWS Elastic Beanstalk Docker Amazon Linux 2* platform (*Docker AL2*). The release includes a new Docker version along with security updates.
 

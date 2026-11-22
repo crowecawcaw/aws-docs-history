@@ -1,7 +1,6 @@
 
 
 # Release: Automatic Elastic Beanstalk environment state update after recovered CloudFormation stack on December 16, 2024
-<a name="release-2024-12-16-release-notes"></a>
 
 AWS Elastic Beanstalk provides automatic state update for environments with recovered CloudFormation stacks.
 

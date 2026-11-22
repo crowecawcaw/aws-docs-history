@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk PHP 8.1 on AL2023 and AL2 platform branches retired on April 16, 2026
-<a name="release-2026-04-16-php81-retire"></a>
 
 This release announces the retirement of the following platform branches: PHP 8.1 on AL2023 and AL2.
 

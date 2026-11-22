@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk adds support for Spot Instance requests on November 25, 2019
-<a name="release-2019-11-25-spot"></a>
 
 AWS Elastic Beanstalk added support for Amazon Elastic Compute Cloud (Amazon EC2) Spot Instance requests.
 

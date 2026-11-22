@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2023 platform updates for Node.js 24 and Node.js 22 on October 22, 2026
-<a name="release-2026-10-22-al2023-nodejs"></a>
 
 This release provides new versions for AWS Elastic Beanstalk Node.js 24 and Node.js 22 platforms based on Amazon Linux 2023. The release includes security updates. It also includes AMI and Node.js updates.
 

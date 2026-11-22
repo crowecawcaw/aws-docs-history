@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk Windows Server platform update on February 21, 2019
-<a name="release-2019-02-21-windows"></a>
 
 This release applies Windows February 2019 security updates to the Windows Server v1 and earlier platform versions for Elastic Beanstalk. The release also adds Amazon EC2 instance types in certain AWS Regions.
 

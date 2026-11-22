@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk adds feature to migrate your Windows IIS applications to AWS Elastic Beanstalk on April 18, 2025
-<a name="release-2025-04-18-release-notes"></a>
 
 AWS Elastic Beanstalk releases the **eb migrate** EB CLI command to migrate your Windows IIS applications to Elastic Beanstalk hosted environments on the AWS Cloud.
 

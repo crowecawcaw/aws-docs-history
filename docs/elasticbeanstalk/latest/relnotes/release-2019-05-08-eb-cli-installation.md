@@ -1,7 +1,6 @@
 
 
 # Release: AWS Elastic Beanstalk simplifies EB CLI installation on May 8, 2019
-<a name="release-2019-05-08-eb-cli-installation"></a>
 
 Elastic Beanstalk released open-source scripts to simplify installing the Elastic Beanstalk Command Line Interface (EB CLI).
 

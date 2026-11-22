@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux 2 Docker platform update on October 6, 2021
-<a name="release-2021-10-06-docker"></a>
 
 This release provides a new version for the AWS Elastic Beanstalk Docker platform based on Amazon Linux 2. The release includes a new Docker version with security updates.
 

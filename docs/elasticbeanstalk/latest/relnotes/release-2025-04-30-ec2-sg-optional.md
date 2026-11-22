@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk adds support to opt out environment from default EC2 security group on April 30, 2025
-<a name="release-2025-04-30-ec2-sg-optional"></a>
 
 AWS Elastic Beanstalk added support to opt out environment from default EC2 security group.
 

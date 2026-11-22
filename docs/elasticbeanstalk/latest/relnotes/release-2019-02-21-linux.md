@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Linux-based platform updates on February 21, 2019
-<a name="release-2019-02-21-linux"></a>
 
 This release provides new Linux-based platform versions for AWS Elastic Beanstalk. The release includes security updates. It also includes Go, Node.js, and Ruby updates, and support for additional Amazon EC2 instance types in one AWS Region.
 

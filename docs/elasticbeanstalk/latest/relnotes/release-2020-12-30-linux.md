@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk Amazon Linux AMI platform updates on December 30, 2020
-<a name="release-2020-12-30-linux"></a>
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux AMI. The release includes security updates. It also includes Go and Node.js updates.
 

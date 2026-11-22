@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk introduces shared Application Load Balancers on September 10, 2020
-<a name="release-2020-09-10-shared-alb"></a>
 
 AWS Elastic Beanstalk added support for sharing an Application Load Balancer among multiple environments, to save on load balancer costs.
 

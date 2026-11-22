@@ -1,7 +1,6 @@
 
 
 # Release: Elastic Beanstalk adds support for IMDSv2 on June 10, 2020
-<a name="release-2020-06-10-imdsv2"></a>
 
 AWS Elastic Beanstalk added support for Instance Metadata Service Version 2 (IMDSv2) on Amazon Linux 2 platforms.
 
