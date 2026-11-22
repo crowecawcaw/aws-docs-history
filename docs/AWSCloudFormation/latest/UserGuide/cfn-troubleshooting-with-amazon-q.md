@@ -1,7 +1,6 @@
 
 
 # Troubleshoot unsuccessful CloudFormation stack deployments with AWS assistant
-<a name="cfn-troubleshooting-with-amazon-q"></a>
 
 The AWS assistant is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, build, extend, and operate AWS applications. For information about the AWS assistant, see the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html).
 

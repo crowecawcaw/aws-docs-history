@@ -1,7 +1,6 @@
 
 
 # Troubleshoot the processed template
-<a name="template-macros-troubleshoot-processed-template"></a>
 
 When using a macro, the processed template can be found in the CloudFormation console.
 

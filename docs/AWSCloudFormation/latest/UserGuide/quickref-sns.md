@@ -1,14 +1,13 @@
 
 
 # Amazon SNS template snippets
-<a name="quickref-sns"></a>
 
 This example shows an Amazon SNS topic resource. It requires a valid email address.
 
 ## JSON
 <a name="quickref-sns-example-1.json"></a>
 
-```
+```json
 1. "MySNSTopic" : {
 2.     "Type" : "AWS::SNS::Topic",
 3.     "Properties" : {
@@ -23,7 +22,7 @@ This example shows an Amazon SNS topic resource. It requires a valid email addre
 ## YAML
 <a name="quickref-sns-example-1.yaml"></a>
 
-```
+```yaml
 1. MySNSTopic:
 2.   Type: AWS::SNS::Topic
 3.   Properties:

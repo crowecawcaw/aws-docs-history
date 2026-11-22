@@ -1,7 +1,6 @@
 
 
 # Service-managed stack import for CloudFormation StackSets
-<a name="service-managed-import"></a>
 
 The CloudFormation stack import operation can import existing stacks into new or existing StackSets, so that you can migrate existing stacks to a StackSet in one operation. StackSets extends the functionality of stacks, so you can create, update, or delete stacks across multiple accounts and Regions with a single operation.
 

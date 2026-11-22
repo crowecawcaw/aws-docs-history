@@ -1,7 +1,6 @@
 
 
 # View stack information from the CloudFormation console
-<a name="cfn-console-view-stack-data-resources"></a>
 
 After you've created a CloudFormation stack, you can use the AWS Management Console to view its data and resources.
 

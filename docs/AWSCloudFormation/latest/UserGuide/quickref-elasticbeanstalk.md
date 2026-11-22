@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk template snippets
-<a name="quickref-elasticbeanstalk"></a>
 
 With Elastic Beanstalk, you can quickly deploy and manage applications in AWS without worrying about the infrastructure that runs those applications. The following sample template can help you describe Elastic Beanstalk resources in your CloudFormation template.
 
@@ -15,7 +14,7 @@ Replace `{{solution-stack}}` with a solution stack name (platform version). For 
 ### JSON
 <a name="quickref-elasticbeanstalk-example-1.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Resources": {
@@ -133,7 +132,7 @@ Replace `{{solution-stack}}` with a solution stack name (platform version). For 
 ### YAML
 <a name="quickref-elasticbeanstalk-example-1.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   sampleApplication:

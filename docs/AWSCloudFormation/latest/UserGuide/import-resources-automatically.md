@@ -1,7 +1,6 @@
 
 
 # Import AWS resources into a CloudFormation stack automatically
-<a name="import-resources-automatically"></a>
 
 You can now import *named resources* automatically when creating or updating CloudFormation stacks. A *named resource* is one with a custom name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html) in the *CloudFormation Template Reference*.
 

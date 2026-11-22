@@ -1,7 +1,6 @@
 
 
 # Syncing stacks with source code stored in a Git repository with Git sync
-<a name="git-sync"></a>
 
 With Git sync, you can manage your CloudFormation stacks with source control. You do this by configuring CloudFormation to monitor a Git repository. The repository is monitored for changes to two files:
 + A CloudFormation template file that defines a stack

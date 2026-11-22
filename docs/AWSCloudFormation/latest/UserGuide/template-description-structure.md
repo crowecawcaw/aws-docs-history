@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Description syntax
-<a name="template-description-structure"></a>
 
 The `Description` section (optional) enables you to include a text string that describes the template. This section must always follow the template format version section.
 
@@ -13,13 +12,13 @@ During a stack update, you cannot update the `Description` section by itself. Yo
 ## JSON
 <a name="template-description-structure-example.json"></a>
 
-```
+```json
 "Description" : "Here are some details about the template."
 ```
 
 ## YAML
 <a name="template-description-structure-example.yaml"></a>
 
-```
+```yaml
 Description: > Here are some details about the template.
 ```

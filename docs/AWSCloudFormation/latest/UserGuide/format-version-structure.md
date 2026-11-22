@@ -1,7 +1,6 @@
 
 
 # CloudFormation template format version syntax
-<a name="format-version-structure"></a>
 
 The `AWSTemplateFormatVersion` section (optional) identifies the template format version that the template conforms to. The latest template format version is `2010-09-09` and is currently the only valid value.
 
@@ -12,13 +11,13 @@ The value for the template format version declaration must be a literal string. 
 ## JSON
 <a name="format-version-structure-example.json"></a>
 
-```
+```json
 "AWSTemplateFormatVersion" : "2010-09-09"
 ```
 
 ## YAML
 <a name="format-version-structure-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 ```

@@ -1,7 +1,6 @@
 
 
 # Validate templates with `cloudformation-validate`
-<a name="cloudformation-validate"></a>
 
 AWS CloudFormation Validate (`cloudformation-validate`) helps you find template problems before deployment. It checks JSON and YAML templates locally for invalid template structure, broken references, security issues, and best-practice problems. Each finding includes a stable rule ID, a severity, the line and column in the template, the affected resource, and, when available, a suggested fix.
 
@@ -46,7 +45,7 @@ The `cfn-validate` command is a single file with no dependencies. Open the [late
 
 On Linux or macOS, make the file executable, rename it to `cfn-validate`, and move it to a directory on your `PATH`. The following example uses the Linux x86-64 file. Replace {{VERSION}} with the version that you downloaded.
 
-```
+```sh
 chmod +x cfn-validate-{{VERSION}}-linux-x64
 sudo mv cfn-validate-{{VERSION}}-linux-x64 /usr/local/bin/cfn-validate
 ```
@@ -60,25 +59,25 @@ Each release also includes a signature file for every download and the public ke
 
 The command uses the following syntax:
 
-```
+```sh
 cfn-validate {{TEMPLATE_OR_DIRECTORY}} [OPTIONS]
 ```
 
 Check one template:
 
-```
+```sh
 cfn-validate template.yaml
 ```
 
 Pass a directory to recursively check every `.yaml`, `.yml`, and `.json` file:
 
-```
+```sh
 cfn-validate ./templates/
 ```
 
 Some checks depend on the AWS Region or on parameter values. Use `--region` to set the `AWS::Region` pseudo parameter, `--parameter` to set a template parameter, and `--pseudo-parameter` to set other pseudo parameters such as `AWS::AccountId` or `AWS::Partition`. You can repeat `--parameter` and `--pseudo-parameter`:
 
-```
+```sh
 cfn-validate template.yaml --region us-west-2 --parameter Environment=prod --parameter InstanceType=t3.micro
 ```
 
@@ -91,7 +90,7 @@ The command writes a JSON report to standard output. Each finding in the report 
 
 To limit the report to more serious findings, use `--level` with the minimum severity to include:
 
-```
+```sh
 cfn-validate template.yaml --level error
 ```
 
@@ -102,7 +101,7 @@ The command returns exit code `0` when it finds no errors, `1` when it finds err
 
 You can include or exclude findings by rule ID, rule ID range, category, resource type, service prefix, or the logical ID of a template entity. Each filter has an `--include-` and an `--exclude-` form. The following examples show common filters:
 
-```
+```sh
 # Suppress specific rules everywhere
 cfn-validate template.yaml --exclude-ids {{RULE_ID}},{{RULE_ID}}
 
@@ -131,14 +130,14 @@ You can add your own checks in any of the following formats. Each format assumes
 
 You can repeat either option to load multiple rule sources:
 
-```
+```sh
 cfn-validate template.yaml --rule-source ./rules/checks.json --rule-source ./rules/network.rego
 cfn-validate template.yaml --guard-rule-source ./guard-rules/
 ```
 
 The following CEL example in `checks.json` reports a finding for each Amazon S3 bucket without encryption. The `resource_type` field makes the rule run once for each resource of that type, and `{name}` in the message is replaced with the resource's logical ID.
 
-```
+```json
 {
   "rules": [
     {
@@ -161,7 +160,7 @@ For more information about the data available to rules, the supported CEL functi
 
 The bundled schemas match the CloudFormation registry at the time of the release. If a template uses a resource type, property, or allowed value that CloudFormation published after that release, or a private resource type from your own registry, pass the resource provider schema with `--additional-schema`. The validator uses it to extend the bundled schema for an existing type or to validate a new type. You can pass a `.json` file or a directory of schema files, and repeat the option:
 
-```
+```sh
 cfn-validate template.yaml --additional-schema ./schemas/
 ```
 
@@ -185,7 +184,7 @@ Every library exposes one method that validates a template and returns a report 
 
 Python:
 
-```
+```python
 from cloudformation_validate import CompositeEngine
 
 engine = CompositeEngine()
@@ -196,7 +195,7 @@ for d in report.diagnostics:
 
 Kotlin:
 
-```
+```kotlin
 import software.amazon.cloudformation.validate.CompositeEngine
 import java.io.File
 
@@ -216,7 +215,7 @@ For supported language runtimes, version pinning, prerelease channels, and Maven
 
 If you use AWS CDK, you don't need to install the validator separately. The AWS CDK construct library includes a default `CloudFormationValidatePlugin` that runs the same checks automatically after synthesizing your CloudFormation templates.
 
-```
+```sh
 cdk synth
 ```
 

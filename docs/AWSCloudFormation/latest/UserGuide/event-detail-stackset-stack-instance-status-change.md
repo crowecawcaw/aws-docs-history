@@ -1,13 +1,12 @@
 
 
 # StackSet Stack Instance Status Change event detail
-<a name="event-detail-stackset-stack-instance-status-change"></a>
 
 Below are the detail fields for StackSet stack instance status events.
 
 The `source` and `detail-type` fields are included because they contain specific values for events.
 
-```
+```json
 {
   . . .,
   "detail-type": "CloudFormation StackSet StackInstance Status Change",
@@ -58,7 +57,7 @@ The detailed StackSet instance detailed status.
 **Example: StackSet Stack Instance Status Change event**  <a name="event-detail-stackset-stack-instance-status-change.example"></a>
 The following is an example StackSet Stack Instance Status Change event.   
 
-```
+```json
 {
   "version": "0",
   "id": "42h6hb90-hg0w-11op-b01v-0xhnh0934z09",

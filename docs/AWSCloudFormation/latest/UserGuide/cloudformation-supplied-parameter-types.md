@@ -1,7 +1,6 @@
 
 
 # Specify existing resources at runtime with CloudFormation-supplied parameter types
-<a name="cloudformation-supplied-parameter-types"></a>
 
 When creating your template, you can create parameters that require users to input identifiers of existing AWS resources or Systems Manager parameters by using specialized parameter types provided by CloudFormation. 
 
@@ -46,7 +45,7 @@ To create a stack from this template, you must specify an existing VPC ID, subne
 ### JSON
 <a name="cloudformation-supplied-parameter-types-example.json"></a>
 
-```
+```json
 {
     "Parameters": {
         "VpcId": {
@@ -110,7 +109,7 @@ To create a stack from this template, you must specify an existing VPC ID, subne
 ### YAML
 <a name="cloudformation-supplied-parameter-types-example.yaml"></a>
 
-```
+```yaml
 Parameters:
   VpcId:
     Description: ID of an existing Virtual Private Cloud (VPC).

@@ -1,7 +1,6 @@
 
 
 # Understand module versioning
-<a name="module-versioning"></a>
 
 The CloudFormation registry acts as a repository where you can register and manage modules for use within your AWS account and Region. You can register modules from various sources, including AWS, third-party publishers, and your own custom extensions, within your account and Region. For more information, see [Managing extensions with the CloudFormation registry](registry.md).
 

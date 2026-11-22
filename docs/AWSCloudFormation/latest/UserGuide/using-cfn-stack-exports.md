@@ -1,7 +1,6 @@
 
 
 # Get exported outputs from a deployed CloudFormation stack
-<a name="using-cfn-stack-exports"></a>
 
 When you have multiple stacks in the same AWS account and Region, you might want to share information between them. This is useful when one stack needs to use resources created by another stack.
 
@@ -61,7 +60,7 @@ aws cloudformation list-exports --region {{us-east-1}}
 
 The following is example output.
 
-```
+```json
 {
     "Exports": [
         {
@@ -110,7 +109,7 @@ aws cloudformation list-imports --region {{us-east-1}} \
 
 CloudFormation returns a list of stacks that are importing the value.
 
-```
+```json
 {
     "Imports": [
         "my-app-stack"

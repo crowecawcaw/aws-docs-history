@@ -1,7 +1,6 @@
 
 
 # Use third-party public extensions from the CloudFormation registry
-<a name="registry-public"></a>
 
 To use a third-party public extension in your template, you must first *activate* the extension for the account and Region where you want to use it. Activating an extension makes it usable in stack operations in the account and Region where it's activated. 
 
@@ -47,7 +46,7 @@ The following is an example IAM role trust policy for a resource type extension.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ The following is an example IAM role trust policy for a Hook extension.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

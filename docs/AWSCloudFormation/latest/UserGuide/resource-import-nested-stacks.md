@@ -1,7 +1,6 @@
 
 
 # Nesting an existing stack
-<a name="resource-import-nested-stacks"></a>
 
 Use the `resource import` feature to nest an existing stack within another existing stack. Nested stacks are common components that you declare and reference from within other templates. That way, you can avoid copying and pasting the same configurations into your templates and simplify stack updates. If you have a template for a common component, you can use the `AWS::CloudFormation::Stack` resource to reference this template from within another template. For more information on nested stacks, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md).
 
@@ -23,7 +22,7 @@ During a nested stack import operation, CloudFormation performs the following va
 
    **JSON**
 
-   ```
+   ```json
    {
      "AWSTemplateFormatVersion" : "2010-09-09",
      "Resources" : {
@@ -66,7 +65,7 @@ During a nested stack import operation, CloudFormation performs the following va
 
    **YAML**
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: 2010-09-09
    Resources:
      ServiceTable:
@@ -131,7 +130,7 @@ It's not necessary to run drift detection on the parent stack after this import 
 
    **JSON**
 
-   ```
+   ```json
    {
      "AWSTemplateFormatVersion" : "2010-09-09",
      "Resources" : {
@@ -174,7 +173,7 @@ It's not necessary to run drift detection on the parent stack after this import 
 
    **YAML**
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: 2010-09-09
    Resources:
      ServiceTable:
@@ -205,7 +204,7 @@ It's not necessary to run drift detection on the parent stack after this import 
    + Replace {{MyNestedStack}} with the logical ID of the target resource as specified in the template.
    + Replace {{arn:aws:cloudformation:us-west-2:12345678910:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10}} with the ARN of the stack you want to import.
 
-   ```
+   ```text
    [{"ResourceType":"AWS::CloudFormation::Stack","LogicalResourceId":"{{MyNestedStack}}","ResourceIdentifier":{"StackId":"{{arn:aws:cloudformation:us-east-2:123456789012:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10}}"}}]
    ```
 
@@ -215,7 +214,7 @@ It's not necessary to run drift detection on the parent stack after this import 
 
    **JSON**
 
-   ```
+   ```json
    [
      {
          "ResourceType":"AWS::CloudFormation::Stack",
@@ -229,7 +228,7 @@ It's not necessary to run drift detection on the parent stack after this import 
 
    **YAML**
 
-   ```
+   ```yaml
    ResourceType: AWS::CloudFormation::Stack
      LogicalResourceId: {{MyNestedStack}}
      ResourceIdentifier:
@@ -257,7 +256,7 @@ It's not necessary to run drift detection on the parent stack after this import 
 
    If successful, this command returns the following sample output.
 
-   ```
+   ```json
    {
        "Id": "arn:aws:cloudformation:us-west-2:12345678910:changeSet/ImportChangeSet/8ad75b3f-665f-46f6-a200-0b4727a9442e",
        "StackId": "arn:aws:cloudformation:us-west-2:12345678910:stack/MyParentStack/4e345b70-1281-11ef-b027-027366d8e82b"

@@ -1,7 +1,6 @@
 
 
 # View stack events by operation
-<a name="view-stack-events-by-operation"></a>
 
 You can view stack events grouped by operation to better understand the sequence and scope of changes made to your stack. Operation-based grouping helps you track related events together, making it easier to monitor progress and troubleshoot issues when they occur.
 
@@ -61,7 +60,7 @@ aws cloudformation describe-stacks --stack-name {{MyStack}}
 
 The following is an example response showing the last operation was a Rollback following a failed Update operation.
 
-```
+```json
 {  
     "Stacks": [  
         {  

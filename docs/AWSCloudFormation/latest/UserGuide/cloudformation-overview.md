@@ -1,7 +1,6 @@
 
 
 # How CloudFormation works
-<a name="cloudformation-overview"></a>
 
 This topic describes how CloudFormation works and introduces you to the key concepts you'll need to know about as you use it.
 
@@ -30,7 +29,7 @@ For example, if you created a stack with the following template, CloudFormation 
 #### YAML
 <a name="t2-micro-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: A sample template
 Resources:
@@ -52,7 +51,7 @@ Resources:
 #### JSON
 <a name="t2-micro-example.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "A sample template",
@@ -85,7 +84,7 @@ You can also specify multiple resources in a single template and configure these
 #### YAML
 <a name="multiple-resources-single-template.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: A sample template
 Resources:
@@ -111,7 +110,7 @@ Resources:
 #### JSON
 <a name="multiple-resources-single-template.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "A sample template",

@@ -1,7 +1,6 @@
 
 
 # Use modules from the CloudFormation private registry
-<a name="modules-using"></a>
 
 This topic explains how to use modules in CloudFormation templates. Think of modules as pre-made bundles of resources that you can add to your templates.
 
@@ -20,6 +19,6 @@ CloudFormation keeps track of which resources in a stack were created from modul
 
 Modules are distinguishable from resources in a template because they adhere to the following four-part naming convention, as opposed to the typical three-part convention used by resources:
 
-```
+```text
 {{organization}}::{{service}}::{{use-case}}::MODULE
 ```

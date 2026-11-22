@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Mappings syntax
-<a name="mappings-section-structure"></a>
 
 The optional `Mappings` section helps you create key-value pairs that can be used to specify values based on certain conditions or dependencies. 
 
@@ -17,7 +16,7 @@ The `Mappings` section uses the following syntax:
 ### JSON
 <a name="mappings-section-structure-syntax.json"></a>
 
-```
+```json
 "Mappings" : {
   "{{MappingLogicalName}}" : {
     "{{Key1}}" : {
@@ -36,7 +35,7 @@ The `Mappings` section uses the following syntax:
 ### YAML
 <a name="mappings-section-structure-syntax.yaml"></a>
 
-```
+```yaml
 Mappings: 
   {{MappingLogicalName}}: 
     {{Key1}}: 
@@ -74,7 +73,7 @@ The following example shows a `Mappings` section with a map `RegionToInstanceTyp
 #### JSON
 <a name="mappings-section-structure-basic-example.json"></a>
 
-```
+```json
 "Mappings" : {
   "RegionToInstanceType" : {
     "us-east-1"      : { "InstanceType" : "t2.micro" },
@@ -89,7 +88,7 @@ The following example shows a `Mappings` section with a map `RegionToInstanceTyp
 #### YAML
 <a name="mappings-section-structure-basic-example.yaml"></a>
 
-```
+```yaml
 Mappings:
   RegionToInstanceType:
     us-east-1:
@@ -115,7 +114,7 @@ The AMI IDs shown in these examples are placeholders for demonstration purposes.
 #### JSON
 <a name="mappings-section-structure-multiple-values-example"></a>
 
-```
+```json
 "Mappings" : {
   "RegionToAMI" : {
     "us-east-1"        : { "MyAMI1" : "{{ami-12345678901234567}}", "MyAMI2" : "{{ami-23456789012345678}}" },
@@ -130,7 +129,7 @@ The AMI IDs shown in these examples are placeholders for demonstration purposes.
 #### YAML
 <a name="mappings-section-structure-multiple-values-example.yaml"></a>
 
-```
+```yaml
 Mappings:
   RegionToAMI:
     us-east-1:
@@ -158,7 +157,7 @@ You can use the `Fn::FindInMap` function to return a named value based on a spec
 #### JSON
 <a name="mappings-section-structure-return-value-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Mappings" : {
@@ -185,7 +184,7 @@ You can use the `Fn::FindInMap` function to return a named value based on a spec
 #### YAML
 <a name="mappings-section-structure-return-value-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Mappings: 
   RegionToInstanceType: 
@@ -215,7 +214,7 @@ The following example template shows how to create an EC2 instance using multipl
 #### JSON
 <a name="mappings-section-structure-input-parameter-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Parameters" : {
@@ -252,7 +251,7 @@ The following example template shows how to create an EC2 instance using multipl
 #### YAML
 <a name="mappings-section-structure-input-parameter-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   EnvironmentType: 

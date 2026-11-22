@@ -1,7 +1,6 @@
 
 
 # CloudFormation registry concepts
-<a name="registry-concepts"></a>
 
 This topic explains key concepts to help you understand and begin using the CloudFormation registry.
 

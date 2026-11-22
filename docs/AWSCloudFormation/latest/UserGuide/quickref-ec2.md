@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 CloudFormation template snippets
-<a name="quickref-ec2"></a>
 
 Amazon EC2 provides scalable compute capacity in the AWS Cloud. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. These virtual servers, known as instances, can run a variety of operating systems and applications, and can be customized to meet your specific requirements. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in usage.
 

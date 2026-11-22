@@ -1,7 +1,6 @@
 
 
 # Best practices for using CloudFormation StackSets
-<a name="stacksets-bestpractices"></a>
 
 This section describes the best practices for defining a StackSet template, creating or adding stacks to a StackSet, or updating a StackSet.
 

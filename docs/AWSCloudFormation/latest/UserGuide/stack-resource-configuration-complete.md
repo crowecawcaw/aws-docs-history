@@ -1,7 +1,6 @@
 
 
 # Understand CloudFormation stack creation events
-<a name="stack-resource-configuration-complete"></a>
 
 During stack deployment, several events occur to create, configure, and validate the resources defined in the stack template. Understanding these events can help you optimize your stack creation process and streamline deployments.
 + **Resource creation events** – When each resource starts the creation process, a **Status** of `CREATE_IN_PROGRESS` event is set. This event indicates that the resource is being provisioned.

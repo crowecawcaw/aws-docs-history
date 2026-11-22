@@ -1,13 +1,12 @@
 
 
 # Drift Detection Status Change event detail
-<a name="event-detail-stack-drift-detection-change"></a>
 
 Below are the detail fields for stack drift detection events.
 
 The `source` and `detail-type` fields are included because they contain specific values for events.
 
-```
+```json
 {
   . . .,
   "detail-type":"CloudFormation Drift Detection Status Change",
@@ -56,7 +55,7 @@ An access token used to call the API. All events that are initiated by a given s
 **Example: Stack Drift Detection event**  <a name="event-detail-stack-drift-detection-change.example"></a>
 The following is an example Stack Drift Detection event. This event details that CloudFormation has completed drift detection on the specified stack, and that the stack currently has a drift status of `DRIFTED` due to one drifted resource.  
 
-```
+```json
 {
     "version":"0",
     "id":"6a7e8feb-b491-4cf7-a9f1-bf3703467718",

@@ -1,7 +1,6 @@
 
 
 # View CloudFormation stack events
-<a name="view-stack-events"></a>
 
 You can view stack events to monitor the progress and status of your stack and resources in the stack. Stack events help you understand when resources are being created, updated, or deleted, and whether the stack deployment is proceeding as expected. 
 
@@ -42,7 +41,7 @@ aws cloudformation describe-stack-events --stack-name {{my-stack}}
 
 The following is an example response.
 
-```
+```json
 {
     "StackEvents": [
         {

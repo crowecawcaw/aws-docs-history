@@ -1,7 +1,6 @@
 
 
 # Amazon Timestream template snippets
-<a name="scenario-timestream-queue"></a>
 
 Amazon Timestream for InfluxDB makes it easy for application developers and DevOps teams to run fully managed InfluxDB databases on AWS for real-time time-series applications using open-source APIs. You can quickly create an InfluxDB database that handles demanding time- series workloads. With a few simple API calls, you can set up, migrate, operate, and scale an InfluxDB database on AWS with automated software patching, backups, and recovery. You can also find these samples at [awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/cloudformation/timestream-influxdb) on GitHub.
 
@@ -32,7 +31,7 @@ This example deploys a multi- AZ and publicly accessible instance using default 
 ### JSON
 <a name="scenario-timestream-influxdb-example-1.json"></a>
 
-```
+```json
 {
   "Metadata": {
     "AWS::CloudFormation::Interface": {
@@ -318,7 +317,7 @@ This example deploys a multi- AZ and publicly accessible instance using default 
 ### YAML
 <a name="scenario-timestream-influxdb-example-1.yaml"></a>
 
-```
+```yaml
 Metadata: 
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -494,7 +493,7 @@ This example template dynamically alters the network resources based on the para
 ### JSON
 <a name="scenario-timestream-influxdb-example-2.json"></a>
 
-```
+```json
 {
   "Metadata": {
     "AWS::CloudFormation::Interface": {
@@ -929,7 +928,7 @@ This example template dynamically alters the network resources based on the para
 ### YAML
 <a name="scenario-timestream-influxdb-example-2.yaml"></a>
 
-```
+```yaml
 Metadata: 
   AWS::CloudFormation::Interface:
     ParameterGroups:

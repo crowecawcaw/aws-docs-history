@@ -1,7 +1,6 @@
 
 
 # Resolve drift with an import operation
-<a name="resource-import-resolve-drift"></a>
 
 There may be cases where a resource's configuration has drifted from its intended configuration and you want to accept the new configuration as the intended configuration. In most cases, you would resolve the drift results by updating the resource definition in the stack template with a new configuration and then perform a stack update. However, if the new configuration updates a resource property that requires replacement, then the resource will be recreated during the stack update. If you want to retain the existing resource, you can use the resource import feature to update the resource and resolve the drift results without causing the resource to be replaced.
 
@@ -17,7 +16,7 @@ In this example, we use the following template, named `templateToImport.json`.
 ------
 #### [ Example JSON ]
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Import test",
@@ -75,7 +74,7 @@ In this example, we use the following template, named `templateToImport.json`.
 ------
 #### [ Example YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:
@@ -151,7 +150,7 @@ To resolve drift through an import operation, without interrupting services, spe
 ------
 #### [ Example JSON ]
 
-```
+```json
     "GamesTable": {
         "Type": "AWS::DynamoDB::Table",
         "DeletionPolicy": "Retain",
@@ -162,7 +161,7 @@ To resolve drift through an import operation, without interrupting services, spe
 ------
 #### [ Example YAML ]
 
-```
+```yaml
   GamesTable:
     Type: AWS::DynamoDB::Table
     DeletionPolicy: Retain
@@ -198,7 +197,7 @@ Wait until CloudFormation completes the stack update operation. After the stack 
 ------
 #### [ Example JSON ]
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Import test",
@@ -233,7 +232,7 @@ Wait until CloudFormation completes the stack update operation. After the stack 
 ------
 #### [ Example YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:
@@ -290,7 +289,7 @@ Wait until CloudFormation completes the stack update operation. After the stack 
 ------
 #### [ Example JSON ]
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Import test",
@@ -349,7 +348,7 @@ Wait until CloudFormation completes the stack update operation. After the stack 
 ------
 #### [ Example YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:

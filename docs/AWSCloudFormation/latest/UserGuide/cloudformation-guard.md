@@ -1,7 +1,6 @@
 
 
 # Validate templates with Guard
-<a name="cloudformation-guard"></a>
 
 AWS CloudFormation Guard (`cfn-guard`) is a policy-as-code tool. You write rules in the Guard language that describe required or prohibited configurations, and then Guard checks JSON or YAML data against those rules. For example, you can require every Amazon S3 bucket in a template to use encryption, or block security group rules that open port 22 to the internet.
 
@@ -25,25 +24,25 @@ For the limitations of local validation and steps to take before deployment, see
 
 On macOS, install Guard with Homebrew:
 
-```
+```sh
 brew install cloudformation-guard
 ```
 
 On Linux or macOS, you can instead run the installation script. The script installs the latest release to `~/.guard/bin`. Add that directory to your `PATH` after the script finishes.
 
-```
+```sh
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 ```
 
 If you have a Rust toolchain, you can also install Guard with Cargo:
 
-```
+```sh
 cargo install cfn-guard
 ```
 
 To confirm the installation, print the installed version:
 
-```
+```sh
 cfn-guard --version
 ```
 
@@ -66,7 +65,7 @@ For the complete syntax, see [Writing Guard rules](https://docs.aws.amazon.com/c
 
 Save rules in a file with the `.guard` extension. The following example in `rules.guard` requires every Amazon S3 bucket in a template to specify bucket encryption and to block public access:
 
-```
+```text
 let s3_buckets = Resources.*[ Type == 'AWS::S3::Bucket' ]
 
 rule S3_BUCKET_ENCRYPTED when %s3_buckets !empty {
@@ -96,13 +95,13 @@ You can keep many rules in one file, or split rules across files by topic, such 
 
 Pass the rule file to `--rules` and the template to `--data`. Add `--type CFNTemplate` so that Guard reports findings by resource logical ID.
 
-```
+```sh
 cfn-guard validate --rules rules.guard --data template.yaml --type CFNTemplate
 ```
 
 When the template passes, Guard prints a `PASS` status and returns exit code `0`. When a rule fails, Guard lists the failed rules and, for each noncompliant resource, the check that failed, the property path, and the reason. The output for a template whose bucket is missing `BucketEncryption` starts like the following:
 
-```
+```text
 template.yaml Status = FAIL
 FAILED rules
 rules.guard/S3_BUCKET_ENCRYPTED    FAIL
@@ -130,7 +129,7 @@ For all options, see [validate](https://docs.aws.amazon.com/cfn-guard/latest/ug/
 
 Before you use a rule in an automated workflow, test it with the built-in unit testing support. A test file lists sample inputs and the result that you expect for each rule: `PASS`, `FAIL`, or `SKIP`. The following example in `rules_tests.yaml` tests the `S3_BUCKET_ENCRYPTED` rule from the previous example:
 
-```
+```yaml
 ---
 - input:
     Resources: {}
@@ -161,7 +160,7 @@ Before you use a rule in an automated workflow, test it with the built-in unit t
 
 Run the tests with the `test` command:
 
-```
+```sh
 cfn-guard test --rules-file rules.guard --test-data rules_tests.yaml
 ```
 
@@ -172,7 +171,7 @@ Guard prints `PASS` or `FAIL` for each expectation and returns exit code `7` whe
 
 To get started quickly, you can generate rules from a template that already meets your requirements. The `rulegen` command reads the template and writes a rule for each resource type that requires the property values found in the template:
 
-```
+```sh
 cfn-guard rulegen --template template.yaml --output generated.guard
 ```
 
@@ -185,7 +184,7 @@ You can run Guard in the following places:
 + **In your editor** – The CloudFormation Language Server runs Guard rule packs while you edit a template and shows failures inline. For setup, see [CloudFormation Language Server](ide-extension.md).
 + **Before a Git commit** – Guard provides a `pre-commit` hook that can run `validate` on changed templates or `test` on changed rules. Add the following to your `.pre-commit-config.yaml` file and replace the paths with your own:
 
-  ```
+  ```yaml
   repos:
     - repo: https://github.com/aws-cloudformation/cloudformation-guard
       rev: pre-commit-v0.0.2

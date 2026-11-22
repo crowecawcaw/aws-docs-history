@@ -1,7 +1,6 @@
 
 
 # Use quick-create links to create CloudFormation stacks
-<a name="cfn-console-create-stacks-quick-create-links"></a>
 
 Quick-create links provide a streamlined method to launch CloudFormation stacks directly from URLs in the CloudFormation console. By specifying the template URL, stack name, and template parameters as URL query parameters, you can prepopulate a single **Create stack** page and expedite stack creation. This simplifies the process of creating stacks by reducing both the number of wizard pages and the amount of required user input. It also optimizes template reuse, as you can create multiple URLs that specify different values for the same template.
 

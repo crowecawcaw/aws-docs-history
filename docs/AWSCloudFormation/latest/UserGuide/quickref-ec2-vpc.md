@@ -1,7 +1,6 @@
 
 
 # Configure Amazon VPC resources with CloudFormation
-<a name="quickref-ec2-vpc"></a>
 
 This section provides examples for configuring Amazon VPC resources using CloudFormation. VPCs allow you to create a virtual network within AWS, and these snippets show how to configure aspects of VPCs to meet your networking requirements. 
 
@@ -19,7 +18,7 @@ For more information about egress-only internet gateways, see [Enable outbound I
 ### JSON
 <a name="quickref-ec2-example-16.json"></a>
 
-```
+```json
 "DefaultIpv6Route": {
     "Type": "AWS::EC2::Route",
     "Properties": {
@@ -59,7 +58,7 @@ For more information about egress-only internet gateways, see [Enable outbound I
 ### YAML
 <a name="quickref-ec2-example-16.yaml"></a>
 
-```
+```yaml
 DefaultIpv6Route:
   Type: AWS::EC2::Route
   Properties:
@@ -101,7 +100,7 @@ For more information about elastic network interfaces, see [Elastic network inte
 #### JSON
 <a name="cfn-template-snippets-eni-example-1.json"></a>
 
-```
+```json
 "Resources": {
     "ControlPortAddress": {
         "Type": "AWS::EC2::EIP",
@@ -284,7 +283,7 @@ For more information about elastic network interfaces, see [Elastic network inte
 #### YAML
 <a name="cfn-template-snippets-eni-example.yaml"></a>
 
-```
+```yaml
 Resources:
   ControlPortAddress:
     Type: AWS::EC2::EIP

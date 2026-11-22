@@ -1,7 +1,6 @@
 
 
 # Create a CloudFormation template from resources scanned with IaC generator
-<a name="iac-generator-create-template-from-scanned-resources"></a>
 
 This topic explains how to create a template from resources that were scanned using the IaC generator feature. 
 
@@ -51,7 +50,7 @@ We suggest that you add all related resources to this template.
 
    The following is an example response, where `ManagedByStack` indicates whether CloudFormation manages the resource already. Copy the output. You need it for the next step.
 
-   ```
+   ```json
    {
        "Resources": [
            {
@@ -76,7 +75,7 @@ We suggest that you add all related resources to this template.
 
 1. Use the `cat` command to store the resource types and identifiers in a JSON file named `resources.json` in your home directory. The following is example JSON based on the example output in the previous step.
 
-   ```
+   ```json
    $ cat > resources.json
    [
        {
@@ -104,7 +103,7 @@ We suggest that you add all related resources to this template.
 
    The following is an example response, where `ManagedByStack` indicates whether CloudFormation manages the resource already. Add these resources to the JSON file you created in the previous step. You'll need it to create your template.
 
-   ```
+   ```json
    {
        "RelatedResources": [
            {
@@ -142,7 +141,7 @@ Be aware that the output may contain duplicated resources in the list.
 
    The following is an example `resources.json` file.
 
-   ```
+   ```json
    [
        {
            "ResourceType": "AWS::EKS::Cluster",
@@ -177,7 +176,7 @@ Be aware that the output may contain duplicated resources in the list.
 
    If successful, this command returns the following.
 
-   ```
+   ```json
    {
      "Arn":
        "arn:aws:cloudformation:{{region}}:{{account-id}}:generatedtemplate/{{7fc8512c-d8cb-4e02-b266-d39c48344e48}}",

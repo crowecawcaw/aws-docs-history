@@ -1,7 +1,6 @@
 
 
 # Deploy Windows-based stacks using CloudFormation
-<a name="cfn-windows-stacks"></a>
 
 This page provides links to technical reference documentation for CloudFormation resources commonly used in Windows-based deployments.
 

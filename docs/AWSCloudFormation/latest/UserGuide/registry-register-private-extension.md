@@ -1,7 +1,6 @@
 
 
 # Register a third-party private extension in your account
-<a name="registry-register-private-extension"></a>
 
 This topic covers the steps to register a third-party private extension that's shared with you so it's available for use in your account.
 
@@ -24,7 +23,7 @@ Before you continue, confirm that you have the required [IAM permissions](regist
 
    `RegisterType` is an asynchronous operation, and returns a registration token you can use to track the progress of your registration request.
 
-   ```
+   ```json
    {
        "RegistrationToken": "f5525280-104e-4d35-bef5-8f1fexample"
    }
@@ -50,7 +49,7 @@ Before you continue, confirm that you have the required [IAM permissions](regist
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "ProgressStatus": "COMPLETE",
        "TypeArn": "arn:aws:cloudformation:us-west-2:123456789012:type/resource/My-Resource-Example",

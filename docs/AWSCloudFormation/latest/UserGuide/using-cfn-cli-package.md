@@ -1,7 +1,6 @@
 
 
 # Upload local artifacts to an S3 bucket with the AWS CLI
-<a name="using-cfn-cli-package"></a>
 
 You can use the AWS CLI to upload local artifacts that are referenced by a CloudFormation template to an Amazon S3 bucket. Local artifacts are files that you reference in your template. Instead of manually uploading files to an S3 bucket and then adding their locations to your template, you can specify local artifacts in your template and use the [package](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/package.html) command to upload them quickly. 
 
@@ -33,7 +32,7 @@ The following template specifies the local artifact for a Lambda function's sour
 
 **Original template**
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",
@@ -64,7 +63,7 @@ The command generates a new template at the path specified by `--output-template
 
 **Resulting template**
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",

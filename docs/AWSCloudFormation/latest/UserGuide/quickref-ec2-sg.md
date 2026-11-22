@@ -1,7 +1,6 @@
 
 
 # Manage security groups with CloudFormation
-<a name="quickref-ec2-sg"></a>
 
 The following snippets demonstrate how to use CloudFormation to manage security groups and Amazon EC2 instances to control access to your AWS resources.
 
@@ -37,7 +36,7 @@ When you create a VPC using CloudFormation, AWS automatically creates default re
 #### JSON
 <a name="quickref-ec2-example-15.json"></a>
 
-```
+```json
 "MyVPC": {
     "Type": "AWS::EC2::VPC",
     "Properties": {
@@ -82,7 +81,7 @@ When you create a VPC using CloudFormation, AWS automatically creates default re
 #### YAML
 <a name="quickref-ec2-example-15.yaml"></a>
 
-```
+```yaml
 MyVPC:
   Type: AWS::EC2::VPC
   Properties:
@@ -120,7 +119,7 @@ For more information about creating Amazon EBS volumes, see [Create an Amazon EB
 #### JSON
 <a name="quickref-ec2-example-14.json"></a>
 
-```
+```json
  1. "Ec2Instance": {
  2.     "Type": "AWS::EC2::Instance",
  3.     "Properties": {
@@ -175,7 +174,7 @@ For more information about creating Amazon EBS volumes, see [Create an Amazon EB
 #### YAML
 <a name="quickref-ec2-example-14.yaml"></a>
 
-```
+```yaml
  1. Ec2Instance:
  2.   Type: AWS::EC2::Instance
  3.   Properties:
@@ -226,7 +225,7 @@ For more information about security groups, see [Amazon EC2 security groups for 
 #### JSON
 <a name="quickref-ec2-example-10.json"></a>
 
-```
+```json
  1. "SecurityGroup": {
  2.     "Type": "AWS::EC2::SecurityGroup",
  3.     "Properties": {
@@ -255,7 +254,7 @@ For more information about security groups, see [Amazon EC2 security groups for 
 #### YAML
 <a name="quickref-ec2-example-10.yaml"></a>
 
-```
+```yaml
  1. SecurityGroup:
  2.   Type: AWS::EC2::SecurityGroup
  3.   Properties:
@@ -283,7 +282,7 @@ For more information about security groups, see [Amazon EC2 security groups for 
 #### JSON
 <a name="quickref-ec2-example-9.json"></a>
 
-```
+```json
  1. "ServerSecurityGroup": {
  2.   "Type": "AWS::EC2::SecurityGroup",
  3.   "Properties": {
@@ -309,7 +308,7 @@ For more information about security groups, see [Amazon EC2 security groups for 
 #### YAML
 <a name="quickref-ec2-example-9.yaml"></a>
 
-```
+```yaml
  1. ServerSecurityGroup:
  2.   Type: AWS::EC2::SecurityGroup
  3.   Properties:
@@ -333,7 +332,7 @@ The following snippet uses the [AWS::EC2::SecurityGroup](https://docs.aws.amazon
 #### JSON
 <a name="quickref-ec2-example-12.json"></a>
 
-```
+```json
  1. "SGroup1": {
  2.     "Type": "AWS::EC2::SecurityGroup",
  3.     "Properties": {
@@ -379,7 +378,7 @@ The following snippet uses the [AWS::EC2::SecurityGroup](https://docs.aws.amazon
 #### YAML
 <a name="quickref-ec2-example-12.yaml"></a>
 
-```
+```yaml
  1. SGroup1:
  2.   Type: AWS::EC2::SecurityGroup
  3.   Properties:
@@ -420,7 +419,7 @@ For more information about load balancing, see the [Elastic Load Balancing User 
 ### JSON
 <a name="quickref-ec2-example-11.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Resources": {
@@ -471,7 +470,7 @@ For more information about load balancing, see the [Elastic Load Balancing User 
 ### YAML
 <a name="quickref-ec2-example-11.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   MyELB:

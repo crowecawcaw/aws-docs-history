@@ -1,7 +1,6 @@
 
 
 # Execute a change set for a CloudFormation stack
-<a name="using-cfn-updating-stacks-changesets-execute"></a>
 
 To make the changes described in a change set to your stack, execute the change set.
 

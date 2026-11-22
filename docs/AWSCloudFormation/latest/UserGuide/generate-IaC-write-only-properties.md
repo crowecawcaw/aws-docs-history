@@ -1,7 +1,6 @@
 
 
 # Resolve write-only properties
-<a name="generate-IaC-write-only-properties"></a>
 
 With the CloudFormation IaC generator, you can generate a template using resources provisioned in your account that are not already managed by CloudFormation. However, certain resource properties are designated as *write-only*, meaning they can be written but can't be read by CloudFormation, for example, a database password. 
 

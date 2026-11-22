@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Transform section
-<a name="transform-section-structure"></a>
 
 The optional `Transform` section specifies one or more macros that CloudFormation uses to process your template in some way. 
 
@@ -13,7 +12,7 @@ To declare multiple macros, use a list format and specify one or more macros.
 
 For example, in the template sample below, CloudFormation evaluates `MyMacro` and then `AWS::Serverless`, both of which can process the contents of the entire template because of their inclusion in the `Transform` section.
 
-```
+```yaml
 # Start of processable content for MyMacro and AWS::Serverless
 Transform:
   - MyMacro

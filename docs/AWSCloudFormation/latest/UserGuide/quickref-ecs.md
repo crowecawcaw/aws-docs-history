@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service sample templates
-<a name="quickref-ecs"></a>
 
 Amazon Elastic Container Service (Amazon ECS) is a container management service that makes it easy to run, stop, and manage Docker containers on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
@@ -16,7 +15,7 @@ For the latest AMI IDs, see [Amazon ECS-optimized AMI](https://docs.aws.amazon.c
 ### JSON
 <a name="quickref-ecs-example-1.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "EC2 ECS cluster that starts out empty, with no EC2 instances yet. An ECS capacity provider automatically launches more EC2 instances as required on the fly when you request ECS to launch services or standalone tasks.",
@@ -292,7 +291,7 @@ For the latest AMI IDs, see [Amazon ECS-optimized AMI](https://docs.aws.amazon.c
 ### YAML
 <a name="quickref-ecs-example-1.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: EC2 ECS cluster that starts out empty, with no EC2 instances yet.
   An ECS capacity provider automatically launches more EC2 instances as required
@@ -510,7 +509,7 @@ The following template defines a service that uses the capacity provider to requ
 ### JSON
 <a name="quickref-ecs-example-2.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "An example service that deploys in AWS VPC networking mode on EC2 capacity. Service uses a capacity provider to request EC2 instances to run on. Service runs with networking in private subnets, but still accessible to the internet via a load balancer hosted in public subnets.",
@@ -817,7 +816,7 @@ The following template defines a service that uses the capacity provider to requ
 ### YAML
 <a name="quickref-ecs-example-2.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >-
   An example service that deploys in AWS VPC networking mode on EC2 capacity.

@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Create a delay mechanism with a Lambda-backed custom resource
-<a name="walkthrough-lambda-backed-custom-resources"></a>
 
 This walkthrough shows you how to configure and launch a Lambda-backed custom resource using a sample CloudFormation template. This template creates a delay mechanism that pauses stack deployments for a specified time. This can be useful when you need to introduce deliberate delays during resource provisioning, such as when waiting for resources to stabilize before dependent resources are created.
 
@@ -44,7 +43,7 @@ You can see the Lambda-backed custom resource sample template with the delay mec
 ### JSON
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
@@ -124,7 +123,7 @@ You can see the Lambda-backed custom resource sample template with the delay mec
 ### YAML
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Resources:
   LambdaExecutionRole:
@@ -209,7 +208,7 @@ The `Code` property defines the function code inline using a Python function. Th
 ### JSON
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-lambda-resource-json"></a>
 
-```
+```json
 ...
     "CFNWaiter": {
       "Type": "AWS::Lambda::Function",
@@ -246,7 +245,7 @@ The `Code` property defines the function code inline using a Python function. Th
 ### YAML
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-lambda-resource-yaml"></a>
 
-```
+```yaml
 ...
   CFNWaiter:
     Type: AWS::Lambda::Function
@@ -283,7 +282,7 @@ The `AWS::IAM:Role` resource creates an execution role for the Lambda function, 
 ### JSON
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-iam-role-json"></a>
 
-```
+```json
 ...
     "LambdaExecutionRole": {
       "Type": "AWS::IAM::Role",
@@ -314,7 +313,7 @@ The `AWS::IAM:Role` resource creates an execution role for the Lambda function, 
 ### YAML
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-iam-role-yaml"></a>
 
-```
+```yaml
 ...
   LambdaExecutionRole:
     Type: AWS::IAM::Role
@@ -345,7 +344,7 @@ The custom resource links to the Lambda function with its ARN using `!GetAtt CFN
 ### JSON
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-custom-resource-json"></a>
 
-```
+```json
 ...
     "CFNWaiterCustomResource": {
       "Type": "AWS::CloudFormation::CustomResource",
@@ -361,7 +360,7 @@ The custom resource links to the Lambda function with its ARN using `!GetAtt CFN
 ### YAML
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-custom-resource-yaml"></a>
 
-```
+```yaml
 ...
   CFNWaiterCustomResource:
     Type: AWS::CloudFormation::CustomResource
@@ -377,7 +376,7 @@ The `Outputs` of this template are the `TimeWaited` and the `WaiterId`. The `Tim
 ### JSON
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-output-json"></a>
 
-```
+```json
 ...
   "Outputs": {
     "TimeWaited": {
@@ -396,7 +395,7 @@ The `Outputs` of this template are the `TimeWaited` and the `WaiterId`. The `Tim
 ### YAML
 <a name="walkthrough-lambda-backed-custom-resources-sample-template-output-yaml"></a>
 
-```
+```yaml
 ...
 Outputs:
   TimeWaited:

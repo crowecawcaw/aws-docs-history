@@ -1,7 +1,6 @@
 
 
 # Use parameters to specify module values
-<a name="module-using-params"></a>
 
 In CloudFormation, you can use template parameters to customize your stacks by providing input values during stack creation or update. These parameters allow you to change certain aspects of the stack based on your needs. For more information about defining template parameters, see [CloudFormation template Parameters syntax](parameters-section-structure.md).
 
@@ -20,7 +19,7 @@ The following example shows how to define template parameters that pass values t
 
 This template containing `My::S3::SampleBucket::MODULE` defines a template parameter, `BucketName`, that enables the user to specify an S3 bucket name during the stack operation.
 
-```
+```yaml
 # Template containing My::S3::SampleBucket::MODULE
 Parameters:
   BucketName:
@@ -40,7 +39,7 @@ The following example illustrates how to specify parameter values in a module th
 
 This first module, `My::S3::SampleBucketPrivate::MODULE`, will be the child module. It defines two parameters: `BucketName` and `AccessControl`. The values specified for these parameters are used to specify the `BucketName` and `AccessControl` properties of the `AWS::S3::Bucket` resource the module contains. Below is the template fragment for `My::S3::SampleBucketPrivate::MODULE`.
 
-```
+```yaml
 # My::S3::SampleBucketPrivate::MODULE
 AWSTemplateFormatVersion: 2010-09-09
 Description: A sample S3 Bucket with Versioning and DeletionPolicy.
@@ -66,7 +65,7 @@ Next, the previous module is nested within a parent module, `My::S3::SampleBucke
 + It sets the `AccessControl` parameter of `My::S3::SampleBucketPrivate::MODULE` to `Private`.
 + For `BucketName`, it defines a module parameter, which will enable the bucket name to be specified in the template (or module) that contains `My::S3::SampleBucket::MODULE`.
 
-```
+```yaml
 # My::S3::SampleBucket::MODULE
 AWSTemplateFormatVersion: 2010-09-09
 Description: A sample S3 Bucket. With Private AccessControl.

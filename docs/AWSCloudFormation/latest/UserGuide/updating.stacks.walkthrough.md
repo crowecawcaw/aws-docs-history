@@ -1,7 +1,6 @@
 
 
 # Update a CloudFormation stack
-<a name="updating.stacks.walkthrough"></a>
 
 **Note**  
 This tutorial builds on concepts from the [Deploy applications on Amazon EC2](deploying.applications.md) tutorial. If you haven't completed that tutorial, we recommend doing so first to understand EC2 bootstrapping with CloudFormation.
@@ -37,7 +36,7 @@ We'll begin by creating a stack that we can use throughout the rest of this topi
 
 The Apache Web Server, PHP, and the simple PHP application are all installed by the CloudFormation helper scripts that are installed by default on the Amazon Linux 2 AMI. The following template snippet shows the metadata that describes the packages and files to install, in this case the Apache Web Server and the PHP infrastructure from the Yum repository for the Amazon Linux 2 AMI. The snippet also shows the `Services` section, which ensures that the Apache Web Server is running. 
 
-```
+```yaml
 WebServerInstance:
   Type: AWS::EC2::Instance
   Metadata:
@@ -67,7 +66,7 @@ The application itself is a "Hello World" example that's entirely defined within
 
 The template enables and configures the `cfn-hup` daemon to listen for changes to the configuration defined in the metadata for the Amazon EC2 instance. By using the `cfn-hup` daemon, you can update application software, such as the version of Apache or PHP, or you can update the PHP application file itself from CloudFormation. The following snippet from the same Amazon EC2 resource in the template shows the pieces necessary to configure `cfn-hup` to call `cfn-init` every two minutes to notice and apply updates to the metadata. Otherwise, the `cfn-init` only runs once at start up.
 
-```
+```yaml
 files:
   /etc/cfn/cfn-hup.conf:
     content: !Sub |
@@ -98,7 +97,7 @@ services:
 
 To complete the stack, in the `Properties` section of the Amazon EC2 instance definition, the `UserData` property contains the `cloud-init` script that calls `cfn-init` to install the packages and files. For more information, see the [CloudFormation helper scripts reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-helper-scripts-reference.html) in the *CloudFormation Template Reference Guide*. The template also creates an Amazon EC2 security group.
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
@@ -245,7 +244,7 @@ After the status of your stack is `CREATE_COMPLETE`, the **Outputs** tab will di
 
 Now that we have deployed the stack, let's update the application. We'll make a simple change to the text that's printed out by the application. To do so, we'll add an echo command to the index.php file as shown in this template snippet:
 
-```
+```yaml
 files:
   /var/www/html/index.php:
     content: |
@@ -284,7 +283,7 @@ To see the set of resources that were updated, go to the CloudFormation console.
 
 This simple update illustrates the process. However, you can make much more complex changes to the files and packages that are deployed to your Amazon EC2 instances. For example, you might decide that you need to add MySQL to the instance, along with PHP support for MySQL. To do so, simply add the additional packages and files along with any additional services to the configuration and then update the stack to deploy the changes.
 
-```
+```yaml
 packages:
   yum:
     httpd: []
@@ -314,7 +313,7 @@ services:
 
 You can update the CloudFormation metadata to update to new versions of the packages used by the application. In the previous examples, the version property for each package is empty, indicating that `cfn-init` should install the latest version of the package.
 
-```
+```yaml
 packages:
   yum:
     httpd: []
@@ -323,7 +322,7 @@ packages:
 
 You can optionally specify a version string for a package. If you change the version string in subsequent update stack calls, the new version of the package will be deployed. Here's an example of using version numbers for RubyGems packages. Any package that supports versioning can have specific versions.
 
-```
+```yaml
 packages:
   rubygems:
     mysql: []
@@ -344,7 +343,7 @@ You can also update a resource in the template to add properties that weren't or
 
 1. Add two additional parameters to the template to pass in the name of an existing Amazon EC2 key pair and SSH location.
 
-   ```
+   ```yaml
    Parameters:
      KeyName:
        Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
@@ -363,7 +362,7 @@ You can also update a resource in the template to add properties that weren't or
 
 1. Add the `KeyName` property to the Amazon EC2 instance.
 
-   ```
+   ```yaml
    WebServerInstance:
      Type: AWS::EC2::Instance
      Properties:
@@ -376,7 +375,7 @@ You can also update a resource in the template to add properties that weren't or
 
 1. Add port 22 and the SSH location to the ingress rules for the Amazon EC2 security group.
 
-   ```
+   ```yaml
    WebServerSecurityGroup:
      Type: AWS::EC2::SecurityGroup
      Properties:
@@ -430,7 +429,7 @@ Updating the AMI is a major change that requires replacing the instance. We can'
 
 Let's look at how we might update our stack template to use Amazon Linux 2023. The key changes include updating the AMI parameter and changing from `yum` to `dnf` package manager.
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:

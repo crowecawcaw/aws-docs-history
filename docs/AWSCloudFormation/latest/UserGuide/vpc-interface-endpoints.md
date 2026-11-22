@@ -1,7 +1,6 @@
 
 
 # Access CloudFormation using an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and CloudFormation. You can access CloudFormation as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access CloudFormation.
 
@@ -56,7 +55,7 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 **Example: VPC endpoint policy for CloudFormation actions**  
 The following is an example of an endpoint policy for CloudFormation. When attached to an endpoint, this policy grants access to the listed CloudFormation actions for all principals on all resources. The following example denies all users the permission to create stacks through the VPC endpoint, and allows full access to all other actions on the CloudFormation service.
 
-```
+```json
 {
   "Statement": [
     {

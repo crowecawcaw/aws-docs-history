@@ -1,7 +1,6 @@
 
 
 # Blue/green deployment template example
-<a name="blue-green-template-example"></a>
 
 The following example template sets up a CodeDeploy blue/green deployment on ECS, with a traffic routing progress of 15 percent per step and a stabilization period of 5 minutes between each step. 
 
@@ -10,7 +9,7 @@ Creating a stack with the template will provision the initial configuration of t
 ## JSON
 <a name="blue-green-template-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Parameters":{
@@ -279,7 +278,7 @@ Creating a stack with the template will provision the initial configuration of t
 ## YAML
 <a name="blue-green-template-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   Vpc:

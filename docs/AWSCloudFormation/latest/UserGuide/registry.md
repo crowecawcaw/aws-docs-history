@@ -1,7 +1,6 @@
 
 
 # Managing extensions with the CloudFormation registry
-<a name="registry"></a>
 
 The CloudFormation registry serves as a centralized hub for managing extensions that can be integrated into the CloudFormation templates in your AWS account. Extensions include resource types, modules, and Hooks from AWS and third-party publishers, and your own custom extensions. The registry makes it easier to discover and provision extensions in your CloudFormation templates in the same manner you use AWS-provided resources.
 

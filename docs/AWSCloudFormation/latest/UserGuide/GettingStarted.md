@@ -1,7 +1,6 @@
 
 
 # Getting started with CloudFormation
-<a name="GettingStarted"></a>
 
 You can begin using CloudFormation through the AWS Management Console by creating a stack from an example template, which will help you learn the basics of stack creation. A *template* is a text file that defines all the resources within a stack. A *stack* is the deployment of a CloudFormation template. From a single template, you can create multiple stacks. Each stack contains a collection of AWS resources that can be managed as a single unit.
 
@@ -10,7 +9,7 @@ CloudFormation is a free service; however, you are charged for the AWS resources
 **Video: Getting started with CloudFormation**  
 The following video is an introduction to creating CloudFormation stacks from the AWS Management Console.
 
-[![AWS Videos](https://img.youtube.com/vi/1h-GPXQrLZw?si=MYHlJvBkE3DspKcL/0.jpg)](https://www.youtube.com/watch?v=1h-GPXQrLZw?si=MYHlJvBkE3DspKcL)
+[![AWS Videos](https://img.youtube.com/vi/1h-GPXQrLZw/0.jpg)](https://www.youtube.com/watch?v=1h-GPXQrLZw)
 
 
 **Topics**

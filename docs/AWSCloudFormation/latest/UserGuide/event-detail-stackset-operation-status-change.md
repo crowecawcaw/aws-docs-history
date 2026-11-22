@@ -1,13 +1,12 @@
 
 
 # StackSet Operation Status Change event detail
-<a name="event-detail-stackset-operation-status-change"></a>
 
 Below are the detail fields for StackSet Operation Status Change events.
 
 The `source` and `detail-type` fields are included because they contain specific values for events.
 
-```
+```json
 {
   . . .,
   "detail-type": "CloudFormation StackSet Operation Status Change",
@@ -47,7 +46,7 @@ For more details, see [StackSets status codes](stacksets-concepts.md#stackset-st
 **Example: StackSet Operation Status Change event**  <a name="event-detail-stackset-operation-status-change.example"></a>
 The following is an example StackSet Operation Status Change event. The event details that CloudFormation has successfully completed the requested operation on the specified stack set.  
 
-```
+```json
 {
   "version": "0",
   "id": "4de89905-fd92-6a6b-9509-23c04bcb6a21",

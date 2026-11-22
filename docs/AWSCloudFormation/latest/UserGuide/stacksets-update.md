@@ -1,7 +1,6 @@
 
 
 # Update CloudFormation StackSets
-<a name="stacksets-update"></a>
 
 You can update your StackSet using either the CloudFormation console or the AWS CLI. 
 

@@ -1,7 +1,6 @@
 
 
 # Using parameter override functions with CodePipeline pipelines
-<a name="continuous-delivery-codepipeline-parameter-override-functions"></a>
 
 In a CodePipeline stage, you can specify [parameter overrides](continuous-delivery-codepipeline-action-reference.md) for CloudFormation actions. Parameter overrides let you specify template parameter values that override values in a template configuration file. CloudFormation provides functions to help you to specify dynamic values (values that are unknown until the pipeline runs).
 
@@ -24,7 +23,7 @@ For example, in your pipeline, you might have a source stage where CodePipeline 
 
 Use the following syntax to retrieve an attribute value of an artifact.
 
-```
+```json
 { "Fn::GetArtifactAtt" : [ "{{artifactName}}", "{{attributeName}}" ] }
 ```
 
@@ -39,7 +38,7 @@ The name of the artifact attribute whose value you want to retrieve. For details
 
 The following parameter overrides specify the `BucketName` and `ObjectKey` parameters by retrieving the S3 bucket name and file name of the `LambdaFunctionSource` artifact. This example assumes that CodePipeline copied Lambda function source code and saved it as an artifact, for example, as part of a source stage.
 
-```
+```json
 {
   "BucketName" : { "Fn::GetArtifactAtt" : ["LambdaFunctionSource", "BucketName"]},
   "ObjectKey" : { "Fn::GetArtifactAtt" : ["LambdaFunctionSource", "ObjectKey"]}
@@ -72,7 +71,7 @@ Use this function to retrieve output values from an CloudFormation stack and use
 
 Use the following syntax to retrieve a value from a key-value pair.
 
-```
+```json
 { "Fn::GetParam" : [ "{{artifactName}}", "{{JSONFileName}}", "{{keyName}}" ] }
 ```
 
@@ -95,7 +94,7 @@ The following examples demonstrate how to use the `Fn::GetParam` function in a p
 
 The following parameter override specifies the `WebSiteURL` parameter by retrieving the value of the `URL` key from the `stack-output.json` file that is in the `WebStackOutput` artifact.
 
-```
+```json
 {
   "WebSiteURL" : { "Fn::GetParam" : ["WebStackOutput", "stack-output.json", "URL"]}
 }
@@ -108,14 +107,14 @@ The following CloudFormation template snippets, from a CodePipeline pipeline, de
 
 The name of the source input artifact for the stages is `TemplateSource`. The file name for the stack template is `teststackA.yaml`, and the file name for the configuration file is `test-configuration.json`. In both stages, these values are specified for the `TemplateConfiguration` and `TemplatePath` properties as shown:
 
-```
+```yaml
 TemplateConfiguration: TemplateSource::test-configuration.json
 TemplatePath: TemplateSource::teststackA.yaml
 ```
 
 **Example Create stack A stage**  
 
-```
+```yaml
 - Name: CreateTestStackA
   Actions:
     - Name: CloudFormationCreate
@@ -143,7 +142,7 @@ In a subsequent stage, stack B uses the outputs from stack A. In the `ParameterO
 
 **Example Create stack B stage**  
 
-```
+```yaml
 - Name: CreateTestStackB
   Actions:
     - Name: CloudFormationCreate

@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing template snippets
-<a name="quickref-elb"></a>
 
 To create an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer, use the V2 resource types, which start with `AWS::ElasticLoadBalancingV2`. To create a Classic Load Balancer, use the resource types that start with `AWS::ElasticLoadBalancing`.
 
@@ -17,7 +16,7 @@ This example defines an Application Load Balancer with an HTTP listener and a de
 ------
 #### [ YAML ]
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -59,7 +58,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Resources": {
         "myLoadBalancer": {
@@ -147,7 +146,7 @@ This example defines a Classic Load Balancer with an HTTP listener and no regist
 ------
 #### [ YAML ]
 
-```
+```yaml
 myLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -162,7 +161,7 @@ myLoadBalancer:
 ------
 #### [ JSON ]
 
-```
+```json
 "myLoadBalancer" : {
     "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
     "Properties" : {
@@ -183,7 +182,7 @@ This example defines a Classic Load Balancer with an HTTP listener, two register
 ------
 #### [ YAML ]
 
-```
+```yaml
 myClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -207,7 +206,7 @@ myClassicLoadBalancer:
 ------
 #### [ JSON ]
 
-```
+```json
 "myClassicLoadBalancer" : {
     "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
     "Properties" : {

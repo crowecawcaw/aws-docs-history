@@ -1,7 +1,6 @@
 
 
 # Add stacks to CloudFormation StackSets
-<a name="stackinstances-create"></a>
 
 When you create a StackSet, you can create the stacks for that StackSet. CloudFormation also enables you to add more stacks, for additional accounts and Regions, at any point after the StackSet is created. You can add stacks using either the CloudFormation console or the AWS CLI.
 

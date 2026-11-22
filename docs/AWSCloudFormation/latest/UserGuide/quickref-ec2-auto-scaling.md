@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EC2 Auto Scaling resources with CloudFormation
-<a name="quickref-ec2-auto-scaling"></a>
 
 The following examples show different snippets to include in templates for use with Amazon EC2 Auto Scaling.
 
@@ -25,7 +24,7 @@ For examples of launch templates, see [Create launch templates with CloudFormati
 ### JSON
 <a name="quickref-autoscaling-example-1.json"></a>
 
-```
+```json
  1. "myASG" : {
  2.    "Type" : "AWS::AutoScaling::AutoScalingGroup",
  3.    "Properties" : {
@@ -50,7 +49,7 @@ For examples of launch templates, see [Create launch templates with CloudFormati
 ### YAML
 <a name="quickref-autoscaling-example-1.yaml"></a>
 
-```
+```yaml
  1. myASG:
  2.   Type: AWS::AutoScaling::AutoScalingGroup
  3.   Properties:
@@ -79,7 +78,7 @@ This example shows an [`AWS::AutoScaling::AutoScalingGroup`](https://docs.aws.am
 ### JSON
 <a name="quickref-autoscaling-example-2.json"></a>
 
-```
+```json
  1. "myServerGroup" : {
  2.    "Type" : "AWS::AutoScaling::AutoScalingGroup",
  3.    "Properties" : {
@@ -105,7 +104,7 @@ This example shows an [`AWS::AutoScaling::AutoScalingGroup`](https://docs.aws.am
 ### YAML
 <a name="quickref-autoscaling-example-2.yaml"></a>
 
-```
+```yaml
  1. myServerGroup:
  2.   Type: AWS::AutoScaling::AutoScalingGroup
  3.   Properties:
@@ -136,7 +135,7 @@ The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of e
 ### JSON
 <a name="quickref-autoscaling-example-3.json"></a>
 
-```
+```json
  1. "myASG" : {
  2.   "Type" : "AWS::AutoScaling::AutoScalingGroup",
  3.   "DependsOn": [
@@ -176,7 +175,7 @@ The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of e
 ### YAML
 <a name="quickref-autoscaling-example-3.yaml"></a>
 
-```
+```yaml
  1. myASG:
  2.   Type: AWS::AutoScaling::AutoScalingGroup
  3.   DependsOn:
@@ -219,7 +218,7 @@ For more information about the `CreationPolicy` and `UpdatePolicy` attributes, s
 ### JSON
 <a name="quickref-autoscaling-example-4.json"></a>
 
-```
+```json
 {
   "Resources":{
     "myASG":{
@@ -270,7 +269,7 @@ For more information about the `CreationPolicy` and `UpdatePolicy` attributes, s
 ### YAML
 <a name="quickref-autoscaling-example-4.yaml"></a>
 
-```
+```yaml
 ---
 Resources:
   myASG:
@@ -314,7 +313,7 @@ The [`AWS::CloudWatch::Alarm`](https://docs.aws.amazon.com/AWSCloudFormation/lat
 ### JSON
 <a name="quickref-autoscaling-example-5.json"></a>
 
-```
+```json
  1. {
  2.   "Resources":{
  3.     "ASGScalingPolicyHigh":{
@@ -358,7 +357,7 @@ The [`AWS::CloudWatch::Alarm`](https://docs.aws.amazon.com/AWSCloudFormation/lat
 ### YAML
 <a name="quickref-autoscaling-example-5.yaml"></a>
 
-```
+```yaml
  1. ---
  2. Resources:
  3.   ASGScalingPolicyHigh:
@@ -407,7 +406,7 @@ The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of e
 #### JSON
 <a name="quickref-mixed-instances-group-example-2.json"></a>
 
-```
+```json
  1. {
  2.   "Resources":{
  3.     "myASG":{
@@ -457,7 +456,7 @@ The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of e
 #### YAML
 <a name="quickref-mixed-instances-group-example-1.yaml"></a>
 
-```
+```yaml
  1. ---
  2. Resources:
  3.   myASG:
@@ -494,7 +493,7 @@ This example shows an [`AWS::AutoScaling::LaunchConfiguration`](https://docs.aws
 #### JSON
 <a name="quickref-launch-config-example-1.json"></a>
 
-```
+```json
 1. "mySimpleConfig" : {
 2.    "Type" : "AWS::AutoScaling::LaunchConfiguration",
 3.    "Properties" : {
@@ -508,7 +507,7 @@ This example shows an [`AWS::AutoScaling::LaunchConfiguration`](https://docs.aws
 #### YAML
 <a name="quickref-launch-config-example-1.yaml"></a>
 
-```
+```yaml
 1. mySimpleConfig:
 2.   Type: AWS::AutoScaling::LaunchConfiguration
 3.   Properties:
@@ -527,7 +526,7 @@ This example shows an [`AWS::AutoScaling::AutoScalingGroup`](https://docs.aws.am
 #### JSON
 <a name="quickref-launch-config-example-2.json"></a>
 
-```
+```json
 1. "myASG" : {
 2.    "Type" : "AWS::AutoScaling::AutoScalingGroup",
 3.    "Properties" : {
@@ -542,7 +541,7 @@ This example shows an [`AWS::AutoScaling::AutoScalingGroup`](https://docs.aws.am
 #### YAML
 <a name="quickref-launch-config-example-2.yaml"></a>
 
-```
+```yaml
  1. myASG:
  2.   Type: AWS::AutoScaling::AutoScalingGroup
  3.   Properties:

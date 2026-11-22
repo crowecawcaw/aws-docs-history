@@ -1,7 +1,6 @@
 
 
 # Create custom provisioning logic with custom resources
-<a name="template-custom-resources"></a>
 
 Custom resources provide a way for you to write custom provisioning logic into your CloudFormation templates and have CloudFormation run it anytime you create, update (if you changed the custom resource), or delete a stack. This can be useful when your provisioning requirements involve complex logic or workflows that can't be expressed with CloudFormation's built-in resource types.
 
@@ -50,7 +49,7 @@ The following summarizes the flow for creating a stack from the template:
 
    The following sample data shows what CloudFormation includes in a `Create` request. In this example, `ResourceProperties` allows CloudFormation to create a custom payload to send to the Lambda function.
 
-   ```
+   ```json
    {
       "RequestType" : "Create",
       "RequestId" : "unique id for this create request",
@@ -76,7 +75,7 @@ For more information about using `NoEcho` to mask sensitive information, see the
 
    The following sample data shows what a custom resource might include in a response:
 
-   ```
+   ```json
    {
       "Status" : "SUCCESS",
       "RequestId" : "unique id for this create request",

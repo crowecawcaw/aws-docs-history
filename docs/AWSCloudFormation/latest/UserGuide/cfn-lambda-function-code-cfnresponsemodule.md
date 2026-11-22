@@ -1,7 +1,6 @@
 
 
 # `cfn-response` module
-<a name="cfn-lambda-function-code-cfnresponsemodule"></a>
 
 In your CloudFormation template, you can specify a Lambda function as the target of a custom resource. When you use the `ZipFile` property to specify your [function's](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html) source code, you can load the `cfn-response` module to send responses from your Lambda function to a custom resource. The `cfn-response` module is a library that simplifies sending responses to the custom resource that invoked your Lambda function. The module has a `send` method that sends a [response object](crpg-ref.md#crpg-ref-responses) to a custom resource by way of an Amazon S3 presigned URL (the `ResponseURL`).
 
@@ -15,7 +14,7 @@ After executing the `send` method, the Lambda function terminates, so anything y
 
 For Node.js functions, use the `require()` function to load the `cfn-response` module. For example, the following code example creates a `cfn-response` object with the name `response`:
 
-```
+```js
 var response = require('cfn-response');
 ```
 
@@ -24,7 +23,7 @@ For Python, use the `import` statement to load the `cfnresponse` module, as show
 **Note**  
 Use this exact import statement. If you use other variants of the import statement, CloudFormation doesn't include the response module.
 
-```
+```js
 import cfnresponse
 ```
 
@@ -69,7 +68,7 @@ In the following Node.js example, the inline Lambda function takes an input valu
 #### JSON
 <a name="cfn-lambda-function-code-zipfile-examplenodejs.json"></a>
 
-```
+```json
 "ZipFile": { "Fn::Join": ["", [
   "var response = require('cfn-response');",
   "exports.handler = function(event, context) {",
@@ -83,7 +82,7 @@ In the following Node.js example, the inline Lambda function takes an input valu
 #### YAML
 <a name="cfn-lambda-function-code-zipfile-examplenodejs-yaml"></a>
 
-```
+```yaml
 ZipFile: >
   var response = require('cfn-response');
   exports.handler = function(event, context) {
@@ -101,7 +100,7 @@ In the following Python example, the inline Lambda function takes an integer val
 #### JSON
 <a name="cfn-lambda-function-code-zipfile-examplepython.json"></a>
 
-```
+```json
 "ZipFile" : { "Fn::Join" : ["\n", [
   "import json",
   "import cfnresponse",
@@ -116,7 +115,7 @@ In the following Python example, the inline Lambda function takes an integer val
 #### YAML
 <a name="cfn-lambda-function-code-zipfile-examplepython.yaml"></a>
 
-```
+```yaml
 ZipFile: |
   import json
   import cfnresponse
@@ -140,7 +139,7 @@ ZipFile: |
 
 The following is the response module source code for the Node.js functions if the handler is asynchronous. Review it to understand what the module does and for help with implementing your own response functions.
 
-```
+```js
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
@@ -204,7 +203,7 @@ function maskCredentialsAndSignature(message) {
 
 The following is the response module source code for the Node.js functions if the handler is not asynchronous. Review it to understand what the module does and for help with implementing your own response functions.
 
-```
+```js
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
  
@@ -261,7 +260,7 @@ exports.send = function(event, context, responseStatus, responseData, physicalRe
 
 The following is the response module source code for Python functions:
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
  

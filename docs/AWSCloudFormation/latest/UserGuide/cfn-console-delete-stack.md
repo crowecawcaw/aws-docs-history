@@ -1,7 +1,6 @@
 
 
 # Delete a stack from the CloudFormation console
-<a name="cfn-console-delete-stack"></a>
 
 If you no longer need the resources in a stack, you can delete the entire stack.
 

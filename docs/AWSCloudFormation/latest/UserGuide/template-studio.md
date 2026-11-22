@@ -1,7 +1,6 @@
 
 
 # Edit templates visually with template studio
-<a name="template-studio"></a>
 
 Template studio is a template editor in the CloudFormation console. It shows your template as text beside a diagram of the resources that template declares. As you edit the template, the diagram redraws to match. You can validate the template, convert it between YAML and JSON, and save it to Amazon S3 without leaving the console.
 

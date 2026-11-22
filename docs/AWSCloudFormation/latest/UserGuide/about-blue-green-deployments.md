@@ -1,7 +1,6 @@
 
 
 # About blue/green deployments
-<a name="about-blue-green-deployments"></a>
 
 This topic provides an overview of how performing blue/green deployments with CloudFormation works. It also explains how to prepare your CloudFormation template for blue/green deployments.
 
@@ -45,7 +44,7 @@ It's important to note that you can't combine updates to the above resources wit
 To enable blue/green deployments on your stack, include the following sections in your stack template before performing a stack update.
 + Add a reference to the `AWS::CodeDeployBlueGreen` transform to your template:
 
-  ```
+  ```json
   "Transform": [
     "AWS::CodeDeployBlueGreen"
   ],

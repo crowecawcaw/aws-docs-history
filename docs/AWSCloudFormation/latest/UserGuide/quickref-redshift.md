@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift template snippets
-<a name="quickref-redshift"></a>
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can use CloudFormation to provision and manage Amazon Redshift clusters.
 
@@ -29,7 +28,7 @@ For more information, see the [Do not embed credentials in your templates](https
 ### JSON
 <a name="quickref-redshift-example-1.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters" : {
@@ -220,7 +219,7 @@ For more information, see the [Do not embed credentials in your templates](https
 ### YAML
 <a name="quickref-redshift-example-1.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   DatabaseName:

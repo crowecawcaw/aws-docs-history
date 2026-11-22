@@ -1,13 +1,12 @@
 
 
 # Repository Sync Status Change event detail
-<a name="event-detail-respository-sync-status-change"></a>
 
 Below are the detail fields for Repository Sync Status Change events.
 
 The `source` and `detail-type` fields are included because they contain specific values for events.
 
-```
+```json
 {
   . . .,
   "detail-type": "Git Sync Repository Sync Status Change",
@@ -71,7 +70,7 @@ The sync status previous to the current status.
 **Example: Repository Sync Status Change event**  <a name="event-detail-respository-sync-status-change.example"></a>
 The following is an example Repository Sync Status Change event. The event details that AWS CodeConnections has successfully synchronized the repository.  
 
-```
+```json
 {
   "version": "0",
   "id": "1b5d8feb-agbv-4cf7-a9f1-bf3703467718",

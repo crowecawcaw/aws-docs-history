@@ -1,7 +1,6 @@
 
 
 # How to resolve issues with write-only properties in AWS::Lambda::Function resources
-<a name="generate-IaC-lambda-function"></a>
 
 This topic explains how to resolve issues with write-only properties in [AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html) resources when using the IaC generator.
 

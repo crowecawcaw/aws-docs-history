@@ -1,7 +1,6 @@
 
 
 # Get a plaintext value from Systems Manager Parameter Store
-<a name="dynamic-references-ssm"></a>
 
 When you're creating a CloudFormation template, you might want to use plaintext values stored in Parameter Store. Parameter Store is a capability of AWS Systems Manager. For an introduction to Parameter Store, see [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) in the *AWS Systems Manager User Guide*. 
 
@@ -59,7 +58,7 @@ The following example creates an EC2 instance that references a public AMI param
 #### JSON
 <a name="dynamic-references-ssm-public-ami-example.json"></a>
 
-```
+```json
 {
     "Resources": {
         "MyInstance": {
@@ -76,7 +75,7 @@ The following example creates an EC2 instance that references a public AMI param
 #### YAML
 <a name="dynamic-references-ssm-public-ami-example.yaml"></a>
 
-```
+```yaml
 Resources:
   MyInstance:
     Type: AWS::EC2::Instance
@@ -93,7 +92,7 @@ The following example creates an EC2 launch template that references a custom AM
 #### JSON
 <a name="dynamic-references-ssm-custom-ami-example.json"></a>
 
-```
+```json
 {
     "Resources": {
         "MyLaunchTemplate": {
@@ -115,7 +114,7 @@ The following example creates an EC2 launch template that references a custom AM
 #### YAML
 <a name="dynamic-references-ssm-custom-ami-example.yaml"></a>
 
-```
+```yaml
 Resources:
   MyLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate

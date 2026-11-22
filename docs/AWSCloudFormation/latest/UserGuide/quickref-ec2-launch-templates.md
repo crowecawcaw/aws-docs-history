@@ -1,7 +1,6 @@
 
 
 # Create launch templates with CloudFormation
-<a name="quickref-ec2-launch-templates"></a>
 
 This section provides an example for creating an Amazon EC2 launch template using CloudFormation. Launch templates allow you to create templates for configuring and provisioning Amazon EC2 instances within AWS. With launch templates, you can store launch parameters so that you do not have to specify them every time you launch an instance. For more examples, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the `AWS::EC2::LaunchTemplate` resource.
 
@@ -24,7 +23,7 @@ The launch template also includes an IAM role that allows applications running o
 ### JSON
 <a name="quickref-launch-template-example-1.json"></a>
 
-```
+```json
  1. {
  2.   "Resources":{
  3.     "myLaunchTemplate":{
@@ -124,7 +123,7 @@ The launch template also includes an IAM role that allows applications running o
 ### YAML
 <a name="quickref-launch-template-example-1.yaml"></a>
 
-```
+```yaml
  1. ---
  2. Resources:
  3.   myLaunchTemplate:

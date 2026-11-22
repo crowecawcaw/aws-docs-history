@@ -1,7 +1,6 @@
 
 
 # CloudFormation walkthroughs
-<a name="walkthroughs"></a>
 
 This documentation provides a collection of walkthroughs designed to give you hands-on practice with stack deployments.
 + [Refer to resource outputs in another CloudFormation stack](walkthrough-crossstackref.md) – This walkthrough shows you how to reference outputs from one CloudFormation stack within another stack. Instead of including all resources in a single stack, you can create related AWS resources in separate stacks to create more modular and reusable templates.

@@ -1,7 +1,6 @@
 
 
 # Roll back your CloudFormation stack on alarm breach with rollback triggers
-<a name="using-cfn-rollback-triggers"></a>
 
 With rollback triggers, you can have CloudFormation monitor the state of your application during stack creation and updating, and roll back that operation if the application breaches the threshold of the alarms you've specified. For each rollback trigger you create, you specify the CloudWatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to `ALARM` state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation.
 

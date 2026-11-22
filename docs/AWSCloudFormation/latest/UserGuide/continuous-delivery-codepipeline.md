@@ -1,7 +1,6 @@
 
 
 # Continuous delivery with CodePipeline
-<a name="continuous-delivery-codepipeline"></a>
 
 Continuous delivery is a release practice in which code changes are automatically built, tested, and prepared for release to production. With CloudFormation and CodePipeline, you can use continuous delivery to automatically build and test changes to your CloudFormation templates before promoting them to production stacks. This release process lets you rapidly and reliably make changes to your AWS infrastructure.
 

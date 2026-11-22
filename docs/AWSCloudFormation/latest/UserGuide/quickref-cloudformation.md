@@ -1,7 +1,6 @@
 
 
 # CloudFormation template snippets
-<a name="quickref-cloudformation"></a>
 
 **Topics**
 + [Nested stacks](#w2aac11c49c23b5)
@@ -20,7 +19,7 @@ For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.c
 #### JSON
 <a name="quickref-cloudformation-example-1.json"></a>
 
-```
+```json
  1. {
  2.     "AWSTemplateFormatVersion" : "2010-09-09",
  3.     "Resources" : {
@@ -44,7 +43,7 @@ For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.c
 #### YAML
 <a name="quickref-cloudformation-example-1.yaml"></a>
 
-```
+```yaml
  1. AWSTemplateFormatVersion: '2010-09-09'
  2. Resources:
  3.   myStack:
@@ -69,7 +68,7 @@ For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.c
 #### JSON
 <a name="quickref-cloudformation-example-2.json"></a>
 
-```
+```json
  1. {
  2.     "AWSTemplateFormatVersion" : "2010-09-09",
  3.     "Resources" : {
@@ -90,7 +89,7 @@ For more information, see [AWS::CloudFormation::Stack](https://docs.aws.amazon.c
 #### YAML
 <a name="quickref-cloudformation-example-2.yaml"></a>
 
-```
+```yaml
 1. AWSTemplateFormatVersion: '2010-09-09'
 2. Resources:
 3.   myStackWithParams:
@@ -118,7 +117,7 @@ For more information, see [Create wait conditions in a CloudFormation template](
 #### JSON
 <a name="quickref-cloudformation-example-3.json"></a>
 
-```
+```json
  1. {
  2.     "AWSTemplateFormatVersion" : "2010-09-09",
  3.     "Mappings" : {
@@ -174,7 +173,7 @@ For more information, see [Create wait conditions in a CloudFormation template](
 #### YAML
 <a name="quickref-cloudformation-example-3.yaml"></a>
 
-```
+```yaml
  1. AWSTemplateFormatVersion: '2010-09-09'
  2. Mappings:
  3.   RegionMap:
@@ -222,7 +221,7 @@ This example shows a `cfn-signal` command line that signals success to a wait co
 #### JSON
 <a name="w2aac11c49c23b7b4b4"></a>
 
-```
+```json
 "UserData": {
   "Fn::Base64": {
     "Fn::Join": [
@@ -243,7 +242,7 @@ This example shows a `cfn-signal` command line that signals success to a wait co
 #### YAML
 <a name="w2aac11c49c23b7b4b6"></a>
 
-```
+```yaml
 UserData:
   Fn::Base64: !Sub |
     #!/bin/bash -xe
@@ -255,13 +254,13 @@ UserData:
 
 This example shows a Curl command line that signals success to a wait condition.
 
-```
+```json
 1. curl -T /tmp/a "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
 ```
 
 Where the file /tmp/a contains the following JSON structure:
 
-```
+```json
 1. {
 2.   "Status" : "SUCCESS",
 3.   "Reason" : "Configuration Complete",
@@ -272,6 +271,6 @@ Where the file /tmp/a contains the following JSON structure:
 
 This example shows a Curl command line that sends the same success signal except it sends the JSON as a parameter on the command line.
 
-```
+```json
 1. curl -X PUT -H 'Content-Type:' --data-binary '{"Status" : "SUCCESS","Reason" : "Configuration Complete","UniqueId" : "ID1234","Data" : "Application has completed configuration."}' "https://cloudformation-waitcondition-test.s3.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-1%3A034017226601%3Astack%2Fstack-gosar-20110427004224-test-stack-with-WaitCondition--VEYW%2Fe498ce60-70a1-11e0-81a7-5081d0136786%2FmyWaitConditionHandle?Expires=1303976584&AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=ik1twT6hpS4cgNAw7wyOoRejVoo%3D"
 ```

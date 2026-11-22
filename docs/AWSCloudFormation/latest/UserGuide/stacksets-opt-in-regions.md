@@ -1,7 +1,6 @@
 
 
 # Prepare to perform StackSet operations in AWS Regions that are disabled by default
-<a name="stacksets-opt-in-regions"></a>
 
 AWS Regions introduced after March 20, 2019, such as Asia Pacific (Hong Kong), are disabled by default. You must enable these Regions for your account(s) before you can use them. For more information, see [Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) in the *AWS Account Management Reference Guide*.
 

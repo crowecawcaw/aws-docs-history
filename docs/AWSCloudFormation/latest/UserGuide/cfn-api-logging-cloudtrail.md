@@ -1,7 +1,6 @@
 
 
 # Logging CloudFormation API calls with AWS CloudTrail
-<a name="cfn-api-logging-cloudtrail"></a>
 
 CloudFormation is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in CloudFormation. CloudTrail captures all API calls for CloudFormation as events, including calls from the CloudFormation console and from code calls to the CloudFormation APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for CloudFormation. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to CloudFormation, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -41,7 +40,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 **Note**  
 Only the input parameter key names are logged. Parameter values aren't logged.
 
-```
+```json
 {
   "eventVersion": "1.01",
   "userIdentity": {
@@ -87,7 +86,7 @@ Only the input parameter key names are logged. Parameter values aren't logged.
 
 The following example shows that Alice called the `UpdateStack` operation on the `my-test-stack` stack:
 
-```
+```json
 {
   "eventVersion": "1.01",
   "userIdentity": {
@@ -126,7 +125,7 @@ The following example shows that Alice called the `UpdateStack` operation on the
 
 The following example shows that Alice called the `ListStacks` operation.
 
-```
+```json
 {
   "eventVersion": "1.01",
   "userIdentity": {
@@ -152,7 +151,7 @@ The following example shows that Alice called the `ListStacks` operation.
 
 The following example shows that Alice called the `DescribeStacks` operation on the `my-test-stack` stack.
 
-```
+```json
 {
   "eventVersion": "1.01",
   "userIdentity": {
@@ -180,7 +179,7 @@ The following example shows that Alice called the `DescribeStacks` operation on 
 
 The following example shows that Alice called the `DeleteStack` operation on the `my-test-stack` stack.
 
-```
+```json
 {
   "eventVersion": "1.01",
   "userIdentity": {

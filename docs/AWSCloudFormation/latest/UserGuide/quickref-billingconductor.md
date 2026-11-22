@@ -1,14 +1,13 @@
 
 
 # AWS Billing Console template snippets
-<a name="quickref-billingconductor"></a>
 
 This example creates one pricing plan with a 10% global markup pricing rule. This pricing plan is attached to the billing group. The billing group also has two custom line items which applies a $10 charge and a 10% charge on top of the billing group total cost.
 
 ## JSON
 <a name="quickref-billingconductor-example-1.json"></a>
 
-```
+```json
  1. {
  2.    "Parameters": {
  3.       "LinkedAccountIds": {
@@ -99,7 +98,7 @@ This example creates one pricing plan with a 10% global markup pricing rule. Thi
 ## YAML
 <a name="quickref-billingconductor-example-1.yaml"></a>
 
-```
+```yaml
  1. Parameters:
  2.   LinkedAccountIds:
  3.     Type: List{{Number}}

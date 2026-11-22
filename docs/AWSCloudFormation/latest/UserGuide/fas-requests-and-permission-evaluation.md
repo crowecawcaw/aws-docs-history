@@ -1,7 +1,6 @@
 
 
 # Forward access sessions (FAS) requests and permission evaluation
-<a name="fas-requests-and-permission-evaluation"></a>
 
 When creating, updating, and deleting CloudFormation stacks, users can optionally specify an IAM role ARN. If no role is provided, CloudFormation uses its default service mechanism to interact with other AWS services. In this scenario, the caller must have the necessary permissions for the resources being managed. Alternatively, when a user supplies their own IAM role, CloudFormation will assume that role to perform service interactions on their behalf.
 
@@ -17,7 +16,7 @@ Consider the following IAM policy. `Statement2` will consistently prevent the cr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -55,7 +54,7 @@ Consider the following IAM policy. `Statement2` will consistently prevent the cr
 **Example stack template**  
 For example, when a user creates a stack with the following example template, `aws:ViaAWSService` is set to `true`, and role permissions will be overridden by the FAS policy. Stack creation will be affected by `Statement2` of the IAM policy, which denies the `CreateKey` action. This results in a permission denied error. 
 
-```
+```yaml
 Resources:
   myPrimaryKey:
     Type: AWS::KMS::Key

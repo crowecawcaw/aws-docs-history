@@ -1,7 +1,6 @@
 
 
 # CloudFormation configuration properties reference
-<a name="continuous-delivery-codepipeline-action-reference"></a>
 
 When you build a CodePipeline pipeline, you add a `Deploy` action to the pipeline with CloudFormation as a provider. You then must specify which CloudFormation action the pipeline invokes and the action's settings. This topic describes the CloudFormation configuration properties. To specify properties, you can use the CodePipeline console, or you can create a JSON object to use for the AWS CLI, CodePipeline API, or CloudFormation templates.
 
@@ -57,7 +56,7 @@ There is a maximum size limit of 1 kilobyte for the JSON object that can be stor
 We recommend that you use the template configuration file to specify most of your parameter values. Use parameter overrides to specify dynamic parameter values only. Dynamic parameters are unknown until you run the pipeline.  
 The following example defines a value for the `ParameterName` parameter by using a parameter override function. The function retrieves a value from a CodePipeline input artifact. For more information about parameter override functions, see [Using parameter override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md).  
 
-```
+```json
 {
   "ParameterName" : { "Fn::GetParam" : ["ArtifactName", "config-file-name.json", "ParamName"]}
 }
@@ -66,7 +65,7 @@ The following example defines a value for the `ParameterName` parameter by using
 ## Configuration properties (JSON object)
 <a name="continuous-delivery-codepipeline-action-reference-json"></a>
 
-When you specify `CloudFormation` as a provider for a stage action, define the following properties in the `Configuration` property. Use the JSON object for the AWS CLI, CodePipeline API, or CloudFormation templates. For examples, see [Walkthrough: Building a pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md) and [CloudFormation configuration properties reference](#continuous-delivery-codepipeline-action-reference).
+When you specify `CloudFormation` as a provider for a stage action, define the following properties in the `Configuration` property. Use the JSON object for the AWS CLI, CodePipeline API, or CloudFormation templates. For examples, see [Walkthrough: Building a pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md) and [CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md).
 
 `ActionMode`  
 The CloudFormation action that CodePipeline invokes when it processes the associated stage. Specify only one of the following action modes:  
@@ -82,7 +81,7 @@ For stacks that contain certain resources, explicit acknowledgment that CloudFor
 This property is conditional. If you have IAM resources in your stack template, you must specify this property.  
 You can specify multiple capabilities. The following example adds the `CAPABILITY_IAM` and `CAPABILITY_AUTO_EXPAND` properties to the template:  
 
-```
+```yaml
 configuration:
   ActionMode: CHANGE_SET_REPLACE
   {{Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND}}
@@ -93,7 +92,7 @@ configuration:
   TemplatePath: 'my-pipeline-stack::template-export.yml'
 ```
 
-```
+```json
  "configuration": {
         "ActionMode": "CHANGE_SET_REPLACE",
         {{"Capabilities": "CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND",}}
@@ -117,7 +116,7 @@ This property is optional. If you don't specify a name, CodePipeline doesn't gen
 Parameters are defined in your template and allow you to input custom values when you create or update a stack. You can specify a JSON object that overrides template parameter values in the template configuration file. All parameter names must be present in the stack template. For more information, see [CloudFormation template Parameters syntax](parameters-section-structure.md).  
 The following example adds the `InstanceType` and `KeyName` parameter overrides to the template:  
 
-```
+```yaml
 configuration:
   ActionMode: CHANGE_SET_REPLACE
   Capabilities: CAPABILITY_NAMED_IAM
@@ -129,7 +128,7 @@ configuration:
   TemplatePath: 'my-pipeline-stack::template-export.yml'
 ```
 
-```
+```json
 "configuration": {
         "ActionMode": "CHANGE_SET_REPLACE",
         "Capabilities": "CAPABILITY_NAMED_IAM",
@@ -145,7 +144,7 @@ The maximum size for the JSON object that can be stored in the `ParameterOverrid
 We recommend that you use the template configuration file to specify most of your parameter values. Use parameter overrides to specify dynamic parameter values only. Dynamic parameter values are unknown until you run the pipeline.  
 The following example defines a value for the `ParameterName` parameter by using a parameter override function. The function retrieves a value from a CodePipeline input artifact. For more information about parameter override functions, see [Using parameter override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md).  
 
-```
+```json
 {
   "ParameterName" : { "Fn::GetParam" : ["ArtifactName", "config-file-name.json", "ParamName"]}
 }
@@ -165,7 +164,7 @@ This property is required for all action modes.
 `{{Artifactname}}::{{TemplateConfigurationFileName}}`  
 `Artifactname` is the input artifact name as it appears in CodePipeline. For example, a source stage with the artifact name of `SourceArtifact` and a `test-configuration.json` file name creates a `TemplateConfiguration` name as shown in this example:  
 
-```
+```json
 "TemplateConfiguration": "SourceArtifact::test-configuration.json"
 ```
 The template configuration file can contain template parameter values and a stack policy. If you include sensitive information, such as passwords, restrict access to this file. For an example template configuration file, see [CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md).  
@@ -176,7 +175,7 @@ This property is optional.
 `{{Artifactname}}::{{TemplateFileName}}`  
 `Artifactname` is the input artifact name as it appears in CodePipeline. For example, a source stage with the artifact name of `SourceArtifact` and a `template.yaml` file name creates a `TemplatePath` name, as shown in this example:  
 
-```
+```json
 "TemplatePath": "SourceArtifact::template.yaml"
 ```
 This property is required for the following action modes: `CREATE_UPDATE`, `REPLACE_ON_FAILURE`, and `CHANGE_SET_REPLACE`. For all other action modes, this property is ignored.

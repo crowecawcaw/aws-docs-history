@@ -1,7 +1,6 @@
 
 
 # Deploy applications on Amazon EC2
-<a name="deploying.applications"></a>
 
 You can use CloudFormation to automatically install, configure, and start applications on Amazon EC2 instances. Doing so enables you to easily duplicate deployments and update existing installations without connecting directly to the instance, which can save you a lot of time and effort.
 
@@ -65,7 +64,7 @@ The process works as follows:
 
 The configuration is defined in a specific structure within your EC2 instance.
 
-```
+```yaml
 Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
@@ -85,7 +84,7 @@ The `cfn-init` script processes these sections in a specific order: packages, gr
 
 Let's start with a minimal bootstrap example that just installs and starts Apache.
 
-```
+```yaml
 Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
@@ -125,7 +124,7 @@ Now, let's enhance our example by adding a custom web page and a log file in the
 
 The `files` section allows you to create files on the instance with specific content. The vertical pipe (`|`) allows you to pass a literal block of text (HTML code) as the content of the file (`/var/www/html/index.html`).
 
-```
+```yaml
 files:
   /var/www/html/index.html:
     content: |
@@ -139,7 +138,7 @@ files:
 
 The `commands` section lets you run shell commands during the bootstrap process. This command creates a log file at `/var/log/welcome.txt` on the EC2 instance. To view it, you need an Amazon EC2 key pair to use for SSH access and an IP address range that can be used to SSH to the instance (not covered here).
 
-```
+```yaml
 commands:
   createWelcomeLog:
     command: "echo 'cfn-init ran successfully!' > /var/log/welcome.txt"
@@ -150,7 +149,7 @@ commands:
 
 Since we're setting up a web server, we need to allow web traffic (HTTP) to reach our EC2 instance. To do this, we'll create a security group that allows incoming traffic on port 80 from your IP address. EC2 instances also need to send traffic out to the internet, for example, to install package updates. By default, security groups allow all outgoing traffic. We'll then associate this security group with our EC2 instance using the `SecurityGroupIds` property.
 
-```
+```yaml
 WebServerSecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
@@ -168,7 +167,7 @@ WebServerSecurityGroup:
 
 Now, let's put all the pieces together. Here's the complete template that combines all the concepts we've discussed.
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Bootstrap an EC2 instance with Apache web server using cfn-init
 

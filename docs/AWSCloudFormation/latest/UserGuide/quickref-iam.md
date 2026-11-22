@@ -1,7 +1,6 @@
 
 
 # AWS Identity and Access Management template snippets
-<a name="quickref-iam"></a>
 
 This section contains AWS Identity and Access Management template snippets.
 
@@ -31,7 +30,7 @@ The policy document named `giveaccesstotopiconly` is added to the user to give t
 ### JSON
 <a name="quickref-iam-example-1.json"></a>
 
-```
+```json
 "myuser" : {
    "Type" : "AWS::IAM::User",
    "Properties" : {
@@ -79,7 +78,7 @@ The policy document named `giveaccesstotopiconly` is added to the user to give t
 ### YAML
 <a name="quickref-iam-example-1.yaml"></a>
 
-```
+```yaml
 myuser:
   Type: AWS::IAM::User
   Properties:
@@ -128,7 +127,7 @@ This snippet shows an [AWS::IAM::AccessKey](https://docs.aws.amazon.com/AWSCloud
 #### JSON
 <a name="quickref-iam-example-2.json"></a>
 
-```
+```json
 "myaccesskey" : {
    "Type" : "AWS::IAM::AccessKey",
    "Properties" : {
@@ -140,7 +139,7 @@ This snippet shows an [AWS::IAM::AccessKey](https://docs.aws.amazon.com/AWSCloud
 #### YAML
 <a name="quickref-iam-example-2.yaml"></a>
 
-```
+```yaml
 myaccesskey:
   Type: AWS::IAM::AccessKey
   Properties:
@@ -156,7 +155,7 @@ You can get the secret key for an `AWS::IAM::AccessKey` resource using the `Fn::
 #### JSON
 <a name="quickref-iam-example-3.json"></a>
 
-```
+```json
 "AccessKeyformyaccesskey" : {
    "Value" : { "Ref" : "myaccesskey" }
 },
@@ -170,7 +169,7 @@ You can get the secret key for an `AWS::IAM::AccessKey` resource using the `Fn::
 #### YAML
 <a name="quickref-iam-example-3.yaml"></a>
 
-```
+```yaml
 AccessKeyformyaccesskey:
   Value:
     !Ref myaccesskey
@@ -186,7 +185,7 @@ You can also pass the AWS access key and secret key to an Amazon EC2 instance or
 #### JSON
 <a name="quickref-iam-example-4.json"></a>
 
-```
+```json
 "myinstance" : {
    "Type" : "AWS::EC2::Instance",
    "Properties" : {
@@ -218,7 +217,7 @@ You can also pass the AWS access key and secret key to an Amazon EC2 instance or
 #### YAML
 <a name="quickref-iam-example-4.yaml"></a>
 
-```
+```yaml
 myinstance:
   Type: AWS::EC2::Instance
   Properties:
@@ -238,7 +237,7 @@ To assign a policy to a resource, IAM requires the Amazon Resource Name (ARN) fo
 ### JSON
 <a name="quickref-iam-example-5.json"></a>
 
-```
+```json
 "mygroup" : {
    "Type" : "AWS::IAM::Group",
    "Properties" : {
@@ -268,7 +267,7 @@ To assign a policy to a resource, IAM requires the Amazon Resource Name (ARN) fo
 ### YAML
 <a name="quickref-iam-example-5.yaml"></a>
 
-```
+```yaml
 mygroup:
   Type: AWS::IAM::Group
   Properties:
@@ -296,7 +295,7 @@ The [AWS::IAM::UserToGroupAddition](https://docs.aws.amazon.com/AWSCloudFormatio
 ### JSON
 <a name="quickref-iam-example-6.json"></a>
 
-```
+```json
 "addUserToGroup" : {
    "Type" : "AWS::IAM::UserToGroupAddition",
    "Properties" : {
@@ -309,7 +308,7 @@ The [AWS::IAM::UserToGroupAddition](https://docs.aws.amazon.com/AWSCloudFormatio
 ### YAML
 <a name="quickref-iam-example-6.yaml"></a>
 
-```
+```yaml
 addUserToGroup:
   Type: AWS::IAM::UserToGroupAddition
   Properties:
@@ -327,7 +326,7 @@ This snippet shows how to create a policy and apply it to multiple groups using 
 ### JSON
 <a name="quickref-iam-example-7.json"></a>
 
-```
+```json
 "mypolicy" : {
    "Type" : "AWS::IAM::Policy",
    "Properties" : {
@@ -349,7 +348,7 @@ This snippet shows how to create a policy and apply it to multiple groups using 
 ### YAML
 <a name="quickref-iam-example-7.yaml"></a>
 
-```
+```yaml
 mypolicy:
   Type: AWS::IAM::Policy
   Properties:
@@ -376,7 +375,7 @@ This snippet shows how to create a policy and apply it to an Amazon S3 bucket us
 ### JSON
 <a name="quickref-iam-example-8.json"></a>
 
-```
+```json
 "mybucketpolicy" : {
    "Type" : "AWS::S3::BucketPolicy",
    "Properties" : {
@@ -403,7 +402,7 @@ This snippet shows how to create a policy and apply it to an Amazon S3 bucket us
 ### YAML
 <a name="quickref-iam-example-8.yaml"></a>
 
-```
+```yaml
 mybucketpolicy:
   Type: AWS::S3::BucketPolicy
   Properties:
@@ -429,7 +428,7 @@ This snippet shows how to create a policy and apply it to an Amazon SNS topic us
 ### JSON
 <a name="quickref-iam-example-9.json"></a>
 
-```
+```json
 "mysnspolicy" : {
    "Type" : "AWS::SNS::TopicPolicy",
    "Properties" : {
@@ -454,7 +453,7 @@ This snippet shows how to create a policy and apply it to an Amazon SNS topic us
 ### YAML
 <a name="quickref-iam-example-9.yaml"></a>
 
-```
+```yaml
 mysnspolicy:
   Type: AWS::SNS::TopicPolicy
   Properties:
@@ -480,7 +479,7 @@ This snippet shows how to create a policy and apply it to an Amazon SQS queue us
 ### JSON
 <a name="quickref-iam-example-10.json"></a>
 
-```
+```json
 "mysqspolicy" : {
    "Type" : "AWS::SQS::QueuePolicy",
    "Properties" : {
@@ -508,7 +507,7 @@ This snippet shows how to create a policy and apply it to an Amazon SQS queue us
 ### YAML
 <a name="quickref-iam-example-10.yaml"></a>
 
-```
+```yaml
 mysqspolicy:
   Type: AWS::SQS::QueuePolicy
   Properties:
@@ -543,7 +542,7 @@ In this example, the instance profile is referenced by the `IamInstanceProfile` 
 #### JSON
 <a name="quickref-iam-example-11.json"></a>
 
-```
+```json
 {
    "AWSTemplateFormatVersion": "2010-09-09",
    "Resources": {
@@ -605,7 +604,7 @@ In this example, the instance profile is referenced by the `IamInstanceProfile` 
 #### YAML
 <a name="quickref-iam-example-11.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   myEC2Instance:
@@ -659,7 +658,7 @@ In this example, the instance profile is referenced by the `IamInstanceProfile` 
 #### JSON
 <a name="quickref-iam-example-12.json"></a>
 
-```
+```json
 {
    "AWSTemplateFormatVersion": "2010-09-09",
    "Resources": {
@@ -730,7 +729,7 @@ In this example, the instance profile is referenced by the `IamInstanceProfile` 
 #### YAML
 <a name="quickref-iam-example-12.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   myLCOne:

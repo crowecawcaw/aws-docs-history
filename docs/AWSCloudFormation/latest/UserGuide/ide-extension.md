@@ -1,7 +1,6 @@
 
 
 # CloudFormation Language Server
-<a name="ide-extension"></a>
 
 The AWS CloudFormation Language Server helps you write CloudFormation templates in an editor. As you type, it suggests resource types and properties, shows documentation, finds errors, lets you jump to definitions, and offers fixes for some problems. It uses the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP), which lets the server work with different editors. Starting and using the Language Server for these local authoring features doesn't require an AWS account or AWS credentials.
 
@@ -31,7 +30,7 @@ For Visual Studio Code and JetBrains IDEs, install the AWS Toolkit. The Toolkit 
 
 For another editor that supports LSP, download the file for your computer from the [latest release](https://github.com/aws-cloudformation/cloudformation-languageserver/releases/latest) on GitHub, extract it, and configure your editor to run the following command:
 
-```
+```sh
 node {{/path/to/install-location}}/cfn-lsp-server-standalone.js --stdio
 ```
 

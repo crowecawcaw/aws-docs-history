@@ -1,7 +1,6 @@
 
 
 # Update your stack template
-<a name="using-cfn-updating-stacks-get-template"></a>
 
 To modify the resources or properties in a CloudFormation stack, you must update the stack's template. Start with the existing template for that stack and make your changes to it. If you have the template stored in a source control system, use a copy of that as your starting point. Otherwise, you can get a copy of the template from CloudFormation.
 

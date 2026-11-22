@@ -1,7 +1,6 @@
 
 
 # General template snippets
-<a name="quickref-general"></a>
 
 The following examples show different CloudFormation template features that aren't specific to an AWS service.
 
@@ -30,7 +29,7 @@ This example shows the assembly of a `UserData` property using the `Fn::Base64` 
 ### JSON
 <a name="quickref-general-example-1.json"></a>
 
-```
+```json
 1. "UserData" : {
 2.     "Fn::Base64" : {
 3.         "Fn::Join" : [ ",", [
@@ -44,7 +43,7 @@ This example shows the assembly of a `UserData` property using the `Fn::Base64` 
 ### YAML
 <a name="quickref-general-example-1.yaml"></a>
 
-```
+```yaml
 1. UserData:
 2.   Fn::Base64: !Sub |
 3.      Ref: MyValue
@@ -60,7 +59,7 @@ This example shows the assembly of a `UserData` property using the `Fn::Base64` 
 ### JSON
 <a name="quickref-general-example-2.json"></a>
 
-```
+```json
 1. "UserData" : {
 2.     "Fn::Base64" : {
 3.         "Fn::Join" : [ "", [
@@ -74,7 +73,7 @@ This example shows the assembly of a `UserData` property using the `Fn::Base64` 
 ### YAML
 <a name="quickref-general-example-2.yaml"></a>
 
-```
+```yaml
 1. UserData:
 2.   Fn::Base64: !Sub |
 3.      ACCESS_KEY=${AccessKey}
@@ -89,7 +88,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### JSON
 <a name="quickref-general-example-3.json"></a>
 
-```
+```json
 1. "Parameters" : {
 2.     "UserName" : {
 3.         "Type" : "String",
@@ -102,7 +101,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### YAML
 <a name="quickref-general-example-3.yaml"></a>
 
-```
+```yaml
 1. Parameters:
 2.   UserName:
 3.     Type: String
@@ -118,7 +117,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### JSON
 <a name="quickref-general-example-4.json"></a>
 
-```
+```json
  1. "Parameters" : {
  2.     "AdminUserAccount": {
  3.       "Default": "admin",
@@ -135,7 +134,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### YAML
 <a name="quickref-general-example-4.yaml"></a>
 
-```
+```yaml
 1. Parameters:
 2.   AdminUserAccount:
 3.     Default: admin
@@ -155,7 +154,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### JSON
 <a name="quickref-general-example-5.json"></a>
 
-```
+```json
 1. "Parameters" : {
 2.     "WebServerPort": {
 3.       "Default": "80",
@@ -170,7 +169,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### YAML
 <a name="quickref-general-example-5.yaml"></a>
 
-```
+```yaml
 1. Parameters:
 2.   WebServerPort:
 3.     Default: 80
@@ -188,7 +187,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### JSON
 <a name="quickref-general-example-6.json"></a>
 
-```
+```json
 1. "Parameters" : {
 2.     "WebServerPortLimited": {
 3.       "Default": "80",
@@ -202,7 +201,7 @@ The following example depicts a valid Parameters section declaration in which a 
 ### YAML
 <a name="quickref-general-example-6.yaml"></a>
 
-```
+```yaml
 1. Parameters:
 2.   WebServerPortLimited:
 3.     Default: 80
@@ -232,7 +231,7 @@ For more information, see the [Do not embed credentials in your templates](https
 ### JSON
 <a name="quickref-general-example-7.json"></a>
 
-```
+```json
 1. "Parameters" : {
 2.     "UserRoles" : {
 3.         "Type" : "CommaDelimitedList",
@@ -245,7 +244,7 @@ For more information, see the [Do not embed credentials in your templates](https
 ### YAML
 <a name="quickref-general-example-7.yaml"></a>
 
-```
+```yaml
 1. Parameters:
 2.   UserRoles:
 3.     Type: CommaDelimitedList
@@ -261,7 +260,7 @@ The following example shows commands in the EC2 user data that use the pseudo pa
 ### JSON
 <a name="quickref-general-example-10.json"></a>
 
-```
+```json
  1.           "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
  2.              "#!/bin/bash -xe\n",
  3.              "yum install -y aws-cfn-bootstrap\n",
@@ -282,7 +281,7 @@ The following example shows commands in the EC2 user data that use the pseudo pa
 ### YAML
 <a name="quickref-general-example-10.yaml"></a>
 
-```
+```yaml
 1. UserData:
 2.   Fn::Base64: !Sub |
 3.      #!/bin/bash -xe
@@ -299,7 +298,7 @@ The following example depicts a valid `Mapping` section declaration that contain
 ### JSON
 <a name="quickref-general-example-11.json"></a>
 
-```
+```json
  1. "Mappings" : {
  2.     "LightColor" : {
  3.         "Stop" : {
@@ -321,7 +320,7 @@ The following example depicts a valid `Mapping` section declaration that contain
 ### YAML
 <a name="quickref-general-example-11.yaml"></a>
 
-```
+```yaml
  1. Mappings:
  2.   LightColor:
  3.     Stop:
@@ -343,14 +342,14 @@ The following example depicts a valid `Description` section declaration where th
 ### JSON
 <a name="quickref-general-example-8.json"></a>
 
-```
+```json
 1. "Description" : "{{Replace this value}}"
 ```
 
 ### YAML
 <a name="quickref-general-example-8.yaml"></a>
 
-```
+```yaml
 1. Description: "{{Replace this value}}"
 ```
 
@@ -362,7 +361,7 @@ This example shows a output assignment based on a literal string.
 ### JSON
 <a name="quickref-general-example-12.json"></a>
 
-```
+```json
 1. "Outputs" : {
 2.     "MyPhone" : {
 3.         "Value" : "Please call 555-5555",
@@ -374,7 +373,7 @@ This example shows a output assignment based on a literal string.
 ### YAML
 <a name="quickref-general-example-12.yaml"></a>
 
-```
+```yaml
 1. Outputs:
 2.   MyPhone:
 3.     Value: Please call 555-5555
@@ -389,7 +388,7 @@ This example shows an `Outputs` section with two output assignments. One is base
 ### JSON
 <a name="quickref-general-example-13.json"></a>
 
-```
+```json
 1. "Outputs" : {
 2.    "SNSTopic" : { "Value" : { "Ref" : "MyNotificationTopic" } },
 3.    "StackName" : { "Value" : { "Ref" : "AWS::StackName" } }
@@ -399,7 +398,7 @@ This example shows an `Outputs` section with two output assignments. One is base
 ### YAML
 <a name="quickref-general-example-13.yaml"></a>
 
-```
+```yaml
 1. Outputs:
 2.   SNSTopic:
 3.     Value: !Ref MyNotificationTopic
@@ -415,7 +414,7 @@ This example shows an Outputs section with one output assignment. The Join funct
 ### JSON
 <a name="quickref-general-example-14.json"></a>
 
-```
+```json
 1. "Outputs" : {
 2.     "MyOutput" : {
 3.         "Value" : { "Fn::Join" :
@@ -428,7 +427,7 @@ This example shows an Outputs section with one output assignment. The Join funct
 ### YAML
 <a name="quickref-general-example-14.yaml"></a>
 
-```
+```yaml
 1. Outputs:
 2.   MyOutput:
 3.     Value: !Join [ %, [ 'A-string', !Ref 'AWS::StackName' ]]
@@ -442,14 +441,14 @@ The following snippet depicts a valid `AWSTemplateFormatVersion` section declara
 ### JSON
 <a name="quickref-general-example-9.json"></a>
 
-```
+```json
 1. "AWSTemplateFormatVersion" : "2010-09-09"
 ```
 
 ### YAML
 <a name="quickref-general-example-9.yaml"></a>
 
-```
+```yaml
 1. AWSTemplateFormatVersion: '2010-09-09'
 ```
 
@@ -461,7 +460,7 @@ This example shows an AWS `Tags` property. You would specify this property withi
 ### JSON
 <a name="quickref-general-example-15.json"></a>
 
-```
+```json
  1. "Tags" : [
  2.       {
  3.         "Key" : "keyname1",
@@ -477,7 +476,7 @@ This example shows an AWS `Tags` property. You would specify this property withi
 ### YAML
 <a name="quickref-general-example-15.yaml"></a>
 
-```
+```yaml
 1. Tags: 
 2.   - 
 3.     Key: "keyname1"

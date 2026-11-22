@@ -1,7 +1,6 @@
 
 
 # Detect drift on an entire CloudFormation stack
-<a name="detect-drift-stack"></a>
 
 Performing a drift detection operation on a stack determines whether the stack has drifted from its expected template configuration, and returns detailed information about the drift status of each resource in the stack that supports drift detection.
 
@@ -56,7 +55,7 @@ To detect drift on an entire stack using the AWS CLI, use the following AWS CLI 
 
    Output:
 
-   ```
+   ```json
    {
        "StackDriftDetectionId": "624af370-311a-11e8-b6b7-500cexample"
    }
@@ -72,7 +71,7 @@ To detect drift on an entire stack using the AWS CLI, use the following AWS CLI 
 
    Output:
 
-   ```
+   ```json
    {
        "StackId": "arn:aws:cloudformation:us-east-1:099908667365:stack/my-stack-with-resource-drift/489e5570-df85-11e7-a7d9-50example", 
        "StackDriftDetectionId": "624af370-311a-11e8-b6b7-500cexample", 
@@ -93,7 +92,7 @@ To detect drift on an entire stack using the AWS CLI, use the following AWS CLI 
 
    Output:
 
-   ```
+   ```json
    {
        "StackResourceDrifts": [
            {

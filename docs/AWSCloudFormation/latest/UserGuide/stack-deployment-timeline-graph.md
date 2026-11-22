@@ -1,7 +1,6 @@
 
 
 # View a timeline of a CloudFormation stack deployment
-<a name="stack-deployment-timeline-graph"></a>
 
 The stack deployment timeline graph provides a visual representation of a stack deployment timeline. This view shows the deployment statuses for the stack and each of its resources, and the times that each status changed. Stack deployment statuses are represented by a corresponding color.
 

@@ -1,7 +1,6 @@
 
 
 # Change sets for nested stacks
-<a name="change-sets-for-nested-stacks"></a>
 
 With *change sets for nested stacks* you can preview the changes to your application and infrastructure resources across the entire nested stack hierarchy and proceed with updates when you've confirmed that all the changes are as intended.
 
@@ -49,7 +48,7 @@ aws cloudformation create-change-set \
 
 The following is example output.
 
-```
+```json
 {
     "Id":"arn:aws:cloudformation:us-west-2:123456789012:changeSet/{{my-root-stack-change-set}}/4eca1a01-e285-xmpl-8026-9a1967bfb4b0",
     "StackId": "arn:aws:cloudformation:us-west-2:123456789012:Stack/{{my-root-stack}}/d0a825a0-e4cd-xmpl-b9fb-061c69e99204"
@@ -70,7 +69,7 @@ aws cloudformation describe-change-set \
 
 The following is example output.
 
-```
+```json
 {
     "Changes": [
         {
@@ -134,7 +133,7 @@ aws cloudformation describe-change-set \
 
 The following is example output.
 
-```
+```json
 {
     "Changes": [
         {

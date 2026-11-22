@@ -1,7 +1,6 @@
 
 
 # Self-managed stack import for CloudFormation StackSets
-<a name="self-managed-import"></a>
 
 The CloudFormation stack import operation can import existing stacks into new or existing StackSets, so that you can migrate existing stacks to a StackSet in one operation. By using stack import, you avoid downtime and outages without deleting and recreating those resources. Once the stack is imported into a StackSet, the original stack will become a stack instance of the specified stack set.
 

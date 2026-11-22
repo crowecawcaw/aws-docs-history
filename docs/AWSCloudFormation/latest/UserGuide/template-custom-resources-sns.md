@@ -1,7 +1,6 @@
 
 
 # Amazon SNS-backed custom resources
-<a name="template-custom-resources-sns"></a>
 
 The following topic shows you how to configure a custom resource with a service token that specifies the Amazon SNS topic that CloudFormation sends requests to. You also learn the sequence of events and messages sent and received as a result of custom resource stack creation, updates, and deletion.
 
@@ -28,7 +27,7 @@ For an introduction to custom resources and how they work, see [How custom resou
 
    The custom resource type is declared with a service token, optional provider-specific properties, and optional [Fn::GetAtt](resources-section-structure.md#resource-properties-getatt) attributes that are defined by the custom resource provider. These properties and attributes can be used to pass information from the template developer to the custom resource provider and vice-versa. The service token specifies an Amazon SNS topic that the resource provider has configured.
 
-   ```
+   ```json
    {
       "AWSTemplateFormatVersion" : "2010-09-09",
       "Resources" : {
@@ -62,7 +61,7 @@ The names and values of the data accessed with `Fn::GetAtt` are returned by the 
 
    The following example shows a custom resource `Create` request which includes a custom resource type name, `Custom::SeleniumTester`, created with a `LogicalResourceId` of `MySeleniumTester`:
 
-   ```
+   ```json
    {
       "RequestType" : "Create",
       "RequestId" : "unique-request-id",
@@ -88,7 +87,7 @@ The names and values of the data accessed with `Fn::GetAtt` are returned by the 
 
    The following is an example of a custom resource response:
 
-   ```
+   ```json
    {
       "Status" : "SUCCESS",
       "RequestId" : "unique-request-id",
@@ -110,7 +109,7 @@ The names and values of the data accessed with `Fn::GetAtt` are returned by the 
 
    For example, the custom resource template used for illustration used `Fn::GetAtt` to copy resource outputs into the stack outputs:
 
-   ```
+   ```json
    "Outputs" : {
       "{{topItem}}" : {
          "Value" : { "Fn::GetAtt" : ["{{MySeleniumTest}}", "{{resultsPage}}"] }
@@ -135,7 +134,7 @@ If you didn't make changes to the custom resource, CloudFormation won't send req
 
    The following is an example of an `Update` to the stack template using a custom resource type:
 
-   ```
+   ```json
    {
       "AWSTemplateFormatVersion" : "2010-09-09",
       "Resources" : {
@@ -166,7 +165,7 @@ If you didn't make changes to the custom resource, CloudFormation won't send req
 
    The following is an example of an `Update` request:
 
-   ```
+   ```json
    {
       "RequestType" : "Update",
       "RequestId" : "unique-request-id",
@@ -193,7 +192,7 @@ If you didn't make changes to the custom resource, CloudFormation won't send req
 
 1. <a name="crpg-walkthrough-stack-updates-provider-response"></a>The custom resource provider processes the data sent by CloudFormation. The custom resource performs the update and sends a response of either `SUCCESS` or `FAILED` to the S3 URL. CloudFormation then compares the `PhysicalResourceIDs` of old and new custom resources. If they're different, CloudFormation recognizes that the update requires a replacement and sends a delete request to the old resource. The following example demonstrates the custom resource provider response to an `Update` request.
 
-   ```
+   ```json
    {
       "Status" : "SUCCESS",
       "RequestId" : "unique-request-id",
@@ -218,7 +217,7 @@ If you didn't make changes to the custom resource, CloudFormation won't send req
 
    Whenever you delete a stack or make an update that removes or replaces the custom resource, CloudFormation compares the `PhysicalResourceId` between the old and new custom resources. If they're different, CloudFormation recognizes the update as a replacement and sends a delete request for the old resource (`OldPhysicalResource`), as shown in the following example of a `Delete` request.
 
-   ```
+   ```json
    {
       "RequestType" : "Delete",
       "RequestId" : "unique-request-id",
@@ -244,7 +243,7 @@ If you didn't make changes to the custom resource, CloudFormation won't send req
 
    The following is an example of a custom resource provider response to a `Delete` request:
 
-   ```
+   ```json
    {
       "Status" : "SUCCESS",
       "RequestId" : "unique-request-id",

@@ -1,7 +1,6 @@
 
 
 # Use third-party private extensions that have been shared with you
-<a name="registry-private"></a>
 
 To use third-party private extensions that have been shared with you, you must first *register* them with CloudFormation, in the accounts and Regions where you want to use them. Registering the extension uploads a copy of it to the CloudFormation registry in your account, and activates it. Once you're registered a private extension, it will appear in the CloudFormation registry for that AWS account and Region, and you can use it in your stack templates.
 

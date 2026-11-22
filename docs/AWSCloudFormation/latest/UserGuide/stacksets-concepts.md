@@ -1,7 +1,6 @@
 
 
 # StackSets concepts
-<a name="stacksets-concepts"></a>
 
 The following terminology and concepts are central to your understanding and use of StackSets.
 
@@ -14,6 +13,7 @@ The following terminology and concepts are central to your understanding and use
 + [StackSet operation options](#stackset-ops-options)
 + [Tags](#stackset-concepts-tags)
 + [StackSets status codes](#stackset-status-codes)
++ [Monitor StackSet operation progress](#stackset-operation-progress)
 + [Stack instance status codes](#stack-instance-status-codes)
 
 ## Administrator and target accounts
@@ -41,12 +41,22 @@ With *self-managed* permissions, you create the IAM roles required by StackSets 
 
 With *service-managed* permissions, you can deploy stack instances to accounts managed by AWS Organizations. Using this permissions model, you don't have to create the necessary IAM roles; StackSets creates the IAM roles on your behalf. With this model, you can also turn on automatic deployments to accounts that you add to your organization in the future.
 
+An *execution role* is the IAM role that CloudFormation assumes in a target account to create, update, or delete the stack resources that your template defines. StackSets with service-managed permissions use one of the following types of execution role.
+
+Default execution role  
+By default, StackSets creates an execution role named `stacksets-exec-*` in each target account. StackSets attaches the `AdministratorAccess` policy to this role. Because the role has administrator permissions, it can deploy any resource type that your template defines. You can't use the default execution role to deploy nested stacks, transforms, or macros.
+
+Custom execution role  
+Instead of the default role, you can specify an *execution role template* when you create or update your StackSet. An execution role template is a CloudFormation template that defines a single IAM role. StackSets deploys the template as a stack in each target account, and then uses the role that the stack creates for all subsequent operations in that account.  
+A custom execution role grants only the permissions that you define in the template, instead of administrator permissions. You can also use a custom execution role to deploy nested stacks, transforms, and macros. For more information about custom execution roles, see [Configure a custom execution role](stacksets-custom-execution-role.md).
+
 AWS Organizations integrates with CloudFormation and helps you centrally manage and govern your environment as you scale and grow your AWS resources.
 + Management account – the account that you use to create the organization. For more information, see [Terminology and concepts for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html).
 + Delegated administrator – a compatible AWS service can register an AWS member account in the organization as an administrator for the organization's accounts in that service. For more information, see [AWS services that you can use with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html).
 
 For more information about creating and managing StackSets with service-managed permissions, see the following topics:
 + [Activate trusted access for StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md)
++ [Configure a custom execution role template for StackSets](stacksets-custom-execution-role.md)
 + [Register a delegated administrator member account](stacksets-orgs-delegated-admin.md)
 + [Create CloudFormation StackSets with service-managed permissions](stacksets-orgs-associate-stackset-with-org.md)
 
@@ -145,6 +155,76 @@ The operation is in the process of stopping, at the user's request.
 
 `STOPPED`  
 The operation has stopped, at the user's request.
+
+## Monitor StackSet operation progress
+<a name="stackset-operation-progress"></a>
+
+As a StackSet operation runs, you can monitor its progress by stage. The `StatusDetails` field in the `DescribeStackSetOperation` and `ListStackSetOperations` responses reports progress for two stages in `StatusDetails.Stages`.
+
+You can also monitor this progress in the CloudFormation console. On the StackSet details page, choose the **Operations** tab. Then choose the operation ID, or choose **View progress report** in the **Actions** column. Drift detection operations don't report operation progress.
+
+Role provisioning  
+For service-managed operations that require it, StackSets provisions the IAM roles that it needs in the target accounts before it deploys any stack instances. The `RoleProvisioning` stage reports the status of this work, along with per-account counts (succeeded, failed, completed, and pending accounts) and a completion percentage. Other operations, including self-managed operations, report this stage with a `Status` of `NOT_APPLICABLE`.
+
+Stack instances deployment  
+After all role provisioning for the operation finishes, StackSets creates, updates, or deletes stack instances in the target accounts and AWS Regions. The `StackInstancesDeployment` stage reports the status of this work, along with per-stack-instance counts (succeeded, failed, completed, pending, skipped, and canceled stack instances) and a completion percentage.
+
+These stage status values describe the progress of each stage. They are separate from the overall operation status.
+
+The role provisioning stage reports one of the following status values:
+
+`NOT_APPLICABLE`  
+The operation doesn't provision roles. This includes self-managed operations and service-managed operations whose configuration doesn't require role provisioning.
+
+`NOT_STARTED`  
+Role provisioning hasn't started. The operation hasn't begun resolving target accounts, or it failed or stopped before the total number of target accounts was resolved.
+
+`IN_PROGRESS`  
+Role provisioning is actively processing target accounts.
+
+`SUCCEEDED`  
+Role provisioning finished and succeeded for all target accounts.
+
+`PARTIAL_SUCCESS`  
+Role provisioning finished, but succeeded for only a subset of target accounts. One or more accounts failed.
+
+`FAILED`  
+Role provisioning finished and failed for all target accounts.
+
+The stack instances deployment stage reports one of the following status values:
+
+`NOT_APPLICABLE`  
+The operation doesn't deploy stack instances, such as a drift detection operation.
+
+`NOT_STARTED`  
+Stack instances deployment hasn't started. The operation is still provisioning roles, hasn't begun, or failed before this stage was reached.
+
+`IN_PROGRESS`  
+At least one stack instance has started deploying.
+
+`SUCCEEDED`  
+Deployment finished and succeeded for all stack instances that were not skipped.
+
+`PARTIAL_SUCCESS`  
+Deployment finished with a mix of succeeded, failed, and canceled stack instances.
+
+`FAILED`  
+Deployment finished and every stack instance that was not skipped failed or was canceled.
+
+For the role provisioning stage, the completed count includes every account that has finished role provisioning, both succeeded and failed accounts. The pending count is the number of accounts still awaiting role provisioning, and the percentage measures the accounts that have completed role provisioning.
+
+For the stack instances deployment stage, the completed count includes every stack instance that reached a final state. That is, the completed count is the sum of the succeeded, failed, skipped, and canceled stack instances. The pending count is the total number of stack instances minus the completed count. The percentage completed is the completed count divided by the total number of stack instances. A stack instance is skipped when role provisioning fails for its target account or when its target account is suspended. A stack instance is canceled when the operation exceeds its failure tolerance or is stopped. `StatusDetails` also reports the total number of target accounts and the total number of stack instances. StackSets populates these totals only after it resolves the operation's targets. Until then, these totals, and the pending counts derived from them, aren't present.
+
+**Note**  
+A stack instance is skipped when role provisioning fails for its target account. Because an operation creates one stack instance per target account in each targeted Region, the skipped count equals the number of accounts whose role provisioning failed multiplied by the number of targeted Regions, not the number of failed accounts alone.  
+If role provisioning fails for every target account in a service-managed operation, StackSets skips all of the operation's stack instances, and the skipped count equals the total number of stack instances. The stack instances deployment stage then reports `SUCCEEDED`, because it succeeded for all stack instances that were not skipped and none remain. As a result, the overall operation status is also `SUCCEEDED`, even though no stacks were created, updated, or deleted.  
+To recognize this case, check the role provisioning stage. A `FAILED` role provisioning status, together with a skipped count equal to the total number of stack instances, means that no stack instances were deployed even though the operation status is `SUCCEEDED`.
+
+The `DescribeStackSetOperation` response also includes `RegionalStatusDetails`, a breakdown of stack instances deployment progress for each AWS Region. The `ListStackSetOperations` response returns the stage progress without this breakdown. Stage progress and the per-Region breakdown remain available after the operation finishes, so you can review the final results.
+
+When the counts show failed or skipped stack instances, you can review each stack instance's status reason by calling [ListStackSetOperationResults](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperationResults.html). For more information about stack instance failure counts, see [Stack instance failure count for StackSets operations](stacksets-troubleshooting.md#stack-instance-failure-count-for-stackset-operations).
+
+For more information about these response fields, see [DescribeStackSetOperation](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSetOperation.html) and [ListStackSetOperations](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperations.html) in the *AWS CloudFormation API Reference*.
 
 ## Stack instance status codes
 <a name="stack-instance-status-codes"></a>

@@ -1,11 +1,10 @@
 
 
 # Grant self-managed permissions
-<a name="stacksets-prereqs-self-managed"></a>
 
 This topic provides instructions on how to create the IAM service roles required by StackSets to deploy across accounts and AWS Regions with *self-managed* permissions. These roles are necessary to establish a trusted relationship between the account you're administering the StackSet from and the account you're deploying stack instances to. Using this permissions model, StackSets can deploy to any AWS account in which you have permissions to create an IAM role. 
 
-To use *service-managed* permissions, see [Activate trusted access](stacksets-orgs-activate-trusted-access.md) instead.
+To use *service-managed* permissions, see [Grant service-managed permissions](stacksets-prereqs-service-managed.md) instead.
 
 **Topics**
 + [Self-managed permissions overview](#prereqs-self-managed-permissions)
@@ -48,7 +47,7 @@ By structuring permissions in this manner, users don't pass an administration ro
 Even when you don't specify the `AdministrationRoleARN` parameter, the IAM principal calling `CreateStackSet` or `UpdateStackSet` must have `iam:PassRole` permission for the **AWSCloudFormationStackSetAdministrationRole** role. CloudFormation requires this permission to use the default administration role on your behalf.  
 The following example policy grants the required permission:  
 
-```
+```JSON
 {
     "Effect": "Allow",
     "Action": "iam:PassRole",
@@ -70,7 +69,7 @@ You can do this by creating a stack from the CloudFormation template available f
 The administration role created by the preceding template includes the following permissions policy.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -91,7 +90,7 @@ The administration role created by the preceding template includes the following
 The preceding template also includes the following trust policy that grants the service permission to use the administration role and the permissions attached to the role.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -111,7 +110,7 @@ To deploy stack instances into a target account that resides in a Region that's 
 The following example trust policy grants the service permission to use the administration role in the Asia Pacific (Hong Kong) Region (`ap-east-1`), a Region that's disabled by default.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -144,7 +143,7 @@ The target account service role requires permissions to perform any operations t
 The role created by this template enables the following policy on a target account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -161,7 +160,7 @@ The role created by this template enables the following policy on a target accou
 The following example shows a policy statement with the *minimum* permissions for StackSets to work. To create stacks in target accounts that use resources from services other than CloudFormation, you must add those service actions and resources to the **AWSCloudFormationStackSetExecutionRole** policy statement for each target account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -180,7 +179,7 @@ The following example shows a policy statement with the *minimum* permissions fo
 The following trust relationship is created by the template. The administrator account's ID is shown as {{admin\_account\_id}}.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -229,7 +228,7 @@ The target account execution role name must be the same in every target account.
 Create an [IAM service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) with a custom name and the following permissions policy. In the examples below, {{custom\_execution\_role}} refers to the execution role in the target accounts.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -247,7 +246,7 @@ Create an [IAM service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id
 ```
 To specify multiple accounts in a single statement, separate them with commas.  
 
-```
+```json
 "Resource": [
   "arn:aws:iam::{{target_account_id_1}}:role/{{custom_execution_role}}", 
   "arn:aws:iam::{{target_account_id_2}}:role/{{custom_execution_role}}"
@@ -255,7 +254,7 @@ To specify multiple accounts in a single statement, separate them with commas.
 ```
 You can specify all target accounts by using a wildcard (\*) instead of an account ID.  
 
-```
+```json
 "Resource": [
   "arn:aws:iam::{{*}}:role/{{custom_execution_role}}"
 ]
@@ -265,7 +264,7 @@ You can specify all target accounts by using a wildcard (\*) instead of an accou
 You must provide a trust policy for the service role to defines which IAM principals can assume the role.    
 ****  
 
-```
+```json
 { 
   "Version":"2012-10-17",		 	 	  
   "Statement": [ 
@@ -285,7 +284,7 @@ To deploy stack instances into a target account that resides in a Region that's 
 The following example trust policy grants the service permission to use the administration role in the Asia Pacific (Hong Kong) Region (`ap-east-1`), a Region that's disabled by default.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -309,7 +308,7 @@ You also need an IAM permissions policy for your IAM users that allows the user 
 In the example below, {{customized\_admin\_role}} refers to the administration role the user needs to pass.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -338,7 +337,7 @@ The target account role name must be the same in every target account. If the ro
 The following example shows a policy statement with the *minimum* permissions for StackSets to work. To create stacks in target accounts that use resources from services other than CloudFormation, you must add those service actions and resources to the permissions policy.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -357,7 +356,7 @@ The following example shows a policy statement with the *minimum* permissions fo
 You must provide the following trust policy when you create the role to define the trust relationship.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -397,7 +396,7 @@ Create a customized administration role in your administrator account, as detail
 The following example is a permissions policy for both the **AWSCloudFormationStackSetExecutionRole** defined for the target account, in addition to a customized execution role.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -425,7 +424,7 @@ In the target accounts in which you want to create your StackSets, create a cust
 The following example provides the minimum permissions for StackSets, along with permission to create Amazon DynamoDB tables.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -451,7 +450,7 @@ The following example provides the minimum permissions for StackSets, along with
 You must provide the following trust policy when you create the role to define the trust relationship.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -491,7 +490,7 @@ When StackSets assumes the **Administration** role in your **administrator** acc
 When using StackSets, define the global keys `aws:SourceAccount` and `aws:SourceArn` in your **AWSCloudFormationStackSetAdministrationRole** trust policy to prevent confused deputy problems.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -518,7 +517,7 @@ When using StackSets, define the global keys `aws:SourceAccount` and `aws:Source
 Specify your associated StackSets ARNs for finer control.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic File System Sample Template
-<a name="quickref-efs"></a>
 
 Amazon Elastic File System (Amazon EFS) is a file storage service for Amazon Elastic Compute Cloud (Amazon EC2) instances. With Amazon EFS, your applications have storage when they need it because storage capacity grows and shrinks automatically as you add and remove files.
 
@@ -17,7 +16,7 @@ If you make an update to the mount target that causes it to be replaced, instanc
 ## JSON
 <a name="quickref-efs-example-1.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "This template creates an Amazon EFS file system and mount target and associates it with Amazon EC2 instances in an Auto Scaling group. **WARNING** This template creates Amazon EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
@@ -507,7 +506,7 @@ If you make an update to the mount target that causes it to be replaced, instanc
 ## YAML
 <a name="quickref-efs-example-1.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: This template creates an Amazon EFS file system and mount target and
   associates it with Amazon EC2 instances in an Auto Scaling group. **WARNING** This

@@ -1,7 +1,6 @@
 
 
 # Choose the Concurrency Mode for CloudFormation StackSets
-<a name="concurrency-mode"></a>
 
 **Concurrency Mode** is a parameter for [StackSetOperationPreferences](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationPreferences.html) that allows you to choose how the concurrency level behaves during StackSet operations. You can choose between the following modes:
 + **Strict Failure Tolerance**: This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of **Failure tolerance** \+1. The initial actual concurrency is set to the lower of either the value of the **Maximum concurrent accounts**, or the value of **Failure tolerance** \+1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.

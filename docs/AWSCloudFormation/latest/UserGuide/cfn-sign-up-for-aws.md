@@ -1,7 +1,6 @@
 
 
 # Signing up for an AWS account
-<a name="cfn-sign-up-for-aws"></a>
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>

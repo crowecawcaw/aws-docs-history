@@ -1,7 +1,6 @@
 
 
 # The CloudFormation Template Reference Guide
-<a name="link-to-reference-guide"></a>
 
 Detailed information about the resources and components available for creating CloudFormation templates can now be found in the [CloudFormation Template Reference Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/introduction.html). This guide serves as a technical reference for templates and complements the getting started content in the CloudFormation User Guide. 
 

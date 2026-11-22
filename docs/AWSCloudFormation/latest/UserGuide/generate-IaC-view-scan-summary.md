@@ -1,7 +1,6 @@
 
 
 # View the scan summary in the CloudFormation console
-<a name="generate-IaC-view-scan-summary"></a>
 
 After the scan completes, you can view a visualization of resources found during the scan to help you identify the concentration of resources across different product types.
 

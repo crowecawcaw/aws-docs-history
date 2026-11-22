@@ -1,7 +1,6 @@
 
 
 # Bootstrapping Windows-based CloudFormation stacks
-<a name="cfn-windows-stacks-bootstrapping"></a>
 
 This topic describes how to bootstrap a Windows stack and troubleshoot stack creation issues. 
 
@@ -54,7 +53,7 @@ The `cfn-init` helper script is used to perform each of these actions based on i
 
 The `AWS::CloudFormation::Init` section is named `TestInstance` and begins with the following declaration.
 
-```
+```yaml
 TestInstance:
   Type: AWS::EC2::Instance
   Metadata:
@@ -67,7 +66,7 @@ TestInstance:
 
 After this, the `files` section of `AWS::CloudFormation::Init` is declared.
 
-```
+```yaml
       create_files:
         files:
           c:\cfn\test.txt:
@@ -94,7 +93,7 @@ Three files are created here and placed in the `C:\cfn` directory on the server 
 
 Next is the `start_services` section, which configures Windows services.
 
-```
+```yaml
       start_services:
         services:
           windows:
@@ -110,7 +109,7 @@ This section ensures that the `cfn-hup` service is started and will automaticall
 
 Next is the `Properties` section.
 
-```
+```yaml
 TestInstance:
   Type: AWS::EC2::Instance
   CreationPolicy:
@@ -139,7 +138,7 @@ The `ImageId` property uses a Systems Manager Parameter Store public parameter t
 
 The `CreationPolicy` is declared as part of the resource properties and specifies a timeout period. The `cfn-signal` command in the user data signals when the instance configuration is complete:
 
-```
+```yaml
 TestInstance:
   Type: AWS::EC2::Instance
   CreationPolicy:
@@ -153,7 +152,7 @@ Because the bootstrapping process is minimal and only creates files and starts s
 
 If all goes well, the `CreationPolicy` completes successfully and you can access the Windows Server instance using its public IP address. Once stack creation is complete, the instance ID and public IP address will be displayed in the **Outputs** tab of the CloudFormation console. 
 
-```
+```yaml
 Outputs:
   InstanceId:
     Value: !Ref TestInstance
@@ -171,7 +170,7 @@ You can also manually verify that the bootstrapping worked correctly by connecti
 When referencing Windows paths in CloudFormation templates, always remember to properly escape backslashes (`\`) according to the template format you're using.
 + For JSON templates, you must use double backslashes in Windows file paths because JSON treats backslash as an escape character. The first backslash escapes the second, resulting in the interpretation of a single, literal backslash.
 
-  ```
+  ```json
   "commands" : {
     "1-extract" : {
       "command" : "C:\\SharePoint\\SharePointFoundation2010.exe /extract:C:\\SharePoint\\SPF2010 /quiet /log:C:\\SharePoint\\SharePointFoundation2010-extract.log"
@@ -180,7 +179,7 @@ When referencing Windows paths in CloudFormation templates, always remember to p
   ```
 + For YAML templates, single backslashes are typically sufficient.
 
-  ```
+  ```yaml
   commands:
     1-extract:
       command: C:\SharePoint\SharePointFoundation2010.exe /extract:C:\SharePoint\SPF2010 /quiet /log:C:\SharePoint\SharePointFoundation2010-extract.log
@@ -191,7 +190,7 @@ When referencing Windows paths in CloudFormation templates, always remember to p
 
 You manage Windows services in the same way as Linux services, except that you use a `windows` key instead of `sysvinit`. The following example starts the `cfn-hup` service, sets it to Automatic, and restarts the service if `cfn-init` modifies the `c:\cfn\cfn-hup.conf` or `c:\cfn\hooks.d\cfn-auto-reloader.conf` configuration files.
 
-```
+```yaml
         services:
           windows:
             cfn-hup:

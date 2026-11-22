@@ -1,7 +1,6 @@
 
 
 # Prerequisites for syncing stacks to a Git repository using Git sync
-<a name="git-sync-prereq"></a>
 
 Before you sync a CloudFormation stack to your Git repository, verify that the following requirements are met.
 
@@ -61,7 +60,7 @@ The following example IAM role includes the prerequisite permissions for Git syn
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ You must provide the following trust policy when you create the role to define t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ We recommend that you use the `aws:SourceArn` and `aws:SourceAccount` condition 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -215,7 +214,7 @@ The following example IAM policy includes the user permissions needed to set up 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

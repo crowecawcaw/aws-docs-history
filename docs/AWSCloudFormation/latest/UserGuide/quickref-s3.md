@@ -1,7 +1,6 @@
 
 
 # Amazon S3 template snippets
-<a name="quickref-s3"></a>
 
 Use these Amazon S3 sample templates to help describe your Amazon S3 buckets with CloudFormation. For more examples, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3-bucket.html#aws-resource-s3-bucket--examples) section in the `AWS::S3::Bucket` resource.
 
@@ -18,7 +17,7 @@ This example uses a [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormat
 ### JSON
 <a name="quickref-s3-example-1.json"></a>
 
-```
+```json
 1. "myS3Bucket" : {
 2.       "Type" : "AWS::S3::Bucket"
 3.       }
@@ -27,7 +26,7 @@ This example uses a [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormat
 ### YAML
 <a name="quickref-s3-example-1.yaml"></a>
 
-```
+```yaml
 1. MyS3Bucket:
 2.     Type: AWS::S3::Bucket
 ```
@@ -43,7 +42,7 @@ The following examples assume the `BlockPublicPolicy` and `RestrictPublicBuckets
 ### JSON
 <a name="quickref-s3-example-2.json"></a>
 
-```
+```json
  1. {
  2.     "AWSTemplateFormatVersion": "2010-09-09",
  3.     "Resources": {
@@ -131,7 +130,7 @@ The following examples assume the `BlockPublicPolicy` and `RestrictPublicBuckets
 ### YAML
 <a name="quickref-s3-example-2.yaml"></a>
 
-```
+```yaml
  1. AWSTemplateFormatVersion: 2010-09-09
  2. Resources:
  3.   S3Bucket:
@@ -195,7 +194,7 @@ The following examples assume the `BlockPublicPolicy` and `RestrictPublicBuckets
 ### JSON
 <a name="quickref-s3-example-3.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Mappings" : {
@@ -289,7 +288,7 @@ The following examples assume the `BlockPublicPolicy` and `RestrictPublicBuckets
 ### YAML
 <a name="quickref-s3-example-3.yaml"></a>
 
-```
+```yaml
 Parameters:
   RootDomainName:
     Description: Domain name for your website (example.com)

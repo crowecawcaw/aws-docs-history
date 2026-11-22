@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Resources syntax
-<a name="resources-section-structure"></a>
 
 The `Resources` section is a required top-level section in a CloudFormation template. It declares the AWS resources that you want CloudFormation to provision and configure as part of your stack.
 
@@ -13,7 +12,7 @@ The `Resources` section uses the following syntax:
 ### JSON
 <a name="resources-section-structure-syntax.json"></a>
 
-```
+```json
 "Resources" : {
     "{{LogicalResourceName1}}" : {
         "Type" : "AWS::{{ServiceName::ResourceType}}",
@@ -36,7 +35,7 @@ The `Resources` section uses the following syntax:
 ### YAML
 <a name="resources-section-structure-syntax.yaml"></a>
 
-```
+```yaml
 Resources:
   {{LogicalResourceName1}}:
     Type: AWS::{{ServiceName::ResourceType}}
@@ -75,7 +74,7 @@ Property values can be literal strings, lists of strings, Booleans, dynamic refe
 ### JSON
 <a name="resource-properties-example.json"></a>
 
-```
+```json
 "Properties" : {
     "{{String}}" : "{{A string value}}",
     "{{Number}}" : {{123}},
@@ -87,7 +86,7 @@ Property values can be literal strings, lists of strings, Booleans, dynamic refe
 ### YAML
 <a name="resource-properties-example.yaml"></a>
 
-```
+```yaml
 Properties:
   {{String}}: {{A string value}} 
   {{Number}}: {{123}}
@@ -123,7 +122,7 @@ The following examples demonstrate how to use the `Ref` function in properties. 
 #### JSON
 <a name="resource-properties-ref-example.json"></a>
 
-```
+```json
 "Properties" : {
     "{{PropertyName}}" : { "Ref" : "{{LogicalResourceName}}" }
 }
@@ -132,7 +131,7 @@ The following examples demonstrate how to use the `Ref` function in properties. 
 #### YAML
 <a name="resource-properties-ref-example.yaml"></a>
 
-```
+```yaml
 Properties:
   {{PropertyName1}}:
     Ref: {{LogicalResourceName}}
@@ -151,7 +150,7 @@ The following examples demonstrate how to use the `GetAtt` function in propertie
 #### JSON
 <a name="resource-properties-getatt-example.json"></a>
 
-```
+```json
 "Properties" : {
     "{{PropertyName}}" : {
         "Fn::GetAtt" : [ "{{LogicalResourceName}}", "{{AttributeName}}" ]
@@ -162,7 +161,7 @@ The following examples demonstrate how to use the `GetAtt` function in propertie
 #### YAML
 <a name="resource-properties-getatt-example.yaml"></a>
 
-```
+```yaml
 Properties:
   {{PropertyName1}}:
     Fn::GetAtt:
@@ -193,7 +192,7 @@ If you use this resource declaration to create a stack, CloudFormation will crea
 #### JSON
 <a name="resources-section-structure-examples-single-resource.json"></a>
 
-```
+```json
 {
     "Resources": {
         "MyBucket": {
@@ -209,7 +208,7 @@ If you use this resource declaration to create a stack, CloudFormation will crea
 #### YAML
 <a name="resources-section-structure-examples-single-resource.yaml"></a>
 
-```
+```yaml
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket
@@ -225,7 +224,7 @@ The following examples show a resource declaration that defines an EC2 instance 
 #### JSON
 <a name="resources-section-structure-examples-ref.json"></a>
 
-```
+```json
 {
     "Resources": {
         "Ec2Instance": {
@@ -262,7 +261,7 @@ The following examples show a resource declaration that defines an EC2 instance 
 #### YAML
 <a name="resources-section-structure-examples-ref.yaml"></a>
 
-```
+```yaml
 Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance
@@ -291,7 +290,7 @@ The following examples show a resource declaration that defines a CloudFront dis
 #### JSON
 <a name="resources-section-structure-examples-getatt.json"></a>
 
-```
+```json
 {
   "Resources": {
     "MyBucket": {
@@ -331,7 +330,7 @@ The following examples show a resource declaration that defines a CloudFront dis
 #### YAML
 <a name="resources-section-structure-examples-getatt.yaml"></a>
 
-```
+```yaml
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket

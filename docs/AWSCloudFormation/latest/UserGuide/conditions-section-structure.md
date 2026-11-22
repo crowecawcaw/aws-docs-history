@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Conditions syntax
-<a name="conditions-section-structure"></a>
 
 The optional `Conditions` section contains statements that define the circumstances under which entities are created or configured. For example, you can create a condition and associate it with a resource or output so that CloudFormation creates the resource or output only if the condition is true. Similarly, you can associate a condition with a property so that CloudFormation sets the property to a specific value only if the condition is true. If the condition is false, CloudFormation sets the property to an alternative value that you specify.
 
@@ -15,7 +14,7 @@ The `Conditions` section consists of the key name `Conditions`. Each condition d
 ### JSON
 <a name="conditions-section-structure-syntax.json"></a>
 
-```
+```json
 "Conditions": {
   "{{LogicalConditionName1}}": {
     "{{Intrinsic function}}": {{...}}[
@@ -30,7 +29,7 @@ The `Conditions` section consists of the key name `Conditions`. Each condition d
 ### YAML
 <a name="conditions-section-structure-syntax.yaml"></a>
 
-```
+```yaml
 Conditions:
   {{LogicalConditionName1}}:
     {{Intrinsic function}}:
@@ -95,7 +94,7 @@ To conditionally create resources, add the `Condition` key and the logical ID of
 #### JSON
 <a name="associate-conditions-with-resources.json"></a>
 
-```
+```json
 "NewVolume" : {
   "Type" : "AWS::EC2::Volume",
   "Condition" : "IsProduction",
@@ -109,7 +108,7 @@ To conditionally create resources, add the `Condition` key and the logical ID of
 #### YAML
 <a name="associate-conditions-with-resources.yaml"></a>
 
-```
+```yaml
 NewVolume:
   Type: AWS::EC2::Volume
   Condition: IsProduction
@@ -126,7 +125,7 @@ You can also associate conditions with outputs. CloudFormation creates the outpu
 #### JSON
 <a name="associate-conditions-with-outputs.json"></a>
 
-```
+```json
 "Outputs" : {
   "VolumeId" : {
     "Condition" : "IsProduction",
@@ -138,7 +137,7 @@ You can also associate conditions with outputs. CloudFormation creates the outpu
 #### YAML
 <a name="associate-conditions-with-outputs.yaml"></a>
 
-```
+```yaml
 Outputs:
   VolumeId:
     Condition: IsProduction
@@ -155,7 +154,7 @@ In the following example, the `IsProdAndFeatureEnabled` condition evaluates to t
 #### JSON
 <a name="reference-conditions-in-other-conditions.json"></a>
 
-```
+```json
 "Conditions": {
   "IsProduction" : {"Fn::Equals" : [{"Ref" : "Environment"}, "prod"]},
   "IsFeatureEnabled" : { "Fn::Equals" : [{"Ref" : "FeatureFlag"}, "enabled"]},
@@ -171,7 +170,7 @@ In the following example, the `IsProdAndFeatureEnabled` condition evaluates to t
 #### YAML
 <a name="reference-conditions-in-other-conditions.yaml"></a>
 
-```
+```yaml
 Conditions:
   IsProduction:
     !Equals [!Ref Environment, "prod"]
@@ -195,7 +194,7 @@ The following example demonstrates setting an EC2 instance type based on an envi
 ##### JSON
 <a name="using-fn-if-for-conditional-values.json"></a>
 
-```
+```json
 "Properties" : {
   "InstanceType" : {
     "Fn::If" : [
@@ -210,7 +209,7 @@ The following example demonstrates setting an EC2 instance type based on an envi
 ##### YAML
 <a name="using-fn-if-for-conditional-values.yaml"></a>
 
-```
+```yaml
 Properties:
   InstanceType: !If
     - IsProduction
@@ -226,7 +225,7 @@ You can also use the `AWS::NoValue` pseudo parameter as a return value to remove
 ##### JSON
 <a name="using-fn-if-with-novalue.json"></a>
 
-```
+```json
 "DBSnapshotIdentifier" : {
   "Fn::If" : [
     "UseDBSnapshot",
@@ -239,7 +238,7 @@ You can also use the `AWS::NoValue` pseudo parameter as a return value to remove
 ##### YAML
 <a name="using-fn-if-with-novalue.yaml"></a>
 
-```
+```yaml
 DBSnapshotIdentifier: !If
   - UseDBSnapshot
   - !Ref DBSnapshotName
@@ -261,7 +260,7 @@ This following examples provision an EC2 instance, and conditionally create and 
 #### JSON
 <a name="conditions-section-example-resource-creation.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Parameters": {
@@ -327,7 +326,7 @@ This following examples provision an EC2 instance, and conditionally create and 
 #### YAML
 <a name="conditions-section-example-resource-creation.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   EnvType:
@@ -373,7 +372,7 @@ The following examples conditionally create an S3 bucket if a bucket name is pro
 #### JSON
 <a name="conditions-section-example-multi-condition.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Parameters": {
@@ -448,7 +447,7 @@ The following examples conditionally create an S3 bucket if a bucket name is pro
 #### YAML
 <a name="conditions-section-example-multi-condition.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   EnvType:

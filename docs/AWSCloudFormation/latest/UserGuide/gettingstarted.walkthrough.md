@@ -1,7 +1,6 @@
 
 
 # Creating your first stack
-<a name="gettingstarted.walkthrough"></a>
 
 This topic walks you through creating your first CloudFormation stack using the AWS Management Console. By following this tutorial, you'll learn how to provision basic AWS resources, monitor stack events, and generate outputs.
 
@@ -39,7 +38,7 @@ CloudFormation is free, but you'll be charged for the Amazon EC2 and Amazon S3 r
 
    1. Copy and paste the following CloudFormation template into the template editor:
 
-      ```
+      ```yaml
       AWSTemplateFormatVersion: 2010-09-09
       Description: CloudFormation Template for WebServer with Security Group and EC2 Instance
       
@@ -198,7 +197,7 @@ The template in this walkthrough requires a default VPC. If your stack creation 
 + **Create a new default VPC** – You can create a new default VPC through the Amazon VPC console. For instructions, see [Create a default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-vpc) in the *Amazon VPC User Guide*.
 + **Modify the template to specify a subnet** – If you have a non-default VPC, you can modify the template to explicitly specify the VPC and subnet IDs. Add the following parameter to the template:
 
-  ```
+  ```yaml
     SubnetId:
       Description: The subnet ID to launch the instance into
       Type: AWS::EC2::Subnet::Id
@@ -206,7 +205,7 @@ The template in this walkthrough requires a default VPC. If your stack creation 
 
   Then, update the `WebServer` resource to include the subnet ID:
 
-  ```
+  ```yaml
     WebServer:
       Type: AWS::EC2::Instance
       Properties:

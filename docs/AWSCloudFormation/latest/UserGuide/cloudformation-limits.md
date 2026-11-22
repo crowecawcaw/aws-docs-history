@@ -1,7 +1,6 @@
 
 
 # Understand CloudFormation quotas
-<a name="cloudformation-limits"></a>
 
 Your AWS account has CloudFormation quotas that you might need to know when authoring templates and creating stacks. By understanding these quotas, you can avoid limitation errors that would require you to redesign your templates or stacks.
 
@@ -32,7 +31,7 @@ The following table shows the CloudFormation quotas.
 | [Resources](resources-section-structure.md) | The maximum number of resources that you can declare in your CloudFormation template. | 500 resources | To specify more resources, separate your template into multiple templates by using, for example, [nested stacks](using-cfn-nested-stacks.md). | 
 | [Resources in concurrent stack operations](resources-section-structure.md)  | The maximum number of resources you can have involved in stack operations (create, update, or delete operations) in your Region at a given time. | Use the [DescribeAccountLimits](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeAccountLimits.html) API to determine the current limit for an account in a specific Region. |  | 
 | [Resource name](resources-section-structure.md) | The maximum size of a resource name. | 255 characters |  | 
-| [Stacks](stacks.md) | The maximum number of CloudFormation stacks that you can create. | 2000 stacks | To create more stacks, delete stacks that you don't need or request an increase in the maximum number of stacks in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*. | 
+| [Stacks](stacks.md) | The maximum number of CloudFormation stacks that you can create. | 300,000 stacks | To create more stacks, delete stacks that you don't need or request an increase in the maximum number of stacks in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*. | 
 | [Stack name](stacks.md) | The maximum size of a stack name. | 128 characters |  | 
 | [StackSets](what-is-cfnstacksets.md) | The maximum number of CloudFormation stack sets you can create in your administrator account. | 1000 stack sets | To create more stack sets, delete stack sets that you don't need or request an increase in the maximum number of stack sets in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*. | 
 | [Stack instances](what-is-cfnstacksets.md) | The maximum number of stack instances you can create per stack set. | 100,000 stack instances per stack set | To create more stack instances, delete stack instances that you don't need or request an increase in the maximum number of stack instances in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*. | 

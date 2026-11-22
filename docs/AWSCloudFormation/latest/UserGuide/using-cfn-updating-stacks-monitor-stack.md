@@ -1,7 +1,6 @@
 
 
 # Monitor the progress of a stack update
-<a name="using-cfn-updating-stacks-monitor-stack"></a>
 
 You can monitor the progress of a stack update by viewing the stack's events. The stack's **Events** tab displays each major step in the creation and update of the stack sorted by the time of each event with latest events on top. For more information, see [Monitor stack progress](monitor-stack-progress.md).
 
@@ -14,13 +13,13 @@ You can monitor the progress of a stack update by viewing the stack's events. Th
 
 The start of the stack update process is marked with an `UPDATE_IN_PROGRESS` event for the stack:
 
-```
+```text
 2011-09-30 09:35 PDT AWS::CloudFormation::Stack {{MyStack}} UPDATE_IN_PROGRESS 
 ```
 
 Next are events that mark the beginning and completion of the update of each resource that was changed in the update template. For example, updating an [AWS::RDS::DBInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbinstance.html) resource named `MyDB` would result in the following entries:
 
-```
+```text
 2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_COMPLETE
 2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS
 ```
@@ -29,7 +28,7 @@ The `UPDATE_IN_PROGRESS` event is logged when CloudFormation reports that it has
 
 When CloudFormation has successfully updated the stack, you will see the following event:
 
-```
+```text
 2011-09-30 09:35 PDT AWS::CloudFormation::Stack {{MyStack}} UPDATE_COMPLETE 
 ```
 
@@ -44,14 +43,14 @@ This is also true for resources that you have removed from the stack template, a
 
 If an update of a resource fails, CloudFormation reports an `UPDATE_FAILED` event that includes a reason for the failure. For example, if your update template specified a property change that's not supported by the resource such as reducing the size of `AllocatedStorage` for an [AWS::RDS::DBInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbinstance.html) resource, you would see events like these:
 
-```
+```text
 2011-09-30 09:36 PDT AWS::RDS::DBInstance MyDB UPDATE_FAILED Size cannot be less than current size; requested: 5; current: 10
 2011-09-30 09:35 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS
 ```
 
 If a resource update fails, CloudFormation rolls back any resources that it has updated during the upgrade to their configurations before the update. Here is an example of the events you would see during an update rollback:
 
-```
+```text
 2011-09-30 09:38 PDT AWS::CloudFormation::Stack {{MyStack}} UPDATE_ROLLBACK_COMPLETE
 2011-09-30 09:38 PDT AWS::RDS::DBInstance MyDB UPDATE_COMPLETE
 2011-09-30 09:37 PDT AWS::RDS::DBInstance MyDB UPDATE_IN_PROGRESS

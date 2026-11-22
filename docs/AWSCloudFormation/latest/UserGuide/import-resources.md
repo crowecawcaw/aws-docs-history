@@ -1,7 +1,6 @@
 
 
 # Import AWS resources into a CloudFormation stack
-<a name="import-resources"></a>
 
 You can import existing resources into a CloudFormation stack. This is useful if you want to start using CloudFormation to manage resources that were created outside of CloudFormation, without having to delete and recreate them.
 

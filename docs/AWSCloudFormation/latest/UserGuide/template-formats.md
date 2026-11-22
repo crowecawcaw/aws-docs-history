@@ -1,7 +1,6 @@
 
 
 # CloudFormation template format
-<a name="template-formats"></a>
 
 You can author CloudFormation templates in JSON or YAML formats. Both formats serve the same purpose but offer distinct advantages in terms of readability and complexity.
 + **JSON** – JSON is a lightweight data interchange format that's easy for machines to parse and generate. However, it can become cumbersome for humans to read and write, especially for complex configurations. In JSON, the template is structured using nested braces `{}` and brackets `[]` to define resources, parameters, and other components. Its syntax requires explicit declaration of every element, which can make the template verbose but ensures strict adherence to a structured format. 
@@ -19,7 +18,7 @@ When authoring templates, don't use duplicate major sections, such as the `Resou
 
 The following example shows the structure of a JSON-formatted template with all available sections.
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "{{version date}}",
 
@@ -64,7 +63,7 @@ The following example shows the structure of a JSON-formatted template with all 
 
 The following example shows the structure of a YAML-formatted template with all available sections.
 
-```
+```yaml
 ---
 AWSTemplateFormatVersion: {{version date}}
 
@@ -105,7 +104,7 @@ In YAML-formatted templates, you can include inline comments by using the `#` sy
 
 The following example shows a YAML template with inline comments.
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: A sample CloudFormation template with YAML comments.
 # Resources section

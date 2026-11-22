@@ -1,7 +1,6 @@
 
 
 # Create a stack from the CloudFormation console
-<a name="cfn-console-create-stack"></a>
 
 You can create a stack template and then use it to create a stack using either the CloudFormation console or a command line tool. The console provides a wizard-driven interface with predefined options, which streamlines the stack creation process.
 

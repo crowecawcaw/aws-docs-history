@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CloudFormation
-<a name="troubleshooting"></a>
 
 When you use CloudFormation, you might encounter issues when you create, update, or delete CloudFormation stacks. The following sections can help you troubleshoot some common issues that you might encounter.
 
@@ -87,7 +86,7 @@ For more information on Systems Manager automations, see [AWS Systems Manager Au
 
 When you use the AWS CLI or CloudFormation to pass in a list, add the escape character (`\`) before each comma. The following sample shows how you specify an input parameter when using the AWS CLI.
 
-```
+```text
 ParameterKey=CIDR,ParameterValue='10.10.0.0/16\,10.10.0.0/24\,10.10.1.0/24'
 ```
 
@@ -190,7 +189,7 @@ To resolve this situation, try the following:
 + Verify that the `cfn-signal` command was successfully run on the instance. You can view logs, such as `/var/log/cloud-init.log` or `/var/log/cfn-init.log`, to help you debug the instance launch. You can retrieve the logs by logging in to your instance, but you must [disable rollback on failure](cfn-console-create-stack.md#configure-stack-options) or else CloudFormation deletes the instance after your stack fails to create. You can also [publish the logs](https://aws.amazon.com/blogs/devops/view-cloudformation-logs-in-the-console/) to Amazon CloudWatch. For Windows, you can view cfn logs in `C:\cfn\log` and EC2Config service logs in `%ProgramFiles%\Amazon\EC2ConfigService`.
 + Verify that the instance has a connection to the Internet. If the instance is in a VPC, the instance should be able to connect to the Internet through a NAT device if it's is in a private subnet or through an Internet gateway if it's in a public subnet. To test the instance's Internet connection, try to access a public web page, such as `http://aws.amazon.com`. For example, you can run the following command on the instance. It should return an HTTP 200 status code.
 
-  ```
+  ```sh
   curl -I https://aws.amazon.com
   ```
 

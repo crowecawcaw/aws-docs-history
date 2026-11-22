@@ -1,7 +1,6 @@
 
 
 # Understand update behaviors of stack resources
-<a name="using-cfn-updating-stacks-update-behaviors"></a>
 
 When you submit an update, CloudFormation updates resources based on differences between what you submit and the stack's current template. Resources that haven't changed run without disruption during the update process. For updated resources, CloudFormation uses one of the following update behaviors:
 

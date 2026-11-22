@@ -1,7 +1,6 @@
 
 
 # CloudFormation events detail reference
-<a name="events-detail-reference"></a>
 
 All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that's the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *AWS Events Reference*. 
 

@@ -1,7 +1,6 @@
 
 
 # Activate trusted access for StackSets with AWS Organizations
-<a name="stacksets-orgs-activate-trusted-access"></a>
 
 This topic provides instructions on how to activate trusted access with AWS Organizations, which is required by StackSets to deploy across accounts and AWS Regions using *service-managed* permissions. To use *self-managed* permissions, see [Grant self-managed permissions](stacksets-prereqs-self-managed.md) instead.
 
@@ -41,8 +40,8 @@ For information about using API operations instead of the console to activate or
 ## Service-linked roles
 <a name="stacksets-orgs-service-linked-roles"></a>
 
-The management account uses the **AWSServiceRoleForCloudFormationStackSetsOrgAdmin** service-linked role. You can modify or delete this role only if trusted access with AWS Organizations is deactivated. 
+The management account uses the `AWSServiceRoleForCloudFormationStackSetsOrgAdmin` service-linked role. You can modify or delete this role only if trusted access with AWS Organizations is deactivated. 
 
-Each target account uses a **AWSServiceRoleForCloudFormationStackSetsOrgMember** service-linked role. You can modify or delete this role only under two conditions: if trusted access with AWS Organizations is deactivated, or if the account is removed from the target organization or organizational unit (OU).
+Each target account uses a `AWSServiceRoleForCloudFormationStackSetsOrgMember` service-linked role. You can modify or delete this role only under two conditions: if trusted access with AWS Organizations is deactivated, or if the account is removed from the target organization or organizational unit (OU).
 
 For more information, see [CloudFormation StackSets and AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-cloudformation.html) in the *AWS Organizations User Guide*.

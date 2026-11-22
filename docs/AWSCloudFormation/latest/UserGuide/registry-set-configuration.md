@@ -1,7 +1,6 @@
 
 
 # Edit configuration data for extensions in your account
-<a name="registry-set-configuration"></a>
 
 This topic provides guidance on editing configuration data for extensions in your account within a specific Region. Extensions can include configuration properties that apply to all instances of the extension for a given account and Region. These are defined by the extension author in the extension's configuration definition. If there are any required properties in the extension's configuration definition, you must specify those properties before you can use the extension in your account and Region.
 

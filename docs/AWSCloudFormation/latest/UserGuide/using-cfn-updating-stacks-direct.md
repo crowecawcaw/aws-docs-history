@@ -1,7 +1,6 @@
 
 
 # Update stacks directly
-<a name="using-cfn-updating-stacks-direct"></a>
 
 When you want to quickly deploy updates to your stack, perform a direct update. With a direct update, you submit a template or input parameters that specify updates to the resources in the stack, and CloudFormation immediately deploys them. If you want to use a template to make your updates, you can modify the current template and store it locally or in an Amazon S3 bucket.
 

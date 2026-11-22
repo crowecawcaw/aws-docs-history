@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Building a pipeline for test and production stacks
-<a name="continuous-delivery-codepipeline-basic-walkthrough"></a>
 
 Imagine a release process where you submit an CloudFormation template, which CloudFormation then uses to automatically build a test stack. After you review the test stack, you can preview how your changes will modify your production stack, and then choose whether to implement them. To accomplish this workflow, you could use CloudFormation to build your test stack, delete the test stack, create a change set, and then execute the change set. However, with each action, you need to manually interact with CloudFormation. In this walkthrough, we'll build a CodePipeline pipeline that automates many of these actions, helping you achieve a continuous delivery workflow with your CloudFormation stacks.
 
@@ -137,7 +136,7 @@ The first stage of the pipeline is a source stage in which you specify the locat
 
 The source code is located in an S3 bucket and is identified by its file name. You specified these values as input parameter values when you created the pipeline stack. To allow using the source artifact in subsequent stages, the snippet specifies the `OutputArtifacts` property, with the name `TemplateSource`. To use this artifact in later stages, you specify `TemplateSource` as an input artifact.
 
-```
+```yaml
 - Name: S3Source
   Actions:
     - Name: TemplateSource
@@ -164,7 +163,7 @@ The `ApproveTestStack` action pauses the pipeline and sends a notification to th
 
 After you approve this action, CodePipeline moves to the `DeleteTestStack` action and deletes the test WordPress stack and its resources.
 
-```
+```yaml
 - Name: TestStage
   Actions:
     - Name: CreateStack
@@ -216,7 +215,7 @@ Similar to the previous stage, the `ApproveChangeSet` action pauses the pipeline
 
 After you approve this action, the `ExecuteChangeSet` action executes the changes set, so that AWS CloudFormation performs all of the actions described in the change set. For the initial run, AWS CloudFormation creates the WordPress production stack. On subsequent runs, AWS CloudFormation updates the stack.
 
-```
+```yaml
 - Name: ProdStage
   Actions:
     - Name: CreateChangeSet

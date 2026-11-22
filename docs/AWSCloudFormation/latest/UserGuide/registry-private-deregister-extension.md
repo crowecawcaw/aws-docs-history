@@ -1,7 +1,6 @@
 
 
 # Remove third-party private extensions from your account
-<a name="registry-private-deregister-extension"></a>
 
 To remove a third-party private extension or extension version, use the [deregister-type](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/deregister-type.html) command.
 

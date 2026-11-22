@@ -1,7 +1,6 @@
 
 
 # Get AWS values using pseudo parameters
-<a name="pseudo-parameter-reference"></a>
 
 Pseudo parameters are built-in variables that provide access to important AWS environment information such as account IDs, Region names, and stack details that can change between deployments or environments.
 
@@ -20,14 +19,14 @@ The `Ref` intrinsic function uses the following general syntax. For more informa
 #### JSON
 <a name="pseudo-parameter-ref-syntax.json"></a>
 
-```
+```json
 { "Ref" : "AWS::{{PseudoParameter}}" }
 ```
 
 #### YAML
 <a name="pseudo-parameter-ref-syntax.yaml"></a>
 
-```
+```yaml
 !Ref AWS::{{PseudoParameter}}
 ```
 
@@ -39,14 +38,14 @@ The `Fn::Sub` intrinsic function uses a different format that includes the `${}`
 #### JSON
 <a name="pseudo-parameter-sub-syntax.json"></a>
 
-```
+```json
 { "Fn::Sub" : "${AWS::{{PseudoParameter}}}" }
 ```
 
 #### YAML
 <a name="pseudo-parameter-sub-syntax.yaml"></a>
 
-```
+```yaml
 !Sub '${AWS::{{PseudoParameter}}}'
 ```
 
@@ -123,7 +122,7 @@ The following examples create two resources: an Amazon SNS topic and a CloudWatc
 #### JSON
 <a name="pseudo-parameter-basic-example.json"></a>
 
-```
+```json
 {
     "Resources": {
         "MyNotificationTopic": {
@@ -154,7 +153,7 @@ The following examples create two resources: an Amazon SNS topic and a CloudWatc
 #### YAML
 <a name="pseudo-parameter-basic-example.yaml"></a>
 
-```
+```yaml
 Resources:
   MyNotificationTopic:
     Type: AWS::SNS::Topic
@@ -184,7 +183,7 @@ The following examples configure an Auto Scaling group to send notifications for
 #### JSON
 <a name="pseudo-parameter-notification-example.json"></a>
 
-```
+```json
 "myASG": {
    "Type": "AWS::AutoScaling::AutoScalingGroup",
    "Properties": {
@@ -210,7 +209,7 @@ The following examples configure an Auto Scaling group to send notifications for
 #### YAML
 <a name="pseudo-parameter-notification-example.yaml"></a>
 
-```
+```yaml
 myASG:
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties:
@@ -241,7 +240,7 @@ The following examples create an Amazon RDS DB instance that uses a snapshot onl
 #### JSON
 <a name="pseudo-parameter-novalue-example.json"></a>
 
-```
+```json
 "MyDB" : {
   "Type" : "AWS::RDS::DBInstance",
   "Properties" : {
@@ -266,7 +265,7 @@ The following examples create an Amazon RDS DB instance that uses a snapshot onl
 #### YAML
 <a name="pseudo-parameter-novalue-example.yaml"></a>
 
-```
+```yaml
 MyDB:
   Type: AWS::RDS::DBInstance
   Properties:

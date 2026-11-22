@@ -1,7 +1,6 @@
 
 
 # CloudFormation best practices
-<a name="best-practices"></a>
 
 Best practices are recommendations that can help you use CloudFormation more effectively and adopt safe practices throughout its entire workflow. Learn how to plan and organize your stacks, create templates that describe your resources and the software applications that run on them, and manage your stacks and their resources. The following best practices are based on real-world experience from current CloudFormation customers.
 
@@ -164,7 +163,7 @@ In your template, specify installation and configuration states in the `AWS::Clo
 
 The CloudFormation helper scripts are updated periodically. Be sure you include the following command in the `UserData` property of your template before you call the helper scripts to ensure that your launched instances get the latest helper scripts:
 
-```
+```sh
 yum install -y aws-cfn-bootstrap
 ```
 

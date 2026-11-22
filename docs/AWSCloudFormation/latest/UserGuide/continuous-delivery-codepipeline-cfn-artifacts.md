@@ -1,7 +1,6 @@
 
 
 # CloudFormation artifacts
-<a name="continuous-delivery-codepipeline-cfn-artifacts"></a>
 
 CodePipeline performs tasks on artifacts as CodePipeline runs a pipeline. For CloudFormation, artifacts can include a stack template file, a template configuration file, or both. CodePipeline uses these artifacts to work with CloudFormation stacks and change sets.
 
@@ -30,7 +29,7 @@ If you include sensitive information—such as passwords—in this file, restric
 
 To create a configuration file, use the following format :
 
-```
+```json
 {
   "Parameters" : {
     "{{NameOfTemplateParameter}}" : "{{ValueOfParameter}}",
@@ -50,7 +49,7 @@ To create a configuration file, use the following format :
 
 The following example specifies `TestEC2Key` for the `KeyName` parameter, adds a `Department` tag whose value is `Marketing`, and adds a stack policy that allows all update actions except for an update that deletes a resource.
 
-```
+```json
 {
   "Parameters" : {
     "KeyName" : "TestEC2Key"

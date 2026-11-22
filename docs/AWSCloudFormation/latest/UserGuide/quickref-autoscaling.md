@@ -1,7 +1,6 @@
 
 
 # Auto scaling CloudFormation template snippets
-<a name="quickref-autoscaling"></a>
 
 With Amazon EC2 Auto Scaling, you can automatically scale Amazon EC2 instances, either with scaling policies or with scheduled scaling. Auto Scaling groups are collections of Amazon EC2 instances that enable automatic scaling and fleet management features, such as scaling policies, scheduled actions, health checks, lifecycle hooks, and load balancing. 
 

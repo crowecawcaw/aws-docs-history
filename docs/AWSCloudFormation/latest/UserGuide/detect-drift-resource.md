@@ -1,7 +1,6 @@
 
 
 # Detect drift on individual stack resources
-<a name="detect-drift-resource"></a>
 
 You can detect drift on specific resources within a stack, rather than the entire stack. This is especially useful when you only need to determine if specific resources now match their expected template configurations again.
 
@@ -50,7 +49,7 @@ Review the **Last drift check time** for the stack resource and confirm that it'
 
   Output:
 
-  ```
+  ```json
   {
       "StackResourceDrift": {
           "StackId": "arn:aws:cloudformation:us-east-1:099908667365:stack/my-stack-with-resource-drift/489e5570-df85-11e7-a7d9-50example", 

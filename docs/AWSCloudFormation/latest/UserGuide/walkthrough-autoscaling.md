@@ -1,7 +1,6 @@
 
 
 # Create a scaled and load-balanced application
-<a name="walkthrough-autoscaling"></a>
 
 For this walkthrough, you create a stack that helps you set up a scaled and load-balanced application. The walkthrough provides a sample template that you use to create the stack. The example template provisions an Auto Scaling group, an Application Load Balancer, security groups that control traffic to the load balancer and to the Auto Scaling group, and an Amazon SNS notification configuration to publish notifications about scaling activities. 
 
@@ -14,7 +13,7 @@ Let's start with the template.
 
 **YAML**
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   InstanceType:
@@ -151,7 +150,7 @@ Resources:
 
 **JSON**
 
-```
+```json
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Parameters":{

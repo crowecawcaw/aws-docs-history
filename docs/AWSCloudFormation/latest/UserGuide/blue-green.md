@@ -1,7 +1,6 @@
 
 
 # Perform ECS blue/green deployments through CodeDeploy using CloudFormation
-<a name="blue-green"></a>
 
 To update an application running on Amazon Elastic Container Service (Amazon ECS), you can use a CodeDeploy blue/green deployment strategy. This strategy helps minimize interruptions caused by changing application versions. 
 

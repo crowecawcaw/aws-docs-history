@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CloudFormation StackSets
-<a name="stacksets-troubleshooting"></a>
 
 This topic contains some common StackSets issues, and suggested solutions for those issues.
 
@@ -118,7 +117,7 @@ aws cloudformation describe-stack-set-operation --stack-set-name {{ss1}} \
     --operation-id {{5550e62f-c822-4331-88fa-21c1d7bafc60}}
 ```
 
-```
+```json
 {
     "StackSetOperation": {
         "OperationId": "5550e62f-c822-4331-88fa-21c1d7bafc60",
@@ -145,7 +144,7 @@ aws cloudformation describe-stack-set-operation --stack-set-name {{ss1}} \
 aws cloudformation list-stack-set-operations --stack-set-name {{ss1}}
 ```
 
-```
+```json
 {
     "Summaries": [
         {
@@ -174,7 +173,7 @@ aws cloudformation list-stack-set-operation-results --stack-set-name {{ss1}} \
   --operation-id {{5550e62f-c822-4331-88fa-21c1d7bafc60}} --filters {{Name=OPERATION_RESULT_STATUS,Values=FAILED}}
 ```
 
-```
+```json
 {
     "Summaries": [
         {
@@ -221,7 +220,7 @@ aws cloudformation list-stack-instances --stack-set-name {{ss1}} \
   --filters {{Name=DETAILED_STATUS,Values=FAILED Name=LAST_OPERATION_ID,Values=5550e62f-c822-4331-88fa-21c1d7bafc60}}
 ```
 
-```
+```json
 {
     "Summaries": [
         {
@@ -274,7 +273,7 @@ aws cloudformation describe-stack-instance --stack-set-name {{ss1}} \
   --stack-instance-account {{123456789012}} --stack-instance-region {{us-east-2}}
 ```
 
-```
+```json
 {
     "StackInstance": {
         "StackSetId": "ss1:9101ca57-49fc-4a61-a5a6-4c97b8adb08f",

@@ -1,7 +1,6 @@
 
 
 # Performing drift detection on CloudFormation StackSets
-<a name="stacksets-drift"></a>
 
 Even as you manage your stacks and the resources they contain through CloudFormation, users can change those resources outside of CloudFormation. Users can edit resources directly by using the underlying service that created the resource. By performing drift detection on a StackSet, you can determine if any of the stack instances belonging to that StackSet differ, or have *drifted*, from their expected configuration.
 
@@ -89,7 +88,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "OperationId": "c36e44aa-3a83-411a-b503-cb611example"
    }
@@ -107,7 +106,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "StackSetOperation": {
            "Status": "RUNNING",
@@ -143,7 +142,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "StackSetOperation": {
            "Status": "SUCCEEDED",
@@ -181,7 +180,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "StackSet": {
            "Status": "ACTIVE",
@@ -226,7 +225,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
    "Summaries": [
            {
@@ -266,7 +265,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "StackInstance": {
            "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/StackSet-stack-set-drift-example-b7fde68e-e541-44c2-b33d-ef2e2988071a/008e6030-16d4-11ea-8090-12f89example",
@@ -297,7 +296,7 @@ To detect drift on an entire stack using the AWS CLI, use the following procedur
 
    Output:
 
-   ```
+   ```json
    {
        "Summaries": [
            {

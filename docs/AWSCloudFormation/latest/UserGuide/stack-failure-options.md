@@ -1,7 +1,6 @@
 
 
 # Choose how to handle failures when provisioning resources
-<a name="stack-failure-options"></a>
 
 If your stack operation fails, you don't have to roll back resources that were already successfully provisioned and start over from the beginning every time. Instead, you can troubleshoot resources in a `CREATE_FAILED` or `UPDATE_FAILED` status, and then resume provisioning from the point where the problem occurred. 
 
@@ -147,7 +146,7 @@ Specify the `--disable-rollback` option or `on-failure DO_NOTHING` enumeration d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
    }
@@ -161,7 +160,7 @@ Specify the `--disable-rollback` option or `on-failure DO_NOTHING` enumeration d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "Stacks":  [
            {
@@ -194,7 +193,7 @@ Specify the `--disable-rollback` option or `on-failure DO_NOTHING` enumeration d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
    }
@@ -208,7 +207,7 @@ Specify the `--disable-rollback` option or `on-failure DO_NOTHING` enumeration d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "Stacks":  [
            {
@@ -245,7 +244,7 @@ Specify the `--disable-rollback` option during an [execute-change-set](https://d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
     "Id": "arn:aws:cloudformation:us-east-1:123456789012:changeSet/my-change-set/bc9555ba-a949-xmpl-bfb8-f41d04ec5784",
     "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
@@ -267,7 +266,7 @@ Specify the `--disable-rollback` option during an [execute-change-set](https://d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
       "StackEvents": [
         {
@@ -293,7 +292,7 @@ Specify the `--disable-rollback` option during an [execute-change-set](https://d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
    }
@@ -307,7 +306,7 @@ Specify the `--disable-rollback` option during an [execute-change-set](https://d
 
    The command returns the following output.
 
-   ```
+   ```json
    {
        "Stacks":  [
            {
@@ -340,7 +339,7 @@ aws cloudformation rollback-stack --stack-name {{myteststack}}
 
 The command returns the following output.
 
-```
+```json
 {
     "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
 }

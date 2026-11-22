@@ -1,7 +1,6 @@
 
 
 # CloudFormation template Rules syntax
-<a name="rules-section-structure"></a>
 
 The `Rules` section is an optional part of a CloudFormation template that enables custom validation logic. When included, this section contains rule functions that validate parameter values before CloudFormation creates or updates any resources.
 
@@ -17,7 +16,7 @@ The `Rules` section uses the following syntax:
 
 The `Rules` section of a template consists of the key name `Rules`, followed by a single colon. You must use braces to enclose all rule declarations. If you declare multiple rules, they're delimited by commas. For each rule, you declare a logical name in quotation marks followed by a colon and braces that enclose the rule condition and assertions.
 
-```
+```json
 {
     "Rules": {
         "{{LogicalRuleName1}}": {
@@ -56,7 +55,7 @@ The `Rules` section of a template consists of the key name `Rules`, followed by 
 ### YAML
 <a name="rules-section-structure-syntax.yaml"></a>
 
-```
+```yaml
 Rules:
   {{LogicalRuleName1}}:
     RuleCondition:
@@ -130,7 +129,7 @@ In the following example, the two rules check the value of the `InstanceType` pa
 #### JSON
 <a name="rules-section-example-conditionally-verify.json"></a>
 
-```
+```json
 {
   "Rules": {
     "testInstanceType": {
@@ -178,7 +177,7 @@ In the following example, the two rules check the value of the `InstanceType` pa
 #### YAML
 <a name="rules-section-example-conditionally-verify.yaml"></a>
 
-```
+```yaml
 Rules:
   testInstanceType:
     RuleCondition: !Equals 
@@ -215,7 +214,7 @@ You will be billed for the AWS resources used if you create a stack from this te
 #### JSON
 <a name="rules-section-example-cross-parameter-validation.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
@@ -536,7 +535,7 @@ You will be billed for the AWS resources used if you create a stack from this te
 #### YAML
 <a name="rules-section-example-syntax.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   VpcId:

@@ -1,7 +1,6 @@
 
 
 # Creating a custom event pattern for an EventBridge rule
-<a name="eventbridge-using-events-rules-patterns"></a>
 
 You can find several predefined patterns in EventBridge for CloudFormation and Git sync events. This simplifies how an event pattern is created. Instead of writing your own event patterns, you can select field values on a form, and EventBridge generates the pattern for you. You can create a new rule using one of these predefined event patterns or create your own custom event pattern.
 

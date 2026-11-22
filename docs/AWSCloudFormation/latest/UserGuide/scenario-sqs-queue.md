@@ -1,14 +1,13 @@
 
 
 # Amazon SQS template snippets
-<a name="scenario-sqs-queue"></a>
 
 This example shows an Amazon SQS queue.
 
 ## JSON
 <a name="scenario-sqs-queue-example-1.json"></a>
 
-```
+```json
 1. "MyQueue" : {
 2.     "Type" : "AWS::SQS::Queue",
 3.     "Properties" : {
@@ -20,7 +19,7 @@ This example shows an Amazon SQS queue.
 ## YAML
 <a name="scenario-sqs-queue-example-1.yaml"></a>
 
-```
+```yaml
 1. MyQueue:
 2.   Type: AWS::SQS::Queue
 3.   Properties:

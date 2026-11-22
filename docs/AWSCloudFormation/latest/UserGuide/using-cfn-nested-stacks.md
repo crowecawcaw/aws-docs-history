@@ -1,7 +1,6 @@
 
 
 # Split a template into reusable pieces using nested stacks
-<a name="using-cfn-nested-stacks"></a>
 
 As your infrastructure grows, you might find yourself repeatedly creating identical resource configurations across multiple templates. To avoid this redundancy, you can separate these common configurations into dedicated templates. Then, you can use the [AWS::CloudFormation::Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stack.html) resource in other templates to reference these dedicated templates, creating nested stacks.
 
@@ -50,7 +49,7 @@ The following example shows the format of the nested stack template.
 #### YAML
 <a name="nested-stack-child-example.yaml"></a>
 
-```
+```yaml
  1. AWSTemplateFormatVersion: 2010-09-09
  2. Description: Nested stack template for Lambda function deployment
  3. Parameters:
@@ -103,7 +102,7 @@ The following example shows the format of the top-level stack template and the [
 #### YAML
 <a name="nested-stack-parent-example.yaml"></a>
 
-```
+```yaml
  1. AWSTemplateFormatVersion: 2010-09-09
  2. Description: Top-level stack template that deploys a nested stack
  3. Resources:
@@ -139,7 +138,7 @@ The command generates a new template at the path specified by `--output-template
 
 **Resulting template**
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Top-level stack template that deploys a nested stack
 Resources:

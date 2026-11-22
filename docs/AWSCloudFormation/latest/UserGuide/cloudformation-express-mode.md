@@ -1,7 +1,6 @@
 
 
 # Deploy AWS CloudFormation stacks faster with express mode
-<a name="cloudformation-express-mode"></a>
 
 With CloudFormation express mode, you can complete stack operations as soon as CloudFormation applies the resource configuration, without waiting for resources to fully stabilize. Use express mode to create, update, and delete stacks significantly faster during iterative development workflows.
 
@@ -100,17 +99,17 @@ cdk deploy --express
 
 To use express mode with the AWS SAM CLI, add the `--express` flag to your deploy or sync commands:
 
-```
+```bash
 sam deploy --express
 ```
 
-```
+```bash
 sam sync --express
 ```
 
 To persist the setting in your project configuration, use `--save-params`:
 
-```
+```bash
 sam deploy --express --save-params
 ```
 

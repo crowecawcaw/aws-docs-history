@@ -1,7 +1,6 @@
 
 
 # Using regular expressions in CloudFormation templates
-<a name="cfn-regexes"></a>
 
 You can use regular expressions (commonly known as regexes) in a number of places within your CloudFormation templates, such as for the `AllowedPattern` property when creating a template [parameter](parameters-section-structure.md).
 
@@ -13,7 +12,7 @@ For example, if you include a `\d` in your regular expression to match a digit c
 
 In the following example, the `AllowedPattern` property specifies a regular expression that matches four consecutive digit characters (`\d{4}`). However, since the regular expression is defined in a JSON template, the backslash character needs to be escaped with an additional backslash (`\\d`).
 
-```
+```json
 {
   "Parameters": {
     "MyParameter": {
@@ -26,7 +25,7 @@ In the following example, the `AllowedPattern` property specifies a regular expr
 
 If you write your CloudFormation template in YAML syntax, you must surround the regular expression with single quotation marks (''). No additional escaping is required.
 
-```
+```yaml
 Parameters:
   MyParameter:
     Type: String

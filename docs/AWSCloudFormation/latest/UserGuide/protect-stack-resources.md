@@ -1,7 +1,6 @@
 
 
 # Prevent updates to stack resources
-<a name="protect-stack-resources"></a>
 
 When you create a stack, all update actions are allowed on all resources. By default, anyone with stack update permissions can update all of the resources in the stack. During an update, some resources might require an interruption or be completely replaced, resulting in new physical IDs or completely new storage. You can prevent stack resources from being unintentionally updated or deleted during a stack update by using a stack policy. A stack policy is a JSON document that defines the update actions that can be performed on designated resources.
 
@@ -22,7 +21,7 @@ A stack policy applies only during stack updates. It doesn't provide access cont
 
 The following example stack policy prevents updates to the `ProductionDatabase` resource:
 
-```
+```json
 {
   "Statement" : [
     {
@@ -55,7 +54,7 @@ When you create a stack, no stack policy is set, so all update actions are allow
 
 You define a stack policy with five elements: `Effect`, `Action`, `Principal`, `Resource`, and `Condition`. The following pseudo code shows stack policy syntax.
 
-```
+```json
 {
   "Statement" : [
     {
@@ -76,7 +75,7 @@ You define a stack policy with five elements: `Effect`, `Action`, `Principal`, `
 `Effect`  
 Determines whether the actions that you specify are denied or allowed on the resource(s) that you specify. You can specify only `Deny` or `Allow`, such as:  
 
-```
+```json
 "Effect" : "Deny"
 ```
 If a stack policy includes overlapping statements (both allowing and denying updates on a resource), a `Deny` statement always overrides an `Allow` statement. To ensure that a resource is protected, use a `Deny` statement for that resource.
@@ -93,12 +92,12 @@ Update:\*
 Specifies all update actions. The asterisk is a wild card that represents all update actions.
 The following example shows how to specify just the replace and delete actions:  
 
-```
+```json
 "Action" : ["Update:Replace", "Update:Delete"]
 ```
 To allow all update actions except for one, use `NotAction`. For example, to allow all update actions except for `Update:Delete`, use `NotAction`, as shown in this example:  
 
-```
+```json
 {
   "Statement" : [
     {
@@ -118,17 +117,17 @@ Resource
 Specifies the logical IDs of the resources that the policy applies to. To specify types of resources, use the `Condition` element.  
 To specify a single resource, use its logical ID. For example:  
 
-```
+```json
 "Resource" : ["LogicalResourceId/myEC2instance"]
 ```
 You can use a wild card with logical IDs. For example, if you use a common logical ID prefix for all related resources, you can specify all of them with a wild card:  
 
-```
+```json
 "Resource" : ["LogicalResourceId/CriticalResource*"]
 ```
 You can also use a `NotResource` element to allow updates to all resources except for those you specify. However, using `NotResource` with `Effect: Allow` does not reliably prevent updates to the excluded resources. To protect a specific resource from updates, use an explicit `Deny` statement instead, as shown in the following example:  
 
-```
+```json
 {
   "Statement" : [
     {
@@ -151,7 +150,7 @@ Conditions
 Specifies the resource type that the policy applies to. To specify the logical IDs of specific resources, use the `Resource` element.  
 You can specify a resource type, such as all EC2 and RDS DB instances, as shown in the following example:  
 
-```
+```json
 {
   "Statement" : [
   {
@@ -177,7 +176,7 @@ You can specify a resource type, such as all EC2 and RDS DB instances, as shown 
 The `Allow` statement grants update permissions to all resources and the `Deny` statement denies updates to EC2 and RDS DB instances. The `Deny` statement always overrides allow actions.  
 You can use a wild card with resource types. For example, you can deny update permissions to all Amazon EC2 resources—such as instances, security groups, and subnets—by using a wild card, as shown in the following example:  
 
-```
+```json
 "Condition" : {
   "StringLike" : {
     "ResourceType" : ["AWS::EC2::*"]
@@ -257,7 +256,7 @@ During a stack update, CloudFormation automatically updates resources that depen
 
    The override policy must specify an `Allow` statement for the protected resources that you want to update. For example, to update all protected resources, specify a temporary override policy that allows all updates:
 
-   ```
+   ```json
    {
      "Statement" : [
        {
@@ -303,7 +302,7 @@ Use the AWS CLI to modify stack policies.
 
 You can't delete a stack policy. To remove all protection from all resources, you modify the policy to explicitly allow all actions on all resources. The following policy allows all updates on all resources:
 
-```
+```json
 {
   "Statement" : [
     {
@@ -326,7 +325,7 @@ The following example policies show how to prevent updates to all stack resource
 
 To prevent updates to all stack resources, the following policy specifies a `Deny` statement for all update actions on all resources.
 
-```
+```json
 {
   "Statement" : [
     {
@@ -344,7 +343,7 @@ To prevent updates to all stack resources, the following policy specifies a `Den
 
 The following policy denies all update actions on the database with the `MyDatabase` logical ID. It allows all update actions on all other stack resources with an `Allow` statement. The `Allow` statement doesn't apply to the `MyDatabase` resource because the `Deny` statement always overrides allow actions.
 
-```
+```json
 {
   "Statement" : [
     {
@@ -366,7 +365,7 @@ The following policy denies all update actions on the database with the `MyDatab
 **Avoid using `NotResource` to protect resources**  
 Consider using a `NotResource` element with `Effect: Allow` to protect a resource through default denial, as in the following example:  
 
-```
+```json
 {
   "Statement" : [
     {
@@ -386,7 +385,7 @@ Always use an explicit `Deny` statement to protect resources, as shown in the pr
 
 The following policy denies all update actions on the RDS DB instance resource type. It allows all update actions on all other stack resources with an `Allow` statement. The `Allow` statement doesn't apply to the RDS DB instance resources because a `Deny` statement always overrides allow actions.
 
-```
+```json
 {
   "Statement" : [
     {
@@ -415,7 +414,7 @@ The following policy denies all update actions on the RDS DB instance resource t
 
 The following policy denies updates that would cause a replacement of the instance with the `MyInstance` logical ID. It allows all update actions on all other stack resources with an `Allow` statement. The `Allow` statement doesn't apply to the `MyInstance` resource because the `Deny` statement always overrides allow actions.
 
-```
+```json
 {
   "Statement" : [
     {
@@ -439,7 +438,7 @@ The following policy denies updates that would cause a replacement of the instan
 
 The following policy denies all update actions on the CloudFormation stack resource type (nested stacks). It allows all update actions on all other stack resources with an `Allow` statement. The `Allow` statement doesn't apply to the CloudFormation stack resources because the `Deny` statement always overrides allow actions.
 
-```
+```json
 {
   "Statement" : [
     {

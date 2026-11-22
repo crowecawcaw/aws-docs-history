@@ -1,7 +1,6 @@
 
 
 # Monitor stack progress
-<a name="monitor-stack-progress"></a>
 
 This section describes how to monitor a stack deployment that is currently in progress. CloudFormation provides a detailed, chronological list of deployment events, showing the progress and any issues encountered during the deployment.
 

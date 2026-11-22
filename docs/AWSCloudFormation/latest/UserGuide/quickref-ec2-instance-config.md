@@ -1,7 +1,6 @@
 
 
 # Configure Amazon EC2 instances with CloudFormation
-<a name="quickref-ec2-instance-config"></a>
 
 The following snippets demonstrate how to configure Amazon EC2 instances using CloudFormation.
 
@@ -28,7 +27,7 @@ The following snippet creates an Amazon EC2 instance in the specified Availabili
 #### JSON
 <a name="quickref-ec2-example-6.json"></a>
 
-```
+```json
 1. "Ec2Instance": {
 2.     "Type": "AWS::EC2::Instance",
 3.     "Properties": {
@@ -41,7 +40,7 @@ The following snippet creates an Amazon EC2 instance in the specified Availabili
 #### YAML
 <a name="quickref-ec2-example-6.yaml"></a>
 
-```
+```yaml
 1. Ec2Instance:
 2.   Type: AWS::EC2::Instance
 3.   Properties:
@@ -63,7 +62,7 @@ For information about user data, see [Use instance metadata to manage your EC2 i
 #### JSON
 <a name="quickref-ec2-example-7.json"></a>
 
-```
+```json
  1. "Ec2Instance": {
  2.   "Type": "AWS::EC2::Instance",
  3.   "Properties": {
@@ -96,7 +95,7 @@ For information about user data, see [Use instance metadata to manage your EC2 i
 #### YAML
 <a name="quickref-ec2-example-7.yaml"></a>
 
-```
+```yaml
  1. Ec2Instance:
  2.   Type: AWS::EC2::Instance
  3.   Properties:
@@ -131,7 +130,7 @@ For more information about user data, see [Use instance metadata to manage your 
 #### JSON
 <a name="quickref-ec2-example-8.json"></a>
 
-```
+```json
  1. "Ec2Instance": {
  2.     "Type": "AWS::EC2::Instance",
  3.     "Properties": {
@@ -157,7 +156,7 @@ For more information about user data, see [Use instance metadata to manage your 
 #### YAML
 <a name="quickref-ec2-example-8.yaml"></a>
 
-```
+```yaml
  1. Ec2Instance:
  2.   Type: AWS::EC2::Instance
  3.   Properties:
@@ -185,7 +184,7 @@ For more information about creating Amazon EBS volumes, see [Create an Amazon EB
 
 This snippet creates an Amazon EBS volume with a specified **size**. The size is set to 10, but you can adjust it as needed. The [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volume.html) resource allows you to specify either the size or a snapshot ID but not both.
 
-```
+```json
  1. "MyEBSVolume": {
  2.     "Type": "AWS::EC2::Volume",
  3.     "Properties": {
@@ -200,7 +199,7 @@ This snippet creates an Amazon EBS volume with a specified **size**. The size is
 
 This snippet creates an Amazon EBS volume using a provided **snapshot ID**. The [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volume.html) resource allows you to specify either the size or a snapshot ID but not both.
 
-```
+```json
  1. "MyEBSVolume": {
  2.     "Type": "AWS::EC2::Volume",
  3.     "Properties": {
@@ -218,7 +217,7 @@ This snippet creates an Amazon EBS volume using a provided **snapshot ID**. The 
 
 This snippet creates an Amazon EBS volume with a specified **size**. The size is set to 10, but you can adjust it as needed. The [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volume.html) resource allows you to specify either the size or a snapshot ID but not both.
 
-```
+```yaml
 1. MyEBSVolume:
 2.   Type: AWS::EC2::Volume
 3.   Properties:
@@ -230,7 +229,7 @@ This snippet creates an Amazon EBS volume with a specified **size**. The size is
 
 This snippet creates an Amazon EBS volume using a provided **snapshot ID**. The [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volume.html) resource allows you to specify either the size or a snapshot ID but not both.
 
-```
+```yaml
 1. MyEBSVolume:
 2.   Type: AWS::EC2::Volume
 3.   Properties:
@@ -259,7 +258,7 @@ For more information about block device mappings, see [Block device mappings for
 #### JSON
 <a name="quickref-ec2-example-1.json"></a>
 
-```
+```json
 "Ec2Instance": {
     "Type": "AWS::EC2::Instance",
     "Properties": {
@@ -285,7 +284,7 @@ For more information about block device mappings, see [Block device mappings for
 #### YAML
 <a name="quickref-ec2-example-1.yaml"></a>
 
-```
+```yaml
 EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
@@ -311,7 +310,7 @@ EC2Instance:
 #### JSON
 <a name="quickref-ec2-example-2.json"></a>
 
-```
+```json
 "Ec2Instance" : {
   "Type" : "AWS::EC2::Instance", 
   "Properties" : {
@@ -332,7 +331,7 @@ EC2Instance:
 #### YAML
 <a name="quickref-ec2-example-2.yaml"></a>
 
-```
+```yaml
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:

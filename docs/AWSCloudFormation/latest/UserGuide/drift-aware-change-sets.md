@@ -1,7 +1,6 @@
 
 
 # Using drift-aware change sets
-<a name="drift-aware-change-sets"></a>
 
 Drift-aware change sets are enhanced CloudFormation change sets that allow you to identify and manage stack drift in a safe manner. Stacks drift from their expected template configuration when stack resources are changed outside CloudFormation, using the AWS Management Console, AWS CLI, or SDK of underlying services. Drift-aware change sets compare templates with the actual state of your stack resources and bring drifted resources in line with their template definitions. When the template definition of a resource is updated to match its actual state, drift-aware change sets reset the drift status of the resource without modifying the resource.
 

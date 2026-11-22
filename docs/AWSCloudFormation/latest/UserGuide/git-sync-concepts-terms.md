@@ -1,7 +1,6 @@
 
 
 # How Git sync works with CloudFormation
-<a name="git-sync-concepts-terms"></a>
 
 This topic describes how Git sync works and introduces the key concepts required to work with it.
 
@@ -61,7 +60,7 @@ You can provide your own stack deployment file, or have Git sync create one for 
 
 The following is an example of a Git sync stack deployment file:
 
-```
+```yaml
 template-file-path: fargate-srvc/my-stack-template.yaml
 
 parameters: 

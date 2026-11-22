@@ -1,7 +1,6 @@
 
 
 # AWS Lambda template
-<a name="quickref-lambda"></a>
 
 The following template uses an AWS Lambda (Lambda) function and custom resource to append a new security group to a list of existing security groups. This function is useful when you want to build a list of security groups dynamically, so that your list includes both new and existing security groups. For example, you can pass a list of existing security groups as a parameter value, append the new value to the list, and then associate all your values with an EC2 instance. For more information about the Lambda function resource type, see [AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html).
 
@@ -10,7 +9,7 @@ In the example, when CloudFormation creates the `AllSecurityGroups` custom resou
 ## JSON
 <a name="quickref-lambda-example-1.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Parameters": {
@@ -179,7 +178,7 @@ In the example, when CloudFormation creates the `AllSecurityGroups` custom resou
 ## YAML
 <a name="quickref-lambda-example-1.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   ExistingSecurityGroups:

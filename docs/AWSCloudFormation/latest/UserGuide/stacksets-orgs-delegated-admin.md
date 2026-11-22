@@ -1,7 +1,6 @@
 
 
 # Register a delegated administrator member account
-<a name="stacksets-orgs-delegated-admin"></a>
 
 In addition to your organization's management account, member accounts with delegated administrator permissions can create and manage StackSets with service-managed permissions for the organization. StackSets with service-managed permissions are created in the management account, including StackSets created by delegated administrators. To be registered as a delegated administrator for your organization, your member account must be in the organization. For more information about joining an organization, see [Inviting an AWS account to join your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html).
 
@@ -49,7 +48,7 @@ You can register and deregister delegated administrators using the [CloudFormati
 
 1. Run the `register-delegated-administrator` command.
 
-   ```
+   ```sh
    $ aws organizations register-delegated-administrator \
      --service-principal=member.org.stacksets.cloudformation.amazonaws.com \
      --account-id="{{memberAccountId}}"
@@ -57,7 +56,7 @@ You can register and deregister delegated administrators using the [CloudFormati
 
 1. Run the `list-delegated-administrators` command to verify that the specified member account is successfully registered as a delegated administrator.
 
-   ```
+   ```sh
    $ aws organizations list-delegated-administrators \
      --service-principal=member.org.stacksets.cloudformation.amazonaws.com
    ```
@@ -69,7 +68,7 @@ You can register and deregister delegated administrators using the [CloudFormati
 
 1. Run the `deregister-delegated-administrator` command.
 
-   ```
+   ```sh
    $ aws organizations deregister-delegated-administrator \
      --service-principal=member.org.stacksets.cloudformation.amazonaws.com \
      --account-id="{{memberAccountId}}"
@@ -77,7 +76,7 @@ You can register and deregister delegated administrators using the [CloudFormati
 
 1. Run the `list-delegated-administrators` command to verify that the specified member account is successfully deregistered as a delegated administrator.
 
-   ```
+   ```sh
    $ aws organizations list-delegated-administrators \
      --service-principal=member.org.stacksets.cloudformation.amazonaws.com
    ```

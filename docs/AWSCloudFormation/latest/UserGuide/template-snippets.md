@@ -1,7 +1,6 @@
 
 
 # CloudFormation template snippets
-<a name="template-snippets"></a>
 
 This section provides a number of example scenarios that you can use to understand how to declare various CloudFormation template parts. You can also use the snippets as a starting point for sections of your custom templates.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Logs template snippets
-<a name="quickref-cloudwatchlogs"></a>
 
 Amazon CloudWatch Logs can monitor your system, application, and custom log files from Amazon EC2 instances or other sources. You can use CloudFormation to provision and manage log groups and metric filters. For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
@@ -24,7 +23,7 @@ Log events from the web server provide metric data for CloudWatch alarms. The tw
 ### JSON
 <a name="quickref-cloudwatchlogs-example.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Sample template that sets up and configures CloudWatch Logs on Amazon Linux 2023 instance.",
@@ -336,7 +335,7 @@ Log events from the web server provide metric data for CloudWatch alarms. The tw
 ### YAML
 <a name="quickref-cloudwatchlogs-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Sample template that sets up and configures CloudWatch Logs on Amazon Linux 2023 instance.
 Parameters:
@@ -574,7 +573,7 @@ The CloudWatch Logs agent on Windows (SSM agent on Windows 2012R2 and Windows 20
 ### JSON
 <a name="quickref-cloudwatchlogs-example2.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Sample template that sets up and configures CloudWatch Logs on Windows 2012R2 instance.",
@@ -994,7 +993,7 @@ The CloudWatch Logs agent on Windows (SSM agent on Windows 2012R2 and Windows 20
 ### YAML
 <a name="quickref-cloudwatchlogs-example2.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
   Sample template that sets up and configures CloudWatch Logs on Windows 2012R2 instance.

@@ -1,7 +1,6 @@
 
 
 # Managing stacks across accounts and Regions with StackSets
-<a name="what-is-cfnstacksets"></a>
 
 CloudFormation StackSets extends the capability of stacks by allowing you to create, update, or delete stacks across multiple accounts and AWS Regions with a single operation. Using an administrator account, you define and manage a CloudFormation template, and use the template as the basis for provisioning stacks into selected target accounts across specified AWS Regions.
 
