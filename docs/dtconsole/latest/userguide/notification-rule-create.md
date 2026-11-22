@@ -1,7 +1,6 @@
 
 
 # Create a notification rule
-<a name="notification-rule-create"></a>
 
 You can use the Developer Tools console or the AWS CLI to create notification rules. You can create an Amazon SNS topic to use as a target for a notification rule as part of creating the rule. If you want to use an AWS Chatbot client as a target, you must create that client before you can create the rule. For more information, see [Configure an AWS Chatbot client for a Slack channel](notifications-chatbot.md#notifications-chatbot-configure-client).<a name="notification-rule-create-console"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Working with notification rule targets
-<a name="notification-targets"></a>
 
 A notification rule target is a destination that defines where you want notifications to be sent when a notification rule's event conditions are met. You can choose between Amazon SNS topics and AWS Chatbot clients that are configured for Slack or Microsoft Teams channels. You can create an Amazon SNS topic as a target as part of creating a notification rule (recommended). You can also choose an existing Amazon SNS topic in the same AWS Region as the notification rule, but you must configure it with the required policy. If you choose to use an AWS Chatbot client as a target, you must first create that client in AWS Chatbot. 
 

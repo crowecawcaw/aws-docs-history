@@ -1,7 +1,6 @@
 
 
 # Edit a host
-<a name="connections-host-edit"></a>
 
 You can edit host settings for a host in `Pending` status. You can edit the host name, URL, or VPC configuration.
 

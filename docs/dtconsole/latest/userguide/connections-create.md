@@ -1,11 +1,10 @@
 
 
 # Create a connection
-<a name="connections-create"></a>
 
 You can create connections to the following third-party provider types:
 + To create a connection to Bitbucket, see [Create a connection to Bitbucket](connections-create-bitbucket.md).
-+ To create a connection to GitHub or GitHub Enterprise Cloud, see [Create a connection to GitHub](connections-create-github.md).
++ To create a connection to GitHub or GitHub Enterprise Cloud, see [Create a connection to GitHub](connections-create-github.md) or [Create a connection to GitHub Enterprise Cloud with data residency](connections-create-ghec-dr.md).
 + To create a connection to GitHub Enterprise Server, including creating your host resource, see [Create a connection to GitHub Enterprise Server](connections-create-gheserver.md). 
 + To create a connection to GitLab, see [Create a connection to GitLab](connections-create-gitlab.md). 
 + To create a connection to Azure DevOps, see [Create a connections to Azure DevOps](connections-create-azure.md).

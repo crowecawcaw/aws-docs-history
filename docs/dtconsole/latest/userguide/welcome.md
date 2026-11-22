@@ -1,7 +1,6 @@
 
 
 # What are notifications?
-<a name="welcome"></a>
 
 The notifications feature in the Developer Tools console is a notifications manager for subscribing to events in AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy and AWS CodePipeline. It has its own API, AWS CodeStar Notifications. You can use the notifications feature to quickly notify users about events in the repositories, build projects, deployment applications, and pipelines that are most important to their work. A notifications manager helps make users aware of events that occur on repositories, builds, deployments, or pipelines so that they can quickly take action, such as approving changes or correcting errors. 
 

@@ -1,7 +1,6 @@
 
 
 # Working with sync configurations for linked repositories
-<a name="configurations"></a>
 
 In AWS CodeConnections, you use a connection to associate AWS resources to a third-party repository, such as GitHub, Bitbucket Cloud, GitHub Enterprise Server, and GitLab. Using the `CFN_STACK_SYNC` sync type, you can create a sync configuration, which allows AWS to sync content from a Git repository to update a specified AWS resource. CloudFormation integrates with connections so that you can use Git sync to manage your template and parameter files in a linked repository that you sync with.
 

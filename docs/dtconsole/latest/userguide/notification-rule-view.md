@@ -1,7 +1,6 @@
 
 
 # View notification rules
-<a name="notification-rule-view"></a>
 
 You can use the Developer Tools console or the AWS CLI to view all of the notification rules for all resources in an AWS Region. You can also view the details of each notification rule. Unlike the process for creating a notification rule, you do not have to go to the resource page for the resource.<a name="notification-rule-view-console"></a>
 

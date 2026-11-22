@@ -1,7 +1,6 @@
 
 
 # Delete a notification rule
-<a name="notification-rule-delete"></a>
 
 There can be only 10 notification rules configured for a resource, so consider deleting rules you no longer need. You can use the Developer Tools console or the AWS CLI to delete a notification rule.
 

@@ -1,7 +1,6 @@
 
 
 # Delete a notification rule target
-<a name="notification-target-delete"></a>
 
 You can delete a target if it is no longer needed. A resource can only have 10 notification rule targets configured for it, so deleting unneeded targets can help create room for other targets you might want to add to that notification rule. 
 

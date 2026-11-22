@@ -1,7 +1,6 @@
 
 
 # Add or remove a target for a notification rule
-<a name="notification-target-change-rule"></a>
 
 You can edit a notification rule to change the target or targets to which it sends notifications. You can use the Developer Tools console or or the AWS CLI to change a notification rule's targets.<a name="notification-target-change-rule-console"></a>
 

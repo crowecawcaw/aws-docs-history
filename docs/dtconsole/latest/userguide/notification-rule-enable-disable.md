@@ -1,7 +1,6 @@
 
 
 # Enable or disable notifications for a notification rule
-<a name="notification-rule-enable-disable"></a>
 
 When you create a notification rule, notifications are enabled by default. You do not have to delete the rule to prevent it from sending notifications. You can simply change its notification status.<a name="notification-rule-enable-disable-console"></a>
 

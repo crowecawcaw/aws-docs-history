@@ -1,7 +1,6 @@
 
 
 # Getting started with connections
-<a name="getting-started-connections"></a>
 
 The easiest way to get started with connections is to set up a connection that associates your third-party source repository to your AWS resources. If you wanted to connect your pipeline to an AWS source, such as CodeCommit, you would connect to it as a source action. However, if you have an external repository, you have to create a connection to associate your repository with your pipeline. In this tutorial, you set up a connection with your Bitbucket repository and your pipeline.
 

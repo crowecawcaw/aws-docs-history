@@ -1,7 +1,6 @@
 
 
 # Set up a pending host
-<a name="connections-host-setup"></a>
 
 A host created through the AWS Command Line Interface (AWS CLI) or SDK is in `Pending` status by default. After you create a connection with the console, AWS CLI, or the SDK, use the console to set up the host to make its status `Available`.
 

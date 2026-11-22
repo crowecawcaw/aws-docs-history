@@ -1,7 +1,6 @@
 
 
 # View connection details
-<a name="connections-view-details"></a>
 
 You can use the Developer Tools console or the **get-connection** command in the AWS Command Line Interface (AWS CLI) to view details for a connection. To use the AWS CLI, you must have already installed a recent version of the AWS CLI or updated to the current version. For more information, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*.
 
@@ -20,13 +19,14 @@ You can use the Developer Tools console or the **get-connection** command in the
    + The connection ARN.
    + If the connection was created for an installed provider, such as GitHub Enterprise Server, the host information associated with the connection.
    + If the connection was created for an installed provider, such as GitHub Enterprise Server, the endpoint information associated with the host for the connection.
+   + If you created the connection for GitHub Enterprise Cloud with data residency, the endpoint of your enterprise for the connection.
 
 1. If the connection is in **Pending** status, to complete the connection, choose **Update pending connection**. For more information , see [Update a pending connection](connections-update.md).
 
 **To view a connection (CLI)**
 + At the terminal or command line, run the **get-connection** command. For example, use the following command to view details for a connection with the `arn:aws:codestar-connections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f` ARN value.
 
-  ```
+  ```shell
   aws codeconnections get-connection --connection-arn arn:aws:codeconnections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f
   ```
 
@@ -71,6 +71,21 @@ You can use the Developer Tools console or the **get-connection** command in the
           "OwnerAccountId": "{{account_id}}",
           "ConnectionStatus": "PENDING",
           "HostArn": "arn:aws:ccodeconnections:us-west-2:{{account_id}}:host/sdfsdf-EXAMPLE"
+      }
+  }
+  ```
+
+  Example output for a GitHub Enterprise Cloud with data residency connection. The `ProviderEndpoint` field contains the host name of the enterprise, without the protocol.
+
+  ```
+  {
+      "Connection": {
+          "ConnectionName": "MyConnection",
+          "ConnectionArn": "arn:aws:codeconnections:us-west-2:{{account_id}}:connection/3f8e2a71-EXAMPLE",
+          "ProviderType": "GitHubEnterpriseCloudDataResidency",
+          "OwnerAccountId": "{{account_id}}",
+          "ConnectionStatus": "AVAILABLE",
+          "ProviderEndpoint": "my-enterprise.ghe.com"
       }
   }
   ```

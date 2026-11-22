@@ -1,7 +1,6 @@
 
 
 # Working with sync configurations
-<a name="syncconfigurations"></a>
 
 A sync configuration creates an association between a specified repository and connection. Use the sync configuration to sync content from a Git repository to update a specified AWS resource. 
 

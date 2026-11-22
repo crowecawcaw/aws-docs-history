@@ -1,7 +1,6 @@
 
 
 # View notification rule targets
-<a name="notification-target-view"></a>
 
 You can use Developer Tools console, not the Amazon SNS console to view all of the notification rule targets for all resources in an AWS Region. You can also view the details of a notification rule target. <a name="notification-target-view-console"></a>
 

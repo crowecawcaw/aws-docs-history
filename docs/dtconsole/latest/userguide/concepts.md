@@ -1,7 +1,6 @@
 
 
 # Notification concepts
-<a name="concepts"></a>
 
 Setting up and using notifications is easier if you understand the concepts and terms. Here are some concepts to know about as you use notifications.
 

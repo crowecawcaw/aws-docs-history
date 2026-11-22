@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 The following information might help you troubleshoot common issues with notifications.
 

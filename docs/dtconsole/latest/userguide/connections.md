@@ -1,7 +1,6 @@
 
 
 # Working with connections
-<a name="connections"></a>
 
 *Connections* are configurations that you use to connect AWS resources to external code repositories. Each connection is a resource that can be given to services such as AWS CodePipeline to connect to a third-party repository such as Bitbucket. For example, you can add the connection in CodePipeline so that it triggers your pipeline when a code change is made to your third-party code repository. You can also connect your AWS resources to an installed provider type such as GitHub Enterprise Server.
 
@@ -29,6 +28,7 @@ To create or attach a policy to your AWS Identity and Access Management (IAM) us
 + [Create a connection to Azure DevOps](connections-create-azure.md)
 + [Create a connection to Bitbucket](connections-create-bitbucket.md)
 + [Create a connection to GitHub](connections-create-github.md)
++ [Create a connection to GitHub Enterprise Cloud with data residency](connections-create-ghec-dr.md)
 + [Create a connection to GitHub Enterprise Server](connections-create-gheserver.md)
 + [Create a connection to GitLab](connections-create-gitlab.md)
 + [Create a connection to GitLab self-managed](connections-create-gitlab-managed.md)

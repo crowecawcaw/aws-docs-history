@@ -1,7 +1,6 @@
 
 
 # Setting up connections
-<a name="setting-up-connections"></a>
 
 Complete the tasks in this section to get set up for creating and using the connections feature in the Developer Tools console.
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS CodeStar Notifications and AWS CodeConnections
-<a name="compliance"></a>
 
 For a list of AWS services in scope of specific compliance programs, see [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/). For general information, see [AWS compliance programs](https://aws.amazon.com/compliance/programs/).
 

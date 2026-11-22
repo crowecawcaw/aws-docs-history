@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS CodeStar Notifications and AWS CodeConnections
-<a name="infrastructure-security"></a>
 
 As features in a managed service, AWS CodeStar Notifications and AWS CodeConnections are protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of security processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper.
 

@@ -1,7 +1,6 @@
 
 
 # Configure integration between notifications and AWS Chatbot
-<a name="notifications-chatbot"></a>
 
 AWS Chatbot is an AWS service that makes it possible for DevOps and software development teams to use Amazon Chime chat rooms, Slack channels, and Microsoft Team channels to monitor and respond to operational events in the AWS Cloud. You can configure integration between notification rule targets and AWS Chatbot so that notifications about events appear in the Amazon Chime room, Slack channel, or Microsoft Teams channel you choose. For more information, see the [AWS Chatbot documentation](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html).
 

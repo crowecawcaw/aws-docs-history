@@ -1,7 +1,6 @@
 
 
 # Create a repository link
-<a name="repositorylinks-create"></a>
 
 You can use the **create-repository-link** command in the AWS Command Line Interface (AWS CLI) to create a link between your connection and the external repository to sync to.
 

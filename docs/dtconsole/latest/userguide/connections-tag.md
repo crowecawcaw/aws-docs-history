@@ -1,7 +1,6 @@
 
 
 # Tag connections resources
-<a name="connections-tag"></a>
 
 A *tag* is a custom attribute label that you or AWS assigns to an AWS resource. Each AWS tag has two parts:
 + A *tag key* (for example, `CostCenter`, `Environment`, or  `Project`). Tag keys are case sensitive.
@@ -193,7 +192,7 @@ At the terminal or command line, run the **tag-resource** command, specifying th
 
    For example, use the following command to tag a connection with two tags, a tag key named {{Project}} with the tag value of {{ProjectA}}, and a tag key named {{ReadOnly}} with the tag value of {{true}}.
 
-   ```
+   ```shell
    aws codestar-connections tag-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f --tags Key={{Project}},Value={{ProjectA}} Key={{IscontainerBased}},Value={{true}}
    ```
 
@@ -224,7 +223,7 @@ You can use the AWS CLI to view the AWS tags for a connections resource. If no t
 
 1. In a terminal or at the command line, run the **list-tags-for-resource** command. For example, use the following command to view a list of tag keys and tag values for a connection.
 
-   ```
+   ```shell
    aws codestar-connections list-tags-for-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f
    ```
 
@@ -251,7 +250,7 @@ You can use the AWS CLI to view the AWS tags for a connections resource. If no t
 
 1. In a terminal or at the command line, run the **list-tags-for-resource** command. For example, use the following command to view a list of tag keys and tag values for a host.
 
-   ```
+   ```shell
    aws codestar-connections list-tags-for-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:host/My-Host-28aef605
    ```
 
@@ -289,7 +288,7 @@ When you edit tags, any tag keys not specified will be retained, while anything 
 
    In this example, the value for the key `Project` is changed to `ProjectB`.
 
-   ```
+   ```shell
    aws codestar-connections tag-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f --tags Key=Project,Value=ProjectB
    ```
 
@@ -303,7 +302,7 @@ When you edit tags, any tag keys not specified will be retained, while anything 
 
    In this example, the value for the key `Project` is changed to `ProjectB`.
 
-   ```
+   ```shell
    aws codestar-connections tag-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:host/My-Host-28aef605 --tags Key=Project,Value=ProjectB
    ```
 
@@ -319,7 +318,7 @@ If you delete a connection resource, all tag associations are removed from the d
 
 At the terminal or command line, run the **untag-resource** command, specifying the ARN of the resource where you want to remove tags and the tag key of the tag you want to remove. For example, to remove multiple tags on a connection with the tag keys {{Project}} and {{ReadOnly}}, use the following command.
 
-```
+```shell
 aws codestar-connections untag-resource --resource-arn arn:aws:codestar-connections:us-west-2:{{account_id}}:connection/aEXAMPLE-8aad-4d5d-8878-dfcab0bc441f --tag-keys {{Project}} {{ReadOnly}}
 ```
 

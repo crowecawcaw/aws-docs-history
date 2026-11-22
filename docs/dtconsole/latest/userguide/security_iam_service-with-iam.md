@@ -1,7 +1,6 @@
 
 
 # How features in the developer tools console work with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to features in the Developer Tools console, you should understand which IAM features are available to use with it. To get a high-level view of how notifications and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -117,6 +116,21 @@ AWS CodeConnections define the following condition keys that can be used in the 
 | `codeconnections:ProviderType` | Filters access by the type of third-party provider passed in the request | 
 | codeconnections:ProviderTypeFilter | Filters access by the type of third-party provider used to filter results | 
 | codeconnections:RepositoryName | Filters access by the third-party repository name | 
+
+The following table lists the valid values for the `codeconnections:ProviderType` and `codeconnections:ProviderTypeFilter` condition keys. Values are case sensitive.
+
+
+| Value | Provider | 
+| --- | --- | 
+| Bitbucket | Bitbucket Cloud | 
+| GitHub | GitHub and GitHub Enterprise Cloud on github.com | 
+| GitHubEnterpriseServer | GitHub Enterprise Server | 
+| GitLab | GitLab.com | 
+| GitLabSelfManaged | GitLab self-managed | 
+| AzureDevOps | Azure DevOps | 
+| GitHubEnterpriseCloudDataResidency | GitHub Enterprise Cloud with data residency (\*.ghe.com) | 
+
+AWS CodeConnections doesn't provide a condition key for the provider endpoint. For GitHub Enterprise Cloud with data residency connections, you specify the tenant URL, such as `https://my-enterprise.ghe.com`, in the `ProviderEndpoint` request parameter of `CreateConnection`, and `GetConnection` and `ListConnections` return the tenant host name in the `ProviderEndpoint` attribute of the connection. `ProviderEndpoint` is a request parameter and connection attribute, not an IAM condition key, so you can't scope IAM permissions to a specific tenant endpoint. To limit permissions to GitHub Enterprise Cloud with data residency connections, use the `codeconnections:ProviderType` condition key. For an example, see [Example: Policy for creating and completing GitHub Enterprise Cloud with data residency connections](security_iam_id-based-policy-examples-connections.md#security_iam_id-based-policy-examples-ghec-dr).
 
 ### Examples
 <a name="security_iam_service-with-iam-id-based-policies-examples"></a>

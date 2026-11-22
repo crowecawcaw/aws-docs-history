@@ -1,7 +1,6 @@
 
 
 # Delete a repository link
-<a name="repositorylinks-delete"></a>
 
 You can use the **delete-repository-link** command in the AWS Command Line Interface (AWS CLI) to delete a repository link.
 

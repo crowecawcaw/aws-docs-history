@@ -1,7 +1,6 @@
 
 
 # Quotas for connections
-<a name="limits-connections"></a>
 
 The following tables list the quotas (also referred to as *limits*) for connections in the Developer Tools console.
 

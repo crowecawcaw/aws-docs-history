@@ -1,7 +1,6 @@
 
 
 # What is the Developer Tools console?
-<a name="what-is-dtconsole"></a>
 
 The Developer Tools console is home to a set of services and features that you can use individually or collectively to help you develop software, either individually or as a team. The developer tools can help you securely store, build, test, and deploy your software. Used individually or collectively, these tools provide support for DevOps, continuous integration, and continuous delivery (CI/CD).
 

@@ -1,7 +1,6 @@
 
 
 # Delete a host
-<a name="connections-host-delete"></a>
 
 You can use the Developer Tools console or the **delete-host** command in the AWS Command Line Interface (AWS CLI) to delete a host.
 
@@ -40,7 +39,7 @@ After you run the command, the host is deleted. No confirmation dialog box is di
 **To delete a host**
 + Open a terminal (Linux, macOS, or Unix) or command prompt (Windows). Use the AWS CLI to run the **delete-host** command, specifying the Amazon Resource Name (ARN) of the host that you want to delete.
 
-  ```
+  ```shell
   aws codeconnections delete-host --host-arn "arn:aws:codeconnections:us-west-2:{{account_id}}:host/My-Host-28aef605"
   ```
 

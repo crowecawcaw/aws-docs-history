@@ -1,7 +1,6 @@
 
 
 # Working with notification rules
-<a name="notification-rules"></a>
 
 A notification rule is where you configure which events you want users to receive notifications about and specify the targets that receive those notifications. You can send notifications directly to users through Amazon SNS, or through AWS Chatbot clients configured for Slack or Microsoft Teams channels. If you want to extend the reach of notifications, you can manually configure integration between notifications and AWS Chatbot so that notifications are sent to Amazon Chime chatrooms. For more information, see [Targets](concepts.md#targets) and [To integrate notifications with AWS Chatbot and Amazon Chime](notifications-chatbot.md#notifications-chatbot-chime).
 

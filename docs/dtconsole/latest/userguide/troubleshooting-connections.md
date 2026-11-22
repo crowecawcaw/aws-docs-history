@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connections
-<a name="troubleshooting-connections"></a>
 
 The following information might help you troubleshoot common issues with connections to resources in AWS CodeBuild, AWS CodeDeploy, and AWS CodePipeline.
 
@@ -21,6 +20,7 @@ The following information might help you troubleshoot common issues with connect
 + [Unable to create the connection for a GitHub repository](#troubleshooting-connections-GitHub-admin)
 + [Edit your GitHub Enterprise Server connection app permissions](#troubleshooting-GHES-app-permissions)
 + [Connections error when connecting to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An organization owner must install the GitHub app"](#troubleshooting-GitHub-organization-owner)
++ [Unable to install the app for a GitHub Enterprise Cloud with data residency connection because of insufficient permissions](#troubleshooting-connections-ghec-dr-install-permissions)
 + [Connections service prefix in resources might need to be updated for IAM policies](#troubleshoot-service-prefix)
 + [Permissions error due to service prefix in resources created using the console](#troubleshoot-service-prefix-console-permissions)
 + [Connection and host setup for installed providers supporting organizations](#troubleshooting-organization-host)
@@ -36,7 +36,7 @@ You might not have permissions to create a connection. For more information, see
 
 The following error message might be returned when you try to create or view a connection in the CodePipeline console.
 
-User: {{username}} is not authorized to perform: {{permission}} on resource: {{connection-ARN}}
+`User: {{username}} is not authorized to perform: {{permission}} on resource: {{connection-ARN}}`
 
 If this message appears, make sure that you have sufficient permissions.
 
@@ -47,9 +47,9 @@ The permissions to create and view connections in the AWS Command Line Interface
 
 One or both of the following error messages might be returned if you try to use a connection in the CodePipeline console, even though you have the permissions to list, get, and create permissions.
 
-You have failed to authenticate your account.
+`You have failed to authenticate your account.`
 
-User: {{username}} is not authorized to perform: codestar-connections:UseConnection on resource: {{connection-ARN}}
+`User: {{username}} is not authorized to perform: codestar-connections:UseConnection on resource: {{connection-ARN}}`
 
 If this occurs, make sure that you have sufficient permissions.
 
@@ -92,7 +92,7 @@ To add permissions to your CodeBuild service role policy, you create a customer 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -265,7 +265,7 @@ When you create a connection to GitHub Enterprise Server that reaches AWS over t
 + Your host reaches the `Available` state and the GitHub App installs successfully on GitHub Enterprise Server, but the connection remains in the `Pending` state.
 + When you use the connection, AWS returns the following error:
 
-  ProviderResourceNotFoundException: Installation {{id}} does not exist
+  `ProviderResourceNotFoundException: Installation {{id}} does not exist`
 
 This error means that AWS did not receive the installation webhook, so the installation was never registered. It does not mean the installation ID is invalid.
 
@@ -364,6 +364,17 @@ An organization owner must install the GitHub app
 
 **Possible fixes:** For repositories in a GitHub organization, the organization owner must create the connection to the GitHub repository. For repositories that are not under an organization, you must be the repository owner. 
 
+## Unable to install the app for a GitHub Enterprise Cloud with data residency connection because of insufficient permissions
+<a name="troubleshooting-connections-ghec-dr-install-permissions"></a>
+
+**Problem:** 
+
+When you complete a connection to GitHub Enterprise Cloud with data residency, the installation of the AWS Connector for GitHub app fails with an insufficient permissions error, or the organization where you want to install the app doesn't appear. To install the app, you must be an owner of the organization in your enterprise on GHE.com. Enterprises on GitHub Enterprise Cloud with data residency use Enterprise Managed Users, and the app can't be installed on a user account.
+
+With Enterprise Managed Users, organization roles are managed through your identity provider. If the organization owner role in your identity provider and the role in your enterprise on GHE.com are out of sync, GitHub might not recognize you as an organization owner, and the installation fails.
+
+**Possible fixes:** Make sure that you are an organization owner of the organization where you install the app, and choose an organization rather than a user account. If your role was recently changed, ask your enterprise owner or identity provider administrator to confirm that your organization owner role is synchronized to your enterprise on GHE.com, and then try the installation again. Alternatively, ask an organization owner to complete the connection. For more information, see [Create a connection to GitHub Enterprise Cloud with data residency](connections-create-ghec-dr.md).
+
 ## Connections service prefix in resources might need to be updated for IAM policies
 <a name="troubleshoot-service-prefix"></a>
 
@@ -388,7 +399,7 @@ Update the actions, resources, and conditions in the policy as appropriate. In t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

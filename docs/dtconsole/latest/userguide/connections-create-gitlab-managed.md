@@ -1,7 +1,6 @@
 
 
 # Create a connection to GitLab self-managed
-<a name="connections-create-gitlab-managed"></a>
 
 You can create connections for GitLab Enterprise Edition or GitLab Community Edition with a self-managed installation.
 
@@ -140,7 +139,7 @@ A connection created through the AWS CLI or AWS CloudFormation is in `PENDING` s
 
 1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows). Use the AWS CLI to run the **create-host** command, specifying the `--name`, `--provider-type`, and `--provider-endpoint` for your connection. In this example, the third-party provider name is `GitLabSelfManaged` and the endpoint is `my-instance.dev`.
 
-   ```
+   ```shell
    aws codeconnections create-host --name MyHost --provider-type GitLabSelfManaged --provider-endpoint "https://my-instance.dev"
    ```
 

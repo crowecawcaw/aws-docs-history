@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="setting-up"></a>
 
 If you have a managed policy for AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, or AWS CodePipeline applied to your IAM user or role, you have the permissions required to work with notifications within the limitations of the roles and permissions provided by the policy. For example, users who have the `AWSCodeBuildAdminAccess`, `AWSCodeCommitFullAccess`, `AWSCodeDeployFullAccess`, or `AWSCodePipeline_FullAccess` managed policy applied have full administrative access to notifications. 
 

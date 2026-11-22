@@ -1,7 +1,6 @@
 
 
 # Workflow to create or update connections
-<a name="welcome-connections-workflow"></a>
 
 When you create a connection, you also create or use an existing connector app installation for the auth handshake with the third-party provider.
 

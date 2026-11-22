@@ -1,7 +1,6 @@
 
 
 # Create a host
-<a name="connections-host-create"></a>
 
 You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to create a connection to a third-party code repository that is installed on your infrastructure. For example, you might have GitHub Enterprise Server running as a virtual machine on an Amazon EC2 instance. Before you create a connection to GitHub Enterprise Server, you create a host to use for the connection.
 

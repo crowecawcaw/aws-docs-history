@@ -1,7 +1,6 @@
 
 
 # How do connections work?
-<a name="welcome-connections-how-it-works"></a>
 
 Before you can create a connection, you must first install, or provide access to, the AWS authentication app on your third-party account. After a connection is installed, it can be updated to use this installation. When you create a connection, you provide access to the AWS resource in your third-party account. This allows the connection to access content, such as source repositories, in the third-party account, on behalf of your AWS resources. You can then share that connection with other AWS services to provide secure OAuth connections between the resources. 
 

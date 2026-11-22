@@ -1,7 +1,6 @@
 
 
 # Create a connection to Bitbucket
-<a name="connections-create-bitbucket"></a>
 
 You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to create a connection to a repository hosted on bitbucket.org.
 

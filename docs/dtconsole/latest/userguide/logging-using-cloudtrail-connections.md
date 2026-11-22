@@ -1,7 +1,6 @@
 
 
 # Logging AWS CodeConnections API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail-connections"></a>
 
 AWS CodeConnections is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for notifications as events. The calls captured include calls from the Developer Tools console and code calls to the AWS CodeConnections API operations. 
 
@@ -42,7 +41,7 @@ A *trail* is a configuration that enables delivery of events as log files to an 
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateConnection` action.
 
-```
+```json
 {
     "EventId": "b4374fde-c544-4d43-b511-7d899568e55a",
     "EventName": "CreateConnection",
@@ -107,7 +106,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateHost` action.
 
-```
+```json
 {
     "EventId": "af4ce349-9f21-43fb-8003-267fbf9b1a93",
     "EventName": "CreateHost",
@@ -173,7 +172,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateSyncConfiguration` action.
 
-```
+```json
 {
     "EventId": "be1397e1-eefb-49f0-b4ee-2708c45e94e7",
     "EventName": "CreateSyncConfiguration",
@@ -252,7 +251,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteConnection` action.
 
-```
+```json
 {
     "EventId": "672837cd-f977-4fe2-95c7-14280b2af76c",
     "EventName": "DeleteConnection",
@@ -314,7 +313,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteHost` action.
 
-```
+```json
 {
     "EventId": "6018ba5c-6f24-4a30-b201-16ec19a1687a",
     "EventName": "DeleteHost",
@@ -376,7 +375,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteSyncConfiguration` action.
 
-```
+```json
 {
     "EventId": "588660c7-3202-4998-a906-7bb72bcf4438",
     "EventName": "DeleteSyncConfiguration",
@@ -439,7 +438,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 
 The following example shows a CloudTrail log entry that demonstrates the `GetConnection` action.
 
-```
+```json
 {
     "EventId": "672837cd-f977-4fe2-95c7-14280b2af76c",
     "EventName": "DeleteConnection",
@@ -501,7 +500,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetCon
 
 The following example shows a CloudTrail log entry that demonstrates the `GetHost` action.
 
-```
+```json
 {
     "EventId": "faa147e7-fe7c-4ab9-a11b-2568a2883c01",
     "EventName": "GetHost",
@@ -563,7 +562,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetHos
 
 The following example shows a CloudTrail log entry that demonstrates the `GetRepositoryLink` action.
 
-```
+```json
 {
     "EventId": "b46acb67-3612-41c7-8987-adb6c9ed4ad4",
     "EventName": "GetRepositoryLink",
@@ -634,7 +633,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetRep
 
 The following example shows a CloudTrail log entry that demonstrates the [GetRepositorySyncStatus](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetRepositorySyncStatus.html) action.
 
-```
+```json
 {
     "EventId": "3e183b74-d8c4-4ad3-9de3-6b5721c522e9",
     "EventName": "GetRepositorySyncStatus",
@@ -700,7 +699,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetRep
 
 The following example shows a CloudTrail log entry that demonstrates the [GetResourceSyncStatus](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetResourceSyncStatus.html) action.
 
-```
+```json
 {
     "EventId": "9c47054e-f6f6-4345-96d0-9a5af3954a8d",
     "EventName": "GetResourceSyncStatus",
@@ -763,7 +762,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetRes
 
 The following example shows a CloudTrail log entry that demonstrates the [GetSyncBlockerSummary](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetSyncBlockerSummary.html) action.
 
-```
+```json
 {
     "EventId": "c16699ba-a788-476d-8c6c-47511d76309e",
     "EventName": "GetSyncBlockerSummary",
@@ -831,7 +830,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetSyn
 
 The following example shows a CloudTrail log entry that demonstrates the [GetSyncConfiguration](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetSyncConfiguration.html) action.
 
-```
+```json
 {
     "EventId": "bab9aa16-4553-4206-a1ea-88219233dd25",
     "EventName": "GetSyncConfiguration",
@@ -906,7 +905,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetSyn
 
 The following example shows a CloudTrail log entry that demonstrates the [ListConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListConnections.html) action.
 
-```
+```json
 {
     "EventId": "3f8d80fe-fbe1-4755-903c-4f58fc8262fa",
     "EventName": "ListConnections",
@@ -968,7 +967,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListCo
 
 The following example shows a CloudTrail log entry that demonstrates the [ListHosts](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListHosts.html) action.
 
-```
+```json
 {
     "EventId": "f6e9e831-feaf-4ad1-ac47-51681109c401",
     "EventName": "ListHosts",
@@ -1030,7 +1029,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListHo
 
 The following example shows a CloudTrail log entry that demonstrates the [ListRepositoryLinks](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListRepositoryLinks.html) action.
 
-```
+```json
 {
     "EventId": "4f714bbb-0716-4f6e-9868-9b379b30757f",
     "EventName": "ListRepositoryLinks",
@@ -1111,7 +1110,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListRe
 
 The following example shows a CloudTrail log entry that demonstrates the [ListRepositorySyncDefinitions](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListRepositorySyncDefinitions.html) action.
 
-```
+```json
 {
     "EventId": "12e52dbb-b00d-49ad-875a-3efec36e5aa1",
     "EventName": "ListRepositorySyncDefinitions",
@@ -1176,7 +1175,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListRe
 
 The following example shows a CloudTrail log entry that demonstrates the [ListSyncConfigurations](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListSyncConfigurations.html) action.
 
-```
+```json
 {
     "EventId": "aa4ae557-ec31-4151-8d21-9e74dd01344c",
     "EventName": "ListSyncConfigurations",
@@ -1255,7 +1254,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListSy
 
 The following example shows a CloudTrail log entry that demonstrates the [ListTagsForResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListTagsForResource.html) action.
 
-```
+```json
 {
     "EventId": "fc501054-d68a-4325-824c-0e34062ef040",
     "EventName": "ListTagsForResource",
@@ -1317,7 +1316,7 @@ The following example shows a CloudTrail log entry that demonstrates the [ListTa
 
 The following example shows a CloudTrail log entry that demonstrates the [TagResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_TagResource.html) action.
 
-```
+```json
 {
     "EventId": "b7fbc943-2dd1-4c5b-a5ad-fc6d60a011f1",
     "EventName": "TagResource",
@@ -1385,7 +1384,7 @@ The following example shows a CloudTrail log entry that demonstrates the [TagRes
 
 The following example shows a CloudTrail log entry that demonstrates the [UntagResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UntagResource.html) action.
 
-```
+```json
 {
     "EventId": "8a85cdee-2586-4679-be18-eec34204bc7e",
     "EventName": "UntagResource",
@@ -1451,7 +1450,7 @@ The following example shows a CloudTrail log entry that demonstrates the [UntagR
 
 The following example shows a CloudTrail log entry that demonstrates the [UpdateHost](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateHost.html) action.
 
-```
+```json
 "Events": [{
         "EventId": "4307cf7d-6d1c-40d9-a659-1bb41b31a2b6",
         "EventName": "UpdateHost",
@@ -1511,7 +1510,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 
 The following example shows a CloudTrail log entry that demonstrates the [UpdateRepositoryLink](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateRepositoryLink.html) action.
 
-```
+```json
 {
     "EventId": "be358c9a-5a8f-467e-8585-2860070be4fe",
     "EventName": "UpdateRepositoryLink",
@@ -1586,7 +1585,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 
 The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncBlocker](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateSyncBlocker.html) action.
 
-```
+```json
 {
     "EventId": "211d19db-9f71-4d93-bf90-10f9ddefed88",
     "EventName": "UpdateSyncBlocker",
@@ -1651,7 +1650,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 
 The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncConfiguration](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateSyncConfiguration.html) action.
 
-```
+```json
 {
     "EventId": "d961c94f-1881-4fe8-83bf-d04cb9f22577",
     "EventName": "UpdateSyncConfiguration",

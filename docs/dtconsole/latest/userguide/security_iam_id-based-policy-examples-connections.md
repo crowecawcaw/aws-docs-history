@@ -1,7 +1,6 @@
 
 
 # Permissions and examples for AWS CodeConnections
-<a name="security_iam_id-based-policy-examples-connections"></a>
 
 The following policy statements and examples can help you manage AWS CodeConnections.
 
@@ -22,7 +21,7 @@ To use the console to view a list of available connections, view tags, and use a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ For resources created using the console, policy statement actions must include `
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -94,6 +93,79 @@ For resources created using the console, policy statement actions must include `
 
 ------
 
+## Example: Policy for creating and completing GitHub Enterprise Cloud with data residency connections
+<a name="security_iam_id-based-policy-examples-ghec-dr"></a>
+
+To limit a role or user to creating and completing GitHub Enterprise Cloud with data residency connections, grant only the following permissions. The policy uses the `codeconnections:ProviderType` condition key to allow the connection-creation and handshake actions only when the request specifies the `GitHubEnterpriseCloudDataResidency` provider type. The policy also includes the permissions to get the connection and to list GitHub Enterprise Cloud with data residency connections while you complete the connection.
+
+The policy includes the following statements:
++ The first statement allows `CreateConnection`, `StartOAuthHandshake`, `GetIndividualAccessToken`, and `GetInstallationUrl` only when the request specifies the `GitHubEnterpriseCloudDataResidency` provider type. The statement scopes the actions to the AWS Region and account.
++ The second statement allows `ListInstallationTargets` in the AWS Region and account. This action doesn't support the `codeconnections:ProviderType` condition key, so the statement has no condition.
++ The third statement allows `ListConnections` in the AWS Region and account only when the request uses the `codeconnections:ProviderTypeFilter` condition key to filter for the `GitHubEnterpriseCloudDataResidency` provider type.
++ The fourth statement allows `UpdateConnectionInstallation` and `GetConnection` on connections in the Region and account. These actions don't support the `codeconnections:ProviderType` condition key, so the statement has no condition.
+
+The following example shows the complete policy. Replace {{us-west-2}} with the AWS Region where you create the connection, and {{111122223333}} with your AWS account ID.
+
+```json
+{
+    "Version": "2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "CreateGhecDrConnections",
+            "Effect": "Allow",
+            "Action": [
+                "codeconnections:CreateConnection",
+                "codeconnections:StartOAuthHandshake",
+                "codeconnections:GetIndividualAccessToken",
+                "codeconnections:GetInstallationUrl"
+            ],
+            "Resource": "arn:aws:codeconnections:{{us-west-2}}:{{111122223333}}:*",
+            "Condition": {
+                "StringEquals": {
+                    "codeconnections:ProviderType": "GitHubEnterpriseCloudDataResidency"
+                }
+            }
+        },
+        {
+            "Sid": "ListGhecDrInstallationTargets",
+            "Effect": "Allow",
+            "Action": [
+                "codeconnections:ListInstallationTargets"
+            ],
+            "Resource": "arn:aws:codeconnections:{{us-west-2}}:{{111122223333}}:*"
+        },
+        {
+            "Sid": "ListGhecDrConnections",
+            "Effect": "Allow",
+            "Action": [
+                "codeconnections:ListConnections"
+            ],
+            "Resource": "arn:aws:codeconnections:{{us-west-2}}:{{111122223333}}:*",
+            "Condition": {
+                "StringEquals": {
+                    "codeconnections:ProviderTypeFilter": "GitHubEnterpriseCloudDataResidency"
+                }
+            }
+        },
+        {
+            "Sid": "CompleteGhecDrConnections",
+            "Effect": "Allow",
+            "Action": [
+                "codeconnections:UpdateConnectionInstallation",
+                "codeconnections:GetConnection"
+            ],
+            "Resource": "arn:aws:codeconnections:{{us-west-2}}:{{111122223333}}:connection/*"
+        }
+    ]
+}
+```
+
+**Note**  
+To add tags when you create the connection, you also need `codeconnections:TagResource`. To use the connection after it's available, you need `codeconnections:UseConnection`. For more information, see [AWS CodeConnections permissions reference](security-iam.md#permissions-reference-connections).  
+The **Connections** list page in the console calls `ListConnections` without a provider type filter. To view the full list of connections in the console, you also need `codeconnections:ListConnections` without the `codeconnections:ProviderTypeFilter` condition.
+
+For more information about creating these connections, see [Create a connection to GitHub Enterprise Cloud with data residency](connections-create-ghec-dr.md).
+
 ## Example: An administrator-level policy for managing AWS CodeConnections
 <a name="security_iam_id-based-policy-examples-connections-fullaccess"></a>
 
@@ -104,7 +176,7 @@ In this example, you want to grant an IAM user in your AWS account full access t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -144,7 +216,7 @@ In this example, you want to grant access to the day-to-day usage of AWS CodeCon
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +253,7 @@ In this example, you want to grant an IAM user in your account read-only access 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "ConnectionsforReadOnly",
@@ -214,7 +286,7 @@ In the following example, the customer can use the **VpcId** context key to limi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

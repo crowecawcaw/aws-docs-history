@@ -1,7 +1,6 @@
 
 
 # Logging AWS CodeStar Notifications API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS CodeStar Notifications is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for notifications as events. The calls captured include calls from the Developer Tools console and code calls to the AWS CodeStar Notifications API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for notifications. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS CodeStar Notifications, the IP address from which the request was made, who made the request, when it was made, and other details. 
 
@@ -37,7 +36,7 @@ The following example shows a CloudTrail log entry that demonstrates the creatio
 **Note**  
 Some of the events in notification log file entries might come from the service-linked role AWSServiceRoleForCodeStarNotifications.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

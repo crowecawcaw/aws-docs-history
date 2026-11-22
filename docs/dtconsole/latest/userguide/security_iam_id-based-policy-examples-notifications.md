@@ -1,7 +1,6 @@
 
 
 # Permissions and examples for AWS CodeStar Notifications
-<a name="security_iam_id-based-policy-examples-notifications"></a>
 
 The following policy statements and examples can help you manage AWS CodeStar Notifications.
 
@@ -168,7 +167,7 @@ This policy contains allows `CreateNotificationRule`. Any user with this policy 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -205,22 +204,24 @@ In this example, you want to grant access to the day-to-day usage of AWS CodeSta
 **Note**  
 This policy contains allows `CreateNotificationRule`. Any user with this policy applied to their IAM user or role will be able to create notification rules for any and all resource types supported by AWS CodeStar Notifications in the AWS account, even if that user does not have access to those resources themselves. For example, a user with this policy could create a notification rule for a CodeCommit repository without having permissions to access CodeCommit itself.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
-    "Sid": "AWSCodeStarNotificationsPowerUserAccess",
-        "Effect": "Allow",
-        "Action": [
-            "codestar-notifications:CreateNotificationRule",
-            "codestar-notifications:DescribeNotificationRule",
-            "codestar-notifications:ListNotificationRules",
-            "codestar-notifications:UpdateNotificationRule",
-            "codestar-notifications:Subscribe",
-            "codestar-notifications:Unsubscribe",
-            "codestar-notifications:ListTargets",
-            "codestar-notifications:ListTagsforResource"
-        ],
-        "Resource": "*"
+    "Statement": [
+        {
+            "Sid": "AWSCodeStarNotificationsPowerUserAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:CreateNotificationRule",
+                "codestar-notifications:DescribeNotificationRule",
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:UpdateNotificationRule",
+                "codestar-notifications:Subscribe",
+                "codestar-notifications:Unsubscribe",
+                "codestar-notifications:ListTargets",
+                "codestar-notifications:ListTagsforResource"
+            ],
+            "Resource": "*"
         }
     ]
 }
@@ -236,7 +237,7 @@ In this example, you want to grant an IAM user in your account read-only access 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "CodeNotificationforReadOnly",

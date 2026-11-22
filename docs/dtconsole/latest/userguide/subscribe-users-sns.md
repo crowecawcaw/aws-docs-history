@@ -1,7 +1,6 @@
 
 
 # Subscribe users to Amazon SNS topics that are targets
-<a name="subscribe-users-sns"></a>
 
 Before users can receive notifications, they must be subscribed to the Amazon SNS topic that is the target of the notification rule. If users are subscribed by email address, they must confirm their subscription before they receive notifications. To send notifications to users in Slack channels, Microsoft Teams channels, or Amazon Chime chatrooms, see [Configure integration between notifications and AWS Chatbot](notifications-chatbot.md).<a name="set-up-sns-subscribe"></a>
 

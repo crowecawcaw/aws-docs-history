@@ -1,7 +1,6 @@
 
 
 # Global resources in AWS CodeConnections
-<a name="welcome-connections-how-it-works-global"></a>
 
 Connections are global resources, meaning that the resource is replicated across all AWS Regions.
 

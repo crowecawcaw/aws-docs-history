@@ -1,7 +1,6 @@
 
 
 # Update a sync configuration
-<a name="syncconfigurations-update"></a>
 
 You can use the **update-sync-configuration** command in the AWS Command Line Interface (AWS CLI) to update a specified sync configuration.
 

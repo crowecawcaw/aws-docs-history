@@ -1,7 +1,6 @@
 
 
 # List hosts
-<a name="connections-host-list"></a>
 
 You can use the Developer Tools console or the **list-connections** command in the AWS Command Line Interface (AWS CLI) to view a list of connections in your account.
 
@@ -24,7 +23,7 @@ To do this, use the **list-hosts** command.
 **To list hosts**
 + Open a terminal (Linux, macOS, or Unix) or command prompt (Windows), and use the AWS CLI to run the **list-hosts** command.
 
-  ```
+  ```shell
   aws codeconnections list-hosts
   ```
 

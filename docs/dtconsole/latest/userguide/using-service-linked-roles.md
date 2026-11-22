@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS CodeStar Notifications
-<a name="using-service-linked-roles"></a>
 
 AWS CodeStar Notifications uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to AWS CodeStar Notifications. Service-linked roles are predefined by AWS CodeStar Notifications and include all the permissions that the service requires to call other AWS services on your behalf. This role is created for you the first time you create a notification rule. You don't have to create the role.
 
@@ -41,7 +40,7 @@ You can see these actions in the policy statement for the AWSServiceRoleForCodeS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

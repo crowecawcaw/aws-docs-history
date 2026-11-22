@@ -1,7 +1,6 @@
 
 
 # Working with hosts
-<a name="connections-hosts"></a>
 
 To create a connection to an installed provider type, such as GitHub Enterprise Server, you first create a host using the AWS Management Console. A host is a resource that you create to represent the infrastructure where your provider is installed. Then you create a connection using that host. For more information, see [Working with connections](connections.md).
 
