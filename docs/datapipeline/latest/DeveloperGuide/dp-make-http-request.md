@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Making an HTTP Request to AWS Data Pipeline
-<a name="dp-make-http-request"></a>
 
 For a complete description of the programmatic objects in AWS Data Pipeline, see the [AWS Data Pipeline API Reference](https://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html). 
 

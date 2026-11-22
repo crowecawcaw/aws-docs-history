@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # What is AWS Data Pipeline?
-<a name="what-is-datapipeline"></a>
 
 **Note**  
 AWS Data Pipeline service is in maintenance mode and no new features or region expansions are planned. To learn more and to find out how to migrate your existing workloads, see [Migrating workloads from AWS Data Pipeline](migration.md).

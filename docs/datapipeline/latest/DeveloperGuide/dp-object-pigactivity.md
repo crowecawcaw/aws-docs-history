@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # PigActivity
-<a name="dp-object-pigactivity"></a>
 
 PigActivity provides native support for Pig scripts in AWS Data Pipeline without the requirement to use `ShellCommandActivity` or `EmrActivity`. In addition, PigActivity supports data staging. When the stage field is set to true, AWS Data Pipeline stages the input data as a schema in Pig without additional code from the user. 
 

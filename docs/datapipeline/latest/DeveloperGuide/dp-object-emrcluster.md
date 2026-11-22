@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # EmrCluster
-<a name="dp-object-emrcluster"></a>
 
 Represents the configuration of an Amazon EMR cluster. This object is used by [EmrActivity](dp-object-emractivity.md) and [HadoopActivity](dp-object-hadoopactivity.md) to launch a cluster.
 
@@ -69,7 +68,7 @@ s3://datapipeline-{{MyRegion}}/{{MyRegion}}/bootstrap-actions/latest/TaskRunner/
 
 The following example specifies a bootstrap action that copies two Jar files in Amazon S3: `my-jar-file.jar` and the `emr-dynamodb-tool-4.14.0-jar-with-dependencies.jar`. The Region used in the example is us-west-2.
 
-```
+```json
 {
   "id" : "{{MyEmrCluster}}",
   "type" : "EmrCluster",

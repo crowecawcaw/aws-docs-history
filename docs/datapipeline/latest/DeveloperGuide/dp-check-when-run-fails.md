@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Resolving Common Problems
-<a name="dp-check-when-run-fails"></a>
 
 This topic provides various symptoms of AWS Data Pipeline problems and the recommended steps to solve them. 
 
@@ -30,7 +29,7 @@ A pipeline that appears stuck in the PENDING status indicates that a pipeline ha
 
 To view your pipeline definition on the screen using the CLI:
 
-```
+```bash
 aws datapipeline --get-pipeline-definition --pipeline-id {{df-EXAMPLE_PIPELINE_ID}}
 ```
 

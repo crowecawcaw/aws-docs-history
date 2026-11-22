@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Migrating workloads from AWS Data Pipeline
-<a name="migration"></a>
 
 AWS launched the AWS Data Pipeline service in 2012. At that time, customers were looking for a service to help them reliably move data between different data sources using a variety of compute options. Now, there are other services that offer customers a better experience. For example, you can use AWS Glue to to run and orchestrate Apache Spark applications, AWS Step Functions to help orchestrate AWS service components, or Amazon Managed Workflows for Apache Airflow (Amazon MWAA) to help manage workflow orchestration for Apache Airflow.
 
@@ -38,7 +37,7 @@ We recommend migrating your AWS Data Pipeline workload to AWS Step Functions whe
 + You're looking for a low-code solution that comes with a drag-and-drop visual designer for workflow creation and does not require learning new programming concepts.
 + You're looking for a service that provides integrations with over 250 other AWS services covering over 11,000 actions out-of-the-box, as well as allowing integrations with custom non-AWS services and activities.
 
-Both AWS Data Pipeline and Step Functions use JSON format to define workflows. This allows to store your workflows in source control, manage versions, control access, and automate with CI/CD. Step Functions are using a syntax called Amazon State Language which is fully based on JSON, and allows a seamless transition between the textual and visual representations of the workflow.
+Both AWS Data Pipeline and Step Functions use JSON format to define workflows. This allows to store your workflows in source control, manage versions, control access, and automate with CI/CD. Step Functions are using a syntax called Amazon States Language which is fully based on JSON, and allows a seamless transition between the textual and visual representations of the workflow.
 
 With Step Functions, you can choose the same version of Amazon EMR that you're currently using in AWS Data Pipeline.
 
@@ -77,7 +76,7 @@ The following table contains mapping of major concepts used by the services. It 
 | Data Pipeline | Glue | Step Functions | Amazon MWAA | 
 | --- | --- | --- | --- | 
 | Pipelines | [Workflows](https://docs.aws.amazon.com/glue/latest/dg/workflows_overview.html) | [Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) | [Direct acylic graphs](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html) | 
-| Pipeline definition JSON | [Workflow definition](https://docs.aws.amazon.com/glue/latest/dg/creating_running_workflows.html) or [Python-based blueprints](https://docs.aws.amazon.com/glue/latest/dg/blueprints-overview.html) | [Amazon State Language JSON](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) | [Python-based](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html#example-pipeline-definition) | 
+| Pipeline definition JSON | [Workflow definition](https://docs.aws.amazon.com/glue/latest/dg/creating_running_workflows.html) or [Python-based blueprints](https://docs.aws.amazon.com/glue/latest/dg/blueprints-overview.html) | [Amazon States Language JSON](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) | [Python-based](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html#example-pipeline-definition) | 
 | Activities | [Jobs](https://docs.aws.amazon.com/glue/latest/dg/etl-jobs-section.html) | [States](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-states.html) and [Tasks](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html) | [Tasks](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html) ([Operators](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) and [Sensors](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/sensors.html)) | 
 | Instances | [Job runs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html) | [Executions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-executions.html) | [DAG runs](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dag-run.html) | 
 | Attempts | Retry attempts | [Catchers and retriers](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html) | [Retries](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#default-arguments) | 

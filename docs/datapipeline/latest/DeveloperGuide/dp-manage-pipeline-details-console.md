@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Viewing Pipeline Instance Details
-<a name="dp-manage-pipeline-details-console"></a>
 
 You can monitor the progress of your pipeline. For more information about instance status, see [Interpreting Pipeline Status Details](dp-pipeline-status.md). For more information about troubleshooting failed or incomplete instance runs of your pipeline, see [Resolving Common Problems](dp-check-when-run-fails.md).
 

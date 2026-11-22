@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Pipeline Definition
-<a name="dp-how-pipeline-definition"></a>
 
  A pipeline definition is how you communicate your business logic to AWS Data Pipeline. It contains the following information: 
 +  Names, locations, and formats of your data sources 

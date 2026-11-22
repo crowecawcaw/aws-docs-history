@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Attach EBS volumes to cluster nodes
-<a name="emrcluster-example-ebs"></a>
 
 **Example**  <a name="example8"></a>
 You can attach EBS volumes to any type of node in the EMR cluster within your pipeline. To attach EBS volumes to nodes, use `coreEbsConfiguration`, `masterEbsConfiguration`, and `TaskEbsConfiguration` in your `EmrCluster` configuration.   
@@ -11,7 +10,7 @@ This example of the Amazon EMR cluster uses Amazon EBS volumes for its master, t
 These configurations are optional. You can use them in any pipeline that uses an `EmrCluster` object.  
 In the pipeline, click the `EmrCluster` object configuration, choose **Master EBS Configuration**, **Core EBS Configuration**, or **Task EBS Configuration**, and enter the configuration details similar to the following example.  
 
-```
+```json
 {
   "objects": [
     {

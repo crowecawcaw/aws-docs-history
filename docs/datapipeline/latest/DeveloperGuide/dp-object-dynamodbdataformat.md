@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # DynamoDBDataFormat
-<a name="dp-object-dynamodbdataformat"></a>
 
 Applies a schema to a DynamoDB table to make it accessible by a Hive query. `DynamoDBDataFormat` is used with a `HiveActivity` object and a `DynamoDBDataNode` input and output. `DynamoDBDataFormat` requires that you specify all columns in your Hive query. For more flexibility to specify certain columns in a Hive query or Amazon S3 support, see [DynamoDBExportDataFormat](dp-object-dynamodbexportdataformat.md).
 

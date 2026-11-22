@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Custom Data Format
-<a name="dp-object-custom"></a>
 
 A custom data format defined by a combination of a certain column separator, record separator, and escape character.
 

@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Task Runner Configuration Options
-<a name="dp-taskrunner-config-options"></a>
 
 These are the configuration options available from the command line when you launch Task Runner. 
 

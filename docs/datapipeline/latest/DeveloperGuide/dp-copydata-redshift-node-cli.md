@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Data Nodes
-<a name="dp-copydata-redshift-node-cli"></a>
 
 This example uses an input data node, an output data node, and a database.
 

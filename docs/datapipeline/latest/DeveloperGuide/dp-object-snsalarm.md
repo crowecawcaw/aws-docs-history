@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # SnsAlarm
-<a name="dp-object-snsalarm"></a>
 
  Sends an Amazon SNS notification message when an activity fails or finishes successfully. 
 
@@ -12,7 +11,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 The following is an example of this object type. The values for `node.input` and `node.output` come from the data node or activity that references this object in its `onSuccess` field. 
 
-```
+```json
 {
   "id" : "SuccessNotify",
   "name" : "SuccessNotify",

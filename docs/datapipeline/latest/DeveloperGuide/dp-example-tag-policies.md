@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Example Policies for AWS Data Pipeline
-<a name="dp-example-tag-policies"></a>
 
 The following examples demonstrate how to grant users full or restricted access to pipelines.
 
@@ -25,7 +24,7 @@ The ListPipelines API action does not support tag-based authorization.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ The following policy allows users to use all AWS Data Pipeline API actions, with
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -103,7 +102,7 @@ This policy includes the action for `PassRole` permissions for specific resource
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [{

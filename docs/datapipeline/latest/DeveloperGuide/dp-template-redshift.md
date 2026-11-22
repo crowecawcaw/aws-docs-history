@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Amazon RDS to Amazon Redshift templates
-<a name="dp-template-redshift"></a>
 
 The following two templates copy tables from Amazon RDS MySQL to Amazon Redshift using a translation script, which creates an Amazon Redshift table using the source table schema with the following caveats: 
 + If a distribution key is not specified, the first primary key from the Amazon RDS table is set as the distribution key.

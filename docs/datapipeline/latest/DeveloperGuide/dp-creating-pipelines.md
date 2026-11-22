@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Creating a pipeline
-<a name="dp-creating-pipelines"></a>
 
 AWS Data Pipeline provides several ways for you to create pipelines:
 + Use the AWS Command Line Interface (CLI) with a template provided for your convenience. For more information, see [Create a pipeline from Data Pipeline templates using the CLI](dp-cli-templates.md).

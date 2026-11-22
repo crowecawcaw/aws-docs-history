@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Ec2Resource
-<a name="dp-object-ec2resource"></a>
 
 An Amazon EC2 instance that performs the work defined by a pipeline activity.
 

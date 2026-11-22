@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # HttpProxy
-<a name="dp-object-httpproxy"></a>
 
 HttpProxy allows you to configure your own proxy and make Task Runner access the AWS Data Pipeline service through it. You do not need to configure a running Task Runner with this information.
 
@@ -12,7 +11,7 @@ HttpProxy allows you to configure your own proxy and make Task Runner access the
 
 The following pipeline definition shows an `HttpProxy` object:
 
-```
+```json
 {
   "objects": [
     {

@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Copy CSV Data Using the Command Line
-<a name="dp-get-started-copy-data-cli"></a>
 
 You can create and use pipelines to copy data from one Amazon S3 bucket to another.
 

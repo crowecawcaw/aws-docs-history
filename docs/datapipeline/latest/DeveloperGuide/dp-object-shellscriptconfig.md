@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # ShellScriptConfig
-<a name="dp-object-shellscriptconfig"></a>
 
 Use with an Activity to run a shell script for preActivityTaskConfig and postActivityTaskConfig. This object is available for [HadoopActivity](dp-object-hadoopactivity.md), [HiveActivity](dp-object-hiveactivity.md), [HiveCopyActivity](dp-object-hivecopyactivity.md), and [PigActivity](dp-object-pigactivity.md). You specify an S3 URI and a list of arguments for the script.
 

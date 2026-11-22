@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # CopyActivity
-<a name="dp-object-copyactivity"></a>
 
 Copies data from one location to another. `CopyActivity` supports [S3DataNode](dp-object-s3datanode.md) and [SqlDataNode](dp-object-sqldatanode.md) as input and output and the copy operation is normally performed record-by-record. However, `CopyActivity` provides a high-performance Amazon S3 to Amazon S3 copy when all the following conditions are met:
 + The input and output are S3DataNodes

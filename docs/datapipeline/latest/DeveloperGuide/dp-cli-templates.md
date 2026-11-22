@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Create a pipeline from Data Pipeline templates using the CLI
-<a name="dp-cli-templates"></a>
 
 Data Pipeline provides several pre-configured pipeline definitions, known as templates. You can use templates to get started with AWS Data Pipeline quickly. These templates are available in a public bucket at the Amazon S3 location: `s3://datapipeline-us-east-1/templates/`. These predefined templates are created to achieve specific use cases and can be used to create pipelines. You can use `aws s3 ls --recursive "s3://datapipeline-us-east-1/templates/"` to list all the available templates.
 

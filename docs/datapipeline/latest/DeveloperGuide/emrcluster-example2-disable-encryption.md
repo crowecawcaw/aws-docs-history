@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Disable server-side encryption on 4.x releases
-<a name="emrcluster-example2-disable-encryption"></a>
 
 **Example**  <a name="example4"></a>
 You must disable server-side encryption using a `EmrConfiguration` object.  

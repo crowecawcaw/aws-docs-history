@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Working with pipelines
-<a name="dp-managing-pipeline"></a>
 
 You can administer, create, and modify pipelines using the command line interface (CLI) or AWS SDK. The following sections introduce fundamental AWS Data Pipeline concepts and show you how to work with pipelines.
 

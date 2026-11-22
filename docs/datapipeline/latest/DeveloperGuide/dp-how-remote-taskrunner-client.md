@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Task Runners
-<a name="dp-how-remote-taskrunner-client"></a>
 
  A task runner is an application that polls AWS Data Pipeline for tasks and then performs those tasks. 
 

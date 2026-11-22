@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # TSV Data Format
-<a name="dp-object-tsv"></a>
 
 A comma-delimited data format where the column separator is a tab character and the record separator is a newline character.
 

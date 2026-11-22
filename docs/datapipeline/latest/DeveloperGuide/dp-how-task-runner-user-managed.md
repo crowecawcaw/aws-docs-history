@@ -3,7 +3,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Executing Work on Existing Resources Using Task Runner
-<a name="dp-how-task-runner-user-managed"></a>
 
 You can install Task Runner on computational resources that you manage, such as an Amazon EC2 instance, or a physical server or workstation. Task Runner can be installed anywhere, on any compatible hardware or operating system, provided that it can communicate with the AWS Data Pipeline web service.
 
@@ -46,7 +45,7 @@ This section explains how to install and configure Task Runner and its prerequis
 
 1. Download `TaskRunner-1.0.jar` from [https://s3.amazonaws.com/datapipeline-us-east-1/us-east-1/software/latest/TaskRunner/TaskRunner-1.0.jar](https://s3.amazonaws.com/datapipeline-us-east-1/us-east-1/software/latest/TaskRunner/TaskRunner-1.0.jar) and then copy it into a folder on the target computing resource. For Amazon EMR clusters running `EmrActivity` tasks, install Task Runner on the master node of the cluster.
 
-1. When using Task Runner to connect to the AWS Data Pipeline web service to process your commands, users need programmatic access to a role that has permissions to create or manage data pipelines. For more information, see [Granting programmatic access](dp-get-setup.md#dp-grant-programmatic-access).
+1. When using Task Runner to connect to the AWS Data Pipeline web service to process your commands, users need programmatic access to a role that has permissions to create or manage data pipelines. For more information, see [IAM Roles for AWS Data Pipeline](dp-iam-roles.md).
 
 1. Task Runner connects to the AWS Data Pipeline web service using HTTPS. If you are using an AWS resource, ensure that HTTPS is enabled in the appropriate routing table and subnet ACL. If you are using a firewall or proxy, ensure that port 443 is open.
 
