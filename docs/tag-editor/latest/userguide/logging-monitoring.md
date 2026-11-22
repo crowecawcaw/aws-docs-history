@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Tag Editor
-<a name="logging-monitoring"></a>
 
 All Tag Editor actions are logged in AWS CloudTrail.
 

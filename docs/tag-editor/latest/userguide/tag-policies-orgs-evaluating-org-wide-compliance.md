@@ -1,7 +1,6 @@
 
 
 # Evaluating organization-wide compliance
-<a name="tag-policies-orgs-evaluating-org-wide-compliance"></a>
 
 You can evaluate your organization's compliance with its effective tag policy. You can generate a report that lists all tagged resources in accounts across your organization and whether each resource is compliant with the effective tag policy.
 

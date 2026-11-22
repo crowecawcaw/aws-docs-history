@@ -1,7 +1,6 @@
 
 
 # Troubleshooting tag changes
-<a name="troubleshooting-tags"></a>
 
 The following checklist might be helpful if errors occur when you try to apply or change tags on selected resources in [**Find resources to tag**](find-resources-to-tag.md) query results.
 + The resource might already have the maximum number of tags. Generally, resources can have a maximum of 50 user-defined tags. AWS generated tags don't count toward the 50-tag maximum. Other users might also be adding tags to the same resource at the same time, which could raise the resource's tags to the maximum.
@@ -16,4 +15,4 @@ The following checklist might be helpful if errors occur when you try to apply o
 ## Retry failed tag changes
 <a name="tagging-resources-retry"></a>
 
-If tag changes fail on at least one of your selected resources, Tag Editor displays a red banner at the bottom of the page. The banner shows an error message for each type of failure that occurs. For each error, the banner identifies the specific resources on which Tag Editor couldn't make tag changes. After you review and [troubleshoot the errors](#troubleshooting-tags), choose **Retry failed tag changes on resources** to retry changes on only those resources on which tag changes failed.
+If tag changes fail on at least one of your selected resources, Tag Editor displays a red banner at the bottom of the page. The banner shows an error message for each type of failure that occurs. For each error, the banner identifies the specific resources on which Tag Editor couldn't make tag changes. After you review and [troubleshoot the errors](troubleshooting-tags.md), choose **Retry failed tag changes on resources** to retry changes on only those resources on which tag changes failed.

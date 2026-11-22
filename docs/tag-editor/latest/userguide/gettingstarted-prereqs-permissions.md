@@ -1,7 +1,6 @@
 
 
 # Set up permissions
-<a name="gettingstarted-prereqs-permissions"></a>
 
 To make full use of Tag Editor, you might need additional permissions to tag resources or to see a resource's tag keys and values. These permissions are in the following categories: 
 + Permissions for individual services so that you can tag resources from those services and include them in resource groups.
@@ -42,7 +41,7 @@ An allowlist strategy takes advantage of the fact that access is denied by defau
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -61,7 +60,7 @@ Alternatively, you could use a denylist strategy that allows access to all resou
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -115,7 +114,7 @@ To add a policy for using AWS Resource Groups and Tag Editor to a role, do the f
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

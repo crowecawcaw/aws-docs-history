@@ -1,7 +1,6 @@
 
 
 # Edit tags of selected resources
-<a name="tagging-resources-edit"></a>
 
 You can use Tag Editor to change existing tag values on selected resources that are in the results of your [**Find resources to tag**](find-resources-to-tag.md) query. Editing a tag changes the tag's value on all selected resources that have the same tag key. You can't rename a tag key, but you can delete a tag and create a tag with a new name to replace the original tag key. This deletes all tags with that key on selected resources.
 

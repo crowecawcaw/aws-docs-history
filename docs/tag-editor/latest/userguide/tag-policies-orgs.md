@@ -1,7 +1,6 @@
 
 
 # AWS Organizations tag policies
-<a name="tag-policies-orgs"></a>
 
 A [*tag policy*](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) is a type of policy that you create in AWS Organizations. You can use tag policies to help standardize tags across the resources in your organization's accounts. To use tag policies, we recommend that you follow the workflows described in [Getting started with tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-getting-started.html) in the *AWS Organizations User Guide*. As mentioned on that page, the recommended workflows include finding and correcting noncompliant tags. To accomplish these tasks, you use the Tag Editor console. 
 
@@ -43,7 +42,7 @@ The following example AWS Identity and Access Management (IAM) policy provides p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -91,7 +90,7 @@ The following example IAM policy provides permissions for evaluating organizatio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -182,7 +181,7 @@ If the account associated with the identity used to call the `StartReportCreatio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 

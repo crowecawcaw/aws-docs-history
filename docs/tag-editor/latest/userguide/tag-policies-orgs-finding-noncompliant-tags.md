@@ -1,7 +1,6 @@
 
 
 # Evaluating compliance for an account
-<a name="tag-policies-orgs-finding-noncompliant-tags"></a>
 
 You can evaluate the compliance of an account in your organization with its effective tag policy.
 

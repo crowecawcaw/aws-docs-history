@@ -1,7 +1,6 @@
 
 
 # Service quotas
-<a name="reference"></a>
 
 The following table provides information about the service quotas for Tag Editor. 
 

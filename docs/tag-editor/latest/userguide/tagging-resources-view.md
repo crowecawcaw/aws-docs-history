@@ -1,7 +1,6 @@
 
 
 # View and edit existing tags for a selected resource
-<a name="tagging-resources-view"></a>
 
 Tag Editor shows you the existing tags on selected resources that are in the results of your **Find resources to tag** query. 
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for working with Tag Editor
-<a name="gettingstarted-prereqs"></a>
 
 Before you get started working to tag your resources, be sure you have an active AWS account with existing resources and appropriate rights to tag resources and create groups.
 

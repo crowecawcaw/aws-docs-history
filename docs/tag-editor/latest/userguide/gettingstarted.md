@@ -1,7 +1,6 @@
 
 
 # Getting started with Tag Editor
-<a name="gettingstarted"></a>
 
 **Important**  
 Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.

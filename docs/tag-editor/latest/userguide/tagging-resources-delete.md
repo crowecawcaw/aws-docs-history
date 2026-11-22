@@ -1,7 +1,6 @@
 
 
 # Remove tags from selected resources
-<a name="tagging-resources-delete"></a>
 
 You can use Tag Editor to remove tags from selected resources that are in the results of your [**Find resources to tag**](find-resources-to-tag.md) query. Removing a tag deletes the tag from all selected resources that have the tag. Because you can't edit tag keys, you can remove tags and replace them with new tags if you need to edit a tag key. This deletes all tags with that key on selected resources.
 

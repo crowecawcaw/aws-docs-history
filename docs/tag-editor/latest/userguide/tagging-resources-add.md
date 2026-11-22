@@ -1,7 +1,6 @@
 
 
 # Add tags to selected resources
-<a name="tagging-resources-add"></a>
 
 You can use Tag Editor to add tags to selected resources that are in the results of your **Find resources to tag** query.
 
