@@ -1,7 +1,6 @@
 
 
 # CreateConnector
-<a name="API_CreateConnector"></a>
 
 Creates a connector using the specified properties. 
 

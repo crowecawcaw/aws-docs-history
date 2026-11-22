@@ -1,7 +1,6 @@
 
 
 # ConnectorOperationStep
-<a name="API_ConnectorOperationStep"></a>
 
 Details of a step that is involved in a connector's operation.
 

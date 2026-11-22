@@ -1,7 +1,6 @@
 
 
 # FirehoseLogDelivery
-<a name="API_FirehoseLogDelivery"></a>
 
 The settings for delivering logs to Amazon Kinesis Data Firehose.
 

@@ -1,7 +1,6 @@
 
 
 # CustomPlugin
-<a name="API_CustomPlugin"></a>
 
 A plugin is an AWS resource that contains the code that defines a connector's logic.
 

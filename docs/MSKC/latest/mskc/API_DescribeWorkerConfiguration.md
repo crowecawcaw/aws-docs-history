@@ -1,7 +1,6 @@
 
 
 # DescribeWorkerConfiguration
-<a name="API_DescribeWorkerConfiguration"></a>
 
 Returns information about a worker configuration.
 

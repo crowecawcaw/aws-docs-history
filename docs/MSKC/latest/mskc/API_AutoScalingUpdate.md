@@ -1,7 +1,6 @@
 
 
 # AutoScalingUpdate
-<a name="API_AutoScalingUpdate"></a>
 
 The updates to the auto scaling parameters for the connector.
 

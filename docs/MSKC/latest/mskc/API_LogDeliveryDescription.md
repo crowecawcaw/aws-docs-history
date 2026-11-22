@@ -1,7 +1,6 @@
 
 
 # LogDeliveryDescription
-<a name="API_LogDeliveryDescription"></a>
 
 The description of the log delivery settings.
 

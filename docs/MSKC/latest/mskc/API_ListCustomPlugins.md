@@ -1,7 +1,6 @@
 
 
 # ListCustomPlugins
-<a name="API_ListCustomPlugins"></a>
 
 Returns a list of all of the custom plugins in this account and Region.
 

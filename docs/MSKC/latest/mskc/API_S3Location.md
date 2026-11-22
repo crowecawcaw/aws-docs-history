@@ -1,7 +1,6 @@
 
 
 # S3Location
-<a name="API_S3Location"></a>
 
 The location of an object in Amazon S3.
 

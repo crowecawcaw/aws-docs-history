@@ -1,7 +1,6 @@
 
 
 # Plugin
-<a name="API_Plugin"></a>
 
 A plugin is an AWS resource that contains the code that defines your connector logic. 
 

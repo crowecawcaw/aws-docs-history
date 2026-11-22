@@ -1,7 +1,6 @@
 
 
 # WorkerConfigurationDescription
-<a name="API_WorkerConfigurationDescription"></a>
 
 The description of the worker configuration.
 

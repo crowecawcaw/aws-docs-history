@@ -1,7 +1,6 @@
 
 
 # KafkaClusterClientAuthentication
-<a name="API_KafkaClusterClientAuthentication"></a>
 
 The client authentication information used in order to authenticate with the Apache Kafka cluster.
 

@@ -1,7 +1,6 @@
 
 
 # CustomPluginSummary
-<a name="API_CustomPluginSummary"></a>
 
 A summary of the custom plugin.
 

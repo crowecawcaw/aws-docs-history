@@ -1,7 +1,6 @@
 
 
 # CapacityUpdate
-<a name="API_CapacityUpdate"></a>
 
 The target capacity for the connector. The capacity can be auto scaled or provisioned.
 

@@ -1,7 +1,6 @@
 
 
 # S3LocationDescription
-<a name="API_S3LocationDescription"></a>
 
 The description of the location of an object in Amazon S3.
 

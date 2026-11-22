@@ -1,7 +1,6 @@
 
 
 # CapacityDescription
-<a name="API_CapacityDescription"></a>
 
 A description of the connector's capacity.
 

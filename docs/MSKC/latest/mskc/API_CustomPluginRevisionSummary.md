@@ -1,7 +1,6 @@
 
 
 # CustomPluginRevisionSummary
-<a name="API_CustomPluginRevisionSummary"></a>
 
 Details about the revision of a custom plugin.
 

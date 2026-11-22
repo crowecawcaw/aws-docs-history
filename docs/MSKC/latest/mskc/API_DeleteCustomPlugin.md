@@ -1,7 +1,6 @@
 
 
 # DeleteCustomPlugin
-<a name="API_DeleteCustomPlugin"></a>
 
 Deletes a custom plugin.
 

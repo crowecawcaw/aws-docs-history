@@ -1,7 +1,6 @@
 
 
 # S3LogDelivery
-<a name="API_S3LogDelivery"></a>
 
 Details about delivering logs to Amazon S3.
 

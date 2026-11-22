@@ -1,7 +1,6 @@
 
 
 # TagResource
-<a name="API_TagResource"></a>
 
 Attaches tags to the specified resource.
 

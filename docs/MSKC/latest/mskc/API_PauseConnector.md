@@ -1,7 +1,6 @@
 
 
 # PauseConnector
-<a name="API_PauseConnector"></a>
 
 Pauses the specified connector. The operation runs asynchronously. To track the pause, pass the connector operation ARN from the response to `DescribeConnectorOperation`.
 

@@ -1,7 +1,6 @@
 
 
 # WorkerConfigurationSummary
-<a name="API_WorkerConfigurationSummary"></a>
 
 The summary of a worker configuration.
 

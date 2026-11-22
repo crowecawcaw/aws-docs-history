@@ -1,7 +1,6 @@
 
 
 # KafkaClusterDescription
-<a name="API_KafkaClusterDescription"></a>
 
 Details of how to connect to the Apache Kafka cluster.
 

@@ -1,7 +1,6 @@
 
 
 # WorkerLogDelivery
-<a name="API_WorkerLogDelivery"></a>
 
 Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
 

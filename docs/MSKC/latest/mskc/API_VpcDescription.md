@@ -1,7 +1,6 @@
 
 
 # VpcDescription
-<a name="API_VpcDescription"></a>
 
 The description of the VPC in which the connector resides.
 

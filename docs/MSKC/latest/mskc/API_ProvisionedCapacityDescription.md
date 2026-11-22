@@ -1,7 +1,6 @@
 
 
 # ProvisionedCapacityDescription
-<a name="API_ProvisionedCapacityDescription"></a>
 
 The description of a connector's provisioned capacity.
 

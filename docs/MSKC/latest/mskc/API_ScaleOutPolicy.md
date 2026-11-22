@@ -1,7 +1,6 @@
 
 
 # ScaleOutPolicy
-<a name="API_ScaleOutPolicy"></a>
 
 The scale-out policy for the connector.
 

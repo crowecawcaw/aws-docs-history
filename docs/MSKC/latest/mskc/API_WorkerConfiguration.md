@@ -1,7 +1,6 @@
 
 
 # WorkerConfiguration
-<a name="API_WorkerConfiguration"></a>
 
 The configuration of the workers, which are the processes that run the connector logic.
 

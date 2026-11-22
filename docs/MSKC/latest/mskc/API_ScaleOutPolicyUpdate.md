@@ -1,7 +1,6 @@
 
 
 # ScaleOutPolicyUpdate
-<a name="API_ScaleOutPolicyUpdate"></a>
 
 An update to the connector's scale-out policy.
 

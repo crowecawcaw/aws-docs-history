@@ -1,7 +1,6 @@
 
 
 # DeleteWorkerConfiguration
-<a name="API_DeleteWorkerConfiguration"></a>
 
 Deletes the specified worker configuration.
 

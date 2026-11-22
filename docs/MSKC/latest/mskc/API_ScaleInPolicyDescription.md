@@ -1,7 +1,6 @@
 
 
 # ScaleInPolicyDescription
-<a name="API_ScaleInPolicyDescription"></a>
 
 The description of the scale-in policy for the connector.
 

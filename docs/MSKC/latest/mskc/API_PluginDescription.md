@@ -1,7 +1,6 @@
 
 
 # PluginDescription
-<a name="API_PluginDescription"></a>
 
 The description of the plugin.
 

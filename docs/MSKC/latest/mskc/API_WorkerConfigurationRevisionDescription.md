@@ -1,7 +1,6 @@
 
 
 # WorkerConfigurationRevisionDescription
-<a name="API_WorkerConfigurationRevisionDescription"></a>
 
 The description of the worker configuration revision.
 

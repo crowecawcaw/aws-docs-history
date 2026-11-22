@@ -1,7 +1,6 @@
 
 
 # KafkaCluster
-<a name="API_KafkaCluster"></a>
 
 The details of the Apache Kafka cluster to which the connector is connected.
 

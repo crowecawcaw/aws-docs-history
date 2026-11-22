@@ -1,7 +1,6 @@
 
 
 # DeleteConnector
-<a name="API_DeleteConnector"></a>
 
 Deletes the specified connector.
 

@@ -1,7 +1,6 @@
 
 
 # AutoScaling
-<a name="API_AutoScaling"></a>
 
 Specifies how the connector scales.
 

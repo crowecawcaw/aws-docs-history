@@ -1,7 +1,6 @@
 
 
 # CreateCustomPlugin
-<a name="API_CreateCustomPlugin"></a>
 
 Creates a custom plugin using the specified properties.
 

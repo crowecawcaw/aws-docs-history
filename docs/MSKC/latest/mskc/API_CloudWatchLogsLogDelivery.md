@@ -1,7 +1,6 @@
 
 
 # CloudWatchLogsLogDelivery
-<a name="API_CloudWatchLogsLogDelivery"></a>
 
 The settings for delivering connector logs to Amazon CloudWatch Logs.
 

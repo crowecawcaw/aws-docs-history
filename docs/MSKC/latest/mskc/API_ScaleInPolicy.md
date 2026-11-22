@@ -1,7 +1,6 @@
 
 
 # ScaleInPolicy
-<a name="API_ScaleInPolicy"></a>
 
 The scale-in policy for the connector.
 

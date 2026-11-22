@@ -1,7 +1,6 @@
 
 
 # CustomPluginLocationDescription
-<a name="API_CustomPluginLocationDescription"></a>
 
 Information about the location of a custom plugin.
 

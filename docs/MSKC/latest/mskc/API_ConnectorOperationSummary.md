@@ -1,7 +1,6 @@
 
 
 # ConnectorOperationSummary
-<a name="API_ConnectorOperationSummary"></a>
 
 Summary of a connector operation.
 

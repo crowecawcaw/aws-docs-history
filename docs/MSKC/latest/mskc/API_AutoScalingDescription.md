@@ -1,7 +1,6 @@
 
 
 # AutoScalingDescription
-<a name="API_AutoScalingDescription"></a>
 
 Information about the auto scaling parameters for the connector.
 

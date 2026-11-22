@@ -1,7 +1,6 @@
 
 
 # ProvisionedCapacityUpdate
-<a name="API_ProvisionedCapacityUpdate"></a>
 
 An update to a connector's fixed capacity.
 

@@ -1,7 +1,6 @@
 
 
 # DescribeConnector
-<a name="API_DescribeConnector"></a>
 
 Returns summary information about the connector.
 

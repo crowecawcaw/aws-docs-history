@@ -1,7 +1,6 @@
 
 
 # CreateWorkerConfiguration
-<a name="API_CreateWorkerConfiguration"></a>
 
 Creates a worker configuration using the specified properties.
 

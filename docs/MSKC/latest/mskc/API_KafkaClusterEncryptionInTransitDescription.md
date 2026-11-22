@@ -1,7 +1,6 @@
 
 
 # KafkaClusterEncryptionInTransitDescription
-<a name="API_KafkaClusterEncryptionInTransitDescription"></a>
 
 The description of the encryption in transit to the Apache Kafka cluster.
 

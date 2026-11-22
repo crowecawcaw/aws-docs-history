@@ -1,7 +1,6 @@
 
 
 # Actions
-<a name="API_Operations"></a>
 
 The following actions are supported:
 +  [CreateConnector](API_CreateConnector.md) 

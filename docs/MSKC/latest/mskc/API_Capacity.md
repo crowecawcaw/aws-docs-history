@@ -1,7 +1,6 @@
 
 
 # Capacity
-<a name="API_Capacity"></a>
 
 Information about the capacity of the connector, whether it is auto scaled or provisioned.
 

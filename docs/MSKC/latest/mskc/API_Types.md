@@ -1,7 +1,6 @@
 
 
 # Data Types
-<a name="API_Types"></a>
 
 The Managed Streaming for Kafka Connect API contains several data types that various actions use. This section describes each data type in detail.
 
@@ -29,6 +28,7 @@ The following data types are supported:
 +  [CustomPluginLocationDescription](API_CustomPluginLocationDescription.md) 
 +  [CustomPluginRevisionSummary](API_CustomPluginRevisionSummary.md) 
 +  [CustomPluginSummary](API_CustomPluginSummary.md) 
++  [CustomPluginUpdate](API_CustomPluginUpdate.md) 
 +  [FirehoseLogDelivery](API_FirehoseLogDelivery.md) 
 +  [FirehoseLogDeliveryDescription](API_FirehoseLogDeliveryDescription.md) 
 +  [KafkaCluster](API_KafkaCluster.md) 
@@ -41,6 +41,7 @@ The following data types are supported:
 +  [LogDeliveryDescription](API_LogDeliveryDescription.md) 
 +  [Plugin](API_Plugin.md) 
 +  [PluginDescription](API_PluginDescription.md) 
++  [PluginUpdate](API_PluginUpdate.md) 
 +  [ProvisionedCapacity](API_ProvisionedCapacity.md) 
 +  [ProvisionedCapacityDescription](API_ProvisionedCapacityDescription.md) 
 +  [ProvisionedCapacityUpdate](API_ProvisionedCapacityUpdate.md) 
@@ -62,6 +63,7 @@ The following data types are supported:
 +  [WorkerConfigurationRevisionDescription](API_WorkerConfigurationRevisionDescription.md) 
 +  [WorkerConfigurationRevisionSummary](API_WorkerConfigurationRevisionSummary.md) 
 +  [WorkerConfigurationSummary](API_WorkerConfigurationSummary.md) 
++  [WorkerConfigurationUpdate](API_WorkerConfigurationUpdate.md) 
 +  [WorkerLogDelivery](API_WorkerLogDelivery.md) 
 +  [WorkerLogDeliveryDescription](API_WorkerLogDeliveryDescription.md) 
 +  [WorkerSetting](API_WorkerSetting.md) 

@@ -1,7 +1,6 @@
 
 
 # StateDescription
-<a name="API_StateDescription"></a>
 
 Details about the state of a resource.
 

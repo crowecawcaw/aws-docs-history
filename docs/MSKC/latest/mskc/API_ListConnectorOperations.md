@@ -1,7 +1,6 @@
 
 
 # ListConnectorOperations
-<a name="API_ListConnectorOperations"></a>
 
 Lists information about a connector's operation(s).
 

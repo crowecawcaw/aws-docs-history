@@ -1,7 +1,6 @@
 
 
 # CustomPluginDescription
-<a name="API_CustomPluginDescription"></a>
 
 Details about a custom plugin.
 

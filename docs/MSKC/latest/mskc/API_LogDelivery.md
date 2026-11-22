@@ -1,7 +1,6 @@
 
 
 # LogDelivery
-<a name="API_LogDelivery"></a>
 
 Details about log delivery.
 

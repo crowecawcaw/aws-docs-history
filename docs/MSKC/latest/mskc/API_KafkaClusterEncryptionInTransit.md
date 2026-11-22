@@ -1,7 +1,6 @@
 
 
 # KafkaClusterEncryptionInTransit
-<a name="API_KafkaClusterEncryptionInTransit"></a>
 
 Details of encryption in transit to the Apache Kafka cluster.
 

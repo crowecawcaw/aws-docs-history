@@ -1,7 +1,6 @@
 
 
 # DescribeConnectorOperation
-<a name="API_DescribeConnectorOperation"></a>
 
 Returns information about the specified connector's operations.
 
@@ -71,6 +70,19 @@ Content-type: application/json
             "mcuCount": number,
             "workerCount": number
          }
+      },
+      "plugins": [ 
+         { 
+            "customPlugin": { 
+               "customPluginArn": "string",
+               "revision": number
+            }
+         }
+      ],
+      "useDefaultWorkerConfiguration": boolean,
+      "workerConfiguration": { 
+         "revision": number,
+         "workerConfigurationArn": "string"
       }
    },
    "targetConnectorConfiguration": { 
@@ -94,6 +106,19 @@ Content-type: application/json
             "mcuCount": number,
             "workerCount": number
          }
+      },
+      "plugins": [ 
+         { 
+            "customPlugin": { 
+               "customPluginArn": "string",
+               "revision": number
+            }
+         }
+      ],
+      "useDefaultWorkerConfiguration": boolean,
+      "workerConfiguration": { 
+         "revision": number,
+         "workerConfigurationArn": "string"
       }
    }
 }
