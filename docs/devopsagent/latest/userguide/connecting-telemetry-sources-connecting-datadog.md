@@ -1,7 +1,6 @@
 
 
 # Connecting DataDog
-<a name="connecting-telemetry-sources-connecting-datadog"></a>
 
 ## Built-in, 1 way integration
 <a name="built-in-1-way-integration"></a>
@@ -41,7 +40,7 @@ Before you register Datadog, make sure that the following are true:
 
 To register Datadog with AWS DevOps Agent:
 
-1. Open the [Capability Providers page](https://console.aws.amazon.com/devops-agent/home#/services) in the AWS DevOps Agent console.
+1. Open the [Capability Providers page](https://console.aws.amazon.com/aidevops/home#/services) in the AWS DevOps Agent console.
 
 1. On the **Capability Providers** page, choose **Register** for **Datadog**.
 
@@ -253,7 +252,7 @@ What the update does depends on the authentication method of the registration:
 
 To update the credentials of a Datadog registration:
 
-1. Open the [Capability Providers page](https://console.aws.amazon.com/devops-agent/home#/services) in the AWS DevOps Agent console.
+1. Open the [Capability Providers page](https://console.aws.amazon.com/aidevops/home#/services) in the AWS DevOps Agent console.
 
 1. Under **Currently registered**, find the **Datadog** card, and then choose **View all**.
 
@@ -297,7 +296,7 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation).
+1. In the navigation pane, choose **Capability Providers**.
 
 1. In the **Currently registered** section, on the **Datadog** card, choose **View all**.
 

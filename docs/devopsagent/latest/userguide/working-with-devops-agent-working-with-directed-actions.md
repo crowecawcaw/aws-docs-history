@@ -1,7 +1,6 @@
 
 
 # Working with directed actions
-<a name="working-with-devops-agent-working-with-directed-actions"></a>
 
 AWS DevOps Agent can act on your connected services and AWS accounts when an operator explicitly asks it to. For example, an operator investigating an incident can ask the agent to describe the state of a resource. With the appropriate permissions and approvals, the operator can also ask the agent to remediate an issue directly.
 
@@ -345,6 +344,20 @@ For native integrations such as Datadog and Grafana, classifications are fixed b
 + Only tools that AWS DevOps Agent classifies as `MUTATIVE` can be enabled.
 + Tools classified as `DESTRUCTIVE` (for example, `grafana_delete_alert_rule`) can never be enabled.
 
+### Source control and ticketing providers
+<a name="source-control-and-ticketing-providers"></a>
+
+GitHub, GitLab, Azure DevOps, ServiceNow, and PagerDuty are native integrations: AWS DevOps Agent assigns fixed classifications to their tools and you cannot override them. Their mutating tools follow the same model as every directed action: they require directed actions to be enabled on the agent space and per-action operator approval in chat.
+
+These providers have no per-tool selection; you do not use `enabledElevatedTools`. When directed actions are enabled on the agent space and the provider is connected, all of that provider's mutating tools are available. Enabling directed actions on the agent space is the on/off control for these providers, not a per-tool picker.
+
+An approved mutating action runs as the credential you provide when you connect the provider, so the permissions on that credential determine whether an approved action succeeds. If the credential cannot perform the action, the provider rejects it after approval. Configure the permissions for each provider on its connection page:
++ [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md)
++ [Connecting GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md)
++ [Connecting Azure DevOps](connecting-azure-connecting-azure-devops.md)
++ [Connecting ServiceNow](connecting-to-ticketing-and-chat-connecting-servicenow.md)
++ [Connecting PagerDuty](connecting-to-ticketing-and-chat-connecting-pagerduty.md)
+
 ## Approving directed actions
 <a name="approving-directed-actions"></a>
 
@@ -356,7 +369,10 @@ Directed actions are human-in-the-loop. When the agent determines that an operat
 
 1. If approved, the agent performs the operation. Each approval covers only the specific tool, operation, and resource requested. It remains valid for a bounded time window and cannot be reused for a different operation or resource.
 
-AWS DevOps Agent surfaces operator approval requests only in chat. If the agent invokes a mutating tool outside chat, for example during an autonomous investigation, the call fails instead of presenting an approval request. AWS DevOps Agent never executes a mutating tool without approval.
+In chat, AWS DevOps Agent requests operator approval before it performs a directed action, and the action does not run until an operator approves it. A directed action is not performed without approval.
+
+**Note**  
+** This approval requirement applies to directed actions. Other AWS DevOps Agent features that operate outside the directed-actions flow may follow a different approval process.
 
 Approvals and the resulting actions are attributable to the approving operator in AWS CloudTrail.
 

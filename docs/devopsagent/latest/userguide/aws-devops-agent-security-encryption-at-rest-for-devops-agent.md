@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for AWS DevOps Agent
-<a name="aws-devops-agent-security-encryption-at-rest-for-devops-agent"></a>
 
 AWS DevOps Agent encrypts all customer data at rest. By default, AWS DevOps Agent uses AWS owned keys to automatically encrypt your data at no additional charge. You cannot view, manage, or audit the use of AWS owned keys. However, you do not need to take any action to protect these keys. Your data is automatically secured.
 

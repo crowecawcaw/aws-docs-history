@@ -1,7 +1,6 @@
 
 
 # Connecting Splunk
-<a name="connecting-telemetry-sources-connecting-splunk"></a>
 
 ## Built-in, 1 way integration
 <a name="built-in-1-way-integration"></a>
@@ -53,7 +52,7 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find the **Splunk** card in the **Available** section and choose **Register**. To narrow the list, enter Splunk in **Find capability**, or choose **Telemetry** in the category filter
+1. In the **Available** section, find the **Splunk** card and choose **Register**. To narrow the list, enter Splunk in **Find capability**, or choose **Telemetry** in the category filter.
 
 1. Enter your Splunk MCP server details:
    + **Server Name** - Unique identifier (e.g., my-splunk-server)
@@ -115,11 +114,13 @@ Send webhooks with Splunk [https://help.splunk.com/en/splunk-enterprise/alert-an
 
 If your Splunk authentication token expires or needs to be rotated, you can update it without deregistering. Your Agent Space associations are preserved. To update the token, follow these steps:
 
-1. Go to the **Capability Providers** page (accessible from the side navigation).
+1. In the navigation pane, choose **Capability Providers**.
 
 1. In the **Currently registered** section, on the **Splunk** card, choose **View all**.
 
-1. In **Registrations**, select the Splunk registration, then choose **Update** from the **Actions** menu.
+1. In **Registrations**, select the Splunk registration.
+
+1. Choose **Update** from the **Actions** menu.
 
 1. Enter the new token value, review, and choose **Update**.
 
@@ -144,10 +145,12 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation).
+1. In the navigation pane, choose **Capability Providers**.
 
 1. In the **Currently registered** section, on the **Splunk** card, choose **View all**.
 
 1. In **Registrations**, check the agent space count is zero (if not, repeat Step 1 in your other agent spaces).
 
-1. Select the Splunk registration, then choose **Deregister** from the **Actions** menu.
+1. In **Registrations**, select the Splunk registration, then choose **Deregister** from the **Actions** menu.
+
+Confirm that the Splunk card no longer appears in the **Currently registered** section.

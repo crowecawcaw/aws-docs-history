@@ -1,7 +1,6 @@
 
 
 # Integrating with the DevOps Agent A2A server
-<a name="connecting-to-devops-agent-remote-servers-integrating-with-the-devops-agent-a2a-server"></a>
 
 With the AWS DevOps Agent Agent-to-Agent (A2A) server, your autonomous agent can delegate operational work to the DevOps Agent over the [A2A v1.0 protocol](https://a2a-protocol.org/latest/specification/). Your agent discovers the DevOps Agent through an agent card, then sends messages to investigate incidents, review architecture, analyze costs, and map topology. The server implements the A2A v1.0 specification with the HTTP\+JSON binding.
 

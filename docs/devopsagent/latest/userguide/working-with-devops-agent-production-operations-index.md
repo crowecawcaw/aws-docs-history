@@ -1,7 +1,6 @@
 
 
 # Production operations
-<a name="working-with-devops-agent-production-operations-index"></a>
 
 Production operations is the set of capabilities that help you detect, respond to, and prevent incidents once your code is running in production. AWS DevOps Agent works alongside your operations team across the full incident lifecycle — from detection through investigation, recovery, and prevention.
 
@@ -39,17 +38,17 @@ Once your first investigation completes, you can provide feedback on the root ca
 Production operations includes three core capabilities:
 + **Autonomous incident response** — The agent automatically investigates issues the moment they occur, analyzing metrics, logs, traces, code changes, and deployment history to determine root cause and propose mitigation. See [Autonomous incident response](production-operations-autonomous-incident-response.md).
 + **Proactive incident prevention** — The agent analyzes patterns across your incident history to generate recommendations that prevent future incidents and reduce mean time to detection. See [Proactive incident prevention](production-operations-proactive-incident-prevention.md).
-+ **On-demand DevOps tasks** — A conversational interface for querying your infrastructure, analyzing system health, and guiding investigations using natural language. See [On Demand DevOps Tasks](working-with-devops-agent-on-demand-devops-tasks.md).
++ **On-demand DevOps tasks** — A conversational interface for querying your infrastructure, analyzing system health, and guiding investigations using natural language. See [On-demand DevOps tasks](working-with-devops-agent-on-demand-devops-tasks.md).
 
 ## How production operations feeds back into release readiness
 <a name="how-production-operations-feeds-back-into-release-readiness"></a>
 
 Production operations and release management form a continuous feedback loop. Insights from production incidents inform pre-production validation, making your release process smarter over time.
 
-**Incident patterns shape release reviews** — When the agent identifies recurring root causes through proactive incident prevention — such as missing error handling, inadequate retry logic, or over-permissioned IAM policies — these patterns inform what release readiness code reviews look for. The agent's growing understanding of what causes production failures in your environment makes future code reviews more relevant to your actual risk profile.
+**Incident patterns shape release reviews** — When the agent identifies recurring root causes through proactive incident prevention — such as missing error handling, inadequate retry logic, or over-permissioned IAM policies — these patterns inform what Code Change Risk Analysis reviews look for. The agent's growing understanding of what causes production failures in your environment makes future code reviews more relevant to your actual risk profile.
 
 **Prevention recommendations drive code changes** — Proactive incident prevention generates agent-ready specifications that describe code and configuration improvements with specific file paths and implementation plans. These specifications can be handed to a coding agent during the release management workflow, closing the loop from production issue to validated fix.
 
-**Topology knowledge improves dependency analysis** — The application topology built during production operations — including service relationships, request paths, and deployment boundaries — feeds directly into the cross-repository dependency analysis performed during release readiness reviews. The agent uses the same understanding of how your services interact to assess blast radius both during incident response and during code review.
+**Topology knowledge improves dependency analysis** — The application topology built during production operations — including service relationships, request paths, and deployment boundaries — feeds directly into the cross-repository dependency analysis performed during Code Change Risk Analysis. The agent uses the same understanding of how your services interact to assess blast radius both during incident response and during code review.
 
 **Investigation feedback refines learned skills** — Feedback you provide on investigations and the accuracy of recommendations updates the agent's learned skills. As these skills improve, both incident investigations and release reviews benefit from more accurate knowledge about your environment, operational patterns, and effective investigation techniques.

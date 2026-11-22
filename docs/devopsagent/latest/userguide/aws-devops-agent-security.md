@@ -1,7 +1,6 @@
 
 
 # AWS DevOps Agent Security
-<a name="aws-devops-agent-security"></a>
 
 This document provides information about security considerations, data protection, access controls, and compliance capabilities for AWS DevOps Agent. Use this information to understand how AWS DevOps Agent is designed to meet your security and compliance requirements.
 
@@ -60,6 +59,11 @@ For the following Regions, the geography-based routing described previously does
 + Asia Pacific (Singapore) – `ap-southeast-1`
 + Asia Pacific (Mumbai) – `ap-south-1`
 + South America (São Paulo) – `sa-east-1`
+
+### Inference in AWS GovCloud (US)
+<a name="inference-in-aws-govcloud-us"></a>
+
+For Agent Spaces in AWS GovCloud (US-West), the cross-Region inference routing described previously does not apply. AWS DevOps Agent does not use cross-Region inference, and it uses only foundation models that are available in Amazon Bedrock in the AWS GovCloud (US) Regions. For more information about the differences in AWS GovCloud (US), see [AWS DevOps Agent in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-devops-agent.html) in the *AWS GovCloud (US) User Guide*.
 
 ## Identity and access management
 <a name="identity-and-access-management"></a>
@@ -328,7 +332,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
 ### Outbound traffic from your VPC to AWS DevOps Agent
 <a name="outbound-traffic-from-your-vpc-to-aws-devops-agent"></a>
 
-For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md)), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md).
+For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [DevOps Agent through outbound webhooks](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md)), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md).
 
 ## Shared responsibility model
 <a name="shared-responsibility-model"></a>
@@ -349,8 +353,8 @@ Customers are responsible for:
 + Limiting access to trusted users of external systems that provide inputs to the agent, such as services and resources that produce logs, CloudTrail events, tickets, and more – that may be used to attempt malicious prompt injection.
 + Ensure all connected data sources have trusted data that is unlikely to be used to attempt prompt injection attacks
 + Ensuring bring-your-own MCP server integrations operate securely
-+ Connecting only trusted repositories for release readiness code reviews
-+ Only referencing trusted and related code repositories in READMEs, pull and merge request comments, issues, and AGENTS.md files. For more information, see [Repository content and external references](release-management-release-readiness-code-review.md#repository-content-and-external-references).
++ Connecting only trusted repositories for Code Change Risk Analysis reviews
++ Only referencing trusted and related code repositories in READMEs, pull and merge request comments, issues, and AGENTS.md files. For more information, see [Repository content and external references](code-change-risk-analysis-reviewing-code-changes.md#repository-content-and-external-references).
 + Ensuring IAM roles assigned to the agent are properly scoped
 + Redacting PII data before storing in observability logs and other agent data sources
 + Following the recommended practice of granting only read-only permissions to connected data sources, including bring-your-own MCP servers
@@ -360,4 +364,4 @@ Customers are responsible for:
 
 AWS does not use agent data, chat messages, or data from integrated data sources to train models or improve the product. The AWS DevOps Agent Space uses customer in-product feedback to improve the agent’s responses and investigations, but AWS does not use it to improve the service itself.
 
-To provide the service and assess its performance, we may collect operational signals about your use of AWS DevOps Agent's Release Manager, such as metrics based on your feedback to the release readiness review comments (such as whether you fixed a flagged issue, agreed to address it later, disagreed with it, or implemented a suggested code change).
+To provide the service and assess its performance, we may collect operational signals about your use of AWS DevOps Agent's Release Manager, such as metrics based on your feedback to the Code Change Risk Analysis comments (such as whether you fixed a flagged issue, agreed to address it later, disagreed with it, or implemented a suggested code change).

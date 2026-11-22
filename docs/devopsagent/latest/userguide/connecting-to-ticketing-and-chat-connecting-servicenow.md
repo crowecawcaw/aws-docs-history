@@ -1,7 +1,6 @@
 
 
 # Connecting ServiceNow
-<a name="connecting-to-ticketing-and-chat-connecting-servicenow"></a>
 
 This tutorial walks you through connecting a ServiceNow instance to AWS DevOps Agent to enable it to automatically initiate incident response investigations when a ticket is created and post its key findings into the originating ticket. It also contains examples for how to configure your ServiceNow instance to send only specific tickets to a DevOps Agent Space and how to orchestrate ticket routing across multiple DevOps Agent Spaces.
 
@@ -36,9 +35,13 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 ### Connect your ServiceNow OAuth client to AWS DevOps Agent
 <a name="connect-your-servicenow-oauth-client-to-aws-devops-agent"></a>
 
-1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding the **ServiceNow** card in the **Available** section, then choosing **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and choose Register.
+You can start this process from the **Capability Providers** page or from an Agent Space.
 
-1. Next, authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/aidevops/home).
+
+1. To start from the **Capability Providers** page, choose **Capability Providers**, find the **ServiceNow** card in the **Available** section, and choose **Register**. To start from an Agent Space, choose any Agent Space that you created, and then choose **Capabilities**, **Communications**, **Add**, **ServiceNow**, **Register**.
+
+1. Authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
 
 Each registration connects to one ServiceNow instance. To connect additional instances, repeat this process for each one.
 
@@ -247,3 +250,10 @@ This scenario can be accomplished in two ways. The webhook script itself can be 
 
 
 Now, when you create a new Incident that matches the condition specified, it will either trigger an investigation on DevOps Agent Space A or DevOps Agent Space B, providing you with fine grained control over incident routing.
+
+## (Optional) Permissions for directed actions
+<a name="optional-permissions-for-directed-actions"></a>
+
+To allow approved write actions on ServiceNow (directed actions), make sure the connection has the permissions below. Directed actions must also be enabled on the agent space, and you approve each action in chat before it runs. For more information, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md).
+
+Assign the OAuth Application User (the user you set when you created the OAuth client) the `itil` role. Alternatively, use a custom role that grants create and write access to the Incident table and its journal fields (`comments` and `work_notes`). The write actions (create incident, update incident, and add incident note) all operate on the Incident table. If you set the Application User to Problem Administrator for incident-response setup, make sure that user also has the `itil` role.

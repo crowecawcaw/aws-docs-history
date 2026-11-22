@@ -1,7 +1,6 @@
 
 
 # Deleting an Agent space
-<a name="deleting-an-agent-space"></a>
 
 This page explains how to delete an AWS DevOps Agent agent space and remove the IAM resources that were created in your AWS account when you enabled AWS DevOps Agent. AWS DevOps Agent does not provide an automatic disable or uninstall action. You remove resources by following the procedures on this page.
 

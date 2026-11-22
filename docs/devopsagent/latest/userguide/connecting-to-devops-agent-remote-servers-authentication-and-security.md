@@ -1,7 +1,6 @@
 
 
 # Authentication and security
-<a name="connecting-to-devops-agent-remote-servers-authentication-and-security"></a>
 
 Two authentication methods are available for both MCP and A2A endpoints:
 + **Access token (Bearer)** – A single token scoped to one Agent Space. Simplest setup for individual use.

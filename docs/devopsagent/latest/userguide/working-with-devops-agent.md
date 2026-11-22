@@ -1,16 +1,15 @@
 
 
 # Working with DevOps Agent
-<a name="working-with-devops-agent"></a>
 
 AWS DevOps Agent works alongside your team across the full software delivery lifecycle — from validating code changes through to operating services in production.
 
-## Release management (preview)
-<a name="release-management-preview"></a>
+## Code Change Risk Analysis (preview)
+<a name="code-change-risk-analysis-preview"></a>
 
-Release management capabilities help you validate that code changes are ready for production before they get there. DevOps Agent performs automated code reviews that evaluate potential risks to dependencies, adherence to standards and best practices, as well as builds, runs, and tests your changes in a verification environment. It can also generate and run QA tests to verify behavior in a full integration environment to protect from user flow regressions.
+Code Change Risk Analysis helps you find production risks in code changes before they are deployed. AWS DevOps Agent reviews changes for risks to dependencies, adherence to your standards and best practices, and risks to your production environments. It can also build, run, and test your changes in a verification environment.
 
-Release management is available in your IDE during code generation, in pull requests and merge requests, in CI/CD pipelines, and on-demand through DevOps Agent chat. For more information, see [Release management](working-with-devops-agent-release-management-index.md).
+Code Change Risk Analysis is available in your IDE during code generation, in pull requests and merge requests, and on demand through AWS DevOps Agent chat, custom agents, and webhooks. For more information, see [Code Change Risk Analysis](working-with-devops-agent-code-change-risk-analysis-index.md).
 
 ## Production operations
 <a name="production-operations"></a>

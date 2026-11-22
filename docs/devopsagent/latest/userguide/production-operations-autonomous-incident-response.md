@@ -1,7 +1,6 @@
 
 
 # Autonomous incident response
-<a name="production-operations-autonomous-incident-response"></a>
 
 ## Starting Investigations
 <a name="starting-investigations"></a>
@@ -96,7 +95,7 @@ This is useful when an investigation stops short of an answer, or when new infor
 
 **Chat with investigation** is available while an investigation is queued, running, waiting, or completed. It is not available for investigations that were canceled, failed, or timed out.
 
-You can also steer an investigation by talking to your DevOps Agent in Chat. For more information, see [On Demand DevOps Tasks](working-with-devops-agent-on-demand-devops-tasks.md).
+You can also steer an investigation by talking to your DevOps Agent in Chat. For more information, see [On-demand DevOps tasks](working-with-devops-agent-on-demand-devops-tasks.md).
 
 ## Fork an investigation
 <a name="fork-an-investigation"></a>
@@ -130,7 +129,7 @@ The primary function of the triage stage is incident correlation — identifying
 
 AWS DevOps Agent makes one of three decisions:
 + **Linked** – Correlates the incident to an existing investigation and sends a steering message to that investigation with context about the new incident.
-+ **Skipped** – The incident matches skip criteria defined in a skill and is automatically dismissed without investigation. For more information, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md).
++ **Skipped** – The incident matches skip criteria defined in a skill and is automatically dismissed without investigation. For more information, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills-index.md).
 + **Proceed** – Schedules a new independent investigation for the incident.
 
 ### Viewing triage decisions
@@ -161,7 +160,7 @@ Investigation and mitigation run as a single automated flow. This eliminates the
 
 After an investigation completes, you can provide feedback on the root cause analysis. This feedback improves future investigation accuracy and enables reporting across your Agent Space.
 
-When you mark an investigation incorrect and give the actual root cause, AWS DevOps Agent creates a memory in the [reflections](about-aws-devops-agent-devops-agent-memories.md#reflections) memory store, so future investigations of the alarm can avoid the same mistake.
+When you mark an investigation incorrect and give the actual root cause, AWS DevOps Agent creates a memory in the [reflections](devops-agent-memories-managed-memories.html#reflect-on-investigation-feedback) memory store. Future investigations of the alarm read this memory to avoid the same mistake.
 
 ### How to provide feedback
 <a name="how-to-provide-feedback"></a>

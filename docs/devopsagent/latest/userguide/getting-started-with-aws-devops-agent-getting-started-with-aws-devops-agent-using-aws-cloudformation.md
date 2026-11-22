@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS DevOps Agent using AWS CloudFormation
-<a name="getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-aws-cloudformation"></a>
 
 ## Overview
 <a name="overview"></a>
@@ -150,7 +149,7 @@ Outputs:
 ### Step 2: Deploy the stack
 <a name="step-2-deploy-the-stack"></a>
 
-Run the following command to deploy the stack. Replace `<REGION>` with a [Supported Regions](about-aws-devops-agent-supported-regions.md) (for example, `us-east-1`).
+Run the following command to deploy the stack. Replace `<REGION>` with a [supported Region](about-aws-devops-agent-supported-regions.md) (for example, `us-east-1`).
 
 ```
 aws cloudformation deploy \
@@ -493,7 +492,7 @@ aws devops-agent list-associations \
 This section describes common issues and how to resolve them.
 
 **CloudFormation resource type not found**
-+ Verify that you are deploying in a [Supported Regions](about-aws-devops-agent-supported-regions.md).
++ Verify that you are deploying in a [supported Region](about-aws-devops-agent-supported-regions.md).
 + Confirm that your AWS CLI is configured with the appropriate permissions.
 
 **IAM role creation failed**
@@ -556,7 +555,7 @@ aws cloudformation delete-stack \
 After you have deployed your AWS DevOps Agent by using AWS CloudFormation:
 + To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md).
 + If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
-+ To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md).
++ To learn about agent skills and capabilities, see [DevOps Agent skills](about-aws-devops-agent-devops-agent-skills-index.md).
 + For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md).
-+ To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
++ To understand the operator web app, see [What is a DevOps Agent web app?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
 + For detailed property references for the CloudFormation resource types used in this guide, see [AWS DevOps Agent resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.html) in the *AWS CloudFormation Template Reference*.

@@ -1,20 +1,19 @@
 
 
 # Agent instructions
-<a name="about-aws-devops-agent-agent-instructions"></a>
 
 Use agent instructions to provide always-on guidance that AWS DevOps Agent applies to every session. A session is a single conversation or investigation with an agent.
 
-Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
+Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills-index.md), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
 
-You set agent instructions from each [Managed agents](working-with-devops-agent-managed-agents.md) on the **Agents** page in your [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md). There you set both the shared global instructions that apply to every agent and the instructions specific to that agent. Instructions are stored as an AGENTS.md file.
+You set agent instructions from each [managed agent's page](working-with-devops-agent-managed-agents.md) on the **Agents** page in your [DevOps Agent Web App](about-aws-devops-agent-what-is-a-devops-agent-web-app.md). There you set both the shared global instructions that apply to every agent and the instructions specific to that agent. Instructions are stored as an AGENTS.md file.
 
 ## What are agent instructions
 <a name="what-are-agent-instructions"></a>
 
 Agent instructions provide unconditional, always-on guidance for your agents. At the start of every session, the agent service retrieves the instructions configured for your Agent Space and injects their content directly into the agent system prompt. The agent does not decide whether to load them; they are always present.
 
-Agent instructions are stored as AGENTS.md files and differ from [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md) in several important ways:
+Agent instructions are stored as AGENTS.md files and differ from [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills-index.md) in several important ways:
 
 
 | Aspect | Skill | Agent instructions (AGENTS.md) | 
@@ -61,9 +60,10 @@ The managed agents available for agent-specific instructions are:
 + **Incident mitigation** - Short-term remediation and long-term fix recommendations.
 + **Incident UI** – Generation of an investigation's outputs, including those posted to other platforms.
 + **Evaluation** - Agent performance scoring and policy compliance checks.
-+ **Grader** – Quality assessment of a completed investigation. This is the agent behind a Review. For more information, see [Reviewing investigations](working-with-devops-agent-reviewing-investigations.md).
++ **Grader** – Quality assessment of a completed investigation. This is the agent behind a Review, and its instructions also apply to automatic Reviews. For more information, see [Reviewing investigations](working-with-devops-agent-reviewing-investigations.md).
++ **Code Change Risk Analysis** – Code reviews of pull requests, merge requests, and code changes. For more information, see [Reviewing code changes](code-change-risk-analysis-reviewing-code-changes.md).
 + **Release testing** – Automated UI and API testing against deployed web applications and REST APIs.
-+ **Learning** - Produces and refreshes managed knowledge by reviewing your agent space's past investigations, pipelines, and dependencies. It covers skills, monitor memories, and topology understanding.
++ **Learning** - Produces, refreshes, and maintains managed memories, from topology understanding and monitor root causes to the knowledge graph.
 
 ## Content size guidance
 <a name="content-size-guidance"></a>
@@ -72,7 +72,7 @@ Every time you start a conversation or investigation, the agent reads your entir
 
 **Note:** The hard limit is 25 KB. A recommended size of about 120 lines works well for most configurations.
 
-Focus your instructions on guidance that must be present in every session. For specialized investigation procedures that apply only to specific tasks, consider using [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md) instead.
+Focus your instructions on guidance that must be present in every session. For specialized investigation procedures that apply only to specific tasks, consider using [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills-index.md) instead.
 
 ## Example
 <a name="example"></a>

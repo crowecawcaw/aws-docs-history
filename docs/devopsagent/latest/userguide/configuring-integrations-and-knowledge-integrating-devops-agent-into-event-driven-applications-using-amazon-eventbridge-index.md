@@ -1,7 +1,6 @@
 
 
 # Integrating AWS DevOps Agent with Amazon EventBridge
-<a name="configuring-integrations-and-knowledge-integrating-devops-agent-into-event-driven-applications-using-amazon-eventbridge-index"></a>
 
 You can integrate AWS DevOps Agent with your event-driven applications by using events that occur during investigation and mitigation lifecycles. AWS DevOps Agent sends events to Amazon EventBridge when the state of an investigation or mitigation changes. You can then create EventBridge rules that take action based on these events.
 
@@ -65,7 +64,7 @@ The `time` field of each event is the time that the investigation or mitigation 
 | Mitigation Timed Out | A mitigation action exceeded the maximum allowed duration. | 
 | Mitigation Cancelled | A mitigation action was canceled before completion. | 
 
-For detailed field descriptions and example events, see [AWS DevOps Agent events detail reference](integrating-devops-agent-into-event-driven-applications-using-amazon-eventbridge-devops-agent-events-detail-reference.md).
+For detailed field descriptions and example events, see [DevOps Agent events detail reference](integrating-devops-agent-into-event-driven-applications-using-amazon-eventbridge-devops-agent-events-detail-reference.md).
 
 ## Creating event patterns that match AWS DevOps Agent events
 <a name="creating-event-patterns-that-match-aws-devops-agent-events"></a>

@@ -1,7 +1,6 @@
 
 
 # DevOps Agent IAM permissions
-<a name="aws-devops-agent-security-devops-agent-iam-permissions"></a>
 
 AWS DevOps Agent uses service-specific AWS Identity and Access Management (IAM) actions to control access to its features and capabilities. These actions determine what users can do within the AWS DevOps Agent console and Operator Web App. This is separate from the AWS service API permissions that the agent itself uses to investigate your resources.
 
@@ -127,6 +126,15 @@ These actions control the ability to add and manage assets in an Agent Space, in
 + **aidevops:ListAssetFiles** – Allows users to list the files within an asset.
 + **aidevops:ListAssetTypes** – Allows users to list the asset types supported by AWS DevOps Agent. This action is not scoped to a specific Agent Space and requires `Resource: "*"`.
 
+## Catalog actions
+<a name="catalog-actions"></a>
+
+These actions control access to the AWS DevOps Agent Skills Catalog. In these action names, a capability is an item in the catalog, such as a skill. The Skills Catalog uses `aidevops:ListCatalogCapabilities`, `aidevops:GetCatalogCapability`, and `aidevops:ListCatalogCapabilityFiles`, but not `aidevops:ListCatalogCapabilityTypes`. The actions aren't scoped to a specific Agent Space and require `Resource: "*"`. To add skills from the Skills Catalog to an Agent Space, you also need `aidevops:CreateAsset`, and to sync them, `aidevops:UpdateAsset`. For more information, see [Skills Catalog](devops-agent-skills-skills-catalog.md).
++ **aidevops:GetCatalogCapability** – Allows users to retrieve a capability and its files from the catalog.
++ **aidevops:ListCatalogCapabilities** – Allows users to list the capabilities in the catalog.
++ **aidevops:ListCatalogCapabilityFiles** – Allows users to list the files in a capability from the catalog.
++ **aidevops:ListCatalogCapabilityTypes** – Allows users to list the capability types in the catalog.
+
 ## Trigger management actions
 <a name="trigger-management-actions"></a>
 
@@ -225,6 +233,10 @@ This policy grants access to investigation and prevention features without admin
         "aidevops:CreateAssetFile",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
+        "aidevops:ListCatalogCapabilities",
+        "aidevops:GetCatalogCapability",
+        "aidevops:ListCatalogCapabilityFiles",
+        "aidevops:ListCatalogCapabilityTypes",
         "aidevops:CreateTrigger",
         "aidevops:GetTrigger",
         "aidevops:UpdateTrigger",
@@ -267,6 +279,10 @@ This policy grants view-only access to investigations and recommendations:
         "aidevops:GetAsset",
         "aidevops:GetAssetContent",
         "aidevops:GetAssetFile",
+        "aidevops:ListCatalogCapabilities",
+        "aidevops:GetCatalogCapability",
+        "aidevops:ListCatalogCapabilityFiles",
+        "aidevops:ListCatalogCapabilityTypes",
         "aidevops:GetTrigger",
         "aidevops:ListTriggers",
         "aidevops:GetAccountUsage"
@@ -484,11 +500,15 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
         "aidevops:GetAssociation",
         "aidevops:GetBacklogTask",
         "aidevops:GetChat",
+        "aidevops:GetKnowledgeGraph",
         "aidevops:GetKnowledgeItem",
+        "aidevops:GetPlan",
         "aidevops:GetRecommendation",
         "aidevops:GetTrigger",
         "aidevops:InitiateChatForCase",
         "aidevops:ListAccessTokens",
+        "aidevops:ListAgentSpaceMetrics",
+        "aidevops:ListAssetChanges",
         "aidevops:ListAssetFiles",
         "aidevops:ListAssets",
         "aidevops:ListAssetTypes",
@@ -509,6 +529,7 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
         "aidevops:RotateAccessToken",
         "aidevops:SearchAssets",
         "aidevops:SendMessage",
+        "aidevops:StopPlan",
         "aidevops:UpdateApprovalAction",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
@@ -532,7 +553,13 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
     {
       "Sid": "AllowOperatorAccountActions",
       "Effect": "Allow",
-      "Action": ["aidevops:GetAccountUsage"],
+      "Action": [
+        "aidevops:GetAccountUsage",
+        "aidevops:GetCatalogCapability",
+        "aidevops:ListCatalogCapabilities",
+        "aidevops:ListCatalogCapabilityFiles",
+        "aidevops:ListCatalogCapabilityTypes"
+      ],
       "Resource": "*",
       "Condition": {
         "StringEquals": {
@@ -581,6 +608,106 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
   ]
 }
 ```
+
+### AIDevOpsChannelAccessPolicy
+<a name="aidevopschannelaccesspolicy"></a>
+
+With this policy, you can chat with AWS DevOps Agent from a Slack channel and manage investigations for your [Agent Spaces](about-aws-devops-agent-what-are-devops-agent-spaces.md).
+
+Attach this policy to the AWS Identity and Access Management (IAM) role of a Slack channel that uses bidirectional communication. When you associate the channel and choose **Auto-create a new DevOps Agent role**, the console attaches this policy to the role. For instructions on connecting Slack, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.md).
+
+When you send a message in the channel, AWS DevOps Agent assumes the role. It sets the `AgentSpaceId` session tag to the ID of the Agent Space that the channel is associated with.
+
+If you choose **Assign an existing role**, or if you create a role from the policy template, attach this policy to the role yourself. You can also add both statements of this policy to the permissions policy of the role.
+
+#### Permissions details
+<a name="permissions-details"></a>
+
+This policy includes the following statements:
++ `AllowChatActions` – You can start a chat and send messages to AWS DevOps Agent from the channel.
++ `AllowAgentSpaceActions` – AWS DevOps Agent can read and manage items in the Agent Space when it answers your message.
+
+The `AllowAgentSpaceActions` statement covers the following Agent Space items:
++ Assets
++ Associations
++ Backlog tasks
++ Executions
++ Goals
++ Journal records
++ Recommendations
++ Triggers
+
+Both statements apply only to the Agent Space in the `AgentSpaceId` session tag. They also apply only to resources in the AWS account of the role.
+
+The following JSON shows the policy document of `AIDevOpsChannelAccessPolicy`:
+
+```
+{
+  "Version": "2012-10-17",		 	 	 		 	 	 
+  "Statement": [
+    {
+      "Sid": "AllowChatActions",
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:CreateChat",
+        "aidevops:SendMessage"
+      ],
+      "Resource": "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid": "AllowAgentSpaceActions",
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:CreateAsset",
+        "aidevops:UpdateAsset",
+        "aidevops:DeleteAsset",
+        "aidevops:CreateAssetFile",
+        "aidevops:UpdateAssetFile",
+        "aidevops:DeleteAssetFile",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetFiles",
+        "aidevops:CreateBacklogTask",
+        "aidevops:UpdateBacklogTask",
+        "aidevops:UpdateRecommendation",
+        "aidevops:CreateTrigger",
+        "aidevops:UpdateTrigger",
+        "aidevops:DeleteTrigger",
+        "aidevops:GetBacklogTask",
+        "aidevops:ListBacklogTasks",
+        "aidevops:GetRecommendation",
+        "aidevops:ListRecommendations",
+        "aidevops:ListTriggers",
+        "aidevops:ListGoals",
+        "aidevops:ListExecutions",
+        "aidevops:ListJournalRecords",
+        "aidevops:GetAssociation",
+        "aidevops:ListAssociations"
+      ],
+      "Resource": [
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "${aws:PrincipalAccount}"
+        }
+      }
+    }
+  ]
+}
+```
+
+The policy document uses the following IAM policy variables. IAM replaces each variable with its value when AWS DevOps Agent uses the role, so keep the variables as they are when you copy the statements.
++ `${aws:PrincipalTag/AgentSpaceId}` – The value of the `AgentSpaceId` session tag, which is the ID of the Agent Space of the channel.
++ `${aws:PrincipalAccount}` – The ID of the AWS account that owns the role.
 
 ### AIDevOpsAgentAccessPolicy
 <a name="aidevopsagentaccesspolicy"></a>
@@ -1565,6 +1692,57 @@ Provides permissions required by the AWS DevOps Agent to conduct investigations 
           "s3:prefix": ["AWSLogs/*", "*/AWSLogs/*"]
         }
       }
+    }
+  ]
+}
+```
+
+### AIDevOpsOrganizationsAccessPolicy
+<a name="aidevopsorganizationsaccesspolicy"></a>
+
+Provides permissions required by the AWS DevOps Agent to read your organization's structure and to manage the CloudFormation StackSets it creates to deploy roles to your member accounts.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 		 	 	 
+  "Statement": [
+    {
+      "Sid": "OrgSourceStackSets",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStackSet",
+        "cloudformation:DescribeStackSet",
+        "cloudformation:UpdateStackSet",
+        "cloudformation:DeleteStackSet",
+        "cloudformation:CreateStackInstances",
+        "cloudformation:DeleteStackInstances",
+        "cloudformation:ListStackInstances",
+        "cloudformation:DescribeStackSetOperation",
+        "cloudformation:ListStackSetOperations",
+        "cloudformation:ListStackSetOperationResults"
+      ],
+      "Resource": [
+        "arn:aws:cloudformation:*:*:stackset/AIDevOpsOrgSource-*",
+        "arn:aws:cloudformation:*:*:stackset-target/AIDevOpsOrgSource-*/*",
+        "arn:aws:cloudformation:*:*:type/resource/AWS-IAM-Role",
+        "arn:aws:cloudformation:*:*:type/resource/AWS-CloudFormation-WaitConditionHandle"
+      ]
+    },
+    {
+      "Sid": "OrgReads",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:DescribeOrganization",
+        "organizations:DescribeAccount",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListParents",
+        "organizations:ListChildren",
+        "organizations:ListRoots",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListDelegatedServicesForAccount",
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource": "*"
     }
   ]
 }

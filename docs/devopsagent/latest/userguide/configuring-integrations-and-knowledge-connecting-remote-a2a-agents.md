@@ -1,7 +1,6 @@
 
 
 # Connecting Remote A2A Agents
-<a name="configuring-integrations-and-knowledge-connecting-remote-a2a-agents"></a>
 
 Remote agents extend AWS DevOps Agent's investigation capabilities by delegating tasks to external agents that implement the Agent-to-Agent (A2A) protocol. When you connect a remote agent, AWS DevOps Agent can assign investigation subtasks to it and incorporate its findings into the overall investigation. This guide explains how to connect a remote agent to AWS DevOps Agent.
 

@@ -1,14 +1,15 @@
 
 
-# Release readiness code reviews
-<a name="release-management-release-readiness-code-review"></a>
+# Reviewing code changes
 
-Release readiness code reviews evaluate your code changes for cross-repository dependency risks, internal standards compliance, and access-control correctness. It also performs automatic verification testing – it builds, runs, and tests your code changes – in a verification environment managed by the AWS DevOps Agent.
+**Preview:** Code Change Risk Analysis is in preview and is subject to change.
+
+Code Change Risk Analysis evaluates your code changes for cross-repository dependency risks, internal standards compliance, access-control correctness, and risks to your production environments. It can also perform automatic verification testing, which builds, runs, and tests your code changes in a verification environment that AWS DevOps Agent manages. For an overview of the capability, see [Code Change Risk Analysis](working-with-devops-agent-code-change-risk-analysis-index.md).
 
 ## Getting started
 <a name="getting-started"></a>
 
-To use release readiness code reviews, complete the following setup steps.
+To use Code Change Risk Analysis, complete the following setup steps.
 
 ### Step 1: Enable capabilities on your repositories
 <a name="step-1-enable-capabilities-on-your-repositories"></a>
@@ -16,7 +17,7 @@ To use release readiness code reviews, complete the following setup steps.
 Code review and automated testing capabilities must be enabled on your connected GitHub or GitLab repositories before they can trigger.
 
 The **Code Review and Automated Testing** section in your pipeline provider integration settings provides two per-repository capabilities:
-+ **Auto trigger change review** — When enabled, DevOps Agent automatically runs a release readiness code review each time a pull request or merge request is opened or updated. Review findings appear as inline comments on the PR/MR.
++ **Auto trigger change review** — When enabled, DevOps Agent automatically runs Code Change Risk Analysis each time a pull request or merge request is opened or updated. Review findings appear as inline comments on the PR/MR.
 + **Automatic verification testing** — When enabled, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](#automatic-verification-testing).
 
 You can enable or disable each capability independently per repository, allowing you to use change reviews without verification testing or vice versa.
@@ -28,7 +29,7 @@ You can enable or disable each capability independently per repository, allowing
 #### Controlling when automated reviews trigger
 <a name="controlling-when-automated-reviews-trigger"></a>
 
-By default, when **Auto trigger change review** is enabled, DevOps Agent runs a release readiness code review on every applicable pull request or merge request event, on any target branch. You can narrow this by adding trigger filters in the **Advanced settings** of the connection flow.
+By default, when **Auto trigger change review** is enabled, DevOps Agent runs Code Change Risk Analysis on every applicable pull request or merge request event, on any target branch. You can narrow this by adding trigger filters in the **Advanced settings** of the connection flow.
 
 With trigger filters, you can scope automated reviews by:
 + **Target branches** (required) — One or more branch names or patterns (regular expressions). The review triggers only when the pull request or merge request's target (base) branch matches. For example, `main` limits reviews to changes targeting the `main` branch, and `release/.*` matches any branch under `release/`.
@@ -43,7 +44,7 @@ For instructions on configuring trigger filters in GitHub, see [Advanced setting
 ### Step 2: Configure Release Management environments for private VPC access (optional)
 <a name="step-2-configure-release-management-environments-for-private-vpc-access-optional"></a>
 
-Release readiness code reviews can perform automatic verification testing by building, running, and testing your code changes in a verification environment (see [Automatic verification testing](#automatic-verification-testing)). If your code build process requires artifacts from internal systems — such as private image repositories (for example, Artifactory, Docker Hub Enterprise), internal build artifact stores, or dependent code repositories — you need to give the verification testing environment access to a VPC that can reach those service endpoints.
+Code Change Risk Analysis can perform automatic verification testing by building, running, and testing your code changes in a verification environment (see [Automatic verification testing](#automatic-verification-testing)). If your code build process requires artifacts from internal systems — such as private image repositories (for example, Artifactory, Docker Hub Enterprise), internal build artifact stores, or dependent code repositories — you need to give the verification testing environment access to a VPC that can reach those service endpoints.
 
 By default, the verification testing environment does not have network access to your internal systems. To enable access, create a Release Management environment in your Agent Space. The environment stores the private connection and runtime role that the verification testing environment uses to reach private resources. Then associate the environment with each GitHub repository or GitLab project that requires private access.
 
@@ -84,15 +85,72 @@ The **Verification environment** field is available only when **Automatic verifi
 
 You can create multiple environments when repositories require access to different VPCs.
 
+## Configuring review depth
+<a name="configuring-review-depth"></a>
+
+You can set the review depth for each branch in a repository. Each review runs at one of the following depths:
+
+
+| Depth | Value | Description | 
+| --- | --- | --- | 
+| Static code analysis | static-analysis | Reviews the change without building or running it. Static reviews take less time and cost less, but they produce more false positives. | 
+| Static code analysis with verification testing | verification-testing | Also builds, runs, and tests the change in a verification environment. These reviews produce fewer false positives, but they take longer and cost more. For more information, see [Automatic verification testing](#automatic-verification-testing). | 
+
+To run reviews at verification testing depth, enable **Automatic verification testing** for the repository. Otherwise, reviews run static code analysis, and the report explains why.
+
+When you request a review through AWS DevOps Agent chat or the AWS DevOps Agent Model Context Protocol (MCP) server, you can specify the review depth for that review. A depth in the request takes precedence over the repository's configuration file. For more information about the MCP server, see [Connecting to the DevOps Agent MCP server](connecting-to-devops-agent-remote-servers-connecting-to-the-devops-agent-mcp-server.md).
+
+For pricing, see [AWS DevOps Agent pricing](https://aws.amazon.com/devops-agent/pricing/).
+
+### Setting review depth by branch
+<a name="setting-review-depth-by-branch"></a>
+
+To set review depth by branch, add a `.aws-code-review.yaml` file to the root of your repository. The following example file runs verification testing on pull requests into `main` and static code analysis on all other pull requests:
+
+```
+version: 1
+reviews:
+  default:
+    review_depth: static-analysis
+  overrides:
+    - when:
+        target_branch: main
+      review_depth: verification-testing
+    - when:
+        source_branch: "wip/**"
+        target_branch: "staging/*"
+      review_depth: static-analysis
+```
++ `default` – The depth for reviews that no override matches.
++ `overrides` – A list of rules, checked in order. The first rule whose `when` conditions all match sets the depth.
++ `target_branch` and `source_branch` – A branch name or pattern, or a list of them. A list matches if any entry matches. Patterns follow [GitHub Actions branch filter syntax](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet) : `*` matches any characters except `/`, and `**` matches any characters. Negation with `!` isn't supported.
++ `version` (optional) – The file format version. The only supported value is `1`.
+
+If you don't add a `.aws-code-review.yaml` file or specify a depth in your request, AWS DevOps Agent chooses the depth for each change.
+
+#### Which copy of the file applies
+<a name="which-copy-of-the-file-applies"></a>
+
+For a pull request or merge request, AWS DevOps Agent reads `.aws-code-review.yaml` from the **target branch**. It doesn't read the file from the branch being merged. This has the following effects:
++ A pull request can't change the depth it is reviewed at. Changes to the file take effect after they merge into the target branch.
++ Each target branch needs its own copy of the file. For example, pull requests into `develop` use the file on `develop`, even if `main` has a different one.
++ You can keep the same file on every branch. Overrides on `target_branch` select the depth for each one.
+
+For a review of a branch or commit that you request in chat, AWS DevOps Agent reads the file from the base branch if you name one. Otherwise, it reads the file from the reviewed branch or commit. Overrides on `target_branch` match only when you name a base branch.
+
+When a review covers several repositories, the deepest depth that any repository requests applies.
+
+If AWS DevOps Agent can't use the file, for example because it isn't valid YAML or sets an unsupported value, the review still runs. The agent chooses the depth and records the problem in the review's execution journal. If a rule has an unknown condition, the agent skips that rule and checks the remaining rules.
+
 ## Performing a code review
 <a name="performing-a-code-review"></a>
 
 You can request a code review on-demand through DevOps Agent chat:
 + "Review branch feature/payments on repo payment-service for release risks"
-+ "Review commit abc123 on repo infrastructure for release readiness"
++ "Review commit abc123 on repo infrastructure for production risks"
 + "What release risks exist in the latest changes to repo order-service?"
 
-The agent evaluates the specified scope — a branch, commit, or set of changes — and returns a release readiness report. The report includes:
+The agent evaluates the specified scope — a branch, commit, or set of changes — and returns a report. The report includes:
 + **Recommended action** can be one of the following:
   + **BLOCK**: A critical risk was confirmed with high confidence or reproduced by testing. Resolve it before releasing.
   + **Deploy with Caution**: Actionable risks were found that do not meet the block threshold. Review them before releasing.
@@ -103,7 +161,7 @@ The agent evaluates the specified scope — a branch, commit, or set of changes 
 + **Risk analysis** — Specific findings with affected code locations
 + **Recommendations** — Actionable steps to resolve each finding
 
-Reviews typically complete in 8–10 minutes, depending on the size and complexity of the change.
+Static code analysis reviews typically take about 5 minutes. Reviews that include verification testing typically take about 11 minutes. Review times depend on the size and complexity of the change.
 
 ## Automated code reviews
 <a name="automated-code-reviews"></a>
@@ -113,7 +171,7 @@ Automated code reviews run without manual intervention. They can trigger in two 
 ### Code reviews during code generation
 <a name="code-reviews-during-code-generation"></a>
 
-When using the Kiro Power or Claude Code plugin, the coding agent can invoke a release readiness review as code is being generated. The review evaluates the in-progress changes against your policies and dependencies, surfacing findings directly in the IDE before the code is committed.
+When using the Kiro Power or Claude Code plugin, the coding agent can request Code Change Risk Analysis as code is being generated. The review evaluates the in-progress changes against your policies and dependencies, surfacing findings directly in the IDE before the code is committed.
 
 If issues are found, the coding agent is notified and can address them immediately — fixing policy violations, correcting over-permissioned IAM policies, or preparing dependent changes in other repositories.
 
@@ -128,6 +186,10 @@ By default, reviews trigger on all applicable events for all target branches. Yo
 
 Findings appear as inline comments on the affected lines of code, with the overall assessment posted as a PR/MR comment. You can configure whether findings block merges (required status check) or are advisory only.
 
+Each review posts a commit status named `aws-devops-agent/code-change-risk-analysis`. Reviews before November 17, 2026 posted `aws-devops-agent/release-readiness-review`; if you require that status check, update it to the new name. The status fails only when the recommended action is BLOCK; all other recommended actions pass. If a review fails, times out, or is canceled, the status passes and a comment asks you to review the change manually.
+
+When you push new commits, the review focuses on what changed since the previous review and carries forward earlier findings that still apply. If the PR/MR was rebased onto a new base, the whole change is reviewed again. Findings that you already declined in a reply to an earlier comment on the same file, such as "won't fix" or "false positive", aren't posted again.
+
 #### Public repository limitation
 <a name="public-repository-limitation"></a>
 
@@ -135,18 +197,21 @@ Automated PR/MR code review triggers are only available for private repositories
 
 Because anyone can open a pull request against a public repository — including unknown external contributors — automatically triggering reviews on those PRs could consume resources without repository owner awareness or process untrusted content. Restricting automated triggers to private repositories ensures that only trusted collaborators initiate the review workflow.
 
-If you use a public repository, you can still run release readiness code reviews by requesting them through DevOps Agent chat or through coding agent integrations (Kiro Power, Claude Code plugin, or AWS Transform custom).
+If you use a public repository, you can still run Code Change Risk Analysis by requesting it through DevOps Agent chat or through coding agent integrations (Kiro Power, Claude Code plugin, or AWS Transform custom).
 
 ## Automatic verification testing
 <a name="automatic-verification-testing"></a>
 
-When a release readiness risk assessment is triggered, DevOps Agent creates an AWS-managed verification environment and clones your code into it. The environment runs on dedicated compute resources with network restrictions that limit access to trusted services for build, artifact storage, and retrieval.
+When a review that includes verification testing starts, DevOps Agent creates an AWS-managed verification environment and clones your code into it. The environment runs on dedicated compute resources with network restrictions that limit access to trusted services for build, artifact storage, and retrieval.
 
 DevOps Agent reads your application's code and project files to determine the required build tools and dependencies, then installs them in the verification environment. After successfully building your application, the agent generates a testing plan and runs it to identify functional risks — such as edge cases that might result in failures or unexpected behavior.
 
-Findings from verification testing are included in the final release readiness report alongside standards, dependency, and access-control findings.
+**Important**  
+** During verification testing, AWS DevOps Agent downloads the repositories that are referenced in your repository's README files and AGENTS.md files. To control which destinations the verification environment can reach, connect the verification environment to a VPC and control outbound traffic through your VPC routing. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](#step-2-configure-release-management-environments-for-private-vpc-access-optional).
 
-You can use [Agent instructions](about-aws-devops-agent-agent-instructions.md) (AGENTS.md) to tune how verification testing is performed — for example, specifying which test commands to run, what constitutes a passing build, or which parts of the application to exercise during verification.
+Findings from verification testing are included in the final report alongside standards, dependency, and access-control findings.
+
+You can use [agent instructions](about-aws-devops-agent-agent-instructions.md) (AGENTS.md) to tune how verification testing is performed — for example, specifying which test commands to run, what constitutes a passing build, or which parts of the application to exercise during verification.
 
 ### Reviewing verification test results
 <a name="reviewing-verification-test-results"></a>
@@ -193,12 +258,27 @@ The verification testing environment has outbound network access restricted to a
 | registry.npmmirror.com | npm mirror registry | 
 
 **Note**  
-** If your application requires network access to domains not on this list, you can connect your verification testing environment to a VPC will cause the agent to use your own network firewall settings, allowing you to configure access to any of the services your application requires.
+** If your application requires network access to domains not on this list, connect your verification testing environment to a VPC. The environment then uses the routing and network firewall settings of your VPC, so you can allow access to the services that your application requires.
+
+### Encrypting verification environments with a customer managed key
+<a name="encrypting-verification-environments-with-a-customer-managed-key"></a>
+
+Verification environments support customer managed keys in AWS Key Management Service (AWS KMS). For information about creating a customer managed key and setting its key policy, see [Encryption at rest for AWS DevOps Agent](aws-devops-agent-security-encryption-at-rest-for-devops-agent.md).
+
+## Production context in code reviews
+<a name="production-context-in-code-reviews"></a>
+
+A code review uses read-only context from your running environment to assess how a change affects production. It doesn't need a separate setting. The agent uses the AWS accounts associated with your Agent Space and the custom Model Context Protocol (MCP) servers that you connect to it, and reads the following:
++ **AWS resources** – Reads Amazon CloudWatch metrics and alarms, and the configuration of resources in the AWS accounts associated with your Agent Space.
++ **Application topology** – Uses the resource [topology](about-aws-devops-agent-what-is-a-devops-agent-topology.md) of the AWS accounts associated with your Agent Space to find the resources that connect to the changed resource.
++ **MCP server tools** – Calls only allowlisted tools classified as `READ_ONLY` from the custom [MCP servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md) that you connect.
+
+The agent doesn't read log events, AWS Secrets Manager secret values, AWS Systems Manager parameter values, or application data such as Amazon S3 objects and Amazon DynamoDB items. It doesn't call operations that change resources. If your AWS Identity and Access Management (IAM) role denies a read, the review treats the check as unverifiable rather than as a finding.
 
 ## Repository content and external references
 <a name="repository-content-and-external-references"></a>
 
-During a release readiness code review, the agent reads content in your connected repositories. This includes code, README files, issues, and pull request or merge request comments. The agent might act on instructions or references that it finds in this content. During [automatic verification testing](#automatic-verification-testing), it might fetch referenced resources, such as external repositories or packages, from the [allowed network destinations](#allowed-network-destinations).
+During a Code Change Risk Analysis review, the agent reads content in your connected repositories. This includes code, README files, issues, and pull request or merge request comments. The agent might act on instructions or references that it finds in this content. During [automatic verification testing](#automatic-verification-testing), it might fetch referenced resources, such as external repositories or packages, from the [allowed network destinations](#allowed-network-destinations).
 
 Repository content can contain malicious instructions that attempt to influence the agent. Connect only repositories that you trust.
 
@@ -209,7 +289,7 @@ For more information about how security responsibilities are shared between AWS 
 ## Reviewing code review results
 <a name="reviewing-code-review-results"></a>
 
-Each code review produces a report accessible in the **Releases** page of the DevOps Agent web app. Reports include:
+Each code review produces a report accessible in the **Changes** page of the DevOps Agent web app. Reports include:
 + **Finding categories** — Policy violations, dependency risks, access-control issues, and test coverage gaps
 + **Severity levels** — Blocking (must fix before merge), Warning (should address), and Informational (awareness only)
 + **Execution journal** — The full trace of evaluation steps and tools used by the agent, providing transparency into how conclusions were reached
@@ -219,37 +299,37 @@ You can also ask follow-up questions in DevOps Agent chat: "Why did the review f
 ## Integrate with Kiro IDE and CLI
 <a name="integrate-with-kiro-ide-and-cli"></a>
 
-To use release readiness code reviews in Kiro:
+To use Code Change Risk Analysis in Kiro:
 
 1. Install the [DevOps Agent Kiro Power](https://kiro.dev/launch/powers/add?name=aws-devops-agent) from the Kiro Power marketplace
 
-1. The Power includes Skills that instruct the coding agent when to invoke release readiness reviews — after significant code changes and before creating a PR
+1. The Power includes skills that instruct the coding agent when to request Code Change Risk Analysis — after significant code changes and before creating a PR
 
 1. Findings surface directly in the IDE, and Kiro will offer to fix identified issues
 
-From the Kiro CLI, you can also trigger reviews explicitly: the coding agent will invoke the release readiness review and incorporate findings into its workflow.
+From the Kiro CLI, you can also trigger reviews explicitly: the coding agent requests a review and incorporates findings into its workflow.
 
 ## Integrate with Claude Code
 <a name="integrate-with-claude-code"></a>
 
-To use release readiness code reviews in Claude Code:
+To use Code Change Risk Analysis in Claude Code:
 
 1. Install the [DevOps Agent Claude Code plugin](https://claude.com/plugins/aws-agents-for-devsecops) from the Claude Code plugin marketplace
 
-1. The plugin connects Claude Code to your Agent Space and enables the coding agent to invoke release readiness reviews
+1. The plugin connects Claude Code to your Agent Space and enables the coding agent to request Code Change Risk Analysis
 
 1. During development, Claude Code can request a review of in-progress changes and address findings before committing
 
 ## Integrate with AWS Transform custom
 <a name="integrate-with-aws-transform-custom"></a>
 
-To use release readiness code reviews in [AWS Transform custom](https://docs.aws.amazon.com/transform/latest/userguide/custom.html) :
+To use Code Change Risk Analysis in [AWS Transform custom](https://docs.aws.amazon.com/transform/latest/userguide/custom.html) :
 
-1. Download the AWS DevOps Agent release readiness code reviews skill from the [AWS Transform custom samples repository](https://github.com/aws-samples/aws-transform-custom-samples/tree/main/client-side-skills/devops-agent-release-readiness-code-review) on GitHub.
+1. Download the AWS DevOps Agent release readiness code review skill from the [AWS Transform custom samples repository](https://github.com/aws-samples/aws-transform-custom-samples/tree/main/client-side-skills/devops-agent-release-readiness-code-review) on GitHub.
 
 1. Install the skill into your AWS Transform environment following the instructions in the repository README.
 
-1. Once installed, the skill integrates with AWS Transform's code generation workflow. When Transform generates or modifies code, the skill invokes a release readiness review against the proposed changes.
+1. Once installed, the skill integrates with AWS Transform's code generation workflow. When Transform generates or modifies code, the skill requests a review of the proposed changes.
 
 1. Review findings surface directly in the Transform output. If issues are identified, Transform can address them before finalizing the code change.
 
@@ -265,13 +345,14 @@ Prerequisites: GitHub repository connected to your Agent Space with automated re
 
 Prerequisites: GitLab project connected to your Agent Space with automated reviews enabled. For setup instructions, see [Configuring Code Review and Automated Testing](connecting-to-cicd-pipelines-connecting-gitlab.md).
 + Reviews appear as inline comments on merge request diffs, with an overall note
-+ Configure as a merge request approval rule to require resolution of blocking findings
++ Blocking findings set the `aws-devops-agent/code-change-risk-analysis` commit status to failed
 
 ## Using code reviews in DevOps Agent chat
 <a name="using-code-reviews-in-devops-agent-chat"></a>
 
 From DevOps Agent chat, you can:
 + Request reviews of any branch, commit, or repository scope
++ Choose the review depth for a review: "Run a quick static review of branch feature/payments on repo payment-service" or "Review branch feature/payments on repo payment-service with verification testing." If you don't specify a depth, the review uses the repository's [review depth configuration](#configuring-review-depth).
 + Ask what the agent knows about your project's dependencies: "Which code bases interact with the service in the payments repo?"
 + Ask follow-up questions about specific findings
 + Request the agent generate a fix for an identified issue
@@ -280,7 +361,7 @@ From DevOps Agent chat, you can:
 ## Agentic safety guardrails
 <a name="agentic-safety-guardrails"></a>
 
-Release readiness reviews include built-in safety guardrails that prevent common unsafe agent behaviors. These guardrails are always active during the review process. Specific coverage and enforcement behavior may change as the feature evolves. While we aim to cover as many common unsafe behaviors as we can, some behaviors will not have corresponding guardrails in place.
+Code Change Risk Analysis includes built-in safety guardrails that prevent common unsafe agent behaviors. These guardrails are always active during the review process. Specific coverage and enforcement behavior may change as the feature evolves. While we aim to cover as many common unsafe behaviors as we can, some behaviors will not have corresponding guardrails in place.
 
 ### Credential exposure prevention
 <a name="credential-exposure-prevention"></a>
@@ -302,4 +383,4 @@ Read-only operations such as `describe_*`, `get_*`, and `list_*` are permitted.
 ### Sequential phase enforcement
 <a name="sequential-phase-enforcement"></a>
 
-Release readiness review phases must execute in sequence. This ensures systematic and thorough evaluation and prevents incomplete assessments from skipped steps.
+Review phases must execute in sequence. This ensures systematic and thorough evaluation and prevents incomplete assessments from skipped steps.

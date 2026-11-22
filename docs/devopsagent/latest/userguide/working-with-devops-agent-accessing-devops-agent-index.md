@@ -1,7 +1,6 @@
 
 
 # Accessing DevOps Agent
-<a name="working-with-devops-agent-accessing-devops-agent-index"></a>
 
 AWS DevOps Agent supports several access methods: the web app console, Model Context Protocol (MCP) integration, Agent-to-Agent (A2A) integration, Agent Client Protocol (ACP) integration, webhooks for event-driven automation, and direct API access. Choose the method that best fits your workflow and technical requirements.
 
@@ -13,7 +12,7 @@ The following diagram illustrates these access methods and how they connect to t
 ## DevOps Agent web app
 <a name="devops-agent-web-app"></a>
 
-The web app is the primary interface for DevOps Agent. Use conversational chat to investigate incidents, query your infrastructure, and manage recommendations. For more information, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
+The web app is the primary interface for DevOps Agent. Use conversational chat to investigate incidents, query your infrastructure, and manage recommendations. For more information, see [DevOps Agent web app overview](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
 
 ## Model Context Protocol (MCP) integration
 <a name="model-context-protocol-mcp-integration"></a>
@@ -35,7 +34,7 @@ You can invoke AWS DevOps Agent programmatically using the [Agent Client Protoco
 ## Webhooks
 <a name="webhooks"></a>
 
-Webhooks allow external systems to automatically trigger AWS DevOps Agent investigations. External systems such as ticketing platforms and monitoring tools can send HTTP requests when incidents occur. For more information, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+Webhooks allow external systems to automatically trigger AWS DevOps Agent investigations. External systems such as ticketing platforms and monitoring tools can send HTTP requests when incidents occur. For more information, see [DevOps Agent webhook integration](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
 
 ## AWS DevOps Agent API
 <a name="aws-devops-agent-api"></a>

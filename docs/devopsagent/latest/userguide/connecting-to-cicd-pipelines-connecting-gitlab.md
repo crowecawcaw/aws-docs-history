@@ -1,7 +1,6 @@
 
 
 # Connecting GitLab
-<a name="connecting-to-cicd-pipelines-connecting-gitlab"></a>
 
 GitLab integration enables AWS DevOps Agent to monitor deployments from GitLab Pipelines to inform causal investigations during incident response. This integration follows a two-step process: account-level registration of GitLab, followed by connecting specific projects to individual Agent Spaces.
 
@@ -19,7 +18,7 @@ GitLab is registered at the AWS account level and shared among all Agent Spaces 
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find the **GitLab** card in the **Available** section and choose **Register**. To narrow the list, enter GitLab in **Find capability**, or choose **Pipeline** in the category filter
+1. In the **Available** section, find the **GitLab** card and choose **Register**. To narrow the list, enter GitLab in **Find capability**, or choose **Pipeline** in the category filter.
 
 ### Step 2: Configure GitLab connection
 <a name="step-2-configure-gitlab-connection"></a>
@@ -91,12 +90,12 @@ AWS DevOps Agent monitors these projects for deployments from GitLab Pipelines t
 ## Configuring Code Review and Automated Testing
 <a name="configuring-code-review-and-automated-testing"></a>
 
-When you select projects in the GitLab connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which projects automatically trigger a [Release readiness code reviews](release-management-release-readiness-code-review.md) and automated testing capabilities.
+When you select projects in the GitLab connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which projects automatically trigger [Code Change Risk Analysis](code-change-risk-analysis-reviewing-code-changes.md) and automated testing capabilities.
 
 The Code Review and Automated Testing configuration includes:
 + **Capabilities** — Choose code review and automated testing capabilities for each project. The section provides two per-project settings:
-  + **Auto trigger change review** — When enabled for a project, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md) each time a merge request is opened or updated. Review findings appear as inline comments on the merge request. This is enabled by default for all connected projects.
-  + **Automatic verification testing** — When enabled for a project, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](release-management-release-readiness-code-review.md#automatic-verification-testing). This is enabled by default for all connected projects.
+  + **Auto trigger change review** — When enabled for a project, DevOps Agent automatically runs [Code Change Risk Analysis](code-change-risk-analysis-reviewing-code-changes.md) each time a merge request is opened or updated. Review findings appear as inline comments on the merge request. This is enabled by default for all connected projects.
+  + **Automatic verification testing** — When enabled for a project, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](code-change-risk-analysis-reviewing-code-changes.md#automatic-verification-testing). This is enabled by default for all connected projects.
 + **Project list** — Shows all projects you selected during the connection step. Use the search field to filter projects by name. Each project has independent checkboxes for both capabilities.
 + **Verification environment** (optional) — In **Advanced settings**, associate each project with a Release Management environment when automatic verification testing requires access to private resources in your VPC. The environment contains the private connection and runtime role that the verification testing environment uses.
 
@@ -112,14 +111,14 @@ To configure automated reviews:
 
 1. Choose **Save** to apply your configuration.
 
-Once configured, any new merge request in a project with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automatic verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
+Once configured, any new merge request in a project with **Auto trigger change review** enabled will automatically trigger Code Change Risk Analysis. If **Automatic verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Reviewing code changes](code-change-risk-analysis-reviewing-code-changes.md).
 
 ### Associating a Release Management environment
 <a name="associating-a-release-management-environment"></a>
 
 You use a Release Management environment to give automatic verification testing access to private build dependencies and services through your VPC. You can associate one environment with each project.
 
-Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](release-management-release-readiness-code-review.md#step-2-configure-release-management-environments-for-private-vpc-access-optional).
+Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](code-change-risk-analysis-reviewing-code-changes.md#step-2-configure-release-management-environments-for-private-vpc-access-optional).
 
 To associate an environment:
 
@@ -141,7 +140,7 @@ The **Verification environment** field appears only for projects with **Automati
 ### Advanced settings: trigger filters
 <a name="advanced-settings-trigger-filters"></a>
 
-By default, a project with **Auto trigger change review** enabled runs a release readiness code review on every applicable merge request event, on any target branch. Use **Advanced settings** to add trigger filters that control exactly when automated reviews run for each project.
+By default, a project with **Auto trigger change review** enabled runs Code Change Risk Analysis on every applicable merge request event, on any target branch. Use **Advanced settings** to add trigger filters that control exactly when automated reviews run for each project.
 
 Each filter is a *filter group* that combines two conditions:
 + **Target branches** (required) — One or more branch names or patterns, entered as regular expressions (for example, `main` or `release/.*`). The review triggers only when the merge request's target branch matches one of these patterns.
@@ -164,6 +163,25 @@ To configure trigger filters:
 1. Choose **Save** to apply your configuration.
 
 You can define up to 5 filter groups per project, with up to 20 patterns per group. Each pattern must be a valid regular expression of up to 256 characters. If you don't add any filter groups, reviews trigger on all applicable events for all target branches.
+
+## (Optional) Permissions for directed actions
+<a name="optional-permissions-for-directed-actions"></a>
+
+To allow approved write actions on GitLab (directed actions), make sure the connection has the permissions below. Directed actions must also be enabled on the agent space, and you approve each action in chat before it runs. For more information, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md).
+
+The personal access token you create during registration already includes the `api` scope, which grants read and write API access, so you do not need an additional scope. For a fine-grained token, the following table lists the permissions to grant:
+
+
+| Resource | Permission | Used for | 
+| --- | --- | --- | 
+| Work item | Read, Create, Update | Issues and issue comments | 
+| Merge request | Read, Create, Update | Merge requests and merge request comments | 
+| Branch | Read, Create | Creating branches | 
+| Pipeline | Read, Update | Retrying a pipeline | 
+| Deployment | Read, Update | Rolling back a deployment | 
+| Environment | Read, Update | Rolling back a deployment | 
+
+In all cases, the token's user needs a role on each project that permits the action. GitLab requires at least the **Developer** role; some deployment actions require **Maintainer**.
 
 ## Troubleshooting
 <a name="troubleshooting"></a>

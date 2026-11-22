@@ -1,17 +1,16 @@
 
 
 # Connecting to privately hosted tools
-<a name="configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools"></a>
 
 ## Private connections overview
 <a name="private-connections-overview"></a>
 
-AWS DevOps Agent can be extended with custom Model Context Protocol (MCP) tools and other integrations that give the agent access to internal systems such as private package registries, self-hosted observability platforms, internal documentation APIs, and source control instances (see: [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md)). These services often run inside an [Amazon Virtual Private Cloud (Amazon VPC)](https://docs.aws.amazon.com/vpc/latest/userguide) with restricted or no public internet access, which means AWS DevOps Agent can't reach them by default.
-
 Private connections for AWS DevOps Agent let you securely connect your Agent Space to services running in your VPC without exposing them to the public internet. Private connections work with any integration that needs to reach a private endpoint, including MCP servers, self-hosted Grafana or Splunk instances, and source control systems like GitHub Enterprise Server and GitLab Self-Managed.
 
+You can extend AWS DevOps Agent with custom Model Context Protocol (MCP) tools and other integrations that reach internal systems. Examples include private package registries, self-hosted observability platforms, internal documentation APIs, and source control instances. These systems often run in an Amazon Virtual Private Cloud (Amazon VPC) with restricted or no public internet access, so AWS DevOps Agent can't reach them by default. For more information about integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md). For more information about Amazon VPC, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the *Amazon VPC User Guide*.
+
 **Note**  
-** If your privately hosted tools make outbound requests to the AWS DevOps Agent from within your VPC, this traffic can also be secured by using a VPC Endpoint so it stays within the AWS network. For example, this can be used with tools that trigger the DevOps Agent via webhook events (see: [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md)). For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md).
+** If your privately hosted tools make outbound requests to the AWS DevOps Agent from within your VPC, this traffic can also be secured by using a VPC Endpoint so it stays within the AWS network. For example, this can be used with tools that trigger the DevOps Agent via webhook events (see: [Invoking DevOps Agent through Webhooks](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md)). For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md).
 
 ### How private connections work
 <a name="how-private-connections-work"></a>
@@ -213,9 +212,9 @@ In the AWS DevOps Agent console, private connections can be linked to a capabili
 ![Connect to endpoint using a private connection checkbox selected.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/a2a7ffb70ffe.png)
 
 
-1. Open the AWS DevOps Agent console.
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/aidevops/home).
 
-1. In the navigation pane, choose **Capability Providers**, and then choose the **Registration** tab.
+1. In the navigation pane, choose **Capability Providers**.
 
 1. In the **Available** section, choose **Register** on the card for the capability type you want to use with the private connection.
 
@@ -403,7 +402,7 @@ If your organization turned on resource sharing in AWS Organizations, AWS RAM ac
 
 To create the private connection (console):
 
-1. In the workload account, open the AWS DevOps Agent console at https://console.aws.amazon.com/devops-agent/.
+1. In the workload account, open the AWS DevOps Agent console at https://console.aws.amazon.com/aidevops/home.
 
 1. In the navigation pane, choose **Capability Providers**.
 

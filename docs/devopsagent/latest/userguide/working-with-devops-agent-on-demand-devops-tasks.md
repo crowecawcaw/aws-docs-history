@@ -1,7 +1,6 @@
 
 
 # On Demand DevOps Tasks
-<a name="working-with-devops-agent-on-demand-devops-tasks"></a>
 
 AWS DevOps Agent On Demand Tasks is a generative artificial intelligence (AI) powered conversational assistant that enables operations teams to query their application architecture, analyze system health, and access investigation insights using natural language. You can ask questions about your AWS resources, system metrics, alarm status, deployment history, and incident patterns. Chat provides immediate answers grounded in your actual infrastructure and operations data, eliminating the need to navigate between multiple AWS consoles or monitoring tools.
 
@@ -308,3 +307,31 @@ Add the following IAM permissions to your existing operator access role:
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 
 After completing either option, refresh your DevOps Agent Space web app, and the chat panel appears in the web app.
+
+## Operator permissions that Chat uses
+<a name="operator-permissions-that-chat-uses"></a>
+
+When you use Chat for an action in the following table, Chat uses operator permissions. These permissions control what Chat can do with these resources in your Agent Space.
+
+In the web app, Chat uses the [web app role](aws-devops-agent-security.html#iam-roles). The `AIDevOpsOperatorAppAccessPolicy` AWS managed policy includes these actions.
+
+If the web app role does not have the managed policy attached, add the following actions to its permissions policy.
+
+
+| Resource | Actions | 
+| --- | --- | 
+| Assets: AGENTS.md files, attachments, custom agents, feedback, memories, memory stores, skills, and test profiles. For more information about each asset type, see [Managing assets](managing-assets.md). | aidevops:CreateAsset, aidevops:UpdateAsset, aidevops:DeleteAsset, aidevops:CreateAssetFile, aidevops:UpdateAssetFile, aidevops:DeleteAssetFile, aidevops:GetAsset, aidevops:GetAssetFile, aidevops:ListAssets, aidevops:ListAssetFiles | 
+
+Chat uses operator permissions only for the actions in the preceding table. For other actions, operator permissions do not control what Chat can do. This includes an explicit Deny. These actions are:
++ Start, stop, steer and read investigations
++ Create, update, delete and list triggers
++ Read and update recommendations
++ Run custom agents, and read Grader results
++ Start and read release readiness code reviews and release tests
++ Read mitigation plans
++ Read Agent Space details and associations
++ Read the attachments that you add to a chat
+
+To control who can do these actions in Chat, control who can use Chat with `aidevops:CreateChat` and `aidevops:SendMessage`.
+
+If operator permissions do not allow an action, the call fails and the asset does not change. For more information about these policies, see [AWS Managed policies for AWS DevOps Agent](aws-devops-agent-security-devops-agent-iam-permissions.html#aws-managed-policies-for-aws-devops-agent).

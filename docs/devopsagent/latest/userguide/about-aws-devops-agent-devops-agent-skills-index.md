@@ -1,7 +1,6 @@
 
 
 # DevOps Agent Skills
-<a name="about-aws-devops-agent-devops-agent-skills"></a>
 
 AWS DevOps Agent Skills are modular instruction sets that extend the agent's capabilities with specialized domain knowledge and investigation methodologies tailored to your infrastructure and operational workflows.
 
@@ -193,7 +192,11 @@ When you create this skill, select **Incident Triage** as the agent type. This e
 
 Before creating skills, you must have an Agent Space. For more information, see [Creating an Agent Space](getting-started-with-aws-devops-agent-creating-an-agent-space.md).
 
-You can create skills in two ways depending on your workflow preferences and skill complexity:
+You can add skills to your Agent Space in these ways:
++ [Create a skill in the UI](#creating-a-skill-in-the-ui), with its instructions in a single SKILL.md file.
++ [Upload a skill](#uploading-a-skill) as a zip file, which can include reference files and assets.
++ [Import a skill from a repository](#importing-a-skill-from-a-repository) on GitHub, and sync it when the repository changes.
++ [Add a published skill from the Skills Catalog](devops-agent-skills-skills-catalog.md#browsing-the-skills-catalog), without a GitHub account or a zip file.
 
 To manage skills programmatically through the AWS CLI or AWS SDKs, see [Managing assets](about-aws-devops-agent-managing-assets.md).
 
@@ -220,7 +223,7 @@ The system automatically generates a SKILL.md file with the proper frontmatter s
 + Navigate to the skill on the **Knowledge** page **Skills** tab and choose the skill to open it.
 + Choose **Edit**.
 + Modify the name, description, or instructions.
-+ Choose **Save** to update the skill.
++ Choose **Save changes** to update the skill.
 
 ### Uploading a skill
 <a name="uploading-a-skill"></a>
@@ -286,7 +289,7 @@ Use clear, descriptive names like "rds-throttling-investigation" rather than gen
 You can import skills directly from a GitHub repository directory. AWS DevOps Agent fetches the skill content from the repository, extracts the name and description from the SKILL.md frontmatter, and creates the skill in your Agent Space. This allows you to manage skills in version control and import them with a single action.
 
 **Prerequisites:**
-+ A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository. GitHub Enterprise Server and GitHub Enterprise Cloud with data residency connections are also supported.
++ A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting to GitHub](connecting-to-cicd-pipelines-connecting-github.md). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository. GitHub Enterprise Server and GitHub Enterprise Cloud with data residency connections are also supported.
 + A GitHub repository containing a valid skill directory with a SKILL.md file at the root.
 
 **Repository structure:**
@@ -344,7 +347,7 @@ You can also sync from the skills list view by choosing **Sync** on the imported
 
 The [AWS DevOps Agent Tools repository](https://github.com/aws/tools-for-devops-agent) on the GitHub website contains community-contributed skills, custom agents, and MCP servers you can use as-is or as a starting point for writing your own. The repository is maintained by the AWS DevOps Agent service team. All contributions go through the same security review bar before being added, so you get rapid delivery of new capabilities with the assurance that each tool meets AWS quality standards. To browse what's available, see the [community skills gallery](https://aws.github.io/tools-for-devops-agent/skills/) on the GitHub website.
 
-Some partner-managed connectors recommend skills from this repository, which you can install when you add the connector to an Agent Space. For more information, see [Recommended skills](configuring-integrations-and-knowledge-using-partner-managed-connectors.html#recommended-skills).
+Some partner-managed connectors recommend skills from this repository, which you can install when you add the connector to an Agent Space. For more information, see [Recommended skills](configuring-integrations-and-knowledge-using-partner-managed-connectors.md#recommended-skills).
 
 Available skills include:
 + AWS Health event investigation
@@ -356,10 +359,11 @@ Available skills include:
 + Amazon Relational Database Service (Amazon RDS) operational reviews
 
 To use a community skill:
++ **Add from the Skills Catalog** – Choose **Browse catalog** on the **Skills** tab of the **Knowledge** page, find the skill, and add it without a GitHub account. The Skills Catalog lists the skills published from this repository. For details, see [Skills Catalog](devops-agent-skills-skills-catalog.md).
 + **Import from GitHub** – Copy the skill directory URL and paste it into the "Import from repository" flow in the Operator Web App. For details, see [Importing a skill from a repository](#importing-a-skill-from-a-repository).
 + **Upload as zip** – Clone the repository, zip the skill directory, and upload it using the "Upload skill" flow. For details, see [Uploading a skill](#uploading-a-skill).
 
-Each skill includes a README with prerequisites and usage instructions.
+Most skills include a README with prerequisites and usage instructions.
 
 The repository also includes community custom agents and deployable MCP servers. For details, see [Community custom agents](custom-agents-creating-a-custom-agent.md#community-custom-agents) and [Community MCP servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md#community-mcp-servers).
 
@@ -370,15 +374,15 @@ AWS DevOps Agent provides comprehensive skill management capabilities through th
 
 **Listing skills** – View all Skills in your Agent Space. The **Knowledge** page **Skills** tab displays skill name, Active or Inactive status, creation date, last updated date, and available actions.
 
-**Viewing skills** – Choose any skill to see its detail view. Skills created in the UI display editable content where you can modify the name, description, or instructions directly in the UI and choose "Save" to update. Skills uploaded as zip files display a file tree showing SKILL.md and any additional directories like references/ and assets/. Choose files in the tree to view their contents in read-only mode.
+**Viewing skills** – Choose any skill to see its detail view. Skills created in the UI display editable content. You can modify the name, description, or instructions, and then choose **Save changes**. Skills uploaded as zip files display a file tree showing SKILL.md and any additional directories like references/ and assets/. Choose a file in the tree to view or edit it. Skills imported from a repository display their files in read-only mode. Skills that you added from the Skills Catalog open in their own tab instead, which shows the skill's current version in the catalog. For more information, see [Viewing catalog skills](devops-agent-skills-skills-catalog.md#viewing-catalog-skills).
 
-**Selecting agents for a skill** – Configure which agent types can use each skill when creating or editing it. In the Agent Type dropdown, select one or more agent types using the checkboxes: **Generic** (default — applies to all agent types), **On-demand** (conversational queries), **Incident Triage** (initial incident assessment), **Incident RCA** (root cause analysis), **Incident Mitigation** (automated incident response), **Evaluation** (proactive recommendations), or **Release testing** (automated UI and API testing). Generic is selected by default and makes the skill available to all agent types. Skills targeted to specific agents reduce context consumption and improve agent focus.
+**Selecting agents for a skill** – Configure which agent types can use each skill when creating or editing it. In the Agent Type dropdown, select one or more agent types using the checkboxes: **Generic** (default — applies to all agent types), **On-demand** (conversational queries), **Incident Triage** (initial incident assessment), **Incident RCA** (root cause analysis), **Incident Mitigation** (automated incident response), **Evaluation** (proactive recommendations), or **Release testing** (automated UI and API testing). Generic is selected by default and makes the skill available to all agent types. Skills targeted to specific agents reduce context consumption and improve agent focus. You can't change the agent types of a skill that you added from the Skills Catalog.
 
-**Activating and deactivating skills** – Temporarily disable skills without deleting them using the Active/Inactive toggle. Open the skill detail view and toggle the switch to "Inactive" to prevent the agent from loading it for new investigations while preserving all content and configurations. In-progress investigations continue using the skill. Toggle back to "Active" to make the skill immediately available again. To activate or deactivate skills programmatically, see [Activating and deactivating skills](about-aws-devops-agent-managing-assets.md#activating-and-deactivating-skills) on the Managing Assets page.
+**Activating and deactivating skills** – Temporarily disable skills without deleting them. On the **Skills** tab, turn off the toggle on the skill's row. The agent stops loading the skill for new investigations, and its content and configuration stay as they are. In-progress investigations continue using the skill. Turn the toggle back on to make the skill immediately available again. To activate or deactivate skills programmatically, see [Activating and deactivating skills](about-aws-devops-agent-managing-assets.md#activating-and-deactivating-skills) on the Managing assets page.
 
-**Updating skills** – Modify existing skills based on how they were created. For skills created in the UI, choose "Edit" in the skill detail view, modify the name, description, or instructions, and choose "Save" to update. For skills uploaded as zip files, modify the files locally, create a new zip file, and upload a new version.
+**Updating skills** – How you update a skill depends on how you added it. For a skill that you created in the UI, open it, choose **Edit**, modify the name, description, or instructions, and choose **Save changes**. For a skill that you uploaded as a zip file, open it, edit, add, or remove its files, and then choose **Save changes**. For a skill that you imported from a repository, update its files in the repository, and then choose **Sync**. You can't edit skills that you added from the Skills Catalog. To update one to its current version in the catalog, choose **Sync** on its row. For more information, see [Syncing catalog skills](devops-agent-skills-skills-catalog.md#syncing-catalog-skills).
 
-**Deleting skills** – Permanently remove skills from your Agent Space. Open the skill list view, choose the more options menu (⋮) and select "Delete," review the warning about permanent deletion, type the skill name to confirm, and choose "Delete Skill." Deletion cannot be undone. In-progress investigations may be affected if they attempt to load the deleted skill. For skills uploaded as zip files, download the zip file before deleting as a backup. Consider deactivating the skill instead of deleting it if you may need it again.
+**Deleting skills** – Permanently remove skills from your Agent Space. On the **Skills** tab, choose the delete icon (trash can) on the skill's row, and then choose **Delete** to confirm. You can't undo a deletion. Deleting a skill can affect in-progress investigations that try to load it. For skills uploaded as zip files, download the zip file before deleting as a backup. Consider deactivating the skill instead of deleting it if you might need it again.
 
 ## Migrating from Runbooks
 <a name="migrating-from-runbooks"></a>

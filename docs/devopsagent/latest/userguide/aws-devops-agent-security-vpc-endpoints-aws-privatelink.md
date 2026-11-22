@@ -1,7 +1,6 @@
 
 
 # VPC Endpoints (AWS PrivateLink)
-<a name="aws-devops-agent-security-vpc-endpoints-aws-privatelink"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS DevOps Agent. You can access AWS DevOps Agent as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS DevOps Agent.
 

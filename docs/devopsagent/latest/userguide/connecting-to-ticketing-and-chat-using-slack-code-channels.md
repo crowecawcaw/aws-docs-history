@@ -1,7 +1,6 @@
 
 
 # Using Slack code channels
-<a name="connecting-to-ticketing-and-chat-using-slack-code-channels"></a>
 
 You can move an investigation into its own Slack code channel, where your team and AWS DevOps Agent work on that investigation together. Code channels are part of Slack Code, a Slack feature for working with agents in a dedicated channel. For more information about Slack Code and code channels, see [Slack Code](https://slack.com/features/code-channels) on the Slack website.
 

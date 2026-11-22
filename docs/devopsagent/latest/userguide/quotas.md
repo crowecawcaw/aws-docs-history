@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="quotas"></a>
 
 AWS DevOps Agent quotas include number of agent spaces, concurrent investigations and more. You can request increases for some quotas, but not all quotas can be increased. These increases are not granted immediately, so it may take a couple of hours to days for your increase to become effective. Unless otherwise noted, each quota is Region-specific.
 
@@ -14,7 +13,7 @@ The following table describes the quotas for AWS DevOps Agent.
 | Concurrent investigations per agent space | 3 | Yes | The maximum number of incident resolution investigations that can run concurrently in a single agent space. | 
 | Concurrent evaluations per agent space | 1 | No | The maximum number of incident prevention evaluations that can run concurrently in a single agent space. | 
 | Concurrent on-demand chat invocations per agent space | 10 | Yes | The maximum number of on-demand DevOps chat invocations that can run concurrently in a single agent space. | 
-| Concurrent release readiness reviews per agent space | 4 | Yes | The maximum number of release readiness code reviews that can run concurrently in a single agent space. | 
+| Concurrent code change risk analysis tasks per agent space | 10 | Yes | The maximum number of code change risk analysis tasks that can run concurrently in a single agent space. | 
 | Concurrent automated release tests per agent space | 4 | Yes | The maximum number of release testing tests that can run concurrently in a single agent space. | 
 | MCP tools per agent space | 500 | No | The maximum number of MCP tools that can be allowlisted across all MCP servers in a single agent space. | 
 | Custom agents per agent space | 200 | No | The maximum number of custom agents you can create in a single agent space. | 
@@ -26,6 +25,10 @@ The following table describes the quotas for AWS DevOps Agent.
 | Memory stores per agent space | 50 | No | The maximum number of memory stores that can exist in a single agent space. | 
 | Memories per memory store | 200 | No | The maximum number of individual memory files within a single memory store. | 
 | Individual memory content size | 100 KB | No | The maximum size of a single memory file. | 
+| Organization associations per agent space | 20 | No | The maximum number of organization associations, including invalid ones, in a single agent space. Service Quotas code: L-0178C38B. | 
+| Organization-covered accounts per agent space | 3,000 | No | The maximum number of member accounts that all organization associations in a single agent space cover. An account that two associations cover counts twice. Service Quotas code: L-10E2D25F. | 
+| Accounts in an organization association's account list | 1,000 | No | The maximum number of accounts that you can list in a single organization association. | 
+| OUs per organization association | 1 | No | Each organization association covers one organizational unit (OU) or the organization root. | 
 
 ## Requesting a quota increase
 <a name="requesting-a-quota-increase"></a>

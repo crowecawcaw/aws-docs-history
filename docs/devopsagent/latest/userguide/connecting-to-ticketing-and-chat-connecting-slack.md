@@ -1,7 +1,6 @@
 
 
 # Connecting Slack
-<a name="connecting-to-ticketing-and-chat-connecting-slack"></a>
 
 You can connect AWS DevOps Agent to Slack in two ways:
 + **One-way notifications** – AWS DevOps Agent posts incident response findings, root cause analyses, and mitigation plans to public or private Slack channels that you select.
@@ -17,6 +16,7 @@ To connect AWS DevOps Agent with Slack, verify that you have the following:
 + Permission to configure capability providers and communications integrations in AWS DevOps Agent.
 + Permission to create IAM roles from the AWS DevOps Agent console (required for bidirectional communication).
 + The Slack channel ID for each channel that you want to associate.
++ A member of the channel who can approve the authorization request that AWS DevOps Agent posts to the channel when you create the association.
 
 Each AWS Region has its own AWS DevOps Agent app in the [Slack Marketplace](https://slack.com/marketplace/search?q=AWS+DevOps+Agent). Use the app that matches the AWS Region of your Agent Space. For example, the US East (N. Virginia) AWS Region uses the app named **AWS DevOps Agent - US East (N. Virginia)**. Europe (Frankfurt) uses **AWS DevOps Agent - EU (Frankfurt)**. To find the app for your Region, search for **AWS DevOps Agent** in the Slack Marketplace.
 
@@ -25,12 +25,12 @@ Throughout this guide, references to the **AWS DevOps Agent** app refer to the r
 ## Connecting Slack to your Agent Space
 <a name="connecting-slack-to-your-agent-space"></a>
 
-Follow these steps to register Slack, associate a channel, and optionally enable bidirectional communication.
+Follow these steps to register Slack, associate a channel, optionally enable bidirectional communication, and authorize the channel.
 
 ### Step 1: Open the AWS DevOps Agent console
 <a name="step-1-open-the-aws-devops-agent-console"></a>
 
-1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/devops-agent/).
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/aidevops/home).
 
 1. Open an Agent Space, and choose the **Capabilities** tab.
 
@@ -88,6 +88,8 @@ To find the channel ID, open the channel in Slack, choose the channel name at th
 
 To use one-way notifications only, leave **Bidirectional mode** turned off and skip to [Step 9](#step-9-complete-the-association).
 
+To use bidirectional mode, give the channel a role that has the permissions of the `AIDevOpsChannelAccessPolicy` AWS managed policy. If you choose **Assign an existing role** or create a role from the policy template, attach this policy to the role. You can also add the statements of this policy to the permissions policy of the role. For more information, see [AIDevOpsChannelAccessPolicy](aws-devops-agent-security-devops-agent-iam-permissions.html#aidevopschannelaccesspolicy).
+
 To enable bidirectional communication:
 
 1. Under **Bidirectional communication**, turn on **Bidirectional mode**.
@@ -107,7 +109,7 @@ To enable bidirectional communication:
 ### Step 7: Invite DevOps Agent to the channel
 <a name="step-7-invite-devops-agent-to-the-channel"></a>
 
-Add the AWS DevOps Agent app to the channel. For bidirectional mode, the channel must be private.
+Add the AWS DevOps Agent app to the channel. For bidirectional mode, the channel must be private. Invite the app before you complete the association in [Step 9](#step-9-complete-the-association). When you create the association, AWS DevOps Agent posts an authorization request to the channel, and it can post only to a channel that the app is in.
 
 1. Open your Slack channel.
 
@@ -132,6 +134,8 @@ For example, for an Agent Space in Europe (Frankfurt):
 ### Step 9: Complete the association
 <a name="step-9-complete-the-association"></a>
 
+When you create the association, AWS DevOps Agent posts an authorization request to the channel, and any channel member can approve it. Read [Step 10](#step-10-authorize-the-channel) before you continue.
+
 1. Return to the AWS DevOps Agent console.
 
 1. Choose **Add** to create the channel association.
@@ -139,14 +143,49 @@ For example, for an Agent Space in Europe (Frankfurt):
 ![Step 2 of the Add Slack channel wizard showing the Invite DevOps Agent instructions and the Add button to complete the association.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step9-add.png)
 
 
-### Step 10: Verify the association
-<a name="step-10-verify-the-association"></a>
+### Step 10: Authorize the channel
+<a name="step-10-authorize-the-channel"></a>
+
+When you choose **Add**, AWS DevOps Agent posts an authorization request to the channel. The message is titled **AWS DevOps Agent authorization request** and reads: "AWS account *account-id* requested to connect an agent space to this channel. AWS DevOps Agent will not post here until a member of this channel authorizes the request." Below that text, the message lists the Agent Space ID, the AWS account ID, and the AWS Region, and has **Authorize** and **Deny** buttons. Until a channel member chooses **Authorize**, AWS DevOps Agent withholds notifications and does not answer mentions in the channel, and the association shows **Pending** in the console.
+
+The following image shows the authorization request in the channel.
+
+![Authorization request message in Slack with the Authorize and Deny buttons.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step10-authorization-request.png)
+
+
+1. In Slack, open the channel and find the message titled **AWS DevOps Agent authorization request**.
+
+1. Confirm that the AWS account ID and the Agent Space ID in the message are the ones you expect.
+
+1. Choose **Authorize**. Slack opens the **Authorize notifications?** dialog with the **Cancel** and **Authorize** buttons and the text "Allow AWS account *account-id* (agent space *agent-space-id*) to send AWS DevOps Agent notifications to this channel."
+
+1. Choose **Authorize** in the dialog. The message updates to show who authorized the request, and delivery starts. To refuse the request, choose **Deny**, and then choose **Deny** in the confirmation dialog. After a denial, remove the association, or create it again to send a new request.
+
+The following image shows the **Authorize notifications?** dialog from step 3.
+
+![Authorize notifications dialog in Slack with the Cancel and Authorize buttons.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step10-authorization-confirm.png)
+
+
+The following image shows the message after a channel member authorizes the request. The message reads "Authorized by *name*. AWS DevOps Agent notifications from AWS account *account-id* are enabled in this channel."
+
+![Authorization request message in Slack after a channel member authorized it.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step10-authorized-message.png)
+
+
+**Important**  
+Any member of the channel can approve or deny the request, not only the person who created the association or a workspace admin. In a Slack Connect channel, this includes members from other organizations. Approving connects the channel to an Agent Space in the AWS account shown in the message: notifications from that Agent Space post to the channel, and with bidirectional communication, every channel member can send requests to it. We recommend that you associate channels whose members you trust to make this decision, and that channel members choose **Authorize** only for requests from AWS account IDs they recognize.
+
+### Step 11: Verify the association
+<a name="step-11-verify-the-association"></a>
 
 1. On the **Communications** page, confirm that the Slack association appears in the **Integrations** table.
 
+1. Confirm that the **Status** column shows **Valid**. It shows **Pending** until a channel member approves the authorization request from [Step 10](#step-10-authorize-the-channel).
+
 1. If you enabled bidirectional communication, verify that the **Bidirectional** column shows **Enabled** and the **Bidirectional role** column shows the IAM role ARN.
 
-![Communications page showing two Slack integrations with Bidirectional Enabled and IAM role ARNs.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step10-success.png)
+The following image shows the **Integrations** table with two Slack associations. The first row is a channel whose authorization request a member approved, so its **Status** is **Valid**. The second row is a channel whose request is still open, so its **Status** is **Pending**. Both rows show **Enabled** in the **Bidirectional** column and an IAM role ARN in the **Bidirectional role** column.
+
+![Integrations table with two Slack associations, one Valid and one Pending.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-step11-success.png)
 
 
 Your Agent Space is now connected to Slack.
@@ -154,7 +193,7 @@ Your Agent Space is now connected to Slack.
 ## Setting up bidirectional communication in Slack
 <a name="setting-up-bidirectional-communication-in-slack"></a>
 
-After you complete the association with bidirectional mode enabled, set up the channel binding from Slack:
+After you complete the association with bidirectional mode enabled and a channel member authorizes the channel ([Step 10](#step-10-authorize-the-channel)), set up the channel binding from Slack:
 
 1. In the associated private channel, send this exact app mention as a new top-level message:
 
@@ -235,7 +274,7 @@ If your Slack workspace requires app approval, a Slack admin must approve the ne
 
 **To start the update in the AWS DevOps Agent console**
 
-1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/devops-agent/), and in the navigation pane, choose **Capability Providers**.
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/aidevops/home), and in the navigation pane, choose **Capability Providers**.
 
 1. In the **Slack** section, select the workspace. Then, on the **Actions** menu, choose **Update**.
 
@@ -271,6 +310,8 @@ On the Slack authorization page, review the requested permissions, and then choo
 
 AWS DevOps Agent posts to Slack through a shared app identity. It delivers messages as "AWS DevOps Agent" regardless of which Agent Space produced them. If you have access to the Agent Space, you can associate any channel in the connected workspace by entering its channel ID. The app can post to a channel only after a channel member adds the AWS DevOps Agent app to that channel.
 
+Every new association waits for authorization in the channel. When you create an association, AWS DevOps Agent posts an authorization request to the channel, and it withholds notifications and does not answer mentions until a channel member chooses **Authorize** on the message. Add the app to the channel before you create the association, so that the request can be posted. If you change the channel of an existing association, the new channel receives a new authorization request. For more information, see [Step 10](#step-10-authorize-the-channel).
+
 To control who can create or modify associations, scope Agent Space permissions with AWS Identity and Access Management (IAM) policies. You can review and remove existing associations at any time from the Agent Space console. AWS CloudTrail records all association changes in the Agent Space's account.
 
 To stop delivery to a channel, remove the AWS DevOps Agent app from that channel. This stops delivery from all Agent Spaces to that channel. For more information about security, see [AWS DevOps Agent Security](aws-devops-agent-security.html).
@@ -278,8 +319,13 @@ To stop delivery to a channel, remove the AWS DevOps Agent app from that channel
 ## Troubleshooting Slack communication
 <a name="troubleshooting-slack-communication"></a>
 
+If the console shows "AWS DevOps Agent couldn't post the authorization request to the Slack channel" when you choose **Add**, invite the AWS DevOps Agent app to the channel, confirm the channel ID, and choose **Add** again.
+
+If AWS DevOps Agent does not post notifications to a channel, confirm that the association shows **Valid** in the **Status** column. A new association, or one moved to another channel, shows **Pending** until a channel member chooses **Authorize** on the authorization request in the channel. If a channel member denied the request, the association shows **Invalid**; remove it, or create it again to send a new request.
+
 If AWS DevOps Agent does not respond to a message in a bidirectional channel, verify the following:
 + The Slack channel ID matches the private channel associated with the Agent Space.
++ The association shows **Valid**, not **Pending**, in the **Status** column.
 + **Bidirectional** is **Enabled** for the association in the AWS DevOps Agent console.
 + The IAM role shown for the association exists and has the permissions created by the console.
 + The regional AWS DevOps Agent app is a member of the private channel.

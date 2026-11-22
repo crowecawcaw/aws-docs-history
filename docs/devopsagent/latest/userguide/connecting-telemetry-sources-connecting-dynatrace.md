@@ -1,7 +1,6 @@
 
 
 # Connecting Dynatrace
-<a name="connecting-telemetry-sources-connecting-dynatrace"></a>
 
 ## Built-in, 2-way integration
 <a name="built-in-2-way-integration"></a>
@@ -51,7 +50,7 @@ Establish connection to your Dynatrace environment
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find the **Dynatrace** card in the **Available** section and choose **Register**. To narrow the list, enter Dynatrace in **Find capability**, or choose **Telemetry** in the category filter
+1. In the **Available** section, find the **Dynatrace** card and choose **Register**. To narrow the list, enter Dynatrace in **Find capability**, or choose **Telemetry** in the category filter.
 
 1. **Create OAuth client in Dynatrace, with the detailed permissions.**
 
@@ -191,7 +190,7 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation).
+1. In the navigation pane, choose **Capability Providers**.
 
 1. In the **Currently registered** section, on the **Dynatrace** card, choose **View all**.
 

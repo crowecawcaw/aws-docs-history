@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS DevOps Agent using Terraform
-<a name="getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-terraform"></a>
 
 ## Overview
 <a name="overview"></a>
@@ -10,7 +9,7 @@ This guide shows you how to use Terraform to create and deploy AWS DevOps Agent 
 
 The Terraform approach automates the manual steps described in the [CLI onboarding guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/getting-started-with-aws-devops-agent-cli-onboarding-guide.html) by defining all required resources as infrastructure as code.
 
-AWS DevOps Agent is available in the following 6 AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
+AWS DevOps Agent is available in the following 6 AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions for AWS DevOps Agent](about-aws-devops-agent-supported-regions.md).
 
 ## Prerequisites
 <a name="prerequisites"></a>
@@ -258,7 +257,7 @@ Unlike the AWS CDK sample — which requires a separate IntegrationsStack phase 
 | PagerDuty | pagerduty | OAuth client credentials | 
 
 **Note**  
-** Datadog is not included in the Terraform configuration. Connecting Datadog requires interactive user OAuth authorization (browser login and consent) as described in [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md), which Terraform cannot automate. Register Datadog manually through the Capability Providers page in the console.
+** Datadog is not included in the Terraform configuration. Connecting Datadog requires interactive user OAuth authorization (browser login and consent) as described in [Connecting Datadog](connecting-telemetry-sources-connecting-datadog.md), which Terraform cannot automate. Register Datadog manually through the Capability Providers page in the console.
 
 ### Step 1: Configure integration credentials
 <a name="step-1-configure-integration-credentials"></a>

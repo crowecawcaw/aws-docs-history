@@ -1,7 +1,6 @@
 
 
 # Proactive incident prevention
-<a name="production-operations-proactive-incident-prevention"></a>
 
 AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access proactive incident prevention through the Improvements page in the Operator Web App.
 

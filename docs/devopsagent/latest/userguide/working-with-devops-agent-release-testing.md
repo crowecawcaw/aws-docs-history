@@ -1,9 +1,13 @@
 
 
 # Release testing
-<a name="release-management-release-testing"></a>
+
+**Warning:** Release testing will be removed from AWS DevOps Agent on December 1, 2026. You can continue to use release testing until then.
 
 Release testing generates and executes test plans to validate code changes in realistic environments. The release testing agent runs exploratory UAT and regression testing — functional regression, user journey validation, integration testing, and edge case exploration — against your deployed web applications and REST APIs.
+
+**Important**  
+** Release testing will be removed from AWS DevOps Agent on December 2, 2026. On that date, the release testing agent is removed from the AWS DevOps Agent web app and the release testing GitHub Action is deprecated. Release testing reports from before December 2, 2026 remain available. Before then, remove the release testing step from your GitHub Actions workflows. To validate code changes before deployment, use [automatic verification testing](code-change-risk-analysis-reviewing-code-changes.md#automatic-verification-testing).
 
 ## How release testing works
 <a name="how-release-testing-works"></a>
@@ -172,7 +176,7 @@ The `aws-actions/devops-agent-release-testing@v1` GitHub Action triggers the rel
 #### Prerequisites
 <a name="prerequisites"></a>
 + A [test profile](#defining-test-profiles) configured in your Agent Space
-+ A [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md) configured in your Agent Space
++ A [webhook endpoint](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md) configured in your Agent Space
 
 #### Step 1: Configure GitHub repository secrets
 <a name="step-1-configure-github-repository-secrets"></a>
@@ -261,7 +265,7 @@ You can view full execution details (timeline, test cases, screenshots for UI te
 ## Reviewing test results
 <a name="reviewing-test-results"></a>
 
-Test results appear in the **Releases** section of the DevOps Agent web app under proposed changes. Each test run shows:
+Test results appear in the **Changes** section of the DevOps Agent web app under proposed changes. Each test run shows:
 + **Status** — Completed, Failed, or In Progress
 + **Category** — Release Testing
 + **Duration** — How long the test run took

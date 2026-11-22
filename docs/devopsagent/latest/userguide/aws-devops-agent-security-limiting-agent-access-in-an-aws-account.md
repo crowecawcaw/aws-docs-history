@@ -1,7 +1,6 @@
 
 
 # Limiting Agent Access in an AWS Account
-<a name="aws-devops-agent-security-limiting-agent-access-in-an-aws-account"></a>
 
 AWS DevOps Agent uses IAM roles to discover and describe AWS resources during incident investigations and preventative evaluations. You can control the level of access the agent has by configuring IAM policies attached to these roles. The application topology doesn't show everything the agent has access to—IAM policies are the only way to truly limit what AWS service APIs and resources the agent can access.
 

@@ -1,7 +1,6 @@
 
 
 # Connecting GitHub
-<a name="connecting-to-cicd-pipelines-connecting-github"></a>
 
 GitHub integration enables AWS DevOps Agent to access code repositories and receive deployment events during incident investigations. This integration follows a two-step process: account-level registration of GitHub, followed by connecting specific repositories to individual Agent Spaces.
 
@@ -154,7 +153,7 @@ A personal access token registration connects GitHub without installing the AWS 
 A personal access token registration supports GitHub.com, GitHub Enterprise Server, and GitHub Enterprise Cloud with data residency. For a GitHub Enterprise Server instance that is not publicly accessible, you can use a private connection.
 
 Consider the following limitations before you choose this option:
-+ **No webhooks** – GitHub does not send webhook events to a personal access token registration. AWS DevOps Agent does not receive real-time events such as pull request, push, or deployment notifications. Automated release readiness code reviews and automatic verification testing do not trigger for repositories connected through a personal access token registration. You can still request a release readiness code review through DevOps Agent chat or through coding agent integrations. For more information, see [Release readiness code reviews](release-management-release-readiness-code-review.md). If you need real-time events, use App registration.
++ **No webhooks** – GitHub does not send webhook events to a personal access token registration. AWS DevOps Agent does not receive real-time events such as pull request, push, or deployment notifications. Automated Code Change Risk Analysis reviews and automatic verification testing do not trigger for repositories connected through a personal access token registration. You can still request Code Change Risk Analysis through DevOps Agent chat or through coding agent integrations. For more information, see [Reviewing code changes](code-change-risk-analysis-reviewing-code-changes.md). If you need real-time events, use App registration.
 + **Repository access follows the token** – When you scope the registration to an organization, AWS DevOps Agent lists the repositories in that organization that the token can access. When you connect the token owner's personal account, AWS DevOps Agent lists only the repositories that the token owner owns. The agent can perform only the operations that the token permits.
 + **No token update** – You cannot update the token of an existing GitHub registration. To replace an expired or rotated token, deregister the registration and register GitHub again with the new token. Then reconnect the repositories to your Agent Spaces.
 
@@ -213,7 +212,7 @@ The following errors apply to **Verify with a personal access token**:
 
 A custom GitHub App registration connects GitHub through a GitHub App that you own. When you choose **Custom app**, AWS DevOps Agent creates this private app in your GitHub account or organization. You administer the app in GitHub. Use this option when your organization requires ownership of every GitHub App that accesses its repositories.
 
-A custom GitHub App supports the same features as the AWS DevOps Agent GitHub App. These features include webhooks, automated release readiness code reviews, and automatic verification testing. A custom GitHub App is available only for GitHub.com. For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent already creates a GitHub App on your instance during App registration.
+A custom GitHub App supports the same features as the AWS DevOps Agent GitHub App. These features include webhooks, automated Code Change Risk Analysis reviews, and automatic verification testing. A custom GitHub App is available only for GitHub.com. For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent already creates a GitHub App on your instance during App registration.
 
 When you choose **Custom app**, the console hides the **Verification method**, **Use GitHub Enterprise**, and private connection options. These options do not apply to a custom GitHub App.
 
@@ -313,15 +312,15 @@ You can connect different sets of repositories to different Agent Spaces based o
 ## Configuring Code Review and Automated Testing
 <a name="configuring-code-review-and-automated-testing"></a>
 
-When you select repositories in the GitHub connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which repositories automatically trigger a [Release readiness code reviews](release-management-release-readiness-code-review.md) and automated testing capabilities.
+When you select repositories in the GitHub connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which repositories automatically trigger [Code Change Risk Analysis](code-change-risk-analysis-reviewing-code-changes.md) and automated testing capabilities.
 
 **Note**  
-Automated triggers depend on webhook events from the GitHub App. For repositories connected through a [personal access token registration](#registering-github-with-a-personal-access-token), automated reviews and automated testing do not run. Request a release readiness code review through DevOps Agent chat or coding agent integrations instead.
+Automated triggers depend on webhook events from the GitHub App. For repositories connected through a [personal access token registration](#registering-github-with-a-personal-access-token), automated reviews and automated testing do not run. Request Code Change Risk Analysis through DevOps Agent chat or coding agent integrations instead.
 
 The Code Review and Automated Testing configuration includes:
 + **Capabilities** — Choose code review and automated testing capabilities for each repository. The section provides two per-repository settings:
-  + **Auto trigger change review** — When enabled for a repository, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md) each time a pull request is opened or updated. Review findings appear as inline comments on the pull request. This is enabled by default for all connected repositories.
-  + **Automatic verification testing** — When enabled for a repository, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](release-management-release-readiness-code-review.md#automatic-verification-testing). This is enabled by default for all connected repositories.
+  + **Auto trigger change review** — When enabled for a repository, DevOps Agent automatically runs [Code Change Risk Analysis](code-change-risk-analysis-reviewing-code-changes.md) each time a pull request is opened or updated. Review findings appear as inline comments on the pull request. This is enabled by default for all connected repositories.
+  + **Automatic verification testing** — When enabled for a repository, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](code-change-risk-analysis-reviewing-code-changes.md#automatic-verification-testing). This is enabled by default for all connected repositories.
 + **Repository list** — Shows all repositories you selected during the connection step. Use the search field to filter repositories by name. Each repository has independent checkboxes for both capabilities.
 + **Verification environment** (optional) — In **Advanced settings**, associate each repository with a Release Management environment when automatic verification testing requires access to private resources in your VPC. The environment contains the private connection and runtime role that the verification testing environment uses.
 
@@ -337,14 +336,14 @@ To configure automated reviews:
 
 1. Choose **Save** to apply your configuration.
 
-Once configured, any new pull request in a repository with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automatic verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
+Once configured, any new pull request in a repository with **Auto trigger change review** enabled will automatically trigger Code Change Risk Analysis. If **Automatic verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Reviewing code changes](code-change-risk-analysis-reviewing-code-changes.md).
 
 ### Associating a Release Management environment
 <a name="associating-a-release-management-environment"></a>
 
 You use a Release Management environment to give automatic verification testing access to private build dependencies and services through your VPC. You can associate one environment with each repository.
 
-Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](release-management-release-readiness-code-review.md#step-2-configure-release-management-environments-for-private-vpc-access-optional).
+Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](code-change-risk-analysis-reviewing-code-changes.md#step-2-configure-release-management-environments-for-private-vpc-access-optional).
 
 To associate an environment:
 
@@ -366,7 +365,7 @@ The **Verification environment** field appears only for repositories with **Auto
 ### Advanced settings: trigger filters
 <a name="advanced-settings-trigger-filters"></a>
 
-By default, a repository with **Auto trigger change review** enabled runs a release readiness code review on every applicable pull request event, on any target branch. Use **Advanced settings** to add trigger filters that control exactly when automated reviews run for each repository.
+By default, a repository with **Auto trigger change review** enabled runs Code Change Risk Analysis on every applicable pull request event, on any target branch. Use **Advanced settings** to add trigger filters that control exactly when automated reviews run for each repository.
 
 Each filter is a *filter group* that combines two conditions:
 + **Target branches** (required) — One or more branch names or patterns, entered as regular expressions (for example, `main` or `release/.*`). The review triggers only when the pull request's target (base) branch matches one of these patterns.
@@ -429,12 +428,32 @@ If you selected **Read-only** during registration, the GitHub App requests only 
 
 | Permission | Access level | Purpose | 
 | --- | --- | --- | 
-| Checks | Read and write | Post release readiness code review results as check runs on pull requests, allowing review status to appear directly in the GitHub UI. | 
+| Checks | Read and write | Post Code Change Risk Analysis results as check runs on pull requests, allowing review status to appear directly in the GitHub UI. | 
 | Workflows | Read and write | Read workflow definitions and trigger GitHub Actions workflows for release testing in your CI/CD pipelines. | 
 | Actions | Read and write | Monitor GitHub Actions workflow runs and access run logs during incident investigations and release testing. | 
 | Contents | Read and write | Read repository source code for code review analysis and dependency mapping. Write access enables the agent to propose fixes for identified issues. | 
 | Pull requests | Read and write | Read pull request details to trigger automated code reviews. Write access enables posting inline review comments with findings and recommended fixes. | 
+| Issues | Read and write | Create and manage issues in your connected repositories. | 
 | Organization administration | Read | Read the list of applications installed in the target organization to verify that the AWS DevOps Agent GitHub App is installed. | 
+
+## (Optional) Permissions for directed actions
+<a name="optional-permissions-for-directed-actions"></a>
+
+To allow approved write actions on GitHub (directed actions), make sure the connection has the permissions below. Directed actions must also be enabled on the agent space, and you approve each action in chat before it runs. For more information, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md).
+
+**GitHub App registration**
+
+With the AWS DevOps Agent GitHub App registered at the **Read and write** level, you already have the permissions these actions use (Contents, Issues, Pull requests, and Actions write). A Read-only registration cannot perform write actions.
+
+**Personal access token registration**
+
+The token must allow writes. For a classic token, use the `repo` scope, which grants read and write. For a fine-grained token, grant the following permissions:
++ Issues: Read and write
++ Pull requests: Read and write
++ Contents: Read and write
++ Actions: Read and write
++ Metadata: Read-only
++ Members: Read-only (grant only when you scope the registration to an organization; the classic-token equivalent is the `read:org` scope)
 
 ## Managing GitHub connections
 <a name="managing-github-connections"></a>

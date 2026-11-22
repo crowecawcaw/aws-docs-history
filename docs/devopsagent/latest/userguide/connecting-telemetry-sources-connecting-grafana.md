@@ -1,7 +1,6 @@
 
 
 # Connecting Grafana
-<a name="connecting-telemetry-sources-connecting-grafana"></a>
 
 Grafana integration enables AWS DevOps Agent to query metrics, dashboards, and alerting data from your Grafana instance during incident investigations. This integration follows a two-step process: account-level registration of Grafana, followed by connecting it to individual Agent Spaces.
 
@@ -29,7 +28,7 @@ Grafana is registered at the AWS account level and shared among all Agent Spaces
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find the **Grafana** card in the **Available** section and choose **Register**. To narrow the list, enter Grafana in **Find capability**, or choose **Telemetry** in the category filter
+1. In the **Available** section, find the **Grafana** card and choose **Register**. To narrow the list, enter Grafana in **Find capability**, or choose **Telemetry** in the category filter.
 
 1. On the **Configure Grafana** page, enter the following information:
    + **Service Name** (required) – Enter a descriptive name for your Grafana server using alphanumeric characters, hyphens, and underscores only. For example, `my-grafana-server`.

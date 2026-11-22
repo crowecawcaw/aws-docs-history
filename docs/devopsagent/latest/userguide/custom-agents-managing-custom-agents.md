@@ -1,7 +1,6 @@
 
 
 # Managing custom agents
-<a name="custom-agents-managing-custom-agents"></a>
 
 After creating a custom agent, you can edit its configuration, view its invocation history, and delete it when it is no longer needed.
 

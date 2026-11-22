@@ -1,7 +1,6 @@
 
 
 # What is a DevOps Agent Topology?
-<a name="about-aws-devops-agent-what-is-a-devops-agent-topology"></a>
 
 AWS DevOps Agent's automatically discovers and visualizes the resources and relationships within your applications and uses the resulting topology to understand your infrastructure during incident investigations and when making preventative recommendations.
 
@@ -72,4 +71,4 @@ To limit the resources the agent has access to, restrict the policy for the role
 ## Topology and the Agent Space Understanding memory
 <a name="topology-and-the-agent-space-understanding-memory"></a>
 
-The topology graph feeds the Agent Space Understanding memory, which holds a structured summary of your infrastructure for use during investigations. When topology discovery completes for a new Agent Space, AWS DevOps Agent automatically generates the Agent Space Understanding memory. For more information, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories.md).
+The topology graph feeds the Agent Space Understanding memory, which holds a structured summary of your infrastructure for use during investigations. When topology discovery completes for a new Agent Space, AWS DevOps Agent automatically generates the Agent Space Understanding memory. For more information, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories-index.md).

@@ -1,7 +1,6 @@
 
 
 # Set up a Sandbox
-<a name="configuring-integrations-and-knowledge-sandbox"></a>
 
 AWS DevOps Agent Sandbox (Sandbox) is a preview feature that gives AWS DevOps Agent a secure, isolated Linux environment where it can write and run code during investigations and chat conversations. Some problems are faster and more reliable to solve with code than through reasoning alone. With Sandbox, the agent complements its reasoning with computation—for example, to analyze a large log file, calculate statistics across a set of metrics, or parse and correlate data from multiple sources during an investigation or chat conversation.
 
@@ -42,7 +41,7 @@ AWS DevOps Agent runs each sandbox in an isolated Lambda MicroVM. Each MicroVM i
 ### Skills in the sandbox
 <a name="skills-in-the-sandbox"></a>
 
-With Sandbox enabled, the agent reads your [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md) from the sandbox's filesystem rather than from a virtual filesystem. This changes how the agent works with skills in two ways:
+With Sandbox enabled, the agent reads your [Skills](about-aws-devops-agent-devops-agent-skills-index.md) from the sandbox's filesystem rather than from a virtual filesystem. This changes how the agent works with skills in two ways:
 + **Search and read with command line tools** – The agent can use standard command line tools to search across your skills and read their files, instead of loading them through a virtual filesystem. This helps it find and apply the right skill for the task.
 + **Run bundled code** – The agent can run and adapt code bundled with a skill. Without Sandbox, a skill can include only non-executable files such as Markdown instructions, references, and data files. With Sandbox, a skill can include executable code that the agent can run in the environment.
 

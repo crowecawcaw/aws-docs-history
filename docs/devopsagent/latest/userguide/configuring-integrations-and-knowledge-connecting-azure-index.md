@@ -1,7 +1,6 @@
 
 
 # Connecting Azure
-<a name="configuring-integrations-and-knowledge-connecting-azure-index"></a>
 
 Azure integration enables AWS DevOps Agent to investigate resources in your Azure environment and correlate Azure DevOps pipeline deployments with operational incidents. By connecting Azure, the agent gains visibility into your Azure infrastructure and can perform root cause analysis across both AWS and Azure resources.
 

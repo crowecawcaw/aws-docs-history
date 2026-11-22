@@ -1,16 +1,17 @@
 
 
 # Supported Regions
-<a name="about-aws-devops-agent-supported-regions"></a>
 
 This topic describes the AWS Regions where you can use AWS DevOps Agent. For more information about AWS Regions, see [Specify which AWS Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) in the *AWS Account Management Reference Guide*.
 
-[\!NOTE] Not all features are available in every Region. Release management capabilities (release readiness review and release testing) are available only in US East (N. Virginia) `us-east-1` during preview. For more information, see [Feature availability by Region](#feature-availability-by-region).
+[\!NOTE] Not all features are available in every Region. For more information, see [Feature availability by Region](#feature-availability-by-region).
 
 ## Cross-Region resource monitoring
 <a name="cross-region-resource-monitoring"></a>
 
 AWS DevOps Agent can monitor and investigate resources in AWS accounts located in any AWS Region, regardless of which supported Region you create your Agent Space in. When you associate an AWS account with an Agent Space, the agent discovers and maps resources across all Regions within that account. This means you do not need an Agent Space in every Region where your workloads run.
+
+Cross-Region monitoring stays within an AWS partition. An Agent Space in AWS GovCloud (US-West) can be associated only with AWS GovCloud (US) accounts. An Agent Space in any other supported Region can't be associated with AWS GovCloud (US) accounts.
 
 Choose a supported Region based on your preferred data residency, proximity to your operations team, or organizational requirements.
 
@@ -37,6 +38,7 @@ AWS DevOps Agent is available in the following AWS Regions.
 | Europe (London) | eu-west-2 | [Open console](https://eu-west-2.console.aws.amazon.com/aidevops/home?region=eu-west-2) | 
 | Europe (Paris) | eu-west-3 | [Open console](https://eu-west-3.console.aws.amazon.com/aidevops/home?region=eu-west-3) | 
 | Europe (Stockholm) | eu-north-1 | [Open console](https://eu-north-1.console.aws.amazon.com/aidevops/home?region=eu-north-1) | 
+| AWS GovCloud (US-West) | us-gov-west-1 | [Open console](https://us-gov-west-1.console.amazonaws-us-gov.com/aidevops/home?region=us-gov-west-1) | 
 
 ## Service endpoints
 <a name="service-endpoints"></a>
@@ -44,21 +46,22 @@ AWS DevOps Agent is available in the following AWS Regions.
 
 | Region Name | Region Code | Endpoint | Protocol | 
 | --- | --- | --- | --- | 
-| US East (N. Virginia) | us-east-1 | dp.aidevops.us-east-1.amazonaws.com, cp.aidevops.us-east-1.amazonaws.com | HTTPS | 
-| US East (Ohio) | us-east-2 | dp.aidevops.us-east-2.amazonaws.com, cp.aidevops.us-east-2.amazonaws.com | HTTPS | 
-| US West (Oregon) | us-west-2 | dp.aidevops.us-west-2.amazonaws.com, cp.aidevops.us-west-2.amazonaws.com | HTTPS | 
-| Canada (Central) | ca-central-1 | dp.aidevops.ca-central-1.amazonaws.com, cp.aidevops.ca-central-1.amazonaws.com | HTTPS | 
-| South America (São Paulo) | sa-east-1 | dp.aidevops.sa-east-1.amazonaws.com, cp.aidevops.sa-east-1.amazonaws.com | HTTPS | 
-| Asia Pacific (Mumbai) | ap-south-1 | dp.aidevops.ap-south-1.amazonaws.com, cp.aidevops.ap-south-1.amazonaws.com | HTTPS | 
-| Asia Pacific (Singapore) | ap-southeast-1 | dp.aidevops.ap-southeast-1.amazonaws.com, cp.aidevops.ap-southeast-1.amazonaws.com | HTTPS | 
-| Asia Pacific (Sydney) | ap-southeast-2 | dp.aidevops.ap-southeast-2.amazonaws.com, cp.aidevops.ap-southeast-2.amazonaws.com | HTTPS | 
-| Asia Pacific (Tokyo) | ap-northeast-1 | dp.aidevops.ap-northeast-1.amazonaws.com, cp.aidevops.ap-northeast-1.amazonaws.com | HTTPS | 
-| Asia Pacific (Seoul) | ap-northeast-2 | dp.aidevops.ap-northeast-2.amazonaws.com, cp.aidevops.ap-northeast-2.amazonaws.com | HTTPS | 
-| Europe (Frankfurt) | eu-central-1 | dp.aidevops.eu-central-1.amazonaws.com, cp.aidevops.eu-central-1.amazonaws.com | HTTPS | 
-| Europe (Ireland) | eu-west-1 | dp.aidevops.eu-west-1.amazonaws.com, cp.aidevops.eu-west-1.amazonaws.com | HTTPS | 
-| Europe (London) | eu-west-2 | dp.aidevops.eu-west-2.amazonaws.com, cp.aidevops.eu-west-2.amazonaws.com | HTTPS | 
-| Europe (Paris) | eu-west-3 | dp.aidevops.eu-west-3.amazonaws.com, cp.aidevops.eu-west-3.amazonaws.com | HTTPS | 
-| Europe (Stockholm) | eu-north-1 | dp.aidevops.eu-north-1.amazonaws.com, cp.aidevops.eu-north-1.amazonaws.com | HTTPS | 
+| US East (N. Virginia) | us-east-1 | dp.aidevops.us-east-1.api.aws, cp.aidevops.us-east-1.api.aws | HTTPS | 
+| US East (Ohio) | us-east-2 | dp.aidevops.us-east-2.api.aws, cp.aidevops.us-east-2.api.aws | HTTPS | 
+| US West (Oregon) | us-west-2 | dp.aidevops.us-west-2.api.aws, cp.aidevops.us-west-2.api.aws | HTTPS | 
+| Canada (Central) | ca-central-1 | dp.aidevops.ca-central-1.api.aws, cp.aidevops.ca-central-1.api.aws | HTTPS | 
+| South America (São Paulo) | sa-east-1 | dp.aidevops.sa-east-1.api.aws, cp.aidevops.sa-east-1.api.aws | HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 | dp.aidevops.ap-south-1.api.aws, cp.aidevops.ap-south-1.api.aws | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 | dp.aidevops.ap-southeast-1.api.aws, cp.aidevops.ap-southeast-1.api.aws | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 | dp.aidevops.ap-southeast-2.api.aws, cp.aidevops.ap-southeast-2.api.aws | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 | dp.aidevops.ap-northeast-1.api.aws, cp.aidevops.ap-northeast-1.api.aws | HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 | dp.aidevops.ap-northeast-2.api.aws, cp.aidevops.ap-northeast-2.api.aws | HTTPS | 
+| Europe (Frankfurt) | eu-central-1 | dp.aidevops.eu-central-1.api.aws, cp.aidevops.eu-central-1.api.aws | HTTPS | 
+| Europe (Ireland) | eu-west-1 | dp.aidevops.eu-west-1.api.aws, cp.aidevops.eu-west-1.api.aws | HTTPS | 
+| Europe (London) | eu-west-2 | dp.aidevops.eu-west-2.api.aws, cp.aidevops.eu-west-2.api.aws | HTTPS | 
+| Europe (Paris) | eu-west-3 | dp.aidevops.eu-west-3.api.aws, cp.aidevops.eu-west-3.api.aws | HTTPS | 
+| Europe (Stockholm) | eu-north-1 | dp.aidevops.eu-north-1.api.aws, cp.aidevops.eu-north-1.api.aws | HTTPS | 
+| AWS GovCloud (US-West) | us-gov-west-1 | dp.aidevops.us-gov-west-1.api.aws, cp.aidevops.us-gov-west-1.api.aws | HTTPS | 
 
 ## Feature availability by Region
 <a name="feature-availability-by-region"></a>
@@ -71,14 +74,19 @@ Not all AWS DevOps Agent features are available in every Region. The following t
 | Production operations (investigations, recommendations, prevention) | All supported Regions | 
 | On-demand DevOps tasks | All supported Regions | 
 | Custom agents | All supported Regions | 
-| Release management (release readiness review and release testing) — preview | US East (N. Virginia) us-east-1 only | 
+| Code Change Risk Analysis — preview | All supported commercial Regions | 
+| Release testing (removed on December 1, 2026) | US East (N. Virginia) us-east-1 only | 
 | Sandbox — preview | US East (N. Virginia) us-east-1, US West (Oregon) us-west-2, Asia Pacific (Tokyo) ap-northeast-1, Europe (Ireland) eu-west-1 | 
+
+In AWS GovCloud (US-West), some of these features are not available. For more information, see [AWS GovCloud (US)](#aws-govcloud-us).
+
+## AWS GovCloud (US)
+<a name="aws-govcloud-us"></a>
+
+You can use AWS DevOps Agent in AWS GovCloud (US-West). Some features work differently in this Region, and some are not available. For example, Sandbox is not available, and you can associate only AWS GovCloud (US) accounts with an Agent Space. For more information about the differences, see [AWS DevOps Agent in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-devops-agent.html) in the *AWS GovCloud (US) User Guide*.
 
 ## Considerations
 <a name="considerations"></a>
-+ **Release management preview availability** — Release management capabilities
-
-(release readiness review and autonomous release testing) are available only in US East (N. Virginia) `us-east-1` during preview. Support for all Regions listed above will be added at general availability.
 + **Agent Space Region selection** — An Agent Space and its data (investigations,
 
 topology, recommendations) are stored in the Region where you create it. Choose a Region that meets your data residency requirements.
@@ -87,4 +95,4 @@ topology, recommendations) are stored in the Region where you create it. Choose 
 Space are monitored regardless of which Region those resources are deployed in. You do not need to create separate Agent Spaces in each Region where your workloads run.
 + **Third-party integrations** — Connections to CI/CD providers (GitHub, GitLab),
 
-observability tools (Dynatrace, Datadog, New Relic, Splunk), and MCP servers are configured per Agent Space and are not Region-dependent.
+observability tools (Dynatrace, Datadog, New Relic, Splunk), and MCP servers are configured per Agent Space and are not Region-dependent. In AWS GovCloud (US-West), private connections to these providers are not available, and data that the agent sends to a provider might leave the AWS GovCloud (US) Regions. For more information, see [AWS GovCloud (US)](#aws-govcloud-us).

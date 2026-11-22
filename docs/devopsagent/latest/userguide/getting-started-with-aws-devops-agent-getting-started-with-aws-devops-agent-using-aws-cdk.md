@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS DevOps Agent using AWS CDK
-<a name="getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-aws-cdk"></a>
 
 ## Overview
 <a name="overview"></a>
@@ -379,7 +378,7 @@ This section describes common issues and how to resolve them.
 + These constructs require `aws-cdk-lib` version 2.268.0 or later. Run `npm list aws-cdk-lib` to check your version, and run `npm install aws-cdk-lib@latest` to upgrade.
 
 **CloudFormation resource type not found**
-+ Verify that you are deploying in a [Supported Regions](about-aws-devops-agent-supported-regions.md).
++ Verify that you are deploying in a [supported Region](about-aws-devops-agent-supported-regions.md).
 + Confirm that your AWS CLI is configured with the appropriate permissions.
 
 **IAM role creation failed**

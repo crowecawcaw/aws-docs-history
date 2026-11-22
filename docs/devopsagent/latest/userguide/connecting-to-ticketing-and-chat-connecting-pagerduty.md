@@ -1,7 +1,6 @@
 
 
 # Connecting PagerDuty
-<a name="connecting-to-ticketing-and-chat-connecting-pagerduty"></a>
 
 PagerDuty integration enables AWS DevOps Agent to access and update incident data, on-call schedules, and service information from your PagerDuty account during incident investigations and automated response. This integration uses OAuth 2.0 for secure authentication.
 
@@ -29,7 +28,7 @@ PagerDuty is registered at the AWS account level and shared among all Agent Spac
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find the **PagerDuty** card in the **Available** section and choose **Register**. To narrow the list, enter PagerDuty in **Find capability**, or choose **Communication** in the category filter
+1. In the **Available** section, find the **PagerDuty** card and choose **Register**. To narrow the list, enter PagerDuty in **Find capability**, or choose **Communication** in the category filter.
 
 1. Follow the guided setup on the **Configure access in PagerDuty** page:
 
@@ -73,6 +72,13 @@ After registering PagerDuty at the account level, you can connect it to individu
 1. Choose **Save**
 
 A single Agent Space can use more than one PagerDuty registration. To connect another registration, repeat these steps.
+
+## (Optional) Permissions for directed actions
+<a name="optional-permissions-for-directed-actions"></a>
+
+To allow approved write actions on PagerDuty (directed actions), make sure the connection has the permissions below. Directed actions must also be enabled on the agent space, and you approve each action in chat before it runs. For more information, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md).
+
+When you grant the OAuth scopes during registration, you already have `incidents.write`, so you do not need to grant an additional scope for the incident write actions (create incident, update incident, and add incident note). PagerDuty attributes every incident write to a user, so you provide a PagerDuty user that the agent files writes as. That user must exist in your PagerDuty account and have a role that can create and edit incidents (a Responder or Manager base role, not a Stakeholder or limited user).
 
 ## Managing PagerDuty connections
 <a name="managing-pagerduty-connections"></a>

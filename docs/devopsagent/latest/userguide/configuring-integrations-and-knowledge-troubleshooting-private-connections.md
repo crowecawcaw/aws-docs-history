@@ -1,9 +1,8 @@
 
 
 # Troubleshooting private connections
-<a name="configuring-integrations-and-knowledge-troubleshooting-private-connections"></a>
 
-This page describes common problems you might encounter when creating or using a [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md) for AWS DevOps Agent, and how to resolve them. Each section describes a symptom, the most likely causes, and the steps to fix it.
+This page describes common problems you might encounter when creating or using a [private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md) for AWS DevOps Agent, and how to resolve them. Each section describes a symptom, the most likely causes, and the steps to fix it.
 
 For an overview of how private connections work, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
 

@@ -1,14 +1,13 @@
 
 
 # AWS DevOps Agent CLI onboarding guide
-<a name="getting-started-with-aws-devops-agent-cli-onboarding-guide"></a>
 
 ## Overview
 <a name="overview"></a>
 
 With AWS DevOps Agent, you can monitor and manage your AWS infrastructure. This guide walks you through setting up AWS DevOps Agent by using the AWS Command Line Interface (AWS CLI). You create IAM roles, set up an agent space, and associate your AWS account. You also enable the operator app and optionally connect third-party integrations. This guide takes approximately 20 minutes to complete.
 
-AWS DevOps Agent is available in six AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
+AWS DevOps Agent is available in six AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions for AWS DevOps Agent](about-aws-devops-agent-supported-regions.md).
 
 ## Prerequisites
 <a name="prerequisites"></a>
@@ -227,7 +226,7 @@ aws devops-agent enable-operator-app \
   --region <REGION>
 ```
 
-For IAM Identity Center authentication, use `--auth-flow idc` and provide `--idc-instance-arn`. For an external identity provider, use `--auth-flow idp` and provide `--issuer-url`, `--idp-client-id`, and `--idp-client-secret`. For more information, see [Setting Up IAM Identity Center Authentication](aws-devops-agent-security-setting-up-iam-identity-center-authentication.md) and [Setting Up External Identity Provider (IdP) Authentication](aws-devops-agent-security-setting-up-external-identity-provider-idp-authentication.md).
+For IAM Identity Center authentication, use `--auth-flow idc` and provide `--idc-instance-arn`. For an external identity provider, use `--auth-flow idp` and provide `--issuer-url`, `--idp-client-id`, and `--idp-client-secret`. For more information, see [Setting up IAM Identity Center authentication](aws-devops-agent-security-setting-up-iam-identity-center-authentication.md) and [Setting up external IdP authentication](aws-devops-agent-security-setting-up-external-identity-provider-idp-authentication.md).
 
 **Note:** If you previously created an operator app role for another agent space in your account, you can reuse that role ARN.
 
@@ -540,7 +539,7 @@ The response includes webhook information for integration. You can use this webh
 ### 10. (Optional) Register and associate Datadog
 <a name="10-optional-register-and-associate-datadog"></a>
 
-You must first register Datadog through the AWS DevOps Agent console by using the OAuth flow before you can associate it through the CLI. For more information, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md).
+You must first register Datadog through the AWS DevOps Agent console by using the OAuth flow before you can associate it through the CLI. For more information, see [Connecting Datadog](connecting-telemetry-sources-connecting-datadog.md).
 
 List the registered services:
 
@@ -566,7 +565,7 @@ aws devops-agent associate-service \
   --region <REGION>
 ```
 
-The response includes webhook information for integration. You can use this webhook to trigger an investigation from Datadog. For more information, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md).
+The response includes webhook information for integration. You can use this webhook to trigger an investigation from Datadog. For more information, see [Connecting Datadog](connecting-telemetry-sources-connecting-datadog.md).
 
 ### 11. (Optional) Create a skill, custom agent, and scheduled trigger
 <a name="11-optional-create-a-skill-custom-agent-and-scheduled-trigger"></a>
@@ -667,11 +666,11 @@ aws devops-agent list-associations \
 ## Next steps
 <a name="next-steps"></a>
 + To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md).
-+ To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md).
++ To learn about agent skills and capabilities, see [DevOps Agent skills](about-aws-devops-agent-devops-agent-skills-index.md).
 + For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md).
-+ To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
++ To understand the operator web app, see [What is a DevOps Agent web app](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
 
 ## Notes
 <a name="notes"></a>
 + Replace `<AGENT_SPACE_ID>`, `<MONITORING_ACCOUNT_ID>`, `<EXTERNAL_ACCOUNT_ID>`, `<REGION>`, and so on with your actual values.
-+ For a list of supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
++ For a list of supported Regions, see [Supported Regions for AWS DevOps Agent](about-aws-devops-agent-supported-regions.md).
