@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Copying a journey
-<a name="journey-copy"></a>
 
 The following procedure describes how to create a copy of a migration journey. The copy that you create will have the same phases, modules, tasks, subtasks, task dependencies, acceptance criteria, and tools as the original journey. In the copy, all the phases and modules will be in scope and the status of all the tasks will be `Planned`. Attachments, assignees, and comments won't be included in the copy.
 

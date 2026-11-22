@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Custom templates
-<a name="custom-templates"></a>
 
 In addition to the templates that Migration Hub Journeys provides, you can create custom templates from existing migration journeys. When you create a custom template from a journey, the template gets the same phases, modules, tasks, and subtasks as the journey but without the attachments or comments. The custom template resides in the same migration space as the journey that you create it from, and members of that space can then create new journeys from that custom template. You can also share the custom template with other migration spaces.
 

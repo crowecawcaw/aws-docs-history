@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Roles and permissions
-<a name="permissions"></a>
 
 Migration Hub Journeys defines the concept of membership. Migrator spaces and migration journeys can have individuals as members. These are the individuals that can participate in the migration process. Migration spaces and migration journeys can also have teams as members. A team consists of individuals. A team cannot contain other teams. 
 

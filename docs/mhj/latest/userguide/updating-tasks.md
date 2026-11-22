@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Updating Migration Hub Journeys tasks
-<a name="updating-tasks"></a>
 
 **To edit the details of a task**
 

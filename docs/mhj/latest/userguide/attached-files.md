@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Attached files
-<a name="attached-files"></a>
 
 You can attach files to tasks and subtasks. For example, you can attach analysis reports that help in completing the task. You can also attach files that contain results from the task. The following file extensions are supported: CSV, PDF, DOCX, DOC, PPT, PPTX, TXT, JPEG, and PNG. 
 

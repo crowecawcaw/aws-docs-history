@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # AWS templates
-<a name="aws-templates"></a>
 
 Migration Hub Journeys makes the following journey templates available in the console. Some templates have a customization questionnaire that you can answer to customize your journey. To learn about this customization feature, see [Customizing your journey](customization.md).
 

@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Logging AWS Migration Hub Journeys API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Migration Hub Journeys is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Migration Hub Journeys. CloudTrail captures API calls for Migration Hub Journeys as events. The calls captured include calls from the Migration Hub Journeys console and code calls to the Migration Hub Journeys API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Migration Hub Journeys. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Migration Hub Journeys, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -48,7 +47,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `AcceptConnection` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

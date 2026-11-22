@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Customizing your journey
-<a name="customization"></a>
 
 When you create a journey from a template, you can customize the journey to make it match your particular migration scenario more closely. To help you fine-tune your journey, Migration Hub Journeys includes a customization tool that asks you questions about your migration scenario, and then, based on your answers, moves the parts of the journey that don't apply to your scenario out of scope. This customization feature works for certain templates. For other templates, it is grayed out. For a list of templates that support this customization feature, see [AWS templates](aws-templates.md).
 

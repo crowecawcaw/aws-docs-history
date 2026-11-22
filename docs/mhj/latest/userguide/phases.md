@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Phases
-<a name="phases"></a>
 
 A migration journey consists of phases. For example, a journey might have phases named Assess, Mobilize, Migrate, and Operate. When you create a journey from a template, you get a journey with the phases that the template defines. When you create a custom journey, you get an empty journey with no phases, and you can start adding the phases that make sense for your migration scenario.
 

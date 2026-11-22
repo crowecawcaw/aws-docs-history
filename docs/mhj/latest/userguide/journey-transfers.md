@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Transferring a journey
-<a name="journey-transfers"></a>
 
 After you create a migration journey, you can send a request to transfer the journey to another individual. If that individual accepts the transfer, they can move the journey to another migration space where they have the `MigrationSpaceAdmin` role. That individual then becomes a `JourneyAdmin` for that journey. For information about roles, see [Roles and permissions](permissions.md).
 

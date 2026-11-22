@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # What is AWS Migration Hub Journeys?
-<a name="what-is-mhj"></a>
 
 AWS Migration Hub Journeys is a service that you can use to plan, perform, and track migrations into AWS. Migration Hub Journeys combines the tools that are available in AWS Migration Hub with the latest guidance from [AWS Prescriptive Guidance](https://aws.amazon.com/prescriptive-guidance). You don't need an AWS account to use Migration Hub Journeys.
 

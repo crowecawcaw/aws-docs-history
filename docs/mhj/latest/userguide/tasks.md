@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migration Hub Journeys tasks and subtasks
-<a name="tasks"></a>
 
 A migration journey consists of phases. Phases consist of modules, which in turn consist of tasks and subtasks.
 

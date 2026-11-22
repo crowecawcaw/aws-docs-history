@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # IAM roles for Migration Hub Journeys task automation
-<a name="task-automation-role"></a>
 
 **Note**  
 The task-automation feature is in preview release. It is available in US East (N. Virginia).  
@@ -25,7 +24,7 @@ The following trust policy allows Migration Hub Journeys to assume the role. To 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ To set a condition based on an AWS account ID instead of on a connection ARN, yo
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [{
@@ -97,7 +96,7 @@ Migration Hub Journeys no longer supports associating new IAM roles that have th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ The following permissions policy grants access to describe and run AWS Migration
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

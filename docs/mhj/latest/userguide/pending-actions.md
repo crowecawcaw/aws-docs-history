@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Pending actions
-<a name="pending-actions"></a>
 
 In Migration Hub Journeys you can receive the following types of invitations:
 + An invitation to become a member of a migration space.

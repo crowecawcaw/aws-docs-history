@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migration spaces
-<a name="migration-spaces"></a>
 
 A migration space is a logical container for organizing migration journeys. It is also a logical container for two types of members: individuals and teams.
 

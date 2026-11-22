@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Individuals and teams
-<a name="individuals-and-teams"></a>
 
 A migration journey can have two types of members: individuals and teams. A member, whether an individual or a team, can have one of two roles in a journey: `JourneyAdmin` or `JourneyContributor`. For information about these two roles and the actions that they allow a journey member to perform, see [Roles and permissions](permissions.md).
 

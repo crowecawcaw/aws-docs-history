@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Creating a custom migration journey
-<a name="custom-migration-tutorial"></a>
 
 In this tutorial, you create a custom journey for the following migration scenario: [Rehost on-premises workloads in the AWS Cloud: migration checklist](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist.html#rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist-epics).
 

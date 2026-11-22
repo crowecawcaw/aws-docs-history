@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Permissions
-<a name="permissions-table"></a>
 
 Migration Hub Journeys defines five roles: `MigrationSpaceAdmin`, `MigrationSpaceContributor`, `JourneyAdmin`, `JourneyContributor`, and `TeamContributor`. The following sections describe the actions that each of the five roles can perform on migration spaces, migration journeys, and teams. For information about how to get or assign these roles, see [Roles](roles.md).
 

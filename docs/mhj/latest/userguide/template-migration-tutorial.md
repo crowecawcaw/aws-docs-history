@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Creating a migration journey from a template
-<a name="template-migration-tutorial"></a>
 
 In this tutorial you create a migration journey that uses the general migration template. After you create the journey, you add and remove tasks to customize the journey. You also send invitations to teams and individuals so that they can join the journey as members and work on it. Finally, you set start and finish dates.
 
