@@ -1,7 +1,6 @@
 
 
 # Property Optimizer for Lodging
-<a name="property-optimizer-lodging"></a>
 
 Publication date: **April 16, 2020 ([Diagram history](#propopt-history))**
 
