@@ -1,7 +1,6 @@
 
 
 # Unreal Engine's Pixel Streaming on AWS
-<a name="unreal-engine-pixel-streaming"></a>
 
 Publication date: **January 6, 2023 ([Diagram history](#pixel-history))**
 
