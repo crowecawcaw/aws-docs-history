@@ -1,7 +1,6 @@
 
 
 # Migrate an ASP.NET Web Application to Elastic Beanstalk
-<a name="migrate-aspnet-web-application-elastic-beanstalk"></a>
 
 
 |  |  | 
