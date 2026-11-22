@@ -1,7 +1,6 @@
 
 
 # Step C: Install the Elemental Live software
-<a name="install-vm-lv-ig-install-sw"></a>
 
 **Topics**
 + [About Installer Options](#install-live-vm-about-options)

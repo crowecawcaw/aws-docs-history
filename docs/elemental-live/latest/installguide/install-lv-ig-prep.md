@@ -1,7 +1,6 @@
 
 
 # Step A: Prepare hardware and download files
-<a name="install-lv-ig-prep"></a>
 
 ## Prepare hardware and network
 <a name="install-lv-ig-prep-hw"></a>

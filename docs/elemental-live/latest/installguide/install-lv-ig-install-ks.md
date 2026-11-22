@@ -1,7 +1,6 @@
 
 
 # Step B: Install (kickstart) the operating system software
-<a name="install-lv-ig-install-ks"></a>
 
 Install the operating system on the node. This action is known as *kickstarting* the system.
 
