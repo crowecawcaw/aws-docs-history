@@ -1,7 +1,6 @@
 
 
 # Hybrid Connectivity with AWS Direct Connect Private VIFs and Inter-VPC with AWS Transit Gateway
-<a name="hybrid-dx-private-vif"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc8-diagram-history))**
 

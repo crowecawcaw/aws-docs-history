@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect and Transit Gateway Connect Attachments
-<a name="hybrid-dx-tgw-connect"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc7-diagram-history))**
 

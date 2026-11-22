@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN as Primary and AWS Site-to-Site VPN as Backup
-<a name="hybrid-vpn-primary-backup"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc3-diagram-history))**
 

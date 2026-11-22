@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect as Primary and AWS Site-to-Site VPN as Backup
-<a name="hybrid-dx-primary-vpn-backup"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc4-diagram-history))**
 

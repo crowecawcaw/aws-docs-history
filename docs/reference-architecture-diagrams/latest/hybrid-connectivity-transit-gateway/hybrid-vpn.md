@@ -1,7 +1,6 @@
 
 
 # Hybrid Connectivity to AWS Transit Gateway with AWS Site-to-Site VPN
-<a name="hybrid-vpn"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc1-diagram-history))**
 

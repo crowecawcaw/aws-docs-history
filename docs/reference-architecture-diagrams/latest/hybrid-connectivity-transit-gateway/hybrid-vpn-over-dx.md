@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN on Top of AWS Direct Connect for Traffic Encryption
-<a name="hybrid-vpn-over-dx"></a>
 
 Publication date: **August 17, 2022 ([Diagram history](#hc6-diagram-history))**
 
