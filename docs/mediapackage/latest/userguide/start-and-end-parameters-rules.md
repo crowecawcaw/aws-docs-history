@@ -1,7 +1,6 @@
 
 
 # Define manifest start and end times from AWS Elemental MediaPackage
-<a name="start-and-end-parameters-rules"></a>
 
 MediaPackage accepts requests for up to 24 hours of content.
 

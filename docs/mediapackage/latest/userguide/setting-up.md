@@ -1,7 +1,6 @@
 
 
 # Setting up MediaPackage
-<a name="setting-up"></a>
 
 This section provides procedures to set up your organization to use AWS Elemental MediaPackage. It also providers information about determining the IAM permissions that users and other AWS identities require. These permissions let you impose restricted controls on users and other AWS identities, in conformance with the security policies and procedures of your organization.
 

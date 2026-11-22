@@ -1,7 +1,6 @@
 
 
 # Tagging AWS Elemental MediaPackage resources
-<a name="tagging"></a>
 
 A tag is a label that you assign to an AWS resource. Each tag consists of a *key* and a *value*, both of which you define. For example, the key might be "stage" and the value might be "test". You can use tags for a variety of purposes. One common use is to control access to AWS resources using tags. For information, see the [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) topic in the *IAM User Guide*.
 

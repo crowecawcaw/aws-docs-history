@@ -1,7 +1,6 @@
 
 
 # Logging AWS Elemental MediaPackage API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Logging is available with only live workflows in MediaPackage.
 
@@ -36,7 +35,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `UpdateChannel` operation:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

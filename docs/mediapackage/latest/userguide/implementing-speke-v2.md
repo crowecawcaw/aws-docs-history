@@ -1,7 +1,6 @@
 
 
 # Implementing SPEKE with AWS Elemental MediaPackage
-<a name="implementing-speke-v2"></a>
 
 This topic supplements the [SPEKE API v2 — Customizations and constraints to the DASH-IF specification](https://docs.aws.amazon.com/speke/latest/documentation/speke-constraints-v2.html) with practical implementation guidance verified through production integration testing with AWS Elemental MediaPackage v2.
 
@@ -152,7 +151,7 @@ At least one `VideoFilter` or `AudioFilter` child element is required.
 
 **Response XML structure:**
 
-```
+```xml
 <cpix:DRMSystem kid="8fe6f4de-..." systemId="94ce86fb-07ff-4f43-adb8-93d2fa968ca2">
   <cpix:HLSSignalingData playlist="media">BASE64_ENCODED_EXT_X_KEY</cpix:HLSSignalingData>
   <cpix:HLSSignalingData playlist="master">BASE64_ENCODED_EXT_X_SESSION_KEY</cpix:HLSSignalingData>
@@ -170,7 +169,7 @@ FairPlay uses only HLS signaling (no PSSH or ContentProtectionData).
 
 The `skd://` URI contains a base64-encoded JSON payload — NOT just the kid hex:
 
-```
+```json
 {"ContentId":"101","KeyId":"8fe6f4de-841a-3acd-a81a-be516f356bbb","IV":"base64-encoded-IV=="}
 ```
 
@@ -182,7 +181,7 @@ The `KeyId` must use UUID format with hyphens. Do NOT include a separate `IV=0x.
 
 **Response XML structure:**
 
-```
+```xml
 <cpix:DRMSystem kid="dda7afc9-..." systemId="edef8ba9-79d6-4ace-a3c8-27dcd51d21ed">
   <cpix:PSSH>BASE64_ENCODED_PSSH_BOX</cpix:PSSH>
   <cpix:ContentProtectionData>BASE64_ENCODED_CENC_PSSH_XML</cpix:ContentProtectionData>
@@ -207,7 +206,7 @@ Widevine includes PSSH box, ContentProtectionData, and HLS signaling. All values
 
 **ContentProtectionData (base64-decoded):** Must use the standard CENC PSSH XML format:
 
-```
+```xml
 <cenc:pssh xmlns:cenc="urn:mpeg:cenc:2013">PSSH_BOX_BASE64</cenc:pssh>
 ```
 
@@ -227,7 +226,7 @@ The URI must be a `data:text/plain;base64,` data URI containing the PSSH box —
 
 **Response XML structure:**
 
-```
+```xml
 <cpix:DRMSystem kid="566209fc-..." systemId="9a04f079-9840-4286-ab92-e65be0885f95">
   <cpix:PSSH>BASE64_ENCODED_PSSH_BOX</cpix:PSSH>
   <cpix:ContentProtectionData>BASE64_ENCODED_CENC_PSSH_AND_MSPR_PRO</cpix:ContentProtectionData>
@@ -257,7 +256,7 @@ The WRM Header XML contains `KID`, `CHECKSUM`, `LA_URL` (license acquisition URL
 
 **ContentProtectionData (base64-decoded):** Must contain BOTH `cenc:pssh` AND `mspr:pro` elements:
 
-```
+```xml
 <cenc:pssh xmlns:cenc="urn:mpeg:cenc:2013">PSSH_BASE64</cenc:pssh>
 <mspr:pro xmlns:mspr="urn:microsoft:playready">PRO_RECORD_BASE64</mspr:pro>
 ```
@@ -278,7 +277,7 @@ The data URI must use `charset=UTF-16` and embed the PlayReady Object record, NO
 
 **Response XML structure:**
 
-```
+```xml
 <cpix:DRMSystem kid="136436ea-..." systemId="3ea8778f-7742-4bf9-b18b-e834b2acbd47">
   <cpix:HLSSignalingData playlist="media">BASE64_ENCODED_EXT_X_KEY</cpix:HLSSignalingData>
   <cpix:HLSSignalingData playlist="master">BASE64_ENCODED_EXT_X_SESSION_KEY</cpix:HLSSignalingData>

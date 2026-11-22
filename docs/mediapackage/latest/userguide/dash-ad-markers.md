@@ -1,7 +1,6 @@
 
 
 # DASH ad markers in AWS Elemental MediaPackage
-<a name="dash-ad-markers"></a>
 
 DASH EventStream elements are used to signal all SCTE-35 `time_signal` or `splice_insert` markers present in the source. When you configure the ad markers to use the XML signaling, all the SCTE-35 markers parameters will be described through multiple nested XML elements inside the Event element. When you configure the Ad markers to use the Binary signaling, all the SCTE-35 markers parameters will be described through a Signal element including a binary base64-encoded representation of the SCTE marker, nested inside the Event element.
 

@@ -1,7 +1,6 @@
 
 
 # Origin endpoint authorization
-<a name="endpoint-auth"></a>
 
 MediaPackage egress requests usually originate from CDNs, but they may also come from other sources such as customer-owned monitoring scripts or operators using web browsers like Safari or Chrome to view the video stream and identify any issues.
 
@@ -20,7 +19,7 @@ To allow MediaPackage harvest jobs to get content from your origin endpoint, cre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "MediaPackageHarvesterAccessPolicy",
@@ -62,7 +61,7 @@ To authorize an external CDN that supports AWS authorization, you need to create
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Id": "PolicyForCDNProviderPrivateContent",
@@ -107,7 +106,7 @@ Consider the following `Allow` policy. With this policy in effect, MediaPackage 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Id": "AnonymousAccessPolicy",
@@ -137,7 +136,7 @@ Consider the following `Allow` policy. With this policy in effect, MediaPackage 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -164,7 +163,7 @@ Consider the following `Allow` policy. With this policy in effect, MediaPackage 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Id": "IpRangePolicy",

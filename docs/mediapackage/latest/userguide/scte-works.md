@@ -1,7 +1,6 @@
 
 
 # How SCTE-35 messages work in AWS Elemental MediaPackage works
-<a name="scte-works"></a>
 
 The **Ad markers** and **SCTE filtering** settings work together to determine what MediaPackage does with SCTE-35 messages from the source content.
 

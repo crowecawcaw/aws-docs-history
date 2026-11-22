@@ -1,7 +1,6 @@
 
 
 # Rotate MediaPackage CDN authorization secrets
-<a name="cdn-auth-rotate"></a>
 
 When you need to update your AWS Elemental MediaPackage CDN authorization credentials, you must rotate the stored secret value in AWS Secrets Manager to maintain synchronization with your CDN's custom HTTP header. This process ensures continuous content delivery while updating security credentials.
 

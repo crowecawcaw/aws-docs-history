@@ -1,7 +1,6 @@
 
 
 # Viewing channel group details in AWS Elemental MediaPackage
-<a name="channel-group-view"></a>
 
 This guide shows how to view all channel groups that are configured in AWS Elemental MediaPackage. You can also view the details of a specific channel group. This includes the channels and origin endpoints that are associated with it. You can use the MediaPackage console, MediaPackage API, or AWS CLI to view channel group details.
 

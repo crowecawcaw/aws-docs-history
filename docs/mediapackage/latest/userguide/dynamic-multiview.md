@@ -1,7 +1,6 @@
 
 
 # Dynamic Multiview in AWS Elemental MediaPackage
-<a name="dynamic-multiview"></a>
 
 Dynamic Multiview is a server-side capability that composes multiple live video sources into a single encoded video stream. Content providers can deliver multi-angle, multi-game, and personalized viewing experiences as standard HLS and DASH streams playable on most modern consumer devices, televisions, and set top boxes without custom player development.
 

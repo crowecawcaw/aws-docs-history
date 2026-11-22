@@ -1,7 +1,6 @@
 
 
 # DASH bandwidth reporting
-<a name="dash-bandwidth-reporting"></a>
 
 In a DASH manifest, each video `Representation` element carries a `bandwidth` attribute. The `bandwidth` value tells the player how much network throughput the representation requires. Players use this value to choose which representation to request as network conditions change. With bandwidth reporting mode, you can control how AWS Elemental MediaPackage calculates this value for regular (non-iFrame) video representations.
 

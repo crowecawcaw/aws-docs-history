@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage manifest filtering error conditions
-<a name="error-conditions-and-handling"></a>
 
 Common error conditions for manifest filtering with MediaPackage are listed in the following table. 
 

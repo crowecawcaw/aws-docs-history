@@ -1,7 +1,6 @@
 
 
 # Services related to AWS Elemental MediaPackage
-<a name="related-services"></a>
 
 You might use the following services when using MediaPackage.
 + **Amazon CloudWatch** is a monitoring service for AWS Cloud resources and the applications that you run on AWS. Use CloudWatch to track metrics such as content input and output request counts. For more information, see [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).

@@ -1,7 +1,6 @@
 
 
 # Deleting an endpoint in AWS Elemental MediaPackage
-<a name="endpoints-delete"></a>
 
 Endpoints in MediaPackage can serve content until they're deleted. These steps shows how to delete the endpoint if it should no longer respond to playback requests. You must delete all endpoints from a channel before you can delete the channel.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting MSS endpoints in AWS Elemental MediaPackage
-<a name="mss-troubleshooting"></a>
 
 This topic helps you identify and resolve common issues with Microsoft Smooth Streaming (MSS) endpoints in AWS Elemental MediaPackage.
 

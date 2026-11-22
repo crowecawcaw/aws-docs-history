@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage features and functionality
-<a name="features-ref"></a>
 
 The following sections describe the configurations that are available in AWS Elemental MediaPackage and how they work.
 

@@ -1,7 +1,6 @@
 
 
 # Special conditions for TS and CMAF manifests in MediaPackage
-<a name="special-conditions-TS-CMAF-manifests"></a>
 
 If you are using TS or CMAF manifests for MediaPackage, these special conditions apply.
 + For TS manifests, we strongly recommend that you use audio rendition groups to avoid removing the video streams that are multiplexed with the audio streams that are filtered out. For more information about rendition groups, see [AWS Elemental MediaPackage rendition groups reference](rendition-groups.md).

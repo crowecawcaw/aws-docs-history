@@ -1,7 +1,6 @@
 
 
 # Manifest filtering query parameters in AWS Elemental MediaPackage
-<a name="manifest-filter-query-parameters"></a>
 
 To use manifest filtering query parameters, append `aws.manifestfilter` to your playback request to MediaPackage. MediaPackage evaluates the query, and serves a client manifest based on those query parameters. 
 
@@ -41,7 +40,7 @@ If the query is malformed, or if it there aren't streams that match the query pa
 ## Query syntax
 <a name="manifest-filter-syntax"></a>
 
-The base query parameter is `aws.manifestfilter`, which is followed by optional parameter name and value pairs. To construct the query, append `?aws.manifestfilter=` to the end of the MediaPackage endpoint URL, followed by parameter names and values. For a list of all of the available parameters, see [Manifest filtering query parameters in AWS Elemental MediaPackage](#manifest-filter-query-parameters).
+The base query parameter is `aws.manifestfilter`, which is followed by optional parameter name and value pairs. To construct the query, append `?aws.manifestfilter=` to the end of the MediaPackage endpoint URL, followed by parameter names and values. For a list of all of the available parameters, see [Manifest filtering query parameters in AWS Elemental MediaPackage](manifest-filter-query-parameters.md).
 
 **Example HLS filter query**  
 The following example query includes filters for audio sample rate, video bitrate, video codec, and audio language. Note that the reserved characters use URL-encoded values.   
@@ -56,7 +55,7 @@ If you use Amazon CloudFront as your CDN, you might need to set additional confi
 | Query string component | Description | 
 | --- | --- | 
 | ? | A restricted character that marks the beginning of a query. | 
-| aws.manifestfilter= | The base query, which is followed by parameters constructed of name and value pairs. For a list of all of the available parameters, see [Manifest filtering query parameters in AWS Elemental MediaPackage](#manifest-filter-query-parameters). | 
+| aws.manifestfilter= | The base query, which is followed by parameters constructed of name and value pairs. For a list of all of the available parameters, see [Manifest filtering query parameters in AWS Elemental MediaPackage](manifest-filter-query-parameters.md). | 
 | : | Used to associate the parameter name with a value. For example, {{parameter\_name}}:{{value}}. When using multiple query parameters, this character must be URL encoded (%3A). | 
 | ; | Separates parameters in a query that contains multiple parameters. For example, {{parameter1\_name:value}};{{parameter2\_name:minValue-maxValue}}. When used in a list of parameters for the same query, implies an AND operation.When using multiple query parameters, this character must be URL encoded (%3B). | 
 | , | Separates a list of values. For example, parameter\_name:{{value1}},{{value2}},{{value3}}. Comma-separated values in a list imply an OR relationship.When using multiple query parameters, this character must be URL encoded (%2C). | 

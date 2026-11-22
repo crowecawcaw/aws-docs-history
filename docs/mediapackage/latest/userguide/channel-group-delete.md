@@ -1,7 +1,6 @@
 
 
 # Deleting a channel group from AWS Elemental MediaPackage
-<a name="channel-group-delete"></a>
 
 This guides shows how to delete a channel group to stop AWS Elemental MediaPackage from receiving content. Before you can delete the channel group, you must delete the channel group's channels and endpoints. For instructions, see [Deleting a channel in AWS Elemental MediaPackage](channels-delete.md) and [Deleting an endpoint in AWS Elemental MediaPackage](endpoints-delete.md). You can use the MediaPackage console, MediaPackage API, or AWS CLI to delete a channel group.
 

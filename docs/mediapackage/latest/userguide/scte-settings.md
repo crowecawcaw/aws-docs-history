@@ -1,7 +1,6 @@
 
 
 # SCTE-35 settings in MediaPackage
-<a name="scte-settings"></a>
 
 You can modify how MediaPackage interacts with SCTE-35 messages from your source content. Configure the following settings on your origin endpoints. For more information, see the following:
 + For the MediaPackage console, see [Creating an origin endpoint in AWS Elemental MediaPackage](endpoints-create.md).

@@ -1,7 +1,6 @@
 
 
 # CDN configuration for MSS in AWS Elemental MediaPackage
-<a name="mss-cdn-configuration"></a>
 
 This topic explains how to configure your Content Delivery Network (CDN) to properly handle Microsoft Smooth Streaming (MSS) content from AWS Elemental MediaPackage.
 

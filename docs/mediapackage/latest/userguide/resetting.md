@@ -1,7 +1,6 @@
 
 
 # Reset for AWS Elemental MediaPackage channels and endpoints
-<a name="resetting"></a>
 
 There might come a time in your content streaming workflow that you need to reset the content that MediaPackage has ingested or is outputting. 
 

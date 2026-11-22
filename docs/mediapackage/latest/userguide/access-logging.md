@@ -1,7 +1,6 @@
 
 
 # Access logging
-<a name="access-logging"></a>
 
 AWS Elemental MediaPackage v2 provides access logs that capture detailed information about requests sent to your channels. MediaPackage generates two log types:
 + Ingress access logs are for requests sent to the channel's input endpoints
@@ -34,7 +33,7 @@ To create, view, or modify logging configuration in MediaPackage, you must have 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ You can also use the CloudWatch API to enable access logs for your channel group
       + `INGRESS_ACCESS_LOGS` for requests sent to channel  
 **Example PutDeliverySource operation**  
 
-   ```
+   ```json
    {
        "logType": "EGRESS_ACCESS_LOGS",
        "name": "my-channel-group-source",
@@ -130,7 +129,7 @@ You can also use the CloudWatch API to enable access logs for your channel group
 
    The following is an example of configuring logs to store in an Amazon S3 bucket and in JSON format.
 
-   ```
+   ```json
    {
       "deliveryDestinationConfiguration": { 
          "destinationResourceArn": "arn:aws:s3:::{{amzn-s3-demo-bucket-name}}"
@@ -147,7 +146,7 @@ If you're delivering logs cross-account, you must use the `PutDeliveryDestinatio
 
 1. Use the [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) API operation to link the delivery source to the destination that you created in the previous steps. This API operation associates the delivery source with the end destination.
 
-   ```
+   ```json
    {
       "deliveryDestinationArn": "string",
       "deliverySourceName": "string",
@@ -203,7 +202,7 @@ The access log files consist of a sequence of formatted log records, where each 
 
 **Example: Ingress access log**  
 
-```
+```json
 {
     "event_timestamp": "2020-07-13T18:59:56.293656Z",
     "resource_arn": "arn:aws:mediapackagev2:us-east-1:007862077394:123456789012/my_channel_group",
@@ -229,7 +228,7 @@ The access log files consist of a sequence of formatted log records, where each 
 
 **Example: Egress access log**  
 
-```
+```json
 {
     "event_timestamp": "2020-07-13T18:59:56.293656Z",
     "resource_arn": "arn:aws:mediapackagev2:us-east-1:007862077394:123456789012/my_channel_group",

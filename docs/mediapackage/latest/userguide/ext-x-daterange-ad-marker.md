@@ -1,7 +1,6 @@
 
 
 # HLS EXT-X-DATERANGE ad markers in AWS Elemental MediaPackage
-<a name="ext-x-daterange-ad-marker"></a>
 
 Daterange ad markers are used to signal ads and program transitions in live HLS manifests. When you enable daterange ad markers on your origin endpoint, MediaPackage inserts `EXT-X-DATERANGE` tags into the manifest where there are SCTE-35 `time_signal` or `splice_insert` tags present. `EXT-X-DATERANGE` is used in concert with `EXT-X-PROGRAM-DATE-TIME` tags. 
 

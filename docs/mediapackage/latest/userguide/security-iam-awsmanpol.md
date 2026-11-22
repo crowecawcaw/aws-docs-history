@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Elemental MediaPackage
-<a name="security-iam-awsmanpol"></a>
 
 
 

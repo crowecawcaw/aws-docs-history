@@ -1,7 +1,6 @@
 
 
 # Creating live-to-VOD assets with MediaPackage
-<a name="live-to-vod"></a>
 
 You can use the AWS Elemental MediaPackage v2 live-to-VOD harvester to extract portions of live video streams and save them as Video on Demand (VOD) assets. This feature is useful for creating highlight reels from live sports events, archiving broadcasts, or any other scenario where you need to convert live content into on-demand assets.
 

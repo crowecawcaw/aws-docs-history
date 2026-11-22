@@ -1,7 +1,6 @@
 
 
 # Secure MediaPackage content with CDN authorization
-<a name="cdn-auth"></a>
 
 AWS Elemental MediaPackage CDN authorization helps you protect your streaming content from unauthorized access and direct origin requests. When you configure CDN authorization, MediaPackage only fulfills playback requests that include valid authorization headers from your content delivery network, preventing users from bypassing your CDN to access content directly.
 

@@ -1,7 +1,6 @@
 
 
 # Optimize MediaPackage CDN authorization security
-<a name="cdn-auth-best-practices"></a>
 
 Implementing AWS Elemental MediaPackage CDN authorization effectively requires following security best practices for secret management, monitoring, and operational procedures. These recommendations help you maintain secure, cost-effective, and reliable content delivery.
 + **Use UUID format for secret values** - We recommend using UUID version 4 format for your secret values, which produces a 36-character string that is both unique and unpredictable.

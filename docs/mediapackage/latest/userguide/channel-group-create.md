@@ -1,7 +1,6 @@
 
 
 # Creating a channel group in AWS Elemental MediaPackage
-<a name="channel-group-create"></a>
 
 This guide shows how to create a channel group as a holder for your channels and origin endpoints. You can provide high-level information about your channel group and can add a certain number of channel groups for each account. After you create a channel group, you can add channels to the channel group. 
 
@@ -25,7 +24,7 @@ You can use the MediaPackage console, MediaPackage API, or AWS Command Line Inte
 
    All channels and origin endpoints that belong to this channel group will use the same domain URL. For stream delivery from MediaPackage, direct your CDNs to this domain.
 
-   When you create a channel group, if you exceed the quotas on the account, you'll receive an error. The error will be similar to Too many requests, please try again. Resource limit exceeded. This error means that either you exceeded the API request quotas, or that you reached the maximum number of channel groups that your account permits. 
+   When you create a channel group, if you exceed the quotas on the account, you'll receive an error. The error will be similar to `Too many requests, please try again. Resource limit exceeded`. This error means that either you exceeded the API request quotas, or that you reached the maximum number of channel groups that your account permits. 
 
 You can add channels to a channel group to do the following: 
 + Permit a live content stream from a source such as AWS Elemental MediaLive or another encoder.

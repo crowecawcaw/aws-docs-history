@@ -1,7 +1,6 @@
 
 
 # Manifest filtering examples in AWS Elemental MediaPackage
-<a name="manifest-filtering-examples"></a>
 
 These are MediaPackage manifest filtering examples.
 

@@ -1,7 +1,6 @@
 
 
 # Using image media playlists to enable trick-play in AWS Elemental MediaPackage
-<a name="using-image-media-playlists"></a>
 
 To use image-based trickplay, in your upstream encoder you create an HLS *image media playlist* that contains JPEG image segments. MediaPackage automatically passes through the image segments to the output. These segments are the thumbnail images and image metadata that the video player uses for visual cues. These segments must conform to the [Image Media Playlist specification, version 0.4](https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf). The service supports the time-based implementation of the specification.
 

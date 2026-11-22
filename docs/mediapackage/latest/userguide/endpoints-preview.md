@@ -1,7 +1,6 @@
 
 
 # Previewing a manifest from AWS Elemental MediaPackage
-<a name="endpoints-preview"></a>
 
 Preview an endpoint's manifest to ensure that MediaPackage is receiving the content stream and can package it. The preview is helpful for avoiding playback failures after the endpoint is published and for troubleshooting later if there are any playback issues.
 

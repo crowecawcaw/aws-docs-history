@@ -1,7 +1,6 @@
 
 
 # Time-shifted viewing examples in AWS Elemental MediaPackage
-<a name="time-shift-examples"></a>
 
 These are MediaPackage time-shifted viewing examples.
 

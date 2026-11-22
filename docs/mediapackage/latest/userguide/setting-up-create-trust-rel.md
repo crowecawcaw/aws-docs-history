@@ -1,7 +1,6 @@
 
 
 # Allowing MediaPackage to access other AWS services
-<a name="setting-up-create-trust-rel"></a>
 
 Some features require you to allow MediaPackage to access other AWS services, such as Amazon S3 and AWS Secrets Manager (Secrets Manager). To allow this access, create an IAM role and policy with the appropriate permissions. The following steps describe how to create roles and policies for MediaPackage features.
 
@@ -99,7 +98,7 @@ The following permissions are required only if you customer-managed AWS KMS key.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -171,7 +170,7 @@ The trust relationship defines what entities can assume the role that you create
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -196,7 +195,7 @@ The trust relationship defines what entities can assume the role that you create
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

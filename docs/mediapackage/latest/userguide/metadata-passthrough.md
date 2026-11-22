@@ -1,7 +1,6 @@
 
 
 # Passing through metadata from AWS Elemental MediaPackage
-<a name="metadata-passthrough"></a>
 
 AWS Elemental MediaPackage automatically passes through ID3 metadata from a channel's input to the channel's output stream. You don't need to adjust your endpoint's configuration to enable metadata passthrough.
 

@@ -1,7 +1,6 @@
 
 
 # MSS in AWS Elemental MediaPackage
-<a name="mss-overview"></a>
 
 AWS Elemental MediaPackage supports Microsoft Smooth Streaming (MSS) for delivering content to legacy devices such as smart TVs and other platforms where MSS is the preferred or required streaming format. This topic provides an overview of MSS and how it works with MediaPackage.
 

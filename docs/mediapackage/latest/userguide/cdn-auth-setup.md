@@ -1,7 +1,6 @@
 
 
 # Configure MediaPackage CDN authorization setup
-<a name="cdn-auth-setup"></a>
 
 Configure AWS Elemental MediaPackage CDN authorization to secure your streaming content by setting up custom HTTP headers, storing secrets, and configuring IAM permissions. This procedure ensures that only authorized CDN requests can access your MediaPackage endpoints.
 
@@ -71,7 +70,7 @@ Use the same secret across multiple endpoints in the same Region and on the same
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

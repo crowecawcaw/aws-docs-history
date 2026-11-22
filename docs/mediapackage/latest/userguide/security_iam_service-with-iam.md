@@ -1,7 +1,6 @@
 
 
 # How AWS Elemental MediaPackage works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to MediaPackage, learn what IAM features are available to use with MediaPackage.
 
@@ -162,7 +161,7 @@ For example, you can create a policy that allows access to content only when the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

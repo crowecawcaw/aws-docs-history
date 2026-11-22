@@ -1,7 +1,6 @@
 
 
 # DASH audio timeline pattern
-<a name="dash-audio-timeline-pattern"></a>
 
 In a DASH manifest, the `SegmentTimeline` element describes when each media segment is available and its duration. For audio tracks, the timescale mismatch between audio and video codecs means that audio segment durations don't always align evenly with video segment boundaries. This typically produces a repeating pattern of slightly different durations in the audio timeline. For example, an audio track might alternate between durations of 287232 and 288768 (at a timescale of 48000) in a predictable cycle.
 

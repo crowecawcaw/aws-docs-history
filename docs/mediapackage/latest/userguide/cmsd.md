@@ -1,7 +1,6 @@
 
 
 # CMSD headers from AWS Elemental MediaPackage
-<a name="cmsd"></a>
 
 AWS Elemental MediaPackage uses Common Media Server Data (CMSD) HTTP response headers to provide downstream systems with information about content coming from an endpoint. These headers are defined by the Consumer Technology Association's CTA-5006 specification that establishes a uniform method for media servers and services to communicate data about media objects. 
 

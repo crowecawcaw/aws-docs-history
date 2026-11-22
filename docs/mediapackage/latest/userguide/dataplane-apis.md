@@ -1,7 +1,6 @@
 
 
 # Working with data plane APIs in AWS Elemental MediaPackage
-<a name="dataplane-apis"></a>
 
 MediaPackage uses three data plane actions for ingesting and egressing video content. MediaPackage does not use these actions to configure Channel Group, Channel, or Origin Endpoint resources.
 
@@ -41,7 +40,7 @@ To call `HarvestObject`, perform an HTTP `POST` request to an egress URL, includ
 
 **Example**  
 
-```
+```json
 POST {{egress_domain}}/channelGroup/{{ChannelGroupName}}/channel/{{ChannelName}}/originEndpoint/{{OriginEndpointName}}/{{manifest_or_segment_path}} HTTP/1.1
 
 X-Amz-Source-MediaPackage-S3-Dst-Bucket-Name: {{amzn-s3-demo-bucket/path}}

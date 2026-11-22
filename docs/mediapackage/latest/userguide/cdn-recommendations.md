@@ -1,7 +1,6 @@
 
 
 # CDN configuration recommendations
-<a name="cdn-recommendations"></a>
 
 To configure your CDN distributions for delivering Apple HLS and low-latency HLS (LL-HLS) streams with MediaPackage, we suggest using the following approach. Ensure that all your usual default parameters in the CDN distribution configuration are compatible with the delivery of HLS and LL-HLS streams with MediaPackage.
 

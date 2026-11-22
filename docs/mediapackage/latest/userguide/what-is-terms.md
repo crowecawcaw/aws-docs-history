@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage concepts and terminology
-<a name="what-is-terms"></a>
 
 The following are AWS Elemental MediaPackage concepts and terms to be familiar with.
 

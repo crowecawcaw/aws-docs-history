@@ -1,7 +1,6 @@
 
 
 # Limit manifest duration from AWS Elemental MediaPackage
-<a name="window-seconds"></a>
 
 To dynamically request shorter manifests than the manifest window that's configured on the endpoint, use the `?aws.manifestsettings=manifest_window_seconds:` query parameter. When used at session initialization, the resulting manifest will conform to the number of seconds that you specify in the parameter. With `manifest_window_seconds`, you can serve manifests that are a variety of lengths, all from the same endpoint. 
 

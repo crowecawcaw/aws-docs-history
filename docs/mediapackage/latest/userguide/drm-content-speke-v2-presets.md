@@ -1,7 +1,6 @@
 
 
 # Encryption presets in AWS Elemental MediaPackage
-<a name="drm-content-speke-v2-presets"></a>
 
 SPEKE Version 2.0 and 2.1 support the use of multiple, distinct encryption keys for audio and video tracks. MediaPackage uses **presets** to configure the encryption. The MediaPackage API defines these presets, and they appear in the MediaPackage console in the **Video encryption preset** and **Audio encryption preset** menus of the **Package Encryption endpoints configuration** section. The presets map encryption keys to specific audio or video tracks, based on the number of channels for audio tracks, and based on the video resolution for video tracks. MediaPackage uses specific combinations of audio and video encryption presets to support three different encryption scenarios:
 + [Scenario 1: Unencrypted tracks and encrypted tracks](#drm-content-speke-v2-presets-unencrypted-and-encrypted-tracks)

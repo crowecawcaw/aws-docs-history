@@ -1,7 +1,6 @@
 
 
 # A/B forensic watermarking in AWS Elemental MediaPackage
-<a name="ab-watermarking"></a>
 
 AWS Elemental MediaPackage supports A/B forensic watermarking workflows for CMAF ingest. In an A/B watermarking workflow, the upstream encoder produces two watermark variants of the content and, on each incoming segment, signals which watermark variant and bit position the segment carries. MediaPackage uses this signal to make watermark-aware segment-combining decisions so that watermark bit positions stay aligned in the output. This alignment lets a downstream content delivery network (CDN) derive the correct bit position for each output segment.
 

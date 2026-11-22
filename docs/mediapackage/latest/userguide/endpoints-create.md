@@ -1,7 +1,6 @@
 
 
 # Creating an origin endpoint in AWS Elemental MediaPackage
-<a name="endpoints-create"></a>
 
 These steps shows how to create an origin endpoint (endpoint) on a channel to define how MediaPackage prepares content for delivery. Content can't be served from a channel until it has an endpoint. If you're using input redundancy, each endpoint receives content from one ingest URL at a time. If MediaPackage performs a failover on the inputs for one ingest input URL, the endpoints automatically start receiving content from the other ingest URL. For more information about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
 
@@ -25,7 +24,7 @@ If this endpoint is on a Dynamic Multiview channel, additional restrictions appl
 
 1. Choose **Create**.
 
-   When you're creating an endpoint, you will receive an error if you exceed the quotas on the account. An error similar to Too many requests, please try again. Resource limit exceeded means that either you've exceeded the API request quotas, or you've already reached the maximum number of endpoints permitted on this channel.
+   When you're creating an endpoint, you will receive an error if you exceed the quotas on the account. An error similar to `Too many requests, please try again. Resource limit exceeded` means that either you've exceeded the API request quotas, or you've already reached the maximum number of endpoints permitted on this channel.
 
 ## Endpoint settings fields
 <a name="endpoints-settings"></a>

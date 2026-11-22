@@ -1,7 +1,6 @@
 
 
 # Quotas in AWS Elemental MediaPackage
-<a name="quotas"></a>
 
 This section describes the quotas for AWS Elemental MediaPackage. For information about requesting an increase to soft quotas, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). You can't request an increase to hard quotas.
 
@@ -14,7 +13,7 @@ This section describes the quotas for AWS Elemental MediaPackage. For informatio
 
 The following table describes quotas in AWS Elemental MediaPackage that can be increased. For information about changing quotas, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
 
-For some customers, your account quota might be below these published quotas. If you believe that you encountered a Resource limit exceeded error wrongfully, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackagev2/quotas).
+For some customers, your account quota might be below these published quotas. If you believe that you encountered a `Resource limit exceeded` error wrongfully, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackagev2/quotas).
 
 
 | Resource or operation | Default quota | 

@@ -1,7 +1,6 @@
 
 
 # Preparing and managing certificates for content key encryption
-<a name="drm-content-key-encryption"></a>
 
 When implementing DRM encryption, AWS Elemental MediaPackage can enhance security by encrypting the content keys within the Content Protection Information Exchange (CPIX) document exchanged with your key provider. This additional encryption layer protects the content keys during transmission between MediaPackage and your DRM key provider.
 

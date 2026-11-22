@@ -1,7 +1,6 @@
 
 
 # Download tools
-<a name="setting-up-tools"></a>
 
 The AWS Management Console includes a console for MediaPackage, but if you want to access the services programmatically, see the following:
 + The API guides document the operations that the services support and provide links to the related SDK and CLI documentation:

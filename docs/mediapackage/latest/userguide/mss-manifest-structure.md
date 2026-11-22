@@ -1,7 +1,6 @@
 
 
 # MSS manifest structure in AWS Elemental MediaPackage
-<a name="mss-manifest-structure"></a>
 
 This topic explains the structure and components of Microsoft Smooth Streaming (MSS) manifests in AWS Elemental MediaPackage. Understanding the manifest structure helps you troubleshoot playback issues and optimize your MSS streaming workflow. For step-by-step instructions on creating MSS endpoints, see [Create an MSS manifest](endpoints-create.md#endpoints-ism). For information about encrypting MSS content, see [MSS encryption and DRM in AWS Elemental MediaPackage](mss-encryption.md).
 

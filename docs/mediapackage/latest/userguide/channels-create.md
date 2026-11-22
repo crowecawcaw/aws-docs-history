@@ -1,7 +1,6 @@
 
 
 # Creating a channel in AWS Elemental MediaPackage
-<a name="channels-create"></a>
 
 These steps show how to create a channel in MediaPackage to start receiving content streams. Later, you add an origin endpoint to the channel. This endpoint is the access point for content playback requests. We recommend that you spread out channels between channel groups, such as putting redundant channels in the same AWS Region in different channel groups.
 
@@ -65,7 +64,7 @@ You can't change the output locking mode after you create the channel. Non-epoch
 
    If you're using input redundancy and one of the inputs stops sending content, then MediaPackage automatically switches to the other input for the source content. For more information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
 
-   While you create a channel, if you exceed the quotas on the account, you'll receive an error. The error will be similar to Too many requests, please try again. Resource limit exceeded. This error means that either you exceeded the API request quotas, or that you reached the maximum number of channels that your account permits. 
+   While you create a channel, if you exceed the quotas on the account, you'll receive an error. The error will be similar to `Too many requests, please try again. Resource limit exceeded`. This error means that either you exceeded the API request quotas, or that you reached the maximum number of channels that your account permits. 
 
 To permit downstream video players and content delivery networks (CDNs) to request content playback from MediaPackage, you must add an origin endpoint to a channel.
 

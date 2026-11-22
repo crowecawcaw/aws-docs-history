@@ -1,7 +1,6 @@
 
 
 # MSS encryption and DRM in AWS Elemental MediaPackage
-<a name="mss-encryption"></a>
 
 This topic explains how to protect your Microsoft Smooth Streaming (MSS) content using encryption and digital rights management (DRM) in AWS Elemental MediaPackage. For information about MSS manifest structure and how encryption affects it, see [MSS manifest structure in AWS Elemental MediaPackage](mss-manifest-structure.md). For general information about MSS in MediaPackage, see [MSS in AWS Elemental MediaPackage](mss-overview.md).
 

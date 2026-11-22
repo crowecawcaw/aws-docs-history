@@ -1,7 +1,6 @@
 
 
 # General AWS Elemental MediaPackage live processing flow
-<a name="what-is-flow-gen"></a>
 
 The following outlines the general flow of live content in MediaPackage:
 

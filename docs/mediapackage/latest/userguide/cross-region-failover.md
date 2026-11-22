@@ -1,7 +1,6 @@
 
 
 # Working with cross-Region failover in AWS Elemental MediaPackage
-<a name="cross-region-failover"></a>
 
 MediaPackage supports workflows where a CDN transparently fails over between multiple MediaPackage Live v2 origins located in different AWS Regions. The failover functionality also works in a single Region, but such a configuration doesn't protect against regional failures. The purpose of such failover architectures is to force CDN requests to be forwarded to one or more backup origins if the stream on the primary origin is not considered healthy. To be transparent, the failover needs all the MediaPackage origins to produce symmetric streams. This requirement can be satisfied through the combination of multiple requirements and restrictions at different levels in the workflow as described in the following sections.
 

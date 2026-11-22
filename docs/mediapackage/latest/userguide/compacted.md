@@ -1,7 +1,6 @@
 
 
 # DASH manifest compactness
-<a name="compacted"></a>
 
 For some players, processing a manifest with duplicate data about each representation (track) is difficult and slow. To reduce some of the burden, AWS Elemental MediaPackage compacts the manifest by default. Compacting is achieved by moving some attributes from the `Representation` object to the `AdaptationSet` object. This way, rather than having the attributes defined for each representation in the manifest, they're defined once at a higher level. The representations then inherit these attributes from the adaptation set.
 

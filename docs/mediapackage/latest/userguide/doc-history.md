@@ -1,7 +1,6 @@
 
 
 # Document history for the MediaPackage User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for MediaPackage.
 
@@ -42,4 +41,4 @@ The following table describes the documentation releases for MediaPackage.
 | [AWS managed policy updates](security-iam-awsmanpol.md) | Added new AWS managed policies: `AWSElementalMediaPackageV2FullAccess`, `AWSElementalMediaPackageV2ReadOnly`. | July 25, 2023 | 
 | [`time_delay` query parameters added to time-shifted viewing reference](time-shifted.md) | Added information on using `time_delay` query parameters. | July 23, 2023 | 
 | [Added data plane APIs](dataplane-apis.md) | Added `PutObject`, `GetObject`, and `GetHeadObject` data plane APIs. | June 14, 2023 | 
-| [Initial release](#doc-history) | Initial release of the AWS Elemental MediaPackage User Guide | May 5, 2023 | 
+| [Initial release](doc-history.md) | Initial release of the AWS Elemental MediaPackage User Guide | May 5, 2023 | 

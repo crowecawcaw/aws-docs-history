@@ -1,7 +1,6 @@
 
 
 # Multi-period DASH in AWS Elemental MediaPackage
-<a name="multi-period"></a>
 
 The ability to insert multiple periods in DASH manifests for live is available in AWS Elemental MediaPackage.
 

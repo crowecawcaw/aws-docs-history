@@ -1,7 +1,6 @@
 
 
 # Delay content availability from AWS Elemental MediaPackage
-<a name="time-delay"></a>
 
 
 

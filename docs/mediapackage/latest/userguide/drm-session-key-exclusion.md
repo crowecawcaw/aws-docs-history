@@ -1,7 +1,6 @@
 
 
 # Excluding DRM session keys in AWS Elemental MediaPackage
-<a name="drm-session-key-exclusion"></a>
 
 MediaPackage supports excluding session keys from HLS and LL-HLS multivariant playlists to improve compatibility with legacy clients and provide more granular access control.
 

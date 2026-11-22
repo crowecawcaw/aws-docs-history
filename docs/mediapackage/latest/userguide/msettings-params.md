@@ -1,7 +1,6 @@
 
 
 # Time-shifted query parameters in AWS Elemental MediaPackage
-<a name="msettings-params"></a>
 
 To use time-shifted viewing query parameters, append `aws.manifestsettings` to your playback request to MediaPackage. MediaPackage evaluates the query, and serves a client manifest based on those query parameters. 
 

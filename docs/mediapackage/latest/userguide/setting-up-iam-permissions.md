@@ -1,7 +1,6 @@
 
 
 # Set up additional IAM permissions
-<a name="setting-up-iam-permissions"></a>
 
 By default, users and roles don't have permission to create or modify MediaPackage resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 

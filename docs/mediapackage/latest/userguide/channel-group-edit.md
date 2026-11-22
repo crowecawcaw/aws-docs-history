@@ -1,7 +1,6 @@
 
 
 # Editing a channel group in AWS Elemental MediaPackage
-<a name="channel-group-edit"></a>
 
 This guides shows how to edit the description on a channel group for easier identification later from the AWS Elemental MediaPackage console. You can't edit the name of the channel group.
 

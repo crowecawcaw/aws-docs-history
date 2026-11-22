@@ -1,7 +1,6 @@
 
 
 # Using I-frame playlists to enable in AWS Elemental MediaPackage trick-play
-<a name="using-i-frame-playlists"></a>
 
 MediaPackage supports live trick-play by creating an I-frame playlist from an existing live stream. The I-frame playlist contains the I-frame only video segments that your player uses for the image thumbnails. For information about I-frame playlists, see the [HTTP Live Streaming 2nd Edition specification](https://datatracker.ietf.org/doc/html/rfc8216#section-4.3.3.6).
 

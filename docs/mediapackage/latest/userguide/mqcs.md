@@ -1,7 +1,6 @@
 
 
 # Leveraging media quality scores with AWS Elemental MediaPackage
-<a name="mqcs"></a>
 
 Streaming media quality is influenced by many factors. To ensure the highest quality viewing experience, services in the video streaming workflow must have awareness of, and ability to act on, indicators of quality down to the segment level in a stream. MediaPackage uses media quality confidence score (MQCS) functionality to receive, act on, calculate, and communicate quality scores of live streaming content. When adopted into your entire workflow, MQCS provides an automated operation to ensure that you provide the optimum viewing experience to your customers. 
 

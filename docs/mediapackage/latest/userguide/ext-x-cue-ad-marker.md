@@ -1,7 +1,6 @@
 
 
 # HLS CUE tag ad markers in AWS Elemental MediaPackage
-<a name="ext-x-cue-ad-marker"></a>
 
 CUE tag ad markers are used to signal ads and program transitions in live HLS manifests using industry-standard CUE tags. When you enable SCTE-35 enhanced ad markers on your HLS or LLHLS origin endpoint, MediaPackage inserts `EXT-X-CUE-OUT`, `EXT-X-CUE-IN`, and related CUE tags into the manifest where there are SCTE-35 `time_signal` or `splice_insert` tags present. This format provides the same SCTE-35 information as DATERANGE tags but in a different manifest format that's compatible with legacy ad insertion systems.
 

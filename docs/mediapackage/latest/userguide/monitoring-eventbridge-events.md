@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Elemental MediaPackage with EventBridge events
-<a name="monitoring-eventbridge-events"></a>
 
 WIth Amazon EventBridge, you can automate your AWS services and respond automatically to system events such as application availability issues or error conditions. AWS services deliver events to EventBridge in near real-time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
 + Invoking an AWS Lambda function
@@ -27,7 +26,7 @@ You get harvest job status events when you export a clip from a live stream to c
 
 **Example Successful harvest job event**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce", 
    "detail-type": "MediaPackageV2 HarvestJob Notification", 
@@ -84,7 +83,7 @@ You get harvest job status events when you export a clip from a live stream to c
 
 **Example Failed harvest job event**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce", 
    "detail-type": "MediaPackageV2 HarvestJob Notification", 
