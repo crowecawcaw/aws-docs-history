@@ -1,7 +1,6 @@
 
 
 # On-Premises Connectivity Using AWS Direct Connect to a Virtual Private Gateway and VPN
-<a name="vmware-dx-vgw-vpn"></a>
 
 Publication date: **March 10, 2022 ([Diagram history](#vmvgw-diagram-history))**
 

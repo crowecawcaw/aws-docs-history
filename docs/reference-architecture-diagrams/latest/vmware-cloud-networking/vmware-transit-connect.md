@@ -1,7 +1,6 @@
 
 
 # Highly Resilient On-Premises Connectivity with AWS Transit Gateway and VMware Transit Connect
-<a name="vmware-transit-connect"></a>
 
 Publication date: **March 10, 2022 ([Diagram history](#vmtc-diagram-history))**
 
