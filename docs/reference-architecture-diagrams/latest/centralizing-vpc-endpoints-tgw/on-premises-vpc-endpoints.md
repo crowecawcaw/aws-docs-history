@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon VPC Endpoints from On-Premises Environments
-<a name="on-premises-vpc-endpoints"></a>
 
 Publication date: **March 25, 2022 ([Diagram history](#onprem-diagram-history))**
 

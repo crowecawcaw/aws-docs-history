@@ -1,7 +1,6 @@
 
 
 # Centralizing Amazon VPC Endpoint Access with AWS Transit Gateway
-<a name="centralizing-vpc-endpoint-access"></a>
 
 Publication date: **March 25, 2022 ([Diagram history](#cvpc-diagram-history))**
 
