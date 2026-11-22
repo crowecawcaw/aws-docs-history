@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Google Drive connector V1.0
-<a name="data-source-v1-google-drive"></a>
 
 Google Drive is a cloud-based file storage service. You can use Amazon Kendra to index documents and comments stored in shared drives, My Drives, and Shared with me folders in your Google Drive data source. You can index Google Workspace documents, as well as documents listed in [Types of documentation](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html). You can also use inclusion and exclusion filters to index content by file name, file type, and file path.
 
@@ -138,7 +137,7 @@ IAM roles used for indexes cannot be used for data sources. If you are unsure if
 You must specify the following using the [GoogleDriveConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_GoogleDriveConfiguration.html) API:
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your Google Drive account. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "clientAccount": "{{service account email}}",
       "adminAccount": "{{user account email"}}",

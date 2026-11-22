@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Deleting a data source
-<a name="delete-data-source"></a>
 
 You delete a data source when you want to remove the information contained in the data source from your Amazon Kendra index. For example, delete a data source when:
 + A data source is incorrectly configured. Delete the data source, wait for the data source to finish deleting, and then recreate it.

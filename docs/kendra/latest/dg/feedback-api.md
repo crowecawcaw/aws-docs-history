@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Using the Amazon Kendra API to submit feedback
-<a name="feedback-api"></a>
 
 To use the Amazon Kendra API to submit query feedback, use the [SubmitFeedback](https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html) API. To identify the query, you supply the index ID of the index that the query applies to, and the query ID returned in the response from the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API.
 
@@ -24,7 +23,7 @@ The following example shows how to submit click and relevance feedback using the
 ------
 #### [ Python ]
 
-   ```
+   ```python
    import boto3
    import time
    
@@ -61,7 +60,7 @@ The following example shows how to submit click and relevance feedback using the
 ------
 #### [ Java ]
 
-   ```
+   ```java
    package com.amazonaws.kendra;
    
    import java.time.Instant;

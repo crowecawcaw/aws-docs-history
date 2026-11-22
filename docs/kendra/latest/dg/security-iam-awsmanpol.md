@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # AWS managed policies for Amazon Kendra
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -36,7 +35,7 @@ Grants read-only access to Amazon Kendra resources. This policy includes the fol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ Grants full access to create, read, update, delete, tag, and run all Amazon Kend
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

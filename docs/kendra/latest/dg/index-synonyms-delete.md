@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Deleting a thesaurus
-<a name="index-synonyms-delete"></a>
 
 The following procedures show how to delete a thesaurus. 
 
@@ -30,7 +29,7 @@ aws kendra delete-thesaurus \
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 
@@ -56,7 +55,7 @@ print("Program ends.")
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazonaws.kendra;
 
 import software.amazon.awssdk.services.kendra.KendraClient;

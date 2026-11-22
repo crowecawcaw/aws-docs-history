@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Getting started (AWS SDK for Java)
-<a name="gs-java"></a>
 
 The following program is an example of using Amazon Kendra in a Java program. The program performs the following actions:
 
@@ -17,7 +16,7 @@ The following program is an example of using Amazon Kendra in a Java program. Th
 
 1. When the data source is active, it synchronizes the index with the contents of the data source using the [StartDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/APIReference/API_StartDataSourceSyncJob.html) operation.
 
-```
+```java
 package com.amazonaws.kendra;
 
 import java.util.concurrent.TimeUnit;

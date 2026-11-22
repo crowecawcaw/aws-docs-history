@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon Kendra Intelligent Ranking for self-managed OpenSearch
-<a name="opensearch-rerank"></a>
 
 You can leverage Amazon Kendra's semantic search capabilities to improve search results from [OpenSearch](https://opensearch.org/docs/latest), the self managed open source search service based on the Apache 2.0 License. The Amazon Kendra Intelligent Ranking plugin semantically re-ranks OpenSearch's results using Amazon Kendra. It does this by understanding the meaning and context of a search query using specific fields, such as the document body or title, from the default OpenSearch search results.
 
@@ -72,7 +71,7 @@ If you had previously downloaded a version of the `opensearch` Docker image that
 ------
 #### [ Python ]
 
-   ```
+   ```python
    import boto3
    from botocore.exceptions import ClientError
    import pprint
@@ -236,7 +235,7 @@ curl -XPUT "https://localhost:9200/<{{your-docs-index}}>/_settings" -u 'admin:ad
 ------
 #### [ Python ]
 
-```
+```python
 pip install opensearch-py
 
 from opensearchpy import OpenSearch
@@ -302,7 +301,7 @@ curl -XGET "https://localhost:9200/<{{your-docs-index}}>/_search?pretty" -u 'adm
 ------
 #### [ Python ]
 
-```
+```python
 from opensearchpy import OpenSearch
 host = 'localhost'
 port = 9200
@@ -365,7 +364,7 @@ curl -XPUT "http://localhost:9200/<{{your-docs-index}}>/_settings" -H 'Content-T
 ------
 #### [ Python ]
 
-```
+```python
 from opensearchpy import OpenSearch
 host = 'localhost'
 port = 9200
@@ -436,7 +435,7 @@ curl -XGET "https://localhost:9200/<{{your-docs-index}}>/_search?pretty" -u 'adm
 ------
 #### [ Python ]
 
-```
+```python
 from opensearchpy import OpenSearch
 host = 'localhost'
 port = 9200

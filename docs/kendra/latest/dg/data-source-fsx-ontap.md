@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon FSx (NetApp ONTAP)
-<a name="data-source-fsx-ontap"></a>
 
 Amazon FSx (NetApp ONTAP) is a fully managed, cloud based file server system that offers shared storage capabilities. If you're an Amazon FSx (NetApp ONTAP) user, you can use Amazon Kendra to index your Amazon FSx (NetApp ONTAP) data source.
 
@@ -147,7 +146,7 @@ You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/
 You must select an Amazon VPC where your Amazon FSx (NetApp ONTAP) resides. You include the VPC subnet and security groups.
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your Amazon FSx (NetApp ONTAP) account. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": "{{user@corp.example.com}}",
       "password": "{{password}}"
@@ -156,7 +155,7 @@ You must select an Amazon VPC where your Amazon FSx (NetApp ONTAP) resides. You 
 
   If you use the NFS protocol for your Amazon FSx (NetApp ONTAP) file system, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "leftId": "{{left ID}}",
       "rightId": "{{right ID}}",

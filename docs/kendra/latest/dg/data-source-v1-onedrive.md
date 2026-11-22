@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Microsoft OneDrive connector V1.0
-<a name="data-source-v1-onedrive"></a>
 
 Microsoft OneDrive is a cloud-based storage service that you can use to store, share, and host your content. You can use Amazon Kendra to index your Microsoft OneDrive data source. 
 
@@ -154,7 +153,7 @@ You must specify the following using the [OneDriveConfiguration](https://docs.aw
 + **OneDrive Users**—Specify the list of user accounts whose documents should be indexed.
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your OneDrive account. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": "{{OAuth client ID}}",
       "password": "{{client secret}}"

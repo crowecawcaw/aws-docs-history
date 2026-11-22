@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Adding frequently asked questions (FAQs) to an index
-<a name="in-creating-faq"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -114,7 +113,7 @@ You can use a JSON file to provide questions, answers, and fields for your index
 
 The following is the schema for the JSON file.
 
-```
+```json
 {
     "SchemaVersion": 1,
     "FaqDocuments": [
@@ -141,7 +140,7 @@ The following is the schema for the JSON file.
 
 The following example JSON file shows two FAQ documents. One of the documents has the required question and answer only. The other document also includes additional field and user context or access control information.
 
-```
+```json
 {
     "SchemaVersion": 1,
     "FaqDocuments": [
@@ -185,7 +184,7 @@ You can include a user or a group in either an allow list or a deny list, but no
 
 The following is an example of including user access control to a JSON FAQ.
 
-```
+```json
 "AccessControlList": [
                 {
                     "Name": "group or user name",
@@ -206,7 +205,7 @@ You must provide an IAM role that has access to the S3 bucket that contains your
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 
 kendra = boto3.client("kendra")
@@ -235,7 +234,7 @@ print(response)
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazonaws.kendra;
 
 import software.amazon.awssdk.services.kendra.KendraClient;

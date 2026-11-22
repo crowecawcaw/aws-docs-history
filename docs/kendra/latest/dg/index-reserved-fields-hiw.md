@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Using Amazon Kendra reserved or common document fields
-<a name="index-reserved-fields-hiw"></a>
 
 With the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_UpdateIndex.html) API operation, you can create reserved or common fields. To do this, you use `DocumentMetadataConfigurationUpdates`, and specify the Amazon Kendra reserved index field name to map to your equivalent document attribute/field name. You can also create custom fields. 
 

@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Retrieving passages
-<a name="searching-retrieve"></a>
 
 You can use the [Retrieve](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html) API as a retriever for retrieval augmented generation (RAG) systems.
 
@@ -35,7 +34,7 @@ The following is an example of using the `Retrieve` API to retrieve the top 100 
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import pprint
 
@@ -70,7 +69,7 @@ for retrieve_result in result["ResultItems"]:
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazonaws.kendra;
 
 import software.amazon.awssdk.services.kendra.KendraClient;

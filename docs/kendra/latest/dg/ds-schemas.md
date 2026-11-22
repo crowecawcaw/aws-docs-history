@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Data source template schemas
-<a name="ds-schemas"></a>
 
 The following are template schemas for data sources where templates are supported.
 
@@ -77,7 +76,7 @@ The following table describes the parameters of the AEM JSON schema.
 ### Adobe Experience Manager JSON schema
 <a name="aem-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -1068,7 +1067,7 @@ The following table describes the parameters of the Amazon FSx (Windows) JSON sc
 ### Amazon FSx (Windows) JSON schema
 <a name="fsx-windows-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -1219,7 +1218,7 @@ The following table describes the parameters of the Amazon FSx (NetApp ONTAP) JS
 ### Amazon FSx (NetApp ONTAP) JSON schema
 <a name="fsx-ontap-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -1402,7 +1401,7 @@ The following table describes the parameters of the Alfresco JSON schema.
 ### Alfresco JSON schema
 <a name="alfresco-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -1659,7 +1658,7 @@ The following table describes the parameters of the Aurora (MySQL) JSON schema.
 ### Aurora (MySQL) JSON schema
 <a name="aurora-mysql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -1861,7 +1860,7 @@ The following table describes the parameters of the Aurora (PostgreSQL) JSON sch
 ### Aurora (PostgreSQL) JSON schema
 <a name="aurora-postgresql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -2063,7 +2062,7 @@ The following table describes the parameters of the Amazon RDS (Microsoft SQL Se
 ### Amazon RDS (Microsoft SQL Server) JSON schema
 <a name="rds-ms-sql-server-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -2265,7 +2264,7 @@ The following table describes the parameters of the Amazon RDS (MySQL) JSON sche
 ### Amazon RDS (MySQL) JSON schema
 <a name="rds-mysql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -2467,7 +2466,7 @@ The following table describes the parameters of the Amazon RDS (Oracle) JSON sch
 ### Amazon RDS (Oracle) JSON schema
 <a name="rds-oracle-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -2669,7 +2668,7 @@ The following table describes the parameters of the Amazon RDS (PostgreSQL) JSON
 ### Amazon RDS (PostgreSQL) JSON schema
 <a name="rds-postgresql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -2861,7 +2860,7 @@ The following table describes the parameters of the Amazon S3 JSON schema.
 ### S3 JSON schema
 <a name="s3-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -3039,7 +3038,7 @@ The following table describes the parameters of the Amazon Kendra Web Crawler JS
 ### Amazon Kendra Web Crawler JSON schema
 <a name="web-crawler-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -3365,7 +3364,7 @@ The following table describes the parameters of the Confluence JSON schema.
 ### Confluence JSON schema
 <a name="confluence-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -3802,7 +3801,7 @@ The following table describes the parameters of the Dropbox JSON schema.
 ### Dropbox JSON schema
 <a name="dropbox-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -4112,7 +4111,7 @@ The following table describes the parameters of the Drupal JSON schema.
 ### Drupal JSON schema
 <a name="drupal-json"></a>
 
-```
+```json
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
@@ -4506,7 +4505,7 @@ The following table describes the parameters of the GitHub JSON schema.
 
 The following is the GitHub JSON schema:
 
-```
+```json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -5032,7 +5031,7 @@ The following table describes the parameters of the Gmail JSON schema.
 ### Gmail JSON schema
 <a name="gmail-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -5317,7 +5316,7 @@ The following table describes the parameters of the Google Drive JSON schema.
 ### Google Drive JSON schema
 <a name="googledrive-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -5608,7 +5607,7 @@ The following table describes the parameters of the IBM DB2 JSON schema.
 ### IBM DB2 JSON schema
 <a name="ibm-db2-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -5810,7 +5809,7 @@ The following table describes the parameters of the Microsoft Exchange JSON sche
 ### Microsoft Exchange JSON schema
 <a name="msexchange-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -6199,7 +6198,7 @@ The following table describes the parameters of the Microsoft OneDrive JSON sche
 ### Microsoft OneDrive JSON schema
 <a name="onedrive-json"></a>
 
-```
+```json
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
@@ -6436,7 +6435,7 @@ The following table describes the parameters of the Microsoft SharePoint JSON sc
 ## SharePoint JSON schema
 <a name="sharepoint-json"></a>
 
-```
+```json
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
@@ -6981,7 +6980,7 @@ The following table describes the parameters of the Micorosft SQL Server JSON sc
 ### Microsoft SQL Server JSON schema
 <a name="ms-sql-server-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -7179,7 +7178,7 @@ The following table describes the parameters of the Microsoft Teams JSON schema.
 ### Microsoft Teams JSON schema
 <a name="msteams-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -7792,7 +7791,7 @@ The following table describes the parameters of the Microsoft Yammer JSON schema
 ### Microsoft Yammer JSON schema
 <a name="yammer-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -8100,7 +8099,7 @@ The following table describes the parameters of the MySQL JSON schema.
 ### MySQL JSON schema
 <a name="mysql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -8302,7 +8301,7 @@ The following table describes the parameters of the Oracle Database JSON schema.
 ### Oracle Database JSON schema
 <a name="oracle-database-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -8504,7 +8503,7 @@ The following table describes the parameters of the PostgreSQL JSON schema.
 ### PostgreSQL JSON schema
 <a name="postgresql-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -8700,7 +8699,7 @@ The following table describes the parameters of the Salesforce JSON schema.
 ### Salesforce JSON schema
 <a name="salesforce-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -10559,7 +10558,7 @@ The following table describes the parameters of the ServiceNow JSON schema.
 ### ServiceNow JSON schema
 <a name="servicenow-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -10953,7 +10952,7 @@ The following table describes the parameters of the Slack JSON schema.
 ### Slack JSON schema
 <a name="slack-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -11161,7 +11160,7 @@ The following table describes the parameters of the Zendesk JSON schema.
 ### Zendesk JSON schema
 <a name="zendesk-json"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",

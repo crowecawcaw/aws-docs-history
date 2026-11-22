@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Filtering on user context
-<a name="user-context-filter"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -32,7 +31,7 @@ You provide the user token in the [UserContext](https://docs.aws.amazon.com/kend
 
 The following shows how to include a user token. 
 
-```
+```python
 response = kendra.query(
     QueryText = query,
     IndexId = index,
@@ -60,7 +59,7 @@ If this information is not included in the query, Amazon Kendra returns all docu
 
 The following shows how to include user ID, groups, and data sources.
 
-```
+```python
 response = kendra.query(
     QueryText = query,
     IndexId = index,
@@ -76,7 +75,7 @@ You provide the user and group attributes in the [AttributeFilter](https://docs.
 
 The following example shows a request that filters the query response based on the user ID and the groups "HR" and "IT", which the user belongs to. The query will return any document that has the user or the "HR" or "IT" groups in the allow list. If the user or either group is in the deny list for a document, the document is not returned.
 
-```
+```python
 response = kendra.query(
         QueryText = query,
         IndexId = index,
@@ -385,7 +384,7 @@ A Google Workspace Drive data source returns user and group information for Goog
 
 When you provide one or more user email addresses in the `Query` API, only documents that have been shared with those email addresses are returned. The following `AttributeFilter` parameter only returns documents shared with "martha@example.com".
 
-```
+```json
 "AttributeFilter": {
                 "EqualsTo":{
                    "Key": "_user_id", 
@@ -398,7 +397,7 @@ When you provide one or more user email addresses in the `Query` API, only docum
 
 If you provide one or more group email addresses in the query, only documents shared with the groups are returned. The following `AttributeFilter` parameter only returns documents shared with the "hr@example.com" group.
 
-```
+```json
 "AttributeFilter": {
                 "EqualsTo":{
                    "Key": "_group_ids", 
@@ -411,7 +410,7 @@ If you provide one or more group email addresses in the query, only documents sh
 
 If you provide the domain in the query, all documents shared with the domain are returned. The following `AttributeFilter` parameter returns documents shared with the "example.com" domain.
 
-```
+```json
 "AttributeFilter": {
                 "EqualsTo":{
                    "Key": "_group_ids", 

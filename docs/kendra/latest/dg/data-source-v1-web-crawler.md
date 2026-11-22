@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon Kendra Web Crawler connector v1.0
-<a name="data-source-v1-web-crawler"></a>
 
 You can use Amazon Kendra Web Crawler to crawl and index web pages.
 
@@ -146,7 +145,7 @@ You must specify the following using the [WebCrawlerConfiguration](https://docs.
 If you want to crawl a sitemap, check that the base or root URL is the same as the URLs listed on your sitemap page. For example, if your sitemap URL is *https://example.com/sitemap-page.html*, the URLs listed on this sitemap page should also use the base URL "https://example.com/".
 + **Secret Amazon Resource Name (ARN)**—If a website requires basic authentication, you provide the host name, port number and a secret that stores your basic authentication credentials of your user name and password. You provide the secret ARN using the [AuthenticationConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_AuthenticationConfiguration.html) API. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": {{"user name"}},
       "password": {{"password"}}

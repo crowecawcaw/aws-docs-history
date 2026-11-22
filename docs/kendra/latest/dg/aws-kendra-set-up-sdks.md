@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Setting up the AWS SDKs
-<a name="aws-kendra-set-up-sdks"></a>
 
 Download and install the AWS SDKs that you want to use. This guide provides examples for Python. For information about other AWS SDKs, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/).
 
@@ -11,7 +10,7 @@ The package for the Python SDK is called *Boto3*.
 
 Before you run the below Python commands, you must first download and install [Python 3.6 or later](https://www.python.org/downloads/) for your operating system. Support for Python 3.5 and earlier is deprecated. If you do not have pip included in your Python Scripts directory, you can download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and store this in your Scripts directory. You can also set your Python directory as a [Path or environment variable](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) using a terminal program.
 
-```
+```python
 # Install the latest Boto3 release via pip
 pip install boto3
 

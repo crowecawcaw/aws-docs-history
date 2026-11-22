@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Tuning and sorting responses
-<a name="tuning-sorting-responses"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -36,7 +35,7 @@ To tune an attribute in a query, set the `DocumentRelevanceOverrideConfiguration
 
 The following JSON example shows a `DocumentRelevanceOverrideConfigurations` object that overrides the tuning for the attribute called "department" in the index.
 
-```
+```json
 "DocumentRelevanceOverrideConfigurations" : [
     "Name": "department",
     "Relevance": {
@@ -86,7 +85,7 @@ You can sort on one or more document attributes in each query. Queries return 10
 
    The following JSON example shows the `SortingConfiguration` parameter that you use to sort the results of a query by the "Department" attribute in ascending order.
 
-   ```
+   ```json
       "SortingConfiguration": { 
          "DocumentAttributeKey": "Department",
          "SortOrder": "ASC"
@@ -99,7 +98,7 @@ You can sort on one or more document attributes in each query. Queries return 10
 
    The following JSON example shows the `SortingConfigurations` parameter that you use to sort the results of a query by the attributes "Name" and "Price" in ascending order.
 
-   ```
+   ```json
    "CollapseConfiguration" : {
        "DocumentAttributeKey": "Name",
        "SortingConfigurations": [

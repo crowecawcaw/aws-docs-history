@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Configuring Amazon VPC support for Amazon Kendra connectors
-<a name="connector-vpc-steps"></a>
 
 To configure Amazon VPC for use with your Amazon Kendra connectors, take the following steps.
 

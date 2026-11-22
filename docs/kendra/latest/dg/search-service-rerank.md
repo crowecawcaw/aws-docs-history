@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Semantically ranking a search service's results
-<a name="search-service-rerank"></a>
 
 Amazon Kendra Intelligent Ranking uses Amazon Kendra's semantic search capabilities to re-rank a search service's results. It does this by taking into account the search query's context, plus all the available information from the search service documents. Amazon Kendra Intelligent Ranking can improve simple keyword matching.
 
@@ -36,7 +35,7 @@ Response:
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import pprint
@@ -85,7 +84,7 @@ print("Program ends.")
 ------
 #### [ Java ]
 
-```
+```java
 import java.util.concurrent.TimeUnit;
 
 import software.amazon.awssdk.services.kendraranking.KendraRankingClient;
@@ -154,7 +153,7 @@ aws kendra-ranking update-rescore-execution-plan \
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import pprint
@@ -198,7 +197,7 @@ print("Program ends.")
 ------
 #### [ Java ]
 
-```
+```java
 import java.util.concurrent.TimeUnit;
 
 import software.amazon.awssdk.services.kendraranking.KendraRankingClient;
@@ -267,7 +266,7 @@ aws kendra-ranking rescore \
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import pprint
@@ -305,7 +304,7 @@ print("Program ends.")
 ------
 #### [ Java ]
 
-```
+```java
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Key management
-<a name="key-management"></a>
 
 Amazon Kendra encrypts the contents of your index using one of three types of keys. You can choose one of the following:
 + An AWS-owned AWS KMS. This is the default.

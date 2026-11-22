@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Adding documents in languages other than English
-<a name="in-adding-languages"></a>
 
 You can index documents in multiple languages. If you don't specify a language, Amazon Kendra indexes documents in English by default. You include the language code for a document in the document metadata as a field. See [Field mappings](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) and [Custom attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html) for more information on the `_language_code` field for a document.
 

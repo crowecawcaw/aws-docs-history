@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Creating an index
-<a name="create-index"></a>
 
 You can create an index using the console, or by calling the [CreateIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html) API. You can use the AWS Command Line Interface (AWS CLI) or SDK with the API. After you created your index, you can add documents directly to it or from a data source.
 
@@ -64,7 +63,7 @@ The following tabs provide a procedure for creating an index by using the AWS Ma
   + `index_name`—The name of the index that you're creating.
   + `role_arn`—The Amazon Resource Name (ARN) of a role that can run Amazon Kendra APIs. For more information, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 
-  ```
+  ```python
   import boto3
   from botocore.exceptions import ClientError
   import pprint
@@ -121,7 +120,7 @@ The following tabs provide a procedure for creating an index by using the AWS Ma
   + `index_name`—The name of the index that you're creating.
   + `role_arn`—The Amazon Resource Name (ARN) of a role that can run Amazon Kendra APIs. For more information, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 
-  ```
+  ```java
   package com.amazonaws.kendra;
   
   import java.util.concurrent.TimeUnit;

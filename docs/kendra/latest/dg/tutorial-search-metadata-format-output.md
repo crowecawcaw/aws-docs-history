@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Step 3: Formatting the entities analysis output as Amazon Kendra metadata
-<a name="tutorial-search-metadata-format-output"></a>
 
 To convert the entities extracted by Amazon Comprehend to the metadata format required by an Amazon Kendra index, you run a Python 3 script. The results of the conversion are stored in the `metadata` folder in your Amazon S3 bucket.
 
@@ -276,7 +275,7 @@ When AWS CloudShell launches in a new browser window for the first time, a welco
 
 1. In the AWS CloudShell environment, enter the following command:
 
-   ```
+   ```python
    python3 converter.py
    ```
 
@@ -392,7 +391,7 @@ If you do not have Boto3 installed, run `pip3 install boto3` to install it.
 ------
 #### [ Linux ]
 
-   ```
+   ```python
    python {{path/}}converter.py
    ```
 
@@ -402,7 +401,7 @@ If you do not have Boto3 installed, run `pip3 install boto3` to install it.
 ------
 #### [ macOS ]
 
-   ```
+   ```python
    python {{path/}}converter.py
    ```
 
@@ -412,7 +411,7 @@ If you do not have Boto3 installed, run `pip3 install boto3` to install it.
 ------
 #### [ Windows ]
 
-   ```
+   ```python
    python {{path/}}converter.py
    ```
 

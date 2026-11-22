@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Salesforce connector V1.0
-<a name="data-source-v1-salesforce"></a>
 
 Salesforce is a customer relationship management (CRM) tool for managing support, sales, and marketing teams. You can use Amazon Kendra to index your Salesforce standard objects and even custom objects.
 
@@ -139,7 +138,7 @@ You must specify the following the [SalesforceConfiguration](https://docs.aws.am
 + **Server URL**—The instance URL for the Salesforce site that you want to index.
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your Salesforce account. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "authenticationUrl": "{{OAUTH endpoint that Amazon Kendra connects to get an OAUTH token}}",
       "consumerKey": "{{Application public key generated when you created your Salesforce application}}",

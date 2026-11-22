@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Using OpenID
-<a name="create-index-access-control-tokens-openid"></a>
 
 To configure an Amazon Kendra index to use an OpenID token for access control, you need the JWKS (JSON Web Key Set) URL from the OpenID provider. In most cases the JWKS URL is in the following format (if they're following openId discovery) `https://domain-name/.well_known/jwks.json`. 
 
@@ -47,7 +46,7 @@ The following examples show how to use an OpenID token for user access control w
 
 To create an index with the AWS CLI using a JSON input file, first create a JSON file with your desired parameters:
 
-```
+```json
 {
     "Name": "{{user-context}}",
     "Edition": "{{ENTERPRISE_EDITION}}",
@@ -79,7 +78,7 @@ aws kendra create-index --cli-input-json file://create-index-openid.json
 ------
 #### [ Python ]
 
-```
+```Python
 response = kendra.create_index(
     Name='{{user-context}}',
     Edition='{{ENTERPRISE_EDITION}}',

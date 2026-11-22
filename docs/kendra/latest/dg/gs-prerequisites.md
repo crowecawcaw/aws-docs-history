@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Prerequisites
-<a name="gs-prerequisites"></a>
 
 The following steps are prequisites for the getting started exercises. The steps show you how to set up your account, create an IAM role that gives Amazon Kendra permission to make calls on your behalf, and index documents from an Amazon S3 bucket. An S3 bucket is used as an example, but you can use other data sources that Amazon Kendra supports. See [Data sources](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html).
 
@@ -33,7 +32,7 @@ First, you must attach the below permissions to your IAM user.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -111,7 +110,7 @@ Second, if you use the CLI or SDK, you must also create an IAM role and policy t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -183,7 +182,7 @@ Second, if you use the CLI or SDK, you must also create an IAM role and policy t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -217,7 +216,7 @@ Third, if you use an Amazon S3 to store your documents or you are using S3 to te
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -276,7 +275,7 @@ Third, if you use an Amazon S3 to store your documents or you are using S3 to te
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

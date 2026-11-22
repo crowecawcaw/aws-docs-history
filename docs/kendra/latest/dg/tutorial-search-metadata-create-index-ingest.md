@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Step 4: Creating an Amazon Kendra index and ingesting the metadata
-<a name="tutorial-search-metadata-create-index-ingest"></a>
 
 To implement your intelligent search solution, you create an Amazon Kendra index and ingest your S3 data and metadata into it.
 
@@ -62,7 +61,7 @@ Ensure that you are in the same region in which you created your Amazon Comprehe
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": {
@@ -467,7 +466,7 @@ The console displays successful field addition messages. You can choose to close
 
 1. Save the following text as a JSON file called `custom-attributes.json` in a text editor on your local device.
 
-   ```
+   ```json
    [
       {
           "Name": "COMMERCIAL_ITEM",
@@ -696,7 +695,7 @@ Before you can sync your index, you must connect your S3 data source to it.
 
 1. Save the following text as a JSON file called `S3-data-connector.json` in a text editor on your local device.
 
-   ```
+   ```json
    {
       "S3Configuration":{
          "BucketName":"amzn-s3-demo-bucket",

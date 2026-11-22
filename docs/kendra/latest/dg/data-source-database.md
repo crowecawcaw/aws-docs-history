@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon RDS/Aurora
-<a name="data-source-database"></a>
 
 You can index documents that are stored in a database using a database data source. After you provided connection information for the database, Amazon Kendra connects and indexes documents.
 
@@ -165,7 +164,7 @@ IAM roles used for indexes cannot be used for data sources. If you are unsure if
 You must specify the following the [DatabaseConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DatabaseConfiguration.html) API:
 + **ColumnConfiguration**—Information about where the index should get the document information from the database. For more details, see [ColumnConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_ColumnConfiguration.html). You must specify the `DocumentDataColumnName` (document body or main text) and `DocumentIdColumnName`, and `ChangeDetectingColumn` (for example, last updated column) fields. The column mapped to the `DocumentIdColumnName` field must be an integer column. The following example shows a simple column configuration for a database data source: 
 
-  ```
+  ```json
   "ColumnConfiguration": {
       "ChangeDetectingColumns": [
           "LastUpdateDate",
@@ -186,7 +185,7 @@ You must specify the following the [DatabaseConfiguration](https://docs.aws.amaz
 + **DatabaseEngineType**—The type of database engine that runs the database. The `DatabaseHost` field for `ConnectionConfiguration` must be the Amazon Relational Database Service (Amazon RDS) instance endpoint for the database. Don't use the cluster endpoint.
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your database account. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": {{"user name"}},
       "password": {{"password"}}
@@ -195,7 +194,7 @@ You must specify the following the [DatabaseConfiguration](https://docs.aws.amaz
 
   The following example shows a database configuration, including the secret ARN.
 
-  ```
+  ```json
   "DatabaseConfiguration": {
   "ConnectionConfiguration": {
   "DatabaseHost": "host.subdomain.domain.tld",

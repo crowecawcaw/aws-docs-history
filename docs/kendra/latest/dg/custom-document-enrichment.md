@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Enriching your documents during ingestion
-<a name="custom-document-enrichment"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -122,7 +121,7 @@ aws kendra create-data-source \
 
 **To configure basic data manipulation to remove customer identification numbers**
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import pprint
@@ -219,7 +218,7 @@ print("Program ends.")
 
 **To configure basic data manipulation to remove customer identification numbers**
 
-```
+```java
 package com.amazonaws.kendra;
 
 import java.util.concurrent.TimeUnit;
@@ -436,7 +435,7 @@ aws kendra create-data-source \
 
 **To configure a Lambda function for advanced data manipulation on the raw, original data**
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import pprint
@@ -534,7 +533,7 @@ print("Program ends.")
 
 **To configure a Lambda function for advanced data manipulation on the raw, original data**
 
-```
+```java
 package com.amazonaws.kendra;
 
 import java.util.concurrent.TimeUnit;
@@ -664,7 +663,7 @@ Your Lambda functions for advanced data manipulation interact with Amazon Kendra
 
 Your Lambda function for `PreExtractionHookConfiguration` should expect the following request structure:
 
-```
+```json
 {
     "version": <str>,
     "dataBlobStringEncodedInBase64": <str>, //In the case of a data blob
@@ -676,7 +675,7 @@ Your Lambda function for `PreExtractionHookConfiguration` should expect the foll
 
 The `metadata` structure, which includes the `CustomDocumentAttribute` structure, is as follows:
 
-```
+```json
 {
     "attributes": [<CustomDocumentAttribute<]
 }
@@ -721,7 +720,7 @@ Your Lambda function for `PostExtractionHookConfiguration` should expect the fol
 
 Your Lambda function for `PostExtractionHookConfiguration` must adhere to the following response structure:
 
-```
+```json
 PostExtractionHookConfiguration Lambda Response
 {
     "version": <str>,
@@ -737,7 +736,7 @@ Your altered document is uploaded to your Amazon S3 bucket. The altered document
 
 Amazon Kendra uploads your structured document to the given Amazon S3 bucket. The structured document follows this format:
 
-```
+```json
 Kendra document
 
 {
@@ -757,7 +756,7 @@ The following Python code is an example of a Lambda function that applies advanc
 
 **In the case of the body content residing in an Amazon S3 bucket**
 
-```
+```python
 import json
 import boto3
      
@@ -792,7 +791,7 @@ def lambda_handler(event, context):
 
 **In the case of the body content residing in a data blob**
 
-```
+```python
 import json
 import boto3
 import base64
@@ -822,7 +821,7 @@ def lambda_handler(event, context):
 
 The following Python code is an example of a Lambda function that applies advanced manipulation of the metadata fields `_authors`, `_document_title`, and the body content on the structured or parsed documents.
 
-```
+```python
 import json
 import boto3
 import time

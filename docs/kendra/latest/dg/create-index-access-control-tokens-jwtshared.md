@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Using a JSON Web Token (JWT) with a shared secret
-<a name="create-index-access-control-tokens-jwtshared"></a>
 
 The following examples show how to use JSON Web Token (JWT) with a shared secret token for user access control when you create an index. 
 
@@ -61,7 +60,7 @@ You can use JWT token with a shared secret inside of AWS Secrets Manager. The se
 
 To create an index with the AWS CLI using a JSON input file, first create a JSON file with your desired parameters: 
 
-```
+```json
 {
     "Name": "{{user-context}}",
     "Edition": "{{ENTERPRISE_EDITION}}",
@@ -92,7 +91,7 @@ aws kendra create-index --cli-input-json file://create-index-openid.json
 
 The secret must have the following format in AWS Secrets Manager:
 
-```
+```json
 {
   "keys": [
     {
@@ -115,7 +114,7 @@ For more information about JWT, see [jwt.io](http://jwt.io).
 
 You can use JWT token with a shared secret inside of AWS Secrets Manager. The secret must be a base64 URL encoded secret. You need the Secrets Manager ARN, and your Amazon Kendra role must have access to `GetSecretValue` on the Secrets Manager resource. If you are encrypting the Secrets Manager resource with AWS KMS, the role must also have access to the decrypt action.
 
-```
+```Python
 response = kendra.create_index(
     Name='{{user-context}}',
     Edition='{{ENTERPRISE_EDITION}}',

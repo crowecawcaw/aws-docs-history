@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Step 2: Running an entities analysis job on Amazon Comprehend
-<a name="tutorial-search-metadata-entities-analysis"></a>
 
 After storing the sample dataset in your S3 bucket, you run an Amazon Comprehend entities analysis job to extract entities from your documents. These entities will form Amazon Kendra custom attributes and help you filter search results on your index. For more information, see [Detect Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html).
 
@@ -86,7 +85,7 @@ Ensure that you are in the same region in which you created your Amazon S3 bucke
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -156,7 +155,7 @@ The ARN has a format similar to {{arn:aws:iam::123456789012:role/comprehend-role
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

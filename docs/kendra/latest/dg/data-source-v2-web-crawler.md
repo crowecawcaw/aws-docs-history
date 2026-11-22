@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon Kendra Web Crawler connector v2.0
-<a name="data-source-v2-web-crawler"></a>
 
 You can use Amazon Kendra Web Crawler to crawl and index web pages.
 
@@ -172,7 +171,7 @@ If you want to crawl a sitemap, check that the base or root URL is the same as t
 + **Authentication**—If your websites require the same authentication, specify either `BasicAuth`, `NTLM_Kerberos`, `SAML`, or `Form` authentication. If your websites don't require authentication, specify `NoAuthentication`.
 + **Secret Amazon Resource Name (ARN)**—If your websites require basic, NTLM, or Kerberos authentication, you provide a secret that stores your authentication credentials of your user name and password. You provide the Amazon Resource Name (ARN) of an AWS Secrets Manager secret. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "seedUrlsHash": "{{Hash representation of all seed URLs}}",
       "userName": "{{user name}}",
@@ -182,7 +181,7 @@ If you want to crawl a sitemap, check that the base or root URL is the same as t
 
   If your websites require SAML authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "seedUrlsHash": "{{Hash representation of all seed URLs}}",                                
       "userName": "{{user name}}",
@@ -197,7 +196,7 @@ If you want to crawl a sitemap, check that the base or root URL is the same as t
 
   If your websites require form authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "seedUrlsHash": "{{Hash representation of all seed URLs}}",
       "userName": "{{user name}}",

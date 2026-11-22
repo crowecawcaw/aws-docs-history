@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # ServiceNow connector V1.0
-<a name="data-source-v1-servicenow"></a>
 
 ServiceNow provides a cloud-based service management system to create and manage organization-level workflows, such as IT services, ticketing systems, and support. You can use Amazon Kendra to index your ServiceNow catalogs, knowledge articles, and their attachments.
 
@@ -156,7 +155,7 @@ You must specify the following using [ServiceNowConfiguration API](https://docs.
 
    If you are using basic authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": {{"user name"}},
       "password": {{"password"}}
@@ -165,7 +164,7 @@ You must specify the following using [ServiceNowConfiguration API](https://docs.
 
   If you are using OAuth2 authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": "{{user name}}",
       "password": "{{password}}",

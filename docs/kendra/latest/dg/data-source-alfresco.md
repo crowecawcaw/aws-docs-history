@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Alfresco
-<a name="data-source-alfresco"></a>
 
 **Note**  
 Alfresco connector remains fully supported for existing customers through May 31, 2026. While this connector is no longer available for new users, current users can continue to use it without interruption. We are continuously evolving our connector portfolio to offer more scalable and customizable solutions. For future integrations, we recommend exploring the Amazon Kendra Custom Connector Framework[1], designed to support a broader range of enterprise use cases with enhanced flexibility.
@@ -161,7 +160,7 @@ You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/
 + **Alfresco type**—Specify which type of Alfresco you use, whether `PAAS` (Cloud/Platform as a Service) or `ON_PREM` (On-Premises).
 + **Secret Amazon Resource Name (ARN)**—If you want to use basic authentication, you provide a secret that stores your authentication credentials of your user name and password. You provide the Amazon Resource Name (ARN) of an AWS Secrets Manager secret. The secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "username": "{{user name}}",
       "password": "{{password}}"
@@ -170,7 +169,7 @@ You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/
 
   If you want to use OAuth 2.0 authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "clientId": "{{client ID}}",
       "clientSecret": "{{client secret}}",

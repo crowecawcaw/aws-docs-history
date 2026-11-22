@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Mapping data source fields
-<a name="field-mapping"></a>
 
 Amazon Kendra data source connectors can map document or content fields from your data source to fields in your Amazon Kendra index. By default, each connector is designed to crawl specific data source fields. Default data source fields and their properties cannot be changed or customized. On the Amazon Kendra console, default fields and default field properties that cannnot be edited are grayed out.
 
@@ -67,7 +66,7 @@ With the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/AP
 
 The following JSON example uses `DocumentMetadataConfigurationUpdates` to add a field called "Department" to the index.
 
-```
+```json
 "DocumentmetadataConfigurationUpdates": [
    {
        "Name": "Department",
@@ -84,7 +83,7 @@ When you create the field, you have the option of setting how the field is used 
 
 The following JSON example uses `DocumentMetadataConfigurationUpdates` to add a field called "Department" to the index and marks it as facetable.
 
-```
+```json
 "DocumentMetadataConfigurationUpdates": [
    {
        "Name": "Department",

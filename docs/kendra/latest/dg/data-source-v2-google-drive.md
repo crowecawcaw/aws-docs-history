@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Google Drive connector V2.0
-<a name="data-source-v2-google-drive"></a>
 
 Google Drive is a cloud-based file storage service. You can use Amazon Kendra to index documents and comments stored in shared drives, My Drives, and Shared with me folders in your Google Drive data source. You can index Google Workspace documents, as well as documents listed in [Types of documentation](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html). You can also use inclusion and exclusion filters to index content by file name, file type, and file path.
 
@@ -184,7 +183,7 @@ You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/
 Google Drive API does not support retrieving comments from a permanently deleted file. Comments from trashed files are retrievable. When a file is trashed, the connector will delete comments from the Amazon Kendra index.
 + **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of a Secrets Manager secret that contains the authentication credentials you created in your Google Drive account. If you use Google service account authentication, the secret is stored in a JSON structure with the following keys: 
 
-  ```
+  ```json
   {
       "clientEmail": "{{user account email}}",
       "adminAccountEmail": "{{service account email}}",
@@ -194,7 +193,7 @@ Google Drive API does not support retrieving comments from a permanently deleted
 
   If you use OAuth 2.0 authentication, the secret is stored in a JSON structure with the following keys:
 
-  ```
+  ```json
   {
       "clientID": "{{OAuth client ID}}",
       "clientSecret": "{{client secret}}",

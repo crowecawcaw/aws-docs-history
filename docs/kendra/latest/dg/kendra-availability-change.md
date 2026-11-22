@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon Kendra availability change
-<a name="kendra-availability-change"></a>
 
 ## Overview
 <a name="kendra-availability-change-overview"></a>
@@ -52,7 +51,7 @@ Create an IAM role that grants Bedrock permission to access your data sources an
 
 IAM Configuration (Python code):
 
-```
+```python
 import boto3
 import json
 
@@ -104,7 +103,7 @@ iam.put_role_policy(
 
 Use the CreateKnowledgeBase API with type MANAGED to create the knowledge base:
 
-```
+```python
 import boto3
 
 bedrock_agent = boto3.client("bedrock-agent", region_name="us-east-1")
@@ -135,7 +134,7 @@ print(f"Created knowledge base: {kb_id}")
 
 Create an S3 data source with the managed connector configuration:
 
-```
+```python
 response = bedrock_agent.create_data_source(
     knowledgeBaseId=kb_id,
     name="my-s3-data-source",
@@ -175,7 +174,7 @@ CreateDataSource is asynchronous for Managed Knowledge Bases. The data source st
 
 Trigger document ingestion and poll for completion:
 
-```
+```python
 import time
 
 ingestion_response = bedrock_agent.start_ingestion_job(
@@ -235,7 +234,7 @@ while True:
 
 Before (Kendra):
 
-```
+```python
 kendra_client = boto3.client("kendra")
 
 response = kendra_client.retrieve(
@@ -257,7 +256,7 @@ for item in response["ResultItems"]:
 
 After (BMKB):
 
-```
+```python
 bedrock_runtime = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
 
 response = bedrock_runtime.retrieve(
@@ -291,7 +290,7 @@ The key differences are: the query text moves from a top-level parameter to a ne
 
 BMKB provides a native RAG capability that eliminates the need to separately call an LLM after retrieval:
 
-```
+```python
 response = bedrock_runtime.retrieve_and_generate(
     input={
         "text": "Explain how to configure VPC endpoints for S3 access"
@@ -356,7 +355,7 @@ Kendra provides the GetQuerySuggestions API that returns autocomplete suggestion
 Kendra supports document attribute facets via the Facets parameter in the Query API, displaying up to 10 facet values per facet with document counts. BMKB's architecture does not support faceted search.  
 **Workaround:** Simulate faceted navigation using metadata filtering. Tag documents with structured metadata attributes (department, author, document type, date range) in .metadata.json sidecar files. Present filter options in your application UI based on your known metadata schema, and apply the corresponding filter operators at query time. While this does not provide dynamic facet counts, it enables users to narrow results by category:  
 
-```
+```python
 # Simulating faceted search with metadata filters
 response = bedrock_runtime.retrieve(
     knowledgeBaseId="your-kb-id",
@@ -387,7 +386,7 @@ This works particularly well because BMKB always uses hybrid search (keyword \+ 
 Kendra provides automatic spell corrections based on indexed document vocabulary via SpellCorrectionConfiguration. BMKB does not currently support spell checking.  
 **Workaround:** Add a preprocessing layer before sending queries to BMKB. Use an AWS Lambda function that invokes a spell-correction library (such as SymSpell or TextBlob) or calls an LLM for query correction:  
 
-```
+```python
 import boto3
 
 lambda_client = boto3.client("lambda")
@@ -444,7 +443,7 @@ To evaluate performance, run both Kendra and BMKB in parallel. Send identical qu
 
 Create a test harness that evaluates retrieval quality:
 
-```
+```python
 def compare_retrieval(query, kendra_index_id, bmkb_kb_id):
     # Query Kendra
     kendra_results = kendra_client.retrieve(

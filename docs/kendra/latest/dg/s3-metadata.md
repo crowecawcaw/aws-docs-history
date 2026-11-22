@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon S3 document metadata
-<a name="s3-metadata"></a>
 
 You can add metadata, additional information about a document, to documents in an Amazon S3 bucket using a metadata file. Each metadata file is associated with an indexed document. 
 
@@ -41,7 +40,7 @@ Your document metadata is defined in a JSON file. The file must be a UTF-8 text 
 
 The content of the JSON file follows this template. All of the attributes/fields are optional, so it's not necessary to include all attributes. You must provide a value for each attribute you want to include; the value cannot be empty. If you don't specify the `_source_uri`, then the links returned by Amazon Kendra in the search results point to the Amazon S3 bucket that contains the document. `DocumentId` is mapped to the field `s3_document_id` and is the absolute path to the document in S3.
 
-```
+```json
 {
     "DocumentId": "{{S3 document ID, the S3 path to doc}}",
     "Attributes": {

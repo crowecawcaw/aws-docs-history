@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Tabular search for HTML
-<a name="searching-tables"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -34,7 +33,7 @@ The following example shows table excerpt included in the query result. To view 
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import pprint
 
@@ -82,7 +81,7 @@ for query_result in response["ResultItems"]:
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazonaws.kendra;
 
 import software.amazon.awssdk.services.kendra.KendraClient;

@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Access control for Amazon S3 data sources
-<a name="s3-acl"></a>
 
 You can control access to documents in an Amazon S3 data source using a configuration file. You specify the file in the console or as the `AccessControlListConfiguration` parameter when you call the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) or [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_UpdateDataSource.html) API.
 
@@ -13,7 +12,7 @@ You can specify both users and groups in the access settings. When you query the
 
 The JSON structure for the configuration file must be in the following format:
 
-```
+```json
 [
     {
         "keyPrefix": "s3://BUCKETNAME/prefix1/",

@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Query responses and response types
-<a name="query-responses-types"></a>
 
 **Note**  
 Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
@@ -16,7 +15,7 @@ Amazon Kendra supports different query responses and response types.
 A call to the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API returns information about the results of a search. The results are in an array of[QueryResultItem](https://docs.aws.amazon.com/kendra/latest/APIReference/API_QueryResultItem.html) objects (`ResultItems`). Each `QueryResultItem` includes a summary of the result. Document attributes associated with the query result are included. 
 
 **Summary information**  
-The summary information varies depending on the type of result. In each case, it includes document text that matches the search term. It also includes highlight information that you can use to highlight the search text in your application's output. For example, if the search term is *what is the height of the Space Needle?*, the summary information includes text location for the words *height* and *space needle*. For information about response types, see [Query responses and response types](#query-responses-types).
+The summary information varies depending on the type of result. In each case, it includes document text that matches the search term. It also includes highlight information that you can use to highlight the search text in your application's output. For example, if the search term is *what is the height of the Space Needle?*, the summary information includes text location for the words *height* and *space needle*. For information about response types, see [Query responses and response types](query-responses-types.md).
 
 **Document attributes**  
 Each result contains document attributes for the document that matches a query. Some of the attributes are predefined, such as `DocumentId`, `DocumentTitle`, and `DocumentUri`. Others are custom attributes that you define. You can use document attributes to filter the response from the `Query` API. For example, you might want only the documents written by a specific author or a specific version of a document. For more information, see [Filtering and facet search](filtering.md). You specify document attributes when you add documents to an index. For more information, see [Custom fields or attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html).

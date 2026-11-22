@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Encryption at rest
-<a name="encryption-at-rest"></a>
 
 Amazon Kendra encrypts your data at rest with your choice of an encryption key. You can choose one of the following:
 + An AWS-owned AWS KMS key. If you don't specify an encryption key your data is encrypted with this key by default.

@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # SharePoint connector V1.0
-<a name="data-source-v1-sharepoint"></a>
 
 SharePoint is a collaborative website building service that you can use to customize web content and create pages, sites, document libraries, and lists. If you are a SharePoint user, you can use Amazon Kendra to index your SharePoint data source.
 
@@ -188,7 +187,7 @@ You must specify the following using [SharePointConfiguration](https://docs.aws.
 
   For **SharePoint Online basic authentication**, the following is the minimum JSON structure that must be in your secret:
 
-  ```
+  ```json
   {
       "userName": "{{user name}}",
       "password": "{{password}}"
@@ -197,7 +196,7 @@ You must specify the following using [SharePointConfiguration](https://docs.aws.
 
   For **SharePoint Online OAuth 2.0 authentication**, the following is the minimum JSON structure that must be in your secret:
 
-  ```
+  ```json
   {
       "userName": "{{SharePoint account user name"}}",
       "password": "{{SharePoint account password}}",
@@ -208,7 +207,7 @@ You must specify the following using [SharePointConfiguration](https://docs.aws.
 
   For **SharePoint Server basic authentication**, the following is the minimum JSON structure that must be in your secret:
 
-  ```
+  ```json
   {
       "userName": "{{user name}}",
       "password": "{{password}}",
@@ -218,7 +217,7 @@ You must specify the following using [SharePointConfiguration](https://docs.aws.
 
   For **SharePoint Server LDAP authentication** (if you need to convert your access control list (ACL) to email format for filtering on user context you can include the LDAP server URL and LDAP search base in your secret), the following is the minimum JSON structure that must be in your secret:
 
-  ```
+  ```json
   {
       "userName": "{{user name}}",
       "password": "{{password}}",
@@ -230,7 +229,7 @@ You must specify the following using [SharePointConfiguration](https://docs.aws.
 
   For **SharePoint Server Manual authentication**, the following is the minimum JSON structure that must be in your secret::
 
-  ```
+  ```json
   {
       "userName": "{{user name}}",
       "password": "{{password}}",

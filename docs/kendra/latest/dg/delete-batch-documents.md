@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Deleting batch uploaded documents
-<a name="delete-batch-documents"></a>
 
 You can delete documents directly from an index using the [BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchDeleteDocument.html) API. You can't delete documents directly using the console. If you use the console, you can either delete specific documents from your data source repository and re-sync with your index or delete the entire data source connector.
 

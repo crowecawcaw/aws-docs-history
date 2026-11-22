@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Troubleshooting data sources
-<a name="troubleshooting-data-sources"></a>
 
 This section can help you solve common issues when configuring and using Amazon Kendra data source connectors.
 
@@ -129,7 +128,7 @@ Your Amazon Kendra index can only access files that an Amazon S3 data source gra
 + You can use sign your index query results with the source uri object before returning the result to the search page. For a step-by-step walkthrough of this process, see [*Sharing objects using presigned URLs*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html).
 + You can override the Amazon S3 object metadata source uri and make your service available through an CloudFront content delivery network (CDN) connected to an Amazon S3 bucket. Or, you can use an API Gateway proxy endpoint that returns a presigned URL and redirect to it.
 
-## I am getting an AccessDenied When Using SSL Certificate File error message
+## I am getting an `AccessDenied When Using SSL Certificate File` error message
 <a name="troubleshooting-data-sources-ssl-certificate-access-denied"></a>
 
 If you are getting an access denied error when using an SSL certificate with your data source, make sure that your IAM role has the permission to access the SSL certificate file in its specified location. If the certificate is encrypted with an AWS KMS key, your IAM role should also have permission to decrypt using the AWS KMS key. For more information, see [*Authentication and access control for AWS KMS*](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html).

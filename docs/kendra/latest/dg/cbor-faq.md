@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # FAQs on supported protocols
-<a name="cbor-faq"></a>
 
  The Amazon Kendra Intelligent Ranking service is adding SDK support for the [ Smithy RPC v2 CBOR ](https://smithy.io/2.0/additional-specs/protocols/smithy-rpc-v2.html) protocol in addition to the existing [AWS JSON ](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html) protocol. The Smithy RPC v2 CBOR protocol is more performant than AWS JSON for most workloads. AWS SDKs will prioritize the protocol that is the most performant for each language. 
 

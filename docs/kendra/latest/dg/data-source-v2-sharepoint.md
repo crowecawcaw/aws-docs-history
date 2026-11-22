@@ -3,7 +3,6 @@
 Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # SharePoint connector V2.0
-<a name="data-source-v2-sharepoint"></a>
 
 SharePoint is a collaborative website building service that you can use to customize web content and create pages, sites, document libraries, and lists. You can use Amazon Kendra to index your SharePoint data source.
 
@@ -402,7 +401,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
   If you use SharePoint Online, you can choose between Basic, OAuth 2.0, Azure AD App-only and SharePoint App Only authentication. The following are the minimum JSON structure that must be in your secret for each authentication option:
   + **Basic authentication**
 
-    ```
+    ```json
     {
         "userName": "{{SharePoint account user name}}",
         "password": "{{SharePoint account password}}"
@@ -410,7 +409,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **OAuth 2.0 authentication**
 
-    ```
+    ```json
     {
         "clientId": "{{client id generated when registering SharePoint with Azure AD}}",
         "clientSecret": "{{client secret generated when registering SharePoint with Azure AD}}",
@@ -420,7 +419,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **Azure AD App-Only authentication**
 
-    ```
+    ```json
     {
         "clientId": "{{client id generated when registering SharePoint with Azure AD}}",
         "privateKey": "{{private key to authorize connection with Azure AD}}"
@@ -428,7 +427,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **SharePoint App-Only authentication**
 
-    ```
+    ```json
     {
         "clientId": "{{client id generated when registering SharePoint for App Only at Tenant Level}}",
         "clientSecret": "{{client secret generated when registering SharePoint for App Only at Tenant Level}}",
@@ -438,7 +437,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **OAuth 2.0 refresh token authentication **
 
-    ```
+    ```json
     {
         "clientId": "{{client id generated when registering SharePoint with Azure AD}}",
         "clientSecret": "{{client secret generated when registering SharePoint with Azure AD}}",
@@ -449,7 +448,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
   If you use SharePoint Server, you can choose between SharePoint App-Only authentication, NTLM authentication, and Kerberos authentication. The following are the minimum JSON structure that must be in your secret for each authentication option:
   + ** SharePoint App-Only authentication **
 
-    ```
+    ```json
     {
         "siteUrlsHash": "{{Hash representation of SharePoint site URLs}}",
         "clientId": "{{client id generated when registering SharePoint for App Only at Site Level}}",
@@ -458,7 +457,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + ** SharePoint App-Only authentication with domain from IDP authorization**
 
-    ```
+    ```json
     {
         "siteUrlsHash": "{{Hash representation of SharePoint site URLs}}",
         "clientId": "{{client id generated when registering SharePoint for App Only at Site Level}}",
@@ -471,7 +470,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **(Server only) NTLM or Kerberos authentication **
 
-    ```
+    ```json
     {
         "siteUrlsHash": "{{Hash representation of SharePoint site URLs}}",
         "userName": "{{SharePoint account user name}}",
@@ -480,7 +479,7 @@ Identity crawler is available only when you set `crawlAcl` to `true`.
     ```
   + **(Server only) NTLM or Kerberos authentication with domain from IDP authorization**
 
-    ```
+    ```json
     {
         "siteUrlsHash": "{{Hash representation of SharePoint site URLs}}",
         "userName": "{{SharePoint account user name}}",
