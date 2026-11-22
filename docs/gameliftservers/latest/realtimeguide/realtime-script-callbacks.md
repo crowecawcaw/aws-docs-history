@@ -1,7 +1,6 @@
 
 
 # Script callbacks for Amazon GameLift Servers Realtime
-<a name="realtime-script-callbacks"></a>
 
 You can provide custom logic to respond to events by implementing these callbacks in your Realtime script.
 

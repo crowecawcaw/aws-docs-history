@@ -1,7 +1,6 @@
 
 
 # How Amazon GameLift Servers Realtime servers work
-<a name="realtime-howitworks-servers"></a>
 
 A Realtime server acts as a stateless relay server, where the server relays packets of messages and game data between the game clients that are connected to the game. The Realtime server doesn't evaluate messages, process data, or perform any gameplay logic. Each game client maintains its own view of the game state and provides updates to other players through the relay server. Each game client is responsible for incorporating these updates and reconciling its own game state.
 

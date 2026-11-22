@@ -1,7 +1,6 @@
 
 
 # Upload script files from Amazon S3
-<a name="realtime-script-uploading-s3"></a>
 
 You can store your script files in an Amazon S3 bucket and upload them to Amazon GameLift Servers from there. When you create your script, you specify the S3 bucket location and Amazon GameLift Servers retrieves your script files from Amazon S3.
 

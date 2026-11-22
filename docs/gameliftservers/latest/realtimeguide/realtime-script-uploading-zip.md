@@ -1,7 +1,6 @@
 
 
 # Upload script files from a local directory
-<a name="realtime-script-uploading-zip"></a>
 
 If you have your script files stored locally, you can upload them to Amazon GameLift Servers from there. To create the script resource, use either the Amazon GameLift Servers console or the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/).
 

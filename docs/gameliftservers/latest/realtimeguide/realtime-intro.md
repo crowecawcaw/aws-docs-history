@@ -1,7 +1,6 @@
 
 
 # What is Amazon GameLift Servers Realtime?
-<a name="realtime-intro"></a>
 
 If you're looking for a game server solution for your multiplayer game, but you don't want to expend the time and resources to develop, test, and deploy a fully custom game server, consider using Amazon GameLift Servers Realtime. Realtime servers are lightweight, ready-to-go game servers that Amazon GameLift Servers provides for you.
 

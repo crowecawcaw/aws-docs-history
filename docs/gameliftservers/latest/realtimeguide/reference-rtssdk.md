@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers Realtime reference guides
-<a name="reference-rtssdk"></a>
 
 This section contains reference documentation for Amazon GameLift Servers Realtime. If you're building a game to use ready-to-use game servers provided by Amazon GameLift Servers for multi-player games, use these resources to help create a configuration script for the Realtime servers and prepare your game client to work with the servers. 
 

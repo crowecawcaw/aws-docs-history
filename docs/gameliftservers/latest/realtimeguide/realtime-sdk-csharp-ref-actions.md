@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers Realtime client API (C\#) reference: Actions
-<a name="realtime-sdk-csharp-ref-actions"></a>
 
 This C\# Realtime Client API reference can help you prepare your multiplayer game for use with Amazon GameLift Servers Realtime deployed on Amazon GameLift Servers fleets. 
 + Synchronous Actions

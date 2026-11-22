@@ -1,7 +1,6 @@
 
 
 # Upload a script for Amazon GameLift Servers Realtime servers
-<a name="realtime-script-uploading"></a>
 
 When you're ready to deploy Amazon GameLift Servers Realtime for your game, upload completed Realtime server script files to Amazon GameLift Servers. Do this by creating an Amazon GameLift Servers script resource and specifying the location of your script files. You can also update server script files that are already deployed by uploading new files for an existing script resource.
 

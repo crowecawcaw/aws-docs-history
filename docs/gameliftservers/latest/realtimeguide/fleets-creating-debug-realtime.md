@@ -1,7 +1,6 @@
 
 
 # Debug managed EC2 fleets for Amazon GameLift Servers Realtime
-<a name="fleets-creating-debug-realtime"></a>
 
 This topic provides guidance on how to resolve issues with your Amazon GameLift Servers managed EC2 fleets for Realtime servers. For general troubleshooting help with managed EC2 fleets, see also [Debug Amazon GameLift Servers fleet issues ](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/fleets-creating-debug.html).
 

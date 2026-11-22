@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers Realtime client API (C\#) reference
-<a name="realtime-sdk-csharp-ref"></a>
 
 Use this reference guide to understand how to implement Realtime client API functionality into your multiplayer game clients. For guidance on how to integrate this API into your game clients, see [Integrate a game client for Amazon GameLift Servers Realtime](realtime-client.md).
 

@@ -1,7 +1,6 @@
 
 
 # Creating a managed EC2 fleet for Amazon GameLift Servers Realtime
-<a name="realtime-fleets-intro"></a>
 
 This section guides you through how to create an Amazon GameLift Servers managed EC2 fleet for Realtime servers. Managed fleets use Amazon Elastic Compute Cloud (Amazon EC2) compute instances that are optimized for multiplayer game hosting. You can create a fleet that deploys Realtime servers globally, in any AWS Region or Local Zone that Amazon GameLift Servers supports. For a list of supported locations, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html). You can set up multi-location fleets for your Realtime servers.
 

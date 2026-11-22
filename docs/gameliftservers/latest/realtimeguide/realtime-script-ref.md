@@ -1,7 +1,6 @@
 
 
 # Script reference for Amazon GameLift Servers Realtime
-<a name="realtime-script-ref"></a>
 
 Use this reference guide to understand the options available when configuring a Realtime script and optionally adding custom game logic for Amazon GameLift Servers Realtime servers. For guidance on how to configure a Realtime script, including required elements, see [Customize an Amazon GameLift Servers Realtime script](realtime-script.md).
 

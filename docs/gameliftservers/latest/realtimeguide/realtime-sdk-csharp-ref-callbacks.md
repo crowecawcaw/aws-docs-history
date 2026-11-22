@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers Realtime client API (C\#) reference: Asynchronous callbacks
-<a name="realtime-sdk-csharp-ref-callbacks"></a>
 
 Use this C\# Realtime Client API reference to help you prepare your multiplayer game for use with Amazon GameLift Servers Realtime deployed on Amazon GameLift Servers fleets. 
 + [Synchronous Actions](realtime-sdk-csharp-ref-actions.md)

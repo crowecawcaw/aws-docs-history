@@ -1,7 +1,6 @@
 
 
 # Preparing your games for hosting with Amazon GameLift Servers Realtime
-<a name="realtime-integration-intro"></a>
 
 Get your multiplayer games ready for hosting with Amazon GameLift Servers Realtime. This section guides you through the steps required to create a hosting solution for your game using Realtime servers and Amazon GameLift Servers managed EC2 hosting in the cloud. 
 
