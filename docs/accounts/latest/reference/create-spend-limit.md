@@ -1,7 +1,6 @@
 
 
 # Create a spend limit in AWS Settings
-<a name="create-spend-limit"></a>
 
 **Note**  
 Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
@@ -36,7 +35,33 @@ Spend limits exclude credits and apply to pre-tax charges.
 ## Notifications
 <a name="spend-limit-notifications"></a>
 
-You'll receive notifications when actual costs reach 50%, 75%, and 90% of your limit, or when you are on track to reach or exceed your spend limit in the next 10 days.
+You'll receive email and in-console notifications when actual costs reach 50%, 75%, and 90% of your limit. You'll also get a notification when you're on track to reach or exceed your spend limit in the next 10 days.
+
+You can also get a text message (SMS) when actual costs reach 90% of your limit. Text alerts go only to a verified mobile phone number, and they don't replace email notifications. Text alerts are available only for US phone numbers, including Puerto Rico, Guam, the US Virgin Islands, and American Samoa. Your account has one phone number, so text alerts from every project in your account go to that number.
+
+If you want a heads-up on your phone before a project reaches its limit, turn on text alerts for that project.
+
+**To turn on text alerts for a project in AWS Settings**
+
+1. Open AWS Settings at [https://settings.aws.com](https://settings.aws.com).
+
+1. In the main navigation pane, choose **Billing**.
+
+1. In **Cost by project**, for **Spend limit**, choose the spend limit for your project. If the project doesn't have a spend limit yet, set one first. For more information about setting a spend limit, see [Create a spend limit in AWS Settings](#create-spend-limit-procedure).
+
+1. Under **Customize what happens as your spending climbs**, in **Alerts**, select **Receive text alerts at 90% of your spend limit**.
+
+1. Choose **Save changes**.
+
+1. If prompted to verify your phone number, choose **Go to Profile**.
+
+1. On the **Profile** page, under **Contact information**, choose your phone number, and then choose **Verify phone number**. To add or change the number, choose **Edit**.
+
+1. Enter the 6-digit code that's sent to your phone. You only need to verify your number once for your account.
+
+After you save your changes and verify your number, you get a text message when the project's actual costs reach 90% of its spend limit. To get text alerts for other projects, repeat steps 3 through 5 for each project.
+
+To stop text alerts for a project, clear **Receive text alerts at 90% of your spend limit** and choose **Save changes**. You can also reply STOP to a text alert. For more information about your phone number, see [Edit your contact information in AWS Settings](edit-contact-info.md).
 
 ## Customize your spend limit settings with optional early cost controls
 <a name="spend-limit-early-controls"></a>

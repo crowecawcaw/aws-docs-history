@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Account Management
-<a name="compliance-validation"></a>
 
 Our new AWS experience cannot be used for any regulated workloads. The following information is only relevant to accounts created when you use Sign up for AWS (advanced).
 

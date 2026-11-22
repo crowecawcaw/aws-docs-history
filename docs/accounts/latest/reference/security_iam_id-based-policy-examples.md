@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Account Management
-<a name="security_iam_id-based-policy-examples"></a>
 
 This information is most relevant for AWS accounts that you create when you use our advanced AWS experience. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management).
 
@@ -50,7 +49,7 @@ The `account:GetAccountInformation` action grants access to view most of the set
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ This example policy builds on the preceding example policy by adding each of the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

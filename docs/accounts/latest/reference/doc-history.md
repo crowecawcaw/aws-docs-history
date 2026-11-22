@@ -1,12 +1,12 @@
 
 
 # Document history for the Account Management User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for AWS Account Management.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Sign up from the AWS CLI](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html#sign-up-cli) | You can now start Sign up for AWS (new) from the AWS CLI by running the `aws signup` command, or by choosing to sign up after you run `aws login`. When you finish signing up, the AWS CLI receives credentials for your new project. | November 17, 2026 | 
 | [New phone number verification APIs](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html) | You can use the new [SendPhoneNumberVerification](https://docs.aws.amazon.com/accounts/latest/APIReference/API_SendPhoneNumberVerification.html) and [VerifyPhoneNumber](https://docs.aws.amazon.com/accounts/latest/APIReference/API_VerifyPhoneNumber.html) APIs to verify the primary contact phone number. The `GetContactInformation` response also includes a new `VerificationStatus` field. | October 1, 2026 | 
 | [Updated account closure quota values](https://docs.aws.amazon.com/accounts/latest/reference/troubleshooting_close-account.html) | Corrected the account closure quota percentage from 10% to 20% and the minimum from 10 to 250 in the troubleshooting topic. | June 23, 2026 | 
 | [New account name APIs](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-acct-name.html) | Support for new `[GetAccountInformation](https://docs.aws.amazon.com/accounts/latest/APIReference/API_GetAccountInformation.html)`, and `[PutAccountName](https://docs.aws.amazon.com/accounts/latest/APIReference/API_PutAccountName.html)` APIs to view or modify an account name. | April 22, 2025 | 
@@ -19,5 +19,5 @@ The following table describes the documentation releases for AWS Account Managem
 | [Relocated root user topics to the IAM User Guide](https://docs.aws.amazon.com/accounts/latest/reference/root-user.html) | Consolidated discussion about root users into one topic, added cross reference links to root user topics that were moved to the IAM User Guide. | September 18, 2023 | 
 | [New section added to the primary account contact topic](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html) | Added new *Phone number and email address requirements* section. | September 12, 2023 | 
 | [New contact information APIs](https://docs.aws.amazon.com/accounts/latest/APIReference/API_Operations.html) | Support for new `GetContactInformation` and `PutContactInformation` APIs. | July 22, 2022 | 
-| [AWS Account Management now supports updating alternate contacts via the AWS Organizations console.](#doc-history) | You can now update your organization's alternate contacts via AWS Organizations console using Account API permissions provided by updated AWS Organizations managed policies. | February 8, 2022 | 
-| [Initial release](#doc-history) | Initial release of the AWS Account Management Reference Guide | September 30, 2021 | 
+| [AWS Account Management now supports updating alternate contacts via the AWS Organizations console.](doc-history.md) | You can now update your organization's alternate contacts via AWS Organizations console using Account API permissions provided by updated AWS Organizations managed policies. | February 8, 2022 | 
+| [Initial release](doc-history.md) | Initial release of the AWS Account Management Reference Guide | September 30, 2021 | 

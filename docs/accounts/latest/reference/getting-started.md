@@ -1,7 +1,6 @@
 
 
 # Sign up for AWS (advanced)
-<a name="getting-started"></a>
 
 If you're new to AWS, the first step is to sign up for an AWS account. When you follow the information for Sign up for AWS (advanced), AWS creates an account where you have complete control over account configuration and where your content is stored. Use this option if you have regulated workloads such as HIPAA, FedRAMP.
 
@@ -71,9 +70,11 @@ For multiple AWS accounts managed through AWS Organizations, assign administrati
 ------
 #### [ AWS CLI & SDKs ]
 
-You can create member accounts in an organization that is managed by AWS Organizations by running the [CreateAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html) operation while signed in to the organization's management account.
+Sign up for AWS (new) is the only sign-up option that you can start from the AWS Command Line Interface (AWS CLI). To use it, run the `aws signup` command, which requires AWS CLI version 2.41.0 or later. The command creates an account in our new AWS experience. When you finish signing up in your browser, the AWS CLI receives credentials for your new project. For the steps, see [Sign up using the AWS CLI](sign-in-new.md#sign-up-cli).
 
-You can't create a standalone AWS account outside of an organization by using an AWS Command Line Interface (AWS CLI) or AWS API operation.
+Sign up for AWS (advanced) creates a standalone AWS account. You can't start it from the AWS CLI or with an AWS API operation. To use it, follow the steps on the AWS Management Console tab. To compare the two options, see [Compare sign-up options](sign-up-for-aws.md).
+
+You can create member accounts in an organization that is managed by AWS Organizations by running the [CreateAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html) operation while signed in to the organization's management account.
 
 ------
 
@@ -86,7 +87,7 @@ You can use the AWS CLI to have an agent manage AWS resources on your behalf.
 
 After you install the AWS CLI, use the following command to sign in programmatically:
 
-```
+```bash
 aws login
 ```
 
@@ -94,7 +95,7 @@ This automatically rotates your credentials every 15 minutes, keeping your sessi
 
 Use the following command to verify your credentials are working:
 
-```
+```bash
 aws sts get-caller-identity
 ```
 

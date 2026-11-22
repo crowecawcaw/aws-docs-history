@@ -1,7 +1,6 @@
 
 
 # Monitor your AWS account
-<a name="monitoring"></a>
 
 This includes AWS accounts you create using our new AWS experience and accounts you create using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

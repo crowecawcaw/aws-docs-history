@@ -1,7 +1,6 @@
 
 
 # Update billing for your AWS account
-<a name="manage-acct-billing"></a>
 
 These instructions are for how to update billing for your AWS account if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

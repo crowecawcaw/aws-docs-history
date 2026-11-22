@@ -1,7 +1,6 @@
 
 
 # Reopen an AWS account
-<a name="manage-acct-reopening"></a>
 
 If you closed your AWS account and do not have an outstanding balance, you can reopen it yourself during the [post-closure period](manage-acct-closing.md#post-closure-period).
 

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Account Management API calls using AWS CloudTrail
-<a name="monitoring-cloudtrail"></a>
 
 This includes AWS accounts you create using our new AWS experience and accounts you create using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
@@ -39,7 +38,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 **Example 1**  
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -85,7 +84,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 **Example 2:** The following example shows a CloudTrail log entry for a call to the `PutAlternateContact` operation to add a new `BILLING` alternate contact to an account.
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

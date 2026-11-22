@@ -1,7 +1,6 @@
 
 
 # Enable a delegated admin account for AWS Account Management
-<a name="using-orgs-delegated-admin"></a>
 
 These instructions are for how to enable a delegated admin account for AWS Account Management if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Account Management
-<a name="security-managed-policies"></a>
 
 This information is most relevant for AWS accounts that you create when you use our advanced AWS experience or if you activated advanced features for your account. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management).
 
@@ -38,7 +37,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

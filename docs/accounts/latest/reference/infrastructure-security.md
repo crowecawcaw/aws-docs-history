@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Account Management
-<a name="infrastructure-security"></a>
 
 The following information is relevant for all AWS accounts.
 

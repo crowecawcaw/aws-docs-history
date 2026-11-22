@@ -1,7 +1,6 @@
 
 
 # When to use AWS Control Tower
-<a name="when-to-use-control-tower"></a>
 
 This information is about when to use AWS Control Tower if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

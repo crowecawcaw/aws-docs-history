@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for AWS Account Management
-<a name="security-privatelink"></a>
 
 The following information is relevant for all AWS accounts.
 

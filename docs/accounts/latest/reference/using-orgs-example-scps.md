@@ -1,7 +1,6 @@
 
 
 # Restrict access using AWS Organizations service control policies
-<a name="using-orgs-example-scps"></a>
 
 This information is about restricting access using AWS Organizations service control policies if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
@@ -15,7 +14,7 @@ This topic presents examples that show how you can use service control policies 
 The following example denies the `PutAlternateContact` and `DeleteAlternateContact` API operations from being called by any member account in [standalone account mode](manage-acct-api-modes-of-operation.md). This prevents any principal in the affected accounts from changing their own alternate contacts.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -36,7 +35,7 @@ The following example denies the `PutAlternateContact` and `DeleteAlternateConta
 The following example generalizes the `Resource` element to "\*", which means that it applies to both [standalone mode requests and organizations mode requests](manage-acct-api-modes-of-operation.md). This means that even the delegated admin account for Account Management, if the SCP applies to it, is blocked from changing any alternate contact for any account in the organization.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Enable or disable AWS Regions in your account
-<a name="manage-acct-regions"></a>
 
 This information is about enabling or disabling AWS Regions in your AWS account if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
@@ -100,7 +99,7 @@ AWS recommends that you use regional AWS Security Token Service (AWS STS) endpoi
 <a name="manage-acct-regions-considerations"></a>
 
 Before you enable or disable a Region, it's important to consider the following:
-+ **You can use all destination Regions in a cross-Region inference geography regardless of Region-opt status** – Certain AWS generative AI services including Amazon Bedrock (see [Increase throughput with cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html)) and Amazon Q Developer (see [Cross-region processing in Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/cross-region-processing.html)) use cross-region inference. If you use those services, they automatically select the optimal AWS Region–including Regions that you have not enabled for resources and IAM data–within your chosen geography. This improves the customer experience by maximizing available compute and model availability.
++ **You can use all destination Regions in a cross-Region inference geography regardless of Region-opt status** – Certain AWS generative AI services including Amazon Bedrock (see [Increase throughput with cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html)) and the AWS assistant (see [Cross-Region processing in AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/cross-region-processing.html)) use cross-region inference. If you use those services, they automatically select the optimal AWS Region–including Regions that you have not enabled for resources and IAM data–within your chosen geography. This improves the customer experience by maximizing available compute and model availability.
 + **You can use IAM permissions to control access to Regions** – AWS Identity and Access Management (IAM) includes four permissions that let you control which users can enable, disable, get, and list Regions. For more information, see [AWS: Allows enabling and disabling AWS Regions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws-enable-disable-regions.html) in the *IAM User Guide*. You can also use the [`aws:RequestedRegion`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion) condition key to control access to AWS services in an AWS Region.
 + **Enabling and disabling a Region is free** – There is no charge to enable or disable a Region. You are charged only for resources that you create in the new Region.
 + **Amazon EventBridge integration** – You can subscribe to region-opt status update notifications in EventBridge. An EventBridge notification will be created for each status change, allowing customers to automate work flows.

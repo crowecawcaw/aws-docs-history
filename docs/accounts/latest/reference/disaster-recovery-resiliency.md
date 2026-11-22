@@ -1,7 +1,6 @@
 
 
 # Resilience in AWS Account Management
-<a name="disaster-recovery-resiliency"></a>
 
 The following information is relevant for all AWS accounts. If you use our new AWS experience, additional Regional considerations apply. For more information, see [AWS Regions for your projects](project-regions.md).
 

@@ -1,7 +1,6 @@
 
 
 # What is an AWS account?
-<a name="accounts-welcome"></a>
 
 An AWS account represents a formal business relationship you establish with AWS. You create and manage your AWS resources in an AWS account, and your account provides identity management capabilities for access and billing. Each AWS account has a unique ID which differentiates it from other AWS accounts. 
 

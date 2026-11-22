@@ -1,7 +1,6 @@
 
 
 # Compare sign-up options
-<a name="sign-up-for-aws"></a>
 
 **Note**  
 Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
@@ -46,6 +45,7 @@ The following table compares AWS wide requirements that are either supported for
 | Automatic opt-in to [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) | Yes | No | 
 | Automatic opt-in to [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | Yes | No | 
 | Automatically opt in to [IAM role manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_role-manager.html) | Yes | No | 
+| Sign up from the AWS Command Line Interface (AWS CLI) | Yes. For more information, see [Sign up using the AWS CLI](sign-in-new.md#sign-up-cli). | No | 
 | Console account colors | No | Yes | 
 | Use the [AWS Console Mobile Application](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) | No | Yes | 
 | Disable multi-session console support | No | Yes. If you sign in again using a Builder ID, multi-session support will be enabled automatically. | 

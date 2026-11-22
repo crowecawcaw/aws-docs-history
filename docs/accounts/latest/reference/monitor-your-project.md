@@ -1,7 +1,6 @@
 
 
 # Monitor your project using AWS CloudTrail
-<a name="monitor-your-project"></a>
 
 **Note**  
 Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
@@ -27,7 +26,7 @@ To find the `onBehalfOf` parameter and connect it to a team member, you'll need 
 
 1. In the event record, you'll see the following content:
 
-   ```
+   ```JSON
    "onBehalfOf": {
                "userId": "00000-e00f-000-000-0000000",
                "identityStoreArn": "arn:aws:identitystore::111122223333:identitystore/000000-0000-0000-0000-60000007"
@@ -57,7 +56,7 @@ To connect the `onBehalfOf` parameter to a team member using the AWS CLI:
 
    The output will look like the following:
 
-   ```
+   ```JSON
    {
        "Instances": [
            {
@@ -90,7 +89,7 @@ To connect the `onBehalfOf` parameter to a team member using the AWS CLI:
 
    The output will look like the following:
 
-   ```
+   ```JSON
    {
        "IdentityStoreId": "d-000000",
        "UserId": "00000-e00f-000-000-0000000",

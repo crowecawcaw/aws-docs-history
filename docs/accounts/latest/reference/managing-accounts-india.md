@@ -1,7 +1,6 @@
 
 
 # Manage accounts in India
-<a name="managing-accounts-india"></a>
 
 This information is about managing accounts in India if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

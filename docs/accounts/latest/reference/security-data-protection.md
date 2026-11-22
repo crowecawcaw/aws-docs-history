@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Account Management
-<a name="security-data-protection"></a>
 
 The following information is relevant for all AWS accounts.
 

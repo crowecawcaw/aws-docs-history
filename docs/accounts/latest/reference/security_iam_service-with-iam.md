@@ -1,7 +1,6 @@
 
 
 # How AWS Account Management works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 This information is most relevant for AWS accounts that you create when you use our advanced AWS experience. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management).
 
@@ -155,7 +154,7 @@ The Account Management service supports the following condition keys that you ca
 
   This condition key takes an argument that consists of a list of email domains. It lets you filter the policy to affect only those actions that match the specified email domains. This condition key is case-sensitive. You should use `StringEqualsIgnoreCase` instead of `StringEquals` in the condition block of the policy to control the action based on the target email address domain. Here is a sample policy allowing the `account:StartPrimaryEmailUpdate` action to complete when the email domain contains `example.com`, `company.org`, or any combination of case, such as `EXAMPLE.COM`.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -210,7 +209,7 @@ The following example policy allows access to view contact information for accou
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

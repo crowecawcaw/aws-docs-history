@@ -1,7 +1,6 @@
 
 
 # Benefits of using multiple AWS accounts
-<a name="welcome-multiple-accounts"></a>
 
 This information is about the benefits of using multiple AWS accounts if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

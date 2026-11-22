@@ -1,7 +1,6 @@
 
 
 # Related AWS services
-<a name="accounts-related-services"></a>
 
 Depending on how you sign up for AWS, you either have access to AWS accounts or projects. Projects contain AWS accounts and the settings for sharing with other collaborators. For more information, see [Compare sign-up options](sign-up-for-aws.md). In this section, we explain how AWS accounts that you create using Sign up for AWS (advanced) work seamlessly with the following services:
 + **IAM**

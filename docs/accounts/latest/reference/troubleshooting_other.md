@@ -1,7 +1,6 @@
 
 
 # Troubleshooting other issues with AWS accounts
-<a name="troubleshooting_other"></a>
 
 This information is about troubleshooting other issues with your AWS account if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 

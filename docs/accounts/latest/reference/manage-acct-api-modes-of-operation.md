@@ -1,7 +1,6 @@
 
 
 # Understanding API modes of operation
-<a name="manage-acct-api-modes-of-operation"></a>
 
 This information is about understanding API modes of operation if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
@@ -26,7 +25,7 @@ The following are some Account Management specific considerations for creating a
 
 ### Amazon Resource Name format for AWS accounts
 <a name="manage-acct-update-contact-perms-arn-format"></a>
-+ The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for an AWS account that you can include in the `resource` element of a policy statement is constructed differently based on whether the account you want to reference is a standalone account or an account that is in an organization. See the previous section on [Understanding API modes of operation](#manage-acct-api-modes-of-operation).
++ The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for an AWS account that you can include in the `resource` element of a policy statement is constructed differently based on whether the account you want to reference is a standalone account or an account that is in an organization. See the previous section on [Understanding API modes of operation](manage-acct-api-modes-of-operation.md).
   + <a name="account-arn-standalone"></a>An account ARN for a standalone account:
 
     ```

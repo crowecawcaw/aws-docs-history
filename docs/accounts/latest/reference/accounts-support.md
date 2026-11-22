@@ -1,7 +1,6 @@
 
 
 # Support for AWS Account Management
-<a name="accounts-support"></a>
 
 You can post feedback and questions using the [AWS Account Management support forum](https://repost.aws/tags/TAORvqckH5Q6qX1CKnO_lWZg/aws-account-management). For general information about AWS forums, see [AWS re:Post](https://repost.aws/).
 

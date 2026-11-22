@@ -1,7 +1,6 @@
 
 
 # Monitoring Account Management events with EventBridge
-<a name="monitoring-eventbridge"></a>
 
 This includes AWS accounts you create using our new AWS experience and accounts you create using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
@@ -28,7 +27,7 @@ When you enable or disable a Region in an account, either from the Console or fr
 
 The following example event shows how a request will be sent indicating that on `2020-09-30` the `ap-east-1` Region was `ENABLED` for account `123456789012`.
 
-```
+```json
 {
    "version":"0",
    "id":"11112222-3333-4444-5555-666677778888",
@@ -56,7 +55,7 @@ There are four possible statuses which match the statuses returned by the `GetRe
 
 The following sample event pattern creates a rule that captures all Region events.
 
-```
+```json
 {
    "source":[
       "aws.account"

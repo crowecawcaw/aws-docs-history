@@ -1,7 +1,6 @@
 
 
 # View AWS account identifiers
-<a name="manage-acct-identifiers"></a>
 
 This information is about viewing AWS account identifiers if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md). If you signed up with the new AWS experience, you sign in with your AWS Builder ID. You can also find your account ID. For more information about finding your account ID, see [Find your account ID when signed in with AWS Builder ID](#FindAccountId-builder-id).
 
