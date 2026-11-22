@@ -1,7 +1,6 @@
 
 
 # Monitoring and incident response
-<a name="monitoring-and-incident-response"></a>
 
  Establishing comprehensive monitoring and response mechanisms enables quick detection and resolution of issues affecting your Microsoft workloads. This includes implementing robust monitoring systems, developing efficient restoration procedures, and maintaining a continuous improvement cycle through regular testing and post-incident analysis. 
 

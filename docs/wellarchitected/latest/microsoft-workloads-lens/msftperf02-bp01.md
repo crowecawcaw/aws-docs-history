@@ -1,7 +1,6 @@
 
 
 # MSFTPERF02-BP01 Choose the Amazon EC2 instance families that best fit the Microsoft workload
-<a name="msftperf02-bp01"></a>
 
  Amazon EC2 provides different instance family types, addressing different purposes. For example, General purpose instances, such as m7i and m7a can be used for most production applications running on Windows Server. For non-production or less critical environments, t3 burstable instances may also be a fit. Memory optimized instances, such as r7i, r7a, and x2iedn provide greater ratio of memory to vCPU and are ideal for memory-intensive workloads, such as Microsoft SQL Server. 
 

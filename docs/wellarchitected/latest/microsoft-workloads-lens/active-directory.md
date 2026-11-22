@@ -1,7 +1,6 @@
 
 
 # Active directory
-<a name="active-directory"></a>
 
  Active Directory is a critical component for many Microsoft workloads, and optimizing its deployment on AWS can lead to significant cost savings and operational efficiencies. AWS offers multiple options to support Active Directory needs, including AWS Managed Microsoft AD, AD Connector, and self-managed Active Directory on EC2. Each option provides different benefits in terms of management overhead, scalability, and cost. By evaluating these options against specific workload requirements, organizations can choose the most cost-effective and operationally efficient Active Directory solution for their AWS environment. 
 

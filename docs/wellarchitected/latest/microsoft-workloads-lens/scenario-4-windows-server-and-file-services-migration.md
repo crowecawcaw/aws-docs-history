@@ -1,7 +1,6 @@
 
 
 # Scenario 4: Windows server and file services migration
-<a name="scenario-4-windows-server-and-file-services-migration"></a>
 
  Many organizations struggle with growing file storage needs, backup complications, and the management overhead of traditional Windows file servers. This scenario demonstrates how to modernize Windows-based file services using AWS services, providing better scalability, availability, and reduced operational complexity while maintaining compatibility with existing Windows-based workflows. 
 

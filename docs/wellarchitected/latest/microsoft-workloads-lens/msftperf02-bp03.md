@@ -1,7 +1,6 @@
 
 
 # MSFTPERF02-BP03 Consider using Amazon EBS fast snapshot restore
-<a name="msftperf02-bp03"></a>
 
  Amazon EBS Fast Snapshot Restore (FSR) offers significant advantages for Microsoft workloads by eliminating the initialization latency typically associated with first-use EBS volumes created from snapshots. This is particularly beneficial for Windows Server instances and SQL Server deployments where quick recovery time objectives (RTOs) are crucial. When enabled on selected snapshots in specific Availability Zones, FSR ensures that EBS volumes created from these snapshots deliver their full performance immediately without the need for the traditional initialization process, which normally requires reading all blocks from S3. For Microsoft workloads that require rapid failover, disaster recovery, or test environment provisioning, FSR can dramatically reduce the time needed to bring systems online. 
 

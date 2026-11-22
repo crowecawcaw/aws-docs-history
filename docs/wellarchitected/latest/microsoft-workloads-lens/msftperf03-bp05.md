@@ -1,7 +1,6 @@
 
 
 # MSFTPERF03-BP05 Leverage instance store temporary block storage for EC2 instances
-<a name="msftperf03-bp05"></a>
 
  An instance store is a form of temporary block-level storage for EC2 instances, provided by disks physically attached to the host computer. It is well-suited for storing frequently changing data such as buffers, caches, and scratch data, as well as temporary data replicated across multiple instances like in a load-balanced web server pool, and Microsoft SQL Server TempDB data. The capacity and number of instance store volumes available vary depending on the instance type and size, with some instance types not offering instance stores at all. 
 

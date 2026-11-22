@@ -1,7 +1,6 @@
 
 
 # MSFTREL01-BP02 Align your architectural design with your availability needs and capacity demands
-<a name="msftrel01-bp02"></a>
 
  There are architecture recommendations regarding Microsoft workloads, whether addressing Windows infrastructure, Active Directory, SQL Server databases, .NET applications, or other technologies. Review the vendor recommendations along with AWS documentation to verify that your application is running with best practices to improve availability and resiliency. 
 

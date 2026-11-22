@@ -1,7 +1,6 @@
 
 
 # MSFTREL05-BP04 Implement testing automation
-<a name="msftrel05-bp04"></a>
 
  Establish comprehensive automated testing frameworks that continuously validate the reliability and recoverability of Microsoft workloads on AWS. Testing automation verifies that disaster recovery (DR) procedures, backup systems, and failover mechanisms work as expected when needed, reducing the risk of surprises during actual incidents. 
 

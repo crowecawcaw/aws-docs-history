@@ -1,7 +1,6 @@
 
 
 # MSFTCOST05-BP01 Migrate Amazon EBS volumes from gp2 to gp3
-<a name="msftcost05-bp01"></a>
 
  General Purpose SSD (gp3) volumes are the latest generation of General Purpose SSD volumes, and the lowest cost SSD volume offered by Amazon EBS. This volume type helps to provide the right balance of price and performance for most applications. It also helps you to scale volume performance independently of volume size. This means that you can provision the required performance with no need to provision additional block storage capacity. Additionally, gp3 volumes offer a 20 percent lower price per GiB than General Purpose SSD (gp2) volumes. 
 

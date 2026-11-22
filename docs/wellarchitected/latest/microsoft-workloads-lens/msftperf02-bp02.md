@@ -1,7 +1,6 @@
 
 
 # MSFTPERF02-BP02 Consider the use for EC2 Fast Launch to accelerate launching your Microsoft workload instances
-<a name="msftperf02-bp02"></a>
 
  EC2 Fast Launch will speed up the Windows EC2 instance launch process. When you configure a Windows Server AMI for EC2 Fast Launch, Amazon EC2 creates a set of pre-provisioned snapshots to use for faster launching. It completes steps such as Sysprep specialize, Windows Out of Box Experience (OOBE), and rebooting as required. Especially useful when you need to scale fast. 
 

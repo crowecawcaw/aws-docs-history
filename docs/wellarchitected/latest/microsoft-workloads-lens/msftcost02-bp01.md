@@ -1,7 +1,6 @@
 
 
 # MSFTCOST02-BP01 Right size Windows instances
-<a name="msftcost02-bp01"></a>
 
  AWS Compute Optimizer uses machine learning to analyze the performance metrics and utilization patterns of Microsoft workloads running on AWS, including Windows Server instances and SQL Server deployments. By examining historical resource usage data across CPU, memory, and network dimensions, Compute Optimizer provides tailored recommendations for right-sizing EC2 instances running Microsoft applications, helping organizations optimize both performance and cost. The service can identify when Windows workloads are over-provisioned or under-provisioned, suggesting instance types that are aligned with actual resource requirements. This is valuable for Microsoft-heavy enterprises that have migrated to AWS, as Windows workloads often have different resource consumption patterns and proper sizing is crucial for managing the additional licensing costs associated with Windows Server and SQL Server instances. 
 

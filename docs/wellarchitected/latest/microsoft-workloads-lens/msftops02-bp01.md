@@ -1,7 +1,6 @@
 
 
 # MSFTOPS02-BP01 Implement Management and Governance solutions
-<a name="msftops02-bp01"></a>
 
  Set up Management and Governance solutions to ensure your Microsoft workload is patched and compliant with your security requirements. AWS Systems Manager functions as an operations hub for your workload, addressing fleet management, compliance, inventory, admin session management, state management, patch management, and running remote commands or scripts. Additionally, leverage AWS Systems Manager OpsCenter to provide a central location for viewing, investigating, and resolving operational issues related to your Microsoft workloads. OpsCenter aggregates and standardizes operations items across services while providing contextual investigation data about each operations item, related items, and related resources. 
 

@@ -1,7 +1,6 @@
 
 
 # Access management
-<a name="access-management"></a>
 
  Controlling access to Microsoft workloads involves implementing proper authentication, authorization, and auditing mechanisms that integrate with both Microsoft and AWS identity services. This focus area addresses how to establish centralized identity management, implement least privilege principles, and maintain comprehensive access monitoring across your Microsoft environment. 
 

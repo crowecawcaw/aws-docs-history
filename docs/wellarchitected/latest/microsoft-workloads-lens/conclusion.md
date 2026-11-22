@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  In conclusion, the AWS Well-Architected for Microsoft Workloads Lens is an invaluable resource for organizations seeking to optimize their Microsoft-based systems on the AWS cloud platform. This specialized lens builds upon the foundational AWS Well-Architected Framework, offering tailored guidance for the unique challenges and opportunities presented by Microsoft technologies in a cloud environment. 
 

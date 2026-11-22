@@ -1,7 +1,6 @@
 
 
 # MSFTCOST06-BP03 Use self-managed Active Directory on Amazon EC2
-<a name="msftcost06-bp03"></a>
 
  Depending on the requirements, your Microsoft workload may require the use of a self-managed Active Directory deployment (either a new forest or extending an existing one). Deploying Active Directory domains controllers to Amazon EC2 is fairly simple. Domain controllers are usually good candidates to run on Amazon EC2 burstable instance family, saving on compute costs. Make sure to evaluate the capacity planning recommendations provided by Microsoft to address your workload requirements. 
 

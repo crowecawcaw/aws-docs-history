@@ -1,7 +1,6 @@
 
 
 # MSFTPERF01-BP01 Consider AWS Elastic Beanstalk for running traditional Windows servers hosting your Microsoft application
-<a name="msftperf01-bp01"></a>
 
  In scenarios where the traditional virtual machine approach is a requirement, evaluate the EC2 instance families that better address your Microsoft workload needs. Using data-driven decisions for architectural considerations, you can also opt for Elastic Beanstalk to reduce the operational overhead on managing the EC2 instances and surrounding infrastructure resources, such as Elastic Load Balancing, and Auto Scaling Groups. 
 

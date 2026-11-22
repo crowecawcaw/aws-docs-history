@@ -1,7 +1,6 @@
 
 
 # Scenario 5: Windows-based infrastructure modernization
-<a name="scenario-5-windows-based-infrastructure-modernization"></a>
 
  As Windows Server workloads approach end-of-support or hardware refresh cycles, organizations need a strategic approach to infrastructure modernization. This scenario provides a framework for assessing, migrating, and optimizing Windows workloads on AWS, enabling automated management, improved security, and operational efficiency while maximizing existing Microsoft investments. 
 

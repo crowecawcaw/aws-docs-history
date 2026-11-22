@@ -1,7 +1,6 @@
 
 
 # MSFTREL05-BP02 Implement backup automation
-<a name="msftrel05-bp02"></a>
 
  Backup automation is critical for Microsoft workloads running on AWS, maintaining consistent data protection without manual intervention. Microsoft applications like SQL Server, Exchange, and SharePoint require application-aware backup strategies that maintain data integrity and support reliable recovery scenarios. 
 

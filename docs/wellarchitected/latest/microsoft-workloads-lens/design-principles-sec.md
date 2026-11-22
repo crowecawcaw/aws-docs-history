@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sec"></a>
 
  Refer to design principles in the Well-Architected Framework Security Pillar for core security concepts. Additionally, consider these Microsoft-specific security aspects: 
 +  **Microsoft-specific security configurations:** Use Microsoft security baselines, Active Directory Group Policies, and Windows-specific security features like Windows Defender, AppLocker, and BitLocker for enhanced workload protection. 

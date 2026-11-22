@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud. In addition, the following design principles should also be considered for designing and operating Microsoft workloads: 
 +  **Assess your Microsoft environment holistically:** Before designing or migrating, assess your current Microsoft workloads with tools like AWS Optimization and Licensing Assessment (OLA), Migration Evaluator, and Application Discovery Service. This foundational step helps define the business case, understand resource utilization, licensing, and technical dependencies. 

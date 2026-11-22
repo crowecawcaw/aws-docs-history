@@ -1,7 +1,6 @@
 
 
 # MSFTSUS01-BP02 Monitor Microsoft workload sustainability performance
-<a name="msftsus01-bp02"></a>
 
  Monitoring and reporting on Microsoft workload sustainability in AWS provides essential feedback on the effectiveness of implemented changes. This data supports sustainability reporting for shareholders, regulators, and eco-conscious customers. Using metrics from the operational excellence pillar, these reports can showcase improvements in your Microsoft landscape's operational sustainability, demonstrating alignment with corporate sustainability goals. This process creates a continuous feedback loop, allowing for ongoing optimization and validation of sustainability efforts in your Microsoft environment. 
 

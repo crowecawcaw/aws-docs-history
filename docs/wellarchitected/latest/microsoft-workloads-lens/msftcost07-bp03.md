@@ -1,7 +1,6 @@
 
 
 # MSFTCOST07-BP03 Change your scale strategy for Windows Containers on Kubernetes using Karpenter
-<a name="msftcost07-bp03"></a>
 
  Karpenter is a Kubernetes cluster autoscaler that dynamically provisions EC2 instances based on your workload demands, automatically launching right-sized instances in response to pending pods and continuously evaluating the cluster to optimize costs by consolidating workloads onto more efficient instance types. The tool proactively replaces outdated nodes with newer ones to maintain security compliance and supports diverse compute requirements by selecting from a broad range of instance types and purchasing options, including both On-Demand and Spot instances. 
 

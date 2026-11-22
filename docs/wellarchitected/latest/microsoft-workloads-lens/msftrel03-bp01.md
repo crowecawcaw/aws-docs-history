@@ -1,7 +1,6 @@
 
 
 # MSFTREL03-BP01 Use Microsoft logs for incident analysis
-<a name="msftrel03-bp01"></a>
 
  Microsoft workloads generate rich diagnostic information through specialized logging systems that provide deeper visibility into application behavior, security events, and system performance than standard infrastructure monitoring alone. These Microsoft log sources offer unique insights into Active Directory authentication patterns, SQL Server performance bottlenecks, IIS application errors, and Windows system events that are essential for comprehensive incident analysis and root cause identification. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTCOST01-BP01 Run discovery tools
-<a name="msftcost01-bp01"></a>
 
  Migration Evaluator is a migration assessment service that helps you create a directional business case for AWS cloud planning and migration. The information that the AWS Migration Evaluator collects includes server profile information (for example, OS, number of CPUs, amount of RAM), SQL Server metadata (for example, version and edition), utilization metrics, and network connections. AWS Application Discovery Service helps you plan cloud migration projects, by gathering information about your on-premises data centers. It discovers the connections between applications and servers to uncover unknown servers, better understand dependencies, and establish move groups. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP02 Consolidate Microsoft SQL Server instances
-<a name="msftcost03-bp02"></a>
 
  A SQL instance is part of the SQL Server Database Engine, that provides the SQL service to clients or applications. It is common to have SQL instances installed per server when it comes to large production environments, to avoid resources issues and to follow resource governance. Although, for smaller or non-critical workloads organizations can leverage shared resources and have multiple SQL instances installed on the same server or set of servers. This approach will help your workload save costs on SQL licensing (less cores running SQL) and often in compute resources as well. 
 

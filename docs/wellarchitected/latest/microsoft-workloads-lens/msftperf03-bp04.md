@@ -1,7 +1,6 @@
 
 
 # MSFTPERF03-BP04 Consider Amazon FSx for NetApp ONTAP
-<a name="msftperf03-bp04"></a>
 
  Amazon FSx for NetApp ONTAP is a fully managed AWS service that provides scalable, high-performance file storage based on the widely-used NetApp ONTAP file system. It combines the familiar features and capabilities of NetApp systems with the benefits of a cloud-managed service. This service offers fast, flexible shared file storage accessible from Linux, Windows, and macOS instances, both in AWS and on-premises. FSx for ONTAP provides high-performance SSD storage with very low latencies and also HDD storage. Amazon FSx for NetApp ONTAP offers robust file storage capabilities, including support for petabyte-scale datasets in a single namespace and high throughput of up to tens of GBps per file system. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTOPS02-BP04 Leverage managed services for your Microsoft workload
-<a name="msftops02-bp04"></a>
 
  To reduce operational overhead, implement the use of AWS managed services to address your Microsoft workload requirements. Consider AWS Managed Microsoft Active Directory, Amazon Relational Database Service for SQL Server, Amazon FSx for Windows File Server, Amazon FSx for NetApp ONTAP, AWS Elastic Beanstalk, and others. 
 

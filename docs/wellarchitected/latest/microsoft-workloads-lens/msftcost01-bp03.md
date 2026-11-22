@@ -1,7 +1,6 @@
 
 
 # MSFTCOST01-BP03 Run platform-specific tools
-<a name="msftcost01-bp03"></a>
 
  Platform-specific tools, such as Azure Resource Discovery Tool, are useful for environment understanding. This is a PowerShell script provided by AWS that generates an inventory report including detailed metrics of an Azure environment to which you have read access for the previous 30 days. Especially useful for non-virtual machine(VM) resources. 
 

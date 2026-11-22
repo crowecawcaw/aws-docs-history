@@ -1,7 +1,6 @@
 
 
 # MSFTSEC01-BP02 Secure the Microsoft application and database
-<a name="msftsec01-bp02"></a>
 
  Maintaining strong security at both the database and application layers is crucial, as even read-only access by malicious actors could compromise critical business data. To protect your Microsoft environment, implement security best practices including the least access principle, least privilege model, encryption at rest, and encryption in transit. These measures help safeguard your Microsoft application and database against unauthorized access and potential data breaches, maintaining the confidentiality and integrity of your business-critical information. 
 

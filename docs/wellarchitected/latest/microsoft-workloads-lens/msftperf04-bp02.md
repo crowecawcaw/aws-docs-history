@@ -1,7 +1,6 @@
 
 
 # MSFTPERF04-BP02 Define baseline performance requirements
-<a name="msftperf04-bp02"></a>
 
  Microsoft workloads vary in their performance needs, making historical data analysis crucial for establishing baseline performance metrics. This approach allows organizations to detect and quantify performance fluctuations effectively. By implementing targeted alerts, IT teams can quickly identify anomalies, such as unexpected CPU usage spikes, changes in storage throughput, increased memory consumption, or more intricate performance issues. The collected monitoring data serves a dual purpose: it not only helps in detecting problems, but also provides valuable insights for ongoing performance optimization. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTPERF03-BP02 Consider Amazon EBS io2 Block Express volumes for high-intense I/O workloads
-<a name="msftperf03-bp02"></a>
 
  Amazon EBS io2 Block Express volumes are based on an updated storage server architecture. They are designed to handle high I/O requirements for applications running on Nitro System-based instances. These volumes offer improved durability and lower latency. As a result, they are suitable for resource-intensive applications that require consistent performance, such as certain database systems (For example, Oracle, SAP HANA, and Microsoft SQL Server) and SAS Analytics. 
 

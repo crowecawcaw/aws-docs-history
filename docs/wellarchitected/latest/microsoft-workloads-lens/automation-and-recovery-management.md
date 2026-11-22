@@ -1,7 +1,6 @@
 
 
 # Automation and recovery management
-<a name="automation-and-recovery-management"></a>
 
  Implementing automated solutions for recovery, scaling, and maintenance reduces human error and improves response times. This encompasses automated disaster recovery, systematic backup procedures, self-healing mechanisms, and dynamic capacity management through auto scaling, maintaining consistent and reliable operation of Microsoft workloads on AWS. 
 

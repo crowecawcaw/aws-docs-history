@@ -1,7 +1,6 @@
 
 
 # MSFTOPS01-BP01 Implement infrastructure monitoring for your Microsoft workload
-<a name="msftops01-bp01"></a>
 
  The implementation of infrastructure monitoring for Microsoft workloads on AWS will provide comprehensive visibility into system performance, resource utilization, and application health. This monitoring solution will detect anomalies in real time, generate actionable alerts, and enable rapid troubleshooting of issues before they impact end users. Consider leveraging Microsoft Performance Counters to cover the basic infrastructure monitoring for your Microsoft workload servers. Besides operating system and performance metrics, the counters will be expanded according to the Microsoft product deployed, such as SQL Server, Internet Information Services (IIS), Active Directory Federation Services, and others. The Performance Counters can also be integrated with monitoring solutions, like Amazon CloudWatch, Amazon Managed Service for Prometheus, and Amazon Managed Grafana. 
 

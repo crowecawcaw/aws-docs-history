@@ -1,7 +1,6 @@
 
 
 # MSFTCOST02-BP03 Bring Your Own Licenses (BYOL)
-<a name="msftcost02-bp03"></a>
 
  If you have already invested in licenses for your Microsoft workload, such as having enterprise licensing agreements, you can choose to bring your own licenses to AWS and save costs on EC2. Depending on when the licenses were acquired and the version, Windows Server licenses can be brought to Amazon EC2 Dedicated Hosts. Other products covered by Software Assurance and License Mobility in the agreement, like SQL Server, can be brought to default (shared) tenancy. 
 

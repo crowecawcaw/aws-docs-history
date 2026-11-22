@@ -1,7 +1,6 @@
 
 
 # MSFTCOST04-BP03 Consider purpose-built databases
-<a name="msftcost04-bp03"></a>
 
  Purpose-built databases are gaining traction among businesses adopting modern architectures like microservices, as they can precisely accommodate specific data access patterns. These databases, whether SQL or NoSQL, offer application teams benefits like reduced costs, enhanced scalability, and improved resilience. By selecting the right database for each specific use case, teams can optimize their data management while leveraging cloud advantages for more efficient solutions. 
 

@@ -1,7 +1,6 @@
 
 
 # Scenario 1: Microsoft SQL Server Migration to AWS
-<a name="scenario-1-microsoft-sql-server-migration-to-aws"></a>
 
  Organizations running business-critical SQL Server workloads often face challenges with hardware lifecycle management, licensing costs, and operational overhead. Migrating SQL Server to AWS offers opportunities for improved scalability, reduced maintenance burden, and potential cost savings through various deployment options. This scenario covers approaches from lift-and-shift to complete modernization, helping organizations choose the right path based on their specific requirements. 
 

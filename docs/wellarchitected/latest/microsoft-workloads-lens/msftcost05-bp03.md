@@ -1,7 +1,6 @@
 
 
 # MSFTCOST05-BP03 Use Amazon FSx for NetApp ONTAP
-<a name="msftcost05-bp03"></a>
 
  Amazon FSx for NetApp ONTAP offers a file system that supports SMB and iSCSI protocols. Useful for critical Microsoft SQL Server environments, as ONTAP volumes can be mapped to Windows Server instances as block storage devices using the iSCSI model, also providing shared storage for cluster-aware applications. FSx for ONTAP has two capacity settings (HDD and SSD), data deduplication, and cache layers. Smaller EC2 instances can leverage the FSx solution to achieve high performance storage levels. 
 

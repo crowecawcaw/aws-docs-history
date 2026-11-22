@@ -1,7 +1,6 @@
 
 
 # Workload architecture and availability
-<a name="workload-architecture-and-availability"></a>
 
  Building resilient Microsoft workloads starts with clearly defined availability goals and appropriate architectural choices. This focus area verifies that your workload is designed to handle failures, protect critical data, and meet business requirements through proper infrastructure patterns and redundancy strategies. 
 

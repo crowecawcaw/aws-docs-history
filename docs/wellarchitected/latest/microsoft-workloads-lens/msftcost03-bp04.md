@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP04 Evaluate SQL Server Developer edition
-<a name="msftcost03-bp04"></a>
 
  SQL Server Developer edition includes all functionality of the Enterprise edition. It is a free edition that can be used in non-production environments. A production environment is defined as an environment that is accessed by the end users of an application (for example, a website) and is used for more than gathering feedback or acceptance testing of that application. The Developer edition can be leveraged for development and testing your workload. 
 

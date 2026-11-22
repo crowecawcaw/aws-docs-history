@@ -1,7 +1,6 @@
 
 
 # MSFTCOST07-BP01 Optimize AWS Fargate tasks with AWS Compute Optimizer
-<a name="msftcost07-bp01"></a>
 
  AWS Compute Optimizer can be used to help right size and optimize your workloads running on AWS Fargate. If not reviewed, long running tasks can be overprovisioned and increase compute costs. 
 

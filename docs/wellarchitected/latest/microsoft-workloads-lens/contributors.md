@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and groups contributed to this document: 
 +  Bruno Lopes, Sr. Geo SSA Containers, Amazon Web Services 

@@ -1,7 +1,6 @@
 
 
 # MSFTSEC02-BP01 Align your Microsoft workload access with organizational identity strategy
-<a name="msftsec02-bp01"></a>
 
  Microsoft workloads, including .NET applications and SQL Server environments, typically integrate with Active Directory (AD) or similar identity management systems. A centralized approach to user management, regardless of the specific solution, can significantly reduce security risks and operational complexity. This comprehensive approach enhances security, streamlines user access, and provides a consistent identity management experience across your Microsoft workloads in the cloud. 
 

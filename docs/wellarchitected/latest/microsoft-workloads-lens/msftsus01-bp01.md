@@ -1,7 +1,6 @@
 
 
 # MSFTSUS01-BP01 Align business requirements with sustainable Microsoft architecture designs
-<a name="msftsus01-bp01"></a>
 
  When designing Microsoft environments in the cloud, business leaders and architecture teams must actively prioritize sustainability. This requires a clear understanding of the trade-offs involved and the ability to articulate them effectively. In production workloads, with reliability and performance traditionally taking precedence over costs, sustainable designs may not always result in overall cost savings. In fact, implementing more sustainable practices for Microsoft workloads on AWS could potentially increase expenses in areas such as software licensing, staffing, or other business operations. To successfully meet sustainability goals, these trade-offs must be carefully balanced against other business priorities. It's crucial that stakeholders agree on clearly defined, measurable sustainability objectives that align with broader business needs and performance requirements. This approach integrates sustainability efforts thoughtfully into the overall business strategy, rather than being treated as an isolated initiative. 
 

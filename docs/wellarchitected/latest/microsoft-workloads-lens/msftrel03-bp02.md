@@ -1,7 +1,6 @@
 
 
 # MSFTREL03-BP02 Establish a structured review process that combines insights from both AWS and Microsoft monitoring tools
-<a name="msftrel03-bp02"></a>
 
  Document lessons learned in a centralized knowledge base, update incident response playbooks, and conduct regular tabletop exercises to validate improvements. Configure automated reporting to track incident metrics and measure the effectiveness of implemented changes. Regular reviews of Windows security baselines and AWS Well-Architected Framework improve your alignment with best practices. 
 

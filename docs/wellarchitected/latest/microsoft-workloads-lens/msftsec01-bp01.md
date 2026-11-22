@@ -1,7 +1,6 @@
 
 
 # MSFTSEC01-BP01 Protect the operating system
-<a name="msftsec01-bp01"></a>
 
  Securing the operating system that hosts your Microsoft application is crucial in blocking unauthorized access, securing software availability, and maintaining the stability of your critical systems. By following Microsoft and AWS recommendations for Windows Server environments, you can reduce the risk of malicious attacks. 
 

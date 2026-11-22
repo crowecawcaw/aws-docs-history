@@ -1,7 +1,6 @@
 
 
 # MSFTSEC03-BP01 Encrypt data stored in Microsoft workloads
-<a name="msftsec03-bp01"></a>
 
  Data at rest encompasses the entirety of your digitally stored information. Encryption is crucial to verify that this data remains visible only to authorized users and stays protected, even if storage or database access is compromised independently of the application. For Microsoft SQL Server environments, consider implementing Transparent Data Encryption (TDE). This technology provides robust encryption at rest solution specifically designed for Microsoft databases, offering strong protection for sensitive data without significant changes to your application architecture. 
 

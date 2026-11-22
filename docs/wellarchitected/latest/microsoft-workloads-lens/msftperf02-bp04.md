@@ -1,7 +1,6 @@
 
 
 # MSFTPERF02-BP04 Consider using Amazon EBS Provisioned Rate for Volume Initialization
-<a name="msftperf02-bp04"></a>
 
  Amazon EBS provisioned rate for volume initialization (PRVI) offers significant advantages for Microsoft workloads by providing predictable and faster initialization times for new EBS volumes created from snapshots. This feature is particularly valuable for Windows Server deployments and SQL Server environments where consistent and reliable performance during volume initialization is crucial. By allowing you to specify the initialization rate up to 300 MiB/s, PRVI enables you to control and accelerate the background process of loading data from S3 to the EBS volume, ensuring your Microsoft applications can access their data more quickly and predictably. 
 

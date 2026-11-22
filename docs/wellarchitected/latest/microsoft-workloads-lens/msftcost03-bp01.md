@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP01 Understand Microsoft SQL Server licensing and BYOL availability
-<a name="msftcost03-bp01"></a>
 
  AWS offers a range of flexible cost optimization choices for licensing. These licensing options are designed to help you reduce costs, maintain compliance, and meet your business needs. AWS offers the license include option, which you can launch Windows EC2 instances with SQL Server installed and licensed on-demand, paying only for what you use. With the right requirements, you can also bring your own licenses to AWS, either to Amazon EC2 Dedicated Hosts or default (shared) tenancy. 
 

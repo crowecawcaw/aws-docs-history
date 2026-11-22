@@ -1,7 +1,6 @@
 
 
 # Scenario 6: High availability and disaster recovery for Windows workloads on AWS
-<a name="scenario-6-high-availability-and-disaster-recovery-for-windows-workloads-on-aws"></a>
 
 ## Characteristics
 <a name="characteristics-5"></a>

@@ -1,7 +1,6 @@
 
 
 # MSFTPERF03-BP01 Consider Amazon EBS gp3 volumes for general workloads
-<a name="msftperf03-bp01"></a>
 
  Amazon EBS's newest and most cost-effective SSD option, General Purpose SSD (gp3) volumes, strikes an optimal balance between price and performance for a wide range of applications. A key advantage of gp3 volumes is the ability to adjust performance independently of storage capacity, allowing users to meet specific performance requirements without unnecessarily increasing block storage. Moreover, gp3 volumes offer significant cost savings, with prices 20% lower per GiB compared to their predecessor, General Purpose SSD (gp2) volumes. 
 

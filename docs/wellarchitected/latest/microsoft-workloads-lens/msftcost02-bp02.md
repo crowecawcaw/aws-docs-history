@@ -1,7 +1,6 @@
 
 
 # MSFTCOST02-BP02 Automate stop and start schedules
-<a name="msftcost02-bp02"></a>
 
  Leverage the Instance Scheduler on AWS to reduce the use of Amazon EC2 and Amazon Relational Database Service instances that do not need to run continuously. The Instance Scheduler helps reduce operational costs by stopping and starting resources as needed. 
 

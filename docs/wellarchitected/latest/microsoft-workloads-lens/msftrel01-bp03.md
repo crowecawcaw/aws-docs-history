@@ -1,7 +1,6 @@
 
 
 # MSFTREL01-BP03 Safeguard the continuous accessibility of essential data from your Microsoft workload
-<a name="msftrel01-bp03"></a>
 
  Microsoft workloads encompass diverse technologies including SQL Server databases, Active Directory domain controllers, Exchange Server mailbox databases, SharePoint content databases, IIS web applications, and Windows file servers, each requiring specialized backup and recovery approaches. A comprehensive data accessibility strategy must address the unique backup requirements of each Microsoft technology while using AWS services to maintain business continuity and data protection. 
 

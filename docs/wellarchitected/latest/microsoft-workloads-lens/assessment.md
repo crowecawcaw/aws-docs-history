@@ -1,7 +1,6 @@
 
 
 # Assessment
-<a name="assessment"></a>
 
  Comprehensive assessment of your Microsoft workload environment is a critical first step in optimizing costs on AWS. By utilizing discovery and assessment tools like Migration Evaluator and AWS OLA, organizations can gain complete visibility into their workloads, understand resource utilization patterns, and identify opportunities for optimization. This evaluation process creates the foundation for effective cost management and resource rightsizing of Microsoft workloads. 
 

@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar within the Microsoft Workloads Lens extends the foundational security principles of the AWS Well-Architected Framework with specialized guidance tailored for Microsoft-centric environments. Rather than replacing the core Well-Architected security practices, this lens amplifies them by addressing the unique security considerations that arise when running Microsoft technologies on AWS. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTCOST04-BP02 Consider Babelfish for Amazon Aurora PostgreSQL
-<a name="msftcost04-bp02"></a>
 
  Babelfish is an Amazon Aurora PostgreSQL feature that allows SQL Server client applications to connect directly to PostgreSQL databases. It works by understanding SQL Server's TDS protocol and common SQL statements, providing a dedicated endpoint for SQL Server connections. This functionality enables organizations to migrate from SQL Server to PostgreSQL while maintaining application compatibility and minimizing the need for code modifications. 
 

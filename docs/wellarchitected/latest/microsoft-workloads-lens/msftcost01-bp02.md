@@ -1,7 +1,6 @@
 
 
 # MSFTCOST01-BP02 Run assessment tools
-<a name="msftcost01-bp02"></a>
 
  AWS Optimization and Licensing Assessment (OLA) is a complimentary program for new and existing customers to assess and optimize current on-premises and cloud environments, based on actual resource utilization, third-party licensing, and application dependencies. 
 

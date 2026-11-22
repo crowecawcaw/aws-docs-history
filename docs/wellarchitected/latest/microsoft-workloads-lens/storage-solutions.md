@@ -1,7 +1,6 @@
 
 
 # Storage solutions
-<a name="storage-solutions"></a>
 
  Selecting appropriate storage solutions is critical for Microsoft workload performance, as storage often becomes a bottleneck for Windows applications and SQL Server databases. AWS offers various storage options from different EBS volume types to fully managed services like Amazon FSx for Windows File Server and FSx for ONTAP. Understanding the performance characteristics, use cases, and cost implications of each storage option enables organizations to optimize their Microsoft workloads for both performance and efficiency. 
 

@@ -1,7 +1,6 @@
 
 
 # Efficient infrastructure
-<a name="efficient-infrastructure"></a>
 
  Efficient infrastructure focuses on optimizing Microsoft workloads on AWS to maximize resource utilization while minimizing environmental impact. This involves designing architectures with fewer, highly-utilized instances, reducing energy consumption, and shrinking infrastructure footprint. It requires balancing performance needs with sustainability goals, implementing robust monitoring, and practicing continuous optimization to achieve both environmental and cost benefits. 
 

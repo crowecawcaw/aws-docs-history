@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP05 Evaluate SQL Server on Linux
-<a name="msftcost03-bp05"></a>
 
  Beginning on SQL Server 2017, Microsoft offers the option to run SQL Server on Linux operating systems. SQL Server on Linux is enterprise ready and offers flexibility, high performance, security features, reduced TCO, HA/DR features, and a great user experience. You can switch from SQL Server on Windows Server to SQL Server on Linux to save on Windows Server licensing costs. 
 

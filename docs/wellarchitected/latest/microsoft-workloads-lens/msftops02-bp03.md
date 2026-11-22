@@ -1,7 +1,6 @@
 
 
 # MSFTOPS02-BP03 Implement operating system image control
-<a name="msftops02-bp03"></a>
 
  AWS has developed a set of Amazon Machine Images (AMIs) for popular Microsoft solutions with License Included software, enabling standardized and automated deployments of Windows Server instances in Amazon EC2. You can either use the latest images that are built by AWS or create your own. You can subscribe to AWS Windows AMI notifications or create custom AMIs of your own to apply the standards required by your environment, such as regional settings, agents, base patches, and general tools. EC2 Image Builder is a fully managed AWS service that helps you to automate the creation, management, and deployment of customized, secure, and up-to-date server images. 
 

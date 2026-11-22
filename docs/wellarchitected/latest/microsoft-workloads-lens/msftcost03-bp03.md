@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP03 Check if your workload is running with the right SQL Server edition
-<a name="msftcost03-bp03"></a>
 
  Microsoft offers types of SQL Server editions, with a different set of features and license cost. The Enterprise edition provides data center capabilities with high performance, unlimited virtualization, and several business intelligence tools. The Standard edition provides basic data management and business intelligence for smaller organizations and departments. The Web edition is suitable for companies that are web hosts or web value added providers (VAPs) and it should only be used to support public and internet accessible webpages, websites, and web services; its license does not allow the use for line-of-business applications. The Developer edition includes all functionality of the Enterprise edition, but it is intended for development purposes only. And the Express edition is a free database that can be used for learning or for building desktop applications. Over the release of SQL versions, Microsoft has added more features to the Standard edition, and it is not so unusual to see customers evaluating the downgrade from the Enterprise edition to the Standard one. 
 

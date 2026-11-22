@@ -1,7 +1,6 @@
 
 
 # MSFTPERF03-BP03 Consider Amazon FSx for Windows File Server
-<a name="msftperf03-bp03"></a>
 
  Amazon FSx for Windows File Server is a managed service that provides file storage using Microsoft Windows file system technology. It supports Windows file system features and uses the Server Message Block (SMB) protocol for network file access, making it compatible with various Windows-based enterprise workloads and applications. The service offers integration with other AWS services and performance optimized for enterprise applications, aiming to provide low-latency file storage. FSx for Windows File Server is designed for Windows workloads that require shared file storage, such as File Servers, Application Server configuration stores, and even Microsoft SQL Server databases. 
 

@@ -1,7 +1,6 @@
 
 
 # MSFTCOST03-BP06 Evaluate Optimize CPU feature
-<a name="msftcost03-bp06"></a>
 
  Optimize CPUs for Amazon EC2 Instances provides customers greater control of your EC2 instances on two fronts. First, you can specify a custom number of vCPUs to save on vCPU-based licensing costs (such as SQL Server). Second, you can disable multithreading for workloads that perform well with single-threaded CPUs, like certain high-performance computing (HPC) applications. Reducing the number of vCPUs or disabling multithreading offers fewer cores to your SQL Server workload on EC2 without affecting the other compute resources available to the machine (such as RAM and storage), and most of the time without compromising the workload performance. This feature is available for both Bring Your Own License (BYOL) and License Included (LI) deployments. 
 

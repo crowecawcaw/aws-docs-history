@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  Defining key terms and concepts is crucial when architecting, migrating and operating Microsoft workloads in the AWS Cloud. This section outlines the important AWS and Microsoft workload definitions, deployment models, licensing considerations, and benefits of running Microsoft applications and services on AWS. 
 

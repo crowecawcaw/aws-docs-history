@@ -1,7 +1,6 @@
 
 
 # Workload security
-<a name="workload-security"></a>
 
  Securing Microsoft workloads requires a comprehensive approach that addresses the operating system, applications, databases, and underlying infrastructure. This focus area explores how to implement security hardening, patch management, and protective measures across each component of your Microsoft environment on AWS, verifying that each layer contributes to an overall robust security posture. 
 

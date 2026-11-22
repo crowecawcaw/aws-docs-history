@@ -1,7 +1,6 @@
 
 
 # MSFTPERF04-BP01 Use historical data to evaluate performance
-<a name="msftperf04-bp01"></a>
 
  Effective assessment of Microsoft workload performance requires comprehensive data collection across key system components: compute, memory, storage, and networking. This approach aligns with the Well-Architected Framework's Performance Excellence guidelines, specifically the best practice PERF02-BP03, which focuses on gathering compute-related metrics. By monitoring these critical areas, organizations can identify suboptimal performance and implement timely corrective measures. This holistic monitoring strategy enables proactive management of Microsoft workloads, ensuring they meet performance expectations and allowing for swift intervention when performance falls below desired thresholds. 
 

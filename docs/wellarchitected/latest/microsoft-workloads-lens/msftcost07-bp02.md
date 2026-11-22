@@ -1,7 +1,6 @@
 
 
 # MSFTCOST07-BP02 Improve Amazon Elastic Kubernetes Service cost tracking with Kubecost
-<a name="msftcost07-bp02"></a>
 
  Kubecost improves the cost tracking for your Windows containers. Kubecost helps right sizing cluster nodes, container requests, and manages underutilized infrastructure. 
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-ops"></a>
 +  **Implement comprehensive observability:** Establish monitoring and logging across all layers of your Microsoft workload, including infrastructure, applications, and databases, using both Microsoft-native tools and AWS services for complete visibility. 
 +  **Automate operational tasks:** Leverage infrastructure as code (IaC), AWS Systems Manager, and other automation tools to reduce manual intervention, minimize human error, and perform consistent deployment and management of Microsoft workloads. 
 +  **Embrace managed services:** Utilize AWS managed services like AWS Managed Microsoft AD, Amazon RDS for SQL Server, and Amazon FSx to reduce operational complexity and benefit from AWS's operational expertise. 

@@ -1,7 +1,6 @@
 
 
 # Compute resources
-<a name="compute-resources"></a>
 
  Optimizing compute resources for Microsoft workloads running on Windows servers requires careful selection of EC2 instance families and features that align with workload requirements. This includes choosing appropriate instance types for different use cases, leveraging performance-enhancing features like EC2 Fast Launch and EBS optimizations, and utilizing instance store storage for high-performance scenarios. By understanding the performance characteristics of different compute options, organizations can maximize the efficiency of their Windows-based applications while maintaining cost-effectiveness. 
 

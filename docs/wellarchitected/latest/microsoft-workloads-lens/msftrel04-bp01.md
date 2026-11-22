@@ -1,7 +1,6 @@
 
 
 # MSFTREL04-BP01 Use Amazon EC2 Auto Scaling in combination with Application Auto Scaling
-<a name="msftrel04-bp01"></a>
 
  Microsoft workloads often experience variable demand patterns that require dynamic resource scaling to maintain performance and cost efficiency. Applications like SharePoint farms, SQL Server databases, and .NET web applications face fluctuating user loads, batch processing requirements, and seasonal traffic variations that make static resource provisioning ineffective and costly. 
 

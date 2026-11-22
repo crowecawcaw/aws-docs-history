@@ -1,7 +1,6 @@
 
 
 # MSFTCOST05-BP02 Control Amazon EBS volumes or snapshots lifecycle
-<a name="msftcost05-bp02"></a>
 
  EBS snapshots are incremental backups stored in S3, saving only changed blocks since the last snapshot. They can backup unattached volumes before deletion. Two storage tiers available: Standard (higher storage cost and free retrieval) and Archive (lower storage cost and paid retrieval). Managing snapshot lifecycles and removing unused volumes helps optimize costs. 
 

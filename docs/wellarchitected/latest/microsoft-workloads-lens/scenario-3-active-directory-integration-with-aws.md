@@ -1,7 +1,6 @@
 
 
 # Scenario 3: Active Directory integration with AWS
-<a name="scenario-3-active-directory-integration-with-aws"></a>
 
  For organizations heavily invested in Microsoft Active Directory, extending their identity and access management to AWS is crucial for maintaining security and operational consistency. This scenario outlines how to create a holistic identity management experience across on-premises and AWS environments, enabling single sign-on and unified access controls. 
 

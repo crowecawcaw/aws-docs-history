@@ -1,7 +1,6 @@
 
 
 # MSFTSEC01-BP03 Develop a comprehensive software update strategy
-<a name="msftsec01-bp03"></a>
 
  Microsoft regularly releases scheduled security updates and emergency patches to address vulnerabilities. Stay informed about the latest security advisories from relevant vendors. It's crucial to keep your Microsoft application and its underlying components up-to-date with the latest security fixes on a regular schedule to avoid security gaps. Develop a plan for applying critical emergency patches when released. Consider implementing automated processes to streamline this update process, which keeps your Microsoft environment secure and current with minimal manual intervention. 
 

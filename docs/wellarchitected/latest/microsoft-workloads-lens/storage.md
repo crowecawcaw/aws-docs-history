@@ -1,7 +1,6 @@
 
 
 # Storage
-<a name="storage"></a>
 
  Optimizing storage costs is essential for Microsoft workloads on AWS, as storage represents a significant portion of infrastructure expenses. AWS offers various cost-effective storage solutions, from newer generation EBS volumes (gp3) to fully managed services like Amazon FSx for Windows File Server and FSx for ONTAP. By implementing proper lifecycle management for volumes and snapshots, and choosing the right storage solutions for specific workload requirements, organizations can significantly reduce storage costs while maintaining or improving performance. 
 

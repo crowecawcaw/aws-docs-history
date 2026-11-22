@@ -1,7 +1,6 @@
 
 
 # MSFTCOST06-BP01 Use AWS Managed Microsoft Active Directory
-<a name="msftcost06-bp01"></a>
 
  AWS Managed Microsoft AD provides redundant Windows Server domain controllers across two Availability Zones in your VPC. It handles all maintenance tasks automatically, including monitoring, replication, backups, and updates. The service supports directory-aware workloads like SharePoint and .NET applications, and can integrate with on-premises Active Directory through trust relationships. Based on size requirements, you can either choose the Standard or the Enterprise edition. 
 

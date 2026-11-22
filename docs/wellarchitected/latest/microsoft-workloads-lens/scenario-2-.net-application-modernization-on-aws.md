@@ -1,7 +1,6 @@
 
 
 # Scenario 2: .NET Application Modernization on AWS
-<a name="scenario-2-.net-application-modernization-on-aws"></a>
 
  As organizations seek to modernize their legacy .NET applications, AWS provides a comprehensive platform for transformation. This scenario addresses the journey from traditional monolithic .NET applications to cloud-based architectures, enabling organizations to use modern development practices, improve scalability, and reduce operational costs while maintaining familiarity with Microsoft technologies. 
 

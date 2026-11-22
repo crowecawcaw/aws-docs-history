@@ -1,7 +1,6 @@
 
 
 # Containers
-<a name="containers"></a>
 
  Containerizing Windows workloads represents a significant opportunity to optimize infrastructure costs and improve operational efficiency. AWS provides comprehensive tools and services to support this transformation, such as advanced optimization tools like AWS Compute Optimizer for Fargate tasks and Kubecost for EKS environments. By leveraging these solutions along with modern scaling strategies like Karpenter, organizations can reduce their Windows Server footprint while gaining the benefits of containerized deployments, including improved resource utilization and automated scaling. 
 

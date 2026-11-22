@@ -1,7 +1,6 @@
 
 
 # MSFTCOST04-BP01 Use caching to enhance SQL Server workloads
-<a name="msftcost04-bp01"></a>
 
  Caching in .NET applications reduces costs and improves performance by storing frequently accessed data, lowering the load on backend databases like SQL Server. While especially useful for read-heavy operations, choose a caching method that fits your needs, considering that local caching has scalability limitations. Evaluate the trade-off between performance gains and caching costs when implementing your strategy. 
 

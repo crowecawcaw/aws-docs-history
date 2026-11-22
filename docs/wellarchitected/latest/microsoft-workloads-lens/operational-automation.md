@@ -1,7 +1,6 @@
 
 
 # Operational automation
-<a name="operational-automation"></a>
 
  Operational automation is crucial for managing Microsoft workloads efficiently and consistently. This encompasses implementing management and governance solutions through AWS Systems Manager, establishing infrastructure as code (IaC) practices, maintaining standardized operating system images, and leveraging AWS managed services. By automating operational tasks, organizations can reduce human error, ensure consistent deployments, and minimize the operational overhead associated with managing Microsoft workloads on AWS. 
 

@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The reliability pillar for Microsoft workloads on AWS focuses on designing resilient systems, implementing robust monitoring, conducting post-incident analysis, managing capacity through auto scaling, and automating recovery procedures. It emphasizes defining clear availability goals, choosing appropriate architectural patterns, and regularly testing resilience. The pillar guides organizations in avoiding failures, responding effectively to disruptions, and continuously improving their systems to maintain high availability and efficient operation of Microsoft workloads in the AWS environment. 
 

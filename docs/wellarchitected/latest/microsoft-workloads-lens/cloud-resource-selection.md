@@ -1,7 +1,6 @@
 
 
 # Cloud resource selection
-<a name="cloud-resource-selection"></a>
 
  Selecting appropriate cloud resources is fundamental to achieving optimal performance for Microsoft workloads on AWS. This involves evaluating different deployment models including traditional Windows servers on EC2, managed container orchestration services, and serverless computing options. By understanding the performance characteristics and operational trade-offs of each approach, organizations can choose the most suitable architecture for their specific Microsoft workload requirements while optimizing for both performance and operational efficiency. 
 

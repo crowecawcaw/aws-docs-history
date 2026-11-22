@@ -1,7 +1,6 @@
 
 
 # MSFTCOST05-BP04 Use Amazon FSx for Windows File Server
-<a name="msftcost05-bp04"></a>
 
  Amazon FSx for Windows File Server is a fully managed file storage service that's optimized for Microsoft workloads. It provides an SMB file system that can be accessed by applications, including Windows web servers and Microsoft SQL Server. FSx for Windows File Server is a scalable solution that offers Single AZ or Multi AZ availability, automatic data deduplication, different pricing options, and two capacity settings (HDD and SSD), being flexible to fit your Microsoft workloads. Fairly small EC2 instances can leverage the FSx solution to achieve high performance storage levels. 
 
