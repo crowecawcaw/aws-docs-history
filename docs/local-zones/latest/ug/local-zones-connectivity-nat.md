@@ -1,7 +1,6 @@
 
 
 # NAT gateway connection in Local Zones
-<a name="local-zones-connectivity-nat"></a>
 
 A NAT gateway is a Network Address Translation (NAT) service. It allows your Amazon VPC resources in your private subnets to securely access services outside the subnet, including the internet, while keeping those private resources inaccessible to any unsolicited traffic. For a list of Local Zones that support NAT gateways, see [AWS Local Zones features](https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/).
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Local Zones
-<a name="getting-started"></a>
 
 To get started with AWS Local Zones, you must first opt-in to a Local Zone through the AWS Global View console or the AWS CLI. Next, create a subnet in a VPC in the parent Region, specifying the Local Zone when you create it. Finally, create AWS resources in the Local Zone subnet.
 

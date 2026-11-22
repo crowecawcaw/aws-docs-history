@@ -1,7 +1,6 @@
 
 
 # Direct Connect in Local Zones
-<a name="local-zones-connectivity-direct-connect"></a>
 
 With Direct Connect, you transfer data privately and directly from your data center into and out of Local Zones using a Public Virtual Interface (VIF) or Private VIF. Direct Connect provides similar benefits to using a software-based VPN on Amazon EC2, but bypasses the public internet and reduces the overheard required to manage the connection to Local Zones.
 

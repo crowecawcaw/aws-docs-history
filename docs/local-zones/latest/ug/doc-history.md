@@ -1,12 +1,12 @@
 
 
 # Document history for the AWS Local Zones user guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for AWS Local Zones.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New Local Zone launch](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html) | A new Local Zone is now available in Colombia (Bogotá). | November 19, 2026 | 
 | [IPv6, VGW, and MTU support](https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html) | Added the list of Local Zones that support IPv6, edge association with a virtual private gateway, and appropriate MTU sizes. | November 1, 2026 | 
 | [Amazon EBS encryption in AWS Local Zones documentation](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-local-zones-outposts-wavelength.html) | Added the Amazon EBS volume encryption in AWS Local Zones documentation link. | November 1, 2026 | 
 | [Local Zone access update](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html) | To access the US West (Las Vegas) Local Zone, you must now contact Support. | September 21, 2026 | 
@@ -32,4 +32,4 @@ The following table describes the documentation releases for AWS Local Zones.
 | [New Local Zone launch](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html) | A new Local Zone is now available in US East (Dallas) 2. | November 13, 2023 | 
 | [NAT gateways](https://docs.aws.amazon.com/local-zones/latest/ug/local-zones-connectivity-nat.html) | NAT gateways are now available in select Local Zones. | August 17, 2023 | 
 | [New Local Zone launch](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html) | A new Local Zone is now available in US West (Phoenix) 2. | July 27, 2023 | 
-| [Initial release](#doc-history) | Initial release of the AWS Local Zones User Guide | November 17, 2022 | 
+| [Initial release](doc-history.md) | Initial release of the AWS Local Zones User Guide | November 17, 2022 | 

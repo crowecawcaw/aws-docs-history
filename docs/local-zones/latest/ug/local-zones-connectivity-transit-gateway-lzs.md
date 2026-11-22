@@ -1,7 +1,6 @@
 
 
 # Transit gateway connection between Local Zones
-<a name="local-zones-connectivity-transit-gateway-lzs"></a>
 
 A transit gateway can be used to connect one Local Zone to another within the same parent Region. For more information about transit gateways, see [Connect your VPC to other VPCs and networks using a transit gateway](https://docs.aws.amazon.com/vpc/latest/userguide/extend-tgw.html) in the *Amazon VPC User Guide*.
 

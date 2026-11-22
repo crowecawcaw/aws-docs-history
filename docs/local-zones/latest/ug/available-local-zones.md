@@ -1,7 +1,6 @@
 
 
 # Available Local Zones
-<a name="available-local-zones"></a>
 
 AWS Local Zones is available around the world. Find the Local Zone closest to you.
 
@@ -77,6 +76,7 @@ The following Local Zones are available in South America:
 | --- | --- | --- | --- | --- | --- | --- | 
 | Argentina (Buenos Aires) | us-east-1-bue-1a | use1-bue1-az1 | us-east-1-bue-1 | us-east-1 | use1-az2 | Argentina | 
 | Chile (Santiago) | us-east-1-scl-1a | use1-scl1-az1 | us-east-1-scl-1 | us-east-1 | use1-az1 | Chile | 
+| Colombia (Bogotá) | us-east-1-bog-1a | use1-bog1-az1 | us-east-1-bog-1 | us-east-1 | use1-az2 | Colombia | 
 | Peru (Lima) | us-east-1-lim-1a | use1-lim1-az1 | us-east-1-lim-1 | us-east-1 | use1-az2 | Peru | 
 
 ### Africa

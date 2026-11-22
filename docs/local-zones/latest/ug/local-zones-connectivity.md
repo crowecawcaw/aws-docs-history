@@ -1,7 +1,6 @@
 
 
 # Connectivity options for Local Zones
-<a name="local-zones-connectivity"></a>
 
 There are many ways to connect users and applications to resources running in a Local Zone.
 
