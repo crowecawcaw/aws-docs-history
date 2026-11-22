@@ -1,7 +1,6 @@
 
 
 # Lightsail for Research API actions
-<a name="api-actions"></a>
 
 You can use the following API actions, which are part of the Lightsail API, to manage Amazon Lightsail for Research resources. Choose the name of the action to view more information about that action.
 

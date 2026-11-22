@@ -1,7 +1,6 @@
 
 
 # Manage cost control rules in Lightsail for Research
-<a name="cost-control"></a>
 
 Cost control uses rules that you define to help manage the usage and cost of your Lightsail for Research virtual computers.
 

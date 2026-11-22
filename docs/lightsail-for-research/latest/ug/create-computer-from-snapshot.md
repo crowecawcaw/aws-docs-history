@@ -1,7 +1,6 @@
 
 
 # Create a virtual computer or disk from a snapshot
-<a name="create-computer-from-snapshot"></a>
 
 Complete the following steps to create a new Lightsail for Research virtual computer or disk from a snapshot. 
 

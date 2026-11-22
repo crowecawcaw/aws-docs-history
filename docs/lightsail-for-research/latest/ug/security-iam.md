@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon Lightsail for Research
-<a name="security-iam"></a>
 
 
 

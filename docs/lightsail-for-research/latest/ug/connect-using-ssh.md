@@ -1,7 +1,6 @@
 
 
 # Connect to a Lightsail for Research virtual computer using Secure Shell
-<a name="connect-using-ssh"></a>
 
 You can connect to a virtual computer in Amazon Lightsail for Research using the Secure Shell Protocol (SSH). You can use SSH to manage your virtual computer remotely so that you can sign in to your computer over the internet and run commands.
 
@@ -93,13 +92,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to display the public IP address and username of your virtual computer. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`. Replace `{{computer-name}}` with the name of the virtual computer that you want to connect to.
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r ".instance.username" & aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r ".instance.publicIpAddress"
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r ".instance.username" & aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r ".instance.publicIpAddress"
    ```
 
@@ -108,13 +107,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to establish an SSH connection with your virtual computer. In the command, replace `{{user-name}}` with the sign-in in username, and replace `{{public-ip-address}}` with the public IP address of your virtual computer.
 
-   ```
+   ```cmd
    ssh -i dkp_rsa {{user-name}}@{{public-ip-address}}
    ```
 
    **Example**
 
-   ```
+   ```cmd
    ssh -i dkp_rsa {{ubuntu}}@{{192.0.2.0}}
    ```
 
@@ -135,13 +134,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to display the public IP address and username of your virtual computer. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`. Replace `{{computer-name}}` with the name of the virtual computer that you want to connect to.
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r '.instance.username' && aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r '.instance.publicIpAddress'
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r '.instance.username' && aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r '.instance.publicIpAddress'
    ```
 
@@ -150,13 +149,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to establish an SSH connection with your virtual computer. In the command, replace `{{user-name}}` with the sign-in username, and replace `{{public-ip-address}}` with the public IP address of your virtual computer.
 
-   ```
+   ```cmd
    ssh -i dkp_rsa {{user-name}}@{{public-ip-address}}
    ```
 
    **Example**
 
-   ```
+   ```cmd
    ssh -i dkp_rsa {{ubuntu}}@{{192.0.2.0}}
    ```
 

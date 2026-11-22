@@ -1,7 +1,6 @@
 
 
 # What is Amazon Lightsail for Research?
-<a name="what-is-lfr"></a>
 
 With Amazon Lightsail for Research, academics and researchers can create powerful virtual computers in the Amazon Web Services (AWS) Cloud. These virtual computers come with pre-installed research applications, such as RStudio and Scilab. 
 

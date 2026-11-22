@@ -1,7 +1,6 @@
 
 
 # Get a key pair for a Lightsail for Research virtual computer
-<a name="get-ssh-keys"></a>
 
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon Lightsail for Research virtual computer. The public key is stored on each virtual computer in Lightsail for Research, and you keep the private key on your local computer. The private key allows you to securely establish a Secure Shell Protocol (SSH) with your virtual computer. Anyone who possesses the private key can connect to your virtual computer, so it's important that you store your private key in a secure place.
 
@@ -40,13 +39,13 @@ This procedure applies to you if your local computer uses a Windows operating sy
 
 1. Enter the following command to get the Lightsail DKP for a specific AWS Region. This command saves the information to a `dkp-details.json` file. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`.
 
-   ```
+   ```cmd
    aws lightsail download-default-key-pair --region {{region-code}} > dkp-details.json
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail download-default-key-pair --region {{us-east-2}} > dkp-details.json
    ```
 
@@ -55,7 +54,7 @@ This procedure applies to you if your local computer uses a Windows operating sy
 
 1. Enter the following command to extract the private key information from the `dkp-details.json` file and add it to a new `dkp_rsa` private key file.
 
-   ```
+   ```cmd
    type dkp-details.json | jq -r ".privateKeyBase64" > dkp_rsa
    ```
 
@@ -73,13 +72,13 @@ This procedure applies to you if your local computer uses a Linux, Unix, or a ma
 
 1. Enter the following command to get the Lightsail DKP for a specific AWS Region. This command saves the information to a `dkp-details.json` file. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`.
 
-   ```
+   ```cmd
    aws lightsail download-default-key-pair --region {{region-code}} > dkp-details.json
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail download-default-key-pair --region {{us-east-2}} > dkp-details.json
    ```
 
@@ -88,7 +87,7 @@ This procedure applies to you if your local computer uses a Linux, Unix, or a ma
 
 1. Enter the following command to extract the private key information from the `dkp-details.json` file and add it to a new `dkp_rsa` private key file.
 
-   ```
+   ```cmd
    cat dkp-details.json | jq -r '.privateKeyBase64' > dkp_rsa
    ```
 
@@ -97,7 +96,7 @@ This procedure applies to you if your local computer uses a Linux, Unix, or a ma
 
 1. Enter the following command to set permissions for the `dkp_rsa` file.
 
-   ```
+   ```cmd
    chmod 600 dkp_rsa
    ```
 

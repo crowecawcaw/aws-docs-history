@@ -1,7 +1,6 @@
 
 
 # Add storage to a virtual computer in Lightsail for Research
-<a name="attach-disk"></a>
 
 Complete the following steps to attach a disk to a virtual computer in Lightsail for Research. You can attach up to 15 disks to a virtual computer. When you attach a disk to your virtual computer using the Lightsail for Research console, it is automatically formatted and mounted by the service. This process takes a few minutes, so you should confirm that the disk has reached a **Mounted** mounting status before you start using it. By default, Lightsail for Research mounts disks to the `/home/lightsail-user/{{<disk-name>}}` directory; where `{{<disk-name>}}` is the name you gave your disk.
 

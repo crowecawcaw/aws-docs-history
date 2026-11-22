@@ -1,7 +1,6 @@
 
 
 # Create a Lightsail for Research virtual computer
-<a name="create-computer"></a>
 
 Complete the following steps to create a Lightsail for Research virtual computer running an application.
 

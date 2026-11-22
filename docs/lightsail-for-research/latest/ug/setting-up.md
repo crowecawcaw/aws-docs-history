@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon Lightsail for Research
-<a name="setting-up"></a>
 
 If you're a new AWS customer, complete the setup prerequisites that are listed on this page before you start using Amazon Lightsail for Research.
 

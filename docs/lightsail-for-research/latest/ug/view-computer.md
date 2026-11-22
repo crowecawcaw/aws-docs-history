@@ -1,7 +1,6 @@
 
 
 # View Lightsail for Research virtual computer details
-<a name="view-computer"></a>
 
 Complete the following steps to view a list of virtual computers and their details in your Lightsail for Research account.
 

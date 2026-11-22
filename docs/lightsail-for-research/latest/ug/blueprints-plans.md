@@ -1,7 +1,6 @@
 
 
 # Choose application images and hardware plans for Lightsail for Research
-<a name="blueprints-plans"></a>
 
 When you create an Amazon Lightsail for Research virtual computer, you select an application and a hardware plan (plan) for it.
 

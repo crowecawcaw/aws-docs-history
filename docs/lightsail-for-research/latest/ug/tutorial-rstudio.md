@@ -1,7 +1,6 @@
 
 
 # Launch and use RStudio on Lightsail for Research
-<a name="tutorial-rstudio"></a>
 
 In this tutorial, we show you how to get started with managing and using your RStudio virtual computer in Amazon Lightsail for Research.
 

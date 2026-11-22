@@ -1,7 +1,6 @@
 
 
 # Tag Lightsail for Research resources
-<a name="create-tags"></a>
 
 Complete the following steps to create a tag for your Lightsail for Research virtual computer. The steps are similar for Lightsail for Research disks and snapshots.
 

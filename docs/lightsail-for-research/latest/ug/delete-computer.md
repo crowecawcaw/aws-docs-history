@@ -1,7 +1,6 @@
 
 
 # Delete a Lightsail for Research virtual computer
-<a name="delete-computer"></a>
 
 Complete the following steps to delete your Lightsail for Research virtual computer when you no longer need it. You stop incurring charges for the virtual computer as soon as it’s deleted. Resources that were attached to the deleted computer, such as snapshots, continue to incur charges until you delete them.
 

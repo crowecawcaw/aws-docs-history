@@ -1,7 +1,6 @@
 
 
 # Tutorial: Get started with Lightsail for Research virtual computers
-<a name="getting-started"></a>
 
 Use this tutorial to get started with Amazon Lightsail for Research virtual computers. You'll learn how to create, connect to, and use a virtual computer. In Lightsail for Research, a virtual computer is a research workstation that you create and manage in the AWS Cloud. Virtual computers are based on Lightsail Linux instances with the Ubuntu operating system. On your virtual computer, you can preconfigure a research application like JupyterLab, RStudio, Scilab, and more.
 

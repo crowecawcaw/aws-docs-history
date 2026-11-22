@@ -1,7 +1,6 @@
 
 
 # Organize Lightsail for Research resources with tags
-<a name="tags"></a>
 
 With Amazon Lightsail for Research, you can assign tags to your resources. Each tag is a label that consists of a **key** and an optional **value** that can make it efficient to manage your resources. A key without a value is referred to as a key-only tag, and a key with a value is referred to as a key-value tag. Although there are no inherent types of tags, they let you categorize your resources by purpose, owner, environment, or other criteria. This is useful when you have many resources of the same type. You can quickly identify a specific resource based on the tags you've assigned to it. For example, you can define a set of tags that help you track each resource’s project, or priority. 
 

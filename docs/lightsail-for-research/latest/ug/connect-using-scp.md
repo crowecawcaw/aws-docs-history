@@ -1,7 +1,6 @@
 
 
 # Transfer files to Lightsail for Research virtual computers using Secure Copy
-<a name="connect-using-scp"></a>
 
 You can transfer files from your local computer to a virtual computer in Amazon Lightsail for Research using Secure Copy (SCP). With this process, you can transfer multiple files, or entire directories, at one time.
 
@@ -41,13 +40,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to display the public IP address and username of your virtual computer. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`. Replace `{{computer-name}}` with the name of the virtual computer that you want to connect to.
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r ".instance.username" & aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r ".instance.publicIpAddress"
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r ".instance.username" & aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r ".instance.publicIpAddress"
    ```
 
@@ -56,7 +55,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to establish an SCP connection with your virtual computer and transfer files to it.
 
-   ```
+   ```cmd
    scp -i dkp_rsa -r "{{source-folder}}" {{user-name}}@{{public-ip-address}}:{{destination-directory}}
    ```
 
@@ -68,7 +67,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
    The following example copies all files from the `C:\Files` folder on the local computer to the `/home/lightsail-user/Uploads/` directory on the remote virtual computer.
 
-   ```
+   ```cmd
    scp -i dkp_rsa -r "{{C:\Files}}" {{ubuntu}}@{{192.0.2.0}}:{{/home/lightsail-user/Uploads/}}
    ```
 
@@ -87,13 +86,13 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to display the public IP address and username of your virtual computer. In the command, replace `{{region-code}}` with the code of the AWS Region in which the virtual computer was created, such as `us-east-2`. Replace `{{computer-name}}` with the name of the virtual computer that you want to connect to.
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r '.instance.username' & aws lightsail get-instance --region {{region-code}} --instance-name {{computer-name}} | jq -r '.instance.publicIpAddress'
    ```
 
    **Example**
 
-   ```
+   ```cmd
    aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r '.instance.username' & aws lightsail get-instance --region {{us-east-2}} --instance-name {{MyJupyterComputer}} | jq -r '.instance.publicIpAddress'
    ```
 
@@ -102,7 +101,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
 1. Enter the following command to establish an SCP connection with your virtual computer and transfer files to it.
 
-   ```
+   ```cmd
    scp -i dkp_rsa -r '{{source-folder}}' {{user-name}}@{{public-ip-address}}:{{destination-directory}}
    ```
 
@@ -114,7 +113,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
 
    The following example copies all files from the `C:\Files` folder on the local computer to the `/home/lightsail-user/Uploads/` directory on the remote virtual computer.
 
-   ```
+   ```cmd
    scp -i dkp_rsa -r '{{Files}}' {{ubuntu}}@{{192.0.2.0}}:{{/home/lightsail-user/Uploads/}}
    ```
 

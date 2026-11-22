@@ -1,7 +1,6 @@
 
 
 # Delete unused storage disks in Lightsail for Research
-<a name="delete-disk"></a>
 
 Complete the following steps to delete a storage disk when you don't need it anymore. You stop incurring charges for the disk as soon as it’s deleted.
 

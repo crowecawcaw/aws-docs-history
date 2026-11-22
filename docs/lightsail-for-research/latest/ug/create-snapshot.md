@@ -1,7 +1,6 @@
 
 
 # Create snapshots of Lightsail for Research virtual computers or disks
-<a name="create-snapshot"></a>
 
 Complete the following steps to create a snapshot of your Lightsail for Research virtual computer or disk.
 

@@ -1,7 +1,6 @@
 
 
 # Delete cost control rules for your Lightsail for Research virtual computers
-<a name="delete-cost-control-rules"></a>
 
 Complete the following steps to delete a rule for your Lightsail for Research virtual computer.
 

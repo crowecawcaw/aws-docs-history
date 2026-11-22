@@ -1,7 +1,6 @@
 
 
 # Delete a snapshot in the Lightsail for Research console
-<a name="delete-snapshot"></a>
 
 Complete the following steps to delete a snapshot.
 

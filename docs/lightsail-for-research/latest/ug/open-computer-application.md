@@ -1,7 +1,6 @@
 
 
 # Access a Lightsail for Research virtual computer application
-<a name="open-computer-application"></a>
 
 Complete the following steps to launch the application that's running on your Lightsail for Research virtual computer.
 

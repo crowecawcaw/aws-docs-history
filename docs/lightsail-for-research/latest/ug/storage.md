@@ -1,7 +1,6 @@
 
 
 # Secure and store data with Lightsail for Research volumes
-<a name="storage"></a>
 
 Amazon Lightsail for Research provides block-level storage volumes (disks) that you can attach to a running Lightsail for Research virtual computer. You can use a disk as a primary storage device for data that requires frequent and granular updates. For example, disks are the recommended storage option when you run a database on a Lightsail for Research virtual computer.
 
