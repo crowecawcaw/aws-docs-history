@@ -1,7 +1,6 @@
 
 
 # Step 1: Create AWS Resources
-<a name="schema-conversion-oracle-postgresql-step-1"></a>
 
 In this step, you create and configure the required AWS resources for DMS Schema Conversion.
 

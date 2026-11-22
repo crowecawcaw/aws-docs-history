@@ -1,7 +1,6 @@
 
 
 # Oracle application future state architecture design
-<a name="chap-oracle-postgresql.migration-process.future-state"></a>
 
 When you migrate an Oracle application to use a different database like PostgreSQL you must capture the architecture of the existing application to ensure that all considerations are covered, we call that the current state architecture. The current state architecture describes the part of the application that matters to the migration from an architectural point of view. The same is true for the future state architecture which takes the new database platform into account. We don’t need to describe everything, but some things, like external dependencies, are very important, and help us determine what work to do.
 

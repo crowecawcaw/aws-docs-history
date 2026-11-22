@@ -1,7 +1,6 @@
 
 
 # Step 8: Convert Database Objects
-<a name="schema-conversion-sql-server-mysql-step-8"></a>
 
 After you create the migration project, you can convert your SQL Server database schemas to MySQL. To start working with your migration project, you launch DMS Schema Conversion.
 

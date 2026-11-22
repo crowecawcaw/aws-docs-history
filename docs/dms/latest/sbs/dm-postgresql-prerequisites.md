@@ -1,7 +1,6 @@
 
 
 # Prerequisties for migrating PostgreSQL databases
-<a name="dm-postgresql-prerequisites"></a>
 
 The following prerequisites are also required to complete this walkthrough:
 + Familiarity with the Amazon Relational Database Service (Amazon RDS), AWS Database Migration Service (AWS DMS), and SQL.

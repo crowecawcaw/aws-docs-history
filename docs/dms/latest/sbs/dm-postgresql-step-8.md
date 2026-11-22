@@ -1,7 +1,6 @@
 
 
 # Step 8: Configure a Data Migration
-<a name="dm-postgresql-step-8"></a>
 
 After you create the migration project with two PostgreSQL data providers, you can use this project for homogeneous data migrations.
 

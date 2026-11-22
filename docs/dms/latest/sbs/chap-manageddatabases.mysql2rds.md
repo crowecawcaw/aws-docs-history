@@ -1,7 +1,6 @@
 
 
 # Migrating a MySQL Database to RDS for MySQL or Aurora MySQL
-<a name="chap-manageddatabases.mysql2rds"></a>
 
 You can use these two main approaches for migrating a self-managed MySQL database to an Amazon RDS for MySQL or Amazon Aurora MySQL database.
 + Use a native or third-party database migration tool such as mysqldump to perform the full load and MySQL replication to perform ongoing replication. Typically this is the simplest option.

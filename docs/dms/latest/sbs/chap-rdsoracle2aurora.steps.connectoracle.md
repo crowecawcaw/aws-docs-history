@@ -1,7 +1,6 @@
 
 
 # Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema
-<a name="chap-rdsoracle2aurora.steps.connectoracle"></a>
 
 After the AWS CloudFormation stack has been created, test the connection to the Oracle DB instance by using SQL Workbench/J and then create the **HR** sample schema.
 

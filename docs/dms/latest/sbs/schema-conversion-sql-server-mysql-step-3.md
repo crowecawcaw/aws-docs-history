@@ -1,7 +1,6 @@
 
 
 # Step 3: Create Your Target Amazon RDS for MySQL Database
-<a name="schema-conversion-sql-server-mysql-step-3"></a>
 
 In this step, you create a new Amazon RDS for MySQL database to use as a migration target for DMS Schema Conversion. Also, you configure a new database user on your target Amazon RDS for MySQL database.
 

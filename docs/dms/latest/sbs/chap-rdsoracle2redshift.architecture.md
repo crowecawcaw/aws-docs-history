@@ -1,7 +1,6 @@
 
 
 # Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift
-<a name="chap-rdsoracle2redshift.architecture"></a>
 
 This walkthrough uses AWS CloudFormation to create a simple network topology for database migration that includes the source database, the replication instance, and the target database in the same VPC. For more information about AWS CloudFormation, see the [AWS CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 

@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS DMS Replication Instance
-<a name="chap-rdssqlserver2s3datalake.steps.createreplicationinstance"></a>
 
 To create an AWS Database Migration Service (AWS DMS) replication instance, see [Creating a replication instance](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Creating.html). Usually, the full load phase is multi-threaded (depending on task configurations) and has a greater resource footprint than ongoing replication. Consequently, it’s advisable to start with a larger instance class and then scale down once the task is in the ongoing replication phase. Moreover, if you intend to migrate your workload using multiple tasks, monitor your replication instance metrics and re-size your instance accordingly.
 

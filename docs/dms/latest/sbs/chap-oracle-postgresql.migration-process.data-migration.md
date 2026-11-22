@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle data migration mechanism
-<a name="chap-oracle-postgresql.migration-process.data-migration"></a>
 
 For testing purposes and for production cutover, data needs to be migrated from the old Amazon RDS for Oracle instance to the new Amazon RDS or Aurora PostgreSQL instance. Such a data migration requires knowledge of data type mapping and possibly incremental loading, depending on the size of the data and migration window.
 

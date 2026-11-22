@@ -1,7 +1,6 @@
 
 
 # Migrating SQL Server databases to Amazon Aurora PostgreSQL with DMS Schema Conversion
-<a name="schema-conversion-sql-server-aurora-postgresql"></a>
 
 This walkthrough gets you started with heterogeneous database migration from Microsoft SQL Server to Amazon Aurora PostgreSQL-Compatible Edition. To automate the migration, we use the AWS DMS Schema Conversion. This service helps assess the complexity of your migration and converts source SQL Server database schemas and code objects to a format compatible with PostgreSQL. Then, you apply the converted code to your target database. This introductory exercise shows how you can use DMS Schema Conversion for this migration.
 

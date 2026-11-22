@@ -1,7 +1,6 @@
 
 
 # Create and run a MongoDB migration task
-<a name="chap-mongodb2documentdb.05"></a>
 
 You are now ready to launch an AWS DMS migration task, to migrate the `zips` data from MongoDB to Amazon DocumentDB.
 

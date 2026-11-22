@@ -1,7 +1,6 @@
 
 
 # Step 5: Use the AWS Schema Conversion Tool to Convert the Oracle Schema to Aurora MySQL
-<a name="chap-rdsoracle2aurora.steps.convertschema"></a>
 
 Before you migrate data to Aurora MySQL, you convert the Oracle schema to an Aurora MySQL schema. [This video covers all the steps of this process](https://youtu.be/ClAJUNa1Ucc).
 

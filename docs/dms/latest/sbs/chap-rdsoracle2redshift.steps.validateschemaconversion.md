@@ -1,7 +1,6 @@
 
 
 # Step 6: Validate the Schema Conversion
-<a name="chap-rdsoracle2redshift.steps.validateschemaconversion"></a>
 
 To validate the schema conversion, you compare the objects found in the Oracle and Amazon Redshift databases using SQL Workbench/J.
 

@@ -1,7 +1,6 @@
 
 
 # Full load PostgreSQL database migration
-<a name="chap-manageddatabases.postgresql-rds-postgresql-full-load"></a>
 
 The full load migration phase populates the target database with a copy of the source data. This chapter describes the following native methods to help you choose the one that best matches your migration scenario.
 + pg\_dump and pg\_restore

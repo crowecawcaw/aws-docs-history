@@ -1,7 +1,6 @@
 
 
 # Step 8: Cut Over to PostgreSQL
-<a name="chap-rdsoracle2postgresql.steps.cutover"></a>
 
 To move connections from your Oracle database to your PostgreSQL database, do the following:
 

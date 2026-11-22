@@ -1,7 +1,6 @@
 
 
 # Full load Oracle database migration
-<a name="chap-manageddatabases.oracle2rds.load"></a>
 
 The full load phase populates the target database with a copy of the source. This chapter describes the following methods to help you choose the one that best matches your migration scenario.
 + Oracle Export/Import.

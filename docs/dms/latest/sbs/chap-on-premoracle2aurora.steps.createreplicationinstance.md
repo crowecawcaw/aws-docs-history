@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a Replication Instance
-<a name="chap-on-premoracle2aurora.steps.createreplicationinstance"></a>
 
 An AWS DMS replication instance performs the actual data migration between source and target. The replication instance also caches the changes during the migration. How much CPU and memory capacity a replication instance has influences the overall time required for the migration. Use the following procedure to set the parameters for a replication instance.
 

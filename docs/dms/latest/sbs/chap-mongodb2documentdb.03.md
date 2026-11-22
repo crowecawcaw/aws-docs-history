@@ -1,7 +1,6 @@
 
 
 # Create an AWS DMS replication instance for MongoDB migration
-<a name="chap-mongodb2documentdb.03"></a>
 
 To perform replication in AWS DMS, you need a replication instance.
 

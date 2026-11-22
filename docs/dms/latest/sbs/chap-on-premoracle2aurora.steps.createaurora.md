@@ -1,7 +1,6 @@
 
 
 # Step 5: Create Your Aurora MySQL Target Endpoint
-<a name="chap-on-premoracle2aurora.steps.createaurora"></a>
 
 Next, you can provide information for the target Amazon Aurora MySQL database by specifying the target endpoint settings.
 

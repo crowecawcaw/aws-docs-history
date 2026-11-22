@@ -1,7 +1,6 @@
 
 
 # Step-by-step SQL Server database to Aurora PostgreSQL with DMS schema conversion migration walkthrough
-<a name="schema-conversion-sql-server-aurora-postgresql-step-by-step-migration"></a>
 
 In the following sections, you can find step-by-step instructions for migrating your SQL Server database to Aurora PostgreSQL using DMS Schema Conversion.
 

@@ -1,7 +1,6 @@
 
 
 # Step-by-step Oracle database to Amazon RDS for MySQL with DMS schema conversion migration walkthrough
-<a name="schema-conversion-oracle-aurora-mysql-step-by-step-migration"></a>
 
 In the following sections, you can find step-by-step instructions for migrating your Oracle database to Aurora MySQL using DMS Schema Conversion.
 

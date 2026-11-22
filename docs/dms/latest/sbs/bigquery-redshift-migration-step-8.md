@@ -1,7 +1,6 @@
 
 
 # Step 8: Run Your Migration Task
-<a name="bigquery-redshift-migration-step-8"></a>
 
 After you install and configure the data extraction agent, register it in AWS SCT.
 

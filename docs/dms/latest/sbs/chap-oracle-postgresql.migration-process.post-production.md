@@ -1,7 +1,6 @@
 
 
 # Oracle dabatase migration to PostgreSQL post-production support
-<a name="chap-oracle-postgresql.migration-process.post-production"></a>
 
 After production cutover, there are a few possibilities for what can happen. You will have either decided to fix forward as the old system is being decommissioned, or you have decided to way a certain amount of time, a bake-in time, with production on the new system, during which a decision to abandon the new system can be made. Abandoning the new system has the following flavors:
 + Roll back, all new data is lost.

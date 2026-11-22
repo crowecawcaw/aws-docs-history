@@ -1,7 +1,6 @@
 
 
 # Migrate SQL Server database with AWS DMS ongoing replication
-<a name="chap-manageddatabases.sql-server-rds-sql-server-replication"></a>
 
 After you complete the full load, set up ongoing replication using AWS DMS to keep the source and target databases synchronized. To configure the ongoing replication task, open the AWS DMS console. On the **Create database migration task** page, follow these three steps.
 + For **Migration type**, select **Replicate ongoing changes**.

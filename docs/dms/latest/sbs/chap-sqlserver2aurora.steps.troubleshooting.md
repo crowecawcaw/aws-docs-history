@@ -1,7 +1,6 @@
 
 
 # SQL Server database migration to Amazon Aurora MySQL troubleshooting
-<a name="chap-sqlserver2aurora.steps.troubleshooting"></a>
 
 When you work with Microsoft SQL Server as a source database and Amazon Aurora MySQL as a target database, the two most common problem areas are SQL Server change data capture (CDC) and foreign keys.
 + MS-CDC: If you are using MS-CDC with SQL Server for the migration, errors that are related to permissions or errors during change data capture are common. These types of errors usually result when one of the prerequisites was not met. For example, the most common overlooked prerequisite is a full database backup.

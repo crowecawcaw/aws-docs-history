@@ -1,7 +1,6 @@
 
 
 # Full load SQL Server database migration options performance comparison
-<a name="chap-manageddatabases.sql-server-rds-sql-server-performance"></a>
 
 To compare the full load migration performance for all three methods, we used a test environment. In this environment, we populated the `dms_sample` database with 410.90 GB of data. We used the same on-premise SQL Server source and RDS SQL Server target databases to load data three times. For these data loads, we used the following methods:
 + Backup and restore.

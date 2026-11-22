@@ -1,7 +1,6 @@
 
 
 # Step 5: Configure an AWS DMS Target Endpoint
-<a name="chap-rdssqlserver2s3datalake.steps.targetendpoint"></a>
 
 To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint, create an IAM role with write and delete access to the S3 bucket. Then add DMS (dms.amazonaws.com) as *trusted entity* in this IAM role. For more information, see [Prerequisites for using Amazon S3 as a target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Prerequisites).
 

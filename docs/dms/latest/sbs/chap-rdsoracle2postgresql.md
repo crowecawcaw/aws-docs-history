@@ -1,7 +1,6 @@
 
 
 # Migrating an Oracle Database to PostgreSQL
-<a name="chap-rdsoracle2postgresql"></a>
 
 Using this walkthrough, you can learn how to migrate an Oracle database to a PostgreSQL database using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT).
 

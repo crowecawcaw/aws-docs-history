@@ -1,7 +1,6 @@
 
 
 # Migrating a BigQuery Project to Amazon Redshift
-<a name="bigquery-redshift"></a>
 
 This walkthrough gets you started with heterogeneous database migration from BigQuery to Amazon Redshift. To automate the migration, we use the AWS Schema Conversion Tool (AWS SCT) that runs on Windows. This introductory exercise provides you with a good understanding of the steps involved in such a migration.
 

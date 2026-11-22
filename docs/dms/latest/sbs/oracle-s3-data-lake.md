@@ -1,7 +1,6 @@
 
 
 # Migrating an Amazon RDS for Oracle Database to an Amazon S3 Data Lake
-<a name="oracle-s3-data-lake"></a>
 
 This walkthrough helps you understand the process of migrating data from Amazon Relational Database Service (Amazon RDS) for Oracle to Amazon Simple Storage Service (Amazon S3) using AWS Database Migration Service (AWS DMS).
 

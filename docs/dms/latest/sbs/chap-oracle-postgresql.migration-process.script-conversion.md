@@ -1,7 +1,6 @@
 
 
 # Database migration script/ETL/report conversion
-<a name="chap-oracle-postgresql.migration-process.script-conversion"></a>
 
 ETL is an acronym that stands for Extract, Transform and Load. The ETL process plays a central role in data integration strategies. ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location. ETL also makes it possible for different types of data to work together.
 

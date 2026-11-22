@@ -1,7 +1,6 @@
 
 
 # Step 4: Install AWS SCT on Your Local Computer
-<a name="bigquery-redshift-migration-step-4"></a>
 
 In this step, you install and configure the AWS Schema Conversion Tool. In this walkthrough, we run AWS SCT and the data extraction agent on Windows. However, you can use AWS SCT and data extraction agents on other supported operating systems. For more information, see [Installing the schema conversion tool](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Installing.html#CHAP_Installing.Procedure) and [Installing extraction agents](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.dw.html#agents.Installing).
 

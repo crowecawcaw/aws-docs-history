@@ -1,7 +1,6 @@
 
 
 # PostgreSQL to Amazon RDS migration overview
-<a name="dm-postgresql-migration-overview"></a>
 
 This section provides high-level guidance for customers looking to migrate their PostgreSQL database to Amazon RDS for PostgreSQL using homogeneous data migrations in AWS DMS.
 

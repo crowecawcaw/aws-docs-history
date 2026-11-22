@@ -1,7 +1,6 @@
 
 
 # Oracle application conversion or remediation
-<a name="chap-oracle-postgresql.migration-process.application-conversion"></a>
 
 The Oracle application may be written in a variety of languages like C\+\+, C\# and Java, each with their own patterns for calling Oracle. A common case is the use of an object relational model (ORM) between the application code and the database which reduce the amount of PL/SQL that needs to be changed. Examples include Entity Framework and Hibernate which are also supported on PostgreSQL.
 

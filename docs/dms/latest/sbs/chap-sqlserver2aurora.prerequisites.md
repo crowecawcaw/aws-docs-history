@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Migrating from a SQL Server database to Amazon Aurora MySQL
-<a name="chap-sqlserver2aurora.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
 + An understanding of Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.

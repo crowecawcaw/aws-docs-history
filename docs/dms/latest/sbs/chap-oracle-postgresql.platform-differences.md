@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL platform differences
-<a name="chap-oracle-postgresql.platform-differences"></a>
 
 This section discusses some of the differences between Oracle and PostgreSQL to illustrate opportunities and challenges with migrating an Oracle application. This overview is by no means an exhaustive, however these are common challenges you may encounter when administering PostgreSQL after a background with Oracle.
 

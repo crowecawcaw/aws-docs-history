@@ -1,7 +1,6 @@
 
 
 # Step 1: Create AWS Resources
-<a name="dm-postgresql-step-1"></a>
 
 In this step, you create and configure the required AWS resources for homogeneous data migrations in AWS DMS.
 
@@ -53,7 +52,7 @@ In this section, you create an AWS Identity and Access Management (IAM) policy t
 
 1. Paste the following JSON into the editor.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -188,7 +187,7 @@ In this section, you create an IAM role for homogeneous data migrations. AWS DMS
 
 1. On the **Edit trust policy** page, paste the following JSON into the editor, replacing the existing text.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

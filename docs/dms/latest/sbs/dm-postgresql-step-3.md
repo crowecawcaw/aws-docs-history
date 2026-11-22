@@ -1,7 +1,6 @@
 
 
 # Step 3: Create Your Target Amazon RDS for PostgreSQL Database
-<a name="dm-postgresql-step-3"></a>
 
 In this step, you create a new Amazon RDS for PostgreSQL database to use as a migration target. Also, you configure a new database user on your target Amazon RDS for PostgreSQL database.
 
@@ -33,7 +32,7 @@ After you create your Amazon RDS for PostgreSQL database, configure a new databa
 
 You can use the following code example to create a database user with the required permissions.
 
-```
+```sql
 CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
 GRANT USAGE ON SCHEMA schema_name TO your_user;
 GRANT CONNECT ON DATABASE db_name to your_user;

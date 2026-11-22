@@ -1,7 +1,6 @@
 
 
 # Migrate Oracle database with AWS DMS ongoing replication
-<a name="chap-manageddatabases.oracle2rds.replication"></a>
 
 After you complete the full load, make sure that you perform ongoing replication using AWS DMS to keep the source and target databases in sync. To configure the ongoing replication task, sign in to the AWS Management Console and follow these steps.
 

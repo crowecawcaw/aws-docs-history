@@ -1,7 +1,6 @@
 
 
 # Step 5: Create an AWS SCT Project
-<a name="bigquery-redshift-migration-step-5"></a>
 
 After you configure AWS SCT, create a new migration project.
 

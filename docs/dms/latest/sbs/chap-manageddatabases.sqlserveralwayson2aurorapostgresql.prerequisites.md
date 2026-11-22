@@ -1,7 +1,6 @@
 
 
 # Prerequisties for migrating SQL Server AlwaysOn databases on primary replica to Amazon Aurora PostgreSQL
-<a name="chap-manageddatabases.sqlserveralwayson2aurorapostgresql.prerequisites"></a>
 
 The following prerequisites are required to complete this migration:
 + An AWS account with AWS Identity and Access Management (IAM) credentials that allow you to launch Amazon RDS and AWS Database Migration Service (AWS DMS) instances in your AWS Region. For information about IAM credentials, see [Create an IAM User](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.IAM).

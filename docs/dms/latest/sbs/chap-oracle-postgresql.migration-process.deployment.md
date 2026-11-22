@@ -1,7 +1,6 @@
 
 
 # Oracle dabatase migration to PostgreSQL setup, DevOps, integration, deployment, and security
-<a name="chap-oracle-postgresql.migration-process.deployment"></a>
 
 Deployment to production is the culmination of the migration activity and is a high stakes effort which requires good planning and benefits from well tested automation.
 

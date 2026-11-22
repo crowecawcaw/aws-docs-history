@@ -1,7 +1,6 @@
 
 
 # Step 5: Configure an AWS DMS Target Endpoint
-<a name="oracle-s3-data-lake-step-5"></a>
 
 In this section, we walk through the configuration for setting up target data lake AWS DMS endpoint. You will also select appropriate options to store files in data lake.
 

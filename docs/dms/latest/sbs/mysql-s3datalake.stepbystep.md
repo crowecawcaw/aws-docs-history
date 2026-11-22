@@ -1,7 +1,6 @@
 
 
 # Step-By-Step Migration
-<a name="mysql-s3datalake.stepbystep"></a>
 
 The following steps provide instructions for migrating Amazon RDS for MySQL databases to an Amazon S3 data lake.
 
@@ -40,7 +39,7 @@ The default **binlog\_format** is “Mixed”. AWS DMS requires the “ROW” fo
 
  AWS DMS requires binary logs to be local to the Amazon RDS for MySQL database instance. To ensure that binary logs are available to AWS DMS, you should increase the length of time that the logs remain available in the database instance host. For example, to increase log retention to 24 hours, run the following command. 24 hours are enough for this walkthrough.
 
-```
+```sql
 call mysql.rds_set_configuration('binlog retention hours', 24);
 ```
 
@@ -166,7 +165,7 @@ To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint,
 
 Assume role policy:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ Assume role policy:
 
 Policy:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -302,13 +301,13 @@ In the following example, a source table has a structure similar to the followin
 
 For this example, we insert a record into this table such as the following:
 
-```
+```sql
 INSERT INTO dms_example.users (id, name, age, birthday) VALUES (4, 'Kate', 23, 1999);
 ```
 
 The generated record will look similar to the following:
 
-```
+```sql
 I, 4, Kate, 23, 1999
 ```
 
@@ -320,7 +319,7 @@ In this scenario, we’ll use the following settings:
 
  **Endpoint 1:** 
 
-```
+```json
 {
   "ServiceAccessRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/mysql2s3-walkthrough-dms-s3-target-access-role",
   "CsvRowDelimiter": "\\n",
@@ -340,7 +339,7 @@ In this scenario, we’ll use the following settings:
 
  **Endpoint 2:** 
 
-```
+```json
 {
   "ServiceAccessRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/mysql2s3-walkthrough-dms-s3-target-access-role",
   "CsvRowDelimiter": "\\n",
@@ -415,7 +414,7 @@ After you configure the replication instance and endpoints, the next step is cre
 
 Table mappings:
 
-```
+```json
 {
   "rules": [
     {
@@ -470,7 +469,7 @@ Table mappings:
 
 Task settings:
 
-```
+```json
 {
   "TargetMetadata": {
     "SupportLobs": true,

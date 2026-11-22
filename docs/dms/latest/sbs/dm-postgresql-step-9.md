@@ -1,7 +1,6 @@
 
 
 # Step 9: Running and Monitoring a Data Migration
-<a name="dm-postgresql-step-9"></a>
 
 After you create a data migration, you can run it and monitor its status.
 

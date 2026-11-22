@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Migrating Oracle databases to Amazon RDS for MySQL with DMS schema conversion
-<a name="schema-conversion-oracle-aurora-mysql-prerequisites"></a>
 
 The following prerequisites are also required to complete this walkthrough:
 + Familiarity with the AWS Management Console, AWS Database Migration Service, and SQL.

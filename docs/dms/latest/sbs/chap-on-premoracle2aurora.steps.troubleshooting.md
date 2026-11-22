@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="chap-on-premoracle2aurora.steps.troubleshooting"></a>
 
 The two most common areas people have issues with when working with Oracle as a source and Aurora MySQL as a target are: supplemental logging and case sensitivity.
 + Supplemental logging — With Oracle, in order to replication change data supplemental logging must be enabled. However, if you enable supplemental logging at the database level, it sometimes still need to enable it when creating new tables. The best remedy for this is to allow DMS to enable supplemental logging for you using the extra connection attribute:

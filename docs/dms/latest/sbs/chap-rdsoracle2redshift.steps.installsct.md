@@ -1,7 +1,6 @@
 
 
 # Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer
-<a name="chap-rdsoracle2redshift.steps.installsct"></a>
 
 Next, you need to install a SQL client and AWS SCT on your local computer.
 

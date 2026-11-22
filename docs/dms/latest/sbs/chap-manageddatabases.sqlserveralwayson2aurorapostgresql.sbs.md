@@ -1,7 +1,6 @@
 
 
 # Step-by-step SQL Server AlwaysOn databases on primary replica to Amazon Aurora PostgreSQL migration walkthrough
-<a name="chap-manageddatabases.sqlserveralwayson2aurorapostgresql.sbs"></a>
 
 The following standard steps assume you have prepared your source and target endpoint as described in the above prerequisites. We also assume that you have converted your SQL Server database schema to PostgreSQL using the [Schema Conversion Tool (AWS SCT)](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Installing.html) first, and that you’ve created all database objects on the target database.
 

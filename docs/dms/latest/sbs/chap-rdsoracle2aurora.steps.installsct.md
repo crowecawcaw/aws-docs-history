@@ -1,7 +1,6 @@
 
 
 # Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer
-<a name="chap-rdsoracle2aurora.steps.installsct"></a>
 
 Next, you need to install a SQL client and the AWS Schema Conversion Tool (AWS SCT) on your local computer.
 

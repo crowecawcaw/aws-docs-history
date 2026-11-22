@@ -1,7 +1,6 @@
 
 
 # Test the endpoints for MariaDB database migration
-<a name="chap-mariadb2auroramysql.testendpoints"></a>
 
 1. On the navigation pane, choose **Endpoints**.
 

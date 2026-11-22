@@ -1,7 +1,6 @@
 
 
 # Migrating a MySQL-Compatible Database to Amazon Aurora MySQL
-<a name="chap-mysql2aurora"></a>
 
 If your database supports the InnoDB or MyISAM tablespaces, you have these options for migrating your data to an Amazon Aurora MySQL DB cluster:
 + You can create a dump of your data using the `mysqldump` utility, and then import that data into an existing Amazon Aurora MySQL DB cluster. For more information, see [Migrating MySQL to Amazon Aurora MySQL by Using mysqldump](#chap-mysql2aurora.mysqldump).
@@ -46,7 +45,7 @@ To migrate your MySQL data to an Amazon Aurora MySQL DB cluster, several permiss
 
 For example, the following IAM policy grants a user the minimum required permissions to use the console to both list IAM roles, create an IAM role, and list the S3 buckets for your user.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -70,7 +69,7 @@ Additionally, for a user to associate an IAM role with an S3 bucket, the IAM use
 
 For example, the following IAM policy allows a user to associate the role named `S3Access` with an S3 bucket.
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -115,7 +114,7 @@ As an alternative, you can manually create the role using the following procedur
 
    To specify a prefix, replace {{<prefix>}} following with the prefix of your file names. Include the asterisk (\*) after the prefix. If you don’t want to specify a prefix, specify only an asterisk.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [

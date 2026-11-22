@@ -1,7 +1,6 @@
 
 
 # Migrating a MariaDB Database to Amazon RDS for MySQL or Amazon Aurora MySQL
-<a name="chap-mariadb2auroramysql"></a>
 
 You can migrate data from existing on-premises MariaDB or [Amazon RDS for MariaDB](https://aws.amazon.com/rds/mariadb/?nc=sn&loc=3&dn=4) to [Amazon Aurora](https://aws.amazon.com/rds/aurora/) MySQL using [Database Migration Service](https://aws.amazon.com/dms/). Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud. Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64 TB per database instance. It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, and continuous backup to Amazon S3, and replication across three Availability Zones (AZs).
 

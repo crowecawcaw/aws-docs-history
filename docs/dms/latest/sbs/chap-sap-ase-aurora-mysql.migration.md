@@ -1,7 +1,6 @@
 
 
 # SAP ASE to Amazon Aurora MySQL database code conversion and data loading
-<a name="chap-sap-ase-aurora-mysql.migration"></a>
 
 This section covers two major database migration tasks: code conversion and data load. You can use AWS Schema Conversion Tool (AWS SCT) to convert database schema objects such as tables, views, procedures, functions, and so on. Then you can use AWS Database Migration Service (AWS DMS) to load data.
 

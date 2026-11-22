@@ -1,7 +1,6 @@
 
 
 # PostgreSQL pg\_dump and pg\_restore utility
-<a name="chap-manageddatabases.postgresql-rds-postgresql-full-load-pd_dump"></a>
 
 pg\_dump and pg\_restore is a native PostgreSQL client utility. You can find this utility as part of the database installation. It produces a set of SQL statements that you can run to reproduce the original database object definitions and table data.
 

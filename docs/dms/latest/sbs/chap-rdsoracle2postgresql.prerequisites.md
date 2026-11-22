@@ -1,7 +1,6 @@
 
 
 # Prerequisites for migrating from an Oracle database to PostgreSQL
-<a name="chap-rdsoracle2postgresql.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
 + Understand Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.

@@ -1,7 +1,6 @@
 
 
 # Step-by-step Oracle database to PostgreSQL migration walkthrough
-<a name="chap-rdsoracle2postgresql.steps"></a>
 
 The following steps provide instructions for migrating an Oracle database to a PostgreSQL database. These steps assume that you have already prepared your source database as described in [Prerequisites](chap-rdsoracle2postgresql.prerequisites.md).
 

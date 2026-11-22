@@ -1,7 +1,6 @@
 
 
 # Generate and Publish Scripts wizard and Bulk Copy Program Utility
-<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-bcp"></a>
 
 You can use the SQL Server Generate and Publish Scripts wizard to create Transact-SQL scripts for objects in your database. Then you can run the Bulk Copy Program Utility (bcp) to copy data from your Microsoft SQL Server instance into data files. Also, you can use bcp to import data into a table from data files. For more information, see [How to: Generate a Script (SQL Server Management Studio)](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms178078(v=sql.105)?redirectedfrom=MSDN) and [bcp Utility](https://docs.microsoft.com/en-us/sql/tools/bcp-utility?view=sql-server-ver15).
 

@@ -1,7 +1,6 @@
 
 
 # Set up MariaDB as a source database
-<a name="chap-mariadb2auroramysql.provisioningmariadb"></a>
 
 To provision MariaDB as a source database, download [Mariadb\_CF.zip with the YAML template](/dms/latest/sbs/samples/Mariadb_CF.zip). This AWS CloudFormation template creates an Amazon RDS for MariaDB instance with the required parameters.
 

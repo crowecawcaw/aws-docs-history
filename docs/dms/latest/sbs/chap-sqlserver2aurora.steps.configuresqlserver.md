@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure Your Microsoft SQL Server Source Database
-<a name="chap-sqlserver2aurora.steps.configuresqlserver"></a>
 
 After installing the SQL drivers and AWS Schema Conversion Tool, you can configure your Microsoft SQL Server source database using one of several options, depending on how you plan to migrate your data.
 

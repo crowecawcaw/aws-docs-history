@@ -1,7 +1,6 @@
 
 
 # Install and configure MongoDB community edition
-<a name="chap-mongodb2documentdb.02"></a>
 
 Perform these steps on the Amazon EC2 instance that you launched in [Launch an Amazon EC2 instance](chap-mongodb2documentdb.01.md).
 

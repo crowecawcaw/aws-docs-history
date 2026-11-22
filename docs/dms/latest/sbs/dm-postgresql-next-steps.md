@@ -1,7 +1,6 @@
 
 
 # PostgreSQL database to Amazon RDS post-migration clean-up
-<a name="dm-postgresql-next-steps"></a>
 
 After you migrate your PostgreSQL database to Amazon RDS for PostgreSQL using homogeneous data migrations in AWS DMS, you can explore several other resources:
 + Use DMS Fleet Advisor to inventory your source databases and discover other candidates to move to the cloud. For more information, see the [DMS Fleet Advisor User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_FleetAdvisor.html).
@@ -19,7 +18,7 @@ After you’ve finished using your migration project, clean up your resources.
 + Delete your database users that you created in [Step 2](dm-postgresql-step-2.md) and [Step 3](dm-postgresql-step-3.md).
 + Drop the replication slot and the publisher in the source database by using the following code example.
 
-  ```
+  ```sql
   SELECT pg_drop_replication_slot('migration_subscriber_{ARN}');
   DROP PUBLICATION publication_{ARN};
   ```

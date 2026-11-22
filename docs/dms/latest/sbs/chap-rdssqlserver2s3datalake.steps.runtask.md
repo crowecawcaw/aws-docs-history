@@ -1,7 +1,6 @@
 
 
 # Step 7: Run the AWS DMS Task
-<a name="chap-rdssqlserver2s3datalake.steps.runtask"></a>
 
 After you created your AWS Database Migration Service (AWS DMS) task, run the task a few times to identify the full load run time and ongoing replication performance. You can validate that initial configurations work as expected. You can do this by monitoring and documenting resource utilization on the source database, replication instance, and target database. These details make up the initial baseline and help determine if you need further optimizations.
 

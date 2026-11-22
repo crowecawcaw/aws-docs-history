@@ -1,7 +1,6 @@
 
 
 # Cut over for the migration from a MariaDB database
-<a name="chap-mariadb2auroramysql.cutover"></a>
 
 After the data validation is complete and any problems resolved, you can load the database triggers, functions, and procedures.
 

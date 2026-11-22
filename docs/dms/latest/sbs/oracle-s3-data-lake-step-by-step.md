@@ -1,7 +1,6 @@
 
 
 # Step-by-step Amazon RDS for Oracle database to Amazon S3 data lake migration walkthrough
-<a name="oracle-s3-data-lake-step-by-step"></a>
 
 The following steps provide instructions for migrating an Amazon RDS for Oracle database to an Amazon S3 data lake. These steps assume that you have already prepared your source database as described in previously.
 

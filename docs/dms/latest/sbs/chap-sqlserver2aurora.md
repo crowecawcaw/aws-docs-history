@@ -1,7 +1,6 @@
 
 
 # Migrating a SQL Server Database to Amazon Aurora MySQL
-<a name="chap-sqlserver2aurora"></a>
 
 Using this walkthrough, you can learn how to migrate a Microsoft SQL Server database to an Amazon Aurora MySQL-Compatible Edition database using the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS). AWS DMS migrates your data from your SQL Server source into your Aurora MySQL target.
 

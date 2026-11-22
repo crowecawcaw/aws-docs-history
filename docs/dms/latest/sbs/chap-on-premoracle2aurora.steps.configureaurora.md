@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure Your Aurora Target Database
-<a name="chap-on-premoracle2aurora.steps.configureaurora"></a>
 
 As with your source database, it’s a good idea to restrict access of the user you’re connecting with. You can also create a temporary user that you can remove after the migration.
 

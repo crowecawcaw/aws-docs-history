@@ -1,7 +1,6 @@
 
 
 # Prerequisties for migrating from SAP AWS to Amazon Aurora MySQL
-<a name="chap-sap-ase-aurora-mysql.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
 + Familiarity with Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.

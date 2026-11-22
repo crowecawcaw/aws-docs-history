@@ -1,7 +1,6 @@
 
 
 # Oracle database migration to PostgreSQL troubleshooting
-<a name="chap-oracle2postgresql.troubleshooting"></a>
 
 The two most common problem areas when working with Oracle as a source and PostgreSQL as a target are: supplemental logging and case sensitivity.
 + Supplemental logging – With Oracle, in order to replicate change data, supplemental logging must be enabled. However, if you enable supplemental logging at the database level, it sometimes still needs to be enabled when new tables are created. The best remedy for this is to allow AWS DMS to enable supplemental logging for you by using the extra connection attribute:

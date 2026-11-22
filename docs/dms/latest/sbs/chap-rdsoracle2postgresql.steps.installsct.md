@@ -1,7 +1,6 @@
 
 
 # Step 1: Install the SQL Drivers and AWS Schema Conversion Tool on Your Local Computer
-<a name="chap-rdsoracle2postgresql.steps.installsct"></a>
 
 To install the SQL drivers and the AWS Schema Conversion Tool (AWS SCT) on your local computer, do the following:
 

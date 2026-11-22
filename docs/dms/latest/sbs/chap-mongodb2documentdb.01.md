@@ -1,7 +1,6 @@
 
 
 # Launch an Amazon EC2 instance for MongoDB migration
-<a name="chap-mongodb2documentdb.01"></a>
 
 For this tutorial, you launch an Amazon EC2 instance into your default VPC.
 

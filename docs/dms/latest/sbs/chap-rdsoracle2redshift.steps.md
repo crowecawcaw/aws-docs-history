@@ -1,7 +1,6 @@
 
 
 # Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough
-<a name="chap-rdsoracle2redshift.steps"></a>
 
 In the following sections, you can find step-by-step instructions for migrating an Amazon RDS for Oracle database to Amazon Redshift. These steps assume that you have already prepared your source database as described in preceding sections.
 

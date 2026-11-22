@@ -1,7 +1,6 @@
 
 
 # Migrating from SAP ASE to Amazon Aurora MySQL
-<a name="chap-sap-ase-aurora-mysql"></a>
 
 Following, you can find a high-level outline and a step-by-step walkthrough that show the migration process of an on-premises SAP ASE database to Amazon Aurora MySQL-Compatible Edition using AWS Database Migration Service (AWS DMS). Amazon Aurora is a highly available and managed relational database service with automatic scaling and high-performance features. The combination of MySQL compatibility with Aurora enterprise database capabilities provides an ideal target for commercial database migrations.
 

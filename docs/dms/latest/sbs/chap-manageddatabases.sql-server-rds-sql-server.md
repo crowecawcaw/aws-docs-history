@@ -1,7 +1,6 @@
 
 
 # Migrating SQL Server Databases to Amazon RDS for SQL Server
-<a name="chap-manageddatabases.sql-server-rds-sql-server"></a>
 
 This walkthrough gets you started with homogeneous database migration from Microsoft SQL Server to Amazon Relational Database Service (Amazon RDS) for SQL Server. This guide provides a quick overview of the data migration process and provides suggestions on how to select the best option to use.
 

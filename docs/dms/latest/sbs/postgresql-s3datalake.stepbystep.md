@@ -1,7 +1,6 @@
 
 
 # Step-by-step an Amazon RDS PostgreSQL database to an Amazon S3 data lake migration walkthrough
-<a name="postgresql-s3datalake.stepbystep"></a>
 
 **Topics**
 + [Step 1: Create an AWS DMS replication instance](#postgresql-s3datalake.stepbystep.step1)
@@ -203,7 +202,7 @@ s3://insurance-policy-datalake
 
 In the above example we have used partitioning in both full load and CDC. Partitioning provides performance benefits because data scanning will be limited to the amount of data in the specific partition based on the filter condition in your queries. For our insurance claim data example, your queries might look as follows:
 
-```
+```sql
 SELECT <column-list> FROM <Claim-table-name> WHERE <region> = <region-name> AND <year> = <year-value>
 ```
 
@@ -302,7 +301,7 @@ The source data warehouse schema in this walkthrough does not have LOB data. How
 
 Though, we used a large instance class in previous run, overall improvement was not significant as the data volume is relatively large (29 million records in the claim table alone). To further optimize the performance, we used [parallel-load ranges option](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.html#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad). Below is the mapping rule used for that option. As seen below, 11 boundaries are defined to cover data from 2012 to 2023 in 11 ranges. With this option, full load finished in about 1 hour 34 minutes. As a result, we were able to reduce the time taken to complete full load to almost 60% as compared to initial load.
 
-```
+```json
 {
     "rules": [
         {

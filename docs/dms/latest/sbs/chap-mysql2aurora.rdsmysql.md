@@ -1,7 +1,6 @@
 
 
 # Migrating Data from an Amazon RDS MySQL DB Instance to an Amazon Aurora MySQL DB Cluster
-<a name="chap-mysql2aurora.rdsmysql"></a>
 
 You can migrate (copy) data to an Amazon Aurora MySQL DB cluster from an Amazon RDS snapshot, as described following.
 

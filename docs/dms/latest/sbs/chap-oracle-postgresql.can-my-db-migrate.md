@@ -1,7 +1,6 @@
 
 
 # Can My Oracle Database Migrate?
-<a name="chap-oracle-postgresql.can-my-db-migrate"></a>
 
 To quickly see if your workload qualifies as a migration candidate, please use the **DMA Connect Application and Database Questionnaire** to sort out migration obstacles specific to your application. Consider the following questions. The more you answer **No**, the easier the migration to Amazon RDS for PostgreSQL or Aurora PostgreSQL will be.
 

@@ -1,7 +1,6 @@
 
 
 # Step 4: Test the Connectivity to the Amazon Redshift Database
-<a name="chap-rdsoracle2redshift.steps.connectredshift"></a>
 
 Next, test your connection to your Amazon Redshift database.
 

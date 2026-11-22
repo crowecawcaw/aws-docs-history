@@ -1,7 +1,6 @@
 
 
 # Step 5: Create an Instance Profile
-<a name="schema-conversion-oracle-aurora-mysql-step-5"></a>
 
 Before you create an instance profile, configure a subnet group for your instance profile.
 

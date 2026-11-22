@@ -1,7 +1,6 @@
 
 
 # Step 6: Create a Migration Task
-<a name="chap-on-premoracle2aurora.steps.createtask"></a>
 
 When you create a migration task you tell AWS DMS exactly how you want your data migrated. Within a task you define which tables you’d like migrated, where you’d like them migrated, and how you’d like them migrated. If you’re planning to use the change capture and apply capability of AWS DMS it’s important to know transactions are maintained within a single task. In other words, you should migrate all tables that participate in a single transaction together in the same task.
 

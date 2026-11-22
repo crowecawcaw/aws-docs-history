@@ -1,7 +1,6 @@
 
 
 # Step-by-step Amazon RDS for MySQL database to Amazon DynamoDB migration walkthrough
-<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration"></a>
 
 The following steps provide instructions for migrating an Amazon RDS for MySQL database to DynamoDB. These steps assume that you have already prepared your source database as described previously.
 
@@ -142,7 +141,7 @@ In this case, DMS uses the default provisioned capacity, which will not be suffi
 
 In this walkthrough, use the below source MySQL table definition to create the target DynamoDB table. As you can see below, the source table contains composite primary keys (`user_id`, `area_code`), so you can use these fields to create a DynamoDB table with a partition key and a sort key.
 
-```
+```sql
  Table: vaccine_drive_stats
 Create Table: CREATE TABLE `vaccine_drive_stats` (
   'user_id' int(11) NOT NULL AUTO_INCREMENT,
@@ -202,7 +201,7 @@ In this Walkthrough, we are pre-creating the target table with On-demand capacit
 
 Before you begin to work with a DynamoDB database as a target for AWS DMS, make sure that you create an IAM role. This IAM role should allow AWS DMS to assume the application role, and grants access to the DynamoDB tables that are being migrated into. The minimum set of access permissions is shown in the following IAM policy.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -220,7 +219,7 @@ Before you begin to work with a DynamoDB database as a target for AWS DMS, make 
 
 DMS creates the control tables “awsdms\_apply\_exceptions” and “awsdms\_full\_load\_exceptions” on the DynamoDB target to record the failures in loading/applying the records in the migration. So, the role that you use for the migration to DynamoDB must have the following permissions, including for control tables.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -335,7 +334,7 @@ A detailed explanation of LOB handling by AWS DMS is out of scope for this walkt
 
 For this use case, the source table doesn’t contain any large object data types, so we decided to disable LOB settings in the task “TargetMetadata” configuration. Refer to the below task setting for more details.
 
-```
+```json
 {
   "TargetMetadata": {
     "TargetSchema": "",
@@ -380,7 +379,7 @@ For this use case, the source MySQL table contains a composite primary key. Init
 
 To mitigate this issue, we created the target table as mentioned in Step 4, and then configured the task with the following object mapping rule. In our case, we used the "map-record-to-record" option to restructure the target table and its data storing method. Refer to the source table "vaccine\_drive\_stats" definition with the following object mapping for more clarity.
 
-```
+```json
 {
   "rules": [
     {
@@ -491,7 +490,7 @@ In our use case, the task is initially configured to use 200 for the `ParallelLo
 
 Task setting used for parallel load configuration:
 
-```
+```json
 {
   "TargetMetadata": {
     "TargetSchema": "",
@@ -529,7 +528,7 @@ For **Commit rate during full load**, enter a value to indicate the maximum numb
 
 Configuration used for `FullLoadSettings` :
 
-```
+```json
  "FullLoadSettings": {
     "TargetTablePrepMode": "DO_NOTHING",
     "CreatePkAfterFullLoad": false,

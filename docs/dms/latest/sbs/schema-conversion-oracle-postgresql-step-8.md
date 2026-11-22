@@ -1,7 +1,6 @@
 
 
 # Step 8: Convert Database Objects
-<a name="schema-conversion-oracle-postgresql-step-8"></a>
 
 After you create the migration project, you can convert your Oracle database schemas to PostgreSQL. To start working with your migration project, you launch DMS Schema Conversion.
 

@@ -1,7 +1,6 @@
 
 
 # Step 7: Create and Run Your AWS DMS Migration Task
-<a name="chap-rdsoracle2postgresql.steps.createmigrationtask"></a>
 
 Using an AWS DMS task, you can specify which schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data and replicates ongoing changes.
 

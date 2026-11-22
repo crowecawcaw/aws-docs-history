@@ -1,7 +1,6 @@
 
 
 # Full load Oracle database migration options performance comparison
-<a name="chap-manageddatabases.oracle2rds.performance"></a>
 
 We analyzed the Oracle Export/Import, Oracle Data Pump, database link, and SQL\*Loader tools for their performance in a full load migration. We populated the `sporting_event_ticket` table with 10 GB of data to use as a test environment.
 

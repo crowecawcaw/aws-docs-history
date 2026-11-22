@@ -1,7 +1,6 @@
 
 
 # SQL Server database backup and restore using Amazon S3
-<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore"></a>
 
 Backup and restore is the easiest and usually the preferred method for the initial load of the target database. In this method, you create a full backup of your self-managed SQL Server database, transfer it to an Amazon S3 bucket, and restore it to your Amazon RDS for SQL Server instance. For more information, see [Importing and exporting SQL Server databases using native backup and restore](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html) in the *Amazon RDS User Guide*.
 

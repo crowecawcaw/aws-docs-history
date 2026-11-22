@@ -1,7 +1,6 @@
 
 
 # Prerequisties for migrating from an Amazon RDS for SQL Server database to an Amazon S3 data lake
-<a name="chap-rdssqlserver2s3datalake.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
 + Understand Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.

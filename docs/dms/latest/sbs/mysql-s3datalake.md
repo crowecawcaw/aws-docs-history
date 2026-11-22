@@ -1,7 +1,6 @@
 
 
 # Migrating an RDS for MySQL database to an S3 data lake
-<a name="mysql-s3datalake"></a>
 
 A data lake is a system architecture that enables you to store data in a centralized repository, allowing for categorization, catalogging security, and analysis by a diverse range of users and tools. In a data lake, you can analyze structured, semi-structured, and unstructured data, as well as transform these raw data assets as necessary.
 

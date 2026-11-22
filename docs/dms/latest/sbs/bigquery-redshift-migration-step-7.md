@@ -1,7 +1,6 @@
 
 
 # Step 7: Install and Configure Data Extraction Agents
-<a name="bigquery-redshift-migration-step-7"></a>
 
  AWS SCT uses a data extraction agent to migrate data from BigQuery to Amazon Redshift. The .zip file that you downloaded to install AWS SCT, includes the extraction agent installer file. In this walkthrough, we install the data extraction agent on Windows. However, you can install data extraction agents on Red Hat Enterprise Linux or Ubuntu. For more information, see [Installing extraction agents](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.dw.html#agents.Installing).
 

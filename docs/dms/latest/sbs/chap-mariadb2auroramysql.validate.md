@@ -1,7 +1,6 @@
 
 
 # Validate the MariaDB database migration
-<a name="chap-mariadb2auroramysql.validate"></a>
 
  AWS DMS performs data validation to confirm that your data successfully migrated the source database to the target. You can check the **Table statistics** page to determine the DML changes that occurred after the AWS DMS task started. During data validation, AWS DMS compares each row in the source with its corresponding row at the target, and verifies that those rows contain the same data. To accomplish this, AWS DMS issues the appropriate queries to retrieve the data.
 

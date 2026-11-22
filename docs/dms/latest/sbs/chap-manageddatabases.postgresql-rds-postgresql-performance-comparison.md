@@ -1,7 +1,6 @@
 
 
 # Full load PostgreSQL database migration options performance comparison
-<a name="chap-manageddatabases.postgresql-rds-postgresql-performance-comparison"></a>
 
 We analyzed the performance of pg\_dump and pg\_restore, publisher and subscriber, and pglogical in a full load migration. We migrated a 70 GB database that includes 6 tables and LOB data. We lifted and shifted this database from the source to the target.
 

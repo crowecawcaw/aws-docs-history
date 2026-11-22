@@ -1,7 +1,6 @@
 
 
 # Step 3: Create Buckets to Store Your Temporary Data
-<a name="bigquery-redshift-migration-step-3"></a>
 
 Data migration from BigQuery to Amazon Redshift includes the following steps:
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for migrating a BigQuery project to Amazon Redshift
-<a name="bigquery-redshift-prerequisites"></a>
 
 The following prerequisites are also required to complete this walkthrough:
 + Familiarity with the AWS Management Console, AWS SCT, Amazon Redshift, Google Cloud management console, and SQL.

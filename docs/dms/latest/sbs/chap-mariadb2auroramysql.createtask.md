@@ -1,7 +1,6 @@
 
 
 # Create a migration task for a MariaDB database
-<a name="chap-mariadb2auroramysql.createtask"></a>
 
 We’ve now verified that the replication instance can connect to both the source and target endpoints. The next step is to create a database migration task.
 

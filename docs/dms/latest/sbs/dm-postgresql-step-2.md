@@ -1,13 +1,12 @@
 
 
 # Step 2: Configure Your Source Database
-<a name="dm-postgresql-step-2"></a>
 
 In this step, you create a new database user on your source PostgreSQL database and configure the data replication.
 
 Use the following script to create a database user with the required permissions in your PostgreSQL source database.
 
-```
+```sql
 CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
 ALTER USER your_user WITH SUPERUSER;
 GRANT SELECT ON ALL TABLES IN SCHEMA schema_name TO your_user;

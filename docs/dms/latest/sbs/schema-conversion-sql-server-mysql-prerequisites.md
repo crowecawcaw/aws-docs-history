@@ -1,7 +1,6 @@
 
 
 # Prerequisites for migrating SQL Server databases to Amazon RDS for MySQL with DMS schema conversion
-<a name="schema-conversion-sql-server-mysql-prerequisites"></a>
 
 The following prerequisites are also required to complete this walkthrough:
 + Familiarity with the AWS Management Console, AWS Database Migration Service, and SQL.

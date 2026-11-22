@@ -1,7 +1,6 @@
 
 
 # Migrating a SQL Server AlwaysOn Database on Primary Replica to Amazon Aurora PostgreSQL
-<a name="chap-manageddatabases.sqlserveralwayson2aurorapostgresql"></a>
 
 In this walkthrough we will cover the process of migrating a database from SQL Server AlwaysOn Primary Replica to Amazon Aurora PostgreSQL using AWS Database Migration Service (AWS DMS). We will highlight common migration issues, and methods to overcome them. We will also guide you through the process of our automatic SQL scripts to arrange the tables, prepare the JSON table mappings, and explore methods of distributing tables across multiple DMS tasks for optimal efficiency.
 

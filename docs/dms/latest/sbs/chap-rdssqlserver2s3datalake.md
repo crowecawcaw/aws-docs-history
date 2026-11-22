@@ -1,7 +1,6 @@
 
 
 # Migrating an Amazon RDS for SQL Server Database to an Amazon S3 Data Lake
-<a name="chap-rdssqlserver2s3datalake"></a>
 
 This walkthrough gets you started with the process of migrating from an Amazon Relational Database Service (Amazon RDS) for Microsoft SQL Server to Amazon Simple Storage Service (Amazon S3) cloud data lake using AWS Database Migration Service (AWS DMS).
 

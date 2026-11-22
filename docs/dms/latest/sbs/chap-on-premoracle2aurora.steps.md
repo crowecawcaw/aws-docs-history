@@ -1,7 +1,6 @@
 
 
 # Step-by-step Oracle to Aurora MySQL using AWS DMS migration walkthrough
-<a name="chap-on-premoracle2aurora.steps"></a>
 
 Following, you can find step-by-step instructions for migrating an Oracle database from an on-premises environment to Amazon Aurora MySQL. These instructions assume that you have already done the setting up steps for using AWS DMS located at [Setting up for Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_GettingStarted.SettingUp.html).
 

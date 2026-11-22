@@ -1,7 +1,6 @@
 
 
 # Migration from Amazon RDS for Oracle to Amazon Redshift next steps
-<a name="chap-rdsoracle2redshift.nextsteps"></a>
 
 You can explore several other features of AWS DMS that were not included in this walkthrough, including the following:
 + The AWS DMS change data capture (CDC) feature, for ongoing replication of data.

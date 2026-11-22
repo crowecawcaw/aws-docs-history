@@ -1,7 +1,6 @@
 
 
 # Step-by-step Oracle databases to Amazon Aurora PostgreSQL with DMS schema conversion migration walkthrough
-<a name="schema-conversion-oracle-postgresql-step-by-step-migration"></a>
 
 In the following sections, you can find step-by-step instructions for migrating your Oracle database to Amazon RDS for PostgreSQL using DMS Schema Conversion.
 

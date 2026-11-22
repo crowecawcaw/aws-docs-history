@@ -1,7 +1,6 @@
 
 
 # Step 6: Create an AWS DMS Task
-<a name="oracle-s3-data-lake-step-6"></a>
 
 Before you create the replication task, it is important to understand the workload on the source database and usage pattern of the tables being replicated. This helps plan an effective migration approach and minimize any configuration or workload related issues. In this section, we first review the important considerations and then learn how to configure our walkthrough DMS task accordingly by applying table mappings and task settings.
 

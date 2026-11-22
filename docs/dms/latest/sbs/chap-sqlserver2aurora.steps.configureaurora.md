@@ -1,7 +1,6 @@
 
 
 # Step 3: Configure Your Aurora MySQL Target Database
-<a name="chap-sqlserver2aurora.steps.configureaurora"></a>
 
  AWS DMS migrates the data from the SQL Server source into an Amazon Aurora MySQL target. In this step, you configure the Aurora MySQL target database.
 

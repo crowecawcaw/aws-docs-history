@@ -1,7 +1,6 @@
 
 
 # PostgreSQL publisher and subscriber model
-<a name="chap-manageddatabases.postgresql-rds-postgresql-full-load-publisher"></a>
 
 In PostgreSQL, logical replication uses a publisher and subscriber model. In this model, one or more subscribers subscribe to one or more publications on a publisher node. Subscribers pull data from the publications they subscribe to and may subsequently re-publish data to allow cascading replication or more complex configurations. PostgreSQL version 10.0 and higher supports the native publisher and subscriber model.
 

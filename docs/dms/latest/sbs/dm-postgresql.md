@@ -1,7 +1,6 @@
 
 
 # Migrating PostgreSQL databases to Amazon RDS for PostgreSQL with DMS homogeneous data migrations
-<a name="dm-postgresql"></a>
 
 This walkthrough gets you started with a homogeneous database migration from PostgreSQL to Amazon RDS for PostgreSQL. To automate the migration, we use homogeneous data migrations in AWS DMS. For homogeneous data migrations, AWS DMS uses native database tools to provide easy and performant like-to-like migrations. This approach helps you effectively set up and run the migration from the source PostgreSQL database to its equivalent target.
 

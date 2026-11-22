@@ -1,7 +1,6 @@
 
 
 # Step 3: Create Your Target Aurora MySQL Database
-<a name="schema-conversion-oracle-aurora-mysql-step-3"></a>
 
 In this step, you create a new Aurora MySQL database to use as a migration target for DMS Schema Conversion. Also, you configure a new database user on your target Aurora MySQL database.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an AWS DMS Source Endpoint
-<a name="oracle-s3-data-lake-step-3"></a>
 
 In this step, we configure a source endpoint. AWS DMS uses this endpoint to connect to the source database to read data as well as changes to the data via transaction logs. You can use Extra Connection Attributes for the source endpoint to configure how AWS DMS captures changes to the data.
 

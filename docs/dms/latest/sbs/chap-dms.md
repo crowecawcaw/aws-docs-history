@@ -1,7 +1,6 @@
 
 
 # Migrating Databases to the Amazon Web Services Cloud Using the Database Migration Service
-<a name="chap-dms"></a>
 
 You can use several AWS tools and services to migrate data from an external database to AWS. Depending on the type of database migration you are doing, you may find that the native migration tools for your database engine are also effective.
 

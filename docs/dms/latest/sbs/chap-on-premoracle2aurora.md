@@ -1,7 +1,6 @@
 
 
 # Migrating an On-Premises Oracle Database to Amazon Aurora MySQL
-<a name="chap-on-premoracle2aurora"></a>
 
 Following, you can find a high-level outline and also a complete step-by-step walkthrough that both show the process for migrating an on-premises Oracle database (the source endpoint) to an Amazon Aurora MySQL-Compatible Edition (the target endpoint) using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT).
 

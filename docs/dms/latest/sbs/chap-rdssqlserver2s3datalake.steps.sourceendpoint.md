@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an AWS DMS Source Endpoint
-<a name="chap-rdssqlserver2s3datalake.steps.sourceendpoint"></a>
 
 After you configured the AWS Database Migration Service (AWS DMS) replication instance and the source Amazon RDS for SQL Server instance, ensure connectivity between these two instances. To ensure that the replication instance can access the server and the port for the database, make changes to the relevant security groups and network access control lists. For more information about your network configuration, see [Setting up a network for a replication instance](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.VPC.html).
 

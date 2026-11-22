@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a BigQuery Service Account Key File
-<a name="bigquery-redshift-migration-step-1"></a>
 
 You can connect to BigQuery with a user account or a service account. A *service account* is a special kind of account designed to be used by applications or compute workloads, rather than a person.
 

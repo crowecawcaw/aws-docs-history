@@ -1,7 +1,6 @@
 
 
 # Set up Aurora MySQL as a target database
-<a name="chap-mariadb2auroramysql.provisioningauroramysql"></a>
 
 To provision Aurora MySQL as a target database, download the [AuroraMysql\_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml). This template creates an Aurora MySQL database with required parameters.
 

@@ -1,7 +1,6 @@
 
 
 # Step-by-step PostgreSQL database to Amazon RDS migration walkthrough
-<a name="dm-postgresql-step-by-step-migration"></a>
 
 In the following sections, you can find step-by-step instructions for migrating your PostgreSQL database to Amazon RDS for PostgreSQL using homogeneous data migrations in AWS DMS.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle application migration and integration with third-party applications
-<a name="chap-oracle-postgresql.migration-process.integration"></a>
 
 Few applications are islands and your Oracle application is likely to integrate with other applications that are not themselves going to be migrated. Examples include ETL, reporting, and monitoring applications for alerts and logs. For more information, see [Script/ETL/Report Conversion](chap-oracle-postgresql.migration-process.script-conversion.md).
 

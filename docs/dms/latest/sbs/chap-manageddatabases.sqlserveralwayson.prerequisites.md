@@ -1,7 +1,6 @@
 
 
 # Prerequisties for migrating SQL Server AlwaysOn databases to AWS
-<a name="chap-manageddatabases.sqlserveralwayson.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
 + Understand how to work with Microsoft SQL Server as a source for AWS DMS. For information about working with SQL Server as a source, see [Using a SQL Server Database as a Source](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html).

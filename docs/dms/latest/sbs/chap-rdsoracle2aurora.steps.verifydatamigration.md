@@ -1,7 +1,6 @@
 
 
 # Step 10: Verify That Your Data Migration Completed Successfully
-<a name="chap-rdsoracle2aurora.steps.verifydatamigration"></a>
 
 When the migration task completes, you can compare your task results with the expected results.
 

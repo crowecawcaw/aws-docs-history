@@ -1,7 +1,6 @@
 
 
 # Step-by-step Amazon RDS for SQL Server database to an Amazon S3 data lake migration walkthrough
-<a name="chap-rdssqlserver2s3datalake.steps"></a>
 
 The following steps provide instructions for migrating an Amazon RDS for SQL Server database to an Amazon S3 data lake. These steps assume that you have already prepared your source database as described in [Prerequisties for migrating from an Amazon RDS for SQL Server database to an Amazon S3 data lake](chap-rdssqlserver2s3datalake.prerequisites.md).
 

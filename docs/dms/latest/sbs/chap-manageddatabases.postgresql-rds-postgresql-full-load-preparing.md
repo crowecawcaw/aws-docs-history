@@ -1,7 +1,6 @@
 
 
 # Preparing for Ongoing Replication
-<a name="chap-manageddatabases.postgresql-rds-postgresql-full-load-preparing"></a>
 
 Before you start full load, make sure that you record the current log sequence number (LSN) as the starting position for ongoing replication. Use this LSN when you configure the ongoing replication task in AWS DMS.
 

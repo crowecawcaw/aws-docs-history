@@ -1,7 +1,6 @@
 
 
 # Full load MySQL database migration options performance comparison
-<a name="chap-manageddatabases.mysql2rds.performance"></a>
 
 We tested these three full load options using a Mysql 5.7 database on EC2 as the source and Aurora MySQL 5.7 as the target. The source database contained the AWS DMS [sample database](https://github.com/aws-samples/aws-database-migration-samples/tree/master/mysql/sampledb/v1) with a total of 9 GB of data. The following image shows the performance results.
 

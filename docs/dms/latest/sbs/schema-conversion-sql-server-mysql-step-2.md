@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure Your Source Database
-<a name="schema-conversion-sql-server-mysql-step-2"></a>
 
 In this step, you configure a new database user on your source SQL Server database. Also, you configure the network to set up interaction for your source database with DMS Schema Conversion.
 

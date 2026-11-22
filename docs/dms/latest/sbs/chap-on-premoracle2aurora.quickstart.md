@@ -1,7 +1,6 @@
 
 
 # Migration from Oracle to Aurora MySQL using AWS DMS high-level outline
-<a name="chap-on-premoracle2aurora.quickstart"></a>
 
 To migrate your data from Oracle to Aurora MySQL using AWS DMS, you take the following steps. If you’ve used AWS DMS before or prefer clicking a mouse to reading, the following summary should help you kick-start your migration. To get the details about migration or if you run into questions, see the step-by-step guide.
 

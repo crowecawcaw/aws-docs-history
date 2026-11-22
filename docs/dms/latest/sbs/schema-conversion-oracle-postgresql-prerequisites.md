@@ -1,7 +1,6 @@
 
 
 # Prerequisites for migrating Oracle databases to Amazon Aurora PostgreSQL with DMS schema conversion
-<a name="schema-conversion-oracle-postgresql-prerequisites"></a>
 
 The following prerequisites are also required to complete this walkthrough:
 + Familiarity with the AWS Management Console, AWS Database Migration Service, and SQL.

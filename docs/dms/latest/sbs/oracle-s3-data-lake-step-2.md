@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure a Source Amazon RDS for Oracle Database
-<a name="oracle-s3-data-lake-step-2"></a>
 
 In this step, we configure the source Oracle database. Make sure that AWS DMS can access the database transaction logs and capture the data changes. Also, make sure that you set permissions for AWS DMS to access tables and database catalogs.
 

@@ -1,7 +1,6 @@
 
 
 # Step 4: Store Database Credentials in AWS Secrets Manager
-<a name="dm-postgresql-step-4"></a>
 
 To connect to your source and target databases in an AWS DMS migration project, store your database credentials in AWS Secrets Manager. Make sure that you replicate these secrets to your AWS Region.
 

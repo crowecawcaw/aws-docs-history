@@ -1,7 +1,6 @@
 
 
 # Step 7: Create and Run Your AWS DMS Migration Task
-<a name="chap-sqlserver2aurora.steps.createmigrationtask"></a>
 
 Using an AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only.
 
