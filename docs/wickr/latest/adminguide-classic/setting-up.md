@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Setting up for AWS Wickr
-<a name="setting-up"></a>
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>

@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Environment variables to configure data retention bot in AWS Wickr
-<a name="data-retention-bot-env-variables"></a>
 
 You can use the following environment variables to configure the data retention bot. You set these environment variables using the `-e` option when you run the data retention bot Docker image. For more information, see [Start the data retention bot for your Wickr network](starting-data-retention-bot.md).
 

@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr information in CloudTrail
-<a name="service-name-info-in-cloudtrail"></a>
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Wickr, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 

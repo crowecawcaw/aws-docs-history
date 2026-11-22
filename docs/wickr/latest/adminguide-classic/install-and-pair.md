@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Install and pair the Wickr plugin for ATAK
-<a name="install-and-pair"></a>
 
 The Android Team Awareness Kit (ATAK) is an Android solution used by the US military, state, and governmental agencies that require situational awareness capabilities for mission planning, execution, and incident response. ATAK has a plugin architecture which allows developers to add functionality. It enables users to navigate using GPS and geospatial map data overlaid with real-time situational awareness of ongoing events. In this document, we show you how to install the Wickr plugin for ATAK on an Android device and pair it with the Wickr client. This allows you to message and collaborate on Wickr without exiting the ATAK application.
 

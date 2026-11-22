@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Navigation for ATAK
-<a name="navigation"></a>
 
 The plugin UI contains three plugin views that are indicated by the blue and white shapes at the bottom-right of the screen. Swipe left and right to navigate between the views.
 + **Contacts view**: Create a direct message group or room conversation.

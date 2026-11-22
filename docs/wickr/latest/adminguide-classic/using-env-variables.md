@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Start the bot and configure Amazon S3 using environment variables
-<a name="using-env-variables"></a>
 
 If you don't want to use Secrets Manager to host the data retention bot credentials, you can start the data retention bot Docker image with the following environment variables. You must identify the name of the data retention bot using the `WICKRIO_BOT_NAME` environment variable.
 

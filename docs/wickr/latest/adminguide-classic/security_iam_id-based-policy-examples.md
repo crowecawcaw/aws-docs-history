@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Identity-based policy examples for AWS Wickr
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, a brand new IAM user has no permissions to do anything. An IAM administrator must create and assign IAM policies that give users permission to administer the AWS Wickr service. The following shows an example of a permissions policy.
 
@@ -12,7 +11,7 @@ By default, a brand new IAM user has no permissions to do anything. An IAM admin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

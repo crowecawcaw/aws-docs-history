@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # GovCloud cross boundary classification and federation
-<a name="govcloud-cross-boundary"></a>
 
 AWS Wickr offers WickrGov client tailored for GovCloud users. The GovCloud Federation allows communication between GovCloud users and commercial users. The cross boundary classification feature enables user interface changes to conversations for GovCloud users. As a GovCloud user, you must adhere to strict guidelines concerning government defined classification. When GovCloud users engage in conversations with commercial users (Enterprise, AWS Wickr, Guest users), they will see the following unclassified warnings displayed:
 + A U tag in the room list 

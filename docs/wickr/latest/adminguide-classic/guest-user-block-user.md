@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Block a guest user in AWS Wickr network
-<a name="guest-user-block-user"></a>
 
 You can block and unblock a guest user in your Wickr network. Blocked users can't communicate with anyone in your network.
 

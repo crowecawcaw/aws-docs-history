@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Bulk delete users in AWS Wickr network
-<a name="bulk-delete"></a>
 
 You can bulk delete Wickr network users in the **User** section of the Wickr Admin Console for Wickr.
 

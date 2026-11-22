@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Secrets Manager values for AWS Wickr
-<a name="data-retention-aws-secret-values"></a>
 
 You can use Secrets Manager to store the data retention bot credentials and AWS service information. For more information about creating a Secrets Manager secret, see [Create an AWS Secrets Manager secret ](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) in the *Secrets Manager User Guide*.
 

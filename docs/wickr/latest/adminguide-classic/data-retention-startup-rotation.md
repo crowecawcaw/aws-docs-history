@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Start the bot with 10 minute message file rotation (no AWS service)
-<a name="data-retention-startup-rotation"></a>
 
 The following Docker command starts the data retention bot using environment variables. It also configures it to rotate the received messages files to 10 minutes.
 

@@ -3,7 +3,6 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # View data retention details in AWS Wickr
-<a name="view-data-retention-details"></a>
 
 Complete the following procedure to view the data retention details for your Wickr network. You can also enable or disable data retention for your Wickr network.
 
