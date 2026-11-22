@@ -1,7 +1,6 @@
 
 
 # Consumer Review Sentiment Analysis for CPG
-<a name="consumer-review-sentiment-analysis-cpg"></a>
 
 Publication date: **May 13, 2021 ([Diagram history](#sentiment-history))**
 
