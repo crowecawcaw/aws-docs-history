@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 +  Optimize the use of hardware and software efficiency that enables connected mobility.  
   +  **Reduce the amount of energy or resources required to run edge services:** Reduce or remove the need for customers to upgrade edge devices. Test using device farms to understand expected impact and test with customers to understand the actual impact from using your services. 
   +  **Adopt more efficient cloud hardware and managed services offerings:** Sharing services across a broad customer base helps maximize resource utilization, which reduces the amount of infrastructure needed to support cloud workloads. Use managed services to help minimize your workload impact. 

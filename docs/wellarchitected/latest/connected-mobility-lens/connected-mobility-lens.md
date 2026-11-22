@@ -1,7 +1,6 @@
 
 
 # Connected Mobility Lens
-<a name="connected-mobility-lens"></a>
 
 Publication date: **January 3, 2024** ([Document revisions](document-revisions.md))
 

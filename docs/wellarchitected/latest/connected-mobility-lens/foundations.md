@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | CMREL\_1: Have you defined your message prioritization policy?  | 

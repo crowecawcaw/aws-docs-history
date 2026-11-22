@@ -1,7 +1,6 @@
 
 
 # Matching supply and demand
-<a name="matching-supply-and-demand"></a>
 
 
 | CMCOST\_4: How do you optimize cost by matching backend resources with demand?  | 

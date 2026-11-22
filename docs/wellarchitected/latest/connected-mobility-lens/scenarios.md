@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
 In this section, we cover the six key scenarios that are common in many connected mobility implementations. We describe how they influence the design and architecture of your connected mobility application, also referred to as *connected mobility platform* in this whitepaper. We present the assumptions made for each of these scenarios, the common drivers for the design, and a reference architecture for how these scenarios could be implemented.
 

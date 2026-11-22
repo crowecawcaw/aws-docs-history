@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-rel"></a>
 
  In addition to the overall Well-Architected Framework design principles, the following are the design principles for reliability for connected mobility: 
 +  **Design for failure and resiliency:** It's essential to plan for resiliency on the vehicle-based telematics unit. Depending on your use case, resiliency might entail robust retry logic for intermittent connectivity, ability to roll back firmware updates, ability to fail over to a different networking protocol for critical message delivery, ability to perform a factory reset. 

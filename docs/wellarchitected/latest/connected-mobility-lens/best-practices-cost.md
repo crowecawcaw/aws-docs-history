@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-cost"></a>
 
  There are five best practice areas for cost optimization: 
 

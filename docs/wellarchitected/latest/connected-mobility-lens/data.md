@@ -1,7 +1,6 @@
 
 
 # Data
-<a name="data"></a>
 
 
 | CMSUS\_7: Are you optimizing data ingestion? | 

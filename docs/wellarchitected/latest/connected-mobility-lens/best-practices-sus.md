@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-sus"></a>
 
 **Topics**
 + [Region selection](region-selection.md)

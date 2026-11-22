@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 
 ## Change management
 <a name="resources-rel-chg-mgmt"></a>

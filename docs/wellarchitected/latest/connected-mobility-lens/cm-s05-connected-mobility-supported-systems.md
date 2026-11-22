@@ -1,7 +1,6 @@
 
 
 # CM-S05 Connected mobility supported systems
-<a name="cm-s05-connected-mobility-supported-systems"></a>
 
  Connected mobility is a foundational component in enabling systems such as autonomous driving, battery health management, and fleet management. These downstream systems have stringent Quality of Service (QoS) requirements related to performance and resiliency, which the connected mobility platform has to satisfy. Thus, vehicle manufacturers have to give careful consideration while designing and developing such platform. Following are some examples of supported systems enabled by connected mobility platform. 
 

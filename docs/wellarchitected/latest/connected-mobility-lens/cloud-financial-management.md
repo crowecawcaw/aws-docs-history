@@ -1,7 +1,6 @@
 
 
 # Cloud Financial Management
-<a name="cloud-financial-management"></a>
 
 
 | CMCOST\_5: Have you defined a tagging strategy for your connected mobility workloads?  | 

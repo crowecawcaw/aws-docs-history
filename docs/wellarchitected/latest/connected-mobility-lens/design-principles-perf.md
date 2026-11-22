@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-perf"></a>
 
 Core capabilities 
 + Vehicle provisioning 

@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 
 | CMSEC\_9: How do you monitor your in-vehicle software, components, and network for threats? | 

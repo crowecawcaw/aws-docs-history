@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
  At any OEM, connected mobility landscape is continuously evolving with new use cases and implementation patterns. On the vehicle side, the number of sensors collecting data have been rapidly multiplying. This results in refactoring and rewrite of some of the processing logic that feeds the vehicle data platform and enables deriving of insights. Thus, there is greater need to have streamlined processes that introduce and manage change in your environment. But based on the use cases, application, and infrastructure, the run-books and deployment strategies vary. These changes to the workloads and environment should be anticipated, monitored, accommodated and carefully executed for reliability of the connected mobility platform. 
 

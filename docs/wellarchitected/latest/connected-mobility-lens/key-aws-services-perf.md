@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-perf"></a>
 +  [AWS Lambda](https://aws.amazon.com/lambda/?nc2=type_a) - serverless provides scalable processing 
 +  [AWS IoT Core](https://aws.amazon.com/iot-core/) - Connect, manage, and scale your edge device fleets easily and reliably without provisioning or managing servers. 
 +  [Amazon Data Firehose](https://aws.amazon.com/kinesis/data-firehose/) 

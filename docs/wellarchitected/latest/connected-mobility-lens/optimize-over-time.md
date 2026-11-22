@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
 
 | CMCOST\_6: How do you optimize the payload size to reduce cost in evolving generations of connected vehicles?  | 

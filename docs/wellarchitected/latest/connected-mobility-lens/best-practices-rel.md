@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-rel"></a>
 
 **Topics**
 + [Foundations](foundations.md)

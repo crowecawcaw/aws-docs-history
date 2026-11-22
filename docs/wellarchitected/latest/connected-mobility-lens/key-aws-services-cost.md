@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-cost"></a>
 
  The following services and features are important in the five areas of cost optimization previous covered in this document: 
 +  **Cost-effective resources:** Amazon S3, Amazon Athena, Amazon DynamoDB Accelerator, AWS IoT Greengrass, AWS IoT Core, AWS IoT Greengrass, AWS IoT FleetWise, API Gateway, CloudFront are AWS services that enable you to optimize storage of raw data, optimize network consumption to improve the cost effectiveness of compute resources. 

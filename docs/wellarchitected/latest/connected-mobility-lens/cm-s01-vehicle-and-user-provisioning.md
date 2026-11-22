@@ -1,7 +1,6 @@
 
 
 # CM-S01 Vehicle and user provisioning
-<a name="cm-s01-vehicle-and-user-provisioning"></a>
 
  Vehicle Provisioning links the Telematics Control Unit (TCU) with the Vehicle Identification Number (VIN). Vehicle Provisioning also enables secure and automatic provisioning of security certificates and installation of latest firmware. Such activities are performed before the vehicle leaves the factory or upon swapping of the TCU. End of Line (EOL) processes involve configuration and validation of the Telematics Control Unit which includes: setup the certificate for identity of the vehicle, provision the SIM with the Mobile Network Operator, and set the state of the vehicle in the Connected Mobility Platform. User Provisioning involves activating the Connected Mobility services for the customer in the Customer Relationship Management (CRM) and the Billing systems, and activate the SIM in the Mobile Network Operator (MNO) systems which allows the customer to actually use the service. The following are user stories in the Vehicle and User Provisioning scenario: 
 
@@ -27,6 +26,8 @@
 
 ![Vehicle provisioning reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-provisioning-reference-architecture.png)
 
+*Vehicle provisioning reference architecture*
+
 
 ** Figure 1: CM-S01-a: Vehicle provisioning reference architecture **
 
@@ -43,7 +44,8 @@
 1. Vehicle Management application allows the connected vehicle operations center to manage any discrepancy or out of band process during the vehicle registration.
 
 1.  Encryption at rest on the server-side is available in all the services with encryption keys managed in AWS Key Management Service (AWS KMS).   
-![Reference architecture diagram for user provisioning](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/user-provisioning-reference-architecture.png)
+![Reference architecture diagram for user provisioning](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/user-provisioning-reference-architecture.png)  
+   *User provisioning reference architecture *
 
    ** Figure 2: CM-S01-b: User Provisioning reference architecture **
 

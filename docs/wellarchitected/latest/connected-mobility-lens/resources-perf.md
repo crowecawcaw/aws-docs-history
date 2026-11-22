@@ -1,7 +1,6 @@
 
 
 # Resources 
-<a name="resources-perf"></a>
 
  **Documentation and blogs:**
 +  [AWS Connected Vehicle Reference Architecture](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-connected-vehicle/aws-connected-vehicle.html) 

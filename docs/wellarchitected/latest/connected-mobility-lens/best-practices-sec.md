@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-sec"></a>
 
 **Topics**
 + [Security foundations](security-foundations.md)

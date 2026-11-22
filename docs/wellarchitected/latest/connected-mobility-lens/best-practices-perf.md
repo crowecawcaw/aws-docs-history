@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-perf"></a>
 
 **Topics**
 + [Selection](selection.md)

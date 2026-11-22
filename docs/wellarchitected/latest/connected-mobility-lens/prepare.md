@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 | CMOPS\_1: How do you define the meaningful monitoring KPIs and metrics of your connected mobility platform?  | 

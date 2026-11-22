@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sec"></a>
 
  **Documentation and blogs **
 +  [Securing Modern Connected Vehicle Platforms with AWS IoT](https://aws.amazon.com/blogs/iot/securing-modern-connected-vehicle-platforms-with-aws-iot) 

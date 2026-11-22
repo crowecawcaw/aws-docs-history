@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sec"></a>
 +  [Amazon Inspector](https://aws.amazon.com/inspector/) 
 +  [AWS Signer](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html) 
 +  [AWS Private CA](https://aws.amazon.com/private-ca/) 

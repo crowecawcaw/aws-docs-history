@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 
  **Documentation and blogs:** 
 + [How to get started with the new disconnected duration metric in AWS IoT Device Defender](https://aws.amazon.com/blogs/iot/how-to-get-started-with-the-new-disconnected-duration-metric-in-aws-iot-device-defender/)

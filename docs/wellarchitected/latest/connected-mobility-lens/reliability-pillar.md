@@ -1,7 +1,6 @@
 
 
 # Reliability pillar
-<a name="reliability-pillar"></a>
 
  The reliability pillar for connected mobility encompasses the ability of connected vehicles to deliver the services as intended and consistently. Resiliency is a [shared responsibility](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/shared-responsibility-model-for-resiliency.html) between AWS and the customer. It is important that you understand how high availability (HA) and disaster recovery (DR), as part of resiliency, operate under this shared model.  
 

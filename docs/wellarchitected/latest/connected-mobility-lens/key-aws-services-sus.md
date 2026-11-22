@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sus"></a>
 +  [AWS Graviton Processor](https://aws.amazon.com/ec2/graviton/) – Use GPU-enabled EC2 processing for your workloads.
 +  [AWS Lambda](https://aws.amazon.com/lambda/?nc2=type_a) – Serverless provides scalable processing. 
 +  [AWS IoT Core](https://aws.amazon.com/iot-core/) – Connect, manage, and scale your edge device fleets easily and reliably without provisioning or managing servers. 

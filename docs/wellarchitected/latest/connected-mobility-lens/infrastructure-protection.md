@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 | CMSEC\_13: How do you protect your systems and APIs from unauthorized access or exposure? | 

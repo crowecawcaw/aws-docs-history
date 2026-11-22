@@ -1,7 +1,6 @@
 
 
 # CM-S06 Customer experience management
-<a name="cm-s06-customer-experience-management"></a>
 
  Insights from vehicle data help provide a personalized in-cabin experience, which can also be portable to other vehicles. Vehicle Manufacturers can also use such data to predict customer's needs at different touch points throughout the vehicle lifecycle and provide a more seamless experience to address those needs. 
 
@@ -23,10 +22,14 @@
 
 ![Reference architecture diagram for customer experience management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-a.png)
 
+*Customer experience management reference architecture*
+
 
 ** Figure 6: CM-S06-a Customer experience management reference architecture **
 
 ![Reference architecture diagram for customer experience management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-b.png)
+
+*Customer experience management reference architecture*
 
 
 ** Figure 7: CM-S06-b: Customer experience management reference architecture **

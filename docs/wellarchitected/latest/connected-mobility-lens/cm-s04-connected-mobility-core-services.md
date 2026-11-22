@@ -1,7 +1,6 @@
 
 
 # CM-S04 Connected mobility core services
-<a name="cm-s04-connected-mobility-core-services"></a>
 
 Vehicle manufacturers can deliver value-added services to fleet operators and vehicle operators that helps them improve the vehicle operating experience, such as remote lock or unlock, remote vehicle monitoring, usage-based insurance, and improve experience throughout the vehicle lifecycle.
 
@@ -32,6 +31,8 @@ Vehicle manufacturers can deliver value-added services to fleet operators and ve
 <a name="reference-architecture-3"></a>
 
 ![Reference architecture diagram for connected mobility core services.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/connected-mobility-core-services-refarch.png)
+
+*Connected mobility core services reference architecture*
 
 
 ** Figure 5: CM-S04 Connected mobility core services reference architecture **

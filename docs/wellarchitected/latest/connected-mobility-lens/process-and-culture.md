@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 | CMSUS\_12: Are you using connected vehicle data to encourage the end user to be more sustainable?  | 

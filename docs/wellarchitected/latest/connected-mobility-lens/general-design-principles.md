@@ -1,7 +1,6 @@
 
 
 # General design principles
-<a name="general-design-principles"></a>
 
 The [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) identifies a set of general design principles to help customers design in the cloud for building and managing connected mobility workloads.
 

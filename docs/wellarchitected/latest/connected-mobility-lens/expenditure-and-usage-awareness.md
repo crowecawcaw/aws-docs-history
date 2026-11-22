@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="expenditure-and-usage-awareness"></a>
 
 
 | CMCOST\_3: How do you select the compute and storage solution for your vehicle data?  | 

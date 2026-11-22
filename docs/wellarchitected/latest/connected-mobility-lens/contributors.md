@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individual authors, collaborators, and editors contributed to this document: 
 +  Allan Holmes - Senior Technical Account Manager, AWS Enterprise Support 

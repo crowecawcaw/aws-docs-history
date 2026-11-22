@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sus"></a>
 +  **Documentation and blogs: **
   +  [AWS Connected Vehicle Reference Architecture](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-connected-vehicle/aws-connected-vehicle.html?did=wp_card&trk=wp_card) 
   +  [Building and Modernizing Connected Vehicle platforms with AWS IoT](https://aws.amazon.com/blogs/iot/modernizing-connected-vehicle-platforms-with-aws-iot/) 

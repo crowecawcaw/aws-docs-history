@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-ops"></a>
 
  Following are the operational excellence best practice areas: 
 +  [Organization](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/organization.html): Understand your organization's priorities, your organizational structure, and how your organization supports your team members, so that they can support your business outcomes. 

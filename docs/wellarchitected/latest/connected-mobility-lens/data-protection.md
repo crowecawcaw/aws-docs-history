@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="data-protection"></a>
 
 
 | CMSEC\_20: What are your encryption requirements for vehicle data? | 

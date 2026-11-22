@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="monitoring"></a>
 
 
 | CMPERF\_12: Have you implemented end-to-end monitoring and logging (between edge, vehicle, and cloud) of your system along with notifications?  | 

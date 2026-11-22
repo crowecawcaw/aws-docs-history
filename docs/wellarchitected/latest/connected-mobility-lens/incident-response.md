@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 
 | CMSEC\_22: Does your team deploy a VSOC? If so, what are the required capabilities of a VSOC? | 

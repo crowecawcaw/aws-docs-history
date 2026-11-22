@@ -1,7 +1,6 @@
 
 
 # CM-S02 Vehicle connectivity management
-<a name="cm-s02-vehicle-connectivity-management"></a>
 
  Vehicle connectivity management helps ensure resilient, secure, bidirectional connection between the vehicle and the cloud. It enables high throughput data transfer, low latency events and supports communication across all devices, in both low latency local area and wide area network connection. The following user stories are supported in Vehicle Connectivity Management. 
 
@@ -26,6 +25,8 @@ To achieve these objectives, vehicle connectivity management should be able to p
 <a name="reference-architecture-1"></a>
 
 ![Reference architecture diagram for vehicle connectivity management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-connectivity-mgmt-refarch.png)
+
+*Vehicle connectivity management reference architecture*
 
 
 ** Figure 3: CM-S02 Vehicle connectivity management reference architecture **

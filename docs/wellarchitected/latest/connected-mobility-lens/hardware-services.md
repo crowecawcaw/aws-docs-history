@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-services"></a>
 
 
 | CMSUS\_10: Are you using the correct compute instance type and the minimum size needed to process your workload?  | 
