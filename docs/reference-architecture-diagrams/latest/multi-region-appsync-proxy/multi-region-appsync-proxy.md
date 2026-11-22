@@ -1,7 +1,6 @@
 
 
 # Multi-Region Custom-Domain AppSync Proxy API
-<a name="multi-region-appsync-proxy"></a>
 
 Publication date: **May 6, 2022 ([Diagram history](#diagram-history))**
 
