@@ -1,7 +1,6 @@
 
 
 # Hybrid DNS Resolution with Amazon Route 53 Resolver Endpoints (IPv6)
-<a name="hybrid-dns-ipv6"></a>
 
 Publication date: **January 17, 2025 ([Diagram history](#hdns6-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # Multi-Account and Multi-VPC Hybrid DNS Resolution Using Amazon Route 53 Profiles
-<a name="hybrid-dns-profiles"></a>
 
 Publication date: **January 17, 2025 ([Diagram history](#hdnsp-diagram-history))**
 

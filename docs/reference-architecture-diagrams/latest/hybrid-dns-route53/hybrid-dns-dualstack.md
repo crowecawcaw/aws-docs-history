@@ -1,7 +1,6 @@
 
 
 # Hybrid DNS Resolution with Amazon Route 53 Resolver Endpoints (Dual-Stack)
-<a name="hybrid-dns-dualstack"></a>
 
 Publication date: **January 17, 2025 ([Diagram history](#hdnsd-diagram-history))**
 
