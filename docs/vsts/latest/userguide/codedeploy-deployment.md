@@ -1,7 +1,6 @@
 
 
 # AWS CodeDeploy Application Deployment task
-<a name="codedeploy-deployment"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

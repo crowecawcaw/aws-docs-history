@@ -1,7 +1,6 @@
 
 
 # Using the AWS Toolkit for Azure DevOps
-<a name="tutorials"></a>
 
 The following tutorials demonstrate how to use tasks from the AWS Toolkit for Microsoft Azure DevOps in your Azure DevOps projects.
 

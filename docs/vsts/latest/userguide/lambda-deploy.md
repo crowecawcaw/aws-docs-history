@@ -1,7 +1,6 @@
 
 
 # AWS Lambda Deploy Function task
-<a name="lambda-deploy"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

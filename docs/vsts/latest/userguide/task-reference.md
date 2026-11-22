@@ -1,7 +1,6 @@
 
 
 # Task reference
-<a name="task-reference"></a>
 
 This reference describes the tasks that are included in the AWS Toolkit for Microsoft Azure DevOps.<a name="task-prerequisites"></a>
 

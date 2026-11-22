@@ -1,7 +1,6 @@
 
 
 # AWS CLI task
-<a name="aws-cli"></a>
 
 ## Synopsis
 <a name="synopsis"></a>
@@ -13,7 +12,7 @@ Runs a command using the AWS CLI. Note that you must have the AWS CLI installed 
 
 The AWS CLI uses a multipart structure on the command line. It starts with the base call to AWS. The next part specifies a top-level command, which often represents an AWS service that the AWS CLI supports. Each AWS service has additional subcommands that specify the operation to perform. You can specify the general AWS CLI options, or the specific parameters for an operation, in any order on the command line. If you specify an exclusive parameter multiple times, only the last value applies.
 
-```
+```sh
 <command> <subcommand> [options and parameters]
 ```
 

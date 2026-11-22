@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Beanstalk Create Version task
-<a name="elastic-beanstalk-createversion"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

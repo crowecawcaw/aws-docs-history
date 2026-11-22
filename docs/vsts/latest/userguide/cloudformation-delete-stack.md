@@ -1,7 +1,6 @@
 
 
 # AWS CloudFormation Delete Stack task
-<a name="cloudformation-delete-stack"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

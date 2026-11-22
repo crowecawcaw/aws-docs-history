@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started"></a>
 
 This section provides information about how to install, set up, and use the AWS Toolkit for Microsoft Azure DevOps.
 

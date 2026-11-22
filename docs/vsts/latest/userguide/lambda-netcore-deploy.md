@@ -1,7 +1,6 @@
 
 
 # AWS Lambda .NET Core task
-<a name="lambda-netcore-deploy"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

@@ -1,7 +1,6 @@
 
 
 # AWS Secrets Manager Create/Update Secret task
-<a name="secretsmanager-create-update"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

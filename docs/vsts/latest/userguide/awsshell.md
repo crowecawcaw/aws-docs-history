@@ -1,7 +1,6 @@
 
 
 # AWS Shell Script task
-<a name="awsshell"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

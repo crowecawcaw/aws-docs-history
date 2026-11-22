@@ -1,7 +1,6 @@
 
 
 # Amazon ECR Push task
-<a name="ecr-pushimage"></a>
 
 (Amazon Elastic Container Registry Push Image Task)
 
@@ -94,7 +93,7 @@ This task requires permissions to call the following AWS service APIs (depending
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

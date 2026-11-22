@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Toolkit for Microsoft Azure DevOps
-<a name="document-history"></a>
 
 *Last documentation update:* June 18, 2019
 
@@ -11,7 +10,7 @@ The following table describes important changes to the AWS Toolkit for Microsoft
 | --- |--- |--- |
 | [Added task to Lambda Deploy Function: Task Permissions](lambda-deploy.md) | As of Azure DevOps Toolkit 1.12.0, it is now necessary to include permissions for the task: lambda.GetFunctionConfiguration. | December 1, 2021 | 
 | [Security Content](security.md) | Added security content. | February 4, 2020 | 
-| [Refresh](#document-history) | Screenshots with relevant content and task names were refreshed for user-interface updates. | June 18, 2019 | 
+| [Refresh](document-history.md) | Screenshots with relevant content and task names were refreshed for user-interface updates. | June 18, 2019 | 
 | [AWS CloudFormation Create/Update Stack Task](cloudformation-create-update.md) | Added information about the option to log warning messages when no changes are reported. | March 29, 2019 | 
 | [Amazon Elastic Container Registry Push Image](ecr-pushimage.md) | Added permission requirements to the task. | July 25, 2018 | 
 | [AWS Systems Manager Set Parameter](systemsmanager-setparameter.md) | Added the AWS Systems Manager Set Parameter task. | July 23, 2018 | 
@@ -23,4 +22,4 @@ The following table describes important changes to the AWS Toolkit for Microsoft
 | [AWS Systems Manager Run Command](systemsmanager-runcommand.md) | Added the AWS Systems Manager Run Command task. | November 28, 2017 | 
 | [AWS Systems Manager Get Parameter](systemsmanager-getparameter.md) | Added the AWS Systems Manager Get Parameter task. | November 28, 2017 | 
 | [AWS Lambda .NET Core Deployment task](lambda-netcore-deploy.md) | Added the AWS Lambda .NET Core Deployment task. | November 28, 2017 | 
-| [Initial Release](#document-history) | Initial release of SDK developer guide for AWS Toolkit for Microsoft Azure DevOps. | August 14, 2017 | 
+| [Initial Release](document-history.md) | Initial release of SDK developer guide for AWS Toolkit for Microsoft Azure DevOps. | August 14, 2017 | 

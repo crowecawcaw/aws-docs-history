@@ -1,7 +1,6 @@
 
 
 # AWS SSM Set Parameter Task
-<a name="systemsmanager-setparameter"></a>
 
 (AWS Systems Manager Set Parameter Task)
 

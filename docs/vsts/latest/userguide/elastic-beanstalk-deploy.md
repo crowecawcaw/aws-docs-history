@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Beanstalk Deploy Application task
-<a name="elastic-beanstalk-deploy"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

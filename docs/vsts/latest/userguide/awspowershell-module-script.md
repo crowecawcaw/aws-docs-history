@@ -1,7 +1,6 @@
 
 
 # AWS Tools for Windows PowerShell Script task
-<a name="awspowershell-module-script"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

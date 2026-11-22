@@ -1,7 +1,6 @@
 
 
 # AWS Send SNS or SQS Message task
-<a name="send-message"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

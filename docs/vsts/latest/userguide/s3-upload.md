@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Upload task
-<a name="s3-upload"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

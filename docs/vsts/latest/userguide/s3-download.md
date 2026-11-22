@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Download task
-<a name="s3-download"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

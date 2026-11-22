@@ -1,7 +1,6 @@
 
 
 # AWS SSM Get Parameter task
-<a name="systemsmanager-getparameter"></a>
 
 (AWS Systems Manager Get Parameter Task)
 

@@ -1,7 +1,6 @@
 
 
 # AWS Lambda Invoke Function task
-<a name="lambda-invoke"></a>
 
 ## Synopsis
 <a name="synopsis"></a>

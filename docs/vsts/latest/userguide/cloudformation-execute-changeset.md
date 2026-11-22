@@ -1,7 +1,6 @@
 
 
 # AWS CloudFormation Execute Change Set task
-<a name="cloudformation-execute-changeset"></a>
 
 ## Synopsis
 <a name="synopsis"></a>
