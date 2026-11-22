@@ -1,7 +1,6 @@
 
 
 # Concepts and terminology in Security Hub CSPM
-<a name="securityhub-concepts"></a>
 
 In AWS Security Hub CSPM, we build on common AWS concepts and terminology and use these additional terms.
 
@@ -30,7 +29,7 @@ A finding whose record state (`RecordState`) is `ARCHIVED`. Archiving a finding 
 Finding providers can use the [BatchImportFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) operation of the Security Hub CSPM API to archive findings that they created. Security Hub CSPM automatically archives control findings that meet certain criteria. For more information, see [Generating, updating, and archiving control findings](controls-findings-create-update.md#securityhub-standards-results-updating).  
 On the Security Hub CSPM console, default filter settings exclude archived findings from finding lists and tables. You can update the settings to include archived findings. If you retrieve findings by using the [GetFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindings.html) operation of the Security Hub CSPM API, the operation retrieves both archived and active findings. To exclude archived findings, you can filter the results. For example:  
 
-```
+```json
 "RecordState": [ 
     { 
         "Comparison": "EQUALS",
@@ -107,7 +106,7 @@ The workflow status is initially `NEW`. If you notified the resource owner to ta
 By default, most finding lists only include findings with a workflow status of `NEW` or `NOTIFIED`. Finding lists for controls also include `RESOLVED` findings.  
 For the [GetFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindings.html) operation, you can include a filter for the workflow status.  
 
-```
+```json
 "WorkflowStatus": [ 
     { 
         "Comparison": "EQUALS",

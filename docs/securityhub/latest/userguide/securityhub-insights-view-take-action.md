@@ -1,7 +1,6 @@
 
 
 # Reviewing and acting on insights in Security Hub CSPM
-<a name="securityhub-insights-view-take-action"></a>
 
 For each insight, AWS Security Hub CSPM first determines the findings that match the filter criteria, and then uses the grouping attribute to group the matching findings.
 

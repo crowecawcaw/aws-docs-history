@@ -1,7 +1,6 @@
 
 
 # Logging Security Hub API calls with CloudTrail
-<a name="securityhub-ct"></a>
 
 AWS Security Hub CSPM is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Security Hub CSPM. CloudTrail captures API calls for Security Hub CSPM as events. The captured calls include calls from the Security Hub CSPM console and code calls to the Security Hub CSPM API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Hub CSPM. If you don't configure a trail, you can still view the most recent events on the CloudTrail console in **Event history**. Using the information that CloudTrail collects, you can determine the request that was made to Security Hub CSPM, the IP address that the request was made from, who made the request, when it was made, and additional details. 
 
@@ -41,7 +40,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateInsight` action. In this example, an insight called `Test Insight` is created. The `ResourceId` attribute is specified as the **Group by** aggregator, and no optional filters for this insight are specified. For more information about insights, see [Viewing insights in Security Hub CSPM](securityhub-insights.md).
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

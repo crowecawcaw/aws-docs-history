@@ -1,7 +1,6 @@
 
 
 # Creating and associating configuration policies
-<a name="create-associate-policy"></a>
 
 **Important**  
 Before you create a new configuration policy, consider migrating to Security Hub CSPM declarative policies instead. Declarative policies are replacing central configuration, and you can't use the two in the same organization at the same time. To move your existing configuration policies to declarative policies without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
@@ -13,7 +12,7 @@ The delegated AWS Security Hub CSPM administrator account can create configurati
 If this is your first time creating a configuration policy, we recommend first reviewing [How configuration policies work in Security Hub CSPM](configuration-policies-overview.md).
 
 **Note**  
-Configuration policies support AWS standards and controls only. You cannot include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0) or Azure controls in a configuration policy. Including a multicloud standard ARN or control ID returns `InvalidInputException`. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
+Configuration policies support AWS standards and controls only. You cannot include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0 and CIS Google Cloud Platform Foundation Benchmark v4.0.0) or multicloud controls in a configuration policy. Including a multicloud standard ARN or control ID returns `InvalidInputException`. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
 
 ## Steps to create and associate a configuration policy
 <a name="create-associate-policy-steps"></a>
@@ -21,7 +20,7 @@ Configuration policies support AWS standards and controls only. You cannot inclu
 Choose your preferred access method, and follow the steps to create and associate a configuration policy or self-managed configuration. When using the Security Hub CSPM console, you can associate a configuration with multiple accounts or OUs at the same time. When using the Security Hub CSPM API or AWS CLI, you can associate a configuration with only one account or OU in each request.
 
 **Note**  
-If you use central configuration, Security Hub CSPM automatically disables controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
+If you use central configuration, Security Hub CSPM automatically disables AWS controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
 If an enabled control that involves global resources isn't supported in the home Region, Security Hub CSPM tries to enable the control in one linked Region where the control is supported. With central configuration, you lack coverage for a control that isn't available in the home Region or any of the linked Regions.  
 For a list of controls that involve global resources, see [Controls that use global resources](controls-to-disable.md#controls-to-disable-global-resources).
 

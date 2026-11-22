@@ -1,7 +1,6 @@
 
 
 # Reviewing a declarative policy's impact before you apply it in Security Hub CSPM
-<a name="orgs-policies-review-impact"></a>
 
 Before you save a declarative policy change, review the current AWS Security Hub CSPM configuration in the accounts and AWS Regions that the change affects. Because a Security Hub CSPM declarative policy governs configuration completely in each Region, it can disable standards and controls that the declarative policy doesn't list. Check the current state for each account and Region.
 

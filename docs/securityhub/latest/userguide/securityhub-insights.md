@@ -1,7 +1,6 @@
 
 
 # Viewing insights in Security Hub CSPM
-<a name="securityhub-insights"></a>
 
 In AWS Security Hub CSPM, an *insight* is a collection of related findings. An insight can identify a specific security area that requires attention and intervention. For example, an insight might point out EC2 instances that are the subject of findings that detect poor security practices. An insight brings together findings from across finding providers.
 

@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for EC2 instances
-<a name="exposure-ec2-instance"></a>
 
 AWS Security Hub can generate exposure findings for Amazon Elastic Compute Cloud (EC2) instances.
 
@@ -25,6 +24,7 @@ A single exposure finding contains issues identified in multiple remediation top
   + [The Amazon EC2 instance has software vulnerabilities which are notable](#notable-vulnerability)
   + [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](#high-priority-vulnerability)
   + [The Amazon EC2 instance has software vulnerabilities](#low-priority-vulnerability)
+  + [The EC2 instance is running software with a known vulnerability](#vulnerable-software-currently-running)
   + [The EC2 instance has an End-Of-Life operating system](#end-of-life-operating-system-detected)
   + [The EC2 instance has malicious software packages](#malicious-package)
   + [The EC2 instance has malicious files](#malicious-file)
@@ -172,6 +172,20 @@ Distribution packages can include the fix under an older version number, so chec
 
 **Future considerations**  
  To prevent future occurrences, consider implementing a vulnerability management program. Amazon Inspector can be configured to automatically scan for CVEs on your instances. Amazon Inspector can also be integrated with Security Hub for automatic remediations. Consider implementing a regular patching schedule using Systems Manager Maintenance Windows to minimize disruption to your instances. 
+
+### The EC2 instance is running software with a known vulnerability
+<a name="vulnerable-software-currently-running"></a>
+
+ Software packages that are installed on EC2 instances can be exposed to Common Vulnerabilities and Exposures (CVEs). This trait indicates that software with a known vulnerability is running on the instance. Security Hub determines this trait from runtime activity in the last 30 hours, which GuardDuty Runtime Monitoring or the Amazon Inspector VM Scanner reports. Attackers can exploit vulnerabilities in running software to compromise the confidentiality, integrity, or availability of data, or to access other systems. Patch the running software first to protect your instance. 
+
+ Security Hub prioritizes exposure findings with this trait above findings for the same vulnerabilities in software that isn't running. The **Vulnerability** tab of the trait lists the vulnerabilities in running software first, ordered by CVSS score. 
+
+**Remediation: Patch the running software first**  
+ Review the **References** section in the **Vulnerability** tab of the trait, and follow the remediation advice in the finding. Use Systems Manager Patch Manager to update the affected packages on the instance, or update the application to a version that is not affected. After you update the software, restart the affected service or process so that the patched version is the one that runs. 
+
+ If you can't patch the software right away, reduce the risk until a patch is available. Stop or disable the affected service if the instance doesn't need it. Otherwise, restrict network access to the software, such as by limiting the inbound rules of the instance's security groups. 
+
+ If the instance is part of an Auto Scaling group, update the AMI that the group uses so that new instances are not affected. For more information, see [AMI updates patching (using patched AMIs for Auto Scaling groups)](https://docs.aws.amazon.com/managedservices/latest/userguide/patching-method-immutable.html). 
 
 ### The EC2 instance has an End-Of-Life operating system
 <a name="end-of-life-operating-system-detected"></a>

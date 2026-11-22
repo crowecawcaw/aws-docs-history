@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon Detective
-<a name="detective-controls"></a>
 
 This AWS Security Hub CSPM control evaluates the Amazon Detective service and resources. The control might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 

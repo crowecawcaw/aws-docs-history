@@ -1,7 +1,6 @@
 
 
 # Removing tags from Security Hub CSPM resources
-<a name="tags-remove"></a>
 
 If you add tags to an AWS Security Hub CSPM resource, you can subsequently remove one or more of them. A *tag* is a label that you define and assign to AWS resources, including certain types of Security Hub CSPM resources. You can add, edit, and remove tags from the following types of Security Hub CSPM resources: automation rules, configuration policies, and the `Hub` resource.
 

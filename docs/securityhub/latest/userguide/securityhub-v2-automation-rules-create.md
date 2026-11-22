@@ -1,7 +1,6 @@
 
 
 # Creating automation rules in Security Hub
-<a name="securityhub-v2-automation-rules-create"></a>
 
  This topic describes how to create automation rules. You can use automation rules to update details for a finding, update the criticality of your resources, or create a ticket for a third-party integration. You must create automation rules individually and in the AWS Region where you want them applied. However, if you create an automation rule in an aggregation Region, it is applied in all Regions. Otherwise, if you create an automation rule in a non-linked Region, it is applied only in that Region. 
 

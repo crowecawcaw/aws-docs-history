@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Kinesis
-<a name="kinesis-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon Kinesis service and resources.
 

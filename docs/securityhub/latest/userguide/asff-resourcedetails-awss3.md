@@ -1,7 +1,6 @@
 
 
 # AwsS3 resources in ASFF
-<a name="asff-resourcedetails-awss3"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsS3` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```JSON
 "AwsS3AccessPoint": {
         "AccessPointArn": "arn:aws:s3:us-east-1:123456789012:accesspoint/asff-access-point",
         "Alias": "asff-access-point-hrzrlukc5m36ft7okagglf3gmwluquse1b-s3alias",
@@ -45,7 +44,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```JSON
 "AwsS3AccountPublicAccessBlock": {
     "BlockPublicAcls": true,
     "BlockPublicPolicy": true,
@@ -63,7 +62,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```json
 "AwsS3Bucket": {
     "AccessControlList": "{\"grantSet\":null,\"grantList\":[{\"grantee\":{\"id\":\"4df55416215956920d9d056aa8b99803a294ea221222bb668b55a8c6bca81094\",\"displayName\":null},\"permission\":\"FullControl\"},{\"grantee\":\"AllUsers\",\"permission\":\"ReadAcp\"},{\"grantee\":\"AuthenticatedUsers\",\"permission\":\"ReadAcp\"}",,
     "BucketLifecycleConfiguration": {
@@ -207,7 +206,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```json
 "AwsS3Object": {
     "ContentType": "text/html",
     "ETag": "\"30a6ec7e1a9ad79c203d05a589c8b400\"",

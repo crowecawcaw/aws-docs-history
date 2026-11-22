@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for IAM users
-<a name="exposure-iam-user"></a>
 
 AWS Security Hub can generate exposure findings for AWS Identity and Access Management (IAM) users.
 

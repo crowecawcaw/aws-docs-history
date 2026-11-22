@@ -1,7 +1,6 @@
 
 
 # Understanding cross-Region aggregation in Security Hub
-<a name="security-hub-region-aggregation"></a>
 
 When you enable cross-Region aggregation in Security Hub, you designate a home Region. The home Region collects findings, resources, and trends from one or more linked Regions. You can then manage all security data from a single Region.
 

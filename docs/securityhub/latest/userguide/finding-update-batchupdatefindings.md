@@ -1,7 +1,6 @@
 
 
 # BatchUpdateFindings for customers
-<a name="finding-update-batchupdatefindings"></a>
 
 AWS Security Hub CSPM customers, and entities acting on their behalf, can use the [BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) operation to update information related to the processing of Security Hub CSPM findings from finding providers. As a customer, you can use this operation directly. SIEM, ticketing, incident management, and SOAR tools can also use this operation on behalf of a customer.
 
@@ -45,7 +44,7 @@ These are the condition keys for restricting access to `BatchUpdateFindings`.
 **ASFF field**  
 The condition key for an ASFF field is as follows:  
 
-```
+```NONE
 securityhub:ASFFSyntaxPath/{{<fieldName>}}
 ```
 Replace `{{<fieldName>}}` with the ASFF field. When configuring access to `BatchUpdateFindings`, include one or more specific ASFF fields in your IAM policy rather than a parent-level field. For example, to restrict access to the `Workflow.Status` field, you must include ` securityhub:ASFFSyntaxPath/Workflow.Status` in your policy instead of the `Workflow` parent-level field.
@@ -65,7 +64,7 @@ To prevent a user from making any update to a specific field, use a condition li
 
 For example, the following statement indicates that `BatchUpdateFindings` can't be used to update the `Workflow.Status` field of findings.
 
-```
+```NONE
 {
     "Sid": "VisualEditor0",
     "Effect": "Deny",
@@ -84,7 +83,7 @@ For example, the following statement indicates that `BatchUpdateFindings` can't 
 
 To prevent a user from setting a field to a specific value, use a condition like this:
 
-```
+```NONE
 "Condition": {
                 "StringEquals": {
                     "securityhub:ASFFSyntaxPath/{{<fieldName>}}": "<fieldValue>"
@@ -94,7 +93,7 @@ To prevent a user from setting a field to a specific value, use a condition like
 
 For example, the following statement indicates that `BatchUpdateFindings` can't be used to set `Workflow.Status` to `SUPPRESSED`.
 
-```
+```NONE
 {
     "Sid": "VisualEditor0",
     "Effect": "Deny",
@@ -109,7 +108,7 @@ For example, the following statement indicates that `BatchUpdateFindings` can't 
 
 You can also provide a list of values that are not permitted.
 
-```
+```NONE
  "Condition": {
                 "StringEquals": {
                     "securityhub:ASFFSyntaxPath/<fieldName>": [ "{{<fieldValue1>}}", "{{<fieldValue2>}}", "{{<fieldValuen>}}" ]
@@ -119,7 +118,7 @@ You can also provide a list of values that are not permitted.
 
 For example, the following statement indicates that `BatchUpdateFindings` can't be used to set `Workflow.Status` to either `RESOLVED` or `SUPPRESSED`.
 
-```
+```NONE
 {
     "Sid": "VisualEditor0",
     "Effect": "Deny",

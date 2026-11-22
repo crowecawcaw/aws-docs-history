@@ -1,7 +1,6 @@
 
 
 # How Security Hub uses data to provide the capabilities you enable
-<a name="securityhub-v2-data-use"></a>
 
 When you enable AWS Security Hub, you'll see a notice explaining that Security Hub may access and use data it already has access to in order to power the capabilities you choose to enable. This notice exists because Security Hub is designed to grow and improve over time. New detection, correlation, and enrichment capabilities are added on an ongoing basis, and many of these draw on data (such as findings, configuration data, and other Content or metadata) that Security Hub already has visibility into as part of your existing setup. Rather than asking you to opt-in every time we introduce a way to use data you've already granted Security Hub access to, this notice gives you clear, upfront visibility into how that access can be used (now and as the service evolves).
 

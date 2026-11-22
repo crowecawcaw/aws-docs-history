@@ -1,7 +1,6 @@
 
 
 # Editing automation rules in Security Hub
-<a name="securityhub-v2-automation-rules-edit"></a>
 
  This topic describes how to edit automation rules. You can edit automation rules in the AWS Region where you created them. 
 

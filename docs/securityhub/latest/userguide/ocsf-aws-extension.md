@@ -1,7 +1,6 @@
 
 
 # AWS extension for OCSF
-<a name="ocsf-aws-extension"></a>
 
  OCSF [schemas](https://schema.ocsf.io/) can be extended by adding new attributes, objects, categories, profiles and event classes. A schema is the aggregation of core schema entities and extensions. 
 

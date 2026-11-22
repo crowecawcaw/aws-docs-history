@@ -1,7 +1,6 @@
 
 
 # AwsRedshift resources in ASFF
-<a name="asff-resourcedetails-awsredshift"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRedshift` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsR
 
 **Example**
 
-```
+```JSON
 "AwsRedshiftCluster": {
     "AllowVersionUpgrade": true,
     "AutomatedSnapshotRetentionPeriod": 1,

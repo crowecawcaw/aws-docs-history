@@ -1,7 +1,6 @@
 
 
 # How declarative policies work in Security Hub CSPM
-<a name="orgs-policies-how-they-work"></a>
 
 An AWS Security Hub CSPM declarative policy determines where Security Hub CSPM is enabled, by account and AWS Region. It also determines which standards and controls are enabled and which control parameter values apply. The following sections describe how a declarative policy applies across Regions, how it's inherited, and how it changes Security Hub CSPM account management after you attach it. They also provide common use cases.
 

@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for AWS accounts
-<a name="account-controls"></a>
 
 These Security Hub CSPM controls evaluate AWS accounts.
 

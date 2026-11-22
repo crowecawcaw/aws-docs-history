@@ -1,7 +1,6 @@
 
 
 # Viewing exposures in Security Hub with the potential attack path graph
-<a name="potential-attack-path-graph"></a>
 
 The potential attack path graph is an interactive visualization that shows how potential attackers can access and take control of resources associated with an exposure finding. You can access this graph only in the Security Hub console from the **Exposures** page. When you view details for an exposure finding, the **Overview** tab includes a section called **Potential attack path and Blast radius**. 
 

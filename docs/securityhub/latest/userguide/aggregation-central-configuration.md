@@ -1,7 +1,6 @@
 
 
 # Impact of central configuration on cross-Region aggregation
-<a name="aggregation-central-configuration"></a>
 
 Central configuration is an opt-in feature in AWS Security Hub CSPM that you can use if you integrate with AWS Organizations. If you use central configuration, the delegated administrator account can configure the Security Hub CSPM service, standards, and controls for accounts and organizational units (OU) in the organization. To configure accounts and OUs, the delegated administrator creates Security Hub CSPM configuration policies. Configuration policies can be used to define whether Security Hub CSPM is enabled or disabled, and which standards and controls are enabled. The delegated administrator associates configuration policies with specific accounts, OUs, or the root (the entire organization).
 

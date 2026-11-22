@@ -1,7 +1,6 @@
 
 
 # AwsAmazonMQ resources in ASFF
-<a name="asff-resourcedetails-awsamazonmq"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAmazonMQ` resources.
 
@@ -16,7 +15,7 @@ The following example shows the ASFF for the `AwsAmazonMQBroker` object. To view
 
 **Example**
 
-```
+```JSON
 "AwsAmazonMQBroker": {
     "AutoMinorVersionUpgrade": true,
     "BrokerArn": "arn:aws:mq:us-east-1:123456789012:broker:TestBroker:b-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

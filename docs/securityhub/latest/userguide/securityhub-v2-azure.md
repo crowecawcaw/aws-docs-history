@@ -1,7 +1,6 @@
 
 
 # Integrating Security Hub with Microsoft Azure
-<a name="securityhub-v2-azure"></a>
 
 To monitor your Microsoft Azure resources, you can integrate Microsoft Azure with AWS Security Hub. Security Hub then automatically enables posture management and vulnerability management for your Azure environment and generates findings and other data about your environment. You do not need to turn on any Azure security services—all functionality is performed by AWS. More specifically, the service provides you with the following:
 

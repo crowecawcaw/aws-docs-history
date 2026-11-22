@@ -1,7 +1,6 @@
 
 
 # Suggested controls to disable in Security Hub CSPM
-<a name="controls-to-disable"></a>
 
 We recommend disabling some AWS Security Hub CSPM controls to reduce finding noise and usage costs.
 
@@ -17,7 +16,7 @@ If a control involves global resources but is available in only one Region, disa
 + **WAF.1, WAF.6, WAF.7, WAF.8** – Available only in the US East (N. Virginia) Region
 
 **Note**  
-If you use central configuration, Security Hub CSPM automatically disables controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
+If you use central configuration, Security Hub CSPM automatically disables AWS controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
 If an enabled control that involves global resources isn't supported in the home Region, Security Hub CSPM tries to enable the control in one linked Region where the control is supported. With central configuration, you lack coverage for a control that isn't available in the home Region or any of the linked Regions.  
 For more information about central configuration, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md).
 

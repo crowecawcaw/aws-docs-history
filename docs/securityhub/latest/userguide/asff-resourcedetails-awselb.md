@@ -1,7 +1,6 @@
 
 
 # AwsElb resources in ASFF
-<a name="asff-resourcedetails-awselb"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsElb` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```JSON
 "AwsElbLoadBalancer": {
     "AvailabilityZones": ["us-west-2a"],
     "BackendServerDescriptions": [
@@ -118,7 +117,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```JSON
 "AwsElbv2LoadBalancer": {
                         "AvailabilityZones": {
                             "SubnetId": "string",

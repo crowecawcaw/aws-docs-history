@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Security Hub CSPM
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Security Hub CSPM resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
 
@@ -41,7 +40,7 @@ To ensure that those users and roles can use the Security Hub CSPM console, also
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ To ensure that those users and roles can use the Security Hub CSPM console, also
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -116,7 +115,7 @@ This example shows how you might create an IAM policy that allows a user to crea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ This example shows how you might create an IAM policy that allows a user to view
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -209,7 +208,7 @@ This example shows how you might create an IAM policy that allows a user to crea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

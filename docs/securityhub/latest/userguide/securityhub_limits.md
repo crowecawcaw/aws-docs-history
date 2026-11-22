@@ -1,7 +1,6 @@
 
 
 # Quotas for Security Hub
-<a name="securityhub_limits"></a>
 
 Your AWS account has certain default quotas, formerly referred to as *limits*, for each AWS service. These quotas are the maximum number of service resources or operations for your account. This topic links to the quotas that apply to AWS Security Hub resources and operations for your account. Unless otherwise noted, each quota applies to your account in each AWS Region.
 

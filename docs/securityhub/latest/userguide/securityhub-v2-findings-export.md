@@ -1,7 +1,6 @@
 
 
 # Exporting findings from Security Hub to Amazon S3
-<a name="securityhub-v2-findings-export"></a>
 
  You can export findings from AWS Security Hub to an Amazon Simple Storage Service (Amazon S3) bucket that you own. An export captures the findings that match the filters on the page you start it from and writes them to your bucket as a CSV file or as JSON in the Open Cybersecurity Schema Framework (OCSF) format. Use exports to share findings with teams that do not use the Security Hub console, load findings into a data warehouse or business intelligence tool, or keep a point in time record for audits. 
 

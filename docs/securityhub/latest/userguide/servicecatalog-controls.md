@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for AWS Service Catalog
-<a name="servicecatalog-controls"></a>
 
 This AWS Security Hub CSPM control evaluates the AWS Service Catalog service and resources. The control might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Security Hub Cost Estimator
-<a name="security-hub-cost-estimator"></a>
 
 The Security Hub cost estimator is a console feature that provides estimates for Security Hub capabilities across your AWS environment. The cost estimator shows you what your individual service costs are across AWS Security Hub CSPM, Amazon Inspector, and Amazon GuardDuty and what your estimated costs would be in Security Hub with Security Hub's simplified pricing plans. You can adjust estimated usage and resource counts to match your AWS usage to increase the accuracy of your estimate. The cost estimator is available in all regions where Security Hub is available.
 

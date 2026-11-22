@@ -1,7 +1,6 @@
 
 
 # Filtering and sorting control findings
-<a name="control-finding-list"></a>
 
 Selecting a control from the **Controls** page of the AWS Security Hub CSPM console or from the details page of a standard takes you to the control details page.
 

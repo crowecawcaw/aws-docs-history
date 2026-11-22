@@ -1,7 +1,6 @@
 
 
 # Using EventBridge for automated response and remediation
-<a name="securityhub-cloudwatch-events"></a>
 
 By creating rules in Amazon EventBridge, you can respond automatically to AWS Security Hub CSPM findings. Security Hub CSPM sends findings as *events* to EventBridge in near-real time. You can write simple rules to indicate which events you are interested in and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
 + Invoking an AWS Lambda function

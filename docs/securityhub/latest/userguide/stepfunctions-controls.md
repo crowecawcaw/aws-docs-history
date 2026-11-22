@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Step Functions
-<a name="stepfunctions-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the AWS Step Functions service and resources.
 

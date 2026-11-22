@@ -1,7 +1,6 @@
 
 
 # Understanding automation rules in Security Hub CSPM
-<a name="automation-rules"></a>
 
 You can use automation rules to automatically update findings in AWS Security Hub CSPM. As it ingests findings, Security Hub CSPM can apply a variety of rule actions, such as suppressing findings, changing their severity, and adding notes. Such rule actions modify findings that match your specified criteria.
 

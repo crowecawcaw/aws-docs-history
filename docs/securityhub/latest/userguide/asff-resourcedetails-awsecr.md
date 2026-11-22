@@ -1,7 +1,6 @@
 
 
 # AwsEcr resources in ASFF
-<a name="asff-resourcedetails-awsecr"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEcr` resources.
 
@@ -36,7 +35,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
 "AwsEcrRepository": {
     "LifecyclePolicy": {
         "RegistryId": "123456789012",

@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations for declarative policies in Security Hub CSPM
-<a name="orgs-policies-considerations"></a>
 
 Keep the following in mind when you plan and manage AWS Security Hub CSPM declarative policies:
 + **A declarative policy applies only to accounts in AWS Organizations.** A declarative policy can manage Security Hub CSPM only in accounts that belong to your organization. It can't manage accounts that are associated only by invitation. Manage Security Hub CSPM in those accounts from their administrator account or in each account.

@@ -1,7 +1,6 @@
 
 
 # KMS key policies for Security Hub ticketing integrations
-<a name="securityhub-v2-integrations-key-policy"></a>
 
  When using customer-managed KMS keys with Security Hub ticketing integrations, additional policies need to be added to the KMS key to allow Security Hub to interact with the key. Additionally, policies need to be added which allow the principal who is adding the key to the Security Hub connector permissions to access the key. 
 

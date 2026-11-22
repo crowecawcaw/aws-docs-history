@@ -1,7 +1,6 @@
 
 
 # Security Hub and the Open Cybersecurity Schema Framework (OCSF)
-<a name="securityhub-ocsf"></a>
 
  Security Hub uses the Open Cybersecurity Schema Framework (OCSF) as the standard format for all security findings. This topic describes OCSF and how Security Hub implements it. 
 

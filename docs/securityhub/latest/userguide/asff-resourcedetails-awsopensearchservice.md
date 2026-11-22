@@ -1,7 +1,6 @@
 
 
 # AwsOpenSearchService resources in ASFF
-<a name="asff-resourcedetails-awsopensearchservice"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsOpenSearchService` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsO
 
 **Example**
 
-```
+```json
 "AwsOpenSearchServiceDomain": {
     "AccessPolicies": "IAM_Id",
     "AdvancedSecurityOptions": {

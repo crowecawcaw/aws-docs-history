@@ -1,7 +1,6 @@
 
 
 # Required permissions to configure controls in Security Hub CSPM
-<a name="iam-permissions-controls-standards"></a>
 
 To view information about security controls and enable and disable security controls in standards, the AWS Identity and Access Management (IAM) role that you use to access AWS Security Hub CSPM needs permissions to call the following operations of the Security Hub CSPM API.
 

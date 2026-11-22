@@ -1,7 +1,6 @@
 
 
 # Configuring Security Hub CSPM to integrate with Microsoft Azure
-<a name="securityhub-azure-setup-securityhub"></a>
 
 After you complete the [prerequisite tasks](securityhub-azure-prereqs.md) and [configure your Microsoft Azure environment](securityhub-azure-setup-azure.md), you can configure AWS Security Hub CSPM to integrate with Azure. To configure Security Hub CSPM to integrate with Azure, you create a connector. After you create the connector, the following events occur:
 
@@ -56,10 +55,14 @@ After you create the connector, Security Hub CSPM validates your Azure credentia
 <a name="securityhub-azure-setup-securityhub-standards"></a>
 
 After creating the connector, you must enable Azure security standards to begin generating findings. For general information about enabling standards and managing controls, see [Enabling standards](https://docs.aws.amazon.com/securityhub/latest/userguide/enable-standards.html) and [Enabling and disabling controls](https://docs.aws.amazon.com/securityhub/latest/userguide/enable-controls-overview.html).
+
+**Available standards**
 + **CIS Microsoft Azure Foundations Benchmark v4.0** - A widely adopted security benchmark that defines best practices for securing Azure environments. Each control evaluates a specific aspect of your Azure configuration (for example, storage account encryption, network security group rules, identity and access settings).
 + **Azure Foundational Best Practices** - Evaluates Azure resources for exposure risks by correlating network reachability, public access, and sensitive data indicators. Generates exposure-type findings that highlight resources at elevated risk.
 
 Azure standards have their own set of controls, separate from AWS controls. There are no cross-cloud controls that evaluate both AWS and Azure resources in a single check.
+
+**Enabling a standard**
 
 You can enable Azure standards through the Security Hub CSPM console or through the API/CLI. Navigate to **Standards** in the Security Hub CSPM console and enable the desired standard. Alternatively, use the CLI:
 
@@ -72,10 +75,14 @@ $ aws securityhub batch-enable-standards \
 **Note**  
 You can enable Azure standards before or after creating the connector - they are not coupled. However, findings will only be generated once both the connector and the standard are active and resource data has been collected.
 
+**Managing individual controls**
+
 Once a standard is enabled (typically within seconds), you can view and manage individual controls:
 + **View controls:** Use the Security Hub CSPM console (Standards > select standard > Controls) or the `list-standards-control-associations` API.
 + **Disable a control:** If a specific control is not applicable to your environment, you can disable it.
 + **Configure custom parameters:** Some controls accept custom input parameters (for example, password length thresholds). These can be configured through the `update-security-control` API.
+
+**Important notes**
 + Azure standards apply uniformly across your entire connector scope. You cannot enable different standards or controls for different Azure subscriptions within the same connector.
 + **Controls depend on resource data availability.** Each control evaluates a specific Azure resource type. If AWS Config has not yet collected configuration data for a particular resource type, the control will generate a default PASS finding for those resources. These default PASS findings will automatically update to accurate evaluations as resource data arrives. Do not treat initial compliance scores as accurate until resource data collection is complete.
 + Custom input parameters for security controls can be configured even before creating a connector - they persist independently.

@@ -1,7 +1,6 @@
 
 
 # AwsElasticBeanstalk resources in ASFF
-<a name="asff-resourcedetails-awselasticbeanstalk"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsElasticBeanstalk` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
 "AwsElasticBeanstalkEnvironment": {
     "ApplicationName": "MyApplication",
     "Cname": "myexampleapp-env.devo-2.elasticbeanstalk-internal.com",

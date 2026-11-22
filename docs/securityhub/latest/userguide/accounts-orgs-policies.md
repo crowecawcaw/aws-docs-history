@@ -1,7 +1,6 @@
 
 
 # Managing accounts with declarative policies in Security Hub CSPM
-<a name="accounts-orgs-policies"></a>
 
 With an AWS Security Hub CSPM declarative policy, you can centrally enable and configure Security Hub CSPM across the accounts in your organization. You use an AWS Organizations declarative policy to specify where Security Hub CSPM is enabled or disabled in each AWS Region. You can target the organization root, organizational units (OUs), or individual accounts. You also specify the standards, controls, and control parameters that apply. Accounts that join the organization, or move into an OU that has an attached declarative policy, inherit the declarative policy. Security Hub CSPM then configures them according to their effective declarative policy.
 

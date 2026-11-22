@@ -1,7 +1,6 @@
 
 
 # Disassociating a configuration from its targets
-<a name="disassociate-policy"></a>
 
 **Important**  
 Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).

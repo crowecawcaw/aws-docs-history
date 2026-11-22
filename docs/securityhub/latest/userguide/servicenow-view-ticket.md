@@ -1,7 +1,6 @@
 
 
 # Viewing a ticket for a ServiceNow ITSM integration
-<a name="servicenow-view-ticket"></a>
 
  After you create a ticket for a finding, you can open the ticket on your ServiceNow ITSM instance. 
 

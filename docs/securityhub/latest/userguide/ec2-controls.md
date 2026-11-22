@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon EC2
-<a name="ec2-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon Elastic Compute Cloud (Amazon EC2) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 

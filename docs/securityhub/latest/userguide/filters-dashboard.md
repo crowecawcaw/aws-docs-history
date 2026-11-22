@@ -1,7 +1,6 @@
 
 
 # Filtering the Summary dashboard in Security Hub CSPM
-<a name="filters-dashboard"></a>
 
 You can curate the **Summary** dashboard on the Security Hub CSPM console so that it includes only the security data that's most relevant to you. For example, if you're a member of an application team, you might create a dedicated view for a critical application in your production environment. If you're a member of a security team, you might create a dedicated view that helps you focus on high-severity findings.
 

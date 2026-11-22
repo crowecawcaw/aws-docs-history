@@ -1,7 +1,6 @@
 
 
 # Service-Managed Standard: AWS Organizations
-<a name="service-managed-standard-aws-organizations"></a>
 
 Service-Managed Standard: AWS Organizations holds controls that your AWS Security Hub CSPM declarative policies enable when no enabled standard contains them. This section explains how Security Hub CSPM creates and manages the standard, and how to view its controls and findings.
 

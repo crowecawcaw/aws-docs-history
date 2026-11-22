@@ -1,7 +1,6 @@
 
 
 # Control categories in Security Hub CSPM
-<a name="control-categories"></a>
 
 Each control is assigned a category. The category for a control reflects the security function that the control applies to.
 

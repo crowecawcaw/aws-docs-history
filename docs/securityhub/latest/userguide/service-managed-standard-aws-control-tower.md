@@ -1,7 +1,6 @@
 
 
 # Service-Managed Standard: AWS Control Tower
-<a name="service-managed-standard-aws-control-tower"></a>
 
 This section provides information about Service-Managed Standard: AWS Control Tower.
 

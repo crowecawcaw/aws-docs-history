@@ -1,7 +1,6 @@
 
 
 # Customizing the Summary dashboard in Security Hub CSPM
-<a name="customize-dashboard"></a>
 
 You can customize the **Summary** dashboard on the Security Hub CSPM console in several ways. For example, you can add and remove widgets from the dashboard. You can also rearrange and resize widgets on the dashboard. For a list of available widgets and a description of each one, see [Available widgets for the Summary dashboard](dashboard.md#available-widgets).
 

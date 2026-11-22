@@ -1,7 +1,6 @@
 
 
 # Network Scanning in Security Hub
-<a name="securityhub-v2-network-scanning"></a>
 
  Network Scanning is an opt-in feature of Security Hub that performs active network reachability testing on your cloud resources. Control-plane analysis evaluates security groups, Network Access Control Lists (NACLs), and route tables to determine what *could* be reachable. Network Scanning goes further by detecting what is *actually* reachable. It probes your resources from outside your accounts to identify open ports and running services. 
 
@@ -15,15 +14,23 @@
 
 | Cloud provider | Resource type | 
 | --- | --- | 
-| AWS | EC2 Instance (with public IP) | 
+| AWS | EC2 instance (with public IP) | 
 | AWS | Elastic IP (EIP) | 
 | AWS | Network Load Balancer (NLB) | 
 | AWS | Application Load Balancer (ALB) | 
 | AWS | Classic Load Balancer (CLB) | 
+| AWS | Amazon Relational Database Service (Amazon RDS) DB instance | 
 | Azure | Public IP Address | 
+| GCP | VM instance (with public IP) | 
+| GCP | External Forwarding Rule (Global and Regional) | 
 
-**Note**  
- Network Scanning scans each resource type independently. For load balancers, Network Scanning resolves and scans the DNS name. Network Scanning only scans individual EC2 instances behind a load balancer if they have their own public IP or EIP. 
+ The following list describes, at a high level, how Network Scanning scans these resource types: 
++ Network Scanning scans each resource type independently.
++ Only IPv4 addresses are currently supported for scanning across all resource types.
++ For load balancers and RDS DB instances, Network Scanning resolves and scans the DNS name.
++ Network Scanning only scans individual EC2 instances behind a load balancer if they have their own public IP or EIP.
++ For RDS DB instances, Network Scanning scans only instances with public access turned on. For more information, see [Setting up public or private access in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/security-public-private.html#security-public).
++ For GCP scanning, if the VM instance behind a Forwarding Rule has its own public IP address, Network Scanning will scan both the Forwarding Rule and the VM instance.
 
 ## Enable Network Scanning
 <a name="enable-network-scanning"></a>
@@ -92,7 +99,7 @@ aws securityhub enable-security-hub-feature-v2 --feature-name NETWORK_SCANNING
 
  Each finding represents a single reachable port on a specific resource and address combination. The `port_scan_result_list` section of an OCSF finding contains the scan results. The following examples show information returned for a reachable resource: 
 
-```
+```json
 "port_scan_result_list": [
     {
       "port_info": {
@@ -107,7 +114,7 @@ aws securityhub enable-security-hub-feature-v2 --feature-name NETWORK_SCANNING
 ],
 ```
 
-```
+```json
 "port_scan_result_list": [
     {
       "http_response": {
@@ -153,16 +160,18 @@ aws securityhub enable-security-hub-feature-v2 --feature-name NETWORK_SCANNING
 
 | Event | What happens | 
 | --- | --- | 
-| No open ports detected | Network Scanning creates an Informational finding that requires no action | 
-| Open ports detected on resource with Informational finding | Network Scanning closes the Informational finding and creates a finding for each open port | 
-| Port first detected as reachable | Network Scanning creates and publishes a new finding | 
-| Port still reachable on rescan (no change) | Network Scanning periodically refreshes the finding | 
-| Port still reachable but evidence changed | Network Scanning republishes the finding with updated evidence | 
-| Port no longer reachable | Finding remains open until next rescan confirms port is unreachable | 
-| Resource terminated or deleted | Network Scanning closes all findings for the resource by setting the activity\_name attribute to Close | 
-| IP address removed from resource | Network Scanning closes findings for that specific IP | 
-| Network Scanning disabled | Network Scanning produces no new findings; existing findings remain until they age out | 
-| Security Hub disabled | You no longer have access to findings | 
+| No open ports detected | Network Scanning creates an Informational finding that requires no action. | 
+| Open ports detected on resource with Informational finding | Network Scanning closes the Informational finding by setting the activity\_name attribute to Close and creates a finding for each open port. | 
+| Port first detected as reachable | Network Scanning creates and publishes a new finding. | 
+| Port still reachable on rescan (no change) | Network Scanning periodically refreshes the finding. | 
+| Port still reachable but evidence changed | Network Scanning republishes the finding with updated evidence. | 
+| Port no longer reachable | Network Scanning keeps the finding open until the next rescan confirms that the port is unreachable. | 
+| Connection endpoint port changed (RDS only) | Network Scanning re-scans the instance. A new finding is created if the new port is reachable. Network Scanning closes the finding for the old port by setting the activity\_name attribute to Close. | 
+| Public access turned off (RDS only) | Network Scanning closes all findings for the instance by setting the activity\_name attribute to Close. | 
+| Resource terminated or deleted | Network Scanning closes all findings for the resource by setting the activity\_name attribute to Close. | 
+| IP address removed from resource | Network Scanning closes findings for that specific IP by setting the activity\_name attribute to Close. | 
+| Network Scanning disabled | Network Scanning produces no new findings. Existing findings remain until they age out. | 
+| Security Hub disabled | You no longer have access to findings. | 
 
  If a port is intermittently reachable, Network Scanning bases findings on positive evidence at scan time. After you fix an issue (for example, by closing a firewall rule or stopping a service), Network Scanning closes the finding on the next scan. 
 
@@ -191,36 +200,55 @@ Identified application or protocol running on the port.
 ## Excluding resources from scanning
 <a name="network-scanning-exclude-resources"></a>
 
- To exclude a resource from Network Scanning, add the tag key `SecurityHubNetworkScanExclusion` to the resource. The tag value can be any value or empty. 
+ To exclude a resource from Network Scanning, add an exclusion tag (AWS and Azure) or label (GCP) to the resource that has the scannable public IP. The key name and casing depend on the cloud provider. 
 
- You must apply the tag to the actual resource with the scannable public IP: 
-+ For an EIP attached to an EC2 instance – tag the EIP, not the EC2 instance.
-+ For an EC2 instance with only a public IP (no EIP) – tag the EC2 instance.
-+ For a load balancer – tag the load balancer and any targets with individual public IPs.
+ When you add the exclusion tag or label, Network Scanning stops future scans and closes active findings for that resource. Removing the tag or label makes the resource eligible for scanning again. 
 
- When you add the exclusion tag, Network Scanning stops future scans and closes active findings for that resource. Removing the tag makes the resource eligible for scanning again. 
+**AWS resources**
+
+ Add the tag key `SecurityHubNetworkScanExclusion` to the resource. The tag value can be any value or empty. You must apply the tag to the actual resource with the scannable public IP: 
++ For an EIP attached to an EC2 instance – tag the EIP, not the EC2 instance. See [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) for guidance on tagging an EIP.
++ For an EC2 instance with only a public IP (no EIP) – tag the EC2 instance. See [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) for guidance on tagging an instance.
++ For a load balancer – tag the load balancer and any targets with individual public IPs. See [Tag a Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-tags.html) for guidance on tagging an NLB. See [Tag an Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-tags.html) for guidance on tagging an ALB.
++ For an RDS DB instance – tag the DB instance. See [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) for guidance on tagging a DB instance.
+
+**Azure resources**
+
+ Add the tag key `SecurityHubNetworkScanExclusion` to the Azure public IP address resource. The tag value can be any value or empty. For more information about tagging an Azure resource, see [Apply tags with Azure portal](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources-portal) on the Microsoft Learn website. 
+
+**GCP resources**
+
+ Add the label key `securityhubnetworkscanexclusion` to the resource. GCP requires label keys to be lowercase. You must apply the label key to the actual resource with the scannable public IP: 
++ For a VM instance with a public IP – add the label to the VM instance. See [Organize resources using labels](https://docs.cloud.google.com/compute/docs/labeling-resources) on the Google Cloud website.
++ For a Forwarding Rule – add the label to the Forwarding Rule and any VM instances with public IP addresses behind the load balancer. See [Organize resources using labels](https://docs.cloud.google.com/compute/docs/labeling-resources) on the Google Cloud website.
 
 ## Supported ports
 <a name="network-scanning-supported-ports"></a>
 
- Network Scanning scans the following well-known TCP ports on eligible resources. 
+ Network Scanning scans the following well-known TCP ports on eligible resources, except RDS DB instances. 
 
 ```
 21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 1433, 3306, 3389, 5432,
 5900, 6379, 8080, 8443, 9200, 27017
 ```
 
+ For RDS DB instances, Network Scanning scans the port from the DB instance endpoint and the following engine-specific ports. Engines not listed are scanned on the endpoint port only. 
+
+
+| Engine | Ports | 
+| --- | --- | 
+| MySQL | 11211, 33060 | 
+| Amazon Aurora PostgreSQL | 1433 | 
+| Oracle | 1158, 1522, 1535, 1830, 2057, 2484, 3306, 3872, 3873, 5433, 5500, 5533, 6141 | 
+| SQL Server - Enterprise Edition, Standard Edition | 2383, 8443, 5000 | 
+| SQL Server - Developer Edition, Express Edition, Web Edition | 5000 | 
+
 ## Multi-cloud support
 <a name="network-scanning-multicloud"></a>
 
- Network Scanning supports Azure Public IP Addresses. To scan Azure resources, create a Security Hub connector to your Azure environment. For more information about integrating with Microsoft Azure, see [Integrating Security Hub with Microsoft Azure](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-azure.html). 
+ With Network Scanning, you can scan resources in your Microsoft Azure and GCP environments. Scanning behavior, evidence, and findings for Azure and GCP resources are identical to AWS resources. Findings appear alongside AWS findings with appropriate cloud provider and region metadata. For supported resource types, see [Supported resource types](#network-scanning-supported-resources). 
 
- Scanning behavior, evidence, and findings for Azure resources are identical to AWS resources. Findings appear alongside AWS findings with appropriate cloud provider and region metadata. 
-
-## Region availability
-<a name="network-scanning-region-availability"></a>
-
- Network Scanning is available in commercial AWS Regions where Security Hub is available. 
+ For more information about integrating with Microsoft Azure, see [Integrating Security Hub with Microsoft Azure](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-azure.html). For more information about integrating with GCP, see [Integrating Security Hub with Google Cloud Platform](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-gcp.html). 
 
 ## Disable Network Scanning
 <a name="network-scanning-disable"></a>

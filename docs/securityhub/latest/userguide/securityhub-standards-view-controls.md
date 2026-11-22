@@ -1,7 +1,6 @@
 
 
 # Reviewing the details of a security standard
-<a name="securityhub-standards-view-controls"></a>
 
 After you enable a security standard in AWS Security Hub CSPM, you can use the console to review the details of the standard. On the console, the details page for a standard includes the following information:
 + The current security score for the standard.

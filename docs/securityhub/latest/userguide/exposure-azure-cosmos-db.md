@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for Azure Cosmos DB accounts
-<a name="exposure-azure-cosmos-db"></a>
 
 AWS Security Hub can generate exposure findings for Azure Cosmos DB accounts.
 

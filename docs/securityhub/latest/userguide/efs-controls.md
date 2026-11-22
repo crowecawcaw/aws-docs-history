@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon EFS
-<a name="efs-controls"></a>
 
 These Security Hub CSPM controls evaluate the Amazon Elastic File System (Amazon EFS) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 

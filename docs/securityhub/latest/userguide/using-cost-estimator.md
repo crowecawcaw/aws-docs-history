@@ -1,7 +1,6 @@
 
 
 # Using the cost estimator
-<a name="using-cost-estimator"></a>
 
 ## Accessing the cost estimator
 <a name="accessing-cost-estimator"></a>

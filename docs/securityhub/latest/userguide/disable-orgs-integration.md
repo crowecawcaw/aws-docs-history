@@ -1,7 +1,6 @@
 
 
 # Disabling Security Hub CSPM integration with AWS Organizations
-<a name="disable-orgs-integration"></a>
 
 After an AWS Organizations organization is integrated with AWS Security Hub CSPM, the Organizations management account can subsequently disable the integration. As a user of the Organizations management account, you can do this by disabling trusted access for Security Hub CSPM in AWS Organizations.
 

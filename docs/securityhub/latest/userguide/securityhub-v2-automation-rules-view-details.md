@@ -1,7 +1,6 @@
 
 
 # Viewing details for automation rules in Security Hub
-<a name="securityhub-v2-automation-rules-view-details"></a>
 
  This topic describes how to view details for automation rules. You can view the following details for an automation rule: 
 +  Name and description 

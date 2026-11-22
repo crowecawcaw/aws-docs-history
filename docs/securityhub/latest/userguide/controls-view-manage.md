@@ -1,7 +1,6 @@
 
 
 # Understanding security controls in Security Hub CSPM
-<a name="controls-view-manage"></a>
 
 In AWS Security Hub CSPM, a *security control*, also referred to as a *control*, is a safeguard within a security standard that helps an organization protect the confidentiality, integrity, and availability of its information. In Security Hub CSPM, a control is related to a specific AWS resource.
 

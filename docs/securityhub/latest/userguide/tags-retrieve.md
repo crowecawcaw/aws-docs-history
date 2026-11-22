@@ -1,7 +1,6 @@
 
 
 # Reviewing tags for Security Hub CSPM resources
-<a name="tags-retrieve"></a>
 
 After you add or edit tags for AWS Security Hub CSPM resources, you can view what tag keys and tag values a resource currently has. A *tag* is a label that you define and assign to one or more AWS resources, including certain types of Macie resources. Each tag consists of a required *tag key* and an optional *tag value*. A *tag key* is a general label that acts as a category for a more specific tag value. A *tag value* acts as a descriptor for a tag key.
 

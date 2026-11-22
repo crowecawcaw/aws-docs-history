@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for AWS AppConfig
-<a name="appconfig-controls"></a>
 
 These Security Hub CSPM controls evaluate the AWS AppConfig service and resources.
 

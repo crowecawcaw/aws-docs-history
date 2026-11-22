@@ -1,7 +1,6 @@
 
 
 # Defining a rule in EventBridge
-<a name="securityhub-cwe-define-rule"></a>
 
 To trigger a custom action in Amazon EventBridge, you must create a corresponding rule in EventBridge. The rule definition includes the Amazon Resource Name (ARN) of the custom action.
 

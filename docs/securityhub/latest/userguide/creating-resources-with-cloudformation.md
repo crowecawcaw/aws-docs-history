@@ -1,7 +1,6 @@
 
 
 # Creating Security Hub CSPM resources with CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS Security Hub CSPM integrates with AWS CloudFormation, which is a service that helps you model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as automation rules), and CloudFormation provisions and configures those resources for you.
 

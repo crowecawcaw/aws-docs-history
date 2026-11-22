@@ -1,7 +1,6 @@
 
 
 # Tagging Security Hub resources
-<a name="tagging-resources"></a>
 
 A *tag* is an optional label that you can define and assign to AWS resources, including certain types of AWS Security Hub CSPM resources. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. For example, you can use tags to distinguish between resources, identify resources that support certain compliance requirements or workflows, or allocate costs.
 
@@ -46,7 +45,7 @@ For example, you can create an IAM policy that allows a user to have full access
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

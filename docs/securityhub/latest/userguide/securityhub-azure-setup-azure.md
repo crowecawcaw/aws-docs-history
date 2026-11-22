@@ -1,7 +1,6 @@
 
 
 # Configuring Microsoft Azure to integrate with Security Hub CSPM
-<a name="securityhub-azure-setup-azure"></a>
 
 After you complete the [prerequisite tasks](securityhub-azure-prereqs.md), you can configure your Microsoft Azure environment to support integration with AWS Security Hub CSPM. To help you do this, the Security Hub CSPM console generates a setup script that's customized for your configuration.
 

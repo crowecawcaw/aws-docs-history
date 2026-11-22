@@ -1,7 +1,6 @@
 
 
 # Managed insights in Security Hub CSPM
-<a name="securityhub-managed-insights"></a>
 
 AWS Security Hub CSPM provides several managed insights.
 

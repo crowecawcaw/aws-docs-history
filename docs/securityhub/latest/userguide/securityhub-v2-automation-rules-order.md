@@ -1,7 +1,6 @@
 
 
 # Updating the rule order in Security Hub
-<a name="securityhub-v2-automation-rules-order"></a>
 
  This topic describes how to update the rule order for automation rules in the console. If you want to edit the criteria for an automation rule, see [Editing automation rules in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-automation-rules-edit.html). 
 

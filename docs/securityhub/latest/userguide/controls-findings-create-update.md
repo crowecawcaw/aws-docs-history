@@ -1,7 +1,6 @@
 
 
 # Generating and updating control findings
-<a name="controls-findings-create-update"></a>
 
 AWS Security Hub CSPM generates and updates control findings when it runs checks against security controls. Control findings use the [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 

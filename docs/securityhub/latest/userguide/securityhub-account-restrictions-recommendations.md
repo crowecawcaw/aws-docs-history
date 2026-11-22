@@ -1,7 +1,6 @@
 
 
 # Recommendations for managing multiple accounts in Security Hub CSPM
-<a name="securityhub-account-restrictions-recommendations"></a>
 
 The following section summarizes some restrictions and recommendations to keep in mind when managing member accounts in AWS Security Hub CSPM.
 

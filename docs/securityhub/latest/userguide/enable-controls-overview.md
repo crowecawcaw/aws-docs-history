@@ -1,7 +1,6 @@
 
 
 # Enabling a control across standards
-<a name="enable-controls-overview"></a>
 
 We recommend enabling a AWS Security Hub CSPM control across all of the standards that the control applies to. If you turn on consolidated control findings, you receive one finding per control check even if a control belongs to more than one standard.
 
@@ -50,7 +49,7 @@ If you don't use central configuration or are a self-managed account, you can't 
 
    **Example request:**
 
-   ```
+   ```json
    {
        "SecurityControlId": "{{IAM.1}}"
    }
@@ -62,7 +61,7 @@ If you don't use central configuration or are a self-managed account, you can't 
 
    **Example request:**
 
-   ```
+   ```json
    {
        "StandardsControlAssociationUpdates": [{"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{ruleset/cis-aws-foundations-benchmark/v/1.2.0}}", "AssociationStatus": "ENABLED"}, {"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{standards/aws-foundational-security-best-practices/v/1.0.0}}", "AssociationStatus": "ENABLED"}]
    }

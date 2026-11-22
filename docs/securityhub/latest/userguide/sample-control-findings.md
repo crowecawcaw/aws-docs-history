@@ -1,7 +1,6 @@
 
 
 # Samples of control findings
-<a name="sample-control-findings"></a>
 
 The following samples provide examples of AWS Security Hub CSPM control findings in the AWS Security Finding Format (ASFF). The contents of control findings vary depending on whether you enabled consolidated control findings.
 
@@ -30,7 +29,7 @@ Control findings reference different fields and values in the China Regions and 
 
 The following sample provides an example of a finding for a control that applies to the AWS Foundational Security Best Practices (FSBP) standard. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-2:123456789012:subscription/aws-foundational-security-best-practices/v/1.0.0/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -111,7 +110,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v5.0.0. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "AwsAccountId": "123456789012",
   "CompanyName": "AWS",
@@ -202,7 +201,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v3.0.0. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:subscription/cis-aws-foundations-benchmark/v/3.0.0/2.2.1/finding/38a89798-6819-4fae-861f-9cca8034602c",
@@ -290,7 +289,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v1.4.0. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.4.0/3.7/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -374,7 +373,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v1.2.0. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-2:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0/2.7/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -455,7 +454,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to the NIST SP 800-53 Revision 5 standard. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:subscription/nist-800-53/v/5.0.0/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -549,7 +548,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to the NIST SP 800-171 Revision 2 standard. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:subscription/nist-800-171/v/2.0.0/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -639,7 +638,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to Payment Card Industry Data Security Standard (PCI DSS) v3.2.1. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-2:123456789012:subscription/pci-dss/v/3.2.1/PCI.CloudTrail.1/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -723,7 +722,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to the AWS Resource Tagging standard. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:eu-central-1:123456789012:security-control/EC2.44/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -826,7 +825,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to the AWS Control Tower service-managed standard. In this sample, consolidated control findings is disabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:subscription/service-managed-aws-control-tower/v/1.0.0/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -907,7 +906,7 @@ The following sample provides an example of a finding for a control that applies
 
 The following sample provides an example of a finding for a control that applies to multiple enabled standards. In this sample, consolidated control findings is enabled.
 
-```
+```json
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:securityhub:us-east-1:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

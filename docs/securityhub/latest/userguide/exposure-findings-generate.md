@@ -1,7 +1,6 @@
 
 
 # Generating exposure findings
-<a name="exposure-findings-generate"></a>
 
  Security Hub generates exposure findings in near real-time. As new security findings are ingested and existing findings are updated, Security Hub generates or updates exposure findings in near real time. Security Hub generates one exposure finding per resource ID. 
 

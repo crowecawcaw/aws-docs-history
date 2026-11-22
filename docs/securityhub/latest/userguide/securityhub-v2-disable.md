@@ -1,7 +1,6 @@
 
 
 # Disabling Security Hub
-<a name="securityhub-v2-disable"></a>
 
 ## Disabling Security Hub for a single account
 <a name="securityhub-v2-disable-single"></a>

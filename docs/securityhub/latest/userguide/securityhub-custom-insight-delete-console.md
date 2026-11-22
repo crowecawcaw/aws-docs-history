@@ -1,7 +1,6 @@
 
 
 # Deleting a custom insight
-<a name="securityhub-custom-insight-delete-console"></a>
 
 In AWS Security Hub CSPM, custom insights can be used to collect a specific set of findings and track issues that are unique to your environment. For background information about custom insights, see [Understanding custom insights in Security Hub CSPM](securityhub-custom-insights.md).
 
@@ -48,7 +47,7 @@ $ aws securityhub delete-insight --insight-arn "{{arn:aws:securityhub:us-west-1:
 
 **Example**
 
-```
+```powershell
 -InsightArn "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```
 

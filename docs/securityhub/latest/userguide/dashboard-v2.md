@@ -1,7 +1,6 @@
 
 
 # Working in the summary dashboard in Security Hub
-<a name="dashboard-v2"></a>
 
  The **Summary** dashboard in the Security Hub console displays an overview of your exposures, threats, resources, and security coverage across security widgets. You can customize the dashboard by adding and removing widgets and by creating and applying filter sets to retrieve data in each widget. 
 
@@ -26,12 +25,12 @@
  You can interact with different widgets in the **Executive** and **Triage** tabs of the **Summary** dashboard. The **Executive** tab includes widgets that display trends data for your exposures, threats, and resources and the **Security Coverage** widget to help track your account coverage across different security capabilities. The **Triage** tab includes widgets that display a summary of your exposures, threats, and resources. However, you can add widgets, remove widgets, and manage the position of each widget in both tabs to customize your experience. 
 
 ### Trends widgets
-<a name="w2aab7c29b7b5"></a>
+<a name="w2aab7c32b7b5"></a>
 
  The following widgets display trends data for your exposures, threats, and resources, so you can analyze them over time. 
 
 #### Trends overview widget
-<a name="w2aab7c29b7b5b5"></a>
+<a name="w2aab7c32b7b5b5"></a>
 
 ![Example of trends overview widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/trends-overview-widget.png)
 
@@ -50,7 +49,7 @@
  **GuardDuty** – To receive data about threats 
 
 #### Exposure finding trends widget
-<a name="w2aab7c29b7b5b7"></a>
+<a name="w2aab7c32b7b5b7"></a>
 
 ![Example of exposure finding trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/exposure-finding-trends-widget.png)
 
@@ -83,7 +82,7 @@
  To receive data in this widget, you must enable [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/getting_started.html) and [Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html). 
 
 #### Threat finding trends widget
-<a name="w2aab7c29b7b5b9"></a>
+<a name="w2aab7c32b7b5b9"></a>
 
 ![Example of threat finding trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/threat-finding-trends-widget.png)
 
@@ -116,7 +115,7 @@
  To receive data in this widget, you must enable [GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_settingup.html). 
 
 #### Resource trends widget
-<a name="w2aab7c29b7b5c11"></a>
+<a name="w2aab7c32b7b5c11"></a>
 
 ![Example of resource trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/resource-trends-widget.png)
 
@@ -140,7 +139,7 @@
 +  **1 year** 
 
 #### Data retention for trends
-<a name="w2aab7c29b7b5c13"></a>
+<a name="w2aab7c32b7b5c13"></a>
 
  Security Hub retains trends data for one year for all AWS accounts where Security Hub is enabled. After trends data has been retained for one year, it is deleted from Security Hub. 
 
@@ -152,7 +151,7 @@
 +  If a member account is terminated, Security Hub disassociates the trends data from the terminated account (for example, scrubbing the terminated account ID) and retains the rest of the trends data for one year. 
 
 ### Summary widgets
-<a name="w2aab7c29b7b7"></a>
+<a name="w2aab7c32b7b7"></a>
 
  The following widgets display a summary of your exposures, threats, and resources. 
 
@@ -209,7 +208,7 @@
  For more information about viewing and suppressing coverage findings, see [Coverage findings in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/coverage-findings.html). 
 
 ## Available filters
-<a name="w2aab7c29b9"></a>
+<a name="w2aab7c32b9"></a>
 
  You can apply filters to security widgets using the **Add filter bar**. 
 
@@ -224,7 +223,7 @@
  You can create a filter set by connecting filters using the **and**/**or** operators and then choosing **Save new filter set** in the dropdown. 
 
 ### Filters applied to the Exposure finding trends widget and Threat finding trends widget
-<a name="w2aab7c29b9c13"></a>
+<a name="w2aab7c32b9c13"></a>
 
  Currently, the filters supported for these widgets include the following: 
 +  **Account ID** 
@@ -235,7 +234,7 @@
 +  **Status** 
 
 ### Filters applied to the Resource trends widget
-<a name="w2aab7c29b9c15"></a>
+<a name="w2aab7c32b9c15"></a>
 
  Currently, the filters supported for this widget include the following: 
 +  **Account ID** 
@@ -244,7 +243,7 @@
 +  **Resource type** 
 
 ### Filters not applied to widgets
-<a name="w2aab7c29b9c17"></a>
+<a name="w2aab7c32b9c17"></a>
 
 ![Example of summary filter that cannot be applied.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/filter-not-applied.png)
 

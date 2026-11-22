@@ -1,7 +1,6 @@
 
 
 # Disabling controls in Security Hub CSPM
-<a name="disable-controls-overview"></a>
 
 To reduce finding noise, it can be helpful to disable controls that aren't relevant to your environment. In AWS Security Hub CSPM, you can disable a control across all security standards or for only specific standards. 
 

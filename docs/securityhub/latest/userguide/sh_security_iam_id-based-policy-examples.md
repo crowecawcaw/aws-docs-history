@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Security Hub
-<a name="sh_security_iam_id-based-policy-examples"></a>
 
 By default, users and roles do not have permission to create or modify AWS Security Hub resources. They also cannot perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
 
@@ -40,7 +39,7 @@ To ensure that those users and roles can use the Security Hub console, also atta
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -70,7 +69,7 @@ To ensure that those users and roles can use the Security Hub console, also atta
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -110,7 +109,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 This example shows how you might create an IAM policy that allows a user to view Security Hub findings.
 
-```
+```json
 {
     "Version":"2012-10-17", 		 	 	  	 	 
     "Statement": [
@@ -131,7 +130,7 @@ This example shows how you might create an IAM policy that allows a user to view
 
 This example shows how you might create an IAM policy that allows a user to create, view, update, and delete Security Hub automation rules. For this IAM policy to work, the user must be a Security Hub administrator. To limit permissions— for example, to allow a user to only view automation rules—you can remove the create, update, and delete permissions.
 
-```
+```json
 {
     "Version":"2012-10-17", 		 	 	 	 	 	 
     "Statement": [

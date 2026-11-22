@@ -1,7 +1,6 @@
 
 
 # Understanding central configuration in Security Hub CSPM
-<a name="central-configuration-intro"></a>
 
 **Note**  
 Central configuration is a legacy feature. Security Hub CSPM declarative policies are replacing it as the way to manage Security Hub CSPM across an organization. If your organization currently uses central configuration, you can continue to use the information in this section. For more information about declarative policies, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md).
@@ -83,7 +82,7 @@ A configuration policy takes effect in the home Region and all linked Regions af
 On the Security Hub CSPM console, the delegated administrator can choose the Security Hub CSPM recommended configuration policy or create custom configuration policies. With the Security Hub CSPM API and AWS CLI, the delegated administrator can only create custom configuration policies. The delegated administrator can create a maximum of 20 custom configuration policies.  
 In the recommended configuration policy, Security Hub CSPM, the AWS Foundational Security Best Practices (FSBP) standard, and all existing and new FSBP controls are enabled. Controls that accept parameters use the default values. The recommended configuration policy applies to the entire organization.  
 To apply different settings to the organization, or apply different configuration policies to different accounts and OUs, create a custom configuration policy.  
-Configuration policies support AWS security standards and controls only. Multicloud standards, such as CIS Azure Foundations Benchmark v4.0.0, and their associated multicloud controls cannot be included in a configuration policy. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
+Configuration policies support AWS security standards and controls only. Multicloud standards, such as CIS Azure Foundations Benchmark v4.0.0 and CIS Google Cloud Platform Foundation Benchmark v4.0.0, and their associated multicloud controls cannot be included in a configuration policy. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
 
 **Local configuration**  
 The default configuration type for an organization, after integrating Security Hub CSPM and AWS Organizations. With local configuration, the delegated administrator can choose to automatically enable Security Hub CSPM and [default security standards](securityhub-auto-enabled-standards.md) in *new* organization accounts in the current Region. If the delegated administrator automatically enables default standards, all controls that are part of these standards are also automatically enabled with default parameters for new organization accounts. These settings don't apply to existing accounts, so configuration drift is possible after an account joins the organization. Disabling specific controls that are part of the default standards, and configuring additional standards and controls, must be done separately in each account and Region.  

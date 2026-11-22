@@ -1,7 +1,6 @@
 
 
 # Disabling Security Hub CSPM
-<a name="securityhub-disable"></a>
 
 You can disable AWS Security Hub CSPM by using the Security Hub CSPM console or the Security Hub API. If you disable Security Hub CSPM, you can enable it again later.
 

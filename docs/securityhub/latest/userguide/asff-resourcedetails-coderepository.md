@@ -1,7 +1,6 @@
 
 
 # CodeRepository object in ASFF
-<a name="asff-resourcedetails-coderepository"></a>
 
 The `CodeRepository` object provides information about an external code repository that you connected to AWS resources and configured Amazon Inspector to scan for vulnerabilities.
 
@@ -9,7 +8,7 @@ The following example shows the AWS Security Finding Format (ASFF) syntax for th
 
 **Example**
 
-```
+```JSON
 "CodeRepository": {
     "ProviderType": "GITLAB_SELF_MANAGED",
     "ProjectName": "projectName",

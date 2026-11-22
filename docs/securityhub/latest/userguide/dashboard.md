@@ -1,7 +1,6 @@
 
 
 # Working with the dashboard in Security Hub CSPM
-<a name="dashboard"></a>
 
 On the Security Hub CSPM console, the **Summary** dashboard shows a summary of your risks, attack sequences, and security coverage. This dashboard helps you identify risks and attack sequences based on severity and account coverage for different security capabilities. Each time you open the dashboard, it refreshes automatically. Note, however, that security scores and control statuses refresh every 24 hours. 
 

@@ -1,7 +1,6 @@
 
 
 # AwsXray resources in ASFF
-<a name="asff-resourcedetails-awsxray"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsXray` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsX
 
 **Example**
 
-```
+```json
 "AwsXRayEncryptionConfig":{
     "KeyId": "arn:aws:kms:us-east-2:222222222222:key/example-key",
     "Status": "UPDATING",

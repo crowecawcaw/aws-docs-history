@@ -1,7 +1,6 @@
 
 
 # Creating a ticket for a Jira Cloud integration
-<a name="jiracloud-create-ticket"></a>
 
  After you create an integration with Jira Cloud, you can create a ticket for a finding. 
 

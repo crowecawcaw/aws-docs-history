@@ -1,7 +1,6 @@
 
 
 # AwsAthena resources in ASFF
-<a name="asff-resourcedetails-awsathena"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAthena` resources.
 
@@ -16,7 +15,7 @@ The following example shows the ASFF for the `AwsAthenaWorkGroup` object. To vie
 
 **Example**
 
-```
+```JSON
 "AwsAthenaWorkGroup": {
     "Description": "My workgroup for prod workloads",
     "Name": "MyWorkgroup",

@@ -1,7 +1,6 @@
 
 
 # Sending findings to a custom Security Hub CSPM action
-<a name="findings-custom-action"></a>
 
 You can create AWS Security Hub CSPM custom actions to automate Security Hub CSPM with Amazon EventBridge. For custom actions, the event type is **Security Hub Findings - Custom Action**. After you set up a custom action, you can send findings to it. For more information and detailed steps on creating custom actions, see [Using EventBridge for automated response and remediation](securityhub-cloudwatch-events.md).
 

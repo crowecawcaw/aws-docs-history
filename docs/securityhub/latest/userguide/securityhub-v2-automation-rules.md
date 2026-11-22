@@ -1,7 +1,6 @@
 
 
 # Automation rules in Security Hub
-<a name="securityhub-v2-automation-rules"></a>
 
  With Security Hub, you can automate tasks like updating finding details, updating the criticality of your resources, and creating tickets for third-party integrations. 
 

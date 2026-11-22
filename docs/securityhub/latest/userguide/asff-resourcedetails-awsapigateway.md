@@ -1,7 +1,6 @@
 
 
 # AwsApiGateway resources in ASFF
-<a name="asff-resourcedetails-awsapigateway"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsApiGateway` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsApiGatewayRestApi` finding in the AWS Security F
 
 **Example**
 
-```
+```JSON
 AwsApiGatewayRestApi: {
     "Id": "exampleapi",
     "Name": "Security Hub",
@@ -43,7 +42,7 @@ The following is an example `AwsApiGatewayStage` finding in the AWS Security Fin
 
 **Example**
 
-```
+```JSON
 "AwsApiGatewayStage": {
     "DeploymentId": "n7hlmf",
     "ClientCertificateId": "a1b2c3", 
@@ -98,7 +97,7 @@ The following is an example `AwsApiGatewayV2Api` finding in the AWS Security Fin
 
 **Example**
 
-```
+```JSON
 "AwsApiGatewayV2Api": {
     "ApiEndpoint": "https://example.us-west-2.amazonaws.com",
     "ApiId": "a1b2c3d4",
@@ -135,7 +134,7 @@ The following is an example `AwsApiGatewayV2Stage` finding in the AWS Security F
 
 **Example**
 
-```
+```JSON
 "AwsApiGatewayV2Stage": {
     "CreatedDate": "2020-04-08T00:36:05Z",
     "Description" : "ApiGatewayV2",

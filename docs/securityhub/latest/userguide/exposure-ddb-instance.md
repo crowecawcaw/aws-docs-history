@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for DynamoDB tables
-<a name="exposure-ddb-instance"></a>
 
  AWS Security Hub can generate exposure findings for DynamoDB tables. 
 

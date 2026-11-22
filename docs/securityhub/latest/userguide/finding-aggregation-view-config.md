@@ -1,7 +1,6 @@
 
 
 # Reviewing cross-Region aggregation settings
-<a name="finding-aggregation-view-config"></a>
 
 **Note**  
 The *aggregation Region* is now called the *home Region*. Some Security Hub CSPM API operations still use the older term aggregation Region.

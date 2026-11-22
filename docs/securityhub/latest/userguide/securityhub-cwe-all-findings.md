@@ -1,7 +1,6 @@
 
 
 # Configuring an EventBridge rule for Security Hub CSPM findings
-<a name="securityhub-cwe-all-findings"></a>
 
 You can create a rule in Amazon EventBridge that defines an action to take when a **Security Hub Findings - Imported** event is received. **Security Hub Findings - Imported** events are triggered by updates from both the [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) and [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) operations.
 

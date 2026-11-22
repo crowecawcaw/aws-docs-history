@@ -1,7 +1,6 @@
 
 
 # Managing accounts by invitation in Security Hub CSPM
-<a name="account-management-manual"></a>
 
 You can centrally manage multiple AWS Security Hub CSPM accounts in two ways, by integrating Security Hub CSPM with AWS Organizations or by manually sending and accepting membership invitations. You must use the manual process if you have a standalone account or you don't integrate with AWS Organizations. In manual account management, the Security Hub CSPM administrator invites accounts to become members. The administrator-member relationship is established when a prospective member accepts the invitation. A Security Hub CSPM administrator account can manage Security Hub CSPM for up 1,000 invitation-based member accounts. 
 

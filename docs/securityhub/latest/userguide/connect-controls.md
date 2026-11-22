@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon Connect
-<a name="connect-controls"></a>
 
 These Security Hub CSPM controls evaluate the Amazon Connect service and resources.
 

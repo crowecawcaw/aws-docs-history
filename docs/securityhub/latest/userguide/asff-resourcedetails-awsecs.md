@@ -1,7 +1,6 @@
 
 
 # AwsEcs resources in ASFF
-<a name="asff-resourcedetails-awsecs"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEcs` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
     "AwsEcsCluster": {
         "CapacityProviders": [],
         "ClusterSettings": [
@@ -57,7 +56,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```JSON
 "AwsEcsContainer": {
     "Image": "1111111/knotejs@sha256:356131c9fef111111111111115f4ed8de5f9dce4dc3bd34bg21846588a3",
     "MountPoints": [{
@@ -78,7 +77,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
 "AwsEcsService": {
     "CapacityProviderStrategy": [
         {
@@ -162,7 +161,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```JSON
 "AwsEcsTask": {
 	"ClusterArn": "arn:aws:ecs:us-west-2:123456789012:task/MyCluster/1234567890123456789",
 	"CreatedAt": "1557134011644",
@@ -198,7 +197,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
     "AwsEcsTaskDefinition": {
         "ContainerDefinitions": [
             {

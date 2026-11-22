@@ -1,7 +1,6 @@
 
 
 # Third-party product integrations with Security Hub CSPM
-<a name="securityhub-partner-providers"></a>
 
 AWS Security Hub CSPM integrates with multiple third-party partner products. An integration can perform one or more of the following actions:
 + Send findings that it generates to Security Hub CSPM

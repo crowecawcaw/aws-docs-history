@@ -1,7 +1,6 @@
 
 
 # EventBridge event formats for Security Hub CSPM
-<a name="securityhub-cwe-event-formats"></a>
 
 The **Security Hub Findings - Imported**, **Security Findings - Custom Action**, and **Security Hub Insight Results** event types use the following event formats.
 

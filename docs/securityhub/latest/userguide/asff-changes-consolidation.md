@@ -1,7 +1,6 @@
 
 
 # Impact of consolidation on ASFF fields and values
-<a name="asff-changes-consolidation"></a>
 
 AWS Security Hub CSPM offers two types of consolidation for controls:
 + **Consolidated controls view** – With this type of consolidation, each control has a single identifier across all standards. In addition, on the Security Hub CSPM console, the **Controls** page displays all controls across all standards. 

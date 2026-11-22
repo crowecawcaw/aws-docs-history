@@ -1,7 +1,6 @@
 
 
 # AwsAutoScaling resources in ASFF
-<a name="asff-resourcedetails-awsautoscaling"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAutoScaling` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsAutoScalingAutoScalingGroup` finding in the AWS 
 
 **Example**
 
-```
+```JSON
 "AwsAutoScalingAutoScalingGroup": {
         "CreatedTime": "2017-10-17T14:47:11Z",
         "HealthCheckGracePeriod": 300,

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for integrating Security Hub CSPM with Microsoft Azure
-<a name="securityhub-azure-prereqs"></a>
 
 Before you integrate Microsoft Azure with AWS Security Hub CSPM, complete the following tasks in your AWS and Azure environments. This helps ensure that you and Security Hub CSPM have the resources and permissions that you need to monitor your Azure resources.
 

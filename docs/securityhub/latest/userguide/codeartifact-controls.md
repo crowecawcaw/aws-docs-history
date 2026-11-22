@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for CodeArtifact
-<a name="codeartifact-controls"></a>
 
 These Security Hub CSPM controls evaluate the AWS CodeArtifact service and resources.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up cross-account access
-<a name="setting-up-cross-account-access"></a>
 
  Delegated administrator and member accounts can access organization-wide AWS Cost Explorer data from the management account by configuring a cross-account IAM role. This configuration allows these accounts to view actual usage data without switching to the management account. 
 
@@ -27,7 +26,7 @@
 
 **Recommended trust policy:**
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@
 
 **Recommended permissions policy:**
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

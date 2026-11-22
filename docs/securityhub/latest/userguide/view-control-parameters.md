@@ -1,7 +1,6 @@
 
 
 # Reviewing current control parameter values
-<a name="view-control-parameters"></a>
 
 It can be helpful to know the current value of a control parameter before you modify it.
 

@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for Azure Container apps
-<a name="exposure-azure-container-app"></a>
 
 AWS Security Hub can generate exposure findings for Azure Container apps.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting a Microsoft Azure connector in Security Hub
-<a name="securityhub-v2-azure-delete"></a>
 
 After you create a Microsoft Azure connector in AWS Security Hub, you can delete it at any time. If you delete a connector, Security Hub stops performing posture management checks and vulnerability monitoring for your Azure environment. Security Hub also stops generating new findings and other data about your environment. Your existing findings are retained for 90 days. Resource inventory remains as it was when the connector was deleted and is removed after 90 days.
 
@@ -9,7 +8,7 @@ When you delete a connector, Security Hub automatically deletes the associated s
 
 **To delete an Azure connector**
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.).
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1).
 
 1. In the navigation pane, choose **Integrations**.
 

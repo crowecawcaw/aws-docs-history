@@ -1,7 +1,6 @@
 
 
 # Understanding control parameters in Security Hub CSPM
-<a name="custom-control-parameters"></a>
 
 Some controls in AWS Security Hub CSPM use parameters that affect how the control is evaluated. Typically, such controls are evaluated against the default parameter values that Security Hub CSPM defines. However, for a subset of these controls, you can modify the parameter values. When you modify a control parameter value, Security Hub CSPM starts evaluating the control against the value that you specify. If the resource underlying the control satisfies the custom value, Security Hub CSPM generates a `PASSED` finding. If the resource doesn't satisfy the custom value, Security Hub CSPM generates a `FAILED` finding.
 

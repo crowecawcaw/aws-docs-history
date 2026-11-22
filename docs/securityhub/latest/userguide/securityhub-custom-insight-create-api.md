@@ -1,7 +1,6 @@
 
 
 # Creating a custom insight
-<a name="securityhub-custom-insight-create-api"></a>
 
 In AWS Security Hub CSPM, custom insights can be used to collect a specific set of findings and track issues that are unique to your environment. For background information about custom insights, see [Understanding custom insights in Security Hub CSPM](securityhub-custom-insights.md).
 
@@ -72,7 +71,7 @@ If you've enabled [cross-region aggregation](finding-aggregation.md) and use thi
 
 **Example**
 
-```
+```powershell
 $Filter = @{
     AwsAccountId = [Amazon.SecurityHub.Model.StringFilter]@{
         Comparison = "EQUALS"

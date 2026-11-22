@@ -1,7 +1,6 @@
 
 
 # Service-managed standards in Security Hub CSPM
-<a name="service-managed-standards"></a>
 
 A service-managed standard is a security standard that another AWS service manages but that you can view in Security Hub CSPM. For example, [Service-Managed Standard: AWS Control Tower](service-managed-standard-aws-control-tower.md) is a service-managed standard that AWS Control Tower manages. [Service-Managed Standard: AWS Organizations](service-managed-standard-aws-organizations.md) is a service-managed standard that Security Hub CSPM creates and manages for the controls that your Security Hub CSPM policies in AWS Organizations enable. A service-managed standard differs from a security standard that AWS Security Hub CSPM manages in the following ways:
 + **Standard creation and deletion** – You create and delete a service-managed standard with the managing service's console or API, or with the AWS CLI. Until you create the standard in the managing service in one of those ways, the standard doesn't appear in the Security Hub CSPM console and isn't accessible by the Security Hub CSPM API or AWS CLI. You don't create Service-Managed Standard: AWS Organizations directly. Security Hub CSPM creates it when an account's effective Security Hub CSPM declarative policy requires it.

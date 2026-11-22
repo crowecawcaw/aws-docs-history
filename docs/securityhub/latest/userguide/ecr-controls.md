@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon ECR
-<a name="ecr-controls"></a>
 
 These Security Hub CSPM controls evaluate the Amazon Elastic Container Registry (Amazon ECR) service and resources.
 

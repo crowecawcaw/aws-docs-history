@@ -1,7 +1,6 @@
 
 
 # Reviewing the details of controls in Security Hub CSPM
-<a name="securityhub-standards-control-details"></a>
 
 Selecting a control on the **Controls** page or standard details page of the Security Hub CSPM console takes you to a page of control details.
 
@@ -51,7 +50,7 @@ On the console, you can also review a list of recent findings for the control. T
 
    **Example request:**
 
-   ```
+   ```json
    {
        "StandardsArn": "arn:aws:securityhub:::{{standards/aws-foundational-security-best-practices/v/1.0.0}}"
    }
@@ -61,7 +60,7 @@ On the console, you can also review a list of recent findings for the control. T
 
    **Example request:**
 
-   ```
+   ```json
    {
        "SecurityControlIds": ["{{Config.1}}", "{{IAM.1}}"]
    }

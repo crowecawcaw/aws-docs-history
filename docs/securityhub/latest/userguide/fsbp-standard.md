@@ -1,7 +1,6 @@
 
 
 # AWS Foundational Security Best Practices standard in Security Hub CSPM
-<a name="fsbp-standard"></a>
 
 Developed by AWS and industry professionals, the AWS Foundational Security Best Practices (FSBP) standard is a compilation of security best practices for organizations, regardless of organization sector or size. It provides a set of controls that detect when AWS accounts and resources deviate from security best practices. It also provides prescriptive guidance about how to improve and maintain your organization's security posture.
 

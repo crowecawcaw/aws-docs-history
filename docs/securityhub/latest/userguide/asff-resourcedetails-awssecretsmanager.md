@@ -1,7 +1,6 @@
 
 
 # AwsSecretsManager resources in ASFF
-<a name="asff-resourcedetails-awssecretsmanager"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSecretsManager` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```JSON
 "AwsSecretsManagerSecret": {
     "RotationRules": {
         "AutomaticallyAfterDays": 30

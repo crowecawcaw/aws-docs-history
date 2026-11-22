@@ -1,7 +1,6 @@
 
 
 # Reviewing exposure findings
-<a name="exposure-findings-review"></a>
 
 You can review all of your exposure findings in the Security Hub console and with the [GetFindingsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsV2.html) API. The **Exposures** page in the Security Hub console shows all active exposure findings. Exposure findings are listed by decreasing severity. You can filter your exposure findings by adding and removing filters with the **Add filter** search bar. You can group your exposure findings with the **Group by** dropdown. You can also filter your exposure findings with the **Quick filters** menu. 
 

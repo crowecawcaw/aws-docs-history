@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for CloudFormation
-<a name="cloudformation-controls"></a>
 
 These Security Hub CSPM controls evaluate the AWS CloudFormation service and resources.
 

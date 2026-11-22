@@ -1,7 +1,6 @@
 
 
 # BatchImportFindings for finding providers
-<a name="finding-update-batchimportfindings"></a>
 
 Finding providers can use the [BatchImportFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) operation to create new findings in AWS Security Hub CSPM. They can also use this operation to update findings that they created. Finding providers can't update findings that they didn't create.
 
@@ -52,7 +51,7 @@ Instead, finding providers should use the [`FindingProviderFields`](asff-top-lev
 
 **Example**
 
-```
+```JSON
 "FindingProviderFields": {
     "Confidence": 42,
     "Criticality": 99,

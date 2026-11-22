@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for AWS AppSync
-<a name="appsync-controls"></a>
 
 These Security Hub CSPM controls evaluate the AWS AppSync service and resources.
 

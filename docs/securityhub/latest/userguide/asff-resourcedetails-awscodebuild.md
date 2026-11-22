@@ -1,7 +1,6 @@
 
 
 # AwsCodeBuild resources in ASFF
-<a name="asff-resourcedetails-awscodebuild"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCodeBuild` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsCodeBuildProject` finding in the AWS Security Fi
 
 **Example**
 
-```
+```JSON
 "AwsCodeBuildProject": {
    "Artifacts": [
       {

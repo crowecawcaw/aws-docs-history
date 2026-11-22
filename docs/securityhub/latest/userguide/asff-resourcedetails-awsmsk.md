@@ -1,7 +1,6 @@
 
 
 # AwsMsk resources in ASFF
-<a name="asff-resourcedetails-awsmsk"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsMsk` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsM
 
 **Example**
 
-```
+```JSON
 "AwsMskCluster": {
         "ClusterInfo": {
             "ClientAuthentication": {

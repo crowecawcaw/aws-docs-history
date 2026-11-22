@@ -1,7 +1,6 @@
 
 
 # Declarative policies and central configuration in Security Hub CSPM
-<a name="orgs-policies-and-central-config"></a>
 
 With both AWS Security Hub CSPM declarative policies and Security Hub CSPM [central configuration](central-configuration-intro.md), a delegated administrator can configure Security Hub CSPM across an organization. The two mechanisms are mutually exclusive, so they can't apply conflicting configurations to the same accounts. Declarative policies are the recommended mechanism. This topic describes how the two interact and how to move from central configuration to declarative policies.
 

@@ -1,7 +1,6 @@
 
 
 # NIST SP 800-53 Revision 5 in Security Hub CSPM
-<a name="standards-reference-nist-800-53"></a>
 
 NIST Special Publication 800-53 Revision 5 (NIST SP 800-53 Rev. 5) is a cybersecurity and compliance framework developed by the National Institute of Standards and Technology (NIST), an agency that's part of the U.S. Department of Commerce. This compliance framework provides a catalog of security and privacy requirements for protecting the confidentiality, integrity, and availability of information systems and critical resources. U.S. federal government agencies and contractors must comply with these requirements to protect their systems and organizations. Private organizations can also voluntarily use the requirements as a guiding framework for reducing cybersecurity risk. For more information about the framework and its requirements, see [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) in the *NIST Computer Security Resource Center*.
 

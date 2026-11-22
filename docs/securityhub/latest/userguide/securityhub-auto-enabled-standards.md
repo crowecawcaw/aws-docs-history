@@ -1,7 +1,6 @@
 
 
 # Turning off automatically enabled security standards
-<a name="securityhub-auto-enabled-standards"></a>
 
 If your organization doesn't use central configuration, it uses a configuration type called *local configuration*. With local configuration, AWS Security Hub CSPM can automatically enable default security standards for new member accounts when the accounts join your organization. All the controls that apply to these default standards are also enabled automatically.
 

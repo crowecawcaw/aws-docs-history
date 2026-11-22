@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for Amazon SageMaker notebook instances
-<a name="exposure-sagemaker-notebook-instance"></a>
 
 AWS Security Hub can generate exposure findings for Amazon SageMaker notebook instances.
 

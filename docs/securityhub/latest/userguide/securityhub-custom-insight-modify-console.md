@@ -1,7 +1,6 @@
 
 
 # Editing a custom insight
-<a name="securityhub-custom-insight-modify-console"></a>
 
 You can edit an existing custom insight to change the grouping value and filters. After you make the changes, you can save the updates to the original insight, or save the updated version as a new insight.
 
@@ -75,7 +74,7 @@ $ aws securityhub update-insight --insight-arn "{{arn:aws:securityhub:us-west-1:
 
 **Example**
 
-```
+```powershell
 $Filter = @{
     ResourceType = [Amazon.SecurityHub.Model.StringFilter]@{
         Comparison = "EQUALS"

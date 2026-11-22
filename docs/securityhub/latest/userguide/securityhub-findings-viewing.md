@@ -1,7 +1,6 @@
 
 
 # Reviewing finding details and history in Security Hub CSPM
-<a name="securityhub-findings-viewing"></a>
 
 In AWS Security Hub CSPM, a *finding* is an observable record of a security check or security-related detection. Security Hub CSPM generates a finding when it completes a security check of a control and when it ingests a finding from an integrated AWS service or third-party product. Each finding includes a history of changes and other details, such as a severity rating and information about the affected resources.
 
@@ -102,7 +101,7 @@ Use the `Get-SHUBFinding` cmdlet. Optionally populate the `Filter` parameter to 
 
 For example, the following cmdlet retrieves the findings that match the specified filters.
 
-```
+```powershell
 Get-SHUBFinding -Filter @{AwsAccountId = [Amazon.SecurityHub.Model.StringFilter]@{Comparison = "EQUALS"; Value = "XXX"};ComplianceStatus = [Amazon.SecurityHub.Model.StringFilter]@{Comparison = "EQUALS"; Value = 'FAILED'}}
 ```
 

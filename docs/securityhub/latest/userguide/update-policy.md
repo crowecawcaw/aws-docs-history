@@ -1,7 +1,6 @@
 
 
 # Updating configuration policies
-<a name="update-policy"></a>
 
 **Important**  
 Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
@@ -11,7 +10,7 @@ After creating a configuration policy, the delegated AWS Security Hub CSPM admin
 For background information about the benefits of central configuration and how it works, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md).
 
 **Note**  
-Configuration policies support AWS standards and controls only. You cannot include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0) or Azure controls in a configuration policy. Including a multicloud standard ARN or control ID returns `InvalidInputException`. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
+Configuration policies support AWS standards and controls only. You cannot include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0 and CIS Google Cloud Platform Foundation Benchmark v4.0.0) or multicloud controls in a configuration policy. Including a multicloud standard ARN or control ID returns `InvalidInputException`. To enable or configure multicloud standards, use local configuration mechanisms directly in the desired AWS account.
 
 The delegated administrator can update the following policy settings:
 + Enable or disable Security Hub CSPM.
@@ -22,7 +21,7 @@ The delegated administrator can update the following policy settings:
 Choose your preferred method, and follow the steps to update a configuration policy.
 
 **Note**  
-If you use central configuration, Security Hub CSPM automatically disables controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
+If you use central configuration, Security Hub CSPM automatically disables AWS controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.  
 If an enabled control that involves global resources isn't supported in the home Region, Security Hub CSPM tries to enable the control in one linked Region where the control is supported. With central configuration, you lack coverage for a control that isn't available in the home Region or any of the linked Regions.  
 For a list of controls that involve global resources, see [Controls that use global resources](controls-to-disable.md#controls-to-disable-global-resources).
 

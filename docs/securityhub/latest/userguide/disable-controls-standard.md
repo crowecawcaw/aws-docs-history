@@ -1,7 +1,6 @@
 
 
 # Disabling a control in a specific standard
-<a name="disable-controls-standard"></a>
 
 You can disable a control in only specific security standards, instead of across all standards. If the control applies to other enabled standards, AWS Security Hub CSPM continues to run security checks for the control and you continue to receive findings for the control.
 
@@ -35,7 +34,7 @@ Choose your preferred method, and follow these steps to disable a control in one
 
    **Example request:**
 
-   ```
+   ```role
    {
        "StandardsArn": "arn:aws:securityhub:::{{standards/aws-foundational-security-best-practices/v/1.0.0}}"
    }
@@ -45,7 +44,7 @@ Choose your preferred method, and follow these steps to disable a control in one
 
    **Example request:**
 
-   ```
+   ```role
    {
        "SecurityControlId": "{{IAM.1}}"
    }
@@ -57,7 +56,7 @@ Choose your preferred method, and follow these steps to disable a control in one
 
    **Example request:**
 
-   ```
+   ```role
    {
        "StandardsControlAssociationUpdates": [{"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{ruleset/cis-aws-foundations-benchmark/v/1.2.0}}", "AssociationStatus": "DISABLED",  "UpdatedReason": "{{Not applicable to environment}}"}]
    }

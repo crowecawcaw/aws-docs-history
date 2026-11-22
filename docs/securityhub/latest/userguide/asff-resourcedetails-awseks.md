@@ -1,7 +1,6 @@
 
 
 # AwsEks resources in ASFF
-<a name="asff-resourcedetails-awseks"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEks` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```json
 {
   "AwsEksCluster": {
     "Name": "example",

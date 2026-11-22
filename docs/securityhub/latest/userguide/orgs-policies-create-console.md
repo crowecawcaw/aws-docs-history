@@ -1,7 +1,6 @@
 
 
 # Creating a Security Hub CSPM declarative policy in the console
-<a name="orgs-policies-create-console"></a>
 
 You create and manage Security Hub CSPM declarative policies from the delegated administrator account in the Security Hub console. Creating your first declarative policy also enables the `SECURITYHUB_CSPM_POLICY` policy type for your organization. If your organization uses central configuration, the console directs you to the import tool instead. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
 

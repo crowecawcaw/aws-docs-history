@@ -1,7 +1,6 @@
 
 
 # Testing configured ticketing integrations
-<a name="securityhub-v2-test-ticket-integration"></a>
 
  For configured Jira and ServiceNow integrations you can test the connection to ensure that all the configuration in Security Hub and in your Jira or ServiceNow environment is complete. 
 

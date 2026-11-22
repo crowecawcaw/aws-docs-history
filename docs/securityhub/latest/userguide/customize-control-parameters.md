@@ -1,7 +1,6 @@
 
 
 # Customizing control parameter values
-<a name="customize-control-parameters"></a>
 
 The instructions for customizing control parameters vary based on whether you use [central configuration](central-configuration-intro.md) in AWS Security Hub CSPM. Central configuration is a feature that the delegated Security Hub CSPM administrator can use to configure Security Hub CSPM capabilities across AWS Regions, accounts, and organizational units (OUs).
 

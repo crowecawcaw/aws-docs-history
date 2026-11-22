@@ -1,7 +1,6 @@
 
 
 # Grouping findings in Security Hub CSPM
-<a name="finding-list-grouping"></a>
 
 You can group findings in AWS Security Hub CSPM based on the values of a selected attribute.
 

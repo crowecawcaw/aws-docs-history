@@ -1,7 +1,6 @@
 
 
 # AwsCloudFormation resources in ASFF
-<a name="asff-resourcedetails-awscloudformation"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudFormation` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsC
 
 **Example**
 
-```
+```JSON
 "AwsCloudFormationStack": { 
 	"Capabilities": [
 		"CAPABILITY_IAM",

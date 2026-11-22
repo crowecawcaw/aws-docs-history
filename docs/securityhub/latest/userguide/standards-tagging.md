@@ -1,7 +1,6 @@
 
 
 # AWS Resource Tagging standard in Security Hub CSPM
-<a name="standards-tagging"></a>
 
 The AWS Resource Tagging standard, developed by AWS Security Hub CSPM, helps you determine whether your AWS resources are missing tags. *Tags* are key‐value pairs that act as metadata for organizing AWS resources. With most AWS resources, you have the option of adding tags to a resource when you create the resource or after you create the resource. Examples of resources include Amazon CloudFront distributions, Amazon Elastic Compute Cloud (Amazon EC2) instances, and secrets in AWS Secrets Manager. Tags can help you manage, identify, organize, search for, and filter AWS resources.
 
@@ -20,7 +19,7 @@ After you enable the AWS Resource Tagging standard, you begin receiving findings
 The AWS Resource Tagging standard has the following Amazon Resource Name (ARN): `arn:aws:securityhub:{{region}}::standards/aws-resource-tagging-standard/v/1.0.0`, where {{region}} is the Region code for the applicable AWS Region. You can also use the [GetEnabledStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetEnabledStandards.html) operation of the Security Hub CSPM API to retrieve the ARN of a standard that's currently enabled.
 
 **Note**  
-The [AWS Resource Tagging standard](#standards-tagging) isn't available in the Asia Pacific (New Zealand) and Asia Pacific (Taipei) Regions.
+The [AWS Resource Tagging standard](standards-tagging.md) isn't available in the Asia Pacific (New Zealand) and Asia Pacific (Taipei) Regions.
 
 ## Controls that apply to the standard
 <a name="tagging-standard-controls"></a>

@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for EventBridge
-<a name="eventbridge-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon EventBridge service and resources.
 

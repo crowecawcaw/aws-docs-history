@@ -1,7 +1,6 @@
 
 
 # Reviewing cross-Region aggregation settings
-<a name="sh-finding-aggregation-view-config"></a>
 
 You can view the current cross-Region aggregation configuration in AWS Security Hub from any AWS Region in the administrator account or in a standalone account. Member accounts cannot view cross-Region aggregation configuration. The configuration includes the home Region, and the linked Regions (if any).
 

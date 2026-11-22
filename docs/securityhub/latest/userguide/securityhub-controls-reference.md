@@ -1,7 +1,6 @@
 
 
 # Control reference for Security Hub CSPM
-<a name="securityhub-controls-reference"></a>
 
 This control reference provides a table of available AWS Security Hub CSPM controls with links to more information about each control. In the table, controls are listed in alphabetical order by control ID. Only controls in active use by Security Hub CSPM are included here. Retired controls are excluded from the table.
 

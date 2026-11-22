@@ -1,7 +1,6 @@
 
 
 # Enabling and configuring AWS Config for Security Hub CSPM
-<a name="securityhub-setup-prereqs"></a>
 
 AWS Security Hub CSPM uses AWS Config rules to run security checks and generate findings for most controls. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account. It uses rules to establish a baseline configuration for your resources and a configuration recorder to detect whether a particular resource violates the conditions of a rule.
 
@@ -11,7 +10,7 @@ If you have both AWS Security Hub CSPM and Security Hub enabled, Security Hub CS
 
 If you have Security Hub CSPM enabled without Security Hub, you must manually enable AWS Config and turn on resource recording. For more information, see [Manually configuring AWS Config](#manual-config-setup).
 
-The AWS Config prerequisites described on this page apply only to AWS security standards, such as AWS Foundational Security Best Practices and CIS AWS Foundations Benchmark. Multicloud standards, such as CIS Azure Foundations Benchmark v4.0.0, do *not* require you to enable AWS Config recording or configure a configuration recorder. The Security Hub CSPM multicloud connector automatically sets up a service-linked recorder to evaluate external cloud resources. The only prerequisite for multicloud standards is a Security Hub CSPM connector for the external cloud provider.
+The AWS Config prerequisites described on this page apply only to AWS security standards, such as AWS Foundational Security Best Practices and CIS AWS Foundations Benchmark. Multicloud standards, such as CIS Azure Foundations Benchmark v4.0.0 and CIS Google Cloud Platform Foundation Benchmark v4.0.0, do *not* require you to enable AWS Config recording or configure a configuration recorder. The Security Hub CSPM multicloud connector automatically sets up a service-linked recorder to evaluate external cloud resources. The only prerequisite for multicloud standards is a Security Hub CSPM connector for the external cloud provider.
 
 **Topics**
 + [Using the service-linked configuration recorder](#service-linked-config-recorder)
@@ -64,7 +63,7 @@ If you don't configure AWS Config recording correctly for Security Hub CSPM cont
 You never recorded the resource for a given control, or you disabled recording of a resource before creating that type of resource. In these cases, you receive a `WARNING` finding for the control at issue, even though you might have created resources in scope of the control after you disabled recording. This `WARNING` finding is a default finding that doesn't actually evaluate the configuration state of the resource.
 You disable recording for a resource that's evaluated by a particular control. In this case, Security Hub CSPM retains the control findings that were generated before you disabled recording, even though the control isn't evaluating new or updated resources. Security Hub CSPM also changes the compliance status of the findings to `WARNING`. These retained findings might not accurately reflect a resource's current configuration state.
 
-By default, AWS Config records all supported *Regional resources* that it discovers in the AWS Region in which it is running. To receive all Security Hub CSPM control findings, you must also configure AWS Config to record *global resources*. To conserve costs, we recommend recording global resources in a single Region only. If you use cross-Region aggregation, this Region should be your home Region.
+By default, AWS Config records all supported *Regional resources* that it discovers in the AWS Region in which it is running. To receive all Security Hub CSPM control findings, you must also configure AWS Config to record *AWS global resources*. To conserve costs, we recommend recording global resources in a single Region only. If you use cross-Region aggregation, this Region should be your home Region.
 
 In AWS Config, you can choose between *continuous recording* and *daily recording* of changes in resource state. If you choose daily recording, AWS Config delivers resource configuration data at the end of each 24–hour period if there are changes in resource state. If there are no changes, no data is delivered. This can delay the generation of Security Hub CSPM findings for change-triggered controls until a 24–hour period is complete.
 

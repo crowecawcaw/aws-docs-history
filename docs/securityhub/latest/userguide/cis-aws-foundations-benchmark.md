@@ -1,7 +1,6 @@
 
 
 # CIS AWS Foundations Benchmark in Security Hub CSPM
-<a name="cis-aws-foundations-benchmark"></a>
 
 The Center for Internet Security (CIS) AWS Foundations Benchmark serves as a set of security configuration best practices for AWS. These industry-accepted best practices provide you with clear, step-by-step implementation and assessment procedures. Ranging from operating systems to cloud services and network devices, the controls in this benchmark help you protect the specific systems that your organization uses. 
 

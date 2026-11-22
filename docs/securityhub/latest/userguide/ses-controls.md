@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon SES
-<a name="ses-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon Simple Email Service (Amazon SES) service and resources.
 

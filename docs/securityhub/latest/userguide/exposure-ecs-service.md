@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for Amazon ECS services
-<a name="exposure-ecs-service"></a>
 
 AWS Security Hub can generate exposure findings for Amazon Elastic Container Service (Amazon ECS) services.
 

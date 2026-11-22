@@ -1,7 +1,6 @@
 
 
 # Generating policy recommendations for unused access findings
-<a name="unused-access-recommendations"></a>
 
  For unused permissions findings, Security Hub can generate least-privilege policy recommendations that show you a scoped-down replacement policy. The recommendation evaluates each policy attached to the IAM principal and generates a replacement that retains only the permissions the principal has actually used. This capability is provided to all Security Hub customers at no additional cost. 
 

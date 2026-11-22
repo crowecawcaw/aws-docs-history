@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon S3
-<a name="s3-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon Simple Storage Service (Amazon S3) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 
@@ -132,7 +131,7 @@ Add a policy statement similar to the one in the following policy. Replace `amzn
 
 ****  
 
-```
+```json
 {
     "Id": "ExamplePolicy",
     "Version":"2012-10-17",		 	 	 

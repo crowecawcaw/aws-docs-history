@@ -1,7 +1,6 @@
 
 
 # Setting the workflow status of findings in Security Hub CSPM
-<a name="findings-workflow-status"></a>
 
 Workflow status tracks the progress of your investigation into a finding. Workflow status is specific to an individual finding and doesn't affect generation of new findings. For example, if you change the workflow status of a finding to `SUPPRESSED` or `RESOLVED`, your change doesn't prevent Security Hub CSPM from generating a new finding for the same issue.
 

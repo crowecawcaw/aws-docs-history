@@ -1,14 +1,13 @@
 
 
 # EventBridge event formats
-<a name="securityhub-v2-cwe-event-formats"></a>
 
  The **Findings Imported V2** event type uses the following event format. 
 
 **Example**  
  This format is used when Security Hub sends an event to EventBridge. 
 
-```
+```json
 {
    "version":"0",
    "id":"CWE-event-id",

@@ -1,7 +1,6 @@
 
 
 # AWS Security Hub and interface VPC endpoints (AWS PrivateLink)
-<a name="sh-security-vpc-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Security Hub by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access Security Hub APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not need public IP addresses to communicate with Security Hub APIs. Traffic between your VPC and Security Hub does not leave the Amazon network. 
 

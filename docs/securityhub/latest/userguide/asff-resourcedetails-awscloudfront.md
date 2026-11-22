@@ -1,7 +1,6 @@
 
 
 # AwsCloudFront resources in ASFF
-<a name="asff-resourcedetails-awscloudfront"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudFront` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsCloudFrontDistribution` finding in the AWS Secur
 
 **Example**
 
-```
+```JSON
 "AwsCloudFrontDistribution": {
     "CacheBehaviors": {
         "Items": [

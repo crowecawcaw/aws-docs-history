@@ -1,7 +1,6 @@
 
 
 # AwsCloudTrail resources in ASFF
-<a name="asff-resourcedetails-awscloudtrail"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudTrail` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsCloudTrailTrail` finding in the AWS Security Fin
 
 **Example**
 
-```
+```JSON
 "AwsCloudTrailTrail": {
     "CloudWatchLogsLogGroupArn": "arn:aws:logs:us-west-2:123456789012:log-group:CloudTrail/regression:*",
     "CloudWatchLogsRoleArn": "arn:aws:iam::866482105055:role/CloudTrail_CloudWatchLogs",

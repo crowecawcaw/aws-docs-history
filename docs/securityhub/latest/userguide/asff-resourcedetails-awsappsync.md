@@ -1,7 +1,6 @@
 
 
 # AwsAppSync resources in ASFF
-<a name="asff-resourcedetails-awsappsync"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAppSync` resources.
 
@@ -16,7 +15,7 @@ The following example shows the ASFF for the `AwsAppSyncGraphQLApi` object. To v
 
 **Example**
 
-```
+```JSON
 "AwsAppSyncGraphQLApi": {
     "AdditionalAuthenticationProviders": [
     {

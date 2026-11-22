@@ -1,7 +1,6 @@
 
 
 # Understanding unused access findings in Security Hub
-<a name="unused-access-findings"></a>
 
  Security Hub uses IAM Access Analyzer to identify unused IAM permissions, roles, access keys, and passwords in your account. These findings help you implement the security best practice of least-privilege access by highlighting IAM principals and permissions that are not actively being used. This capability is provided to all Security Hub customers at no additional cost. 
 

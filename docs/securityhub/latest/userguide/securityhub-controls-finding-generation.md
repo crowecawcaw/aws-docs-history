@@ -1,7 +1,6 @@
 
 
 # Understanding security checks and scores in Security Hub CSPM
-<a name="securityhub-controls-finding-generation"></a>
 
 For each control that you enable, AWS Security Hub CSPM runs security checks. A security check produces a finding that tells you whether a specific AWS resource is in compliance with the rules that the control includes.
 

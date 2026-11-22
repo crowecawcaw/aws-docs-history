@@ -1,7 +1,6 @@
 
 
 # Regional limits for Security Hub CSPM
-<a name="securityhub-regions"></a>
 
 Some AWS Security Hub CSPM features are available in only certain AWS Regions. The following sections specify these Regional limits. For a complete list of all the Regions where Security Hub CSPM is currently available, see [AWS Security Hub endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sechub.html) in the *AWS General Reference*.
 

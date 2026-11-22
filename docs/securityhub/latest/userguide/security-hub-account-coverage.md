@@ -1,7 +1,6 @@
 
 
 # Account coverage in Security Hub
-<a name="security-hub-account-coverage"></a>
 
  The **Account coverage** page shows which accounts and Regions in your organization have Security Hub and its integrated security capabilities enabled. These capabilities include services such as Amazon Inspector, Amazon GuardDuty, AWS Security Hub CSPM, and Amazon Macie. Use this page to identify coverage gaps and track capability adoption across your organization. 
 

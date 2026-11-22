@@ -1,7 +1,6 @@
 
 
 # AwsCertificateManager resources in ASFF
-<a name="asff-resourcedetails-awscertificatemanager"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCertificateManager` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsCertificateManagerCertificate` finding in the AW
 
 **Example**
 
-```
+```JSON
 "AwsCertificateManagerCertificate": {
     "CertificateAuthorityArn": "arn:aws:acm:us-west-2:444455556666:certificate-authority/example",
     "CreatedAt": "2019-05-24T18:12:02.000Z",

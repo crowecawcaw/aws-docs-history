@@ -1,7 +1,6 @@
 
 
 # Subscribing to Security Hub CSPM announcements with Amazon SNS
-<a name="securityhub-announcements"></a>
 
 This section provides information about subscribing to AWS Security Hub CSPM announcements with Amazon Simple Notification Service (Amazon SNS) to receive notifications about Security Hub CSPM. 
 
@@ -94,7 +93,7 @@ The following examples show Security Hub CSPM announcements from Amazon SNS abou
 
 **Example: Security Hub CSPM announcement for new controls (email protocol)**
 
-```
+```JSON
 {
 "AnnouncementType":"NEW_STANDARDS_CONTROLS",
 "Title":"[New Controls] 36 new Security Hub CSPM controls added to the AWS Foundational Security Best Practices standard",
@@ -105,7 +104,7 @@ Amazon Simple Storage Service (Amazon S3) (S3.13), Amazon Simple Notification Se
 
 **Example: Security Hub CSPM announcement for new controls (email-JSON protocol)**
 
-```
+```JSON
 {
   "Type" : "Notification",
   "MessageId" : "d124c9cf-326a-5931-9263-92a92e7af49f",

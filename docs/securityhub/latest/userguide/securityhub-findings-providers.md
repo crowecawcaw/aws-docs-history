@@ -1,7 +1,6 @@
 
 
 # Understanding integrations in Security Hub CSPM
-<a name="securityhub-findings-providers"></a>
 
 AWS Security Hub CSPM can ingest security findings from several AWS services and supported third-party AWS Partner Network security solutions. These integrations can help you get a comprehensive view of security and compliance across your AWS environment. Security Hub CSPM ingests findings from integrated solutions and converts them to the AWS Security Finding Format (ASFF).
 

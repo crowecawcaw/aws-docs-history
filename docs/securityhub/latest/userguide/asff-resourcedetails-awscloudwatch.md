@@ -1,7 +1,6 @@
 
 
 # AwsCloudWatch resources in ASFF
-<a name="asff-resourcedetails-awscloudwatch"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudWatch` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsC
 
 **Example**
 
-```
+```JSON
 "AwsCloudWatchAlarm": { 
 	"ActionsEnabled": true,
 	"AlarmActions": [

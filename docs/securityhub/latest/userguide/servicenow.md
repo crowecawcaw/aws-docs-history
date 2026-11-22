@@ -1,7 +1,6 @@
 
 
 # Integrations for ServiceNow
-<a name="servicenow"></a>
 
  This topic describes how to access the Security Hub console to configure an integration for ServiceNow ITSM. Before completing any of the procedures in this topic, you must have a subscription to ServiceNow ITSM before you can add this integration. For more information, see [the pricing page](https://www.servicenow.com/lpgp/pricing-itsm.html) on the ServiceNow website. 
 
@@ -15,7 +14,7 @@
  You must complete the following prerequisites before configuring an integration for ServiceNow ITSM. Otherwise, your integration between ServiceNow ITSM and Security Hub does not work. 
 
 ### 1. Install Security Hubfindings integration for IT Service Management (ITSM)
-<a name="w2aab7c59b9b9b5"></a>
+<a name="w2aab7c58b9b9b5"></a>
 
  The following procedure describes how to install Security Hub plugin. 
 
@@ -29,12 +28,12 @@
  In the settings for the Security Hub application, choose which action to take when new Security Hub findings are sent to your ServiceNow ITSM environment. You can choose **Do nothing**, **Create incident**, **Create problem**, or **Create both (incident/problem)**. 
 
 ### 2. Configure the Client Credentials grant type for inbound OAuth requests
-<a name="w2aab7c59b9b9b7"></a>
+<a name="w2aab7c58b9b9b7"></a>
 
  You must configure this grant type for inbound OAuth requests. For more information, see [Client Credentials grant type for Inbound OAuth is supported](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB1645212) in the ServiceNow Support webpage. 
 
 ### 3. Create an OAuth application
-<a name="w2aab7c59b9b9b9"></a>
+<a name="w2aab7c58b9b9b9"></a>
 
  If you already created an OAuth application, you can skip this prerequisite. For information about creating an OAuth application, see [Setting up OAuth](https://www.servicenow.com/docs/csh?topicname=client-credentials.html&version=latest) on the ServiceNow website. 
 
@@ -46,7 +45,7 @@
  Use the following steps to configure Secrets Manager for your ServiceNow credentials. 
 
 ### Step 1: Attach a policy to your AWS KMS key
-<a name="w2aab7c59b9c11b7"></a>
+<a name="w2aab7c58b9c11b7"></a>
 
  To successfully configure your ServiceNow integration, you must first give Security Hub permissions to use the AWS KMS key that is associated with your ServiceNow credentials in Secrets Manager. 
 
@@ -109,7 +108,7 @@
 1.  (Optional) Copy the key ARN to a notepad for use in the later steps. 
 
 ### Step 2: Create the secret in Secrets Manager
-<a name="w2aab7c59b9c11b9"></a>
+<a name="w2aab7c58b9c11b9"></a>
 
  Create a secret in Secrets Manager that will store your ServiceNow credentials. Security Hub will access this secret when interacting with your ServiceNow environment. 
 

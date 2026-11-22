@@ -1,7 +1,6 @@
 
 
 # Filtering findings in Security Hub CSPM
-<a name="securityhub-findings-manage"></a>
 
 AWS Security Hub CSPM generates its own findings from security checks and receives findings from integrated products. You can display a list of findings on the **Findings**, **Integrations**, and **Insights** pages of the Security Hub CSPM console. You can add filters to narrow a finding list so that the list is relevant to your organization or use case.
 

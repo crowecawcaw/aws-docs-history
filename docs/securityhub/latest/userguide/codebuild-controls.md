@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for CodeBuild
-<a name="codebuild-controls"></a>
 
 These Security Hub CSPM controls evaluate the AWS CodeBuild service and resources.
 

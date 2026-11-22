@@ -1,7 +1,6 @@
 
 
 # Optional top-level ASFF attributes
-<a name="asff-top-level-attributes"></a>
 
 The following top-level attributes in the AWS Security Finding Format (ASFF) are optional for findings in Security Hub CSPM. For more information about these attributes, see [AwsSecurityFinding](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFinding.html) in the *AWS Security Hub API Reference*.
 
@@ -12,7 +11,7 @@ The [`Action`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Acti
 
 **Example**
 
-```
+```json
 "Action": {
     "ActionType": "PORT_PROBE",
     "PortProbeAction": {
@@ -57,7 +56,7 @@ The AWS account name that the finding applies to.
 
 **Example**
 
-```
+```JSON
 "AwsAccountName": "jane-doe-testaccount"
 ```
 
@@ -72,7 +71,7 @@ When you use the Security Hub CSPM console to filter findings by company name, y
 
 **Example**
 
-```
+```JSON
 "CompanyName": "AWS"
 ```
 
@@ -83,7 +82,7 @@ The [`Compliance`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_
 
 **Example**
 
-```
+```JSON
 "Compliance": {
     "AssociatedStandards": [
         {"StandardsId": "standards/aws-foundational-security-best-practices/v/1.0.0"},
@@ -134,7 +133,7 @@ Finding providers who want to provide a value for `Confidence` should use the `C
 
 **Example**
 
-```
+```JSON
 "Confidence": 42
 ```
 
@@ -161,7 +160,7 @@ You can use the following guidelines:
 
 **Example**
 
-```
+```JSON
 "Criticality": 99
 ```
 
@@ -172,7 +171,7 @@ The `Detection` object provides details about an attack sequence finding from Am
 
 **Example**
 
-```
+```JSON
 "Detection": {
     "Sequence": {
     	"Uid": "1111111111111-184ec3b9-cf8d-452d-9aad-f5bdb7afb010",
@@ -303,7 +302,7 @@ Customers can update the top-level fields by using the `BatchUpdateFindings` ope
 
 **Example**
 
-```
+```JSON
 "FindingProviderFields": {
     "Confidence": 42,
     "Criticality": 99,
@@ -332,7 +331,7 @@ For control findings that Security Hub CSPM generates and updates, this timestam
 
 **Example**
 
-```
+```JSON
 "FirstObservedAt": "2017-03-22T13:22:13.933Z"
 ```
 
@@ -347,7 +346,7 @@ You can provide this timestamp, but it isn't required upon first observation. If
 
 **Example**
 
-```
+```JSON
 "LastObservedAt": "2017-03-23T13:22:13.933Z"
 ```
 
@@ -358,7 +357,7 @@ The [`Malware`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Mal
 
 **Example**
 
-```
+```JSON
 "Malware": [
     {
         "Name": "Stringler",
@@ -378,7 +377,7 @@ This object is retired. To provide this data, you can either map the data to a r
 
 **Example**
 
-```
+```JSON
 "Network": {
     "Direction": "IN",
     "OpenPortRange": {
@@ -405,7 +404,7 @@ The [`NetworkPath`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API
 
 **Example**
 
-```
+```JSON
 "NetworkPath" : [
     {
         "ComponentId": "abc-01a234bc56d8901ee",
@@ -453,7 +452,7 @@ A finding provider can provide an initial note for a finding, but cannot add not
 
 **Example**
 
-```
+```JSON
 "Note": {
     "Text": "Don't forget to check under the mat.",
     "UpdatedBy": "jsmith",
@@ -468,7 +467,7 @@ The [`PatchSummary`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/AP
 
 **Example**
 
-```
+```JSON
 "PatchSummary" : {
     "FailedCount" : 0,
     "Id" : "pb-123456789098",
@@ -491,7 +490,7 @@ The [`Process`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Pro
 
 Example:
 
-```
+```JSON
 "Process": {
     "LaunchedAt": "2018-09-27T22:37:31Z",
     "Name": "syslogd",
@@ -509,7 +508,7 @@ Indicates when Security Hub CSPM received a finding and began to process it.
 
 This differs from `CreatedAt` and `UpdatedAt`, which are required timestamps that relate to the finding provider's interaction with the security issue and finding. The `ProcessedAt` timestamp indicates when Security Hub CSPM starts to process a finding. A finding appears in a user's account after processing is complete.
 
-```
+```JSON
 "ProcessedAt": "2023-03-23T13:22:13.933Z"
 ```
 
@@ -532,7 +531,7 @@ This field may also include information about the standard that includes the con
 
 **Example**
 
-```
+```JSON
 "ProductFields": {
     "API", "DeleteTrail",
     "ArchivalReasons:0/Description": "The finding is in an ARCHIVED state because consolidated control findings has been turned on or off. This causes findings in the previous state to be archived when new findings are being generated.",
@@ -576,7 +575,7 @@ If the record state changes from `ARCHIVED` to `ACTIVE`, and the workflow status
 
 **Example**
 
-```
+```JSON
 "RecordState": "ACTIVE"
 ```
 
@@ -589,7 +588,7 @@ Security Hub CSPM populates this attribute automatically for each finding. You c
 
 **Example**
 
-```
+```JSON
 "Region": "us-west-2"
 ```
 
@@ -606,7 +605,7 @@ To view descriptions of `RelatedFindings` attributes, see [`RelatedFinding`](htt
 
 **Example**
 
-```
+```JSON
 "RelatedFindings": [
     { "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty", 
       "Id": "123e4567-e89b-12d3-a456-426655440000" },
@@ -620,7 +619,7 @@ To view descriptions of `RelatedFindings` attributes, see [`RelatedFinding`](htt
 
 **Example**
 
-```
+```JSON
 "RiskAssessment": {
     "Posture": {
         "FindingTotal": 4,
@@ -667,7 +666,7 @@ The [`Remediation`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API
 
 **Example**
 
-```
+```JSON
 "Remediation": {
     "Recommendation": {
         "Text": "For instructions on how to fix this issue, see the AWS Security Hub CSPM documentation for EC2.2.",
@@ -681,7 +680,7 @@ The [`Remediation`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API
 
 Specifies whether the finding is a sample finding.
 
-```
+```JSON
 "Sample": true
 ```
 
@@ -690,7 +689,7 @@ Specifies whether the finding is a sample finding.
 
 The `SourceUrl` object provides a URL that links to a page about the current finding in the finding product.
 
-```
+```JSON
 "SourceUrl": "http://sourceurl.com"
 ```
 
@@ -701,7 +700,7 @@ The [`ThreatIntelIndicator`](https://docs.aws.amazon.com/securityhub/1.0/APIRefe
 
 **Example**
 
-```
+```JSON
 "ThreatIntelIndicators": [
   {
     "Category": "BACKDOOR",
@@ -721,7 +720,7 @@ The [Threats](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Threa
 
 **Example**
 
-```
+```JSON
 "Threats": [{
     "FilePaths": [{
         "FileName": "b.txt",
@@ -746,7 +745,7 @@ These fields can only be updated using [`BatchUpdateFindings`](https://docs.aws.
 
 **Example**
 
-```
+```JSON
 "UserDefinedFields": {
     "reviewedByCio": "true",
     "comeBackToLater": "Check this again on Monday"
@@ -760,7 +759,7 @@ Provides the veracity of a finding. Findings products can provide a value of `UN
 
 A finding provider can provide an initial value for this attribute, but cannot update it after that. You can only update this attribute by using [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
-```
+```JSON
 "VerificationState": "Confirmed"
 ```
 
@@ -771,7 +770,7 @@ The [Vulnerabilities](https://docs.aws.amazon.com/securityhub/1.0/APIReference/A
 
 **Example**
 
-```
+```JSON
 "Vulnerabilities" : [
     {
         "CodeVulnerabilities": [{
@@ -846,7 +845,7 @@ You can only update the `Workflow` field with [`BatchUpdateFindings`](https://do
 
 **Example**
 
-```
+```JSON
 "Workflow": {
     "Status": "NEW"
 }
@@ -861,6 +860,6 @@ This field provides the workflow state of a finding. Findings products can provi
 
 **Example**
 
-```
+```JSON
 "WorkflowState": "NEW"
 ```

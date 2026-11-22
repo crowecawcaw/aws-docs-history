@@ -1,7 +1,6 @@
 
 
 # Viewing details about resources in Security Hub
-<a name="resource-view"></a>
 
  The **Resources** page tracks common resources across your account and organization. You can access the **Resources** page in the Security Hub console by choosing **Resources** in the navigation pane. The benefit of the **Resources** page is that it helps you monitor your security posture, organize your resources, and review details about your resources. When you choose a resource type, you can review all of the resources associated with the resource type. You can review any findings associated with a resource. The resource types available in the **Resources** page include any resources in your accounts covered by AWS security services contributing findings to Security Hub. 
 

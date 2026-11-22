@@ -1,7 +1,6 @@
 
 
 # Enabling new controls in enabled standards automatically
-<a name="controls-auto-enable"></a>
 
 AWS Security Hub CSPM regularly releases new controls and adds them to one or more standards. You can choose whether to automatically enable new controls in your enabled standards.
 

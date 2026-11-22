@@ -1,7 +1,6 @@
 
 
 # Enabling a control in a specific standard
-<a name="controls-configure"></a>
 
 When you enable a standard in AWS Security Hub CSPM, all of the controls that apply to it are automatically enabled in that standard (the exception to this is service-managed standards). You can then disable and re-enable specific controls in the standard. However, we recommend aligning the enablement status of a control across all of your enabled standards. For instructions on enabling a control across all standards, see [Enabling a control across standards](enable-controls-overview.md).
 
@@ -39,7 +38,7 @@ Follow these steps to enable a Security Hub CSPM control in a *specific* standar
 
    **Example request:**
 
-   ```
+   ```role
    {
        "StandardsArn": "arn:aws:securityhub:::{{standards/aws-foundational-security-best-practices/v/1.0.0}}"
    }
@@ -49,7 +48,7 @@ Follow these steps to enable a Security Hub CSPM control in a *specific* standar
 
    **Example request:**
 
-   ```
+   ```role
    {
        "SecurityControlId": "{{IAM.1}}"
    }
@@ -61,7 +60,7 @@ Follow these steps to enable a Security Hub CSPM control in a *specific* standar
 
    **Example request:**
 
-   ```
+   ```role
    {
        "StandardsControlAssociationUpdates": [{"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{ruleset/cis-aws-foundations-benchmark/v/1.2.0}}", "AssociationStatus": "ENABLED"}]
    }

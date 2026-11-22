@@ -1,7 +1,6 @@
 
 
 # Regional limits on Security Hub CSPM controls
-<a name="regions-controls"></a>
 
 Some AWS Security Hub CSPM controls aren't available in all AWS Regions. This page specifies which controls aren't available in specific Regions.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Security Finding Format (ASFF)
-<a name="securityhub-findings-format"></a>
 
 AWS Security Hub CSPM consumes and aggregates findings from integrated AWS services and third-party products. Security Hub CSPM processes these findings using a standard findings format called the *AWS Security Finding Format (ASFF)*, which eliminates the need for time-consuming data conversion efforts.
 
@@ -9,7 +8,7 @@ This page provides a complete outline of the JSON for a finding in the AWS Secur
 
 For descriptions of individual ASFF attributes, see [Required top-level ASFF attributes](asff-required-attributes.md) and [Optional top-level ASFF attributes](asff-top-level-attributes.md).
 
-```
+```JSON
 "Findings": [ 
     {
     	"Action": {

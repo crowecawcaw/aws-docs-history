@@ -1,7 +1,6 @@
 
 
 # Checking the status of control parameter changes
-<a name="parameter-update-status"></a>
 
 When you attempt to customize a control parameter or revert to the default value, you can validate whether the desired changes were effective. This helps ensure that a control works as you expect and provides the intended security value. If a parameter update is unsuccessful, Security Hub CSPM retains the current value for the parameter.
 

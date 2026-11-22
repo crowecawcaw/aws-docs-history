@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon Keyspaces
-<a name="keyspaces-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the Amazon Keyspaces service and resources.
 

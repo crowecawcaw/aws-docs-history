@@ -1,7 +1,6 @@
 
 
 # Configuring Security Hub to integrate with Microsoft Azure
-<a name="securityhub-v2-azure-setup-securityhub-v2"></a>
 
 After you complete the [prerequisite tasks](securityhub-v2-azure-prereqs.md) and [configure your Microsoft Azure environment](securityhub-v2-azure-setup-azure.md), you can configure AWS Security Hub to integrate with Azure. To configure Security Hub to integrate with Azure, you create a connector. You can create the connector from a delegated administrator account or the management account. After you create the connector, the following events occur:
 
@@ -27,7 +26,7 @@ After you complete the [prerequisite tasks](securityhub-v2-azure-prereqs.md) and
 
 To create an Microsoft Azure connector for your environment, complete the following steps by using the AWS Security Hub console or the API.
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.).
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1).
 
 1. In the navigation pane, choose **Integrations**.
 
@@ -64,16 +63,20 @@ If you plan to use Amazon Inspector for Azure VM scanning, you must create the r
 
 To enable vulnerability scanning through Amazon Inspector, you must create the following IAM resources in your AWS account.
 
+**IAM OIDC identity provider**
+
 Create an IAM OIDC identity provider for Microsoft Entra ID with the following configuration:
 + **Issuer URL:** `https://sts.windows.net/{{tenant-id}}/`
 + **Client ID list:** `api://{{app-id}}`, `api://AzureADTokenExchange`
-+ **Thumbprint:** A 40-character string of all zeros (`0` repeated 40 times). AWS STS validates tokens via the JWKS endpoint rather than the thumbprint value.{{}}
++ **Thumbprint:** A 40-character string of all zeros (`0` repeated 40 times). AWS STS validates tokens via the JWKS endpoint rather than the thumbprint value.
+
+**Inspector2VmScannerRole-{{tenant-id}}**
 
 Used by the Amazon Inspector VM Scanner agent running on Azure VMs to send scan telemetry to Amazon Inspector. This role uses OIDC web identity federation through the Microsoft Entra ID identity provider.
 
 **Trust policy:**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -98,7 +101,7 @@ Used by the Amazon Inspector VM Scanner agent running on Azure VMs to send scan 
 
 **Permission policy (TelemetryPolicy):**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -109,13 +112,15 @@ Used by the Amazon Inspector VM Scanner agent running on Azure VMs to send scan 
         }
     ]
 }
-```{{}}
+```
+
+**Inspector2SSMFederationRole-{{tenant-id}}**
 
 Enables OIDC federation to Azure for secure cross-cloud authentication. This role is assumed by the AssumeRole and DispatchRole, and by Amazon EC2 Systems Manager, to obtain web identity tokens for Azure operations.
 
 **Trust policy:**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -150,7 +155,7 @@ Enables OIDC federation to Azure for secure cross-cloud authentication. This rol
 
 **Permission policy (FederationPolicy):**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -175,13 +180,15 @@ Enables OIDC federation to Azure for secure cross-cloud authentication. This rol
 
 **Tags:**
 + `caller` = `SSM`
-+ `inspector-managed` = `true`{{}}
++ `inspector-managed` = `true`
+
+**Inspector2SSMAssumeRole-{{tenant-id}}**
 
 Executes Amazon EC2 Systems Manager Automation to onboard Azure VMs as managed instances. This role creates and manages hybrid activations, passes roles to Amazon EC2 Systems Manager, and retrieves automation documents.
 
 **Trust policy:**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -203,7 +210,7 @@ Executes Amazon EC2 Systems Manager Automation to onboard Azure VMs as managed i
 
 **Permission policy (AssumeRolePolicy):**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -264,13 +271,15 @@ Executes Amazon EC2 Systems Manager Automation to onboard Azure VMs as managed i
 + `caller` = `SSM`
 + `AzureTenantId` = `{{tenant-id}}`
 + `AzureApplicationId` = `{{app-id}}`
-+ `inspector-managed` = `true`{{}}
++ `inspector-managed` = `true`
+
+**Inspector2SSMDispatchRole-{{tenant-id}}**
 
 Resolves Azure VM targets and dispatches Amazon Inspector VM Scanner agent installation via Amazon EC2 Systems Manager Automation. This role starts automation executions and passes the AssumeRole to Amazon EC2 Systems Manager.
 
 **Trust policy:**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -292,7 +301,7 @@ Resolves Azure VM targets and dispatches Amazon Inspector VM Scanner agent insta
 
 **Permission policy (DispatchPolicy):**
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 
     "Statement": [
@@ -337,6 +346,8 @@ Resolves Azure VM targets and dispatches Amazon Inspector VM Scanner agent insta
 + `caller` = `SSM`
 + `inspector-managed` = `true`
 
+**Prerequisites for VM scanning**
+
 The Azure app registration must have its Application ID URI set to `api://{{app-id}}`.
 
 Each Azure VM that you want to scan must have a system-assigned managed identity enabled. To automatically assign managed identity to new VMs, use a DeployIfNotExists policy in your Azure environment.
@@ -360,7 +371,7 @@ You can check the health of an Microsoft Azure connector at any time to confirm 
 
 **To verify the health of a connector**
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.).
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1).
 
 1. In the navigation pane, choose **Integrations** and select your Azure connector.
 

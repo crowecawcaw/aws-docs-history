@@ -1,7 +1,6 @@
 
 
 # Remediation plans in Security Hub
-<a name="securityhub-v2-remediation-plans"></a>
 
  A remediation plan in AWS Security Hub groups related exposure findings that share a root cause. Each plan targets a single resource in your AWS environment. When you fix that resource, you can resolve or reduce the severity of several exposures at once. 
 

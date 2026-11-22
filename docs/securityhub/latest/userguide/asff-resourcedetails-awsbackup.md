@@ -1,7 +1,6 @@
 
 
 # AwsBackup resources in ASFF
-<a name="asff-resourcedetails-awsbackup"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsBackup` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsB
 
 **Example**
 
-```
+```JSON
 "AwsBackupBackupPlan": {
     "BackupPlan": {
     	"AdvancedBackupSettings": [{
@@ -76,7 +75,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsB
 
 **Example**
 
-```
+```JSON
 "AwsBackupBackupVault": {
     "AccessPolicy": {
     	"Statement": [{
@@ -115,7 +114,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsB
 
 **Example**
 
-```
+```JSON
 "AwsBackupRecoveryPoint": {
     "BackupSizeInBytes": 0,
     "BackupVaultName": "aws/efs/automatic-backup-vault",

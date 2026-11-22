@@ -1,7 +1,6 @@
 
 
 # Creating a ticket for a ServiceNow ITSM integration
-<a name="servicenow-create-ticket"></a>
 
  After you create an integration with ServiceNow ITSM, you can create a ticket for a finding. 
 

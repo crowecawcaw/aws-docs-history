@@ -1,7 +1,6 @@
 
 
 # AI Inventory in Security Hub
-<a name="securityhub-v2-ai-inventory"></a>
 
  The AI inventory in AWS Security Hub provides a unified view of your artificial intelligence (AI) and machine learning (ML) resources across your AWS environment. Use the AI inventory to identify unsanctioned AI workloads, understand where AI is running and how it was discovered, and prioritize the resources that require closer security review. Security Hub organizes AI resources into two discovery types: 
 +  **Managed** – AI resources that AWS provides as a managed service. Security Hub discovers these resources from AWS Config configuration items. Managed resource types include a supported subset of Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker. 
@@ -101,7 +100,7 @@
  When you use `GetResourcesV2` and filter by `ResourceSubCategory`, you must also include a `ResourceCategory` filter. Set the comparison to `EQUALS` and the value to `AI/ML`. This requirement also applies when you group by `ResourceSubCategory`, `ResourceInfo.AIDetails.HostResourceType`, or `ResourceInfo.AIDetails.CanonicalId` in `GetResourcesStatisticsV2`. Otherwise, the operation returns a `ValidationException`.   
  The following example shows a valid filter combination:   
 
-```
+```json
 {
     "Filters": {
         "CompositeFilters": [

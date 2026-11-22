@@ -1,7 +1,6 @@
 
 
 # Integrating Security Hub CSPM with AWS Organizations
-<a name="designate-orgs-admin-account"></a>
 
 To integrate AWS Security Hub CSPM and AWS Organizations, you create an organization in Organizations and use the organization management account to designate a delegated Security Hub CSPM administrator account. This enables Security Hub CSPM as a trusted service in Organizations. It also enables Security Hub CSPM in the current AWS Region for the delegated administrator account, and it allows the delegated administrator to enable Security Hub CSPM for member accounts, view data in member accounts, and perform other [allowed actions](securityhub-accounts-allowed-actions.md) on member accounts.
 

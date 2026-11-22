@@ -1,7 +1,6 @@
 
 
 # Viewing findings from a Security Hub CSPM integration
-<a name="securityhub-integration-view-findings"></a>
 
 When you start accepting findings from an AWS Security Hub CSPM integration, the **Integrations** page of the Security Hub CSPM console displays the **Status** of the integration as **Accepting findings**. To review a list of findings from the integration, choose **See findings**.
 

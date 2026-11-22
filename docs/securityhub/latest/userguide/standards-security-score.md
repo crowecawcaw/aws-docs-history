@@ -1,7 +1,6 @@
 
 
 # Calculating security scores
-<a name="standards-security-score"></a>
 
 On the AWS Security Hub CSPM console, the **Summary** page and the **Controls** page display a summary security score across all of your enabled standards. On the **Security standards** page, Security Hub CSPM also displays a security score from 0–100 percent for each enabled standard.
 

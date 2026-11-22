@@ -1,7 +1,6 @@
 
 
 # Deleting cross-Region aggregation
-<a name="sh-finding-aggregation-delete"></a>
 
 If you do not want AWS Security Hub to aggregate data, you can delete your finding aggregator. Alternatively, you can keep your finding aggregator but not link any AWS Regions to the home Region by updating the existing aggregator to have no linked Regions selected.
 

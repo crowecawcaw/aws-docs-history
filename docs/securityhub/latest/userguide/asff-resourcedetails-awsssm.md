@@ -1,7 +1,6 @@
 
 
 # AwsSsm resources in ASFF
-<a name="asff-resourcedetails-awsssm"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSsm` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```json
 "AwsSsmPatchCompliance": {
     "Patch": {
         "ComplianceSummary": {

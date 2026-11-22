@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon AppFlow
-<a name="appflow-controls"></a>
 
 These Security Hub CSPM controls evaluate the Amazon AppFlow service and resources.
 

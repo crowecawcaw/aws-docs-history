@@ -1,7 +1,6 @@
 
 
 # Integrating Security Hub CSPM with Microsoft Azure
-<a name="securityhub-azure"></a>
 
 To monitor your Microsoft Azure resources, you can integrate Microsoft Azure with AWS Security Hub CSPM. Security Hub CSPM then automatically enables posture management checks for your Azure environment and generates findings about your environment. More specifically, the service provides you with the following:
 

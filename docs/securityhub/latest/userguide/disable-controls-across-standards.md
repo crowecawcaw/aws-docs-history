@@ -1,7 +1,6 @@
 
 
 # Disabling a control across standards
-<a name="disable-controls-across-standards"></a>
 
 We recommend disabling an AWS Security Hub CSPM control across standards to maintain alignment throughout your organization. If you disable a control in only specific standards, you continue to receive findings for the control if it is enabled in other standards.
 
@@ -50,7 +49,7 @@ If you don't use central configuration or are a self-managed account, you can't 
 
    **Example request:**
 
-   ```
+   ```json
    {
        "SecurityControlId": "{{IAM.1}}"
    }
@@ -62,7 +61,7 @@ If you don't use central configuration or are a self-managed account, you can't 
 
    **Example request:**
 
-   ```
+   ```json
    {
        "StandardsControlAssociationUpdates": [{"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{ruleset/cis-aws-foundations-benchmark/v/1.2.0}}", "AssociationStatus": "DISABLED", "UpdatedReason": "{{Not applicable to environment}}"}, {"SecurityControlId": "{{IAM.1}}", "StandardsArn": "arn:aws:securityhub:::{{standards/aws-foundational-security-best-practices/v/1.0.0}}", "AssociationStatus": "DISABLED", "UpdatedReason": "{{Not applicable to environment}}"}}]
    }

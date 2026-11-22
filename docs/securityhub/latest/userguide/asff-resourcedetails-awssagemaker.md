@@ -1,7 +1,6 @@
 
 
 # AwsSageMaker resources in ASFF
-<a name="asff-resourcedetails-awssagemaker"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSageMaker` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```JSON
 "AwsSageMakerNotebookInstance": {
     "DirectInternetAccess": "Disabled",
     "InstanceMetadataServiceConfiguration": {

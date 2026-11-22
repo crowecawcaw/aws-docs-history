@@ -1,7 +1,6 @@
 
 
 # Effect of account actions on Security Hub CSPM data
-<a name="securityhub-data-retention"></a>
 
 These account actions have the following effects on AWS Security Hub CSPM data.
 

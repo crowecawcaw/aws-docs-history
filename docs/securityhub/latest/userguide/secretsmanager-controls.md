@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Secrets Manager
-<a name="secretsmanager-controls"></a>
 
 These AWS Security Hub CSPM controls evaluate the AWS Secrets Manager service and resources.
 

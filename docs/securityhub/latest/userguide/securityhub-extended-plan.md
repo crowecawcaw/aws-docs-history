@@ -1,7 +1,6 @@
 
 
 # Security Hub Extended plan
-<a name="securityhub-extended-plan"></a>
 
  With the Security Hub Extended plan, you can protect your entire enterprise estate across cloud, endpoint, network, identity, data, email, and browser. Use AWS Security Hub as the center of an integrated security operations experience. With the Security Hub Extended plan, you can select partner solutions that address your security needs and sign up for flexible pay-as-you-go pricing with no upfront investments or long-term commitments required. You can add or remove partner solutions as your business needs evolve. 
 

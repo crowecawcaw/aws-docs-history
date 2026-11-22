@@ -1,7 +1,6 @@
 
 
 # AwsElasticSearch resources in ASFF
-<a name="asff-resourcedetails-awselasticsearch"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsElasticSearch` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsE
 
 **Example**
 
-```
+```JSON
 "AwsElasticSearchDomain": {
     "AccessPolicies": "string",
     "DomainStatus": {

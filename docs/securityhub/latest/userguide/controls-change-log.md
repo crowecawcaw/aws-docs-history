@@ -1,7 +1,6 @@
 
 
 # Change log for Security Hub CSPM controls
-<a name="controls-change-log"></a>
 
 The following change log tracks material changes to existing AWS Security Hub CSPM controls, which can result in changes to the overall status of a control and the compliance status of its findings. For information about how Security Hub CSPM evaluates control status, see [Evaluating compliance status and control status](controls-overall-status.md). Changes can take a few days after their entry in this log to affect all AWS Regions in which the control is available.
 

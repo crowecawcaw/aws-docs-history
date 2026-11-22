@@ -1,7 +1,6 @@
 
 
 # CRI Profile v2.2 in Security Hub CSPM
-<a name="standards-reference-cri-profile"></a>
 
 The CRI Profile is a cybersecurity framework developed by the Cyber Risk Institute (CRI), a non-profit coalition of financial institutions and trade associations. The framework harmonizes cybersecurity and regulatory expectations for the financial services sector into a common set of requirements. This lets an organization assess itself once and report against multiple regulations. For more information about the framework and its requirements, see [CRI Profile overview](https://cyberriskinstitute.org/cri-profile-overview/) on the Cyber Risk Institute website.
 

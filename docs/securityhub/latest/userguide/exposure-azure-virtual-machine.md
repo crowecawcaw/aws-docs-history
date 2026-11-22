@@ -1,7 +1,6 @@
 
 
 # Remediating exposures for Azure virtual machines
-<a name="exposure-azure-virtual-machine"></a>
 
 AWS Security Hub can generate exposure findings for Azure virtual machines.
 

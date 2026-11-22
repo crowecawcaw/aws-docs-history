@@ -1,7 +1,6 @@
 
 
 # AwsKms resources in ASFF
-<a name="asff-resourcedetails-awskms"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsKms` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsK
 
 **Example**
 
-```
+```JSON
 "AwsKmsKey": {
                         "AWSAccountId": "string",
                         "CreationDate": "string",

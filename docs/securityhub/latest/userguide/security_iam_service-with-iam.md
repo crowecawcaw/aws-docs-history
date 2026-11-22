@@ -1,7 +1,6 @@
 
 
 # How Security Hub works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use AWS Identity and Access Management (IAM) to manage access to AWS Security Hub CSPM, learn which IAM features are available to use with Security Hub CSPM.
 
@@ -57,19 +56,19 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 Policy actions in Security Hub CSPM use the following prefix before the action:
 
-```
+```json
 securityhub:
 ```
 
 For example, to grant a user permission to enable Security Hub CSPM, which is an action that corresponds to the `EnableSecurityHub` operation of the Security Hub CSPM API, include the `securityhub:EnableSecurityHub` action in their policy. Policy statements must include either an `Action` or `NotAction` element. Security Hub CSPM defines its own set of actions that describe tasks that you can perform with this service.
 
-```
+```json
 "Action": "securityhub:EnableSecurityHub"
 ```
 
 To specify multiple actions in a single statement, separate them with commas. For example:
 
-```
+```json
 "Action": [
       "securityhub:EnableSecurityHub",
       "securityhub:BatchEnableStandards"
@@ -77,7 +76,7 @@ To specify multiple actions in a single statement, separate them with commas. Fo
 
 You can also specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Get`, include the following action:
 
-```
+```json
 "Action": "securityhub:Get*"
 ```
 

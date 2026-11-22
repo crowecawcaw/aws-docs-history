@@ -1,7 +1,6 @@
 
 
 # Viewing automation rules
-<a name="view-automation-rules"></a>
 
 An automation rule can be used to automatically update findings in AWS Security Hub CSPM. For background information about how automation rules work, see [Understanding automation rules in Security Hub CSPM](automation-rules.md).
 

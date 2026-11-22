@@ -1,7 +1,6 @@
 
 
 # Reverting to default control parameter values
-<a name="revert-default-parameter-values"></a>
 
 A control parameter can have a default value that AWS Security Hub CSPM defines. Occasionally, Security Hub CSPM updates the default value for a parameter to reflect evolving security best practices. If you haven't specified a custom value for a control parameter, the control automatically tracks those updates and uses the new default value.
 

@@ -1,7 +1,6 @@
 
 
 # Required AWS Config resources for control findings
-<a name="controls-config-resources"></a>
 
 **Note**  
  If you are using Security Hub CSPM and Security Hub the configuration of the resource recording is managed for you. Security Hub creates a service-linked configuration recorder with AWS Config and gets direct information on all resources that are related to controls supported in Security Hub CSPM. For more information, see [Using the service-linked configuration recorder](securityhub-setup-prereqs.md#service-linked-config-recorder). 

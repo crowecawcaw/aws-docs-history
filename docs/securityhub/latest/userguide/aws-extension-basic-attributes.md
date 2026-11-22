@@ -1,7 +1,6 @@
 
 
 # Basic attributes
-<a name="aws-extension-basic-attributes"></a>
 
  These are fundamental attributes used for resource identification, location, and basic metadata. They consist of simple data types such as strings, timestamps, and arrays. 
 
@@ -21,7 +20,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -47,7 +46,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -80,7 +79,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -109,7 +108,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -142,7 +141,7 @@ Existing
 
 Examples
 
-```
+```JSON
 {
   "resources": [
     {
@@ -152,7 +151,7 @@ Examples
 }
 ```
 
-```
+```json
 {
   "resources": [
     {
@@ -181,7 +180,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -210,7 +209,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -239,7 +238,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -268,7 +267,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -306,7 +305,7 @@ Existing
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -332,7 +331,7 @@ New
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -361,7 +360,7 @@ Added to `resource_details`
 
 Example
 
-```
+```JSON
 {
   "resources": [
     {
@@ -374,7 +373,7 @@ Example
 ## Example resource object with basic attributes
 <a name="example-resource-object"></a>
 
-```
+```JSON
 {
   "resources": [
     {

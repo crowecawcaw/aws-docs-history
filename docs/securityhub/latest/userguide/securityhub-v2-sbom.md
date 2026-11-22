@@ -1,7 +1,6 @@
 
 
 # Software bill of materials
-<a name="securityhub-v2-sbom"></a>
 
  A software bill of materials (SBOM) is a list of the software packages installed on a compute resource. AWS Security Hub builds an organization-wide SBOM inventory from the SBOMs that Amazon Inspector generates for the compute resources it scans. Security Hub keeps the inventory current as Amazon Inspector scans new and changed resources, so you don't need to export and reconcile SBOM files yourself. 
 
@@ -24,6 +23,8 @@
  A package appears once in the inventory no matter how many resources it is installed on. The **Resources** count tells you how widely it is deployed. In the summary charts, Security Hub counts one installation for each resource a package is on, so the chart totals can be higher than the number of rows in the table. For example, `openssl 3.1.4` installed on three resources is one row in the table and three installations in the chart. 
 
  After Amazon Inspector generates a new SBOM, it can take a few hours for the change to appear in the SBOM inventory. 
+
+ Security Hub also uses the SBOM to infer the criticality of a compute resource. Software such as a database engine or an identity and access service raises the resource's criticality. For more information, see [How Security Hub infers criticality](resources-adv.md#resource-criticality-inference). 
 
 ## Prerequisites
 <a name="securityhub-v2-sbom-prerequisites"></a>

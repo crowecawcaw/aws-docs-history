@@ -1,7 +1,6 @@
 
 
 # Security Hub CSPM controls for Amazon Fraud Detector
-<a name="frauddetector-controls"></a>
 
 These Security Hub CSPM controls evaluate the Amazon Fraud Detector service and resources.
 

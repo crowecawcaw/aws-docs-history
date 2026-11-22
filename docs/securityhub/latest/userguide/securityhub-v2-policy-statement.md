@@ -1,7 +1,6 @@
 
 
 # Creating the delegated administrator policy in Security Hub
-<a name="securityhub-v2-policy-statement"></a>
 
  The AWS organization management account can create a policy allowing the delegated administrator to configure Security Hub and perform specific actions in AWS Organizations. The procedure in this topic describes how to create the policy. When completing the procedure, you can allow Security Hub to create the policy for you or manually create the policy. Allow Security Hub to create the policy unless you want to customize it for a particular use case. 
 

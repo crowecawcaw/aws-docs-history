@@ -1,7 +1,6 @@
 
 
 # NIST SP 800-171 Revision 2 in Security Hub CSPM
-<a name="standards-reference-nist-800-171"></a>
 
 NIST Special Publication 800-171 Revision 2 (NIST SP 800-171 Rev. 2) is a cybersecurity and compliance framework developed by the National Institute of Standards and Technology (NIST), an agency that's part of the U.S. Department of Commerce. This compliance framework provides recommended security requirements for protecting the confidentiality of Controlled Unclassified Information in systems and organizations that aren't part of the U.S. federal government. *Controlled Unclassified Information*, also referred to as *CUI*, is sensitive information that doesn't meet government criteria for classification but must be protected. It's information that is considered sensitive and is created or possessed by the U.S. federal government or other entities on behalf of the U.S. federal government.
 

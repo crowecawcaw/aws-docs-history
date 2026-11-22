@@ -1,7 +1,6 @@
 
 
 # Deleting automation rules in Security Hub
-<a name="securityhub-v2-automation-rules-delete"></a>
 
  This topic describes how to delete automation rules. You can delete automation rules in the AWS Region where you created them. 
 

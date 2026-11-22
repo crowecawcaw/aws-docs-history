@@ -1,7 +1,6 @@
 
 
 # AwsSqs resources in ASFF
-<a name="asff-resourcedetails-awssqs"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSqs` resources.
 
@@ -16,7 +15,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the `AwsS
 
 **Example**
 
-```
+```JSON
 "AwsSqsQueue": {
     "DeadLetterTargetArn": "arn:aws:sqs:us-west-2:123456789012:queue/target",
     "KmsDataKeyReusePeriodSeconds": 60,,

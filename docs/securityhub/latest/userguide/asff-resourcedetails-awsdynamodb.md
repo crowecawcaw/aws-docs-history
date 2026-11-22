@@ -1,7 +1,6 @@
 
 
 # AwsDynamoDB resources in ASFF
-<a name="asff-resourcedetails-awsdynamodb"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsDynamoDB` resources.
 
@@ -16,7 +15,7 @@ The following is an example `AwsDynamoDbTable` finding in the AWS Security Findi
 
 **Example**
 
-```
+```JSON
 "AwsDynamoDbTable": {
     "AttributeDefinitions": [   
         {        
