@@ -1,7 +1,6 @@
 
 
 # Monitoring Beanstalk Standard environments
-<a name="monitoring-standard-environments"></a>
 
 **Topics**
 + [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md)

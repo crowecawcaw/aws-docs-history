@@ -1,7 +1,6 @@
 
 
 # Installing packages with a Gemfile on Elastic Beanstalk
-<a name="ruby-platform-gemfile"></a>
 
 To use RubyGems to install packages that your application requires, include a `Gemfile` file in the root of your project source.
 

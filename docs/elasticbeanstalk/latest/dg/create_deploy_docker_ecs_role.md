@@ -1,7 +1,6 @@
 
 
 # Container managed policy and EC2 instance role
-<a name="create_deploy_docker_ecs_role"></a>
 
 When you create an environment in the Elastic Beanstalk console, it prompts you to create a default instance profile that includes the `AWSElasticBeanstalkMulticontainerDocker` managed policy. So initially, your default EC2 instance profile, should include this managed policy. If your environment uses a custom EC2 instance profile role instead of the default, make sure that the managed policy `AWSElasticBeanstalkMulticontainerDocker` is attached so the required permissions for container management stay up-to-date. 
 

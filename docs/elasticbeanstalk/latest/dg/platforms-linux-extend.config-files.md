@@ -1,7 +1,6 @@
 
 
 # Configuration files
-<a name="platforms-linux-extend.config-files"></a>
 
 You can add [configuration files](ebextensions.md) to the `.ebextensions` directory of your application's source code to configure various aspects of your Elastic Beanstalk environment. Among other things, configuration files let you customize software and other files on your environment's instances and run initialization commands on the instances. For more information, see [Customizing software on Linux servers](customize-containers-ec2.md).
 

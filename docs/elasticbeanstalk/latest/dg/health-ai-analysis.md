@@ -1,7 +1,6 @@
 
 
 # AI-powered environment analysis
-<a name="health-ai-analysis"></a>
 
 AWS Elastic Beanstalk's AI-powered analysis identifies root causes and recommends solutions for environment health issues. When your environment experiences problems, you can request an AI analysis using the `RequestEnvironmentInfo` and `RetrieveEnvironmentInfo` API operations with the `analyze` info type to get AI-generated insights and recommended solutions.
 

@@ -1,7 +1,6 @@
 
 
 # Design considerations for your Elastic Beanstalk applications
-<a name="concepts.concepts.design"></a>
 
 Because applications deployed using AWS Elastic Beanstalk run on AWS Cloud resources, you should keep several configuration factors in mind to optimize your applications: *scalability*, *security*, *persistent storage*, *fault tolerance*, *content delivery*, *software updates and patching*, and *connectivity*. Each of these are covered separately in this topic. For a comprehensive list of technical AWS whitepapers, covering topics such as architecture, as well as security and economics, see [AWS Cloud Computing Whitepapers](https://aws.amazon.com/whitepapers/). 
 

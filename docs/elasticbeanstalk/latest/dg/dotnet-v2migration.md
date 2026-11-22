@@ -1,7 +1,6 @@
 
 
 # Migrating across major versions of the Elastic Beanstalk Windows server platform
-<a name="dotnet-v2migration"></a>
 
 AWS Elastic Beanstalk has had several major versions of its Windows Server platform. This page covers the main improvements for each major version, and what to consider before you migrate to a later version.
 

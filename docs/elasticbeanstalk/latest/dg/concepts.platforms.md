@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk supported platforms
-<a name="concepts.platforms"></a>
 
 AWS Elastic Beanstalk provides a variety of platforms on which you can build your applications. You design your web application to one of these platforms, and Elastic Beanstalk deploys your code to the platform version you selected to create an active application environment.
 

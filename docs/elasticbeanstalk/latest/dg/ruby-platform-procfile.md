@@ -1,7 +1,6 @@
 
 
 # Configuring the application process with a Procfile on Elastic Beanstalk.
-<a name="ruby-platform-procfile"></a>
 
 To specify the command that starts your Ruby application, include a file called `Procfile` at the root of your source bundle.
 

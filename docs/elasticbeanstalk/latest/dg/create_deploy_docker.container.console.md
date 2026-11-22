@@ -1,7 +1,6 @@
 
 
 # Configuring Elastic Beanstalk Docker environments
-<a name="create_deploy_docker.container.console"></a>
 
 This chapter explains additional configuration information for all of the supported Docker platform branches, including the ECS managed Docker platform branch. Unless a specific platform branch or platform branch component is identified in a section, it applies to all environments that are running supported Docker and ECS manged Docker platforms. 
 
@@ -87,7 +86,7 @@ The following files provide an example. The sample `docker-compose.yml` file dem
   ```
 + In this `docker-compose.yml` file, the `env_file` configuration option points to the `.env` file, and it also defines the environment variable `DEBUG=1` directly in the `docker-compose.yml` file.
 
-  ```
+  ```yaml
   services:
     web:
       build: .
@@ -114,7 +113,7 @@ This is necessary due a mitigation that we implemented in the platform engine. T
 
 The following is an example of a platform hook script that you can set up to allow use of the interpolation feature.
 
-```
+```bash
 #!/bin/bash
 
 : '
@@ -175,7 +174,7 @@ In order to efficiently troubleshoot issues and monitor your containerized servi
    +  `nginx-proxy` is {{<service name>}} 
    +  `/var/log/nginx` is {{<log directory inside container>}} 
 
-   ```
+   ```yaml
    services:
      nginx-proxy:
        image: "nginx"

@@ -1,7 +1,6 @@
 
 
 # Migrating Elastic Beanstalk environments from EC2-Classic to a VPC
-<a name="vpc-ec2migration"></a>
 
 This topic describes different options for how to migrate your Elastic Beanstalk environments from an EC2-Classic network platform to an [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) (Amazon VPC) network. 
 

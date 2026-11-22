@@ -1,7 +1,6 @@
 
 
 # **eb health**
-<a name="eb3-health"></a>
 
 ## Description
 <a name="eb3-healthdescription"></a>

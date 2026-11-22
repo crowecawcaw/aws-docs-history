@@ -1,7 +1,6 @@
 
 
 # Beanstalk Cluster
-<a name="beanstalk-cluster"></a>
 
 Run an application on Elastic Beanstalk without provisioning or operating the compute underneath it. You provide a container image or source code; Elastic Beanstalk creates and operates the environment that runs it.
 

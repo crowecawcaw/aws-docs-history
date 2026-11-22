@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk environment management console
-<a name="environments-console"></a>
 
 This section describes how you can manage your Elastic Beanstalk environment using the environment management console. The console provides the capability to manage your environment's configuration and perform common actions. These actions include restarting the web servers running in your environment, cloning your environment, or rebuilding your environment from scratch.
 

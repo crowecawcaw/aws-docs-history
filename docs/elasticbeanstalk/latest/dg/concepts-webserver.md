@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk web server environments
-<a name="concepts-webserver"></a>
 
 The following diagram shows an example Elastic Beanstalk architecture for a Beanstalk Standard web server environment tier, and shows how the components in that type of environment tier work together.
 

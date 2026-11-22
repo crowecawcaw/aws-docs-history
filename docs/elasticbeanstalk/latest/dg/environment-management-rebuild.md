@@ -1,7 +1,6 @@
 
 
 # Rebuilding Elastic Beanstalk environments
-<a name="environment-management-rebuild"></a>
 
 Your AWS Elastic Beanstalk environment can become unusable if you don't use Elastic Beanstalk functionality to modify or terminate the environment's underlying AWS resources. If this happens, you can **rebuild** the environment to attempt to restore it to a working state. Rebuilding an environment terminates all of its resources and replaces them with new resources with the same configuration.
 

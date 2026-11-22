@@ -1,7 +1,6 @@
 
 
 # QuickStart: Deploy a Go application to Elastic Beanstalk
-<a name="go-quickstart"></a>
 
 This QuickStart tutorial walks you through the process of creating a Go application and deploying it to an AWS Elastic Beanstalk environment.
 

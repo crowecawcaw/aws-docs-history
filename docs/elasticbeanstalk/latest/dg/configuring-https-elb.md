@@ -1,7 +1,6 @@
 
 
 # Configuring HTTPS Termination at the load balancer
-<a name="configuring-https-elb"></a>
 
 To update your AWS Elastic Beanstalk environment to use HTTPS, you need to configure an HTTPS listener for the load balancer in your environment. Two types of load balancer support an HTTPS listener: Classic Load Balancer and Application Load Balancer.
 

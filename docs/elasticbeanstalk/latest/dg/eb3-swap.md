@@ -1,7 +1,6 @@
 
 
 # **eb swap**
-<a name="eb3-swap"></a>
 
 ## Description
 <a name="eb3-swapdescription"></a>

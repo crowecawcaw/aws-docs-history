@@ -1,7 +1,6 @@
 
 
 # Adding a database to your Elastic Beanstalk environment
-<a name="using-features.managing.db"></a>
 
 Elastic Beanstalk provides *coupled* database integration with [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/). You can use Elastic Beanstalk to add a MySQL, PostgreSQL, Oracle, or SQL Server database to an existing environment or a new one when you create it. When you add a database instance that's coupled to an environment, Elastic Beanstalk provides the connection information to your application. It does this by setting the environment properties for the database hostname, port, user name, password, and database name.
 

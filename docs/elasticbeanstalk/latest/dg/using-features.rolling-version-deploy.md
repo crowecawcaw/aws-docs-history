@@ -1,7 +1,6 @@
 
 
 # Deployment policies and settings
-<a name="using-features.rolling-version-deploy"></a>
 
 **Note**  
 With Beanstalk Cluster, rolling behavior is configured through the `max-surge` and `max-unavailable` options in the `aws:elasticbeanstalk:eks:environment:deployment:strategy:rolling` namespace, rather than through the Amazon EC2 and Auto Scaling mechanics and the `aws:elasticbeanstalk:command` and `aws:elasticbeanstalk:trafficsplitting` namespaces described on this page. For those options, see [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md). For what Beanstalk Cluster supports, see the notes on each policy in [Choosing a deployment policy](using-features.deploy-existing-version.md#deployments-scenarios).
@@ -24,7 +23,7 @@ Deployments with immutable updates or traffic splitting enabled
 
 If your application doesn't pass all health checks, but still operates correctly at a lower health status, you can allow instances to pass health checks with a lower status, such as `Warning`, by modifying the **Healthy threshold** option. If your deployments fail because they don't pass health checks and you need to force an update regardless of health status, specify the **Ignore health check** option.
 
-When you specify a batch size for rolling updates, Elastic Beanstalk also uses that value for rolling application restarts. Use rolling restarts when you need to restart the proxy and application servers running on your environment's instances without downtime.
+Elastic Beanstalk uses the batch size for rolling application restarts, regardless of the deployment policy. This includes the **All at once**, **Immutable**, and **Traffic splitting** policies. With **All at once**, Elastic Beanstalk still deploys to all instances at the same time, and batches only restarts. Use rolling restarts when you need to restart the proxy and application servers running on your environment's instances without downtime.
 
 ## Configuring application deployments
 <a name="environments-cfg-rollingdeployments-console"></a>
@@ -50,11 +49,11 @@ The **Application deployments** section of the **Rolling updates and deployments
   + **All at once** – Deploy the new version to all instances simultaneously. All instances in your environment are out of service for a short time while the deployment occurs.
   + **Rolling** – Deploy the new version in batches. Each batch is taken out of service during the deployment phase, reducing your environment's capacity by the number of instances in a batch.
   + **Rolling with additional batch** – Deploy the new version in batches, but first launch a new batch of instances to ensure full capacity during the deployment process.
-  + **Immutable** – Deploy the new version to a fresh group of instances by performing an [immutable update](environmentmgmt-updates-immutable.md).
+  + **Immutable** – Deploy the new version to a fresh group of instances. Replace the old instances after the new ones pass health checks. If the deployment fails, the old instances are left unchanged. For more information, see [Immutable environment updates](environmentmgmt-updates-immutable.md).
   + **Traffic splitting** – Deploy the new version to a fresh group of instances and temporarily split incoming client traffic between the existing application version and the new one.
 
-For the **Rolling** and **Rolling with additional batch** deployment policies you can configure:
-+ **Batch size** – The size of the set of instances to deploy in each batch.
+For all deployment policies you can configure:
++ **Batch size** – For the **Rolling** and **Rolling with additional batch** deployment policies, the size of the set of instances to deploy in each batch. For all deployment policies, the size of the set of instances to restart in each batch when you restart the application servers.
 
   Choose **Percentage** to configure a percentage of the total number of EC2 instances in the Auto Scaling group (up to 100 percent), or choose **Fixed** to configure a fixed number of instances (up to the maximum instance count in your environment's Auto Scaling configuration).
 

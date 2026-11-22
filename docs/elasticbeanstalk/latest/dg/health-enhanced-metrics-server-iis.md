@@ -1,7 +1,6 @@
 
 
 # Web server metrics capture in IIS on Windows server
-<a name="health-enhanced-metrics-server-iis"></a>
 
 On the Windows Server platform, Elastic Beanstalk adds a module to the IIS web server's request pipeline and captures metrics about HTTP request times and response codes. The module sends these metrics to the on-instance health agent using a high-performance interprocess communication (IPC) channel. The health agent aggregates these metrics, combines them with operating system metrics, and sends them to the Elastic Beanstalk service.
 

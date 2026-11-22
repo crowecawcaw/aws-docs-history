@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with Amazon EventBridge
-<a name="AWSHowTo.eventbridge"></a>
 
 Using Amazon EventBridge, you can set up event-driven rules that monitor your Elastic Beanstalk resources and initiate target actions that use other AWS services. For example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic whenever the health of a production environment changes to a *Warning* status. Or, you can set a Lambda function to pass a notification to Slack whenever the health of your environment changes to a *Degraded* or *Severe* status.
 
@@ -92,7 +91,7 @@ Some target actions might require the use of other services and incur additional
 Event patterns have the same structure as the events they match. The pattern quotes the fields that you want to match and provides the values that you're looking for.
 + *Health status change* for all environments
 
-  ```
+  ```json
   {
      "source": [
       "aws.elasticbeanstalk"
@@ -104,7 +103,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + *Health status change* for the following environments: `myEnvironment1` and `myEnvironment2`. This event pattern filters for these two specific environments, whereas the previous *Health status change* example that doesn't filter sends events for all environments.
 
-  ```
+  ```json
   {"source": [
       "aws.elasticbeanstalk"
       ],
@@ -121,7 +120,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + *Elastic Beanstalk resource status change* for all environments
 
-  ```
+  ```json
   {
     "source": [
       "aws.elasticbeanstalk"
@@ -133,7 +132,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + *Elastic Beanstalk resource status change* with `Status` *Environment update failed * and `Severity` *ERROR* for the following environments: `myEnvironment1` and `myEnvironment2`
 
-  ```
+  ```json
   {"source": [
       "aws.elasticbeanstalk"
       ],
@@ -156,7 +155,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + *Other resource status change* for load balancers, auto scaling groups, and instances
 
-  ```
+  ```json
   {
      "source": [
       "aws.elasticbeanstalk"
@@ -168,7 +167,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + *Managed update status change* for all environments
 
-  ```
+  ```json
   {
      "source": [
       "aws.elasticbeanstalk"
@@ -180,7 +179,7 @@ Event patterns have the same structure as the events they match. The pattern quo
   ```
 + To capture *all events* from Elastic Beanstalk (exclude the `detail-type` section)
 
-  ```
+  ```json
   {
     "source": [
       "aws.elasticbeanstalk"

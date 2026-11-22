@@ -1,7 +1,6 @@
 
 
 # Configuring your environment's load balancer for TCP Passthrough
-<a name="https-tcp-passthrough"></a>
 
 If you do not want the load balancer in your AWS Elastic Beanstalk environment to decrypt the HTTPS traffic, you can configure the secure listener to relay requests to backend instances as-is.
 

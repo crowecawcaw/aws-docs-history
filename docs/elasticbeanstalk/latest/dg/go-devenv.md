@@ -1,7 +1,6 @@
 
 
 # Setting up your Go development environment for Elastic Beanstalk
-<a name="go-devenv"></a>
 
 This topic provides instructions to set up a Go development environment to test your application locally prior to deploying it to AWS Elastic Beanstalk. It also references websites that provide installation instructions for useful tools. 
 

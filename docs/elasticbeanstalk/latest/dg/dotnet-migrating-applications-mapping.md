@@ -1,7 +1,6 @@
 
 
 # Understanding IIS to Elastic Beanstalk migration mapping
-<a name="dotnet-migrating-applications-mapping"></a>
 
 The migration from IIS to Elastic Beanstalk involves mapping your on-premises Windows server configuration to AWS cloud resources. Understanding this mapping is crucial for successful migrations and post-migration management.
 

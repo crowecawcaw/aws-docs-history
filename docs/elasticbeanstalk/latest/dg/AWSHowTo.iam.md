@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with AWS Identity and Access Management
-<a name="AWSHowTo.iam"></a>
 
 AWS Identity and Access Management (IAM) helps you securely control access to your AWS resources. This section includes reference materials for working with IAM policies, instance profiles, and service roles.
 

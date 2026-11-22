@@ -1,7 +1,6 @@
 
 
 # **eb deploy**
-<a name="eb3-deploy"></a>
 
 ## Description
 <a name="eb3-deploydescription"></a>

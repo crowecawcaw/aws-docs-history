@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and diagnostics
-<a name="dotnet-migrating-applications-troubleshooting"></a>
 
 **Try Amazon Q Developer CLI for AI-assisted troubleshooting**  
  Amazon Q Developer CLI can help you troubleshoot environment issues quickly. The Q CLI provides solutions by checking environment status, reviewing events, analyzing logs, and asking clarifying questions. For more information and detailed walkthroughs, see [Troubleshooting Elastic Beanstalk Environments with Amazon Q Developer CLI ](https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/) in the AWS blogs.

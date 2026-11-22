@@ -1,7 +1,6 @@
 
 
 # Network configuration and port settings
-<a name="dotnet-migrating-applications-network"></a>
 
 This section covers network configuration options for IIS migrations, including VPC settings, port configurations, and multi-site deployments.
 
@@ -106,7 +105,7 @@ This command does the following actions:
 
 Consider a use case, where your source machine has the firewall rules specified in the following example:
 
-```
+```powershell
 # Source machine firewall configuration
 Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'True'} | Get-NetFirewallPortFilter | Where-Object {$_.LocalPort -eq 80 -or $_.LocalPort -eq 443 -or $_.LocalPort -eq 8081}
 # Output shows rules for ports 80, 443, and 8081
@@ -114,7 +113,7 @@ Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'True'} | Get-NetFirewallPort
 
 The migration creates a script (`modify_firewall_config.ps1`) that contains the following configuration:
 
-```
+```powershell
 New-NetFirewallRule -DisplayName "Allow Web Traffic" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80,443
 New-NetFirewallRule -DisplayName "Allow API Traffic" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8081
 ```

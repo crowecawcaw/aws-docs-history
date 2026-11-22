@@ -1,7 +1,6 @@
 
 
 # Custom build and configuration with a Buildfile on Elastic Beanstalk
-<a name="go-buildfile"></a>
 
 To specify a custom build and configuration command for your Go application, include a file called `Buildfile` at the root of your source bundle. The file name is case sensitive. Use the following format for the `Buildfile`: 
 

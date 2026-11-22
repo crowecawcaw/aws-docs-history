@@ -1,7 +1,6 @@
 
 
 # Other CloudFormation template keys
-<a name="ebextensions-otherkeys"></a>
 
 We've already introduced configuration file keys from CloudFormation such as `Resources`, `files`, and `packages`. Elastic Beanstalk adds the contents of configurations files to the CloudFormation template that supports your environment, so you can use other CloudFormation sections to perform advanced tasks in your configuration files.
 

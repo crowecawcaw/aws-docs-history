@@ -1,7 +1,6 @@
 
 
 # Getting started with Beanstalk Cluster
-<a name="beanstalk-cluster-getting-started"></a>
 
 In this tutorial, you create an Elastic Beanstalk application and a Beanstalk Cluster environment. You omit the application version so that Elastic Beanstalk deploys its prebuilt sample container image. You then wait for the environment to become ready, retrieve its URL, and terminate it. Alternatively, you can get started in the AWS Management Console, which provides a fully guided experience, or point your AI agent at the [Beanstalk Cluster](beanstalk-cluster.md) documentation.
 
@@ -28,7 +27,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
 
 1. Create a trust policy file for each service that assumes a role. The cluster role trusts Amazon EKS, the node role trusts Amazon EC2, and the observability role trusts Amazon EKS Pod Identity.
 
-   ```
+   ```bash
    $ cat > eks-trust.json <<'EOF'
    {
      "Version": "2012-10-17",
@@ -41,7 +40,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
    EOF
    ```
 
-   ```
+   ```bash
    $ cat > ec2-trust.json <<'EOF'
    {
      "Version": "2012-10-17",
@@ -54,7 +53,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
    EOF
    ```
 
-   ```
+   ```bash
    $ cat > pods-trust.json <<'EOF'
    {
      "Version": "2012-10-17",
@@ -69,7 +68,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
 
 1. Create the cluster role and attach its policies.
 
-   ```
+   ```bash
    $ aws iam create-role \
        --role-name aws-elasticbeanstalk-eks-cluster-role \
        --assume-role-policy-document file://eks-trust.json
@@ -83,7 +82,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
 
 1. Create the node role and attach its policies.
 
-   ```
+   ```bash
    $ aws iam create-role \
        --role-name aws-elasticbeanstalk-eks-node-role \
        --assume-role-policy-document file://ec2-trust.json
@@ -97,7 +96,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
 
 1. Create the observability role and attach its policies.
 
-   ```
+   ```bash
    $ aws iam create-role \
        --role-name aws-elasticbeanstalk-eks-observability-role \
        --assume-role-policy-document file://pods-trust.json
@@ -110,7 +109,7 @@ A Beanstalk Cluster environment needs three IAM roles that you provide: a cluste
 
 1. Record the three role ARNs. You pass them when you create the environment.
 
-   ```
+   ```bash
    $ for r in cluster node observability; do
        aws iam get-role --role-name aws-elasticbeanstalk-eks-$r-role \
            --query 'Role.Arn' --output text
@@ -129,14 +128,14 @@ You can also deploy with the official GitHub Action, and you can define your env
 
 1. Create an Elastic Beanstalk application to contain the environment.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk create-application \
        --application-name getting-started-cluster-app
    ```
 
 1. Create the environment. The `Cluster` tier selects Beanstalk Cluster. Because this request has no version label, Elastic Beanstalk deploys the sample application.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk create-environment \
        --application-name getting-started-cluster-app \
        --environment-name getting-started-cluster-env \
@@ -151,14 +150,14 @@ You can also deploy with the official GitHub Action, and you can define your env
 
 1. Wait for the environment to become ready. A first environment can take 15 to 20 minutes while Elastic Beanstalk creates the Amazon EKS cluster and deploys the sample. The AWS CLI provides a built-in waiter that polls until the environment reports `Ready`. The waiter polls at most 20 times at 20-second intervals, about 6 minutes 40 seconds, so on a first environment expect it to report `Max attempts exceeded`. Run it again until it reports success.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk wait environment-exists \
        --environment-names getting-started-cluster-env
    ```
 
    The waiter reports `Max attempts exceeded` both when the environment is still being created and when creation has failed. If it does not report success after a few runs, inspect the environment's recent events and resolve the reported error before continuing.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk describe-events \
        --environment-name getting-started-cluster-env \
        --query 'Events[].[EventDate,Severity,Message]' \
@@ -167,7 +166,7 @@ You can also deploy with the official GitHub Action, and you can define your env
 
 1. Inspect the environment status, health color, health status, and URL.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk describe-environments \
        --application-name getting-started-cluster-app \
        --environment-names getting-started-cluster-env \
@@ -177,7 +176,7 @@ You can also deploy with the official GitHub Action, and you can define your env
 
    Confirm that the environment reports `Ready` and returns a nonempty `CNAME`. Open `https://` followed by the CNAME in a web browser and confirm that the sample application responds. The load balancer answers on HTTPS only, so a request to `http://` waits until it times out. To accept HTTP requests and have Elastic Beanstalk redirect them to HTTPS, see [Configuring networking for Beanstalk Cluster environments](configuring-cluster-networking.md). An idle environment can initially report `Grey` and `NoData` because it has received too few requests to determine application health; health events display this status as `No Data`. This does not indicate a failed deployment. After the application receives enough successful requests, health normally moves to `Green` and `Ok`. If the CNAME is empty, the application does not respond, or health reports a failure, inspect the environment's recent events before continuing:
 
-   ```
+   ```bash
    $ aws elasticbeanstalk describe-events \
        --environment-name getting-started-cluster-env \
        --query 'Events[].[EventDate,Severity,Message]' \
@@ -195,7 +194,7 @@ Before you start, you need a container image that you have already pushed to a r
 
 1. Create an application version that points at your image.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk create-application-version \
        --application-name getting-started-cluster-app \
        --version-label v1 \
@@ -206,7 +205,7 @@ Before you start, you need a container image that you have already pushed to a r
 
 1. Deploy the version to the environment.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk update-environment \
        --environment-name getting-started-cluster-env \
        --version-label v1
@@ -214,7 +213,7 @@ Before you start, you need a container image that you have already pushed to a r
 
 1. Confirm that the deployment finished and the environment is serving your application.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk describe-events \
        --environment-name getting-started-cluster-env \
        --query 'Events[].[EventDate,Severity,Message]' \
@@ -228,14 +227,14 @@ Before you start, you need a container image that you have already pushed to a r
 
 1. Terminate the environment.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk terminate-environment \
        --environment-name getting-started-cluster-env
    ```
 
 1. Wait for the environment to reach the `Terminated` status. The AWS CLI provides a built-in waiter that polls until termination completes. This waiter has the same 20-attempt limit, so run it again until it reports success.
 
-   ```
+   ```bash
    $ aws elasticbeanstalk wait environment-terminated \
        --environment-names getting-started-cluster-env
    ```
@@ -244,7 +243,7 @@ Before you start, you need a container image that you have already pushed to a r
 
 1. Delete the application and its application versions, including the sample version that Elastic Beanstalk created and any version that you added. This does not delete a container image that you supplied or the repository that holds it; see [Building container images for Beanstalk Cluster environments](beanstalk-cluster-app-versions.md).
 
-   ```
+   ```bash
    $ aws elasticbeanstalk delete-application \
        --application-name getting-started-cluster-app
    ```

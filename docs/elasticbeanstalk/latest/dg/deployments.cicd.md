@@ -1,7 +1,6 @@
 
 
 # Implementing CI/CD integration with your Elastic Beanstalk environment
-<a name="deployments.cicd"></a>
 
 Elastic Beanstalk integrates with many CI/CD tools to automate your application development workflow. CI/CD practices enable you to automatically build, test, and deploy your applications with minimal manual intervention. Continuous delivery/deployment (CD) extends continuous integration (CI) by automating the deployment process. You can create streamlined deployment pipelines using AWS services like CodePipeline or third-party tools such as Jenkins and GitLab to ensure consistent, reliable deployments to your Elastic Beanstalk environments.
 

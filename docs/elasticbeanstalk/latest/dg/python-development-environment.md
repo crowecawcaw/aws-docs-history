@@ -1,7 +1,6 @@
 
 
 # Setting up your Python development environment for Elastic Beanstalk
-<a name="python-development-environment"></a>
 
 This topic provides instructions to set up a Python development environment to test your application locally prior to deploying it to AWS Elastic Beanstalk. It also references websites that provide installation instructions for useful tools.
 

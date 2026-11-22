@@ -1,7 +1,6 @@
 
 
 # Spot Instance allocation strategy
-<a name="environments-cfg-autoscaling-spot-allocation-strategy"></a>
 
 You can select any one of the allocation strategies listed in this topic for your Elastic Beanstalk environment. Use the [Elastic Beanstalk console](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console), [namespace configuration options](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace), or the [AWS CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli), to set and configure Spot Instance allocation strategy and related attributes for your environment. 
 

@@ -1,7 +1,6 @@
 
 
 # **eb terminate**
-<a name="eb3-terminate"></a>
 
 ## Description
 <a name="eb3-terminatedescription"></a>

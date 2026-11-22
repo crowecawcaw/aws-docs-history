@@ -1,7 +1,6 @@
 
 
 # **eb list**
-<a name="eb3-list"></a>
 
 ## Description
 <a name="eb3-listdescription"></a>

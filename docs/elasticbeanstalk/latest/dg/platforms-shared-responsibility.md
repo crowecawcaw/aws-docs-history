@@ -1,7 +1,6 @@
 
 
 # Shared responsibility model for Elastic Beanstalk platform maintenance
-<a name="platforms-shared-responsibility"></a>
 
 AWS and our customers share responsibility for achieving a high level of software component security and compliance. This shared model reduces your operational burden.
 

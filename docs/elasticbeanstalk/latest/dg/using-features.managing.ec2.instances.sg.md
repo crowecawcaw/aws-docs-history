@@ -1,7 +1,6 @@
 
 
 # Managing EC2 security groups
-<a name="using-features.managing.ec2.instances.sg"></a>
 
 When Elastic Beanstalk creates an environment, it assigns a default security group to the EC2 instances that are launched with it. The security groups that are attached to your instances determine which traffic is allowed to reach and exit the instances. 
 

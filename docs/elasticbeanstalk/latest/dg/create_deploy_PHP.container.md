@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk PHP platform
-<a name="create_deploy_PHP.container"></a>
 
 AWS Elastic Beanstalk provides and supports various **platform branches** for different versions of PHP. The platforms support PHP web applications that run stand-alone or under Composer. See [PHP](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.PHP) in the *AWS Elastic Beanstalk Platforms* document for a full list of supported platform branches.
 

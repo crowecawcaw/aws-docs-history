@@ -1,7 +1,6 @@
 
 
 # **eb logs**
-<a name="eb3-logs"></a>
 
 ## Description
 <a name="eb3-logsdescription"></a>

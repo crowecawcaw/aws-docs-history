@@ -1,7 +1,6 @@
 
 
 # **eb events**
-<a name="eb3-events"></a>
 
 ## Description
 <a name="eb3-eventsdescription"></a>

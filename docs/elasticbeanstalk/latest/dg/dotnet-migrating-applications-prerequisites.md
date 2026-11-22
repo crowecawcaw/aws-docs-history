@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="dotnet-migrating-applications-prerequisites"></a>
 
 Before using the **eb migrate** command, ensure your environment meets these requirements:
 

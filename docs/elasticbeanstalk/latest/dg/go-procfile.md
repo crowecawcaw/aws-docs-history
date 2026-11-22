@@ -1,7 +1,6 @@
 
 
 # Configuring custom start commands with a Procfile on Elastic Beanstalk
-<a name="go-procfile"></a>
 
 To specify custom commands to start a Go application, include a file called `Procfile` at the root of your source bundle.
 

@@ -1,7 +1,6 @@
 
 
 # **eb appversion**
-<a name="eb3-appversion"></a>
 
 ## Description
 <a name="eb3-appversion-description"></a>

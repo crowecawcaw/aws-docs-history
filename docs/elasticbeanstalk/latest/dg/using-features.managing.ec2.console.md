@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon EC2 instances using the Elastic Beanstalk console
-<a name="using-features.managing.ec2.console"></a>
 
 You can create or modify your Elastic Beanstalk environment's Amazon EC2 instance configuration in the Elastic Beanstalk console.
 

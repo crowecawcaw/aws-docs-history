@@ -1,7 +1,6 @@
 
 
 # Adding an Amazon RDS DB instance to your Java Elastic Beanstalk environment
-<a name="java-rds"></a>
 
 This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console. You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data that your application gathers and modifies. The database can be attached to your environment and managed by Elastic Beanstalk, or created and managed externally.
 

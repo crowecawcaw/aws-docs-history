@@ -1,7 +1,6 @@
 
 
 # Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment
-<a name="using-features.customenv"></a>
 
 This section explains when to consider using a custom AMI and provides the procedures to configure and manage the custom AMI in your environment. When you create an AWS Elastic Beanstalk environment, you can specify an Amazon Machine Image (AMI) to use instead of the standard Elastic Beanstalk AMI included in your platform version. A custom AMI can improve provisioning times when instances are launched in your environment if you need to install a lot of software that isn't included in the standard AMIs.
 
@@ -19,43 +18,38 @@ You can use [EC2 Image Builder](https://aws.amazon.com/image-builder) to create 
 1. In a command window, run a command like the following. For more information, see [describe-platform-version](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-platform-version.html) in the *AWS CLI Command Reference*. 
 
    Specify the AWS Region where you want to use your custom AMI, and replace the platform ARN and version number with the Elastic Beanstalk platform that your application is based on.
-
-     
+**Note**  
+The `DefaultAmiList` field requires AWS CLI version 2.39.4 or later. Earlier versions return `null` for this field.  
 **Example - Mac OS / Linux OS**  
 
    ```
    $ aws elasticbeanstalk describe-platform-version --region {{us-east-2}} \
          --platform-arn "arn:aws:elasticbeanstalk:{{us-east-2}}::platform/{{Node.js 20 running on 64bit Amazon Linux 2023}}/{{6.1.7}}" \
-         --query PlatformDescription.CustomAmiList
+         --query PlatformDescription.DefaultAmiList
    [
        {
-           "VirtualizationType": "pv",
-           "ImageId": ""
+           "Architecture": "x86_64",
+           "ImageId": "{{ami-020ae06fdda6a0f66}}"
        },
        {
-           "VirtualizationType": "hvm",
-           "ImageId": "{{ami-020ae06fdda6a0f66}}"
+           "Architecture": "arm64",
+           "ImageId": "{{ami-0123456789abcdef0}}"
        }
    ]
    ```  
 **Example - Windows OS**  
 
    ```
-   C:\> aws elasticbeanstalk describe-platform-version --region {{us-east-2}} --platform-arn"arn:aws:elasticbeanstalk:{{us-east-2}}::platform/{{
-   IIS 10.0 running on 64bit Windows Server 2022}}/{{2.15.3}}" --query PlatformDescription.CustomAmiList
+   C:\> aws elasticbeanstalk describe-platform-version --region {{us-east-2}} --platform-arn "arn:aws:elasticbeanstalk:{{us-east-2}}::platform/{{IIS 10.0 running on 64bit Windows Server 2022}}/{{2.15.3}}" --query PlatformDescription.DefaultAmiList
    [
        {
-           "VirtualizationType": "pv",
-           "ImageId": ""
-       },
-       {
-           "VirtualizationType": "hvm",
+           "Architecture": "x86_64",
            "ImageId": "{{ami-020ae06fdda6a0f66}}"
        }
    ]
    ```
 
-1. Take note of the `ImageId` value that looks like `ami-020ae06fdda6a0f66` in the result.
+1. Take note of the `ImageId` value of the entry whose `Architecture` matches the processor architecture of the instances that will use the custom AMI (`x86_64` or `arm64`). The result includes one entry for each processor architecture that the platform version supports. Windows platform versions return only an `x86_64` entry.
 
 The value is the stock Elastic Beanstalk AMI for the platform version, EC2 instance architecture, and AWS Region that are relevant for your application. If you need to create AMIs for multiple platforms, architectures or AWS Regions, repeat this process to identify the correct base AMI for each combination.
 

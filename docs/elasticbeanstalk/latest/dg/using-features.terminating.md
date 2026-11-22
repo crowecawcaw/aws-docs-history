@@ -1,7 +1,6 @@
 
 
 # Terminate an Elastic Beanstalk environment
-<a name="using-features.terminating"></a>
 
 You can terminate a running AWS Elastic Beanstalk environment using the Elastic Beanstalk console. By doing this, you avoid incurring charges for unused AWS resources. 
 

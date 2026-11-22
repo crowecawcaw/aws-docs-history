@@ -1,7 +1,6 @@
 
 
 # Terminating HTTPS on EC2 instances running Node.js
-<a name="https-singleinstance-nodejs"></a>
 
 The following example configuration file [extends the default nginx configuration](nodejs-platform-proxy.md) to listen on port 443 and terminate SSL/TLS connections with a public certificate and private key.
 

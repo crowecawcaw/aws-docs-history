@@ -1,7 +1,6 @@
 
 
 # Option settings
-<a name="ebextensions-optionsettings"></a>
 
 You can use the `option_settings` key to modify the Elastic Beanstalk configuration and define variables that can be retrieved from your application using environment variables. Some namespaces allow you to extend the number of parameters, and specify the parameter names. For a list of namespaces and configuration options, see [Configuration options](command-options.md).
 

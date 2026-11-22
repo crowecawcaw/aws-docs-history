@@ -1,7 +1,6 @@
 
 
 # Configuring enhanced health rules for an environment
-<a name="health-enhanced-rules"></a>
 
 AWS Elastic Beanstalk enhanced health reporting relies on a set of rules to determine the health of your environment. Some of these rules might not be appropriate for your particular application. The following are some common examples:
 + You use client-side test tools. In this case, frequent HTTP client (4xx) errors are expected.

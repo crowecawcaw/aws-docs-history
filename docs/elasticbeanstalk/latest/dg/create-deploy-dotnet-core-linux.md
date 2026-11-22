@@ -1,7 +1,6 @@
 
 
 # Deploying .NET core (Linux) applications with Elastic Beanstalk
-<a name="create-deploy-dotnet-core-linux"></a>
 
 **Check out the *.NET on AWS Developer Center***  
   

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Elastic Beanstalk
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -31,9 +30,14 @@ To see the JSON source for a specific managed policy, see the [*AWS Managed Poli
 
 
 
+**Elastic Beanstalk updates to AWS managed policies**  
+
 | Change | Description | Date | 
 | --- | --- | --- | 
+| **AdministratorAccess-AWSElasticBeanstalk** –Updated existing policy | This policy was updated to allow you to pass the IAM roles of a Beanstalk Cluster environment to the services that use them. It also allows the Elastic Beanstalk console to check the permissions of the roles that you select when you create the environment.<br />For more information, see [Permissions to create the environment](beanstalk-cluster-permissions.md#beanstalk-cluster-permissions-caller). | November 18, 2026 | 
 | **AWSElasticBeanstalkServiceRolePolicy** –Updated existing policy | This policy was updated to allow Elastic Beanstalk to check whether the IAM roles that you specify for a Beanstalk Cluster environment have the permissions that the environment needs.<br />For more information, see [Roles that Elastic Beanstalk manages](beanstalk-cluster-permissions.md#beanstalk-cluster-permissions-service-roles). | November 12, 2026 | 
+| **AdministratorAccess-AWSElasticBeanstalk** –Updated existing policy | This policy was updated to allow you to view the log events of Elastic Beanstalk log groups in CloudWatch Logs from the [Elastic Beanstalk console](using-features.logging.md#health-logs-cloudwatchlogs).<br />For more information, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md). | May 19, 2026 | 
+| **AWSElasticBeanstalkReadOnly** –Updated existing policy | This policy was updated to allow you to list Elastic Beanstalk log groups and log streams in CloudWatch Logs, and view their log events, from the [Elastic Beanstalk console](using-features.logging.md#health-logs-cloudwatchlogs).<br />For more information, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md). | May 19, 2026 | 
 | **AWSElasticBeanstalkWebTier** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 
 | **AWSElasticBeanstalkWorkerTier** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 
 | **AWSElasticBeanstalkMulticontainerDocker** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 

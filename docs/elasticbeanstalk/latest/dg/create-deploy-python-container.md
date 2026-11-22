@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk Python platform
-<a name="create-deploy-python-container"></a>
 
 This topic describes how to configure, build, and run your Python applications on Elastic Beanstalk.
 
@@ -78,7 +77,7 @@ Inside the Python environment running in Elastic Beanstalk, these values are acc
 
 You can use code that looks similar to the following to access the keys and parameters:
 
-```
+```python
 import os
 endpoint = os.environ['{{API_ENDPOINT}}']
 ```

@@ -1,7 +1,6 @@
 
 
 # Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment
-<a name="using-features.logging"></a>
 
 This topic explains the types of instance logs that Elastic Beanstalk provides. It also provides detailed instructions for retreiveing and managing them.
 

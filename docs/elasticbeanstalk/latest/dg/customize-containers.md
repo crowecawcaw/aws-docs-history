@@ -1,7 +1,6 @@
 
 
 # Configuring Elastic Beanstalk environments
-<a name="customize-containers"></a>
 
 This topic focuses on the configuration options available in the Elastic Beanstalk console. AWS Elastic Beanstalk provides a wide range of options for customizing the resources in your environment, along with Elastic Beanstalk behavior and platform settings.
 

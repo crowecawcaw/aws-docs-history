@@ -1,7 +1,6 @@
 
 
 # **eb open**
-<a name="eb3-open"></a>
 
 ## Description
 <a name="eb3-opendescription"></a>

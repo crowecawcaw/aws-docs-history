@@ -1,7 +1,6 @@
 
 
 # Scheduled Auto Scaling actions for your Elastic Beanstalk environments
-<a name="environments-cfg-autoscaling-scheduledactions"></a>
 
 To optimize your environment's use of Amazon EC2 instances through predictable periods of peak traffic, configure your Amazon EC2 Auto Scaling group to change its instance count on a schedule. You can configure your environment with a recurring action to scale up each day in the morning, and scale down at night when traffic is low. For example, if you have a marketing event that will drive traffic to your site for a limited period of time, you can schedule a one-time event to scale up when it starts, and another to scale down when it ends.
 

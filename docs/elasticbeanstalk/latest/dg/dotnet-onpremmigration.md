@@ -1,7 +1,6 @@
 
 
 # Migrating your on-premises .NET application to Elastic Beanstalk
-<a name="dotnet-onpremmigration"></a>
 
 AWS Elastic Beanstalk provides a streamlined migration path for your Windows applications running on Internet Information Services (IIS) through the Elastic Beanstalk Command Line Interface (EB CLI). The **eb migrate** command automatically discovers your IIS sites, applications, and virtual directories, preserves their configurations, and deploys them to the AWS Cloud.
 

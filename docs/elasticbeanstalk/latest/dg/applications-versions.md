@@ -1,7 +1,6 @@
 
 
 # Managing application versions
-<a name="applications-versions"></a>
 
 This topic explains application versions and how to create and manage them.
 

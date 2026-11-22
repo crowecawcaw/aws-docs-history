@@ -1,7 +1,6 @@
 
 
 # Viewing an Elastic Beanstalk environment's event stream
-<a name="using-features.events"></a>
 
 This topic explains how to access events and notifications associated with your application.
 

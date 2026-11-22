@@ -1,7 +1,6 @@
 
 
 # Migrating from .NET on Windows Server platform to the .NET Core on Linux platform on Elastic Beanstalk
-<a name="dotnet-linux-migration"></a>
 
 You can migrate applications that run on [.NET on Windows Server](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.net) platforms to the .NET Core on Linux platforms. Following are some considerations when migrating from Windows to Linux platforms.
 

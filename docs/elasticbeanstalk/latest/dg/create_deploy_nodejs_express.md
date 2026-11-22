@@ -1,7 +1,6 @@
 
 
 # Deploying a Node.js Express application to Elastic Beanstalk
-<a name="create_deploy_nodejs_express"></a>
 
 This section walks you through deploying a sample application to Elastic Beanstalk using the Elastic Beanstalk Command Line Interface (EB CLI) and then updating the application to use the [Express](http://expressjs.com/) framework. 
 
@@ -231,7 +230,7 @@ In this next step we update the application to use Amazon RDS for MySQL.
 
 1.  Update the dependencies section in the `package.json` with the following contents: 
 
-   ```
+   ```json
    "dependencies": {
        "async": "^3.2.4",
        "express": "4.18.2",

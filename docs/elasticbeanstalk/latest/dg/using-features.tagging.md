@@ -1,7 +1,6 @@
 
 
 # Tagging resources in your Elastic Beanstalk environments
-<a name="using-features.tagging"></a>
 
 You can apply tags to your AWS Elastic Beanstalk environments. Tags are key-value pairs associated with AWS resources. For information about Elastic Beanstalk resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging Elastic Beanstalk application resources](applications-tagging-resources.md).
 

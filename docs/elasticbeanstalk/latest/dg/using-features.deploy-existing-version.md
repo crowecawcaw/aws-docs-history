@@ -1,7 +1,6 @@
 
 
 # Deploying applications to Elastic Beanstalk environments
-<a name="using-features.deploy-existing-version"></a>
 
 You can use the AWS Elastic Beanstalk console to add an updated application version and deploy it to your Elastic Beanstalk environment, or redeploy an existing version. With Beanstalk Standard, an application version is an updated [source bundle](applications-sourcebundle.md) that you upload.
 

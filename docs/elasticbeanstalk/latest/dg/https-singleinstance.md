@@ -1,7 +1,6 @@
 
 
 # Configuring HTTPS Termination at the instance
-<a name="https-singleinstance"></a>
 
 You can use [configuration files](ebextensions.md) to configure the proxy server that passes traffic to your application to terminate HTTPS connections. This is useful if you want to use HTTPS with a single instance environment, or if you configure your load balancer to pass traffic through without decrypting it.
 

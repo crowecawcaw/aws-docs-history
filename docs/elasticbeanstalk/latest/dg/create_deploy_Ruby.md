@@ -1,7 +1,6 @@
 
 
 # Deploying Ruby applications with Elastic Beanstalk
-<a name="create_deploy_Ruby"></a>
 
 This chapter provides instructions for configuring and deploying your Ruby web application to AWS Elastic Beanstalk. Elastic Beanstalk makes it easy to deploy, manage, and scale your Ruby web applications using Amazon Web Services.
 

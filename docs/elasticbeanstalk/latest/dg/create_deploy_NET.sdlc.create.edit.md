@@ -1,7 +1,6 @@
 
 
 # Deploying to your environment
-<a name="create_deploy_NET.sdlc.create.edit"></a>
 
 Now that you have tested your application, it is easy to edit and redeploy your application and see the results in moments. 
 

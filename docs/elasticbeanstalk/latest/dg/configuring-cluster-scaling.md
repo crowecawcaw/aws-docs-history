@@ -1,7 +1,6 @@
 
 
 # Scaling Beanstalk Cluster environments
-<a name="configuring-cluster-scaling"></a>
 
 A Beanstalk Cluster environment scales by changing the number of *replicas* of your application that it runs. A replica is one running copy of your container image. Amazon EKS supplies the node capacity that those replicas need and adds or removes nodes to fit them, so you size the application rather than a fleet of instances.
 

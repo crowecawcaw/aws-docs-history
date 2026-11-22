@@ -1,7 +1,6 @@
 
 
 # Beanstalk Cluster architecture
-<a name="beanstalk-cluster-concepts"></a>
 
 Beanstalk Cluster uses the same Elastic Beanstalk application, application version, environment, and configuration option concepts as Beanstalk Standard. Beanstalk Standard is the EC2-based environment type. Beanstalk Cluster uses a different compute layer and configuration surface. This topic describes the differences by aspect and identifies the applicable environment type.
 

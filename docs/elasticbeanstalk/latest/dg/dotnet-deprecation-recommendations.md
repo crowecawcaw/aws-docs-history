@@ -1,7 +1,6 @@
 
 
 # Recommendations for Windows Server retired components on Elastic Beanstalk
-<a name="dotnet-deprecation-recommendations"></a>
 
 This topic provides recommendations if your applications are currently running on the retired Windows Server 2012 R2 platform branches. It also addresses the deprecated support for the TLS 1.0 and 1.1 protocol versions on our AWS service API endpoints and the impacted platform branches.
 

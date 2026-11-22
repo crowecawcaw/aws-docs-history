@@ -1,7 +1,6 @@
 
 
 # ECS managed Docker configuration for Elastic Beanstalk
-<a name="create_deploy_docker_ecs_config"></a>
 
 This chapter explains how to configure your ECS managed Docker environment. The following list summarizes the configuration items that this chapter explains.
 +  `Dockerrun.aws.json` v2 – This configuration file specifies your image repository and the name of your Docker images, among other components. 

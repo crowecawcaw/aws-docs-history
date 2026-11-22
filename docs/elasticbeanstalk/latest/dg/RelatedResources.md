@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk resources
-<a name="RelatedResources"></a>
 
 The following related resources can help you as you work with this service.
 +  **[Elastic Beanstalk API Reference](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/)** A comprehensive description of all SOAP and Query APIs. Additionally, it contains a list of all SOAP data types. 

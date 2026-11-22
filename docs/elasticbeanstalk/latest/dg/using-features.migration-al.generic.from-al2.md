@@ -1,7 +1,6 @@
 
 
 # Migration from Amazon Linux 2 to Amazon Linux 2023
-<a name="using-features.migration-al.generic.from-al2"></a>
 
 This topic provides guidance to migrate your application from an Amazon Linux 2 platform branch to an Amazon Linux 2023 platform branch.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding concepts in Elastic Beanstalk
-<a name="concepts"></a>
 
 Becoming familiar with the concepts and terms will help you gain an understanding needed for deploying your applications with Elastic Beanstalk.
 

@@ -1,7 +1,6 @@
 
 
 # Terminating HTTPS on EC2 instances running Docker
-<a name="https-singleinstance-docker"></a>
 
 For Docker containers, you use a [configuration file](ebextensions.md) to enable HTTPS.
 

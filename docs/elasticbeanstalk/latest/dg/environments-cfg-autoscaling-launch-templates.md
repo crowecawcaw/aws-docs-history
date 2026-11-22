@@ -1,7 +1,6 @@
 
 
 # Migrating your Elastic Beanstalk environment to launch templates
-<a name="environments-cfg-autoscaling-launch-templates"></a>
 
 As of October 1, 2024, Amazon EC2 Auto Scaling no longer supports launch configurations for new accounts. Accounts created prior to that date might have launch configurations.
 

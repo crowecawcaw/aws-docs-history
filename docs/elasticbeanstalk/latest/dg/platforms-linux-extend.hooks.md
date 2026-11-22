@@ -1,7 +1,6 @@
 
 
 # Platform hooks
-<a name="platforms-linux-extend.hooks"></a>
 
 Platform hooks are specifically designed to extend your environment's platform. These are custom scripts and other executable files that you deploy as part of your application's source code, and Elastic Beanstalk runs during various instance provisioning stages.
 

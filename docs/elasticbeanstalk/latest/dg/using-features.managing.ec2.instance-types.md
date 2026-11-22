@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance types
-<a name="using-features.managing.ec2.instance-types"></a>
 
 This topic explains the term *instance type*. When you create a new environment, Elastic Beanstalk provisions Amazon EC2 instances that are based on the Amazon EC2 *instance types *that you choose. The instance types that you choose determine the host hardware that runs your instances. EC2 instance types can be categorized by which processor architecture each is based on. Elastic Beanstalk supports instance types based on the following processor architectures: AWS Graviton 64-bit Arm architecture (arm64), 64-bit architecture (x86), and 32-bit architecture (i386). Elastic Beanstalk selects the x86 processor architecture by default when you create a new environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Example: Launching an Elastic Beanstalk application in a VPC with bastion hosts
-<a name="vpc-bastion-host"></a>
 
 This section explains how to deploy an Elastic Beanstalk application inside a VPC using a bastion host and why you would implement this topology.
 

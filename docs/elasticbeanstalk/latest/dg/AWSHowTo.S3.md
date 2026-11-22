@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with Amazon S3
-<a name="AWSHowTo.S3"></a>
 
 This topic explains how Elastic Beanstalk utilizes Amazon Simple Storage Service (Amazon S3) and the types of objects that it stores in S3 buckets. It also notes which objects you must delete manually after you terminate your Elastic Beanstalk environment and provides instructions to do so. 
 

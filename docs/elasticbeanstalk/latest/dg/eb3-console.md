@@ -1,7 +1,6 @@
 
 
 # **eb console**
-<a name="eb3-console"></a>
 
 ## Description
 <a name="eb3-consoledescription"></a>

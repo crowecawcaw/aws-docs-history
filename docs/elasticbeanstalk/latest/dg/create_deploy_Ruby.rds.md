@@ -1,7 +1,6 @@
 
 
 # Adding an Amazon RDS DB instance to your Ruby Elastic Beanstalk environment
-<a name="create_deploy_Ruby.rds"></a>
 
 This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console. You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data gathered and modified by your application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled and managed externally by another service. In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md).
 

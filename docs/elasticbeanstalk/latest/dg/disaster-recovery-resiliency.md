@@ -1,7 +1,6 @@
 
 
 # Resilience in Elastic Beanstalk
-<a name="disaster-recovery-resiliency"></a>
 
 AWS Elastic Beanstalk manages and automates the use of the AWS global infrastructure on your behalf. When using Elastic Beanstalk, you benefit from the availability and fault tolerance mechanisms that AWS offers.
 

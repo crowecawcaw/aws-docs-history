@@ -1,7 +1,6 @@
 
 
 # Fetching secrets and parameters to Elastic Beanstalk environment variables
-<a name="AWSHowTo.secrets.env-vars"></a>
 
 Elastic Beanstalk can fetch values from AWS Secrets Manager and AWS Systems Manager Parameter Store during instance bootstrapping and assign them to environment variables for your application to use.
 
@@ -159,7 +158,7 @@ aws elasticbeanstalk create-environment \
 
 **Example**  
 
-```
+```json
 ### example options.json ###
 [
   {
@@ -232,7 +231,7 @@ JSON key extraction can be configured using the same methods as regular environm
 
 The following example demonstrates how different value types are extracted from a JSON secret. Given this secret:
 
-```
+```json
 {
   "stringKey": "value1",
   "numberKey": 42,

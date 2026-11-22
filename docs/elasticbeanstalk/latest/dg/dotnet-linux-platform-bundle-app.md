@@ -1,7 +1,6 @@
 
 
 # Bundling applications for the .NET Core on Linux Elastic Beanstalk platform
-<a name="dotnet-linux-platform-bundle-app"></a>
 
 You can deploy two types of .NET applications to the .NET Core on Linux platform: *runtime-dependent* applications, which use the .NET runtime that the platform provides, and *self-contained* applications, which include their own .NET runtime. The .NET documentation calls runtime-dependent applications *framework-dependent* applications.
 
@@ -12,6 +11,8 @@ Publish your application with the `dotnet publish` command on your computer or i
 
 The following table compares runtime-dependent and self-contained applications on the .NET Core on Linux platform.
 
+
+**Comparison of runtime-dependent and self-contained applications**  
 
 | Consideration | Runtime-dependent | Self-contained | 
 | --- | --- | --- | 
@@ -30,7 +31,7 @@ For more information about both types, see [.NET application publishing overview
 
 Runtime-dependent is the default publishing mode. To publish a runtime-dependent application that runs on both x86\_64 and arm64 instances, don't specify a runtime identifier (RID).
 
-```
+```bash
 ~/myapp$ dotnet publish -c Release
 ```
 
@@ -48,7 +49,7 @@ By default, .NET doesn't run an application on a different .NET major version th
 
 To publish a self-contained application, specify a Linux runtime identifier (RID) and the `--self-contained true` option. The following command publishes an application for instances with x86\_64 processors.
 
-```
+```bash
 ~/myapp$ dotnet publish -c Release -r linux-x64 --self-contained true
 ```
 
@@ -74,6 +75,8 @@ Create your source bundle from the contents of your publish folder, not from the
 
 During deployment, Elastic Beanstalk finds each application by its `{{name}}.runtimeconfig.json` file, where {{name}} is your application's assembly name. Elastic Beanstalk reads the `runtimeOptions` section of the file to determine the application type, as shown in the following table.
 
+
+**How Elastic Beanstalk determines the application type**  
 
 | Application type | `runtimeOptions` section | Expected file in the same folder | Command that Elastic Beanstalk runs if there's no `Procfile` | 
 | --- | --- | --- | --- | 

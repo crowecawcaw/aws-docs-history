@@ -1,7 +1,6 @@
 
 
 # Security configurations and IAM roles
-<a name="dotnet-migrating-applications-security"></a>
 
 The **eb migrate** command manages AWS security configurations through IAM roles, instance profiles, and service roles. Understanding these components ensures proper access control and security compliance during migration.
 
@@ -21,7 +20,7 @@ If you don't specify an instance profile, **eb migrate** creates a default profi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

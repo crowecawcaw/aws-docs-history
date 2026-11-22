@@ -1,7 +1,6 @@
 
 
 # Updating your Elastic Beanstalk environment's platform version
-<a name="using-features.platform.upgrade"></a>
 
 Elastic Beanstalk regularly releases new platform versions to update all Linux-based and Windows Server-based [platforms](concepts.platforms.md). New platform versions provide updates to existing software components and support for new features and configuration options. To learn about platforms and platform versions, see [Elastic Beanstalk platforms glossary](platforms-glossary.md).
 

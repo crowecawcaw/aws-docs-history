@@ -1,7 +1,6 @@
 
 
 # Server certificates
-<a name="configuring-https.certificate"></a>
 
 This topic describes the different types of certificates you can use to configure HTTPS and when to apply each. The subtopics in this section provide instructions to create your own certificate and how to upload it.
 

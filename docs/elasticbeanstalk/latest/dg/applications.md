@@ -1,7 +1,6 @@
 
 
 # Managing Elastic Beanstalk applications
-<a name="applications"></a>
 
 This chapter describes how to manage and configure your Elastic Beanstalk applications. The first step in using AWS Elastic Beanstalk is to create an application, which represents your web application in AWS. In Elastic Beanstalk an application serves as a container for the environments that run your web app and for versions of your web app's source code, saved configurations, logs, and other artifacts that you create while using Elastic Beanstalk.
 

@@ -1,7 +1,6 @@
 
 
 # Multi-tenancy for Beanstalk Cluster environments
-<a name="beanstalk-cluster-multi-tenancy"></a>
 
 Beanstalk Cluster environments that use the same subnets run on the same Amazon EKS cluster, so they share compute infrastructure. Elastic Beanstalk separates them on that shared cluster: each environment's application runs in its own partition of the cluster, and Elastic Beanstalk blocks network traffic between environments by default. This topic describes the separation you get, how to widen or tighten it, and which requirements a shared cluster cannot satisfy.
 

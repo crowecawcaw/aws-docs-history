@@ -1,7 +1,6 @@
 
 
 # Configuring AWS X-Ray debugging
-<a name="environment-configuration-debugging"></a>
 
 You can use the AWS Elastic Beanstalk console or a configuration file to run the AWS X-Ray daemon on the instances in your environment. X-Ray is an AWS service that gathers data about the requests that your application serves, and uses it to construct a service map that you can use to identify issues with your application and opportunities for optimization.
 

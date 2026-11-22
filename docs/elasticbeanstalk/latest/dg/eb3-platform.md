@@ -1,7 +1,6 @@
 
 
 # **eb platform**
-<a name="eb3-platform"></a>
 
 ## Description
 <a name="eb3-platformdescription"></a>

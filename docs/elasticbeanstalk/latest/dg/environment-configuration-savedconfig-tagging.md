@@ -1,7 +1,6 @@
 
 
 # Tagging saved configurations
-<a name="environment-configuration-savedconfig-tagging"></a>
 
 You can apply tags to your AWS Elastic Beanstalk saved configurations. Tags are key-value pairs associated with AWS resources. For information about Elastic Beanstalk resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging Elastic Beanstalk application resources](applications-tagging-resources.md).
 

@@ -1,7 +1,6 @@
 
 
 # Configuring the proxy server
-<a name="go-nginx"></a>
 
 Elastic Beanstalk uses nginx as the reverse proxy to map your application to your Elastic Load Balancing load balancer on port 80. Elastic Beanstalk provides a default nginx configuration that you can either extend or override completely with your own configuration.
 

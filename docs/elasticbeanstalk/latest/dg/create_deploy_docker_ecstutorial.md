@@ -1,7 +1,6 @@
 
 
 # Creating an ECS managed Docker environment with the Elastic Beanstalk console
-<a name="create_deploy_docker_ecstutorial"></a>
 
 This tutorial details container configuration and source code preparation for an ECS managed Docker environment that uses two containers. 
 

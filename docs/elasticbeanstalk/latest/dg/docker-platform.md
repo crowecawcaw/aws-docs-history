@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk Docker platform branches
-<a name="docker-platform"></a>
 
 The Elastic Beanstalk Docker platform supports the following platform branches:
 

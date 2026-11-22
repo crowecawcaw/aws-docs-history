@@ -1,7 +1,6 @@
 
 
 # Manage alarms
-<a name="using-features.alarms"></a>
 
 This topic walks you through the steps to create alarms for metrics that you're monitoring. It also provides instructions to view your existing alarms and to check their state.
 

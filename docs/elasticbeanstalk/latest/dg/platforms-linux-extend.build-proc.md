@@ -1,7 +1,6 @@
 
 
 # Buildfile and Procfile
-<a name="platforms-linux-extend.build-proc"></a>
 
 Some platforms allow you to customize how you build or prepare your application, and to specify the processes that run your application. Each individual platform topic specifically mentions *Buildfile* and/or *Procfile* if the platform supports them. Look for your specific platform under [Elastic Beanstalk platforms](concepts-all-platforms.md).
 

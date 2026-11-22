@@ -1,7 +1,6 @@
 
 
 # Environment variables and other software settings
-<a name="environments-cfg-softwaresettings"></a>
 
 The **Configure updates, monitoring, and logging** configuration page lets you configure the software on the Amazon Elastic Compute Cloud (Amazon EC2) instances that run your application. You can configure environment variables, AWS X-Ray debugging, instance log storing and streaming, and platform-specific settings.
 
@@ -197,7 +196,7 @@ The addition of `System.getenv` access for environment variables in Tomcat platf
   ```
 + [Python](create-deploy-python-container.md#create-deploy-python-custom-container-envprop) – `os.environ`
 
-  ```
+  ```python
   import os
   endpoint = os.environ['API_ENDPOINT']
   ```

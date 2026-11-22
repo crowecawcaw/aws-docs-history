@@ -1,7 +1,6 @@
 
 
 # Building container images for Beanstalk Cluster environments
-<a name="beanstalk-cluster-app-versions"></a>
 
 A Beanstalk Cluster environment runs an application from a container image. As with Beanstalk Standard, an *application version* is deployed to the environment. In a Beanstalk Cluster environment, the application version supplies either an image that Elastic Beanstalk runs as-is or source that Elastic Beanstalk builds into an image. This topic covers the prerequisites, both creation paths, processing status, and the deletion behavior specific to Beanstalk Cluster environments. Deploying, tagging, and version quotas work the same way in both modes, as do the general creation and deletion procedures. See [Managing application versions](applications-versions.md) and [Tagging application versions](applications-versions-tagging.md).
 
@@ -32,7 +31,7 @@ Use this shape when a separate pipeline builds the image or when an image produc
 ## Provide source for Elastic Beanstalk to build
 <a name="beanstalk-cluster-app-versions-source"></a>
 
-Supply a `SourceBundle` when Elastic Beanstalk must build the container image from application source. The `SourceBundle` identifies the source archive in Amazon Simple Storage Service (Amazon S3) with two fields, `S3Bucket` and `S3Key`. A source bundle also requires an `ImageConfiguration` whose `Build` member specifies how Elastic Beanstalk converts the source into an image. Set `Process` to `true` in the `CreateApplicationVersion` request to start the build; with the AWS CLI, use `--process`. If you omit this setting, the source-based application version remains `UNPROCESSED` and the build does not start. When processing starts, Elastic Beanstalk builds the image and pushes it to Amazon Elastic Container Registry in your account. For the Docker and buildpack build types and their settings, see [Build configuration](#beanstalk-cluster-app-versions-buildconfig).
+Supply a `SourceBundle` when Elastic Beanstalk must build the container image from application source. The `SourceBundle` identifies the source archive in Amazon Simple Storage Service (Amazon S3) with two fields, `S3Bucket` and `S3Key`. A source bundle also requires an `ImageConfiguration` whose `Build` member specifies how Elastic Beanstalk converts the source into an image. Set `Process` to `true` in the `CreateApplicationVersion` request to start the build; with the AWS CLI, use `--process`. If you omit this setting, Elastic Beanstalk defers the build until you first deploy the application version to an environment. When processing starts, Elastic Beanstalk builds the image and pushes it to Amazon Elastic Container Registry in your account. For the Docker and buildpack build types and their settings, see [Build configuration](#beanstalk-cluster-app-versions-buildconfig).
 
 **Note**  
 On macOS, create the source archive with `zip -X -r ../my-app.zip .` from inside the source directory. The Finder's **Compress** command adds `__MACOSX` metadata entries, and a buildpack build can fail on one of those entries with `zip: not a valid zip file`, naming a file that you did not create.

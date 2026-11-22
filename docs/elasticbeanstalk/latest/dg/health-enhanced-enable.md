@@ -1,7 +1,6 @@
 
 
 # Enabling Elastic Beanstalk enhanced health reporting
-<a name="health-enhanced-enable"></a>
 
 This topic explains how enhanced health reporting is enabled. It provides procedures for you to enable the enhanced health feature for your environment with the Elastic Beanstalk console, the EB CLI, and with an .ebextensions configuration.
 

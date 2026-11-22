@@ -1,7 +1,6 @@
 
 
 # Deploying a Laravel application to Elastic Beanstalk
-<a name="php-laravel-tutorial"></a>
 
 Laravel is an open source, model-view-controller (MVC) framework for PHP. This tutorial walks you through the process of generating a Laravel application, deploying it to an AWS Elastic Beanstalk environment, and configuring it to connect to an Amazon Relational Database Service (Amazon RDS) database instance.
 

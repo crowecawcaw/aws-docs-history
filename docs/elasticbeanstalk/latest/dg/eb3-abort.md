@@ -1,7 +1,6 @@
 
 
 # **eb abort**
-<a name="eb3-abort"></a>
 
 ## Description
 <a name="eb3-abortdescription"></a>

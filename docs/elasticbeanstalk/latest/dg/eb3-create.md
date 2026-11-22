@@ -1,7 +1,6 @@
 
 
 # **eb create**
-<a name="eb3-create"></a>
 
 ## Description
 <a name="eb3-createdescription"></a>

@@ -1,7 +1,6 @@
 
 
 # Blue/Green deployments with Elastic Beanstalk
-<a name="using-features.CNAMESwap"></a>
 
 **Note**  
 Beanstalk Cluster environments also support blue/green deployments via CNAME swap.

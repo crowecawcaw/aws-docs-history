@@ -1,7 +1,6 @@
 
 
 # **eb upgrade**
-<a name="eb3-upgrade"></a>
 
 ## Description
 <a name="eb3-upgradedescription"></a>

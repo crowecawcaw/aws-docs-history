@@ -1,7 +1,6 @@
 
 
 # QuickStart: Deploy a Python application to Elastic Beanstalk
-<a name="python-quickstart"></a>
 
 This QuickStart tutorial walks you through the process of creating a Python application and deploying it to an AWS Elastic Beanstalk environment.
 
@@ -110,7 +109,7 @@ Create a text file named `application.py` in the directory you just created with
 
 **Example `~/eb-python/application.py`**  
 
-```
+```python,py
 from flask import Flask
 application = Flask(__name__)
 

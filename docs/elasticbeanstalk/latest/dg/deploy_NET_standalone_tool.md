@@ -1,7 +1,6 @@
 
 
 # Deploying Elastic Beanstalk applications in .NET using AWS deployment tools
-<a name="deploy_NET_standalone_tool"></a>
 
 AWS offers two command line tools to deploy .NET Core and ASP.NET Core applications to Elastic Beanstalk:
 + **AWS .NET deployment tool** – A modern command line tool that simplifies deploying .NET applications to AWS services, including Elastic Beanstalk. This tool provides an interactive experience and can automatically detect the best AWS service for your application. For more information, see [AWS .NET deployment tool](https://github.com/aws/aws-dotnet-deploy?tab=readme-ov-file#aws-net-deployment-tool).

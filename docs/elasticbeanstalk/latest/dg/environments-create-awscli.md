@@ -1,7 +1,6 @@
 
 
 # Creating Elastic Beanstalk environments with the AWS CLI
-<a name="environments-create-awscli"></a>
 
 For details about the AWS CLI commands for Elastic Beanstalk, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk).
 

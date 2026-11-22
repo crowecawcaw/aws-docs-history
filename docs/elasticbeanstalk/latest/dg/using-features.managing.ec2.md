@@ -1,7 +1,6 @@
 
 
 # The Amazon EC2 instances for your Elastic Beanstalk environment
-<a name="using-features.managing.ec2"></a>
 
 This topic explains the Amazon EC2 instances and the configuration options that affect your Elastic Beanstalk environment.
 

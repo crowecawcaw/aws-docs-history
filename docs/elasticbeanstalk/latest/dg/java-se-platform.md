@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk Java SE platform
-<a name="java-se-platform"></a>
 
 This topic describes how to configure, build, and run your Java applications that run on the AWS Elastic Beanstalk Java SE platform.
 

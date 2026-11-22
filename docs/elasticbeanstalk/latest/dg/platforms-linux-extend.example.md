@@ -1,7 +1,6 @@
 
 
 # Application example with extensions
-<a name="platforms-linux-extend.example"></a>
 
 The following example demonstrates an application source bundle with several extensibility features that Elastic Beanstalk Amazon Linux 2 and Amazon Linux 2023 platforms support: a `Procfile`, `.ebextensions` configuration files, custom hooks, and proxy configuration files.
 

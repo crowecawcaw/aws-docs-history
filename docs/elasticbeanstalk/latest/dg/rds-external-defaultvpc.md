@@ -1,7 +1,6 @@
 
 
 # Launching and connecting to an external Amazon RDS instance in a default VPC
-<a name="rds-external-defaultvpc"></a>
 
 The following procedures describe the process for connecting to an external Amazon RDS instance to a [default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html). The process is the same if you're using a custom VPC. The only additional requirements are that your environment and DB instance are in the same subnet, or in subnets that are allowed to communicate with each other. For more information about configuring a custom VPC to use with Elastic Beanstalk, see [Using Elastic Beanstalk with Amazon VPC](vpc.md).
 

@@ -1,7 +1,6 @@
 
 
 # Configuring dual-stack Elastic Beanstalk load balancers
-<a name="environments-cfg-elbv2-ipv6-dualstack"></a>
 
 You can enable your Elastic Beanstalk environments to serve both IPv4 and IPv6 protocols with dual-stack configured load balancers. When you create a load balanced environment, the infrastructure defaults to IPv4. You can select to create new environments with dual-stack configuration or update existing IPv4-only environments to dual-stack.
 
@@ -256,7 +255,7 @@ aws elasticbeanstalk update-environment \
 
 **Example**  
 
-```
+```json
 ### example options.json ###
 [
   {

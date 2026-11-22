@@ -1,7 +1,6 @@
 
 
 # Customizing software on Windows servers
-<a name="customize-containers-windows-ec2"></a>
 
 You may want to customize and configure the software that your application depends on. These files could be either dependencies required by the application—for example, additional packages or services that need to be run. For general information on customizing and configuring your Elastic Beanstalk environments, see [Configuring Elastic Beanstalk environments](customize-containers.md).
 

@@ -1,7 +1,6 @@
 
 
 # Specifying dependencies using a requirements file on Elastic Beanstalk
-<a name="python-configuration-requirements"></a>
 
 This topic describes how to configure you application to install other Python packages that it requires. A typical Python application has dependencies on other third-party Python packages. With the Elastic Beanstalk Python platform, you have multiple ways to specify Python packages that your application depends on.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring a shared Application Load Balancer
-<a name="environments-cfg-alb-shared"></a>
 
 When you [enable load balancing](using-features-managing-env-types.md#using-features.managing.changetype), your AWS Elastic Beanstalk environment is equipped with an Elastic Load Balancing load balancer to distribute traffic among the instances in your environment. Elastic Load Balancing supports several load balancer types. To learn about them, see the [Elastic Load Balancing User Guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/). Elastic Beanstalk can create a load balancer for you, or enable you to specify a shared load balancer that you've created.
 
@@ -240,7 +239,7 @@ You can find settings related to shared Application Load Balancers in the follow
 **Example .ebextensions/application-load-balancer-shared.config**  
 To get started with a shared Application Load Balancer, use the Elastic Beanstalk console, EB CLI, or API to set the load balancer type to `application` and choose to use a shared load balancer. Use a [configuration file](ebextensions.md) to configure the shared load balancer.  
 
-```
+```yaml
 option_settings:
   aws:elbv2:loadbalancer:
     SharedLoadBalancer: arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/MySharedALB2/e574ea4c37ad2ec8
@@ -252,7 +251,7 @@ You can configure this option only during environment creation.
 **Example .ebextensions/alb-shared-secure-listener.config**  
 The following configuration file selects a default secure listener on port 443 for the shared load balancer, and sets the default process to listen to port 443.  
 
-```
+```yaml
 option_settings:
   aws:elbv2:loadbalancer:
     SharedLoadBalancer: arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/MySharedALB2/e574ea4c37ad2ec8
@@ -266,7 +265,7 @@ option_settings:
 **Example .ebextensions/alb-shared-admin-rule.config**  
 The following configuration file builds on the previous example and adds a rule that routes traffic with a request path of `/admin` to a process named `admin` that listens on port 4443.  
 
-```
+```yaml
 option_settings:
   aws:elbv2:loadbalancer:
     SharedLoadBalancer: arn:aws:elasticloadbalancing:us-east-2:123456789012:loadbalancer/app/MySharedALB2/e574ea4c37ad2ec8

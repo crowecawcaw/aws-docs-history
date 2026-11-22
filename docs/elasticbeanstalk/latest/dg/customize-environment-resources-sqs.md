@@ -1,7 +1,6 @@
 
 
 # Example: SQS, CloudWatch, and SNS
-<a name="customize-environment-resources-sqs"></a>
 
 This example adds an Amazon SQS queue and an alarm on queue depth to the environment. The properties that you see in this example are the minimum required properties that you must set for each of these resources. You can download the example at [SQS, SNS, and CloudWatch](https://elasticbeanstalk.s3.amazonaws.com/extensions/SNS.config). 
 

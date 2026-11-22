@@ -1,7 +1,6 @@
 
 
 # **eb printenv**
-<a name="eb3-printenv"></a>
 
 ## Description
 <a name="eb3-printenvdescription"></a>

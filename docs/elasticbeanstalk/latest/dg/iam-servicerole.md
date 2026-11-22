@@ -1,7 +1,6 @@
 
 
 # Managing Elastic Beanstalk service roles
-<a name="iam-servicerole"></a>
 
 To manage and monitor your environment, AWS Elastic Beanstalk performs actions on environment resources on your behalf. Elastic Beanstalk needs certain permissions to perform these actions, and it assumes AWS Identity and Access Management (IAM) service roles to get these permissions.
 
@@ -65,7 +64,7 @@ To allow Elastic Beanstalk to assume the `aws-elasticbeanstalk-service-role` rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

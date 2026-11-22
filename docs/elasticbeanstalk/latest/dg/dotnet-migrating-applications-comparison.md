@@ -1,7 +1,6 @@
 
 
 # Comparing migration options: EB CLI vs. AWS Transform MGN
-<a name="dotnet-migrating-applications-comparison"></a>
 
 AWS offers multiple paths for migrating Windows applications to the cloud. This section compares two primary options: the **eb migrate** command in the EB CLI and AWS Transform MGN (MGN). Understanding the differences between these approaches will help you choose the most appropriate migration strategy for your specific needs.
 

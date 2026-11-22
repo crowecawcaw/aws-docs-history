@@ -1,7 +1,6 @@
 
 
 # Serving static files
-<a name="environment-cfg-staticfiles"></a>
 
 To improve performance, you can configure the proxy server to serve static files (for example, HTML or images) from a set of directories inside your web application. When the proxy server receives a request for a file under the specified path, it serves the file directly instead of routing the request to your application.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk Tomcat platform
-<a name="java-tomcat-platform"></a>
 
 This topic describes how to configure, build, and run your Java applications that run on the Elastic Beanstalk Tomcat platform.
 

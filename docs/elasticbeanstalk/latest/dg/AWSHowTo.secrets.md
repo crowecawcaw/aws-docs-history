@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store
-<a name="AWSHowTo.secrets"></a>
 
 This topic explains how you can use AWS Secrets Manager and AWS Systems Manager Parameter Store with your Elastic Beanstalk environment to securely store and retrieve sensitive information, such as credentials and API keys. Your application can retrieve stored secrets and parameters directly from these stores, using the APIs or command line tools of these services. 
 

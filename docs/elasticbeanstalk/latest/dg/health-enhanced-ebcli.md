@@ -1,7 +1,6 @@
 
 
 # Using the EB CLI to monitor environment health
-<a name="health-enhanced-ebcli"></a>
 
 The [Elastic Beanstalk Command Line Interface](eb-cli3.md) (EB CLI) is a command line tool for managing AWS Elastic Beanstalk environments. You also can use the EB CLI to monitor your environment's health in real time and with more granularity than is currently available in the Elastic Beanstalk console
 

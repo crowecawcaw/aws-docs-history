@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk Docker platform branch
-<a name="docker"></a>
 
 This section describes how to prepare your Docker image for launch with the either of the Elastic Beanstalk platform branches *Docker running AL2 or AL2023*.
 

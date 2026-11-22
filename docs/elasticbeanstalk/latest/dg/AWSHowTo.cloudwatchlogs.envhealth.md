@@ -1,7 +1,6 @@
 
 
 # Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs
-<a name="AWSHowTo.cloudwatchlogs.envhealth"></a>
 
 If you enable [enhanced health](health-enhanced.md) reporting for your environment, you can configure the environment to stream health information to CloudWatch Logs. This streaming is independent from Amazon EC2 instance log streaming. This topic describes environment health information streaming. For information about instance log streaming, see [Using Elastic Beanstalk with Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.md).
 

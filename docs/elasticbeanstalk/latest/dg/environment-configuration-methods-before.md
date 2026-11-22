@@ -1,7 +1,6 @@
 
 
 # Setting configuration options before environment creation
-<a name="environment-configuration-methods-before"></a>
 
 AWS Elastic Beanstalk supports a large number of [configuration options](command-options.md) that let you modify the settings that are applied to resources in your environment. Several of these options have default values that can be overridden to customize your environment. Other options can be configured to enable additional features.
 

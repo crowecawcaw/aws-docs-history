@@ -1,7 +1,6 @@
 
 
 # Using the Elastic Beanstalk Go platform
-<a name="go-environment"></a>
 
 This topic describes how to configure, build, and run your Go applications on Elastic Beanstalk.
 

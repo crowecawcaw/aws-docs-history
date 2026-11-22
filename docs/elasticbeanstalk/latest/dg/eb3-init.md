@@ -1,7 +1,6 @@
 
 
 # **eb init**
-<a name="eb3-init"></a>
 
 ## Description
 <a name="eb3-initdescription"></a>

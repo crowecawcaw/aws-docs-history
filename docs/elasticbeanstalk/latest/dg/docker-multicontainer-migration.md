@@ -1,7 +1,6 @@
 
 
 # Migrating to Elastic Beanstalk Docker running on Amazon Linux 2 from Multi-container Docker running on Amazon Linux
-<a name="docker-multicontainer-migration"></a>
 
 Prior to the release of the *ECS Running on 64bit Amazon Linux 2* platform branch, Elastic Beanstalk offered an alternate migration path to Amazon Linux 2 for customers with environments based on the *Multi-container Docker running on 64bit Amazon Linux* platform branch. This topic describes that migration path, and remains in this document as a reference for any customers that completed that migration path.
 

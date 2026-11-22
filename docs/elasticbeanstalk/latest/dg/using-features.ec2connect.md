@@ -1,7 +1,6 @@
 
 
 # Listing and connecting to server instances
-<a name="using-features.ec2connect"></a>
 
 This topic explains how to view a list of the Amazon EC2 instances running your Elastic Beanstalk application environment and how to connect to them.
 

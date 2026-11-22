@@ -1,7 +1,6 @@
 
 
 # Deploying a sinatra application to Elastic Beanstalk
-<a name="ruby-sinatra-tutorial"></a>
 
 This walkthrough shows how to deploy a simple [Sinatra](http://www.sinatrarb.com/) web application to AWS Elastic Beanstalk.
 

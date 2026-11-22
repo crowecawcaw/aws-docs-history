@@ -1,7 +1,6 @@
 
 
 # Managing Elastic Beanstalk user policies
-<a name="AWSHowTo.iam.managed-policies"></a>
 
 AWS Elastic Beanstalk provides two managed policies that enable you to assign full access or read-only access to all resources that Elastic Beanstalk manages. You can attach the policies to AWS Identity and Access Management (IAM) users or groups, or to roles assumed by your users.
 
@@ -86,7 +85,7 @@ The policy in the following example enables a user to call the `CreateEnvironmen
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -130,7 +129,7 @@ The above policy shows how to grant limited access to Elastic Beanstalk operatio
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -165,7 +164,7 @@ The policy in the following example enables a user to pull Elastic Beanstalk log
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -204,7 +203,7 @@ The policy doesn't deny access to any resources through other services. It demon
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

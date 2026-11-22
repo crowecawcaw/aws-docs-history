@@ -1,7 +1,6 @@
 
 
 # Enhanced health log format
-<a name="health-enhanced-serverlogs"></a>
 
 AWS Elastic Beanstalk platforms use a custom web server log format to efficiently relay information about HTTP requests to the enhanced health reporting system. The system analyzes the logs, identifies issues, and sets the instance and environment health accordingly. If you disable the web server proxy on your environment and serve requests directly from the web container, you can still make full use of enhanced health reporting by configuring your server to output logs in the location and format that the [Elastic Beanstalk health agent](health-enhanced.md#health-enhanced-agent) uses.
 

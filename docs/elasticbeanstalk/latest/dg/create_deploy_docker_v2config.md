@@ -1,7 +1,6 @@
 
 
 # Configuring the Dockerrun.aws.json v2 file
-<a name="create_deploy_docker_v2config"></a>
 
 `Dockerrun.aws.json v2` is an Elastic Beanstalk configuration file that describes how to deploy a set of Docker containers hosted in an ECS cluster in an Elastic Beanstalk environment. The Elastic Beanstalk platform creates an ECS *task definition*, which includes an ECS *container definition*. These definitions are described in the `Dockerrun.aws.json` configuration file.
 
@@ -90,7 +89,7 @@ Any usage of the ECS IAM task execution role requires the `iam:PassRole` permiss
 **Example policy with `iam:PassRole` permission**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ The following examples combine the previous `iam:PassRole` example with the exam
 **Example Secrets Manager policy combined with `iam:PassRole` permission**    
 ****  
 
-```
+```json
 {
     "Version": "{{2012-10-17}}",
     "Statement": [
@@ -159,7 +158,7 @@ The following examples combine the previous `iam:PassRole` example with the exam
 **Example Systems Manager policy combined with `iam:PassRole` permission**    
 ****  
 
-```
+```json
 {
     "Version": "{{2012-10-17}}",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # More Elastic Beanstalk example applications and tutorials for Java
-<a name="java-getstarted"></a>
 
 This section provides additional applications and tutorials. The [QuickStart for Java](java-quickstart.md) and [QuickStart for Java on Tomcat](tomcat-quickstart.md) topics located earlier in this topic walk you through launching a sample Java application with the EB CLI.
 

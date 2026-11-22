@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with Amazon Elastic File System
-<a name="services-efs"></a>
 
 With Amazon Elastic File System (Amazon EFS), you can create network file systems that can be mounted by instances across multiple Availability Zones. An Amazon EFS file system is an AWS resource that uses security groups to control access over the network that's in your default or custom VPC.
 

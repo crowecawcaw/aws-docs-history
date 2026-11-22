@@ -1,7 +1,6 @@
 
 
 # Basic health reporting
-<a name="using-features.healthstatus"></a>
 
 This topic explains the functionality offered by Elastic Beanstalk basic health.
 

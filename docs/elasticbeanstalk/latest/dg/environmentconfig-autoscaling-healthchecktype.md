@@ -1,7 +1,6 @@
 
 
 # Auto Scaling health check setting for your Elastic Beanstalk environment
-<a name="environmentconfig-autoscaling-healthchecktype"></a>
 
 Amazon EC2 Auto Scaling monitors the health of each Amazon Elastic Compute Cloud (Amazon EC2) instance that it launches. If any instance terminates unexpectedly, Auto Scaling detects the termination and launches a replacement instance. By default, the Auto Scaling group created for your environment uses [Amazon EC2 status checks](https://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html). If an instance in your environment fails an Amazon EC2 status check, Auto Scaling takes it down and replaces it.
 

@@ -1,7 +1,6 @@
 
 
 # **eb scale**
-<a name="eb3-scale"></a>
 
 ## Description
 <a name="eb3-scaledescription"></a>

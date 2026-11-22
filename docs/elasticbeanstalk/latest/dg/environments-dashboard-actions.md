@@ -1,7 +1,6 @@
 
 
 # Environment actions
-<a name="environments-dashboard-actions"></a>
 
 This topic describes the common operations that you can select to perform on your environment from the **Actions** drop-down menu on the environment management console.
 
@@ -16,12 +15,12 @@ Some actions are only available under certain conditions, remaining disabled unt
 ## Pause environment
 <a name="environments-dashboard-actions-pause"></a>
 
-Scale the environment's Auto Scaling group to zero instances so that you stop paying for compute while the environment is idle. The environment keeps its name, ID, URL, configuration, and application version history, and you can resume it at any time. This action is available for load-balanced environments only. For more information, see [Pausing and resuming Elastic Beanstalk environments](environment-management-pause.md).
+Scale the environment's Auto Scaling group to zero instances so that you stop paying for compute while the environment is idle. The environment keeps its name, ID, URL, configuration, and application version history, and you can resume it at any time. This action is available for both load-balanced and single-instance environments. For more information, see [Pausing and resuming Elastic Beanstalk environments](environment-management-pause.md).
 
 ## Resume environment
 <a name="environments-dashboard-actions-resume"></a>
 
-Relaunch instances in a paused environment, using the instance counts that the console saved when you paused it, or counts that you enter. Compute charges resume, and the environment might take several minutes to become healthy. For more information, see [Resuming an environment](environment-management-pause.md#environment-management-pause-resuming).
+Relaunch instances in a paused environment. A load-balanced environment resumes with the instance counts that the console saved when you paused it, or counts that you enter; a single-instance environment resumes with one instance. Compute charges resume, and the environment might take several minutes to become healthy. For more information, see [Resuming an environment](environment-management-pause.md#environment-management-pause-resuming).
 
 ## Load configuration
 <a name="environments-dashboard-actions-load"></a>

@@ -1,7 +1,6 @@
 
 
 # Your Elastic Beanstalk environment's Domain name
-<a name="customdomains"></a>
 
 By default, your environment is available to users at a subdomain of `elasticbeanstalk.com`. When you [create an environment](using-features.environments.md), you can choose a hostname for your application. The subdomain and domain are autopopulated to `{{region}}.elasticbeanstalk.com`.
 

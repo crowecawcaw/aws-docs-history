@@ -1,7 +1,6 @@
 
 
 # Using AWS Secrets Manager and AWS Systems Manager Parameter Store
-<a name="AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store"></a>
 
 This topic provides a brief introduction of AWS Secrets Manager and AWS Systems Manager Parameter Store, pricing information, and references to learn more about creating and retrieving secrets, using both the console and programmatic options.
 

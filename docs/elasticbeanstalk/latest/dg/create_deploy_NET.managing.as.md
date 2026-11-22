@@ -1,7 +1,6 @@
 
 
 # Configuring Auto Scaling using the AWS toolkit for Visual Studio
-<a name="create_deploy_NET.managing.as"></a>
 
 Amazon EC2 Auto Scaling is an Amazon web service designed to automatically launch or terminate Amazon EC2 instances based on user-defined triggers. Users can set up *Auto Scaling groups* and associate *triggers* with these groups to automatically scale computing resources based on metrics such as bandwidth usage or CPU utilization. Amazon EC2 Auto Scaling works with Amazon CloudWatch to retrieve metrics for the server instances running your application.
 

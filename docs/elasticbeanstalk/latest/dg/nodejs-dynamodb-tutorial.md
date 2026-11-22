@@ -1,7 +1,6 @@
 
 
 # Deploying a Node.js application with DynamoDB to Elastic Beanstalk
-<a name="nodejs-dynamodb-tutorial"></a>
 
 This tutorial and its example application [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.zip) walks you through the process of deploying a Node.js application that uses the AWS SDK for JavaScript in Node.js to interact with the Amazon DynamoDB service. You'll create a DynamoDB table that's in a database that's decoupled, or external, from the AWS Elastic Beanstalk environment. You'll also configure the application to use a decoupled database. In a production environment, it's best practice to use a database that's decoupled from the Elastic Beanstalk environment so that it's independent from the environment's life cycle. This practice also enables you to perform [blue/green deployments](using-features.CNAMESwap.md).
 

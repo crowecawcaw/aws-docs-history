@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk platform release schedule
-<a name="platforms-schedule"></a>
 
 In addition to the monthly cadence release of new platform branch versions, our release maintenance also includes the following processes:
 +  *Release of new platform branches* – These typically introduce a new major version of a run-time language, operating system or application server.

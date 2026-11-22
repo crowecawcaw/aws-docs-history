@@ -1,7 +1,6 @@
 
 
 # Deploying a rails application to Elastic Beanstalk
-<a name="ruby-rails-tutorial"></a>
 
 Rails is an open source, model-view-controller (MVC) framework for Ruby. This tutorial walks you through the process of generating a Rails application and deploying it to an AWS Elastic Beanstalk environment.
 

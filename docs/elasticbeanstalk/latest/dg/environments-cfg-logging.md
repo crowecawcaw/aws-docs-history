@@ -1,7 +1,6 @@
 
 
 # Viewing your Elastic Beanstalk environment logs
-<a name="environments-cfg-logging"></a>
 
 **Note**  
 This topic covers Beanstalk Standard environments, which run your application on Amazon EC2 instances. With Beanstalk Cluster, you choose where your application's logs go with the `logs-backend` option in the `aws:elasticbeanstalk:eks:observability` namespace, which sends them to CloudWatch Logs by default. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md) and [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).

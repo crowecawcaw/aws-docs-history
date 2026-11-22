@@ -1,7 +1,6 @@
 
 
 # QuickStart: Deploy a Java JSP web application for Tomcat to Elastic Beanstalk
-<a name="tomcat-quickstart"></a>
 
 This tutorial walks you through the process of creating a simple Java web application using JavaServer Pages (JSPs). If you'd like to bundle multiple web applications in the form of WAR files in a single Elastic Beanstalk environment, see [Bundling multiple WAR files for Tomcat environments](java-tomcat-multiple-war-files.md).
 

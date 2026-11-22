@@ -1,7 +1,6 @@
 
 
 # Tagging application versions
-<a name="applications-versions-tagging"></a>
 
 This topic explains the benefits of tagging your Elastic Beanstalk application versions and how to manage the tags.
 

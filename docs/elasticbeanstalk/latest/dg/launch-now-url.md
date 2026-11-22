@@ -1,7 +1,6 @@
 
 
 # Constructing a Launch Now URL
-<a name="launch-now-url"></a>
 
 You can construct a custom URL so that anyone can quickly deploy and run a predetermined web application in AWS Elastic Beanstalk. This URL is called a Launch Now URL. You might need a Launch Now URL, for example, to demonstrate a web application that's built to run on Elastic Beanstalk. With a Launch Now URL, you can use parameters to add the required information to the Create Application wizard in advance. After you add this information to the wizard, anyone can use the URL link to launch an Elastic Beanstalk environment with your web application source in only a few steps. This means users don't need to manually upload or specify the location of the application source bundle. They also don't need to provide any additional information to the wizard.
 

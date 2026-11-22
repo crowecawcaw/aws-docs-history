@@ -1,7 +1,6 @@
 
 
 # Using endpoint policies to control access with VPC endpoints
-<a name="vpc-vpce.policy"></a>
 
 This topic explains how you can attach a policy to VPC endpoints to controls access to your application (your service) and your Elastic Beanstalk environment. 
 
@@ -99,7 +98,7 @@ We recommend that you avoid using wildcard characters (\*) in place of specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ We recommend that you avoid using wildcard characters (\*) in place of specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -214,7 +213,7 @@ We recommend that you avoid using wildcard characters (\*) in place of specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -269,7 +268,7 @@ The following example illustrates how to provide access to an S3 bucket with the
 
 ****  
 
-```
+```json
   {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -306,7 +305,7 @@ We recommend that you avoid using wildcard characters (\*) in place of specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

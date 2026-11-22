@@ -1,7 +1,6 @@
 
 
 # Deploying a high-availability WordPress website with an external Amazon RDS database to Elastic Beanstalk
-<a name="php-hawordpress-tutorial"></a>
 
 This tutorial describes how to [launch an Amazon RDS DB instance](AWSHowTo.RDS.md) that is external to AWS Elastic Beanstalk, then how to configure a high-availability environment running a WordPress website to connect to it. The website uses Amazon Elastic File System (Amazon EFS) as the shared storage for uploaded files.
 

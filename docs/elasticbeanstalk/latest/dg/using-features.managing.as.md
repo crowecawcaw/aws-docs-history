@@ -1,7 +1,6 @@
 
 
 # Auto Scaling your Elastic Beanstalk environment instances
-<a name="using-features.managing.as"></a>
 
 This topic describes how you can customize the Auto Scaling features to manage your Elastic Beanstalk environment’s workload. You can configure Auto Scaling for your environment using the [Elastic Beanstalk console](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console), [namespace configuration options](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace), the [AWS CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-aws-cli), or the [EB CLI](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-ebcli).
 

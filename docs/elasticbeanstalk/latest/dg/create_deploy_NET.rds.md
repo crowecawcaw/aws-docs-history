@@ -1,7 +1,6 @@
 
 
 # Adding an Amazon RDS DB instance to your .NET application environment
-<a name="create_deploy_NET.rds"></a>
 
 This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console. You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data gathered and modified by your application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled and managed externally by another service. In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md).
 
@@ -57,7 +56,7 @@ Elastic Beanstalk provides connection information for attached DB instances in e
 
 **Example Helpers.cs - connection string method**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -91,7 +90,7 @@ Use the connection string to initialize your database context.
 
 **Example DBContext.cs**  
 
-```
+```csharp
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;

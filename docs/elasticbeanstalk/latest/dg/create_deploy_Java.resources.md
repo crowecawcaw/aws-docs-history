@@ -1,7 +1,6 @@
 
 
 # Java tools and resources
-<a name="create_deploy_Java.resources"></a>
 
 There are several places you can go to get additional help when developing your Java applications.
 

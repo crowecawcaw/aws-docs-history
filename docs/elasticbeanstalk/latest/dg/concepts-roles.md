@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk Service roles, instance profiles, and user policies
-<a name="concepts-roles"></a>
 
 Roles are an entities that you create with AWS Identity and Access Management (IAM) to apply permissions. There are required roles for your Elastic Beanstalk environment to function properly. You also have the option to create your own custom policies and roles that you can assign to users or groups. 
 

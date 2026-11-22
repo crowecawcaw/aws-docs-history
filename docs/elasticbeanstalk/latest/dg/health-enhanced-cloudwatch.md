@@ -1,7 +1,6 @@
 
 
 # Publishing Amazon CloudWatch custom metrics for an environment
-<a name="health-enhanced-cloudwatch"></a>
 
 You can publish the data gathered by AWS Elastic Beanstalk enhanced health reporting to Amazon CloudWatch as custom metrics. Publishing metrics to CloudWatch lets you monitor changes in application performance over time and identify potential issues by tracking how resource usage and request latency scale with load.
 

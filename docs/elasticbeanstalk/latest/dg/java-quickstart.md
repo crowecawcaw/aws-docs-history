@@ -1,7 +1,6 @@
 
 
 # QuickStart: Deploy a Java application to Elastic Beanstalk
-<a name="java-quickstart"></a>
 
 This QuickStart tutorial walks you through the process of creating a Java application and deploying it to an AWS Elastic Beanstalk environment.
 

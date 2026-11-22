@@ -1,7 +1,6 @@
 
 
 # Health colors and statuses
-<a name="health-enhanced-status"></a>
 
 Enhanced health reporting represents instance and overall environment health by using four colors, similar to [basic health reporting](using-features.healthstatus.md). Enhanced health reporting also provides seven health statuses, which are single-word descriptors that provide a better indication of the state of your environment.
 

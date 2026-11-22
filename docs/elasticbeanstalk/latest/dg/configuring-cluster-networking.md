@@ -1,7 +1,6 @@
 
 
 # Configuring networking for Beanstalk Cluster environments
-<a name="configuring-cluster-networking"></a>
 
 Beanstalk Cluster runs your environment on an Amazon EKS cluster. The subnets that you select do two things: they determine where the cluster's nodes run, and they determine which cluster runs the environment. If you don't select any subnets, Elastic Beanstalk uses the public subnets of the default VPC.
 

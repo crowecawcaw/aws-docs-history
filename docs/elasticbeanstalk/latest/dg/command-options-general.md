@@ -1,7 +1,6 @@
 
 
 # Configuration options for Beanstalk Standard environments
-<a name="command-options-general"></a>
 
 The namespaces on this page configure Beanstalk Standard environments, which run your application on Amazon EC2 instances that you control.
 
@@ -277,7 +276,7 @@ Configure the deployment policy for your application code. For more information,
 | DeploymentPolicy | Choose a [deployment policy](using-features.rolling-version-deploy.md) for application version deployments. If you use the Elastic Beanstalk console to create an environment, you can't set this option in a [configuration file](ebextensions.md). The console overrides this option with a [recommended value](command-options.md#configuration-options-recommendedvalues).  | `AllAtOnce` | `AllAtOnce`<br />`Rolling`<br />`RollingWithAdditionalBatch`<br />`Immutable`<br />`TrafficSplitting` | 
 | Timeout | The amount of time, in seconds, to wait for an instance to complete executing commands.<br />Elastic Beanstalk internally adds 240 seconds (four minutes) to the `Timeout` value. For example, the effective timeout by default is 840 seconds (600 \+ 240), or 14 minutes. | `600`  | `1` to `3600` | 
 | BatchSizeType | The type of number that's specified in **BatchSize**. If you use the Elastic Beanstalk console or EB CLI to create an environment, you can't set this option in a [configuration file](ebextensions.md). The console and EB CLI override this option with a [recommended value](command-options.md#configuration-options-recommendedvalues).  | `Percentage`  | `Percentage` <br />`Fixed`  | 
-| BatchSize | The percentage or the fixed number of Amazon EC2 instances in the Auto Scaling group to simultaneously perform deployments on. Valid values vary depending on the **BatchSizeType** setting used. If you use the Elastic Beanstalk console or EB CLI to create an environment, you can't set this option in a [configuration file](ebextensions.md). The console and EB CLI override this option with a [recommended value](command-options.md#configuration-options-recommendedvalues).  | `100`  | `1` to `100` (`Percentage`).<br />`1` to [aws:autoscaling:asg::MaxSize](#command-options-general-autoscalingasg) (`Fixed`) | 
+| BatchSize | The percentage or the fixed number of Amazon EC2 instances in the Auto Scaling group to simultaneously perform deployments or application server restarts on. Deployments use this value only with the `Rolling` and `RollingWithAdditionalBatch` deployment policies. Application server restarts use this value with every deployment policy. Valid values vary depending on the **BatchSizeType** setting used. If you use the Elastic Beanstalk console or EB CLI to create an environment, you can't set this option in a [configuration file](ebextensions.md). The console and EB CLI override this option with a [recommended value](command-options.md#configuration-options-recommendedvalues).  | `100`  | `1` to `100` (`Percentage`).<br />`1` to [aws:autoscaling:asg::MaxSize](#command-options-general-autoscalingasg) (`Fixed`) | 
 | IgnoreHealthCheck | Don't cancel a deployment due to failed health checks. | false  | `true` <br />`false`  | 
 
 ## aws:elasticbeanstalk:environment

@@ -1,7 +1,6 @@
 
 
 # Enabling Spot Instances for your environment
-<a name="environments-cfg-autoscaling-enable-spot"></a>
 
 To take advantage of Amazon EC2 Spot Instances, set the `EnableSpot` option for your environment. Your environment's Auto Scaling group then combines Amazon EC2 purchase options and maintains a mix of On-Demand and Spot Instances.
 

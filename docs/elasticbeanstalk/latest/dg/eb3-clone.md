@@ -1,7 +1,6 @@
 
 
 # **eb clone**
-<a name="eb3-clone"></a>
 
 ## Description
 <a name="eb3-clonedescription"></a>

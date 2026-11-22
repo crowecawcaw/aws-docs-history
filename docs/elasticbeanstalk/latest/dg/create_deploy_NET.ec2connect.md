@@ -1,7 +1,6 @@
 
 
 # Listing and connecting to server instances
-<a name="create_deploy_NET.ec2connect"></a>
 
 You can view a list of Amazon EC2 instances running your Elastic Beanstalk application environment through the AWS Toolkit for Visual Studio or from the AWS Management Console. You can connect to these instances using Remote Desktop Connection. For information about listing and connecting to your server instances using the AWS Management Console, see [Listing and connecting to server instances](using-features.ec2connect.md). The following section steps you through viewing and connecting you to your server instances using the AWS Toolkit for Visual Studio.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing deployment logs for an Elastic Beanstalk environment
-<a name="environments-deployment-logs"></a>
 
 Elastic Beanstalk generates a deployment log for each deployment to your environment. The deployment log provides a consolidated view of what happened during a deployment, so that you can diagnose a failure without collecting several logs yourself. What the log contains, and when it becomes available, depends on whether the environment is a Beanstalk Standard environment or a Beanstalk Cluster environment.
 

@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk rolling environment configuration updates
-<a name="using-features.rollingupdates"></a>
 
 When a [configuration change requires replacing instances](environments-updating.md), Elastic Beanstalk can perform the update in batches to avoid downtime while the change is propagated. During a rolling update, capacity is only reduced by the size of a single batch, which you can configure. Elastic Beanstalk takes one batch of instances out of service, terminates them, and then launches a batch with the new configuration. After the new batch starts serving requests, Elastic Beanstalk moves on to the next batch.
 

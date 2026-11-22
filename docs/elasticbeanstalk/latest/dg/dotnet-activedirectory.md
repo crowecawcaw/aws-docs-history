@@ -1,7 +1,6 @@
 
 
 # Joining instances to an Active Directory domain
-<a name="dotnet-activedirectory"></a>
 
 With AWS Elastic Beanstalk, the Windows Server instances in your environment can automatically join an Active Directory domain. You manage the directory with [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html), and you turn on the join with configuration options in the `aws:elasticbeanstalk:windows:activedirectory` namespace. Each instance then joins the domain when it launches, before Elastic Beanstalk deploys your application to it. You don't write any custom join logic or manage the join yourself.
 
@@ -31,7 +30,7 @@ Before you configure Active Directory domain join, verify that the following pre
 + **Network connectivity and DNS resolution** – Your environment must run in a VPC from which the directory is reachable, and the instances in your environment must resolve the directory's DNS name. The join process discovers domain controllers through DNS SRV records. This typically means associating your VPC with a DHCP options set that points to the directory's DNS servers. This is the standard AWS Directory Service configuration. For more information, see [Create or change a DHCP options set](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/dhcp_options_set.html) in the *AWS Directory Service Administration Guide*. Missing DNS resolution is a common cause of failed domain joins.
 + **Instance profile permissions** – The environment's [instance profile](iam-instanceprofile.md) (for example, `aws-elasticbeanstalk-ec2-role`) must have permission to call `ds:CreateComputer` on the directory. To follow the principle of least privilege, add a policy scoped to your directory:
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -60,7 +59,7 @@ The following AWS CLI example configures Active Directory domain join on a runni
 
 **Example AWS CLI - Configure Active Directory domain join**  
 
-```
+```bash
 aws elasticbeanstalk update-environment \
     --environment-name {{my-env}} \
     --option-settings '[

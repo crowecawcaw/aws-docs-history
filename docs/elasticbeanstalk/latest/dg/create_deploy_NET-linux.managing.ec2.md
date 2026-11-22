@@ -1,7 +1,6 @@
 
 
 # Configuring EC2 instances using the AWS toolkit for Visual Studio
-<a name="create_deploy_NET-linux.managing.ec2"></a>
 
 You can use Amazon Elastic Compute Cloud (Amazon EC2) to launch and manage server instances in Amazon's data centers. You can use Amazon EC2 server instances at any time, for as long as you need, and for any legal purpose. Instances are available in different sizes and configurations. For more information, see [Amazon EC2](https://aws.amazon.com/ec2/).
 

@@ -1,7 +1,6 @@
 
 
 # Deploying PHP applications with Elastic Beanstalk
-<a name="create_deploy_PHP_eb"></a>
 
 You can deploy a PHP application in a few minutes using the Elastic Beanstalk Command Line Interface (EB CLI) or the Elastic Beanstalk console. To learn how, start with the QuickStart tutorial, then review the advanced examples.
 

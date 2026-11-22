@@ -1,7 +1,6 @@
 
 
 # Environment overview pane
-<a name="environments-dashboard-envoverview"></a>
 
 This topic describes the top-level information about your environment that appears at the top of the environment management console. This area is made up of the **Environment overview** pane and the **Platform** pane.
 

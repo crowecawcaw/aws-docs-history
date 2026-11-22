@@ -1,7 +1,6 @@
 
 
 # Learn how to get started with Elastic Beanstalk
-<a name="GettingStarted"></a>
 
 With Elastic Beanstalk you can deploy, monitor, and scale web applications and services. Typically, you will develop your code locally then deploy it. When you deploy, Elastic Beanstalk provisions AWS resources to run your application. A running instance of your application is called an *environment*.
 

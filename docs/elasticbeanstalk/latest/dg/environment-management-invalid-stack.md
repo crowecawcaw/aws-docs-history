@@ -1,7 +1,6 @@
 
 
 # Recovering your Elastic Beanstalk environment from an invalid state
-<a name="environment-management-invalid-stack"></a>
 
 This topic provides some background information and resources that explain how to troubleshoot an Elastic Beanstalk environment in an invalid state.
 

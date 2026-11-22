@@ -1,7 +1,6 @@
 
 
 # Using EC2 Fast Launch with Windows platform branches
-<a name="dotnet-ec2fastlaunch"></a>
 
 The EC2 Fast Launch feature reduces Windows instance launch times in your Elastic Beanstalk environments. The purpose of this topic is to guide you on using this feature with your Elastic Beanstalk environments. Starting with Windows platform version 2.16.2, released on [January 22, 2025](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2025-01-22-windows.html), Elastic Beanstalk platform releases include base AMIs with EC2 Fast Launch enabled.
 

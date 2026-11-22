@@ -1,7 +1,6 @@
 
 
 # Finding and tracking Elastic Beanstalk resources with AWS Config
-<a name="AWSHowTo.config"></a>
 
 [AWS Config](https://aws.amazon.com/config/) provides a detailed view of the configuration of AWS resources in your AWS account. You can see how resources are related, get a history of configuration changes, and see how relationships and configurations change over time. You can use AWS Config to define rules that evaluate resource configurations for data compliance.
 

@@ -1,7 +1,6 @@
 
 
 # Setting configuration options after environment creation
-<a name="environment-configuration-methods-after"></a>
 
 You can modify the option settings on a running environment by applying saved configurations, uploading a new source bundle with configuration files (`.ebextensions`), or using a JSON document. The EB CLI and Elastic Beanstalk console also have client-specific functionality for setting and updating configuration options.
 

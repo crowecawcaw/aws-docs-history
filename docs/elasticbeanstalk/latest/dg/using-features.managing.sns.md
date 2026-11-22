@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk environment notifications with Amazon SNS
-<a name="using-features.managing.sns"></a>
 
 You can configure your AWS Elastic Beanstalk environment to use Amazon Simple Notification Service (Amazon SNS) to notify you of important events that affect your application. To receive emails from AWS whenever an error occurs or the health of your environment changes, specify an email address when you create an environment or later on.
 
@@ -64,7 +63,7 @@ AWS Lambda notifications aren't supported.
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -119,7 +118,7 @@ However, if you provided a custom service role when you created your environment
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -150,7 +149,7 @@ If you provide a custom service role for your environment, make sure that your c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

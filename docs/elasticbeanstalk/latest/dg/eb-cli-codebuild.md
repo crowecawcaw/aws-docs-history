@@ -1,7 +1,6 @@
 
 
 # Using the EB CLI with AWS CodeBuild
-<a name="eb-cli-codebuild"></a>
 
 [AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/) compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. You can use CodeBuild together with the EB CLI to automate building your application from its source code. Environment creation and each deployment thereafter start with a build step, and then deploy the resulting application.
 

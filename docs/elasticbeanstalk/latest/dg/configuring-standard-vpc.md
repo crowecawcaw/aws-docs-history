@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon Virtual Private Cloud (Amazon VPC) with Beanstalk Standard environments
-<a name="configuring-standard-vpc"></a>
 
 [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) (Amazon VPC) is the networking service that routes traffic securely to the EC2 instances that run your application in a Beanstalk Standard environment. If you don't configure a VPC when you launch your environment, Elastic Beanstalk uses the default VPC.
 
@@ -80,7 +79,7 @@ The following [configuration file](ebextensions.md) uses options in this namespa
 
 **Example .ebextensions/vpc.config – Public-private**  
 
-```
+```yaml
 option_settings:
    aws:ec2:vpc:
       VPCId: vpc-087a68c03b9c50c84
@@ -94,7 +93,7 @@ This example shows a public-public configuration, where the load balancer and EC
 
 **Example .ebextensions/vpc.config – Public-public**  
 
-```
+```yaml
 option_settings:
    aws:ec2:vpc:
       VPCId: vpc-087a68c03b9c50c84

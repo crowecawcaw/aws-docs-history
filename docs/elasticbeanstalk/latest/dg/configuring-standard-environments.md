@@ -1,7 +1,6 @@
 
 
 # Configuring Beanstalk Standard environments
-<a name="configuring-standard-environments"></a>
 
 **Topics**
 + [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md)

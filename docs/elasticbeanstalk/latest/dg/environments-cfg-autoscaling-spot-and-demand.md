@@ -1,7 +1,6 @@
 
 
 # Managing On-Demand instances and Spot instances
-<a name="environments-cfg-autoscaling-spot-and-demand"></a>
 
 You can launch and automatically scale a fleet of On-Demand Instances and Spot Instances within a single Auto Scaling group. The following options can be used in tandem to configure how the Auto Scaling service manages Spot Instances and On-Demand Instances in your environment. 
 

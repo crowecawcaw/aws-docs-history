@@ -1,7 +1,6 @@
 
 
 # Clone an Elastic Beanstalk environment
-<a name="using-features.managing.clone"></a>
 
 You can use an existing Elastic Beanstalk environment as the basis for a new environment by cloning the existing environment. For example, you might want to create a clone so that you can use a newer version of the platform branch used by the original environment's platform. Elastic Beanstalk configures the clone with the environment settings used by the original environment. By cloning an existing environment instead of creating a new environment, you don't have to manually configure option settings, environment variables, and other settings that you made with the Elastic Beanstalk service. Elastic Beanstalk also creates a copy of any AWS resource associated with the original environment.
 

@@ -1,7 +1,6 @@
 
 
 # **eb tags**
-<a name="eb3-tags"></a>
 
 ## Description
 <a name="eb3-tagsdescription"></a>

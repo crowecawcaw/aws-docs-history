@@ -1,7 +1,6 @@
 
 
 # Managing Beanstalk Standard environments
-<a name="managing-standard-environments"></a>
 
 **Topics**
 + [Configuration changes](environments-updating.md)

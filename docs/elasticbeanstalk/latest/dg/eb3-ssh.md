@@ -1,7 +1,6 @@
 
 
 # **eb ssh**
-<a name="eb3-ssh"></a>
 
 ## Description
 <a name="eb3-sshdescription"></a>

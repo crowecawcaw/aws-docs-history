@@ -1,7 +1,6 @@
 
 
 # Deploying a high-availability PHP application with an external Amazon RDS database to Elastic Beanstalk
-<a name="php-ha-tutorial"></a>
 
 This tutorial walks you through the process of [launching an RDS DB instance](AWSHowTo.RDS.md) external to AWS Elastic Beanstalk, and configuring a high-availability environment running a PHP application to connect to it. Running a DB instance external to Elastic Beanstalk decouples the database from the lifecycle of your environment. This lets you connect to the same database from multiple environments, swap out one database for another, or perform a blue/green deployment without affecting your database.
 

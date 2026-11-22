@@ -1,7 +1,6 @@
 
 
 # Platform script tools for your Elastic Beanstalk environments
-<a name="custom-platforms-scripts"></a>
 
 This topic describes tools that AWS Elastic Beanstalk provides for environments that use Amazon Linux platforms. The tools are located on the Amazon EC2 instances of the Elastic Beanstalk environments.
 
@@ -264,7 +263,7 @@ The following example calls `pkg-repo` from a configuration file in the [`.ebext
 
 To receive the latest version of the *docker* package, this configuration specifies the *docker* package in the **yum update** command.
 
-```
+```yaml
 ### update_package.config ###
 
 commands:
@@ -279,7 +278,7 @@ commands:
 
 This configuration doesn't specify any packages in the **yum update** command. All available updates are applied as a result.
 
-```
+```yaml
 ### update_package.config ###
 
 commands:
@@ -303,7 +302,7 @@ The following example calls `pkg-repo` from a bash script as a [platform hook](p
 
 To receive the latest version of the *docker* package, this script specifies the *docker* package in the **yum update** command. If the package name is omitted, all the available updates are applied. The prior configuration file example demonstrates this.
 
-```
+```bash
 ### update_package.sh ###
 
 #!/bin/bash

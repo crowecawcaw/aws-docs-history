@@ -1,7 +1,6 @@
 
 
 # Troubleshooting your Elastic Beanstalk environment
-<a name="troubleshooting"></a>
 
 This chapter provides guidance for troubleshooting issues with your Elastic Beanstalk environment. It includes the following:
 + An introduction to AWS Systems Manager, including a procedure to run predefined Elastic Beanstalk runbooks that output troubleshooting steps and recommendations.

@@ -1,7 +1,6 @@
 
 
 # Advanced examples for PHP in Elastic Beanstalk
-<a name="php-samples"></a>
 
 To get started with PHP applications on AWS Elastic Beanstalk, you need an application [source bundle](applications-sourcebundle.md) to upload as your first application version to deploy to an environment. 
 

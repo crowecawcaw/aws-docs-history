@@ -1,7 +1,6 @@
 
 
 # Instance deployment workflow for ECS running on Amazon Linux 2 and later
-<a name="platforms-linux-extend.workflow.ecs-al2"></a>
 
 The previous section describes the supported extensibility features throughout the phases of the application deployment workflow. There are some differences for the Docker platform branches [*ECS running on Amazon Linux 2 and later*](create_deploy_docker_ecs.md). This section explains how those concepts apply to this specific platform branch. 
 

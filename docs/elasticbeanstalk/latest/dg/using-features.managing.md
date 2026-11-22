@@ -1,7 +1,6 @@
 
 
 # Managing Elastic Beanstalk environments
-<a name="using-features.managing"></a>
 
 This chapter describes how to create and manage your Elastic Beanstalk environments. This introductory page provides an overview of updates, maintenance, and configurations that you'll apply over time as your application and environment evolve.
 

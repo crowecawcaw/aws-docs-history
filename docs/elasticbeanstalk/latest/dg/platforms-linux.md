@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk Linux platforms
-<a name="platforms-linux"></a>
 
 The Elastic Beanstalk Linux platforms provide an extensive amount of functionality out of the box. You can extend the platforms in several ways to support your application. For details, see [Extending Elastic Beanstalk Linux platforms](platforms-linux-extend.md).
 

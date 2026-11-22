@@ -1,7 +1,6 @@
 
 
 # Advanced migration scenarios
-<a name="dotnet-migrating-applications-advanced-scenarios"></a>
 
 This section covers advanced migration scenarios for complex IIS deployments.
 
@@ -242,7 +241,7 @@ The following configuration example will cause the warning response that follows
 
 To maintain password protection, create a custom deployment script like the following:
 
-```
+```powershell
 # PS C:\migrations_workspace> cat secure_vdir_config.ps1
 
 $vdirPath = "C:\secure\content"
@@ -298,7 +297,7 @@ The **eb migrate** command provides a framework for custom permission scripts to
 
 
 
-```
+```powershell
 $paths = @(
     "C:\sites\portal\uploads",
     "C:\shared\content"
@@ -372,7 +371,7 @@ The **eb migrate** command does not copy over custom application pool settings b
 
 1. Create a custom PowerShell script to configure application pools.
 
-   ```
+   ```powershell
    # PS C:\migrations_workspace> cat .\migrations\latest\upload_target\customize_application_pool_config.ps1
    
    $configPath = "$env:windir\System32\inetsrv\config\applicationHost.config"
@@ -416,7 +415,7 @@ The **eb migrate** command does not copy over custom application pool settings b
 
 1. Update the `aws-windows-deployment-manifest.json` file to include your custom script.
 
-   ```
+   ```json
    {
        "manifestVersion": 1,
        "deployments": {

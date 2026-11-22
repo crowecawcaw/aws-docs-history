@@ -1,7 +1,6 @@
 
 
 # Configuring your application's dependencies on Elastic Beanstalk
-<a name="nodejs-platform-dependencies"></a>
 
 Your application might have dependencies on some Node.js modules, such as the ones you specify in `require()` statements. These modules are stored in a `node_modules` directory. When your application runs, Node.js loads the modules from this directory. For more information, see [Loading from node\_modules folders](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders) in the Node.js documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk with Amazon VPC
-<a name="vpc"></a>
 
 This topic explains the benefits of using VPC endpoints with Elastic Beanstalk and the different types of configurations you can implement.
 

@@ -1,7 +1,6 @@
 
 
 # Managing accounts
-<a name="create_deploy_NET.accounts"></a>
 
 ## 
 <a name="create_deploy_NET.accounts.details"></a>

@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Elastic Beanstalk
-<a name="incident-response"></a>
 
 AWS provides several tools for monitoring your Elastic Beanstalk resources and responding to potential incidents. Monitoring is important for maintaining the reliability, availability, and performance of AWS Elastic Beanstalk and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multipoint failure if one occurs.
 

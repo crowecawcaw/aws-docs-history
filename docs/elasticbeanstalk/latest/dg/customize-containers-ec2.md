@@ -1,7 +1,6 @@
 
 
 # Customizing software on Linux servers
-<a name="customize-containers-ec2"></a>
 
 This section describes the type of information you can include in a configuration file to customize the software on your EC2 instances running Linux. For general information about customizing and configuring your Elastic Beanstalk environments, see [Configuring Elastic Beanstalk environments](customize-containers.md). For information about customizing software on your EC2 instances running Windows, see [Customizing software on Windows servers](customize-containers-windows-ec2.md).
 

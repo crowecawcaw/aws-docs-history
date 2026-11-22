@@ -1,7 +1,6 @@
 
 
 # Running multiple applications and ASP.NET core applications with a deployment manifest
-<a name="dotnet-manifest"></a>
 
 You can use a deployment manifest to tell Elastic Beanstalk how to deploy your application. By using this method, you don't need to use `MSDeploy` to generate a source bundle for a single ASP.NET application that runs at the root path of your website. Rather, you can use a manifest file to run multiple applications at different paths. Or, alternatively, you can tell Elastic Beanstalk to deploy and run the app with ASP.NET Core. You can also use a deployment manifest to configure an application pool where to run your applications.
 
@@ -154,7 +153,7 @@ The following deployment manifest configures a custom IIS website that listens o
 
 **Example aws-windows-deployment-manifest.json - IIS website configuration**  
 
-```
+```JSON
 {
   "manifestVersion": 1,
   "iisConfig": {
@@ -201,7 +200,7 @@ The following example shows a simple deployment manifest that configures a websi
 
 **Example aws-windows-deployment-manifest.json - Simple ARR setup**  
 
-```
+```JSON
 {
   "manifestVersion": 1,
   "iisConfig": {
@@ -238,7 +237,7 @@ ARR configuration is done through ebextensions. The following configuration sets
 
 **Example .ebextensions/arr-config.config - Basic ARR configuration**  
 
-```
+```yaml
 files:
   "C:\\temp\\configure-arr.ps1":
     content: |
@@ -281,7 +280,7 @@ To configure Kestrel to run multiple applications in one application pool, add `
 
 **Example web.config - for Kestrel out-of-process hosting model**  
 
-```
+```xml
 <configuration>
 <location path="." inheritInChildApplications="false">
 <system.webServer>
@@ -305,7 +304,7 @@ To configure Kestrel to run multiple applications in one application pool, add `
 
 **Example aws-windows-deployment-manifest.json - multiple applications**  
 
-```
+```JSON
 {
 "manifestVersion": 1,
   "deployments": {"msDeploy": [
@@ -336,7 +335,7 @@ The following deployment manifest configures two application pools that restart 
 
 **Example aws-windows-deployment-manifest.json - one application per application pool**  
 
-```
+```JSON
 {
 "manifestVersion": 1,
   "iisConfig": {"appPools": [

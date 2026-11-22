@@ -1,7 +1,6 @@
 
 
 # **eb status**
-<a name="eb3-status"></a>
 
 ## Description
 <a name="eb3-status-description"></a>

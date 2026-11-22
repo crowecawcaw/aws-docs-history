@@ -1,7 +1,6 @@
 
 
 # Monitoring application health
-<a name="create_deploy_NET.healthstatus"></a>
 
 When you are running a production website, it is important to know that your application is available and responding to requests. To assist with monitoring your application’s responsiveness, Elastic Beanstalk provides features where you can monitor statistics about your application and create alerts that trigger when thresholds are exceeded.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up your Ruby development environment for Elastic Beanstalk
-<a name="ruby-development-environment"></a>
 
 This chapter provides instructions to set up a Ruby development environment to test your application locally prior to deploying it to AWS Elastic Beanstalk. It also references websites that provide installation instructions for useful tools. 
 

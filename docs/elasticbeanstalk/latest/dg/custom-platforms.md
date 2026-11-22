@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk custom platforms (retired)
-<a name="custom-platforms"></a>
 
 **Note**  
 On [July 18, 2022](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2022-07-18-linux-al1-retire.html), Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**. This includes custom platforms. Elastic Beanstalk doesn't support custom platforms. For more information about Elastic Beanstalk's retirement of Amazon Linux AMI, see [Platform retirement FAQ](using-features.migration-al.FAQ.md).

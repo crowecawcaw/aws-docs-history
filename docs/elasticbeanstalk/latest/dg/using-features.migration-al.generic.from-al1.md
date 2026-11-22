@@ -1,7 +1,6 @@
 
 
 # Migration from Amazon Linux AMI (AL1) to AL2 or AL2023
-<a name="using-features.migration-al.generic.from-al1"></a>
 
 If your Elastic Beanstalk application is based on an Amazon Linux AMI platform branch, use this section to learn how to migrate your application's environments to Amazon Linux 2 or Amazon Linux 2023. Previous generation platform branches based on [Amazon Linux AMI](https://aws.amazon.com/amazon-linux-ami/) are now retired.
 

@@ -1,7 +1,6 @@
 
 
 # Using GitHub Actions to deploy to Elastic Beanstalk
-<a name="deploying-github-actions"></a>
 
 [GitHub Actions](https://docs.github.com/en/actions) can automatically deploy your application to Elastic Beanstalk when you push code changes to your repository. The [Elastic Beanstalk Deploy](https://github.com/aws-actions/aws-elasticbeanstalk-deploy) action provides a simple YAML interface that handles creating application versions and deploying them to your Elastic Beanstalk environment. You can use the action with either Elastic Beanstalk environment type. For a Beanstalk Standard environment, the action packages your repository into a source bundle and uploads it to Amazon S3. For a Beanstalk Cluster environment, the action creates the application version from a container image instead, either an image that your workflow has already built or one that Elastic Beanstalk builds from your source. The inputs that you set select the environment type.
 

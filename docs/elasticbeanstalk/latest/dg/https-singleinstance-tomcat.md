@@ -1,7 +1,6 @@
 
 
 # Terminating HTTPS on EC2 instances running Tomcat
-<a name="https-singleinstance-tomcat"></a>
 
 For Tomcat container types, you use a [configuration file](ebextensions.md) to enable the Apache HTTP Server to use HTTPS when acting as the reverse proxy for Tomcat.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring the proxy server
-<a name="nodejs-platform-proxy"></a>
 
 Elastic Beanstalk can use NGINX or Apache HTTPD as the reverse proxy to map your application to your Elastic Load Balancing load balancer on port 80. The default is NGINX. Elastic Beanstalk provides a default proxy configuration that you can either extend or completely override with your own configuration.
 

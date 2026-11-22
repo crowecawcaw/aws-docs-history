@@ -1,7 +1,6 @@
 
 
 # Configuration options for Beanstalk Cluster environments
-<a name="command-options-general-eks"></a>
 
 A Beanstalk Cluster environment is configured through the twelve namespaces on this page. They are the only namespaces that a Beanstalk Cluster environment accepts. The classic namespaces in [Configuration options for Beanstalk Standard environments](command-options-general.md) configure Beanstalk Standard environments and do not apply, and passing one of them to a Beanstalk Cluster environment returns an `InvalidParameterValueException` rather than being ignored.
 
@@ -47,7 +46,7 @@ Configure the application container, the compute it reserves, its network placem
 
 | **Name** | **Description** | **Default** | **Valid values** | 
 | --- | --- | --- | --- | 
-| `application-role` | The ARN of an optional IAM role that your application assumes to call AWS services. See [Permissions for Beanstalk Cluster](beanstalk-cluster-permissions.md). | None | An IAM role ARN | 
+| `application-role` | The ARN of an optional IAM role that your application assumes to call AWS services. You can't change or remove it after you create the environment. See [Permissions for Beanstalk Cluster](beanstalk-cluster-permissions.md). | None | An IAM role ARN | 
 | `arch` | The CPU architecture that your application runs on. | `amd64` | `amd64` \| `arm64` | 
 | `cpu` | The CPU that each replica of your application reserves. Uses Kubernetes quantity notation, so `500m` is half of a virtual CPU and `2` is two virtual CPUs. | `250m` | `0.01` to `128`, or `10m` to `128000m` | 
 | `cpu-limit` | The most CPU that each replica of your application can use. Uses the same notation as `cpu`. | None | `0.01` to `128`, or `10m` to `128000m` | 
@@ -57,7 +56,7 @@ Configure the application container, the compute it reserves, its network placem
 | `ingress-groups` | The ingress groups that this environment belongs to. Environments in the same group can reach each other. | None | A comma-separated list of ingress group names | 
 | `instance-category` | The Amazon EC2 instance category that the cluster's nodes are selected from. | None | `c` \| `d` \| `g` \| `gr` \| `hpc` \| `i` \| `im` \| `is` \| `m` \| `p` \| `r` \| `t` \| `x` \| `z` | 
 | `language` | The runtime language of your application, which selects the OpenTelemetry auto-instrumentation that Elastic Beanstalk adds to your container, so that your application emits metrics, logs, and traces to the observability backends that you select without application changes. This option chooses auto-instrumentation only. It doesn't limit the languages your application can use. Omit it if your runtime isn't listed, or if your application emits OpenTelemetry data on its own. | None | `python` \| `java` \| `dotnet` \| `nodejs` | 
-| `load-balancer-type` | How traffic reaches your application. With `None`, Elastic Beanstalk doesn't create a load balancer. See [Configuring networking for Beanstalk Cluster environments](configuring-cluster-networking.md). | `ALB` | `ALB` \| `None` | 
+| `load-balancer-type` | How traffic reaches your application. With `None`, Elastic Beanstalk doesn't create a load balancer. You can't change it after you create the environment. See [Configuring networking for Beanstalk Cluster environments](configuring-cluster-networking.md). | `ALB` | `ALB` \| `None` | 
 | `memory` | The memory that each replica of your application reserves. Uses Kubernetes quantity notation, such as `512Mi` or `1.5Gi`. Fractional values are accepted. | `512Mi` | A Kubernetes memory quantity | 
 | `memory-limit` | The most memory that each replica of your application can use. Uses the same notation as `memory`. | `1Gi` | A Kubernetes memory quantity | 
 | `node-pool` | The name of the node pool that runs this environment's replicas. A unique value gives the environment its own nodes, and a shared value groups environments onto shared nodes. See [Multi-tenancy for Beanstalk Cluster environments](beanstalk-cluster-multi-tenancy.md). | None | A DNS-1123 label | 
@@ -201,7 +200,7 @@ Configure the Application Load Balancer in front of your application, its listen
 
 | **Name** | **Description** | **Default** | **Valid values** | 
 | --- | --- | --- | --- | 
-| `arn` | The ARN of an Application Load Balancer that you already own, used instead of one that Elastic Beanstalk creates. Elastic Beanstalk rejects the ARN of a Network Load Balancer. | None. Elastic Beanstalk creates a load balancer. | An Application Load Balancer ARN | 
+| `arn` | The ARN of an Application Load Balancer that you already own, used instead of one that Elastic Beanstalk creates. Elastic Beanstalk rejects the ARN of a Network Load Balancer. You can't add, change, or remove it after you create the environment. | None. Elastic Beanstalk creates a load balancer. | An Application Load Balancer ARN | 
 | `scheme` | Whether the load balancer is reachable from the internet. If you omit it, Elastic Beanstalk derives it from your subnets: public subnets give an internet-facing load balancer, and private subnets give an internal one. | None. Derived from your subnets. | `internet-facing` \| `internal` | 
 | `subnets` | The subnets to place the load balancer in. If you omit them, it uses the environment's subnets. | None. The environment's subnets. | A comma-separated list of subnet IDs | 
 | `security-groups` | The security groups to attach to the load balancer. | None | A comma-separated list of security group IDs | 

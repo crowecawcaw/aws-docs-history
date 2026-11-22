@@ -1,7 +1,6 @@
 
 
 # Amazon resource name format for Elastic Beanstalk
-<a name="AWSHowTo.iam.policies.arn"></a>
 
 You specify a resource for an IAM policy using that resource's Amazon Resource Name (ARN). For Elastic Beanstalk, the ARN has the following format.
 

@@ -1,7 +1,6 @@
 
 
 # Permissions for Beanstalk Cluster
-<a name="beanstalk-cluster-permissions"></a>
 
 A Beanstalk Cluster environment does not use the Amazon Elastic Compute Cloud (Amazon EC2) instance profile from Beanstalk Standard. You provide the IAM roles that Amazon EKS requires for its cluster and nodes, and the role that Elastic Beanstalk uses to publish the environment's metrics, logs, and traces. You can optionally provide an application role for the running application. Elastic Beanstalk uses a service-linked role for its own operation of the environment.
 
@@ -35,6 +34,9 @@ Each role trusts a different service and carries its own permissions:
 | Image build role | aws-elasticbeanstalk-eks-image-build-role | codebuild.amazonaws.com | AWSElasticBeanstalkEKSImageBuild | 
 | Application role (optional) | You choose the name | pods.eks.amazonaws.com | None. You grant only the permissions that your application needs. See [Configure an application role](#beanstalk-cluster-permissions-application-role). | 
 
+**Tagging permissions**  
+The cluster role is an Amazon EKS Auto Mode cluster role that can also apply custom tags. Elastic Beanstalk tags the AWS resources that it creates for your environment, and the Auto Mode managed policies don't permit custom tags. For more information, see [Custom AWS tags for EKS Auto resources](https://docs.aws.amazon.com/eks/latest/userguide/auto-cluster-iam-role.html#tag-prop) in the Amazon EKS User Guide. `AWSElasticBeanstalkEKSTagging` grants these tagging permissions. If you use your own policies instead, they need equivalent permissions. Without them, environment creation and deployments fail.
+
 **To provide the cluster, node, and observability roles**
 
 1. If you create your environment in the Elastic Beanstalk console, you don't need to prepare anything. The console looks for the three roles by name, using the names in the preceding table, selects them when they already exist in your account, and creates them when they don't. It matches on the role name alone, not on the full ARN, and because IAM role names are unique within an account, the path that a role sits at doesn't affect the match.
@@ -45,7 +47,7 @@ Each role trusts a different service and carries its own permissions:
 
 1. If your application calls AWS services, configure the optional application role as described in [Configure an application role](#beanstalk-cluster-permissions-application-role).
 
-The subnet set alone selects the cluster, so use a different subnet set when you need a separate cluster with different infrastructure roles. You cannot change the subnets or the cluster, node, and observability roles of an existing Beanstalk Cluster environment. See [Environment grouping](beanstalk-cluster-concepts.md#beanstalk-cluster-clusters-sharing). The optional application role is specific to an environment and can differ between environments; see [Configure an application role](#beanstalk-cluster-permissions-application-role).
+The subnet set alone selects the cluster, so use a different subnet set when you need a separate cluster with different infrastructure roles. You cannot change the subnets or the cluster, node, and observability roles of an existing Beanstalk Cluster environment. See [Environment grouping](beanstalk-cluster-concepts.md#beanstalk-cluster-clusters-sharing). The optional application role is specific to an environment and can differ between environments, but you cannot change or remove it after you create the environment; see [Configure an application role](#beanstalk-cluster-permissions-application-role).
 
 ## Permissions to create the environment
 <a name="beanstalk-cluster-permissions-caller"></a>
@@ -58,7 +60,7 @@ The following policy grants all of this. Replace the account ID with your own, u
 
 Unlike the console, which selects a role by name, a policy matches a role by its full ARN, so each `Resource` entry has to include the role's IAM path. The roles that the console creates sit at `/service-role/`, as shown here. If you created a role another way it might have no path, in which case its ARN is `arn:aws:iam::{{111122223333}}:role/{{role-name}}`. To read a role's ARN, run `aws iam get-role --role-name {{role-name}} --query Role.Arn --output text`.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -155,7 +157,7 @@ The application role is also the role that reads the credentials for a third-par
 
 Create the application role before you create the environment. Grant the role only the actions and resources that the application requires. Configure its trust policy for Amazon EKS Pod Identity, including `sts:AssumeRole` and `sts:TagSession` for the `pods.eks.amazonaws.com` service principal:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -207,7 +209,7 @@ $ aws elasticbeanstalk describe-events \
 ```
 
 Environment creation rejects an infrastructure role  
-Confirm that the role is in the environment account, its trust policy and attached policies match the current Amazon EKS Auto Mode guidance, and its ARN is complete. If the requested subnet set already has a registered cluster, use its registered cluster and node roles. The operation error identifies conflicting requested and registered values. Correct the request and create the environment again. You cannot replace these roles on an existing environment.
+Confirm that the role is in the environment account, its trust policy and attached policies match the role table earlier in this topic, and its ARN is complete. If the requested subnet set already has a registered cluster, use its registered cluster and node roles. The operation error identifies conflicting requested and registered values. Correct the request and create the environment again. You cannot replace these roles on an existing environment.
 
 The application image cannot be retrieved  
 Verify that the node role has the documented Amazon ECR retrieval permissions and trust policy. Also verify the image URI and any repository policy that restricts access. Correct the role or repository policy, then deploy the application version again.

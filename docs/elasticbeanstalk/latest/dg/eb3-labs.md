@@ -1,7 +1,6 @@
 
 
 # **eb labs**
-<a name="eb3-labs"></a>
 
 ## Description
 <a name="eb3-labsdescription"></a>

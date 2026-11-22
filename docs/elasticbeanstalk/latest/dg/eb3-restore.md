@@ -1,7 +1,6 @@
 
 
 # **eb restore**
-<a name="eb3-restore"></a>
 
 ## Description
 <a name="eb3-restoredescription"></a>

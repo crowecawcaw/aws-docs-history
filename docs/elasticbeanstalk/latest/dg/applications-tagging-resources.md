@@ -1,7 +1,6 @@
 
 
 # Tagging Elastic Beanstalk application resources
-<a name="applications-tagging-resources"></a>
 
 This topic explains the benefits of using tags with your Elastic Beanstalk application resources along with the constraints of doing so. It also explains how to create and manage tags for application resources.
 

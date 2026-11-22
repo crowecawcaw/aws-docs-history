@@ -1,7 +1,6 @@
 
 
 # Reverse proxy configuration
-<a name="platforms-linux-extend.proxy"></a>
 
 All Amazon Linux 2 and Amazon Linux 2023 platform versions use nginx as their default reverse proxy server. The Tomcat, Node.js, PHP, and Python platform also support Apache HTTPD as an alternative. To select Apache on these platforms, set the `ProxyServer` option in the `aws:elasticbeanstalk:environment:proxy` namespace to `apache`. All platforms enable proxy server configuration in a uniform way, as described in this section.
 

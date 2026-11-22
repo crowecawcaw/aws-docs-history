@@ -1,7 +1,6 @@
 
 
 # Viewing an Elastic Beanstalk environment's change history
-<a name="using-features.changehistory"></a>
 
 This topic explains how you can use the Elastic Beanstalk Console to view a history of configuration changes that have been made to your Elastic Beanstalk environments.
 

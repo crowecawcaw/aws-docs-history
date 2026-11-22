@@ -1,7 +1,6 @@
 
 
 # **eb local**
-<a name="eb3-local"></a>
 
 ## Description
 <a name="eb3-localdescription"></a>

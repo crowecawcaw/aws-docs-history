@@ -1,7 +1,6 @@
 
 
 # Example policies based on managed policies
-<a name="ExamplePolicies_AEB"></a>
 
 This section demonstrates how to control user access to AWS Elastic Beanstalk and includes example policies that provide the required access for common scenarios. These policies are derived from the Elastic Beanstalk managed policies. For information about attaching managed policies to users and groups, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md). 
 
@@ -29,7 +28,7 @@ Note that this policy is an example. It gives a broad set of permissions to the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -66,7 +65,7 @@ Note that this policy is an example. It gives a broad set of permissions to the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -113,7 +112,7 @@ The following policy allows read-only access to all applications, application ve
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # **eb codesource**
-<a name="eb3-codesource"></a>
 
 ## Description
 <a name="eb3-codesourcedescription"></a>

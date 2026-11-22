@@ -1,7 +1,6 @@
 
 
 # Environment manifest (`env.yaml`)
-<a name="environment-cfg-manifest"></a>
 
 You can include a YAML formatted environment manifest in the root of your application source bundle to configure the environment name, solution stack and [environment links](environment-cfg-links.md) to use when creating your environment.
 

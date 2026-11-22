@@ -1,7 +1,6 @@
 
 
 # Building JARs on-server with a Buildfile
-<a name="java-se-buildfile"></a>
 
 You can build your application's class files and JAR(s) on the EC2 instances in your environment by invoking a build command from a `Buildfile` file in your source bundle.
 

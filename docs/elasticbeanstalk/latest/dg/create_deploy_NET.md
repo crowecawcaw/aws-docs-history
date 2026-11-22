@@ -1,7 +1,6 @@
 
 
 # Deploying .NET Windows applications with Elastic Beanstalk
-<a name="create_deploy_NET"></a>
 
 **Check out the *.NET on AWS Developer Center***  
   

@@ -1,7 +1,6 @@
 
 
 # Platform retirement FAQ
-<a name="using-features.migration-al.FAQ"></a>
 
 The answers in this FAQ reference the following topics:
 + [Elastic Beanstalk platform support policy](platforms-support-policy.md)

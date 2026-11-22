@@ -1,7 +1,6 @@
 
 
 # Node.js tools and resources
-<a name="create_deploy_nodejs.resources"></a>
 
 There are several places you can go to get additional help when developing your Node.js applications: 
 

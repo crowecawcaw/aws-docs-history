@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions for Elastic Beanstalk to access secrets and parameters
-<a name="AWSHowTo.secrets.IAM-permissions"></a>
 
 You must grant the necessary permissions to your environment’s EC2 instances to fetch the secrets and parameters for AWS Secrets Manager and AWS Systems Manager Parameter Store. Permissions are provided to the EC2 instances via an EC2 [instance profile role.](iam-instanceprofile.md)
 
@@ -26,7 +25,7 @@ The permission to decrypt an AWS KMS key is only required if your secret uses a 
 **Example policy with Secrets Manager and KMS key permissions**    
 ****  
 
-```
+```json
 {
     "Version": "{{2012-10-17}}",
     "Statement": [
@@ -57,7 +56,7 @@ The permission to decrypt an AWS KMS key is only required for `SecureString` par
 **Example policy with Systems Manager and AWS KMS key permissions**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

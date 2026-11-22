@@ -1,7 +1,6 @@
 
 
 # Using a Procfile to configure your .NET Core on Linux Elastic Beanstalk environment
-<a name="dotnet-linux-procfile"></a>
 
 To run multiple applications on the same web server, you must include a `Procfile` in your source bundle that tells Elastic Beanstalk which applications to run.
 

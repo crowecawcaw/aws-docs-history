@@ -1,7 +1,6 @@
 
 
 # Adding and customizing Elastic Beanstalk environment resources
-<a name="environment-resources"></a>
 
 You may want to customize your environment resources that are part of your Elastic Beanstalk environment. For example, you may want to add an Amazon SQS queue and an alarm on queue depth, or you might want to add an Amazon ElastiCache cluster. You can easily customize your environment at the same time that you deploy your application version by including a configuration file with your source bundle.
 

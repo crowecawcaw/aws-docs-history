@@ -1,7 +1,6 @@
 
 
 # Deploying Java applications with Elastic Beanstalk
-<a name="create_deploy_Java"></a>
 
 This chapter provides instructions for configuring and deploying your Java applications to AWS Elastic Beanstalk. Elastic Beanstalk makes it easy to deploy, manage, and scale your Java web applications using Amazon Web Services.
 

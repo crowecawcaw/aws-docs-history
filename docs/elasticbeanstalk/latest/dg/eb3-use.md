@@ -1,7 +1,6 @@
 
 
 # **eb use**
-<a name="eb3-use"></a>
 
 ## Description
 <a name="eb3-usedescription"></a>

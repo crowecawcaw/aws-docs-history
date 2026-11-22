@@ -1,7 +1,6 @@
 
 
 # Deploying a Flask application to Elastic Beanstalk
-<a name="create-deploy-python-flask"></a>
 
 This tutorial walks you through the process of generating a Flask application and deploying it to an AWS Elastic Beanstalk environment. Flask is an open source web application framework for Python. 
 
@@ -95,7 +94,7 @@ Create a new text file in this directory named `application.py` with the followi
 
 **Example `~/eb-flask/application.py`**  
 
-```
+```python
 from flask import Flask
 
 # print a nice greeting.

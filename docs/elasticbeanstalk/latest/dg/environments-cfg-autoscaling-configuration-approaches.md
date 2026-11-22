@@ -1,7 +1,6 @@
 
 
 # Capacity configuration for your Elastic Beanstalk environment
-<a name="environments-cfg-autoscaling-configuration-approaches"></a>
 
 This topic describes the different approaches to configure Auto Scaling capacity for your Elastic Beanstalk environment. You can use the Elastic Beanstalk console, the EB CLI, the AWS CLI, or namespace options.
 
@@ -163,7 +162,7 @@ aws elasticbeanstalk create-environment \
 
 **Example**  
 
-```
+```json
 ### example options.json ###
 [
     {

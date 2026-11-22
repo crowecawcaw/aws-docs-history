@@ -1,7 +1,6 @@
 
 
 # Configuring the proxy server
-<a name="java-tomcat-proxy"></a>
 
 The Tomcat platform uses [nginx](https://www.nginx.com/) (the default) or [Apache HTTP Server](https://httpd.apache.org/) as the reverse proxy to relay requests from port 80 on the instance to your Tomcat web container listening on port 8080. Elastic Beanstalk provides a default proxy configuration that you can extend or override completely with your own configuration.
 

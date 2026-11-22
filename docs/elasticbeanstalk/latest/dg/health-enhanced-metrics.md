@@ -1,7 +1,6 @@
 
 
 # Instance metrics
-<a name="health-enhanced-metrics"></a>
 
 Instance metrics provide information about the health of instances in your environment. The [Elastic Beanstalk health agent](health-enhanced.md#health-enhanced-agent) runs on each instance. It gathers and relays metrics about instances to Elastic Beanstalk, which analyzes the metrics to determine the health of the instances in your environments. 
 

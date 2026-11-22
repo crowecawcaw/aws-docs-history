@@ -1,7 +1,6 @@
 
 
 # Authenticating with image repositories
-<a name="docker-configuration.remote-repo"></a>
 
 This topic describes how to authenticate to online image repositories with Elastic Beanstalk. For private repositories, Elastic Beanstalk must authenticate before it can pull and deploy your images. For Amazon ECR Public, authentication is optional but provides higher rate limits and improved reliability.
 
@@ -17,7 +16,7 @@ When you store your Docker images in Amazon ECR, Elastic Beanstalk automatically
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ Before proceeding, ensure you have set up your credentials in AWS Secrets Manage
    + `.platform/confighooks/prebuild/01login.sh`
    + `.platform/hooks/prebuild/01login.sh`
 
-   ```
+   ```bash
    #!/bin/bash
    echo $PASSWD | docker login -u $USER --password-stdin
    ```
@@ -217,7 +216,7 @@ To enable Amazon ECR Public authentication, add the following permissions to you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

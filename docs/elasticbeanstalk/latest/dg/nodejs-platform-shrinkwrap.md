@@ -1,7 +1,6 @@
 
 
 # Locking dependencies with npm shrinkwrap on Elastic Beanstalk
-<a name="nodejs-platform-shrinkwrap"></a>
 
 The Node.js platform runs `npm install` as the *webapp* user each time you deploy. When new versions of your dependencies are available, they're installed when you deploy your application, potentially causing the deployment to take a long time.
 

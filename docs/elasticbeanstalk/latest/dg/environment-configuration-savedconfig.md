@@ -1,7 +1,6 @@
 
 
 # Using Elastic Beanstalk saved configurations
-<a name="environment-configuration-savedconfig"></a>
 
 You can save your environment's configuration as an object in Amazon Simple Storage Service (Amazon S3) that can be applied to other environments during environment creation, or applied to a running environment. *Saved configurations* are YAML formatted templates that define an environment's [platform version](concepts.platforms.md), [tier](concepts.md#concepts-tier), [configuration option](command-options.md) settings, and tags.
 
