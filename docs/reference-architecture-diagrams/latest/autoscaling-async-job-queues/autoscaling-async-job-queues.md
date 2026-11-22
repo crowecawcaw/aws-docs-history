@@ -1,7 +1,6 @@
 
 
 # Autoscaling Asynchronous Job Queues
-<a name="autoscaling-async-job-queues"></a>
 
 Publication date: **April 15, 2021 ([Diagram history](#diagram-history))**
 
