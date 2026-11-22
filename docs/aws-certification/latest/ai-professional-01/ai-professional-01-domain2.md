@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Implementation and Integration
-<a name="ai-professional-01-domain2"></a>
 
 ## Task 2.1: Implement agentic AI solutions and tool integrations.
 <a name="ai-professional-01-task-2-1"></a>

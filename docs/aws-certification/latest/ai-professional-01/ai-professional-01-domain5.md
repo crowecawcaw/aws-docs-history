@@ -1,7 +1,6 @@
 
 
 # Content Domain 5: Testing, Validation, and Troubleshooting
-<a name="ai-professional-01-domain5"></a>
 
 ## Task 5.1: Implement evaluation systems for GenAI.
 <a name="ai-professional-01-task-5-1"></a>
