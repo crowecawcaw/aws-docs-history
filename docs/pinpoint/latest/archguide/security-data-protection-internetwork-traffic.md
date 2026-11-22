@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Internetwork traffic privacy
-<a name="security-data-protection-internetwork-traffic"></a>
 
 *Internetwork traffic privacy* refers to securing connections and traffic between Amazon Pinpoint and your on-premises clients and applications, and between Amazon Pinpoint and other AWS resources in the same AWS Region. The following features and practices can help you achieve internetwork traffic privacy for Amazon Pinpoint.
 

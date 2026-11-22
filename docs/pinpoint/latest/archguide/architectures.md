@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint reference architectures
-<a name="architectures"></a>
 
 This chapter contains two sample architectures for resilient Amazon Pinpoint workloads: an active-active architecture, and a warm standby architecture. Each of these architectures has its own distinct benefits and drawbacks. The topics in this chapter provide information about each of these architecture types.
 

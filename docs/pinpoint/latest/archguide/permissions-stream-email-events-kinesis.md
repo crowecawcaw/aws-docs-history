@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # IAM role for streaming email events to Firehose
-<a name="permissions-stream-email-events-kinesis"></a>
 
 In the Amazon Pinpoint Email API, you can create *configuration sets* that specify how to handle certain email events. For example, you can create a configuration set that sends delivery notifications to a specific *event destination*, such as an Amazon SNS topic or an Amazon Data Firehose delivery stream. When you send email through the Amazon Pinpoint Email API using that configuration set, Amazon Pinpoint sends information about email-related events to the event destination that you specified in the configuration set.
 
@@ -37,7 +36,7 @@ To allow the Amazon Pinpoint Email API to assume the IAM role and perform the ac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -72,7 +71,7 @@ To allow the Amazon Pinpoint Email API to send email event data to a Firehose de
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

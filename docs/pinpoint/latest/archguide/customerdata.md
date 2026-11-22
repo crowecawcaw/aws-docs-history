@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Synchronizing customer data across AWS Regions
-<a name="customerdata"></a>
 
 Regardless of the architecture design that you choose, make sure that your customer data is synchronized across the AWS Regions that you intend to use. In this case, "customer data" refers to the contact information for your customers (such as their email addresses, phone numbers, name, or company). It also refers to the preference data for your customers—that is, their opt-in and opt-out preferences. Finally, it refers to information about whether they're able to receive messages from you. 
 

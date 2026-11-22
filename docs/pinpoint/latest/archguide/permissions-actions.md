@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint actions for IAM policies
-<a name="permissions-actions"></a>
 
 To manage access to Amazon Pinpoint resources in your AWS account, you can add Amazon Pinpoint actions to AWS Identity and Access Management (IAM) policies. By using actions in policies, you can control what users can do on the Amazon Pinpoint console. You can also control what users can do programmatically by using the AWS SDKs, the AWS Command Line Interface (AWS CLI), or the Amazon Pinpoint API operations directly.
 
