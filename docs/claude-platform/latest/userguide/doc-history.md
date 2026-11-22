@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes important changes to the *Claude Platform on AWS User Guide*.
 

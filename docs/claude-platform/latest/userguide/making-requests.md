@@ -1,13 +1,12 @@
 
 
 # Making requests
-<a name="making-requests"></a>
 
 Claude Platform on AWS uses the Anthropic Messages API (`/v1/messages`), the same API surface as the Claude first-party platform. The differences are the base URL, the authentication method, and a required `anthropic-workspace-id` header that identifies which [workspace](workspaces.md) the request targets.
 
  **Shell** 
 
-```
+```bash
 curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
   --aws-sigv4 "aws:amz:us-west-2:aws-external-anthropic" \
   --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
@@ -26,7 +25,7 @@ curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
 
  **Python** 
 
-```
+```python
 from anthropic import AnthropicAWS
 
 client = AnthropicAWS()
@@ -41,7 +40,7 @@ print(message)
 
  **TypeScript** 
 
-```
+```typescript
 import AnthropicAws from "@anthropic-ai/aws-sdk";
 
 const client = new AnthropicAws();
@@ -56,7 +55,7 @@ console.log(message);
 
  **C\#** 
 
-```
+```csharp
 using Anthropic;
 using Anthropic.Aws;
 
@@ -74,7 +73,7 @@ Console.WriteLine(message);
 
  **Go** 
 
-```
+```go
 client, err := anthropicaws.NewClient(context.Background(), anthropicaws.ClientConfig{})
 if err != nil {
     panic(err)
@@ -96,7 +95,7 @@ fmt.Println(message.Content[0].Text)
 
  **Java** 
 
-```
+```java
 import com.anthropic.aws.backends.AwsBackend;
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
@@ -121,7 +120,7 @@ IO.println(message);
 
  **PHP** 
 
-```
+```php
 use Anthropic\Aws\Client;
 
 $client = new Client();
@@ -137,7 +136,7 @@ echo $message;
 
  **Ruby** 
 
-```
+```ruby
 require "anthropic"
 
 client = Anthropic::AWSClient.new
@@ -163,7 +162,7 @@ The `--aws-sigv4` value follows the format `aws:amz:<region>:<service>`. The Sig
 
 If you prefer not to add the AWS SDK dependency, you can use the base `Anthropic` client. This path uses the vanilla SDK environment variable names rather than the `ANTHROPIC_AWS_*` names the dedicated client reads:
 
-```
+```bash
 export ANTHROPIC_API_KEY='your-api-key'
 export ANTHROPIC_BASE_URL='https://aws-external-anthropic.us-west-2.api.aws'
 export ANTHROPIC_WORKSPACE_ID='your-workspace-id'
@@ -173,7 +172,7 @@ The Python, TypeScript, and Go SDKs read `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE
 
  **Python** 
 
-```
+```python
 import os
 from anthropic import Anthropic
 
@@ -192,7 +191,7 @@ print(message.content[0].text)
 
  **TypeScript** 
 
-```
+```typescript
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({

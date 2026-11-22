@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 Before making API calls, ensure you have:
 
@@ -18,13 +17,13 @@ Before making API calls, ensure you have:
 
 The Claude Platform on AWS gateway calls `sts:GetWebIdentityToken` server-side to mint a JWT it forwards to Anthropic. This STS capability is **disabled by default** on every AWS account. Enable it once per account:
 
-```
+```bash
 aws iam enable-outbound-web-identity-federation
 ```
 
 If the response is `[ERROR] (FeatureEnabled) …​ already enabled`, the setting is already on for your account and you can move on. Verify and retrieve your account’s issuer URL:
 
-```
+```bash
 aws iam get-outbound-web-identity-federation-info
 ```
 
@@ -38,7 +37,7 @@ A default workspace is provisioned automatically in each region when you sign up
 
 Set the `ANTHROPIC_AWS_WORKSPACE_ID` and `AWS_REGION` environment variables so the SDK clients read them automatically:
 
-```
+```bash
 export ANTHROPIC_AWS_WORKSPACE_ID='wrkspc_01AbCdEf23GhIj'
 export AWS_REGION='us-west-2'
 ```

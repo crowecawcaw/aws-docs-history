@@ -1,7 +1,6 @@
 
 
 # Migrating from Amazon Bedrock
-<a name="migrating-from-bedrock"></a>
 
 If you currently use Claude on Bedrock, migrating to Claude Platform on AWS requires changes throughout your integration. SigV4 signing remains supported, but the signing context, base URL, API format, model IDs, SDK client and package, streaming format, request headers, and region availability all change. The following table summarizes the differences.
 

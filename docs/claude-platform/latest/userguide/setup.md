@@ -1,7 +1,6 @@
 
 
 # Set up your account
-<a name="setup"></a>
 
 Setting up Claude Platform on AWS has four phases: sign up in the AWS Console, set up your Anthropic organization, note your workspace ID, and sign in to the Claude Console.
 

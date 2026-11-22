@@ -1,7 +1,6 @@
 
 
 # Rate limits and quotas
-<a name="rate-limits"></a>
 
 Claude Platform on AWS assigns Tier 1 rate limits when you subscribe. Anthropic manages rate limits directly, not through AWS quota systems.
 

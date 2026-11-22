@@ -1,7 +1,6 @@
 
 
 # Authentication
-<a name="authentication"></a>
 
 Claude Platform on AWS supports two authentication methods: AWS IAM with SigV4 request signing (primary) and API key authentication. Both use the same base URL and request format.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring and logging
-<a name="monitoring"></a>
 
 AWS CloudTrail can capture all requests to Claude Platform on AWS. Workspace and vault operations are logged as Management events by default. All other operations (inference, batch, file, skill, model, user profile, and Claude Managed Agents except vaults) are Data events. Logging them requires explicit configuration and incurs additional CloudTrail charges. See [IAM actions](iam-actions.md) for the full event type classification and the [AWS CloudTrail documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/) for configuration details.
 
@@ -16,7 +15,7 @@ Each response includes two request IDs in the response headers:
 
  **Python** 
 
-```
+```python
 from anthropic import AnthropicAWS
 
 client = AnthropicAWS(aws_region="us-west-2")
@@ -36,7 +35,7 @@ print(message.content)
 
  **TypeScript** 
 
-```
+```typescript
 import AnthropicAws from "@anthropic-ai/aws-sdk";
 
 const client = new AnthropicAws({ awsRegion: "us-west-2" });
@@ -56,7 +55,7 @@ console.log(message.content);
 
  **C\#** 
 
-```
+```csharp
 using Anthropic;
 using Anthropic.Aws;
 
@@ -76,7 +75,7 @@ Console.WriteLine(response.Value.Content);
 
  **Go** 
 
-```
+```go
 client, err := anthropicaws.NewClient(context.Background(), anthropicaws.ClientConfig{})
 if err != nil {
     panic(err)
@@ -105,7 +104,7 @@ fmt.Println(message.Content[0].Text)
 
  **Java** 
 
-```
+```java
 import com.anthropic.aws.backends.AwsBackend;
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
@@ -133,7 +132,7 @@ IO.println(response.parse().content());
 
  **PHP** 
 
-```
+```php
 use Anthropic\Aws\Client;
 
 $client = new Client();

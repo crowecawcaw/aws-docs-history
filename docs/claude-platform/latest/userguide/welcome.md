@@ -1,7 +1,6 @@
 
 
 # What is Claude Platform on AWS?
-<a name="welcome"></a>
 
  *Access Claude’s full platform capabilities through AWS with Anthropic-managed infrastructure.* 
 

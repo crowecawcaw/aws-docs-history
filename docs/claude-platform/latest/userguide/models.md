@@ -1,7 +1,6 @@
 
 
 # Available models
-<a name="models"></a>
 
 Claude Platform on AWS offers the same set of Claude models as the first-party Claude API.
 
