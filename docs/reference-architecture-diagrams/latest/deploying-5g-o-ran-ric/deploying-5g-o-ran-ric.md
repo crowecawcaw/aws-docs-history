@@ -1,7 +1,6 @@
 
 
 # Deploying 5G O-RAN RIC on AWS
-<a name="deploying-5g-o-ran-ric"></a>
 
 Publication date: **June 16, 2022 ([Diagram history](#ric-history))**
 
