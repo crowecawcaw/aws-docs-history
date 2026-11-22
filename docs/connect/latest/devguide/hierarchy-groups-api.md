@@ -1,7 +1,6 @@
 
 
 # Hierarchy group actions
-<a name="hierarchy-groups-api"></a>
 
  The following API actions are available for hierarchy groups:
 + [CreateUserHierarchyGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUserHierarchyGroup.html)

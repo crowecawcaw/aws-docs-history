@@ -1,7 +1,6 @@
 
 
 # OnPostChatAnalysisAvailable
-<a name="OnPostChatAnalysisAvailable"></a>
 
 ## Agent Hierarchy
 <a name="agent-hierarchy-chat"></a>
@@ -112,7 +111,7 @@
 + ComparisonValue - "$.ContactLens.PostChat.AiAgent.IdWithVersion"
 + FilterClause - 
 
-  ```
+  ```json
   {
           LogicOperator: 'AND', // has to be 'AND'
           Filters: [
@@ -140,7 +139,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.ExactMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -168,7 +167,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.SemanticMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -196,7 +195,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.SemanticMatch.Phrase"
 + FilterClause –
 
-  ```
+  ```json
   {
        Operator: "EQUALS",
        Operands: [
@@ -217,7 +216,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.PatternMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -285,7 +284,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.Sentiment.State"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -307,7 +306,7 @@
 + ComparisonValue – "$.ContactLens.PostChat.Sentiment.OverallScore"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -331,7 +330,7 @@ PostChat sentiment score shift condition has a compound condition format where O
 + ComparisonValue – "$.ContactLens.PostChat.Sentiment.Score.Beginning"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -350,7 +349,7 @@ PostChat sentiment score shift condition has a compound condition format where O
 + ComparisonValue – "$.ContactLens.PostChat.Sentiment.Score.End"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -365,7 +364,7 @@ PostChat sentiment score shift condition has a compound condition format where O
 
 Following is an example:
 
-```
+```json
 {
         "Operator": "AND",
         "Operands": [

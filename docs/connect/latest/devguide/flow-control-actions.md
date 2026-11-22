@@ -1,7 +1,6 @@
 
 
 # Flow control actions in the Connect Customer Flow language
-<a name="flow-control-actions"></a>
 
 These actions don't have any side effects and are only used to determine the path through a flow. Certain data may not be available (such as contact data, if the action is determining its path based on contact data). These actions generally work in every circumstance.
 

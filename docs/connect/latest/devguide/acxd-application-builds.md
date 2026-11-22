@@ -1,7 +1,6 @@
 
 
 # Application builds
-<a name="acxd-application-builds"></a>
 
 A build creates an immutable package of your application's flow logic, language settings, and configuration. A build compiles an application's flows and configuration into a deployable artifact.
 
@@ -18,7 +17,7 @@ A build creates an immutable package of your application's flow logic, language 
 
 This example creates an application, attaches a flow, builds it, and checks build status.
 
-```
+```typescript
 // 1. Create an Application
 const app = await client.send(new CreateApplicationCommand({
   name: "CustomerSupport",
@@ -66,7 +65,7 @@ Lists builds for an application.
 ### Sample Request
 <a name="w2aac18c13d127b9b7"></a>
 
-```
+```typescript
 await client.send(new ListApplicationBuildsCommand({
   applicationIdentifier: "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
 }));
@@ -75,7 +74,7 @@ await client.send(new ListApplicationBuildsCommand({
 ### Output
 <a name="w2aac18c13d127b9b9"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -124,7 +123,7 @@ Starts a new build. A validation check runs automatically, review the results to
 ### Sample Request
 <a name="w2aac18c13d127c11b7"></a>
 
-```
+```typescript
 await client.send(new CreateApplicationBuildCommand({
   applicationIdentifier: app.applicationId,
   version: "1.0",
@@ -138,7 +137,7 @@ await client.send(new CreateApplicationBuildCommand({
 ### Output
 <a name="w2aac18c13d127c11b9"></a>
 
-```
+```json
 {
   "buildId": "b1c2d3e4-5678-90ab-cdef-1234567890ab",
   "applicationId": "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
@@ -181,7 +180,7 @@ Gets build details and status. A build transitions from PENDING → BUILT (succe
 ### Sample Request
 <a name="w2aac18c13d127c13b7"></a>
 
-```
+```typescript
 await client.send(new GetApplicationBuildCommand({
   applicationIdentifier: app.applicationId,
   buildIdentifier: build.buildId,
@@ -191,7 +190,7 @@ await client.send(new GetApplicationBuildCommand({
 ### Output
 <a name="w2aac18c13d127c13b9"></a>
 
-```
+```json
 {
   "buildId": "b1c2d3e4-5678-90ab-cdef-1234567890ab",
   "applicationId": "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
@@ -235,7 +234,7 @@ Gets the diff between two builds showing what changed.
 ### Sample Request
 <a name="w2aac18c13d127c15b7"></a>
 
-```
+```typescript
 await client.send(new GetApplicationBuildDiffCommand({
   applicationIdentifier: APP_ID,
   buildIdentifier: SECOND_BUILD_ID,
@@ -246,7 +245,7 @@ await client.send(new GetApplicationBuildDiffCommand({
 ### Output
 <a name="w2aac18c13d127c15b9"></a>
 
-```
+```json
 {
   "application": {
     "properties": {},

@@ -1,7 +1,6 @@
 
 
 # Metadata object
-<a name="acxd-common-types-metadata"></a>
 
 The `metadata` object is optional organizational metadata used to categorize and group resources within your workspace. It does not affect runtime behavior it is purely for organization and filtering in the agentic CX designer workspace.
 
@@ -14,7 +13,7 @@ The `metadata` object is optional organizational metadata used to categorize and
 ## Example
 <a name="acxd-common-types-metadata-example"></a>
 
-```
+```json
 {
   "metadata": {
     "path": "/customer-support/sentiment",

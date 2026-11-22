@@ -1,7 +1,6 @@
 
 
 # Working with Attachments
-<a name="working-with-acps-api"></a>
 
 This topic explains how to work with attachments for Chat and Cases in Connect Customer. For Chat Attachments, refer to the first section on the Connect Customer Participant Service API. For Case Attachments, refer to the second section on the Connect Customer service’s Attached Files APIs.
 

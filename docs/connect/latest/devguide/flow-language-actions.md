@@ -1,7 +1,6 @@
 
 
 # Actions in the Connect Customer Flow Language
-<a name="flow-language-actions"></a>
 
 An Action is a single step of a flow's run. This topic describes the fields that must be defined.
 
@@ -81,7 +80,7 @@ The Condition object must contain the following fields:
 
 Following is an example of a condition that returns true if the result starts with "ABC":
 
-```
+```json
 {
     "Operator": "TextStartsWith",
     "Operands": [

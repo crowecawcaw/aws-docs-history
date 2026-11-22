@@ -1,7 +1,6 @@
 
 
 # OnScheduleTimeOffRequestActivity
-<a name="OnScheduleTimeOffRequestActivity"></a>
 
 The OnScheduleTimeOffRequestActivity event source runs a rule when there is activity on an agent's time off request.
 
@@ -24,7 +23,7 @@ The rule runs when the event belongs to one of the specified forecast groups.
 + ComparisonValue – "$.Scheduling.ForecastGroup.Id"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["forecastGroupId"],
@@ -44,7 +43,7 @@ The rule runs when the event affects at least one of the specified staffing grou
 + ComparisonValue – "$.Scheduling.StaffingGroups[\*].Id"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["staffingGroupId1", "staffingGroupId2"],
@@ -64,7 +63,7 @@ The rule runs when the time off request uses one of the specified time off activ
 + ComparisonValue – "$.Scheduling.TimeOffActivity.Id"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["timeOffActivityId"],
@@ -84,7 +83,7 @@ The rule runs when the time off request belongs to one of the specified agents.
 + ComparisonValue – "$.Scheduling.ImpactedAgent.Id"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["agentId1", "agentId2"],
@@ -96,7 +95,7 @@ The rule runs when the time off request belongs to one of the specified agents.
 ## Example rule function
 <a name="OnScheduleTimeOffRequestActivity-example"></a>
 
-```
+```json
 {
     "Version": "2022-11-25",
     "RuleFunction": {

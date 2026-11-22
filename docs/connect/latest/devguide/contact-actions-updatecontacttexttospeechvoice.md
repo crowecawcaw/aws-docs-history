@@ -1,14 +1,13 @@
 
 
 # UpdateContactTextToSpeechVoice
-<a name="contact-actions-updatecontacttexttospeechvoice"></a>
 
 Updates the Amazon Polly voice used by text-to-speech for voice contacts (message with text-to-speech, or Amazon Lex bots). This defaults to Joanna if this action is never run. 
 
 ## Parameter object
 <a name="updatecontacttexttospeechvoice-parameter"></a>
 
-```
+```json
 {
   "TextToSpeechVoice": A string holding the name of an Amazon Polly voice. May be defined statically or dynamically. If this is an invalid text to speech voice, text to speech is no longer function for this contact.
   "TextToSpeechEngine": The engine associated with the Amazon Polly voice. May be defined statically or dynamically.

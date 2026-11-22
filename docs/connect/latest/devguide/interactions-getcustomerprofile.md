@@ -1,7 +1,6 @@
 
 
 # GetCustomerProfile
-<a name="interactions-getcustomerprofile"></a>
 
 Retrieve a customer profile based any search identifier, up to five total. Customer Profiles must be enabled for your Connect Customer instance.
 
@@ -12,7 +11,7 @@ See [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIRefe
 
 At least one search identifier must be present.
 
-```
+```json
 {
     "ProfileRequestData": {
         Requires either IdentiferName and IdentifierValue, or SearchCriteria.

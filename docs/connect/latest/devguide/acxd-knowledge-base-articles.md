@@ -1,7 +1,6 @@
 
 
 # Knowledge base articles
-<a name="acxd-knowledge-base-articles"></a>
 
 Manage structured Q&A content within a knowledge base. Articles contain a question and one or more response messages.
 
@@ -31,7 +30,7 @@ Lists all articles in a knowledge base.
 ### Sample Request
 <a name="acxd-knowledge-base-articles-listknowledgebasearticles-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListKnowledgeBaseArticlesCommand({
       knowledgeBaseId: "kb-a1b2c3d4-...",
 }));
@@ -40,7 +39,7 @@ await client.send(new ListKnowledgeBaseArticlesCommand({
 ### Output
 <a name="acxd-knowledge-base-articles-listknowledgebasearticles-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -88,7 +87,7 @@ Creates a new article in a knowledge base.
 ### Sample Request
 <a name="acxd-knowledge-base-articles-createknowledgebasearticle-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateKnowledgeBaseArticleCommand({
   knowledgeBaseId: "kb-a1b2c3d4-...",
   question: { text: "How do I reset my password?" },
@@ -103,7 +102,7 @@ await client.send(new CreateKnowledgeBaseArticleCommand({
 ### Output
 <a name="acxd-knowledge-base-articles-createknowledgebasearticle-output"></a>
 
-```
+```json
 {
   "knowledgeBaseId": "kb-a1b2c3d4-...",
   "articleId": "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -153,7 +152,7 @@ Gets a single article by ID.
 ### Sample Request
 <a name="acxd-knowledge-base-articles-getknowledgebasearticle-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetKnowledgeBaseArticleCommand({
   knowledgeBaseId: "kb-a1b2c3d4-...",
   articleId: "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -163,7 +162,7 @@ await client.send(new GetKnowledgeBaseArticleCommand({
 ### Output
 <a name="acxd-knowledge-base-articles-getknowledgebasearticle-output"></a>
 
-```
+```json
 {
   "knowledgeBaseId": "kb-a1b2c3d4-...",
   "articleId": "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -218,7 +217,7 @@ Updates an existing article. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-knowledge-base-articles-updateknowledgebasearticle-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateKnowledgeBaseArticleCommand({
   knowledgeBaseId: "kb-a1b2c3d4-...",
   articleId: "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -234,7 +233,7 @@ await client.send(new UpdateKnowledgeBaseArticleCommand({
 ### Output
 <a name="acxd-knowledge-base-articles-updateknowledgebasearticle-output"></a>
 
-```
+```json
 {
   "knowledgeBaseId": "kb-a1b2c3d4-...",
   "articleId": "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -284,7 +283,7 @@ Deletes an article.
 ### Sample Request
 <a name="acxd-knowledge-base-articles-deleteknowledgebasearticle-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteKnowledgeBaseArticleCommand({
   knowledgeBaseId: "kb-a1b2c3d4-...",
   articleId: "art-e5f6g7h8-5678-90ab-cdef-1234567890ab",
@@ -357,7 +356,7 @@ Response messages returned when this article matches. Each entry is a message ob
 
 **Example:**
 
-```
+```json
 [
   { "type": "text", "body": "Go to Settings > Security > Reset Password." },
   { "type": "text", "body": "If you still have trouble, contact support." }

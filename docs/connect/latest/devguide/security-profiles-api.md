@@ -1,7 +1,6 @@
 
 
 # Security profile actions
-<a name="security-profiles-api"></a>
 
 The following API actions are available for security profiles:
 + [CreateSecurityProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateSecurityProfile.html)

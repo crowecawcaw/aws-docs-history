@@ -1,7 +1,6 @@
 
 
 # OnPostCallAnalysisAvailable
-<a name="OnPostCallAnalysisAvailable"></a>
 
 ## Agent Hierarchy
 <a name="agent-hierarchy"></a>
@@ -90,7 +89,7 @@
 + ComparisonValue - "$.ContactLens.PostCall.TalkTime.TotalTimeSecs"
 + FilterClause - 
 
-  ```
+  ```json
   { // required!!
           LogicOperator: 'AND', // has to be 'AND'
           Filters: [ // only allows one of the object
@@ -112,7 +111,7 @@
 + ComparisonValue - "$.ContactLens.PostCall.Loudness.HighestLoudnessScore"
 + FilterClause - 
 
-  ```
+  ```json
   {
           LogicOperator: 'AND', // has to be AND
           Filters: [ // only one object
@@ -174,7 +173,7 @@
 + ComparisonValue - "$.ContactLens.PostCall.AiAgent.IdWithVersion"
 + FilterClause - 
 
-  ```
+  ```json
   [
             { // REQUIRED filter 
               Type: 'AiAgentUseCase',
@@ -200,7 +199,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.ExactMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -228,7 +227,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.SemanticMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -256,7 +255,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.SemanticMatch.Phrase"
 + FilterClause –
 
-  ```
+  ```json
   {
        Operator: "EQUALS",
        Operands: [
@@ -277,7 +276,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.PatternMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -345,7 +344,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.Sentiment.State"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -367,7 +366,7 @@
 + ComparisonValue – "$.ContactLens.PostCall.Sentiment.OverallScore"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -391,7 +390,7 @@ PostCall sentiment score shift condition has a compound condition format where O
 + ComparisonValue – "$.ContactLens.PostCall.Sentiment.Score.Beginning"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -410,7 +409,7 @@ PostCall sentiment score shift condition has a compound condition format where O
 + ComparisonValue – "$.ContactLens.PostCall.Sentiment.Score.End"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -425,7 +424,7 @@ PostCall sentiment score shift condition has a compound condition format where O
 
 Following is an example:
 
-```
+```json
 {
         "Operator": "AND",
         "Operands": [
@@ -473,7 +472,7 @@ Following is an example:
 + ComparisonValue – "$.ContactLens.PostCall.Sentiment.OverallScore"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [

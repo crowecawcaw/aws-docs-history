@@ -1,7 +1,6 @@
 
 
 # Context variables
-<a name="acxd-context-variables"></a>
 
 Define typed variables available across conversations within a workspace. Context variables can be referenced in flows and set by external systems.
 
@@ -25,14 +24,14 @@ No parameters.
 ### Sample Request
 <a name="acxd-context-variables-listcontextvariables-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListContextVariablesCommand({}));
 ```
 
 ### Output
 <a name="acxd-context-variables-listcontextvariables-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -73,7 +72,7 @@ Creates a new context variable.
 ### Sample Request
 <a name="acxd-context-variables-createcontextvariable-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateContextVariableCommand({
   name: "customer_tier",
   schema: { type: "string", isSensitive: false },
@@ -85,7 +84,7 @@ await client.send(new CreateContextVariableCommand({
 ### Output
 <a name="acxd-context-variables-createcontextvariable-output"></a>
 
-```
+```json
 {
   "name": "customer_tier",
   "type": "string",
@@ -112,7 +111,7 @@ Updates an existing context variable.
 ### Sample Request
 <a name="acxd-context-variables-updatecontextvariable-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateContextVariableCommand({
   contextVariableIdentifier: "customer_tier",
   schema: { type: "string", isSensitive: true },
@@ -135,7 +134,7 @@ await client.send(new UpdateContextVariableCommand({
 ### Output
 <a name="acxd-context-variables-updatecontextvariable-output"></a>
 
-```
+```json
 {
   "name": "customer_tier",
   "type": "string",
@@ -167,7 +166,7 @@ Deletes a context variable by name.
 ### Sample Request
 <a name="acxd-context-variables-deletecontextvariable-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteContextVariableCommand({
   contextVariableIdentifier: "customer_tier",
 }));
@@ -218,19 +217,19 @@ Examples:
 
 Simple string:
 
-```
+```json
 { "type": "string" }
 ```
 
 Number with constraints:
 
-```
+```json
 { "type": "number", "minimum": 0, "maximum": 100 }
 ```
 
 Object with properties:
 
-```
+```json
 {
   "type": "object",
   "properties": {
@@ -242,7 +241,7 @@ Object with properties:
 
 Union type:
 
-```
+```json
 {
   "anyOf": [
     { "type": "string" },

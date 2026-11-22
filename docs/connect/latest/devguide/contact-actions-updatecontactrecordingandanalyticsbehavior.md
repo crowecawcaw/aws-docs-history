@@ -1,14 +1,13 @@
 
 
 # UpdateContactRecordingAndAnalyticsBehavior
-<a name="contact-actions-updatecontactrecordingandanalyticsbehavior"></a>
 
 Sets contact recording behavior, including analysis behavior and which participants of the contact to record.
 
 ## Parameter object
 <a name="updatecontactrecordingandanalyticsbehavior-parameter"></a>
 
-```
+```json
 {
     // Only ONE of the following channel behavior objects can be defined per configuration
     

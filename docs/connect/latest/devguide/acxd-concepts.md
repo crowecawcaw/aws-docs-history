@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="acxd-concepts"></a>
 
 This section defines the key resources and terminology used in the ACXD SDK.
 

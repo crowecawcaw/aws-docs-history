@@ -1,7 +1,6 @@
 
 
 # languageCode
-<a name="acxd-common-types-languagecode"></a>
 
 Type: `String`
 

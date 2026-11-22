@@ -1,7 +1,6 @@
 
 
 # CreateCustomerProfile
-<a name="interactions-createcustomerprofile"></a>
 
 Create a customer profile. Customer Profiles must be enabled for your Connect Customer instance.
 
@@ -10,7 +9,7 @@ See [CreateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIRefer
 ## Parameter object
 <a name="createcustomerprofile-parameter"></a>
 
-```
+```json
 {
 "ProfileRequestData": {
     All of these fields are optional.

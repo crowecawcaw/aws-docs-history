@@ -1,14 +1,13 @@
 
 
 # CompleteOutboundCall
-<a name="contact-actions-completeoutboundcall"></a>
 
 When a flow is run before an outbound call is made as part of an outbound contact, this action calls the outbound destination. If this action is not used, the first participant action implicitly completes the outbound call. 
 
 ## Parameter object
 <a name="completeoutboundcall-parameter"></a>
 
-```
+```json
 ""CallerId": { Optional, an override of the caller ID to present when calling. Is ignored when using VoiceConnectors
   "Number": The caller ID number to present when calling. Can either be fully static or a single valid JSONPath identifier
 }

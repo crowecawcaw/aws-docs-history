@@ -1,7 +1,6 @@
 
 
 # Connect Customer Flow language
-<a name="flow-language"></a>
 
 This section describes the Connect Customer Flow language and how to use it. The Flow language is a JSON-based representation of a series of flow actions, and the criteria for moving between them.
 

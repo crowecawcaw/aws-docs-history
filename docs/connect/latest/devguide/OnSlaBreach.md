@@ -1,7 +1,6 @@
 
 
 # OnSlaBreach
-<a name="OnSlaBreach"></a>
 
 ## Cases SLA name condition
 <a name="OnSlaBreach-csnc-condition"></a>
@@ -12,7 +11,7 @@
 + ComparisonValue – "$.RelatedItem.SlaConfiguration.Name"
 + Negate - false
 
-```
+```json
 {
 "Operator": "CONTAINS_ANY",
 "Operands": ["highPrioritySla"],

@@ -1,7 +1,6 @@
 
 
 # Secrets
-<a name="acxd-secrets"></a>
 
 Store sensitive values (API keys, credentials, connection strings) encrypted at rest. Secrets can be referenced in data requests and integrations without exposing the value.
 
@@ -30,14 +29,14 @@ Lists all secrets in the workspace. Values are never included in list responses.
 ### Sample Request
 <a name="w2aac18c13d159b7b7"></a>
 
-```
+```typescript
 await client.send(new ListSecretsCommand({}));
 ```
 
 ### Output
 <a name="w2aac18c13d159b7b9"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -78,7 +77,7 @@ Creates a new secret.
 ### Sample Request
 <a name="w2aac18c13d159b9b7"></a>
 
-```
+```typescript
 await client.send(new CreateSecretCommand({
   name: "stripe_api_key",
   secretValue: "sk_live_test123456789",
@@ -90,7 +89,7 @@ await client.send(new CreateSecretCommand({
 ### Output
 <a name="w2aac18c13d159b9b9"></a>
 
-```
+```json
 {
   "name": "stripe_api_key",
   "secretValue": "*******89",
@@ -125,7 +124,7 @@ Gets a single secret by name, including its value.
 ### Sample Request
 <a name="w2aac18c13d159c11b7"></a>
 
-```
+```typescript
 await client.send(new GetSecretCommand({
   secretIdentifier: "stripe_api_key",
 }));
@@ -134,7 +133,7 @@ await client.send(new GetSecretCommand({
 ### Output
 <a name="w2aac18c13d159c11b9"></a>
 
-```
+```json
 {
   "name": "stripe_api_key",
   "secretValue": "*******89",
@@ -172,7 +171,7 @@ Updates an existing secret. Only include fields you want to change.
 ### Sample Request
 <a name="w2aac18c13d159c13b7"></a>
 
-```
+```typescript
 const updated = await client.send(new UpdateSecretCommand({
   secretIdentifier: "stripe_api_key",
   description: "Updated - Stripe prod key (rotated Aug 2026)",
@@ -183,7 +182,7 @@ const updated = await client.send(new UpdateSecretCommand({
 ### Output
 <a name="w2aac18c13d159c13b9"></a>
 
-```
+```json
 {
   "name": "stripe_api_key",
   "secretValue": "************1",
@@ -218,7 +217,7 @@ Deletes a secret.
 ### Sample Request
 <a name="w2aac18c13d159c15b7"></a>
 
-```
+```typescript
 await client.send(new DeleteSecretCommand({
   secretIdentifier: "stripe_api_key",
 }));

@@ -1,7 +1,6 @@
 
 
 # Contacts actions
-<a name="contacts-api"></a>
 
  The following API actions are available for contacts:
 + [AssociateContactWithUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateContactWithUser.html)

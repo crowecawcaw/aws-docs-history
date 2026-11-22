@@ -1,7 +1,6 @@
 
 
 # Flow action completed
-<a name="testing-language-events-flow-action-completed"></a>
 
 Observes when a specific flow action completes successfully. This allows you to detect when particular flow actions successfully complete during the simulation, and to assert against and reference the attributes those actions produced.
 

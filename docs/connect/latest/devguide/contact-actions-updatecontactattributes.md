@@ -1,14 +1,13 @@
 
 
 # UpdateContactAttributes
-<a name="contact-actions-updatecontactattributes"></a>
 
 Sets a collection of contact attributes on either the current contact or the related contact. With this type of operation, either all attributes are set or none are set.
 
 ## Parameter object
 <a name="updatecontactattributes-parameter"></a>
 
-```
+```json
 {
     "Attributes": { an Object that holds the attributes to be set. 
         "Key": "Value" Both the key and value may be defined statically or dynamically.

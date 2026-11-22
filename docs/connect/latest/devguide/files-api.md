@@ -1,7 +1,6 @@
 
 
 # Files actions
-<a name="files-api"></a>
 
  The following API actions are available for Files:
 + [StartAttachedFileUpload](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartAttachedFileUpload.html)

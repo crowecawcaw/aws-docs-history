@@ -1,7 +1,6 @@
 
 
 # Chat actions
-<a name="chat-api"></a>
 
  The following API actions are available for chats:
 + [CreatePersistentContactAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePersistentContactAssociation.html)

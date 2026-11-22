@@ -1,14 +1,13 @@
 
 
 # EndFlowModuleExecution
-<a name="endflowmoduleexecution"></a>
 
 Ends the current module execution without disconnecting the contact.
 
 ## Parameter object
 <a name="endflowmoduleexecution-parameter"></a>
 
-```
+```json
 {
                 
 }

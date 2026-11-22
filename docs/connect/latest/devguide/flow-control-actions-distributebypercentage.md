@@ -1,14 +1,13 @@
 
 
 # DistributeByPercentage
-<a name="flow-control-actions-distributebypercentage"></a>
 
 Returns a random number between 1 and 100 (inclusive) as its result, allowing comparisons against it. 
 
 ## Parameter object
 <a name="distributebypercentage-parameter"></a>
 
-```
+```json
 {
                 
 }

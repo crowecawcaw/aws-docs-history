@@ -1,7 +1,6 @@
 
 
 # Quick connect actions
-<a name="quick-connects-api"></a>
 
 The following API actions are available for quick connects:
 + [AssociateQueueQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateQueueQuickConnects.html)

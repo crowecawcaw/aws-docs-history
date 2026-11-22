@@ -1,7 +1,6 @@
 
 
 # Voice actions
-<a name="voice-api"></a>
 
 The following API actions are available for voice:
 + [ResumeContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html)

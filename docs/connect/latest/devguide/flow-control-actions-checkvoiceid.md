@@ -1,26 +1,25 @@
 
 
 # CheckVoiceId
-<a name="flow-control-actions-checkvoiceid"></a>
 
 Checks the enrollment status, voice authentication or fraud detection results of the voice analysis returned by Voice ID. 
 
 ## Parameter object
 <a name="checkvoiceid-parameter"></a>
 
-```
+```json
 {
  "CheckVoiceIdOption": "enrollmentStatus"
 }
 ```
 
-```
+```json
 {
  "CheckVoiceIdOption": "voiceAuthentication"
 }
 ```
 
-```
+```json
 {
  "CheckVoiceIdOption": "fraudDetection"
 }

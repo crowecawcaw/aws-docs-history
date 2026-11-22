@@ -1,14 +1,13 @@
 
 
 # TransferToFlow
-<a name="flow-control-actions-transfertoflow"></a>
 
 Execution jumps to a different flow, and continues running at that flow's beginning. 
 
 ## Parameter object
 <a name="transfertoflow-parameter"></a>
 
-```
+```json
 {
     "ContactFlowId": A flow ID or flow ARN. *Must be either fully static or a single valid JSONPath identifier*
 }

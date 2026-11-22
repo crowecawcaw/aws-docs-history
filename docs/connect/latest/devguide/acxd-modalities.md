@@ -1,7 +1,6 @@
 
 
 # Modalities
-<a name="acxd-modalities"></a>
 
 Define input/output schemas for different interaction channels. Modalities describe the structured data shapes your application can send and receive.
 
@@ -31,14 +30,14 @@ Lists all modalities in the workspace.
 ### Sample Request
 <a name="acxd-modalities-listmodalities-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListModalitiesCommand({}));
 ```
 
 ### Output
 <a name="acxd-modalities-listmodalities-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -85,7 +84,7 @@ Creates a new modality.
 ### Sample Request
 <a name="acxd-modalities-createmodality-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateModalityCommand({
   modalityId: "checkout_form",
   schema: {
@@ -105,7 +104,7 @@ await client.send(new CreateModalityCommand({
 ### Output
 <a name="acxd-modalities-createmodality-output"></a>
 
-```
+```json
 {
   "modalityId": "checkout_form",
   "schema": {
@@ -168,7 +167,7 @@ Gets a single modality by ID.
 ### Sample Request
 <a name="acxd-modalities-getmodality-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetModalityCommand({
   modalityIdentifier: "checkout_form",
 }));
@@ -177,7 +176,7 @@ await client.send(new GetModalityCommand({
 ### Output
 <a name="acxd-modalities-getmodality-output"></a>
 
-```
+```json
 {
   "modalityId": "checkout_form",
   "schema": {
@@ -242,7 +241,7 @@ Updates an existing modality. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-modalities-updatemodality-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateModalityCommand({
   modalityIdentifier: "checkout_form",
   schema: {
@@ -262,7 +261,7 @@ await client.send(new UpdateModalityCommand({
 ### Output
 <a name="acxd-modalities-updatemodality-output"></a>
 
-```
+```json
 {
   "modalityId": "checkout_form",
   "schema": {
@@ -330,7 +329,7 @@ Deletes a modality.
 ### Sample Request
 <a name="acxd-modalities-deletemodality-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteModalityCommand({
   modalityIdentifier: "checkout_form",
 }));
@@ -465,7 +464,7 @@ Item schema. Required when `type` is `array`. A schema object describing each ar
 ### Example:
 <a name="acxd-modalities-modality-schema-example"></a>
 
-```
+```json
 {
   "type": "object",
   "description": "User profile card",

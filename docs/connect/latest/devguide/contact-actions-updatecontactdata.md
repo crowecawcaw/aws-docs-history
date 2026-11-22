@@ -1,14 +1,13 @@
 
 
 # UpdateContactData
-<a name="contact-actions-updatecontactdata"></a>
 
 Sets a collection of connect defined attributes on specified contact. With this type of operation, either all attributes are set or none are set.
 
 ## Parameter object
 <a name="updatecontactdata-parameter"></a>
 
-```
+```json
 "Parameters": 
 {
         "Name": [Optional] The name of the contact. It is a string. May be set statically or dynamically.

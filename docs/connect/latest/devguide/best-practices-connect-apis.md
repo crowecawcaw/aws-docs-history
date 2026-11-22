@@ -1,7 +1,6 @@
 
 
 # Best practices for using Connect Customer APIs
-<a name="best-practices-connect-apis"></a>
 
 This topic provides guidance for using Connect Customer Describe and List APIs so you don't get unexpected 4xx errors for the response. It also explains how to configure your client Read APIs.
 
@@ -49,7 +48,7 @@ Your client configuration will vary based on number of resources that your API t
 
 In the following Java example, the number of retries is set to 3. This means after your Connect Customer client implementation experiences throttling, it retries for maximum of 3 times. Instead of retrying immediately and aggressively, the following snippet waits a specified amount of time (between 0 to max of 5 seconds as defined by maxBackoffTime parameter) between tries and uses [EqualJitterBackoffStrategy](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/backoff/EqualJitterBackoffStrategy.html). 
 
-```
+```java
 final class ClientBuilder {
 
     private static final int NUMBER_OF_RETRIES = 3;
@@ -89,7 +88,7 @@ The List API of a particular Connect Customer resource supports a `maxResults` p
 
 The following example shows the `maxResults` of the [ListUsers](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUsers.html) API.
 
-```
+```java
 String nextToken = null;
 do {
     ListUsersRequest listUsersRequest = ListUsersRequest.builder()

@@ -1,14 +1,13 @@
 
 
 # CreateCallbackContact
-<a name="interactions-createcallbackcontact"></a>
 
 Creates a new callback contact. If no customer number is specified, and this is run in context of a contact, the contact's CustomerCallbackNumber is used as the customer number. If you specify a ContactFlowId, then InitialCallDelaySeconds parameter is ignored.
 
 ## Parameter object
 <a name="createcallbackcontact-parameter"></a>
 
-```
+```json
 {
     "QueueId": [Optional] A queue ID or queue ARN. The callback contact is routed with this queue, or if this is not specified, the contact's current TargetQueue. Must be specified fully statically or with a single valid JSONPath identifier.
     "AgentId": [Optional] An agent ID or agent ARN, representing an agent queue. If QueueId is specified, this may not be specified. This must be either defined fully statically or as a single valid JSONPath identifier.

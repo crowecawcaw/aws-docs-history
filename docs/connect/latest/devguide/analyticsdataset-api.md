@@ -1,7 +1,6 @@
 
 
 # Analytics data lake actions
-<a name="analyticsdataset-api"></a>
 
 These APIs are in preview release for Connect Customer and are subject to change.
 

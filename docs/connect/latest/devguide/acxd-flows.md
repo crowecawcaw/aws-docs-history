@@ -1,7 +1,6 @@
 
 
 # Flows
-<a name="acxd-flows"></a>
 
 A flow represents the structured path a conversation follows to fulfill a user's intent, whether that's answering FAQs, completing a task, or guiding a user toward an action. Each flow combines logic, prompts, and responses into a graph of connected nodes. Once attached to an application and deployed, the application can execute the flow and automate the corresponding task. A single flow can be shared across multiple applications in your workspace.
 
@@ -32,14 +31,14 @@ Lists all flows in the workspace. Returns summary information without node detai
 ### Sample Request
 <a name="acxd-flows-listflows-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListFlowsCommand({}));
 ```
 
 ### Output
 <a name="acxd-flows-listflows-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -93,7 +92,7 @@ Creates a new flow with nodes (conversation logic), and optional slot types and 
 ### Sample Request
 <a name="acxd-flows-createflow-sample-request"></a>
 
-```
+```typescript
 const created = await client.send(new CreateFlowCommand({
   flowId: "MainFlow",
   description: "Handles customer support inquiries",
@@ -125,7 +124,7 @@ const created = await client.send(new CreateFlowCommand({
 ### Output
 <a name="acxd-flows-createflow-output"></a>
 
-```
+```json
 {
   "flowId": "MainFlow",
   "description": "Handles customer support inquiries",
@@ -192,7 +191,7 @@ Gets the full flow definition including all nodes, attached slots, and context v
 ### Sample Request
 <a name="acxd-flows-getflow-sample-request"></a>
 
-```
+```typescript
 const fetched = await client.send(new GetFlowCommand({
     flowIdentifier: "MainFlow",
 }));
@@ -201,7 +200,7 @@ const fetched = await client.send(new GetFlowCommand({
 ### Output
 <a name="acxd-flows-getflow-output"></a>
 
-```
+```json
 {
   "flowId": "MainFlow",
   "description": "Handles customer support inquiries",
@@ -278,7 +277,7 @@ Updates an existing flow. Only include fields you want to change. Changes do not
 ### Sample Request
 <a name="acxd-flows-updateflow-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateFlowCommand({
     flowIdentifier: "MainFlow",
     description: "Updated Primary support flow",
@@ -310,7 +309,7 @@ await client.send(new UpdateFlowCommand({
 ### Output
 <a name="acxd-flows-updateflow-output"></a>
 
-```
+```json
 {
   "flowId": "MainFlow",
   "description": "Updated Primary support flow",
@@ -377,7 +376,7 @@ Deletes a flow. If the flow is attached to applications, detach it first.
 ### Sample Request
 <a name="acxd-flows-deleteflow-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteFlowCommand({
   flowIdentifier: "TestFlowSDKClient",
 }));

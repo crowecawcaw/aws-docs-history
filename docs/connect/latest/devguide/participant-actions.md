@@ -1,7 +1,6 @@
 
 
 # Participant actions in the Connect Customer Flow language
-<a name="participant-actions"></a>
 
 Participant actions are attempted only when the flow is run in context of a participant. They generally result in an action that the participant experiences, such as playing a prompt or disconnecting.
 

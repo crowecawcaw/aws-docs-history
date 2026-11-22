@@ -1,7 +1,6 @@
 
 
 # OnSalesforceCaseCreate
-<a name="OnSalesforceCaseCreate"></a>
 
 ## AccountId condition
 <a name="AccountId-condition"></a>

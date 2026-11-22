@@ -1,7 +1,6 @@
 
 
 # DisconnectParticipant
-<a name="participant-actions-disconnectparticipant"></a>
 
 Disconnects the participant from the contact and stops this flow from running. 
 

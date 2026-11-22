@@ -1,7 +1,6 @@
 
 
 # Applications
-<a name="acxd-applications"></a>
 
 Manage conversational AI applications, the top-level container for flows, builds, and deployments. Each application bundles your flows, knowledge bases, language settings, guardrails, and integrations into a single deployable package within your workspace.
 
@@ -30,13 +29,13 @@ Lists all applications in the workspace.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new ListApplicationsCommand({}));
 ```
 
 **Output**
 
-```
+```json
 {
   "items": [
     {
@@ -83,7 +82,7 @@ Creates a new application. An application can start empty and you can attach flo
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new CreateApplicationCommand({
       name: "MyFirstApp",
       description: "My first application",
@@ -96,7 +95,7 @@ await client.send(new CreateApplicationCommand({
 
 **Output**
 
-```
+```json
 {
   "applicationId": "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
   "name": "MyFirstApp",
@@ -165,7 +164,7 @@ Gets full application details including flows, settings, guardrails, and deploym
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new GetApplicationCommand({
   applicationIdentifier: "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
 }));
@@ -173,7 +172,7 @@ await client.send(new GetApplicationCommand({
 
 **Output**
 
-```
+```json
 {
   "applicationId": "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
   "name": "MyFirstApp",
@@ -248,7 +247,7 @@ Updates an application. Only include fields you want to change.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new UpdateApplicationCommand({
   applicationIdentifier: "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
   description: "Updated via SDK",
@@ -259,7 +258,7 @@ await client.send(new UpdateApplicationCommand({
 
 Returns the full updated application.
 
-```
+```json
 {
   "applicationId": "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
   "name": "MyFirstApp",
@@ -328,7 +327,7 @@ Deletes an application. This removes the application and all its builds and depl
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new DeleteApplicationCommand({
     applicationIdentifier: "05c3fcc2-7900-41c4-adee-b59dc69be8ae",
 }));
@@ -370,7 +369,7 @@ Type: Array
 
 List of flow references attached to this application. Each entry is an object with a `flowId` field.
 
-```
+```json
 [
   {"flowId": "MainFlow"},
   {"flowId": "MainFlowTwo"}

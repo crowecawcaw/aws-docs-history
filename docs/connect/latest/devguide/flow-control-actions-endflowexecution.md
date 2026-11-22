@@ -1,14 +1,13 @@
 
 
 # EndFlowExecution
-<a name="flow-control-actions-endflowexecution"></a>
 
 Finishes flow, but does not explicitly disconnect the participant. The participant may be disconnected by contact logic after this. For example, if a flow ends before the contact is put into queue, ending the flow results in the contact being ended. 
 
 ## Parameter object
 <a name="endflowexecution-parameter"></a>
 
-```
+```json
 {
    
 }

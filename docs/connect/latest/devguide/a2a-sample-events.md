@@ -1,7 +1,6 @@
 
 
 # A2A sample events
-<a name="a2a-sample-events"></a>
 
 This page shows sample payloads for the events that your external AI agent exchanges with Connect Customer. Each sample shows one event. For the rules that govern each event and its fields, see [A2A protocol contract for external AI agents](a2a-developer-guide.md).
 
@@ -29,7 +28,7 @@ This page shows sample payloads for the events that your external AI agent excha
 
 The audio config is negotiated only when `audioStreamingEnabled` is `true` and the contact is a voice contact.
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -92,7 +91,7 @@ Text-only sessions omit the audio configurations. The `history` is re-sent in th
 
 Your agent sends this in reply to `INIT_SESSION`.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "1",
@@ -131,7 +130,7 @@ The audio override is present only when counter-proposing. Omit it to accept the
 
 On a handoff, your agent treats receipt of READY as the signal that the channel is live and it can begin emitting output.
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -162,7 +161,7 @@ On a handoff, your agent treats receipt of READY as the signal that the channel 
 
 After initialization, Connect Customer sends each customer message as a text turn.
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -189,7 +188,7 @@ Audio streaming sessions on voice contacts instead stream audio parts (see [A.3b
 
 Customer audio streams continuously as SendMessage requests, roughly one small PCM slice for each frame, each with its own JSON-RPC request id, at the negotiated `audioInputConfiguration`. There is no per-turn boundary marker on input audio. Your agent detects turn-taking from the audio itself (voice activity detection). Your spoken response does not correlate to any audio frame's request id: it streams back as `artifactUpdate` events on the turn's task (see [A.4b Audio response chunk (your agent to Connect, voice, external AI agent with audio streaming)](#a2a-dg-sample-audio-response-chunk)).
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -214,7 +213,7 @@ Customer audio streams continuously as SendMessage requests, roughly one small P
 
 Your agent streams text back as `artifactUpdate` events.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "c7d03f92",
@@ -246,7 +245,7 @@ Continuations set `append: true`; the final chunk sets `lastChunk: true`. For au
 
 Spoken output streams as `artifactUpdate` events tagged `AUDIO_RESPONSE_CHUNK`, carrying base64-encoded PCM at the negotiated `audioOutputConfiguration`. All chunks of one spoken response share an `artifactId`; the first frame sets `append: false`, continuations set `append: true`, and the final frame sets `lastChunk: true`:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "e15a8d43",
@@ -278,7 +277,7 @@ Each audio chunk must be independently playable: keep every frame under the tran
 
 Your agent sends this as the last frame of the turn.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "2f6b9c18",
@@ -318,7 +317,7 @@ A normal mid-conversation turn ends with the same statusUpdate without the finis
 
 The terminal statusUpdate for a failed turn. The structured error rides as an error data part on `status.message`, tagged with the ERROR eventType:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "a3c47e05",
@@ -356,7 +355,7 @@ The terminal statusUpdate for a failed turn. The structured error rides as an er
 
 Sent as a standalone message to explain a detected problem. Not a turn boundary. For fatal problems (idle timeout, artifact conflict) it precedes a connection close; for non-fatal problems (for example, a malformed trace) the conversation continues:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "SendMessage",
@@ -390,7 +389,7 @@ Sent as a standalone message to explain a detected problem. Not a turn boundary.
 
 When Connect Customer detects the interruption (for example, the customer speaks or presses a key while your agent's output is playing), it arrives as a SendMessage request:
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -419,7 +418,7 @@ When Connect Customer detects the interruption (for example, the customer speaks
 
 When your agent detects the interruption (audio mode, your agent's own barge-in detection), emit the same event as a streamed frame so Connect Customer flushes buffered playback:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "8f2d1c07",
@@ -453,7 +452,7 @@ The `type` is `USER_AUDIO_INPUT` for voice barge-in, `DTMF_INPUT` for keypad, `S
 
 Connect Customer delivers the accumulated keypad digits as a single event:
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "SendMessage",
@@ -485,7 +484,7 @@ Connect Customer delivers the accumulated keypad digits as a single event:
 
 Connect Customer to external AI agent:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "SendMessage",
@@ -516,7 +515,7 @@ Connect Customer to external AI agent:
 
 External AI agent to Connect Customer:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "6a1f3d84",
@@ -551,7 +550,7 @@ Concatenate payload values in `partNumber` order and base64-decode to recover th
 
 The following example shows a trace with a single root span:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "b8c2e690",
@@ -636,7 +635,7 @@ The payload under `otlp` is a standard OpenTelemetry OTLP/JSON TracesData docume
 
 A turn can emit multiple output segments (for example, one sentence at a time). To record the latency of each segment, put one span for each segment inside the same `otlp` envelope, not multiple `TRACING_SPAN` frames. Send exactly one `TRACING_SPAN` artifact per turn, and put every span for the turn in its `otlp.resourceSpans` batch. Each segment span carries its own `startTimeUnixNano`/`endTimeUnixNano` (segment latency = end minus start) and parents to the turn's `invoke_agent` root; give every span the turn's single `traceId`.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "b8c2e691",

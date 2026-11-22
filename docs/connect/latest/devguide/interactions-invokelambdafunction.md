@@ -1,14 +1,13 @@
 
 
 # InvokeLambdaFunction
-<a name="interactions-invokelambdafunction"></a>
 
 Invokes an AWS Lambda function with a collection of optional parameters. This AWS Lambda function is also given a copy of the flow run data if there is an associated contact with the flow. 
 
 ## Parameter object
 <a name="invokelambdafunction-parameter"></a>
 
-```
+```json
 {
     "LambdaFunctionARN": The ARN of the AWS Lambda function to be invoked. May be defined statically or dynamically. 
     "InvocationTimeLimitSeconds": The number of seconds to wait for a response from the AWS Lambda function. Must be greater than 0, no larger than 8, and an integer. Must be set statically. 

@@ -1,7 +1,6 @@
 
 
 # Connect Customer eventual consistency
-<a name="eventual-consistency"></a>
 
 The Connect Customer API follows an [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) model due to the distributed nature of the system. As a result, changes to Connect Customer resources might not be immediately visible to the subsequent commands you run. 
 

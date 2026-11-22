@@ -1,7 +1,6 @@
 
 
 # Events in the Connect Customer Testing language
-<a name="testing-language-events"></a>
 
 Events represent expected behaviors from the system that the test framework observes.
 

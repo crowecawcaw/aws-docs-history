@@ -1,7 +1,6 @@
 
 
 # Best practices for using PutDialRequestBatch for outbound campaign calling
-<a name="api-outbound-campaign-calls"></a>
 
 This topic provides guidance and best practices for using the [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html) API for outbound campaign calling. PutDialRequestBatch takes in a list of [DialRequest](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_DialRequest.html) to be dialed as part of an outbound campaign.
 + Before using [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html), always use the [StartCampaign](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_StartCampaign.html) API to start the outbound campaign. 

@@ -1,14 +1,13 @@
 
 
 # UpdatePreviousContactParticipantState
-<a name="contact-actions-updatepreviouscontactparticipantstate"></a>
 
 This action is primarily used to prevent previous participants on the contact from observing the contact. Common use cases are disconnecting the agent that initiates a transfer when they transfer a contact to a secure destination, or putting the agent on hold when transferring to a quick connect that securely gathers customer input such as credit card numbers. 
 
 ## Parameter object
 <a name="updatepreviouscontactparticipantstate-parameter"></a>
 
-```
+```json
 {
     "PreviousContactParticipantState": One of ["AgentOnHold", "CustomerOnHold", "OffHold"], which are only supported for voice contacts. 
 }

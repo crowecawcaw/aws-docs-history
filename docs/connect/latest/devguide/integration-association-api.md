@@ -1,7 +1,6 @@
 
 
 # Integration association actions
-<a name="integration-association-api"></a>
 
 The following API actions are available for integration associations:
 + [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html)

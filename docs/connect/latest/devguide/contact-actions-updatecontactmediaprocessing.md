@@ -1,14 +1,13 @@
 
 
 # UpdateContactMediaProcessing
-<a name="contact-actions-updatecontactmediaprocessing"></a>
 
 Allows customers to configure their own Lambda processor, which will be applied to in-flight messages.
 
 ## Parameter object
 <a name="updatecontactmediaprocessing-parameter"></a>
 
-```
+```json
 {
     "ChatProcessor": { // Configuration for bring-your-own-processor for chat channel.
         "ProcessingEnabled": either "True" or "False". Must be set statically. Determines whether to enable custom Lambda processing for chat messages.

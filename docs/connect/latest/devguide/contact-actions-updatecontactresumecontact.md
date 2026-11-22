@@ -1,7 +1,6 @@
 
 
 # ResumeContact
-<a name="contact-actions-updatecontactresumecontact"></a>
 
 Resumes a contact from a paused state.
 

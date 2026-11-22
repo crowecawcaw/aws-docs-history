@@ -1,7 +1,6 @@
 
 
 # Email actions
-<a name="email-api"></a>
 
  The following API actions are available for email:
 + [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html)

@@ -1,13 +1,12 @@
 
 
 # Example flow in Connect Customer Flow language
-<a name="flow-language-example"></a>
 
 The following example shows a JSON string that represents the content of the flow. It shows a simple flow that plays a prompt using static text and disconnects. 
 
 To learn how to get block identifiers, we recommend creating a new flow in Connect Customer console, and then calling the [DescribeContactFlow](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactFlow.html) API for it.
 
-```
+```json
 {
     "Version": "2019-10-30",  //A string representing the version of the Flow. Currently the only supported version is 2019-10-30.
     

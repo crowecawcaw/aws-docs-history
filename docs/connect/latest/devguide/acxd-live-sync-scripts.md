@@ -1,7 +1,6 @@
 
 
 # Live Sync scripts
-<a name="acxd-live-sync-scripts"></a>
 
 **Topics**
 + [ListLiveSyncScripts](#acxd-live-sync-scripts-listlivesyncscripts)
@@ -36,14 +35,14 @@
 ### Sample Request
 <a name="acxd-live-sync-scripts-listlivesyncscripts-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListLiveSyncScriptsCommand({}));
 ```
 
 ### Output
 <a name="acxd-live-sync-scripts-listlivesyncscripts-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -98,7 +97,7 @@ await client.send(new ListLiveSyncScriptsCommand({}));
 ### Sample Request
 <a name="acxd-live-sync-scripts-createlivesyncscript-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateLiveSyncScriptCommand({
   name: 'test-script',
   description: 'Created via SDK',
@@ -118,7 +117,7 @@ await client.send(new CreateLiveSyncScriptCommand({
 ### Output
 <a name="acxd-live-sync-scripts-createlivesyncscript-output"></a>
 
-```
+```json
 {
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   "name": "test-script",
@@ -168,7 +167,7 @@ await client.send(new CreateLiveSyncScriptCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-getlivesyncscript-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetLiveSyncScriptCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
 }));
@@ -177,7 +176,7 @@ await client.send(new GetLiveSyncScriptCommand({
 ### Output
 <a name="acxd-live-sync-scripts-getlivesyncscript-output"></a>
 
-```
+```json
 {  
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   "name": "test-script",
@@ -231,7 +230,7 @@ await client.send(new GetLiveSyncScriptCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-updatelivesyncscript-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateLiveSyncScriptCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   name: 'test-script',
@@ -252,7 +251,7 @@ await client.send(new UpdateLiveSyncScriptCommand({
 ### Output
 <a name="acxd-live-sync-scripts-updatelivesyncscript-output"></a>
 
-```
+```json
 {
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   "name": "test-script",
@@ -302,7 +301,7 @@ await client.send(new UpdateLiveSyncScriptCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-deletelivesyncscript-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteLiveSyncScriptCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
 }));
@@ -340,7 +339,7 @@ Returns `items` (a list of builds) and an optional `nextToken`.
 ### Sample Request
 <a name="acxd-live-sync-scripts-listlivesyncscriptbuilds-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListLiveSyncScriptBuildsCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   maxResults: 10
@@ -350,7 +349,7 @@ await client.send(new ListLiveSyncScriptBuildsCommand({
 ### Sample Response
 <a name="acxd-live-sync-scripts-listlivesyncscriptbuilds-sample-response"></a>
 
-```
+```json
 {
   "items": [
       {
@@ -393,7 +392,7 @@ await client.send(new ListLiveSyncScriptBuildsCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-createlivesyncscriptbuild-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateLiveSyncScriptBuildCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   description: 'first build',
@@ -406,7 +405,7 @@ await client.send(new CreateLiveSyncScriptBuildCommand({
 ### Output
 <a name="acxd-live-sync-scripts-createlivesyncscriptbuild-output"></a>
 
-```
+```json
 {
   "buildId": "b2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
@@ -443,7 +442,7 @@ await client.send(new CreateLiveSyncScriptBuildCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-getlivesyncscriptbuild-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetLiveSyncScriptBuildCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   buildIdentifier: "b2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
@@ -453,7 +452,7 @@ await client.send(new GetLiveSyncScriptBuildCommand({
 ### Output
 <a name="acxd-live-sync-scripts-getlivesyncscriptbuild-output"></a>
 
-```
+```json
 {
   "buildId": "b2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
@@ -491,7 +490,7 @@ await client.send(new GetLiveSyncScriptBuildCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-listlivesyncscriptdeployments-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListLiveSyncScriptDeploymentsCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   maxResults: 10
@@ -501,7 +500,7 @@ await client.send(new ListLiveSyncScriptDeploymentsCommand({
 ### Output
 <a name="acxd-live-sync-scripts-listlivesyncscriptdeployments-output"></a>
 
-```
+```json
 {
   "items": [
       {
@@ -544,7 +543,7 @@ await client.send(new ListLiveSyncScriptDeploymentsCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-createlivesyncscriptdeployment-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateLiveSyncScriptDeploymentCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   buildIdentifier: "b2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
@@ -556,7 +555,7 @@ await client.send(new CreateLiveSyncScriptDeploymentCommand({
 ### Output
 <a name="acxd-live-sync-scripts-createlivesyncscriptdeployment-output"></a>
 
-```
+```json
 {
   "deploymentId": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
@@ -590,7 +589,7 @@ await client.send(new CreateLiveSyncScriptDeploymentCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-getlivesyncscriptdeployment-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetLiveSyncScriptDeploymentCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   deploymentIdentifier: "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f"
@@ -600,7 +599,7 @@ await client.send(new GetLiveSyncScriptDeploymentCommand({
 ### Output
 <a name="acxd-live-sync-scripts-getlivesyncscriptdeployment-output"></a>
 
-```
+```json
 {
   "deploymentId": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
@@ -644,7 +643,7 @@ Returns the updated deployment.
 ### Sample Request
 <a name="acxd-live-sync-scripts-updatelivesyncscriptdeployment-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateLiveSyncScriptDeploymentCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   deploymentIdentifier: "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
@@ -657,7 +656,7 @@ await client.send(new UpdateLiveSyncScriptDeploymentCommand({
 ### Sample Response
 <a name="acxd-live-sync-scripts-updatelivesyncscriptdeployment-sample-response"></a>
 
-```
+```json
 {
   "deploymentId": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
   "liveSyncScriptId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
@@ -691,7 +690,7 @@ await client.send(new UpdateLiveSyncScriptDeploymentCommand({
 ### Sample Request
 <a name="acxd-live-sync-scripts-deletelivesyncscriptdeployment-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteLiveSyncScriptDeploymentCommand({
   liveSyncScriptIdentifier: "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
   deploymentIdentifier: "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",

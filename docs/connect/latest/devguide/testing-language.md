@@ -1,7 +1,6 @@
 
 
 # Connect Customer testing language
-<a name="testing-language"></a>
 
 This section describes the Connect Customer Testing language and how to use it. The Testing language is a JSON-based representation of testing observation, events and, actions.
 

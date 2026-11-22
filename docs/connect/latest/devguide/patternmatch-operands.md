@@ -1,7 +1,6 @@
 
 
 # PatternMatch Operands
-<a name="patternmatch-operands"></a>
 
 Each operand is an array of Pattern match objects.
 
@@ -20,7 +19,7 @@ Each operand is an array of Pattern match objects.
   + If type is `LIST`, Value is an array of `PLAIN` PatternMatch object. 
   + If type is `PROXIMITY`, Value is an object for format.
 
-    ```
+    ```json
     {
       "Distance": number,
       "IsWithin": boolean
@@ -28,7 +27,7 @@ Each operand is an array of Pattern match objects.
     ```
   + If type is `NUMERICAL`, Value is an object for format. 
 
-    ```
+    ```json
     {
       "Decimal": boolean
     }

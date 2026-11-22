@@ -1,7 +1,6 @@
 
 
 # UpdateCustomerProfile
-<a name="interactions-updatecustomerprofile"></a>
 
 Update a customer profile that was previously created or retrieved in the flow. Customer Profiles must be enabled for your Connect Customer instance.
 
@@ -10,7 +9,7 @@ See [UpdateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIRefer
 ## Parameter object
 <a name="updatecustomerprofile-parameter"></a>
 
-```
+```json
 {
 "ProfileRequestData": {
     All of these fields are optional.

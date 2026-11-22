@@ -1,7 +1,6 @@
 
 
 # Evaluation actions
-<a name="evaluation-api"></a>
 
  The following API actions are available for evaluations:
 + [ActivateEvaluationForm](https://docs.aws.amazon.com/connect/latest/APIReference/API_ActivateEvaluationForm.html)

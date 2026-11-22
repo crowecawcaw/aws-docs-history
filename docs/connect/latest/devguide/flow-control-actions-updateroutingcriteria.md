@@ -1,14 +1,13 @@
 
 
 # UpdateRoutingCriteria
-<a name="flow-control-actions-updateroutingcriteria"></a>
 
 Sets the routing criteria for the contact. 
 
 ## Parameter object
 <a name="updateroutingcriteria-parameter"></a>
 
-```
+```json
 {
     "RoutingCriteria": { Required. RoutingCriteria is a JSON object.
             "Steps": [{  Required. List of routing steps. When Connect Customer not find an available agent meeting the requirements in a step for a given step duration, the routing criteria will move on to the next step sequentially until a join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent in the queue.  May be set statically or dynamically

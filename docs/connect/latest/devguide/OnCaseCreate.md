@@ -1,7 +1,6 @@
 
 
 # OnCaseCreate
-<a name="OnCaseCreate"></a>
 
 ## Assigned queue condition
 <a name="OnCaseCreate-aq-condition"></a>
@@ -12,7 +11,7 @@
 + ComparisonValue – "$.Case.Fields.assigned\_queue"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["queueId"], 
@@ -30,7 +29,7 @@
 + ComparisonValue – "$.Case.Fields.assigned\_user"
 + Negate - false
 
-```
+```json
 {
     "Operator": "CONTAINS_ANY",
     "Operands": ["userId1, userId2"], 
@@ -48,7 +47,7 @@
 + ComparisonValue – "$.Case.Fields.case\_reason"
 + Negate - true/false
 
-```
+```json
 {
     "Operator": "EQUALS",
     "Operands": ["Refund"], 
@@ -66,7 +65,7 @@
 + ComparisonValue – "$.Case.Fields.status"
 + Negate - false
 
-```
+```json
 {
     "Operator": "EQUALS",
     "Operands": ["open"], 
@@ -84,7 +83,7 @@
 + ComparisonValue – "$.Case.Fields.summary"
 + Negate - false
 
-```
+```json
 {
     "Operator": "EQUALS",
     "Operands": ["open"], 
@@ -102,7 +101,7 @@
 + ComparisonValue – "$.Case.Fields.last\_closed\_datetime"
 + Negate - false
 
-```
+```json
 {
     "Operator": "NumberLessOrEqualTo",
     "Operands": ["2023-11-11T11:11:11.111111Z"], 
@@ -120,7 +119,7 @@
 + ComparisonValue – "$.Case.Fields.last\_updated\_datetime"
 + Negate - false
 
-```
+```json
 {
     "Operator": "NumberLessOrEqualTo",
     "Operands": ["2023-11-11T11:11:11.111111Z"], 
@@ -138,7 +137,7 @@
 + ComparisonValue – "$.Case.Fields.created\_datetime"
 + Negate - true/false
 
-```
+```json
 {
     "Operator": "NumberLessOrEqualTo",
     "Operands": ["2023-11-11T11:11:11.111111Z"], 
@@ -156,7 +155,7 @@
 + ComparisonValue – "$.Case.Fields.reference\_number"
 + Negate - true
 
-```
+```json
 {
     "Operator": "CONTAINS",
     "Operands": ["11111111"], 
@@ -174,7 +173,7 @@
 + ComparisonValue – "$.Case.Fields.custom\_case\_field\_id"
 + Negate - true/false
 
-```
+```json
 {
     "Operator": "EQUALS",
     "Operands": ["vip"], 
@@ -192,7 +191,7 @@
 + ComparisonValue – "$.Case.TemplateId"
 + Negate - true/false
 
-```
+```json
 {
 "Operator": "CONTAINS_ANY",
 "Operands": ["templateId"],

@@ -1,7 +1,6 @@
 
 
 # Metrics actions
-<a name="metrics-api"></a>
 
 The following API actions are available for metrics:
 + [GetContactMetrics](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetContactMetrics.html)

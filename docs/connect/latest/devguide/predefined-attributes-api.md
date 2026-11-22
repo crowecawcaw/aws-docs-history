@@ -1,7 +1,6 @@
 
 
 # Predefined attributes actions
-<a name="predefined-attributes-api"></a>
 
 The following API actions are available for predefined attributes:
 + [CreatePredefinedAttribute](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePredefinedAttribute.html)

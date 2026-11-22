@@ -1,7 +1,6 @@
 
 
 # Assertion
-<a name="testing-language-actions-assertion"></a>
 
 Validates that a specific attribute or value in the flow matches expected criteria.
 

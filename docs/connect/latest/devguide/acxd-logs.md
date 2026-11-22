@@ -1,7 +1,6 @@
 
 
 # Logs
-<a name="acxd-logs"></a>
 
 Query conversation event logs with time-based and attribute-based filters.
 
@@ -31,7 +30,7 @@ Queries logs from the workspace.
 #### Query with relative time filter (last 7 days)
 <a name="acxd-logs-querylogs-sample-relative"></a>
 
-```
+```typescript
 await client.send(new QueryLogsCommand({
   timeFilter: {
     relative: { span: "604800000" },
@@ -43,7 +42,7 @@ await client.send(new QueryLogsCommand({
 #### Query with absolute time filter
 <a name="acxd-logs-querylogs-sample-absolute"></a>
 
-```
+```typescript
 const now = new Date();
 const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 const absolute = await client.send(new QueryLogsCommand({
@@ -60,7 +59,7 @@ const absolute = await client.send(new QueryLogsCommand({
 #### Query with search filter (by event type)
 <a name="acxd-logs-querylogs-sample-search"></a>
 
-```
+```typescript
 const filtered = await client.send(new QueryLogsCommand({
   timeFilter: {
     relative: { span: "604800000" },
@@ -75,7 +74,7 @@ const filtered = await client.send(new QueryLogsCommand({
 ### Output
 <a name="acxd-logs-querylogs-output"></a>
 
-```
+```json
 {
   "queryStatus": {
     "progressPercentage": 100.0,
@@ -193,7 +192,7 @@ Provide exactly one variant:
 Type: Object  
 A relative time span from now.  
 
-```
+```json
 { "relative": { "span": "86400000" } } // 24hrs = 86400000 ms
 ```
 
@@ -204,7 +203,7 @@ Type: String
 Type: Object  
 An explicit start and end time.  
 
-```
+```json
 { "absolute": { "startTimestamp": "2026-08-01T00:00:00.000Z", "endTimestamp": "2026-08-01T23:59:59.000Z" } }
 ```
 

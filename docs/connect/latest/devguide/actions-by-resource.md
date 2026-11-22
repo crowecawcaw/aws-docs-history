@@ -1,7 +1,6 @@
 
 
 # Connect Customer actions by resource
-<a name="actions-by-resource"></a>
 
 The following section lists the Connect Customer API actions by resource.
 + [Agent status actions](agent-status-api.md)

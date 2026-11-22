@@ -1,14 +1,13 @@
 
 
 # CheckMetricData
-<a name="flow-control-actions-checkmetricdata"></a>
 
 A shortcut single action to avoid using GetMetricData and Compare for a set of simple metrics. This action loads the specified metric data for the specified queue, and allows comparisons to the loaded value. For example, it loads number of contacts in queue, age of oldest contact in queue, number of agents staffed on the queue, number of agents available on the queue, or number of agents online on the queue. 
 
 ## Parameter object
 <a name="checkmetricdata-parameter"></a>
 
-```
+```json
 {
   "MetricType": One of [NumberOfAgentsAvailable, NumberOfAgentsStaffed, NumberOfAgentsOnline, OldestContactInQueueAgeSeconds, NumberOfContactsInQueue]. **Dynamic values are not supported**,
   "QueueId": [Optional] A queue ID or queue ARN. If AgentId is specified, this may not be specified. *Dynamic values are supported*,

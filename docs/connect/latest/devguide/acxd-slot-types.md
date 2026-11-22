@@ -1,7 +1,6 @@
 
 
 # Slot types
-<a name="acxd-slot-types"></a>
 
 Custom entity types for extracting structured data from user input. A slot type defines a list of values (with optional synonyms) that the NLP engine uses to identify entities in conversation.
 
@@ -31,14 +30,14 @@ Lists all slot types in the workspace.
 ### Sample Request
 <a name="acxd-slot-types-listslottypes-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListSlotTypesCommand({}));
 ```
 
 ### Output
 <a name="acxd-slot-types-listslottypes-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -96,7 +95,7 @@ Creates a new slot type.
 ### Sample Request
 <a name="acxd-slot-types-createslottype-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateSlotTypeCommand({
   slotTypeId: "ProductCategory",
   values: [
@@ -115,7 +114,7 @@ await client.send(new CreateSlotTypeCommand({
 ### Output
 <a name="acxd-slot-types-createslottype-output"></a>
 
-```
+```json
 {
   "slotTypeId": "ProductCategory",
   "values": [
@@ -169,7 +168,7 @@ Gets a single slot type by ID.
 ### Sample Request
 <a name="acxd-slot-types-getslottype-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetSlotTypeCommand({
   slotTypeIdentifier: "ProductCategory",
 }));
@@ -178,7 +177,7 @@ await client.send(new GetSlotTypeCommand({
 ### Output
 <a name="acxd-slot-types-getslottype-output"></a>
 
-```
+```json
 {
   "slotTypeId": "ProductCategory",
   "values": [
@@ -237,7 +236,7 @@ Updates an existing slot type. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-slot-types-updateslottype-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateSlotTypeCommand({
   slotTypeIdentifier: "ProductCategory",
   values: [
@@ -257,7 +256,7 @@ await client.send(new UpdateSlotTypeCommand({
 ### Output
 <a name="acxd-slot-types-updateslottype-output"></a>
 
-```
+```json
 {
   "slotTypeId": "ProductCategory",
   "values": [
@@ -315,7 +314,7 @@ Deletes a slot type.
 ### Sample Request
 <a name="acxd-slot-types-deleteslottype-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteSlotTypeCommand({
   slotTypeIdentifier: "ProductCategory",
 }));
@@ -417,7 +416,7 @@ Type: Array
 Alternative phrases that map to this value (array of strings, each 1–256 characters).  
 Example:  
 
-```
+```json
 { "value": "Electronics", "synonyms": ["tech", "gadgets", "devices"] }
 ```
 

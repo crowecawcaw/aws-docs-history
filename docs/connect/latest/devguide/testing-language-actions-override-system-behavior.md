@@ -1,7 +1,6 @@
 
 
 # Override system behavior
-<a name="testing-language-actions-override-system-behavior"></a>
 
 Modifies how specific flow actions behave during test execution. This allows you to mock external dependencies, substitute resources, or simulate specific scenarios without modifying the actual flow.
 

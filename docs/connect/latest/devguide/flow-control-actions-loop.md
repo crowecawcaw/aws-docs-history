@@ -1,14 +1,13 @@
 
 
 # Loop
-<a name="flow-control-actions-loop"></a>
 
 When the same action (the same Action Identifier) is run multiple times, this block returns a result of "NotDone" a number of times equal to the specified loop count, then "Done" once, then reset. 
 
 ## Parameter object
 <a name="loop-parameter"></a>
 
-```
+```json
 {
     "LoopCount": Number of times to loop, must be between 0 and 100 (inclusive). Must either be fully static or fully dynamic.
 }

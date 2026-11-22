@@ -1,14 +1,13 @@
 
 
 # UpdateContactCallbackNumber
-<a name="contact-actions-updatecontactcallbacknumber"></a>
 
 Updates the contact callback number, which is the number used by the CreateCallbackContact action. This value defaults to the customer participant caller ID if this action is never used. 
 
 ## Parameter object
 <a name="updatecontactcallbacknumber-parameter"></a>
 
-```
+```json
 {
     "CallbackNumber": The callback number to set. Must be a single, valid JSONPath reference, and cannot be set statically. 
 }

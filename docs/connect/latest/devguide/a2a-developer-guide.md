@@ -1,7 +1,6 @@
 
 
 # A2A protocol contract for external AI agents
-<a name="a2a-developer-guide"></a>
 
 This page describes the A2A protocol contract that your external AI agent server must implement to collaborate with Connect Customer. It covers what is on the wire: event names, fields, headers, error codes, and payloads. The contract targets A2A protocol v1.0.
 

@@ -1,7 +1,6 @@
 
 
 # UpdateFlowAttributes
-<a name="flow-control-actions-updateflowattributes"></a>
 
 Sets a collection of attributes on the current flow. These attributes are not carried over to the subsequent flows. With this type of operation, either all attributes are set or none are set.
 
@@ -10,7 +9,7 @@ To set attributes that are available to every flow that runs on the current cont
 ## Parameter object
 <a name="updateflowattributes-parameter"></a>
 
-```
+```json
 {
     "FlowAttributes": { An Object that holds the attributes to be set. Keys are of type String, Values are of type FlowAttribute.
         "attribute-name": {
@@ -27,7 +26,7 @@ To set attributes that are available to every flow that runs on the current cont
 
 Example that sets a flow attribute:
 
-```
+```json
 {
   "FlowAttributes": {
     "CardLastFour": { "Value": "$.External.lastFour" }
@@ -37,7 +36,7 @@ Example that sets a flow attribute:
 
 Example that sets a persisted flow attribute:
 
-```
+```json
 {
   "PersistedFlowAttributes": {
     "VerificationResult": { "Value": "$.External.verified" }

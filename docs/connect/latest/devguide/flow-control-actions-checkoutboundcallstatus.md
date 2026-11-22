@@ -1,14 +1,13 @@
 
 
 # CheckOutboundCallStatus
-<a name="flow-control-actions-checkoutboundcallstatus"></a>
 
 Engages with the output provided by an answering machine, and provides branches to route the contact accordingly.
 
 ## Parameter object
 <a name="checkoutboundcallstatus-parameter"></a>
 
-```
+```json
 {
  
 }

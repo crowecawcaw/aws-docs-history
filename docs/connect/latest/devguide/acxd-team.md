@@ -1,7 +1,6 @@
 
 
 # Team
-<a name="acxd-team"></a>
 
 Manage account-level team settings. Each account has a single team resource.
 
@@ -21,14 +20,14 @@ No parameters.
 ### Sample Request
 <a name="acxd-team-getteam-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetTeamCommand({}));
 ```
 
 ### Output
 <a name="acxd-team-getteam-output"></a>
 
-```
+```json
 {
   "teamId": "t1a2b3c4-5678-90ab-cdef-1234567890ab",
   "name": "Northwind Corp",

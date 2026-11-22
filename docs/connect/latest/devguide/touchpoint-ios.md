@@ -1,13 +1,12 @@
 
 
 # Touchpoint SDK for iOS
-<a name="touchpoint-ios"></a>
 
 The Touchpoint SDK for iOS is the native Swift counterpart of the [Touchpoint](touchpoint.md) web SDK. It brings the same capabilities to iOS apps — chat, voice, and **Live Sync**, the native technology that keeps a voice or chat conversation in sync with your on-screen interface — as SwiftUI views and Swift APIs.
 
 The SDK is distributed through Swift Package Manager. The following `Package.swift` excerpt adds the package and its products to your app. Replace {{REPLACE\_WITH\_VERSION}} with the SDK version that you want to use.
 
-```
+```swift
 // Package.swift
 dependencies: [
     .package(url: "https://github.com/amazon-connect/touchpoint-ios", from: "REPLACE_WITH_VERSION"),
@@ -81,7 +80,7 @@ To run Touchpoint for iOS you need an Amazon Connect Customer instance with a co
 
 The web SDK takes endpoint URLs in its configuration. The iOS SDK instead asks your app to implement the `TouchpointBackend` protocol. Anything compiled into an app binary is public. For this reason, the SDK has no production API that accepts AWS credentials or a Live Sync API key directly. Your implementation calls your own authenticated backend, which holds the AWS credentials and calls Amazon Connect on the server.
 
-```
+```swift
 import TouchpointCore
 
 struct MyBackend: TouchpointBackend {
@@ -149,7 +148,7 @@ Every example starts from a `TouchpointSession`. A session coordinates one activ
 
 The following example builds a session with the chat transport, starts a chat contact, and presents the chat view as a sheet. Replace {{REPLACE\_WITH\_CUSTOMER\_NAME}} with the customer's display name, which the agent sees.
 
-```
+```swift
 import SwiftUI
 import TouchpointCore
 import TouchpointChat
@@ -188,7 +187,7 @@ Voice uses a separate session with the voice transport. Create a `TouchpointVoic
 
 In the following example, replace {{REPLACE\_WITH\_YOUR\_APP\_NAME}} with your app's name, which appears in the system call UI.
 
-```
+```swift
 import SwiftUI
 import TouchpointCore
 import TouchpointVoice
@@ -216,7 +215,7 @@ Live Sync is native Amazon Connect Customer technology that synchronizes a voice
 
 Create a `LiveSyncClient` for the contact you want to mirror. Its `conversationId` is the Amazon Connect contact ID — for example, `session.contactID` after a chat starts. The client gets the Live Sync keys from your backend through the credential broker. The following example creates a client, handles an action, and advertises it to the AI agent.
 
-```
+```swift
 import TouchpointLiveSync
 
 let client = LiveSyncClient(
@@ -254,7 +253,7 @@ try await client.sendContext(actions: [
 
 Instead of maintaining the action list by hand, you can declare actions on the SwiftUI views that handle them. An action is advertised while its view is on screen and withdrawn when the view goes away, so the context always matches what the customer sees. The following example declares an action on a SwiftUI view.
 
-```
+```swift
 import SwiftUI
 import TouchpointLiveSync
 
@@ -292,7 +291,7 @@ When a human agent joins the contact, the client can suspend action delivery; ob
 
 Live Sync shares what is on the customer's screen with the AI agent. The client starts with consent `.held` and sends no context until the customer grants it. Use `LiveSyncConsentController` to store the decision for each deployment, and show the SDK's `LiveSyncConsentSheet` – or your own view — when the controller needs an answer. In the following example, replace {{REPLACE\_WITH\_DEPLOYMENT\_ID}} with an identifier for your ACXD deployment, and {{REPLACE\_WITH\_YOUR\_COMPANY}} with your company name as customers know it.
 
-```
+```swift
 let consent = LiveSyncConsentController(
       client: client,
       store: ConsentStore(keychain: keychain, deploymentID: "REPLACE_WITH_DEPLOYMENT_ID"),

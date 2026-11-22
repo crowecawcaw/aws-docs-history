@@ -1,7 +1,6 @@
 
 
 # Common errors
-<a name="acxd-common-errors"></a>
 
 This section lists the error types that the ACXD SDK may return.
 
@@ -62,7 +61,7 @@ HTTP Status Code: 400
 
 All errors return a consistent JSON body:
 
-```
+```json
 {
     "type": "ResourceNotFoundException",
     "message": "Secret 'my-secret' not found.",

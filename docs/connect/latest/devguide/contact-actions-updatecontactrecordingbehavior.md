@@ -1,14 +1,13 @@
 
 
 # UpdateContactRecordingBehavior
-<a name="contact-actions-updatecontactrecordingbehavior"></a>
 
 Sets contact recording behavior, including analysis behavior and which participants of the contact to record. 
 
 ## Parameter object
 <a name="updatecontactrecordingbehavior-parameter"></a>
 
-```
+```json
 {
     "RecordingBehavior": { an object that holds the recording behavior
         "RecordedParticipants": [ ] a list of participants to record, chosen from "Agent" and "Customer". An empty list disables recording. Must be set statically.

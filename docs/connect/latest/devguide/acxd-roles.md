@@ -1,7 +1,6 @@
 
 
 # Roles
-<a name="acxd-roles"></a>
 
 Manage permission roles that can be assigned to programmatic users. Roles define what actions a user can perform within a workspace.
 
@@ -34,14 +33,14 @@ Lists all roles.
 ### Sample Request
 <a name="acxd-roles-listroles-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListRolesCommand({}));
 ```
 
 ### Output
 <a name="acxd-roles-listroles-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -91,7 +90,7 @@ Creates a new custom role.
 ### Sample Request
 <a name="acxd-roles-createrole-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateRoleCommand({
   name: "Content Editor",
   type: "studio",
@@ -110,7 +109,7 @@ await client.send(new CreateRoleCommand({
 ### Output
 <a name="acxd-roles-createrole-output"></a>
 
-```
+```json
 {
   "roleId": "a80d56c4-3829-4f63-9500-13948d0fea87",
   "name": "Content Editor",
@@ -152,7 +151,7 @@ Gets a single role by ID.
 ### Sample Request
 <a name="acxd-roles-getrole-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetRoleCommand({
   roleId: "a80d56c4-3829-4f63-9500-13948d0fea87",
 }));
@@ -161,7 +160,7 @@ await client.send(new GetRoleCommand({
 ### Output
 <a name="acxd-roles-getrole-output"></a>
 
-```
+```json
 {
   "roleId": "a80d56c4-3829-4f63-9500-13948d0fea87",
   "name": "Content Editor",
@@ -208,7 +207,7 @@ Updates an existing role. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-roles-updaterole-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateRoleCommand({
   roleId: "a80d56c4-3829-4f63-9500-13948d0fea87",
   name: "Content Editor",
@@ -229,7 +228,7 @@ await client.send(new UpdateRoleCommand({
 ### Output
 <a name="acxd-roles-updaterole-output"></a>
 
-```
+```json
 {
   "roleId": "a80d56c4-3829-4f63-9500-13948d0fea87",
   "name": "Content Editor",
@@ -272,7 +271,7 @@ Deletes a custom role. Fails if the role is still assigned to programmatic users
 ### Sample Request
 <a name="acxd-roles-deleterole-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteRoleCommand({
     roleId: created.roleId,
 }));
@@ -306,7 +305,7 @@ Gets the list of all available permissions that can be assigned to roles.
 ### Sample Request
 <a name="acxd-roles-getrolepermissions-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetRolePermissionsCommand({
   type: "studio",
 }));
@@ -315,7 +314,7 @@ await client.send(new GetRolePermissionsCommand({
 ### Output
 <a name="acxd-roles-getrolepermissions-output"></a>
 
-```
+```json
 {
   "permissions": [
     { "permissionId": "ds:ListApplications", "effect": "allow" },
@@ -438,7 +437,7 @@ Type: Object
 The condition logic. Either a single condition or a composite:  
 Single condition:  
 
-```
+```json
 {
   "condition": {
     "left": { "type": "languageCode", "value": "" },
@@ -449,7 +448,7 @@ Single condition:
 ```
 Composite condition (multiple conditions combined):  
 
-```
+```json
 {
   "composite": {
     "operator": "OR",

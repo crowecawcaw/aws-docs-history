@@ -1,7 +1,6 @@
 
 
 # Users
-<a name="acxd-users"></a>
 
 Manage users in the account. Users are human identities (as opposed to programmatic users which are machine identities).
 
@@ -32,14 +31,14 @@ Lists all users.
 ### Sample Request
 <a name="acxd-users-listusers-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListUsersCommand({}));
 ```
 
 ### Output
 <a name="acxd-users-listusers-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -94,7 +93,7 @@ Creates a new user.
 ### Sample Request
 <a name="acxd-users-createuser-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateUserCommand({
       userId: "00000000-0000-4000-8000-000000000099",
       cxnRole: "member",
@@ -114,7 +113,7 @@ await client.send(new CreateUserCommand({
 ### Output
 <a name="acxd-users-createuser-output"></a>
 
-```
+```json
 {
   "userId": "00000000-0000-4000-8000-000000000099",
   "cxnRole": "member",
@@ -163,7 +162,7 @@ Gets a single user by ID.
 ### Sample Request
 <a name="acxd-users-getuser-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetUserCommand({
   userId: "00000000-0000-4000-8000-000000000099",
 }));
@@ -172,7 +171,7 @@ await client.send(new GetUserCommand({
 ### Output
 <a name="acxd-users-getuser-output"></a>
 
-```
+```json
 {
   "userId": "00000000-0000-4000-8000-000000000099",
   "cxnRole": "member",
@@ -229,7 +228,7 @@ Updates a user. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-users-updateuser-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateUserCommand({
   userId: "00000000-0000-4000-8000-000000000099",
   cxnRole: "member",
@@ -248,7 +247,7 @@ await client.send(new UpdateUserCommand({
 ### Output
 <a name="acxd-users-updateuser-output"></a>
 
-```
+```json
 {
   "userId": "00000000-0000-4000-8000-000000000099",
   "cxnRole": "member",
@@ -297,7 +296,7 @@ Deletes a user.
 ### Sample Request
 <a name="acxd-users-deleteuser-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteUserCommand({
   userId: created.userId,
 }));

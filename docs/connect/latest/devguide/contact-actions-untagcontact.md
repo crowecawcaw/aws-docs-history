@@ -1,7 +1,6 @@
 
 
 # UnTagContact
-<a name="contact-actions-untagcontact"></a>
 
 Removes a collection of tags on the current contact. With this type of operation, either all tags are set or none are set. 
 
@@ -10,7 +9,7 @@ You cannot remove system-defined tags. You can only remove already existing user
 ## Parameter object
 <a name="untagcontact-parameter"></a>
 
-```
+```json
 {
 "TagKeys": [ an Object that holds the tag-keys for the tags to be removed.
      "Key1" Key(s) can only be set statically.

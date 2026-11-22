@@ -1,7 +1,6 @@
 
 
 # Prompt actions
-<a name="prompts-api"></a>
 
 The following API actions are available for prompts:
 + [CreatePrompt](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePrompt.html)

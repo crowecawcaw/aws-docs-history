@@ -1,7 +1,6 @@
 
 
 # Amazon CX Designer SDK
-<a name="acxd-sdk"></a>
 
 Agentic CX Designer SDK is a programmatic API for managing ACXD workspace resources like applications, flows, knowledge bases, and more without using the agentic CX designer workspace.
 

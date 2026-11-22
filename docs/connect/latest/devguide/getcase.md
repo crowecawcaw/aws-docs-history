@@ -1,14 +1,13 @@
 
 
 # GetCase
-<a name="getcase"></a>
 
 Searches all existing cases with the provided customer ID. Add request fields to filter by case fields. Specify the case fields to be returned in the response to persist in the context.
 
 ## Parameter object
 <a name="getcase-parameter"></a>
 
-```
+```json
 {
     "LinkContactToCase": "true" or "false", If set to true, cases will open automatically when the agent accepts the contact.
    "GetLastUpdatedCase": "true" or "false", You can specify to get only the last updated case for any search criteria. 

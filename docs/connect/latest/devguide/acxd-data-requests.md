@@ -1,7 +1,6 @@
 
 
 # Data requests
-<a name="acxd-data-requests"></a>
 
 Configure webhook integrations for retrieving or sending data during conversations.
 
@@ -31,7 +30,7 @@ Lists all data requests in the workspace.
 ### Sample Request
 <a name="acxd-data-requests-listdatarequests-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListDataRequestsCommand({
   maxResults: 20,
 }));
@@ -40,7 +39,7 @@ await client.send(new ListDataRequestsCommand({
 ### Output
 <a name="acxd-data-requests-listdatarequests-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -100,7 +99,7 @@ Creates a new data request.
 ### Sample Request
 <a name="acxd-data-requests-createdatarequest-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateDataRequestCommand({
   dataRequestId: "getCustomerInfo",
   type: "object",
@@ -123,7 +122,7 @@ await client.send(new CreateDataRequestCommand({
 ### Output
 <a name="acxd-data-requests-createdatarequest-output"></a>
 
-```
+```json
 {
   "dataRequestId": "getCustomerInfo",
   "type": "object",
@@ -173,7 +172,7 @@ Gets a single data request by ID.
 ### Sample Request
 <a name="acxd-data-requests-getdatarequest-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetDataRequestCommand({
   dataRequestIdentifier: "getCustomerInfo",
 }));
@@ -182,7 +181,7 @@ await client.send(new GetDataRequestCommand({
 ### Output
 <a name="acxd-data-requests-getdatarequest-output"></a>
 
-```
+```json
 {
   "dataRequestId": "getCustomerInfo",
   "type": "object",
@@ -239,7 +238,7 @@ Updates an existing data request. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-data-requests-updatedatarequest-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateDataRequestCommand({
   dataRequestIdentifier: "getCustomerInfo",
   type: "object",
@@ -262,7 +261,7 @@ await client.send(new UpdateDataRequestCommand({
 ### Output
 <a name="acxd-data-requests-updatedatarequest-output"></a>
 
-```
+```json
 {
   "dataRequestId": "getCustomerInfo",
   "type": "object",
@@ -312,7 +311,7 @@ Deletes a data request.
 ### Sample Request
 <a name="acxd-data-requests-deletedatarequest-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteDataRequestCommand({
   dataRequestIdentifier: "getCustomerInfo",
 }));

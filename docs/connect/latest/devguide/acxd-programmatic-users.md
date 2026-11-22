@@ -1,7 +1,6 @@
 
 
 # Programmatic users
-<a name="acxd-programmatic-users"></a>
 
 Manage machine identities that authenticate with the Platform SDK. Programmatic users are assigned role configurations that determine their access level.
 
@@ -29,13 +28,13 @@ Lists all programmatic users.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new ListProgrammaticUsersCommand({}));
 ```
 
 **Output**
 
-```
+```json
 {
   "items": [
     {
@@ -72,7 +71,7 @@ Creates a new programmatic user.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new CreateProgrammaticUserCommand({
   name: "ci-deploy-bot",
   roleConfig: {
@@ -83,7 +82,7 @@ await client.send(new CreateProgrammaticUserCommand({
 
 **Output**
 
-```
+```json
 {
   "userId": "u1a2b3c4-5678-90ab-cdef-1234567890ab",
   "teamId": "team-uuid",
@@ -115,7 +114,7 @@ Gets a single programmatic user by ID.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new GetProgrammaticUserCommand({
   userId: "u1a2b3c4-5678-90ab-cdef-1234567890ab",
 }));
@@ -123,7 +122,7 @@ await client.send(new GetProgrammaticUserCommand({
 
 **Output**
 
-```
+```json
 {
   "userId": "u1a2b3c4-5678-90ab-cdef-1234567890ab",
   "teamId": "team-uuid",
@@ -157,7 +156,7 @@ Updates a programmatic user's name or role configuration.
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new UpdateProgrammaticUserCommand({
   userId: "u1a2b3c4-5678-90ab-cdef-1234567890ab",
   name: "ci-deploy-bot-updated",
@@ -169,7 +168,7 @@ await client.send(new UpdateProgrammaticUserCommand({
 
 **Output**
 
-```
+```json
 {
   "userId": "u1a2b3c4-5678-90ab-cdef-1234567890ab",
   "teamId": "team-uuid",
@@ -201,7 +200,7 @@ Deletes a programmatic user. Fails if API keys are still associated, delete all 
 
 **Sample Request**
 
-```
+```typescript
 await client.send(new DeleteProgrammaticUserCommand({
   userId: "u1a2b3c4-5678-90ab-cdef-1234567890ab",
 }));
@@ -261,7 +260,7 @@ Provide exactly one variant:
 Type: String  
 Account-level role granting full access across all workspaces. Currently the only value is `administrator`.
 
-```
+```json
 {
   "roleConfig": {
     "accountRole": "administrator"
@@ -273,7 +272,7 @@ Account-level role granting full access across all workspaces. Currently the onl
 Type: Array  
 Workspace-scoped role assignments. Each entry grants access to a specific workspace with a designated role.
 
-```
+```json
 {
   "roleConfig": {
     "workspaceRoles": [

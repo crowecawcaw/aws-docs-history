@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="acxd-getting-started"></a>
 
 This guide walks you through setting up authentication and making your first Agentic CX Designer SDK API call.
 
@@ -40,7 +39,7 @@ Each programmatic user has a `roleConfig` that determines their access:
 
 Grants full access across all workspaces in the account.
 
-```
+```json
 {
       "roleConfig": {
         "accountRole": "administrator"
@@ -53,7 +52,7 @@ Grants full access across all workspaces in the account.
 
 Grants specific permissions per workspace.
 
-```
+```json
 {
     "roleConfig": {
       "workspaceRoles": [
@@ -84,7 +83,7 @@ Store your API key securely. It cannot be retrieved after creation. You can gene
 ## Step 3: Install the SDK
 <a name="acxd-getting-started-step3"></a>
 
-```
+```bash
 npm install amazon-connect-acxd-sdk
 ```
 
@@ -93,7 +92,7 @@ npm install amazon-connect-acxd-sdk
 
 With your API key and workspace ID, you can make requests to the ACXD SDK.
 
-```
+```typescript
 import { AgenticCXDesignerClient, ListContextVariablesCommand } from 'amazon-connect-acxd-sdk';
 
 const client = new AgenticCXDesignerClient({

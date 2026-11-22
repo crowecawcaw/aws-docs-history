@@ -1,7 +1,6 @@
 
 
 # Pagination
-<a name="acxd-common-types-pagination"></a>
 
 ## nextToken
 <a name="acxd-common-types-pagination-nexttoken"></a>

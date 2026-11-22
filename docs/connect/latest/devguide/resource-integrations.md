@@ -1,7 +1,6 @@
 
 
 # Resource integrations
-<a name="resource-integrations"></a>
 
 ## CloudFormation
 <a name="cloudformation-integration"></a>

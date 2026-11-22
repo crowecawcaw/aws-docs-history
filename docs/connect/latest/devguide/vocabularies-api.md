@@ -1,7 +1,6 @@
 
 
 # Vocabulary actions
-<a name="vocabularies-api"></a>
 
 The following API actions are available for vocabularies:
 + [AssociateDefaultVocabulary](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateDefaultVocabulary.html)

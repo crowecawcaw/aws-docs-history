@@ -1,14 +1,13 @@
 
 
 # MessageParticipantIteratively
-<a name="participant-actions-messageparticipantiteratively"></a>
 
 Loops a sequence of prompts while a customer or agent is on hold or in queue. This block can be configured with an interruption timeout when in a Queue flow that interrupts the message loop to run other flow logic. The message loop can include entries for both Text and Prompts. 
 
 ## Parameter object
 <a name="messageparticipantiteratively-parameter"></a>
 
-```
+```json
 {
    "Messages" : [ A List of messages to be played in a loop. These are defined with either TTS or a Prompt
        {

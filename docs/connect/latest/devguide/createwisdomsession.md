@@ -1,14 +1,13 @@
 
 
 # CreateWisdomSession
-<a name="createwisdomsession"></a>
 
 Associates a Wisdom domain to a contact that is being executed in a Flow to enable real-time recommendations on the current contact.
 
 ## Parameter object
 <a name="createwisdomsession-parameter"></a>
 
-```
+```json
 {
     "WisdomAssistantArn":  ARN for the Wisdom Assistant. May be specified statically or dynamically.
 }

@@ -1,7 +1,6 @@
 
 
 # Contact actions in the Connect Customer Flow language
-<a name="contact-actions"></a>
 
 Contact actions are attempted only for flows that run in context of a contact. They generally result in contact data being manipulated in some way.
 

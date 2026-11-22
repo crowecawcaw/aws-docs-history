@@ -1,7 +1,6 @@
 
 
 # OnRealTimeCallAnalysisAvailable
-<a name="OnRealTimeCallAnalysisAvailable"></a>
 
 ## RealTimeCall words or phrases - Exact match
 <a name="realtime-exactmatch"></a>
@@ -12,7 +11,7 @@
 + ComparisonValue – "$.ContactLens.RealTimeCall.ExactMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -34,7 +33,7 @@
 + ComparisonValue – "$.ContactLens.RealTimeCall.PatternMatch.Transcript"
 + FilterClause –
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [
@@ -87,7 +86,7 @@
 + ComparisonValue – "$.ContactLens.RealTimeCall.Sentiment.State"
 + FilterClause – 
 
-  ```
+  ```json
   {
       "LogicOperator": "AND", // Only "AND" is supported
       "Filters": [

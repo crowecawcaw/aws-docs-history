@@ -1,7 +1,6 @@
 
 
 # GetCalculatedAttributesForCustomerProfile
-<a name="interactions-getcalculatedattributesforcustomerprofile"></a>
 
 Retrieve calculated attributes for a customer profile. Customer Profiles must be enabled for your Connect Customer instance.
 
@@ -10,7 +9,7 @@ Retrieve calculated attributes for a customer profile. Customer Profiles must be
 
 A `ProfileId` must be present.
 
-```
+```json
 {
     "ProfileRequestData": {
         "ProfileId": Profile owning the calculated attribute

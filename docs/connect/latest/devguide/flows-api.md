@@ -1,7 +1,6 @@
 
 
 # Flows / Flow module actions
-<a name="flows-api"></a>
 
  The following API actions are available for flows and flow modules:
 + [AssociateFlow](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateFlow.html)

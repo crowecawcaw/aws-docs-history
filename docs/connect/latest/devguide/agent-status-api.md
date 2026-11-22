@@ -1,7 +1,6 @@
 
 
 # Agent status actions
-<a name="agent-status-api"></a>
 
  The following API actions are available for agent status:
 + [CreateAgentStatus](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateAgentStatus.html)

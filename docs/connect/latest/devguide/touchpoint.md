@@ -1,13 +1,12 @@
 
 
 # Touchpoint
-<a name="touchpoint"></a>
 
 Touchpoint is a drop-in conversational UI and SDK for Amazon Connect Customer — a single widget for chat, voice, and voice-mini, plus **Live Sync**, the native technology that keeps a voice or chat conversation in sync with your on-screen interface.
 
 Install the package from npm:
 
-```
+```bash
 npm i @amazon-connect-touchpoint/web
 ```
 
@@ -81,7 +80,7 @@ The following examples show how to configure Touchpoint for each input mode.
 
 Configure a chat experience with `input: "text"`.
 
-```
+```js
 import { create } from "@amazon-connect-touchpoint/web";
 
 const touchpoint = await create({
@@ -102,7 +101,7 @@ const touchpoint = await create({
 
 A compact, floating voice widget. Voice modes connect through your `StartWebRTCContact` endpoint.
 
-```
+```js
 import { create } from "@amazon-connect-touchpoint/web";
 
 const touchpoint = await create({
@@ -123,7 +122,7 @@ Live Sync is native Amazon Connect Customer technology that synchronizes a voice
 
 In Touchpoint, the AI agent drives the page through **custom actions**: you register a named action with a JSON Schema, the agent resolves what the customer said into typed arguments, and your handler applies them to the page.
 
-```
+```js
 import { create } from "@amazon-connect-touchpoint/web";
 
 const touchpoint = await create({
@@ -171,7 +170,7 @@ Actions can also be configured in [Agentic CX designer (ACXD)](https://docs.aws.
 
 Use `input: "external"` to run Touchpoint with **no rendered UI**. It opens no chat or voice contact of its own — it only connects Live Sync to an existing live contact (identified by `liveSync.contactId`) so that contact can drive your digital asset in real time. A common case is a **phone call**: the caller talks to the agent while the page updates alongside them. No `chatEndpoint` or `voiceEndpoint` is needed; only the Live Sync credentials.
 
-```
+```js
 import { create } from "@amazon-connect-touchpoint/web";
 
 const touchpoint = await create({
@@ -193,7 +192,7 @@ await touchpoint.sendContext({ actions: [/* … */] });
 
 Running the project locally launches an interactive playground covering every capability (chat, voice, voice-mini, and Live Sync):
 
-```
+```bash
 npm install
 npm run dev
 # then open http://localhost:5173

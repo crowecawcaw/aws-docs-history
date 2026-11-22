@@ -1,7 +1,6 @@
 
 
 # Data table actions
-<a name="data-tables-api"></a>
 
 The following API actions are available for data tables:
 + [BatchCreateDataTableValue](https://docs.aws.amazon.com/connect/latest/APIReference/API_BatchCreateDataTableValue.html)

@@ -1,14 +1,13 @@
 
 
 # ConnectParticipantWithLexBot
-<a name="participant-actions-connectparticipantwithlexbot"></a>
 
 Connects the participant with the specified Amazon Lex bot. When the interaction is over, the Intent and Slots of the bot are available to the flow during its run. 
 
 ## Action syntax
 <a name="connectparticipantwithlexbot-action-syntax"></a>
 
-```
+```json
 {
       "Parameters": {
         "PromptId": "string",

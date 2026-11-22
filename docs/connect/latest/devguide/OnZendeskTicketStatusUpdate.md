@@ -1,7 +1,6 @@
 
 
 # OnZendeskTicketStatusUpdate
-<a name="OnZendeskTicketStatusUpdate"></a>
 
 ## Type condition
 <a name="typeu-condition"></a>

@@ -1,7 +1,6 @@
 
 
 # Notifications actions
-<a name="notifications-api"></a>
 
 The following API actions are available for notifications:
 + [CreateNotification](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateNotification.html)

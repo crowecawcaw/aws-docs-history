@@ -1,7 +1,6 @@
 
 
 # Parameter restrictions for actions in the Connect Customer Flow language
-<a name="flow-language-actions-parameter-restrictions"></a>
 
 There are several restrictions on parameters. Here's what they mean:
 + Must be defined statically. This means that JSONPath cannot be used at all in this value.

@@ -1,7 +1,6 @@
 
 
 # Connect Customer Flow language concepts
-<a name="flow-language-concepts"></a>
 
 The following terms are used in the Flow language.
 

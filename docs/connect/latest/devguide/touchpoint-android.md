@@ -1,13 +1,12 @@
 
 
 # Touchpoint SDK for Android
-<a name="touchpoint-android"></a>
 
 The Touchpoint SDK for Android is the native Kotlin counterpart of the [Touchpoint](touchpoint.md) web SDK. It brings the same capabilities to Android apps — chat, voice, and **Live Sync**, the native technology that keeps a voice or chat conversation in sync with your on-screen interface — as Jetpack Compose UI and Kotlin coroutine APIs.
 
 The SDK is published to Maven Central as separate modules. The following Gradle Kotlin DSL excerpt adds the modules your app needs to its `build.gradle.kts` file. Replace {{REPLACE\_WITH\_VERSION}} with the SDK version that you want to use.
 
-```
+```kotlin
 dependencies {
     val touchpointVersion = "REPLACE_WITH_VERSION"
     implementation("software.aws.connect:touchpoint-chat:$touchpointVersion")
@@ -75,7 +74,7 @@ To run Touchpoint for Android you need an Amazon Connect Customer instance with 
 
 The web SDK takes endpoint URLs in its configuration. The Android SDK instead asks your app to implement the `TouchpointBackend` interface. Anything packaged in an APK is public. For this reason, the SDK has no production API that accepts AWS credentials or a Live Sync API key directly. Your implementation calls your own authenticated backend, which holds the AWS credentials and calls Amazon Connect on the server.
 
-```
+```kotlin
 import com.amazon.connect.touchpoint.core.ChatContactCredentials
 import com.amazon.connect.touchpoint.core.ChatContactRequest
 import com.amazon.connect.touchpoint.core.LiveSyncCredentials
@@ -150,7 +149,7 @@ Every example starts from a `TouchpointSession`. A session coordinates one activ
 
 The following example builds a session with the chat transport, starts a chat contact, and shows the chat in a sheet. Replace {{REPLACE\_WITH\_CUSTOMER\_NAME}} with the customer's display name, which the agent sees.
 
-```
+```kotlin
 import com.amazon.connect.touchpoint.chat.ConnectChatTransport
 import com.amazon.connect.touchpoint.chat.ui.TouchpointChatSheet
 import com.amazon.connect.touchpoint.core.ChatContactRequest
@@ -183,7 +182,7 @@ To place the chat in your own container instead of a sheet, use `TouchpointChatV
 
 Register the voice transport with the session, then show `TouchpointVoiceView` for the full-screen call experience or `TouchpointVoiceMini` for a compact floating widget. The view calls `onStartCall` when it opens, the same way the web SDK does. The following example registers the voice transport and shows the full-screen call view.
 
-```
+```kotlin
 import com.amazon.connect.touchpoint.core.VoiceContactRequest
 import com.amazon.connect.touchpoint.voice.ConnectVoiceTransport
 import com.amazon.connect.touchpoint.voice.TouchpointVoiceView
@@ -211,7 +210,7 @@ Live Sync is native Amazon Connect Customer technology that synchronizes a voice
 
 Create a `LiveSyncClient` for the contact you want to mirror. Its `conversationId` is the Amazon Connect contact ID — for example, `session.contactId` after a chat starts. The client gets the Live Sync keys from your backend through the credential broker. The following example creates a client, handles an action, and advertises it to the AI agent.
 
-```
+```kotlin
 import com.amazon.connect.touchpoint.core.LiveSyncChannel
 import com.amazon.connect.touchpoint.livesync.ConsentDecision
 import com.amazon.connect.touchpoint.livesync.LiveSyncAction
@@ -260,7 +259,7 @@ client.sendContext(actions = listOf(
 
 Instead of maintaining the action list by hand, you can declare actions in the composables that handle them. The SDK advertises an action while it's composed and withdraws it when it leaves the composition. The context always matches what the customer sees. By default, the SDK derives the JSON Schema from the payload's serializer. The following example declares an action in a screen.
 
-```
+```kotlin
 import com.amazon.connect.touchpoint.livesync.TouchpointAction
 import com.amazon.connect.touchpoint.livesync.TouchpointActionAggregator
 import com.amazon.connect.touchpoint.livesync.TouchpointLiveSync
@@ -300,7 +299,7 @@ Because the SDK doesn't observe your app's lifecycle, call `client.enterBackgrou
 
 Live Sync shares what is on the customer's screen with the AI agent. The client starts with consent `HELD` and sends no context until the customer grants it. Use `LiveSyncConsentController` to store the decision for each deployment, and show the SDK's `LiveSyncConsentSheet` – or your own composable — while the controller needs an answer. In the following example, replace {{REPLACE\_WITH\_DEPLOYMENT\_ID}} with an identifier for your ACXD deployment, and {{REPLACE\_WITH\_YOUR\_COMPANY}} with your company name as customers know it.
 
-```
+```kotlin
 val consent = LiveSyncConsentController(
       client,
       ConsentStore(AndroidStores.secureStore(context), "REPLACE_WITH_DEPLOYMENT_ID"),

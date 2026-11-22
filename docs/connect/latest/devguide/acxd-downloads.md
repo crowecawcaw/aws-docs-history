@@ -1,7 +1,6 @@
 
 
 # Downloads
-<a name="acxd-downloads"></a>
 
 Configure data exports one-time downloads and scheduled recurring exports.
 
@@ -24,7 +23,7 @@ Polls the status of an async download job. Returns a pre-signed URL when the dow
 ### Output
 <a name="acxd-downloads-getdownload-output"></a>
 
-```
+```json
 {
   "url": "https://s3.amazonaws.com/bucket/path/file.csv?X-Amz-Signature=..."
 }

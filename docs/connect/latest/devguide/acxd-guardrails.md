@@ -1,7 +1,6 @@
 
 
 # Guardrails
-<a name="acxd-guardrails"></a>
 
 Define safety rules that monitor conversation content and enforce behavior like masking, modifying, rerouting, or flagging when violations are detected.
 
@@ -37,14 +36,14 @@ Lists all guardrails in the workspace.
 ### Sample Request
 <a name="acxd-guardrails-listguardrails-sample-request"></a>
 
-```
+```typescript
 await client.send(new ListGuardrailsCommand({}));
 ```
 
 ### Output
 <a name="acxd-guardrails-listguardrails-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -98,7 +97,7 @@ Creates a new guardrail.
 ### Sample Request
 <a name="acxd-guardrails-createguardrail-sample-request"></a>
 
-```
+```typescript
 await client.send(new CreateGuardrailCommand({
   name: "PII Filter",
   trigger: "output",
@@ -125,7 +124,7 @@ await client.send(new CreateGuardrailCommand({
 ### Output
 <a name="acxd-guardrails-createguardrail-output"></a>
 
-```
+```json
 {
     "guardrailId": "g1a2b3c4-5678-90ab-cdef-1234567890ab",
     "name": "PII Filter",
@@ -162,7 +161,7 @@ Gets a single guardrail by ID.
 ### Sample Request
 <a name="acxd-guardrails-getguardrail-sample-request"></a>
 
-```
+```typescript
 await client.send(new GetGuardrailCommand({
   guardrailIdentifier: "g1a2b3c4-5678-90ab-cdef-1234567890ab"
 }));
@@ -179,7 +178,7 @@ await client.send(new GetGuardrailCommand({
 ### Output
 <a name="acxd-guardrails-getguardrail-output"></a>
 
-```
+```json
 {
     "guardrailId": "g1a2b3c4-5678-90ab-cdef-1234567890ab",
     "name": "PII Filter",
@@ -231,7 +230,7 @@ Updates an existing guardrail. Only include fields you want to change.
 ### Sample Request
 <a name="acxd-guardrails-updateguardrail-sample-request"></a>
 
-```
+```typescript
 await client.send(new UpdateGuardrailCommand({
   guardrailIdentifier: "g1a2b3c4-5678-90ab-cdef-1234567890ab",
   name: "PII Filter",
@@ -259,7 +258,7 @@ await client.send(new UpdateGuardrailCommand({
 ### Output
 <a name="acxd-guardrails-updateguardrail-output"></a>
 
-```
+```json
 {
     "guardrailId": "g1a2b3c4-5678-90ab-cdef-1234567890ab",
     "name": "PII Filter",
@@ -304,7 +303,7 @@ Deletes a guardrail.
 ### Sample Request
 <a name="acxd-guardrails-deleteguardrail-sample-request"></a>
 
-```
+```typescript
 await client.send(new DeleteGuardrailCommand({
   guardrailIdentifier: "2be7442d-3cb4-4f45-940a-20335a339f70",
 }));
@@ -339,7 +338,7 @@ Tests a guardrail against sample input without affecting live conversations.
 ### Sample Request
 <a name="acxd-guardrails-testguardrail-sample-request"></a>
 
-```
+```typescript
 await client.send(new TestGuardrailCommand({
   guardrailIdentifier: created.guardrailId,
   input: "My email is john@example.com",
@@ -349,7 +348,7 @@ await client.send(new TestGuardrailCommand({
 ### Output
 <a name="acxd-guardrails-testguardrail-output"></a>
 
-```
+```json
 {
   "input": "My email is john@example.com",
   "processedInput": "My email is [REDACTED]",
@@ -402,7 +401,7 @@ Lists historical guardrail trigger events.
 ### Sample Request
 <a name="acxd-guardrails-listguardrailevents-sample-request"></a>
 
-```
+```typescript
 const now = new Date();
   const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
   const events = await client.send(new ListGuardrailEventsCommand({
@@ -414,7 +413,7 @@ const now = new Date();
 ### Output
 <a name="acxd-guardrails-listguardrailevents-output"></a>
 
-```
+```json
 {
   "items": [
     {
@@ -658,7 +657,7 @@ Fields depend on the enforcement action:
 
 **For** `mask` or `flag`:
 
-```
+```json
 { "maskChar": "*", "maskText": "[REDACTED]" }
 ```
 
@@ -668,7 +667,7 @@ Fields depend on the enforcement action:
 
 **For** `modify`:
 
-```
+```json
 { "message": "I can't help with that.", "prompt": "...", "flowId": "..." }
 ```
 
@@ -680,7 +679,7 @@ Fields depend on the enforcement action:
 
 **For** `route`:
 
-```
+```json
 { "flowId": "EscalationFlow" }
 ```
 

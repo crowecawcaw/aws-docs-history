@@ -1,7 +1,6 @@
 
 
 # OnZendeskTicketCreate
-<a name="OnZendeskTicketCreate"></a>
 
 ## Type condition
 <a name="type-condition"></a>

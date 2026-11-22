@@ -1,7 +1,6 @@
 
 
 # User management actions
-<a name="users-api"></a>
 
 The following API actions are available for user management:
 + [AssociateUserProficiencies](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateUserProficiencies.html)

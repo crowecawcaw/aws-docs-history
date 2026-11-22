@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="rules-language-concepts"></a>
 
 The following terms are used in the Rules Function language.
 

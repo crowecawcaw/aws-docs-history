@@ -1,7 +1,6 @@
 
 
 # Test initiated
-<a name="testing-language-events-test-initiated"></a>
 
 Triggered when the test execution begins. This is typically used to set up initial conditions such as override system behaviors before the actual flow execution starts.
 

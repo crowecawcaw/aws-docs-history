@@ -1,7 +1,6 @@
 
 
 # Observations in the Connect Customer Testing language
-<a name="testing-language-observations"></a>
 
 Observations represent each complete interaction that includes one observed event expected from the system and many actions to validate or simulate system behaviors.
 
