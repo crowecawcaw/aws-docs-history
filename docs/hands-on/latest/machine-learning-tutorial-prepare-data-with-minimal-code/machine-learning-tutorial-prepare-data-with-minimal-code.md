@@ -1,7 +1,6 @@
 
 
 # Prepare Training Data for Machine Learning with Minimal Code
-<a name="machine-learning-tutorial-prepare-data-with-minimal-code"></a>
 
 
 |  |  | 
