@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Enabling DevOps Guru for RDS
-<a name="working-with-rds.enabling"></a>
 
 When you enable DevOps Guru for RDS, you enable DevOps Guru to analyze anomalies in resources such as DB instances. Amazon RDS makes it easy to discover and enable recommended functionality for an RDS DB instance or DB cluster. To achieve this, RDS makes API calls to other services, such as Amazon EC2, DevOps Guru, and IAM. When the RDS console makes these API calls, AWS CloudTrail logs them for visibility.
 

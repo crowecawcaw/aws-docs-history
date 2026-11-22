@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # How does DevOps Guru work?
-<a name="how-it-works"></a>
 
 The DevOps Guru workflow begins when you configure its coverage and notifications. After you set up DevOps Guru, it starts to analyze your operational data. When it detects anomalous behavior, it creates an insight that contains recommendations and lists of metrics, log groups, and events that are related to the issue. For each insight, DevOps Guru notifies you. If you enabled AWS Systems Manager OpsCenter, an OpsItem is created so you can use Systems Manager OpsCenter to track and manage addressing your insights. Each insight contains recommendations, metrics, log groups, and events related to anomalous behavior. Use information in an insight to help you understand and address the anomalous behavior.
 

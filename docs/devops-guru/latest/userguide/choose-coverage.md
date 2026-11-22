@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Step 3: Specify your DevOps Guru resource coverage
-<a name="choose-coverage"></a>
 
 If you chose to specify AWS resources later when you enabled DevOps Guru, you need to choose the CloudFormation stacks in your AWS account that create the resources you want analyzed. An CloudFormation stack is a collection of AWS resources that you manage as a single unit. You can use one or more stacks to include all the resources required to run your operational applications, then specify them so that they are analyzed by DevOps Guru. If you don't specify stacks, then DevOps Guru analyzes all the AWS resources in your account. For more information, see [Working with stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *CloudFormation User Guide*, and [Determine coverage for DevOps Guru](setting-up.md#setting-up-determine-coverage). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md).
 

@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Filtering your DevOps Guru notifications
-<a name="update-notifications-filter"></a>
 
 You can filter your DevOps Guru notifications by [Updating Amazon SNS notification configurations](update-notifications.md#update-notification-configurations) or by using a Amazon SNS subscription filter policy.
 
@@ -26,7 +25,7 @@ Use a filter policy to specify the types of notifications you receive. You can f
 
 For information about how to create an Amazon SNS subscription filter policy, see [Amazon SNS subscription filter policies](https://docs.aws.amazon.com/sns/latest/dg/sns-subscription-filter-policies.html) in the *Amazon Simple Notification Service Developer Guide*. In your filter policy, you specify one of the keywords with the policy's `MessageType`. For example, the following would appear in a filter that specifies the Amazon SNS topic only deliver notifications when a new anomaly is detected from an insight.
 
-```
+```json
 { 
   "MessageType":["NEW_ ASSOCIATION"] 
 }
@@ -37,7 +36,7 @@ For information about how to create an Amazon SNS subscription filter policy, se
 
 The following is an example of an Amazon Simple Notification Service (Amazon SNS) notification from an Amazon SNS topic with a filter policy. Its `MessageType` is set to `NEW_ASSOCIATION`, so it sends notifications only when a new anomaly is detected from an insight.
 
-```
+```json
 {
       "accountId": "123456789012",
       "region": "us-east-1",

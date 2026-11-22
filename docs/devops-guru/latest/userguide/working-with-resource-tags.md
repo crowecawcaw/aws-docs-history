@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Using tags to identify resources in your DevOps Guru applications
-<a name="working-with-resource-tags"></a>
 
 You can use tags to identify the AWS resources that Amazon DevOps Guru analyzes and to specify which resources are grouped for monitoring with the selected tag key and tag values. You can edit these configurations when you set up DevOps Guru or when you choose **Edit analyzed resources** from the **Analyzed resources** page. After you select **Tags**, you choose a specific tag key that you want Amazon DevOps Guru to monitor. To analyze all resources in the account and use tag values to group the resources, select **All Account Resources**. To use tag values to specify the resources for DevOps Guru to analyze, select **Choose specific tag values**.
 

@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # DevOps Guru coverage
-<a name="coverage"></a>
 
 DevOps Guru addresses and creates insights for a number of different AWS services. For each service that DevOps Guru creates insights for, DevOps Guru displays a variety of analyzed metrics and generated insights. 
 

@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Monitor accounts across your organization
-<a name="getting-started-multi-account"></a>
 
 If you choose to monitor applications across your organization, log into your organization management account. You can optionally set up an organization member account as a **delegated administrator**. You can only have one delegated administrator at a time and can modify the administrator settings later. Both the management account and the delegated administrator account that you set up have access to all insights across all accounts in your organization.
 

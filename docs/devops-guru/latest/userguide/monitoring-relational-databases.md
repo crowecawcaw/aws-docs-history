@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Monitoring relational databases using DevOps Guru
-<a name="monitoring-relational-databases"></a>
 
  DevOps Guru pulls from two primary data sources to look for insights and anomalies in relational databases. For Amazon RDS and Amazon Redshift, CloudWatch vended metrics are analyzed for all instance types. For Amazon RDS, Performance Insights data is also ingested for the following engine types: RDS for PostgreSQL, Aurora PostgreSQL, and Aurora MySQL. 
 

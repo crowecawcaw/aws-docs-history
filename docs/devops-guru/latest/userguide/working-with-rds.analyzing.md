@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Analyzing anomalies in Amazon RDS
-<a name="working-with-rds.analyzing"></a>
 
 When DevOps Guru for RDS publishes a performance anomaly in the dashboard, you typically perform the following steps:
 

@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Estimating Amazon DevOps Guru resource analysis costs
-<a name="cost-estimate"></a>
 
 You can estimate your monthly cost for Amazon DevOps Guru to analyze your AWS resources. You pay for the number of hours analyzed for each active AWS resource in your specified resource coverage. A resource is active if it produces metrics, events, or logs within an hour.
 

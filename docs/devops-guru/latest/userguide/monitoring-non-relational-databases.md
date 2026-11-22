@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Monitoring non-relational databases using DevOps Guru
-<a name="monitoring-non-relational-databases"></a>
 
 DevOps Guru is capable of generating insights for your non-relational or NoSQL databases that help you keep your resources configured according to best practices. For example, DevOps Guru can help you stay on top of capacity planning by forecasting future needs based on existing traffic. DevOps Guru can identify if you are utilizing less resources than you configured and provide recommendations to improve application availability based on your historic usage. This can help you reduce unnecessary cost. 
 

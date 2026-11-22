@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Responding to recommendations
-<a name="working-with-rds.analyzing.recommend"></a>
 
 Recommendations are the most important part of the insight. In this stage of the analysis, you act to resolve the performance issue. Typically, you take the following steps:
 

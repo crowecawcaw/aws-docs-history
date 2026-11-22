@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Monitor your current account
-<a name="getting-started-single-account"></a>
 
 If you choose to monitor applications in your current AWS account, choose which AWS resources in your account and Region are covered or analyzed and specify one or two Amazon Simple Notification Service topics that are used to notify you when an insight is created. You can update these settings later as needed. 
 

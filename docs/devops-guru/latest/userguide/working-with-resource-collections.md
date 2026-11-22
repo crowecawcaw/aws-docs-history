@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Defining applications using AWS resources
-<a name="working-with-resource-collections"></a>
 
 Amazon DevOps Guru groups the resources that are in the coverage boundary that specifies which resources it analyzes for operational insights. The resources are grouped by resources in CloudFormation stacks or by resources with tags. You choose the stacks or tags when you set up DevOps Guru. You can also update the stacks or tags later. We recommend that you think of your resource groups as applications. For example, you might have all resources that you use for a monitoring application defined in one stack. Or you might add the same tag to all the resources that you use in a database application. the boundary that defines which resources DevOps Guru analyzes. All the resources in the collection are inside this boundary. Any resources in your account that are not in your resource collection are outside the boundary and are not analyzed. For more information about the supported services and resources, see [Amazon DevOps Guru pricing](https://aws.amazon.com/devops-guru/pricing/).
 

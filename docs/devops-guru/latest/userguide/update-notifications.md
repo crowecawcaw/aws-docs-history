@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Updating your notifications in DevOps Guru
-<a name="update-notifications"></a>
 
 Set up Amazon Simple Notification Service topics that are used to notify you about important Amazon DevOps Guru events. You can choose from a list of topic names that already exist in your AWS account, enter the name for a new topic that DevOps Guru creates in your account, or enter the Amazon Resource Name (ARN) of an existing topic in any AWS account in your Region. If you specify the ARN of a topic that is not in your account, you must grant permission for DevOps Guru to access that topic by adding an IAM policy to it. For more information, see [Permissions for Amazon SNS topics](sns-required-permissions.md). You can specify up to two topics. 
 

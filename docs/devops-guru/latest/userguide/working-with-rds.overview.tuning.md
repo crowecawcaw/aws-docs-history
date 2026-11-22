@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Key concepts for database performance tuning
-<a name="working-with-rds.overview.tuning"></a>
 
 DevOps Guru for RDS assumes that you're familiar with a few key performance concepts. To learn more about these concepts, see [Overview of Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.html) in the *Amazon Aurora User Guide* or [Overview of Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.html) in the *Amazon RDS User Guide*.
 

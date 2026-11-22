@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Working with insights in DevOps Guru
-<a name="working-with-insights"></a>
 
 Amazon DevOps Guru generates an *insight* when it detects anomalous behavior in your operational applications. DevOps Guru analyzes the metrics, events, and more in the AWS resources you specified when you set up DevOps Guru. Each insight contains one or more recommendations for you to take to mitigate the issue. It also contains a list of the metrics, a list of log groups, and a list of the events that were used to identify the unusual behavior. 
 

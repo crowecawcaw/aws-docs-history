@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Viewing reactive anomalies
-<a name="working-with-rds.analyzing.metrics"></a>
 
 Within an insight, you can view anomalies for Amazon RDS resources. On a reactive insight page, in the **Aggregated metrics** section, you can view a list of anomalies with corresponding timelines. There are also sections that display information about log groups and events related to the anomalies. Causal anomalies in a reactive insight each have a corresponding page with details about the anomaly. 
 

@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Using service-linked roles for DevOps Guru
-<a name="using-service-linked-roles"></a>
 
 Amazon DevOps Guru uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to DevOps Guru. Service-linked roles are predefined by DevOps Guru and include all the permissions that the service requires to call AWS CloudTrail, Amazon CloudWatch, AWS CodeDeploy, AWS X-Ray, and AWS Organizations on your behalf. 
 
@@ -26,7 +25,7 @@ The role permissions policy, `AmazonDevOpsGuruServiceRolePolicy` allows DevOps 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

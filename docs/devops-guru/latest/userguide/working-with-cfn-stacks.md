@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Using CloudFormation stacks to identify resources in your DevOps Guru applications
-<a name="working-with-cfn-stacks"></a>
 
 You can use AWS CloudFormation stacks to specify which AWS resources you want DevOps Guru to analyze. A stack is a collection of AWS resources that are managed as a single unit. The resources in the stacks you choose make up your DevOps Guru coverage boundary. For each stack you choose, operational data in its supported resources are analyzed for anomalous behavior. Those issues are then grouped into related anomalies to create insights. Each insight includes one or more recommendations to help you address them. The maximum number of stacks you can specify is 1000. For more information, see [Working with stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* and [Updating your AWS analysis coverage in DevOps Guru](update-settings.md#update-coverage). 
 

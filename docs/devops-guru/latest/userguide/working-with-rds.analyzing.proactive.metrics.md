@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Viewing proactive anomalies
-<a name="working-with-rds.analyzing.proactive.metrics"></a>
 
 Within insights, you can view anomalies for Amazon RDS resources. Each proactive insight provides details about one proactive anomaly. On a proactive insight page, you can view an insight overview, detailed metrics about the anomaly, and recommendations to prevent future issues. To view a proactive anomaly, [go to the proactive insight page](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-rds.analyzing.insights.html).
 

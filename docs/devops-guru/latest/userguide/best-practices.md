@@ -3,7 +3,6 @@
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
 
 # Best practices in DevOps Guru
-<a name="best-practices"></a>
 
 The following best practices can help you understand, diagnose, and fix anomalous behavior detected by Amazon DevOps Guru. Use best practices with [Understanding insights in the DevOps Guru console](working-with-insights.md#understanding-insights-console) to address operational problems detected by DevOps Guru.
 + In an insight's timeline view, look at the highlighted metrics first. They are often key indicators of the problem. 
