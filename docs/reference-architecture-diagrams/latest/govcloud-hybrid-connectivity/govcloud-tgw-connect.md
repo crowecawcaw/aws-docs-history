@@ -1,7 +1,6 @@
 
 
 # Using AWS Transit Gateway Connect Attachment
-<a name="govcloud-tgw-connect"></a>
 
 Publication date: **November 22, 2024 ([Diagram history](#gtgw-diagram-history))**
 

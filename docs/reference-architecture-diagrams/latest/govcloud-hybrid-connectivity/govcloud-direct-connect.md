@@ -1,7 +1,6 @@
 
 
 # Using AWS Direct Connect
-<a name="govcloud-direct-connect"></a>
 
 Publication date: **November 22, 2024 ([Diagram history](#gdx-diagram-history))**
 

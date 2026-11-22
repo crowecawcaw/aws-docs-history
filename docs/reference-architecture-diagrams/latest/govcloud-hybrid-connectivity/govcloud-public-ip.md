@@ -1,7 +1,6 @@
 
 
 # Using Public IP Addressing
-<a name="govcloud-public-ip"></a>
 
 Publication date: **November 22, 2024 ([Diagram history](#gpub-diagram-history))**
 
