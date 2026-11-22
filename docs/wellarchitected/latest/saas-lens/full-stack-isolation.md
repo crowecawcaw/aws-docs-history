@@ -1,7 +1,6 @@
 
 
 # Full stack isolation
-<a name="full-stack-isolation"></a>
 
  SaaS organizations are motivated by the economies of scale that come with sharing infrastructure resources across tenants. At the same time, there are real-world factors that might result in a SaaS architecture where some or all of the tenants within your environment require dedicated (siloed) infrastructure. Compliance, noisy neighbor, tiering strategies, legacy technologies—these are among the long list consideration that could lead you to offering tenants their own infrastructure. This is referred to as a siloed or full stack isolation SaaS. 
 

@@ -1,7 +1,6 @@
 
 
 # Preventing cross tenant access
-<a name="preventing-cross-tenant-access"></a>
 
  Each SaaS architecture must also consider how it will prevent tenants from accessing the resources of another tenant. Some wonder about the need to isolate tenants with AWS Lambda since, by design, only one tenant can ever be running a Lambda function at a given moment in time. While this is true, our isolation must also consider ensuring that a tenant running a function is not accessing other resources that might belong to another tenant. 
 

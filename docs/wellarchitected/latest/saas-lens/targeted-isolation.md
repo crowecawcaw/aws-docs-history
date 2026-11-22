@@ -1,7 +1,6 @@
 
 
 # Targeted isolation
-<a name="targeted-isolation"></a>
 
  It’s important to note that the isolation choices in your system can be quite granular. Each microservice of your system and each resource those services touch has the option of being configured with a different model of isolation. Let’s look at some sample microservices to better understand how you might vary the isolation model across a varying microservices. The diagram in Figure 20 provides a view of microservices that use both the silo and pool models of isolation. 
 

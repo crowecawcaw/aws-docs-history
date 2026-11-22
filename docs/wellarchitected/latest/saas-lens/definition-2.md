@@ -1,7 +1,6 @@
 
 
 # Definition
-<a name="definition-2"></a>
 
  There are three best practice areas for reliability in the cloud: 
 +  Foundations 

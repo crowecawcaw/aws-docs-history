@@ -1,7 +1,6 @@
 
 
 # SaaS Lens
-<a name="saas-lens"></a>
 
 Publication date: **April 4, 2023** ([Document revisions](document-revisions.md))
 

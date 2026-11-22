@@ -1,7 +1,6 @@
 
 
 # General design principles
-<a name="general-design-principles"></a>
 
  The Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud for SaaS applications: 
 +  **There’s no one-size-fits-all SaaS architecture**: The needs of SaaS businesses, the nature of their domain, their compliance requirements, the segments of their market, the nature of their solution—all of these factors have a distinct influence on the architecture of a SaaS environment. Every SaaS architecture should be surrounded with an operational and customer experience that realizes the agility and software as a service tenets that are core to succeeding as a SaaS offering. Regardless of how the system is architected, the system should enable tenants to be onboarded, managed, and operated through a single pane of glass that allows the SaaS organization to achieve the agility and economies of scale that are foundational to building a SaaS business. 

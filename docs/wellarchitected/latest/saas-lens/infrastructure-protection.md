@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 | SaaS SEC 2: How are you ensuring that tenant resources are protected from cross-tenant access? | 

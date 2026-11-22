@@ -1,7 +1,6 @@
 
 
 # Tenant
-<a name="tenant"></a>
 
  A tenant is the most fundamental construct of a SaaS environment. As a SaaS provider building an application, you are making this application available to your customers. Any customer that you sign up to use your SaaS environment is one of the tenants of your system. The sum total of all the customers using your SaaS environment are the tenants. Imagine, for example, that your organization has created an accounting service that you want to make available to other companies that will use your service to manage their businesses. Each one of these companies would be viewed as a tenant of your system. 
 

@@ -1,7 +1,6 @@
 
 
 # Tenant Isolation
-<a name="tenant-isolation"></a>
 
  Tenant isolation is one of the foundational topics that every SaaS provider must address. As independent software vendors (ISVs) make the shift toward SaaS and adopt a shared infrastructure model to achieve cost and operational efficiency, they also have to take on the challenge of determining how their multi-tenant environments will ensure that each tenant is prevented from accessing another tenant’s resources. Crossing this boundary in any form would represent a significant and potentially unrecoverable event for a SaaS business. 
 

@@ -1,7 +1,6 @@
 
 
 # Noisy Neighbor
-<a name="noisy-neighbor"></a>
 
  Noisy neighbor is a term that is often applied to general architecture patterns and strategies. The idea behind noisy neighbor is that a user of a system could place load on the system’s resources that could have an adverse effect on other users of the system. The end result could be that one user could degrade the experience of another user. 
 

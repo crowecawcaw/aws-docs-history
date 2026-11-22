@@ -1,7 +1,6 @@
 
 
 # Serverless SaaS
-<a name="serverless-saas"></a>
 
  The move to a SaaS delivery model is accompanied by a desire to maximize cost and operational efficiency. This can be especially challenging in a multi-tenant environment where the activity of tenants can be difficult to predict. Finding a mix of scaling strategies that align tenant activity with the actual consumption of resources can be elusive. The strategy that works today might not work tomorrow. 
 

@@ -1,7 +1,6 @@
 
 
 # Pool isolation
-<a name="pool-isolation"></a>
 
  You can see how the silo model of isolation maps very nicely for many SaaS companies. Many companies that are moving to SaaS are seeking out the efficiency, agility, and cost benefits of being able to have their tenants share some or all of their underlying infrastructure. This shared infrastructure approach, which is referred to as a pool model, adds a level of complexity to the isolation story. The diagram in Figure 17 provides an illustration of the challenge associated with implementing isolation in a pooled model. 
 

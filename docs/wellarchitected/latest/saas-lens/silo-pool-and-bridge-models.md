@@ -1,7 +1,6 @@
 
 
 # Silo, Pool, and Bridge Models
-<a name="silo-pool-and-bridge-models"></a>
 
  SaaS applications can be built with a variety of different architectural models. Regulatory, competitive, strategic, cost efficiency, and market considerations all have some influence on the shape of your SaaS architecture. At the same time, there are strategies and patterns that are applied when defining the footprint of a SaaS application. These patterns fall into one of three categories—silo, bridge, and pool. 
 

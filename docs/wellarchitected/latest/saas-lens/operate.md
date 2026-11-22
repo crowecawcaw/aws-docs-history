@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | SaaS OPS 1: How are you able to effectively monitor and manage the operational health of a multi-tenant environment?  | 

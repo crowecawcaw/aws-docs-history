@@ -1,7 +1,6 @@
 
 
 # Amazon EKS SaaS
-<a name="amazon-eks-saas"></a>
 
  For many SaaS providers, the profile of Amazon Elastic Kubernetes Service (Amazon EKS) represents a good fit with their microservices development and architectural goals. It provides a way to build and deploy multi-tenant microservices that can help them realize their agility, scale, cost, and operational goals without requiring a complete shift in their development tooling and mindset. The rich community of Kubernetes tools and solutions also offers SaaS developers a range of different options for building, managing, securing, and operating their SaaS environments. 
 

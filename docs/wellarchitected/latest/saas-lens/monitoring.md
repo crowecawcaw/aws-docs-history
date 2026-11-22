@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="monitoring"></a>
 
 
 | SaaS PERF 3: How do you enable varying levels of performance for different tenant tiers and plans? | 

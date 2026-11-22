@@ -1,7 +1,6 @@
 
 
 # The isolation mindset
-<a name="isolation-mindset"></a>
 
  At the conceptual level, many SaaS providers would agree on the importance and value of protecting and isolating tenant resources. However, as you dig into the details of implementing an isolation strategy, you’ll often find that each SaaS ISV has their own definition of what is *enough* isolation. 
 

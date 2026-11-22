@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-1"></a>
 
 **Topics**
 + [Identity and access management](identity-and-access-management.md)

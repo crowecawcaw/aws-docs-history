@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="sus-best-practices"></a>
 
 There are six best practice areas for sustainability in the cloud:
 

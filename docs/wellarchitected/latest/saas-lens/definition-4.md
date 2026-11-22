@@ -1,7 +1,6 @@
 
 
 # Definition
-<a name="definition-4"></a>
 
  There are four best practice areas for cost optimization in the cloud: 
 +  Cost-effective resources 

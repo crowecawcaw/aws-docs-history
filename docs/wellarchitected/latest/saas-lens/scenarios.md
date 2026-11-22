@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
  In this section, we will cover a series of scenarios that represent common patterns and strategies that are used when designing and building SaaS solutions on AWS. We will present the assumptions we made for each of these scenarios, the common drivers for the design, and a reference architecture of how these scenarios are realized using AWS architecture constructs. 
 

@@ -1,7 +1,6 @@
 
 
 # Expenditure awareness
-<a name="expenditure-awareness"></a>
 
 
 | SaaS COST 1: How do you measure the resource consumption of individual tenants? | 

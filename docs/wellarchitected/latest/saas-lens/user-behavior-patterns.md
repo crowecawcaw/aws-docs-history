@@ -1,7 +1,6 @@
 
 
 # User behavior patterns
-<a name="user-behavior-patterns"></a>
 
 
 | SaaS SUS 3: Do you have a tenant off-boarding plan for inactive tenants? How do you decommission tenant resources that are not being used to limit or prevent waste? | 

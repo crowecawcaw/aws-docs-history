@@ -1,7 +1,6 @@
 
 
 # Hardware patterns
-<a name="hardware-patterns"></a>
 
 
 | SaaS SUS 2: How do you maximize the value from the resources that the SaaS environment consumes? | 

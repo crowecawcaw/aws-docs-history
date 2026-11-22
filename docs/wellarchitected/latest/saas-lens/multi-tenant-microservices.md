@@ -1,7 +1,6 @@
 
 
 # Multi-tenant microservices
-<a name="multi-tenant-microservices"></a>
 
  The microservices running in a multi-tenant environment must address additional considerations. These microservices must be able to reference and apply tenant context within each service. At the same time, it’s also our goal to limit the degree to which developers need to introduce any tenant awareness into their code. 
 

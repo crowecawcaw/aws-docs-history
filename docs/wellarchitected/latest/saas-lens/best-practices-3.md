@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-3"></a>
 
 **Topics**
 + [Selection](pe-selection.md)

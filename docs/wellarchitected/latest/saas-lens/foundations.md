@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | SaaS REL 1: How do you limit an individual tenant’s ability to impose load that might impact availability for other tenants of your system?  | 

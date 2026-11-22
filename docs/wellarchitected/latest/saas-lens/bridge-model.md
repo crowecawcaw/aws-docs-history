@@ -1,7 +1,6 @@
 
 
 # The bridge model
-<a name="bridge-model"></a>
 
  While the silo and pool models have very distinct approaches to isolation, the isolation landscape for many SaaS providers is less absolute. As you look at real application problems and you decompose your systems into smaller services, you will often discover that your solution will require a mix of the silo and pool models. This mixed model is what we would refer to as the bridge model of isolation. The diagram in Figure 18 provides an example of how the bridge model might be realized in a SaaS solution. 
 

@@ -1,7 +1,6 @@
 
 
 # Tier-based isolation
-<a name="tier-based-isolation"></a>
 
  While most of our discussion of isolation focuses on the mechanics of preventing cross-tenant access, there are also scenarios where the tiering of your offering might influence your isolation strategy. In this case, it’s less about how you’re isolating tenants and more about how you might package and offer different flavors of isolation to different tenants with different profiles. Still, this is another consideration that could determine which models of isolation you’ll need to support to address the full spectrum of customers you want to engage. The diagram in Figure 19 provides an example of how isolation might vary across tiers. 
 

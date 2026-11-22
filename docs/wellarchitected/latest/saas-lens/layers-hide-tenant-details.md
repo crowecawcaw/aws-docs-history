@@ -1,7 +1,6 @@
 
 
 # Layers hide tenant details
-<a name="layers-hide-tenant-details"></a>
 
  One of our goals with any SaaS architecture is to limit developer awareness of tenant details. In serverless SaaS environments, you can use Lambda layers as a way to create shared code that can implement multi-tenant policies outside the view of developers. 
 

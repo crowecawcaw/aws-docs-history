@@ -1,7 +1,6 @@
 
 
 # Definition
-<a name="definition-1"></a>
 
  There are five best practice areas for security in the cloud: 
 +  Identity and access management 
