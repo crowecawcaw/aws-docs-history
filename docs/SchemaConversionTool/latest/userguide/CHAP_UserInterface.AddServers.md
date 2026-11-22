@@ -1,7 +1,6 @@
 
 
 # Adding servers to project in AWS SCT
-<a name="CHAP_UserInterface.AddServers"></a>
 
 You can add multiple source and target database servers to an AWS Schema Conversion Tool project.
 

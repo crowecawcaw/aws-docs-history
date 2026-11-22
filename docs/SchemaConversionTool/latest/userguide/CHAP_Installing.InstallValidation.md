@@ -1,7 +1,6 @@
 
 
 # Validating the AWS Schema Conversion Tool installation
-<a name="CHAP_Installing.InstallValidation"></a>
 
 There are several ways you can verify the distribution file of AWS SCT. The simplest is to compare the checksum of the file with the published checksum from AWS. As an additional level of security, you can use the procedures following to verify the distribution file, based on the operating system where you installed the file. 
 

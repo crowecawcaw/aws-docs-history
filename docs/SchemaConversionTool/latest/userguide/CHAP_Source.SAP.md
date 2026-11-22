@@ -1,7 +1,6 @@
 
 
 # Connecting to SAP Databases with the AWS Schema Conversion Tool
-<a name="CHAP_Source.SAP"></a>
 
 You can use AWS SCT to convert schemas, database code objects, and application code from SAP (Sybase) Adaptive Server Enterprise (ASE) to the following targets: 
 + Amazon RDS for MySQL

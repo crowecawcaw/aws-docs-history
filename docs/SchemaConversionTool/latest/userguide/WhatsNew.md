@@ -1,7 +1,6 @@
 
 
 # New Features in the AWS Schema Conversion Tool
-<a name="WhatsNew"></a>
 
 The following table describes the important changes to the AWS Schema Conversion Tool (AWS SCT) user guide after January 2018.
 

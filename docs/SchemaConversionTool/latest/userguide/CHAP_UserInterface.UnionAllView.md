@@ -1,7 +1,6 @@
 
 
 # Creating UNION ALL view in the AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.UnionAllView"></a>
 
 If a source table is partitioned, AWS SCT creates *n* target tables, where *n* is the number of partitions on the source table. AWS SCT creates a UNION ALL view on top of the target tables to represent the source table. If you use an AWS SCT data extractor to migrate your data, the source table partitions will be extracted and loaded in parallel by separate subtasks.
 

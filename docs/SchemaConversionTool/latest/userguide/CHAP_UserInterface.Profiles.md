@@ -1,7 +1,6 @@
 
 
 # Managing Profiles in the AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.Profiles"></a>
 
 You can store your AWS credentials in AWS SCT. AWS SCT uses your credentials when you use features that integrate with AWS services. For example, AWS SCT integrates with Amazon S3, AWS Lambda, Amazon Relational Database Service (Amazon RDS), and AWS Database Migration Service (AWS DMS). 
 
@@ -87,7 +86,7 @@ The following code example shows you how to grant these permissions to your user
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

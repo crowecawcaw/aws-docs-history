@@ -1,7 +1,6 @@
 
 
 # Connecting to a SQL Server Data Warehouse with the AWS Schema Conversion Tool
-<a name="CHAP_Source.SQLServerDW"></a>
 
 You can use AWS SCT to convert schemas, code objects, and application code from Microsoft SQL Server DW to Amazon Redshift or Amazon Redshift and AWS Glue used in combination. 
 

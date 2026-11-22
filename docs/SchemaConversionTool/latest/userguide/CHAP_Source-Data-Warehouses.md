@@ -1,7 +1,6 @@
 
 
 # Data warehouse sources for AWS Schema Conversion Tool
-<a name="CHAP_Source-Data-Warehouses"></a>
 
 AWS SCT can convert schemas for the following source data warehouses to a supported target. For information about permissions, connections, and what AWS SCT can convert for use with the target database or data warehouse, see details in the following.
 

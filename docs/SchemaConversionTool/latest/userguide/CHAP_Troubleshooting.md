@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with AWS Schema Conversion Tool
-<a name="CHAP_Troubleshooting"></a>
 
 Following, you can find information about troubleshooting issues with the AWS Schema Conversion Tool (AWS SCT).
 

@@ -1,7 +1,6 @@
 
 
 # Migrating from SQL Server to PostgreSQL with AWS Schema Conversion Tool
-<a name="CHAP_Source.SQLServer.ToPostgreSQL"></a>
 
 You can use the SQL Server to PostgreSQL extension pack in AWS SCT. This extension pack emulates SQL Server database functions in the converted PostgreSQL code. Use the SQL Server to PostgreSQL extension pack to emulate SQL Server Agent and SQL Server Database Mail. For more information about extension packs, see [Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Navigating the user interface of the AWS SCT
-<a name="CHAP_UserInterface"></a>
 
 Use the following topics to help you work with the AWS SCT user interface. For information on installing AWS SCT, see [Installing and Configuring AWS Schema Conversion Tool](CHAP_Installing.md).
 

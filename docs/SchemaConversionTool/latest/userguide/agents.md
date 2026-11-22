@@ -1,7 +1,6 @@
 
 
 # Migrating data from on-premises data warehouse to Amazon Redshift with AWS Schema Conversion Tool
-<a name="agents"></a>
 
 You can use an AWS SCT agent to extract data from your on-premises data warehouse and migrate it to Amazon Redshift. The agent extracts your data and uploads the data to either Amazon S3 or, for large-scale migrations, an AWS Snowball Edge Edge device. You can then use an AWS SCT agent to copy the data to Amazon Redshift.
 
@@ -76,7 +75,7 @@ To migrate data into your target Amazon Redshift database, the AWS SCT data extr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

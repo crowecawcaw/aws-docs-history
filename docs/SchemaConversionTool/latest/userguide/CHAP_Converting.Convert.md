@@ -1,7 +1,6 @@
 
 
 # Converting schemas using AWS SCT
-<a name="CHAP_Converting.Convert"></a>
 
 After you have connected your project to both your source database and your target Amazon RDS DB instance, your AWS Schema Conversion Tool project displays the schema from your source database in the left panel. The schema is presented in a tree-view format, and each node of the tree is lazy loaded. When you choose a node in the tree view, AWS SCT requests the schema information from your source database at that time. 
 

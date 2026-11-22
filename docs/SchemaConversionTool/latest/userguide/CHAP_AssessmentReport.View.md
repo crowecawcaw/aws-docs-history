@@ -1,7 +1,6 @@
 
 
 # Viewing an assessment report in AWS Schema Conversion Tool
-<a name="CHAP_AssessmentReport.View"></a>
 
 After you create an assessment report, the assessment report view opens, showing the following tabs:
 + **Summary**

@@ -1,7 +1,6 @@
 
 
 # Integrating AWS Database Migration Service with AWS Schema Conversion Tool
-<a name="CHAP_DMSIntegration"></a>
 
 ## Using an AWS SCT replication agent with AWS DMS
 <a name="dms-integration.replication-agent"></a>

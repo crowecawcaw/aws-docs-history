@@ -1,7 +1,6 @@
 
 
 # Converting SSIS to AWS Glue with AWS SCT
-<a name="CHAP-converting-aws-glue-ssis"></a>
 
 Following, you can find how to convert Microsoft SQL Server Integration Services (SSIS) packages to AWS Glue using AWS SCT. 
 

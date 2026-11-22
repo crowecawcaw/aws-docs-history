@@ -1,7 +1,6 @@
 
 
 # CLI Reference for AWS Schema Conversion Tool
-<a name="CHAP_Reference"></a>
 
 This section describes how to get started with the AWS SCT command line interface (CLI). Also, this section provides information about the key commands and usage modes. For a full reference of AWS SCT CLI commands, see [Reference material](#CHAP_Reference.Download).
 

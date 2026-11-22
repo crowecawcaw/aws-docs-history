@@ -1,7 +1,6 @@
 
 
 # Best practices for using AWS Schema Conversion Tool
-<a name="CHAP_BestPractices"></a>
 
 Find information on best practices and options for using the AWS Schema Conversion Tool (AWS SCT). 
 

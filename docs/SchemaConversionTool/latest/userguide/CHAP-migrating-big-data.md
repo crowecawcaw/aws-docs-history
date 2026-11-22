@@ -1,7 +1,6 @@
 
 
 # Migrating big data frameworks with AWS Schema Conversion Tool
-<a name="CHAP-migrating-big-data"></a>
 
 You can use the AWS Schema Conversion Tool (AWS SCT) to migrate big data frameworks to the AWS Cloud.
 

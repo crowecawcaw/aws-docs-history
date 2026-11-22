@@ -1,7 +1,6 @@
 
 
 # Migrating from IBM DB2 for Linux, UNIX, and Windows to Amazon RDS for MySQL or Amazon Aurora MySQL
-<a name="CHAP_Source.DB2LUW.ToMySQL"></a>
 
 When you convert an IBM Db2 LUW database to RDS for MySQL or Amazon Aurora MySQL, be aware of the following.
 

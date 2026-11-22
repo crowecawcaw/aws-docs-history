@@ -1,7 +1,6 @@
 
 
 # Using an AWS SCT extension pack to emulate SQL Server Agent in PostgreSQL
-<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent"></a>
 
 SQL Server Agent is a Microsoft Windows service that runs SQL Server jobs. SQL Server Agent runs jobs on a schedule, in response to a specific event, or on demand. For more information about SQL Server Agent, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15).
 
@@ -158,7 +157,7 @@ Internal procedures that check settings.
 
 The `aws_sqlserver_ext.sp_add_job` procedure in the extension pack emulates the `msdb.dbo.sp_add_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_name varchar,
 par_enabled smallint = 1,
 par_description varchar = NULL::character varying,
@@ -181,7 +180,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_add_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_add_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_step_id integer = NULL::integer,
@@ -210,7 +209,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_add_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_add_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_schedule_name varchar,
 par_enabled smallint = 1,
 par_freq_type integer = 0,
@@ -232,7 +231,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_attach_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_attach_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_schedule_id integer = NULL::integer,
@@ -243,7 +242,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_add_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_add_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_name varchar = NULL::character varying,
@@ -266,7 +265,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_delete_job` procedure in the extension pack emulates the `msdb.dbo.sp_delete_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_originating_server varchar = NULL::character varying,
@@ -277,7 +276,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_delete_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_delete_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_step_id integer = NULL::integer,
@@ -286,7 +285,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_delete_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_delete_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_name varchar = NULL::character varying,
@@ -297,7 +296,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_delete_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_delete_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_schedule_id integer = NULL::integer,
 par_schedule_name varchar = NULL::character varying,
 par_force_delete smallint = 0,
@@ -307,7 +306,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_detach_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_detach_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer,
 par_job_name varchar = NULL::character varying,
 par_schedule_id integer = NULL::integer,
@@ -319,7 +318,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_update_job` procedure in the extension pack emulates the `msdb.dbo.sp_update_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer
 par_job_name varchar = NULL::character varying
 par_new_name varchar = NULL::character varying
@@ -342,7 +341,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_update_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_update_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer
 par_job_name varchar = NULL::character varying
 par_name varchar = NULL::character varying
@@ -364,7 +363,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_update_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_update_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_job_id integer = NULL::integer
 par_job_name varchar = NULL::character varying
 par_step_id integer = NULL::integer
@@ -392,7 +391,7 @@ out returncode integer
 
 The `aws_sqlserver_ext.sp_update_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_update_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15). 
 
-```
+```sql
 par_schedule_id integer = NULL::integer
 par_name varchar = NULL::character varying
 par_new_name varchar = NULL::character varying
@@ -417,7 +416,7 @@ out returncode integer
 
 To add a new job, use the `aws_sqlserver_ext.sp_add_job` procedure as shown following.
 
-```
+```sql
 SELECT * FROM aws_sqlserver_ext.sp_add_job (
     par_job_name := 'test_job',
     par_enabled := 1::smallint,
@@ -428,7 +427,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_job (
 
 To add a new job step, use the `aws_sqlserver_ext.sp_add_jobstep` procedure as shown following.
 
-```
+```sql
 SELECT * FROM aws_sqlserver_ext.sp_add_jobstep (
     par_job_name := 'test_job',
     par_step_id := 1::smallint,
@@ -441,7 +440,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_jobstep (
 
 To add a simple schedule, use the `aws_sqlserver_ext.sp_add_schedule` procedure as shown following.
 
-```
+```sql
 SELECT * FROM aws_sqlserver_ext.sp_add_schedule(
     par_schedule_name := 'RunOnce',
     par_freq_type := 1,
@@ -450,7 +449,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_schedule(
 
 To set a schedule for a job, use the `aws_sqlserver_ext.sp_attach_schedule` procedure as shown following.
 
-```
+```sql
 SELECT * FROM aws_sqlserver_ext.sp_attach_schedule (
     par_job_name := 'test_job',
     par_schedule_name := 'NightlyJobs');
@@ -458,7 +457,7 @@ SELECT * FROM aws_sqlserver_ext.sp_attach_schedule (
 
 To create a schedule for a job, use the `aws_sqlserver_ext.sp_add_jobschedule` procedure as shown following.
 
-```
+```sql
 SELECT * FROM aws_sqlserver_ext.sp_add_jobschedule (
     par_job_name := 'test_job2',
     par_name := 'test_schedule2',

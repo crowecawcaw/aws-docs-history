@@ -1,7 +1,6 @@
 
 
 # Converting Oozie workflowas to AWS Step Functions with AWS Schema Conversion Tool
-<a name="big-data-oozie"></a>
 
 To convert Apache Oozie workflows, make sure that you use AWS SCT version 1.0.671 or higher. Also, familiarize yourself with the command line interface (CLI) of AWS SCT. For more information, see [CLI Reference for AWS Schema Conversion Tool](CHAP_Reference.md).
 

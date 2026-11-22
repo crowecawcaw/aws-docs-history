@@ -1,7 +1,6 @@
 
 
 # Connecting to source databases with the AWS Schema Conversion Tool
-<a name="CHAP_Source"></a>
 
 AWS Schema Conversion Tool (AWS SCT) can convert schemas from the following source databases and data warehouses to a target database or data warehouse. For information about permissions, connections, and what AWS SCT can convert for use with the target database or data warehouse, see the details in the following topics.
 

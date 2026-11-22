@@ -1,7 +1,6 @@
 
 
 # Hiding schemas in AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.HidingSchemas"></a>
 
 Use tree view settings to specify what schemas and databases you want to see in the AWS SCT tree view. You can hide empty schemas, empty databases, system databases, and user-defined databases and schemas. 
 

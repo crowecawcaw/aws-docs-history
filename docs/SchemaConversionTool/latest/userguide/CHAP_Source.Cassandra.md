@@ -1,7 +1,6 @@
 
 
 # Connecting to Apache Cassandra databases with the AWS Schema Conversion Tool
-<a name="CHAP_Source.Cassandra"></a>
 
 You can use AWS SCT to convert keyspaces from Apache Cassandra to Amazon DynamoDB. 
 

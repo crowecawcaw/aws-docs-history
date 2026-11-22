@@ -1,7 +1,6 @@
 
 
 # Mapping data types in the AWS Schema Conversion Tool
-<a name="CHAP_Mapping"></a>
 
  You can add multiple source and target databases in a single AWS SCT project. Doing this simplifies the management of projects, when you migrate multiple databases to different target platforms. 
 

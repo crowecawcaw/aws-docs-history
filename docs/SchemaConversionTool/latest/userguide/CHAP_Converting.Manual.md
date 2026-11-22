@@ -1,7 +1,6 @@
 
 
 # Manually converting schemas in AWS SCT
-<a name="CHAP_Converting.Manual"></a>
 
 The assessment report includes a list of items that can't be converted automatically to the database engine of your target Amazon RDS DB instance. For each item that can't be converted, there is an action item on the **Action Items** tab. 
 

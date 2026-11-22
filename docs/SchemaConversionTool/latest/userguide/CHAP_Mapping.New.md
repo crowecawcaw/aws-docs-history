@@ -1,7 +1,6 @@
 
 
 # Mapping new data types in the AWS Schema Conversion Tool
-<a name="CHAP_Mapping.New"></a>
 
 You can create multiple mapping rules in a single project. AWS SCT saves mapping rules as part of your project. With your project open, use the following procedure to add a new mapping rule.
 

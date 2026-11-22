@@ -1,7 +1,6 @@
 
 
 # Connecting to Google BigQuery with AWS Schema Conversion Tool
-<a name="CHAP_Source.BigQuery"></a>
 
 You can use AWS SCT to convert schemas, code objects, and application code from BigQuery to Amazon Redshift. 
 

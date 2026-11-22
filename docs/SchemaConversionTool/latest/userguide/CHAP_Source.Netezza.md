@@ -1,7 +1,6 @@
 
 
 # Connecting to Netezza with AWS Schema Conversion Tool
-<a name="CHAP_Source.Netezza"></a>
 
 You can use AWS SCT to convert schemas, code objects, and application code from Netezza to Amazon Redshift. 
 

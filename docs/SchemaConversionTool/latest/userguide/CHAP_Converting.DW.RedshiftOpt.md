@@ -1,7 +1,6 @@
 
 
 # Converting data from Amazon Redshift using AWS Schema Conversion Tool
-<a name="CHAP_Converting.DW.RedshiftOpt"></a>
 
 You can use the AWS Schema Conversion Tool to optimize your Amazon Redshift database. Using your Amazon Redshift database as a source, and a test Amazon Redshift database as the target, AWS SCT recommends sort keys and distribution keys to optimize your database. 
 

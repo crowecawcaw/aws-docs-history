@@ -1,7 +1,6 @@
 
 
 # Converting database schemas in AWS Schema Conversion Tool
-<a name="CHAP_Converting"></a>
 
 You can use the AWS Schema Conversion Tool (AWS SCT) to convert your existing database schemas from one database engine to another. Converting a database using the AWS SCT user interface can be fairly simple, but there are several things to consider before you do the conversion. 
 

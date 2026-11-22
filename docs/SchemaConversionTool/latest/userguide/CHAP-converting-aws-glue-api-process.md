@@ -1,7 +1,6 @@
 
 
 # Converting ETL processes to AWS Glue in AWS Schema Conversion Tool
-<a name="CHAP-converting-aws-glue-api-process"></a>
 
 In the following sections, you can find a description of a conversion that calls AWS Glue API operations in Python. For more information, see [Program AWS Glue ETL scripts in Python](https://docs.aws.amazon.com//glue/latest/dg/aws-glue-programming-python.html) in the* AWS Glue Developer Guide.*
 
@@ -105,7 +104,7 @@ When you create your crawler, a few considerations apply:
 
 The following example deletes an existing crawler and then creates a new one by using the Python API for AWS Glue. 
 
-```
+```python
 response = client.delete_crawler(
     Name='{{crawler_name}}'
 )

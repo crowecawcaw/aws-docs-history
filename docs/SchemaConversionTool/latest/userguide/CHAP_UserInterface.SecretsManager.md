@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Secrets Manager in the AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.SecretsManager"></a>
 
 AWS SCT can use database credentials that you store in AWS Secrets Manager. You can fill in all values in the database connection dialog box from Secrets Manager. To use Secrets Manager, make sure that you store AWS profiles in the AWS Schema Conversion Tool.
 

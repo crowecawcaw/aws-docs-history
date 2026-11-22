@@ -1,7 +1,6 @@
 
 
 # Converting SSIS pacakges to AWS Glue Studio with AWS Schema Conversion Tool
-<a name="CHAP-converting-ssis-glue-studio"></a>
 
 You can use AWS SCT to convert Microsoft SQL Server Integration Services (SSIS) packages to AWS Glue Studio.
 

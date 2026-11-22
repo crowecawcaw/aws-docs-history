@@ -1,7 +1,6 @@
 
 
 # Migrating from Oracle Database to Amazon RDS for Oracle with AWS Schema Conversion Tool
-<a name="CHAP_Source.Oracle.ToRDSOracle"></a>
 
 Some things to consider when migrating Oracle schema and code to Amazon RDS for Oracle: 
 + AWS SCT can add directory objects to the object tree. *Directory objects* are logical structures that each represent a physical directory on the server's file system. You can use directory objects with packages such as DBMS\_LOB, UTL\_FILE, DBMS\_FILE\_TRANSFER, the DATAPUMP utility, and so on.

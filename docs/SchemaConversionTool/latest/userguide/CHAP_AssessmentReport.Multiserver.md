@@ -1,7 +1,6 @@
 
 
 # Creating a multiserver assessment report in AWS Schema Conversion Tool
-<a name="CHAP_AssessmentReport.Multiserver"></a>
 
 To determine the best target direction for your overall environment, create a multiserver assessment report. 
 

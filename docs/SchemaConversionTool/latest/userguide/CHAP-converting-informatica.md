@@ -1,7 +1,6 @@
 
 
 # Converting Informatica ETL scripts with AWS Schema Conversion Tool
-<a name="CHAP-converting-informatica"></a>
 
 You can use AWS SCT command line interface (CLI) to convert your Informatica ETL scripts so that you can use the scripts with your new target database. This conversion includes three key steps. First, AWS SCT converts the SQL code that is embedded in your Informatica objects. Next, AWS SCT changes the names of database objects according to the migration rules that you specified in your project. Finally, AWS SCT redirects the connections of your Informatica ETL scripts to the new target database.
 

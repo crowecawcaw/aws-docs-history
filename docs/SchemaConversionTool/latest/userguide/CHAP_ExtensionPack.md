@@ -1,7 +1,6 @@
 
 
 # Using extension packs with AWS Schema Conversion Tool
-<a name="CHAP_ExtensionPack"></a>
 
 An *AWS SCT extension pack* is an add-on module that emulates functions present in a source database that are required when converting objects to the target database. Before you can install an AWS SCT extension pack, you convert your database schema. 
 
@@ -124,7 +123,7 @@ You can apply the AWS SCT extension pack using the extension pack wizard or when
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

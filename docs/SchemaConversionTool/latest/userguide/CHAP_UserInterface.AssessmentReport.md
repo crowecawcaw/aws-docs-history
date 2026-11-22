@@ -1,7 +1,6 @@
 
 
 # Viewing the Assessment Report in AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.AssessmentReport"></a>
 
 The *database migration assessment report* summarizes all of the action items for schemas that can't be converted automatically to the engine of your target Amazon RDS DB instance. The report also includes estimates of the amount of effort that it will take to write the equivalent code for your target DB instance. 
 

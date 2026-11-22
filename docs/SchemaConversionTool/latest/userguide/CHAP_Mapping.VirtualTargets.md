@@ -1,7 +1,6 @@
 
 
 # Mapping to virtual targets in the AWS Schema Conversion Tool
-<a name="CHAP_Mapping.VirtualTargets"></a>
 
 You can see how AWS SCT converts your source database schema to any supported target database platform. To do so, you don't need to connect to an existing target database. Instead, you can choose a virtual target database platform in the right panel when you create a mapping rule. For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.New.md). Make sure that you expand the **Servers**, **NoSQL clusters**, and **ETL** nodes in the right panel to see the list of virtual target database platforms. 
 

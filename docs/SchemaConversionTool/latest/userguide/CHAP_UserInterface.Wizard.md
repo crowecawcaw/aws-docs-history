@@ -1,7 +1,6 @@
 
 
 # Using the AWS SCT Wizard
-<a name="CHAP_UserInterface.Wizard"></a>
 
 You can create a new database migration project using the new project wizard. This wizard assists you in determining your migration target and connecting to your databases. It estimates how complex a migration might be for all supported target destinations. After you run the wizard, AWS SCT produces a summary report for the migration of your database to different target destinations. You can use this report to compare possible target destinations and choose the optimal migration path.
 

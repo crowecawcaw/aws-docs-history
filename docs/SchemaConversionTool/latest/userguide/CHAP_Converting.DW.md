@@ -1,7 +1,6 @@
 
 
 # Converting data warehouse schemas to Amazon RDS using AWS SCT
-<a name="CHAP_Converting.DW"></a>
 
 The AWS Schema Conversion Tool (AWS SCT) automates much of the process of converting your data warehouse schema to an Amazon RDS or Aurora database schema. Because the source and target database engines can have many different features and capabilities, AWS SCT attempts to create an equivalent schema in your target database wherever possible. If no direct conversion is possible, AWS SCT provides an assessment report with a list of possible actions for you to take. Using AWS SCT, you can manage keys, map data types and objects, and create manual conversions.
 

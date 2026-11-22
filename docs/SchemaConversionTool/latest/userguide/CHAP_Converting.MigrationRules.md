@@ -1,7 +1,6 @@
 
 
 # Applying migration rules in AWS Schema Conversion Tool
-<a name="CHAP_Converting.MigrationRules"></a>
 
 Before you convert your schema with AWS SCT, you can set up migration rules. *Migration rules* in AWS SCT can do such transformations as change the data type of columns, move objects from one schema to another, and change the names of objects. For example, suppose that you have a set of tables in your source schema named `test_TABLE_NAME`. You can set up a rule that changes the prefix `test_` to the prefix `demo_` in the target schema. 
 

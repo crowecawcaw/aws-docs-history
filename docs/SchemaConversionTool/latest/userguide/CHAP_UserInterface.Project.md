@@ -1,7 +1,6 @@
 
 
 # Starting and managing Projects in AWS SCT
-<a name="CHAP_UserInterface.Project"></a>
 
 To start the AWS Schema Conversion Tool, double-click the application icon.
 

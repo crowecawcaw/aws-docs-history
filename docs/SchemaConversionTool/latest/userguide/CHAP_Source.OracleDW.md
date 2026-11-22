@@ -1,7 +1,6 @@
 
 
 # Connecting Oracle Data Warehouse with AWS SCT
-<a name="CHAP_Source.OracleDW"></a>
 
 You can use AWS SCT to convert schemas, code objects, and application code from Oracle Data Warehouse to Amazon Redshift or Amazon Redshift and AWS Glue used in combination. 
 

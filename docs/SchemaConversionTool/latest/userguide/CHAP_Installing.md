@@ -1,7 +1,6 @@
 
 
 # Installing and Configuring AWS Schema Conversion Tool
-<a name="CHAP_Installing"></a>
 
 The AWS Schema Conversion Tool (AWS SCT) is a standalone application that provides a project-based user interface. AWS SCT is available for Microsoft Windows, Fedora Linux, and Ubuntu Linux. AWS SCT is supported only on 64-bit operating systems. 
 

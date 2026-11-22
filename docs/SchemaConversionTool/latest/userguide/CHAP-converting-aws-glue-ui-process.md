@@ -1,7 +1,6 @@
 
 
 # Converting ETL processes to AWS Glue in AWS Schema Conversion Tool
-<a name="CHAP-converting-aws-glue-ui-process"></a>
 
 Following, you can find an outline of the process to convert ETL scripts to AWS Glue with AWS SCT. For this example, we convert an Oracle database to Amazon Redshift, along with the ETL processes used with the source databases and data warehouses.
 

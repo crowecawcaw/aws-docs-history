@@ -1,7 +1,6 @@
 
 
 # Converting Data Using ETL Processes in AWS Schema Conversion Tool
-<a name="CHAP-converting-etl"></a>
 
 You can use the AWS Schema Conversion Tool (AWS SCT) to migrate extract, transform, and load (ETL) processes. This type of migration includes the conversion of ETL-related business logic. This logic can reside either inside your source data warehouses or in external scripts that you run separately. 
 

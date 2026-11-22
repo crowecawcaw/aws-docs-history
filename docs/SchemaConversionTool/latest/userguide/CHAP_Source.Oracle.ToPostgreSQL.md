@@ -1,7 +1,6 @@
 
 
 # Migrating from Oracle to Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL with AWS Schema Conversion Tool
-<a name="CHAP_Source.Oracle.ToPostgreSQL"></a>
 
 When you convert an Oracle database to RDS for PostgreSQL or Amazon Aurora PostgreSQL, be aware of the following.
 

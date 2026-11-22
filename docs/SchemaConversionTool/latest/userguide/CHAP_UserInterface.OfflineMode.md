@@ -1,7 +1,6 @@
 
 
 # Using offline mode in AWS Schema Conversion Tool
-<a name="CHAP_UserInterface.OfflineMode"></a>
 
 You can run AWS Schema Conversion Tool in an offline mode. Following, you can learn how to work with an existing AWS SCT project when disconnected from your source database.
 

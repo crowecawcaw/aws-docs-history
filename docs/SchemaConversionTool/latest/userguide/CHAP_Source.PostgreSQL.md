@@ -1,7 +1,6 @@
 
 
 # Connecting to PostgreSQL Databases with the AWS Schema Conversion Tool
-<a name="CHAP_Source.PostgreSQL"></a>
 
 You can use AWS SCT to convert schemas, database code objects, and application code from PostgreSQL to the following targets: 
 + Amazon RDS for MySQL

@@ -1,7 +1,6 @@
 
 
 # Updating and refreshing converted schemas in AWS SCT
-<a name="CHAP_Converting.UpdateRefresh"></a>
 
 You can update both the source schema and the target schema in your AWS Schema Conversion Tool project. 
 + **Source** – If you update the schema for your source database, AWS SCT replaces the schema in your project with the latest schema from your source database. Using this functionality, you can update your project if changes have been made to the schema of your source database. 

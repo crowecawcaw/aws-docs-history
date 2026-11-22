@@ -1,7 +1,6 @@
 
 
 # ConnConnecting to IBM DB2 for Linux, UNIX, and Windows Databases with the AWS Schema Conversion Tool
-<a name="CHAP_Source.DB2LUW"></a>
 
 You can use AWS SCT to convert schemas, code objects in the SQL language, and application code from IBM Db2 for Linux, Unix, and Windows (Db2 LUW) to the following targets.
 + Amazon RDS for MySQL
