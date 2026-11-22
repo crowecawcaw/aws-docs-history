@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon Corretto 11 on Docker Images
-<a name="docker-install"></a>
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 11. You must have the latest version of Docker installed. 
 
@@ -21,9 +20,9 @@ docker run amazoncorretto:11 java -version
 **Example**  
 
 ```
-openjdk version "11.0.33" 2026-10-20 LTS
-OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+10-LTS, mixed mode)
+openjdk version "11.0.33.1" 2026-11-17 LTS
+OpenJDK Runtime Environment Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance

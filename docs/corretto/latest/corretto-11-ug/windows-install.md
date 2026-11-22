@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 11 Installation Instructions for Windows 10 or Later
-<a name="windows-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 11 on a host or container running the Windows 10 or later Windows operating system. 
 
@@ -18,7 +17,7 @@
 
 1.  Once the install wizard is finished, set the `JAVA_HOME` and `PATH` environment variables. 
 
-   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 11.0.33, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk11.0.33_0`.
+   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 11.0.33.1, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk11.0.33_1`.
 
    Add `%JAVA_HOME%\bin` to the current `PATH` variable.
 
@@ -26,9 +25,9 @@
 **Example**  
 
    ```
-   openjdk version "11.0.33" 2026-10-20 LTS
-   OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+10-LTS)
-   OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+10-LTS, mixed mode)
+   openjdk version "11.0.33.1" 2026-11-17 LTS
+   OpenJDK Runtime Environment Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS)
+   OpenJDK 64-Bit Server VM Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS, mixed mode)
    ```
 
 ## Uninstall Amazon Corretto 11

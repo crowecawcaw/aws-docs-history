@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 11 Guide for macOS
-<a name="macos-info"></a>
 
 The topics in this section describe installation instructions for Amazon Corretto 11 on macOS.
 

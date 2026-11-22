@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 11 Installation Instructions for Amazon Linux 2, Amazon Linux 2023, and Amazon Linux 2027
-<a name="amazon-linux-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 11 on a host or container running the Amazon Linux 2, Amazon Linux 2023, or Amazon Linux 2027 operating systems. 
 
@@ -68,12 +67,12 @@ sudo yum install java-11-amazon-corretto-jmods
 ```
 java -version
 ```
-Expected output for 11.0.33:   
+Expected output for 11.0.33.1:   
 
 ```
-openjdk version "11.0.33" 2026-10-20 LTS
-OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+10-LTS, mixed mode)
+openjdk version "11.0.33.1" 2026-11-17 LTS
+OpenJDK Runtime Environment Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.33.1.1 (build 11.0.33.1+1-LTS, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
