@@ -1,7 +1,6 @@
 
 
 # Signing in to the mobile app
-<a name="mobile-sign-in"></a>
 
 The steps in this section explain how to sign in to the Amazon Chime mobile app. To complete these steps, you must have a registered Amazon Chime user account, and you must use your account credentials.
 

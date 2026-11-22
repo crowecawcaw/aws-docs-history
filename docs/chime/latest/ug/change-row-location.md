@@ -1,7 +1,6 @@
 
 
 # Changing the video row location
-<a name="change-row-location"></a>
 
 By default, attendee video tiles appear in a row at the top of the meetings window. You can move that row to the bottom of the window before and during a meeting. Typically, you move the row to make featured content easier to see. 
 

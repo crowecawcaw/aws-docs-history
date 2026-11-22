@@ -1,7 +1,6 @@
 
 
 # Administering chat rooms
-<a name="chat-admins"></a>
 
 When you create a chat room, you automatically become the room's administrator. Chat room administrators can perform a number of tasks, such as adding members.
 

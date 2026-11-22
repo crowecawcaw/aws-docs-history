@@ -1,7 +1,6 @@
 
 
 # Sending an SMS message to a phone number
-<a name="sms-phone"></a>
 
 If your Amazon Chime administrator enables SMS messages for your account, you can send an SMS message to a phone number in your contacts.
 

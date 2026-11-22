@@ -1,7 +1,6 @@
 
 
 # Undocking video tiles (desktop client only)
-<a name="undocking"></a>
 
 If you run the desktop client, you can undock the video tiles from the rest of the meeting window during a meeting. For example, if you have dual monitors, you can drag the video tiles to one screen and make it easier to see screen shares and chat messages in the meeting window.
 

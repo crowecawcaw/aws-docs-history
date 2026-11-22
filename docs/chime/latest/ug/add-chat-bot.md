@@ -1,7 +1,6 @@
 
 
 # Adding chat bots to chat rooms
-<a name="add-chat-bot"></a>
 
 Chat bots provide conversational interfaces for a chat room. For example, a chat bot can answer frequently asked questions, then route users to more information about their issues. Chat bots can also enable voice conversations with the members of a chat room. 
 

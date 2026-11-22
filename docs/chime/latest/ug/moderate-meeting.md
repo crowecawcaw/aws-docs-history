@@ -1,7 +1,6 @@
 
 
 # Scheduling moderated meetings
-<a name="moderate-meeting"></a>
 
 Meeting hosts and delegates with Pro permissions can schedule moderated meetings, which only start when a moderator joins. Until a moderator joins, moderated meeting attendees cannot interact with each other. The audio, video, screen sharing, meeting chat, and visual roster remain unavailable. After moderated meetings start, those features become available until the meeting ends, even if the moderators leave the meeting.
 

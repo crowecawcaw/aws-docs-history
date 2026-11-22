@@ -1,7 +1,6 @@
 
 
 # Using the large meeting settings
-<a name="large-meeting-settings"></a>
 
 When you host a meeting with more than 25 invitees, Amazon Chime does the following when the meeting starts:
 + Mutes attendees when they join the meeting unless they join from an in-room conference system.

@@ -1,7 +1,6 @@
 
 
 # Starting instant meetings
-<a name="start-instant-mtg"></a>
 
 Instant meetings allow you to you invite one or more contacts before the meeting starts. You can invite others to join after the meeting start. Invitees can decline to join.
 

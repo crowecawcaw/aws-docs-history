@@ -1,7 +1,6 @@
 
 
 # Using the floating call control bar
-<a name="call-control-bar"></a>
 
 When you join a meeting, a floating call control bar appears whenever you put the meeting window in the background, such as when you share your screen. Whenever you navigate away from the meeting window, the bar enables you to start and stop your microphone, web cam, and screenshare. The bar also provides a set of alerts, and it enables you to return to the meeting window quickly. Remember the following:
 + The bar appears by default, but you can turn it off. During the meeting, choose **File**, then **Settings**. Choose **Meetings**, then clear the **Show floating meeting control bar when in background** checkbox. This turns the bar off except for screen shares. The bar appears at all times while you share your screen.

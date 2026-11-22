@@ -1,7 +1,6 @@
 
 
 # Turning the Waiting Room off or on
-<a name="turn-off-waiting-room"></a>
 
 The steps in this section explain how to turn the Waiting Room off and on during a meeting. You can also turn the waiting room off for external attendees. For more information about doing that, see [Setting meeting options](understand-mtg-options.md), in this guide.
 

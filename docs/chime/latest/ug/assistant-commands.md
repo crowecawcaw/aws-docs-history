@@ -1,7 +1,6 @@
 
 
 # Supported Assistant commands
-<a name="assistant-commands"></a>
 
 The Amazon Chime Assistant supports the following commands: 
 + **Get my attachments** allows you to access attachments that you uploaded to 1:1 chats, group chats, and chat rooms that you created.

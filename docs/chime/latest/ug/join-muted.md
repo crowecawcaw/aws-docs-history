@@ -1,7 +1,6 @@
 
 
 # Joining a meeting with muted audio
-<a name="join-muted"></a>
 
 You can join meetings with your audio already muted. Follow these steps.
 

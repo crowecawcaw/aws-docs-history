@@ -1,7 +1,6 @@
 
 
 # Using Meetings view
-<a name="use-meetings-view"></a>
 
 The following sections explain how to use the **Meetings** view in the Amazon Chime mobile app. 
 

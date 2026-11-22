@@ -1,7 +1,6 @@
 
 
 # Using Contacts view
-<a name="mobile-contacts"></a>
 
 Amazon Chime provides two types of contacts: personal contacts and registered users from your Amazon Chime account. Personal contacts are people that you invite to open an Amazon Chime account. You add them once they open their account. You add registered users by entering their email addresses. You can also search for registered users. You can use **Contacts** view to invite personal contacts and find registered contacts. You can also use the view to call, message, change notification settings for, and delete the contacts on your list.
 

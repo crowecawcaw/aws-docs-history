@@ -1,7 +1,6 @@
 
 
 # Using in-meeting chat
-<a name="meeting-chat"></a>
 
 Amazon Chime gives you two ways to chat—in-meeting chat and regular Amazon Chime chat. The topics in this section explain how to use in-meeting chat. For information about regular Amazon Chime chat, see [Collaborating using Amazon Chime chat](chime-using-chat.md).
 

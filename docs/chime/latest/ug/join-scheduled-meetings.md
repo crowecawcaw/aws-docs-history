@@ -1,7 +1,6 @@
 
 
 # Joining scheduled meetings
-<a name="join-scheduled-meetings"></a>
 
 The sections in this topic explain how to join scheduled meetings. You have a scheduled meeting when a meeting organizer uses a calendar app, such as Google Calendar or Microsoft Outlook, to create a meeting and invite at least one other attendee.
 

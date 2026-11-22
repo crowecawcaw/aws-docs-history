@@ -1,7 +1,6 @@
 
 
 # Sorting active speakers into view
-<a name="sort-speaker"></a>
 
 In a meeting with a lot of video tiles, you may not always see the tile of the person speaking. To solve that problem, you can automatically sort the active speaker's tile into view.
 

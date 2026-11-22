@@ -1,7 +1,6 @@
 
 
 # Getting ready for a meeting
-<a name="getting-ready"></a>
 
 Before a meeting, make sure your device works with Amazon Chime. You can choose your preferred video and audio sources before entering a meeting. If using an external device for audio or video, such as a headset or web cam, ensure the devices are compatible with Amazon Chime. You can also set up phone numbers for dialing in to a meeting from a phone, as well as have Amazon Chime call you when a meeting starts.
 

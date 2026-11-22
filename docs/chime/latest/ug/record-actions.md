@@ -1,7 +1,6 @@
 
 
 # Recording meetings
-<a name="record-actions"></a>
 
 A meeting host, moderator, or delegate can record meetings. When you record a meeting, Amazon Chime records the audio and, if you share media during the meeting, the content of any media tiles. The host, moderator, or delegate who turns on recording receives the recording in a chat message once the meeting ends.
 

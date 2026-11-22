@@ -1,7 +1,6 @@
 
 
 # Sending messages in chat rooms
-<a name="chat-messages"></a>
 
 When you send messages to a chat room, everyone in the room sees them. If you want to communicate privately, send messages to just that contact.
 

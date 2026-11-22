@@ -1,7 +1,6 @@
 
 
 # Signing out of Amazon Chime
-<a name="sign-out"></a>
 
 You can sign out of and back into Amazon Chime at any time. Remember to use your Amazon Chime credentials to sign back in.
 

@@ -1,7 +1,6 @@
 
 
 # Sharing your screen
-<a name="share-your-screen"></a>
 
 When you share a screen, you can share any open program window, or you can share your entire screen. The following steps explain how to do both.
 

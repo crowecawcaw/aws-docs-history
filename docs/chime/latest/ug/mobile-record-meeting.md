@@ -1,7 +1,6 @@
 
 
 # Recording a meeting
-<a name="mobile-record-meeting"></a>
 
 Only meeting organizers or hosts can record a meeting. When you finish recording, Amazon Chime processes the video and sends it to you as a regular chat message in your **Messages** view.
 

@@ -1,7 +1,6 @@
 
 
 # Quick start guide
-<a name="mobile-app-nav"></a>
 
 The following tutorial explains how to navigate in the Amazon Chime mobile app.
 

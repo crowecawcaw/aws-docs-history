@@ -1,7 +1,6 @@
 
 
 # Canceling meetings
-<a name="cancel-meeting"></a>
 
 If you schedule meetings for yourself, or you schedule them as a delegate for someone else, you can cancel your meetings. You can cancel individual and recurring meetings, including meetings that continue to auto call after you cancel them.
 

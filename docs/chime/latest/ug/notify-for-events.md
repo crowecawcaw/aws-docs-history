@@ -1,7 +1,6 @@
 
 
 # Using meeting event notifications
-<a name="notify-for-events"></a>
 
 By default, Amazon Chime displays notifications for a variety of meeting events. For example, attendees see notifications when others join or leave a meeting. Meeting hosts, moderators, and delegates can turn off all notifications. We recommend that you turn off meeting notifications when you run a meeting where large numbers of attendees may join or leave.
 

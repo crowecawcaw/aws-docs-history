@@ -1,7 +1,6 @@
 
 
 # 6. Add contacts
-<a name="contacts"></a>
 
 When you add contacts, you're adding other registered Amazon Chime users. You can invite colleagues from outside of your company account, but they must have their own Amazon Chime accounts, or they must create them.
 

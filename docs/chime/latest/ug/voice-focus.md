@@ -1,7 +1,6 @@
 
 
 # Using Amazon Voice Focus
-<a name="voice-focus"></a>
 
 Amazon Voice Focus reduces the sound levels of noises that can intrude on a meeting, such as: 
 + **Environment noises** – Wind, fans, running water

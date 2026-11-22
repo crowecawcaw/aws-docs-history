@@ -1,7 +1,6 @@
 
 
 # Using video during meetings
-<a name="use-video"></a>
 
 If you connect a web came to your computer or other device, you can start the camera at any time during an Amazon Chime meeting. Your video appears as a *tile*, a small window.
 

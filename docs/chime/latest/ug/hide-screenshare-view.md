@@ -1,7 +1,6 @@
 
 
 # Hiding your screenshare view
-<a name="hide-screenshare-view"></a>
 
 If you select the Amazon Chime meeting window while sharing your screen, you and others see an infinite number of meeting windows. For example:
 

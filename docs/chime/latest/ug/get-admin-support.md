@@ -1,7 +1,6 @@
 
 
 # Getting administrator support
-<a name="get-admin-support"></a>
 
 If an Amazon Chime administrator invited you to join Amazon Chime, and you later have trouble with Amazon Chime, contact that administrator for support. If you don't know who that is, contact your manager. 
 

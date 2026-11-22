@@ -1,7 +1,6 @@
 
 
 # Understanding automatic updates
-<a name="chime-auto-update"></a>
 
 Amazon Chime provides different ways to update its clients. The method varies, depending on whether you run Amazon Chime in a browser, on your desktop, or on a mobile device.
 

@@ -1,7 +1,6 @@
 
 
 # Joining a meeting early
-<a name="join-meeting-early"></a>
 
 If you need to set up for a meeting before it starts, or just prefer to stay ahead of schedule, you can join a meeting early. The following steps explain how to use the desktop client and web app to join early.
 

@@ -1,7 +1,6 @@
 
 
 # Hosting meetings
-<a name="chime-organizer-call-controls"></a>
 
 If you have an Amazon Chime Pro account, you can schedule meetings in Amazon Chime. When you schedule a meeting, you automatically become the *host*. Hosts can use a set of meeting management tools that aren't available to attendees.
 

@@ -1,7 +1,6 @@
 
 
 # Sending @ notifications
-<a name="at-mention"></a>
 
 Because chat rooms are continuous conversations, you can send an audible notification to call attention to new messages. The desktop client and web app send a sound. The mobile client sends a push notification.
 

@@ -1,7 +1,6 @@
 
 
 # Using closed captions
-<a name="closed-captions"></a>
 
 When you attend a meeting hosted by someone from Amazon, you can view machine-generated closed captions. You can start and stop the captions at any time during the meeting. You can also adjust the settings for closed captions, such as language and font size. The following sets of steps explain how. 
 

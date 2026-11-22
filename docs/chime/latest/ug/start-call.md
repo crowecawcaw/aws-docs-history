@@ -1,7 +1,6 @@
 
 
 # Starting instant meetings and calls
-<a name="start-call"></a>
 
 If you need a quick meeting, you can:
 + Start an instant meeting. When you start an instant meeting, you invite one or more contacts before the meeting starts. You can also invite others to join after the meeting starts.

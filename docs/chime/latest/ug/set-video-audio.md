@@ -1,7 +1,6 @@
 
 
 # Setting video and audio sources
-<a name="set-video-audio"></a>
 
 In the desktop client and web app, you can set your video and audio sources before you join an Amazon Chime meeting. If you know that your current video and audio sources work, you can [join the meeting](join-meetings.md).
 

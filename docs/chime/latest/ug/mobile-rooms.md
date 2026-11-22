@@ -1,7 +1,6 @@
 
 
 # Using Rooms view
-<a name="mobile-rooms"></a>
 
 You use the **Rooms** view to message or call people in a chat room. You can also change notification settings and remove yourself from a chat room.
 

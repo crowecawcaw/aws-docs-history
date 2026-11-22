@@ -1,7 +1,6 @@
 
 
 # Using additional chat features
-<a name="chat-features"></a>
 
 The following sections list additional Amazon Chime chat features and explain how to use them. 
 

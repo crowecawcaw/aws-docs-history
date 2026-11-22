@@ -1,7 +1,6 @@
 
 
 # Using the meeting roster
-<a name="attendees-panel"></a>
 
 The meeting roster appears in the **Attendees** panel during a meeting. The roster lists everyone on the meeting invitation, including anyone added during the meeting. You can use the panel to take several actions, such as adding or searching for attendees, or sending messages directly to a specific attendee.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Chime Meetings App for Slack
-<a name="using-slack"></a>
 
 You use the Amazon Chime Meetings App for Slack to start instant meetings or calls with the people in your Slack organization or workspace. You can also use the Amazon Chime Meetings App for Slack to join scheduled meetings in your Slack workspace. 
 

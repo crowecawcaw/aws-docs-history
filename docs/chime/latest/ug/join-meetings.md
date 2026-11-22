@@ -1,7 +1,6 @@
 
 
 # Joining a meeting
-<a name="join-meetings"></a>
 
 The topics in this section explain how to use the desktop client and web app to join an Amazon Chime meeting. The method you use depends on your device, location, and network availability. For information about joining meetings in the mobile app, see [Signing in to the mobile app](mobile-sign-in.md), later in this guide.
 

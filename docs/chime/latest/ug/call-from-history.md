@@ -1,7 +1,6 @@
 
 
 # Using your call history to call others
-<a name="call-from-history"></a>
 
 
 

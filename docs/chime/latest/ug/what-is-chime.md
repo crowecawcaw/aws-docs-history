@@ -1,7 +1,6 @@
 
 
 # What is Amazon Chime?
-<a name="what-is-chime"></a>
 
 Amazon Chime is a flexible communications service with pay-as-you-go pricing. In turn, the Amazon Chime desktop, web, and mobile clients provide an integrated place to use those services. You can meet, chat, and place business calls using a single application. This guide explains how to use the Amazon Chime clients on your computer desktop, your browser, and mobile devices.
 

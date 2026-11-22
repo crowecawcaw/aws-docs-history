@@ -1,7 +1,6 @@
 
 
 # Getting additional support
-<a name="mobile-assistant"></a>
 
 If an administrator or administrative group invited you to use Amazon Chime, contact that person or group for assistance if you need technical support with the Amazon Chime mobile app.
 

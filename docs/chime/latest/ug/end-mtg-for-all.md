@@ -1,7 +1,6 @@
 
 
 # Ending a meeting for all attendees
-<a name="end-mtg-for-all"></a>
 
 Meeting hosts, moderators, and delegates can end a meeting for all attendees.
 

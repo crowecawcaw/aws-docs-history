@@ -1,7 +1,6 @@
 
 
 # Adjusting the size of chat text
-<a name="adjust-chat-font-size"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Changing your media layout
-<a name="change-media-layout"></a>
 
 You use the **Media layout** menu to change the layout of the video and media tiles during an Amazon Chime meeting. You can open and close your video tile, and those of all attendees, You can also toggle settings for when you share your screen, and show the active speaker's video tile.
 

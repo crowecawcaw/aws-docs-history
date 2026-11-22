@@ -1,7 +1,6 @@
 
 
 # Scheduling best practices
-<a name="chime-scheduling-best-practices"></a>
 
 No matter which app you use to schedule your Amazon Chime meeting, these tips can help you schedule meetings.
 

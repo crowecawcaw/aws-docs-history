@@ -1,7 +1,6 @@
 
 
 # Joining an auto-call meeting
-<a name="join-auto-call"></a>
 
 You can use the desktop client and web app to join an auto-call meeting.
 

@@ -1,7 +1,6 @@
 
 
 # Resetting your password
-<a name="reset-password"></a>
 
 How you reset your password depends on whether you use Amazon Chime at work or at home.
 + **At work** – Contact your system administrator.

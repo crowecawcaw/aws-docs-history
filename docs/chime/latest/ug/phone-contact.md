@@ -1,7 +1,6 @@
 
 
 # Adding a phone number to your contacts
-<a name="phone-contact"></a>
 
 You can add phone numbers to your **Contacts** list. To edit the contact name after you create it, search for and select the contact in your **Contacts** list, and choose **Edit contact name**.
 

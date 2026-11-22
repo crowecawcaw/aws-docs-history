@@ -1,7 +1,6 @@
 
 
 # Best practices for joining meetings
-<a name="best-ways-to-join-mtg"></a>
 
 You can connect to any Amazon Chime meeting with the desktop client, web client, or mobile app. Make sure you have a stable network connection. 
 

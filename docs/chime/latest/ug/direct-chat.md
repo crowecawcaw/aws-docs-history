@@ -1,7 +1,6 @@
 
 
 # Chatting with another user
-<a name="direct-chat"></a>
 
 You can have a one-on-one chat conversation with any of your Amazon Chime contacts. 
 

@@ -1,7 +1,6 @@
 
 
 # Recording a meeting
-<a name="record-meeting"></a>
 
 Meeting organizers, delegates, and moderators can record meetings. Recordings have the following limitations:
 + You can record audio and screen sharing for up to 12 hours.

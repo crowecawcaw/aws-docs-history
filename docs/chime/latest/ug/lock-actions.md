@@ -1,7 +1,6 @@
 
 
 # Locking a meeting
-<a name="lock-actions"></a>
 
 Hosts, moderators, and delegates can lock meetings. When you lock a meeting, removed attendees can't rejoin the meeting. Also, uninvited and unauthenticated users can't join a locked meeting.
 

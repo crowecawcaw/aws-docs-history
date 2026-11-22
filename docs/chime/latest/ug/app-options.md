@@ -1,7 +1,6 @@
 
 
 # Changing mobile app settings
-<a name="app-options"></a>
 
 You use the **Settings** page in the Amazon Chime mobile app to control meeting and audio settings, block users, and turn the Amazon Chime push notification service on or off.
 

@@ -1,7 +1,6 @@
 
 
 # Sending diagnostic logs
-<a name="send-feedback"></a>
 
 If something goes wrong with Amazon Chime, you can send diagnostic logs to help troubleshoot any problems.
 

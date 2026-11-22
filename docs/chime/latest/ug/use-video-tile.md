@@ -1,7 +1,6 @@
 
 
 # Using your video tile
-<a name="use-video-tile"></a>
 
 Your video tile shows the view that other attendees have of you when you use your camera during an Amazon Chime meeting. Your tile appears when you turn your camera on. Meeting attendees can mute your video or hide your tile, and you can do the same with other attendees' tiles. Unless otherwise noted, the steps in this section apply to both the desktop client and web app. For information about using video tiles in the Amazon Chime mobile app, see [Using video](mobile-meeting-video.md) in the Amazon Chime mobile app guide.
 

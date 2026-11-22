@@ -1,7 +1,6 @@
 
 
 # Editing a chat room
-<a name="edit-chat-room"></a>
 
 When you edit a chat room, you can change the room's name, and control who can invite new members.
 

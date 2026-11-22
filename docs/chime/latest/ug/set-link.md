@@ -1,7 +1,6 @@
 
 
 # 5. (Optional) Set a personalized meeting link
-<a name="set-link"></a>
 
 If you have Amazon Chime Pro permissions, you can create a personalized meeting link that generates a friendly name for meetings that you host. You can do this in the desktop client and web app.
 

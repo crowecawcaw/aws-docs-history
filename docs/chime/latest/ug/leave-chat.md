@@ -1,7 +1,6 @@
 
 
 # Leaving a chat room
-<a name="leave-chat"></a>
 
 You can leave a chat room at any time, but you must be re-invited to return. The following steps apply to the desktop client and web app.
 

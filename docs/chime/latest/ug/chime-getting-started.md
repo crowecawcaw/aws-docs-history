@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Chime
-<a name="chime-getting-started"></a>
 
 The topics in this section explain how to start using version 5 of Amazon Chime. You have the following options:
 + **The desktop client** – If you use Windows or macOS devices, your employer allows you to install software, and you have a reliable network connection, use the Amazon Chime desktop client.

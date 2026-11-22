@@ -1,7 +1,6 @@
 
 
 # Scheduling meetings using Amazon Chime
-<a name="chime-schedule-meetings"></a>
 
 Amazon Chime Pro users can schedule Amazon Chime meetings from a calendar app such as Outlook or Google Calendar. They can also use auto-call to automatically call their meeting attendees.
 

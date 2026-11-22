@@ -1,7 +1,6 @@
 
 
 # Unmirroring your self view
-<a name="un-mirror-self"></a>
 
 By default, your video tile displays a mirror image of you during meetings. For example, your left hand appears on the right side of your video tile, and any text appears in reverse. When you present during a meeting, unmirroring your self view allows you to see what the other attendees see. For example, if you use a whiteboard during the meeting, you don't need to see it in reverse.
 

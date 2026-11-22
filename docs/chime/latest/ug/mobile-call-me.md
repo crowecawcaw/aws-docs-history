@@ -1,7 +1,6 @@
 
 
 # Setting a meeting to call you
-<a name="mobile-call-me"></a>
 
 You can use the **Call me** feature to have a meeting call your phone just before it starts. Follow these steps to use **Call me** to join a meeting:
 

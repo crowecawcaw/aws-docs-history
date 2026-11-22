@@ -1,7 +1,6 @@
 
 
 # 3. Create an Amazon Chime user account
-<a name="create-account"></a>
 
 **Note**  
 The process for creating an Amazon Chime user account can vary, depending on whether you use Amazon Chime at work, at home, or as part of a small business.  

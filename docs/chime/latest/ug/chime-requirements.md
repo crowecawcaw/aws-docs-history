@@ -1,7 +1,6 @@
 
 
 # 1. Know the system requirements
-<a name="chime-requirements"></a>
 
 Before you set up Amazon Chime, first verify that your computer or mobile device meets the following requirements.
 

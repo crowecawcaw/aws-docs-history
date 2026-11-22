@@ -1,7 +1,6 @@
 
 
 # Switching visual modes (desktop client only)
-<a name="change-theme"></a>
 
 You can switch the desktop client between light and dark modes at any time.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Chime Readiness Checker
-<a name="checker"></a>
 
 To verify that your device is compatible with Amazon Chime, use the Amazon Chime Readiness Checker at [https://app.chime.aws/check](https://app.chime.aws/check). The Amazon Chime Readiness Checker runs in your browser and verifies that your device is compatible with the Amazon Chime desktop client, web app, and mobile app. 
 

@@ -1,7 +1,6 @@
 
 
 # Using the Waiting Room
-<a name="waiting-room"></a>
 
 When anonymous users try to join an Amazon Chime meeting, they automatically go to the Waiting Room, and the **Waiting Room** section appears in the **Attendees** panel.
 

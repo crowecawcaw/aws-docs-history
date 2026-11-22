@@ -1,7 +1,6 @@
 
 
 # Managing attendee unmute
-<a name="disable-unmute"></a>
 
 Meeting hosts, moderators, and delegates can prevent attendees from unmuting themselves. When you control who can unmute their microphone, you have more control over who can speak during a meeting. We recommend that you turn on this feature when you host a large meeting.
 

@@ -1,7 +1,6 @@
 
 
 # Changing a chat room's notification settings
-<a name="chat-notification-settings"></a>
 
 By default, Amazon Chime notifies you when messages arrive in a chat room. You can change the notification settings at any time.
 

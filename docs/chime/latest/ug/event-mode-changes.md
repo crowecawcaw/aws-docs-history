@@ -1,7 +1,6 @@
 
 
 # How meetings change when you turn on Event Mode
-<a name="event-mode-changes"></a>
 
 When you turn on Event Mode, the meeting changes in the following ways:
 + Hosts, delegates, or moderators automatically receive presenter permissions when they join the meeting.

@@ -1,7 +1,6 @@
 
 
 # Calling a contact
-<a name="call-contact"></a>
 
 The steps in this section explain how to call a contact. The steps assume that you have one or more contacts in Amazon Chime.
 

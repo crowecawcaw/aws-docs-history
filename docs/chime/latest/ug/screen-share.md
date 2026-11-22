@@ -1,7 +1,6 @@
 
 
 # Sharing your screen during an Amazon Chime meeting
-<a name="screen-share"></a>
 
 You can share your screen if you use the desktop client or web app to join a meeting, or you have a supported in-room video system. If you use the desktop client, you can also stop notifications from appearing while you're sharing your screen. Remember the following:
 + If your network connection slows down, Amazon Chime prioritizes audio over video. The system pauses all video except your video tile and the screen share, and the following error message appears: **Video paused to prioritize your audio connection**. The system restores video after it resolves the network problem.

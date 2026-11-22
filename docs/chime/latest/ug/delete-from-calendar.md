@@ -1,7 +1,6 @@
 
 
 # Removing meetings from your calendar
-<a name="delete-from-calendar"></a>
 
 To schedule recurring meetings, organizers use a calendar application, such as Google Calendar or the Microsoft Outlook Add-in for Amazon Chime. You leave a recurring meeting by deleting it from your calendar. For example, if you use the Outlook Add-in, you follow these steps:
 

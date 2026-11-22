@@ -1,7 +1,6 @@
 
 
 # Stopping notifications while sharing
-<a name="stop-notifications"></a>
 
 To stop notifications from appearing while you share your screen, update your Amazon Chime settings. This only applies to the desktop client.
 

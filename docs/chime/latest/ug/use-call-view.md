@@ -1,7 +1,6 @@
 
 
 # Using Calls view
-<a name="use-call-view"></a>
 
 The **Calls** view displays a list of your recent instant meetings. This view doesn't include any scheduled meetings you attended.
 

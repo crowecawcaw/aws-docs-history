@@ -1,7 +1,6 @@
 
 
 # 4. Get to know the desktop client and web app
-<a name="client-differences"></a>
 
 The following sections introduce you to the Amazon Chime desktop client and web app. Amazon Chime tries to provide the same features and tools in both clients. However, they have the following differences:
 + Only the desktop client provides headset call controls. The controls allow you to interact with the Amazon Chime application during meetings using physical buttons on supported headsets and speakerphones For more about supported headsets, see [Supported headset brands](headset.md).

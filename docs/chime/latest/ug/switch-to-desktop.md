@@ -1,7 +1,6 @@
 
 
 # Switching from the web to the desktop client
-<a name="switch-to-desktop"></a>
 
 When meetings open in your browser, you can switch to the Amazon Chime desktop client if you run the client. The switching process also enables you to download and install the client if your company allows you to run it.
 

@@ -1,7 +1,6 @@
 
 
 # Starting instant meetings
-<a name="mobile-instant-mtgs"></a>
 
 To start a meeting immediately instead of scheduling one in advance, you can start an instant meeting. You can start instant meetings from multiple places in the app. However, if you want to invite multiple attendees, you must start the meeting from the **Meetings** view.
 

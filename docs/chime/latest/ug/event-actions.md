@@ -1,7 +1,6 @@
 
 
 # Using Event Mode
-<a name="event-actions"></a>
 
 You use Event Mode to minimize background noise, control who presents their screen, and control who starts their video. Only meeting hosts, moderators, and delegates can turn on Event Mode after a meeting starts. Event Mode changes a meeting in several ways:
 + Hosts, moderators and delegates must sign in with their Amazon Chime credentials in order to start Event Mode.

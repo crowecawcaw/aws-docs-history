@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Chime help
-<a name="start-help"></a>
 
 Amazon Chime provides the following types of help:
 + The Help Center, a set of release notes and blog post.

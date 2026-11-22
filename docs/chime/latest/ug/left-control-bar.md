@@ -1,7 +1,6 @@
 
 
 # Understanding the left control bar
-<a name="left-control-bar"></a>
 
 The left control bar contains icons you use during a meeting to manage the meeting window panels. You can also take additional actions to manage yourself and other attendees during the meeting. The following list briefly describes each action, starting from the top of the control bar.
 

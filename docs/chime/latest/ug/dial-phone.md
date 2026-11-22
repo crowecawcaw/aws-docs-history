@@ -1,7 +1,6 @@
 
 
 # Dialing phone numbers
-<a name="dial-phone"></a>
 
 The following steps explain how to dial a phone number in Amazon Chime.
 

@@ -1,7 +1,6 @@
 
 
 # Scheduling meetings
-<a name="mobile-scheduling"></a>
 
 If you have a calendar app on your phone, such as Microsoft Outlook or Google Calendar, you can use the Amazon Chime mobile app to schedule meetings.
 

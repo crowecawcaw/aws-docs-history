@@ -1,7 +1,6 @@
 
 
 # Supported headset brands
-<a name="headset"></a>
 
 When you use the Amazon Chime desktop client, you can use a compatible headset device to join auto-call meetings, leave meetings, answer incoming calls, end calls, mute audio, and adjust volume. 
 

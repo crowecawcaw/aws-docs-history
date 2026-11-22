@@ -1,7 +1,6 @@
 
 
 # Using other audio features
-<a name="use-other-audio-features"></a>
 
 You can use the **Audio** menu to start and stop a number of meeting features. The following steps menu item.To use the meeting features
 

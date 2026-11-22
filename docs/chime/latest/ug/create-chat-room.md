@@ -1,7 +1,6 @@
 
 
 # Creating chat rooms
-<a name="create-chat-room"></a>
 
 The steps in this section explain how to use the Amazon Chime desktop client and web app to create chat rooms.
 

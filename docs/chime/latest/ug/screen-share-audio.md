@@ -1,7 +1,6 @@
 
 
 # Playing videos while sharing your screen
-<a name="screen-share-audio"></a>
 
 When you play a video while sharing your screen, other meeting attendees can see the video, but they can't hear the audio. Why? By design, Amazon Chime only captures and distributes audio from microphones.
 

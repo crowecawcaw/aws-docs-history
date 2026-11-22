@@ -1,7 +1,6 @@
 
 
 # Using meeting bridge information
-<a name="meeting-bridge"></a>
 
 You use your meeting bridge information to invite others to an Amazon Chime meeting. This information includes your name, your meeting ID, a link to the meeting, and phone numbers an attendee can dial in from. The steps in this section explain how to copy your meeting bridge information to a chat message or email. You can also invite someone from your Contacts list by using the meeting from the meeting bridge information. For more information about contacts, see [Add contacts](contacts.md).
 

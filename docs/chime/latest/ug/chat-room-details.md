@@ -1,7 +1,6 @@
 
 
 # Viewing chat room details.
-<a name="chat-room-details"></a>
 
 A chat room's details provide information about the room, including who created it and how long messages are retained.
 

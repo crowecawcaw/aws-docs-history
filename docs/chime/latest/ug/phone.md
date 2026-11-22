@@ -1,7 +1,6 @@
 
 
 # Dialing phone numbers with Amazon Chime
-<a name="phone"></a>
 
 If your Amazon Chime administrator enables the calling options for your account, you can use the Amazon Chime desktop client and web app to dial phone numbers. You can also send text messages, phone numbers, add phone numbers to your contacts, and access voicemail. For more information, contact your Amazon Chime administrator or your manager. 
 

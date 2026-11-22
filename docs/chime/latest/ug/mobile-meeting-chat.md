@@ -1,7 +1,6 @@
 
 
 # Using in-meeting chat
-<a name="mobile-meeting-chat"></a>
 
 To start in-meeting chat, choose the **Chat** icon at the top of the app window. ![The Chat icon in the Amazon Chime mobile app, a text balloon.](https://docs.aws.amazon.com/chime/latest/ug/images/mobile-chat-icon.png) 
 

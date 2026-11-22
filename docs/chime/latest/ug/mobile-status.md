@@ -1,7 +1,6 @@
 
 
 # Changing your status
-<a name="mobile-status"></a>
 
 You can change your status when you want to let others know you're busy or in transit. Your status shows whether you are available, busy, or in transit while using Amazon Chime. You can also choose not to share your status. When you choose not to share your status, other users see a lock icon next to your name. 
 

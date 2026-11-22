@@ -1,7 +1,6 @@
 
 
 # Letting others know you're running late
-<a name="mobile-running-late"></a>
 
 You can let the other attendees know you're running late to a meeting by using the **Running late** control. This control appears on the **Join meeting** screen.
 

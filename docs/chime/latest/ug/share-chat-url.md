@@ -1,7 +1,6 @@
 
 
 # Sharing chat room URLs (web app only)
-<a name="share-chat-url"></a>
 
 Web app users can invite others to a chat room by sharing the room's URL.
 

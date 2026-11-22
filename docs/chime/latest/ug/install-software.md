@@ -1,7 +1,6 @@
 
 
 # 2. Install the software
-<a name="install-software"></a>
 
 After you confirm that your devices meet the system requirements, you can do the following: .
 + For Windows and macOS machines, download and install the Amazon Chime client from [Download Amazon Chime](https://aws.amazon.com/chime/download-chime/).
