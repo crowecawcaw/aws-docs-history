@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Tutorial: Setting a custom browser policy in Amazon WorkSpaces Secure Browser
-<a name="browser-policies-custom"></a>
 
 You can set any supported Chrome policy for Linux by uploading a JSON file. To learn more about Chrome policies, see [Chrome Enterprise policy list](https://chromeenterprise.google/policies/) and select the Linux platform. Then, search and review the policies for the most recent stable version. 
 

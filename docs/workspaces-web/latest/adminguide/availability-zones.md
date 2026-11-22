@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Supported Availability Zones for Amazon WorkSpaces Secure Browser
-<a name="availability-zones"></a>
 
 When you are creating a virtual private cloud (VPC) for use with WorkSpaces Secure Browser, your VPC's subnets must reside in different Availability Zones in the Region where you're launching WorkSpaces Secure Browser. Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location. Each subnet must reside entirely within one Availability Zone and cannot span zones. We recommend configuring a subnet for each supported AZ in your desired region for maximum resiliency
 

@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Data encryption in Amazon WorkSpaces Secure Browser
-<a name="data-encryption"></a>
 
 Amazon WorkSpaces Secure Browser collects portal customization data, such as browser settings, user settings, network settings, identity provider information, trust store data, and trust store certificate data. WorkSpaces Secure Browser also collects browser policy data, user preferences (for browser settings), and session logs. Collected data is stored in Amazon DynamoDB and Amazon S3. WorkSpaces Secure Browser uses AWS Key Management Service for encryption.
 

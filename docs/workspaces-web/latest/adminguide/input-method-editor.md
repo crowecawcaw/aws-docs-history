@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Configuring the Input Method Editor for Amazon WorkSpaces Secure Browser
-<a name="input-method-editor"></a>
 
 An Input Method Editor (IME) is a utility that provides options to the end user to input text in languages that use a keyboard layout other than a QWERTY keyboard. IMEs help users enter text in languages with larger, more complex language sets, such as Japanese, Chinese, and Korean. WorkSpaces Secure Browser sessions include IME support by default. Users can select alternative languages from the IME toolbar in the session or by using keyboard shortcuts.
 

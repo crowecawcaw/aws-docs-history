@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Distributing your web portal in Amazon WorkSpaces Secure Browser
-<a name="getting-started-step3"></a>
 
 When you are ready for your users to begin using WorkSpaces Secure Browser, you choose from the following options to distribute the portal:
 + Add your portal to your SAML application gateway to enable users to launch a session from their IdP directly. You can do this through the IdP-initiated sign-in flow with your SAML 2.0 compliant IdP. For more information, see **SP-initiated and IdP-initiated SAML assertions** in [Configuring the standard authentication type for Amazon WorkSpaces Secure Browser](configure-standard.md). Alternatively, you can create a custom SAML application that can deliver IdP-initiated authentication experiences by using SP-initiated flows. For more information, see [Create a Bookmark App integration](https://help.okta.com/en-us/Content/Topics/Apps/apps-create-bookmark.htm).

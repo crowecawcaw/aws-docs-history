@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Logging WorkSpaces Secure Browser API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 WorkSpaces Secure Browser is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon WorkSpaces Secure Browser. CloudTrail captures all API calls for Amazon WorkSpaces Secure Browser as events. These include calls from the Amazon WorkSpaces Secure Browser console and code calls to Amazon WorkSpaces Secure Browser API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon WorkSpaces Secure Browser. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can identify the request that was made to Amazon WorkSpaces Secure Browser, the IP address from which the request was made, who made the request, when it was made, as well as additional details.
 

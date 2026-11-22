@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Branding customization in Amazon WorkSpaces Secure Browser
-<a name="branding-customization"></a>
 
 You can customize the sign-in and loading screens that appear to your end users by modifying visual elements, text content, and terms of service. Branding customization helps create a consistent experience that aligns with your organization's identity.
 

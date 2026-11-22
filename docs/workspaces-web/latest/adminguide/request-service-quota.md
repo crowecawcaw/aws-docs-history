@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Managing service quotas for your portal in Amazon WorkSpaces Secure Browser
-<a name="request-service-quota"></a>
 
 When you create your AWS account, we automatically set default service quotas (also referred to as limits) for resource usage with AWS services. Administrators must be aware of two quotas that might need to be increased to support their use case. These two quotas are the number of web portals you can create in each region, and the number of maximum concurrent sessions you can support with each available instance type in each region. You can request an increase for these from the Service Quotas page in the AWS Console.
 

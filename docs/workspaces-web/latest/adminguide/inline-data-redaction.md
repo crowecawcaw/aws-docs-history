@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Inline data redaction in Amazon WorkSpaces Secure Browser
-<a name="inline-data-redaction"></a>
 
 By adding inline data redaction to a portal, you can automatically predict and redact certain data from a string of text displayed in web pages. You can create redaction policies by choosing from built-in patterns (such as social security numbers or credit card numbers), or create their own custom data types using regular expression and keywords. Policies include configurable levels of enforcement and controls for the URLs where redaction should be enforced. 
 

@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Controlling the interval for re-authenticating a SAML IdP token in Amazon WorkSpaces Secure Browser
-<a name="control-interval"></a>
 
 When a user visits a WorkSpaces Secure Browser portal, they can sign in to launch a streaming session. Every sessions begins on the start page, unless they sign in less than 5 minutes ago. The portal checks for identity provider (IdP) tokens to determine whether to prompt the user for credentials when it launches a session. A user without a valid IdP token must enter a user name, password, and (optionally multifactor authentication (MFA) to launch a streaming session. If a user already generated a SAML IdP token by signing into their IdP or an app protected by the same IdP, they won't be asked for sign-in credentials.
 

@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Requesting a maximum concurrent sessions increase in Amazon WorkSpaces Secure Browser
-<a name="request-max-concurrent-session"></a>
 
 The maximum concurrent sessions quota is the highest amount of users that can be connected at the same time to a portal. If the service quota limit for maximum concurrent sessions is not set appropriately, users may find that a session is not available when they sign in. In addition to increasing this service quota, customers must also ensure that their VPC and subnets have sufficient IP space to support the maximum concurrent sessions.
 

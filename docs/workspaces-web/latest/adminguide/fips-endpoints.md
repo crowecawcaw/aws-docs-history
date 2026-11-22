@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Protecting data in transit with FIPS endpoints and Amazon WorkSpaces Secure Browser
-<a name="fips-endpoints"></a>
 
 By default, when you communicate with the WorkSpaces Secure Browser service as an administrator using the console, the AWS Command Line Interface (AWS CLI), or an AWS SDK, or during a user’s session, all data in transit is encrypted using TLS 1.2.
 

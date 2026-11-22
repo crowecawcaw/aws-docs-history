@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Quick VPC Setup (1 minute)
-<a name="vpc-step1"></a>
 
 Complete the following steps to quickly create a dedicated VPC for WorkSpaces Secure Browser with public and private subnets for internet access. If you want to use an existing VPC, see [VPC requirements for Amazon WorkSpaces Secure Browser](vpc-reqs.md) to verify it meets the requirements.
 

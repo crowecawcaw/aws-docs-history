@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Editing an IP access control group in Amazon WorkSpaces Secure Browser
-<a name="edit-ip-access-controls"></a>
 
 You can delete a rule from an IP access setting at any time. If you remove a rule that was used to allow a connection to a web portal, any users with a current session will be disconnected from the web portal.
 

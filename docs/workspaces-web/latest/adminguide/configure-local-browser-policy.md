@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Configuring local browser policy for WebAuthn
-<a name="configure-local-browser-policy"></a>
 
 In addition to enabling WebAuthn redirection in your portal settings, the local browser policy must be configured to allow WebAuthn redirection between the user's local device and the remote browser session and vice versa. This configuration is typically managed by IT administrators for enterprise environments, or by individual users for BYOD scenarios.
 

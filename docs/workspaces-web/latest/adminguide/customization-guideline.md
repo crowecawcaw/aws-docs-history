@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Customization guidelines
-<a name="customization-guideline"></a>
 
 Customize the sign-in and loading experience for your end users by updating the branding elements and text on sign-in and loading pages. You can modify visual elements like logos and wallpapers, edit text elements such as welcome messages and headers, and optionally configure a Terms of Service agreement that users must accept before starting their session.
 

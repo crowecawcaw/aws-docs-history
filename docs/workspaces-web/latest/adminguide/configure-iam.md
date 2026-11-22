@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Configuring the IAM Identity Center authentication type for Amazon WorkSpaces Secure Browser
-<a name="configure-iam"></a>
 
 For the **IAM Identity Center** type (advanced), you federate IAM Identity Center with your portal. Only select this option if the following applies to you:
 + Your IAM Identity Center is configured in the same AWS account and AWS Region as your web portal.

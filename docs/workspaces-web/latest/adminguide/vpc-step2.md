@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Verifying your subnet route tables (optional)
-<a name="vpc-step2"></a>
 
 The VPC wizard automatically configures the route tables for you. If you created your VPC manually or want to confirm the configuration, you can verify that the following details are correct for your route table:
 + The route table associated with the subnet that your NAT gateway resides in must include a route that points internet traffic to an internet gateway. This ensures that your NAT gateway can access the internet. 

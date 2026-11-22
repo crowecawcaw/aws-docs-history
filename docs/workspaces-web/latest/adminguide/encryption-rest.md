@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Encryption at rest for Amazon WorkSpaces Secure Browser
-<a name="encryption-rest"></a>
 
 *Encryption at rest* is configured by default and all customer data (for example, browser policy statements, usernames, logging, or IP addresses) used in WorkSpaces Secure Browser is encrypted using AWS KMS. By default, WorkSpaces Secure Browser enables encryption with an AWS-owned key. You can also use a Customer Managed Key (CMK) by specifying your CMK on resource creation. This is currently only supported via the CLI.
 

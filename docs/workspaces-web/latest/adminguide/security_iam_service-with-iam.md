@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # How Amazon WorkSpaces Secure Browser works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to WorkSpaces Secure Browser, learn what IAM features are available to use with WorkSpaces Secure Browser.
 

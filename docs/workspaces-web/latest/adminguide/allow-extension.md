@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Managing the single sign-on extension in Amazon WorkSpaces Secure Browser
-<a name="allow-extension"></a>
 
 You can enable an extension for your end users to have a better portal sign-on experience. For example, if you use Okta as your portal’s SAML 2.0 identity provider (IdP), and you also use it as the IdP for the websites you want users to visit during a session, you can pass the Okta sign-in cookie to the session with the extension. Afterwards, when users visit a website that requires the Okta domain cookie, they can access the website without having to sign in during the session.
 

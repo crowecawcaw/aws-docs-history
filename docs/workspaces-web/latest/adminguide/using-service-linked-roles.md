@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Using service-linked roles for Amazon WorkSpaces Secure Browser
-<a name="using-service-linked-roles"></a>
 
 Amazon WorkSpaces Secure Browser uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to WorkSpaces Secure Browser. Service-linked roles are predefined by WorkSpaces Secure Browser and include all the permissions that the service requires to call other AWS services on your behalf. 
 

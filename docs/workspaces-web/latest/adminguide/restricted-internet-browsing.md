@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Enabling restricted internet browsing for Amazon WorkSpaces Secure Browser
-<a name="restricted-internet-browsing"></a>
 
 The recommended network setup of a WorkSpaces Secure Browser portal is to use private subnets with NAT gateway, so that the portal can browse both public internet and private content. For more information, see [Enabling unrestricted internet browsing for Amazon WorkSpaces Secure Browser (recommended)](unrestricted-internet-browsing.md). However, you might be required to control outbound communication from a WorkSpaces Secure Browser portal to the internet by using a web proxy. For example, if you use a web proxy as the gateway to the internet, you can implement preventive security controls, such as domain allow-listing and content filtering. This can also reduce bandwidth usage and improve network performance by caching frequently accessed resources, such as web pages or software updates locally. For some use cases, you might have private content that is only accessible by using a web proxy.
 

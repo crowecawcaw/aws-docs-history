@@ -3,7 +3,6 @@
 Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
 
 # Starting a session in Amazon WorkSpaces Secure Browser
-<a name="start-session"></a>
 
 After you sign in to launch a session, you will see the **Launching session** message and progress bar. This indicates that Amazon WorkSpaces Secure Browser is creating a session for you. Behind the scenes, Amazon WorkSpaces Secure Browser is creating the instance, launching the managed web browser, and applying administrator settings and browser policies. 
 
