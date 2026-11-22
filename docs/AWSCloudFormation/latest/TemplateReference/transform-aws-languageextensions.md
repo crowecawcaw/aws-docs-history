@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::LanguageExtensions` transform
-<a name="transform-aws-languageextensions"></a>
 
 This topic describes how to use the `AWS::LanguageExtensions` transform to enable additional functions and capabilities that are not available by default. 
 
@@ -26,7 +25,7 @@ To declare this transform in your CloudFormation template, use the following syn
 ### JSON
 <a name="aws-languageextensions-syntax.json"></a>
 
-```
+```json
 {
   "Transform":"AWS::LanguageExtensions",
   "Resources":{
@@ -38,7 +37,7 @@ To declare this transform in your CloudFormation template, use the following syn
 ### YAML
 <a name="aws-languageextensions-syntax.yaml"></a>
 
-```
+```yaml
 Transform: AWS::LanguageExtensions
 Resources:
   {{...}}
@@ -72,7 +71,7 @@ The following examples show how to use the `AWS::LanguageExtensions` transform t
 ### JSON
 <a name="aws-languageextensions-example.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Transform": "AWS::LanguageExtensions",
@@ -106,7 +105,7 @@ The following examples show how to use the `AWS::LanguageExtensions` transform t
 ### YAML
 <a name="aws-languageextensions-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Parameters:

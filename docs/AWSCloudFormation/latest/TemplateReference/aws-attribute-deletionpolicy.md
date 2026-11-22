@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `DeletionPolicy` attribute
-<a name="aws-attribute-deletionpolicy"></a>
 
 With the `DeletionPolicy` attribute you can preserve, and in some cases, backup a resource when its stack is deleted. You specify a `DeletionPolicy` attribute for each resource that you want to control. If a resource has no `DeletionPolicy` attribute, CloudFormation deletes the resource by default.
 
@@ -24,7 +23,7 @@ The following snippet contains an Amazon S3 bucket resource with a `Retain` dele
 ## JSON
 <a name="aws-attribute-deletionpolicy-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Resources" : {
@@ -39,7 +38,7 @@ The following snippet contains an Amazon S3 bucket resource with a `Retain` dele
 ## YAML
 <a name="aws-attribute-deletionpolicy-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   MyBucket:

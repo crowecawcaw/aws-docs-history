@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # cfn-hup
-<a name="cfn-hup"></a>
 
 The `cfn-hup` helper is a daemon that detects changes in resource metadata and runs user-specified actions when a change is detected. This allows you to make configuration updates on your running Amazon EC2 instances through the `UpdateStack` API action.
 
@@ -21,7 +20,7 @@ For more information, see the [ Updating a CloudFormation stack](https://docs.aw
 ## Syntax
 <a name="cfn-hup-Syntax"></a>
 
-```
+```sh
 cfn-hup --config|-c config.dir \
         --no-daemon \
         --verbose|-v
@@ -44,7 +43,7 @@ The `cfn-hup.conf` file stores the name of the stack and the AWS credentials tha
 
 The `cfn-hup.conf` file uses the following format:
 
-```
+```conf
 [main]
 stack={{<stack-name-or-id> }}
 ```
@@ -65,7 +64,7 @@ stack={{<stack-name-or-id> }}
 
 The user actions that the `cfn-hup` daemon calls periodically are defined in the `hooks.conf` configuration file. The `hooks.conf` file uses the following *format*:
 
-```
+```conf
 [hookname]
 triggers=post.add {{or}} post.update {{or}} post.remove
 path=Resources.{{<logicalResourceId>}} (.Metadata {{or}} .PhysicalResourceId)(.{{<optionalMetadatapath>}})
@@ -101,7 +100,7 @@ In the following examples, CloudFormation triggers the `cfn-auto-reloader.conf` 
 ### JSON
 <a name="cfn-hup-example.json"></a>
 
-```
+```json
 ...
     "LaunchConfig": {
       "Type" : "AWS::AutoScaling::LaunchConfiguration",
@@ -130,7 +129,7 @@ In the following examples, CloudFormation triggers the `cfn-auto-reloader.conf` 
 ### YAML
 <a name="cfn-hup-example.yaml"></a>
 
-```
+```yaml
 ...
   LaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration

@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::CodeDeployBlueGreen` transform
-<a name="transform-aws-codedeploybluegreen"></a>
 
 This topic describes how to use the `AWS::CodeDeployBlueGreen` transform to enable ECS blue/green deployments through CodeDeploy on your stack.
 
@@ -24,7 +23,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### JSON
 <a name="aws-codedeploybluegreen-syntax.json"></a>
 
-```
+```json
 {
   "Transform":[
     "AWS::CodeDeployBlueGreen"
@@ -38,7 +37,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### YAML
 <a name="aws-codedeploybluegreen-syntax.yaml"></a>
 
-```
+```yaml
 Transform:
   - 'AWS::CodeDeployBlueGreen'
 Resources:

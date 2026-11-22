@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Introduction: CloudFormation Template Reference Guide
-<a name="introduction"></a>
 
 The *CloudFormation Template Reference Guide* is a companion to the [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html). It provides detailed information about the different components that you can use when creating CloudFormation templates.
 

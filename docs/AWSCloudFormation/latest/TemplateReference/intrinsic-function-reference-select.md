@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Select`
-<a name="intrinsic-function-reference-select"></a>
 
 The intrinsic function `Fn::Select` returns a single object from a list of objects by index.
 
@@ -16,7 +15,7 @@ The intrinsic function `Fn::Select` returns a single object from a list of objec
 ### JSON
 <a name="intrinsic-function-reference-select-syntax.json"></a>
 
-```
+```json
 { "Fn::Select" : [ {{index}}, {{listOfObjects}} ] }
 ```
 
@@ -25,13 +24,13 @@ The intrinsic function `Fn::Select` returns a single object from a list of objec
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Select: [ {{index}}, {{listOfObjects}} ] 
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !Select [ {{index}}, {{listOfObjects}} ]
 ```
 
@@ -60,14 +59,14 @@ The following example returns: `"grapes"`.
 #### JSON
 <a name="intrinsic-function-reference-select-example0.json"></a>
 
-```
+```json
 { "Fn::Select" : [ "1", [ "apples", "grapes", "oranges", "mangoes" ] ] }
 ```
 
 #### YAML
 <a name="intrinsic-function-reference-select-example0.yaml"></a>
 
-```
+```yaml
 !Select [ "1", [ "apples", "grapes", "oranges", "mangoes" ] ]
 ```
 
@@ -81,7 +80,7 @@ You can use `Fn::Select` to select an object from a `CommaDelimitedList` paramet
 #### JSON
 <a name="intrinsic-function-reference-select-example1.json"></a>
 
-```
+```json
 "Parameters" : {
   "DbSubnetIpBlocks": {
     "Description": "Comma-delimited list of three CIDR blocks",
@@ -94,7 +93,7 @@ You can use `Fn::Select` to select an object from a `CommaDelimitedList` paramet
 #### YAML
 <a name="intrinsic-function-reference-select-example1.yaml"></a>
 
-```
+```yaml
 Parameters: 
   DbSubnetIpBlocks: 
     Description: "Comma-delimited list of three CIDR blocks"
@@ -107,7 +106,7 @@ To specify one of the three CIDR blocks, use `Fn::Select` in the Resources secti
 #### JSON
 <a name="intrinsic-function-reference-select-example2.json"></a>
 
-```
+```json
 "Subnet0": {
   "Type": "AWS::EC2::Subnet",
     "Properties": {
@@ -120,7 +119,7 @@ To specify one of the three CIDR blocks, use `Fn::Select` in the Resources secti
 #### YAML
 <a name="intrinsic-function-reference-select-example2.yaml"></a>
 
-```
+```yaml
 Subnet0: 
   Type: AWS::EC2::Subnet
   Properties: 
@@ -138,7 +137,7 @@ The following examples show valid patterns for using nested intrinsic functions 
 #### YAML
 <a name="intrinsic-function-reference-select-example3.yaml"></a>
 
-```
+```yaml
 AvailabilityZone: !Select 
   - 0
   - !GetAZs 
@@ -148,7 +147,7 @@ AvailabilityZone: !Select
 #### YAML
 <a name="intrinsic-function-reference-select-example4.yaml"></a>
 
-```
+```yaml
 AvailabilityZone: !Select 
   - 0
   - Fn::GetAZs: !Ref 'AWS::Region'

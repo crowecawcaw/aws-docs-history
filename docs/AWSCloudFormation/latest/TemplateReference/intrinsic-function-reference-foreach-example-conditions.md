@@ -3,14 +3,13 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Conditions` section
-<a name="intrinsic-function-reference-foreach-example-conditions"></a>
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Conditions` section. For more information about this section, see [Conditions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html) in the *AWS CloudFormation User Guide*.
 
 **Important**  
 `Conditions` must be the second property listed, or later. Stack creation will fail if `Conditions` is the first property listed within the template fragment parameter of `Fn::ForEach`.
 
-```
+```yaml
 Resources:
   'Fn::ForEach::Topics':
     - LogicalId
@@ -24,7 +23,7 @@ Resources:
 
 `Conditions` must be added as the second key, or later, for stack creation to succeed: 
 
-```
+```yaml
 Resources:
   'Fn::ForEach::Topics':
     - LogicalId
@@ -47,7 +46,7 @@ This example uses the `Fn::ForEach` intrinsic function in the `Conditions` secti
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-conditions.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Transform": "AWS::LanguageExtensions",
@@ -106,7 +105,7 @@ This example uses the `Fn::ForEach` intrinsic function in the `Conditions` secti
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-conditions.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Parameters:
@@ -145,7 +144,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   ParamA:

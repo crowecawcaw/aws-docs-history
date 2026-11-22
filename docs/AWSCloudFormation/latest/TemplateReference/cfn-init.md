@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # cfn-init
-<a name="cfn-init"></a>
 
 In a CloudFormation template, you can use `AWS::CloudFormation::Init` within the `Metadata` section of an Amazon EC2 resource to define initialization tasks. For more information, see [`AWS::CloudFormation::Init`](aws-resource-init.md).
 
@@ -29,7 +28,7 @@ If you use `cfn-init` to update an existing file, it creates a backup copy of th
 ## Syntax
 <a name="cfn-init-Syntax"></a>
 
-```
+```sh
 cfn-init --stack|-s {{stack.name.or.id}} \
          --resource|-r {{logical.resource.id}} \
          --region {{region}} \
@@ -82,7 +81,7 @@ To include the latest version, add `yum install -y aws-cfn-bootstrap` to the `Us
 
 `UserData` property using the `Fn::Join` intrinsic function.
 
-```
+```json
 {
     "UserData": {
         "Fn::Base64": {
@@ -116,7 +115,7 @@ To include the latest version, add `yum install -y aws-cfn-bootstrap` to the `Us
 
 `UserData` property using the `Fn::Sub` intrinsic function.
 
-```
+```yaml
 UserData:
   Fn::Base64: !Sub |
     #!/bin/bash -xe

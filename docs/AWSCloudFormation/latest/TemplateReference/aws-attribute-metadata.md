@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Metadata` attribute
-<a name="aws-attribute-metadata"></a>
 
 The `Metadata` attribute enables you to associate structured data with a resource. By adding a `Metadata` attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as [`Fn::GetAtt`](intrinsic-function-reference-getatt.md) and [`Ref`](intrinsic-function-reference-ref.md)), parameters, and pseudo parameters within the `Metadata` attribute to add those interpreted values.
 
@@ -23,7 +22,7 @@ The following template contains an Amazon S3 bucket resource with a `Metadata` a
 ### JSON
 <a name="aws-attribute-metadata-example.json"></a>
 
-```
+```json
 {
    "AWSTemplateFormatVersion" : "2010-09-09",
    "Resources" : {
@@ -41,7 +40,7 @@ The following template contains an Amazon S3 bucket resource with a `Metadata` a
 ### YAML
 <a name="aws-attribute-metadata-example.yaml"></a>
 
-```
+```yaml
 1. AWSTemplateFormatVersion: '2010-09-09'
 2. Resources:
 3.   MyBucket:
@@ -63,7 +62,7 @@ To have an AI agent retrieve and preserve context when it authors or updates a t
 
 The following example records architecture at the template level and rationale, constraints, and change-safety guidance at the resource level.
 
-```
+```yaml
  1. AWSTemplateFormatVersion: '2010-09-09'
  2. Description: Order event buffer — decouples producers from bursty asynchronous processing
  3. Metadata:
@@ -93,7 +92,7 @@ The schema is advisory and intended for client-side validation. CloudFormation d
 
 The following JSON Schema uses JSON Schema Draft 2020-12 and defines version 1 of `Metadata Context`.
 
-```
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cloudformation.aws.dev/schema/metadata-context/v1.json",

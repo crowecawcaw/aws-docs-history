@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Join`
-<a name="intrinsic-function-reference-join"></a>
 
 The intrinsic function `Fn::Join` appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
 
@@ -13,7 +12,7 @@ The intrinsic function `Fn::Join` appends a set of values into a single value, s
 ### JSON
 <a name="intrinsic-function-reference-join-syntax.json"></a>
 
-```
+```json
 { "Fn::Join" : [ "delimiter", [ {{comma-delimited list of values}} ] ] }
 ```
 
@@ -22,13 +21,13 @@ The intrinsic function `Fn::Join` appends a set of values into a single value, s
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Join: [ delimiter, [ {{comma-delimited list of values}} ] ]
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !Join [ delimiter, [ {{comma-delimited list of values}} ] ]
 ```
 
@@ -57,14 +56,14 @@ The following example returns: `"a:b:c"`.
 #### JSON
 <a name="intrinsic-function-reference-join-example1.json"></a>
 
-```
+```json
 "Fn::Join" : [ ":", [ "a", "b", "c" ] ]
 ```
 
 #### YAML
 <a name="intrinsic-function-reference-join-example1.yaml"></a>
 
-```
+```yaml
 !Join [ ":", [ a, b, c ] ]
 ```
 
@@ -76,7 +75,7 @@ The following example uses `Fn::Join` to construct a string value. It uses the `
 #### JSON
 <a name="intrinsic-function-reference-join-example2.json"></a>
 
-```
+```json
 {
   "Fn::Join": [
     "", [
@@ -96,7 +95,7 @@ The following example uses `Fn::Join` to construct a string value. It uses the `
 #### YAML
 <a name="intrinsic-function-reference-join-example2.yaml"></a>
 
-```
+```yaml
 !Join
   - ''
   - - 'arn:'

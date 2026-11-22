@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::ToJsonString`
-<a name="intrinsic-function-reference-ToJsonString"></a>
 
 The `Fn::ToJsonString` intrinsic function converts an object or array to its corresponding JSON string.
 
@@ -16,22 +15,22 @@ You must use the [`AWS::LanguageExtensions` transform](transform-aws-languageext
 ### JSON
 <a name="intrinsic-function-reference-tojsonstring-syntax.json"></a>
 
-```
+```json
 { "Fn::ToJsonString": {{Object}} }
 ```
 
-```
+```json
 { "Fn::ToJsonString": {{Array}} }
 ```
 
 ### YAML
 <a name="intrinsic-function-reference-tojsonstring-syntax.yaml"></a>
 
-```
+```yaml
 Fn::ToJsonString: {{Object}}
 ```
 
-```
+```yaml
 Fn::ToJsonString: {{Array}}
 ```
 
@@ -60,7 +59,7 @@ This example snippet converts the object passed to the intrinsic function to a J
 #### JSON
 <a name="intrinsic-function-reference-tojsonstring-example.json"></a>
 
-```
+```json
 {
 //...
     "Transform": "AWS::LanguageExtensions"
@@ -78,7 +77,7 @@ This example snippet converts the object passed to the intrinsic function to a J
 #### YAML
 <a name="intrinsic-function-reference-tojsonstring-example.yaml"></a>
 
-```
+```yaml
 Transform: 'AWS::LanguageExtensions'
 #...
   Fn::ToJsonString: 
@@ -89,7 +88,7 @@ Transform: 'AWS::LanguageExtensions'
 
 In both of these examples, if the `Ref` to `ParameterName` resolves to `resolvedValue`, the function resolves to the following JSON string:
 
-```
+```json
 "{\"key1\":\"value1\",\"key2\":\"resolvedValue\"}"
 ```
 
@@ -101,7 +100,7 @@ This example snippet converts the array passed to the intrinsic function to a JS
 #### JSON
 <a name="intrinsic-function-reference-tojsonstring-example2.json"></a>
 
-```
+```json
 {
 //...
     "Transform": "AWS::LanguageExtensions"
@@ -119,7 +118,7 @@ This example snippet converts the array passed to the intrinsic function to a JS
 #### YAML
 <a name="intrinsic-function-reference-tojsonstring-example2.yaml"></a>
 
-```
+```yaml
 Transform: 'AWS::LanguageExtensions'
 #...
   Fn::ToJsonString: 
@@ -130,7 +129,7 @@ Transform: 'AWS::LanguageExtensions'
 
 In both of these examples, if the `Ref` to `ParameterName` resolves to `resolvedValue`, the function resolves to the following JSON String:
 
-```
+```json
 "[{\"key1\":\"value1\"},{\"key2\":\"resolvedValue\"}]"
 ```
 

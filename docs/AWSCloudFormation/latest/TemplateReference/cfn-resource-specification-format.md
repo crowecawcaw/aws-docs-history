@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Specification format
-<a name="cfn-resource-specification-format"></a>
 
 CloudFormation creates a specification for each resource type, such as `AWS::S3::Bucket` or `AWS::EC2::Instance`. The following sections describe the format and each field within the specification.
 
@@ -18,7 +17,7 @@ CloudFormation creates a specification for each resource type, such as `AWS::S3:
 
 The formal definition for each resource type is organized into three main sections: `PropertyTypes`, `ResourceSpecificationVersion`, and `ResourceTypes`, as shown in the following example:
 
-```
+```json
 {
   "PropertyTypes": {
     {{Property specifications}}
@@ -48,7 +47,7 @@ If you view a file that contains the definition of one resource type, this prope
 
 The specification for each property includes the following fields. For subproperties, the property name uses the `{{resourceType}}.{{subpropertyName}}` format.
 
-```
+```json
 "{{Property name}}": {
   "Documentation": "{{Link to the relevant documentation}}"
   "DuplicatesAllowed": "{{true or false}}",
@@ -94,7 +93,7 @@ During a stack update, the update behavior when you add, remove, or modify the p
 
 The specification for each resource type includes the following fields.
 
-```
+```json
 "{{Resource type name}}": {
   "Attributes": {
     "{{AttributeName}}": {
@@ -137,7 +136,7 @@ The following examples highlight and explain parts of the [AWS::Elasticsearch::D
 
 The `AWS::Elasticsearch::Domain` resource type contains subproperties, so the specification includes a `PropertyTypes` section. This section is followed by the `ResourceSpecificationVersion` section, which shows the specification version as `1.0.0`. After the specification version is the `ResourceType` section that specifies the resource type, provides a documentation link, and details the resource's properties.
 
-```
+```json
 {
   "PropertyTypes": {
     ...
@@ -161,7 +160,7 @@ Focusing on the `ResourceType` section, the following example shows two properti
 
 The `SnapshotOptions` property isn't required and accepts a subproperty named `SnapshotOptions`. Details of the `SnapshotOptions` subproperty is provided in the `PropertyTypes` section.
 
-```
+```json
 {
   "PropertyTypes": {
     ...
@@ -200,7 +199,7 @@ The `SnapshotOptions` property isn't required and accepts a subproperty named `S
 
 In the `PropertyTypes`, the specification lists all the subproperties of a resource (including nested subproperties). The following example details the `AWS::Elasticsearch::Domain.SnapshotOptions` subproperty. It contains one property named `AutomatedSnapshotStartHour`, which isn't required and accepts integer value types.
 
-```
+```json
 "PropertyTypes": {
   ...
 
@@ -222,7 +221,7 @@ In the `PropertyTypes`, the specification lists all the subproperties of a resou
 
 For your reference, the following example provides the entire `AWS::Elasticsearch::Domain` resource specification.
 
-```
+```json
 {
   "PropertyTypes": {
     "AWS::Elasticsearch::Domain.EBSOptions": {

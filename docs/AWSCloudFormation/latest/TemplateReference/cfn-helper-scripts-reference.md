@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # CloudFormation helper scripts reference
-<a name="cfn-helper-scripts-reference"></a>
 
 CloudFormation provides the following Python helper scripts that you can use to install software and start services on an Amazon EC2 instance that you create as part of your stack:
 +  [cfn-init](cfn-init.md) – Use to retrieve and interpret resource metadata, install packages, create files, and start services.

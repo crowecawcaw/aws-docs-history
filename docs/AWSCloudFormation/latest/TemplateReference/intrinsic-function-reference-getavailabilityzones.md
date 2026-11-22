@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::GetAZs`
-<a name="intrinsic-function-reference-getavailabilityzones"></a>
 
 The intrinsic function `Fn::GetAZs` returns an array that lists Availability Zones for a specified Region in alphabetical order. Because customers have access to different Availability Zones, the intrinsic function `Fn::GetAZs` enables template authors to write templates that adapt to the calling user's access. That way you don't have to hard-code a full list of Availability Zones for a specified Region.
 
@@ -21,7 +20,7 @@ The permissions that you need in order to use the `Fn::GetAZs` function depend o
 ### JSON
 <a name="intrinsic-function-reference-getazs-syntax.json"></a>
 
-```
+```json
 { "Fn::GetAZs" : "{{region}}" }
 ```
 
@@ -30,13 +29,13 @@ The permissions that you need in order to use the `Fn::GetAZs` function depend o
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::GetAZs: {{region}}
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !GetAZs {{region}}
 ```
 
@@ -65,7 +64,7 @@ For these examples, CloudFormation evaluates `Fn::GetAZs` to the following array
 #### JSON
 <a name="intrinsic-function-reference-getazs-example1.json"></a>
 
-```
+```json
 1. { "Fn::GetAZs" : "" }
 2. { "Fn::GetAZs" : { "Ref" : "AWS::Region" } }
 3. { "Fn::GetAZs" : "us-east-1" }
@@ -74,7 +73,7 @@ For these examples, CloudFormation evaluates `Fn::GetAZs` to the following array
 #### YAML
 <a name="intrinsic-function-reference-getazs-example1.yaml"></a>
 
-```
+```yaml
 1. Fn::GetAZs: ""
 2. Fn::GetAZs:
 3.   Ref: "AWS::Region"
@@ -91,7 +90,7 @@ The following example uses `Fn::GetAZs` to specify a subnet's Availability Zone:
 #### JSON
 <a name="intrinsic-function-reference-getazs-example.json"></a>
 
-```
+```json
 "mySubnet" : {
   "Type" : "AWS::EC2::Subnet",
   "Properties" : {
@@ -114,7 +113,7 @@ The following example uses `Fn::GetAZs` to specify a subnet's Availability Zone:
 #### YAML
 <a name="intrinsic-function-reference-getazs-example.yaml"></a>
 
-```
+```yaml
 mySubnet: 
   Type: AWS::EC2::Subnet
   Properties: 
@@ -137,7 +136,7 @@ The following examples show valid patterns for using nested intrinsic functions 
 #### YAML
 <a name="intrinsic-function-reference-getavailabilityzones-example3.yaml"></a>
 
-```
+```yaml
 1. AvailabilityZone: !Select
 2.   - 0
 3.   - !GetAZs
@@ -147,7 +146,7 @@ The following examples show valid patterns for using nested intrinsic functions 
 #### YAML
 <a name="intrinsic-function-reference-getavailabilityzones-example4.yaml"></a>
 
-```
+```yaml
 1. AvailabilityZone: !Select
 2.   - 0
 3.   - Fn::GetAZs: !Ref 'AWS::Region'

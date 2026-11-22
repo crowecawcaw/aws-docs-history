@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `DependsOn` attribute
-<a name="aws-attribute-dependson"></a>
 
 With the `DependsOn` attribute you can specify that the creation of a specific resource follows another. When you add a `DependsOn` attribute to a resource, that resource is created only after the creation of the resource specified in the `DependsOn` attribute.
 
@@ -26,7 +25,7 @@ During a stack update, resources that depend on updated resources are updated au
 
 The `DependsOn` attribute can take a single string or list of strings.
 
-```
+```json
 "DependsOn" : [ {{String, ...}} ]
 ```
 
@@ -38,7 +37,7 @@ The following template contains an [AWS::EC2::Instance](https://docs.aws.amazon.
 ### JSON
 <a name="aws-attribute-dependson-example-1.json"></a>
 
-```
+```json
  1. {
  2.     "Resources" : {
  3.         "Ec2Instance" : {
@@ -67,7 +66,7 @@ The following template contains an [AWS::EC2::Instance](https://docs.aws.amazon.
 ### YAML
 <a name="aws-attribute-dependson-example-1.yaml"></a>
 
-```
+```yaml
  1. Resources:
  2.   Ec2Instance:
  3.     Type: AWS::EC2::Instance
@@ -108,7 +107,7 @@ The following snippet shows a sample gateway attachment and an Amazon EC2 instan
 ### JSON
 <a name="aws-attribute-dependson-example-2.json"></a>
 
-```
+```json
 "GatewayToInternet" : {
   "Type" : "AWS::EC2::VPCGatewayAttachment",
   "Properties" : {
@@ -152,7 +151,7 @@ The following snippet shows a sample gateway attachment and an Amazon EC2 instan
 ### YAML
 <a name="aws-attribute-dependson-example-2.yaml"></a>
 
-```
+```yaml
 GatewayToInternet:
   Type: AWS::EC2::VPCGatewayAttachment
   Properties:
@@ -186,7 +185,7 @@ When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create
 #### JSON
 <a name="aws-attribute-dependson-example-3.json"></a>
 
-```
+```json
 "service": {
   "Type": "AWS::ECS::Service",
   "DependsOn": [
@@ -219,7 +218,7 @@ When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create
 #### YAML
 <a name="aws-attribute-dependson-example-3.yaml"></a>
 
-```
+```yaml
 service:
   Type: AWS::ECS::Service
   DependsOn:

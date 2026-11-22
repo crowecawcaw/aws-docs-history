@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Outputs` section
-<a name="intrinsic-function-reference-foreach-example-outputs"></a>
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Outputs` section. For more information about this section, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) in the *AWS CloudFormation User Guide*.
 
@@ -19,7 +18,7 @@ This example uses nested `Fn::ForEach` loops in the `Outputs` section to reduce 
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-outputs.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -83,7 +82,7 @@ This example uses nested `Fn::ForEach` loops in the `Outputs` section to reduce 
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-outputs.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -121,7 +120,7 @@ Outputs:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -208,7 +207,7 @@ This example references replicated resources in the `Resources` section using th
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-conditions.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -257,7 +256,7 @@ This example references replicated resources in the `Resources` section using th
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-replicate-conditions.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Mappings:
@@ -287,7 +286,7 @@ Outputs:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:

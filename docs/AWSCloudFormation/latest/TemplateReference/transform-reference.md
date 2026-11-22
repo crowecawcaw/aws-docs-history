@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Transform reference
-<a name="transform-reference"></a>
 
 Transforms are macros hosted by CloudFormation. Unlike custom macros, a transform doesn't require any special permissions to use it because it is hosted by CloudFormation. Transforms can be used in templates in any account within CloudFormation. Also, there is no charge incurred when using transforms. CloudFormation treats a transform the same as any other macro in terms of evaluation order and scope.
 

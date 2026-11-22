@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::Include` transform
-<a name="transform-aws-include"></a>
 
 This topic describes how to use the `AWS::Include` transform to insert boilerplate content into your CloudFormation templates.
 
@@ -22,7 +21,7 @@ To declare this transform at the top level of your CloudFormation template, as t
 #### JSON
 <a name="aws-include-syntax-top-level.json"></a>
 
-```
+```json
 {
   "Transform":{
     "Name":"AWS::Include",
@@ -39,7 +38,7 @@ To declare this transform at the top level of your CloudFormation template, as t
 #### YAML
 <a name="aws-include-syntax-top-level.yaml"></a>
 
-```
+```yaml
 Transform:
   Name: AWS::Include
   Parameters:
@@ -56,7 +55,7 @@ To declare this transform within a section of your CloudFormation template, use 
 #### JSON
 <a name="aws-include-syntax-within-section.json"></a>
 
-```
+```json
 {
   "Fn::Transform":{
     "Name":"AWS::Include",
@@ -70,7 +69,7 @@ To declare this transform within a section of your CloudFormation template, use 
 #### YAML
 <a name="aws-include-syntax-within-section.yaml"></a>
 
-```
+```yaml
 Fn::Transform:
   Name: AWS::Include
   Parameters:
@@ -107,7 +106,7 @@ The following examples show how to use the `AWS::Include` transform to execute a
 
 First, save a YAML file named `single_wait_condition.yaml` in your S3 bucket with the following contents:
 
-```
+```yaml
 {{MyWaitCondition}}:
   Type: AWS::CloudFormation::WaitCondition
   Properties:
@@ -120,7 +119,7 @@ You can then reference this file using either JSON or YAML format.
 ### JSON
 <a name="aws-include-example.json"></a>
 
-```
+```json
 {
    "Resources": {
       "MyWaitHandle": {
@@ -139,7 +138,7 @@ You can then reference this file using either JSON or YAML format.
 ### YAML
 <a name="aws-include-example.yaml"></a>
 
-```
+```yaml
 Resources:
   MyWaitHandle:
     Type: AWS::CloudFormation::WaitConditionHandle

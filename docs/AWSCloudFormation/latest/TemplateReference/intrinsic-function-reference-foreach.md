@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::ForEach`
-<a name="intrinsic-function-reference-foreach"></a>
 
 The `Fn::ForEach` intrinsic function takes a collection and a fragment, and applies the items in the collection to the identifier in the provided fragment. `Fn::ForEach` can contain other intrinsic functions, including `Fn::ForEach` itself, and be used within the `Conditions`, `Outputs`, and `Resources` (including the resource properties) sections. It can't be used in any of the following sections, `AWSTemplateFormatVersion`, `Description`, `Metadata`, `Transform`, `Parameters`, `Mappings`, `Rules`, or `Hooks` sections.
 
@@ -17,7 +16,7 @@ Using the `Fn::ForEach` intrinsic function does not change the quotas, which app
 ### JSON
 <a name="intrinsic-function-reference-foreach-declaration.json"></a>
 
-```
+```json
 "Fn::ForEach::{{LoopLogicalName}}": [
   "{{Identifier}}",
   ["Value1","Value2"], // {{Collection}}
@@ -28,7 +27,7 @@ Using the `Fn::ForEach` intrinsic function does not change the quotas, which app
 ### YAML
 <a name="intrinsic-function-reference-foreach-declaration.yaml"></a>
 
-```
+```yaml
 'Fn::ForEach::{{LoopLogicalName}}':
     - {{Identifier}}
     - - {{Value1}} # {{Collection}}

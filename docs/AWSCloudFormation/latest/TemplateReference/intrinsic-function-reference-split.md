@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Split`
-<a name="intrinsic-function-reference-split"></a>
 
 To split a string into a list of string values so that you can select an element from the resulting string list, use the `Fn::Split` intrinsic function. Specify the location of splits with a delimiter, such as `,` (a comma). After you split a string, use the [`Fn::Select`](intrinsic-function-reference-select.md) function to pick a specific element.
 
@@ -15,7 +14,7 @@ For example, if a comma-delimited string of subnet IDs is imported to your stack
 ### JSON
 <a name="intrinsic-function-reference-split-syntax.json"></a>
 
-```
+```json
 { "Fn::Split" : [ "{{delimiter}}", "{{source string}}" ] }
 ```
 
@@ -24,13 +23,13 @@ For example, if a comma-delimited string of subnet IDs is imported to your stack
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Split: [ {{delimiter}}, {{source string}} ]
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !Split [ {{delimiter}}, {{source string}} ]
 ```
 
@@ -63,14 +62,14 @@ The following example splits a string at each vertical bar (`|`). The function r
 #### JSON
 <a name="intrinsic-function-reference-split-example.json"></a>
 
-```
+```json
 { "Fn::Split" : [ "|" , "a|b|c" ] }
 ```
 
 #### YAML
 <a name="intrinsic-function-reference-split-example.yaml"></a>
 
-```
+```yaml
 !Split [ "|" , "a|b|c" ]
 ```
 
@@ -84,14 +83,14 @@ If you split a string with consecutive delimiters, the resulting list will inclu
 #### JSON
 <a name="w2aac24c67c13b7b5"></a>
 
-```
+```json
 { "Fn::Split" : [ "|" , "a||c|" ] }
 ```
 
 #### YAML
 <a name="w2aac24c67c13b7b7"></a>
 
-```
+```yaml
 !Split [ "|" , "a||c|" ]
 ```
 
@@ -105,14 +104,14 @@ The following example splits an imported output value, and then selects the thir
 #### JSON
 <a name="w2aac24c67c13b9b5"></a>
 
-```
+```json
 { "Fn::Select" : [ "2", { "Fn::Split": [",", {"Fn::ImportValue": "AccountSubnetIDs"}]}] }
 ```
 
 #### YAML
 <a name="w2aac24c67c13b9b7"></a>
 
-```
+```yaml
 !Select [2, !Split [",", !ImportValue AccountSubnetIDs]]
 ```
 

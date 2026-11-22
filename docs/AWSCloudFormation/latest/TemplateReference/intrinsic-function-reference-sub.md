@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Sub`
-<a name="intrinsic-function-reference-sub"></a>
 
 The intrinsic function `Fn::Sub` substitutes variables in an input string with values that you specify. In your templates, you can use this function to construct commands or outputs that include values that aren't available until you create or update a stack.
 
@@ -15,13 +14,13 @@ The following sections show the function's syntax.
 ### JSON
 <a name="intrinsic-function-reference-sub-syntax.json"></a>
 
-```
+```json
 { "Fn::Sub" : [ {{String}}, { {{Var1Name}}: {{Var1Value}}, {{Var2Name}}: {{Var2Value}} } ] }
 ```
 
 If you're substituting only template parameters, resource logical IDs, or resource attributes in the `{{String}}` parameter, don't specify a variable map.
 
-```
+```json
 { "Fn::Sub" : {{String}} }
 ```
 
@@ -30,7 +29,7 @@ If you're substituting only template parameters, resource logical IDs, or resour
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Sub:
   - {{String}}
   - {{Var1Name}}: {{Var1Value}}
@@ -39,7 +38,7 @@ Fn::Sub:
 
 Syntax for the short form:
 
-```
+```yaml
 !Sub
   - {{String}}
   - {{Var1Name}}: {{Var1Value}}
@@ -50,13 +49,13 @@ If you're substituting only template parameters, resource logical IDs, or resour
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Sub: {{String}}
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !Sub {{String}}
 ```
 
@@ -93,7 +92,7 @@ In this simple example, the `InstanceSecurityGroup` resource's description is dy
 #### JSON
 <a name="intrinsic-function-reference-sub-example-1.json"></a>
 
-```
+```json
 "InstanceSecurityGroup" : {
     "Type" : "AWS::EC2::SecurityGroup",
     "Properties" : {
@@ -104,7 +103,7 @@ In this simple example, the `InstanceSecurityGroup` resource's description is dy
 #### YAML
 <a name="intrinsic-function-reference-sub-example-1.yaml"></a>
 
-```
+```yaml
 InstanceSecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
@@ -119,7 +118,7 @@ In this example, the `WWWBucket` resource's name is dynamically created with a k
 #### JSON
 <a name="intrinsic-function-reference-sub-example-2.json"></a>
 
-```
+```json
 "WWWBucket":{
   "Type":"AWS::S3::Bucket",
   "Properties":{
@@ -140,7 +139,7 @@ In this example, the `WWWBucket` resource's name is dynamically created with a k
 #### YAML
 <a name="intrinsic-function-reference-sub-example-2.yaml"></a>
 
-```
+```yaml
   WWWBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -157,14 +156,14 @@ The following example uses `Fn::Sub` with the `AWS::Region` and `AWS::AccountId`
 #### JSON
 <a name="intrinsic-function-reference-sub-example-3.json"></a>
 
-```
+```json
 { "Fn::Sub": "arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:vpc/${vpc}" }
 ```
 
 #### YAML
 <a name="intrinsic-function-reference-sub-example-3.yaml"></a>
 
-```
+```yaml
 !Sub 'arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:vpc/${vpc}'
 ```
 
@@ -178,7 +177,7 @@ The following example uses `Fn::Sub` to substitute the `AWS::StackName` and `AWS
 
 For readability, the JSON example uses the `Fn::Join` function to separate each command, instead of specifying the entire user data script in a single string value.
 
-```
+```json
 "UserData": { "Fn::Base64": { "Fn::Join": ["\n", [
   "#!/bin/bash -xe",
   "yum update -y aws-cfn-bootstrap",
@@ -192,7 +191,7 @@ For readability, the JSON example uses the `Fn::Join` function to separate each 
 
 The YAML example uses a literal block to specify the user data script.
 
-```
+```yaml
 UserData:
   Fn::Base64:
     !Sub |
@@ -210,7 +209,7 @@ In this example, the `myLogGroup` resource's name is dynamically created by subs
 #### JSON
 <a name="intrinsic-function-reference-sub-example-5.json"></a>
 
-```
+```json
 {
   "Mappings": {
     "LogGroupMapping": {
@@ -249,7 +248,7 @@ In this example, the `myLogGroup` resource's name is dynamically created by subs
 #### YAML
 <a name="intrinsic-function-reference-sub-example-5.yaml"></a>
 
-```
+```yaml
 Mappings:
   LogGroupMapping:
     Test:
@@ -282,5 +281,5 @@ For the `VarName` and `VarValue` parameters, you can use the following functions
 + [`Fn::ImportValue`](intrinsic-function-reference-importvalue.md)
 + [`Fn::Join`](intrinsic-function-reference-join.md)
 + [`Fn::Select`](intrinsic-function-reference-select.md)
-+ [`Fn::Sub`](#intrinsic-function-reference-sub)
++ [`Fn::Sub`](intrinsic-function-reference-sub.md)
 + [`Ref`](intrinsic-function-reference-ref.md)

@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Transform`
-<a name="intrinsic-function-reference-transform"></a>
 
 The intrinsic function `Fn::Transform` specifies a macro to perform custom processing on part of a stack template. Macros enable you to perform custom processing on templates, from simple actions like find-and-replace operations to extensive transformations of entire templates. For more information, see [Using CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *AWS CloudFormation User Guide*.
 
@@ -17,7 +16,7 @@ You can also use `Fn::Transform` to call the [`AWS::Include` transform](transfor
 
 Syntax for the full function name:
 
-```
+```json
 {
     "Fn::Transform": {
         "Name": "{{macro name}}",
@@ -30,7 +29,7 @@ Syntax for the full function name:
 
 Syntax for the short form:
 
-```
+```json
 {
     "Transform": {
         "Name": "{{macro name}}",
@@ -46,7 +45,7 @@ Syntax for the short form:
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Transform:
   Name : {{macro name}}
   Parameters :
@@ -55,7 +54,7 @@ Fn::Transform:
 
 Syntax for the short form:
 
-```
+```yaml
 !Transform
   Name: {{macro name}}
   Parameters:
@@ -84,7 +83,7 @@ The following example calls the `AWS::Include` transform, specifying that the lo
 ### JSON
 <a name="intrinsic-function-reference-transform-example-1.json"></a>
 
-```
+```json
 {
     "Fn::Transform": {
         "Name": "AWS::Include",
@@ -100,7 +99,7 @@ The following example calls the `AWS::Include` transform, specifying that the lo
 ### YAML
 <a name="intrinsic-function-reference-transform-example-1.yaml"></a>
 
-```
+```yaml
 Fn::Transform:
   Name: AWS::Include
   Parameters:

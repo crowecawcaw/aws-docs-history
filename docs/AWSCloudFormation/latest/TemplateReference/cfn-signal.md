@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # cfn-signal
-<a name="cfn-signal"></a>
 
 The `cfn-signal` helper script signals CloudFormation to indicate whether Amazon EC2 instances have been successfully created or updated. If you install and configure software applications on instances, you can signal CloudFormation when those software applications are ready.
 
@@ -21,7 +20,7 @@ You use the `cfn-signal` script in conjunction with a [`CreationPolicy` attribut
 
 If you want to signal CloudFormation resources, use the following syntax.
 
-```
+```sh
 cfn-signal --success|-s {{signal.to.send}} \
         --access-key {{access.key}} \
         --credential-file|-f {{credential.file}} \
@@ -45,7 +44,7 @@ cfn-signal --success|-s {{signal.to.send}} \
 
 If you want to signal a wait condition handle, use the following syntax.
 
-```
+```sh
 cfn-signal --success|-s {{signal.to.send}} \
         --reason|-r {{resource.status.reason}} \
         --data|-d {{data}} \
@@ -90,7 +89,7 @@ A common usage pattern is to use `cfn-init` and `cfn-signal` together. The `cfn-
 #### JSON
 <a name="cfn-signal-example.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "Simple EC2 instance",
@@ -164,7 +163,7 @@ A common usage pattern is to use `cfn-init` and `cfn-signal` together. The `cfn-
 #### YAML
 <a name="cfn-signal-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: Simple EC2 instance
 Resources:

@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::Serverless` transform
-<a name="transform-aws-serverless"></a>
 
 This topic describes how to use the `AWS::Serverless` transform to process a template written in the AWS Serverless Application Model (AWS SAM) syntax and transform it into a compliant CloudFormation template. 
 
@@ -24,7 +23,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### JSON
 <a name="aws-serverless-syntax.json"></a>
 
-```
+```json
 {
   "Transform":"AWS::Serverless-2016-10-31",
   "Resources":{
@@ -36,7 +35,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### YAML
 <a name="aws-serverless-syntax.yaml"></a>
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   {{...}}
@@ -52,7 +51,7 @@ The following examples show how to use the `AWS::Serverless` transform and AWS S
 ### JSON
 <a name="aws-serverless-example.json"></a>
 
-```
+```json
 {
   "Transform":"AWS::Serverless-2016-10-31",
   "Resources":{
@@ -71,7 +70,7 @@ The following examples show how to use the `AWS::Serverless` transform and AWS S
 ### YAML
 <a name="aws-serverless-example.yaml"></a>
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   MyFunction:
@@ -84,7 +83,7 @@ Resources:
 
 When creating a change set from the template, CloudFormation expands the AWS SAM syntax, as defined by the transform. The processed template expands the `AWS::Serverless::Function` resource, declaring a Lambda function and an execution role.
 
-```
+```json
 {
   "Resources": {
     "MyFunction": {

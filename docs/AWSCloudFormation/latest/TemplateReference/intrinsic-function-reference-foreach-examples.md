@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples
-<a name="intrinsic-function-reference-foreach-examples"></a>
 
 **Topics**
 + [Examples of `Fn::ForEach` in the `Resources` section](intrinsic-function-reference-foreach-example-resource.md)

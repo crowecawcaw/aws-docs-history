@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::CloudFormation::Init`
-<a name="aws-resource-init"></a>
 
 Use the `AWS::CloudFormation::Init` type to include metadata on an Amazon EC2 instance for the `cfn-init` helper script. If your template calls the `cfn-init` script, the script looks for resource metadata rooted in the `AWS::CloudFormation::Init` metadata key. For more information, see [cfn-init](cfn-init.md).
 
@@ -22,7 +21,7 @@ The `cfn-init` helper script processes these configuration sections in the follo
 ### JSON
 <a name="aws-resource-cloudformation-init-syntax.json"></a>
 
-```
+```json
 "Resources": {
   "MyInstance": {
     "Type": "AWS::EC2::Instance",
@@ -63,7 +62,7 @@ The `cfn-init` helper script processes these configuration sections in the follo
 ### YAML
 <a name="aws-resource-cloudformation-init-syntax.yaml"></a>
 
-```
+```yaml
 Resources: 
   MyInstance: 
     Type: AWS::EC2::Instance
@@ -104,7 +103,7 @@ The following template snippet creates configsets named `ascending` and `descend
 #### JSON
 <a name="aws-resource-cloudformation-init-configset-example1.json"></a>
 
-```
+```json
 "AWS::CloudFormation::Init" : {
     "configSets" : {
         "ascending" : [ "config1" , "config2" ],
@@ -134,7 +133,7 @@ The following template snippet creates configsets named `ascending` and `descend
 #### YAML
 <a name="aws-resource-cloudformation-init-configset-example1.yaml"></a>
 
-```
+```yaml
 AWS::CloudFormation::Init: 
   configSets: 
     ascending: 
@@ -165,14 +164,14 @@ AWS::CloudFormation::Init:
 The following example calls to `cfn-init` refer to the preceding example configsets. The example calls are abbreviated for clarity. See [cfn-init](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-init.html) for the complete syntax.
 + If a call to `cfn-init` specifies the `ascending` configset:
 
-  ```
+  ```sh
   cfn-init -c ascending
   ```
 
   The script processes `config1` and then processes `config2` and the `test.txt` file would contain the text `I come from config2`.
 + If a call to `cfn-init` specifies the `descending` configset:
 
-  ```
+  ```sh
   cfn-init -c descending
   ```
 
@@ -186,7 +185,7 @@ You can create multiple configsets, and call a series of them using your `cfn-in
 #### JSON
 <a name="aws-resource-cloudformation-init-configset-example2.json"></a>
 
-```
+```json
 "AWS::CloudFormation::Init" : {
     "configSets" : {
         "test1" : [ "1" ],
@@ -217,7 +216,7 @@ You can create multiple configsets, and call a series of them using your `cfn-in
 #### YAML
 <a name="aws-resource-cloudformation-init-configset-example2.yaml"></a>
 
-```
+```yaml
 AWS::CloudFormation::Init:
   1:
     commands:
@@ -249,21 +248,21 @@ AWS::CloudFormation::Init:
 The following calls to `cfn-init` refer to the `configSets` declared in the preceding template snippet. The example calls are abbreviated for clarity. See [cfn-init](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-init.html) for the complete syntax.
 + If you specify `test1` only:
 
-  ```
+  ```sh
   cfn-init -c test1
   ```
 
   `cfn-init` processes config key `1` only.
 + If you specify `test2` only:
 
-  ```
+  ```sh
   cfn-init -c test2
   ```
 
   `cfn-init` processes config key `1` and then processes config key `2`.
 + If you specify the `default` configset (or no configsets at all):
 
-  ```
+  ```sh
   cfn-init -c default
   ```
 
@@ -292,7 +291,7 @@ The following example snippet calls the echo command if the `~/test.txt` file do
 #### JSON
 <a name="aws-resource-init-commands-example.json"></a>
 
-```
+```json
 "commands" : {
     "test" : {
         "command" : "echo \"$MAGIC\" > test.txt",
@@ -314,7 +313,7 @@ The following example snippet calls the echo command if the `~/test.txt` file do
 #### YAML
 <a name="aws-resource-init-commands-example.yaml"></a>
 
-```
+```yaml
 commands:
   test:
     command: "echo \"$MAGIC\" > test.txt"
@@ -357,7 +356,7 @@ The following example snippet creates a file named `setup.mysql` as part of a la
 #### JSON
 <a name="aws-resource-init-setup-mysql.json"></a>
 
-```
+```json
 "files" : {
   "/tmp/setup.mysql" : {
     "content" : { "Fn::Join" : ["", [
@@ -378,7 +377,7 @@ The following example snippet creates a file named `setup.mysql` as part of a la
 #### YAML
 <a name="aws-resource-init-setup-mysql.yaml"></a>
 
-```
+```yaml
 files: 
   /tmp/setup.mysql: 
     content: !Sub |
@@ -398,7 +397,7 @@ The following example snippet creates a symlink `/tmp/myfile2.txt` that points a
 #### JSON
 <a name="aws-resource-init-symlink.json"></a>
 
-```
+```json
 "files" : {
   "/tmp/myfile2.txt" : {
     "content" : "/tmp/myfile1.txt",
@@ -410,7 +409,7 @@ The following example snippet creates a symlink `/tmp/myfile2.txt` that points a
 #### YAML
 <a name="aws-resource-init-symlink.yaml"></a>
 
-```
+```yaml
 files:
   /tmp/myfile2.txt:
     content: "/tmp/myfile1.txt"
@@ -422,7 +421,7 @@ Mustache templates are used primarily to create configuration files. For example
 #### JSON
 <a name="aws-resource-init-test9.json"></a>
 
-```
+```json
 "files" : {
     "/tmp/test9.txt" : {
         "content" : "Content for {{name}}",
@@ -434,7 +433,7 @@ Mustache templates are used primarily to create configuration files. For example
 #### YAML
 <a name="aws-resource-init-test9.yaml"></a>
 
-```
+```yaml
 files:
   /tmp/test9.txt:
     content: "Content for {{name}}"
@@ -468,7 +467,7 @@ The following snippet specifies a group named `groupOne` without assigning a gro
 #### JSON
 <a name="aws-resource-init-groups-snippet.json"></a>
 
-```
+```json
 "groups" : {
     "groupOne" : {},
     "groupTwo" : { "gid" : "45" }
@@ -478,7 +477,7 @@ The following snippet specifies a group named `groupOne` without assigning a gro
 #### YAML
 <a name="aws-resource-init-groups-snippet.yaml"></a>
 
-```
+```yaml
 groups:
   groupOne: {}
   groupTwo:
@@ -513,7 +512,7 @@ The following snippet specifies a version URL for rpm, requests the latest versi
 ##### JSON
 <a name="aws-resource-init-packages-example1.json"></a>
 
-```
+```json
 "rpm" : {
   "epel" : "http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm"
 },
@@ -533,7 +532,7 @@ The following snippet specifies a version URL for rpm, requests the latest versi
 ##### YAML
 <a name="aws-resource-init-packages-example1.yaml"></a>
 
-```
+```yaml
 rpm:
   epel: "http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm"
 yum:
@@ -555,7 +554,7 @@ The following snippet specifies a URL for an MSI package:
 ##### JSON
 <a name="aws-resource-init-packages-example2.json"></a>
 
-```
+```json
 "msi" : {
   "awscli" : "https://s3.amazonaws.com/aws-cli/AWSCLI64.msi"
 }
@@ -564,7 +563,7 @@ The following snippet specifies a URL for an MSI package:
 ##### YAML
 <a name="aws-resource-init-packages-example2.yaml"></a>
 
-```
+```yaml
 msi:
   awscli: "https://s3.amazonaws.com/aws-cli/AWSCLI64.msi"
 ```
@@ -602,7 +601,7 @@ The following Linux snippet configures the services as follows:
 ##### JSON
 <a name="aws-resource-init-services-example1.json"></a>
 
-```
+```json
 "services" : {
   "sysvinit" : {
     "nginx" : {
@@ -629,7 +628,7 @@ The following Linux snippet configures the services as follows:
 ##### YAML
 <a name="aws-resource-init-services-example1.yaml"></a>
 
-```
+```yaml
 services:
   sysvinit:
     nginx:
@@ -654,7 +653,7 @@ services:
 
 To use systemd with a service, the service must have a systemd unit file configured. The following unit file allows systemd to start and stop the `cfn-hup` daemon in the multi-user service target:
 
-```
+```conf
 [Unit]
 Description=cfn-hup daemon
 [Service]
@@ -666,7 +665,7 @@ WantedBy=multi-user.target
 
 This configuration assumes that `cfn-hup` is installed under the `/usr/bin` directory. However, the actual location where `cfn-hup` is installed might vary on different platforms. You can override this configuration by creating an override file in `/etc/systemd/system/cfn-hup.service.d/override.conf` as follows:
 
-```
+```conf
 # In this example, cfn-hup executable is available under /usr/local/bin
 [Service]
 ExecStart=
@@ -681,7 +680,7 @@ The following Windows snippet starts the `cfn-hup` service, sets it to automatic
 ##### JSON
 <a name="aws-resource-init-services-example2.json"></a>
 
-```
+```json
 "services" : {
   "windows" : {
     "cfn-hup" : {
@@ -696,7 +695,7 @@ The following Windows snippet starts the `cfn-hup` service, sets it to automatic
 ##### YAML
 <a name="aws-resource-init-services-example2.yaml"></a>
 
-```
+```yaml
 services:
   windows:
     cfn-hup:
@@ -727,7 +726,7 @@ Supported formats are:
 
 If you use GitHub as a source control system, you can use `cfn-init` and the sources package mechanism to pull a specific version of your application. GitHub allows you to create a .zip or a .tar from a specific version through a URL as follows:
 
-```
+```text
 https://github.com/<your directory>/(zipball|tarball)/<version>
 ```
 
@@ -736,7 +735,7 @@ For example, the following snippet pulls down version `main` as a `.tar` file.
 ##### JSON
 <a name="aws-resource-init-sources-example1.json"></a>
 
-```
+```json
 "sources" : {
   "/etc/puppet" : "https://github.com/user1/cfn-demo/tarball/main"
   }
@@ -745,7 +744,7 @@ For example, the following snippet pulls down version `main` as a `.tar` file.
 ##### YAML
 <a name="aws-resource-init-sources-example1.yaml"></a>
 
-```
+```yaml
 sources:
   /etc/puppet: "https://github.com/user1/cfn-demo/tarball/main"
 ```
@@ -762,7 +761,7 @@ For an example, see the [https://s3.amazonaws.com/cloudformation-templates-us-ea
 ##### JSON
 <a name="aws-resource-init-sources-example2.json"></a>
 
-```
+```json
 "sources" : {
   "/etc/myapp" : "https://s3.amazonaws.com/{{amzn-s3-demo-bucket}}/myapp.tar.gz"
   }
@@ -771,7 +770,7 @@ For an example, see the [https://s3.amazonaws.com/cloudformation-templates-us-ea
 ##### YAML
 <a name="aws-resource-init-sources-example2.yaml"></a>
 
-```
+```yaml
 sources:
   /etc/myapp: "https://s3.amazonaws.com/{{amzn-s3-demo-bucket}}/myapp.tar.gz"
 ```
@@ -798,7 +797,7 @@ Users are created as non-interactive system users with a shell of `/sbin/nologin
 #### JSON
 <a name="aws-resource-init-users-example.json"></a>
 
-```
+```json
 "users" : {
     "myUser" : {
         "groups" : ["groupOne", "groupTwo"],
@@ -811,7 +810,7 @@ Users are created as non-interactive system users with a shell of `/sbin/nologin
 #### YAML
 <a name="aws-resource-init-users-example.yaml"></a>
 
-```
+```yaml
 users:
   myUser:
     groups:

@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `UpdatePolicy` attribute
-<a name="aws-attribute-updatepolicy"></a>
 
 Use the `UpdatePolicy` attribute to specify how CloudFormation handles updates to certain resources during stack update operations. 
 
@@ -52,7 +51,7 @@ To stop an WorkSpaces Applications fleet before an update and restart it after a
 #### JSON
 <a name="aws-attribute-update-policy-app-stream-fleet-syntax-json"></a>
 
-```
+```json
 {
     "UpdatePolicy": {
         "StopBeforeUpdate": {
@@ -68,7 +67,7 @@ To stop an WorkSpaces Applications fleet before an update and restart it after a
 #### YAML
 <a name="aws-attribute-update-policy-app-stream-fleet-syntax-yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   StopBeforeUpdate:
     Type: {{Boolean}}
@@ -97,7 +96,7 @@ Before attempting an update, ensure that you have sufficient Amazon EC2 capacity
 #### JSON
 <a name="aws-attribute-updatepolicy-replacingupdate-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "AutoScalingReplacingUpdate" : {
     "WillReplace" : {{Boolean}}
@@ -108,7 +107,7 @@ Before attempting an update, ensure that you have sufficient Amazon EC2 capacity
 #### YAML
 <a name="aws-attribute-updatepolicy-replacingupdate-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   AutoScalingReplacingUpdate:
     WillReplace: {{Boolean}}
@@ -147,7 +146,7 @@ Rolling updates don't honor the instance maintenance policy configured on your A
 #### JSON
 <a name="aws-attribute-updatepolicy-rollingupdate-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "AutoScalingRollingUpdate" : {
     "MaxBatchSize" : {{Integer}},
@@ -164,7 +163,7 @@ Rolling updates don't honor the instance maintenance policy configured on your A
 #### YAML
 <a name="aws-attribute-updatepolicy-rollingupdate-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   AutoScalingRollingUpdate:
     MaxBatchSize: {{Integer}}
@@ -259,7 +258,7 @@ Instance refresh doesn't support the [cfn-signal](cfn-signal.md) helper script. 
 #### JSON
 <a name="cfn-attributes-updatepolicy-instancerefresh-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "AutoScalingInstanceRefresh" : {
     "Strategy" : {{String}},
@@ -284,7 +283,7 @@ Instance refresh doesn't support the [cfn-signal](cfn-signal.md) helper script. 
 #### YAML
 <a name="cfn-attributes-updatepolicy-instancerefresh-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   AutoScalingInstanceRefresh:
     Strategy: {{String}}
@@ -428,7 +427,7 @@ If you don't want CloudFormation to change any of the group size property values
 #### JSON
 <a name="aws-attribute-updatepolicy-scheduledactions-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "AutoScalingScheduledAction" : {
     "IgnoreUnmodifiedGroupSizeProperties" : {{Boolean}}
@@ -439,7 +438,7 @@ If you don't want CloudFormation to change any of the group size property values
 #### YAML
 <a name="aws-attribute-updatepolicy-scheduledactions-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   AutoScalingScheduledAction:
     IgnoreUnmodifiedGroupSizeProperties: {{Boolean}}
@@ -491,7 +490,7 @@ For more information on modifying replication groups, see [ModifyReplicationGrou
 #### JSON
 <a name="cfn-attributes-updatepolicy-useonlineresharding-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "UseOnlineResharding" : {{Boolean}}
 }
@@ -500,7 +499,7 @@ For more information on modifying replication groups, see [ModifyReplicationGrou
 #### YAML
 <a name="cfn-attributes-updatepolicy-useonlineresharding-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   UseOnlineResharding: {{Boolean}}
 ```
@@ -522,7 +521,7 @@ For more information, see [Upgrading OpenSearch Service domains](https://docs.aw
 #### JSON
 <a name="cfn-attributes-updatepolicy-upgradeopensearchdomain-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "EnableVersionUpgrade" : {{Boolean}}
 }
@@ -531,7 +530,7 @@ For more information, see [Upgrading OpenSearch Service domains](https://docs.aw
 #### YAML
 <a name="cfn-attributes-updatepolicy-upgradeopensearchdomain-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   EnableVersionUpgrade: {{Boolean}}
 ```
@@ -547,7 +546,7 @@ To perform an CodeDeploy deployment when the version changes on an `AWS::Lambda:
 #### JSON
 <a name="aws-attribute-updatepolicy-codedeploylambdaaliasupdate-syntax.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "CodeDeployLambdaAliasUpdate" : {
     "AfterAllowTrafficHook" : {{String}},
@@ -561,7 +560,7 @@ To perform an CodeDeploy deployment when the version changes on an `AWS::Lambda:
 #### YAML
 <a name="aws-attribute-updatepolicy-codedeploylambdaaliasupdate-syntax.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   CodeDeployLambdaAliasUpdate:
     AfterAllowTrafficHook: {{String}}
@@ -608,7 +607,7 @@ The following example shows how to add an update policy. During an update, the A
 #### JSON
 <a name="attribute-updatepolicy-example-1.json"></a>
 
-```
+```json
 "ASG" : {
   "Type":"AWS::AutoScaling::AutoScalingGroup",
   "Properties":{
@@ -652,7 +651,7 @@ The following example shows how to add an update policy. During an update, the A
 #### YAML
 <a name="attribute-updatepolicy-example-1.yaml"></a>
 
-```
+```yaml
 ASG:
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties:
@@ -690,7 +689,7 @@ The following example declares a policy that forces an associated Auto Scaling g
 #### JSON
 <a name="attribute-updatepolicy-example-2.json"></a>
 
-```
+```json
 "UpdatePolicy" : {
   "AutoScalingReplacingUpdate" : {
     "WillReplace" : true
@@ -710,7 +709,7 @@ The following example declares a policy that forces an associated Auto Scaling g
 #### YAML
 <a name="attribute-updatepolicy-example-2.yaml"></a>
 
-```
+```yaml
 UpdatePolicy:
   AutoScalingReplacingUpdate:
     WillReplace: true
@@ -735,7 +734,7 @@ The following example declares an `AutoScalingInstanceRefresh` policy that uses 
 ##### JSON
 <a name="attribute-updatepolicy-AutoScalingInstanceRefresh-lbt.json"></a>
 
-```
+```json
 "ASG" : {
   "Type" : "AWS::AutoScaling::AutoScalingGroup",
   "Properties" : {
@@ -763,7 +762,7 @@ The following example declares an `AutoScalingInstanceRefresh` policy that uses 
 ##### YAML
 <a name="attribute-updatepolicy-AutoScalingInstanceRefresh-lbt.yaml"></a>
 
-```
+```yaml
 ASG:
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties:
@@ -793,7 +792,7 @@ The following example declares an `AutoScalingInstanceRefresh` policy with check
 ##### JSON
 <a name="attribute-updatepolicy-AutoScalingInstanceRefresh-alarm.json"></a>
 
-```
+```json
 "ASG" : {
   "Type" : "AWS::AutoScaling::AutoScalingGroup",
   "Properties" : {
@@ -824,7 +823,7 @@ The following example declares an `AutoScalingInstanceRefresh` policy with check
 ##### YAML
 <a name="attribute-updatepolicy-AutoScalingInstanceRefresh-alarm.yaml"></a>
 
-```
+```yaml
 ASG:
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties:
@@ -867,7 +866,7 @@ To force a rolling update, change the logical ID of the launch configuration res
 ### Original template
 <a name="aws-attribute-updatepolicy-cfn-init-metadata-original"></a>
 
-```
+```json
 "LaunchConfig": {
   "Type" : "AWS::AutoScaling::LaunchConfiguration",
   "Metadata" : {
@@ -882,7 +881,7 @@ To force a rolling update, change the logical ID of the launch configuration res
 ### Updated logical ID
 <a name="aws-attribute-updatepolicy-cfn-init-metadata-updated"></a>
 
-```
+```json
 "LaunchConfigUpdateRubygemsPkg": {
   "Type" : "AWS::AutoScaling::LaunchConfiguration",
   "Metadata" : {
@@ -902,7 +901,7 @@ The following example specifies the `UpdatePolicy` attribute for an `AWS::Lambda
 #### JSON
 <a name="aws-attribute-updatepolicy-codedeploylambda.json"></a>
 
-```
+```json
 "Alias": {
   "Type": "AWS::Lambda::Alias",
   "Properties": {
@@ -939,7 +938,7 @@ The following example specifies the `UpdatePolicy` attribute for an `AWS::Lambda
 #### YAML
 <a name="aws-attribute-updatepolicy-codedeploylambda-example.yaml"></a>
 
-```
+```yaml
 Alias:
   Type: AWS::Lambda::Alias
   Properties:

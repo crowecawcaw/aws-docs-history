@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # cfn-get-metadata
-<a name="cfn-get-metadata"></a>
 
 You can use the `cfn-get-metadata` helper script to fetch a metadata block from CloudFormation and print it to standard output. You can also print a sub-tree of the metadata block if you specify a key. However, only top-level keys are supported.
 
@@ -14,7 +13,7 @@ You can use the `cfn-get-metadata` helper script to fetch a metadata block from 
 ## Syntax
 <a name="cfn-get-metadata-Syntax"></a>
 
-```
+```sh
 cfn-get-metadata --access-key {{access.key}} \
                  --secret-key {{secret.key}} \
                  --credential-file|f {{credential.file}} \

@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Cidr`
-<a name="intrinsic-function-reference-cidr"></a>
 
 The intrinsic function `Fn::Cidr` returns an array of CIDR address blocks. The number of CIDR blocks returned is dependent on the `count` parameter.
 
@@ -13,7 +12,7 @@ The intrinsic function `Fn::Cidr` returns an array of CIDR address blocks. The n
 ### JSON
 <a name="intrinsic-function-reference-cidr-syntax.json"></a>
 
-```
+```json
 { "Fn::Cidr" : [{{ipBlock}}, {{count}}, {{cidrBits}}]}
 ```
 
@@ -22,7 +21,7 @@ The intrinsic function `Fn::Cidr` returns an array of CIDR address blocks. The n
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::Cidr: 
   - {{ipBlock}}
   - {{count}}
@@ -31,7 +30,7 @@ Fn::Cidr:
 
 Syntax for the short form:
 
-```
+```yaml
 !Cidr [ {{ipBlock}}, {{count}}, {{cidrBits}} ]
 ```
 
@@ -64,14 +63,14 @@ This example creates 6 CIDRs with a subnet mask "/27" inside from a CIDR with a 
 #### JSON
 <a name="intrinsic-function-reference-cidr-example1.json"></a>
 
-```
+```json
 { "Fn::Cidr" : [ "192.168.0.0/24", "6", "5"] }
 ```
 
 #### YAML
 <a name="intrinsic-function-reference-cidr-example1.yaml"></a>
 
-```
+```yaml
 !Cidr [ "192.168.0.0/24", 6, 5 ]
 ```
 
@@ -83,7 +82,7 @@ This example template creates an IPv6 enabled subnet.
 #### JSON
 <a name="intrinsic-function-reference-cidr-example2.json"></a>
 
-```
+```json
 {
     "Resources": {
         "ExampleVpc": {
@@ -157,7 +156,7 @@ This example template creates an IPv6 enabled subnet.
 #### YAML
 <a name="intrinsic-function-reference-cidr-example2.yaml"></a>
 
-```
+```yaml
 Resources:
   ExampleVpc:
     Type: AWS::EC2::VPC

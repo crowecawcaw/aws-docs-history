@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Resources` section
-<a name="intrinsic-function-reference-foreach-example-resource"></a>
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Resources` section. For more information about this section, see [Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html) in the *AWS CloudFormation User Guide*.
 
@@ -27,7 +26,7 @@ For templates that need to work with both FIFO and standard topics, you can use 
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-resource.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Transform": "AWS::LanguageExtensions",
@@ -52,7 +51,7 @@ For templates that need to work with both FIFO and standard topics, you can use 
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-replicate-resource.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -68,7 +67,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   SnsTopicSuccess:
@@ -101,7 +100,7 @@ This example snippet creates four [AWS::DynamoDB::Table](https://docs.aws.amazon
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-ddb-resource.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Transform": "AWS::LanguageExtensions",
@@ -143,7 +142,7 @@ This example snippet creates four [AWS::DynamoDB::Table](https://docs.aws.amazon
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-replicate-ddb-resource.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -167,7 +166,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -235,7 +234,7 @@ Unique values for each element in the collection are defined within the `Mapping
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-multiple-resources.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -308,7 +307,7 @@ Unique values for each element in the collection are defined within the `Mapping
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-replicate-multiple-resources.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Conditions:
@@ -373,7 +372,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Conditions:
@@ -449,7 +448,7 @@ This example uses nested `Fn::ForEach` loops to map three resources ( [AWS::EC2:
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-nested-loop-resources.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -519,7 +518,7 @@ This example uses nested `Fn::ForEach` loops to map three resources ( [AWS::EC2:
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-nested-loop-resources.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -554,7 +553,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -636,7 +635,7 @@ This example uses the `Fn::ForEach` intrinsic function to reference replicated [
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-reference-replicated-resource.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -689,7 +688,7 @@ This example uses the `Fn::ForEach` intrinsic function to reference replicated [
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-reference-replicated-resource.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Mappings:
@@ -719,7 +718,7 @@ Outputs:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -755,7 +754,7 @@ This example uses the `Fn::ForEach` intrinsic function to repeat some properties
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-replicate-resource-properties.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::LanguageExtensions",
@@ -830,7 +829,7 @@ This example uses the `Fn::ForEach` intrinsic function to repeat some properties
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-replicate-resource-properties.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Mappings:
@@ -875,7 +874,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Resources:
@@ -934,7 +933,7 @@ This example uses the `&{}` syntax, which allows the non-alphanumeric characters
 ### JSON
 <a name="intrinsic-function-reference-foreach-example-non-alphanumeric-json.json"></a>
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Transform": "AWS::LanguageExtensions",
@@ -979,7 +978,7 @@ This example uses the `&{}` syntax, which allows the non-alphanumeric characters
 ### YAML
 <a name="intrinsic-function-reference-foreach-example-non-alphanumeric-yaml.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Parameters:
@@ -1005,7 +1004,7 @@ Resources:
 
 The transformed template will be equivalent to the following template:
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::LanguageExtensions
 Parameters:

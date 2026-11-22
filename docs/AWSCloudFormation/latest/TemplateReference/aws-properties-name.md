@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # CloudFormation resource custom naming
-<a name="aws-properties-name"></a>
 
 You can assign custom names to supported resource types in your CloudFormation template to make them more meaningful and easily identifiable. By default, CloudFormation generates a unique physical ID to name a resource. For example, CloudFormation might name an Amazon S3 bucket with the following physical ID `MyStack-MyBucket-abcdefghijk1`. With custom names, you can specify a name that's easier to read and identify, such as `production-app-logs` or `business-metrics`.
 
@@ -24,7 +23,7 @@ If you want to use a custom name, specify a name property for that resource in y
 ### JSON
 <a name="aws-properties-name-example.json"></a>
 
-```
+```json
 "myDynamoDBTable" : {
    "Type" : "AWS::DynamoDB::Table",
    "Properties" : {
@@ -50,7 +49,7 @@ If you want to use a custom name, specify a name property for that resource in y
 ### YAML
 <a name="aws-properties-name-example.yaml"></a>
 
-```
+```yaml
 myDynamoDBTable: 
   Type: AWS::DynamoDB::Table
   Properties: 

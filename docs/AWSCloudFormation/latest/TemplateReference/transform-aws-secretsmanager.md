@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::SecretsManager` transform
-<a name="transform-aws-secretsmanager"></a>
 
 This topic describes how to use the `AWS::SecretsManager` transform and the [AWS::SecretsManager::RotationSchedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-secretsmanager-rotationschedule.html) resource type to specify a Lambda function to perform secrets rotation.
 
@@ -24,7 +23,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### JSON
 <a name="aws-secretsmanager-syntax.json"></a>
 
-```
+```json
 {
   "Transform":"AWS::SecretsManager-{{2020-07-23}}",
   "Resources":{
@@ -36,7 +35,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### YAML
 <a name="aws-secretsmanager-syntax.yaml"></a>
 
-```
+```yaml
 Transform: AWS::SecretsManager-{{2020-07-23}}
 Resources:
   {{...}}
@@ -65,7 +64,7 @@ The secret is set to rotate automatically every day at midnight (UTC). The rotat
 ### JSON
 <a name="aws-secretsmanager-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Transform":"AWS::SecretsManager-2024-09-16",
@@ -117,7 +116,7 @@ The secret is set to rotate automatically every day at midnight (UTC). The rotat
 ### YAML
 <a name="aws-secretsmanager-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::SecretsManager-2024-09-16
 Resources:

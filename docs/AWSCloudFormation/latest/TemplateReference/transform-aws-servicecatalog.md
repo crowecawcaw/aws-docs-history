@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::ServiceCatalog` transform
-<a name="transform-aws-servicecatalog"></a>
 
 This topic describes how to use the `AWS::ServiceCatalog` transform to reference outputs from an existing AWS Service Catalog provisioned product in your CloudFormation template.
 
@@ -26,7 +25,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### JSON
 <a name="aws-servicecatalog-syntax.json"></a>
 
-```
+```json
 {
   "Transform":"AWS::ServiceCatalog",
   "Resources":{
@@ -38,7 +37,7 @@ To declare this transform in your CloudFormation template, use the following syn
 #### YAML
 <a name="aws-servicecatalog-syntax.yaml"></a>
 
-```
+```yaml
 Transform: AWS::ServiceCatalog
 Resources:
   {{...}}
@@ -60,7 +59,7 @@ This example is a working version.
 
 Template versions that don't wrap the value as a string literal will fail.
 
-```
+```json
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Transform":"AWS::ServiceCatalog",
@@ -83,7 +82,7 @@ Examples 1–4 are valid templates. In Examples 1 and 2, the transform and value
 
 Example 5 isn't a valid template. The value must be wrapped in a string `'` or `"` or `>-`. If not, the user receives an error.
 
-```
+```yaml
 // Example 1 
 AWSTemplateFormatVersion: 2010-09-09
 Transform: 'AWS::ServiceCatalog'

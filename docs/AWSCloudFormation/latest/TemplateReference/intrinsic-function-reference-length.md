@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Length`
-<a name="intrinsic-function-reference-length"></a>
 
 The intrinsic function `Fn::Length` returns the number of elements within an array or an intrinsic function that returns an array.
 
@@ -16,22 +15,22 @@ You must use the [`AWS::LanguageExtensions` transform](transform-aws-languageext
 ### JSON
 <a name="intrinsic-function-reference-length-syntax.json"></a>
 
-```
+```json
 { "Fn::Length" : {{IntrinsicFunction}} }
 ```
 
-```
+```json
 { "Fn::Length" : {{Array}} }
 ```
 
 ### YAML
 <a name="intrinsic-function-reference-length-syntax.yaml"></a>
 
-```
+```yaml
 Fn::Length : {{IntrinsicFunction}}
 ```
 
-```
+```yaml
 Fn::Length : {{Array}}
 ```
 
@@ -60,7 +59,7 @@ This example snippet returns the number of elements in an intrinsic function tha
 #### JSON
 <a name="intrinsic-function-reference-length-example.json"></a>
 
-```
+```json
 {
 //...
     "Transform": "AWS::LanguageExtensions"
@@ -75,7 +74,7 @@ This example snippet returns the number of elements in an intrinsic function tha
 #### YAML
 <a name="intrinsic-function-reference-legnth-example.yaml"></a>
 
-```
+```yaml
 Transform: 'AWS::LanguageExtensions'
 #...
   Fn::Length: 
@@ -91,7 +90,7 @@ This example snippet returns the number of elements in a `Ref` intrinsic functio
 #### JSON
 <a name="intrinsic-function-reference-length-example2.json"></a>
 
-```
+```json
 {
 //...
     "Transform": "AWS::LanguageExtensions"
@@ -106,7 +105,7 @@ This example snippet returns the number of elements in a `Ref` intrinsic functio
 #### YAML
 <a name="intrinsic-function-reference-legnth-example2.yaml"></a>
 
-```
+```yaml
 Transform: 'AWS::LanguageExtensions'
 #...
   Fn::Length: 
@@ -122,7 +121,7 @@ This example snippet returns the number of elements in the array passed to the i
 #### JSON
 <a name="intrinsic-function-reference-length-example3.json"></a>
 
-```
+```json
  1. {
  2. //...
  3.     "Transform": "AWS::LanguageExtensions"
@@ -139,7 +138,7 @@ This example snippet returns the number of elements in the array passed to the i
 #### YAML
 <a name="intrinsic-function-reference-legnth-example3.yaml"></a>
 
-```
+```yaml
 Transform: 'AWS::LanguageExtensions'
 #...
   Fn::Length: 

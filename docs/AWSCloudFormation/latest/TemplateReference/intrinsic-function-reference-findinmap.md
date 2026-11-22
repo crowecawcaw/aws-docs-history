@@ -3,7 +3,6 @@
 This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::FindInMap`
-<a name="intrinsic-function-reference-findinmap"></a>
 
 The intrinsic function `Fn::FindInMap` returns the value corresponding to keys in a two-level map that's declared in the `Mappings` section.
 
@@ -13,13 +12,13 @@ The intrinsic function `Fn::FindInMap` returns the value corresponding to keys i
 ### JSON
 <a name="intrinsic-function-reference-findinmap-syntax.json"></a>
 
-```
+```json
 { "Fn::FindInMap" : [ "{{MapName}}", "{{TopLevelKey}}", "{{SecondLevelKey}}"] }
 ```
 
 If you want to specify a fallback value for when a key isn't found in the mapping, include a `DefaultValue`:
 
-```
+```json
 { "Fn::FindInMap" : [ "{{MapName}}", "{{TopLevelKey}}", "{{SecondLevelKey}}", {"DefaultValue": "{{DefaultValue}}"}] }
 ```
 
@@ -28,13 +27,13 @@ If you want to specify a fallback value for when a key isn't found in the mappin
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::FindInMap: [ {{MapName}}, {{TopLevelKey}}, {{SecondLevelKey}} ]
 ```
 
 Syntax for the short form:
 
-```
+```yaml
 !FindInMap [ {{MapName}}, {{TopLevelKey}}, {{SecondLevelKey}} ]
 ```
 
@@ -42,7 +41,7 @@ If you want to specify a fallback value for when a key isn't found in the mappin
 
 Syntax for the full function name:
 
-```
+```yaml
 Fn::FindInMap:
   - {{MapName}}
   - {{TopLevelKey}}
@@ -52,7 +51,7 @@ Fn::FindInMap:
 
 Syntax for the short form:
 
-```
+```yaml
 !FindInMap
   - {{MapName}}
   - {{TopLevelKey}}
@@ -107,7 +106,7 @@ The AMI IDs shown in these examples are placeholders for demonstration purposes.
 #### JSON
 <a name="intrinsic-function-reference-findinmap-region-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
@@ -165,7 +164,7 @@ The AMI IDs shown in these examples are placeholders for demonstration purposes.
 #### YAML
 <a name="intrinsic-function-reference-findinmap-region-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   InstanceType:
@@ -224,7 +223,7 @@ If you deploy this stack with `EnvironmentType` set to `Dev`, the `SecurityGroup
 #### JSON
 <a name="intrinsic-function-reference-findinmap-environment-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters":{
@@ -277,7 +276,7 @@ If you deploy this stack with `EnvironmentType` set to `Dev`, the `SecurityGroup
 #### YAML
 <a name="intrinsic-function-reference-findinmap-environment-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   EnvironmentType:
@@ -313,7 +312,7 @@ The following example uses a `DefaultValue` to provide a fallback when a key is 
 #### JSON
 <a name="intrinsic-function-reference-findinmap-default-value-example.json"></a>
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Mappings": {
@@ -348,7 +347,7 @@ The following example uses a `DefaultValue` to provide a fallback when a key is 
 #### YAML
 <a name="intrinsic-function-reference-findinmap-default-value-example.yaml"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Mappings:
   RegionMap:
