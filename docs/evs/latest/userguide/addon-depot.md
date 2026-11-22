@@ -1,79 +1,107 @@
 
 
-# Access the Amazon EVS Custom Addon depot
-<a name="addon-depot"></a>
+# Use the Amazon EVS custom add-on depot
 
-Amazon EVS provides a Custom Addon depot that you can configure as a download source in vSphere Lifecycle Manager (vLCM). Use the `GetDepotUrl` API action to retrieve a URL and authentication token for the depot.
+The Amazon Elastic VMware Service custom add-on depot provides the Amazon EVS custom vendor add-on for ESX cluster images. You get the depot URL with the `GetDepotUrl` API action, and then add the URL as a download source in vSphere Lifecycle Manager (vLCM). You use the AWS CLI or the API for this task, because the Amazon EVS console doesn’t provide the URL.
 
-**Note**  
-Console support for the Custom Addon depot is not available at this time. Use the AWS CLI or API.
+The Amazon EVS custom add-on depot doesn’t provide VMware Cloud Foundation (VCF) software. To compare the software depots, see [Software depots](evs-lifecycle-mgmt.md#evs-lifecycle-depots).
 
-## How the Custom Addon depot works
-<a name="_how_the_custom_addon_depot_works"></a>
+## Amazon EVS AMI and custom vendor add-on
+<a name="evs-env-ami-maintenance"></a>
 
-When you create an Amazon EVS environment, a depot access token is automatically provisioned. You can use the `GetDepotUrl` API action to retrieve a URL that includes this token. Configure this URL as a download source in vLCM to sync and install the Amazon EVS Custom Addon.
+Amazon EVS deploys ESX hosts with a custom Amazon EVS Amazon Machine Image (AMI). The AMI contains the add-on with the packages that ESX needs to run on Amazon EC2.
 
-**Note**  
-The depot access token remains active until explicitly rotated using the `--rotate` flag.
+When you add a host to your environment, the host has the latest available version of the add-on. If the other hosts in your cluster use an older add-on version, adding the new host can fail with an error that the host isn’t compatible with your cluster image. For the steps to fix this issue, see [Troubleshoot hosts](troubleshoot-hosts.md).
 
-## Prerequisites
-<a name="_prerequisites"></a>
+When you update an ESX cluster image in vLCM, include the add-on from the Amazon EVS custom add-on depot. Every host then keeps the add-on.
 
-Before you can access the Custom Addon depot, you must have the following:
+## How the depot URL and token work
+<a name="addon-depot-how-it-works"></a>
+
+When you create an Amazon EVS environment, Amazon EVS provisions an access token for the Amazon EVS custom add-on depot. The `GetDepotUrl` API action returns a URL that includes this token. The token stays active until you rotate it.
+
+The URL of the Amazon EVS custom add-on depot is a public address. To sync the add-on, vCenter Server needs outbound internet access to that address.
+
+**Important**  
+Protect the URL and the access token like a credential, and don’t share them outside the people who manage your environment.
+
+The URL of the Amazon EVS custom add-on depot includes the access token. If you think that the token was exposed, rotate it. For the steps, see [Rotate the depot access token](#addon-depot-rotate).
+
+## Before you begin
+<a name="addon-depot-prereqs"></a>
 + An Amazon EVS environment in the `CREATED` state.
-+ IAM permissions to call the `evs:GetDepotUrl` action. For more information, see [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md).
++ IAM permissions to call the `evs:GetDepotUrl` action on the environment. See [IAM permissions](#addon-depot-iam).
++ A vSphere user with the `VMware vSphere Lifecycle Manager > Configure` privilege.
 
-## Getting a depot URL
-<a name="_getting_a_depot_url"></a>
+## Get the depot URL
+<a name="addon-depot-get-url"></a>
 
-You can get a depot URL by using the AWS CLI.
+1. Run the `get-depot-url` command for your environment.
 
-### AWS CLI
-<a name="shared_aws_cli"></a>
+   ```bash
+   aws evs get-depot-url --environment-id env-abcde12345
+   ```
 
-Use the `get-depot-url` command to retrieve a depot URL for your environment.
+1. Note the URL of the Amazon EVS custom add-on depot in the response.
 
-```
-aws evs get-depot-url --environment-id env-abcde12345
-```
+   The following is example output.
 
-The response includes the depot URL and authentication token:
+   ```json
+   {
+       "depotUrl": "https://example.cloudfront.net/EXAMPLE-TOKEN/depot/vmw-depot-index.xml",
+       "token": "EXAMPLE-TOKEN"
+   }
+   ```
 
-```
+## Add the depot URL to vSphere Lifecycle Manager
+<a name="addon-depot-use-url"></a>
+
+ **In the vSphere Client** 
+
+1. Sign in to the vSphere Client.
+
+1. Go to vSphere Lifecycle Manager.
+
+1. Add the URL of the Amazon EVS custom add-on depot as a new download source.
+
+1. Sync the download source so that the add-on appears in the vLCM depot.
+
+For detailed steps, see [Add a New Download Source](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/managing-host-and-cluster-lifecycle/working-with-vsphere-lifecycle-manager-depots/add-a-new-download-source.html) in the Broadcom documentation.
+
+You have added the Amazon EVS custom add-on depot when the add-on is available in vLCM for your cluster images.
+
+## Rotate the depot access token
+<a name="addon-depot-rotate"></a>
+
+1. Run the `get-depot-url` command with the `--rotate` flag.
+
+   ```bash
+   aws evs get-depot-url --environment-id env-abcde12345 --rotate
+   ```
+
+1. In vLCM, replace the old download source with the new depot URL from the response.
+
+**Important**  
+After you rotate the token, the old URLs of the Amazon EVS custom add-on depot stop working within 5 minutes. You must add the new URL in vLCM before you sync the add-on again.
+
+## IAM permissions
+<a name="addon-depot-iam"></a>
+
+To get the depot URL, your IAM identity needs permission to call the `evs:GetDepotUrl` action on the environment. The following example policy allows the action on one environment. Replace `<region-code>` with the Region where you created the environment.
+
+```json
 {
-    "depotUrl": "https://example.cloudfront.net/<token>/depot/vmw-depot-index.xml",
-    "token": "<authentication-token>"
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "evs:GetDepotUrl",
+            "Resource": "arn:aws:evs:<region-code>:111122223333:environment/env-abcde12345"
+        }
+    ]
 }
 ```
 
-## Using the depot URL
-<a name="_using_the_depot_url"></a>
+The example uses the `aws` partition. In other partitions, replace `aws` in the ARN with your partition, for example `aws-us-gov`. Anyone with this permission can get the depot URL, so grant it only to the people who manage the environment. For more policy examples, see [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md).
 
-After you retrieve the depot URL, configure it as a download source in vSphere Lifecycle Manager (vLCM) to sync and install the Amazon EVS Custom Addon.
-
-1. Log in to the vSphere Client.
-
-1. Navigate to vSphere Lifecycle Manager.
-
-1. Add the depot URL as a new download source.
-
-**Note**  
-Your vSphere user must have the `VMware vSphere Lifecycle Manager > Configure` privilege.
-
-For detailed instructions on adding a download source, see [Add a New Download Source](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/managing-host-and-cluster-lifecycle/working-with-vsphere-lifecycle-manager-depots/add-a-new-download-source.html) in the Broadcom documentation.
-
-## Rotating the depot access token
-<a name="_rotating_the_depot_access_token"></a>
-
-To rotate the depot access token, use the `get-depot-url` command with the `--rotate` flag:
-
-```
-aws evs get-depot-url --environment-id env-abcde12345 --rotate
-```
-
-After rotation, previously issued depot URLs will stop working within 5 minutes. You must configure the new depot URL in vLCM.
-
-## IAM permissions
-<a name="_iam_permissions"></a>
-
-To access the Custom Addon depot, your IAM identity must have permission to call the `evs:GetDepotUrl` action on your environment resources. For more information, see [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md).
+Next step: to plan an update of your VCF software, see [Update and upgrade](evs-lifecycle-mgmt.md).

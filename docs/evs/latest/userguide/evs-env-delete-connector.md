@@ -1,53 +1,57 @@
 
 
-# Delete an Amazon EVS environment connector
-<a name="evs-env-delete-connector"></a>
+# Delete a connector
 
-You can delete a connector when it is no longer needed.
+Delete a connector when you no longer need it. You can delete a connector with the Amazon Elastic VMware Service console or the AWS CLI.
 
-More info on connectors can be found under [Concepts and components of Amazon EVS](concepts.md#concepts-connector).
+**Important**  
+The management connector of your environment is the SDDC Manager connector for VMware Cloud Foundation (VCF) 5.2.x or the VCF Operations connector for VCF 9.x. If you delete the management connector, Amazon EVS reports impaired environment health through AWS Health notifications. If you delete the SDDC Manager connector (VCF 5.2.x), Amazon EVS also can’t validate host counts and license key coverage.
 
-**Note**  
-The connector must be in an Active, Create Failed, or Update Failed state to be deleted.
+## Before you begin
+<a name="_before_you_begin"></a>
 
-**Note**  
-All entitlements associated with the connector must be deleted before the connector can be removed.
+Before you delete a connector, check the following requirements.
++ The connector must be in the `ACTIVE`, `CREATE_FAILED`, or `UPDATE_FAILED` state.
++ You must delete all entitlements that are associated with a vCenter connector before you can delete the connector. For the steps, see [Delete Windows Server entitlements](delete-entitlements.md).
 
- **To delete an Amazon EVS environment connector** 
+## Delete the connector
+<a name="evs-env-delete-connector-procedure"></a>
 
-Follow these steps to delete an Amazon EVS connector.
+To delete the connector in the Amazon EVS console or with the AWS CLI, use the following steps.
 
 **Example**  
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
 
 1. In the navigation pane, choose **Environments**.
 
-1. Select the environment containing the connector.
+1. Select the environment that contains the connector.
 
-1. Select the **Connectors** tab.
+1. Choose the **Connectors** tab.
 
-1. Select the connector you want to delete.
+1. Select the connector that you want to delete.
 
 1. Choose **Delete Connector**.
 
 1. Confirm the deletion.
 
-1. To verify completion, check that the connector no longer appears in the list.
+1. To verify, check that the connector no longer appears in the list.
 
-1. Open a new terminal session.
+1. Run the `delete-environment-connector` command.
 
-1. Delete the connector. See example command below for reference.
-
-   ```
+   ```bash
    aws evs delete-environment-connector \
        --environment-id env-abcde12345 \
-       --connector-id cnctr-szgj87q6gi
+       --connector-id cnctr-abcde12345
    ```
 
-1. To verify completion, use the **list-environment-connectors** command and confirm the connector is no longer listed.
+1. To verify, run the `list-environment-connectors` command, and check that the connector is no longer listed.
 
-   ```
+   ```bash
    aws evs list-environment-connectors \
        --environment-id env-abcde12345
    ```
+
+You have deleted the connector when it no longer appears in the list.
+
+To create a connector again, see [Create a connector](evs-env-create-connector.md).

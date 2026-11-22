@@ -1,93 +1,113 @@
 
 
-# Activating Windows Server on entitled VMs
-<a name="activate-windows-server"></a>
+# Activate Windows Server on entitled VMs
 
-Amazon EVS provides Windows Server activation for VMs that have Windows Server entitlements. You must create an EVS Windows Server activation VPC endpoint within the VPC you used for your Amazon EVS environment. Each entitled VM must then be configured to connect to this activation endpoint. VPC endpoints can only be created if you have an active Amazon EVS environment.
+Amazon Elastic VMware Service provides Windows Server activation for VMs that have Windows Server entitlements. You create an Amazon EVS Windows Server activation VPC endpoint in the VPC of your environment, and then configure each entitled VM to activate against it.
+
+## Before you begin
+<a name="activate-windows-server-prereqs"></a>
++ You have an active Amazon EVS environment. You can create the VPC endpoint only when the environment is active.
++ You have created Windows Server entitlements for the VMs. For instructions, see [Create Windows Server entitlements](create-entitlements.md).
++ You can connect to each Windows Server VM and open PowerShell.
+
+## Step 1. Create the activation VPC endpoint
+<a name="activate-windows-server-endpoint"></a>
 
 1. Identify the VPC where the Amazon EVS environment is deployed.
 
-1. In the same VPC, create a VPC Endpoint using the following service name:
+1. In the same VPC, create a VPC endpoint with the following settings:
 
-    `com.amazonaws.{{region}}.evs-windows-server-activation` 
+   1. For **Type**, choose ** AWS services**.
 
-   For example, create a VPC Endpoint with the following configuration:
-   +  **Type**: AWS services
-   +  **Service name**: search for and select `com.amazonaws.{{region}}.evs-windows-server-activation` 
-   +  **VPC**: Select the VPC your Amazon EVS environment resides in
-   +  **Subnets**: Select the subnet(s) from which your Windows VMs establish outbound connections
-   +  **Security groups**: Select or create one that allows inbound TCP port `1688` from your Windows instance’s security group or CIDR
+   1. For **Service name**, search for and select `com.amazonaws.<region-code>.evs-windows-server-activation`. Replace `<region-code>` with the Region where you created the environment.
 
-1. Note down the private DNS name of the VPC Endpoint you created.
+   1. For **VPC**, choose the VPC of your Amazon EVS environment.
+
+   1. For **Subnets**, choose the subnets from which your Windows VMs make outbound connections.
+
+   1. For **Security groups**, choose a security group that allows inbound TCP port `1688` from the security group or CIDR of your Windows VMs.
+
+1. Note the private DNS name of the VPC endpoint.
+
+## Step 2. Check that the VM has a GVLK
+<a name="activate-windows-server-gvlk"></a>
+
+The Amazon EVS activation endpoint uses Microsoft Key Management Service (KMS) activation. This KMS is a Windows licensing service and is separate from AWS Key Management Service (AWS KMS). Each VM must have a Generic Volume License Key (GVLK) installed.
 
 1. Connect to the Windows Server VM and open **PowerShell**.
 
-1. Configure the activation server to use the VPC Endpoint by running the following command:
+1. Run the following command.
 
+   ```powershell
+   cscript C:\Windows\System32\slmgr.vbs /dlv | findstr /C:"Product Key Channel"
    ```
-   cscript C:\Windows\System32\slmgr.vbs /skms {{VPC_Endpoint_Private_DNS_Name}}:1688
+
+1. If the output does not show `Volume:GVLK`, find the GVLK for your version and edition of Windows Server in [KMS client activation keys](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys?tabs=windows1110ltsc%2Cwindows81%2Cserver2025%2Cversion1803#windows-server-ltsc) on the Microsoft website. Then install it. In the following command, replace `<gvlk>` with the GVLK.
+
+   ```powershell
+   cscript C:\Windows\System32\slmgr.vbs /ipk <gvlk>
    ```
 
-   The output confirms that the activation server was set successfully.
+## Step 3. Activate Windows Server
+<a name="activate-windows-server-activate"></a>
 
-1. Activate Windows Server by running the following command:
+1. On the VM, in **PowerShell**, set the activation server to the VPC endpoint. In the following command, replace `<vpc-endpoint-private-dns-name>` with the private DNS name of the VPC endpoint.
 
+   ```powershell
+   cscript C:\Windows\System32\slmgr.vbs /skms <vpc-endpoint-private-dns-name>:1688
    ```
+
+   The output confirms that the activation server was set.
+
+1. Activate Windows Server.
+
+   ```powershell
    cscript C:\Windows\System32\slmgr.vbs /ato
    ```
 
-   The output should include `Product activated successfully.` 
+   The output includes `Product activated successfully.` 
 
-1. Verify that activation completed successfully by running the following command:
+1. Verify the activation.
 
-   ```
+   ```powershell
    cscript C:\Windows\System32\slmgr.vbs /dli
    ```
 
-   The output should include:
-   +  `Volume activation expiration: 259200 minute(s) (180 day(s))` — or close to it
-   +  `Registered KMS machine name: {{VPC_Endpoint_Private_DNS_Name}}:1688` 
+   The output includes these values:
+   +  `Volume activation expiration: 259200 minute(s) (180 day(s))` or a value close to it
+   +  `Registered KMS machine name: <vpc-endpoint-private-dns-name>:1688` 
 
-## Troubleshooting Windows Server activation
-<a name="_troubleshooting_windows_server_activation"></a>
+1. Repeat these steps on each entitled VM.
 
-If Windows Server activation fails on an entitled VM, use the following sections to identify and resolve the most common causes.
+You have activated Windows Server on your entitled VMs.
 
-### Activation fails because the VM does not have a GVLK
-<a name="_activation_fails_because_the_vm_does_not_have_a_gvlk"></a>
+## Next steps
+<a name="activate-windows-server-next"></a>
 
-The EVS activation endpoint requires VMs to have a Generic Volume License Key (GVLK) installed to use KMS-based activation. To check whether a GVLK is installed, run the following command:
+The following pages cover tasks that you might do after activation.
++ To fix entitlement status issues, see [Troubleshoot Windows Server entitlements](troubleshoot-entitlements.md).
++ To stop using Windows Server licensing from AWS for a VM, see [Delete Windows Server entitlements](delete-entitlements.md).
 
-```
-cscript C:\Windows\System32\slmgr.vbs /dlv | findstr /C:"Product Key Channel"
-```
+## If the activation command returns an error
+<a name="activate-windows-server-errors"></a>
 
-If the output does not show `Volume:GVLK`, find the corresponding product key (GVLK) for your version and edition of Windows from [KMS client activation keys](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys?tabs=windows1110ltsc%2Cwindows81%2Cserver2025%2Cversion1803#windows-server-ltsc) on the Microsoft website. Install it by running the following command:
+If `cscript C:\Windows\System32\slmgr.vbs /ato` returns an error, first make sure that the VM has a GVLK ([Step 2](#activate-windows-server-gvlk)). Then check that the VM can reach the VPC endpoint on port 1688.
 
-```
-cscript C:\Windows\System32\slmgr.vbs /ipk {{GVLK}}
-```
+In the following command, replace `<vpc-endpoint-private-dns-name>` with the private DNS name of the VPC endpoint.
 
-After installing the GVLK, retry the activation steps starting from the `/ato` command in step 6.
-
-### Activation command returns an error
-<a name="_activation_command_returns_an_error"></a>
-
-If `cscript C:\Windows\System32\slmgr.vbs /ato` returns an error, verify that the VM can reach the VPC Endpoint on port 1688:
-
-```
-Test-NetConnection -ComputerName {{VPC_Endpoint_Private_DNS_Name}} -Port 1688
+```powershell
+Test-NetConnection -ComputerName <vpc-endpoint-private-dns-name> -Port 1688
 ```
 
-The output should show `TcpTestSucceeded : True`. For example:
+The output shows `TcpTestSucceeded : True` when the connection works. The following is example output.
 
-```
-ComputerName     : <VPC_Endpoint_Private_DNS_Name>
-RemoteAddress    : <VPC_Endpoint_IP_address>
+```text
+ComputerName     : <vpc-endpoint-private-dns-name>
+RemoteAddress    : <vpc-endpoint-ip-address>
 RemotePort       : 1688
 InterfaceAlias   : Ethernet 2
 SourceAddress    : 10.0.110.93
 TcpTestSucceeded : True
 ```
 
-If `TcpTestSucceeded` is `False`, verify that the VPC Endpoint security group allows inbound TCP port 1688 from the VM’s security group or CIDR.
+If `TcpTestSucceeded` is `False`, make sure that the security group of the VPC endpoint allows inbound TCP port 1688 from the security group or CIDR of the VM. For entitlement status issues, see [Troubleshoot Windows Server entitlements](troubleshoot-entitlements.md).

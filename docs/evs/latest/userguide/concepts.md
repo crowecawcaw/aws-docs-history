@@ -1,130 +1,70 @@
 
 
 # Concepts and components of Amazon EVS
-<a name="concepts"></a>
 
-This section explains some key Amazon EVS concepts and components.
+Learn the Amazon Elastic VMware Service resources and VMware components before you plan an environment.
 
 ## Amazon EVS environment
 <a name="concepts-evs-virt-env"></a>
 
-An Amazon EVS *environment* is a logical container for VMware Cloud Foundation (VCF) resources, such as vSphere hosts, vSAN, NSX, and SDDC Manager. An environment contains a consolidated VCF domain with a vSphere cluster that hosts the components for managing, monitoring, and instantiating the VCF software stack. Each environment directly maps to an SDDC Manager appliance. For more information, see [Amazon EVS architecture](architecture.md).
+An Amazon EVS *environment* is a logical container for VMware Cloud Foundation (VCF) resources, such as ESX hosts, VMware vSAN, VMware NSX, and VMware vCenter Server. When you create an environment, Amazon EVS creates the VLAN subnets in your VPC that VCF uses. Each Amazon EVS environment contains its own dedicated set of VLAN subnets. You then add hosts and connect the environment to your VCF management appliance with connectors.
+
+In EVS-deployed environments (VCF 5.2.x), the environment contains a consolidated VCF domain, and each environment maps directly to an SDDC Manager appliance. For how the two deployment modes differ, see [Differences between deployment modes](deployment-mode-differences.md). For the components and how they connect, see [Amazon EVS architecture](architecture.md).
 
 ## Amazon EVS host
 <a name="concepts-evs-host"></a>
 
-An Amazon EVS *host* is a VMware ESX host that runs on Amazon EC2 bare metal instances. Amazon EVS hosts use local NVMe instance store volumes for vSAN datastores, which store your management and workload virtual machines.
+An Amazon EVS *host* is a VMware ESX host that runs on an Amazon EC2 bare metal instance. Hosts with local storage use their local NVMe instance store volumes for vSAN datastores, which store your management and workload virtual machines. Diskless hosts, which need VCF 9.x, have no instance store and use external storage instead. For the storage choices, see [Choose storage](plan-storage.md).
 
 **Warning**  
-Instance store volumes are ephemeral. Data stored on these volumes do not persist if the underlying EC2 instance is stopped or terminated. Stopping or terminating Amazon EC2 instances used by Amazon EVS without decomissioning within VCF can result in data loss.  
-For more information about host maintenance, see [Amazon EVS host maintenance](evs-host-maintenance.md).
+Instance store volumes are ephemeral. Data on these volumes doesn’t persist if you stop or terminate the underlying Amazon EC2 instance. If you stop or terminate an Amazon EC2 instance that Amazon EVS uses before you decommission its host in VCF, you can lose data.  
+For more information about host maintenance, see [Host maintenance and retirement events](evs-host-maintenance.md).
 
 ## Service access subnet
 <a name="concepts-service-access-subnet"></a>
 
-The *service access subnet* is a standard VPC subnet that allows Amazon EVS to access the VCF deployment. During Amazon EVS environment creation, you specify the VPC and subnet for Amazon EVS to use for service access.
+The *service access subnet* is a standard VPC subnet that allows Amazon EVS to access the VCF deployment. When you create an Amazon EVS environment, you specify the VPC and the subnet for Amazon EVS to use for service access.
 
-When you create an Amazon EVS environment, Amazon EVS provisions elastic network interfaces into the service access subnet to facilitate management connectivity to VCF appliances and ESX hosts. This connectivity is required for Amazon EVS to be able to deploy, manage, and monitor the VCF deployment.
+Amazon EVS provisions elastic network interfaces into the service access subnet to provide management connectivity to VCF appliances and ESX hosts. Amazon EVS needs this connectivity to deploy, manage, and monitor the VCF deployment.
 
 ## Amazon EVS VLAN subnet
 <a name="concepts-evs-network"></a>
 
-An *Amazon EVS VLAN subnet* is an Amazon VPC subnet that is managed by Amazon EVS. VLAN subnets provide VPC connectivity for Amazon EVS hosts, and VCF appliances such as VMware NSX, VMware HCX, and VMware vCenter Server. Each VLAN subnet has a VLAN tag to allow VLAN network traffic to be segmented logically.
+An *Amazon EVS VLAN subnet* is an Amazon VPC subnet that Amazon EVS manages. VLAN subnets provide VPC connectivity for Amazon EVS hosts and for VCF appliances such as NSX, VMware HCX, and vCenter Server. Each VLAN subnet has a VLAN tag, so that VLAN network traffic is segmented logically.
 
-Amazon EVS creates all of the VLAN subnets that the service uses when the Amazon EVS environment is created. You provide the CIDR block inputs that the VLAN subnets use. You should ensure that your VLAN subnet CIDR blocks are properly sized according to the number of hosts that will be configured, taking into account future scaling needs. CIDR blocks must have a minimum size of /28 netmask and a maximum size of /24 netmask. CIDR blocks must not overlap with any existing CIDR block that’s associated with the VPC.
+Amazon EVS creates all of the VLAN subnets that the service uses when you create the environment. You provide the CIDR blocks that the VLAN subnets use. Each CIDR block must be between a `/28` and a `/24` netmask. It must be inside a CIDR block that’s associated with the VPC, and it must not overlap with any other subnet in the VPC, including the other VLAN subnets.
 
-On creation, VLAN subnets are implicitly associated your VPC’s main route table. Post-deployment you can explicitly associate VLAN subnets with a custom route table. For more information, see [Amazon EVS networking considerations](architecture.md#evs-subnets).
+Separate VLAN subnets carry host management, vMotion, vSAN, NSX overlay, NSX Edge, management appliance, HCX uplink, and NSX uplink traffic. Expansion VLAN subnets support other VCF functions, such as NSX Federation. For the list of VLAN subnet types, their VLAN IDs, and their IP address rules, see [VLAN subnets, VLAN IDs, and IP addresses](vlan-subnet-reference.md).
+
+You can’t add VLAN subnets or change their CIDR blocks after you create the environment. Size the VLAN subnet CIDR blocks for the number of hosts that you plan to run, including future growth, before you create the environment. For sizing guidance, see [Plan your VPC and VLAN subnets](plan-network-sizing.md).
+
+When Amazon EVS creates the VLAN subnets, it associates them with the main route table of your VPC. After deployment, you must explicitly associate each VLAN subnet with a route table. We recommend a custom route table. For the steps, see [Associate VLAN subnets with a route table](evs-env-config-custom-rt.md). For more information, see [Associate VLAN subnets with a route table](evs-env-config-custom-rt.md).
 
 **Important**  
-Amazon EVS VLAN subnets can only be created during Amazon EVS environment creation, and cannot be modified after the environment is created. You must ensure that the VLAN subnet CIDR blocks are properly sized before creating the environment. You will not be able to add VLAN subnets after the environment is deployed.
-
-**Important**  
-EC2 security group rules are not enforced on Amazon EVS elastic network interfaces that are attached to VLAN subnets. To control traffic to and from VLAN subnets, you must use a network access control list.
-
-### Host management VLAN subnet
-<a name="concepts-evs-vmkernel-management-vlan"></a>
-
-The *host management VLAN subnet* separates management traffic from user traffic, and allows for remote management of hosts. The EVS host management vmkernel network interface connects to this subnet.
-
-### vMotion VLAN subnet
-<a name="concepts-evs-vmotion-vlan-subnet"></a>
-
-The *vMotion VLAN subnet* logically segments VMware vMotion traffic, and is used during a vMotion process to move virtual machines between hosts.
-
-### vSAN VLAN subnet
-<a name="concepts-evs-vsan-vlan-subnet"></a>
-
-The *vSAN VLAN subnet* is used by VMware vSAN to separate traffic related to vSAN’s storage operations from other network traffic.
-
-### VTEP VLAN subnet
-<a name="concepts-evs-vtep-vlan-subnet"></a>
-
-The *VTEP VLAN subnet* uses VMware NSX virtual tunnel endpoints (VTEP) to encapsulate and decapsulate overlay network traffic for the Amazon EVS ESX hosts.
-
-### Edge VTEP VLAN subnet
-<a name="concepts-evs-edge-vtep-vlan-subnet"></a>
-
-The *Edge VTEP VLAN subnet* is a specialized VTEP VLAN subnet that is dedicated for NSX Edge appliance overlay traffic. This VLAN is used for overlay communication between NSX edges and ESX hosts.
-
-### Management VM VLAN subnet
-<a name="concepts-evs-edge-vm-mgmt-vlan-subnet"></a>
-
-The *Management VM VLAN subnet* is used for managing virtual appliances, including NSX Manager, vCenter Server, and SDDC Manager.
-
-### HCX uplink VLAN subnet
-<a name="concepts-evs-hcx-uplink-vlan-subnet"></a>
-
-The *HCX uplink VLAN subnet* is used for communication between the HCX Interconnect (HCX-IX) and HCX Network Extension (HCX-NE) appliances, and enables the creation of the HCX service mesh uplink.
-
-### NSX uplink VLAN subnet
-<a name="concepts-evs-nsx-uplink-vlan-subnet"></a>
-
-The *NSX uplink VLAN subnet* is used for connecting your NSX overlay networks to the rest of your VPC and any other external networks that you configure. The NSX uplink VLAN subnet is configured on the NSX Edge node uplinks.
-
-### Expansion VLAN subnet
-<a name="concepts-evs-expansion-vlan-subnet"></a>
-
-The *expansion VLAN subnet* can be used to enable additional VCF-supported functions, such as NSX Federation. Amazon EVS creates two expansion VLAN subnets during environment creation.
+ Amazon EC2 security group rules are not enforced on Amazon EVS elastic network interfaces that are attached to VLAN subnets. To control traffic to and from VLAN subnets, you must use a network access control list. For more information, see [Create a network ACL for VLAN subnet traffic](evs-env-nacl-cong.md).
 
 ## VMware NSX
 <a name="concepts-nsx"></a>
 
-VMware NSX is a software-defined networking (SDN) platform that enables network virtualization. Amazon EVS uses VMware NSX to create and manage the overlay network where VMware Cloud Foundation (VCF) appliances and workloads run. Amazon EVS deploys a pair of Active/Standby NSX Edge nodes, along with an NSX overlay network. Amazon EVS automatically configures all of the NSX routing and uplinks on your behalf as part of deployment. For more information about common NSX concepts, see [Key Concepts](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/installation-guide/overview-of-nsx/key-concepts-nsxt.html) in the *VMware NSX Installation Guide*.
+NSX is a software-defined networking platform that provides network virtualization. Amazon EVS environments use NSX to create and manage the overlay network where VCF appliances and workloads run. NSX Edge nodes connect the overlay network to your VPC through the NSX uplink VLAN subnet and Amazon VPC Route Server.
 
-## Connector
+Who configures the NSX Edge cluster and NSX routing depends on the deployment mode. For the comparison, see [Differences between deployment modes](deployment-mode-differences.md).
+
+For more information about common NSX concepts, see [Key Concepts](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/installation-guide/overview-of-nsx/key-concepts-nsxt.html) in the *VMware NSX Installation Guide* in the Broadcom documentation.
+
+## Amazon EVS connectors
 <a name="concepts-connector"></a>
 
-An Amazon EVS connector enables Amazon EVS to communicate with a VMware Cloud Foundation management appliance in your environment. Each connector maps to a single management appliance, using the fully qualified domain name (FQDN) and credentials that you store in an AWS Secrets Manager secret to authenticate with the appliance.
+An Amazon EVS *connector* lets Amazon EVS communicate with one VCF management appliance in your environment. Each connector uses the fully qualified domain name (FQDN) of the appliance and credentials that you store in an AWS Secrets Manager secret. Amazon EVS uses the management connector to stay in sync with your VCF deployment and to monitor vSAN capacity. It uses the optional vCenter connector to monitor virtual machines for Windows Server entitlements. For more information about the vSAN capacity notification, see [vSAN capacity warning received in AWS Health](troubleshoot-hosts.md#troubleshoot-vsan-capacity).
 
-Amazon EVS supports the following connector types:
-+  **Operations Manager** (`OPERATIONS_MANAGER`) – The management connector for VCF 9.x. Amazon EVS uses it to connect to and stay in sync with your VMware deployment, and to monitor vSAN capacity. For more information, see [vSAN capacity warning received in AWS Health](troubleshooting.md#troubleshoot-vsan-capacity).
-+  **SDDC Manager** (`SDDC_MANAGER`) – The management connector for VCF 5.2.x. Amazon EVS uses it to validate host counts and license-key coverage, and to monitor vSAN capacity. For more information, see [vSAN capacity warning received in AWS Health](troubleshooting.md#troubleshoot-vsan-capacity).
-+  **vCenter** (`VCENTER`) – Used to monitor VM lifecycle events, such as for Windows Server license entitlements. For more information, see [Windows Server License Entitlement for Amazon EVS](#concepts-windows-server-license-entitlement).
+The management connector type depends on the deployment mode. Self-deployed environments use a VCF Operations connector (`OPERATIONS_MANAGER`). EVS-deployed environments use an SDDC Manager connector (`SDDC_MANAGER`). For connector types, reachability checks, and procedures, see [Manage connectors and credentials](connectors-overview.md).
 
-Amazon EVS periodically performs reachability checks against each appliance through its connector. If a required management connector is not created, or loses reachability, Amazon EVS cannot validate your environment’s license and entitlement coverage, and reports impaired environment health through AWS Health notifications. If the vCenter connector loses reachability, Windows Server entitlements enter an at-risk state, and are dropped if reachability is not restored within the grace period.
-+ To create a connector, see [Create an Amazon EVS environment connector](evs-env-create-connector.md).
-+ To update a connector, see [Update an Amazon EVS environment connector](evs-env-update-connector.md).
-+ To delete a connector, see [Delete an Amazon EVS environment connector](evs-env-delete-connector.md).
-
-## Windows Server License Entitlement for Amazon EVS
+## Windows Server license entitlement
 <a name="concepts-windows-server-license-entitlement"></a>
 
-Windows Server license entitlement for Amazon EVS enables virtual machines (VMs) running in your Amazon EVS environment to utilize AWS-offered Windows Server licenses. Windows Server license entitlements are offered per vCPU per hour with a pay-as-you-go model.
+A *Windows Server license entitlement* lets virtual machines in your Amazon EVS environment use AWS-provided Windows Server licenses. An entitlement depends on a vCenter connector. For requirements and procedures, see [Windows Server entitlements](entitlements.md).
 
-To use Windows Server License entitlements, you must first create a connector to establish reachability between Amazon EVS and your vCenter Server appliance. The reachability check on the connector must be passing before you can create an entitlement.
-
-Amazon EVS uses the vCenter connector to monitor VM lifecycle events for entitled VMs. If the connector loses reachability, associated entitlements enter an at risk state. If reachability is not restored within an 8-hour grace period, entitlements are dropped and license usage tracking is stopped from the time the entitlement entered the at risk state.
-
-After you have created an entitlement, and powered on a VM, Amazon EVS starts monitoring the corresponding VM’s Windows Server license usage. If the VM is shutdown or the configured vCPU are scaled up or down based on demand, you only pay for the licensing for the total vCPU hours used.
-
-**Warning**  
-Supported guest operating systems are Windows Server 2016 or later.
-
-For instructions, see [Windows Server entitlements](entitlements.md).
-
-## VMware Hybrid Cloud Extension (HCX)
+## VMware HCX
 <a name="concepts-hcx"></a>
 
-VMware Hybrid Cloud Extension (VMware HCX) is an application mobility platform designed for simplifying application migration, rebalancing workloads, and optimizing disaster recovery across data centers and clouds. You can use HCX to migrate your VMware-based workloads to Amazon EVS.
-
-You can configure connectivity for VMware HCX using Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway. For more information, see [Migrate workloads to Amazon EVS using VMware HCX](migrate-evs-hcx.md).
+VMware Hybrid Cloud Extension (HCX) is an application mobility platform for application migration, workload rebalancing, and disaster recovery across data centers and clouds. You can use HCX to migrate your VMware-based workloads to Amazon EVS. To choose how HCX connects to your on-premises site, see [Plan HCX connectivity](plan-hcx-connectivity.md). To migrate workloads, see [Migrate workloads with HCX](migrate-evs-hcx.md).

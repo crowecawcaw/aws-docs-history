@@ -1,52 +1,62 @@
 
 
-# Delete an Amazon EVS host
-<a name="evs-env-delete-host"></a>
+# Delete a host (VCF 5.x)
 
-You can delete an Amazon EVS host from your environment when the host is no longer needed. Before deleting a host, ensure that your environment retains enough hosts to satisfy your VCF deployment topology requirements. For minimum host counts, see the [VMware Cloud Foundation documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html).
+This page applies to EVS-deployed environments (VCF 5.2.x). For Self-deployed environments that run VCF 9.x, see [Manage hosts](host-management.md).
+
+You can delete an Amazon Elastic VMware Service host from your environment when you no longer need it. You decommission the host in SDDC Manager first, and then delete it with the Amazon EVS console or the AWS CLI. Before you delete a host, make sure that your environment keeps enough hosts for your VMware Cloud Foundation (VCF) deployment topology.
+
+For minimum host counts, see the [Broadcom documentation for VCF](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2.html).
 
 **Warning**  
-Deleting a host without decommissioning will leave stale data in your vCenter and SDDC Manager that may require additional efforts to clean up. Ensure that your hosts are decommissioned before deleting hosts in the Amazon EVS console or API.
+If you delete a host without decommissioning it, stale data stays in vCenter Server and SDDC Manager, and you might need extra work to clean it up. Decommission the host before you delete it in the Amazon EVS console or with the Amazon EVS API.
 
 **Warning**  
-Always use the Amazon EVS console or API to remove your Amazon EVS hosts. Deleting hosts from the EC2 console may leave your environment in an inconsistent state.
+Don’t use the Amazon EC2 console to stop, start, or terminate Amazon EVS hosts. On hosts with local storage, these actions cause the loss of the vSAN data on the instance store volumes. To create, replace, or delete a host, use the Amazon EVS console, the AWS CLI, or the Amazon EVS API. Deleting a host from the Amazon EC2 console can leave your environment in an inconsistent state.
 
- **To delete an Amazon EVS host** 
+## Step 1: Decommission the host
+<a name="evs-env-delete-host-sddc"></a>
 
-Follow these steps to delete an Amazon EVS host.
+ **In SDDC Manager** 
+
+1. Remove the host from its cluster.
+
+1. Decommission the host. For more information, see [Decommission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/decommission-hosts-admin.html) in the Broadcom documentation.
+
+## Step 2: Delete the host
+<a name="evs-env-delete-host-evs"></a>
+
+To delete the host in the Amazon EVS console or with the AWS CLI, use the following steps.
 
 **Example**  
 
-1. Go to SDDC Manager.
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
 
-1. Remove the cluster from SDDC Manager.
-
-1. Decommission the host in SDDC Manager. For more information, see [Decommission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/decommission-hosts-admin.html) in the VMware Cloud Foundation documentation.
-
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
-
-1. In the navigation pane, choose **Environment**.
+1. In the navigation pane, choose **Environments**.
 
 1. Select the environment that contains the host to delete.
 
-1. Select the **Hosts** tab.
+1. Choose the **Hosts** tab.
 
-1. Choose **Delete host**.
+1. Select the host and choose **Delete** > **Delete host**. Repeat this step for each host that you want to delete.
 
-1. Select the host and choose **Delete** within the **Hosts** tab. Repeat this step for each host that you want to delete.
+1. To verify completion, check that the host no longer appears on the **Hosts** tab, or that its **Host state** is **Deleted**.
 
-1. Go to SDDC Manager.
+1. Run the `delete-environment-host` command. Replace the example environment ID and host name with your own values.
 
-1. Remove the cluster from SDDC Manager.
-
-1. Decommission the host in SDDC Manager. For more information, see [Decommission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/decommission-hosts-admin.html) in the VMware Cloud Foundation documentation.
-
-1. Open a new terminal session.
-
-1. Delete the host. See example command below for reference.
-
-   ```
+   ```bash
    aws evs delete-environment-host \
-   --environment-id env-abcdefghij \
-   --host-name my-evs-host.example.com
+       --environment-id env-abcde12345 \
+       --host-name esxi-host-05
    ```
+
+1. To verify completion, list the hosts of the environment and confirm that the host is no longer listed or that its state is `DELETED`.
+
+   ```bash
+   aws evs list-environment-hosts \
+       --environment-id env-abcde12345 \
+       --query 'environmentHosts[].[hostName,hostState]' \
+       --output table
+   ```
+
+You have deleted the host. In SDDC Manager, confirm that the host no longer appears in the host inventory. To check the environment after the change, see [Monitor environment status](evs-env-status-check.md).

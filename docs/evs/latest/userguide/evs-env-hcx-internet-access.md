@@ -1,252 +1,327 @@
 
 
 # Configure HCX public internet connectivity
-<a name="evs-env-hcx-internet-access"></a>
 
-You can configure public internet access for your HCX public VLAN by associating Elastic IP addresses with your VLAN. This enables direct internet connectivity for VMware HCX appliances and workloads that require internet access for migration operations.
-
-## Related topics
-<a name="evs-env-hcx-internet-access-related-topics"></a>
-
-This topic covers managing internet access for HCX public VLAN. For complete implementation:
-
-1. Complete prerequisites in [Setting up Amazon Elastic VMware Service](setting-up.md).
-
-1. Configure initial setup in [Getting started with Amazon Elastic VMware Service](getting-started.md).
-
-1. Configure internet access (this topic).
-
-## About HCX VLAN internet access
-<a name="evs-env-hcx-internet-access-about"></a>
-
-You can configure internet access for VMware HCX appliances, allowing you to perform HCX migration of your workloads to Amazon EVS over the internet.
-
-This approach:
-+ Enables virtual machine migrations without requiring dedicated private connectivity.
-+ Provides a flexible, cost-effective solution for migration.
+You can migrate workloads to Amazon Elastic VMware Service with VMware HCX over the internet by associating Elastic IP addresses with the public HCX VLAN subnet. You create the IPAM pool, the Elastic IP addresses and the VPC CIDR block before you create the environment, and associate the addresses after. You can use the consoles or the AWS CLI.
 
 **Important**  
-HCX internet-based migration is generally not recommended for:  
-Applications sensitive to network jitter or latency.
-Time-critical vMotion operations.
-Large-scale migrations with strict performance requirements.
-For these scenarios, we recommend using HCX private connectivity. A private dedicated connection offers more reliable performance compared to internet-based connections.
+Associating an Elastic IP address with a VLAN subnet gives direct internet access to all resources on that subnet. Security groups don’t apply to traffic on Amazon EVS VLAN subnets, so use a network access control list (ACL) to restrict access. For more information, see [Create a network ACL for VLAN subnet traffic](evs-env-nacl-cong.md).
 
-## Internet connectivity overview
-<a name="evs-env-hcx-internet-access-considerations"></a>
+## Before you begin
+<a name="evs-env-hcx-internet-access-prereqs"></a>
++ Choose internet connectivity and review the CIDR and Elastic IP address rules in [Plan HCX connectivity](plan-hcx-connectivity.md).
++ Check that your IPAM quota for the netmask length of Amazon-provided contiguous public IPv4 CIDR blocks allows a /28. For more information, see [Quotas for your IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html).
 
-Review the following considerations.
-
-### HCX networking requirements and DNAT
-<a name="evs-env-hcx-internet-access-considerations-networking"></a>
-
-HCX has specific networking constraints that affect how you set up public internet access.
-
-HCX does not support Destination Network Address Translation (DNAT). Instead, HCX requires the uplink network to be routable with a default gateway IP address.
-
-Amazon EVS VLAN subnets include a default gateway IP address like other VPC subnets. However, these subnets are always private subnets, even when you use CIDR blocks outside the RFC1918 address range.
-
-#### Enabling HCX internet connectivity
-<a name="evs-env-hcx-internet-access-considerations-enable-connectivity"></a>
-
-To enable internet connectivity without DNAT, Amazon EVS uses a specific CIDR configuration approach:
-+  **Internet routable CIDR requirement**: Amazon EVS requires an internet routable CIDR that matches your HCX VLAN subnet CIDR.
-+  **IPAM allocation**: Amazon EVS uses a public IPAM-allocated CIDR with a minimum netmask length of /28 as the internet routable CIDR.
-+  **VPC configuration**: You must manually add the public IPAM-allocated CIDR to your VPC as a secondary VPC CIDR.
-+  **VLAN subnet deployment**: After IPAM and VPC are configured, you can use the public IPAM-allocated CIDR in the HCX VLAN subnet during Amazon EVS deployment.
-+  **Elastic IP configuration**: Amazon EVS requires the following configuration:
-  +  **Allocate Elastic IPs**: You allocate Elastic IPs from the IPAM allocated CIDR. You must allocate at least two Elastic IP addresses (EIPs) from the IPAM pool for the HCX Manager and HCX Interconnect (HCX-IX) appliances. Allocate an additional Elastic IP address for each HCX network appliance that you need to deploy.
-  +  **Associate with VLAN**: You associate each Elastic IP that you want to use with an HCX appliance to the HCX VLAN subnet. Use the Amazon EVS console or AWS CLI for this association.
-  +  **Configure gateway address**: The first usable address from the CIDR becomes the gateway address that you configure in your HCX appliance.
-  +  **Traffic routing**: Traffic for each associated Elastic IP routes directly to the destination HCX appliance with the same IP address, without DNAT.
-
-For steps to configure HCX with internet connectivity for Amazon EVS environment deployment, see [Setting up Amazon Elastic VMware Service](setting-up.md) and [Getting started with Amazon Elastic VMware Service](getting-started.md).
-
-### Operation considerations
+## Rules for the public HCX VLAN subnet
 <a name="evs-env-hcx-internet-access-considerations-operation"></a>
-+ The HCX public VLAN CIDR block must have a /28 netmask length.
-+ EIPs can be associated with or disassociated from the HCX public VLAN after deployment using the Amazon EVS console or AWS CLI, but they must be from the same IPAM pool.
-+ Each EIP association has its own unique association ID.
-+ You can have up to 13 EIPs from a public IPAM pool associated with the /28 HCX public VLAN. You cannot associate the first two EIPs or the last EIP from the public IPAM-allocated CIDR block with the HCX public VLAN subnet. These EIPs are reserved as network, default gateway, and broadcast addresses. Amazon EVS throws a validation error if you attempt to associate these EIPs with the VLAN.
 
-### Security considerations
-<a name="evs-env-hcx-internet-access-considerations-security"></a>
-+ Network access control lists (ACLs) still apply to traffic flowing through the HCX public VLAN subnet.
-+ Security group rules do not apply to traffic on HCX public VLAN subnets. Use network ACLs for traffic control.
+For the CIDR block and Elastic IP address rules, see [CIDR and Elastic IP address rules for internet connectivity](plan-hcx-connectivity.md#plan-hcx-connectivity-rules).
 
-**Important**  
-If you are connecting over the internet, associating an Elastic IP address with a VLAN provides direct internet access to all resources on that VLAN. Ensure that you have appropriate network access control lists configured to restrict access as needed for your security requirements.
+## Part 1. Before you create the environment
+<a name="hcx-internet-config"></a>
 
-## Managing Elastic IP addresses for VLANs
-<a name="evs-env-hcx-internet-access-managing-eips"></a>
+Do these steps before you create the environment. You can’t change the VLAN CIDR blocks after you create it.
 
-You can associate and disassociate Elastic IP addresses with an HCX public VLAN using the Amazon EVS console or AWS CLI.
+After you create the environment, continue with [Part 2](#getting-started-eip-assoc).
+
+### Step 1. Create an IPAM
+<a name="evs-env-hcx-internet-access-create-ipam"></a>
+
+Follow the steps in [Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IP Address Manager User Guide*.
+
+You have created an IPAM.
 
 **Note**  
-Amazon EVS only supports associating and disassociating Elastic IP address with an HCX public VLAN at this time.
+You can use the IPAM Free Tier for these resources. You still pay for other AWS services that you use with IPAM, such as NAT gateways and public IPv4 addresses beyond the free tier. For more information, see the [Amazon VPC pricing page](https://aws.amazon.com/vpc/pricing).
 
-### Associate an Elastic IP address with a VLAN
-<a name="evs-env-hcx-internet-access-associate-eip"></a>
+Amazon EVS doesn’t support private IPv6 Global Unicast Address (GUA) CIDR blocks.
 
-#### Prerequisites
-<a name="evs-env-hcx-internet-access-associate-prerequisites"></a>
+### Step 2. Create a public IPv4 IPAM pool
+<a name="evs-env-hcx-internet-access-create-pool"></a>
 
-Ensure that you have the following:
-+ Elastic IP address is allocated from the Amazon-owned public IPAM pool.
-+ Amazon EVS environment is already created.
+The AWS CLI commands in Steps 2 to 4 store values in the shell variables `SCOPE_ID`, `POOL_ID`, and `CIDR_BLOCK`. Run them in the same terminal session.
+
+To create the pool in the IPAM console or with the AWS CLI, choose the tab for the method that you use.
 
 **Example**  
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Open the [IPAM console](https://console.aws.amazon.com/ipam).
 
-1. On the navigation menu, choose **Environments**.
+1. In the navigation pane, choose **Pools**.
+
+1. Choose the public scope. For more information about scopes, see [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html).
+
+1. Choose **Create pool**.
+
+1. (Optional) Add a **Name** tag and a **Description** for the pool.
+
+1. Under **Address family**, choose **IPv4**.
+
+1. Under **Resource planning**, keep **Plan IP space within the scope** selected.
+
+1. Under **Locale**, choose the AWS Region of your VPC.
+
+1. Under **Service**, choose **EC2 (EIP/VPC)**. CIDR blocks from this pool are advertised for Elastic IP addresses.
+
+1. Under **Public IP source**, choose **Amazon-owned**.
+
+1. Under **CIDRs to provision**, choose **Add Amazon-owned public CIDR**, and choose a netmask length. The minimum is /28.
+
+1. Choose **Create pool**.
+
+1. Get the public scope ID of your IPAM.
+
+   ```bash
+   SCOPE_ID=$(aws ec2 describe-ipam-scopes \
+     --filters Name=ipam-scope-type,Values=public \
+     --query 'IpamScopes[0].IpamScopeId' \
+     --output text)
+   ```
+
+1. Create a pool in the public scope. Use the Region of your VPC for `--locale`.
+
+   ```bash
+   aws ec2 create-ipam-pool \
+     --ipam-scope-id $SCOPE_ID \
+     --address-family ipv4 \
+     --no-auto-import \
+     --locale {{region-code}} \
+     --description "Public IPv4 pool for HCX" \
+     --tag-specifications 'ResourceType=ipam-pool,Tags=[{Key=Name,Value=evs-hcx-public-pool}]' \
+     --public-ip-source amazon \
+     --aws-service ec2
+   ```
+
+1. Store the pool ID.
+
+   ```bash
+   POOL_ID=$(aws ec2 describe-ipam-pools \
+     --filters Name=tag:Name,Values=evs-hcx-public-pool \
+     --query 'IpamPools[0].IpamPoolId' \
+     --output text)
+   ```
+
+1. Provision a CIDR block from the pool. The minimum netmask length is /28.
+
+   ```bash
+   aws ec2 provision-ipam-pool-cidr \
+     --ipam-pool-id $POOL_ID \
+     --netmask-length 28
+   ```
+
+You have created a public IPv4 IPAM pool.
+
+### Step 3. Allocate Elastic IP addresses from the IPAM pool
+<a name="evs-env-hcx-internet-access-allocate-eip"></a>
+
+**Important**  
+Enter each address manually. If you let IPAM choose the address, IPAM can allocate an address that Amazon EVS reserves, and the association with the VLAN subnet then fails. Don’t allocate the first two addresses or the last address of the CIDR block.
+
+To allocate the addresses in the Amazon VPC console or with the AWS CLI, choose the tab for the method that you use.
+
+**Example**  
+
+1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc).
+
+1. In the navigation pane, choose **Elastic IPs**.
+
+1. Choose **Allocate Elastic IP address**.
+
+1. Select **Allocate using an IPv4 IPAM pool**, and select the Amazon-owned public IPv4 pool that you created.
+
+1. Under **Allocate IPAM method**, choose **Manually input address within the IPAM pool**.
+
+1. Enter the address to allocate, and choose **Allocate**.
+
+1. Repeat for each address that you need. You need at least two, plus one for each HCX network appliance.
+
+1. Allocate each address from the pool. Use the pool ID from [Step 2](#evs-env-hcx-internet-access-create-pool) (`POOL_ID`). Replace the example addresses with addresses from your CIDR block.
+
+   ```bash
+   aws ec2 allocate-address \
+     --domain vpc \
+     --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-hcx-manager-eip}]' \
+     --ipam-pool-id $POOL_ID \
+     --address xx.xx.xxx.3
+   
+   aws ec2 allocate-address \
+     --domain vpc \
+     --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-hcx-ix-eip}]' \
+     --ipam-pool-id $POOL_ID \
+     --address xx.xx.xxx.4
+   
+   aws ec2 allocate-address \
+     --domain vpc \
+     --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-hcx-ne-eip}]' \
+     --ipam-pool-id $POOL_ID \
+     --address xx.xx.xxx.5
+   ```
+
+You have allocated the Elastic IP addresses.
+
+### Step 4. Add the public CIDR block to the VPC
+<a name="evs-env-hcx-internet-access-add-cidr"></a>
+
+Amazon EVS uses this CIDR block to connect VMware HCX to your network.
+
+**Important**  
+You must enter the CIDR block manually. Amazon EVS doesn’t support an IPAM-allocated CIDR block for the VPC, and one can cause the Elastic IP address association to fail.
+
+To add the CIDR block in the Amazon VPC console or with the AWS CLI, choose the tab for the method that you use.
+
+**Example**  
+
+1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc).
+
+1. In the navigation pane, choose **Your VPCs**.
+
+1. Select your VPC, and choose **Actions**, **Edit CIDRs**.
+
+1. Choose **Add new IPv4 CIDR**.
+
+1. Select **IPv4 CIDR manual input**.
+
+1. Enter the CIDR block from the public IPAM pool.
+
+1. Get the CIDR block that you provisioned in the pool. Use the pool ID from [Step 2](#evs-env-hcx-internet-access-create-pool) (`POOL_ID`).
+
+   ```bash
+   CIDR_BLOCK=$(aws ec2 get-ipam-pool-cidrs \
+     --ipam-pool-id $POOL_ID \
+     --query 'IpamPoolCidrs[0].Cidr' \
+     --output text)
+   ```
+
+1. Add the CIDR block to your VPC. Replace `<vpc-id>` with the ID of your VPC.
+
+   ```bash
+   aws ec2 associate-vpc-cidr-block \
+     --vpc-id <vpc-id> \
+     --cidr-block $CIDR_BLOCK
+   ```
+
+You have added the public CIDR block to your VPC.
+
+### Step 5. Create the environment
+<a name="evs-env-hcx-internet-access-create-env"></a>
+
+When you create the environment, use the public CIDR block for the HCX uplink VLAN subnet. For Self-deployed environments, see [Step 1: Create the environment](self-deployed-create-env.md). For EVS-deployed environments, see [Create an environment](getting-started-create-env.md).
+
+## Part 2. After you create the environment
+<a name="getting-started-eip-assoc"></a>
+
+After you create the environment, associate the Elastic IP addresses with the public HCX VLAN subnet.
+
+### Associate Elastic IP addresses with the HCX VLAN subnet
+<a name="evs-env-hcx-internet-access-associate-eip"></a>
+
+Associate one Elastic IP address from the IPAM pool for each HCX appliance. HCX internet connectivity fails if fewer than two Elastic IP addresses from the IPAM pool are associated with the public HCX VLAN subnet.
+
+To associate the addresses in the Amazon EVS console or with the AWS CLI, choose the tab for the method that you use.
+
+**Example**  
+
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
+
+1. In the navigation pane, choose **Environments**.
 
 1. Select the environment.
 
-1. Under the **Networks and connectivity** tab, select the HCX public VLAN.
-**Note**  
-Amazon EVS only supports associating EIPs with the HCX VLAN at this time.
+1. On the **Networks and connectivity** tab, select the HCX public VLAN.
 
 1. Choose **Associate EIP to VLAN**.
 
-1. Select the Elastic IP address(es) to associate with the HCX public VLAN.
+1. Select the Elastic IP addresses to associate.
 
-1. Choose **Associate EIPs**. You can have up 13 EIPs associated with the HCX public VLAN.
-**Note**  
-You cannot associate the first two EIPs from the public IPAM CIDR block to the VLAN subnet. These EIPs are reserved as network and default gateway addresses.
+1. Choose **Associate EIPs**.
 
-1. Check the **EIP associations** to confirm that the EIPs have been associated with the HCX public VLAN.
+1. On the **EIP associations** tab, check that the addresses are listed.
 
-1. To associate an Elastic IP address with a VLAN, use the example `associate-eip-to-vlan` command.
-   +  `environment-id` - The ID of your Amazon EVS environment.
-   +  `vlan-name` - Must be `hcx`. Amazon EVS only supports EIP association with the HCX VLAN at this time.
-   +  `allocation-id` - The allocation ID of the Elastic IP address.
+1. Run the `associate-eip-to-vlan` command with these values:  
+ `environment-id`   
+The ID of your environment.  
+ `vlan-name`   
+Must be `hcx`.  
+ `allocation-id`   
+The allocation ID of the Elastic IP address.  
 
-     ```
-     aws evs associate-eip-to-vlan \
-       --environment-id "env-605uove256" \
-       --vlan-name "hcx" \
-       --allocation-id "eipalloc-0429268f30c4a34f7"
-     ```
+   ```bash
+   aws evs associate-eip-to-vlan \
+     --environment-id <environment-id> \
+     --vlan-name "hcx" \
+     --allocation-id "eipalloc-0429268f30c4a34f7"
+   ```
+The command returns the VLAN with the new association in the `eipAssociations` array:  
 
-     The command returns details about the VLAN, including the new EIP association:
+   ```json
+   {
+       "vlan": {
+           "vlanId": 80,
+           "cidr": "203.0.113.0/28",
+           "functionName": "hcx",
+           "vlanState": "CREATED",
+           "eipAssociations": [
+               {
+                   "associationId": "eipassoc-09e966faad7ecc58a",
+                   "allocationId": "eipalloc-0429268f30c4a34f7",
+                   "ipAddress": "203.0.113.2"
+               }
+           ],
+           "isPublic": true
+       }
+   }
+   ```
+Note the `associationId`. You need it to disassociate the address.
 
-     ```
-     {
-         "vlan": {
-             "vlanId": 80,
-             "cidr": "18.97.137.0/28",
-             "availabilityZone": "us-east-2c",
-             "functionName": "hcx",
-             "subnetId": "subnet-02f9a4ee9e1208cfc",
-             "createdAt": "2025-08-22T23:42:16.200000+00:00",
-             "modifiedAt": "2025-08-23T13:42:28.155000+00:00",
-             "vlanState": "CREATED",
-             "stateDetails": "VLAN successfully created",
-             "eipAssociations": [
-                 {
-                     "associationId": "eipassoc-09e966faad7ecc58a",
-                     "allocationId": "eipalloc-0429268f30c4a34f7",
-                     "ipAddress": "18.97.137.2"
-                 }
-             ],
-             "isPublic": true,
-             "networkAclId": "acl-02fa8ab4ad3ddfb00"
-         }
-     }
-     ```
+1. Repeat the command for each Elastic IP address.
 
-     The `eipAssociations` array shows the new association, including:
-   +  `associationId` - The unique ID for this EIP association, used for disassociation.
-   +  `allocationId` - The allocation ID of the associated Elastic IP address.
-   +  `ipAddress` - The IP address assigned to the VLAN.
+You have associated the Elastic IP addresses with the public HCX VLAN subnet. Next, check the environment before you connect HCX. See [Prepare for HCX migration](hcx-prepare.md).
 
-1. Repeat the step to associate additional EIPs. You can have up 13 EIPs associated with the HCX public VLAN.
-
-### Disassociate an Elastic IP address from a VLAN
+## Disassociate an Elastic IP address
 <a name="evs-env-hcx-internet-access-disassociate-eip"></a>
 
-#### Prerequisites
-<a name="evs-env-hcx-internet-access-disassociate-prerequisites"></a>
+You can disassociate Elastic IP addresses from the public HCX VLAN subnet after deployment.
 
-Ensure that you have the following:
-+ Amazon EVS environment is already created.
-+ EIP is associated with the Amazon EVS environment.
+**Important**  
+Disassociating an Elastic IP address can cause a loss of internet connectivity for the HCX appliances that use the public HCX VLAN subnet.
+
+To disassociate an address in the Amazon EVS console or with the AWS CLI, choose the tab for the method that you use.
 
 **Example**  
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
 
-1. On the navigation menu, choose **Environments**.
+1. In the navigation pane, choose **Environments**.
 
 1. Select the environment.
 
-1. Under the **Networks and connectivity** tab, select the HCX public VLAN.
+1. On the **Networks and connectivity** tab, select the HCX public VLAN.
 
 1. Choose **Disassociate EIP from VLAN**.
 
-1. Select the Elastic IP address(es) to disassociate from the HCX public VLAN.
-**Important**  
-Disassociating EIPs may cause a loss of internet connectivity for appliances that use public VLAN subnets.
+1. Select the Elastic IP addresses to disassociate.
 
 1. Choose **Disassociate EIPs**.
 
-1. Check the **EIP associations** to confirm that the EIPs have been disassociated from the HCX public VLAN.
-To disassociate an Elastic IP address from a VLAN, use the example `disassociate-eip-from-vlan` command.  
-+  `environment-id` - The ID of your Amazon EVS environment.
-+  `vlan-name` - Must be `hcx`. Amazon EVS only supports EIP association with the HCX VLAN at this time.
-+  `association-id` - The association ID of the EIP association to remove.
-**Important**  
-Disassociating EIPs may cause a loss of internet connectivity for appliances that use public VLAN subnets.
+1. On the **EIP associations** tab, check that the addresses are no longer listed.
 
-  ```
-  aws evs disassociate-eip-from-vlan \
-    --environment-id "env-605uove256" \
-    --vlan-name "hcx" \
-    --association-id "eipassoc-09e966faad7ecc58a"
-  ```
+1. Run the `disassociate-eip-from-vlan` command with these values:  
+ `environment-id`   
+The ID of your environment.  
+ `vlan-name`   
+Must be `hcx`.  
+ `association-id`   
+The ID of the association to remove.  
 
-  The command returns details about the VLAN with the EIP association removed:
+   ```bash
+   aws evs disassociate-eip-from-vlan \
+     --environment-id <environment-id> \
+     --vlan-name "hcx" \
+     --association-id "eipassoc-09e966faad7ecc58a"
+   ```
 
-  ```
-  {
-      "vlan": {
-          "vlanId": 80,
-          "cidr": "18.97.137.0/28",
-          "availabilityZone": "us-east-2c",
-          "functionName": "hcx",
-          "subnetId": "subnet-02f9a4ee9e1208cfc",
-          "createdAt": "2025-08-22T23:42:16.200000+00:00",
-          "modifiedAt": "2025-08-23T13:48:49.846000+00:00",
-          "vlanState": "CREATED",
-          "stateDetails": "VLAN successfully created",
-          "eipAssociations": [],
-          "isPublic": true,
-          "networkAclId": "acl-02fa8ab4ad3ddfb00"
-      }
-  }
-  ```
+1. In the output, check that the association is no longer in the `eipAssociations` array.
 
-  The empty `eipAssociations` array confirms that the Elastic IP address has been successfully disassociated from the VLAN.
+You have disassociated the Elastic IP addresses from the public HCX VLAN subnet.
 
-## About HCX WAN Optimization for internet-based migrations
-<a name="evs-env-hcx-internet-access-wan-optimization"></a>
-
-**Note**  
-The WAN optimization feature is no longer available in HCX 4.11.3. For more information, see the [HCX 4.11.3 Release Notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-4113-release-notes.html).
-
-When performing migrations over the internet, HCX WAN Optimization (HCX-WO) can improve migration performance. The service works in conjunction with the HCX Interconnect appliance (HCX-IX) to:
-+ Apply data reduction techniques to minimize bandwidth usage.
-+ Implement WAN path conditioning to optimize network performance.
-+ Improve migration speeds over high-latency internet connections.
-+ Enhance the reliability of internet-based migrations.
-
-HCX WAN Optimization is particularly useful for internet-based migrations where:
-+ Network latency may be higher than private connectivity options.
-+ Available bandwidth may be limited or variable.
-+ Network conditions may fluctuate due to internet traffic patterns.
-
-For detailed instructions on setting up HCX WAN Optimization after configuring internet connectivity, see [(Optional) Set up HCX WAN Optimization](migrate-evs-hcx.md#hcx-wan-optimization).
-
-**Note**  
-While WAN Optimization can significantly improve internet-based migration performance, it may not provide additional benefits in environments with dedicated 10Gbit, low-latency connections. Consider your network characteristics when deciding whether to enable this feature.
+To release the Elastic IP addresses and delete the IPAM resources when you no longer need them, see [Clean up network resources](cleanup.md).

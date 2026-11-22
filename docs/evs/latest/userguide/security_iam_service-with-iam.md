@@ -1,9 +1,8 @@
 
 
 # How Amazon EVS works with IAM
-<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to Amazon EVS, learn what IAM features are available to use with Amazon EVS.
+Before you use IAM to manage access to Amazon Elastic VMware Service, learn what IAM features are available to use with Amazon EVS. The following table lists each IAM feature in the first column and whether Amazon EVS supports it in the second column.
 
 
 |  IAM feature | Amazon EVS support | 
@@ -43,39 +42,42 @@ To view examples of Amazon EVS identity-based policies, see [Amazon EVS identity
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.
 
-To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. Adding a cross-account principal to a resource-based policy is only half of establishing the trust relationship. When the principal and the resource are in different AWS accounts, an IAM administrator in the trusted account must also grant the principal entity (user or role) permission to access the resource. They grant permission by attaching an identity-based policy to the entity. However, if a resource-based policy grants access to a principal in the same account, no additional identity-based policy is required. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the IAM User Guide.
+To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. Adding a cross-account principal to a resource-based policy is only half of establishing the trust relationship. When the principal and the resource are in different AWS accounts, an IAM administrator in the trusted account must also grant the principal entity (user or role) permission to access the resource. They grant permission by attaching an identity-based policy to the entity. However, if a resource-based policy grants access to a principal in the same account, no additional identity-based policy is required. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 ### Policy actions for Amazon EVS
 <a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
- **Supports actions** Yes
+ **Supports policy actions:** Yes
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-The `Action` element of an IAM identity-based policy describes the specific action or actions that will be allowed or denied by the policy. Policy actions usually have the same name as the associated AWS API operation. The action is used in a policy to grant permissions to perform the associated operation.
+The `Action` element of an IAM identity-based policy describes the specific action or actions that the policy allows or denies. Policy actions usually have the same name as the associated AWS API operation. The action is used in a policy to grant permissions to perform the associated operation.
 
 Policy actions in Amazon EVS use the following prefix before the action: `evs:`. For example, to grant someone permission to create an environment with the Amazon EVS `CreateEnvironment` API operation, you include the `evs:CreateEnvironment` action in their policy. Policy statements must include either an `Action` or `NotAction` element. Amazon EVS defines its own set of actions that describe tasks that you can perform with this service.
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": [
       "evs:action1",
       "evs:action2"
+]
 ```
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "evs:List*"
 ```
 
-To see a list of Amazon EVS actions, see [Actions Defined by Amazon EVS](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticvmwareservice.html#amazonelasticvmwareservice-actions-as-permissions) in the *Service Authorization Reference*.
+To see a list of Amazon EVS actions, see [Actions defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-actions-as-permissions) in the *Service Authorization Reference*.
 
 ### Policy resources for Amazon EVS
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
  **Supports policy resources:** Partial
+
+Some Amazon EVS actions, such as list operations, don’t support resource-level permissions.
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
@@ -83,38 +85,40 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 For actions that don’t support resource-level permissions, such as listing operations, use a wildcard (\*) to indicate that the statement applies to all resources.
 
-```
+```json
 "Resource": "*"
 ```
 
-To see a list of Amazon EVS resource types and their ARNs, see [Resources defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticvmwareservice.html#amazonelasticvmwareservice-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticvwareservice.html#amazonelasticvmwareservice-actions-as-permissions).
+To see a list of Amazon EVS resource types and their ARNs, see [Resources defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-actions-as-permissions).
 
 Some Amazon EVS API actions support multiple resources. For example, multiple environments can be referenced when calling the `ListEnvironments` API action. To specify multiple resources in a single statement, separate the ARNs with commas.
 
-```
+```json
 "Resource": [
-      "EXAMPLE-RESOURCE-1",
-      "EXAMPLE-RESOURCE-2"
+      "arn:aws:evs:region-code:111122223333:environment/my-environment-1",
+      "arn:aws:evs:region-code:111122223333:environment/my-environment-2"
+]
 ```
 
 For example, the Amazon EVS environment resource has the following ARN:
 
-```
+```text
 arn:${Partition}:evs:${Region}:${Account}:environment/${EnvironmentId}
 ```
 
-To specify the environments `my-environment-1` and `my-environment-2` in your statement, use the following example ARNs:
+To specify the environments `my-environment-1` and `my-environment-2` in your statement, use the following example ARNs. The examples use the `aws` partition. In other partitions, replace `aws` with the name of your partition.
 
-```
+```json
 "Resource": [
-         "arn:aws:evs:us-east-1:123456789012:environment/my-environment-1",
-         "arn:aws:evs:us-east-1:123456789012:environment/my-environment-2"
+         "arn:aws:evs:region-code:111122223333:environment/my-environment-1",
+         "arn:aws:evs:region-code:111122223333:environment/my-environment-2"
+]
 ```
 
 To specify all environments that belong to a specific account, use the wildcard (\*):
 
-```
-"Resource": "arn:aws:evs:us-east-1:123456789012:environment/*"
+```json
+"Resource": "arn:aws:evs:region-code:111122223333:environment/*"
 ```
 
 ### Policy condition keys for Amazon EVS
@@ -134,7 +138,7 @@ Amazon EVS defines its own set of condition keys and also supports using some gl
 
 All Amazon EC2 actions support the `aws:RequestedRegion` and `ec2:Region` condition keys. For more information, see [Example: Restricting access to a specific region](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExamplePolicies_EC2.html#iam-example-region).
 
-To see a list of Amazon EVS condition keys, see [Condition Keys for Amazon EVS](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticvmwareservice.html#amazonelasticvmwareservice-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon EVS](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticvmwareservice.html#amazonelasticvmwareservice-actions-as-permissions).
+To see a list of Amazon EVS condition keys, see [Condition keys for Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-actions-as-permissions).
 
 ## Access control lists (ACLs) in Amazon EVS
 <a name="security_iam_service-with-iam-acls"></a>
@@ -152,7 +156,7 @@ Attribute-based access control (ABAC) is an authorization strategy that defines 
 
 ABAC is helpful in environments that are growing rapidly and helps with situations where policy management becomes cumbersome.
 
-You can attach tags to Amazon EVS resources or pass tags in a request to Amazon EVS. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/<key-name>`, `aws:RequestTag/<key-name>`, or `aws:TagKeys` condition keys. For more information about which actions that you can use tags in condition keys with, see [Actions defined by Amazon EVS](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonelasticvmwareservice.html#amazonelasticvmwareservice-actions-as-permissions) in the *Service Authorization Reference*.
+You can attach tags to Amazon EVS resources or pass tags in a request to Amazon EVS. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/<key-name>`, `aws:RequestTag/<key-name>`, or `aws:TagKeys` condition keys. For more information about which actions that you can use tags in condition keys with, see [Actions defined by Amazon Elastic VMware Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_evs.html#list_evs-actions-as-permissions) in the *Service Authorization Reference*.
 
 ## Using temporary credentials with Amazon EVS
 <a name="security_iam_service-with-iam-roles-tempcreds"></a>
@@ -170,7 +174,7 @@ You can manually create temporary credentials using the AWS CLI or AWS API. You 
 
  **Supports forward access sessions (FAS):** Yes
 
-When you use an IAM user or role to perform actions in AWS, you are considered a principal. When you use some services, you might perform an action that then initiates another action in a different service. FAS uses the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. FAS requests are only made when a service receives a request that requires interactions with other AWS services or resources to complete. In this case, you must have permissions to perform both actions. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html).
+When you use an IAM user or role to perform actions in AWS, you are considered a principal. When you use some services, you might perform an action that then initiates another action in a different service. FAS uses the permissions of the principal calling an AWS service, combined with the requesting AWS service, to make requests to downstream services. FAS requests are only made when a service receives a request that requires interactions with other AWS services or resources to complete. In this case, you must have permissions to perform both actions. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html).
 
 ## Service roles for Amazon EVS
 <a name="security_iam_service-with-iam-roles-service"></a>

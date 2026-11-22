@@ -1,74 +1,74 @@
 
 
-# Update an Amazon EVS environment connector
-<a name="evs-env-update-connector"></a>
+# Update a connector
 
-You can update an existing connector to change the appliance fully qualified domain name (FQDN) or point to a different Secrets Manager secret for authentication. For example, you may need to update the FQDN if the appliance endpoint changes, or switch to a different secret. You can also update the values of the existing Secrets Manager secret directly when rotating vCenter credentials, so that no connector update is required.
+Update a connector to change the appliance fully qualified domain name (FQDN) or to point the connector to a different AWS Secrets Manager secret. For example, you update the FQDN when the appliance endpoint changes. You can update a connector of any type with the Amazon Elastic VMware Service console or the AWS CLI.
 
-More info on connectors can be found under [Concepts and components of Amazon EVS](concepts.md#concepts-connector).
+If you only changed the credentials in the existing secret, you don’t need to update the connector, because the connector already points to that secret. For credential rotation, see [Rotate vCenter connector credentials](rotate-vcenter-credentials.md).
 
-**Note**  
-Only one property of a connector can be updated at a time.
+## Update rules
+<a name="evs-env-update-connector-rules"></a>
 
-**Note**  
-The connector must be in an `ACTIVE` or `UPDATE_FAILED` state to be updated. If the connector is in a `CREATING` or `UPDATING` state, wait for it to reach the `ACTIVE` state before you attempt the update.
+The following rules apply when you update a connector.
++ You can update only one property of a connector at a time.
++ The connector must be in the `ACTIVE` or `UPDATE_FAILED` state. If the connector is in the `CREATING` or `UPDATING` state, wait for it to reach the `ACTIVE` state before you update it.
++ A new FQDN must be valid and must match the domain name that you used when you created the Amazon EVS environment. It must also be unique across all connectors in the environment.
++ A new secret must contain the keys for the connector type and carry the `EvsAccess=true` tag. For the keys, see [Connector types and secret keys](evs-env-create-connector.md#evs-env-create-connector-types).
 
-**Note**  
-If updating the FQDN, the new FQDN must be valid, match the domain name used when creating your EVS environment, and be unique across all connectors in the environment.
+## Update the connector
+<a name="evs-env-update-connector-procedure"></a>
 
- **To update an Amazon EVS environment connector** 
-
-Follow these steps to update an Amazon EVS connector.
+To update the connector in the Amazon EVS console or with the AWS CLI, use the following steps.
 
 **Example**  
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
 
 1. In the navigation pane, choose **Environments**.
 
-1. Select the environment containing the connector.
+1. Select the environment that contains the connector.
 
-1. Select the **Connectors** tab.
+1. Choose the **Connectors** tab.
 
-1. Select the connector you want to update.
+1. Select the connector that you want to update.
 
-1. Choose **Actions**, and then in the dropdown, select **Update Secret** or **Update FQDN**.
+1. Choose **Actions**, and then choose **Update Secret** or **Update FQDN**.
 
-1. For **Update Secret**:
+1. Do one of the following:
 
-   1. In the secret dropdown, select the secret with the appliance credentials and choose **Update**.
+   1. For **Update Secret**, select the secret with the appliance credentials, and choose **Update**.
 
-1. For **Update FQDN**:
+   1. For **Update FQDN**, enter the new FQDN, and choose **Update**.
 
-   1. Enter the new FQDN and choose **Update**.
+1. To verify, check that the connector state has returned to **Active** from **Updating**.
 
-1. To verify completion, check that the **connector state** has returned to Active from Updating.
+1. Run the `update-environment-connector` command with either `--secret-identifier` or `--appliance-fqdn`.
 
-1. Open a new terminal session.
-
-1. Update the connector secret or FQDN. See example commands below for reference.
+   The example ARN uses the `aws` partition. In other partitions, replace `aws` with your partition. Replace `<region-code>` with the Region where you created the environment.
 
    To update the secret:
 
-   ```
+   ```bash
    aws evs update-environment-connector \
        --environment-id env-abcde12345 \
-       --connector-id cnctr-szgj87q6gi \
-       --secret-identifier arn:aws:secretsmanager:us-east-2:123456789012:secret:vcenter-creds-AbCdEf
+       --connector-id cnctr-abcde12345 \
+       --secret-identifier arn:aws:secretsmanager:<region-code>:111122223333:secret:vcenter-creds-AbCdEf
    ```
 
    To update the FQDN:
 
-   ```
+   ```bash
    aws evs update-environment-connector \
        --environment-id env-abcde12345 \
-       --connector-id cnctr-szgj87q6gi \
-       --appliance-fqdn vcf.evs.dev
+       --connector-id cnctr-abcde12345 \
+       --appliance-fqdn vcenter.example.com
    ```
 
-1. To verify completion, use the **list-environment-connectors** command and check that the connector state is Active.
+1. To verify, run the `list-environment-connectors` command, and check that the connector state is `ACTIVE`.
 
-   ```
+   ```bash
    aws evs list-environment-connectors \
        --environment-id env-abcde12345
    ```
+
+You have updated the connector when its state is `ACTIVE` again. After the update, check that the reachability check result is `PASSED`. If the update fails or the reachability check stays `FAILED`, see [Troubleshoot environment status checks](troubleshoot-status-checks.md).

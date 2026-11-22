@@ -1,52 +1,44 @@
 
 
-# Rotating vCenter connector credentials
-<a name="rotate-vcenter-credentials"></a>
+# Rotate vCenter connector credentials
 
-When you create a vCenter connector, Amazon EVS authenticates with your vCenter Server by using the vCenter user credentials that you store in an AWS Secrets Manager secret. If you rotate the credentials for that vCenter user in VCF, you must make the new credentials available to the connector so that it can continue to authenticate with the appliance.
+A vCenter connector authenticates with vCenter Server by using the vCenter user credentials that you store in an AWS Secrets Manager secret. When you rotate the password of that vCenter user in VMware Cloud Foundation (VCF), you must give the connector the new credentials so that it can keep authenticating.
 
-You have two options to provide the rotated credentials:
-+ Update the values in the existing Secrets Manager secret with the new credentials. Because the connector already points to this secret, no connector update is required.
-+ Update the connector to point to a different Secrets Manager secret that contains the new credentials.
+**Important**  
+If the connector can’t authenticate, its reachability check fails and your Windows Server entitlements enter the `AT_RISK` status. If you don’t restore reachability within 8 hours, Amazon Elastic VMware Service removes the entitlements. To avoid this, give the connector the new credentials as soon as you change the password in vCenter Server.
 
-Note the following constraints:
-+ Only one property of a connector can be updated at a time.
-+ The connector must be in an Active or Update Failed state to be updated. If the connector is in a Creating or Updating state, wait until it reaches an Active or Update Failed state before you attempt the update.
+You have two options:
++  **Update the existing secret.** Put the new credentials in the secret that the connector already uses. You don’t need to update the connector.
++  **Use a different secret.** Store the new credentials in another secret, and then update the connector to point to it.
 
-If you chose to store the rotated credentials in a different secret, follow these steps to update the connector to point to that secret.
+## Update the existing secret
+<a name="rotate-vcenter-credentials-same-secret"></a>
 
-**Example**  
+ **In the vSphere Client** 
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Change the password of the vCenter user that the connector uses.
 
-1. In the navigation pane, choose **Environments**.
+ **In the AWS console** 
 
-1. Select the environment containing the connector.
+1. In Secrets Manager, update the value of the secret that the connector uses. Keep the keys `username` and `password`, and enter the new password. For the steps, see [Modify an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-secret.html) in the * AWS Secrets Manager User Guide*.
 
-1. Select the **Connectors** tab.
+1. Wait up to 10 minutes for the next reachability check.
 
-1. Select the connector you want to update.
+1. In the Amazon EVS console, on the **Connectors** tab of your environment, check that the reachability check result is **Passed**. You can also run `aws evs list-environment-connectors --environment-id env-abcde12345`.
 
-1. Choose **Actions**, and then in the dropdown, select **Update Secret**.
+You have rotated the credentials when the reachability check result is `PASSED`.
 
-1. In the secret dropdown, select the secret with the appliance credentials and choose **Update**.
+## Use a different secret
+<a name="rotate-vcenter-credentials-new-secret"></a>
 
-1. To verify completion, check that the **connector state** has returned to Active from Updating.
+1. Change the password of the vCenter user in the vSphere Client.
 
-1. Open a new terminal session.
+1. Create a secret with the keys `username` and `password` that contain the new credentials. Add the tag `EvsAccess=true` to the secret, and to the AWS KMS key if you encrypted the secret with your own key.
 
-1. Update the connector secret. See example command below for reference.
+1. Update the connector to use the new secret. For the console and AWS CLI steps, see [Update a connector](evs-env-update-connector.md).
 
-   ```
-   aws evs update-environment-connector \
-       --environment-id env-abcde12345 \
-       --connector-id cnctr-szgj87q6gi \
-       --secret-identifier arn:aws:secretsmanager:us-east-2:123456789012:secret:vcenter-creds-AbCdEf
-   ```
+1. Check that the connector state is `ACTIVE` and the reachability check result is `PASSED`.
 
-1. To verify completion, use the **list-environment-connectors** command and check that the connector state is Active.
+If the reachability check stays `FAILED`, see [Troubleshoot Windows Server entitlements](troubleshoot-entitlements.md).
 
-   ```
-   aws evs list-environment-connectors \
-       --environment-id env-abcde12345
-   ```
+To rotate the secrets that Amazon EVS creates, see [Manage secrets](evs-env-secret-rotation.md).

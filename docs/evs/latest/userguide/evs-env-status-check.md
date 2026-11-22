@@ -1,17 +1,46 @@
 
 
-# Monitor your environment's status and resources
-<a name="evs-env-status-check"></a>
+# Monitor environment status
 
-You can monitor various aspects of your Amazon EVS environment and underlying AWS resources using the Amazon EVS console or AWS CLI.
+You can monitor the status of your Amazon Elastic VMware Service environment and its underlying AWS resources with the Amazon EVS console or the AWS CLI. The environment status tells you whether the environment has issues that need your attention. Which status checks Amazon EVS runs depends on the deployment mode and on the connectors that you create.
 
 **Note**  
-VMware Cloud Foundation (VCF) components are monitored in SDDC Manager. You cannot monitor VCF components using the Amazon EVS console or AWS CLI. For information about using SDDC Manager to monitor VMware Cloud Foundation (VCF) components, see [Getting started with SDDC Manager](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/getting-started-with-sddc-manager-admin.html).
+You monitor VMware Cloud Foundation (VCF) components with VCF tools, not with the Amazon EVS console or AWS CLI.
+
+In EVS-deployed environments (VCF 5.2.x), you use SDDC Manager. For more information, see [Getting started with SDDC Manager](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/getting-started-with-sddc-manager-admin.html) in the Broadcom documentation. For how AWS monitoring compares with VCF Operations, see [Monitor hosts and VCF](monitor-observability.md).
+
+## Environment status checks
+<a name="evs-env-status-checks-ref"></a>
+
+The environment status is one of `PASSED`, `FAILED`, or `UNKNOWN`. Each check also reports `PASSED`, `FAILED`, or `UNKNOWN`, and a failed check shows when the impairment began.
+
+The following table lists the checks. The columns show the check type and what it verifies. Connector checks apply only after you create a connector of that type.
+
+
+| Check type | What it verifies | 
+| --- | --- | 
+|  `KEY_REUSE`  | The VCF license key is not used by another Amazon EVS environment. | 
+|  `KEY_COVERAGE`  | The VCF license key allocates enough vCPU cores for all deployed hosts. | 
+|  `REACHABILITY`  | The Amazon EVS control plane has a persistent connection to SDDC Manager. | 
+|  `HOST_COUNT`  | The environment meets the minimum host count. | 
+|  `SDDC_MANAGER_REACHABILITY`  | Amazon EVS reaches SDDC Manager through the SDDC Manager connector. | 
+|  `SDDC_MANAGER_HOST_COUNT`  | The host count that SDDC Manager reports meets the Amazon EVS minimum. | 
+|  `SDDC_MANAGER_KEY_COVERAGE`  | The VCF license key in SDDC Manager covers all deployed hosts. | 
+|  `SDDC_MANAGER_KEY_REUSE`  | The VCF license key in SDDC Manager is not used by another Amazon EVS environment. | 
+|  `OPERATIONS_MANAGER_REACHABILITY`  | Amazon EVS reaches VCF Operations through the Operations Manager connector. | 
+|  `VCENTER_REACHABILITY`  | Amazon EVS reaches vCenter Server through the vCenter connector. | 
+|  `VCENTER_VM_SYNC`  | The vCenter connector can synchronize the VM inventory from vCenter Server. | 
+|  `VCENTER_VM_EVENT`  | The vCenter connector can receive VM lifecycle events from vCenter Server. | 
+|  `CONNECTOR_HEALTH`  | The combined health of all connectors in the environment. | 
+
+The SDDC Manager connector applies to VCF 5.2.x, and the Operations Manager connector applies to VCF 9.0 and 9.1. For the connector types, see [Manage connectors and credentials](connectors-overview.md). For the definitions of the check types, see [Check](https://docs.aws.amazon.com/evs/latest/APIReference/API_Check.html) in the *Amazon Elastic VMware Service API Reference*.
+
+In a Self-deployed environment that has no connector, the environment status can show `UNKNOWN` with no check results. After you create a connector and its state is `ACTIVE`, its reachability check changes from `UNKNOWN` to `PASSED` or `FAILED` within 10 minutes. For more information, see [Step 6: Create connectors](self-deployed-create-connectors.md).
 
 ## View environment status and resources
 <a name="evs-env-view-status"></a>
 
-The environment status helps you determine if your environment is experiencing issues that require attention. Follow this procedure to check your environment’s status and view underlying resources.
+To check your environment status and view the underlying resources in the Amazon EVS console or with the AWS CLI, use the following steps.
 
 **Example**  
 
@@ -23,45 +52,52 @@ The environment status helps you determine if your environment is experiencing i
 
 1. Under **Details**, view the **Environment status**.
 
-   If your environment is healthy, the status shows as **Passed**. If there are issues, the status shows as **Failed**. When the status is **Failed**, you can view a popover that shows the results of four environment status checks:
-   +  **Key re-use** - Shows **Passed** or **Failed** to indicate if the VCF license key is valid.
-   +  **Host count** - Shows **Unknown**, **Passed**, or **Failed** to indicate the status of host connectivity.
-   +  **Key coverage** - Shows **Passed** or **Failed** to indicate if the VCF license key covers all hosts.
-   +  **Reachability** - Shows **Passed** or **Failed** to indicate reachability to SDDC Manager.
+   If your environment is healthy, the status shows as **Passed**. If there are issues, the status shows as **Failed**. When the status is **Failed**, open the popover to see the result of each check.
 
-     For information about troubleshooting environment status check failures, see [Troubleshooting](troubleshooting.md).
+1. To view the resources in your environment, choose one of the following tabs.
+   +  **Hosts** shows the hosts in your environment.
+   +  **Networks & connectivity** shows the VPC, Amazon EVS VLAN subnets, and VPC Route Server resources of your environment.
+   +  **Management appliances** shows the VCF management appliances in your environment with their DNS host names and related credentials.
+   +  **Connectors** shows the connectors of your environment, their state, and their reachability check result.
+   +  **Tags** shows the tags of your environment.
 
-      **To view the resources in your environment** 
+1. To list all environments with their state and status, run the following command.
 
-     Choose one of the following tabs:
-   +  **Hosts** - Shows the hosts in your environment.
-   +  **Networks & connectivity** - Shows the VPC, EVS subnets, and VPC Route Server resources associated with your environment.
-   +  **Management appliances** - Shows the VCF management appliances in your environment with their DNS hostnames and related credentials.
-   +  **Tags** - Shows the tags associated with your environment.
-You can use the AWS CLI to check your environment status and resources.  
- **To list all environments and their status**   
+   ```bash
+   aws evs list-environments \
+       --query 'environmentSummaries[*].[environmentId,environmentState,environmentStatus]' \
+       --output table
+   ```
 
-```
-aws evs list-environments
-```
-Use the `--query` parameter to filter the output. For example:
+1. To view the status and check results of one environment, run the following command.
 
-```
-aws evs list-environments --query 'Environments[*].[EnvironmentId,Status]'
-```
- **To list environment hosts**   
+   ```bash
+   aws evs get-environment \
+       --environment-id env-abcde12345 \
+       --query 'environment.[environmentStatus,checks]'
+   ```
 
-```
-aws evs list-environment-hosts \
-    --environment-id environment-id
-```
- **To list environment VLANs**   
+1. To list the hosts of the environment, run the following command.
 
-```
-aws evs list-environment-vlans \
-    --environment-id environment-id
-```
-For more information about the API operations, see the following in the *Amazon EVS API Reference Guide*:  
-+  [ListEnvironments](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironments.html) 
-+  [ListEnvironmentHosts](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentHosts.html) 
-+  [ListEnvironmentVlans](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentVlans.html) 
+   ```bash
+   aws evs list-environment-hosts \
+       --environment-id env-abcde12345
+   ```
+
+1. To list the VLANs of the environment, run the following command.
+
+   ```bash
+   aws evs list-environment-vlans \
+       --environment-id env-abcde12345
+   ```
+
+1. To list the connectors of the environment with their state and reachability check result, run the following command.
+
+   ```bash
+   aws evs list-environment-connectors \
+       --environment-id env-abcde12345
+   ```
+
+For more information about the API operations, see [ListEnvironments](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironments.html), [GetEnvironment](https://docs.aws.amazon.com/evs/latest/APIReference/API_GetEnvironment.html), [ListEnvironmentHosts](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentHosts.html), and [ListEnvironmentVlans](https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentVlans.html) in the *Amazon Elastic VMware Service API Reference*.
+
+You have viewed the status, the check results, and the resources of your environment. If a check fails, see [Troubleshoot environment status checks](troubleshoot-status-checks.md). To get notified when Amazon EVS reports impaired environment health, see [Get notified about host events](monitor-notifications.md).

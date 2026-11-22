@@ -1,171 +1,202 @@
 
 
-# Amazon EVS deployment prerequisite checklist
-<a name="evs-deployment-prereq-checklist"></a>
+# Deployment prerequisite checklist
 
-This section contains a list of prerequisites that must be completed to enable successful Amazon EVS environment deployment.
+Use the following tables to collect the values that you need to deploy an Amazon Elastic VMware Service environment that runs VMware Cloud Foundation (VCF). The checklist has one table for each topic. Your environment deployment fails if a required value is missing or does not meet its requirement.
 
-**Note**  
-We recommend that you create an Amazon EC2 Capacity Reservation to ensure that capacity is available when you add hosts. For more information, see [Create an Amazon EC2 Capacity Reservation](setting-up.md#ec2-future-capacity-reservation).
+## How to use this checklist
+<a name="evs-prereq-how-to-use"></a>
 
-You need to bring your own VCF licenses to run VCF on Amazon EVS, regardless of how you deploy it. Whether you provide license keys at environment creation depends on your deployment mode — see [VCF subscriptions](vcf-license-mgmt.md) for details.
+Use the checklist as follows.
++ Fill in one copy of the checklist for each environment. Write your values in the **Your value** column.
++ Check the **Mode** column. `Both` rows apply to Self-deployed and EVS-deployed environments. Rows marked `Self-deployed` or `EVS-deployed` apply only to that mode. For the differences between the modes, see [Differences between deployment modes](deployment-mode-differences.md).
++ Complete the tables in order. In an EVS-deployed environment, you need every value before you create the environment. In a Self-deployed environment, you need some values later, and the table says when.
++ Decide the network values carefully. You can’t change the VPC CIDR block, add VLAN subnets, or change the VLAN subnet CIDR blocks after you create the environment. For sizing, see [Plan your VPC and VLAN subnets](plan-network-sizing.md).
++ Use the example values only as a pattern. The examples use one consistent address plan, with the VPC CIDR block `10.1.0.0/20`.
 
+## Account, Region, and capacity
+<a name="evs-prereq-account"></a>
 
-**VCF license key information**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| Site ID | Site ID provided by Broadcom for access to the Broadcom support portal. | Must provide a Site ID from Broadcom in the EVS environment creation request. | 01234567 | 
-| VCF solution key | A single VCF license key that unlocks features of the entire VCF stack, including vSphere, NSX, SDDC Manager, and vCenter Server. | Must provide a valid active VCF solution key in the EVS environment creation request. Key cannot already be in use by an existing EVS environment. | ABCDE-FGHIJ-KLMNO-PQRSTU-VWXYZ | 
-| vSAN license key | A vSAN license key allows you to activate and use the vSAN software within a VCF environment. | Must provide a valid active vSAN license key in the EVS environment creation request. Key cannot already be in use by an existing EVS environment. | ABCDE-FGHIJ-KLMNO-PQRSTU-VWXYZ | 
-
-**Note**  
-When you create an environment in Self-deployed mode, you need VCF license keys when you deploy and configure VCF, not when you create the Amazon EVS environment. Add them in your VCF management appliance after you install VCF.
+Collect the following account, Region, and capacity values.
 
 
-**AWS account and Region information**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-|  AWS account ID number | The AWS account allows you to create and manage AWS resources and access AWS services. | Must must have access to an AWS account. | 999999999999 | 
-|  AWS Region | A physical geographic area where AWS maintains multiple isolated data centers called Availability Zones. | Must specify an AWS Region for Amazon EVS to deploy into. For a list of Regions where Amazon EVS is currently available, see [Amazon Elastic VMware Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/evs.html) in the * AWS General Reference Guide*. | US West (Oregon) | 
-
-
-**AWS Transit Gateway for on-premises data center connectivity**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| transit gateway ID | A transit gateway acts as a Regional virtual router for traffic flowing between your VPC and on-premises networks. | Must use a transit gateway to connect an Amazon EVS environment to your on-premises networks. | tgw-0262a0e521EXAMPLE | 
-| Connectivity method | To connect your on-premises networks to an Amazon EVS environment, you must use a transit gateway with AWS Direct Connect or AWS Site-to-Site VPN. | Determine if you will use AWS Direct Connect, AWS Site-to-Site VPN, or a combination of both. For more information about using Site-to-Site VPN with Direct Connect, see [Private IP AWS Site-to-Site VPN with AWS Direct Connect](https://docs.aws.amazon.com/vpn/latest/s2svpn/private-ip-dx.html). |  AWS Site-to-Site VPN with AWS Direct Connect | 
-
-
-**VPC for Amazon EVS environment**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| VPC ID | A VPC is a virtual network that closely resembles a traditional network that you’d operate in your own data center. | Any Amazon VPC may be used for environment deployment. | vpc-0abcdef1234567890 | 
-| VPC CIDR block | In Amazon VPC, a CIDR block defines the range of IP addresses available within your VPC. | An RFC 1918 CIDR block with a minimum size of /22 netmask. The VPC CIDR block must be appropriately sized to accommodate all of the EVS subnets and hosts to be deployed in your VPC. This CIDR block should be unique across your environments. | 10.1.0.0/20 | 
-
-
-**VPC subnets for EVS environment**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| service access subnet ID | A service access subnet is a standard VPC subnet that enables Amazon EVS service access. For more information, see [Service access subnet](concepts.md#concepts-service-access-subnet). | Any VPC subnet may be used, provided that the subnet is appropriate sized within the VPC. We suggest specifying a VPC subnet CIDR block with a netmask of /24. | subnet-abcdef1234567890e | 
-| service access subnet CIDR | a VPC subnet CIDR block is a range of IP addresses, defined using CIDR notation, that is allocated to a specific subnet within a VPC. | The service access subnet must be appropriately sized to also accommodate the other EVS subnets and hosts to be deployed in your VPC. We suggest specifying a VPC subnet CIDR block with a netmask of /24. | 10.1.0.0/24 | 
-|  AWS Availability Zone ID within the Region | A distinct location within an AWS Region, designed to be isolated from failures in other AZs, and consists of one or more data centers. | You can specify the Availability Zone that VPC subnets deploy into during subnet creation. For more information, see [Create a subnet](https://docs.aws.amazon.com/vpc/latest/userguide/create-subnets.html) in the *Amazon VPC User Guide*. | us-west-2a | 
-
-
-**EVS VLAN subnets for EVS environment**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| Host management VLAN CIDR | The CIDR block for the host management VLAN subnet. For more information, see [Host management VLAN subnet](concepts.md#concepts-evs-vmkernel-management-vlan). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.1.0/24 | 
-| vMotion VLAN CIDR | The CIDR block for the vMotion VLAN subnet. For more information, see [vMotion VLAN subnet](concepts.md#concepts-evs-vmotion-vlan-subnet). | Must be the same size as the host management VLAN. | 10.1.2.0/24 | 
-| vSAN VLAN CIDR | The CIDR block for the vSAN VLAN subnet. For more information, see [vSAN VLAN subnet](concepts.md#concepts-evs-vsan-vlan-subnet). | Must be the same size as the host management VLAN. | 10.1.3.0/24 | 
-| VTEP VLAN CIDR | The CIDR block for the VTEP VLAN subnet. For more information, see [VTEP VLAN subnet](concepts.md#concepts-evs-vtep-vlan-subnet). | Must be the same size as the host management VLAN. | 10.1.4.0/24 | 
-| Edge VTEP VLAN CIDR | The CIDR block for the edge VTEP VLAN subnet. For more information, see [Edge VTEP VLAN subnet](concepts.md#concepts-evs-edge-vtep-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.5.0/24 | 
-| Management VM VLAN CIDR | The CIDR block for the Management VM VLAN subnet. For more information, see [Management VM VLAN subnet](concepts.md#concepts-evs-edge-vm-mgmt-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.6.0/24 | 
-| HCX uplink VLAN CIDR | The CIDR block for the HCX uplink VLAN subnet. For more information, see [HCX uplink VLAN subnet](concepts.md#concepts-evs-hcx-uplink-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.7.0/24 | 
-| NSX uplink VLAN CIDR | The CIDR block for the NSX uplink VLAN subnet. For more information, see [NSX uplink VLAN subnet](concepts.md#concepts-evs-nsx-uplink-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.8.0/24 | 
-| Expansion VLAN 1 CIDR | CIDR block for the expansion VLAN subnet. For more information, see [Expansion VLAN subnet](concepts.md#concepts-evs-expansion-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.9.0/24 | 
-| Expansion VLAN 2 CIDR | CIDR block for the expansion VLAN subnet. For more information, see [Expansion VLAN subnet](concepts.md#concepts-evs-expansion-vlan-subnet). | Must have a minimum size of /28 netmask and a maximum size of /24 netmask. Must not overlap with any existing CIDR block that’s associated with the VPC. | 10.1.10.0/24 | 
-
-
-**DNS and NTP infrastructure**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| Primary DNS server IP address | The main domain name system (DNS) server used as the source of truth for all of the domain’s DNS records. | You can use any valid, unused IPv4 address within the usable host range. | 10.1.1.10 | 
-| Secondary DNS server IP address | A backup DNS server for the domain’s DNS records. | You can use any valid, unused IPv4 address within the usable host range. | 10.1.5.25 | 
-| NTP server IP address | A network time protocol (NTP) server is a device or application that synchronizes clocks within a network using the NTP standard. | You can use the default Amazon Time Sync Service with the local `169.254.169.123` IP address, or another NTP server IP address. | 169.254.169.123 (Amazon Time Sync Service) | 
-| FQDN for VCF deployment | A fully qualified domain name (FQDN) is the absolute name of a device on a network. A FQDN consists of a hostname and domain name. | A FQDN can only contain alphanumeric characters, the minus sign (-), and periods that are used as a delimiter between labels. Must be a unique FQDN that is valid and unexpired. The FQDN of each host and VCF management appliance must not exceed 62 characters, including the domain name from your VPC DHCP option set. An FQDN longer than 62 characters causes a validation error during environment creation. | evs.local | 
-
-
-**VPC DHCP option set**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| DHCP option set ID | A DHCP option set is a group of network settings used by resources in your VPC, such as EC2 instances, to communicate over your virtual network. | Must contain a minimum of 2 DNS servers. You can use Route 53 or custom DNS servers. Must also contain your DNS domain name and an NTP server. | dopt-0a1b2c3d | 
-
-
-**EC2 key pair**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| EC2 key pair name | An EC2 key pair is a set of security credentials used to securely connect to an Amazon EC2 instance. | Key pair name must be unique. |  `my-ec2-key-pair`  | 
-
-
-**EC2 Allowed AMIs (only if you restrict AMI usage)**  
-
-| Component | Description | Minimum requirements | Image criteria | 
-| --- | --- | --- | --- | 
-| EC2 Allowed AMIs criteria | Amazon EVS uses EC2 AMIs to deploy ESX hosts in your account when you create an environment or add a host. | If you use the Allowed AMI feature to control AMI usage in your AWS account, your image criteria must include Amazon EVS AMIs. Otherwise, you can’t create an environment or add a host. For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html) in the *Amazon EC2 User Guide*. |  `ImageProvider: amazon` `ImageName: AmazonEVS-*`  | 
-
-
-**VPC route tables**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| main route table ID | In Amazon VPC, the main route table is the default route table automatically created with the VPC, and governs traffic for any VPC subnets that aren’t explicitly associated with a different route table. EVS VLAN subnets are implicitly associated to your VPC’s main route table when Amazon EVS creates them. | Must be configured to enable connectivity to dependent services such as DNS or on-premises systems for environment deployment to be successful. | rtb-0123456789abcdef0 | 
-
-
-**Network access control list (ACL)**  
-
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| Network ACL ID | A network access control list (ACL) allows or denies inbound or outbound traffic at the subnet level. | Must allow Amazon EVS to communicate with:+  DNS servers over TCP/UDP port 53. <br />+  Host management VLAN subnet over HTTPS and SSH. <br />+  Management VM VLAN subnet over HTTPS and SSH.  | acl-0f62c640e793a38a3 | 
-
-
-**DNS records for VCF components**  
-
-| Component | Description | Minimum requirements | Example IP address | Example hostname | 
+| Item | Mode | Requirement | Example value | Your value | 
 | --- | --- | --- | --- | --- | 
-| ESX host 1 | IP address and hostname defined in the A record and PTR record for ESX host 1. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each ESX host in each EVS deployment. | 10.1.1.11 | esxi01 | 
-| ESX host 2 | IP address and hostname defined in the A record and PTR record for ESX host 2. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each ESX host in each EVS deployment. | 10.1.1.12 | esxi02 | 
-| ESX host 3 | IP address and hostname defined in the A record and PTR record for ESX host 3. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each ESX host in each EVS deployment. | 10.1.1.13 | esxi03 | 
-| ESX host 4 | IP address and hostname defined in the A record and PTR record for ESX host 4. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each ESX host in each EVS deployment. | 10.1.1.14 | esxi04 | 
-| vCenter Server appliance | IP address and hostname defined in the A record and PTR record for the vCenter Server appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.10 | vc01 | 
-| NSX Manager cluster | IP address and hostname defined in the A record and PTR record for the NSX Manager cluster. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.11 | nsx | 
-| SDDC Manager appliance | IP address and hostname defined in the A record and PTR record for the SDDC Manager appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.12 | sddcm01 | 
-| Cloud Builder appliance | IP address and hostname defined in the A record and PTR record for the Cloud Builder appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.13 | cb01 | 
-| NSX Edge 1 appliance | IP address and hostname defined in the A record and PTR record for the NSX Edge 1 appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.14 | edge01 | 
-| NSX Edge 2 appliance | IP address and hostname defined in the A record and PTR record for the NSX Edge 2 appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.15 | edge02 | 
-| NSX Manager 1 appliance | IP address and hostname defined in the A record and PTR record for the NSX Manager 1 appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.16 | nsx01 | 
-| NSX Manager 2 appliance | IP address and hostname defined in the A record and PTR record for the NSX Manager 2 appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.17 | nsx02 | 
-| NSX Manager 3 appliance | IP address and hostname defined in the A record and PTR record for the NSX Manager 3 appliance. | Amazon EVS requires a DNS forward lookup zone with A records and a reverse lookup zone with PTR records created for each VCF management appliance in each EVS deployment. | 10.1.6.18 | nsx03 | 
+|  AWS account ID | Both | Access to an AWS account. You create the VPC, the subnets, and the environment in this account. | 111122223333 |  | 
+|  AWS Region | Both | A Region where Amazon EVS is available. For the list, see [AWS Regions for Amazon EVS](regions-reference.md). | US West (Oregon) |  | 
+|  AWS Support plan | Both | An AWS Business Support, AWS Enterprise On-Ramp, or AWS Enterprise Support plan. Environment creation fails if your account isn’t enrolled in one of these plans. |  AWS Business Support |  | 
+| Service quotas | Both | A quota for the number of hosts in an environment that is high enough for your VCF topology. For more information, see [Service quotas for Amazon EVS](service-quotas-evs.md). | The number of hosts that you deploy |  | 
+| Instance type | Both | An instance type that Amazon EVS supports for your VCF version. All hosts in a cluster use the same instance type. For more information, see [Choose instance types](plan-instance-types.md). |  `i4i.metal`  |  | 
+| Amazon EC2 Capacity Reservation | Both | A Capacity Reservation. We recommend one, so that capacity is available when you add hosts. For more information, see [Reserve capacity for hosts](plan-capacity.md). | cr-0123456789abcdef0 |  | 
 
-**Note**  
-When you create an environment in Self-deployed mode, you need these DNS records when you deploy and configure VCF, not when you create the Amazon EVS environment. Create the ESX host records before you add hosts.
+## External storage for diskless hosts
+<a name="evs-prereq-diskless"></a>
+
+This section applies to Self-deployed environments that run VCF 9.x.
+
+Diskless instance types, such as `r7i.metal-24xl` and `r7i.metal-48xl`, have no local storage, so the VCF management domain and your workloads run on external storage. Collect the following value if you use diskless hosts.
 
 
-**VPC Route Server infrastructure**  
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| External storage | Self-deployed | A datastore on external storage in the same VPC and Availability Zone as the environment, sized for the VCF management domain, that the VCF Installer accepts as principal storage. For more information, see [External storage options for diskless hosts](external-storage-diskless.md). | Amazon FSx for OpenZFS, 7,168 GiB, NFS v3 |  | 
 
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| route server ID | Amazon EVS uses Amazon VPC Route Server to to enable BGP-based dynamic routing to your VPC underlay network. | You must specify a route server that shares routes to at least two route server endpoints in the service access subnet. The peer ASN configured on the route server and NSX Edge peer must match, and the peer IP addresses must be unique. | rs-0a1b2c3d4e5f67890 | 
-| route server association | The connection between a route server and a VPC. | Your route server must be associated to your VPC. |  <pre>{<br />    "RouteServerAssociation": {<br />        "RouteServerId": "rs-0a1b2c3d4e5f67890",<br />        "VpcId": "vpc-1",<br />        "State": "associating"<br />    }<br />}</pre>  | 
-| BGP ASN of the VPC Route Server side (Amazon-side ASN) | The Amazon-side ASN represents the AWS side of the BGP session between the VPC route server and the NSX Edge peer. You specify this BGP ASN when creating the route server. For more information, see [Create a route server](https://docs.aws.amazon.com/vpc/latest/userguide/route-server-tutorial-create.html) in the *Amazon VPC User Guide*. | This value must be unique, and in the range of 1-4294967295. AWS recommends using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range. | 65022 | 
-| route server endpoint 1 ID | A route server endpoint is an AWS-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers. | Must deploy the route server endpoint into the service access subnet. | rse-0123456789abcdef0 | 
-| route server peer 1 ID | The route server peer is a BGP peering session between a route server endpoint and the the device deployed in AWS (NSX Edge). | The peer ASN value specified in the route server peer must match the peer ASN value used for NSX Edge Tier-0 gateway. | rsp-0123456789abcdef0 | 
-| route server peer 1 IP address (EVS NSX Edge 1 side) | The IP address of the route server peer (`PeerAddress`). | Must use a unique unused IP address from the NSX uplink VLAN. Amazon EVS will apply this IP address to NSX Edge 1 as part of the deployment and peer with the route server endpoint peer. | 10.1.8.10 | 
-| route server peer 1 endpoint ENI address | The endpoint ENI IP address of the route server peer (`EndpointEniAddress`). | Automatically generated by route server on peer creation. | 10.1.0.11 | 
-| route server endpoint 2 ID | A route server endpoint is an AWS-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers. | Must deploy the route server endpoint into the service access subnet. | rse-fedcba9876543210f | 
-| route server peer 2 ID (EVS NSX Edge 2 side) | The route server peer is a BGP peering session between a route server endpoint and the the device deployed in AWS (NSX Edge). | The peer ASN value specified in the route server peer must match the peer ASN value used for NSX Edge Tier-0 gateway. | rsp-fedcba9876543210f | 
-| route server peer 2 IP address | The IP address of the route server peer (`PeerAddress`). | Must use a unique IP address from the NSX uplink VLAN. Amazon EVS will apply this IP address to NSX Edge 2 as part of the deployment and peer with the route server endpoint peer. | 10.1.8.200 | 
-| route server peer 2 endpoint ENI address | The endpoint ENI IP address of the route server peer (`EndpointEniAddress`). | Automatically generated by route server on peer creation. | 10.1.0.201 | 
-| route server propagation | Route server propagation installs the routes in the FIB on the route table you’ve specified. | Must specify the route table associated with your service access subnet. Amazon EVS only supports IPv4 networking at this time. |  <pre>    {<br />    "RouteServerEndpoint": {<br />        "RouteServerId": "rs-1",<br />        "RouteServerEndpointId": "rse-1",<br />        "VpcId": "vpc-1",<br />        "SubnetId": "subnet-1",<br />        "State": "pending"<br />    }<br />}</pre>  | 
-| BGP ASN of the NSX peer side | BGP ASN for the NSX side of the connection. | Suggest using the NSX default ASN 65000 | 65000 | 
+## VCF subscriptions
+<a name="evs-prereq-licenses"></a>
 
-**Note**  
-When you create an environment in Self-deployed mode, you configure the Route Server and BGP peering when you deploy and configure VCF, not when you create the Amazon EVS environment. You configure BGP peering on the NSX Edge Tier-0 gateway to the VPC Route Server yourself after you install VCF. For more information, see [Step 5: Configure NSX networking](getting-started.md#self-deployed-nsx-edge).
+You bring your own VCF subscription in both modes. When you provide the license keys depends on the mode. For more information, see [VCF licensing](vcf-license-mgmt.md).
 
 
-**HCX internet access resources (Optional)**  
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| Broadcom Site ID | EVS-deployed | The Site ID that Broadcom gives you for the Broadcom support portal. You enter it when you create the environment. | 01234567 |  | 
+| VCF solution key | EVS-deployed | A valid, active VCF license key for the VCF stack that no other Amazon EVS environment uses. You enter it when you create the environment. | ABCDE-FGHIJ-KLMNO-PQRSTU-VWXYZ |  | 
+| vSAN license key | EVS-deployed | A valid, active vSAN license key that no other Amazon EVS environment uses. You enter it when you create the environment. | ABCDE-FGHIJ-KLMNO-PQRSTU-VWXYZ |  | 
+| VCF license keys | Self-deployed | License keys that you add in your VCF management appliance after you install VCF. You don’t enter them when you create the environment. | ABCDE-FGHIJ-KLMNO-PQRSTU-VWXYZ |  | 
 
-| Component | Description | Minimum requirements | Example value(s) | 
-| --- | --- | --- | --- | 
-| IPAM ID | Amazon VPC IP Address Manager (IPAM) used to manage IP addresses for HCX internet access. | Must be configured to provide public IPv4 addresses. Required only for HCX internet access configuration. | ipam-0123456789abcdef0 | 
-| IPAM pool ID | An Amazon-owned public IPv4 IPAM pool that provides addresses for HCX components. | Must be configured as a public IPv4 pool. Required only for HCX internet access configuration. | ipam-pool-0123456789abcdef0 | 
-| HCX public VLAN CIDR block | A secondary public IPv4 CIDR block allocated from the IPAM pool for the HCX public VLAN subnet. | Must have a netmask between /24 and /28 and be allocated from the Amazon-owned IPAM public pool. A CIDR block larger than /28 requires an increase to your IPAM quota. Required only for HCX internet access configuration. | 18.97.137.0/28 | 
-| Elastic IP addresses | Sequential Elastic IP addresses allocated from the IPAM pool for HCX components. | Minimum of 3 EIPs from the same IPAM pool for HCX Manager, HCX Interconnect Appliance (HCX-IX), and HCX Network Extension (HCX-NE). Required only for HCX internet access configuration. | eipalloc-0123456789abcdef0, eipalloc-0123456789abcdef1, eipalloc-0123456789abcdef2 | 
+## VPC and service access subnet
+<a name="evs-prereq-vpc"></a>
+
+Collect the following VPC and service access subnet values.
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| VPC ID | Both | The VPC that Amazon EVS deploys the environment into. | vpc-0abcdef1234567890 |  | 
+| VPC CIDR block | Both | An IPv4 CIDR block of /22 or larger, large enough for the service access subnet and all VLAN subnets. Use a CIDR block that is unique across your environments. Each environment needs its own VPC. You can’t change it after you create the environment. | 10.1.0.0/20 |  | 
+| Service access subnet ID | Both | A standard VPC subnet that Amazon EVS uses for service access. For more information, see [Concepts and components of Amazon EVS](concepts.md). | subnet-abcdef1234567890e |  | 
+| Service access subnet CIDR block | Both | A CIDR block inside a CIDR block that is associated with the VPC. We recommend a /24 netmask. | 10.1.0.0/24 |  | 
+| Availability Zone | Both | One Availability Zone for all VPC subnets, identified by its Availability Zone ID. For more information, see [Create a VPC with subnets and route tables](network-create-vpc.md). | usw2-az1 |  | 
+
+## VLAN subnets
+<a name="evs-prereq-vlans"></a>
+
+Amazon EVS creates these VLAN subnets when you create the environment, in both modes. Every CIDR block must have a netmask from /28 to /24 and must be inside a CIDR block that is associated with the VPC. It must not overlap with any other subnet in the VPC, including the other VLAN subnets and the service access subnet. You can’t add VLAN subnets or change their CIDR blocks after you create the environment. For sizing guidance, see [Plan your VPC and VLAN subnets](plan-network-sizing.md).
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| Host management VLAN CIDR block | Both | /28 to /24. | 10.1.1.0/24 |  | 
+| vMotion VLAN CIDR block | Both | The same size as the host management VLAN. | 10.1.2.0/24 |  | 
+| vSAN VLAN CIDR block | Both | The same size as the host management VLAN. | 10.1.3.0/24 |  | 
+| VTEP VLAN CIDR block | Both | The same size as the host management VLAN. | 10.1.4.0/24 |  | 
+| Edge VTEP VLAN CIDR block | Both | /28 to /24. | 10.1.5.0/24 |  | 
+| Management VM VLAN CIDR block | Both | /28 to /24. | 10.1.6.0/24 |  | 
+| HCX uplink VLAN CIDR block | Both | /28 to /24 for a private VMware Hybrid Cloud Extension (HCX) VLAN. Exactly /28 for a public HCX VLAN, using the public CIDR block in [HCX internet connectivity (optional)](#evs-prereq-hcx). | 10.1.7.0/24 |  | 
+| NSX uplink VLAN CIDR block | Both | /28 to /24. The route server peer IP addresses come from this CIDR block. | 10.1.8.0/24 |  | 
+| Expansion VLAN 1 CIDR block | Both | /28 to /24. | 10.1.9.0/24 |  | 
+| Expansion VLAN 2 CIDR block | Both | /28 to /24. | 10.1.10.0/24 |  | 
+
+## DNS, NTP, and the DHCP option set
+<a name="evs-prereq-dns-ntp"></a>
+
+Amazon EVS reads the DNS servers, the domain name and the NTP servers from the DHCP option set of your VPC. For the configuration steps, see [Configure DNS and NTP with a DHCP option set](network-dhcp-dns-ntp.md).
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| DHCP option set ID | Both | A DHCP option set with at least two DNS servers, your DNS domain name, and an NTP server. You can use Amazon Route 53 or your own DNS servers. | dopt-0a1b2c3d |  | 
+| Primary DNS server IP address | Both | A reachable DNS server that answers queries. The VPC main route table must have a route to it. For Route 53, see [Create private hosted zones and a Resolver inbound endpoint](network-dhcp-dns-ntp.md#network-dhcp-dns-zones). | 10.1.0.10 |  | 
+| Secondary DNS server IP address | Both | A second reachable DNS server. | 10.1.0.20 |  | 
+| NTP server IP addresses | Both | At least one NTP server, and up to four, in the DHCP option set. Amazon EVS hosts use the Amazon Time Sync Service address `169.254.169.123`. For the VCF Installer, see [Time (NTP) settings](vcf-installer-settings.md#installer-settings-ntp). | IPv4 address of your NTP server |  | 
+| DNS domain name | Both | A valid, unexpired domain name. The FQDN of each host and VCF management appliance, including this domain name, must not exceed 62 characters. An FQDN can contain only letters, digits, the minus sign (-), and periods between labels. |  `evs.example.com`  |  | 
+
+## DNS records for hosts and appliances
+<a name="evs-prereq-dns-records"></a>
+
+Each host and each VCF management appliance needs an A record in a forward lookup zone and a pointer (PTR) record in a reverse lookup zone. The records must resolve through the DNS servers in your DHCP option set, with no duplicate host names or IP addresses.
++ In an EVS-deployed environment, create all records before you create the environment.
++ In a Self-deployed environment, create the ESX host records before you add each host, and the appliance records before you install VCF. For more information, see [Step 2: Create DNS records](self-deployed-host-dns-records.md).
+
+We recommend host names of 15 characters or fewer, as a NetBIOS practice.
+
+
+| Record | Mode | Example IP address | Example host name | Your value | 
+| --- | --- | --- | --- | --- | 
+| ESX host 1 | Both | 10.1.1.11 | esxi01 |  | 
+| ESX host 2 | Both | 10.1.1.12 | esxi02 |  | 
+| ESX host 3 | Both | 10.1.1.13 | esxi03 |  | 
+| ESX host 4 | Both | 10.1.1.14 | esxi04 |  | 
+| vCenter Server appliance | Both | 10.1.6.10 | vc01 |  | 
+| NSX Manager cluster | Both | 10.1.6.11 | nsx |  | 
+| NSX Manager 1 appliance | Both | 10.1.6.16 | nsx01 |  | 
+| NSX Manager 2 appliance (three-node cluster only) | Both | 10.1.6.17 | nsx02 |  | 
+| NSX Manager 3 appliance (three-node cluster only) | Both | 10.1.6.18 | nsx03 |  | 
+| NSX Edge 1 appliance | Both | 10.1.6.14 | edge01 |  | 
+| NSX Edge 2 appliance | Both | 10.1.6.15 | edge02 |  | 
+| SDDC Manager appliance | EVS-deployed | 10.1.6.12 | sddcm01 |  | 
+| Cloud Builder appliance | EVS-deployed | 10.1.6.13 | cb01 |  | 
+| Other VCF management appliances for your VCF version | Self-deployed | An address in the Management VM VLAN subnet | The host name that you configure during VCF installation |  | 
+
+ESX host records use addresses in the host management VLAN subnet. VCF management appliance records use addresses in the Management VM VLAN subnet.
+
+## Route tables, network ACL, and transit gateway
+<a name="evs-prereq-routing"></a>
+
+Collect the following route table, network ACL, and transit gateway values.
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| Main route table ID | Both | A main route table with routes to your DNS servers and to any on-premises systems that the deployment needs. Amazon EVS associates the VLAN subnets with the main route table when it creates them. | rtb-0123456789abcdef0 |  | 
+| Network ACL ID | Both | A network ACL that allows the traffic in [Required traffic](evs-env-nacl-cong.md#evs-env-nacl-rules). | acl-0f62c640e793a38a3 |  | 
+| Transit gateway ID | Both | A transit gateway, which you need to connect the environment to on-premises networks. For the supported connections, see [Supported network configurations](plan-network-supported.md). | tgw-0262a0e521EXAMPLE |  | 
+| On-premises connectivity method | Both |  Direct Connect, AWS Site-to-Site VPN, or both, with the transit gateway. For more information, see [Private IP AWS Site-to-Site VPN with Direct Connect](https://docs.aws.amazon.com/vpn/latest/s2svpn/private-ip-dx.html). | Site-to-Site VPN with Direct Connect |  | 
+
+## Amazon VPC Route Server
+<a name="evs-prereq-route-server"></a>
+
+For the design rules, see [Plan NSX Edge and VPC Route Server design](plan-nsx-design.md).
++ In an EVS-deployed environment, you enter two route server peers when you create the environment, and Amazon EVS configures Border Gateway Protocol (BGP) on the NSX Edge nodes.
++ In a Self-deployed environment, you don’t enter peers when you create the environment. You configure BGP between the Tier-0 gateway and the route server after you install VCF. For more information, see [Step 5: Configure NSX networking](self-deployed-nsx-edge.md).
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| Route server ID | Both | A route server associated with your VPC. | rs-0a1b2c3d4e5f67890 |  | 
+| Amazon-side ASN | Both | An autonomous system number (ASN) in the range 1 to 4294967295. We recommend a private ASN, 64512 to 65534 (16-bit) or 4200000000 to 4294967294 (32-bit). | 65022 |  | 
+| NSX Edge Tier-0 ASN | Both | An ASN that matches the peer ASN on every route server peer. The NSX Edge default is 65000. | 65000 |  | 
+| Route server endpoint IDs | Both | Two endpoints, both in the service access subnet. | rse-0123456789abcdef0, rse-fedcba9876543210f |  | 
+| Route server peer 1 ID and IP address | Both | A unique, unused address from the NSX uplink VLAN CIDR block (`PeerAddress`). In an EVS-deployed environment, Amazon EVS assigns it to NSX Edge 1. | rsp-0123456789abcdef0, 10.1.8.10 |  | 
+| Route server peer 2 ID and IP address | Both | A unique, unused address from the NSX uplink VLAN CIDR block. In an EVS-deployed environment, Amazon EVS assigns it to NSX Edge 2. | rsp-fedcba9876543210f, 10.1.8.200 |  | 
+| Additional route server peers | Self-deployed | Two more route server peers. We recommend four peers in a full mesh, so that each Edge node peers with both endpoints. | Two more peer IDs |  | 
+| Route server propagation | Both | Route server propagation that is enabled on the route table associated with the service access subnet. Each propagated route table must have at least one explicit subnet association. | rtb-0123456789abcdef0 |  | 
+
+## EC2 key pair and Allowed AMIs
+<a name="evs-prereq-ec2"></a>
+
+Collect the following EC2 key pair value.
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| EC2 key pair name | Both | A unique key pair name. Amazon EVS uses the key pair to connect to your hosts. |  `my-ec2-key-pair`  |  | 
+
+### EC2 Allowed AMIs (only if you restrict AMI usage)
+<a name="evs-prereq-allowed-amis"></a>
+
+If you use Allowed AMIs in your account, your image criteria must include the Amazon EVS AMIs, or you can’t create an environment or add a host. For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html) in the *Amazon EC2 User Guide*.
+
+
+| Item | Mode | Requirement | Image criteria | Your value | 
+| --- | --- | --- | --- | --- | 
+| Allowed AMIs criteria | Both | Image criteria that include the Amazon EVS AMIs. |  `ImageProvider: amazon` `ImageName: AmazonEVS-*`  |  | 
+
+## HCX internet connectivity (optional)
+<a name="evs-prereq-hcx"></a>
+
+You need these values only for HCX internet connectivity.
+
+For the rules, see [Plan HCX connectivity](plan-hcx-connectivity.md).
+
+For the steps that produce these values, see [Part 1 of Configure HCX public internet connectivity](evs-env-hcx-internet-access.md#hcx-internet-config). You complete Part 1 before you create the environment.
+
+
+| Item | Mode | Requirement | Example value | Your value | 
+| --- | --- | --- | --- | --- | 
+| IPAM ID | Both | An Amazon VPC IP Address Manager (IPAM) that provides public IPv4 addresses. | ipam-0123456789abcdef0 |  | 
+| IPAM pool ID | Both | A public IPv4 IPAM pool with Amazon-owned addresses, in the Region of your VPC. | ipam-pool-0123456789abcdef0 |  | 
+| Public HCX VLAN CIDR block | Both | A /28 public IPv4 CIDR block from the IPAM pool. Add it to the VPC as an additional CIDR by entering it manually, and use it for the HCX uplink VLAN subnet. | 203.0.113.0/28 |  | 
+| Elastic IP addresses | Both | At least two Elastic IP addresses from the same IPAM pool, for HCX Manager and HCX Interconnect (HCX-IX), plus one for each HCX network appliance. Up to 13. For the reserved addresses, see [Plan HCX connectivity](plan-hcx-connectivity.md). | eipalloc-0123456789abcdef0, eipalloc-0123456789abcdef1, eipalloc-0123456789abcdef2 |  | 
+
+When you have all the values, build the network. For more information, see [Build the network foundation](network-foundation.md).

@@ -1,116 +1,66 @@
 
 
-# Creating Windows Server entitlements for your VMs
-<a name="create-entitlements"></a>
+# Create Windows Server entitlements
 
-After you create a vCenter connector, you create Windows Server entitlements for one or more virtual machines (VMs) running in your Amazon EVS environment. After you create an entitlement, Amazon EVS starts monitoring the corresponding VM’s Windows Server entitlement usage.
+After you create a vCenter connector, you can create Windows Server entitlements for one or more virtual machines (VMs) in your Amazon Elastic VMware Service environment. After you create an entitlement, Amazon EVS starts to monitor the Windows Server entitlement usage of that VM. You can create entitlements for up to 100 VMs in a single request. You can use the Amazon EVS console or the AWS CLI.
 
-Note the following entitlement constraints:
-+ The vCenter connector must be in an Active state, and its reachability checker must be in a Passed state. For more information about creating a connector, see [Creating a vCenter connector](create-vcenter-connector.md).
-+ You can create entitlements for a maximum of 100 VMs in a single request.
+## Before you begin
+<a name="create-entitlements-prereqs"></a>
++ You meet the requirements in [Before you begin](entitlements.md#entitlements-prerequisites) for [Windows Server entitlements](entitlements.md).
++ Make sure that the vCenter connector is in the `ACTIVE` state and its reachability check is `PASSED`. To create a connector, see [Create a connector](evs-env-create-connector.md).
++ You have the VM ID (Managed Object ID) of each VM. To find it, sign in to vCenter and select the VM. The ID appears in the URL in the browser address bar.
 
-You add each VM by its VM ID (Managed Object ID). To find a VM’s Managed Object ID, log in to vCenter and select the VM. The Managed Object ID appears in the browser address bar as part of the URL.
+## Create entitlements
+<a name="create-entitlements-procedure"></a>
 
- **To create an Amazon EVS entitlement** 
+To create entitlements in the Amazon EVS console or with the AWS CLI, choose the tab for the method that you use.
 
 **Example**  
 
-1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs).
+1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs).
 
 1. In the navigation pane, choose **Environments**.
 
-1. Select the environment containing the VMs.
+1. Select the environment that contains the VMs.
 
 1. Select the **Entitlements** tab.
 
 1. Choose **Add**.
 
-1. Product type defaults to **Windows server**.
+1. For product type, keep the default, **Windows server**.
 
-1. Add the VMs you want to create entitlements for via text or by uploading a CSV file.
-   + CSV format is a single column of only VM IDs.
+1. Add the VMs that you want to create entitlements for. You can enter the VM IDs as text or upload a CSV file. The CSV file has a single column that contains only VM IDs.
 
 1. Choose **Add entitlement**.
 
-1. To verify completion, check that the entitlement **status** has changed to Created.
+1. To verify, check that the entitlement **Status** changes to **Created**.
 
-1. Open a new terminal session.
+1. Open a terminal session.
 
-1. Create entitlements. See example command below for reference.
+1. Create the entitlements. The following command is an example. Replace the values in angle brackets with your own values. Replace the example VM IDs with your own values.
 
-   ```
+   ```bash
    aws evs create-entitlement \
-       --environment-id env-abcde12345 \
-       --connector-id cnctr-szgj87q6gi \
+       --environment-id <environment-id> \
+       --connector-id <connector-id> \
        --entitlement-type WINDOWS_SERVER \
        --vm-ids vm-001 vm-002 vm-003
    ```
 
-1. To verify completion, list the environment VMs and check that the entitlement status is Created.
+1. To verify, list the entitlements of the environment and check that the entitlement status is Created. Replace the values in angle brackets with your own values.
 
-   ```
+   ```bash
    aws evs list-vm-entitlements \
-     --environment-id env-abcde12345 \
-     --connector-id cnctr-szgj87q6gi \
-     --entitlement-type WINDOWS_SERVER
+       --environment-id <environment-id> \
+       --connector-id <connector-id> \
+       --entitlement-type WINDOWS_SERVER
    ```
 
-## Reasons an entitlement can enter the `CREATE_FAILED` state
-<a name="create-entitlement-failure-reasons"></a>
+You have created Windows Server entitlements for your VMs.
 
-When you create an entitlement, Amazon EVS validates the configuration of each VM. Monitor the entitlement status to confirm that it succeeds. If a VM fails validation, its entitlement status is set to `CREATE_FAILED` with error details. After you fix the underlying issue for that VM, you must create the entitlement again.
+When you create an entitlement, Amazon EVS validates the configuration of each VM. If a VM fails validation, its entitlement status changes to `CREATE_FAILED` with error details. After you fix the cause, you must create the entitlement for that VM again. For causes and solutions, see [Troubleshoot Windows Server entitlements](troubleshoot-entitlements.md).
 
-**Note**  
-Entitlements in the `CREATE_FAILED` state are automatically deleted after 90 days.
+## Next step
+<a name="create-entitlements-next"></a>
 
-An entitlement can fail to create for the following reasons.
-
-### VM not found
-<a name="create-entitlement-failure-vm-not-found"></a>
-
-The VM ID (Managed Object ID) that you specified is not present in the vCenter inventory that the connector targets.
-
-Cause  
-The VM ID is incorrect, or the VM does not exist in the vCenter appliance that the connector points to.
-
-Resolution  
-
-1. Verify that the VM ID is correct.
-
-1. Confirm that the VM exists in the vCenter that the connector targets.
-
-1. Create the entitlement again.
-
-### VM is disconnected, orphaned, or inaccessible
-<a name="create-entitlement-failure-vm-not-connected"></a>
-
-The VM specified is in a disconnected, orphaned, or inaccessible state in the vCenter.
-
-Cause  
-This is typically caused by an underlying host or network issue.
-
-Resolution  
-
-1. Check the state of the VM in vCenter.
-
-1. Resolve the host or network issue so that the VM is no longer disconnected, orphaned, or inaccessible.
-
-1. Create the entitlement again.
-
-### Unsupported guest operating system
-<a name="create-entitlement-failure-unsupported-os"></a>
-
-The guest operating system configured in the VM settings in vCenter must be Windows Server 2016 or later. Validation fails if it is not Windows, is a Windows client operating system such as Windows 10 or Windows 11 instead of Windows Server, or is a Windows Server version earlier than 2016.
-
-Cause  
-The guest operating system configured in the VM settings is not a supported Windows Server version.
-
-Resolution  
-
-1. Verify the guest operating system configured in the VM settings in vCenter.
-
-1. Reconfigure the VM settings to specify a supported Windows Server version (2016 or later).
-
-1. Create the entitlement again.
-
-After you create entitlements for your Windows VMs, activate Windows Server on the entitled VMs. See [Activating Windows Server on entitled VMs](activate-windows-server.md).
+Activate Windows Server on the entitled VMs. For instructions, see [Activate Windows Server on entitled VMs](activate-windows-server.md).

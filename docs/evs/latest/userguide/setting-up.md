@@ -1,299 +1,88 @@
 
 
-# Setting up Amazon Elastic VMware Service
-<a name="setting-up"></a>
+# Prepare your AWS account
 
-To use Amazon EVS, you will need to configure other AWS services, as well as set up your environment to meet VMware Cloud Foundation (VCF) requirements. For a summary checklist of deployment prerequisites, see [Amazon EVS deployment prerequisite checklist](evs-deployment-prereq-checklist.md).
+Before you build the network for Amazon Elastic VMware Service, complete these one-time tasks in the AWS account where you plan to deploy. The tasks are the same for both deployment modes. After you finish, continue with [Build the network foundation](network-foundation.md).
 
-**Topics**
-+ [Sign up for an AWS account](#sign-up-for-aws)
-+ [Create an IAM role to delegate Amazon EVS permission to an IAM user](#setting-up-create-iam-role)
-+ [Sign up for an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan](#setting-up-aws-business-support)
-+ [Check quotas](#check-quotas)
-+ [Plan VPC CIDR sizes](#vpc-planning)
-+ [Create a VPC with subnets](#vpc-create)
-+ [Configure the VPC main route table](#vpc-main-rt)
-+ [Configure your VPC’s DHCP option set](#vpc-dhcp)
-+ [Create and configure VPC Route Server infrastructure](#route-server)
-+ [Create a transit gateway for on-premises connectivity](#transit-gateway)
-+ [Create an Amazon EC2 Capacity Reservation](#ec2-future-capacity-reservation)
-+ [Set up the AWS CLI](#set-up-cli)
-+ [Create an Amazon EC2 key pair](#create-ec2-key-pair)
-+ [Prepare your environment for VMware Cloud Foundation (VCF)](#setting-up-vcf)
-+ [Acquire VCF license keys](#setting-up-vcf-licensing)
-+ [VMware HCX prerequisites](#hcx-prereqs)
-+ [Amazon EVS deployment prerequisite checklist](evs-deployment-prereq-checklist.md)
+Before you begin, review your network plan. For the VPC CIDR block size and the VLAN subnets, see [Plan your VPC and VLAN subnets](plan-network-sizing.md). For a full list of requirements, see [Deployment prerequisite checklist](evs-deployment-prereq-checklist.md).
+
+Complete the following tasks in order. The sections after this list describe each task.
+
+1.  [Sign up for an AWS account](#sign-up-for-aws) 
+
+1.  [Sign up for a supported AWS Support plan](#setting-up-aws-business-support) 
+
+1.  [Check quotas](#check-quotas) 
+
+1.  [Reserve Amazon EC2 capacity](#ec2-future-capacity-reservation) 
+
+1.  [Set up the AWS CLI](#set-up-cli) 
+
+1.  [Create an Amazon EC2 key pair](#create-ec2-key-pair) 
+
+1.  [Create an IAM role for Amazon EVS administrators](#setting-up-iam) 
+
+1.  [Prepare for VMware Cloud Foundation](#setting-up-vcf) 
+
+1.  [Acquire a VCF subscription and license keys](#setting-up-vcf-licensing) 
+
+When you have completed these tasks, your account is ready for Amazon EVS. Next, build the network. For instructions, see [Build the network foundation](network-foundation.md).
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) in the * AWS Account Management Reference Guide*.
 
-## Create an IAM role to delegate Amazon EVS permission to an IAM user
-<a name="setting-up-create-iam-role"></a>
+You must create the VPC, the subnets, and the Amazon EVS environment in the same AWS account. Amazon EVS does not support cross-account sharing of VPC subnets or Amazon EVS environments.
 
-You can use roles to delegate access to your AWS resources. With IAM roles, you can establish trust relationships between your trusting account and other AWS trusted accounts. The trusting account owns the resource to be accessed, and the trusted account contains the users who need access to the resource.
-
-After you create the trust relationship, an IAM user or an application from the trusted account can use the AWS Security Token Service (AWS STS) `AssumeRole` API operation. This operation provides temporary security credentials that enable access to AWS resources in your account. For more information, see [Create a role to delegate permissions to an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the * AWS Identity and Access Management User Guide*.
-
-Follow these steps to create an IAM role with a permissions policy that allows access to Amazon EVS operations.
-
-**Note**  
-Amazon EVS does not support the use of an instance profile to pass an IAM role to an EC2 instance.
-
-**Example**  
-
-1. Go the [IAM console](https://console.aws.amazon.com/iam).
-
-1. On the left menu, choose **Policies**.
-
-1. Choose **Create policy**.
-
-1. In the policy editor, create a permissions policy that enables Amazon EVS operations. For an example policy, see [Create and manage an Amazon EVS environment](security-iam-id-based-policy-examples.md#security-iam-id-based-policy-examples-create-env). To view all available Amazon EVS actions, resources, and condition keys, see [Actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticvmwareservice.html) in the *Service Authorization Reference*.
-
-1. Choose **Next**.
-
-1. Under **Policy name**, enter a meaningful policy name to identify this policy.
-
-1. Review the permissions defined in this policy.
-
-1. (Optional) Add tags to help identify, organize, or search for this resource.
-
-1. Choose **Create policy**.
-
-1. On the left menu, choose **Roles**.
-
-1. Choose **Create role**.
-
-1. For **Trusted entity type**, choose AWS account.
-
-1. Under **An AWS account **, specify the account that you want to perform Amazon EVS actions and choose **Next**.
-
-1. On the **Add permissions** page, select the permissions policy that you previously created and choose **Next**.
-
-1. Under **Role name**, enter a meaningful name to identify this role.
-
-1. Review the trust policy and ensure that the correct AWS account is listed as the principal.
-
-1. (Optional) Add tags to help identify, organize, or search for this resource.
-
-1. Choose **Create role**.
-
-1. Copy the following contents to a trust policy JSON file. For the principal ARN, replace the example AWS account ID and `service-user` name with your own AWS account ID and IAM user name.
-
-   ```
-   {
-     "Version":"2012-10-17",		 	 	 
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "arn:aws:iam::123456789012:user/service-user" 
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
-   }
-   ```
-
-1. Create the role. Replace `evs-environment-role-trust-policy.json` with your trust policy file name.
-
-   ```
-   aws iam create-role \
-     --role-name myAmazonEVSEnvironmentRole \
-     --assume-role-policy-document file://"evs-environment-role-trust-policy.json"
-   ```
-
-1. Create a permissions policy that enables Amazon EVS operations and attach the policy to the role. Replace `myAmazonEVSEnvironmentRole` with your role name. For an example policy, see [Create and manage an Amazon EVS environment](security-iam-id-based-policy-examples.md#security-iam-id-based-policy-examples-create-env). To view all available Amazon EVS actions, resources, and condition keys, see [Actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticvmwareservice.html) in the *Service Authorization Reference*.
-
-   ```
-   aws iam attach-role-policy \
-     --policy-arn arn:aws:iam::aws:policy/AmazonEVSEnvironmentPolicy \
-     --role-name myAmazonEVSEnvironmentRole
-   ```
-
-## Sign up for an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan
+## Sign up for a supported AWS Support plan
 <a name="setting-up-aws-business-support"></a>
 
-Amazon EVS requires that customers are enrolled in an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan to receive continuous access to technical support and architectural guidance. AWS Business Support is the minimum AWS Support tier that meets Amazon EVS requirements. If you have business-critical workloads, we recommend enrolling in AWS Enterprise On-Ramp or AWS Enterprise Support plans. For more information, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans).
+Amazon EVS requires that you enroll in an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan. These plans give you continuous access to technical support and architectural guidance. AWS Business Support is the minimum AWS Support tier that meets Amazon EVS requirements. If you run business-critical workloads, we recommend AWS Enterprise On-Ramp or AWS Enterprise Support, because these plans add faster response times and architectural guidance. For more information, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans).
 
 **Important**  
-Amazon EVS environment creation fails if you do not sign up for an AWS Business, AWS Enterprise On-Ramp, or an AWS Enterprise Support plan.
+Amazon EVS environment creation fails if you do not sign up for an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan.
 
 ## Check quotas
 <a name="check-quotas"></a>
 
-To enable Amazon EVS environment creation, ensure that your account has the required minimum account-level quotas. For more information, see [Amazon EVS service quotas](service-quotas-evs.md).
+Your account must have the required minimum account-level quotas before you create an environment. For the quotas and how to request an increase, see [Service quotas for Amazon EVS](service-quotas-evs.md).
 
 **Important**  
-Amazon EVS environment creation fails if the host count per EVS environment quota is not high enough for your VCF deployment topology. For host count requirements, see the [VMware Cloud Foundation documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html).
+Amazon EVS environment creation fails if the host count per environment quota is too low for your VCF deployment topology. For host count requirements, see the Broadcom documentation for [VCF 9.x](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1.html) or [VCF 5.2.x](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2.html).
 
-## Plan VPC CIDR sizes
-<a name="vpc-planning"></a>
-
-When you create an Amazon EVS environment, you are required to specify a VPC CIDR block. The VPC CIDR block cannot be changed after the environment is created, and will need to have enough space reserved to accommodate the required EVS subnets and hosts that Amazon EVS creates during environment deployment. As a result, it is critical to carefully plan out the CIDR block size, taking into account Amazon EVS requirements and your future scaling needs prior to deployment. Amazon EVS requires a VPC CIDR block with a minimum size of /22 netmask to allow sufficient space for the required EVS subnets and hosts. For more information, see [Amazon EVS networking considerations](architecture.md#evs-subnets).
-
-**Important**  
-Ensure that you have sufficient IP address space for both your VPC subnet and the VLAN subnets that Amazon EVS creates for VCF appliances. The VPC CIDR block must have a minimum size of /22 netmask to allow sufficient space for the required EVS subnets and hosts.
-
-**Note**  
-Amazon EVS does not support IPv6 at this time.
-
-## Create a VPC with subnets
-<a name="vpc-create"></a>
-
-Amazon EVS deploys your environment into a VPC that you provide. This VPC must contain a subnet for Amazon EVS service access ([Service access subnet](concepts.md#concepts-service-access-subnet)). For steps to create a VPC with subnets for Amazon EVS, see [Create a VPC with subnets and route tables](getting-started.md#getting-started-create-vpc).
-
-## Configure the VPC main route table
-<a name="vpc-main-rt"></a>
-
-Amazon EVS VLAN subnets are implicitly associated to the VPC main route table. To enable connectivity to dependent services such as DNS or on-premises systems for successful environment deployment, you must configure the main route table to allow traffic to these systems. For more information, see [Explicitly associate Amazon EVS VLAN subnets to a VPC route table](getting-started.md#getting-started-associate-vlans).
-
-**Important**  
-Amazon EVS supports the use of a custom route table only after the Amazon EVS environment is created. Custom route tables should not be used during Amazon EVS environment creation, as this may result in connectivity issues.
-
-### Gateway route requirements
-<a name="vpc-main-rt-reqs"></a>
-
-Configure routes for these gateway types based on your connectivity requirements:
-+  **NAT gateway (NGW)** 
-  + Optional for outbound-only internet access.
-  + Must be in a public subnet with internet gateway access.
-  + Add routes from private subnets and EVS VLAN subnets to the NAT gateway.
-  + For more information, see [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
-+  **Transit gateway (TGW)** 
-  + Required for on-premises connectivity via both AWS Direct Connect and AWS Site-to-Site VPN.
-  + Add routes for on-premises network ranges.
-  + Configure route propagation if using BGP.
-  + For more information, see [Transit gateways in Amazon VPC Transit Gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html) in the *Amazon VPC User Guide*.
-
-### Best practices
-<a name="evs-env-rtb-best"></a>
-+ Document all route table configurations.
-+ Use consistent naming conventions.
-+ Regularly audit your route tables.
-+ Test connectivity after making changes.
-+ Back up route table configurations.
-+ Monitor route health and propagation.
-
-For more information about working with route tables, see [Configure route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
-
-## Configure your VPC’s DHCP option set
-<a name="vpc-dhcp"></a>
-
-**Important**  
-Your environment deployment fails if you don’t meet these Amazon EVS requirements:  
-Include a primary DNS server IP address and a secondary DNS server IP address in the DHCP option set.
-Include a DNS forward lookup zone with A records for each VCF management appliance and Amazon EVS host in your deployment.
-Include a DNS reverse lookup zone with PTR records for each VCF management appliance and Amazon EVS host in your deployment.
-Configure the VPC’s main route table to ensure a route to your DNS servers exist.
-Ensure that your domain name registration is valid and unexpired, and no duplicate hostnames or IP addresses exist.
-Configure your security groups and network access control lists (ACLs) to allow Amazon EVS to communicate with:  
-DNS servers over TCP/UDP port 53.
-Host management VLAN subnet over HTTPS and SSH.
-Management VLAN subnet over HTTPS and SSH.
-
-For more information, see [Configure DNS and NTP servers using the VPC DHCP option set](getting-started.md#getting-started-config-dns-ntp-dhcp).
-
-## Create and configure VPC Route Server infrastructure
-<a name="route-server"></a>
-
-Amazon EVS uses Amazon VPC Route Server to to enable BGP-based dynamic routing to your VPC underlay network. You must specify a route server that shares routes to at least two route server endpoints in the service access subnet. The peer ASN configured on the route server peers must match, and the peer IP addresses must be unique.
-
-**Important**  
-Your environment deployment fails if you don’t meet these Amazon EVS requirements for VPC Route Server configuration:  
-You must configure at least two route server endpoints in the service access subnet.
-When configuring Border Gateway Protocol (BGP) for the Tier-0 gateway, the VPC Route Server peer ASN value must match the NSX Edge peer ASN value.
-When creating the two route server peers, you must use a unique IP address from the NSX uplink VLAN for each endpoint. These two IP addresses will be assigned to the NSX edges during Amazon EVS environment deployment.
-When enabling Route Server propagation, you must ensure that all route tables being propagated have at least one explicit subnet association. BGP route advertisement fails if propagated route tables do not have an explicit subnet association.
-
-**Note**  
-For Route Server peer liveness detection, Amazon EVS only supports the default BGP keepalive mechanism. Amazon EVS does not support multi-hop Bidirectional Forwarding Detection (BFD).
-
-### Prerequisites
-<a name="evs-env-rs-prereq"></a>
-
-Before you begin, you need:
-+ A VPC subnet for your route server.
-+ IAM permissions to manage VPC Route Server resources.
-+ A BGP ASN value for route server (Amazon-side ASN). This value must be in the range of 1-4294967295.
-+ A peer ASN to peer your route server with the NSX Tier-0 gateway. Peer ASN values entered in the route server and NSX Tier-0 gateway must match. The default ASN for an NSX Edge appliance is 65000.
-
-### Steps
-<a name="evs-env-rs-steps"></a>
-
-For steps to set up VPC Route Server, see the [Route Server get started tutorial](https://docs.aws.amazon.com/vpc/latest/userguide/route-server-tutorial.html).
-
-**Note**  
-If you are using a NAT gateway or a transit gateway, ensure that your route server is configured correctly to propagate NSX routes to the VPC route table(s).
-
-**Note**  
-We recommend that you enable persistent routes for the route server instance with a persist duration between 1-5 minutes. If enabled, routes will be preserved in the route server’s routing database even if all BGP sessions end.
-
-**Note**  
-BGP connectivity status will be down until the Amazon EVS environment is deployed and operational.
-
-## Create a transit gateway for on-premises connectivity
-<a name="transit-gateway"></a>
-
-You can configure connectivity for your on-premises data center to your AWS infrastructure using Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway. For more information, see [Configure on-premises network connectivity (optional)](getting-started.md#getting-started-connect-on-prem).
-
-## Create an Amazon EC2 Capacity Reservation
+## Reserve Amazon EC2 capacity
 <a name="ec2-future-capacity-reservation"></a>
 
-Amazon EVS launches Amazon EC2 metal instances that are the ESX hosts in your Amazon EVS environment. To ensure that you have sufficient capacity available when you add hosts, we recommend that you request an Amazon EC2 Capacity Reservation. You can create a Capacity Reservation at any time, and you can choose when it starts. You can request a Capacity Reservation for immediate use, or you can request a Capacity Reservation for a future date. For more information, see [Reserve compute capacity with EC2 On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon Elastic Compute Cloud User Guide*.
+Amazon EVS launches Amazon EC2 bare metal instances that become the ESX hosts in your environment. We recommend that you request an Amazon EC2 Capacity Reservation, so that capacity is available when you add hosts. You can request a Capacity Reservation for immediate use or for a future date. For more information, see [Reserve capacity for hosts](plan-capacity.md) and [Reserve compute capacity with EC2 On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide*.
 
 ## Set up the AWS CLI
 <a name="set-up-cli"></a>
 
-The AWS CLI is a command line tool for working with AWS services, including Amazon EVS. It is also used to authenticate IAM users or roles for access to the Amazon EVS virtualization environment and other AWS resources from your local machine. To provision AWS resources from the command line, you need to obtain an AWS access key ID and secret key to use in the command line. Then you need to configure these credentials in the AWS CLI. For more information, see [Set up the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) in the * AWS Command Line Interface User Guide for Version 2*.
+The AWS Command Line Interface (AWS CLI) is a command line tool for working with AWS services, including Amazon EVS. You also use it to authenticate IAM users or roles for access to Amazon EVS and other AWS resources from your local machine. To use the AWS CLI, you get an access key ID and a secret access key, and then you configure these credentials in the AWS CLI. For instructions, see [Set up the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) in the * AWS Command Line Interface User Guide for Version 2*.
 
 ## Create an Amazon EC2 key pair
 <a name="create-ec2-key-pair"></a>
 
-Amazon EVS uses an Amazon EC2 key pair that you provide during environment creation to connect to your hosts. To create a key pair, follow the steps on [Create a key pair for your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html) in the Amazon Elastic Compute Cloud User Guide.
+Amazon EVS uses an Amazon EC2 key pair to connect to your hosts. You provide it when you create the environment in EVS-deployed mode, and when you add a host in Self-deployed mode. To create a key pair, see [Create a key pair for your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html) in the *Amazon EC2 User Guide*.
 
-## Prepare your environment for VMware Cloud Foundation (VCF)
+## Create an IAM role for Amazon EVS administrators
+<a name="setting-up-iam"></a>
+
+Create an IAM role with a permissions policy that allows Amazon EVS operations, and let your administrators assume it. For instructions, see [Create an IAM role for Amazon EVS administrators](setup-iam-role.md).
+
+## Prepare for VMware Cloud Foundation
 <a name="setting-up-vcf"></a>
 
-Before you deploy your Amazon EVS environment, your environment must meet VMware Cloud Foundation (VCF) infrastructure requirements. For detailed VCF prerequisites, see the [Planning and Preparation Workbook](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/planning-and-preparation-workbook-5-2.html) in the VMware Cloud Foundation product documentation.
+Your environment must meet the VMware Cloud Foundation (VCF) infrastructure requirements for the VCF version that you deploy. For the VCF versions that Amazon EVS provides in each mode, see [Supported VCF versions and instance types](versions-provided.md). For the VCF planning requirements, see the Planning and Preparation Workbook in the Broadcom documentation for [VCF 9.x](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/planning-and-preparation.html) or [VCF 5.2.x](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/planning-and-preparation-workbook-5-2.html).
 
-You should also familiarize yourself with VCF 5.2.x requirements. See the [VCF 5.2.x release notes](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes.html) for relevant release information.
+If you plan to use diskless hosts, which have no local storage, you must provide external storage. The storage must be in the same VPC and Availability Zone as your environment. Diskless hosts are available only with VCF 9.x in Self-deployed mode. For the VCF versions and instance types that support diskless hosts, see [Supported VCF versions and instance types](versions-provided.md). For storage options, requirements, and sizing, see [External storage options for diskless hosts](external-storage-diskless.md).
 
-**Note**  
-For information about VCF versions provided by Amazon EVS, see [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md).
+If you plan to migrate workloads with VMware HCX, see [Plan HCX connectivity](plan-hcx-connectivity.md) before you build the network. HCX internet connectivity needs a public IPAM pool and Elastic IP addresses that you prepare in advance.
 
-## Acquire VCF license keys
+## Acquire a VCF subscription and license keys
 <a name="setting-up-vcf-licensing"></a>
 
-You need to bring your own VCF licenses to run VCF on Amazon EVS, regardless of how you deploy it. Amazon EVS collects and reports license usage.
-+ When Amazon EVS deploys VCF for you, you provide license keys at environment creation time.
-+ In Self-deployed mode, you do not provide license keys at creation time. Instead, add them in your VCF management appliance after you install VCF, and Amazon EVS reports usage from there. For more information, see [Create an Amazon EVS environment connector](evs-env-create-connector.md).
+You bring your own VCF subscription to run VCF on Amazon EVS, in both deployment modes. When and where you provide the license keys depends on the deployment mode and the instance type. For the license requirements and the steps for each mode, see [VCF licensing](vcf-license-mgmt.md).
 
-To use Amazon EVS, you need to provide a VCF solution key and a vSAN license key. The specific requirements for core count and vSAN capacity depend on the instance type you select. For details about minimum core and capacity thresholds for your instance type, see [VCF subscriptions](vcf-license-mgmt.md) for your configuration. For more information about VCF licenses, see [Managing License Keys in VMware Cloud Foundation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/license-management-admin.html) in the *VMware Cloud Foundation Administration Guide*.
-
-**Important**  
-Use the SDDC Manager user interface to manage VCF solution and vSAN license keys. Amazon EVS requires that you maintain valid VCF solution and vSAN license keys in SDDC Manager for the service to function properly.
-
-**Note**  
-Your VCF license will be available to Amazon EVS across all AWS Regions for license compliance. Amazon EVS does not validate license keys. To validate license keys, visit [Broadcom support](https://support.broadcom.com/web/ecx).
-
-## VMware HCX prerequisites
-<a name="hcx-prereqs"></a>
-
-You can use VMware HCX to migrate your existing VMware-based workloads to Amazon EVS. Before you use VMware HCX with Amazon EVS, make sure that the following prerequiste tasks have been completed.
-
-**Note**  
-VMware HCX is not installed in the EVS environment by default.
-+ Before you can use VMware HCX with Amazon EVS, minimum network underlay requirements must be met. For more information, see [Network Underlay Minimum Requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/preparing-for-hcx-installations/network-underlay-minimum-requirements.html) in the *VMware HCX User Guide*.
-+ Confirm that VMware NSX is installed and configured in the environment. For more information, see the [VMware NSX Installation Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/installation-guide.html).
-+ Ensure that VMware HCX is activated and installed in the environment. For more information about activating and installing VMware HCX, see [About Getting Started with VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/getting-started-with-vmware-hcx-4-11/about-getting-started-with-vmware-hcx.html) in the *Getting Started with VMware HCX Guide*.
-+ If you need HCX internet connectivity, you must complete the following prerequisite tasks:
-  + Ensure that your IPAM quota for Amazon-provided contiguous public IPv4 CIDR block netmask length is /28 or greater.
-**Important**  
-For HCX internet connectivity, Amazon EVS requires use of IPv4 CIDR block from a public IPAM pool with a netmask length of /28 or greater. Use of any CIDR block with a netmask length smaller than /28 will result in HCX connectivity issues. For more information about increasing IPAM quotas, see [Quotas for your IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html).
-  + Create an IPAM and a public IPv4 IPAM pool with CIDR that has a a minimum netmask length of /28.
-  + Allocate at least two Elastic IP addresses (EIPs) from the IPAM pool for the HCX Manager and HCX Interconnect (HCX-IX) appliances. Allocate an additional Elastic IP address for each HCX network appliance that you need to deploy.
-  + Add the public IPv4 CIDR block as an additional CIDR to your VPC.
-
-For more information about HCX setup, see [Choose your HCX connectivity option](getting-started.md#hcx-connectivity-choice) and [HCX connectivity options](migrate-evs-hcx.md#migrate-evs-hcx-connectivity).
+**Topics**
