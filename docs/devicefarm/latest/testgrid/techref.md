@@ -1,7 +1,6 @@
 
 
 # Technical reference
-<a name="techref"></a>
 
 In the W3C WebDriver model, the feature operates as an intermediary node. It provides a means to start, end, and manage sessions. 
 

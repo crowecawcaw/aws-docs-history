@@ -1,7 +1,6 @@
 
 
 # Limitations of Device Farm desktop browser testing
-<a name="techref-limitations"></a>
 
  Keep these limitations in mind when you use the desktop browser testing feature:
 + The feature is only available in the `us-west-2` (Oregon) region. 

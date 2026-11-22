@@ -1,7 +1,6 @@
 
 
 # Creating a Device Farm desktop browser testing project
-<a name="managing-project-create"></a>
 
 You can use the Device Farm console or the AWS CLI to create a project.
 

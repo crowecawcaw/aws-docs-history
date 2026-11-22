@@ -1,7 +1,6 @@
 
 
 # Migrating Selenium tests in testing frameworks to Device Farm desktop browser testing
-<a name="testing-frameworks"></a>
 
 A Selenium test suite is a collection of individual Selenium test cases or test scripts that are designed to test a specific aspect or feature of a web application.
 

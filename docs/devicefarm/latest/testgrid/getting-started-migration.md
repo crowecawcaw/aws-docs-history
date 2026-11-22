@@ -1,7 +1,6 @@
 
 
 # Migrating to Device Farm desktop browser testing from Selenium Grid
-<a name="getting-started-migration"></a>
 
 To migrate Selenium test suites in an environment that use Selenium Grid and `RemoteWebDriver`), you must modify your test suite setup procedure. Using the AWS SDK, you request a signed command executor (hub) URL from the Device Farm desktop browser testing API. Then you pass that URL along with your requested capabilities to your `RemoteWebDriver`.
 
@@ -60,7 +59,7 @@ To update your project configuration, see [Configuring your project to use Amazo
 **Note**  
 This example uses JUnit 5 and the AWS SDK for Java 2.x. For more information about the AWS SDK for Java 2.x, see [AWS SDK for Java 2.x API Reference](https://docs.aws.amazon.com/sdk-for-java/latest/reference/). If you are using a different test framework, be aware that `@Before` and `@After` are called before and after each test, respectively.
 
-   ```
+   ```java
    // Import the AWS SDK for Java 2.x Device Farm client:
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.devicefarm.*;
@@ -103,7 +102,7 @@ This example uses JUnit 5 and the AWS SDK for Java 2.x. For more information abo
 **Important**  
 This example is written with the assumption you are using Python 3 with pytest. If you are using another testing framework, see the documentation.
 
-   ```
+   ```python
    # Include boto3, the Python SDK's main package:
    import boto3, pytest
    

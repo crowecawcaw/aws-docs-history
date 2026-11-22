@@ -1,7 +1,6 @@
 
 
 # Document history for Device Farm desktop browser testing
-<a name="document-history"></a>
 
 The following table describes the documentation for this release of the guide.
 + **API version: 2015-06-23** 

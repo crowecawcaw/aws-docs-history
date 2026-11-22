@@ -1,7 +1,6 @@
 
 
 # Using Device Farm desktop browser testing with Node.js
-<a name="testing-frameworks-nodejs"></a>
 
 Device Farm desktop browser testing can be used alongside the AWS SDK for JavaScript in Node.js and W3C WebDriver Specification compatible libraries, such as the official Selenium WebDriver package and Webdriver.IO.
 
@@ -17,7 +16,7 @@ You can use Device Farm desktop browser testing with the Selenium Node.js `selen
 **Note**  
 This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](https://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html).
 
-```
+```javascript
 var webdriver = require('selenium-webdriver');
 var AWS = require("aws-sdk");
 
@@ -67,7 +66,7 @@ Using Device Farm desktop browser testing with Webdriver.IO does not require the
 **Note**  
 This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](https://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html).
 
-```
+```javascript
 const webdriverio = require('webdriverio');
 const AWS = require("aws-sdk");
 

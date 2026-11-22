@@ -1,7 +1,6 @@
 
 
 # Migrating a Java test suite to Device Farm
-<a name="testing-frameworks-java"></a>
 
 Follow the steps in this topic to migrate your Java test suite to using the desktop browser testing feature with `RemoteWebDriver`. 
 
@@ -12,7 +11,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
 1. Add the AWS SDK for Java 2.x to your Maven `pom.xml`:
 
-   ```
+   ```xml
    <dependency>
      <groupId>software.amazon.awssdk</groupId>
      <artifactId>aws-sdk-java</artifactId>
@@ -26,7 +25,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Import the Device Farm classes:
 
-      ```
+      ```java
       import software.amazon.awssdk.regions.Region;
       import software.amazon.awssdk.services.devicefarm.DeviceFarmClient;
       import software.amazon.awssdk.services.devicefarm.model.CreateTestGridUrlRequest;
@@ -35,7 +34,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Instantiate a new `DeviceFarmClient` where you create your `WebDriver`:
 
-      ```
+      ```java
       public class myTestSuite {
           /** Set up the test suite. */
           @BeforeAll
@@ -45,7 +44,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Create a request for a signed `WebDriver` hub URL:
 
-      ```
+      ```java
               CreateTestGridUrlRequest request = CreateTestGridUrlRequest.builder()
                       .expiresInSeconds({{300}})        // 5 minutes
                       .projectArn("arn:aws:devicefarm:us-west-2:{{111122223333}}:testgrid-project:1111111-2222-3333-4444-555555555")
@@ -54,7 +53,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Get a response:
 
-      ```
+      ```java
               URL testGridUrl = null;
               try {
                   CreateTestGridUrlResponse response = client.createTestGridUrl(request);
@@ -67,7 +66,7 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Create a `DesiredCapabilities` object to hold the capabilities you want or use a preconfigured set:
 
-      ```
+      ```java
               DesiredCapabilities desired_capabilities = new DesiredCapabilities();
               desired_capabilities.setCapability("browserName","{{firefox}}");
               desired_capabilities.setCapability("browserVersion", "{{latest}}");
@@ -78,13 +77,13 @@ This topic is written with the assumption you are using the AWS SDK for Java 2.x
 
    1. Use `RemoteWebDriver` in place of your existing `WebDriver` implementation.
 
-      ```
+      ```java
               driver = new RemoteWebDriver(testGridUrl, desired_capabilities);
       ```
 
    1. Make sure to close your session after the tests complete:
 
-      ```
+      ```java
           @AfterAll
           public static void teardown() {
               driver.quit();      // tear down the driver and its parts. 

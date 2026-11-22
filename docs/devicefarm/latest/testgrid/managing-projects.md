@@ -1,7 +1,6 @@
 
 
 # Projects in Device Farm desktop browser testing
-<a name="managing-projects"></a>
 
  Selenium projects created, organized, and managed separately from native testing projects in Device Farm. 
 

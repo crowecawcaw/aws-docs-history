@@ -1,7 +1,6 @@
 
 
 # Look up Device Farm desktop browser testing sessions
-<a name="managing-sessions"></a>
 
 Sessions are used to keep track of two things: 
 + Artifacts, which are records of the results of events. For more information, see [Artifacts in Device Farm desktop browser testing](managing-artifacts.md).

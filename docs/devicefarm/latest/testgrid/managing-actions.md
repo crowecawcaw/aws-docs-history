@@ -1,7 +1,6 @@
 
 
 # Actions in Device Farm desktop browser testing
-<a name="managing-actions"></a>
 
  When you interact with the W3C WebDriver protocol, Device Farm logs the calls made as actions. 
 

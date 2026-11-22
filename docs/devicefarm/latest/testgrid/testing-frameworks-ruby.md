@@ -1,7 +1,6 @@
 
 
 # Migrating a Ruby test suite to Device Farm desktop browser testing
-<a name="testing-frameworks-ruby"></a>
 
  Follow the steps in this topic to get your tests running on ruby. 
 
@@ -31,20 +30,20 @@
 
    1. Import the Device Farm classes:
 
-      ```
+      ```ruby
       require 'aws-sdk-devicefarm'
       require 'selenium-webdriver'
       ```
 
    1. Instantiate a new `DeviceFarm::Client` where you create your `WebDriver`
 
-      ```
+      ```ruby
       devicefarm = Aws::DeviceFarm::Client.new(region: 'us-west-2')
       ```
 
    1. Get a signed `WebDriver` hub URL:
 
-      ```
+      ```ruby
       test_grid_url_response = devicefarm.create_test_grid_url(
           project_arn: "arn:aws:devicefarm:us-west-2:{{111122223333}}:testgrid-project:{{123e4567-e89b-12d3-a456-426655440000}}", 
           expires_in_seconds: 300)
@@ -53,13 +52,13 @@
 
    1. Use the `DesiredCapabilities` class to specify the browser to test against:
 
-      ```
+      ```ruby
       capabilities = Selenium::WebDriver::Remote::Capabilities.firefox
       ```
 
    1. Create your `RemoteWebDriver` in place of your existing `GeckoDriver`, `ChromeDriver`, or similar. To avoid timeouts, create a new HTTP client with an extended timeout:
 
-      ```
+      ```ruby
       client = Selenium::WebDriver::Remote::Http::Default.new
       client.read_timeout = 180 # seconds - make sure to set a timeout here of at least 3 minutes (default is 60 seconds)
       driver = Selenium::WebDriver.for :remote, http_client: client, url: remote_url, desired_capabilities: capabilities
@@ -69,7 +68,7 @@ If you do not set an increased timeout, the session creation will time out befor
 
    1. Make sure to close your session after the tests are complete:
 
-      ```
+      ```ruby
       driver.quit
       ```
 

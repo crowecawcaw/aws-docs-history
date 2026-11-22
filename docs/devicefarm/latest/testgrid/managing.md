@@ -1,7 +1,6 @@
 
 
 # Device Farm desktop browser testing
-<a name="managing"></a>
 
 The desktop browser testing feature is an interface between your testing framework and an on-demand pool of highly available combinations of browsers and operating systems.
 

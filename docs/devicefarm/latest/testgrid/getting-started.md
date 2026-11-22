@@ -1,7 +1,6 @@
 
 
 # Getting started with Selenium testing on Device Farm
-<a name="getting-started"></a>
 
 Selenium is a popular open-source software testing framework used to test web applications on different devices, including desktops, laptops, tablets, and mobile phones. Selenium allows developers and QA (Quality Assurance) engineers to write scripts that can control a web browser, simulate user interactions, and verify that the application under test is behaving as expected. For more information about Selenium, see the [Selenium documentation](https://selenium.dev/documentation/).
 

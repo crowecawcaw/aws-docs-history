@@ -1,7 +1,6 @@
 
 
 # Access control and IAM
-<a name="security-acl-iam"></a>
 
 Be aware of the following when you use the desktop browser testing feature:
 + Your AWS access and secret keys are used for all actions with the SDK and CLI.
@@ -22,7 +21,7 @@ IAM is used to restrict access to operations and resources. The following exampl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -48,7 +47,7 @@ The following IAM Policy allows access to Device Farm resources as well as the r
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -87,7 +86,7 @@ The following IAM policy allows the user to create URLs with the `CreateTestGrid
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

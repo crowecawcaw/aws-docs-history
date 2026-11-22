@@ -1,7 +1,6 @@
 
 
 # What is Device Farm desktop browser testing?
-<a name="what-is-testgrid"></a>
 
 This guide shows you how to run your Selenium tests on multiple desktop browsers hosted on AWS. The feature scales seamlessly so you can run your tests in parallel on multiple browser instances to speed up the execution of your test suite. For every browser the test is executed on, Device Farm generates video recordings and Selenium logs to help you quickly identify any issues with your web app. 
 

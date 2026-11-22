@@ -1,7 +1,6 @@
 
 
 # Quotas in Device Farm desktop browser testing
-<a name="techref-limits"></a>
 
 Exceeding the following limits will result in session creation failure:
 + You may have up to 50 sessions in an `active` state at any time.

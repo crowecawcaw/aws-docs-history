@@ -1,7 +1,6 @@
 
 
 # Migrating to Device Farm desktop browser testing from local Selenium WebDrivers
-<a name="getting-started-local"></a>
 
 If you're testing browsers locally, you can use the desktop browser testing feature to test on Firefox, Edge, and Chrome without setting up those browsers.
 
@@ -97,7 +96,7 @@ We recommend that you follow the standard security advice of granting least priv
 **Note**  
 This example uses JUnit 5 and the AWS SDK for Java 2.x. For more information about the AWS SDK for Java 2.x, see [AWS SDK for Java 2.x API Reference](https://docs.aws.amazon.com/sdk-for-java/latest/reference/). If you are using a different test framework, be aware that `@Before` and `@After` are called before and after each test, respectively.
 
-   ```
+   ```java
    // Import the AWS SDK for Java 2.x Device Farm client:
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.devicefarm.*;
@@ -140,7 +139,7 @@ This example uses JUnit 5 and the AWS SDK for Java 2.x. For more information abo
 **Important**  
 This example is written with the assumption you are using Python 3 with pytest. If you are using another testing framework, see the documentation.
 
-   ```
+   ```python
    # Include boto3, the Python SDK's main package:
    import boto3, pytest
    
