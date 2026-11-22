@@ -1,7 +1,6 @@
 
 
 # Lab Instrument Log Acquisition and Analytics on AWS
-<a name="lab-instrument-log-analytics"></a>
 
 Publication date: **October 28, 2020 ([Diagram history](#lab-diagram-history))**
 
