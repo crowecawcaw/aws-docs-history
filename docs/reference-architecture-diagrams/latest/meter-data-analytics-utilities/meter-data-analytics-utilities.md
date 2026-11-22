@@ -1,7 +1,6 @@
 
 
 # Meter Data Analytics for Utilities
-<a name="meter-data-analytics-utilities"></a>
 
 Publication date: **September 17, 2024 ([Diagram history](#mda-history))**
 
