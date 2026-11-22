@@ -1,7 +1,6 @@
 
 
 # Manage global access features
-<a name="config-wrkr-lv-cg-users-manage"></a>
 
 You can set some access features that apply globally to all users on the AWS Elemental Live node.
 

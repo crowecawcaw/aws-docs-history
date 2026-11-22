@@ -1,7 +1,6 @@
 
 
 # Enable user authentication
-<a name="config-wrkr-lv-cg-auth"></a>
 
 You can require users to provide valid credentials when they access Elemental Live from both the web interface and REST API.
 + For the web interface, users must complete the fields on the login screen.

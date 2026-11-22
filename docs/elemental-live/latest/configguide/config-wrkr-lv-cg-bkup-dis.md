@@ -1,7 +1,6 @@
 
 
 # Disable database backups
-<a name="config-wrkr-lv-cg-bkup-dis"></a>
 
 Follow these steps to disable automatic backups of the AWS Elemental Live database.
 

@@ -1,7 +1,6 @@
 
 
 # Verify the licenses for the cluster
-<a name="config-wrkr-lv-cg-licenses"></a>
 
 Make sure that you have the appropriate AWS Elemental Live licenses installed.
 
@@ -11,4 +10,4 @@ Make sure that you have the appropriate AWS Elemental Live licenses installed.
 
 1. Verify that information for a standalone license (`eme.lic`) is displayed.
 
-1. If you see a No license file detected message, follow the steps on the screen to upload a license. For additional assistance, see the [Elemental Live Installation Guide](https://docs.aws.amazon.com/elemental-live/latest/installguide/).
+1. If you see a `No license file detected` message, follow the steps on the screen to upload a license. For additional assistance, see the [Elemental Live Installation Guide](https://docs.aws.amazon.com/elemental-live/latest/installguide/).

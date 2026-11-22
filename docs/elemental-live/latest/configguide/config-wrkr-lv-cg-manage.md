@@ -1,7 +1,6 @@
 
 
 # Managing the Elemental Live configuration
-<a name="config-wrkr-lv-cg-manage"></a>
 
 This section describes how to manage settings after you've completed the initial configuration of the node.
 

@@ -1,7 +1,6 @@
 
 
 # Manage Ethernet devices
-<a name="config-wrkr-cf-cg-ethernet"></a>
 
 When you installed each AWS Elemental Live in the cluster, you configured eth0. You can now set up eth1 and any additional Ethernet devices. Optionally, you can also bond two devices that you have set up. 
 

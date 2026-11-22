@@ -1,7 +1,6 @@
 
 
 # Email notification
-<a name="notification-email"></a>
 
 You can configure AWS Elemental Live to email you notifications when alerts occur. 
 

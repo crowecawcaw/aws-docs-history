@@ -1,7 +1,6 @@
 
 
 # Step C: Complete the input mappings
-<a name="sdi-rou-input"></a>
 
 Next, complete the Input mappings to assign an ID to each input on the router. You only need to assign an ID to the inputs that you are using (the ones that are cabled):
 

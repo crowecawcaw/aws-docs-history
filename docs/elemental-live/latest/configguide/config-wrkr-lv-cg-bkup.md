@@ -1,7 +1,6 @@
 
 
 # Configure database backups for Elemental Live
-<a name="config-wrkr-lv-cg-bkup"></a>
 
 During a database backup, AWS Elemental Live copies the data that's related to your framework (channels, profiles, nodes, MPTS outputs, and redundancy groups) from the Elemental Live node to another server. You can use this backup to restore the data to the node in case of a major hardware failure or if you have to re-install the software for any reason.
 

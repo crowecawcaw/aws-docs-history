@@ -1,7 +1,6 @@
 
 
 # Enable RTMP inputs
-<a name="config-wrkr-lv-cg-rtmp"></a>
 
 Elemental Live is configured by default to support Real Time Messaging Protocol (RTMP) inputs. To confirm that this feature is enabled, do the following:
 

@@ -1,7 +1,6 @@
 
 
 # Step D: Complete the output mappings
-<a name="sdi-rou-output"></a>
 
 Map each router output to the SDI input on the Elemental Live hardware unit that you plan to use. This mapping must reflect the actual cabling from the output side of the router to the input side of the SDI card.
 

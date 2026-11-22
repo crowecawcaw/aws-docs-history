@@ -1,7 +1,6 @@
 
 
 # Authentication user types
-<a name="auth-ref-type-user"></a>
 
 This table describes the types of users available with authentication.
 

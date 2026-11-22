@@ -1,7 +1,6 @@
 
 
 # Configure Elemental Live notifications
-<a name="config-wrkr-lv-cg-notifications"></a>
 
 AWS Elemental Live provides status information through alerts and messages. You can configure notifications so you know when the node might need attention. The following table describes the differences between alerts and messages and how you can access each.
 

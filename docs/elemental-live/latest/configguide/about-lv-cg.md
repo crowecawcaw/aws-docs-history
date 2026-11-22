@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="about-lv-cg"></a>
 
 This guide describes how to configure an AWS Elemental Live node that is working in stand-alone mode. Stand-alone means that the nodes aren't being controlled by AWS Elemental Conductor Live. If your Elemental Live nodes are being controlled by AWS Elemental Conductor Live, see the [AWS Elemental Conductor Live Upgrade Guide](https://docs.aws.amazon.com/elemental-cl3/latest/installguide). 
 

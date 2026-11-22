@@ -1,7 +1,6 @@
 
 
 # Manage bonds
-<a name="config-live-cg-ethernet"></a>
 
 If you set up more Ethernet devices on the AWS Elemental Live node, you can optionally bond two devices.
 

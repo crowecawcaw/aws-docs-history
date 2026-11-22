@@ -1,7 +1,6 @@
 
 
 # Configuring licenses
-<a name="config-live-licenses"></a>
 
 Each Elemental Live node requires its own license. Without the license, the service won't start. 
 

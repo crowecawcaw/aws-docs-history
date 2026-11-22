@@ -1,7 +1,6 @@
 
 
 # Simple Network Management Protocol (SNMP) polling
-<a name="notification-polling"></a>
 
 Rather than passively receiving SNMP traps from AWS Elemental Live, you can actively poll the SNMP interface.
 

@@ -1,7 +1,6 @@
 
 
 # Restore a backup
-<a name="config-wrkr-lv-cg-bkup-restore"></a>
 
 Follow this procedure if you ever need to restore a backed-up version of the database. 
 

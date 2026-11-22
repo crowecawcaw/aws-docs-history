@@ -1,7 +1,6 @@
 
 
 # Users in Elemental Live
-<a name="config-wrkr-lv-cg-users-chg"></a>
 
 This section describes how to manage users that you've already added to the AWS Elemental Live node. For assistance adding users, see [Add users](config-wrkr-lv-cg-users.md)'>.
 
