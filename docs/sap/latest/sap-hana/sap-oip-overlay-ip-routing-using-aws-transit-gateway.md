@@ -1,7 +1,6 @@
 
 
 # Overlay IP Routing using AWS Transit Gateway
-<a name="sap-oip-overlay-ip-routing-using-aws-transit-gateway"></a>
 
 With Transit Gateway, you use route table rules which allow the overlay IP address to communicate to the SAP instance without having to configure any additional components, like a Network Load Balancer or Amazon Route 53. You can connect to the overlay IP from another VPC, another subnet (not sharing the same route table where overlay IP address is maintained), over a VPN connection, or via an AWS Direct Connect connection from a corporate network.
 

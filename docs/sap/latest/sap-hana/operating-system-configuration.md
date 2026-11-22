@@ -1,7 +1,6 @@
 
 
 # Configure the operating system
-<a name="operating-system-configuration"></a>
 
 This section includes instructions for configuring your operating system for SAP HANA.
 

@@ -1,7 +1,6 @@
 
 
 # Client Connectivity
-<a name="sap-hana-pacemaker-rhel-client-connectivity"></a>
 
 For proper SAP HANA database connectivity:
 + Ensure that the Overlay IP can be correctly resolved in all application servers
@@ -13,7 +12,7 @@ Ensure that the connectivity data for the SAP HANA Database references the hostn
 
 Test database connectivity using R3trans utility:
 
-```
+```console
 sidadm> R3trans -d
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Configure SLES 12/15 for SAP
-<a name="configure-operating-system-sles-for-sap-12.x"></a>
 
 **Important**  
 In the following steps, you need to update several configuration files. We recommend taking a backup of the files before you modify them. This will help you to revert to the previous configuration if needed.
@@ -25,13 +24,13 @@ Depending on your network and security settings, you might have to first connect
 
 1. Ensure that the `DHCLIENT_SET_HOSTNAME` parameter is set to **no** to prevent DHCP from changing the hostname during restart.
 
-   ```
+   ```bash
       grep DHCLIENT_SET_HOSTNAME /etc/sysconfig/network/dhcp
    ```
 
 1. Set the `preserve_hostname` parameter to true to ensure your hostname is preserved during restart.
 
-   ```
+   ```bash
       sed -i '/preserve_hostname/ c\preserve_hostname: true' /etc/cloud/cloud.cfg
    ```
 
@@ -54,13 +53,13 @@ Depending on your network and security settings, you might have to first connect
 
    You can use the `rpm` command to check whether a package is installed.
 
-   ```
+   ```bash
       rpm -qi <package_name>
    ```
 
    You can then use the zypper install command to install the missing packages.
 
-   ```
+   ```bash
       zypper install <package_name>
    ```
 **Note**  
@@ -68,19 +67,19 @@ If you are importing your own SLES image, additional packages might be required 
 
 1. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2205917](https://me.sap.com/notes/2205917) or [2684254](https://me.sap.com/notes/2684254) depending on your version. If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages by using the following command:
 
-   ```
+   ```bash
       rpm -qi kernel*
    ```
 
 1. Start `saptune daemon` and use the following command to set it to automatically start when the system reboots.
 
-   ```
+   ```bash
       saptune daemon start
    ```
 
 1. Check whether the `force_latency` parameter is set in the `saptune` configuration file.
 
-   ```
+   ```bash
       grep force_latency /usr/lib/tuned/saptune/tuned.conf
    ```
 
@@ -88,7 +87,7 @@ If you are importing your own SLES image, additional packages might be required 
 
 1. Update the `saptune HANA` profile according to SAP OSS Note [2205917](https://me.sap.com/notes/2205917), and then run the following commands to create a custom profile for SAP HANA. This step is not required if the `force_latency` parameter is already set.
 
-   ```
+   ```bash
       mkdir /etc/tuned/saptune
       cp /usr/lib/tuned/saptune/tuned.conf /etc/tuned/saptune/tuned.conf
       sed -i "/\[cpu\]/ a force_latency=70" /etc/tuned/saptune/tuned.conf
@@ -97,7 +96,7 @@ If you are importing your own SLES image, additional packages might be required 
 
 1. Switch the `tuned` profile to HANA and verify that all settings are configured appropriately.
 
-   ```
+   ```bash
       saptune solution apply HANA
       saptune solution verify HANA
    ```
@@ -106,7 +105,7 @@ If you are importing your own SLES image, additional packages might be required 
 **Note**  
 Remove any existing invalid NTP server pools from `/etc/ntp.conf` before adding the following.
 
-   ```
+   ```bash
       echo "server 0.pool.ntp.org" >> /etc/ntp.conf
       echo "server 1.pool.ntp.org" >> /etc/ntp.conf
       echo "server 2.pool.ntp.org" >> /etc/ntp.conf
@@ -119,7 +118,7 @@ Instead of connecting to the global NTP server pool, you can connect to your int
 
 1. Set the clocksource to `tsc` by updating the `current_clocksource` file and the GRUB2 boot loader.
 
-   ```
+   ```bash
       echo "tsc" > /sys/devices/system/clocksource/*/current_clocksource
       cp /etc/default/grub /etc/default/grub.backup
       sed -i '/GRUB_CMDLINE_LINUX/ s|"| clocksource=tsc"|2' /etc/default/grub

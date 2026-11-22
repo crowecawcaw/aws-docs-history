@@ -1,7 +1,6 @@
 
 
 # Configuration Steps for AWS Transit Gateway
-<a name="sap-oip-configuration-steps-for-aws-transit-gateway"></a>
 
 This section includes high-level steps necessary to understand overlay IP address configuration for this scenario. See the [AWS Transit Gateway documentation](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html) for detailed steps regarding AWS Transit Gateway configuration.
 

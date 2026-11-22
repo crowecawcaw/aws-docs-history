@@ -1,7 +1,6 @@
 
 
 # Testing SAP HANA high availability deployments
-<a name="hana-ops-ha-dr-testing"></a>
 
 This section covers failure scenarios for backup, testing guidance and considerations for high availability and disaster recovery solutions, and disaster recovery mock exercise.
 

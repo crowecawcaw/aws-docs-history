@@ -1,7 +1,6 @@
 
 
 # Setup Overview
-<a name="sap-hana-pacemaker-rhel-setup-overview"></a>
 
 ## Deployed Cluster Infrastructure
 <a name="_deployed_cluster_infrastructure"></a>

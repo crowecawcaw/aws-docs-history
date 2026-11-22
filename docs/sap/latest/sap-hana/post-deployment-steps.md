@@ -1,7 +1,6 @@
 
 
 # Post Deployment Steps
-<a name="post-deployment-steps"></a>
 
 1. Complete the steps required to connect your instance to your corporate directory service, such as Microsoft Active Directory, if needed.
 

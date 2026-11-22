@@ -1,7 +1,6 @@
 
 
 # Deploy SAP HANA Workloads with Amazon EBS Volumes
-<a name="deployment-steps-using-the-aws-management-console"></a>
 
 This topic explains how to assign EBS Volumes when launching an Amazon EC2 Instance. Choose one of the following methods.
 
@@ -44,7 +43,7 @@ This topic explains how to assign EBS Volumes when launching an Amazon EC2 Insta
 
    Use the editor of your choice to create a .json file that contains block device mapping details similar to the following example, and save your file in a temporary directory. The example shows the block device mapping details for the x2iedn.24xlarge instance with gp3 volumes for HANA data and log. Change the details depending on instance and storage type that you intend to use for your deployment.
 
-   ```
+   ```json
    [
    {"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":50,"VolumeType":"gp3","Iops":3000,"Throughput":125,"Encrypted":true,"DeleteOnTermination":true}},
    {"DeviceName":"/dev/sdb","Ebs":{"VolumeSize":50,"VolumeType":"gp3","Iops":3000,"Throughput":125,"Encrypted":true,"DeleteOnTermination":true}},
@@ -58,7 +57,7 @@ This topic explains how to assign EBS Volumes when launching an Amazon EC2 Insta
     **Notes** 
    + The initial Device name for root should match the AMI you are trying to assign it to. Query this with
 
-     ```
+     ```console
      $ aws ec2 describe-images --image-ids ami-0123456789abcdef0 --query 'Images[].RootDeviceName' --output text
      ```
    + You may choose to set `DeleteOnTermination` flag to false so that Amazon EBS volumes are not deleted when you terminate your Amazon EC2 instance. This helps preserve your data from accidental termination of your Amazon EC2 instance. When you terminate the instance, you need to manually delete the Amazon EBS volumes that are associated with the terminated instance to stop incurring storage cost.
@@ -68,7 +67,7 @@ This topic explains how to assign EBS Volumes when launching an Amazon EC2 Insta
 
    Use AWS CLI to launch the Amazon EC2 instance for SAP HANA, including Amazon EBS storage, in the VPC in your target AWS Region by using the information you gathered during the preparation steps; for example:
 
-   ```
+   ```console
    aws ec2 run-instances \
      --image-id ami-0123456789abcdef0 \
      --instance-type x2iedn.24xlarge \

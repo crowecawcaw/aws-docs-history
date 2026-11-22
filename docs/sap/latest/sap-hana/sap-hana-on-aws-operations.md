@@ -1,7 +1,6 @@
 
 
 # SAP HANA on AWS Operations Guide
-<a name="sap-hana-on-aws-operations"></a>
 
  *SAP specialists, Amazon Web Services* 
 

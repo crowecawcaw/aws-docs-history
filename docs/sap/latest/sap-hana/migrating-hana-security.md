@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="migrating-hana-security"></a>
 
 In the AWS Cloud Adoption Framework (CAF), security is a perspective that focuses on subjects such as account governance, account ownership, control frameworks, change and access management, and other security best practices. We recommend that you become familiar with these security processes when planning any type of migration. In some cases, you might need to get sign-off from your internal IT audit and security teams before you start your migration project or during migration. See the [CAF security whitepaper](https://d1.awsstatic.com/whitepapers/AWS_CAF_Security_Perspective.pdf) for a deeper dive into each of these topic areas.
 

@@ -1,7 +1,6 @@
 
 
 # Migrating *AnyDB* to SAP HANA on AWS
-<a name="migrating-hana-anydb-to-hana"></a>
 
 Migrating from *anyDB* to HANA typically involves changes to the database platform and sometimes includes operating system changes. However, migration might also involve additional technical changes and impacts, such as the following:
 + SAP ABAP code changes. For example, you might have custom code that has database or operating system dependencies, such as database hints coded for the *anyDB* platform. You might also need to change custom ABAP code so it performs optimally on SAP HANA. See SAP’s recommendations and guidance for these SAP HANA-specific optimizations. For details and guidance, see [Get started with the ABAP custom code migration process](https://community.sap.com/t5/-/-/m-p/13531886) and SAP Notes [1885926 – ABAP SQL monitor](https://me.sap.com/notes/1885926) and [1912445 – ABAP custom code migration for SAP HANA](https://me.sap.com/notes/1912445) on the SAP website.

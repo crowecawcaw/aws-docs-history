@@ -1,7 +1,6 @@
 
 
 # Troubleshoot high availability SAP HANA deployments
-<a name="hana-ops-ha-dr-troubleshoot"></a>
 
 This section provides guidance for troubleshooting SAP HANA high availability deployments.
 

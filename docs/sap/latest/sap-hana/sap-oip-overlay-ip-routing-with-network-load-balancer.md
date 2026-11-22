@@ -1,7 +1,6 @@
 
 
 # Overlay IP Routing with Network Load Balancer
-<a name="sap-oip-overlay-ip-routing-with-network-load-balancer"></a>
 
 If you do not use Amazon Route 53 or AWS Transit Gateway, you can use [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) for accessing the overlay IP address externally. The Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. It can handle millions of requests per second. After the load balancer receives a connection request, it selects a target from the Network Load Balancer target group to route network connection request to a destination address which can be an overlay IP address.
 

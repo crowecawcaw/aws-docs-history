@@ -1,7 +1,6 @@
 
 
 # Configure storage (Amazon EBS)
-<a name="storage-configuration-ebs"></a>
 
 This section explains how to deploy and configure SAP HANA scale-up and scale-out workloads with Amazon EBS.
 

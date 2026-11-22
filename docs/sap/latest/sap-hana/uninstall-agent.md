@@ -1,7 +1,6 @@
 
 
 # Uninstall AWS Backint agent
-<a name="uninstall-agent"></a>
 
 Use the following steps to uninstall AWS Backint agent.
 

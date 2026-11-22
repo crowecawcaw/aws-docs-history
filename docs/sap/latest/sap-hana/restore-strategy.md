@@ -1,7 +1,6 @@
 
 
 # Restoring SAP HANA from EBS snapshots
-<a name="restore-strategy"></a>
 
 A successful restore strategy is dependent on many factors, including:
 + The failure scenario or event that led to the restore

@@ -1,7 +1,6 @@
 
 
 # Performing planned maintenance
-<a name="sap-hana-pacemaker-sles-ops-planned-maint"></a>
 
 When performing maintenance on SAP HANA systems in a cluster environment, it’s important to understand how the cluster interacts with SAP HANA system replication. Planned maintenance activities should be conducted carefully to prevent unnecessary failovers or cluster interventions.
 
@@ -20,20 +19,20 @@ Use maintenance mode if you want to make any changes to the configuration or tak
 **Example**  
 Use one of the following commands to turn on maintenance mode.  
 
-```
+```console
 # crm maintenance on
 ```
 
-```
+```console
 # crm configure property maintenance-mode="true"
 ```
 Use one of the following commands to turn off maintenance mode.  
 
-```
+```console
 # crm maintenance off
 ```
 
-```
+```console
 # crm configure property maintenance-mode="false"
 ```
 
@@ -42,13 +41,13 @@ Use one of the following commands to turn off maintenance mode.
 
 To perform maintenance on the cluster without a full system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
-```
+```console
 # crm node standby <hostname>
 ```
 
 The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command.
 
-```
+```console
 # crm node online <hostname>
 ```
 
@@ -57,7 +56,7 @@ The cluster will cleanly relocate resources, and you can perform activities, inc
 
 Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
 
-```
+```console
  # crm resource move msl_SAPHanaController_HDB_HDB00 hanahost02
 INFO: Move constraint created for msl_SAPHanaController_HDB_HDB00 to hanahost02
 INFO: Use `crm resource clear msl_SAPHanaController_HDB_HDB00` to remove this constraint
@@ -67,6 +66,6 @@ Note: The exact resource name will vary depending on your SAP HANA system ID and
 
 Use the following command once the resources have relocated to their target location.
 
-```
+```console
 # crm resource clear msl_SAPHanaController_HDB_HDB00
 ```

@@ -1,7 +1,6 @@
 
 
 # Configure storage
-<a name="configure-storage"></a>
 
 This section includes instructions for configuring your storage for SAP HANA.
 

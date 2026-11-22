@@ -1,7 +1,6 @@
 
 
 # SAP on AWS High Availability with Overlay IP Address Routing
-<a name="sap-ha-overlay-ip"></a>
 
 This guide provides SAP customers and partners instructions to set up a highly available SAP architecture that uses overlay IP addresses on Amazon Web Services. This guide includes two configuration approaches:
 +  AWS Transit Gateway serves as central hub to facilitate network connection to an overlay IP address.

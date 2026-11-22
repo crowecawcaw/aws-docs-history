@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="sap-hana-pacemaker-rhel-operations"></a>
 
 **Topics**
 + [Viewing the cluster state](sap-hana-pacemaker-rhel-ops-cluster-state.md)

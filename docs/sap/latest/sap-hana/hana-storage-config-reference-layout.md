@@ -1,7 +1,6 @@
 
 
 # SAP HANA EBS Storage Reference
-<a name="hana-storage-config-reference-layout"></a>
 
 **Important**  
 These values serve as a starting point. For guidance on how to size and configure storage for your specific workload, including calculations and striping considerations, refer to [Calculate Requirements](hana-storage-config-ebs.md).

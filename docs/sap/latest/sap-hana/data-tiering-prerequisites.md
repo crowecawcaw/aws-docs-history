@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="data-tiering-prerequisites"></a>
 
 ## Specialized Knowledge
 <a name="data-tiering-specialized-knowledge"></a>

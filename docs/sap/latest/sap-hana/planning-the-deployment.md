@@ -1,7 +1,6 @@
 
 
 # Plan the deployment
-<a name="planning-the-deployment"></a>
 
 Consider the following when planning your SAP HANA deployment.
 

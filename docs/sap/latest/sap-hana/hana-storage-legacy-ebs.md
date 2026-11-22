@@ -1,7 +1,6 @@
 
 
 # Legacy storage configuration (Amazon EBS)
-<a name="hana-storage-legacy-ebs"></a>
 
 **Important**  
 This page contains the previous instance-specific storage configuration tables for SAP HANA on Amazon EBS. This content is provided as a reference for existing deployments and is no longer being updated to include new instance types.  

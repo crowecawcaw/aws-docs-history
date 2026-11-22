@@ -1,7 +1,6 @@
 
 
 # Configure storage (Amazon EFS)
-<a name="configure-nfs-for-scale-out-workloads"></a>
 
 **Note**  
 If you plan to use FSx for ONTAP storage for your deployment, refer to SAP HANA on AWS with Amazon FSx for NetApp ONTAP guide, and skip the Amazon EFS configuration steps detailed further here.
@@ -16,7 +15,7 @@ Amazon EFS provides easy-to-set-up, scalable, and highly available shared file s
 
 1. After the file systems are created, mount the newly created file systems in all the nodes by using the following commands:
 
-   ```
+   ```bash
       mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared
    
       mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /backup
@@ -26,7 +25,7 @@ If you have trouble mounting the NFS file systems, you might need to adjust your
 
 1. Add NFS mount entries to the `/etc/fstab` file in all the nodes to automatically mount these file systems during system restart; for example:
 
-   ```
+   ```bash
       echo “nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared” >> /etc/fstab
       echo “nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /backup” >> /etc/fstab
    ```

@@ -1,7 +1,6 @@
 
 
 # Migration Scenarios
-<a name="migrating-hana-migration-steps"></a>
 
 The following table lists the migration scenarios that we will cover in detail in this guide. The tools and methodologies listed in the table were discussed in the [previous section](migrating-hana-tools.md).
 

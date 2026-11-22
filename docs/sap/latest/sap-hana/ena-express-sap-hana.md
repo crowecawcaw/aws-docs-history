@@ -1,7 +1,6 @@
 
 
 # Configure ENA Express
-<a name="ena-express-sap-hana"></a>
 
 SAP HANA scale-out systems require a minimum of 9 Gbps of single flow network bandwidth between nodes. Amazon EC2 instances now support ENA Express, allowing a single flow bandwidth of up to 25 Gbps between instances, without requiring a cluster placement group. For more information, see [Improve network performance with ENA Express on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
 

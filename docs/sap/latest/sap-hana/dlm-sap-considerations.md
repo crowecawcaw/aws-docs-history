@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="dlm-sap-considerations"></a>
 
 Only the following configurations are supported.
 + SAP HANA 2.0 SPS 05 and later with multi-tenant configuration.

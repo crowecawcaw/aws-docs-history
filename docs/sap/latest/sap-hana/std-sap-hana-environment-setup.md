@@ -1,7 +1,6 @@
 
 
 # SAP HANA Environment Setup on AWS
-<a name="std-sap-hana-environment-setup"></a>
 
  *Last updated: December 2022* 
 

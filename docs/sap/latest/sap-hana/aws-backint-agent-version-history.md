@@ -1,7 +1,6 @@
 
 
 # Version history for AWS Backint agent
-<a name="aws-backint-agent-version-history"></a>
 
 The following table summarizes the changes for each release of AWS Backint agent.
 

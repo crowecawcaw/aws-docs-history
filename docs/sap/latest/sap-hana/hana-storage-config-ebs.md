@@ -1,7 +1,6 @@
 
 
 # Calculate EBS Storage Requirements for SAP HANA
-<a name="hana-storage-config-ebs"></a>
 
 ## Overview
 <a name="_overview"></a>

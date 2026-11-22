@@ -1,7 +1,6 @@
 
 
 # Migrating SAP HANA from Other Platforms to AWS
-<a name="migrating-hana-hana-to-aws"></a>
 
 This scenario is more straightforward than migrating from *anyDB*, because you’re already using SAP HANA. For this migration, you need to map your existing SAP HANA systems and sizing that are on a different platform to SAP HANA solutions on AWS.
 

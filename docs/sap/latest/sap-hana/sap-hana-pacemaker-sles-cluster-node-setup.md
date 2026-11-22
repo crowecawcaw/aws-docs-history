@@ -1,7 +1,6 @@
 
 
 # Cluster Node Setup
-<a name="sap-hana-pacemaker-sles-cluster-node-setup"></a>
 
 Establish cluster communication between nodes using Corosync and configure required authentication.
 
@@ -30,7 +29,7 @@ The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 G
 
 On all cluster nodes, change the password of the operating system user hacluster:
 
-```
+```console
 # passwd hacluster
 ```
 
@@ -51,13 +50,13 @@ Initialize the cluster framework on the first node, including all known cluster 
 
 On the primary node as root, run:
 
-```
+```console
 # crm cluster init -u -n <cluster_name> -N <hostname_1> -N <hostname_2>
 ```
 
  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) *:
 
-```
+```console
 hanahost01:~ # crm cluster init -u -n myCluster -N hanahost01 -N hanahost02
 INFO: Detected "amazon-web-services" platform
 INFO: Loading "default" profile from /etc/crm/profiles.yml
@@ -93,7 +92,7 @@ This command:
 + QDevice configuration is possible but not covered in this document. Refer to [SUSE Linux Enterprise High Availability Documentation - QDevice and QNetD](https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html).
 + For clusters with more than two nodes, additional nodes can be added either during initialization with additional `-N <hostname_3>` parameters, or later using the following command on each new node:
 
-  ```
+  ```console
   # crm cluster join -c <hostname_1>
   ```
 
@@ -104,13 +103,13 @@ After initializing the cluster, the generated corosync configuration requires so
 
  **1. Edit the corosync configuration:** 
 
-```
+```console
 # vi /etc/corosync/corosync.conf
 ```
 
 The generated file typically looks like this:
 
-```
+```ini
 # Please read the corosync.conf.5 manual page
 totem {
         version: 2
@@ -179,7 +178,7 @@ totem {
 
  **2. Modify the configuration to add the second ring and optimize settings:** 
 
-```
+```ini
 totem {
     token: 15000           # Changed from 5000 to 15000
     rrp_mode: passive      # Added for dual ring support
@@ -209,13 +208,13 @@ nodelist {
 
  **3. Synchronize the modified configuration to all nodes:** 
 
-```
+```console
 # csync2 -f /etc/corosync/corosync.conf
 ```
 
  **4. Restart the cluster** 
 
-```
+```console
 # crm cluster restart --all
 ```
 
@@ -224,13 +223,13 @@ nodelist {
 
 Verify network rings are active:
 
-```
+```console
 # corosync-cfgtool -s
 ```
 
  *Example output*:
 
-```
+```text
 Printing ring status.
 Local node ID 1
 RING ID 0
@@ -248,7 +247,7 @@ Both network rings should report "active with no faults". If either ring is miss
 
 Enable pacemaker to start automatically after reboot:
 
-```
+```console
 # systemctl enable pacemaker
 ```
 
@@ -259,19 +258,19 @@ Enabling pacemaker also handles corosync through service dependencies. The clust
 
  **1. Check pacemaker service status:** 
 
-```
+```console
 # systemctl status pacemaker
 ```
 
  **2. Verify cluster status:** 
 
-```
+```console
 # crm_mon -1
 ```
 
  *Example output*:
 
-```
+```text
 Cluster Summary:
   * Stack: corosync
   * Current DC: hanahost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum

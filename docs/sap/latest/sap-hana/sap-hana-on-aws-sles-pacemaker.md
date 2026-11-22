@@ -1,7 +1,6 @@
 
 
 # SAP HANA High Availability on SUSE Enterprise Linux using Pacemaker Software
-<a name="sap-hana-on-aws-sles-pacemaker"></a>
 
 **Topics**
 + [Planning](sap-hana-pacemaker-sles-planning.md)

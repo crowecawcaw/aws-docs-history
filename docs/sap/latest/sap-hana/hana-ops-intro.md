@@ -1,7 +1,6 @@
 
 
 # Introduction
-<a name="hana-ops-intro"></a>
 
 This guide provides best practices for operating SAP HANA systems that have been deployed on AWS. This guide is not intended to replace any of the standard SAP documentation. See the following SAP guides and notes:
 +  [SAP Library (help.sap.com) - SAP HANA Administration Guide](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf) 

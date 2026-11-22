@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 ## Specialized Knowledge
 <a name="specialized-knowledge"></a>

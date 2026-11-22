@@ -1,7 +1,6 @@
 
 
 # Supported configurations
-<a name="instances-sizing-sap-hana-amazon-fsx"></a>
 
 The following rules and limitations are applicable for deploying SAP HANA on AWS with Amazon FSx for NetApp ONTAP.
 + FSx for ONTAP file systems for SAP HANA data and log volumes are only supported for single Availability Zone deployment.
@@ -68,7 +67,7 @@ To learn more about FSx for ONTAP performance, see [Performance details](https:/
 
 Set the following SAP HANA database parameters in the `global.ini` file.
 
-```
+```bash
 [fileio]
 max_parallel_io_requests=128
 async_read_submit=on
@@ -78,7 +77,7 @@ async_write_submit_blocks=all
 
 Use the following SQL commands to set these parameters on `SYSTEM` level.
 
-```
+```bash
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'max_parallel_io_requests') = '128' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_read_submit') = 'on' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_write_submit_active') = 'on' WITH RECONFIGURE;

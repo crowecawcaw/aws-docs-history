@@ -1,7 +1,6 @@
 
 
 # Document Revisions
-<a name="data-tiering-document-revisions"></a>
 
 
 | Date | Change | 

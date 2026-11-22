@@ -1,7 +1,6 @@
 
 
 # High availability and disaster recovery
-<a name="hana-ops-ha-dr"></a>
 
  AWS provides multiple options for performing disaster recovery and making your SAP HANA systems highly available. This section provides information about these solutions. It also covers the support on AWS platform for native SAP HANA recovery features provided by SAP.
 

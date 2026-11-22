@@ -1,7 +1,6 @@
 
 
 # How to automate the creation of EBS snapshots for SAP HANA
-<a name="dlm-sap-how"></a>
 
 In a running database, to be application-consistent, EBS snapshots must be aligned with an internal database snapshot. For more information, see [Create a Data Snapshot](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/9fd1c8bb3b60455caa93b7491ae6d830.html) in the SAP documentation.
 

@@ -1,7 +1,6 @@
 
 
 # SAP on AWS High Availability Setup
-<a name="sap-oip-sap-on-aws-high-availability-setup"></a>
 
 SAP customers can fully realize the benefit of running mission-critical SAP workloads by building reliable, fault-tolerant, and highly available systems in the AWS Cloud depending on the operating system and database. AWS offers the use of multiple Availability Zones within an AWS Region to provide resiliency for the SAP applications.
 

@@ -1,7 +1,6 @@
 
 
 # SAP HANA Guides
-<a name="welcome"></a>
 
 This section covers the following guides.
 +  [AWS Backint Agent](https://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-sap-hana.html) 

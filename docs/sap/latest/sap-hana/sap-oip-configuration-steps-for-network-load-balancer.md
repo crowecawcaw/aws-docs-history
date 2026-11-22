@@ -1,7 +1,6 @@
 
 
 # Configuration Steps for Network Load Balancer
-<a name="sap-oip-configuration-steps-for-network-load-balancer"></a>
 
 Use the following instructions to set up the Network Load Balancer to access the overlay IP address. The following values are used for the example configuration.
 

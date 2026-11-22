@@ -1,7 +1,6 @@
 
 
 # Configure SAP HANA Filesystems
-<a name="configure-storage-for-sap-hana"></a>
 
 ## Overview
 <a name="_overview"></a>
@@ -24,7 +23,7 @@ Identify block devices, their sizes, and associated volume IDs in order to assig
 
    As root, on the host, run the following:
 
-   ```
+   ```console
    # lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
    ```
 
@@ -64,7 +63,7 @@ Identify block devices, their sizes, and associated volume IDs in order to assig
 
     *Example* 
 
-   ```
+   ```console
    $ aws ec2 create-tags --resources vol-0abc123def456789a --tags Key=Name,Value="PRD - Hana Data Volume 1 of 2"
    ```
 
@@ -81,7 +80,7 @@ Create Filesystems according to whether or not striping has been identifed as a 
 
     *Example* 
 
-   ```
+   ```bash
    # Create XFS filesystem with label for HANA Shared
    mkfs.xfs -f /dev/nvme4n1 -L HANA_SHARED
    
@@ -97,7 +96,7 @@ Labels provide consistent device identification across instance restarts. You ca
 
     *Example* 
 
-   ```
+   ```bash
    # Create physical volumes
    pvcreate /dev/nvme1n1 /dev/nvme2n1
    
@@ -120,7 +119,7 @@ The `-i` parameter should match the number of physical volumes. In the example w
 
 1.  **Create filesystems and modify permissions** 
 
-   ```
+   ```console
    # mkdir -p /hana/data /hana/log /hana/shared
    # chown <sid>adm:sapsys /hana/data /hana/log /hana/shared
    # chmod 750 /hana/data /hana/log /hana/shared
@@ -146,13 +145,13 @@ The `-i` parameter should match the number of physical volumes. In the example w
 
 1.  **Mount all filesytems** 
 
-   ```
+   ```console
    # mount -a
    ```
 
 1.  **Verify your final configuration** 
 
-   ```
+   ```console
    # lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
    ```
 

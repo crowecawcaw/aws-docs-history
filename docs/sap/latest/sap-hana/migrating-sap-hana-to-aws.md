@@ -1,7 +1,6 @@
 
 
 # Migrating SAP HANA to AWS: Patterns for AWS Migrations
-<a name="migrating-sap-hana-to-aws"></a>
 
  *Last updated: May, 2024* 
 

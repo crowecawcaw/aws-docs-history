@@ -1,7 +1,6 @@
 
 
 # Verify the signature of the AWS Backint agent and installer for SAP HANA
-<a name="aws-backint-agent-signature"></a>
 
 The source file of AWS Backint agent (`aws-backint-agent.tar.gz`) and AWS Backint installer (`install-aws-backint-agent`) supports signature verification. You can use a public key to verify that the downloaded source file and AWS Backint installer are original and unmodified. You can find the AWS Backint installer in your `/tmp` directory or any other location where you have downloaded the installer. You can find the source file (`aws-backint-agent.tar.gz`) of AWS Backint agent under `<installation directory>/aws-backint-agent/package/`.
 
@@ -16,23 +15,23 @@ To enable automatic signature verification during agent installation, see the pa
 
 1. Download the public key.
 
-   ```
+   ```console
    $ wget https://s3.amazonaws.com/awssap-backint-agent/binary/public-key/aws-backint-agent.gpg
    ```
 
 1. (Optional) For AWS GovCloud (US-East) or AWS GovCloud (US-West), download one of the following keys.
 
-   ```
+   ```console
    $ wget https://awssap-backint-agent-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/binary/public-key/aws-backint-agent.gpg
    ```
 
-   ```
+   ```console
    $ wget https://awssap-backint-agent-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/binary/public-key/aws-backint-agent.gpg
    ```
 
 1. Import the public key into your keyring.
 
-   ```
+   ```console
    $ gpg --import aws-backint-agent.gpg
    gpg: key 1E65925B: public key "{aws} Backint Agent" imported
    gpg: Total number processed: 1
@@ -43,7 +42,7 @@ To enable automatic signature verification during agent installation, see the pa
 
 1. Verify the fingerprint by running the following command.
 
-   ```
+   ```console
    $ gpg --fingerprint 1E65925B
    pub 2048R/1E65925B 2020-03-18
    Key fingerprint = BD35 7A5F 1AE9 38A0 213A 82A8 80D8 5C5E 1E65 925B
@@ -62,7 +61,7 @@ To enable automatic signature verification during agent installation, see the pa
 
 1. Download the signature files for the source file and the installer.
 
-   ```
+   ```console
    $ wget https://s3.amazonaws.com/awssap-backint-agent/binary/latest/aws-backint-agent.sig
    
    $ wget https://s3.amazonaws.com/awssap-backint-agent/binary/latest/install-aws-backint-agent.sig
@@ -70,13 +69,13 @@ To enable automatic signature verification during agent installation, see the pa
 
 1. (Optional) For AWS GovCloud (US-East) and AWS GovCloud (US-West), download the signature files from one of the following locations.
 
-   ```
+   ```console
    $ wget https://awssap-backint-agent-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/binary/latest/aws-backint-agent.sig
    
    $ wget https://awssap-backint-agent-us-gov-east-1.s3-us-gov-east-1.amazonaws.com/binary/latest/install-aws-backint-agent.sig
    ```
 
-   ```
+   ```console
    $ wget https://awssap-backint-agent-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/binary/latest/aws-backint-agent.sig
    
    $ wget https://awssap-backint-agent-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/binary/latest/install-aws-backint-agent.sig
@@ -84,7 +83,7 @@ To enable automatic signature verification during agent installation, see the pa
 
 1. To verify the signature, run `gpg --verify` against the `aws-backint-agent.tar.gz` source file and `install-aws-backint-agent` installer.
 
-   ```
+   ```console
    $ gpg --verify aws-backint-agent.sig aws-backint-agent.tar.gz
    gpg: Signature made Fri 08 May 2020 12:24:48 AM UTC using RSA key ID 1E65925B
    gpg: Good signature from "AWS Backint Agent" [unknown]

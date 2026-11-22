@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="hana-ops-doc-history"></a>
 
 
 **​**  

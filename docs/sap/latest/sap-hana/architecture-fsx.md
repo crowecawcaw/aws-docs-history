@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for NetApp ONTAP
-<a name="architecture-fsx"></a>
 
 The following architecture diagrams show different options for SAP HANA workloads using Amazon FSx for NetApp ONTAP.
 

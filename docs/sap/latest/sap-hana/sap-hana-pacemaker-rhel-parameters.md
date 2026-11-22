@@ -1,7 +1,6 @@
 
 
 # Parameter Reference
-<a name="sap-hana-pacemaker-rhel-parameters"></a>
 
 The cluster setup uses parameters, including SID and System Number that are unique to your setup. It is useful to predetermine the values with the following examples and guidance.
 
@@ -36,12 +35,12 @@ The cluster setup uses parameters, including SID and System Number that are uniq
 + Hostnames must comply with SAP requirements outlined in [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361) (requires SAP portal access).
 + Run the following command on your instances to retrieve the hostname:
 
-  ```
+  ```console
   $ hostname
   ```
 + Amazon EC2 instance ID – run the following command (IMDSv2 compatible) on your instances to retrieve instance metadata:
 
-  ```
+  ```console
   $ /usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $(curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")" http://169.254.169.254/latest/meta-data/instance-id
   ```
 
@@ -72,7 +71,7 @@ The cluster setup uses parameters, including SID and System Number that are uniq
 + SAP details – SAP parameters, including SID and instance number must follow the guidance and limitations of SAP and Software Provisioning Manager. Refer to [SAP Note 1979280 - Reserved SAP System Identifiers (SAPSID) with Software Provisioning Manager](https://me.sap.com/notes/1979280) for more details.
 + Post-installation, use the following command to find the details of the instances running on a host:
 
-  ```
+  ```console
   $ sudo /usr/sap/hostctrl/exe/saphostctrl -function ListInstances
   ```
 + Overlay IP – This value is defined by you. For more information, see [Overlay IP](sap-hana-pacemaker-rhel-concepts.md#overlay-ip-rhel).

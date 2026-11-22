@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="sap-hana-pacemaker-rhel-concepts"></a>
 
 ## SAP – SAP HANA and Hana System Replication
 <a name="_sap_sap_hana_and_hana_system_replication"></a>

@@ -1,7 +1,6 @@
 
 
 # Storage Configuration for SAP HANA
-<a name="hana-ops-storage-config"></a>
 
 **Important**  
 This page has moved. The storage configuration documentation is now located in the Environment Setup section.  

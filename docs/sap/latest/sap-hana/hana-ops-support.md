@@ -1,7 +1,6 @@
 
 
 # SAP Support Access
-<a name="hana-ops-support"></a>
 
 In some situations it may be necessary to allow an SAP support engineer to access your SAP HANA systems on AWS. The following information serves only as a supplement to the information contained in the "Getting Support" section of the [SAP HANA Administration Guide](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf).
 

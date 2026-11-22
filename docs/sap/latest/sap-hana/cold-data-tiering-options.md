@@ -1,7 +1,6 @@
 
 
 # Cold Data Tiering Options
-<a name="cold-data-tiering-options"></a>
 
 The following sections discuss cold data tiering options on AWS.
 

@@ -1,7 +1,6 @@
 
 
 # Migration Tools and Methodologies
-<a name="migrating-hana-tools"></a>
 
 This section provides an introduction to the tools and methodologies available to you for your SAP system migration.
 

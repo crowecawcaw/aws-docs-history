@@ -1,7 +1,6 @@
 
 
 # Automated Deployment
-<a name="sap-hana-pacemaker-rhel-automation"></a>
 
 You can set up a cluster manually using the instructions provided here. You can also automate parts of this process to ensure consistent and repeatable deployments.
 

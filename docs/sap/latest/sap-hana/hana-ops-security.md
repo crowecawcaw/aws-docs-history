@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="hana-ops-security"></a>
 
 Here are additional AWS security resources to help you achieve the level of security you require for your SAP HANA environment on AWS.
 +  [AWS Cloud Security Center](https://aws.amazon.com/security/) 

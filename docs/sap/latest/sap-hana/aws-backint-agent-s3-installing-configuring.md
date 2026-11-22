@@ -1,7 +1,6 @@
 
 
 # Install and configure AWS Backint Agent for SAP HANA
-<a name="aws-backint-agent-s3-installing-configuring"></a>
 
 This section provides information to help you install the AWS Backint agent using an AWS Systems Manager document or AWS Backint installer. It also provides information to help you configure the agent, view logs, and get the current agent version.
 
@@ -110,19 +109,19 @@ Disable any existing backup processes (including scheduled log backups) before c
 
 1. Navigate to `/tmp` (or another temporary directory where you downloaded the installer).
 
-   ```
+   ```console
    $ cd /tmp
    ```
 
 1. Run one of the following commands to download the installer.
 
-   ```
+   ```console
    $ sudo aws s3 cp s3://awssap-backint-agent/binary/latest/install-aws-backint-agent /tmp/ --region us-east-1
    ```
 
    or
 
-   ```
+   ```console
    $ sudo wget https://s3.amazonaws.com/awssap-backint-agent/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
    ```
 **Note**  
@@ -130,47 +129,47 @@ If you encounter permission issues while downloading the AWS Backint installer u
 
 1. (Optional) For AWS GovCloud (US-East) and AWS GovCloud (US-West), run one of the following commands to download the installer.
 
-   ```
+   ```console
    $ sudo aws s3 cp s3://awssap-backint-agent-us-gov-east-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-east-1
    ```
 
-   ```
+   ```console
    $ sudo aws s3 cp s3://awssap-backint-agent-us-gov-west-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-west-1
    ```
 
    or
 
-   ```
+   ```console
    $ sudo wget https://awssap-backint-agent-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
    ```
 
-   ```
+   ```console
    $ sudo wget https://awssap-backint-agent-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
    ```
 
 1. Run the installer with the `-h` flag to find all of the available options.
 
-   ```
+   ```console
    $ sudo python install-aws-backint-agent -h
    ```
 
 1. Run the following command to execute the installer.
 
-   ```
+   ```console
    $ sudo python install-aws-backint-agent
    ```
 **Note**  
 Run the installer with the `-l` flag if you want the installer to get the AWS Backint agent binary file from your own file system or Amazon S3 bucket. Specify the location of the `aws-backint-agent.tar.gz` file.  
 
-   ```
+   ```console
    $ sudo python install-aws-backint-agent -l /tmp/backint/aws-backint-agent.tar.gz
    ```
 
-   ```
+   ```console
    $ sudo python install-aws-backint-agent -l s3://<S3 bucket>/aws-backint-agent.tar.gz
    ```
 
-   ```
+   ```console
    $ sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/aws-backint-agent.tar.gz
    ```
 
@@ -229,7 +228,7 @@ When you have a response file, you can modify it with a vim editor and adjust th
 
 The following is an example response file.
 
-```
+```ini
 [DEFAULT]
 s3_bucket_name = <S3 bucket>
 s3_bucket_owner_account_id = 111122223333
@@ -254,13 +253,13 @@ Disable any existing backup processes (including scheduled log backups) before c
 
 Run the following command to execute the installer using the generated response file.
 
-```
+```console
 $ sudo python install-aws-backint-agent -m silent -f backint-agent-install-YYYYMMDDHHMMSS.rsp -a yes
 ```
 
 If you want to choose the location from which to install the agent, run the command with the `-l` flag and specify the location.
 
-```
+```console
 $ sudo python install-aws-backint-agent -f aws-backint-agent-install-YYYYMMDDHHMMSS.rsp -m silent -a yes -d -l /tmp/backint/aws-backint-agent.tar.gz
 ```
 
@@ -272,7 +271,7 @@ You must confirm that you have disabled the existing backups and are ready to pr
 
 If you use a proxy address in your SAP HANA environment when you install the agent, you must use the following shell script to install the agent to ensure that the correct proxy settings are used by the AWS Backint agent installer.
 
-```
+```bash
 #!/bin/bash
 export https_proxy=<PROXY_ADDRESS>:<PROXY_PORT>
 export HTTP_PROXY=<PROXY_ADDRESS:PROXY_PORT>
@@ -285,7 +284,7 @@ If you use a proxy address in your SAP HANA environment, you must update the `aw
 
 Add `http_proxy`, `HTTP_PROXY`, `no_proxy`, and `NO_PROXY` variables to the `aws-backint-agent-launcher.sh` script. It is important to exclude the `169.254.169.254` address with the `no_proxy` variable. If you do not exclude this address, instance metadata service calls made by AWS Backint agent will fail and cause errors during backup and restore operations. For more information about instance metadata and user data, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*.
 
-```
+```bash
 #!/bin/bash
 export https_proxy=<PROXY_ADDRESS>:<PROXY_PORT>
 export HTTP_PROXY=<PROXY_ADDRESS>:<PROXY_PORT>
@@ -299,7 +298,7 @@ export NO_PROXY=169.254.169.254
 
 To enable SAP HANA backups using AWS Backint agent, you must set the following SAP HANA parameters. If you chose the "modify" option for the `global.ini` file update, the SSM document or AWS Backint installer adds or updates the following backup related SAP HANA parameters in `global.ini` for the system database. If you chose "sql", you can run the SQL statements specified in the `modify_global_ini.sql` file to update these parameters. For more details about these parameters, see [Backup Configuration Parameters](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/c1eb6ff410f946318dae539cb3d33f9f.html) in the *SAP HANA Administration Guide*.
 
-```
+```ini
 [backup]
 catalog_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
 data_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
@@ -360,7 +359,7 @@ The AWS Backint agent configuration parameters are maintained in a YAML file in 
 
  AWS Backint agent uses the same parameters by default for the data and log backups. It stores the data and log backups in the same Amazon S3 bucket and folder.
 
-```
+```ini
 data_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
 log_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
 ```
@@ -377,7 +376,7 @@ To use a different Amazon S3 bucket and folder for the data and log backups, fol
 
    Move the previous logs backup with source type `volume` to the new Amazon S3 location for logs backup only. You can confirm the source type by running the following SQL command.
 
-   ```
+   ```sql
    select SOURCE_TYPE_NAME, DESTINATION_PATH from M_BACKUP_CATALOG_FILES
    ```
 
@@ -423,7 +422,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
       Run the following commands to move the volume type of SYSTEM DB logs. In the example, we use the same Amazon S3 bucket, but create another folder for the logs backup.
 
-      ```
+      ```bash
       # Create the folder structure
       aws s3api put-object --bucket <S3 bucket> --key <S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
       
@@ -441,7 +440,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
       Run the following commands to move the volume type TENANT DB logs. In the example, we use the same Amazon S3 bucket, and create another folder for the logs backup. You need to repeat this step for every TENANT DB.
 
-      ```
+      ```bash
       # Create the folder structure
       aws s3api put-object --bucket <S3 bucket> --key <S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --region <us-east-1>
       
@@ -459,7 +458,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    1. Make a copy of the existing AWS Backint agent configuration for logs backup.
 
-      ```
+      ```console
       $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
       ```
 
@@ -473,7 +472,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    1. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
-      ```
+      ```console
       $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
       ```
 
@@ -481,7 +480,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    Update the `global.ini` file with the following configuration.
 
-   ```
+   ```ini
    log_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
    ```
 
@@ -501,7 +500,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    When you’re ready, delete the previous logs with the following commands.
 
-   ```
+   ```bash
    # Delete previous backups in SYSTEMDB
    aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_1_0" --recursive --dryrun --region <us-east-1>
    aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_1_0" --recursive --region <us-east-1>
@@ -516,7 +515,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
  AWS Backint agent uses the same parameters by default for the data, log, and catalog backups. It stores all of the backups in the same Amazon S3 bucket and folder.
 
-```
+```ini
 data_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
 log_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
 catalog_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config.yaml
@@ -534,7 +533,7 @@ To use a different Amazon S3 bucket and folder for catalog backup, follow these 
 
    Move the previous catalog backup with source type `catalog` to the new Amazon S3 location for catalog backup only. You can confirm the source type by running the following SQL command.
 
-   ```
+   ```sql
    select SOURCE_TYPE_NAME, DESTINATION_PATH from M_BACKUP_CATALOG_FILES
    ```
 
@@ -580,7 +579,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
       Run the following commands to move the `catalog` type of SYSTEM DB logs. In the example, we use the same Amazon S3 bucket, but create another folder for catalog backup.
 
-      ```
+      ```bash
       # Create the folder structure
       aws s3api put-object --bucket <S3 bucket> --key S3 folder for catalog/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
       
@@ -598,7 +597,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
       Run the following commands to move the `catalog` type tenant database logs. In the example, we use the same Amazon S3 bucket, and create another folder for catalog backup. You need to repeat this step for every TENANT DB.
 
-      ```
+      ```bash
       # Create the folder structure
       aws s3api put-object --bucket <S3 bucket> --key S3 folder for catalog/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --region <us-east-1>
       
@@ -615,7 +614,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    1. Make a copy of the existing AWS Backint agent configuration for catalog backup.
 
-      ```
+      ```console
       $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
       ```
 
@@ -629,7 +628,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    1. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
-      ```
+      ```console
       $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml  /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-catalog.yaml
       ```
 
@@ -637,7 +636,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    Update the `global.ini` file with the following configuration.
 
-   ```
+   ```ini
    log_backup_parameter_file = /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
    ```
 
@@ -657,7 +656,7 @@ Before doing steps a and b, ensure that there is no backup process running.
 
    When you’re ready, delete the previous logs with the following commands.
 
-   ```
+   ```bash
    # Delete previous backups in SYSTEMDB
    aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_0_0_0_0" --recursive --dryrun --region <us-east-1>
    aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_0_0_0_0" --recursive --region <us-east-1>
@@ -690,7 +689,7 @@ To use a shorter path, complete the following steps.
 
    Ensure that there is no backup process running, then run the following command to move all of the previous backups to the new Amazon S3 location. This step assumes that you are using the same configuration parameter for both data and log. The example below uses the same S3 bucket, but you can use a new bucket.
 
-   ```
+   ```bash
    # Execute a Dry Run to check
    aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/ s3://<S3 bucket>/<S3 folder>/<SID>/ --recursive --dryrun --region <us-east-1>
    
@@ -703,7 +702,7 @@ To use a shorter path, complete the following steps.
 
 1. Modify `aws-backint-agent-config.yaml`.
 
-   ```
+   ```console
    $ vi /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml
    ```
 
@@ -725,7 +724,7 @@ To use a shorter path, complete the following steps.
 
    When you’re ready, delete the previous logs with the following commands.
 
-   ```
+   ```bash
    # Execute a Dry Run to make sure
    aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr --recursive --dryrun --region <us-east-1>
    
@@ -746,7 +745,7 @@ When the AWS Backint agent is called by SAP HANA for backup and restore related 
 
 To display the backint version and the current AWS Backint agent version that it supports, run the `hdbbackint` command with the `–v` parameter from the install directory as the `<SID>adm` user as shown in the following example.
 
-```
+```console
 $ /usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
 ```
 
@@ -755,7 +754,7 @@ For instance, running the preceding command on a system with `<SID>` as `HDB` re
 ![Image of the Backint agent version as 1.05.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/get-currently-installed-backint-example.png)
 
 
-```
+```console
 $ /usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
 ```
 
@@ -786,15 +785,15 @@ The latest and previous versions of the installer can be found at the following 
 
 1. Based on your AWS Region, download the agent binary tar file into a temporary location from the relevant Amazon S3 location.
 
-   ```
+   ```console
    $ cd /tmp
    ```
 
-   ```
+   ```console
    $ mkdir agent_download && cd agent_download
    ```
 
-   ```
+   ```console
    $ aws s3 cp s3://awssap-backint-agent/binary/<agent-version>/aws-backint-agent.tar.gz aws-backint-agent.tar.gz --region <us-east-1>
    ```
 
@@ -812,7 +811,7 @@ The latest and previous versions of the installer can be found at the following 
 
 1. Extract the binary using the following command.
 
-   ```
+   ```console
    $ tar -xf aws-backint-agent.tar.gz
    ```
 
@@ -820,27 +819,27 @@ The latest and previous versions of the installer can be found at the following 
 
 1. Backup existing agent binary using the following command. This is to ensure that you have a backup if you need to revert the agent version.
 
-   ```
+   ```console
    $ cp <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent. <mmddyy>
    ```
 
 1. Copy the newly extracted agent binary using the following command.
 
-   ```
+   ```console
    $ cp aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent
    ```
 
 1. Change the ownership and mode with the following commands.
 
-   ```
+   ```console
    $ cd <INSTALLATION_DIR>/aws-backint-agent
    ```
 
-   ```
+   ```console
    $ chmod 770 aws-backint-agent
    ```
 
-   ```
+   ```console
    $ chown <sid>adm:sapsys aws-backint-agent
    ```
 

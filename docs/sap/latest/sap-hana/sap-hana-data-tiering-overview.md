@@ -1,7 +1,6 @@
 
 
 # SAP HANA Data Tiering on AWS Overview
-<a name="sap-hana-data-tiering-overview"></a>
 
  * [Last updated](data-tiering-document-revisions.md): December 2022* 
 

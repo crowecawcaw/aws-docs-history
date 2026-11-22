@@ -1,7 +1,6 @@
 
 
 # Alerting and monitoring
-<a name="sap-hana-pacemaker-rhel-ops-alert-monitor"></a>
 
 This section covers the following topics.
 
@@ -23,7 +22,7 @@ Within the cluster configuration, you can call an external program (an alert age
 
 The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS.
 
-```
+```bash
 #!/bin/sh
 
 # alert_sns.sh

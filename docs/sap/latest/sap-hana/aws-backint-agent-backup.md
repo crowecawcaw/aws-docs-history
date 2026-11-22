@@ -1,7 +1,6 @@
 
 
 # AWS Backup
-<a name="aws-backint-agent-backup"></a>
 
 This section provides information about setting up and using to backup and restore your SAP HANA databases to AWS Backup.
 

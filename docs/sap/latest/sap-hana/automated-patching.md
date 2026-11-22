@@ -1,7 +1,6 @@
 
 
 # Automated patching for SAP HANA
-<a name="automated-patching"></a>
 
 Maintaining the SAP HANA database software version keeps the database on with supported software versions, and enables you to stay updated with security fixes and software improvements.
 
@@ -97,7 +96,7 @@ The Amazon S3 bucket containing the SAP HANA software media must be accessible t
 
 The following policy is an example Amazon S3 bucket policy that grants access to a specific role on a specific account to download all files from an Amazon S3 bucket.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -258,7 +257,7 @@ The `HDB_Report_Version` step in the sample code gathers SAP HANA version inform
 
 You must set up IAM permissions for the Amazon S3 bucket. The following is a sample Amazon S3 bucket policy for storing SAP HANA version information.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

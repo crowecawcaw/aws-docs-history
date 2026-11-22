@@ -1,7 +1,6 @@
 
 
 # Configure storage (FSx for ONTAP)
-<a name="sap-hana-amazon-fsx"></a>
 
 Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage built on NetApp’s popular ONTAP file system. You can now deploy and operate SAP HANA on AWS with Amazon FSx for NetApp ONTAP. For more information, see [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
 

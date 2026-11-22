@@ -1,7 +1,6 @@
 
 
 # Post-failure analysis and reset
-<a name="sap-hana-pacemaker-rhel-ops-post-failure"></a>
 
 A review must be conducted after each failure to understand the source of failure as well the reaction of the cluster. In most scenarios, the cluster prevents an application outage. However, a manual action is often required to reset the cluster to a protective state for any subsequent failures.
 
@@ -15,7 +14,7 @@ A review must be conducted after each failure to understand the source of failur
 <a name="_checking_the_logs"></a>
 + For troubleshooting cluster issues, use journalctl to examine both pacemaker and corosync logs:
 
-  ```
+  ```console
   # journalctl -u pacemaker -u corosync --since "1 hour ago"
   ```
   + Use `--since` to specify time periods (e.g., "2 hours ago", "today")
@@ -29,7 +28,7 @@ A review must be conducted after each failure to understand the source of failur
 
 If failed actions are reported using the `pcs status` command, and if they have already been investigated, then you can clear the reports with the following command.
 
-```
+```console
 # pcs resource cleanup <resource> <hostname>
 ```
 
@@ -45,7 +44,7 @@ You need to restart the instance or the pacemaker service based on your approach
 
 For cluster-specific issues, use `pcs cluster report` to generate a targeted analysis of cluster components across all nodes:
 
-```
+```console
 # pcs cluster report --from="YYYY-MM-DD HH:MM:SS" --to="YYYY-MM-DD HH:MM:SS" /tmp/cluster-report
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Vendor Support
-<a name="sap-hana-pacemaker-sles-references"></a>
 
 ## SAP and SUSE References
 <a name="_sap_and_suse_references"></a>

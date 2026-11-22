@@ -1,7 +1,6 @@
 
 
 # Operating System Requirements
-<a name="sap-hana-pacemaker-sles-os-settings"></a>
 
 This section outlines the required operating system configurations for SUSE Linux Enterprise Server for SAP (SLES for SAP) cluster nodes. Note that this is not a comprehensive list of configuration requirements for running SAP HANA on AWS, but rather focuses specifically on cluster management prerequisites.
 
@@ -62,7 +61,7 @@ The following packages and their dependencies are required for the pacemaker set
 **Note**  
 Refer to [Vendor Support of Deployment Types](sap-hana-pacemaker-sles-references.md#deployments-sles) for more information on Configuration Patterns. `Mandatory*` indicates that this package is mandatory based on the Configuration Pattern.
 
-```
+```bash
 #!/bin/bash
 # Mandatory core packages for SAP HANA HA on AWS
 mandatory_packages="corosync pacemaker cluster-glue crmsh rsyslog chrony resource-agents fence-agents "
@@ -114,13 +113,13 @@ fi
 
 If a package is not installed, and you are unable to install it using zypper, it may be because SUSE Linux Enterprise High Availability extension is not available as a repository in your chosen image. You can verify the availability of the extension using the following command:
 
-```
+```console
 $ sudo zypper repos
 ```
 
 To install or update a package or packages with confirmation, use the following command:
 
-```
+```console
 $ sudo zypper install <package_name(s)>
 ```
 
@@ -131,7 +130,7 @@ You must update and confirm versions across nodes. Apply all the latest patches 
 
 You can update the patches individually or update all system patches using the `zypper update` command. A clean reboot is recommended prior to setting up a cluster.
 
-```
+```console
 $ sudo zypper update
 $ sudo reboot
 ```
@@ -145,20 +144,20 @@ Both systemd-journald and rsyslog are suggested for comprehensive logging. Syste
 
  **1. Enable and start rsyslog:** 
 
-```
+```console
 # systemctl enable --now rsyslog
 ```
 
 **2. (Optional) Configure persistent logging for systemd-journald:**  
 If you are not using a logging agent (like the AWS CloudWatch Unified Agent or Vector) to ship logs to a centralized location, you may want to configure persistent logging to retain logs after system reboots.
 
-```
+```console
 # mkdir -p /etc/systemd/journald.conf.d
 ```
 
 Create `/etc/systemd/journald.conf.d/99-logstorage.conf` with:
 
-```
+```ini
 [Journal]
 Storage=persistent
 ```
@@ -167,7 +166,7 @@ Persistent logging requires careful storage management. Configure appropriate re
 
 To apply the changes, restart journald:
 
-```
+```console
 # systemctl restart systemd-journald
 ```
 
@@ -175,7 +174,7 @@ After enabling persistent storage, only new logs will be stored persistently. Ex
 
  **3. Verify services are running:** 
 
-```
+```console
 # systemctl status systemd-journald
 # systemctl status rsyslog
 ```
@@ -189,14 +188,14 @@ You can use Amazon Time Sync Service that is available on any instance running i
 
 Create or check the `/etc/chrony.d/ec2.conf` file to define the server:
 
-```
+```ini
 # Amazon EC2 time source config
 server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
 ```
 
 Start the chronyd.service, using the following command:
 
-```
+```console
 # systemctl enable --now chronyd.service
 # systemctl status chronyd
 ```
@@ -212,7 +211,7 @@ You can either edit the config file at `/root/.aws` manually or by using the `aw
 
 You should skip providing the information for the access and secret access keys. The permissions are provided through IAM roles attached to Amazon EC2 instances.
 
-```
+```console
 # aws configure
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
@@ -222,7 +221,7 @@ Default output format [None]:
 
 The profile name is `default` unless configured. If you choose to use a different name you can specify `--profile`. The name chosen in this example is cluster. It is used in the AWS resource agent definition for pacemaker. The AWS Region must be the default AWS Region of the instance.
 
-```
+```console
 # aws configure --profile cluster
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
@@ -232,13 +231,13 @@ Default output format [None]:
 
 On the hosts, you can verify the available profiles using the following command:
 
-```
+```console
 # aws configure list-profiles
 ```
 
 And review that an assumed role is associated by querying the caller identity:
 
-```
+```console
 # aws sts get-caller-identity --profile=<profile_name>
 ```
 
@@ -249,7 +248,7 @@ If your Amazon EC2 instance has been configured to access the internet and/or AW
 
 Add the following lines to `/etc/sysconfig/pacemaker`:
 
-```
+```ini
 http_proxy=http://<proxyhost>:<proxyport>
 https_proxy=http://<proxyhost>:<proxyport>
 no_proxy=127.0.0.1,localhost,169.254.169.254,fd00:ec2::254
@@ -265,7 +264,7 @@ This step is optional and only needed if you require client connectivity to the 
 
 To enable initial database access, manually add the Overlay IP to the primary instance (where the SAP HANA database is currently running):
 
-```
+```console
 # ip addr add <hana_overlayip>/32 dev eth0
 ```
 + This configuration is temporary and will be lost after instance reboot
@@ -277,7 +276,7 @@ To enable initial database access, manually add the Overlay IP to the primary in
 
 You must ensure that all instances can resolve all hostnames in use. Add the hostnames for cluster nodes to `/etc/hosts` file on all cluster nodes. This ensures that hostnames for cluster nodes can be resolved even in case of DNS issues. See the following example for a two-node cluster:
 
-```
+```text
 # cat /etc/hosts
 10.2.10.1 hanahost01.example.com hanahost01
 10.2.20.1 hanahost02.example.com hanahost02

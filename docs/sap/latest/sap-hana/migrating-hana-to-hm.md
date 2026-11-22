@@ -1,7 +1,6 @@
 
 
 # Migrating SAP HANA on AWS to an EC2 High Memory Instance
-<a name="migrating-hana-to-hm"></a>
 
 EC2 High Memory instances are built on [AWS Nitro System](https://aws.amazon.com/ec2/nitro) with up to 24TB of memory in a single instance to deliver scalable and elastic infrastructure capabilities for large in-memory databases, such as SAP HANA.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Infrastructure Setup
-<a name="sap-hana-pacemaker-rhel-infra-setup"></a>
 
 This section covers the one-time setup tasks required to prepare your AWS environment for the cluster deployment:
 
@@ -25,7 +24,7 @@ For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com
 
 The Red Hat STONITH resource agent (`fence_aws`) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -57,7 +56,7 @@ The Red Hat STONITH resource agent (`fence_aws`) requires permission to start an
 
 The Red Hat Overlay IP resource agent (`aws-vpc-move-ip`) requires permission to modify a routing entry in route tables. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -98,7 +97,7 @@ In sharing VPC account, create an IAM role to delegate permissions to the EC2 in
 
 After the IAM role has been created, create the following IAM policy on the sharing VPC account, and attach it to an IAM role. Add or remove route table entries as needed.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -127,7 +126,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 
  **STS Policy** 
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 
  **STONITH Policy** 
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -238,13 +237,13 @@ The preceding steps can also be performed programmatically. We suggest performin
 
 For example:
 
-```
+```console
 $ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <hana_overlayip>/32 --instance-id <instance_id_1>
 ```
 
 If required for read enabled access
 
-```
+```console
 $ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <readenabled_overlayip>/32 --instance-id <instance_id_2>
 ```
 

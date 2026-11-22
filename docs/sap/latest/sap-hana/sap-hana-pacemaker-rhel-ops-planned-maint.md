@@ -1,7 +1,6 @@
 
 
 # Performing planned maintenance
-<a name="sap-hana-pacemaker-rhel-ops-planned-maint"></a>
 
 When performing maintenance on SAP HANA systems in a cluster environment, it’s important to understand how the cluster interacts with SAP HANA system replication. Planned maintenance activities should be conducted carefully to prevent unnecessary failovers or cluster interventions.
 
@@ -20,12 +19,12 @@ Use maintenance mode if you want to make any changes to the configuration or tak
 **Example**  
 Use the following commands to turn on maintenance mode.  
 
-```
+```console
 # pcs property maintenance-mode=true
 ```
 Use the following command to turn off maintenance mode.  
 
-```
+```console
 # pcs property maintenance-mode=false
 ```
 
@@ -34,13 +33,13 @@ Use the following command to turn off maintenance mode.
 
 To perform maintenance on the cluster without a full system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
-```
+```console
 # pcs node standby <hostname>
 ```
 
 The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command.
 
-```
+```console
 # pcs node unstandby <hostname>
 ```
 
@@ -51,7 +50,7 @@ When moving individual resources, be sure you understand resource dependencies a
 
 For example:
 
-```
+```console
 # pcs resource move rsc_SAPHana_HDB_HDB00-clone hanahost02
 Location constraint to move resource 'rsc_SAPHana_HDB_HDB00-clone' has been created
 Waiting for the cluster to apply configuration changes...

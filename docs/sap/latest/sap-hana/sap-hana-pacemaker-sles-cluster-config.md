@@ -1,7 +1,6 @@
 
 
 # Cluster Configuration
-<a name="sap-hana-pacemaker-sles-cluster-config"></a>
 
 Bootstrap the cluster and configure all required cluster resources and constraints.
 
@@ -23,13 +22,13 @@ To ensure that the cluster does not perform unexpected actions during setup of r
 
 Run the following command to put the cluster in maintenance mode:
 
-```
+```console
 # crm maintenance on
 ```
 
 To verify the current maintenance state:
 
-```
+```console
 # crm status
 ```
 
@@ -40,7 +39,7 @@ Node-specific maintenance (set with `crm node maintenance nodename`)
 Always use cluster-wide maintenance mode when making configuration changes. For node-specific operations like hardware maintenance, refer to the Operations for proper procedures.  
 To disable maintenance mode after configuration is complete:  
 
-```
+```console
 # crm maintenance off
 ```
 
@@ -52,7 +51,7 @@ To disable maintenance mode after configuration is complete:
 
 Configure cluster properties to establish fencing behavior and resource failover settings:
 
-```
+```console
 # crm configure property stonith-enabled="true"
 # crm configure property stonith-timeout="600"
 # crm configure property priority-fencing-delay="20"
@@ -63,7 +62,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 
 To verify your cluster property settings:
 
-```
+```console
 # crm configure show property
 ```
 
@@ -72,7 +71,7 @@ To verify your cluster property settings:
 
 Configure resource default behaviors:
 
-```
+```console
 # crm configure rsc_defaults resource-stickiness="1000"
 # crm configure rsc_defaults migration-threshold="5000"
 ```
@@ -83,7 +82,7 @@ Individual resources may override these defaults with their own defined values.
 
 To verify your resource default settings:
 
-```
+```console
 # crm configure show rsc_defaults
 ```
 
@@ -92,14 +91,14 @@ To verify your resource default settings:
 
 Configure operation timeout defaults:
 
-```
+```console
 # crm configure op_defaults timeout="600"
 ```
 + The **op\_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
 
 To verify your operation default settings:
 
-```
+```console
 # crm configure show op_defaults
 ```
 
@@ -115,7 +114,7 @@ As of SLES 15 SP5 with the latest fence-agents package, we recommend resource ag
 
 Create the STONITH resource using resource agent ** `fence_aws` **:
 
-```
+```console
 # crm configure primitive <stonith_resource_name> stonith:fence_aws \
 params pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
 region="<aws_region>" \
@@ -137,7 +136,7 @@ Details:
 +  **skip\_os\_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :
 
-  ```
+  ```console
   # crm configure primitive rsc_fence_aws stonith:fence_aws \
   params pcmk_host_map="hanahost01:i-xxxxinstidforhost1;hanahost02:i-xxxxinstidforhost2" region="us-east-1" \
   skip_os_shutdown="true" \
@@ -156,7 +155,7 @@ Details:
 
 Create the STONITH resource using resource agent ** `external/ec2` **:
 
-```
+```console
 # crm configure primitive <stonith_resource_name> stonith:external/ec2 \
 params tag="<cluster_tag>" profile="<cli_cluster_profile>" pcmk_delay_max="10" \
 op start interval="0" timeout="180" \
@@ -171,7 +170,7 @@ Details:
 
    *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :
 
-  ```
+  ```console
   # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
   params tag="pacemaker" profile="cluster" \
   pcmk_delay_max="10" \
@@ -186,18 +185,18 @@ Details:
  **Migrating from `external/ec2` to `fence_aws` **   
 Ensure fence-agents is updated to the latest available version on all cluster nodes:  
 
-```
+```console
 # zypper refresh
 # zypper up fence-agents
 ```
 On SLES 15 SP5 and SP6, the following Python 3.11 packages are also required as dependencies for `fence_aws`:  
 
-```
+```console
 # zypper install python311-pycurl python311-pexpect
 ```
 Then place the cluster in maintenance mode, delete the existing STONITH resource, create the new `fence_aws` resource, and disable maintenance mode:  
 
-```
+```console
 # crm maintenance on
 # crm configure delete <old_stonith_resource_name>
 # crm configure primitive <new_resource> stonith:fence_aws \
@@ -214,7 +213,7 @@ This resource ensures client connections follow the SAP HANA primary instance du
 
 Create the IP resource:
 
-```
+```console
 # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params ip="<hana_overlayip>" \
 routing_table="<routetable_id>" \
@@ -234,7 +233,7 @@ Details:
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
   params ip="172.16.52.1" \
   routing_table="rtb-xxxxxroutetable1" \
@@ -248,7 +247,7 @@ Details:
 **For Active/Active Read Enabled**  
 Only if you are using `logreplay_readenabled` and require that your secondary is accessible via overlay IP. You can create an additional IP resource.
 
-```
+```console
 # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled ocf:heartbeat:aws-vpc-move-ip \
 params ip="<readenabled_overlayip>" \
 routing_table="<routetable_id>" \
@@ -261,7 +260,7 @@ op monitor interval="60" timeout="60"
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
   params ip="172.16.52.2" \
   routing_table="rtb-xxxxxroutetable1" \
@@ -275,7 +274,7 @@ op monitor interval="60" timeout="60"
 **For Shared VPC**  
 If your configuration requires a shared vpc, two additional parameters are required.
 
-```
+```console
 # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params ip="<hana_overlayip>" routing_table=<routetable_id> interface=eth0 \
 profile="<cli_cluster_profile>" lookup_type=NetworkInterfaceId \
@@ -301,7 +300,7 @@ For both scale-up and scale-out deployments
 
 For documentation on the resource you can review the man page.
 
-```
+```console
 # man ocf_suse_SAPHanaTopology
 ```
 
@@ -310,7 +309,7 @@ For documentation on the resource you can review the man page.
 
 For the primitive:
 
-```
+```console
 # crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
@@ -321,14 +320,14 @@ op monitor interval="10" timeout="600"
 
 For the clone:
 
-```
+```console
 # crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
   params SID="HDB" \
   InstanceNumber="00" \
@@ -345,7 +344,7 @@ meta clone-node-max="1" interleave="true" clone-max="2"
 
 For the primitive:
 
-```
+```console
 # crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
 params SID="<SID>" InstanceNumber="<hana_sys_nr>" \
 op start interval="0" timeout="600" \
@@ -355,14 +354,14 @@ op monitor interval="10" timeout="600"
 
 For the clone:
 
-```
+```console
 # crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
   params SID="HDB" InstanceNumber="00" \
   op start interval="0" timeout="600" \
@@ -396,7 +395,7 @@ Available and recommended for new deployments on SLES 15 SP4 and above. The SAPH
 
 For documentation on the resource you can review the man page.
 
-```
+```console
 # man ocf_suse_SAPHanaController
 ```
 
@@ -405,7 +404,7 @@ For documentation on the resource you can review the man page.
 
 Create the primitive
 
-```
+```console
 # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
@@ -422,14 +421,14 @@ meta priority="100"
 
 Create the clone
 
-```
+```console
 # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" promotable="true" interleave="true" clone-max="2"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
   params SID="HDB" \
   InstanceNumber="00" \
@@ -451,7 +450,7 @@ meta clone-node-max="1" promotable="true" interleave="true" clone-max="2"
 
 Create the primitive
 
-```
+```console
 # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
@@ -467,14 +466,14 @@ op monitor interval="61" role="Unpromoted" timeout="700"
 
 Create the clone
 
-```
+```console
 # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" promotable="true" interleave="true" clone-max="<number-of-nodes>"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :  
 **Example**  
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
   params SID="HDB" \
   InstanceNumber="00" \
@@ -510,7 +509,7 @@ Details:
 
 For classic scale-up deployments, the SAPHana resource agent manages takeover between two SAP HANA databases. For detailed information:
 
-```
+```console
 # man ocf_suse_SAPHana
 ```
 
@@ -519,7 +518,7 @@ For classic scale-up deployments, the SAPHana resource agent manages takeover be
 
 Create the primitive using the SAPHana Resource Agent
 
-```
+```console
 # crm configure primitive rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHana \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
@@ -536,13 +535,13 @@ meta priority="100"
 
 Create the clone
 
-```
+```console
 # crm configure ms msl_SAPHana_<SID>_HDB<hana_sys_nr> rsc_SAPHana_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \
   params SID="HDB" \
   InstanceNumber="00" \
@@ -565,7 +564,7 @@ meta clone-node-max="1" interleave="true" clone-max="2"
 
 Create the primitive using the SAPHanaController Resource Agent:
 
-```
+```console
 # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>"
 InstanceNumber="<hana_sys_nr>" \
@@ -581,13 +580,13 @@ op monitor interval="61" role="Slave" timeout="700"
 
 Create the clone
 
-```
+```console
 # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 +  *Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md) * :
 
-  ```
+  ```console
   # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
   params SID="HDB" \
   InstanceNumber="00" \
@@ -628,12 +627,12 @@ The following constraints are required.
 
 This constraint defines the start order between the SAPHanaTopology and SAPHana resources:
 
-```
+```console
 # crm configure order <order_rule_name> Optional: <SAPHanaTopology_clone> <SAPHana/SAPHanaController_Clone>
 ```
 +  *Example* :
 
-  ```
+  ```console
   # crm configure order ord_SAPHana Optional: cln_SAPHanaTopology_HDB_HDB00 msl_SAPHana_HDB_HDB00
   ```
 
@@ -645,12 +644,12 @@ This constraint defines the start order between the SAPHanaTopology and SAPHana 
 
 This constraint ensures that the IP resource which determines the target of the overlay IP runs on the node which has the primary SAP HANA role:
 
-```
+```console
 # crm configure colocation <colocation_rule_name> 2000: <ip_resource_name> <saphana/saphanacontroller name>:Master
 ```
 +  *Example* :
 
-  ```
+  ```console
   # crm configure colocation col_ip_SAPHana_Primary 2000: rsc_ip_HDB_HDB00 msl_SAPHana_HDB_HDB00:Master
   ```
 
@@ -659,12 +658,12 @@ This constraint ensures that the IP resource which determines the target of the 
 
 This constraint ensures that the read-enabled IP resource runs on the secondary (Unpromoted) node. When the secondary node is unavailable, the IP will move to the primary node, where read workloads will share capacity with primary workloads:
 
-```
+```console
 # crm configure colocation <colocation_rule_name> 2000: rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled msl_SAPHana/SAPHanaController_<SID>_HDB<hana_sys_nr>:Unpromoted
 ```
 +  *Example* :
 
-  ```
+  ```console
   # crm configure colocation col_ip_readenabled_SAPHana_Secondary 2000: rsc_ip_HDB_HDB00_readenabled msl_SAPHana_HDB_HDB00:Unpromoted
   ```
 
@@ -676,14 +675,14 @@ This constraint ensures that the read-enabled IP resource runs on the secondary 
 
 This location constraint ensures that SAP HANA Resources avoid the Majority Maker, which is not suited to running them.
 
-```
+```console
 # crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> -inf:<hostname_mm>
 
 # crm configure location loc_SAPHana/SAPHanaController_avoid_majority_maker msl_SAPHana/SAPHanaController_<SID>_HDB<hana_sys_nr> -inf:<hostname_mm>
 ```
 +  *Example* :
 
-  ```
+  ```console
   # crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_HDB_HDB00 -inf:hanamm
   # crm configure location loc_SAPHana_avoid_majority_maker msl_SAPHana_HDB_HDB00 -inf:hanamm
   ```
@@ -695,7 +694,7 @@ Use `crm config show` and `crm config edit` commands to review that all the valu
 
 On confirmation of correct values, set the maintenance mode to false using the following command. This enables the cluster to take control of the resources:
 
-```
+```console
 # crm maintenance off
 ```
 
@@ -707,13 +706,13 @@ The following instructions help you reset the complete configuration. Run these 
 
 Run the following command to back up the current configuration for reference:
 
-```
+```console
 # crm config show > /tmp/crmconfig_backup.txt
 ```
 
 Run the following command to clear the current configuration:
 
-```
+```console
 # crm configure erase
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="sap-hana-pacemaker-sles-prerequisites"></a>
 
 **Topics**
 + [AWS Infrastructure Setup](sap-hana-pacemaker-sles-infra-setup.md)

@@ -1,7 +1,6 @@
 
 
 # SAP HANA scale-up
-<a name="fsx-host-scaleup"></a>
 
 The following section is an example host setup for SAP HANA scale-up deployment with FSx for ONTAP.
 
@@ -18,7 +17,7 @@ The following section is an example host setup for SAP HANA scale-up deployment 
 
 1. Create a file `/etc/sysctl.d/91-NetApp-HANA.conf` with the following configurations
 
-   ```
+   ```ini
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
    net.ipv4.tcp_rmem = 4096 131072 16777216
@@ -35,7 +34,7 @@ The following section is an example host setup for SAP HANA scale-up deployment 
 
 1. To reduce I/O errors during failover of FSx for ONTAP Single-AZ file systems, including [planned maintenance windows](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maintenance-windows.html) create an additional file `/etc/sysctl.d/99-fsx-failover.conf`. These parameters optimize NFS client behavior to detect and respond to failover events more quickly.
 
-   ```
+   ```ini
    # NFS client optimizations for faster failover detection
    # Replace 'default' with your interface name (e.g., eth0, ens5) to target a specific interface
    net.ipv4.neigh.default.base_reachable_time_ms = 5000
@@ -50,7 +49,7 @@ The following section is an example host setup for SAP HANA scale-up deployment 
 
 1. Increase the max sessions slots for NFSv4 to 180.
 
-   ```
+   ```bash
    echo options nfs max_session_slots = 180 > /etc/modprobe.d/nfsclient.conf
    ```
 
@@ -65,13 +64,13 @@ If you are using local user accounts, the NFSv4 domain must be set to the same v
 
 To identify the domain setting of the SVM, use the following command:
 
-```
+```bash
 nfs show -vserver hana-data -fields v4-id-domain
 ```
 
 The following is example output:
 
-```
+```bash
 vserver   v4-id-domain
 --------- ------------
 hana-data ec2.internal
@@ -82,7 +81,7 @@ hana-data ec2.internal
 
 Mount the `/hana/shared` volume, create `shared` and `usr-sap` subdirectories, and unmount.
 
-```
+```bash
 mkdir /mnt/tmp
 mount -t nfs -o sec=sys,vers=4.1 <svm-shared>:/HDB-shared /mnt/tmp
 cd /mnt/tmp
@@ -98,7 +97,7 @@ umount /mnt/tmp
 
 On single-host systems, create the following mount points on your Amazon EC2 instance.
 
-```
+```bash
 mkdir -p /hana/data/HDB/mnt00001
 mkdir -p /hana/log/HDB/mnt00001
 mkdir -p /hana/shared
@@ -127,7 +126,7 @@ The created file systems must be mounted as NFS file systems on Amazon EC2. The 
 
 Add the following lines to `/etc/fstab` to preserve mounted file systems during an instance reboot. You can then run `mount -a` to mount the NFS file systems.
 
-```
+```bash
 <svm-data>:/HDB_data_mnt00001 /hana/data/HDB/mnt00001 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=4
 <svm-log>:/HDB_log_mnt00001 /hana/log/HDB/mnt00001 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
 <svm-shared>:/HDB_shared/usr-sap /usr/sap/HDB nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
@@ -145,13 +144,13 @@ With SAP HANA 2.0 SPS4, additional data volume partitions allow configuring two 
 Additional mount points and `/etc/fstab` entries must be created and the new volumes must be mounted.
 + Create additional mount points and assign the required permissions, group, and ownership.
 
-  ```
+  ```bash
   mkdir -p /hana/data2/HDB/mnt00001
   chmod -R 777 /hana/data2/HDB/mnt00001
   ```
 + Add additional file systems to `/etc/fstab`.
 
-  ```
+  ```bash
   <data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
   ```
 + Set the permissions to 777. This is required to enable SAP HANA to add a new data volume in the subsequent step. SAP HANA sets more restrictive permissions automatically during data volume creation.
@@ -161,12 +160,12 @@ Additional mount points and `/etc/fstab` entries must be created and the new vol
 
 To enable data volume partitions, add the following entry in the `global.ini` file in the `SYSTEMDB` configuration.
 
-```
+```bash
 [customizable_functionalities]
 persistence_datavolume_partition_multipath = true
 ```
 
-```
+```bash
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM')
 SET ('customizable_functionalities', 'PERSISTENCE_DATAVOLUME_PARTITION_MULTIPATH') = 'true'
 WITH RECONFIGURE;
@@ -180,7 +179,7 @@ You must restart your database after updating the `global.ini` file.
 
 Run the following SQL statement against the tenant database to add an additional data volume partition to your tenant database.
 
-```
+```bash
 ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/HDB/';
 ```
 

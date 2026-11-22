@@ -1,7 +1,6 @@
 
 
 # Backup and restore your SAP HANA system with the AWS Backint Agent for SAP HANA
-<a name="aws-backint-agent-s3-backup-restore"></a>
 
 When the AWS Backint agent is installed and configured on your Amazon EC2 instance, you can initiate backup and recovery using SQL statements, SAP HANA Cockpit, or SAP HANA Studio.
 
@@ -20,43 +19,43 @@ The following are a limited number of examples of SQL statements that you can us
 
 The following example shows the syntax to initiate a full data backup of the system database.
 
-```
+```sql
 BACKUP DATA USING BACKINT ('/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/<MY_PREFIX>')
 ```
 
 The following example shows the syntax to initiate a full data backup of the tenant database.
 
-```
+```sql
 BACKUP DATA FOR <TENANT DB ID> USING BACKINT ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/<MY_PREFIX >')
 ```
 
 The following example shows the syntax to initiate a differential data backup of the tenant database.
 
-```
+```sql
 BACKUP DATA DIFFERENTIAL FOR <TENANT DB ID> USING BACKINT ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/<MY_PREFIX >')
 ```
 
 The following example shows the syntax to initiate an incremental data backup of the tenant database.
 
-```
+```sql
 BACKUP DATA INCREMENTAL FOR <TENANT DB ID> USING BACKINT ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/<MY_PREFIX >')
 ```
 
 The following example shows the syntax to recover your tenant database to a particular point in time.
 
-```
+```sql
 RECOVER DATABASE FOR <TENANT DB ID> UNTIL TIMESTAMP 'YYYY-MM-DD HH:MM:SS' USING DATA PATH ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/') USING LOG PATH ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>') USING BACKUP_ID 1234567890123 CHECK ACCESS USING BACKINT
 ```
 
 The following example shows the syntax to recover your tenant database with a specific data backup using catalogs stored in S3.
 
-```
+```sql
 RECOVER DATA FOR <TENANT DB ID> USING BACKUP_ID 1234567890123 USING CATALOG BACKINT USING DATA PATH ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/') CLEAR LOG
 ```
 
 The following example shows the syntax to recover your tenant database with a specific data backup without using a catalog.
 
-```
+```sql
 RECOVER DATA FOR <TENANT DB ID>  USING BACKINT ('/usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT DB ID>/<MY_PREFIX >') CLEAR LOG
 ```
 
@@ -72,19 +71,19 @@ With AWS Backint agent, you can perform system copies by restoring a backup of t
 
 The following is the syntax to restore a specific backup of the source tenant database into your target tenant database.
 
-```
+```sql
 RECOVER DATA FOR <TARGET TENANT DB ID>  USING SOURCE '<SOURCE TENANT DB ID>@<SOURCE SYSTEM ID>' USING BACKUP_ID 1234567890123 USING CATALOG BACKINT USING DATA PATH ('/usr/sap/<SOURCE SYSTEM ID>/SYS/global/hdb/backint/DB_<SOURCE TENANT DB ID>/') CLEAR LOG
 ```
 
 The following is an example of a SQL statement to restore a specific backup of the source tenant database, called `SRC`, in the source system `QAS` into a target tenant database called `TGT`.
 
-```
+```sql
 RECOVER DATA FOR TGT USING SOURCE 'SRC@QAS' USING BACKUP_ID 1234567890123 USING CATALOG BACKINT USING DATA PATH ('/usr/sap/QAS/SYS/global/hdb/backint/DB_SRC/')  CLEAR LOG
 ```
 
 The following is an example of a SQL statement to perform a point-in-time recovery of a source tenant database, called `SRC`, in a source system `QAS` into a target tenant database called `TGT`.
 
-```
+```sql
 RECOVER DATABASE FOR TGT UNTIL TIMESTAMP '2020-01-31 01:00:00' CLEAR LOG USING SOURCE 'SRC@QAS' USING CATALOG BACKINT USING LOG PATH ('/usr/sap/QAS/SYS/global/hdb/backint/DB_SRC') USING DATA PATH ('/usr/sap/QAS/SYS/global/hdb/backint/DB_SRC/') USING BACKUP_ID 1234567890123 CHECK ACCESS USING BACKINT
 ```
 
