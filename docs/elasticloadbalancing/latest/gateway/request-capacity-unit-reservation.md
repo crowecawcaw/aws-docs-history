@@ -1,7 +1,6 @@
 
 
 # Request Load balancer Capacity Unit reservation for your Gateway Load Balancer
-<a name="request-capacity-unit-reservation"></a>
 
 Before you use LCU reservation, review the following:
 + LCU reservation only supports reserving throughput capacity for Gateway Load Balancers. When requesting a LCU reservation, convert your capacity needs from Mbps to LCUs using the conversion rate of 1 LCU to 2.2 Mbps.

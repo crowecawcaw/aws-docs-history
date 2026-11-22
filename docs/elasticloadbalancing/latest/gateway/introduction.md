@@ -1,7 +1,6 @@
 
 
 # What is a Gateway Load Balancer?
-<a name="introduction"></a>
 
 Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It can automatically scale to the vast majority of workloads.
 

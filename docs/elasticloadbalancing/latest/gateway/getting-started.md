@@ -1,7 +1,6 @@
 
 
 # Getting started with Gateway Load Balancers
-<a name="getting-started"></a>
 
 Gateway Load Balancers make it easy to deploy, scale, and manage third-party virtual appliances, such as security appliances.
 

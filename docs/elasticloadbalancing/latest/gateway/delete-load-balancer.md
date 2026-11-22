@@ -1,7 +1,6 @@
 
 
 # Delete a Gateway Load Balancer
-<a name="delete-load-balancer"></a>
 
 As soon as your Gateway Load Balancer becomes available, you are billed for each hour or partial hour that you keep it running. When you no longer need the Gateway Load Balancer, you can delete it. As soon as the Gateway Load Balancer is deleted, you stop incurring charges for it.
 

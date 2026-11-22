@@ -1,7 +1,6 @@
 
 
 # Create a Gateway Load Balancer
-<a name="create-load-balancer"></a>
 
 A Gateway Load Balancer takes requests from clients and distributes them across targets in a target group, such as EC2 instances.
 

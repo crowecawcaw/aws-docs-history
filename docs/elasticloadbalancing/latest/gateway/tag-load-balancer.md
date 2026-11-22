@@ -1,7 +1,6 @@
 
 
 # Tag a Gateway Load Balancer
-<a name="tag-load-balancer"></a>
 
 Tags help you to categorize your load balancers in different ways, for example, by purpose, owner, or environment.
 

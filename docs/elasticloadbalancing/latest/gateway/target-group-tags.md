@@ -1,7 +1,6 @@
 
 
 # Tag a target group for your Gateway Load Balancer
-<a name="target-group-tags"></a>
 
 Tags help you to categorize your target groups in different ways, for example, by purpose, owner, or environment.
 

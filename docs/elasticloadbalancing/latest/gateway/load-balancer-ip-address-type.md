@@ -1,7 +1,6 @@
 
 
 # Update the IP address types for your Gateway Load Balancer
-<a name="load-balancer-ip-address-type"></a>
 
 You can configure your Gateway Load Balancer so that application servers can access your load balancer using IPv4 addresses only, or using both IPv4 and IPv6 addresses (dualstack). The load balancer communicates with targets based on the IP address type of the target group. For more information, see [IP address type](gateway-load-balancers.md#ip-address-type).
 
