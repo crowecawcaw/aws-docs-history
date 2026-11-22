@@ -1,7 +1,6 @@
 
 
 # Step 1: Set up the AWS Command Line Interface (AWS CLI)
-<a name="gettingstarted-awscli"></a>
 
 You don't need the AWS CLI to perform the steps in the Getting Started exercises. However, some of the other exercises in this guide do require it. If you prefer, you can skip this step and go to [Step 2: Getting started using the Amazon Comprehend Medical console](gettingstarted-console.md), and set up the AWS CLI later. 
 

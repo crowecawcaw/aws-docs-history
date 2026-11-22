@@ -1,7 +1,6 @@
 
 
 # Amazon Comprehend Medical API Permissions: actions, resources, and conditions reference
-<a name="security-iam-resources"></a>
 
 Use the following table as a reference when setting up [Access Control](security-iam.md#access-control-med) and writing a permissions' policy that you can attach to a user. The list includes each Amazon Comprehend Medical API operation, the corresponding action for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field. 
 

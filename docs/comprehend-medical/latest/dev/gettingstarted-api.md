@@ -1,7 +1,6 @@
 
 
 # Step 3: Getting started using the Amazon Comprehend Medical APIs
-<a name="gettingstarted-api"></a>
 
 The following examples demonstrate how to use Amazon Comprehend Medical operations using the AWS CLI, Java, and Python. Use them to learn about Amazon Comprehend Medical operations and as building blocks for your own applications.
 
@@ -30,7 +29,7 @@ aws comprehendmedical detect-entities-v2 \
 
  The response is the following:
 
-```
+```json
 {
     "Entities": [
         {
@@ -105,7 +104,7 @@ aws comprehendmedical detect-entities-v2 \
 
 The following example uses the `DetectEntitiesV2` operation with Java. To run the example, install the AWS SDK for Java. For instructions on installing the AWS SDK for Java, see [ Set up the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html). 
 
-```
+```java
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -140,7 +139,7 @@ public class SampleAPICall {
 
 The output contains the three entities found in the input text, their location in the input text. A confidence level that the entity was correctly identified is also listed with each entity. The following output shows the `Generic_Name`, `Dosage`, and `Frequency` entities from the preceding example.
 
-```
+```java
 {Id: 0,BeginOffset: 0,EndOffset: 3,Score: 0.9940211,Text: Bob,Category: 
 PROTECTED_HEALTH_INFORMATION,Type: NAME,Traits: [],}
 {Id: 2,BeginOffset: 23,EndOffset: 30,Score: 0.99914634,Text: aspirin,Category: MEDICATION,Type: GENERIC_NAME,Traits: [],Attributes: 
@@ -152,7 +151,7 @@ PROTECTED_HEALTH_INFORMATION,Type: NAME,Traits: [],}
 
 The following example uses the `DetectEntitiesV2` operation with Python. To run the sample, install the AWS CLI. For more information, see [Step 1: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md).
 
-```
+```python
 import boto3
 client = boto3.client(service_name='comprehendmedical', region_name='YOUR REGION')
 result = client.detect_entities(Text= 'cerealx 84 mg daily')
@@ -163,7 +162,7 @@ for entity in entities:
 
 The output contains the three entities found in the input text, their location in the input text. A confidence level that the entity was correctly identified is also listed with each entity. The following output shows the `Generic_Name`, `Dosage`, and `Frequency` entities from the preceding example.
 
-```
+```python
 ('Entity', {u'Category': u'MEDICATION', u'BeginOffset': 0, u'EndOffset': 7, 
             u'Text': u'cerealx', u'Traits': [], u'Score': 0.8877691626548767, u'Attributes': [{u'BeginOffset': 8, u'EndOffset': 13, 
             u'Text': u'84 mg', u'Traits': [], u'Score': 0.9337134957313538, u'Type': u'DOSAGE', u'Id': 1, u'RelationshipScore': 0.9995118379592896}, 

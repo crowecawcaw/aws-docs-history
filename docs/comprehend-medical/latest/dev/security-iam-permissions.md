@@ -1,7 +1,6 @@
 
 
 # Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical
-<a name="security-iam-permissions"></a>
 
 This topic shows example identity-based policies. The examples show how an account administrator can attach permissions policies to IAM identities. This enables users, groups, and roles to perform Amazon Comprehend Medical actions. 
 
@@ -15,7 +14,7 @@ This example policy is required to use the Amazon Comprehend Medical document an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ To use the Amazon Comprehend Medical console, grant permissions for the actions 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -115,7 +114,7 @@ When you create an asynchronous batch job using the console, you can also create
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -151,7 +150,7 @@ You must apply the following additional policy to any user using Amazon Comprehe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -189,7 +188,7 @@ The following is the role's trust policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -215,7 +214,7 @@ The following example access policy contains those permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -268,14 +267,14 @@ All examples use the us-east-2 Region and contain fictitious account IDs.
 
 After you sign up for AWS, you create an administrator to manage your account, including creating users and managing their permissions. 
 
-You can choose to create a user who has permissions for all Amazon Comprehend actions. Think of this user as a service-specific administrator for working with Amazon Comprehend. You can attach the following permissions policy to this user.
+You can choose to create a user who has permissions for all Amazon Comprehend Medical actions. Think of this user as a service-specific administrator for working with Amazon Comprehend Medical. You can attach the following permissions policy to this user.
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -301,7 +300,7 @@ The following permissions policy grants user permissions to detect entities in A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

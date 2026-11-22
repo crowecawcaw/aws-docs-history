@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions to Amazon Comprehend Medical resources
-<a name="security-iam-accesscontrol"></a>
 
 Permissions policies govern the access to an action. An account administrator attaches permissions policies to IAM identities to manage access to actions. IAM identities include users, groups, and roles.
 

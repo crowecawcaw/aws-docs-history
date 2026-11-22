@@ -1,7 +1,6 @@
 
 
 # What is Amazon Comprehend Medical?
-<a name="comprehendmedical-welcome"></a>
 
 Amazon Comprehend Medical detects and returns useful information in unstructured clinical text such as physician's notes, discharge summaries, test results, and case notes. Amazon Comprehend Medical uses natural language processing (NLP) models to detect entities, which are textual references to medical information such as medical conditions, medications, or Protected Health Information(PHI). For a full list of detected entities, see [Detect entities (Version 2)](textanalysis-entitiesv2.md). Amazon Comprehend Medical also enables users to link these detected entities to standardized medical knowledge bases such as RxNorm and ICD-10-CM through ontology linking operations. 
 

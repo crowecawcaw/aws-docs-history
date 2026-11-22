@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Amazon Comprehend Medical
-<a name="security-iam"></a>
 
 Access to Comprehend Medical requires credentials that AWS can use to authenticate your requests. Those credentials must have permissions to access Comprehend Medical actions. [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) can help secure your resources by controlling who can access them. The following sections provide details on how you can use IAM with Comprehend Medical. 
 +  [Authentication](#auth-med) 

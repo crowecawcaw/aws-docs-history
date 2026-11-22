@@ -1,7 +1,6 @@
 
 
 # Detect entities (Version 2)
-<a name="textanalysis-entitiesv2"></a>
 
 Use the **DetectEntitiesV2** to detect entities in single files or **StartEntitiesDetectionV2Job** for batch analysis on multiple files. You can detect entities in the following categories:
 + `ANATOMY:` Detects references to the parts of the body or body systems and the locations of those parts or systems.

@@ -1,13 +1,12 @@
 
 
 # Document history for Amazon Comprehend Medical
-<a name="comprehendmedical-releases"></a>
 
 The following table describes the documentation for this release of Amazon Comprehend Medical.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Added FAQ page for supported protocols](#comprehendmedical-releases) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/comprehend-medical/latest/dev/cbor-faq.html). | April 16, 2026 | 
+| [Added FAQ page for supported protocols](comprehendmedical-releases.md) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/comprehend-medical/latest/dev/cbor-faq.html). | April 16, 2026 | 
 | [Updated API version for InferSNOMEDCT](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-releases.html#update-03-19-26-InferSNOMEDCT) | The `InferSNOMEDCT` API operation now uses version `3.3.0.20220301`. | March 19, 2026 | 
 | [Updated API version for InferRxNorm](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-releases.html#update-03-19-26-InferRxNorm) | The `InferRxNorm` API operation now uses version `3.3.0.20221107`. | March 19, 2026 | 
 | [Updated API version for InferICD10CM](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-releases.html#update-03-19-26-InferICD10CM) | The `InferICD10CM` API operation now uses version `3.3.0.20251001`. | March 19, 2026 | 

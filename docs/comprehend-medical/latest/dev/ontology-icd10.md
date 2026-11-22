@@ -1,7 +1,6 @@
 
 
 # ICD-10-CM linking
-<a name="ontology-icd10"></a>
 
  Use InferICD10CM to detect possible medical conditions as entities and link them to codes from the 2026 version of the [International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM)](https://www.cdc.gov/nchs/icd/icd-10-cm/?CDC_AAref_Val=https://www.cdc.gov/nchs/icd/icd-10-cm.htm). The ICD-10-CM is provided by the US Centers for Disease Control and Prevention (CDC).
 
@@ -74,7 +73,7 @@ The following example input text shows how the `InferICD10CM` operation works. T
 
 The `InferICD10CM` operation returns the following output in JSON format (abbreviated for brevity).
 
-```
+```json
 {
     "Entities": [
         {
@@ -138,7 +137,7 @@ The `InferICD10CM` operation returns the following output in JSON format (abbrev
 
 `InferICD10CM` also recognizes when an entity is negated in text. For instance, if a patient is not experiencing a symptom, both the symptom and negation are identified as traits and listed with a confidence score. Based on the input for the previous example, the symptom `Nausea` will be listed under `NEGATION` because the patient isn't experiencing nausea.
 
-```
+```json
 {
     "Id": 3,
     "Text": "nausea",

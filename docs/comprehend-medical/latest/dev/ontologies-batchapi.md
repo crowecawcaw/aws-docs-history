@@ -1,7 +1,6 @@
 
 
 # Ontology linking batch analysis
-<a name="ontologies-batchapi"></a>
 
 Use Amazon Comprehend Medical to detect entities in clinical text stored in an Amazon Simple Storage Service (Amazon S3) bucket and to link those entities to standardized ontologies. You can use ontology linking batch analysis to analyze either a collection of documents or a single document with up to 20,000 characters. By using either the console or the ontology linking batch API operations, you can perform operations to start, stop, list, and describe ongoing batch analysis jobs.
 
@@ -52,7 +51,7 @@ The role must have the following policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -97,7 +96,7 @@ The role must have the following trust relationship. It is recommended that you 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -143,7 +142,7 @@ Amazon Comprehend Medical writes the files to the output directory that you spec
 
 The following is the JSON structure of the batch manifest file.
 
-```
+```json
 {"Summary" : 
     {"Status" : "COMPLETED | FAILED | PARTIAL_SUCCESS | STOPPED", 
     "JobType" : "ICD10CMInference | RxNormInference | SNOMEDCTInference", 
@@ -172,7 +171,7 @@ The following is the JSON structure of the batch manifest file.
 
 The following is the JSON structure of the file that contains information about successfully processed files.
 
-```
+```json
 {
     "Files": [{
             "Input": "{{input path}}/{{input file name}}",
@@ -192,7 +191,7 @@ The following is the JSON structure of the file that contains information about 
 
 Following is the JSON structure of the manifest file that contains information about unprocessed files.
 
-```
+```json
 {
   "Files" : [ {
       "Input": "file_name_that_failed",

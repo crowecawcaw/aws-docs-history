@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Comprehend Medical
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -45,7 +44,7 @@ This policy grants administrative permission to all Amazon Comprehend Medical ac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

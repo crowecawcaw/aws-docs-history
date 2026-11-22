@@ -1,7 +1,6 @@
 
 
 # How Amazon Comprehend Medical works
-<a name="comprehendmedical-howitworks"></a>
 
 Amazon Comprehend Medical uses a pretrained natural language processing (NLP) model to analyze unstructured clinical text through entity detection. An entity is a textual reference to medical information such as medical conditions, medications, or Protected Health Information (PHI). Some operations go one step further by detecting entities and then linking those entities to standardized ontologies. The model is continuously trained on a large body of medical texts, so you don't need to provide training data. All results include a confidence score, which indicates the confidence that Amazon Comprehend Medical has in the accuracy of the detected entities. 
 
