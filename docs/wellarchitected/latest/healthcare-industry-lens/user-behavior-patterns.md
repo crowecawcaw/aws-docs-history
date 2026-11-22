@@ -1,7 +1,6 @@
 
 
 # User behavior patterns
-<a name="user-behavior-patterns"></a>
 
 
 | HCL\_SUS2. How do you match workload infrastructure to user behavior patterns? | 

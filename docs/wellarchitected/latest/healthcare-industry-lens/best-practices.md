@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 ## Definition
 <a name="definition"></a>

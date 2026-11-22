@@ -1,7 +1,6 @@
 
 
 # Machine learning for healthcare
-<a name="machine-learning-for-healthcare"></a>
 
  Artificial intelligence/machine learning (AI/ML) is being applied to a growing set of problems across healthcare, such as prioritizing treatments, predicting health outcomes, guiding provider workflows, and streamlining revenue cycle operations. A key strength of AI/ML technology is the ability to continually learn from real-world data and improve performance over time. However, healthcare applications of AI/ML pose unique problems, including regulatory oversight, design control obligations, and interpretability requirements imposed by stakeholders. Machine learning development is often performed in concert with traditional analytics and can leverage elements of the infrastructure described in the [Healthcare analytics](healthcare-analytics.md) scenario. 
 

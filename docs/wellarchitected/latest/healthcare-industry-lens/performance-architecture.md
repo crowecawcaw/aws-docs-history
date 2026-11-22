@@ -1,7 +1,6 @@
 
 
 # Performance architecture
-<a name="performance-architecture"></a>
 
 
 | HCL\_PERF1. How do you encrypt data while ensuring performance? | 

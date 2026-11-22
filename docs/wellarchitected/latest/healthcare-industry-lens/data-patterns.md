@@ -1,7 +1,6 @@
 
 
 # Data patterns
-<a name="data-patterns"></a>
 
 
 | HCL\_SUS6. How does your organization remove unneeded or redundant health data? | 

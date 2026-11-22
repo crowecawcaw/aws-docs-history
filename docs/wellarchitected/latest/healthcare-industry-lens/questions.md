@@ -1,7 +1,6 @@
 
 
 # Questions
-<a name="questions"></a>
 
 
 | HCL\_REL3. How does your organization define and design for availability and reliability requirements? | 

@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="identity-and-access-management"></a>
 
 
 | HCL\_SEC1. How do you identify where health data is in your environment? | 

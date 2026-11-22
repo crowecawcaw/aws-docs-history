@@ -1,7 +1,6 @@
 
 
 # Network architecture
-<a name="network-architecture"></a>
 
 
 | HCL\_PERF3. How do you define and test network performance requirements? | 

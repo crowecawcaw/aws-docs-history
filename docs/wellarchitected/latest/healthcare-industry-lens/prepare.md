@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 | HCL\_OPS1. Have you defined a formal risk management program? | 

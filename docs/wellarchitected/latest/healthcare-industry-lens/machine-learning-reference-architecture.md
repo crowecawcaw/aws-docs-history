@@ -1,11 +1,12 @@
 
 
 # Machine learning reference architecture
-<a name="machine-learning-reference-architecture"></a>
 
 This section depicts a typical machine learning lifecycle and data flow.
 
 ![Diagram of the machine learning lifecycle.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/machine-learning-lifecycle.png)
+
+*[ML lifecycle](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/ml-lifecycle-phase-model-development.html) with detailed phases and expanded components*
 
 
 The following steps detail the end-to-end data flow for machine learning:

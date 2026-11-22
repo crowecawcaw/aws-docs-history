@@ -1,7 +1,6 @@
 
 
 # Questions
-<a name="questions-4"></a>
 
 
 | HCL\_OE4: How do you track model revisions and ensure traceability of your ML artifacts? | 

@@ -1,7 +1,6 @@
 
 
 # Detective controls
-<a name="detective-controls"></a>
 
 
 | HCL\_SEC3. How are you logging access to health data? | 

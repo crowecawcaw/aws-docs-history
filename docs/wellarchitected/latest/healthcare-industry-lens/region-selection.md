@@ -1,7 +1,6 @@
 
 
 # Region selection
-<a name="region-selection"></a>
 
 
 | HCL\_SUS1. How do you identify targets for sustainability improvement? | 

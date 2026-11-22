@@ -1,7 +1,6 @@
 
 
 # Data retention
-<a name="data-retention"></a>
 
 
 | HCL\_COST1. How do you define and enforce data retention policies? | 

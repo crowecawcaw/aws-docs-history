@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles3"></a>
 
  The following design principles can help you achieve and maintain efficient workloads in the cloud. 
 +  **Democratize advanced technologies**: Make advanced technology implementation easier for your team by delegating complex tasks to your cloud vendor. Rather than asking your IT team to learn about hosting and running a new technology, consider consuming the technology as a service. For example, NoSQL databases, media transcoding, and machine learning are all technologies that require specialized expertise. In the cloud, these technologies become services that your team can consume, allowing your team to focus on product development rather than resource provisioning and management. 

@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | HCL\_REL1. How does your system adapt to changes in demand? | 

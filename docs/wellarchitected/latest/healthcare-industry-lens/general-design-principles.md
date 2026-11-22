@@ -1,7 +1,6 @@
 
 
 # General design principles
-<a name="general-design-principles"></a>
 
  The Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud. In addition, the following design principles should also be considered for designing and operating healthcare workloads: 
 +  **Align with applicable regulatory and quality frameworks:** Identify relevant regulations early, and architect solutions from the start to meet regulatory requirements. 

@@ -1,7 +1,6 @@
 
 
 # Learning path for healthcare
-<a name="learning-path-for-healthcare"></a>
 
 This Lens represents one of a body of resources that you can use to design and operate Well-Architected cloud-based healthcare workloads.  This Lens augments, but does not repeat, all of the guidance offered in the foundational materials.  The following learning path for healthcare lists an ordered collection of guides, documentation, blog posts, and other content to help customers be successful in bringing a Well-Architected solution to the cloud.  We recommend considering each of resources below, and depending on your prior cloud experience, reviewing the prerequisites before reading this Lens.
 

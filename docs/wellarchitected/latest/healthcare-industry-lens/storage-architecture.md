@@ -1,7 +1,6 @@
 
 
 # Storage architecture
-<a name="storage-architecture"></a>
 
 
 | HCL\_PERF4. How do you define and test storage performance requirements? | 

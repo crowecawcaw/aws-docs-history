@@ -1,7 +1,6 @@
 
 
 # Questions
-<a name="questions-3"></a>
 
 
 | HCL\_OE1. Does your organization use master data management processes to unambiguously identify patients or individuals and link clinical concepts and measures to standard healthcare vocabularies (such as SNOMED, ICD, CPT, or NDC)? | 

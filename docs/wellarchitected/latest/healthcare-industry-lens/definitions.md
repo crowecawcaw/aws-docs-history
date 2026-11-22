@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 +  **Health data/sensitive data:** Broadly defined as information relating to an identified or identifiable person. Example data elements include identification numbers, location data, genetic information, cultural and social attributes, and identifiable health records. Specific regulations, such as the Health Insurance Portability and Accountability Act (HIPAA) or the General Data Protection Regulation (GDPR), may impose definitions and requirements. For example, HIPAA includes a definition of Protected Health Information (PHI), which defines identifiable data that is covered under the regulatory standard. 
 +  **Healthcare payor:** Organizations who develop healthcare policy, manage risk, or provide healthcare networks, payment, and adjudication services for citizens, employers, or private individuals (for example, health plans, intermediaries, claims processing entities, and policy or regulatory entities at the state and federal level). 
 +  **Healthcare provider:** Organizations (such as clinics, hospitals, and care networks) providing acute, ambulatory, ancillary, and retail healthcare services. 

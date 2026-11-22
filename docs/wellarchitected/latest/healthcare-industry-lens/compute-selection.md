@@ -1,7 +1,6 @@
 
 
 # Compute selection
-<a name="compute-selection"></a>
 
 
 | HCL\_PERF2. How do you select your compute solution? | 

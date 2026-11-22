@@ -1,7 +1,6 @@
 
 
 # Healthcare interoperability
-<a name="healthcare-interoperability"></a>
 
  Healthcare interoperability refers to health data exchange between information systems like electronic healthcare records (EHR), pharmacy systems, diagnostic imaging systems, laboratory systems, and claims systems. With interoperability, health data can be communicated between electronic systems, between organizations, and across geographical boundaries with standardized protocols. 
 

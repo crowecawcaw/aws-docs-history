@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | HCL\_OPS5. How do you demonstrate continuous compliance? | 

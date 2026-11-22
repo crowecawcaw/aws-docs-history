@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="data-protection"></a>
 
 
 | HCL\_SEC6. How do you determine and enforce data residency requirements? | 
@@ -52,7 +51,7 @@
 
 ****  
 
-```
+```json
 
 
 ```

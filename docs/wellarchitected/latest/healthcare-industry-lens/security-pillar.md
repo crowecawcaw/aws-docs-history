@@ -1,7 +1,6 @@
 
 
 # Security pillar
-<a name="security-pillar"></a>
 
  The security pillar provides AWS recommendations that help you meet your business and regulatory requirements. The practices in this pillar inform architectures that protect health data, control access, and respond automatically to security events.  
 

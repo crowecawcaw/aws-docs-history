@@ -1,7 +1,6 @@
 
 
 # Electronic healthcare record and revenue cycle systems
-<a name="electronic-healthcare-record-and-revenue-cycle-systems"></a>
 
  Healthcare providers, payers, and SaaS ISVs operate transactional systems of record, such as electronic healthcare record and claims adjudication systems, that are critical to the parent organization’s operation. 
 

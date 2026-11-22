@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Healthcare Industry Lens authors and contributors (in alphabetical order): 
 +  Sanford Coker – Principal Solutions Architect, WW HCLS – Private Equity, Amazon Web Services 

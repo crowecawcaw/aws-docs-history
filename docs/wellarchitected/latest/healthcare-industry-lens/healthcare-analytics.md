@@ -1,7 +1,6 @@
 
 
 # Healthcare analytics
-<a name="healthcare-analytics"></a>
 
  Healthcare delivery systems, payors, and service providers use analytics for a range of purposes, such as revenue cycle management, quality management, and process improvement. These entities generate, analyze, and exchange large volumes of data. The health data processed spans a diverse set of domains, including clinical, finance, supply chain, human resources, research and more. The volume and variety of data processed by analytics is steadily increasing, making extensible, elastic, cloud-based architectures increasingly attractive. 
 

@@ -1,7 +1,6 @@
 
 
 # Interoperability reference architecture
-<a name="interoperability-architectures"></a>
 
  HL7 v2, HL7 v3, and HL7 FHIR are three of the most common healthcare messaging standards used today. This section highlights architectures for each. 
 
@@ -16,6 +15,8 @@
 
 ![An image that shows a common HL7v2 interoperability architecture that synchronously exchanges messages with a target integration service.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/hl7v2-interoperability-architecture.png)
 
+*A common HL7v2 interoperability architecture where the integration may exchange HL7 v2 messages through a VPN tunnel or SFTP. MLLP over TLS can help keep messages encrypted in transit.*
+
 
 ## HL7 v3
 <a name="hl7-v3"></a>
@@ -28,6 +29,8 @@
  The following diagram illustrates a representative FHIR interoperability architecture, which presents an integration point in front of one or more systems of record, typically within a provider or payer organization. 
 
 ![Diagram of a representative FHIR interoperability architecture.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/fhir-interoperability-architecture.png)
+
+*Example FHIR enabled interoperability architecture.*
 
 
  

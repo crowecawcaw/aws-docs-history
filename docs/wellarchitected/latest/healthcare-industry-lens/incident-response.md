@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 
 | HCL\_SEC9. What is your disaster recovery for critical systems? | 

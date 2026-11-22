@@ -1,7 +1,6 @@
 
 
 # Questions
-<a name="questions-2"></a>
 
 
 | HCL\_PERF6. How does your organization benchmark the performance of a medical imaging solution? | 

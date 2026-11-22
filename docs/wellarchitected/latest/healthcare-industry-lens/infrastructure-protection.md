@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 | HCL\_SEC5. How does your organization protect critical systems? | 
