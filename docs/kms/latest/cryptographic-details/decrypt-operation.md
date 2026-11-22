@@ -1,7 +1,6 @@
 
 
 # Decrypt
-<a name="decrypt-operation"></a>
 
 A call to AWS KMS to decrypt a ciphertext value accepts an encrypted value ciphertext and an encryption context. AWS KMS authenticates the call using [AWS signature version 4 signed requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) and extracts the HBKID for the wrapping key from the ciphertext. The HBKID is used to obtain the *EKT* required to decrypt the ciphertext, the key ID, and the policy for the key ID. The request is authorized based on the key policy, grants that may be present, and any associated IAM policies that reference the key ID. The `Decrypt` function is analogous to the encryption function.
 

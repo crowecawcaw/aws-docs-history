@@ -1,7 +1,6 @@
 
 
 # Basic concepts
-<a name="basic-concepts"></a>
 
 Learning some basic terms and concepts will help you get the most out of AWS Key Management Service. 
 

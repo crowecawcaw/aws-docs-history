@@ -1,7 +1,6 @@
 
 
 # Introduction to the cryptographic details of AWS KMS
-<a name="intro"></a>
 
 AWS Key Management Service (AWS KMS) provides a web interface to generate and manage cryptographic keys and operates as a cryptographic service provider for protecting data. AWS KMS offers traditional key management services integrated with AWS services to provide a consistent view of customers’ keys across AWS, with centralized management and auditing. This whitepaper provides a detailed description of the cryptographic operations of AWS KMS to assist you in evaluating the features offered by the service.
 

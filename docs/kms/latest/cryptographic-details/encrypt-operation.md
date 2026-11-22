@@ -1,7 +1,6 @@
 
 
 # Encrypt
-<a name="encrypt-operation"></a>
 
 A basic function of AWS KMS is to encrypt an object under a KMS key. By design, AWS KMS provides low latency cryptographic operations on HSMs. Thus there is a limit of 4 KB on the amount of plaintext that can be encrypted in a direct call to the encrypt function. The AWS Encryption SDK can be used to encrypt larger messages. AWS KMS, after authenticating the command, acquires the current active EKT pertaining to the KMS key. It passes the EKT, along with the plaintext and encryption context, to any available HSM in the Region. These are sent over an authenticated session between the AWS KMS host and an HSM in the domain.
 

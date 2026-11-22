@@ -1,7 +1,6 @@
 
 
 # Rotating key material
-<a name="rotate-customer-master-key"></a>
 
 Authorized users can enable automatic annual rotation of their customer managed KMS keys. AWS managed keys are always rotated every year. 
 

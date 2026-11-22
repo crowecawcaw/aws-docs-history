@@ -1,7 +1,6 @@
 
 
 # Abbreviations
-<a name="kms-abbreviations"></a>
 
 The following list illuminates abbreviations referenced in this document.
 

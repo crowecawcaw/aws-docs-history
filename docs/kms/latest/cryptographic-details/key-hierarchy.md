@@ -1,7 +1,6 @@
 
 
 # AWS KMS key hierarchy
-<a name="key-hierarchy"></a>
 
 Your key hierarchy starts with a top-level logical key, an AWS KMS key. A KMS key represents a container for top-level key material and is uniquely defined within the AWS service namespace with an Amazon Resource Name (ARN). The ARN includes a uniquely generated key identifier, a *key ID.* A KMS key is created based on a user-initiated request through AWS KMS. Upon reception, AWS KMS requests the creation of an initial HSM backing key (HBK) to be placed into the KMS key container. The HBK is generated on an HSM in the domain and is designed never to be exported from the HSM in plaintext. Instead, the HBK is exported encrypted under HSM-managed domain keys. These exported HBKs are referred to as exported key tokens (EKTs).
 

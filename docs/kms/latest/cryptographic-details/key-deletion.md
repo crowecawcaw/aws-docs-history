@@ -1,7 +1,6 @@
 
 
 # Deleting keys
-<a name="key-deletion"></a>
 
 Authorized users can use the [`ScheduleKeyDeletion`](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) API to schedule the deletion of a KMS key and all associated HBKs. This is an inherently destructive operation, and you should exercise caution when deleting keys from AWS KMS. AWS KMS enforces a minimal wait time of seven days when deleting KMS keys. During the waiting period the key is placed in a disabled state with a key state of **Pending Deletion**. All calls to use the key for cryptographic operations will fail. ScheduleKeyDeletion takes the following arguments.
 

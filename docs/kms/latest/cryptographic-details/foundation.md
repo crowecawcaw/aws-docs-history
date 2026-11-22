@@ -1,7 +1,6 @@
 
 
 # AWS Key Management Service foundations
-<a name="foundation"></a>
 
 The topics in this chapter describe the cryptographic primitives of AWS Key Management Service and where they are used. They also introduce the basic elements of AWS KMS.
 

@@ -1,7 +1,6 @@
 
 
 # Bibliography
-<a name="kms-bibliography"></a>
 
 <a name="fips-hsms"></a>For information about the AWS Key Management Service HSMs, go to the NIST Computer Security Resource Center [Cryptographic Module Validation Program search page](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search) and search for **AWS Key Management Service HSM**.
 

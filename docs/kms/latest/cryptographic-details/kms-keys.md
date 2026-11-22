@@ -1,7 +1,6 @@
 
 
 # Working with AWS KMS keys
-<a name="kms-keys"></a>
 
 An AWS KMS key refers to a logical key that might refer to one or more hardware security module (HSM) backing keys (HBKs). This topic explains how to create a KMS key, import key material, and how to enable, disable, rotate, and delete KMS keys.
 

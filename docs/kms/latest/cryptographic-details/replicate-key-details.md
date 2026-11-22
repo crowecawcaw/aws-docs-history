@@ -1,7 +1,6 @@
 
 
 # Replication process for multi-Region keys
-<a name="replicate-key-details"></a>
 
 AWS KMS uses a cross-Region replication mechanism to copy the key material in a KMS key from an HSM in one AWS Region to an HSM in a different AWS Region. For this mechanism to work, the KMS key that is being replicated must be a multi-Region key. When replicating a KMS key from one Region to another, the HSMs in the Regions cannot communicate directly, because they’re in isolated networks. Instead, the messages exchanged during the cross-Region replication are delivered by a proxy service.
 

@@ -1,7 +1,6 @@
 
 
 # Cryptographic primitives
-<a name="crypto-primitives"></a>
 
 AWS KMS uses configurable cryptographic algorithms so that the system can quickly migrate from one approved algorithm, or mode, to another. The initial default set of cryptographic algorithms has been selected from Federal Information Processing Standard (FIPS-approved) algorithms for their security properties and performance.
 

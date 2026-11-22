@@ -1,7 +1,6 @@
 
 
 # Keys
-<a name="keys"></a>
 
 The following list defines the keys referenced in this document.
 

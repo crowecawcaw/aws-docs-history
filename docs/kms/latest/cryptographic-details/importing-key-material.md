@@ -1,7 +1,6 @@
 
 
 # Importing key material
-<a name="importing-key-material"></a>
 
 AWS KMS provides a mechanism for importing the cryptographic material used for an HBK. As described in [Calling CreateKey](create-key.md), when the CreateKey command is used with `Origin` set to `EXTERNAL`, a logical KMS key is created that contains no underlying HBK. The cryptographic material must be imported using the [`ImportKeyMaterial`](https://docs.aws.amazon.com/kms/latest/APIReference/API_ImportKeyMaterial.html) API call. You can use this feature to control the key creation and durability of the cryptographic material. If you use this feature, we recommend that you take significant caution in the handling and durability of these keys in your environment. For complete details and recommendations for importing key material, see [Importing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *AWS Key Management Service Developer Guide*.
 

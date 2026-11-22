@@ -1,7 +1,6 @@
 
 
 # Generating data keys
-<a name="generating-data-keys"></a>
 
 Authorized users can use the GenerateDataKey API (and related APIs) to request a specific type of data key or a random key of arbitrary length. This topic provides a simplified view of this API operation. For details, see the GenerateDataKey APIs in the *AWS Key Management Service API Reference*.
 + [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html)

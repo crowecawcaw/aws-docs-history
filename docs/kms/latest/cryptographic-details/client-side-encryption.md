@@ -1,7 +1,6 @@
 
 
 # Client-side encryption
-<a name="client-side-encryption"></a>
 
 The [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) includes an API operation for performing envelope encryption using a KMS key. For complete recommendations and usage details see the [related documentation](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/). Client applications can use the AWS Encryption SDK to perform envelope encryption using AWS KMS.
 
