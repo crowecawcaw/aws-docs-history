@@ -1,7 +1,6 @@
 
 
 # Run optimization for a private HealthOmics workflow
-<a name="workflows-run-optimize"></a>
 
 You can optimize runs for total cost, total run time, or a combination of both. HealthOmics provides data and tools to help you with run optimization decisions. Run optimization doesn't apply to Ready2Run workflows, because you don't have any control over how the service manages resource provisioning for these workflows.
 
@@ -158,7 +157,7 @@ If you don't specify memory or compute resources in your task, HealthOmics assig
 HealthOmics allocates the number of vCPUs, memory, and GPU resources that you request. For instance, if you ask for 15vCPUs and 33GiB, HealthOmics allocates an omics.m.4xl instance (16vCPUs, 64GB) for your task, but your task can use only 15 vCPUs and 33GiB. Therefore, we recommend that you request vCPUs and memory resources that match an omics instance.
 
 **Improve GPU instance availability**  
-If your GPU workflow runs fail with INSTANCE\_RESERVATION\_FAILED or ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED, you can apply several best practices to improve GPU acquisition success. For more information about accelerator bundles, regional flexibility, and resource fallback order, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed).
+If your GPU workflow runs fail with `INSTANCE_RESERVATION_FAILED` or `ALL_PROFILES_INSTANCE_RESERVATION_FAILED`, you can apply several best practices to improve GPU acquisition success. For more information about accelerator bundles, regional flexibility, and resource fallback order, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed).
 
 **Batch multiple samples into one run**  
 Because file system provisioning takes time at the start of the run, you can save on provisioning time by batching multiple samples into the same run. Consider the following factors before deciding on this approach:  

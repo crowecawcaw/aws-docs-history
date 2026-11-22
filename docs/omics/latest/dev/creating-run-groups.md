@@ -1,7 +1,6 @@
 
 
 # Using HealthOmics run groups
-<a name="creating-run-groups"></a>
 
 You can optionally create a run group to cap the compute resources for the runs that you add to the group. Run groups can help you:
 + Queue your runs so that you don’t exceed service limits.
@@ -91,7 +90,7 @@ aws omics get-run-group --id {{run group id}}
 
 The response includes the limit settings for the run group and the assigned tags.
 
-```
+```json
 {
     "arn": "arn:aws:omics:us-west-2:776893852117:runGroup/2839621",
     "id": "2839621",

@@ -1,7 +1,6 @@
 
 
 # Package and supply a HealthOmics workflow definition
-<a name="workflow-defn-packaging"></a>
 
 When you create a workflow or a workflow version, you supply the definition from exactly one source: a ZIP archive that you send with the request, a ZIP archive in Amazon S3, or a Git-based repository. A request that includes more than one definition source fails. The parameters in this topic apply to both the `CreateWorkflow` and `CreateWorkflowVersion` operations. For the full procedures, see [Create a private workflow](create-private-workflow.md) and [Create a workflow version](workflows-version-create.md).
 

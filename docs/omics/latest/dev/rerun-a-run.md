@@ -1,7 +1,6 @@
 
 
 # Rerun a run in HealthOmics
-<a name="rerun-a-run"></a>
 
 For runs you haven't deleted yet, use the console or API to rerun the run. For runs that youv'e deleted, use the HealthOmics **rerun** tool. 
 
@@ -51,7 +50,7 @@ aws-healthomics-rerun 9876543
 
 If the run exists in CloudWatch, you receive a response similar to the following example output. If the workflow no longer exists, you receive an error message.
 
-```
+```json
 Original request:
 {
   "workflowId": "9679729",

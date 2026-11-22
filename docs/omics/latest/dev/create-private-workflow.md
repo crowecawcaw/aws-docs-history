@@ -1,7 +1,6 @@
 
 
 # Create a private workflow
-<a name="create-private-workflow"></a>
 
 Create a workflow using the HealthOmics console, AWS CLI commands, or one of the AWS SDKs.
 
@@ -155,7 +154,7 @@ aws omics create-workflow  \
 
 The `create-workflow` operation returns the following response:
 
-```
+```json
 {
   "arn": "arn:aws:omics:us-west-2:....",
   "id": "1234567",
@@ -309,7 +308,7 @@ If you're using the Amazon ECR pull through cache mapping feature, you can overr
 
 In the following example, file `mappings.json` contains this content:
 
-```
+```json
 {
     "registryMappings": [
         {
@@ -364,7 +363,7 @@ If you use container images from registries that pull through cache doesn't supp
 
 In the following example, file `mappings.json` contains this content:
 
-```
+```json
 {
     "registryMappings": [
         {

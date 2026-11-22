@@ -1,7 +1,6 @@
 
 
 # Workflow linters in HealthOmics
-<a name="workflows-linter"></a>
 
 HealthOmics automatically lints WDL and Nextflow DSL2 workflows during creation. The built-in linters detect errors in your workflow definition files that can cause runs to fail. Lint findings appear in the `statusMessage` field of the **GetWorkflow** response.
 
@@ -57,7 +56,7 @@ aws omics get-workflow --id {{1234567}} --query 'statusMessage'
 
 The following example shows the JSON output from the Nextflow linter:
 
-```
+```json
 {
   "advisory": "Linting findings are from the strict Nextflow DSL2 (nf-lang/v2) linter and reflect the syntax that will be required in Nextflow 25/26 strict mode. On Nextflow 23/24 (legacy grammar) findings are advisory only.",
   "summary": {

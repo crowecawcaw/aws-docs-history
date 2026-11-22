@@ -1,7 +1,6 @@
 
 
 # Getting started with HealthOmics
-<a name="getting-started"></a>
 
 To get started with HealthOmics, ensure that you have properly set up your [IAM permissions and roles for HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/setting-up-new.html#setting-up-create-iam-user). 
 

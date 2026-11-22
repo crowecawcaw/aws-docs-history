@@ -1,7 +1,6 @@
 
 
 # Using third-party registries not supported by pull through cache
-<a name="containers-non-ptc-registries"></a>
 
 Your workflow can use container images from upstream registries that Amazon ECR pull through cache (PTC) doesn't support. The first time a task from your run needs one of these images, HealthOmics copies it from the upstream registry into a private Amazon ECR repository in your account and starts the task from the copy. Later tasks and runs reuse the copy, so the download happens only once. If several runs need the same image at the same time, for example, runs in a batch, HealthOmics copies the image once and the runs wait for that copy. Your workflow definition keeps the original upstream image URIs, so you don't pull, push, or rewrite image URIs yourself.
 
@@ -83,7 +82,7 @@ You can record the Amazon Resource Name (ARN) of the secret from the response an
 ### Step 2: Grant permissions to the service role
 <a name="ecr-non-ptc-run-role"></a>
 
-HealthOmics uses the service role that you pass to `StartRun` to read the secret, create the destination repository, and push the copied image. The service role must be in the same AWS account as the run. Otherwise, HealthOmics rejects the role with the error IAM role does not match the requesting AWS account.
+HealthOmics uses the service role that you pass to `StartRun` to read the secret, create the destination repository, and push the copied image. The service role must be in the same AWS account as the run. Otherwise, HealthOmics rejects the role with the error `IAM role does not match the requesting AWS account`.
 
 For the policy, see [Service role policy for non-PTC container support](permissions-ecr.md#permissions-ecr-non-ptc).
 
@@ -94,13 +93,18 @@ After you grant these permissions, add a registry mapping with the secret ARN as
 
 You specify registry mappings when you create a workflow, and HealthOmics copies the images during a run. For more information, see [Adding private or third-party containers during workflow creation](containers-workflow-creation.md).
 
-Each copied image lands at a URI that you can compute from the registry mapping:
+Each copied image lands at a URI that you can compute from the registry mapping. Replace each placeholder with your own value:
 
 ```
-{{account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{ecrRepositoryPrefix}}/{{image-path}}:{{tag}}
+{{account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{ecr-repository-prefix}}/{{image-path}}:{{tag}}
 ```
++ `account-id` – The AWS account that owns the cache repositories. This is the workflow's account, unless you set `ecrAccountId`.
++ `region` – The Region where the cache repositories are created.
++ `ecr-repository-prefix` – The cache repository prefix from your registry mapping.
++ `image-path` – The upstream image URI without the registry host, and without `upstreamRepositoryPrefix` if you set one. Keep `upstreamRepositoryPrefix` unset for Wave (`wave.seqera.io`).
++ `tag` – The image tag.
 
-`image-path` is the upstream image URI without the registry host, and without `upstreamRepositoryPrefix` if you set one. Keep `upstreamRepositoryPrefix` unset for Wave (`wave.seqera.io`). The account is the workflow's account, unless you set `ecrAccountId`. When you set `ecrAccountId`, HealthOmics creates the repository and pushes the copy in that account using your service role. The service role then needs the same Amazon ECR permissions on that account's repositories, and that account's registry and repository policies must allow it.
+When you set `ecrAccountId`, HealthOmics creates the repository and pushes the copy in that account using your service role. The service role then needs the same Amazon ECR permissions on that account's repositories, and that account's registry and repository policies must allow it.
 
 For example, `community.wave.seqera.io/library/samtools:1.22.1--eccb42ff8fb55509` with prefix `wave-seqera` lands at `111122223333.dkr.ecr.us-east-1.amazonaws.com/wave-seqera/library/samtools:1.22.1--eccb42ff8fb55509`.
 
@@ -123,7 +127,7 @@ If your workflows in the same account share an `ecrRepositoryPrefix`, they share
 <a name="ecr-non-ptc-considerations"></a>
 
 Consider the following when you use non-PTC container support:
-+ Architecture – HealthOmics copies x86\_64 images only. ARM-based and multi-architecture images aren't supported.
-+ Workflow sharing – Non-PTC container support isn't supported for shared workflows. When another account runs a workflow that you shared, HealthOmics ignores registry mappings that include `credentialArn`.
-+ Image tags – HealthOmics copies the image that a tag, such as `latest`, points to and doesn't refresh the copy when the upstream content changes. To pick up the new content, delete the copied image from Amazon ECR. After you delete it, HealthOmics copies the image again from the upstream registry on the next run that needs it. If your workflow references a new tag or digest, HealthOmics copies that image the first time a task needs it.
-+ Copy failures – If the registry credential is invalid, or the service role doesn't have the permissions that HealthOmics needs, the image copy fails, and the task and the run fail. If a copy of the image already exists in Amazon ECR, HealthOmics uses that copy and doesn't check the registry credential.
++ **Architecture** – HealthOmics copies x86\_64 images only. ARM-based and multi-architecture images aren't supported.
++ **Workflow sharing** – Non-PTC container support isn't supported for shared workflows. When another account runs a workflow that you shared, HealthOmics ignores registry mappings that include `credentialArn`.
++ **Image tags** – HealthOmics copies the image that a tag, such as `latest`, points to and doesn't refresh the copy when the upstream content changes. To pick up the new content, delete the copied image from Amazon ECR. After you delete it, HealthOmics copies the image again from the upstream registry on the next run that needs it. If your workflow references a new tag or digest, HealthOmics copies that image the first time a task needs it.
++ **Copy failures** – If the registry credential is invalid, or the service role doesn't have the permissions that HealthOmics needs, the image copy fails, and the task and the run fail. If a copy of the image already exists in Amazon ECR, HealthOmics uses that copy and doesn't check the registry credential.

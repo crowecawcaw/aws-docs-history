@@ -1,7 +1,6 @@
 
 
 # Nextflow version retention policy
-<a name="nextflow-version-retention-policy"></a>
 
 ## Supported Nextflow engine versions
 <a name="nf-retention-supported-versions"></a>
@@ -11,7 +10,7 @@ HealthOmics supports multiple stable releases of the Nextflow engine. Each relea
 
 | Version | DSL support | HealthOmics release date | Status | 
 | --- | --- | --- | --- | 
-| v22.04 | DSL 1 & DSL 2 | November 2022 | Scheduled for deprecation on November 30, 2026 | 
+| v22.04 | DSL 1 & DSL 2 | November 2022 | Scheduled for deprecation on January 29, 2027 | 
 | v23.10 | DSL 2 | October 2024 | Scheduled for deprecation on November 30, 2027 | 
 | v24.10 | DSL 2 | August 2025 | Supported through at least November 2027 | 
 | v25.10 | DSL 2 | April 2026 | Supported through at least October 2028 | 

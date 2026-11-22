@@ -1,7 +1,6 @@
 
 
 # Creating a HealthOmics sequence store
-<a name="create-sequence-store"></a>
 
 
 
@@ -66,7 +65,7 @@ aws omics create-sequence-store --name {{sequence store name}} --fallback-locati
 
 You receive the following response in JSON, which includes the ID number for your newly created sequence store.
 
-```
+```json
 {
     "id": "3936421177",
     "arn": "arn:aws:omics:us-west-2:111122223333:sequenceStore/3936421177",
@@ -108,7 +107,7 @@ aws omics get-sequence-store --id {{sequence store ID}}
 
 You receive the following response:
 
-```
+```json
 {
   "arn": "arn:aws:omics:us-west-2:123456789012:sequenceStore/sequencestoreID",
   "creationTime": "2024-01-12T04:45:29.857Z",

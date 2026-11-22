@@ -1,7 +1,6 @@
 
 
 # Updating a run cache
-<a name="workflow-cache-update"></a>
 
 You can change the cache name, description, tags, or cache behavior, but not the S3 location for the cache.
 
@@ -27,7 +26,7 @@ From the console, follow these steps to update a run cache.
 
 Use the **update-run-cache** CLI command to update a run cache.
 
-```
+```bash
 aws omics update-run-cache \
       --name "workflow 123 run cache" \
       --id "workflow id" \

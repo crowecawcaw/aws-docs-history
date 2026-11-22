@@ -1,7 +1,6 @@
 
 
 # Workflow definition files in HealthOmics
-<a name="workflow-definition-files"></a>
 
 You use a workflow definition to specify information about the workflow, runs, and the tasks in the runs. You create workflow definitions in one or more files using a workflow definition language. HealthOmics supports workflow definitions written in WDL, Nextflow, or CWL. 
 

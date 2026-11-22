@@ -1,7 +1,6 @@
 
 
 # Nextflow workflow definition specifics
-<a name="workflow-definition-nextflow"></a>
 
 HealthOmics supports Nextflow DSL1 and DSL2. For details, see [Nextflow version support](workflows-lang-versions.md#workflows-lang-versions-nextflow).
 
@@ -553,7 +552,7 @@ Nextflow v26.04.0 and later use the strict (v2) syntax parser by default. This i
 
 To run a workflow authored against the legacy (v1) parser, set `engineSettings.syntaxVersion` to `v1` in the **StartRun** request:
 
-```
+```json
 {
   "engineSettings": {
     "syntaxVersion": "v1"

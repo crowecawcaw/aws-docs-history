@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 The following topics can help you troubleshoot issues that you encounter when using HealthOmics workflows and data stores.
 
@@ -55,7 +54,7 @@ If there are issues with your code and the processes have not exited properly, y
 
 GPU instances are resources that might not always be immediately available in your preferred AWS Region. For more information about improving GPU acquisition success, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed).
 
-If you use the `omicsResourceFallbackOrder` directive and your run fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED, none of the accelerators you specified had capacity within their wait times. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order. For more information, see [Advanced resource configuration](advanced-resource-configuration.md).
+If you use the `omicsResourceFallbackOrder` directive and your run fails with `ALL_PROFILES_INSTANCE_RESERVATION_FAILED`, none of the accelerators you specified had capacity within their wait times. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order. For more information, see [Advanced resource configuration](advanced-resource-configuration.md).
 
 ## Troubleshooting run metrics
 <a name="troubleshooting-run-metrics"></a>

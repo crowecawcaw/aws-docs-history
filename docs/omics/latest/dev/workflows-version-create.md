@@ -1,7 +1,6 @@
 
 
 # Create a workflow version
-<a name="workflows-version-create"></a>
 
 When you create a new version of a workflow, you need to specify the configuration values for the new version. It doesn't inherit any configuration values from the workflow.
 
@@ -176,7 +175,7 @@ If your workflow definition file is located in an Amazon S3 folder, enter the lo
 
 You receive the following response to the `create-workflow-version` request.
 
-```
+```json
 {
   "workflowId": "1234567",
   "versionName": "my_version",
@@ -197,7 +196,7 @@ You can create a workflow using one of the SDKs.
 
 The following example shows how to create a workflow version using the Python SDK
 
-```
+```python
 import boto3
 
 omics = boto3.client('omics')
@@ -227,7 +226,7 @@ aws omics get-workflow-version
 
 The response gives you your workflow details, including the status, as shown.
 
-```
+```json
 {
   "workflowId": "1234567",
   "versionName": "3.0.0",

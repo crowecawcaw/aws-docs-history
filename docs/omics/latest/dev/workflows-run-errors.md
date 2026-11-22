@@ -1,7 +1,6 @@
 
 
 # Run failure reasons
-<a name="workflows-run-errors"></a>
 
 If a run fails, use the [GetRun](https://docs.aws.amazon.com/omics/latest/api/API_GetRun.html) API operation to retrieve the failure reason. 
 
@@ -12,33 +11,33 @@ Review the failure reason to help you troubleshoot why the run failed. The follo
 
 | Failure reason | Error description | 
 | --- | --- | 
-| ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED | There isn't enough instance capacity for any of the accelerators you specified in the `omicsResourceFallbackOrder` directive. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order. To learn more about resource fallback, see [Advanced resource configuration](advanced-resource-configuration.md). | 
-| ASSUME\_ROLE\_FAILED | HealthOmics doesn't have permission to assume the role. Specify the HealthOmics principal in the trust relationship for the role. | 
-| CANNOT\_START\_CONTAINER\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image is valid and try again. | 
-| CANNOT\_START\_CONTAINER\_SIZE\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image size is less than 45 GiB (95 GiB for a GPU instance) and try again. | 
-| ECR\_IMAGE\_NOT\_FOUND | Image not found at URI: {{uri}}. Make sure that the image tag or digest exists in the Amazon ECR repository, and try again. | 
+| `ALL_PROFILES_INSTANCE_RESERVATION_FAILED` | There isn't enough instance capacity for any of the accelerators you specified in the `omicsResourceFallbackOrder` directive. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order. To learn more about resource fallback, see [Advanced resource configuration](advanced-resource-configuration.md). | 
+| `ASSUME_ROLE_FAILED` | HealthOmics doesn't have permission to assume the role. Specify the HealthOmics principal in the trust relationship for the role. | 
+| `CANNOT_START_CONTAINER_ERROR` | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image is valid and try again. | 
+| `CANNOT_START_CONTAINER_SIZE_ERROR` | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image size is less than 45 GiB (95 GiB for a GPU instance) and try again. | 
+| `ECR_IMAGE_NOT_FOUND` | Image not found at URI: {{uri}}. Make sure that the image tag or digest exists in the Amazon ECR repository, and try again. | 
 | ECR\_PERMISSION\_ERROR | HealthOmics doesn't have permission to access the image URI. Confirm that the Amazon ECR private repository exists and has granted access to the HealthOmics service principal. | 
-| ECR\_REPOSITORY\_NOT\_FOUND | Amazon ECR repository not found for image URI: {{uri}}. Make sure that the repository exists and that the URI is correct, and try again. | 
-| EXPORT\_FAILED | The export failed. Check that the output bucket exists and the run role has write permission to the bucket. | 
-| FILE\_SYSTEM\_OUT\_OF\_SPACE | The file system doesn't have enough space. Increase the file system size and run again. | 
-| IMAGE\_VERIFICATION\_FAILURE | Unable to verify image {{image name}}. To correct the issue, try pulling the image and then push it to your ECR repository again. | 
-| IMPORT\_FAILED | The import failed. Check that the input file exists and the run role can access input. | 
+| `ECR_REPOSITORY_NOT_FOUND` | Amazon ECR repository not found for image URI: {{uri}}. Make sure that the repository exists and that the URI is correct, and try again. | 
+| `EXPORT_FAILED` | The export failed. Check that the output bucket exists and the run role has write permission to the bucket. | 
+| `FILE_SYSTEM_OUT_OF_SPACE` | The file system doesn't have enough space. Increase the file system size and run again. | 
+| `IMAGE_VERIFICATION_FAILURE` | Unable to verify image {{image name}}. To correct the issue, try pulling the image and then push it to your ECR repository again. | 
+| `IMPORT_FAILED` | The import failed. Check that the input file exists and the run role can access input. | 
 | INACTIVE\_OMICS\_STORAGE\_RESOURCE  | The HealthOmics storage URI isn't in ACTIVE state. Activate the read set and try again. To learn more about activating read sets, see [Activating read sets in HealthOmics](activating-read-sets.md). | 
 | INPUT\_URI\_NOT\_FOUND | The provided URI does not exist: {{uri}}. Check that the URI path exists and confirm that the role can access the object. | 
-| INSTANCE\_RESERVATION\_FAILED | There isn't enough instance capacity to complete the workflow run. Wait and try the workflow run again. To learn more about instance reservation failed error mitigations, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](#workflows-mitigate-instance-reservation-failed). | 
+| `INSTANCE_RESERVATION_FAILED` | There isn't enough instance capacity to complete the workflow run. Wait and try the workflow run again. To learn more about instance reservation failed error mitigations, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](#workflows-mitigate-instance-reservation-failed). | 
 | INVALID\_ECR\_IMAGE\_URI | The Amazon ECR image URI structure isn't valid. Provide a valid URI and try again. | 
-| INVALID\_TASK\_RESOURCE\_VALUE | The requested GPU, CPU, or memory is either too high for available compute capacity, or is less than the minimum value of 1 for task {{ID}}. | 
-| INVALID\_URI\_INPUT | The URI structure isn't a valid {{uri}}. Check the URI structure and try again. | 
+| `INVALID_TASK_RESOURCE_VALUE` | The requested GPU, CPU, or memory is either too high for available compute capacity, or is less than the minimum value of 1 for task {{ID}}. | 
+| `INVALID_URI_INPUT` | The URI structure isn't a valid {{uri}}. Check the URI structure and try again. | 
 |  MODIFIED\_INPUT\_RESOURCE  | The provided URI {{uri}} was modified after the run started. Retry the run. | 
-| OUT\_OF\_MEMORY\_ERROR | The workflow task {{ID}} ran out of memory. Increase the memory value in the workflow definition and try the run again.  | 
-| RUN\_TASK\_FAILED | The run failed because the task failed. To debug the task failure, use the **GetRunTask** API operation and the Amazon CloudWatch Logs stream. | 
-| RUN\_TIMED\_OUT | Run timeout after {{number}} minutes. | 
+| `OUT_OF_MEMORY_ERROR` | The workflow task {{ID}} ran out of memory. Increase the memory value in the workflow definition and try the run again.  | 
+| `RUN_TASK_FAILED` | The run failed because the task failed. To debug the task failure, use the **GetRunTask** API operation and the Amazon CloudWatch Logs stream. | 
+| `RUN_TIMED_OUT` | Run timeout after {{number}} minutes. | 
 |  SERVICE\_ERROR  | There was a transient error in the service. Try the workflow run again. | 
 | TASK\_TIMED\_OUT | Task {{id}} timed out after {{number}} seconds. | 
-| UNSUPPORTED\_INPUT\_SIZE | The total input size is too high. Decrease the input size and try again. | 
-| WORKFLOW\_RUN\_FAILED | Workflow run failed. Review the CloudWatch Logs engine log stream: {{ID}} to debug the failure. | 
-| WORKFLOW\_VER\_VALIDATION\_FAILED | HealthOmics doesn't support requested Nextflow version: {{version}} --. The latest supported version is {{version}}. Modify your Nextflow version to a supported version and try again. | 
-| UNSUPPORTED\_GPU\_INSTANCE\_TYPE | The requested instance type is not supported in {{Region}}. Retry the run with a GPU instance type supported in this Region. Available instance types are {{GPU instance types}}. | 
+| `UNSUPPORTED_INPUT_SIZE` | The total input size is too high. Decrease the input size and try again. | 
+| `WORKFLOW_RUN_FAILED` | Workflow run failed. Review the CloudWatch Logs engine log stream: {{ID}} to debug the failure. | 
+| `WORKFLOW_VER_VALIDATION_FAILED` | HealthOmics doesn't support requested Nextflow version: {{version}} --. The latest supported version is {{version}}. Modify your Nextflow version to a supported version and try again. | 
+| `UNSUPPORTED_GPU_INSTANCE_TYPE` | The requested instance type is not supported in {{Region}}. Retry the run with a GPU instance type supported in this Region. Available instance types are {{GPU instance types}}. | 
 
 ## Mitigating INSTANCE\_RESERVATION\_FAILED errors
 <a name="workflows-mitigate-instance-reservation-failed"></a>
@@ -72,7 +71,7 @@ The following additional best practices can further improve your success rate wh
    + **GPU to GPU fallback** — try your preferred accelerator first, then fall back to an alternative (for example, try `nvidia-l40s` first, then `nvidia-l4`).
    + **GPU to CPU fallback** — add a final CPU-only profile so the task completes even when no GPU capacity is available.
 
-   If none of the profiles in your fallback order has capacity within its wait time, the run fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED. For WDL workflows, HealthOmics doesn't retry the task for this error. For Nextflow workflows, `errorStrategy` and `maxRetries` determine whether the task is retried, and a retry starts again from the first profile. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order.
+   If none of the profiles in your fallback order has capacity within its wait time, the run fails with `ALL_PROFILES_INSTANCE_RESERVATION_FAILED`. For WDL workflows, HealthOmics doesn't retry the task for this error. For Nextflow workflows, `errorStrategy` and `maxRetries` determine whether the task is retried, and a retry starts again from the first profile. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order.
 
    To learn more, see [Advanced resource configuration](advanced-resource-configuration.md).
 

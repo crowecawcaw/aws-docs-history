@@ -1,7 +1,6 @@
 
 
 # Run storage types in HealthOmics workflows
-<a name="workflows-run-types"></a>
 
 When you start a run, HealthOmics allocates temporary run storage for the workflow engine to use during the run. HealthOmics provides the temporary run storage as a file system. 
 
@@ -30,7 +29,7 @@ For dynamic run storage, the run provisions a filesystem that uses NFS protocol.
 
 The following python example shows how to delete a file without failing if the file does not exist.
 
-```
+```python
 import os
 import errno
 

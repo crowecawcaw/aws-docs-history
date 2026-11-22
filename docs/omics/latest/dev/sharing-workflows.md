@@ -1,7 +1,6 @@
 
 
 # Sharing HealthOmics workflows
-<a name="sharing-workflows"></a>
 
 As the owner of a private workflow, you can share the workflow with an AWS account in the same region. To share a workflow with more than one AWS account, you create multiple shares of the same workflow. 
 
@@ -88,7 +87,7 @@ The initial state of the share is `PENDING`. After the subscriber accepts the sh
 
 Use the `create-share` AWS CLI command to create a workflow share. The principal subscriber is the AWS account of the user who gets access to the workflow. 
 
-```
+```bash
 aws omics create-share \
   --resource-arn "arn:aws:omics:us-west-2:555555555555:workflow/123456" \
   --principal-subscriber "123456789012" \
@@ -97,7 +96,7 @@ aws omics create-share \
 
 If the create is successful, you receive a response with the share ID and status.
 
-```
+```json
 {
 "shareId": "495c21bedc889d07d0ab69d710a6841e-dd75ab7a1a9c384fa848b5bd8e5a7e0a",
 "name": "my_Share-123",
@@ -146,14 +145,14 @@ After you accept a workflow share, you can start a run on the workflow.
 
 Use get-workflow to retrieve the ARN of the shared workflow.
 
-```
+```bash
 aws omics get-workflow --id 1234567 \
 --workflow-owner-id 55555555555
 ```
 
 When you run the workflow, provide the workflow owner’s AWS account ID and the ARN of the shared workflow.
 
-```
+```json
 aws omics start-run --id 1234567 --workflow-owner-id 55555555555 \
 --role-arn arn:aws:iam::1234567892012:role/service-role/OmicsWorkflow-20221004T164236 \
 --name ArchiveTest --retention-mode REMOVE

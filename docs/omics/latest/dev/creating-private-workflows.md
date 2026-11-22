@@ -1,7 +1,6 @@
 
 
 # HealthOmics workflow operations
-<a name="creating-private-workflows"></a>
 
 To create a private workflow, you need:
 +  **Workflow definition file:** A workflow definition file written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in `.zip` format. For more information, see [Workflow definition files](workflow-definition-files.md) in HealthOmics.

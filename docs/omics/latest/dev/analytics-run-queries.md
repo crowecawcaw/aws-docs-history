@@ -1,7 +1,6 @@
 
 
 # Running queries on HealthOmics variant stores
-<a name="analytics-run-queries"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).

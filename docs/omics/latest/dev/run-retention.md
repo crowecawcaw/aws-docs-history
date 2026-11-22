@@ -1,7 +1,6 @@
 
 
 # Run retention mode for HealthOmics runs
-<a name="run-retention"></a>
 
 After a run completes, HealthOmics archives the run metadata to CloudWatch. By default, CloudWatch keeps the run data indefinitely, unless you change the CloudWatch retention policy. Run outputs are also stored in Amazon S3 until you delete them.
 

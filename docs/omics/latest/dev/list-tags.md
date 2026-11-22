@@ -1,7 +1,6 @@
 
 
 # Listing tags for a resource
-<a name="list-tags"></a>
 
 Follow these steps to use the AWS CLI to view a list of the AWS tags for an HealthOmics resource. If no tags have been added, the returned list is empty.
 
@@ -13,7 +12,7 @@ aws omics list-tags-for-resource --resource-arn arn:aws:omics:us-west-2:55555555
 
 You will receive a list of tags in response, in JSON format.
 
-```
+```json
  {
     "tags": {
         "key1": "value1",

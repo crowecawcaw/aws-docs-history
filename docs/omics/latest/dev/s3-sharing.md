@@ -1,7 +1,6 @@
 
 
 # Permissions for data access using Amazon S3 URIs
-<a name="s3-sharing"></a>
 
 You can access sequence store data using HealthOmics API operations or Amazon S3 API operations. 
 
@@ -49,7 +48,7 @@ When you create a sequence store, HealthOmics creates a default S3 access policy
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -103,7 +102,7 @@ The following example gives a user access to a sequence store. You can fine-tune
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -148,7 +147,7 @@ The following example gives a user access to a sequence store. You can fine-tune
 
 To use tag based access control, the sequence store must first be updated to propagate the tag keys that will be used. This configuration is set during sequence store creation or updating. Once the tags are propagated, tag conditions can be used to further add restrictions. The restrictions can be placed in the S3 Access policy or on the IAM policy. The following is an example of a tab based S3 access policy that would be set:
 
-```
+```json
 {
     "Sid": "tagRestrictedGets",
     "Effect": "Allow",
@@ -194,7 +193,7 @@ Step 2. Update the store’s s3 Access Policy to restrict getObject on objects w
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":

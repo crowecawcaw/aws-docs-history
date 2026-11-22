@@ -1,7 +1,6 @@
 
 
 # HealthOmics Resource permissions
-<a name="permissions-resource"></a>
 
 AWS HealthOmics creates and accesses resources in other services on your behalf when you run a job or create a store. In some cases, you need to configure permissions in other services to access resources or to allow HealthOmics to access them.
 
@@ -27,7 +26,7 @@ HealthOmics Analytics auto accepts data if your service policy has the correct R
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

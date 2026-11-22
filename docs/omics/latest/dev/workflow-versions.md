@@ -1,7 +1,6 @@
 
 
 # Workflow versioning in HealthOmics
-<a name="workflow-versions"></a>
 
 If you need to make a changes to a workflow, you can create either a new workflow or a new workflow version. Versions are immutable, except for allowed configuration changes that don’t impact the execution logic.
 

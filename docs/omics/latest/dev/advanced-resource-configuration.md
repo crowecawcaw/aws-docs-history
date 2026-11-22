@@ -1,7 +1,6 @@
 
 
 # Advanced resource configuration
-<a name="advanced-resource-configuration"></a>
 
 With the **omicsResourceFallbackOrder** directive you can declare an ordered list of resource (for example, accelerator and CPU) profiles for a task within your workflow. You specify this directive at the task level in WDL, or at the process or config level in Nextflow. HealthOmics searches for each profile in the order you specify for availability to reserve. If capacity isn't available within the wait timeout, HealthOmics moves to the next resource profile in the list.
 
@@ -52,7 +51,7 @@ In WDL, the CPU field is **cpu**. In Nextflow, it is **cpus**, and **memory** is
 
 The following WDL task searches for `nvidia-l40s` first (waiting up to 45 minutes for capacity), then `nvidia-l4` (default wait window), then falls back to a CPU-only profile (32 vCPUs, 128 GiB) if neither accelerator type is available.
 
-```
+```json
 task align {
   command <<<
     # Branch based on which resource type was allocated

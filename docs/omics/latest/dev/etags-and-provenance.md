@@ -1,7 +1,6 @@
 
 
 # HealthOmics ETags and data provenance
-<a name="etags-and-provenance"></a>
 
 A HealthOmics ETag (entity tag) is a hash of the ingested content in a sequence store. This simplifies data retrieval and processing while maintaining the content integrity of the ingested data files. The ETag reflects changes to the semantic content of the object, not its metadata. The specified read set type and algorithm determine how the ETag is calculated. The ETag calculation doesn't alter the actual file or genomic data. When the file type schema of the read set permits it, the sequence store updates fields that are linked to data provenance. 
 

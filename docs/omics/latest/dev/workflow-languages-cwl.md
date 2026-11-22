@@ -1,7 +1,6 @@
 
 
 # CWL workflow definition specifics
-<a name="workflow-languages-cwl"></a>
 
 Workflows written in Common Workflow Language, or CWL, offer similar functionality to workflows written in WDL and Nextflow. You can use Amazon S3 or HealthOmics storage URIs as input parameters. 
 

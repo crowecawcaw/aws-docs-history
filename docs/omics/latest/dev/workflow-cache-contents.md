@@ -1,11 +1,10 @@
 
 
 # Contents of a run cache
-<a name="workflow-cache-contents"></a>
 
 HealthOmics organizes your run cache with the following structure in your S3 bucket:
 
-```
+```bash
 s3://{cache.S3location}/{cache.uuid}/runID/taskID/{cacheentry.uuid}/
 ```
 

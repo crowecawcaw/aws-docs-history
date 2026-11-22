@@ -1,7 +1,6 @@
 
 
 # Using EventBridge with AWS HealthOmics
-<a name="eventbridge"></a>
 
 HealthOmics sends events to Amazon EventBridge when resources change status. Resources include import jobs, export jobs, resource shares, workflows, tasks, and runs. For each type of resource, there is a list of status changes that generate an event.
 
@@ -131,7 +130,7 @@ Run events include the following fields:
 
 The following example is an event for a change in run status, showing the additional fields.
 
-```
+```json
 {
     "version":"0",
     "id":"c0e540f4-df38-b986-86c1-3e3730f971fe",
@@ -159,7 +158,7 @@ The following example is an event for a change in run status, showing the additi
 
 The following example is an event for a change in task status.
 
-```
+```json
 {
     "version": "0",
     "id": "718d6817-c868-26d3-8ef0-0dc9b2ac73f4",
@@ -193,7 +192,7 @@ The following example is an event for a change in task status.
 
 The following is an example of an event for a read set status change.
 
-```
+```json
 {
   "version": "0",
   "id": "64ca0eda-9751-dc55-c41a-1bd50b4fc9b7",
@@ -215,7 +214,7 @@ The following is an example of an event for a read set status change.
 
 A similar event gets created for a variant store import job.
 
-```
+```json
 {
     "version": "0",
     "id": "6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -237,7 +236,7 @@ A similar event gets created for a variant store import job.
 
 The following is an event for a change in import job status.
 
-```
+```json
 {
     "version": "0",
     "id": "6a7e8feb-b491-4cf7-a9f1-bf3703467718",

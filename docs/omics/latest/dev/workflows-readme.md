@@ -1,7 +1,6 @@
 
 
 # HealthOmics Workflow README files
-<a name="workflows-readme"></a>
 
 You can upload a README.md file containing instructions, diagrams, and essential information for your workflow. Each workflow version supports one README file, which you can update at any time.
 

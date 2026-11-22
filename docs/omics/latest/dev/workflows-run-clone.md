@@ -1,7 +1,6 @@
 
 
 # Clone a run in HealthOmics
-<a name="workflows-run-clone"></a>
 
 You can clone an existing run using the HealthOmics console. Cloning creates a new run using the cloned run's configuration values. You can modify these default values and add other optional inputs. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS HealthOmics variant store and annotation store availability change
-<a name="variant-store-availability-change"></a>
 
 After careful consideration, we decided to close AWS HealthOmics variant stores and annotation stores to new customers starting November 7th, 2025. Existing customers can continue to use the service as normal.
 
@@ -74,7 +73,7 @@ You can use the following DDL example in Athena to create a table suitable for s
 
 Create your own values for DATABASE\_NAME and TABLE\_NAME when you create the table.
 
-```
+```ddl
  CREATE TABLE <DATABASE_NAME>. <TABLE_NAME> (
   sample_name string,
   variant_name string COMMENT 'The ID field in VCF files, '.' indicates no name',
@@ -101,7 +100,7 @@ TBLPROPERTIES (
 
 The following Python code example shows how to create the tables without using Athena.
 
-```
+```python
  import boto3
 from pyiceberg.catalog import Catalog, load_catalog
 from pyiceberg.schema import Schema

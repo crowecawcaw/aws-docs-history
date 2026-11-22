@@ -1,7 +1,6 @@
 
 
 # Batch runs in HealthOmics
-<a name="workflows-batch"></a>
 
 AWS HealthOmics batch runs let you submit multiple runs in a single API request. Each run in the batch shares a common base configuration but can have different inputs and run-specific parameters. Batch runs reduce submission overhead and simplify lifecycle management for large-scale workflow processing.
 
@@ -67,7 +66,7 @@ Before starting a batch run, ensure you have:
 
 Your IAM identity must have permissions for both the batch operation and the underlying individual run operation. The following example policy grants permissions for all batch operations:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -137,7 +136,7 @@ If you use tag-based access control policies, ensure your IAM policy includes `o
 
 The following policy allows users to create batches and runs, but denies tagging any resource with `environment=production`:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -188,7 +187,7 @@ The following example walks through submitting a small batch of two runs, checki
 
 **Step 1: Submit the batch**
 
-```
+```bash
 aws omics start-run-batch \
   --batch-name "my-first-batch" \
   --default-run-setting '{
@@ -214,7 +213,7 @@ aws omics start-run-batch \
 
 The response returns a batch ID you use for all subsequent operations:
 
-```
+```json
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
@@ -224,7 +223,7 @@ The response returns a batch ID you use for all subsequent operations:
 
 **Step 2: Check batch progress**
 
-```
+```bash
 aws omics get-batch --batch-id {{7123456}}
 ```
 
@@ -232,7 +231,7 @@ Watch the `status` field progress from `CREATING` → `PENDING` → `SUBMITTING`
 
 **Step 3: Review individual runs**
 
-```
+```bash
 aws omics list-runs-in-batch --batch-id {{7123456}}
 ```
 
@@ -240,7 +239,7 @@ Each entry maps your `runSettingId` (e.g., `sample-A`) to the HealthOmics-genera
 
 **Step 4: Check for failed submissions**
 
-```
+```bash
 aws omics list-runs-in-batch --batch-id {{7123456}} --submission-status FAILED
 ```
 
@@ -267,7 +266,7 @@ Provide an array of run-specific configurations directly in the request body usi
 
 You can include up to 100 entries with inline configurations.
 
-```
+```json
 {
   "batchName": "genomics-cohort-analysis",
   "requestId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
@@ -318,7 +317,7 @@ You can include up to 100 entries with inline configurations.
 
 **CLI**
 
-```
+```bash
 aws omics start-run-batch \
   --batch-name "genomics-cohort-analysis" \
   --request-id "a1b2c3d4-e5f6-7890-abcd-ef1234567890" \
@@ -352,7 +351,7 @@ For batches with more than 100 runs, store your run configurations in a JSON fil
 
 The S3 file format is the same as the `inlineSettings` array:
 
-```
+```json
 [
   {
     "runSettingId": "sample-001",
@@ -375,7 +374,7 @@ The S3 file format is the same as the `inlineSettings` array:
 
 **API request**
 
-```
+```json
 {
   "defaultRunSetting": {
     "workflowId": "1234567",
@@ -393,7 +392,7 @@ The S3 file format is the same as the `inlineSettings` array:
 
 **CLI**
 
-```
+```bash
 aws omics start-run-batch \
   --default-run-setting '{
     "workflowId": "1234567",
@@ -412,7 +411,7 @@ The IAM service role specified in `roleArn` must have read access to the Amazon 
 
 A successful request returns a batch ID and initial status:
 
-```
+```json
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
@@ -519,7 +518,7 @@ Batch run submission shares the same **StartRun** throughput quota as direct **S
 
 Use **GetBatch** to retrieve overall status and submission progress for a batch.
 
-```
+```bash
 aws omics get-batch --batch-id {{7123456}}
 ```
 
@@ -531,7 +530,7 @@ The response includes:
 
 **Example response:**
 
-```
+```json
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
@@ -575,7 +574,7 @@ Run execution summaries are eventually consistent and may lag behind actual run 
 
 Use **ListRunsInBatch** to retrieve detailed information for individual runs within a batch. Results are paginated.
 
-```
+```bash
 aws omics list-runs-in-batch --batch-id {{7123456}}
 ```
 
@@ -590,7 +589,7 @@ You can filter results using one of the following query parameters. Only one fil
 
 **Example: List failed submissions**
 
-```
+```bash
 aws omics list-runs-in-batch --batch-id {{7123456}} --submission-status FAILED
 ```
 
@@ -609,7 +608,7 @@ Each result includes:
 
 Use **ListBatch** to retrieve all batch resources in your account. Results are paginated.
 
-```
+```bash
 aws omics list-batch
 ```
 
@@ -629,7 +628,7 @@ Run metrics report near real-time resource utilization for the runs in a batch. 
 
 Add the following permission to the service role that you use for the batch.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -663,11 +662,11 @@ Call **GetBatch** and check the `failureReason` field. Common failure reasons in
 
 **Example: Batch failed due to validation**
 
-```
+```bash
 aws omics get-batch --batch-id {{7123456}}
 ```
 
-```
+```json
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
@@ -684,7 +683,7 @@ A run-level failure means the batch itself succeeded (status is `INPROGRESS` or 
 
 **1. Check the submission summary**
 
-```
+```bash
 aws omics get-batch --batch-id {{7123456}}
 ```
 
@@ -692,7 +691,7 @@ Look at `submissionSummary.failedStartSubmissionCount`. If this is greater than 
 
 **2. List failed submissions**
 
-```
+```bash
 aws omics list-runs-in-batch --batch-id {{7123456}} --submission-status FAILED
 ```
 
@@ -731,7 +730,7 @@ Use **CancelRunBatch** to cancel a batch in progress. The cancel operation:
 + Prevents not-yet-submitted and pending runs from starting
 + Submits **CancelRun** requests for runs that have already started.
 
-```
+```bash
 aws omics cancel-run-batch --batch-id {{7123456}}
 ```
 
@@ -745,7 +744,7 @@ Cancel operations are non-atomic and may be partially successful. Use **GetBatch
 
 Use **DeleteRunBatch** to delete the individual runs within a batch.
 
-```
+```bash
 aws omics delete-run-batch --batch-id {{7123456}}
 ```
 
@@ -759,7 +758,7 @@ Delete operations are non-atomic and may be partially successful. Use **GetBatch
 
 Use **DeleteBatch** to remove the batch resource and its associated metadata. This is a separate operation from **DeleteRunBatch**.
 
-```
+```bash
 aws omics delete-batch --batch-id {{7123456}}
 ```
 
@@ -823,7 +822,7 @@ The `detail` object in a batch event includes the following fields:
 
 **Example: Batch completed event**
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-example11111",
@@ -856,7 +855,7 @@ The `detail` object in a batch event includes the following fields:
 
 **Example: Batch failed event**
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-example22222",
@@ -883,7 +882,7 @@ The `detail` object in a batch event includes the following fields:
 
 The following event pattern matches when any batch reaches a terminal state:
 
-```
+```json
 {
   "source": ["aws.omics"],
   "detail-type": ["RunBatch Status Change"],

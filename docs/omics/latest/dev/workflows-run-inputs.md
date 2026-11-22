@@ -1,7 +1,6 @@
 
 
 # HealthOmics run inputs
-<a name="workflows-run-inputs"></a>
 
 If the workflow definition specifies input files for the workflow or workflow tasks, HealthOmics stages the files to a scratch volume that's dedicated to the workflow run. These input files are read-only, which prevents tasks from modifying potential inputs to other tasks in the workflow. For directory imports, the directories are also read-only.
 

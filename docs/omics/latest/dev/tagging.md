@@ -1,7 +1,6 @@
 
 
 # Tagging resources in HealthOmics
-<a name="tagging"></a>
 
 **Topics**
 + [Important notice](#important-notice-tagging)
@@ -38,7 +37,7 @@ To enable tagging, make sure TagResources is authorized. You can authorize TagRe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

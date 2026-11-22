@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS HealthOmics
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS HealthOmics. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -90,7 +89,7 @@ The following example shows a policy statement that allows a service principal t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -120,7 +119,7 @@ The following example shows a policy that creates permissions for a data store t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -231,7 +230,7 @@ The following also shows how to use CreateGrant to allow HealthOmics analytics t
 
 You aren't required to create your own grants. HealthOmics creates a grant on your behalf by sending a CreateGrant request to AWS KMS. Grants in AWS KMS are used to give HealthOmics access to a AWS KMS key in a customer account.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -295,7 +294,7 @@ You aren't required to create your own grants. HealthOmics creates a grant on yo
 
 The following example shows how to use GenerateDataKey to ensure the user has the necessary permissions to encrypt data before storing it.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

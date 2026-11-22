@@ -1,7 +1,6 @@
 
 
 # HealthOmics storage
-<a name="sequence-stores"></a>
 
 Use HealthOmics storage to store, retrieve, organize, and share genomics data efficiently and at low cost. HealthOmics storage understands the relationships between different data objects, so that you can define which read sets originated from the same source data. This provides you with data provenance. 
 

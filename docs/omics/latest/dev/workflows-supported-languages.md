@@ -1,7 +1,6 @@
 
 
 # Supported workflow languages for HealthOmics
-<a name="workflows-supported-languages"></a>
 
 HealthOmics Private Workflows support workflow definitions written in three workflow languages. Each language has its own syntax, capabilities, and version support on HealthOmics.
 

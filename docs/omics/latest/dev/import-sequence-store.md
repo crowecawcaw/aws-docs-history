@@ -1,7 +1,6 @@
 
 
 # Importing read sets into a HealthOmics sequence store
-<a name="import-sequence-store"></a>
 
 After you create your sequence store, create import jobs to upload read sets into the data store. You can upload your files from an Amazon S3 bucket, or you can upload directly by using the synchronous API operations. Your Amazon S3 bucket must be in the same Region as your sequence store.
 
@@ -45,7 +44,7 @@ You must also create a manifest file in JSON to model the import job in `import.
 
 The following example imports three read sets by using the API: one `FASTQ`, one `BAM`, and one `CRAM`.
 
-```
+```json
 {
   "sequenceStoreId": "3936421177",
   "roleArn": "arn:aws:iam::555555555555:role/OmicsImport",
@@ -113,7 +112,7 @@ The following example imports three read sets by using the API: one `FASTQ`, one
 
 This example code is used to import a single read set by using the console.
 
-```
+```json
 [    
   {
       "sourceFiles":
@@ -182,7 +181,7 @@ aws omics start-read-set-import-job --cli-input-json file://import.json
 
 You receive the following response, which indicates successful job creation.
 
-```
+```json
 {
   "id": "3660451514",
   "sequenceStoreId": "3936421177",
@@ -203,7 +202,7 @@ aws omics get-read-set-import-job --sequence-store-id {{sequence store id}} --id
 
 The following shows the statuses for all import jobs associated with the specified sequence store ID.
 
-```
+```json
 {
   "id": "1234567890",
   "sequenceStoreId": "1234567890",
@@ -290,7 +289,7 @@ aws omics list-read-sets --sequence-store-id {{sequence store id}}
 
 You receive the following response.
 
-```
+```json
 {
   "readSets": [
       {
@@ -402,7 +401,7 @@ aws omics get-read-set-metadata --sequence-store-id {{sequence store id}} --id {
 
 You receive the following response.
 
-```
+```json
 {
 "arn": "arn:aws:omics:us-west-2:123456789012:sequenceStore/2015356892/readSet/9515444019",
 "creationTime": "2024-01-12T04:50:33.548Z",

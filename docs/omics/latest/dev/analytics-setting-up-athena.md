@@ -1,7 +1,6 @@
 
 
 # Configuring Athena for queries
-<a name="analytics-setting-up-athena"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).

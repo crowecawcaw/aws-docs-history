@@ -1,7 +1,6 @@
 
 
 # Deleting a run cache
-<a name="workflow-cache-delete"></a>
 
 You can delete a run cache if no active runs are using it. If any runs are using the run cache, wait for the runs to complete or you can cancel the runs.
 
@@ -31,7 +30,7 @@ From the console, follow these steps to delete a run cache.
 
 Use the **delete-run-cache** CLI command to delete a run cache. 
 
-```
+```bash
 aws omics delete-run-cache \
       --id "my cache id"
 ```

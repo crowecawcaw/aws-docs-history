@@ -1,7 +1,6 @@
 
 
 # Get run information
-<a name="getinfo-about-runs"></a>
 
 After you start a run, you can retrieve its status, configuration, and task-level details using the HealthOmics API. This page describes how to:
 
@@ -46,7 +45,7 @@ When a run is `COMPLETED`, you can find the output files in your Amazon S3 outpu
 
 The following example shows the response for a completed run of a private WDL workflow with a GPU accelerator:
 
-```
+```json
 {
     "arn": "arn:aws:omics:us-west-2:123456789012:run/7830534",
     "id": "7830534",
@@ -93,7 +92,7 @@ The following example shows the response for a completed run of a private WDL wo
 
 For Nextflow runs that were started with engine settings, the **GetRun** response includes an `engineSettings` map that reflects the values applied to the run. The following example shows a run that was started with a pinned engine version, two profiles, and a configuration override.
 
-```
+```json
 {
     "arn": "arn:aws:omics:us-west-2:123456789012:run/9876543",
     "id": "9876543",
@@ -163,7 +162,7 @@ manifest/run/{{run_id}}/{{run_uuid}}
 
 The manifest includes the complete run configuration, input parameters, resource digests, and task-level details. The following is an example of the manifest:
 
-```
+```json
 [
   {
     "arn": "arn:aws:omics:us-east-1:123456789012:run/1695324",

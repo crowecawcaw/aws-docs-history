@@ -1,7 +1,6 @@
 
 
 # Run metrics for Private Workflows
-<a name="monitoring-run-metrics"></a>
 
 HealthOmics publishes near real-time resource-utilization metrics for your runs and tasks to Amazon CloudWatch. These metrics give you visibility into how your runs are progressing while they execute. You can use these metrics to:
 + Identify Central Processing Unit (CPU) or Graphics Processing Unit (GPU) bottlenecks while tasks are still running.
@@ -24,7 +23,7 @@ Run metrics are available in all [supported HealthOmics Regions](https://docs.aw
 
 To publish these metrics, the AWS Identity and Access Management (IAM) role you use for your run must have permission to write metrics to CloudWatch. Add the following permission to your workflow run role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -140,13 +139,13 @@ You can view the HealthOmics run metrics in the CloudWatch console by running a 
 
 For example, the following query returns the vCPUs in use by each task in a run. Replace {{runID}} with the ID of the run that you want to inspect.
 
-```
+```promql
 {"aws.omics.task.cpu.usage", "@resource.aws.omics.run.id"="{{runID}}"}
 ```
 
 To label each time series with its run ID and task ID, you can choose **Custom label** and enter the following.
 
-```
+```promql
 {@resource.aws.omics.run.id="${@resource.aws.omics.run.id}",@resource.aws.omics.task.id="${@resource.aws.omics.task.id}"}
 ```
 
@@ -220,7 +219,7 @@ AWS HealthOmics does not charge you for run metrics. Metrics are published to Am
 
 By default, HealthOmics publishes run metrics whenever the service role for a run has the `cloudwatch:PutMetricData` permission. To opt out and stop future charges, you can omit this permission from the service role at each run level. To stop publishing even when another policy grants the permission, add an explicit deny to the role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

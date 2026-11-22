@@ -1,7 +1,6 @@
 
 
 # Creating HealthOmics annotation stores
-<a name="creating-and-managing-annotation-store"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
@@ -49,7 +48,7 @@ aws omics create-annotation-store --name my_annotation_store \
 
 You receive the following response to confirm the creation of your annotation store.
 
-```
+```json
 {
            "creationTime": "2022-08-24T20:34:19.229500Z",
            "id": "3b93cdef69d2",
@@ -70,7 +69,7 @@ aws omics get-annotation-store --name my_annotation_store
 
 You receive the following response.
 
-```
+```json
 {
           "id": "eeb019ac79c2",
           "reference": {
@@ -97,7 +96,7 @@ aws omics list-annotation-stores
 
 You receive a response that lists all annotation stores, along with their IDs, statuses, and other details, as shown in the following example response.
 
-```
+```json
 {
            "annotationStores": [
                {

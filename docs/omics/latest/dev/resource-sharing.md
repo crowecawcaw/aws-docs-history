@@ -1,7 +1,6 @@
 
 
 # Cross-account resource sharing in AWS HealthOmics
-<a name="resource-sharing"></a>
 
 Use cross-account sharing to share resources with collaborators without creating copies or modifying IAM resource policies. The following resources support cross-account sharing:
 + HealthOmics variant stores

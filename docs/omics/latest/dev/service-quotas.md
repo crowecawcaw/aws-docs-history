@@ -1,7 +1,6 @@
 
 
 # HealthOmics service quotas
-<a name="service-quotas"></a>
 
 The table below lists the HealthOmics service quotas, along with their default values. To view the current quotas for each Region, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home). 
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Lake Formation to use HealthOmics
-<a name="setting-up-lf"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
@@ -98,7 +97,7 @@ Here is a sample policy that includes these actions. Add this policy to the IAM 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Connecting to a VPC in another account
-<a name="workflows-vpc-cross-account"></a>
 
 You can give your HealthOmics workflow runs access to resources in an Amazon VPC that belongs to a different AWS account. With AWS Resource Access Manager (AWS RAM) sharing, the VPC owner shares subnets with your account, and HealthOmics places the elastic network interfaces (ENIs) for your runs in those subnets. With VPC peering, the ENIs stay in your own VPC, and a peering connection routes traffic to the VPC in the other account. RAM sharing requires both accounts to belong to the same organization in AWS Organizations, while peering has no such requirement and fits runs that only need to reach specific resources in the other account.
 
@@ -116,7 +115,7 @@ Create the HealthOmics configuration. Set `vpcOwnerAccountId` to the VPC owner's
 
 In the HealthOmics console, create a configuration with the following JSON:
 
-```
+```json
 {
   "name": "{{cross-account-ram-config}}",
   "runConfigurations": {

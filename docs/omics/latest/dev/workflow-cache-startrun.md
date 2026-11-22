@@ -1,7 +1,6 @@
 
 
 # Using the run cache
-<a name="workflow-cache-startrun"></a>
 
 By default, runs don't use a run cache. To use a cache for the run, you specify the run cache and the run cache behavior when you start the run.
 
@@ -49,7 +48,7 @@ From the console, you configure the run cache for a run when you start the run.
 
 To start a run that uses a run cache, add the cache-id parameter to the **start-run** CLI command. Optionally, use the `cache-behavior` parameter to override the default behavior that you configured for the run cache. The following example shows only the cache fields for the command:
 
-```
+```bash
 aws omics start-run \
         ...  
       --cache-id "xxxxxx"    \
@@ -106,7 +105,7 @@ In the run details page for a run, the **Run tasks** table displays **Cache hit*
 
 Use the **get-run** CLI command confirm whether the run used a call cache.
 
-```
+```bash
  aws omics get-run --id 1234567  
 ```
 
@@ -114,7 +113,7 @@ In the response, if the `cacheId` field is set, the run uses that cache.
 
 Use the **list-run-tasks** CLI command to retrieve the cache data location for each cached task in the run.
 
-```
+```bash
  aws omics list-run-tasks --id 1234567  
 ```
 
@@ -122,7 +121,7 @@ In the response, if the cacheHit field for a task is true, the cacheS3Uri field 
 
 You can also use the **get-run-task** CLI command to retrieve the cache data location for a specific task:
 
-```
+```bash
  aws omics get-run-task --id 1234567 --task-id <task_id> 
 ```
 
@@ -140,7 +139,7 @@ For more information about these logs, see [Logs in CloudWatch](monitoring-cloud
 
 Use the following CloudWatch Insights query on the `/aws/omics/WorkflowLog` log group to return the number of cache hits per run for this cache:
 
-```
+```bash
 filter @logStream like 'runCache/<CACHE_ID>/'
  fields @timestamp, @message
  filter logMessage like 'CACHE_HIT'
@@ -150,7 +149,7 @@ filter @logStream like 'runCache/<CACHE_ID>/'
 
 Use the following query to return the number of cache entries created by each run:
 
-```
+```bash
 filter @logStream like 'runCache/<CACHE_ID>/'
  fields @timestamp, @message
  filter logMessage like 'CACHE_ENTRY_CREATED'

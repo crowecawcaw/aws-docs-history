@@ -1,7 +1,6 @@
 
 
 # Version support for HealthOmics workflow definition languages
-<a name="workflows-lang-versions"></a>
 
 HealthOmics supports workflow definition files written in Nextflow, WDL, or CWL. The following sections provide information about HealthOmics version support for these languages.
 

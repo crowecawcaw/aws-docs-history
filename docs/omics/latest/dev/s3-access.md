@@ -1,7 +1,6 @@
 
 
 # Accessing HealthOmics read sets with Amazon S3 URIs
-<a name="s3-access"></a>
 
 You can use Amazon S3 URI paths to access your active sequence store read sets. 
 

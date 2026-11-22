@@ -1,7 +1,6 @@
 
 
 # Service roles for AWS HealthOmics
-<a name="permissions-service"></a>
 
 A service role is an AWS Identity and Access Management (IAM) role that grants permissions for an AWS service to access resources in your account. You provide a service role to AWS HealthOmics when you start an import job or start a run.
 
@@ -14,7 +13,7 @@ Service roles must have the following trust policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -43,7 +42,10 @@ The trust policy allows the HealthOmics service to assume the role.
 
 In these examples, resource names and account IDs are placeholders for you to replace with actual values.
 
-The following example shows the policy for a service role that you can use for starting a run. The policy grants permissions to access the Amazon S3 output location, the workflow log group, and the Amazon ECR container for the run. 
+The following example shows the policy for a service role that you can use for starting a run. The policy grants permissions to authorize run and task processing, and to access the Amazon S3 output location, the workflow log group, and the Amazon ECR container for the run. 
+
+**Important**  
+Service roles that you pass to `StartRun` require the `omics:AuthorizeRunProcessing` permission on `run/*`, as shown in the following example. HealthOmics uses this permission to authorize the internal operations that it performs on your behalf while a run processes, such as managing the run's tasks. It is a permission-only action, so it doesn't correspond to an HealthOmics API operation that you call directly.
 
 **Note**  
 If you're using call caching for the run, add the run cache Amazon S3 location as a resource in the s3 permissions. 
@@ -51,10 +53,19 @@ If you're using call caching for the run, add the run cache Amazon S3 location a
 **Example Service role policy for starting a run**    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "omics:AuthorizeRunProcessing"
+          ],
+          "Resource": [
+              "arn:aws:omics:{{us-east-1}}:{{123456789012}}:run/*"
+          ]
+      },
       {
           "Effect": "Allow",
           "Action": [
@@ -77,7 +88,6 @@ If you're using call caching for the run, add the run cache Amazon S3 location a
       {
           "Effect": "Allow",
           "Action": [
-              "logs:DescribeLogStreams",
               "logs:CreateLogStream",
               "logs:PutLogEvents"
           ],
@@ -88,9 +98,11 @@ If you're using call caching for the run, add the run cache Amazon S3 location a
       {
           "Effect": "Allow",
           "Action": [
-              "logs:CreateLogGroup"
+              "logs:CreateLogGroup",
+              "logs:DescribeLogStreams"
           ],
           "Resource": [
+              "arn:aws:logs:{{us-east-1}}:{{123456789012}}:log-group:/aws/omics/WorkflowLog",
               "arn:aws:logs:{{us-east-1}}:{{123456789012}}:log-group:/aws/omics/WorkflowLog:*"
           ]
       },
@@ -114,7 +126,7 @@ The following example shows the policy for a service role that you can use for a
 **Example Service role for Reference store job**    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -146,7 +158,7 @@ The following example shows the policy for a service role that publishes run met
 
 **Example Service role policy for run metrics**  
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -170,17 +182,27 @@ Session policies are useful when you want to:
 + Apply additional security controls without modifying the service role
 
 **Important**  
-Session policies can only restrict permissions; they cannot grant permissions beyond what the service role already allows. The session policy must include permissions for Amazon CloudWatch Logs (`logs:CreateLogStream` and `logs:PutLogEvents`) because HealthOmics uses the run's credentials to create and write to log groups.
+Session policies can only restrict permissions. They can't grant permissions beyond what the service role already allows.
+
+If the session policy omits a permission, the run's effective permissions don't include it, even when the service role allows it. The session policy must include the following permissions:
++ `omics:AuthorizeRunProcessing` on the run.
++ `logs:CreateLogStream` and `logs:PutLogEvents` on the log streams of the `/aws/omics/WorkflowLog` log group. HealthOmics uses the run's credentials to write the run's logs.
++ `logs:CreateLogGroup` and `logs:DescribeLogStreams` on the `/aws/omics/WorkflowLog` log group. Specify the log group ARN both with and without the trailing `:*`, as the following example shows. HealthOmics calls `CreateLogGroup` only when the log group doesn't exist yet in the Region.
 
 Session policies have a maximum length of 2,048 characters and must be valid JSON documents. For more information about session policies, see [Session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) in the *IAM User Guide*.
 
 **Example Session policy for a workflow run**  
-The following example shows a session policy that restricts a run to access only a specific Amazon S3 prefix for output and requires CloudWatch Logs permissions:  
+The following example shows a session policy that restricts a run to access only a specific Amazon S3 prefix for output and requires the HealthOmics run processing and CloudWatch Logs permissions:  
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "omics:AuthorizeRunProcessing",
+      "Resource": "arn:aws:omics:*:*:run/*"
+    },
     {
       "Effect": "Allow",
       "Action": [
@@ -196,6 +218,17 @@ The following example shows a session policy that restricts a run to access only
         "logs:PutLogEvents"
       ],
       "Resource": "arn:aws:logs:*:*:log-group:/aws/omics/WorkflowLog:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/omics/WorkflowLog",
+        "arn:aws:logs:*:*:log-group:/aws/omics/WorkflowLog:*"
+      ]
     }
   ]
 }
@@ -210,7 +243,7 @@ The following sample CloudFormation template creates a service role that gives H
 
 **Example Reference store, Amazon S3 and CloudWatch Logs permissions**  
 
-```
+```yaml
 Parameters:
   bucketName:
     Description: Bucket name
@@ -248,14 +281,16 @@ Resources:
             Statement:
             - Effect: Allow
               Action: 
-                - logs:DescribeLogStreams
                 - logs:CreateLogStream
                 - logs:PutLogEvents
-              Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:loggroup:/aws/omics/WorkflowLog:log-stream:*
+              Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/omics/WorkflowLog:log-stream:*
             - Effect: Allow
               Action: 
                 - logs:CreateLogGroup
-              Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:loggroup:/aws/omics/WorkflowLog:*
+                - logs:DescribeLogStreams
+              Resource:
+                - !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/omics/WorkflowLog
+                - !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/omics/WorkflowLog:*
       AssumeRolePolicyDocument: |
         {
           "Version": "2012-10-17",		 	 	 

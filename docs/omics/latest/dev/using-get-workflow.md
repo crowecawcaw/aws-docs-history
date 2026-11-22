@@ -1,7 +1,6 @@
 
 
 # Verify the workflow status
-<a name="using-get-workflow"></a>
 
 After you create your workflow, you can verify the status and view other details of the workflow using **get-workflow**, as shown.
 
@@ -11,7 +10,7 @@ aws omics get-workflow --id 1234567
 
 The response includes workflow details, including the status, as shown.
 
-```
+```json
 {
     "arn": "arn:aws:omics:us-west-2:....",
     "creationTime": "2022-07-06T00:27:05.542459" 

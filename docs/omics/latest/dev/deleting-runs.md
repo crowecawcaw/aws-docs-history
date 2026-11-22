@@ -1,7 +1,6 @@
 
 
 # Delete a run in HealthOmics
-<a name="deleting-runs"></a>
 
 When you no longer need a run, you can delete it using the AWS CLI, API, or console. You can delete a run when its status is `COMPLETED` or `CANCELED`.
 

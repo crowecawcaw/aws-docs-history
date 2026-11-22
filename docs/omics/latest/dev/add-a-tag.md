@@ -1,7 +1,6 @@
 
 
 # Adding a tag to a HealthOmics resource
-<a name="add-a-tag"></a>
 
 Adding tags to a resource can help you identify and organize your AWS resources and manage access to them. First, you add one or more tags (key-value pairs) to a resource. You can use up to 50 tags per resource. There are also restrictions on the characters that you can use in the key and value fields. 
 
@@ -17,7 +16,7 @@ aws omics create-sequence-store --name "MySequenceStore" --tags key1=value1,key2
 
 The output does not list the tags. It returns the following response.
 
-```
+```json
 {
     "id": "6860403586",
     "referenceStoreId": "4889894479",

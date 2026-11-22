@@ -1,7 +1,6 @@
 
 
 # Creating HealthOmics variant stores
-<a name="creating-variant-stores"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
@@ -46,7 +45,7 @@ aws omics create-variant-store --name myvariantstore \
 
 To confirm the creation of your variant store, you receive the following response.
 
-```
+```json
 {
     "creationTime": "2022-11-03T18:19:52.296368+00:00",
     "id": "45aeb91d5678",
@@ -66,7 +65,7 @@ aws omics get-variant-store --name myvariantstore
 
 You receive the following response.
 
-```
+```json
 {
     "id": "45aeb91d5678",
     "reference": {
@@ -90,7 +89,7 @@ aws omics list-variant-stores
 
 You receive a response that lists all variant stores, along with their IDs, statuses, and other details, as shown in the following example response.
 
-```
+```json
 {
     "variantStores": [
         {

@@ -1,7 +1,6 @@
 
 
 # Illumina DRAGEN on HealthOmics private workflows
-<a name="workflows-illumina-dragen"></a>
 
 Illumina DRAGEN v4.6 includes a software mode (SW mode) that runs on standard x86 CPU instances and produces results that match FPGA-based DRAGEN. You can run DRAGEN SW mode as a task in a HealthOmics private workflow in all Regions where HealthOmics is available. DRAGEN SW mode doesn't use FPGA instances, and you don't specify a task accelerator.
 
@@ -36,7 +35,7 @@ Download the DRAGEN SW mode RPM for DRAGEN 4.6.2 or later from Illumina. For exa
 
 Before building the image, extract the DRAGEN installer (`.run` file) without executing it, and inspect the RPMs it contains:
 
-```
+```bash
 sh dragen-4.6.2-*.multi.el9.x86_64.run --noexec --keep --target ./extracted
 ls ./extracted            # RPMs, flavors/, installer/, wrapper
 ```
@@ -73,7 +72,7 @@ CMD ["dragen", "--version"]
 
 HealthOmics requires `linux/amd64` images. Building the image with the `--platform` flag lets you cross-compile from an Apple silicon machine.
 
-```
+```bash
 docker build --platform linux/amd64 -t dragen:4.6.2-sw .
 ```
 
@@ -81,7 +80,7 @@ Create an Amazon ECR private repository, and then push your DRAGEN Docker image 
 
 Add a repository policy so that HealthOmics can pull the container image.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -140,7 +139,7 @@ Grant your service role permission to read the secret (see [IAM service executio
 
 For example, add the following to a task's command block, before the `dragen` call. It creates a plain text file named `illumina-api-key.txt` in the `/tmp/` directory. Pass `/tmp/illumina-api-key.txt` to `--api-key-file`.
 
-```
+```bash
 # Fetch the API key at runtime; never echo it.
 KEY_FILE=/tmp/illumina-api-key.txt
 REGION=$(echo "~{api_key_secret_arn}" | cut -d: -f4)
@@ -163,7 +162,7 @@ aws s3 cp illumina-api-key.txt \
 
 Grant the HealthOmics service role read access to that object (see [IAM service execution role](#dragen-iam)), and then reference it as a workflow parameter:
 
-```
+```json
 {
   "api_key_file": "s3://{{amzn-s3-demo-bucket}}/secrets/illumina-api-key.txt"
 }
@@ -184,7 +183,7 @@ See the [IlluminaDRAGEN v4.6 User Guide](https://help.dragen.illumina.com/dragen
 
 **Sample DRAGEN task (WDL)**
 
-```
+```wdl
 version 1.0
 
 workflow DragenSwGermline {
@@ -375,7 +374,7 @@ You can use the HealthOmics linter for miniwdl or Nextflow to resolve all errors
 
 Create a dedicated least-privilege role. For more detailed instructions, see [IAM permissions for HealthOmics](omics-permissions.md).
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -425,7 +424,7 @@ Create a dedicated least-privilege role. For more detailed instructions, see [IA
 
 If you are using AWS Secrets Manager, you need permission to read the secret.
 
-```
+```json
 {
   "Sid": "ReadDragenApiKeySecret",
   "Effect": "Allow",

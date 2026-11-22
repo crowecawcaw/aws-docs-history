@@ -1,7 +1,6 @@
 
 
 # How AWS HealthOmics works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS HealthOmics, learn what IAM features are available to use with AWS HealthOmics.
 
@@ -142,7 +141,7 @@ The following example shows how you can write an IAM policy denying access to a 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

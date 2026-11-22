@@ -1,7 +1,6 @@
 
 
 # Update a workflow version
-<a name="workflows-version-update"></a>
 
 You can update the description and the default run storage configuration for a private workflow version. To change any other information in the workflow version, create a new version. 
 
@@ -57,7 +56,7 @@ You receive no response to the `update-workflow-version` request.
 
 You can update a workflow version using one of the SDKs. The following python SDK example shows how to update the storage type and description for a workflow version.
 
-```
+```python
 import boto3
 
 omics = boto3.client('omics')

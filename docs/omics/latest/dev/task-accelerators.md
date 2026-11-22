@@ -1,7 +1,6 @@
 
 
 # Task accelerators in a HealthOmics workflow definition
-<a name="task-accelerators"></a>
 
 In the workflow definition, you can optionally specify the GPU accelerator-spec for a task. HealthOmics supports the following accelerator-spec values, along with the supported instance types:
 

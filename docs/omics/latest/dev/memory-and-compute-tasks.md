@@ -1,7 +1,6 @@
 
 
 # Compute and memory requirements for HealthOmics tasks
-<a name="memory-and-compute-tasks"></a>
 
 HealthOmics runs your private workflow tasks in an omics instance. HealthOmics provides a variety of instance types to accommodate different types of tasks. Each instance type has a fixed memory and vCPU configuration (and fixed GPU configuration for accelerated computing instance types). The cost of using an omics instance varies depending on the instance type. For details, see the [HealthOmics Pricing](https://aws.amazon.com/healthomics/pricing/) page.
 

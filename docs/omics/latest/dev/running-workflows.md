@@ -1,7 +1,6 @@
 
 
 # Using HealthOmics runs
-<a name="running-workflows"></a>
 
 After you create a workflow, you can start runs using the workflow. 
 

@@ -1,7 +1,6 @@
 
 
 # Connecting HealthOmics runs to a Sentieon license server
-<a name="private-workflows-subscribe"></a>
 
 HealthOmics supports [VPC-connected workflows](https://aws.amazon.com/about-aws/whats-new/2026/03/aws-healthomics-vpc-connected-workflows/), which is the recommended approach for connecting to a third-party license server, such as a Sentieon license server. By default, workflow runs use `RESTRICTED` networking mode, which cannot reach a license server. The following steps show how to connect your runs to a VPC so they can reach your Sentieon license server.
 

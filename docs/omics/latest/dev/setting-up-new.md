@@ -1,7 +1,6 @@
 
 
 # Setting up HealthOmics
-<a name="setting-up-new"></a>
 
 To set up AWS HealthOmics, sign up for an AWS account, create an administrative user, and securely manage access for additional users.
 

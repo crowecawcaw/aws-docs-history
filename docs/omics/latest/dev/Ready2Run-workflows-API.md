@@ -1,7 +1,6 @@
 
 
 # Starting HealthOmics Ready2Run workflows using the API
-<a name="Ready2Run-workflows-API"></a>
 
 Most of the API operations behave in a similar fashion for Ready2Run workflows and private workflows.
 

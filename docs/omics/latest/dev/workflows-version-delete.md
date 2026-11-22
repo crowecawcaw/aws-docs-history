@@ -1,7 +1,6 @@
 
 
 # Delete a workflow version
-<a name="workflows-version-delete"></a>
 
 You can delete a user-defined workflow version using the console, CLI, or one of the SDKs. Deleting a workflow version doesn't affect any ongoing runs that are using the workflow version.
 
@@ -51,7 +50,7 @@ You can delete a workflow using one of the SDKs.
 
 The following example shows how to delete a workflow using the Python SDK.
 
-```
+```python
 import boto3
 
 omics = boto3.client('omics')

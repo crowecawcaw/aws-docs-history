@@ -1,7 +1,6 @@
 
 
 # Task outputs in a HealthOmics workflow definition
-<a name="workflows-task-outputs"></a>
 
 You specify task outputs in the workflow definition. By default, HealthOmics discards all intermediate task files when the workflow completes. To export an intermediate file, you define it as an output. 
 

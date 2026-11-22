@@ -1,7 +1,6 @@
 
 
 # Default workflow version
-<a name="workflows-default-version"></a>
 
 After you create one or more versions of a workflow, HealthOmics treats the original workflow as the default version. When you start a run, you can optionally specify a workflow version for the run. If you don't specify a version when you start a run, HealthOmics uses the default version.
 

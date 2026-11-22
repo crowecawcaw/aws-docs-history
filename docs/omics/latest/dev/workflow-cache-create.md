@@ -1,7 +1,6 @@
 
 
 # Creating a run cache
-<a name="workflow-cache-create"></a>
 
 When you create a run cache, you specify an Amazon S3 location for the cache data. This data must be immediately accessible. Call caching doesn't retrieve objects archived in Glacier (such as GFR and GDA storage classes).
 
@@ -39,7 +38,7 @@ From the console, follow these steps to create a run cache.
 
 Use the **create-run-cache** CLI command to create a run cache. The default cache behavior is `CACHE_ON_FAILURE`.
 
-```
+```bash
 aws omics create-run-cache \
       --name "workflow 123 run cache" \
       --description "my run cache" \
@@ -50,7 +49,7 @@ aws omics create-run-cache \
 
 If the create is successful, you receive a response with the following fields.
 
-```
+```json
 {
   "arn": "string",
   "id": "string",

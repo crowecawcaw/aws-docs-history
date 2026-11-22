@@ -1,7 +1,6 @@
 
 
 # WDL engine change log for HealthOmics
-<a name="wdl-engine-change-log"></a>
 
 This page contains change log for WDL engine for both WDL strict mode and WDL lenient mode. Each section summarizes new features, enhancements, and deprecations.
 

@@ -1,7 +1,6 @@
 
 
 # How call caching works
-<a name="how-run-cache"></a>
 
 To use call caching, you create a run cache and configure it to have an associated Amazon S3 location for the cached data. When you start a run, you specify the run cache. A run cache isn't dedicated to one workflow. Runs from multiple workflows can use the same cache.
 
@@ -87,7 +86,7 @@ HealthOmics creates a [JSON manifest file](workflow-cache-contents.md) for each 
 
 The following example shows a manifest file with the version set to 2:
 
-```
+```json
 {
      "arn": "arn:aws:omics:us-west-2:12345678901:runCache/0123456/cacheEntry/1234567-195f-3921-a1fa-ffffcef0a6a4",
      "s3uri": "s3://example/1234567-d0d1-e230-d599-10f1539f4a32/1348677/4795326/7e8c69b1-145f-3991-a1fa-ffffcef0a6a4",

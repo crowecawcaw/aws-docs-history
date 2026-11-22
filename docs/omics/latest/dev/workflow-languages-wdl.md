@@ -1,7 +1,6 @@
 
 
 # WDL workflow definition specifics
-<a name="workflow-languages-wdl"></a>
 
 The following topics provide details about types and directives available for WDL workflow definitions in HealthOmics.
 
@@ -98,7 +97,7 @@ HealthOmics supports runtime attributes **acceleratorType** and **acceleratorCou
 
 The following example shows how to use these directives:
 
-```
+```json
 runtime {
     gpuCount: 2
     gpuType: "nvidia-tesla-t4"
@@ -112,7 +111,7 @@ HealthOmics supports the **omicsResourceFallbackOrder** runtime directive to def
 
 The following example tries `nvidia-l40s` first, then `nvidia-l4`, and finally falls back to CPU if neither accelerator is available:
 
-```
+```json
 runtime {
     docker: "my-registry/align-multi-arch:latest"
     omicsResourceFallbackOrder: [
@@ -153,7 +152,7 @@ By default, HealthOmics doesn't retry for this type of failure. Use the `maxRetr
 
 The following example sets `maxRetries` to 3, so that HealthOmics attempts a maximum of four attempts to complete the task (the initial attempt plus three retries):
 
-```
+```json
 runtime {
     maxRetries: 3
 }
@@ -167,7 +166,7 @@ Task retry for out of memory requires GNU findutils 4.2.3\+. The default HealthO
 
 The **returnCodes** attribute provides a mechanism to specify a return code, or a set of return codes, that indicates a successful execution of a task. The WDL engine honors the return codes that you specify in the **runtime** section of the WDL definition, and sets the tasks status accordingly. 
 
-```
+```json
 runtime {
     returnCodes: 1
 }
@@ -202,7 +201,7 @@ HealthOmics provides a custom `omicsTimeout` attribute to set a maximum task dur
 
 The following example shows how to specify the `omicsTimeout` attribute in the `runtime` section of a WDL task definition. This example sets a timeout of 40 minutes.
 
-```
+```json
     runtime {
         omicsTimeout: "40m"
     }
@@ -236,7 +235,7 @@ The **volatile** attribute allows you to disable call caching for specific tasks
 
 Add the **volatile** attribute to the **meta** section of your task definition:
 
-```
+```json
 task my_volatile_task {
     meta {
         volatile: true
@@ -272,7 +271,7 @@ The following example shows how to include the Amazon ECR container as a paramet
 
 The following example shows how to specify which files to use in your run, when the files are in an Amazon S3 bucket.
 
-```
+```json
 {
     "input_cram": "s3://amzn-s3-demo-bucket1/inputs/NA12878.cram",
     "ref_dict": "s3://amzn-s3-demo-bucket1/inputs/Homo_sapiens_assembly38.dict",

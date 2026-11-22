@@ -1,7 +1,6 @@
 
 
 # Troubleshooting VPC networking
-<a name="vpc-troubleshooting-guide"></a>
 
 **Topics**
 + [Network monitoring and troubleshooting](#vpc-network-monitoring-troubleshooting)

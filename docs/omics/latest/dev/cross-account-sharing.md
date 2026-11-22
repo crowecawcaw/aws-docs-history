@@ -1,7 +1,6 @@
 
 
 # Sharing HealthOmics analytics stores
-<a name="cross-account-sharing"></a>
 
 **Important**  
 AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
@@ -19,7 +18,7 @@ See [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md) for
 
 To create a store share, use the **create-share** API operation. The principal subscriber is the AWS account of the user who will subscribe to the share. The following example creates a share for a variant store. To share a store with more than one account, you create multiple shares of the same store.
 
-```
+```bash
 aws omics create-share  \
         --resource-arn "arn:aws:omics:us-west-2:555555555555:variantStore/omics_dev_var_store" \
         --principal-subscriber "123456789012" \
@@ -28,7 +27,7 @@ aws omics create-share  \
 
 If the create is successful, you receive a response with the share ID and status.
 
-```
+```json
 {
        "shareId": "495c21bedc889d07d0ab69d710a6841e-dd75ab7a1a9c384fa848b5bd8e5a7e0a",
        "name": "my_Share-123",

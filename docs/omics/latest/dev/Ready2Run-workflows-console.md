@@ -1,7 +1,6 @@
 
 
 # Starting HealthOmics Ready2Run workflows using the console
-<a name="Ready2Run-workflows-console"></a>
 
 Using Ready2Run workflows in the console is similar to using a private workflow. One key difference is that the workflow publisher provides sample data, so that you can try out the workflow without creating your own data.
 

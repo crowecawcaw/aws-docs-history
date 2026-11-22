@@ -1,7 +1,6 @@
 
 
 # Connecting HealthOmics workflows to a VPC
-<a name="workflows-vpc-networking"></a>
 
 With Amazon Virtual Private Cloud (Amazon VPC), you can launch AWS resources in a private, virtual network that you've defined. You can give your HealthOmics workflows access to resources in your VPC by configuring your runs to use VPC networking mode. When VPC networking is enabled, your runs can access resources within your VPC and connect to external resources over the public internet if your VPC has internet access configured.
 
@@ -162,7 +161,7 @@ HealthOmics provisions elastic network interfaces (ENIs) in your VPC to connect 
 
 ENIs created by HealthOmics are tagged with the following tags:
 
-```
+```json
 "TagSet": [
   {
     "Key": "Service",
@@ -215,7 +214,7 @@ aws omics create-configuration \
 
 **Response:**
 
-```
+```json
 {
   "arn": "arn:aws:omics:{{region}}:{{account-id}}:configuration/{{configuration-name}}",
   "uuid": "{{configuration-uuid}}",
@@ -254,7 +253,7 @@ aws omics get-configuration \
 
 **Response:**
 
-```
+```json
 {
   "arn": "arn:aws:omics:{{region}}:{{account-id}}:configuration/{{configuration-name}}",
   "uuid": "{{configuration-uuid}}",
@@ -286,7 +285,7 @@ aws omics list-configurations \
 
 **Response:**
 
-```
+```json
 {
   "items": [
     {
@@ -351,7 +350,7 @@ aws omics get-run \
 
 The response includes the networking mode, configuration details, and VPC configuration. The following example shows the VPC-related fields from the response:
 
-```
+```json
 {
   "arn": "arn:aws:omics:{{region}}:{{account-id}}:run/{{run-id}}",
   "id": "{{run-id}}",

@@ -1,7 +1,6 @@
 
 
 # Best practices for container images
-<a name="containers-best-practices"></a>
 
 Follow these best practices when you build container images for HealthOmics workflows.
 
@@ -9,7 +8,7 @@ Follow these best practices when you build container images for HealthOmics work
 <a name="ecr-java-considerations"></a>
 
 If a workflow task uses a Java application such as GATK, consider the following memory requirements for the container:
-+ Java applications use stack memory and heap memory. By default, the maximum heap memory is a percentage of the total available memory in the container. This default depends on the specific JVM distribution and JVM version, so consult the relevant documentation for your JVM or explicitly set the heap memory maximum using Java command line options (such as `-Xmx`). 
++ Java applications use stack memory and heap memory. By default, the maximum heap memory is a percentage of the total available memory in the container. This default depends on the specific JVM distribution and JVM version, so consult the relevant documentation for your JVM or explicitly set the heap memory maximum using Java command-line options (such as `-Xmx`). 
 + Don't set the maximum heap memory to be 100% of the container's memory allocation, because the JVM stack also requires memory. Memory is also required for the JVM garbage collector and any other operating system processes running in the container.
 + Some Java applications, such as GATK, can use native method invocations or other optimizations such as memory mapping files. These techniques require memory allocations that are performed "off-heap", which the JVM maximum heap parameter doesn't control. 
 

@@ -1,7 +1,6 @@
 
 
 # Call caching for HealthOmics runs
-<a name="workflows-call-caching"></a>
 
 AWS HealthOmics supports call caching, also known as resume, for private workflows. Call caching saves the outputs of completed workflow tasks after a run finishes. Subsequent runs can use the task outputs from the cache, rather than computing the task outputs again. Call caching reduces compute resource usage, which results in shorter run durations and compute cost savings.
 

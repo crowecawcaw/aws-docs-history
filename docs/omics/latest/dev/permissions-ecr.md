@@ -1,7 +1,6 @@
 
 
 # Amazon ECR permissions
-<a name="permissions-ecr"></a>
 
 Before you can run a workflow in a container from your private Amazon ECR repository, you create a resource policy for the repository. The policy grants permission for the HealthOmics service to use the container. You add this resource policy to each private repository referenced by the workflow. 
 
@@ -48,7 +47,7 @@ Follow these steps to create the policy:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -92,7 +91,7 @@ In this example:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ In this example:
 
 To complete the setup, add the following policy statement to the service role of the account that owns the workflow. The policy grants permission for the service role to access the “samtools” container image. Make sure to replace the account numbers, container name, and region with your own values.
 
-```
+```json
 {
     "Sid": "CrossAccountEcrRepoPolicy",
     "Effect": "Allow",
@@ -156,7 +155,7 @@ You can list individual workflows in a condition statement, so only these workfl
 
 ****  
 
-```
+```json
 {  
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -194,7 +193,7 @@ You can list subscriber accounts in a condition statement, so that only these ac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -229,7 +228,7 @@ You can also deny Amazon ECR permissions to specific subscribers, as shown in th
 
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -282,7 +281,7 @@ In the following example, the policy allows the HealthOmics service to create re
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -321,7 +320,7 @@ In the following example, the policy allows the HealthOmics service to initiate 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -355,7 +354,7 @@ In the registry permission policy, add a policy statement to allow the other acc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -384,7 +383,7 @@ In the repository creation template, add a policy statement to allow the other a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -418,7 +417,7 @@ Add permissions for two additional actions (CreateRepository and BatchImportUpst
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -452,7 +451,7 @@ With non-PTC container support, HealthOmics uses the service role that you pass 
 
 The following example policy grants these permissions. Replace the Region, the account ID, {{ecr-repository-prefix}}, and the secret ARN with your values. Use the `ecrRepositoryPrefix` from your registry mapping.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -551,7 +550,7 @@ The repository must be in the same AWS Region as the run, whether it is in the r
 
    The following JSON policy statement passes this step. Replace each placeholder with your own value, where {{run-account-id}} is the account that the run is in:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -589,4 +588,4 @@ The repository must be in the same AWS Region as the run, whether it is in the r
 
 1. If your case names a service role, confirm the identity side as well. The role's own policy must allow the same actions on the repository, as in [Service role policy for non-PTC container support](#permissions-ecr-non-ptc) for an image that HealthOmics copies, or [Running workflows with cross-account containers](#permissions-cross-account-containers) for a repository in another account. If you pass a session policy to `StartRun`, the run's permissions are the intersection of the role and that policy, so the session policy must allow these actions too, as described in [Use session policies to scope down permissions](permissions-service.md#permissions-service-sessionpolicy).
 
-1. If every check passes, the policies allow the principal for your case to pull the image. They don't prove the pull, because only a run exercises them with the values that HealthOmics sends. Start a run that uses the image. If a pull problem remains, the run fails with ECR\_PERMISSION\_ERROR before it creates any task, so start with the run's failure reason. When HealthOmics copies the image, a copy failure fails the task as well, so check the task's failure reason too. Either way, work through your case again. For the error, see [Run failure reasons](workflows-run-errors.md).
+1. If every check passes, the policies allow the principal for your case to pull the image. They don't prove the pull, because only a run exercises them with the values that HealthOmics sends. Start a run that uses the image. If a pull problem remains, the run fails with `ECR_PERMISSION_ERROR` before it creates any task, so start with the run's failure reason. When HealthOmics copies the image, a copy failure fails the task as well, so check the task's failure reason too. Either way, work through your case again. For the error, see [Run failure reasons](workflows-run-errors.md).

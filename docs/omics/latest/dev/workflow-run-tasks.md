@@ -1,7 +1,6 @@
 
 
 # Task lifecycle in a HealthOmics run
-<a name="workflow-run-tasks"></a>
 
 A *task* is a single process within a run. HealthOmics maps each task in your workflow to an omics computing instance type that best fits the task's required resources. You specify the required resources in the workflow definition. For more information, See [Compute and memory requirements for HealthOmics tasks](memory-and-compute-tasks.md).
 
@@ -44,7 +43,7 @@ HealthOmics has finished processing the task and has transferred the output data
 HealthOmics encountered an error while processing the task and didn't complete it.  
 + The task transitions to Stopping status (HealthOmics deprovisions the resources) and then to Failed status.
 + If the error is a service error (5XX HTTP status code), and the workflow supports retries for this task, HealthOmics attempts to process the task again. HealthOmics assigns a new task ID to the retry.
-+ If your task fails with INSTANCE\_RESERVATION\_FAILED or ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED, you can apply several best practices to improve GPU acquisition success. For more information about accelerator bundles, regional flexibility, and resource fallback order, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed). HealthOmics doesn't retry a task that fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED for WDL workflows. For Nextflow workflows, `errorStrategy` and `maxRetries` determine whether the task is retried, and a retry starts again from the first profile.
++ If your task fails with `INSTANCE_RESERVATION_FAILED` or `ALL_PROFILES_INSTANCE_RESERVATION_FAILED`, you can apply several best practices to improve GPU acquisition success. For more information about accelerator bundles, regional flexibility, and resource fallback order, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed). HealthOmics doesn't retry a task that fails with `ALL_PROFILES_INSTANCE_RESERVATION_FAILED` for WDL workflows. For Nextflow workflows, `errorStrategy` and `maxRetries` determine whether the task is retried, and a retry starts again from the first profile.
 
 **Cancelled**  
 HealthOmics stops the task after a user-initiated request to cancel the run.  

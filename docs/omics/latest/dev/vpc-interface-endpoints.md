@@ -1,7 +1,6 @@
 
 
 # AWS HealthOmics and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS HealthOmics by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that you can use to privately access HealthOmics API operations without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't require public IP addresses to communicate with HealthOmics API operations. Traffic between your VPC and HealthOmics doesn't go outside the Amazon network. 
 
@@ -59,7 +58,7 @@ The following is an example of an endpoint policy for HealthOmics. When attached
 ------
 #### [ API ]
 
-```
+```json
 {
    "Statement":[
       {

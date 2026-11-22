@@ -1,7 +1,6 @@
 
 
 # Debugging a HealthOmics workflow run
-<a name="workflows-run-debug"></a>
 
 HealthOmics reports a run's behavior through several sources, each of which answers a different question. For a run that failed, read them in this order instead of starting with the logs:
 
@@ -53,7 +52,7 @@ The ID of the workflow whose runs you want to list.
 
    Look up the value of `failureReason` in [Run failure reasons](workflows-run-errors.md). If `status` isn't `FAILED`, see [Run status values](monitoring-runs.md#run-status-values) instead.
 
-   Some failures happen before HealthOmics creates any task, or after every task finished, so they leave no task record for the next three steps to read. A role, input, import, or export failure is one; so is an image that HealthOmics rejects before it creates the task (ECR\_IMAGE\_NOT\_FOUND, ECR\_PERMISSION\_ERROR, ECR\_REPOSITORY\_NOT\_FOUND, or INVALID\_ECR\_IMAGE\_URI). For any of them, skip to the run log later in this procedure. For an image failure, `statusMessage` names the image URI, so continue from [Container images for private workflows](workflows-ecr.md) and [Amazon ECR permissions](permissions-ecr.md). If the next step does return a failed task, read that task instead.
+   Some failures happen before HealthOmics creates any task, or after every task finished, so they leave no task record for the next three steps to read. A role, input, import, or export failure is one; so is an image that HealthOmics rejects before it creates the task (`ECR_IMAGE_NOT_FOUND`, `ECR_PERMISSION_ERROR`, `ECR_REPOSITORY_NOT_FOUND`, or `INVALID_ECR_IMAGE_URI`). For any of them, skip to the run log later in this procedure. For an image failure, `statusMessage` names the image URI, so continue from [Container images for private workflows](workflows-ecr.md) and [Amazon ECR permissions](permissions-ecr.md). If the next step does return a failed task, read that task instead.
 
 1. List the tasks that failed. Each item includes the task's `taskId`, which the next step uses, plus its name, its `creationTime`, and, once it reached them, its instance type, `startTime`, and `stopTime`.
 
@@ -100,13 +99,13 @@ To read the definition at the position the engine names, export it. The followin
 
 Where to continue depends on the failure reason. The following list covers the most common resource and container failures. For what the tasks consumed, which tells you whether the failure was a sizing problem, see [Turn findings into cost and sizing changes](#workflows-run-debug-cost).
 
-**CANNOT\_START\_CONTAINER\_ERROR, CANNOT\_START\_CONTAINER\_SIZE\_ERROR, or IMAGE\_VERIFICATION\_FAILURE**  
+**`CANNOT_START_CONTAINER_ERROR`, `CANNOT_START_CONTAINER_SIZE_ERROR`, or `IMAGE_VERIFICATION_FAILURE`**  
 HealthOmics created the task and couldn't start its container, so the task produced no log. Take the image from the task record's `imageDetails`, then see [Container images for private workflows](workflows-ecr.md).
 
-**OUT\_OF\_MEMORY\_ERROR**  
+**`OUT_OF_MEMORY_ERROR`**  
 Compare the task's memory use against its allocation, as described in [How do I right-size the compute and storage for my workflow?](troubleshooting.md#troubleshooting-metrics-right-size), using either its run metrics or its statistics in the run manifest log, which [Turn findings into cost and sizing changes](#workflows-run-debug-cost) locates. Then raise the memory in the workflow definition, and check which instance type the new value selects in [Compute and memory requirements for HealthOmics tasks](memory-and-compute-tasks.md).
 
-**TASK\_TIMED\_OUT or RUN\_TIMED\_OUT**  
+**`TASK_TIMED_OUT` or `RUN_TIMED_OUT`**  
 Confirm whether the task was still doing work when the timeout expired. If it wasn't, treat it as unresponsive rather than slow, and see [Guidance for unresponsive runs](workflows-run-errors.md#workflows-guidance-unresponsive-runs). If the limit that ended the run came from a run group, see [Using HealthOmics run groups](creating-run-groups.md).
 
 ## Inspect resource use with run metrics

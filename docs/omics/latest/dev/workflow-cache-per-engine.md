@@ -1,7 +1,6 @@
 
 
 # Engine-specific caching features
-<a name="workflow-cache-per-engine"></a>
 
 HealthOmics tries to provide a consistent implementation of call caching across workflow engines. There are some differences based on how each workflow engine handles specific cases:
 
@@ -25,7 +24,7 @@ Instead, pass shared files to each task directly from the workflow inputs. Workf
 
   Here, `ALIGN` re-declares the reference as an output so that `CALL_VARIANTS` can receive it. When this workflow runs with 500 samples, every `ALIGN` task stores its own copy of the reference in the run cache.
 
-  ```
+  ```groovy
   workflow {
       ALIGN(reads_ch, reference)        // reference is a workflow input
       CALL_VARIANTS(ALIGN.out)          // receives the reference from ALIGN's outputs

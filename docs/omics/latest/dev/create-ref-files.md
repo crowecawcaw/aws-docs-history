@@ -1,7 +1,6 @@
 
 
 # Referencing genome files from a workflow definition
-<a name="create-ref-files"></a>
 
 An HealthOmics reference store object can be referred to with a URI like the following. Use your own `{{account ID}}`, `{{reference store ID}}`, and `{{reference ID}}` where indicated.
 
@@ -36,7 +35,7 @@ omics://123456789012.storage.us-west-2.amazonaws.com/<sequence_store_id>/readSet
 
 The following is an example of an input JSON file that uses two Omics Storage URIs.
 
-```
+```json
 {
    "input_fasta": "omics://123456789012.storage.us-west-2.amazonaws.com/<reference_store_id>/reference/<id>",
    "input_cram": "omics://123456789012.storage.us-west-2.amazonaws.com/<sequence_store_id>/readSet/<id>"

@@ -1,7 +1,6 @@
 
 
 # Parameter template files for HealthOmics workflows
-<a name="parameter-templates"></a>
 
 Parameter templates define the input parameters for a workflow. You can define input parameters to make your workflow more flexible and versatile. For example, you can define a parameter for the Amazon S3 location of the reference genome files. Parameter templates can be provided through a Git-based repository service or your local drive. Users can then run the workflow using various data sets. 
 
@@ -15,7 +14,7 @@ The input parameter object includes the following attributes:
 
 The following example parameter template shows how to specify the input parameters.
 
-```
+```json
 {
   "myRequiredParameter1": {
      "description": "this parameter is required",

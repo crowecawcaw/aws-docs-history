@@ -1,7 +1,6 @@
 
 
 # Using third-party registries supported by pull through cache
-<a name="containers-ptc-registries"></a>
 
 You can use Amazon ECR pull through cache rules to synchronize repositories in a supported upstream registry with your Amazon ECR private repositories. For more information, see [Sync an upstream registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html) in the *Amazon Elastic Container Registry User Guide*.
 
@@ -24,7 +23,7 @@ Benefits of using Amazon ECR pull through cache include:
 
 1. Workflows access the synchronized container images in your private repository, which is more reliable than downloading content at run time from a public registry.
 
-1. Because Amazon ECR pull through caches use a predictable URI structure, you can keep the upstream image URIs in your workflow definition and add a container registry map that resolves them to your cache repositories. For more information, see [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map).
+1. Because Amazon ECR pull through caches use a predictable URI structure, you can keep the upstream image URIs in your workflow definition and add a container registry map that resolves them to your cache repositories. For more information, see [Step 4: Adding a container registry map](#ecr-ptc-registry-map).
 
 **Topics**
 + [Prerequisites](#ecr-ptc-prerequisites)
@@ -53,7 +52,7 @@ The secret name must begin with `ecr-pullthroughcache/`. For the other requireme
 ## Configuring pull through cache
 <a name="ecr-pull-through-configure"></a>
 
-Amazon ECR provides a registry for your AWS account in each Region. Make sure you create the Amazon ECR configuration in the same region where you plan to run the workflow.
+Amazon ECR provides a registry for your AWS account in each Region. Make sure you create the Amazon ECR configuration in the same Region where you plan to run the workflow.
 
 Complete the following configuration tasks in order. Step 4 applies only if your workflow definition uses the upstream image URIs.
 
@@ -61,7 +60,7 @@ Complete the following configuration tasks in order. Step 4 applies only if your
 + [Step 1: Creating a pull through cache rule](#create-ecr-ptc)
 + [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc)
 + [Step 3: Creating repository templates](#repo-create-templates-ptc)
-+ [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map)
++ [Step 4: Adding a container registry map](#ecr-ptc-registry-map)
 + [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc)
 
 ### Step 1: Creating a pull through cache rule
@@ -81,7 +80,7 @@ For more information, see [Creating a pull through cache rule](https://docs.aws.
 
 To configure pull through cache, follow these steps using the Amazon ECR console:
 
-**Part 1: Choosing the upstream registry**
+**To choose the upstream registry**
 
 1. Open the [Amazon ECR console](https://console.aws.amazon.com/ecr/).
 
@@ -93,7 +92,7 @@ To configure pull through cache, follow these steps using the Amazon ECR console
 
 1. If the upstream registry requires authentication, on the next page, specify the Secrets Manager secret that contains your credentials. Choose **Next**.
 
-**Part 2: Specifying namespaces and creating the rule**
+**To specify namespaces and create the rule**
 
 1. Under **Specify namespaces**, in the **Cache namespace** panel, choose whether to create the private repositories using a specific repository prefix or with no prefix. If you choose to use a prefix, specify the prefix name in **Cache repository prefix**.
 
@@ -204,7 +203,7 @@ aws ecr create-pull-through-cache-rule \
 
 You can use the **get-run-task** AWS CLI command to retrieve information about the container image used for a specific task:
 
-```
+```bash
 aws omics get-run-task --id {{run-id}} --task-id {{task-id}}
 ```
 
@@ -228,18 +227,23 @@ The following policy grants permission for the HealthOmics service to create rep
 
 Make sure `Resource` covers every cache repository prefix that you created, and set the Region and the AWS account in each repository ARN to the registry that you are configuring, because a registry policy applies only to its own Region and account.
 
+For more information about the policies for Amazon ECR pull through cache, see [Policies for Amazon ECR pull through cache](permissions-ecr.md#permissions-ecr-ptc).
+
+#### Setting up permissions using the console
+<a name="reg-ecr-ptc-console"></a>
+
 1. Open the [Amazon ECR console](https://console.aws.amazon.com/ecr/).
 
 1. In the navigation pane, under **Private registry**, expand **Registry permissions**, then choose **Generate statement**.
 
-1. On the top right side, choose JSON. Enter a policy similar to the following:
+1. Choose **JSON**. Enter a policy similar to the following:
 
 ------
 #### [ JSON ]
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -266,7 +270,10 @@ Make sure `Resource` covers every cache repository prefix that you created, and 
 
 1. Save the policy.
 
-To attach the policy with the AWS CLI instead, save it to a file, then use the Amazon ECR **put-registry-policy** command:
+#### Setting up permissions using the AWS CLI
+<a name="reg-ecr-ptc-cli"></a>
+
+To attach the policy with the AWS CLI, save it to a file, then use the Amazon ECR **put-registry-policy** command:
 
 ```
 aws ecr put-registry-policy \
@@ -276,8 +283,6 @@ aws ecr put-registry-policy \
 
 **Important**  
 **put-registry-policy** replaces the entire registry policy. If your registry already has a policy, retrieve it with **get-registry-policy**, add the HealthOmics statement, and put the combined policy back.
-
-For more information about the policies for Amazon ECR pull through cache, see [Policies for Amazon ECR pull through cache](permissions-ecr.md#permissions-ecr-ptc).
 
 ### Step 3: Creating repository templates
 <a name="repo-create-templates-ptc"></a>
@@ -291,9 +296,12 @@ For more information, see [Repository creation templates](https://docs.aws.amazo
 **Note**  
 Create the template before the first run that uses the prefix. A prefix with no template of its own, and no `ROOT` template, gets no repository policy, so HealthOmics can't pull its cached images. Leave tag mutability at `MUTABLE`, so that Amazon ECR can refresh a cached image when the upstream tag changes. For repositories that already exist, see [Updating repositories created before the template](#ecr-ptc-troubleshoot-template-late).
 
+#### Creating repository templates using the console
+<a name="repo-create-templates-ptc-console"></a>
+
 To create a repository creation template, follow these steps using the Amazon ECR console:
 
-**Part 1: Defining the template**
+**To define the template**
 
 1. Open the [Amazon ECR console](https://console.aws.amazon.com/ecr/).
 
@@ -309,7 +317,7 @@ To create a repository creation template, follow these steps using the Amazon EC
 
 1. Choose **Next**.
 
-**Part 2: Adding the repository creation configuration**
+**To add the repository creation configuration**
 
 1. On the **Add repository creation configuration** page, for **Repository permissions**, use one of the sample policy statements, or enter one similar to the following example:
 
@@ -318,7 +326,7 @@ To create a repository creation template, follow these steps using the Amazon EC
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -346,7 +354,12 @@ To create a repository creation template, follow these steps using the Amazon EC
 
 1. Review the configuration and choose **Create** to create the template.
 
-To create the template with the AWS CLI instead, save the repository policy from the preceding procedure to a file, then use the Amazon ECR **create-repository-creation-template** command with `--prefix` set to the cache repository prefix from your pull through cache rule. The description is optional:
+Amazon ECR is configured, but the HealthOmics configuration isn't finished. If your workflow definition uses the upstream image URIs, continue to [Step 4: Adding a container registry map](#ecr-ptc-registry-map): without a container registry map, the run fails after it starts. Otherwise, continue to [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc).
+
+#### Creating repository templates using the AWS CLI
+<a name="repo-create-templates-ptc-cli"></a>
+
+To create the template with the AWS CLI, save the repository policy from the preceding procedure to a file, then use the Amazon ECR **create-repository-creation-template** command with `--prefix` set to the cache repository prefix from your pull through cache rule. The description is optional:
 
 ```
 aws ecr create-repository-creation-template \
@@ -358,7 +371,7 @@ aws ecr create-repository-creation-template \
      --region {{region}}
 ```
 
-If a template already exists for the prefix, **create-repository-creation-template** fails with TemplateAlreadyExistsException. Update the existing template in place instead:
+If a template already exists for the prefix, **create-repository-creation-template** fails with `TemplateAlreadyExistsException`. Update the existing template in place instead:
 
 ```
 aws ecr update-repository-creation-template \
@@ -372,12 +385,12 @@ aws ecr update-repository-creation-template \
 **Important**  
 **update-repository-creation-template** replaces each value that you pass, so `--applied-for` and `--repository-policy` overwrite the existing list and policy rather than merging with them. Retrieve the current template with **describe-repository-creation-templates**, merge your changes, and pass the complete values.
 
-Amazon ECR is configured, but the HealthOmics configuration isn't finished. If your workflow definition uses the upstream image URIs, continue to [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map): without a container registry map, the run fails after it starts. Otherwise, continue to [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc).
+Amazon ECR is configured, but the HealthOmics configuration isn't finished. If your workflow definition uses the upstream image URIs, continue to [Step 4: Adding a container registry map](#ecr-ptc-registry-map): without a container registry map, the run fails after it starts. Otherwise, continue to [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc).
 
-### Step 4: Adding a container registry map (if your workflow uses upstream URIs)
+### Step 4: Adding a container registry map
 <a name="ecr-ptc-registry-map"></a>
 
-The image URIs in your workflow definition decide whether you need a container registry map:
+The image URIs in your workflow definition decide whether you need a container registry map.
 
 
 | Image URIs in your workflow definition | Registry map | 
@@ -390,7 +403,7 @@ An image name written without a registry host is a Docker Hub short name, which 
 If your definition uses both kinds of URI, add a map for the images that use the upstream URIs.
 
 **Important**  
-With the upstream URIs, `StartRun` succeeds even if the map is missing or has no mapping for an image's upstream registry. HealthOmics validates each image when it creates the task that uses it, so the run fails after it starts. Both cases give the failure reason INVALID\_ECR\_IMAGE\_URI, and the run's status message distinguishes them. A mapping that resolves an image to a cache repository that doesn't exist instead gives ECR\_REPOSITORY\_NOT\_FOUND.
+With the upstream URIs, `StartRun` succeeds even if the map is missing or has no mapping for an image's upstream registry. HealthOmics validates each image when it creates the task that uses it, so the run fails after it starts. Both cases give the failure reason `INVALID_ECR_IMAGE_URI`, and the run's status message distinguishes them. A mapping that resolves an image to a cache repository that doesn't exist instead gives `ECR_REPOSITORY_NOT_FOUND`.
 
 Mirror your pull through cache rule in the mapping: set `upstreamRegistryUrl` to the rule's upstream registry URL, `ecrRepositoryPrefix` to its cache repository prefix, and `upstreamRepositoryPrefix` to its upstream repository prefix if the rule uses one.
 
@@ -405,7 +418,7 @@ You supply the map when you create the workflow or the workflow version. For the
 ### Step 5: Verifying your pull through cache configuration
 <a name="verify-ecr-ptc"></a>
 
-Run the **aws ecr** commands in the account that owns the cache repositories, because **get-registry-policy** and **describe-repository-creation-templates** always read the calling account's registry, and run the **aws omics** commands in the account that owns the workflow. Use the Region where you run your workflows for both. The three checks in the following procedure are independent, so run all of them and collect every problem before you go back to fix them. The registry map check after the procedure applies once you have created the workflow or workflow version, as described in [Adding private or third-party containers during workflow creation](containers-workflow-creation.md). The end-to-end check after it also requires a started run.
+Run the **aws ecr** commands in the account that owns the cache repositories, because **get-registry-policy** and **describe-repository-creation-templates** always read the calling account's registry, and run the **aws omics** commands in the account that owns the workflow. Use the Region where you run your workflows for both. The three checks in the following procedure are independent, so run all of them and collect every problem before you go back to fix them. The registry map check after the procedure applies after you have created the workflow or workflow version, as described in [Adding private or third-party containers during workflow creation](containers-workflow-creation.md). The end-to-end check after it also requires a started run.
 
 1. Confirm that the pull through cache rule exists and points at the expected upstream registry:
 
@@ -424,7 +437,7 @@ Run the **aws ecr** commands in the account that owns the cache repositories, be
         --region {{region}}
    ```
 
-   The output includes `"isValid": true` when authentication succeeds, and otherwise names the reason in `failure`. If the command fails with PullThroughCacheRuleNotFoundException, no rule uses that prefix. An AccessDeniedException means that your caller lacks the `ecr:ValidatePullThroughCacheRule` permission, which read-only policies don't always include, not that the rule is wrong. For more information, see [Validating pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-working-validating.html) in the *Amazon Elastic Container Registry User Guide*.
+   The output includes `"isValid": true` when authentication succeeds, and otherwise names the reason in `failure`. If the command fails with `PullThroughCacheRuleNotFoundException`, no rule uses that prefix. An `AccessDeniedException` means that your caller lacks the `ecr:ValidatePullThroughCacheRule` permission, which read-only policies don't always include, not that the rule is wrong. For more information, see [Validating pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-working-validating.html) in the *Amazon Elastic Container Registry User Guide*.
 
 1. Confirm that the registry policy grants HealthOmics access:
 
@@ -433,7 +446,7 @@ Run the **aws ecr** commands in the account that owns the cache repositories, be
         --region {{region}}
    ```
 
-   The `policyText` value in the output, which Amazon ECR returns JSON-escaped, must contain the statement from [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc), granting `omics.amazonaws.com` both `ecr:CreateRepository` and `ecr:BatchImportUpstreamImage`, individually or through a wildcard, and covering every cache repository prefix that you created. A prefix is covered by a `Resource` entry that matches the cache repositories under it, such as a repository ARN ending in the prefix followed by `/*`, a repository ARN ending in `/*` alone, or a `Resource` of `*`. An ARN that ends at the prefix itself, with no `/*`, covers nothing: a cache repository name always has a path under the prefix. An ARN that names a Region or AWS account other than this registry's own covers nothing either, as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc). If no statement covers a prefix, or if the command fails with RegistryPolicyNotFoundException, return to [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc) and make sure that you saved the policy.
+   The `policyText` value in the output, which Amazon ECR returns JSON-escaped, must contain the statement from [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc), granting `omics.amazonaws.com` both `ecr:CreateRepository` and `ecr:BatchImportUpstreamImage`, individually or through a wildcard, and covering every cache repository prefix that you created. A prefix is covered by a `Resource` entry that matches the cache repositories under it, such as a repository ARN ending in the prefix followed by `/*`, a repository ARN ending in `/*` alone, or a `Resource` of `*`. An ARN that ends at the prefix itself, with no `/*`, covers nothing: a cache repository name always has a path under the prefix. An ARN that names a Region or AWS account other than this registry's own covers nothing either, as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc). If no statement covers a prefix, or if the command fails with `RegistryPolicyNotFoundException`, return to [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc) and make sure that you saved the policy.
 
 1. Confirm that a repository creation template exists for each cache repository prefix. Pass all of the prefixes that you created:
 
@@ -449,7 +462,7 @@ Run the **aws ecr** commands in the account that owns the cache repositories, be
 
    If any cache repositories existed before you created the template, also confirm the repository policy on each of them, as described in [Updating repositories created before the template](#ecr-ptc-troubleshoot-template-late).
 
-If your definition uses the upstream URIs, confirm the registry map that you added in [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map). A map belongs to the workflow or the workflow version that you supplied it with, so check the one your runs use: the version that you pass as `--workflow-version-name` to **start-run**, or the workflow if your runs don't name one. For a run that already exists, `workflowVersionName` in the **get-run** output names its version.
+If your definition uses the upstream URIs, confirm the registry map that you added in [Step 4: Adding a container registry map](#ecr-ptc-registry-map). A map belongs to the workflow or the workflow version that you supplied it with, so check the one your runs use: the version that you pass as `--workflow-version-name` to **start-run**, or the workflow if your runs don't name one. For a run that already exists, `workflowVersionName` in the **get-run** output names its version.
 
 For a workflow:
 
@@ -470,7 +483,7 @@ aws omics get-workflow-version \
 
 Check the `containerRegistryMap` value in the output. If it has no map, the response omits the field. Confirm that `status` is `ACTIVE`: if it is still `CREATING`, wait and retry, and if it is `FAILED`, the reason is in `statusMessage`. You can't change a map in place, so if it is missing or wrong, create a new workflow version as described in [Re-running the configuration](#rerun-ecr-ptc).
 
-To confirm end-to-end that a run used a cached image, read the outcome of a run that uses the cache. A run that has already finished works, including one that failed, but a cancelled run may never have resolved its images; start a run only if you don't have one yet:
+To confirm end-to-end that a run used a cached image, read the outcome of a run that uses the cache. A run that has already finished works, including one that failed, but a canceled run might never have resolved its images; start a run only if you don't have one yet:
 
 ```
 aws omics get-run \
@@ -480,11 +493,11 @@ aws omics get-run \
 
 The `resourceDigests` field in the output, when the run reports one, records resources that the run resolved, including its container images. An entry whose key is an Amazon ECR private URI under your cache repository prefix, with a `sha256` digest as its value, confirms that the run resolved that image to your cache. This is the quickest check, and it works even for a run that failed for an unrelated reason.
 
-If the run stopped without succeeding, `failureReason` and `statusMessage` together tell you whether this configuration is involved. Check these before you look at the run's tasks, because a run that fails on an image may create no tasks at all:
-+ ECR\_REPOSITORY\_NOT\_FOUND, ECR\_IMAGE\_NOT\_FOUND or ECR\_PERMISSION\_ERROR for an image URI under one of your cache repository prefixes – continue to [Troubleshooting pull through cache](#ecr-ptc-troubleshooting). One of those reasons for a URI that isn't under one of your prefixes is an Amazon ECR problem with that repository rather than a pull through cache problem, because no cache rule applies to it. For a repository that you manage in Amazon ECR yourself, give HealthOmics access with a repository policy, as described in [Create a resource policy for the Amazon ECR repository](permissions-ecr.md#permissions-resource-policy).
-+ INVALID\_ECR\_IMAGE\_URI – the registry map is missing, it has no mapping for the image's upstream registry, its `upstreamRepositoryPrefix` doesn't cover the image's path, or the image URI isn't valid. Read the status message to tell these apart, and check the URI before you change the map. See [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map).
-+ CANNOT\_START\_CONTAINER\_ERROR or IMAGE\_VERIFICATION\_FAILURE for an image URI under one of your prefixes – the image reached your cache repository but the task couldn't use it. If you changed or recreated the cache rule, a stale cached image can cause this; see [Changing a cache rule while a run is active](#ecr-ptc-troubleshoot-rule-change). Otherwise the cached image itself is the problem rather than this configuration, and the upstream image or the task that uses it is where to look.
-+ Any other failure reason, or none at all as a cancelled run reports – the run stopped for a reason unrelated to this configuration. For the run statuses and the other failure reasons, see [Get run information](getinfo-about-runs.md) and [Run failure reasons](workflows-run-errors.md).
+If the run stopped without succeeding, `failureReason` and `statusMessage` together tell you whether this configuration is involved. Check these before you look at the run's tasks, because a run that fails on an image might create no tasks at all:
++ `ECR_REPOSITORY_NOT_FOUND`, `ECR_IMAGE_NOT_FOUND` or `ECR_PERMISSION_ERROR` for an image URI under one of your cache repository prefixes – continue to [Troubleshooting pull through cache](#ecr-ptc-troubleshooting). One of those reasons for a URI that isn't under one of your prefixes is an Amazon ECR problem with that repository rather than a pull through cache problem, because no cache rule applies to it. For a repository that you manage in Amazon ECR yourself, give HealthOmics access with a repository policy, as described in [Create a resource policy for the Amazon ECR repository](permissions-ecr.md#permissions-resource-policy).
++ `INVALID_ECR_IMAGE_URI` – the registry map is missing, it has no mapping for the image's upstream registry, its `upstreamRepositoryPrefix` doesn't cover the image's path, or the image URI isn't valid. Read the status message to tell these apart, and check the URI before you change the map. See [Step 4: Adding a container registry map](#ecr-ptc-registry-map).
++ `CANNOT_START_CONTAINER_ERROR` or `IMAGE_VERIFICATION_FAILURE` for an image URI under one of your prefixes – the image reached your cache repository but the task couldn't use it. If you changed or recreated the cache rule, a stale cached image can cause this; see [Changing a cache rule while a run is active](#ecr-ptc-troubleshoot-rule-change). Otherwise the cached image itself is the problem rather than this configuration, and the upstream image or the task that uses it is where to look.
++ Any other failure reason, or none at all as a canceled run reports – the run stopped for a reason unrelated to this configuration. For the run statuses and the other failure reasons, see [Get run information](getinfo-about-runs.md) and [Run failure reasons](workflows-run-errors.md).
 
 Not every run reports `resourceDigests`, and a run that hasn't resolved its images yet has no entry for them. If the field or the entry is missing, or if you want to confirm which image an individual task pulled, list the run's tasks:
 
@@ -494,7 +507,7 @@ aws omics list-run-tasks \
      --region {{region}}
 ```
 
-An empty `items` list on a run that is still going means that HealthOmics hasn't created the tasks yet, so wait and list them again. On a run that has stopped it means that no task was ever created: for a failed run the preceding failure reasons explain why, and a run cancelled before it started has nothing to confirm, so use a different run. Otherwise, retrieve the image details for one of the tasks, using a `taskId` from the preceding output:
+An empty `items` list on a run that is still going means that HealthOmics hasn't created the tasks yet, so wait and list them again. On a run that has stopped it means that no task was ever created: for a failed run the preceding failure reasons explain why, and a run canceled before it started has nothing to confirm, so use a different run. Otherwise, retrieve the image details for one of the tasks, using a `taskId` from the preceding output:
 
 ```
 aws omics get-run-task \
@@ -504,9 +517,9 @@ aws omics get-run-task \
      --query imageDetails
 ```
 
-In `imageDetails`, `sourceImage` is the image URI from your workflow definition, and `image` is the Amazon ECR private URI that the task pulled. An `image` value under your cache repository prefix, in the private-URI form shown in [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map) and possibly with an image digest appended, confirms that the task used your pull through cache. `imageDetails` can be empty, for a task that hasn't pulled its image yet and for some tasks that have already finished. A task with no image details recorded has none in the run manifest log either, so check another task of the same run. If no task in a completed run recorded them, you can still confirm that the image is cached, as described in [Resolving a missing or incomplete registry policy](#ecr-ptc-troubleshoot-registry-policy). That confirms the configuration rather than which image a particular task pulled, because an earlier run may have populated the cache.
+In `imageDetails`, `sourceImage` is the image URI from your workflow definition, and `image` is the Amazon ECR private URI that the task pulled. An `image` value under your cache repository prefix, in the private-URI form shown in [Step 4: Adding a container registry map](#ecr-ptc-registry-map) and possibly with an image digest appended, confirms that the task used your pull through cache. `imageDetails` can be empty, for a task that hasn't pulled its image yet and for some tasks that have already finished. A task with no image details recorded has none in the run manifest log either, so check another task of the same run. If no task in a completed run recorded them, you can still confirm that the image is cached, as described in [Resolving a missing or incomplete registry policy](#ecr-ptc-troubleshoot-registry-policy). That confirms the configuration rather than which image a particular task pulled, because an earlier run might have populated the cache.
 
-After a run completes, its run manifest log repeats this image information, so you can check the run's tasks at once instead of calling **get-run-task** for each one. In each task's record the field named `originalImage` corresponds to `sourceImage` here, and `image` is the same value as above. For where to find the log, see [Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md), and for the rest of a task's record, see [Get run information](getinfo-about-runs.md).
+After a run completes, its run manifest log repeats this image information, so you can check the run's tasks at once instead of calling **get-run-task** for each one. In each task's record the field named `originalImage` corresponds to `sourceImage` here, and `image` is the same value shown earlier. For where to find the log, see [Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md), and for the rest of a task's record, see [Get run information](getinfo-about-runs.md).
 
 After you configure pull through cache, you can create a new workflow or workflow version to use the containers from configured registries. For more information, see [Adding private or third-party containers during workflow creation](containers-workflow-creation.md).
 
@@ -514,25 +527,25 @@ After you configure pull through cache, you can create a new workflow or workflo
 <a name="rerun-ecr-ptc"></a>
 
 You can repeat these steps, for example to add a prefix or to correct a policy. The create commands fail with a non-zero exit code when the resource already exists, without changing it. **put-registry-policy** doesn't fail, but it replaces the whole registry policy, as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc).
-+ Pull through cache rule – **create-pull-through-cache-rule** fails with PullThroughCacheRuleAlreadyExistsException. If the registry that you are adding needs authentication, create its Secrets Manager secret first, as described in [Prerequisites](#ecr-ptc-prerequisites).
++ Pull through cache rule – **create-pull-through-cache-rule** fails with `PullThroughCacheRuleAlreadyExistsException`. If the registry that you are adding needs authentication, create its Secrets Manager secret first, as described in [Prerequisites](#ecr-ptc-prerequisites).
 + Registry permissions policy – add a `Resource` entry for each new cache repository prefix, as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc); a policy that enumerates prefixes individually won't cover a new one. Confirm the coverage with **get-registry-policy**, as described in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc).
 + Repository creation template – create a template for a cache repository prefix that doesn't have one, and update the existing template to change a prefix that already has one, both as described in [Step 3: Creating repository templates](#repo-create-templates-ptc). Running update against another prefix's template overwrites that template. To bring repositories that Amazon ECR already created up to date, see [Updating repositories created before the template](#ecr-ptc-troubleshoot-template-late).
-+ Container registry map – you supply the map when you create a workflow or workflow version, and **update-workflow** and **update-workflow-version** can't change it. Before you create a version, have the complete map ready: a new version doesn't inherit the previous version's map, so list every mapping that the workflow still needs, not only the new one. **create-workflow-version** takes the whole version rather than just the map, so you also need the workflow definition and the version's other parameters, as described in [Create a workflow version](workflows-version-create.md). Then create the version with the updated map, as described in [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map), and start your runs against that version. A run that doesn't name a version uses the workflow's default version, which keeps the map it was created with, so it fails the same way as before. For more information, see [Default workflow version](workflows-default-version.md).
++ Container registry map – you supply the map when you create a workflow or workflow version, and **update-workflow** and **update-workflow-version** can't change it. Before you create a version, have the complete map ready: a new version doesn't inherit the previous version's map, so list every mapping that the workflow still needs, not only the new one. **create-workflow-version** takes the whole version rather than only the map, so you also need the workflow definition and the version's other parameters, as described in [Create a workflow version](workflows-version-create.md). Then create the version with the updated map, as described in [Step 4: Adding a container registry map](#ecr-ptc-registry-map), and start your runs against that version. A run that doesn't name a version uses the workflow's default version, which keeps the map it was created with, so it fails the same way as before. For more information, see [Default workflow version](workflows-default-version.md).
 
 ## Troubleshooting pull through cache
 <a name="ecr-ptc-troubleshooting"></a>
 
-The following configuration problems cause a run to fail when you use containers from pull through cache. If your workflow definition uses the upstream image URIs and a run fails with INVALID\_ECR\_IMAGE\_URI, start with the registry map, as described in [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map). For other run failure reasons, see [Run failure reasons](workflows-run-errors.md).
+The following configuration problems cause a run to fail when you use containers from pull through cache. If your workflow definition uses the upstream image URIs and a run fails with `INVALID_ECR_IMAGE_URI`, start with the registry map, as described in [Step 4: Adding a container registry map](#ecr-ptc-registry-map). For other run failure reasons, see [Run failure reasons](workflows-run-errors.md).
 
-Run the **aws ecr** commands in this section in the same account as in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc), or pass `--registry-id {{ecr-account-id}}`. Use the repository names exactly as **describe-repositories** returns them: a cache repository name is the cache repository prefix followed by the upstream repository path, which for a Docker Hub short name includes the `library/` segment described in [Step 4: Adding a container registry map (if your workflow uses upstream URIs)](#ecr-ptc-registry-map).
+Run the **aws ecr** commands in this section in the same account as in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc), or pass `--registry-id {{ecr-account-id}}`. Use the repository names exactly as **describe-repositories** returns them: a cache repository name is the cache repository prefix followed by the upstream repository path, which for a Docker Hub short name includes the `library/` segment described in [Step 4: Adding a container registry map](#ecr-ptc-registry-map).
 
 ### Resolving a missing or incomplete registry policy
 <a name="ecr-ptc-troubleshoot-registry-policy"></a>
 
 **Symptom**—The run fails for the image URI with one of the following failure reasons:
-+ ECR\_REPOSITORY\_NOT\_FOUND – the cache repository doesn't exist in your private registry.
-+ ECR\_IMAGE\_NOT\_FOUND – the cache repository exists, but the image was never imported into it.
-+ ECR\_PERMISSION\_ERROR – Amazon ECR denies access.
++ `ECR_REPOSITORY_NOT_FOUND` – the cache repository doesn't exist in your private registry.
++ `ECR_IMAGE_NOT_FOUND` – the cache repository exists, but the image was never imported into it.
++ `ECR_PERMISSION_ERROR` – Amazon ECR denies access.
 
 If the cache repository is missing, the following command returns no repository for the prefix:
 
@@ -551,16 +564,16 @@ aws ecr describe-images \
      --region {{region}}
 ```
 
-A returned image means that the tag is cached. ImageNotFoundException means that the repository exists but that tag isn't in it, and RepositoryNotFoundException means that the repository name is wrong or that nothing has pulled through the prefix yet. Pass `--image-ids`: without it, the command reports every tag in the repository, so another tag's presence can look like success for the tag that your run needs.
+A returned image means that the tag is cached. `ImageNotFoundException` means that the repository exists but that tag isn't in it, and `RepositoryNotFoundException` means that the repository name is wrong or that nothing has pulled through the prefix yet. Pass `--image-ids`: without it, the command reports every tag in the repository, so another tag's presence can look like success for the tag that your run needs.
 
 **Cause**—The registry policy doesn't grant HealthOmics what it needs: there is no policy, the policy is missing an action, or its `Resource` list doesn't cover this cache prefix.
 
-**Solution**—Add or correct the registry policy as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc), and confirm it as described in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc). If the registry policy already covers the cache repository prefix, the registry policy isn't the problem. For ECR\_IMAGE\_NOT\_FOUND, where the repository exists but the image never arrived, the upstream import failed: confirm the rule's credential with **validate-pull-through-cache-rule**, as described in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc). For ECR\_PERMISSION\_ERROR on a repository that exists, continue to [Resolving a missing repository creation template or repository policy](#ecr-ptc-troubleshoot-template). Then start the run again.
+**Solution**—Add or correct the registry policy as described in [Step 2: Setting up permissions for the upstream registry](#reg-ecr-ptc), and confirm it as described in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc). If the registry policy already covers the cache repository prefix, the registry policy isn't the problem. For `ECR_IMAGE_NOT_FOUND`, where the repository exists but the image never arrived, the upstream import failed: confirm the rule's credential with **validate-pull-through-cache-rule**, as described in [Step 5: Verifying your pull through cache configuration](#verify-ecr-ptc). For `ECR_PERMISSION_ERROR` on a repository that exists, continue to [Resolving a missing repository creation template or repository policy](#ecr-ptc-troubleshoot-template). Then start the run again.
 
 ### Resolving a missing repository creation template or repository policy
 <a name="ecr-ptc-troubleshoot-template"></a>
 
-**Symptom**—The cache repository exists with the imported image, and the run still fails with ECR\_PERMISSION\_ERROR for the image URI.
+**Symptom**—The cache repository exists with the imported image, and the run still fails with `ECR_PERMISSION_ERROR` for the image URI.
 
 **Cause**—No repository creation template matches the cache repository prefix, the template doesn't include `PULL_THROUGH_CACHE` in `appliedFor`, or the template has no repository policy. The repository therefore has no policy that lets HealthOmics pull from it.
 
@@ -577,11 +590,11 @@ aws ecr get-repository-policy \
      --region {{region}}
 ```
 
-The `policyText` value must grant `omics.amazonaws.com` at least the actions that the template's repository policy grants. If the repository has no policy at all, the command fails with RepositoryPolicyNotFoundException. If it fails with RepositoryNotFoundException, the repository name is wrong or the repository doesn't exist yet.
+The `policyText` value must grant `omics.amazonaws.com` at least the actions that the template's repository policy grants. If the repository has no policy at all, the command fails with `RepositoryPolicyNotFoundException`. If it fails with `RepositoryNotFoundException`, the repository name is wrong or the repository doesn't exist yet.
 
 **Cause**—A template applies only when Amazon ECR creates a repository, so repositories created before you added the template have no repository policy for HealthOmics.
 
-**Solution**—Bring the existing repositories up to date in one of the following ways.
+**Solution**—Bring the existing repositories up to date in one of the following ways:
 
 **Warning**  
 Deleting a repository also deletes every cached image in it, and you can't undo it. Don't delete a repository while a run is using it.
@@ -605,7 +618,7 @@ Deleting a repository also deletes every cached image in it, and you can't undo 
 ### Changing a cache rule while a run is active
 <a name="ecr-ptc-troubleshoot-rule-change"></a>
 
-**Symptom**—After you change or recreate a pull through cache rule, a run that is already using the affected repository can fail with CANNOT\_START\_CONTAINER\_ERROR or IMAGE\_VERIFICATION\_FAILURE, or can complete using an image that you didn't expect.
+**Symptom**—After you change or recreate a pull through cache rule, a run that is already using the affected repository can fail with `CANNOT_START_CONTAINER_ERROR` or `IMAGE_VERIFICATION_FAILURE`, or can complete using an image that you didn't expect.
 
 **Cause**—The cache repository prefix now resolves to a different upstream repository, while runs are already pulling from the repositories that the old rule created.
 

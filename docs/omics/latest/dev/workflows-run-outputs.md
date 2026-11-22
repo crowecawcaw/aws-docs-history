@@ -1,7 +1,6 @@
 
 
 # HealthOmics run outputs
-<a name="workflows-run-outputs"></a>
 
 When a run completes, HealthOmics exports the run outputs to the Amazon S3 output location (`outputUri`) that you specify when you start the run. By default, HealthOmics writes your workflow outputs under prefixes that it adds within the output URI you specify: a prefix named after the run ID, and for WDL and CWL workflows, an `out` prefix. These prefixes keep runs that use the same output URI from overwriting each other. You can choose to write the outputs directly under your output URI, without these prefixes.
 
@@ -61,7 +60,7 @@ To keep the default layout, leave **Service defined** selected. For the other se
 
 Set `outputUriPrefixMode` when you start the run. The following example uses the AWS CLI.
 
-```
+```bash
 aws omics start-run \
   --workflow-id {{1234567}} \
   --role-arn arn:aws:iam::{{111122223333}}:role/{{OmicsWorkflowRole}} \
@@ -179,7 +178,7 @@ For each output of the workflow, the file has a corresponding key/value pair. Th
 
 The following example shows the `outputs.json` file for a workflow named `BWAMappingWorkflow`:
 
-```
+```json
 {
   "BWAMappingWorkflow.bam_indexes": [
     "s3://omics-outputs/8886192/out/bam_indexes/0/pbmc8k_S1_L007_R1_001.sorted.bam.bai",
@@ -202,7 +201,7 @@ The following example shows the `outputs.json` file for a workflow named `BWAMap
 
 The following example shows part of the outputs.json file for the same workflow when the run uses NONE\_WITH\_OVERWRITE with the output location s3://omics-outputs/project-a/:
 
-```
+```json
 {
   "BWAMappingWorkflow.mapping_stats": "s3://omics-outputs/project-a/mapping_stats/genome_mapping_final_stats.txt",
   "BWAMappingWorkflow.merged_bam": "s3://omics-outputs/project-a/merged_bam/genome_mapping.merged.bam",
@@ -215,7 +214,7 @@ The following example shows part of the outputs.json file for the same workflow 
 
 If the workflow produces outputs with non-file types (such as String, Int, Float, or Bool), the field value is a JSON primitive. For example:
 
-```
+```json
 {
   "MyWorkflow.my_int_output": 1,
   "MyWorkflow.my_bool_output": false,
@@ -236,7 +235,7 @@ The output summary file includes a list of outputs. Each output is a key/value p
 
 In the following example, the outputs.json file has a list of two output files:
 
-```
+```json
 {
   "example_output": {
     "location": "{my-S3outputpath}/{runId}/out/output.txt",

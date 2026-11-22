@@ -1,7 +1,6 @@
 
 
 # Example workflow definitions
-<a name="workflow-definition-examples"></a>
 
 The following example shows the same workflow definition in WDL, Nextflow, and CWL.
 

@@ -1,7 +1,6 @@
 
 
 # Creating private workflows in HealthOmics
-<a name="workflows-setup"></a>
 
 You can bring your own workflow to AWS HealthOmics as a *Private workflow* and run your research or production bioinformatics workloads on HealthOmics. To get there, you prepare a workflow definition and configure the resources it depends on.
 + **Workflow definition file:** A workflow definition file written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in `.zip` format. For more information, see [Workflow definition files](workflow-definition-files.md).

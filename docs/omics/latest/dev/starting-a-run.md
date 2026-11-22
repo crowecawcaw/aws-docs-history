@@ -1,7 +1,6 @@
 
 
 # Start a run in HealthOmics
-<a name="starting-a-run"></a>
 
 When you start a run, you specify the resources that HealthOmics allocates for the run. The following settings are available:
 
@@ -148,7 +147,7 @@ aws omics start-run \
 
 In response, you get the following output. The `uuid` is unique to the run, and along with `outputUri` can be used to track where output data is written.
 
-```
+```json
 {
     "arn": "arn:aws:omics:us-west-2:123456789012:run/1234567",
     "id": "123456789",
@@ -373,7 +372,7 @@ Run metrics report near real-time resource utilization for a run. To enable run 
 
 Add the following permission to the service role that you use for the run.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

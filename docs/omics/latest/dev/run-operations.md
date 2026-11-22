@@ -1,7 +1,6 @@
 
 
 # Run operations in HealthOmics
-<a name="run-operations"></a>
 
 You can start, rerun, clone, cancel, delete, or get information on a run:
 + **Start** – HealthOmics creates a new run using the configuration settings you specify and then starts the run.

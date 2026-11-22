@@ -1,7 +1,6 @@
 
 
 # Delete a private workflow
-<a name="delete-private-workflow"></a>
 
 When you no longer need a workflow, you can delete it using the HealthOmics console, AWS CLI commands, or one of the AWS SDKs. You can delete a workflow that meets the following criteria:
 + Its status is ACTIVE or FAILED.

@@ -1,7 +1,6 @@
 
 
 # Task resources in a HealthOmics workflow definition
-<a name="task-resources"></a>
 
 In the workflow definition, define the following for each task:
 + The container image for task. For more information, see [Container images for private workflows](workflows-ecr.md).
