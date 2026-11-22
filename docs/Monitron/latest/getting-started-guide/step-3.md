@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Understanding warnings and alerts
-<a name="step-3"></a>
 
 **Note**  
 This section focuses on using the Amazon Monitron mobile app. To learn about the Amazon Monitron web app, see [Understanding sensor measurements](https://docs.aws.amazon.com/Monitron/latest/user-guide/anom-monitoring-chapter.html) in the *Amazon Monitron User Guide*.

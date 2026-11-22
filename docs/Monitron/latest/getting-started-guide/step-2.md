@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Adding assets and installing devices
-<a name="step-2"></a>
 
 Once you've created a project, you or reliability managers and technicians from your team can use the Amazon Monitron mobile app to add gateways, create assets and pair sensors to them, and start monitoring your equipment. Only smartphones using Android 8.0\+ or iOS 14\+ with Near Field Communication (NFC) and Bluetooth are supported by Amazon Monitron. 
 
