@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Removing an account from a space (in AWS)
-<a name="managing-accounts-remove"></a>
 
 You can use the page for CodeCatalyst in AWS to remove an account that has been added to a space. For this procedure, using administrative permissions for the specific account you are managing, you sign in the Amazon CodeCatalyst Spaces page in the AWS Management Console to remove an AWS account from your space. To remove an account that is a designated billing account for your CodeCatalyst space, make sure to first specify a new billing account.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Inviting users to a Builder ID space
-<a name="inviting-users"></a>
 
 **Note**  
 This topic describes how to invite users who sign in to CodeCatalyst with a AWS Builder ID. To invite users that are managed as part of SSO users and groups, see [Administering spaces that support identity federation](managing-federation-space.md).

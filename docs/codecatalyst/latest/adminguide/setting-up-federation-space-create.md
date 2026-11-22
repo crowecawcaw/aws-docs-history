@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Creating a space for identity federation
-<a name="setting-up-federation-space-create"></a>
 
 You cannot directly add or remove users in your space that supports identity federation. You must work with your Identity federation administrator to manage SSO users and groups in IAM Identity Center. CodeCatalyst syncs on a regular basis with the IAM Identity Center identity store with the latest directory status for your space members.
 

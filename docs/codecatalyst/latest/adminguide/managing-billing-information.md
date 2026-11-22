@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Getting AWS billing information
-<a name="managing-billing-information"></a>
 
 If you have the necessary permissions, you can get information about your AWS charges from the AWS Management Console.
 

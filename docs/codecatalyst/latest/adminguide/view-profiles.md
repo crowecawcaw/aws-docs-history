@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Viewing and configuring your user profile
-<a name="view-profiles"></a>
 
 **Note**  
 This topic describes how to view your user profile if you signed in to CodeCatalyst with a AWS Builder ID. If you signed in as a user who is managed as part of SSO users and groups, see [Administering spaces that support identity federation](managing-federation-space.md).

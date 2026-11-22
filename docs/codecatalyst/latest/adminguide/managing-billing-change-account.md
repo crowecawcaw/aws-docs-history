@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Changing a billing account
-<a name="managing-billing-change-account"></a>
 
 You can change the AWS account that you want to specify as the billing account for your CodeCatalyst space.
 

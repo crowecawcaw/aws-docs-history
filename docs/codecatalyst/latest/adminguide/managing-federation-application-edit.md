@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Editing Identity Center application details
-<a name="managing-federation-application-edit"></a>
 
 You can edit the details for your Identity Center application, such as choosing SSO users and groups that are available in IAM Identity Center.
 

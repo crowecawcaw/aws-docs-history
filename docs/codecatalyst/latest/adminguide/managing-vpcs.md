@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Connecting an Amazon VPC to an Amazon CodeCatalyst space
-<a name="managing-vpcs"></a>
 
 *Amazon Virtual Private Clouds* (Amazon VPCs) are virtual networks that provide extra security to your application by isolating it from the public internet. By connecting to an Amazon VPC, users can securely run workflow actions and create Dev Environments linked to your VPC in CodeCatalyst. You can set a default VPC connection for a space, so that all workflow runs and Dev Environments will run connected to that VPC.
 

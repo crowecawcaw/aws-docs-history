@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Adding SSO groups to a space that supports identity federation
-<a name="managing-federation-space-add-users-groups"></a>
 
 You can use the Amazon CodeCatalyst page in the AWS Management Console to add SSO groups to your space. You must have already worked with your Identity federation administrator to create the SSO users and groups for your instance in IAM Identity Center. For a high-level reference to the prerequisites steps to configure SSO users and groups in IAM Identity Center, see [Prerequisite 3: Setting up identity federation in IAM Identity Center](setting-up-federation.md#setting-up-prereq-identity).
 

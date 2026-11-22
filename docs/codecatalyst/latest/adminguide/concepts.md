@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Concepts
-<a name="concepts"></a>
 
 Get familiar with the key concepts for administration in CodeCatalyst. These concepts include terms used in supporting access, user management, and identity federation.
 

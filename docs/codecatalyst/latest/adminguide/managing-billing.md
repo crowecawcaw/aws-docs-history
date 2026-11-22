@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Administering billing
-<a name="managing-billing"></a>
 
 Your CodeCatalyst space uses resources, such as Dev Environments and compute, that are charged based on separate subscription tiers. To check your usage and to view pricing for each subscription tier, see the **Billing** tab for your space.
 

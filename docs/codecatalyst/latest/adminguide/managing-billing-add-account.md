@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Setting up a billing account
-<a name="managing-billing-add-account"></a>
 
 To set up billing, you must add an authorized AWS account to your CodeCatalyst space and configure it for billing. Before you can set up a billing account, you must work with your AWS administrator to complete the prerequisites in the following procedure.
 

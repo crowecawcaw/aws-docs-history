@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Troubleshooting problems with billing associated with your space
-<a name="troubleshooting-billing"></a>
 
 In CodeCatalyst, you can add an AWS account to your space to grant permissions to resources and for billing purposes. The following information can help you troubleshoot common issues with associated accounts in CodeCatalyst.
 

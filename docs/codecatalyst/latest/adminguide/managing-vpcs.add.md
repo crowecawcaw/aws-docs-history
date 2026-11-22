@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Adding VPC connections for a space
-<a name="managing-vpcs.add"></a>
 
 You can add VPC connections in the Amazon CodeCatalyst console.
 
@@ -32,7 +31,7 @@ If you associate your VPC connection with a project-restricted AWS account conne
    + For **VPC role**, choose a role from the drop-down menu and then choose **Next**.
      + We recommend that the `ArnLike` field for your trust policy contains the following:
 
-       ```
+       ```json
        {
          "aws:SourceArn": [
            "arn:aws:codecatalyst:::space/{{<space-id>}}",
@@ -46,7 +45,7 @@ If you associate your VPC connection with a project-restricted AWS account conne
 Understand that VPC connections are a space level resource, meaning that your VPC can be accessed by different projects. You can restrict access by configuring your VPC role trust policy with a specific `projectId` instead of instead of `*`.
      + The `Action` field for your permission policy must contain the following:
 
-       ```
+       ```json
        [
          "ec2:CreateNetworkInterface",
          "ec2:DescribeDhcpOptions",

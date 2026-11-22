@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Changing allowed tiers for a billing account
-<a name="managing-billing-turn-on-tier"></a>
 
 When you set up a billing account, the allowed CodeCatalyst tiers that you want to allow your space to use defaults to the free and paid tiers. You can turn the paid tiers on or off from your space's **Settings**. 
 

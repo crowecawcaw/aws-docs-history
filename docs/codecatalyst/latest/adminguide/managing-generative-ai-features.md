@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Enabling generative AI features in Amazon CodeCatalyst
-<a name="managing-generative-ai-features"></a>
 
 Amazon Q Developer in Amazon CodeCatalyst includes generative AI features that can help users in projects in your space develop software faster. Developers frequently have more tasks to do than time to accomplish them. CodeCatalyst integrates with Amazon Q Developer to provide features that can help team members accomplish their tasks more quickly and increase the time they have to focus on the most important parts of their work. These features are only available to users if you enable generative AI features for your space. If you choose to allow access to these features, users can access and use these features to help them accomplish their work more quickly. When these features are enabled, an individual user's usage of and quotas for using Amazon Q features depends on the user's subscription to Amazon Q Developer. For more information, see [Amazon Q Developer Pricing](https://aws.amazon.com/q/developer/pricing). 
 

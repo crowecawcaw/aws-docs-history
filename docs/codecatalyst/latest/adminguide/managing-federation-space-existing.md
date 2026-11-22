@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Configure an existing CodeCatalyst space for identity federation
-<a name="managing-federation-space-existing"></a>
 
 You must have the **Space administrator** role and access to the billing account for the space in order to view SSO users and groups for your space. 
 

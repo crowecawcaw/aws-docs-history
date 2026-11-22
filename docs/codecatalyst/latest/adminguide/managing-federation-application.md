@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Administering Identity Center applications
-<a name="managing-federation-application"></a>
 
 An *Identity Center application* is an association between your CodeCatalyst space and IAM Identity Center. The Identity Center application allows users from your company directory to sign in to CodeCatalyst, so your application name will represent your company and will be visible for selection as an option where users from a workforce directory will access CodeCatalyst. As part of creating a space that supports identity federation, you will choose or create the Identity Center application that will be associated with your space. You can associate multiple spaces with a single Identity Center application. When setting up the Identity Center application for CodeCatalyst, note that the application name must be unique across CodeCatalyst and your IAM Identity Center instances. This uniqueness requirement helps prevent confusion and ensures proper identification of different applications. This unique name is primarily for administrative purposes within IAM Identity Center and doesn't affect the functionality of CodeCatalyst.
 

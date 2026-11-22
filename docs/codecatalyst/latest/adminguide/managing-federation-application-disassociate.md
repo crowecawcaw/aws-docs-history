@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Disassociating an Identity Center application from a space
-<a name="managing-federation-application-disassociate"></a>
 
 You can disassociate the Identity Center application that is associated with your CodeCatalyst space. You can reassociate the Identity Center application later, or you can associate the Identity Center application to another space.
 

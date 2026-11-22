@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Configuring VPC endpoints for a space
-<a name="managing-vpcs.endpoint"></a>
 
 VPCs allow you to define a virtual network that isolates AWS resources, securely connects to remote networks, and safely accesses service endpoints through AWS PrivateLink. AWS PrivateLink is used to generate private endpoints which keep all the network traffic within the AWS network. When connected to a VPC, you can create VPC endpoints that will allow CodeCatalyst to communicate directly with certain services rather than through the internet.
 

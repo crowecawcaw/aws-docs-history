@@ -3,7 +3,6 @@
 Amazon CodeCatalyst will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For more information, see [Migrating from Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/migration.html).
 
 # Administering connected accounts
-<a name="managing-accounts"></a>
 
 To access resources in AWS related to your projects in CodeCatalyst, you must connect an AWS account to your space. The connected account can also be used as the billing account for the space if you choose to use a paid tier.
 
