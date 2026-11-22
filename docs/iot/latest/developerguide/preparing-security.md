@@ -1,7 +1,6 @@
 
 
 # Preparing security
-<a name="preparing-security"></a>
 
 This section discusses the main security requirements for AWS IoT Device Management Software Package Catalog.
 
@@ -29,7 +28,7 @@ The policy might look like the following example:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ The IAM policy grants the right to create a job that includes the package and ve
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -94,7 +93,7 @@ The IAM policy grants the right to create a job that includes the package and ve
 **Note**  
 If you want to deploy a job that uninstalls a software package and package version, you must authorize an ARN where the package version is `$null`, such as in the following:
 
-```
+```json
 arn:aws:iot:{{<regionCode>}}:{{111122223333}}:package/{{<packageName>}}/version/$null
 ```
 
@@ -114,7 +113,7 @@ When you use the **Create role** option, the generated role’s name begins with
 The permissions policy grants the rights to query and update the thing shadow. The `$package` parameter in the resource ARN targets the reserved named shadow.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -141,7 +140,7 @@ The permissions policy grants the rights to query and update the thing shadow. T
 In addition to the permissions policy, the role requires a trust relationship with AWS IoT Core so that the entity can assume the role and update the reserved named shadow.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -162,7 +161,7 @@ In addition to the permissions policy, the role requires a trust relationship wi
 Finally, you must have the permission to pass the role to AWS IoT Core when you call the [ UpdatePackageConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageConfiguration.html) API operation.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -197,7 +196,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -214,7 +213,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -232,7 +231,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -251,7 +250,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -271,7 +270,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -291,7 +290,7 @@ The following policies are required to perform this update:
   +   
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

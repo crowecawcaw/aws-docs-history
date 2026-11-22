@@ -1,7 +1,6 @@
 
 
 # Provisioning devices that don't have device certificates using fleet provisioning
-<a name="provision-wo-cert"></a>
 
 By using AWS IoT fleet provisioning, AWS IoT can generate and securely deliver device certificates and private keys to your devices when they connect to AWS IoT for the first time. AWS IoT provides client certificates that are signed by the Amazon Root certificate authority (CA).
 
@@ -33,7 +32,7 @@ Devices can be manufactured with a provisioning claim certificate and private ke
 1. Register these certificates with AWS IoT and associate an IoT policy that restricts the use of the certificates. The following example IoT policy restricts the use of the certificate associated with this policy to provisioning devices.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -112,7 +111,7 @@ You must manage the trusted user's access and permission to perform this procedu
 
 1. Create an IAM role that is used by a trusted user to initiate the provisioning process. The provisioning template allows only that user to provision a device. For example:
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Action": [
@@ -169,7 +168,7 @@ The following procedure creates a provisioning template with pre-provisioning ho
 
    The following is an example of a Lambda function output:
 
-   ```
+   ```json
    {
      "allowProvisioning": True,
      "parameterOverrides": {
@@ -185,7 +184,7 @@ Be sure to include the `source-arn` or `source-account` in the global condition 
 
    The following is an example using [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) give IoT permission to your Lambda.
 
-   ```
+   ```bash
    aws lambda add-permission \
        --function-name {{myLambdaFunction}} \
        --statement-id iot-permission \
@@ -197,7 +196,7 @@ Be sure to include the `source-arn` or `source-account` in the global condition 
 
    The following CLI example uses the [create-provisioning-template](https://docs.aws.amazon.com/cli/latest/reference/iot/create-provisioning-template.html) to create a provisioning template that has pre-provisioning hooks:
 
-   ```
+   ```bash
    aws iot create-provisioning-template \
        --template-name {{myTemplate}} \
        --provisioning-role-arn {{arn:aws:iam:us-east-1:1234564789012:role/myRole}} \
@@ -207,7 +206,7 @@ Be sure to include the `source-arn` or `source-account` in the global condition 
 
    The output of this command looks like the following:
 
-   ```
+   ```json
    {
        "templateArn": "{{arn:aws:iot:us-east-1:1234564789012:provisioningtemplate/myTemplate}}",
        "defaultVersionId": 1,
@@ -217,7 +216,7 @@ Be sure to include the `source-arn` or `source-account` in the global condition 
 
    You can also load a parameter from a file instead of typing it all as a command line parameter value to save time. For more information, see [Loading AWS CLI Parameters from a File](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-file.html). The following shows the `template` parameter in expanded JSON format:
 
-   ```
+   ```json
    {
        "Parameters" : {
            "DeviceLocation": {
@@ -282,7 +281,7 @@ Be sure to include the `source-arn` or `source-account` in the global condition 
 
    The following shows the `pre-provisioning-hook` parameter in expanded JSON format:
 
-   ```
+   ```json
    {
         "targetArn" : "{{arn:aws:lambda:us-east-1:765219403047:function:pre_provisioning_test}}",
         "payloadVersion" : "{{2020-04-01}}"

@@ -1,7 +1,6 @@
 
 
 # Billing groups
-<a name="tagging-iot-billing-groups"></a>
 
 AWS IoT doesn't allow you to directly apply tags to individual things, but it does allow you to place things in billing groups and to apply tags to these. For AWS IoT, allocation of cost and usage data based on tags is limited to billing groups.
 

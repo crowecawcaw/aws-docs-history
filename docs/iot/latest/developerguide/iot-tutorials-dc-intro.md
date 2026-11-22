@@ -1,7 +1,6 @@
 
 
 # Building demos with the AWS IoT Device Client
-<a name="iot-tutorials-dc-intro"></a>
 
 The tutorials in this learning path walk you through the steps to develop demonstration software by using the AWS IoT Device Client. The AWS IoT Device Client provides software that runs on your IoT device to test and demonstrate aspects of an IoT solution that's built on AWS IoT.
 

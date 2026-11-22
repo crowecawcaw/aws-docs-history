@@ -1,7 +1,6 @@
 
 
 # Configure AWS IoT logging
-<a name="configure-logging"></a>
 
 You must enable logging by using the AWS IoT console, CLI, or API before you can monitor and log AWS IoT activity. You can configure logging for AWS IoT at three levels: account-level, event-level or resource-specific level. Event-level and resource-specific logging are available exclusively with V2 logging. Customers using V1 logging must perform a migration to V2 to access these features. See [details](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#migration-v1-v2). 
 
@@ -68,7 +67,7 @@ Role policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ Trust policy to log only AWS IoT Core activity:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ You can also perform this procedure with the API by using the methods in the AWS
 
 1. Use the [**set-v2-logging-options**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/set-v2-logging-options.html) command to set the logging options for your account.
 
-   ```
+   ```bash
    aws iot set-v2-logging-options \
        --event-configurations {{event-configuration-list}} \
        --role-arn {{logging-role-arn}} \
@@ -211,14 +210,14 @@ This parameter is optional and allows you to customize logging settings for indi
 
    You can configure logging level and log destination independently for each event type. If not specified, events will inherit the account-level settings
 
-   ```
+   ```bash
    aws iot set-v2-logging-options \
        --event-configurations "[{\"eventType\":\"Publish-In\",\"logLevel\":\"INFO\",\"logDestination\":\"examplePublishInLogGroup\"}]"
    ```
 
 1. Use the [**get-v2-logging-options**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/get-v2-logging-options.html) command to get your current logging options.
 
-   ```
+   ```bash
    aws iot get-v2-logging-options \
        --verbose
    ```
@@ -255,7 +254,7 @@ You can also perform this procedure with the API by using the methods in the AWS
 
 1. Use the [**set-v2-logging-level**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/set-v2-logging-level.html) command to configure Resource-specific overrides. See the following example for thing group configuration:
 
-   ```
+   ```bash
    aws iot set-v2-logging-level \
                  --log-target targetType=THING_GROUP,targetName={{thing_group_name}} \
                  --log-level {{log_level}}
@@ -263,7 +262,7 @@ You can also perform this procedure with the API by using the methods in the AWS
 **--log-target**  
 The type and name of the resource for which you are configuring logging. The `targetType` value must be one of: `THING_GROUP` \| `CLIENT_ID` \| `SOURCE_IP` \| `PRINCIPAL_ID`. The log-target parameter value can be text, as shown in the preceding command example, or a JSON string, such as the following example.  
 
-   ```
+   ```bash
    aws iot set-v2-logging-level \
                  --log-target '{"targetType": "THING_GROUP","targetName": "{{thing_group_name}}"}' \
                  --log-level {{log_level}}
@@ -273,19 +272,19 @@ The logging level used when generating logs for the specified resource. Valid va
 
 1. Use the [**list-v2-logging-levels**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-v2-logging-levels.html) command to list the currently configured logging levels.
 
-   ```
+   ```bash
    aws iot list-v2-logging-levels
    ```
 
 1. Use the [**delete-v2-logging-level**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/delete-v2-logging-level.html) command to delete a resource-specific logging level, such as the following examples.
 
-   ```
+   ```bash
    aws iot delete-v2-logging-level \
                  --target-type "THING_GROUP" \
                  --target-name "{{thing_group_name}}"
    ```
 
-   ```
+   ```bash
    aws iot delete-v2-logging-level \
                  --target-type=CLIENT_ID 
                  --target-name={{ClientId1}}

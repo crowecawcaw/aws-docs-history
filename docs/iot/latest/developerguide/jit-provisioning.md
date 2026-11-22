@@ -1,7 +1,6 @@
 
 
 # Just-in-time provisioning
-<a name="jit-provisioning"></a>
 
 You can use just-in-time provisioning (JITP) to provision your devices when they first attempt to connect to AWS IoT. To provision the device, you must enable automatic registration and associate a provisioning template with the CA certificate used to sign the device certificate. Provisioning successes and errors are logged as [Device provisioning metrics](metrics_dimensions.md#provisioning-metrics) in Amazon CloudWatch.
 
@@ -35,7 +34,7 @@ You can provision devices using AWS IoT Core just-in-time provisioning (JITP) fe
 
 The following JSON file is an example template body of a complete JITP template. 
 
-```
+```JSON
 {
    "Parameters":{
       "AWS::IoT::Certificate::CommonName":{
@@ -119,7 +118,7 @@ To register a CA by using a complete provisioning template, follow these steps:
 
 1. Save your provisioning template and the role ARN information like the following example as a JSON file:
 
-   ```
+   ```JSON
    { 
         "templateBody" : "{\r\n    \"Parameters\" : {\r\n        \"AWS::IoT::Certificate::CommonName\": {\r\n            \"Type\": \"String\"\r\n        },\r\n        \"AWS::IoT::Certificate::SerialNumber\": {\r\n            \"Type\": \"String\"\r\n        },\r\n        \"AWS::IoT::Certificate::Country\": {\r\n            \"Type\": \"String\"\r\n        },\r\n        \"AWS::IoT::Certificate::Id\": {\r\n            \"Type\": \"String\"\r\n        }\r\n    },\r\n    \"Resources\": {\r\n        \"thing\": {\r\n            \"Type\": \"AWS::IoT::Thing\",\r\n            \"Properties\": {\r\n                \"ThingName\": {\r\n                    \"Ref\": \"AWS::IoT::Certificate::CommonName\"\r\n                },\r\n                \"AttributePayload\": {\r\n                    \"version\": \"v1\",\r\n                    \"serialNumber\": {\r\n                        \"Ref\": \"AWS::IoT::Certificate::SerialNumber\"\r\n                    }\r\n                },\r\n                \"ThingTypeName\": \"lightBulb-versionA\",\r\n                \"ThingGroups\": [\r\n                    \"v1-lightbulbs\",\r\n                    {\r\n                        \"Ref\": \"AWS::IoT::Certificate::Country\"\r\n                    }\r\n                ]\r\n            },\r\n            \"OverrideSettings\": {\r\n                \"AttributePayload\": \"MERGE\",\r\n                \"ThingTypeName\": \"REPLACE\",\r\n                \"ThingGroups\": \"DO_NOTHING\"\r\n            }\r\n        },\r\n        \"certificate\": {\r\n            \"Type\": \"AWS::IoT::Certificate\",\r\n            \"Properties\": {\r\n                \"CertificateId\": {\r\n                    \"Ref\": \"AWS::IoT::Certificate::Id\"\r\n                },\r\n                \"Status\": \"ACTIVE\"\r\n            },\r\n            \"OverrideSettings\": {\r\n                \"Status\": \"DO_NOTHING\"\r\n            }\r\n        },\r\n        \"policy\": {\r\n            \"Type\": \"AWS::IoT::Policy\",\r\n            \"Properties\": {\r\n                \"PolicyDocument\": \"{ \\\"Version\\\": \\\"2012-10-17		 	 	 \\\", \\\"Statement\\\": [{ \\\"Effect\\\": \\\"Allow\\\", \\\"Action\\\":[\\\"iot:Publish\\\"], \\\"Resource\\\": [\\\"arn:aws:iot:us-east-1:123456789012:topic\/foo\/bar\\\"] }] }\"\r\n            }\r\n        }\r\n    }\r\n}",
         "roleArn" : "arn:aws:iam::123456789012:role/JITPRole"
@@ -150,7 +149,7 @@ To register a CA by using a complete provisioning template, follow these steps:
 
    The following shows an example of how to update a CA certificate using the AWS CLI:
 
-   ```
+   ```bash
    aws iot update-ca-certificate --certificate-id {{caCertificateId}}
                    --new-auto-registration-status ENABLE --registration-config file://{{your-template}}
    ```

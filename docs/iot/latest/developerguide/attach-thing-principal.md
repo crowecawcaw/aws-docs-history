@@ -1,7 +1,6 @@
 
 
 # Attach a principal to a thing
-<a name="attach-thing-principal"></a>
 
 A physical device can use a principal to communicate with AWS IoT. A principal can be an X.509 certificate or an Amazon Cognito ID. You can associate a certificate or an Amazon Cognito ID with the thing in the registry that represents your device, by running the [attach-thing-principal](https://docs.aws.amazon.com/cli/latest/reference/iot/attach-thing-principal.html) command.
 

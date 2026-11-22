@@ -1,7 +1,6 @@
 
 
 # SQS
-<a name="sqs-rule-action"></a>
 
 The SQS (`sqs`) action sends data from an MQTT message to an Amazon Simple Queue Service (Amazon SQS) queue.
 
@@ -40,7 +39,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines an SQS action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -60,7 +59,7 @@ The following JSON example defines an SQS action in an AWS IoT rule.
 
 The following JSON example defines an SQS action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

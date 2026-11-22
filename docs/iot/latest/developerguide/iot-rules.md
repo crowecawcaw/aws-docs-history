@@ -1,7 +1,6 @@
 
 
 # Rules for AWS IoT
-<a name="iot-rules"></a>
 
 Rules give your devices the ability to interact with AWS services. Rules are analyzed and actions are performed based on the MQTT topic stream. You can use rules to support the following tasks:
 + Augment or filter data received from a device.

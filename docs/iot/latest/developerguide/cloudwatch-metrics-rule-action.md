@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics
-<a name="cloudwatch-metrics-rule-action"></a>
 
 The CloudWatch metric (`cloudwatchMetric`) action captures an Amazon CloudWatch metric. You can specify the metric namespace, name, value, unit, and timestamp. 
 
@@ -47,7 +46,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a CloudWatch metric action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -71,7 +70,7 @@ The following JSON example defines a CloudWatch metric action in an AWS IoT rule
 
 The following JSON example defines a CloudWatch metric action with substitution templates in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

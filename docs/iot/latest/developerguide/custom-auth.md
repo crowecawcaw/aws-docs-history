@@ -1,7 +1,6 @@
 
 
 # Connecting to AWS IoT Core by using custom authentication
-<a name="custom-auth"></a>
 
  Devices can connect to AWS IoT Core by using custom authentication with any protocol that AWS IoT Core supports for device messaging. For more information about supported communication protocols, see [Device communication protocols](protocols.md).  The connection data that you pass to your authorizer Lambda function depends on the protocol you use. For more information about creating your authorizer Lambda function, see [Defining your Lambda function](custom-auth-lambda.md). The following sections explain how to connect to authenticate by using each supported protocol.
 
@@ -79,7 +78,7 @@ echo -n {{TOKEN_VALUE}} | openssl dgst -sha256 -sign {{PEM encoded RSA private k
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const crypto = require('crypto')
 
 const key = "{{PEM encoded RSA private key}}"

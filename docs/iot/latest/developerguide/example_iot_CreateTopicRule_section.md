@@ -1,7 +1,6 @@
 
 
 # Use `CreateTopicRule` with an AWS SDK or CLI
-<a name="example_iot_CreateTopicRule_section"></a>
 
 The following code examples show how to use `CreateTopicRule`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Creates an IoT topic rule.
     /// </summary>
@@ -72,7 +71,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
-```
+```cpp
 //! Create an AWS IoT rule with an SNS topic as the target.
 /*!
   \param ruleName: The name for the rule.
@@ -158,7 +157,7 @@ For more information, see [Creating an AWS IoT Rule](https://docs.aws.amazon.com
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
-```
+```java
     /**
      * Creates an IoT rule asynchronously.
      *
@@ -221,7 +220,7 @@ For more information, see [Creating an AWS IoT Rule](https://docs.aws.amazon.com
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
-```
+```kotlin
 suspend fun createIoTRule(
     roleARNVal: String?,
     ruleNameVal: String?,
@@ -265,7 +264,7 @@ suspend fun createIoTRule(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
-```
+```python
 class IoTWrapper:
     """Encapsulates AWS IoT actions."""
 
@@ -322,7 +321,7 @@ class IoTWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
-```
+```sap-abap
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
     DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
     DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).

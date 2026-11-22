@@ -1,7 +1,6 @@
 
 
 # Open a tunnel and start SSH session to remote device
-<a name="secure-tunneling-tutorial-open-tunnel"></a>
 
 In these tutorials, you'll learn how to remotely access a device that's behind a firewall. You can't start a direct SSH session into the device because the firewall blocks all inbound traffic. The tutorials show you how you can open a tunnel and then use that tunnel to start an SSH session to a remote device.
 

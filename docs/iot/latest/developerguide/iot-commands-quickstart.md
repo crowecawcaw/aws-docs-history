@@ -1,7 +1,6 @@
 
 
 # Quick start
-<a name="iot-commands-quickstart"></a>
 
 Complete these steps to send your first command:
 

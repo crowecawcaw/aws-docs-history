@@ -1,7 +1,6 @@
 
 
 # Creating and configuring customer managed domains
-<a name="iot-custom-endpoints-configurable-custom"></a>
 
 Domain configurations let you specify a custom fully qualified domain name (FQDN) to connect to AWS IoT Core. There are many benefits of using customer managed domains (also known as custom domains): you can expose your own domain or your company's own domain to customers for branding purposes; you can easily change your own domain to point to a new broker; you can support multi-tenancy to serve customers with different domains within the same AWS account; and you can manage your own server certificates details, such as the root certificate authority (CA) used to sign the certificate, the signature algorithm, the certificate chain depth, and the lifecycle of the certificate.
 

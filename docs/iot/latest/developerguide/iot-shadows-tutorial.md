@@ -1,7 +1,6 @@
 
 
 # Retaining device state while the device is offline with Device Shadows
-<a name="iot-shadows-tutorial"></a>
 
 These tutorials show you how to use the AWS IoT Device Shadow service to store and update the state information of a device. The Shadow document, which is a JSON document, shows the change in the device's state based on the messages published by a device, local app, or service. In this tutorial, the Shadow document shows the change in the color of a light bulb. These tutorials also show how the shadow stores this information even when the device is disconnected from the internet, and passes the latest state information back to the device when it comes back online and requests this information.
 
@@ -34,7 +33,7 @@ A Shadow document contains a `state` property that describes these aspects of th
 
 Here is an example of a Shadow state document.
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -54,7 +53,7 @@ To update a device's Shadow document, you can use the [reserved MQTT topics](res
 
 In the previous example, say you want to change the `desired` color to `yellow`. To do this, send a request to the [UpdateThingShadow](device-shadow-rest-api.md#API_UpdateThingShadow) API or publish a message to the [Update](device-shadow-mqtt.md#update-pub-sub-topic) topic, `$aws/things/THING_NAME/shadow/update`.
 
-```
+```JSON
 {
   "state": {
     "desired": {

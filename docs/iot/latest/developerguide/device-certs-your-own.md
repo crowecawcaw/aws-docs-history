@@ -1,7 +1,6 @@
 
 
 # Create your own client certificates
-<a name="device-certs-your-own"></a>
 
 AWS IoT supports client certificates signed by any root or intermediate certificate authorities (CA). AWS IoT uses CA certificates to verify the ownership of certificates. To use device certificates signed by a CA that’s not Amazon’s CA, the CA’s certificate must be registered with AWS IoT so that we can verify the device certificate’s ownership.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up your Raspberry Pi and moisture sensor
-<a name="iot-moisture-raspi-setup"></a>
 
 
 
@@ -69,7 +68,7 @@ The libraries for the Adafruit STEMMA moisture sensor are written for CircuitPyt
 
 Your Raspberry Pi now has all of the required libraries. Create a file called **moistureSensor.py** and copy the following Python code into the file:
 
-```
+```python
 from adafruit_seesaw.seesaw import Seesaw
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 from board import SCL, SDA

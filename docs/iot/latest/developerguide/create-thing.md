@@ -1,7 +1,6 @@
 
 
 # Create a thing
-<a name="create-thing"></a>
 
 The following command shows how to use the AWS IoT **CreateThing** command from the CLI to create a thing. You can't change a thing's name after you create it. To change a thing's name, create a new thing, give it the new name, and then delete the old thing. 
 
@@ -13,7 +12,7 @@ $ aws iot create-thing \
 
 The **CreateThing** command displays the name and Amazon Resource Name (ARN) of your new thing:
 
-```
+```JSON
 {
     "thingArn": "arn:aws:iot:us-east-1:123456789012:thing/MyLightBulb",
     "thingName": "MyLightBulb",

@@ -1,7 +1,6 @@
 
 
 # Test connectivity with your device data endpoint
-<a name="iot-quick-start-test-connection"></a>
 
 This topic describes how to test a device's connection with your account's *device data endpoint*, the endpoint that your IoT devices use to connect to AWS IoT.
 

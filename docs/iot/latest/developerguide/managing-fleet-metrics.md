@@ -1,7 +1,6 @@
 
 
 # Managing fleet metrics
-<a name="managing-fleet-metrics"></a>
 
 This topic shows how to use the AWS IoT console and AWS CLI to manage your fleet metrics.
 
@@ -106,7 +105,7 @@ aws iot create-fleet-metric --metric-name "YourFleetMetricName" --query-string "
 
 The output of this command contains the name and Amazon Resource Name (ARN) of your fleet metric. The output looks like the following:
 
-```
+```JSON
 {
     "metricArn": "arn:aws:iot:us-east-1:{{111122223333:fleetmetric/YourFleetMetricName}}", 
     "metricName": "YourFleetMetricName"
@@ -124,7 +123,7 @@ aws iot list-fleet-metrics
 
 The output of this command contains all your fleet metrics. The output looks like the following:
 
-```
+```JSON
 {
     "fleetMetrics": [
         {
@@ -150,7 +149,7 @@ aws iot describe-fleet-metric --metric-name "YourFleetMetricName"
 
 The output of command contains the detailed information about the specified fleet metric. The output looks like the following:
 
-```
+```JSON
 {
     "queryVersion": "2017-09-30", 
     "lastModifiedDate": 1625790642.355, 
@@ -182,7 +181,7 @@ aws iot update-fleet-metric --metric-name "YourFleetMetricName" --query-string "
 
 The update-fleet-metric command doesn't produce any output. You can use the describe-fleet-metric CLI command to see the result.
 
-```
+```JSON
 {
     "queryVersion": "2017-09-30", 
     "lastModifiedDate": 1625792300.881, 
@@ -233,7 +232,7 @@ Refer to the following IAM policy example granting tagging permissions when you 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

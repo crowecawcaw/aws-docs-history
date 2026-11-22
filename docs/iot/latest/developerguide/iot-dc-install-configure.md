@@ -1,7 +1,6 @@
 
 
 # Configure the AWS IoT Device Client to test connectivity
-<a name="iot-dc-install-configure"></a>
 
 The procedures in this section configure the AWS IoT Device Client to publish an MQTT message from your Raspberry Pi.
 
@@ -29,7 +28,7 @@ This procedure creates the config file to test the AWS IoT Device Client.
 
   1. Copy this JSON document and paste it into your open text editor.
 
-     ```
+     ```json
      {
        "endpoint": "{{a3qEXAMPLEaffp-ats.iot.us-west-2.amazonaws.com}}",
        "cert": "~/certs/testconn/device.pem.crt",

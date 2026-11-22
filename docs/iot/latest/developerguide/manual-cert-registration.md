@@ -1,7 +1,6 @@
 
 
 # Register a client certificate manually
-<a name="manual-cert-registration"></a>
 
 You can register a client certificate manually by using the AWS IoT console and AWS CLI.
 

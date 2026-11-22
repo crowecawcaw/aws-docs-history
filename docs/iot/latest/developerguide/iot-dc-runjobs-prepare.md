@@ -1,7 +1,6 @@
 
 
 # Prepare the Raspberry Pi to run jobs
-<a name="iot-dc-runjobs-prepare"></a>
 
 The procedures in this section describe how to prepare your Raspberry Pi to run jobs by using the AWS IoT Device Client.
 
@@ -44,7 +43,7 @@ In the terminal window on your local host computer that's connected to your Rasp
 
    The command returns a response like the following. Save the `{{certificateArn}}` value for later use.
 
-   ```
+   ```json
    {
    "certificateArn": "{{arn:aws:iot:us-west-2:57EXAMPLE833:cert/76e7e4edb3e52f52334be2f387a06145b2aa4c7fcd810f3aea2d92abc227d269}}",
    "certificateId": "76e7e4edb3e52f5233EXAMPLE7a06145b2aa4c7fcd810f3aea2d92abc227d269",
@@ -103,7 +102,7 @@ In the terminal window on your local host computer that's connected to your Rasp
 
    The **describe-endpoint** command returns a response like the following. Record the `{{endpointAddress}}` value for later use.
 
-   ```
+   ```json
    {
    "endpointAddress": "{{a3qjEXAMPLEffp-ats.iot.us-west-2.amazonaws.com}}"
    }
@@ -125,7 +124,7 @@ When you want to secure the policy for multiple devices, you can use `${iot:Thin
 
    If your AWS IoT thing resource was created, the command returns a response like this. Record the `{{thingArn}}` value for use later when you create the job to run on this device.
 
-   ```
+   ```json
    {
    "thingName": "{{uniqueThingName}}",
    "thingArn": "arn:aws:iot:us-west-2:57EXAMPLE833:thing/{{uniqueThingName}}",
@@ -140,7 +139,7 @@ When you want to secure the policy for multiple devices, you can use `${iot:Thin
    1. Copy this JSON document and paste it into your open text editor.  
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -221,7 +220,7 @@ When you want to secure the policy for multiple devices, you can use `${iot:Thin
    If the policy is created, the command returns a response like this.  
 ****  
 
-   ```
+   ```json
    {
        "policyName": "JobTestPolicyFor{{uniqueThingName}}",
        "policyArn": "arn:aws:iot:us-west-2:57EXAMPLE833:policy/JobTestPolicyFor{{uniqueThingName}}",
@@ -232,7 +231,7 @@ When you want to secure the policy for multiple devices, you can use `${iot:Thin
 
 1. Replace {{uniqueThingName}} with the thing name for the device and `{{certificateArn}}` with the `certificateArn` value you saved earlier in this section for this device, and then run this command to attach the policy to the device certificate. 
 
-   ```
+   ```json
    aws iot attach-policy \
    --policy-name "JobTestPolicyFor{{uniqueThingName}}" \
    --target "{{certificateArn}}"
@@ -267,7 +266,7 @@ Note: if you are preparing more than one device, this procedure must be performe
 
    1. Copy this JSON document and paste it into your open text editor.
 
-      ```
+      ```json
       {
         "endpoint": "{{a3qEXAMPLEaffp-ats.iot.us-west-2.amazonaws.com}}",
         "cert": "~/certs/jobs/device.pem.crt",

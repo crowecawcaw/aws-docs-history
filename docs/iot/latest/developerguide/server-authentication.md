@@ -1,7 +1,6 @@
 
 
 # Server authentication
-<a name="server-authentication"></a>
 
 When your device or other client attempts to connect to AWS IoT Core, the AWS IoT Core server will send an X.509 certificate that your device uses to authenticate the server. Authentication takes place at the TLS layer through validation of the [ X.509 certificate chain](x509-client-certs.md). This is the same method used by your browser when you visit an HTTPS URL. If you want to use certificates from your own certificate authority, see [Manage your CA certificates](manage-your-CA-certs.md).
 
@@ -47,7 +46,7 @@ To create an `IotDataPlaneClient` that uses an `iot:Data-ATS` endpoint, you must
 
 The following example performs both of these operations.
 
-```
+```java
 public void setup() throws Exception {
         IotClient client = IotClient.builder().credentialsProvider(CREDENTIALS_PROVIDER_CHAIN).region(Region.US_EAST_1).build();
         String endpoint = client.describeEndpoint(r -> r.endpointType("iot:Data-ATS")).endpointAddress();

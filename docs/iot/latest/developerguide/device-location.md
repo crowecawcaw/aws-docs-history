@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core Device Location
-<a name="device-location"></a>
 
 
 |  | 
@@ -39,7 +38,7 @@ General IoT devices and Sidewalk devices can use the device location MQTT topics
 | IP address | IP reverse lookup solver | Any IoT device that connects over TCP/IP | 
 | GNSS scan data (NAV messages) | GNSS solver | General IoT devices, LoRaWAN, and Amazon Sidewalk devices | 
 | Multi-frame GNSS scan data (multiple NAV messages from the same device) | Multi-frame GNSS solver | General IoT devices | 
-| Bluetooth Low Energy (BLE) | BLE based solver | Amazon Sidewalk devices | 
+| Amazon Sidewalk Proximity | Bluetooth Low Energy (BLE) and LoRa based solvers | Amazon Sidewalk devices | 
 
 **Note**  
 The GNSS and multi-frame GNSS measurement types are mutually exclusive. A single request can use the `Gnss` measurement type to resolve the location from a single NAV message capture, or the `GnssMultiFrame` measurement type to resolve the location from multiple NAV message captures from the same device, but it can't contain both in the same request.

@@ -1,7 +1,6 @@
 
 
 # What is a domain configuration?
-<a name="iot-domain-configuration-what-is"></a>
 
 In AWS IoT Core, a domain configuration refers to the setup and configuration of a domain (either AWS managed domain or customer managed domain) for your AWS IoT Core data endpoints. AWS IoT Core also provides a default endpoint for your AWS account (`iot:Data-ATS`) for devices to communicate with AWS IoT Core.
 
@@ -45,6 +44,8 @@ The following concepts provide details about domain configurations and related c
 <a name="iot-custom-endpoints-configurable-notes"></a>
 
 AWS IoT Core uses the [server name indication (SNI) TLS extension](https://www.rfc-editor.org/rfc/rfc3546) to apply domain configurations. When connecting devices to AWS IoT Core, clients can send the [Server Name Indication (SNI) extension](https://tools.ietf.org/html/rfc3546#section-3.1), which is required for features such as [multi-account registration](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#multiple-account-cert), [configurable endpoints](https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-configurable.html), [custom domains](https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-configurable-custom.html), and [VPC endpoints](https://docs.aws.amazon.com/iot/latest/developerguide/IoTCore-VPC.html). They also must pass a server name that is identical to the domain name that you specify in the domain configuration. To test this service, use the v2 version of the [AWS IoT Device SDKs](https://github.com/aws) in GitHub.
+
+You can call the AWS IoT Core credential provider HTTPS API with an X.509 client certificate by using the domain name of an AWS managed or customer managed domain configuration. For the protocol and port mappings, see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping). For more information, see [Authorizing direct calls to AWS services using AWS IoT Core credential provider](authorizing-direct-aws.md).
 
 If you create multiple data endpoints in your AWS account, they will share AWS IoT Core resources such as MQTT topics, device shadows, and rules.
 

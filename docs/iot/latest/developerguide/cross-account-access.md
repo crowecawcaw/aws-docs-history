@@ -1,7 +1,6 @@
 
 
 # Cross account access with IAM
-<a name="cross-account-access"></a>
 
 AWS IoT Core allows you to enable a principal to publish or subscribe to a topic that is defined in an AWS account not owned by the principal. You configure cross account access by creating an IAM policy and IAM role and then attaching the policy to the role.
 
@@ -11,7 +10,7 @@ For devices registered in AWS IoT Core registry, the following policy grants per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -41,7 +40,7 @@ For devices not registered in AWS IoT Core registry, the following policy grants
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ Next, follow the steps in [Creating a role to delegate permissions to an IAM use
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

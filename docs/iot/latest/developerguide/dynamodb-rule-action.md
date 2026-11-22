@@ -1,7 +1,6 @@
 
 
 # DynamoDB
-<a name="dynamodb-rule-action"></a>
 
 The DynamoDB (`dynamoDB`) action writes all or part of an MQTT message to an Amazon DynamoDB table. 
 
@@ -71,7 +70,7 @@ The data written to the DynamoDB table is the result from the SQL statement of t
 
 The following JSON example defines a DynamoDB action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * AS message FROM 'some/topic'", 

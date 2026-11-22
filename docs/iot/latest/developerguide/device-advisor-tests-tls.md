@@ -1,7 +1,6 @@
 
 
 # TLS
-<a name="device-advisor-tests-tls"></a>
 
 Use these tests to determine if the transport layer security protocol (TLS) between your devices and AWS IoT is secure.
 
@@ -17,7 +16,7 @@ Validates if the device under test can complete the TLS handshake to AWS IoT. Th
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. For best results, we recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_connect_test}}",
@@ -44,7 +43,7 @@ This test case validates that your device can receive and process TLS maximum si
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. For best results, we recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":"TLS Receive Maximum Size Fragments",
@@ -71,7 +70,7 @@ Validates that the cipher suites in the TLS Client Hello message from the device
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes.
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_support_aws_iot_cipher_suites_test}}",
@@ -107,7 +106,7 @@ Validates at your device can complete the TLS handshake with AWS IoT when it rec
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. For best results, we recommend a timeout value of 2 minutes. If this test case fails but the **TLS Connect** test case passes, we recommend you increase your device’s buffer space limit for TLS Increasing the buffer space limit sures that your device can process a larger size server certificate in case the size increases.
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_large_size_server_cert_test}}",
@@ -137,7 +136,7 @@ Validates that the device under test closes the connection if it's presented wit
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_unsecure_server_cert_test}}",
@@ -163,7 +162,7 @@ Validates that the device under test closes the connection if it's presented wit
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_incorrect_subject_name_cert_test}}",
@@ -192,7 +191,7 @@ Validates that the device under test closes the connection if it's presented wit
 **Example API test case definition:**  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":"{{my_tls_expired_cert_test}}",

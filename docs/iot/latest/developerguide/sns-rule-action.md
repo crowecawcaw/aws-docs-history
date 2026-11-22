@@ -1,7 +1,6 @@
 
 
 # SNS
-<a name="sns-rule-action"></a>
 
 The SNS (`sns`) action sends the data from an MQTT message as an Amazon Simple Notification Service (Amazon SNS) push notification.
 
@@ -41,7 +40,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines an SNS action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -61,7 +60,7 @@ The following JSON example defines an SNS action in an AWS IoT rule.
 
 The following JSON example defines an SNS action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

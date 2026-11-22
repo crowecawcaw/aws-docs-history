@@ -1,7 +1,6 @@
 
 
 # View MQTT messages with the AWS IoT MQTT client
-<a name="view-mqtt-messages"></a>
 
 This section describes how to use the AWS IoT MQTT test client in the [AWS IoT console](https://console.aws.amazon.com/iot/home) to watch the MQTT messages sent and received by AWS IoT. The example used in this section relates to the examples used in [Getting started with AWS IoT Core tutorials](iot-gs.md); however, you can replace the {{topicName}} used in the examples with any [topic name or topic filter](topics.md) used by your IoT solution.
 
@@ -72,7 +71,7 @@ Do not use personally identifiable information in topic names, whether using the
 
 1. In the message payload window, enter the following JSON:
 
-   ```
+   ```JSON
    {
        "message": "Hello, world",
        "clientType": "MQTT test client"

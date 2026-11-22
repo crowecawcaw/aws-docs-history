@@ -1,7 +1,6 @@
 
 
 # Literals
-<a name="iot-sql-literals"></a>
 
 You can directly specify literal objects in the SELECT and WHERE clauses of your rule SQL, which can be useful for passing information. 
 

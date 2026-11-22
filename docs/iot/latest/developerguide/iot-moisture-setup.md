@@ -1,7 +1,6 @@
 
 
 # Setting up AWS IoT
-<a name="iot-moisture-setup"></a>
 
 To complete this tutorial, you need to create the following resources. To connect a device to AWS IoT, you create an IoT thing, a device certificate, and an AWS IoT policy. 
 + An AWS IoT thing.

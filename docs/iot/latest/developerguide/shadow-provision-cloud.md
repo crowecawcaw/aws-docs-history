@@ -1,7 +1,6 @@
 
 
 # Tutorial: Provisioning your device in AWS IoT
-<a name="shadow-provision-cloud"></a>
 
 This section creates the AWS IoT Core resources that your tutorial will use.
 
@@ -30,7 +29,7 @@ In this procedure, you'll create a policy that allows your device to perform the
       Copy the following sample policy and paste it in your policy document. Replace `thingname` with the name of the thing that you'll create (for example, `My_light_bulb`), `region` with the AWS IoT Region where you're using the services, and `account` with your AWS account number. For more information about AWS IoT policies, see [AWS IoT Core policies](iot-policies.md).  
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

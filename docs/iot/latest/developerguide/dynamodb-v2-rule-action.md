@@ -1,7 +1,6 @@
 
 
 # DynamoDBv2
-<a name="dynamodb-v2-rule-action"></a>
 
 The DynamoDBv2 (`dynamoDBv2`) action writes all or part of an MQTT message to an Amazon DynamoDB table. Each attribute in the payload is written to a separate column in the DynamoDB database.
 
@@ -37,7 +36,7 @@ The data written to the DynamoDB table is the result from the SQL statement of t
 
 The following JSON example defines a DynamoDBv2 action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * AS message FROM 'some/topic'", 
@@ -59,7 +58,7 @@ The following JSON example defines a DynamoDBv2 action in an AWS IoT rule.
 
 The following JSON example defines a DynamoDB action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="device-advisor-setting-up"></a>
 
 Before you use Device Advisor for the first time, complete the following tasks:
 
@@ -86,7 +85,7 @@ The *topic name* is the MQTT topic that your device subscribes to.
 Your `aws:SourceArn` must comply with the `format: arn:aws:iotdeviceadvisor:{{region:account-id}}:*.` Make sure that `{{region}}` matches your AWS IoT Region and `{{account-id}}` matches your customer account ID. For more information, see [Cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/security-best-practices.html#cross-service-confused-deputy-prevention-DA).  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -213,24 +212,24 @@ Run the following command to get the Device-level endpoint:
 
 For MQTT customers using X.509 client certificates:
 
-```
+```bash
 aws iotdeviceadvisor get-endpoint --thing-arn {{your-thing-arn}}
 ```
 
 or
 
-```
+```bash
 aws iotdeviceadvisor get-endpoint --certificate-arn {{your-certificate-arn}}
 ```
 
 For MQTT over WebSocket customers using Signature Version 4:
 
-```
+```bash
 aws iotdeviceadvisor get-endpoint --device-role-arn {{your-device-role-arn}} --authentication-method SignatureVersion4
 ```
 
 To run one test suite at a time, choose an Account-level endpoint. Run the following command to get the Account-level endpoint:
 
-```
+```bash
 aws iotdeviceadvisor get-endpoint
 ```

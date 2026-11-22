@@ -1,7 +1,6 @@
 
 
 # Resolving location of IoT devices
-<a name="device-location-resolve-solvers"></a>
 
 Use AWS IoT Core Device Location to decode the measurement data from your devices, and resolve the device location using third-party solvers. The resolved location is generated as a GeoJSON payload with the geo coordinates and accuracy information. You can resolve the location of your device from the AWS IoT console, the AWS IoT Wireless API, or AWS CLI.
 
@@ -23,7 +22,7 @@ To resolve the device location (console)
 **Note**  
 The JSON payload must contain at least one type of measurement data.
 
-   ```
+   ```JSON
    {
        "Timestamp": {{1664313161}},
        "Ip":{
@@ -117,7 +116,7 @@ The JSON payload must contain at least one type of measurement data.
 **Note**  
 If AWS IoT Core Device Location reports errors when attempting to resolve the location, you can troubleshoot the errors and resolve the location. For more information, see [Troubleshooting errors when resolving the location](#location-resolve-troubleshoot).
 
-   ```
+   ```JSON
    {
        "coordinates": [
            13.376077,
@@ -170,7 +169,7 @@ The optional `--advanced-configuration` parameter contains the `WiFiCellular` ob
 
 The resolved location is returned as a payload that uses the GeoJSON format, which is a format used for encoding geographical data structures. It is then stored in the {{locationout.json}} file. The payload contains the WGS84 latitude and longitude coordinates, accuracy and confidence level information, the location data type, and the timestamp at which the location was resolved.
 
-```
+```JSON
 {
     "coordinates": [
         13.376077,

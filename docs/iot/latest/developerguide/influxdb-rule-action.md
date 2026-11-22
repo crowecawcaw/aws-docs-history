@@ -1,7 +1,6 @@
 
 
 # InfluxDB
-<a name="influxdb-rule-action"></a>
 
 Choose this action when you want to query device telemetry for operational trends or monitor time-series data in real time. You can use client-side or server-side batching to combine multiple points in one write request. AWS IoT Core converts each message to InfluxDB line protocol and writes it to the specified database and table. For more information about the format, see [InfluxDB line protocol](https://docs.influxdata.com/influxdb3/enterprise/reference/line-protocol/) in the InfluxData documentation. For information about managed clusters, see [Amazon Timestream for InfluxDB](https://docs.aws.amazon.com/timestream/latest/developerguide/influxdb3.html).
 
@@ -39,7 +38,7 @@ Before you can use the InfluxDB rule action, you must create an InfluxDB action 
 
 Use the `CreateTopicRuleDestination` API to create an InfluxDB destination:
 
-```
+```JSON
 {
   "destinationConfiguration": {
     "influxDBConfiguration": {
@@ -158,7 +157,7 @@ Use `@{...}` in `tableName` and tag values to resolve the expression against eac
 
 Given the following device payload (JSON array):
 
-```
+```JSON
 [
   {"measurement_type": "temperature", "room": "kitchen", "timestamp": 1700000000000, "value": 23.5},
   {"measurement_type": "humidity", "room": "bedroom", "timestamp": 1700000001000, "value": 60.1}
@@ -167,7 +166,7 @@ Given the following device payload (JSON array):
 
 And the following action configuration:
 
-```
+```JSON
 {
   "influxDB": {
     "destinationArn": "arn:aws:iot:us-west-2:111122223333:ruledestination/influxdb/abc123",
@@ -296,7 +295,7 @@ Retryable errors (503) are retried with exponential backoff. For an HTTP 401 res
 ### InfluxDB rule action
 <a name="influxdb-rule-action-example"></a>
 
-```
+```JSON
 {
   "topicRulePayload": {
     "sql": "SELECT * FROM 'devices/+/telemetry'",
@@ -324,7 +323,7 @@ Retryable errors (503) are retried with exponential backoff. For an HTTP 401 res
 
 **Sample payload:**
 
-```
+```JSON
 {
   "timestamp": 1700000000000,
   "temperature": 23.5,
@@ -345,7 +344,7 @@ Field order in the output may vary — fields are not sorted alphabetically.
 ### Client-batched array payload with per-element templates
 <a name="influxdb-client-batched-example"></a>
 
-```
+```JSON
 {
   "influxDB": {
     "destinationArn": "arn:aws:iot:us-west-2:111122223333:ruledestination/influxdb/a1b2c3d4",
@@ -364,7 +363,7 @@ Field order in the output may vary — fields are not sorted alphabetically.
 
 **Sample payload (published to `devices/floor3/telemetry`):**
 
-```
+```JSON
 [
   {"measurement_type": "temperature", "sensor_id": "sensor-42", "timestamp": 1700000000000000000, "value": 23.5},
   {"measurement_type": "humidity", "sensor_id": "sensor-42", "timestamp": 1700000001000000000, "value": 60.1},
@@ -385,7 +384,7 @@ pressure,location=floor3,sensor_id=sensor-43 value=1013.25 1700000002000000000
 
 To add server-side batching to any InfluxDB action, include `batchConfig` in the action configuration:
 
-```
+```JSON
 "batchConfig": {
   "maxBatchSize": 50,
   "maxBatchOpenMs": 1000,
@@ -399,7 +398,7 @@ To add server-side batching to any InfluxDB action, include `batchConfig` in the
 
 **Trust policy:**
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -414,7 +413,7 @@ To add server-side batching to any InfluxDB action, include `batchConfig` in the
 
 **Permission policy:**
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -434,7 +433,7 @@ When you enable both client-side batching (JSON array payloads) and server-side 
 
 Action configuration:
 
-```
+```JSON
 {
   "influxDB": {
     "destinationArn": "arn:aws:iot:us-west-2:111122223333:ruledestination/influxdb/abc123",
@@ -458,7 +457,7 @@ Action configuration:
 
 Device A publishes to `devices/deviceA/telemetry` at time T:
 
-```
+```JSON
 [
   {"measurement_type": "temperature", "floor": "1", "timestamp": 1700000000000, "value": 22.1},
   {"measurement_type": "temperature", "floor": "2", "timestamp": 1700000000100, "value": 23.4},
@@ -468,7 +467,7 @@ Device A publishes to `devices/deviceA/telemetry` at time T:
 
 Device B publishes to `devices/deviceB/telemetry` at time T\+10ms:
 
-```
+```JSON
 [
   {"measurement_type": "temperature", "floor": "3", "timestamp": 1700000000050, "value": 21.8},
   {"measurement_type": "humidity", "floor": "3", "timestamp": 1700000000150, "value": 62.3}

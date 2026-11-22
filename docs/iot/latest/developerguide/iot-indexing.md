@@ -1,7 +1,6 @@
 
 
 # Fleet indexing
-<a name="iot-indexing"></a>
 
 You can use fleet indexing to index, search, and aggregate your devices' data from the following sources: [AWS IoT registry](thing-registry.md), [AWS IoT Device Shadow](iot-device-shadows.md), [AWS IoT connectivity](life-cycle-events.md), [AWS IoT Device Management Software Package Catalog](software-package-catalog.md), and [AWS IoT Device Defender](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/what-is-device-defender.html) violations. You can query a group of devices, and aggregate statistics on device records that are based on different combinations of device attributes, including state, connectivity, and device violations. With fleet indexing, you can organize, investigate, and troubleshoot your fleet of devices.
 

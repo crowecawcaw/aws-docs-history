@@ -1,7 +1,6 @@
 
 
 # Timestream
-<a name="timestream-rule-action"></a>
 
 The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information about Amazon Timestream, see [What Is Amazon Timestream?](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html).
 
@@ -88,7 +87,7 @@ For each attribute (measure) in the result of the query statement, this rule act
 
 The following JSON example defines a Timestream rule action with a substitution template in an AWS IoT rule.
 
-```
+```JSON
 {
   "topicRulePayload": {
     "sql": "SELECT * FROM 'iot/topic'",
@@ -119,7 +118,7 @@ The following JSON example defines a Timestream rule action with a substitution 
 
 Using the Timestream topic rule action defined in the previous example with the following message payload results in the Amazon Timestream records written in the table that follows.
 
-```
+```json
 {
   "boolean_value": true,
   "integer_value": 123456789012,

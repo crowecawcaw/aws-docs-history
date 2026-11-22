@@ -1,7 +1,6 @@
 
 
 # Testing your authorizers
-<a name="custom-auth-testing"></a>
 
  You can use the [TestInvokeAuthorizer](https://docs.aws.amazon.com/iot/latest/apireference/API_TestInvokeAuthorizer.html) API to test the invocation and return values of your authorizer. This API enables you to specify protocol metadata and test the signature validation in your authorizer.
 

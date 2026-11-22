@@ -1,7 +1,6 @@
 
 
 # Managing thing group indexing
-<a name="thinggroup-index"></a>
 
 `AWS_ThingGroups` is the index that contains all of your thing groups. You can use this index to search for groups based on group name, description, attributes, and all parent group names.
 

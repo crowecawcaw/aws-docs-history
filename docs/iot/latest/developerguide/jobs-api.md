@@ -1,7 +1,6 @@
 
 
 # AWS IoT jobs API operations
-<a name="jobs-api"></a>
 
 AWS IoT Jobs API can be used for either of the following categories:
 + Administrative tasks such as management and control of jobs. This is the *control plane*.
@@ -24,7 +23,7 @@ Contains information about an error that occurred during an AWS IoT Jobs service
 
 The following example shows the syntax of this operation:
 
-```
+```JSON
 {
     "code": "ErrorCode",
     "message": "string",

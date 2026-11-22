@@ -1,7 +1,6 @@
 
 
 # Shadow
-<a name="device-advisor-tests-shadow"></a>
 
 Use these tests to verify your devices under test use AWS IoT Device Shadow service correctly. See [AWS IoT Device Shadow service](iot-device-shadows.md) for more information. If these test cases are configured in your test suite, then providing a thing is required when starting the suite run.
 
@@ -15,7 +14,7 @@ Validates if a device can publish its state after it connects to AWS IoT Core
 *API test case definition:*  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":{{"my_shadow_publish_reported_state"}},
@@ -45,7 +44,7 @@ Validates if your device reads all update messages received and synchronizes the
 *API test case definition:*  
 `EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 2 minutes. 
 
-```
+```JSON
 "tests":[
    {
       "name":{{"my_shadow_update_reported_state"}},

@@ -1,7 +1,6 @@
 
 
 # Error handling (error action)
-<a name="rule-error-handling"></a>
 
 When AWS IoT receives a message from a device, the rules engine checks to see if the message matches a rule. If so, the rule's query statement is evaluated and the rule's actions are activated, passing the query statement's result. 
 
@@ -19,7 +18,7 @@ A single message is generated per rule and message. For example, if two rule act
 
 The error action message looks like the following example.
 
-```
+```JSON
 {
   "ruleName": "TestAction",
   "topic": "testme/action",
@@ -64,7 +63,7 @@ The description and explanation of the error.
 
 Here is an example of a rule with an added error action. The following rule has an action that writes message data to a DynamoDB table and an error action that writes data to an Amazon S3 bucket:
 
-```
+```JSON
 {
     "sql" : "SELECT * FROM ..."
     "actions" : [{ 

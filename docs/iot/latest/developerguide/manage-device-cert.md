@@ -1,7 +1,6 @@
 
 
 # Manage client certificates
-<a name="manage-device-cert"></a>
 
 AWS IoT provides capabilities for you to manage client certificates.
 

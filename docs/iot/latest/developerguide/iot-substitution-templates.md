@@ -1,7 +1,6 @@
 
 
 # Substitution templates
-<a name="iot-substitution-templates"></a>
 
 You can use a substitution template to augment the JSON data returned when a rule is triggered and AWS IoT performs an action. The syntax for a substitution template is `${`*expression*`}`, where *expression* can be any expression supported by AWS IoT in SELECT clauses, WHERE clauses, and [AWS IoT rule actions](iot-rule-actions.md). This expression can be plugged into an action field on a rule, allowing you to dynamically configure an action. In effect, this feature substitutes a piece of information in an action. This includes functions, operators, and information present in the original message payload.
 
@@ -35,7 +34,7 @@ The following rule actions support substitution templates. Each action supports 
 
 Substitution templates appear in the action parameters within a rule: 
 
-```
+```JSON
 {
     "sql": "SELECT *, timestamp() AS timestamp FROM 'my/iot/topic'",
     "ruleDisabled": false,
@@ -50,7 +49,7 @@ Substitution templates appear in the action parameters within a rule:
 
 If this rule is triggered by the following JSON published to `my/iot/topic`:
 
-```
+```JSON
 {
     "deviceid": "iot123",
     "temp": 54.98,
@@ -64,7 +63,7 @@ If this rule is triggered by the following JSON published to `my/iot/topic`:
 
 Then this rule publishes the following JSON to `my/iot/topic/republish`, which AWS IoT substitutes from `${topic()}/republish`:
 
-```
+```JSON
 {
     "deviceid": "iot123",
     "temp": 54.98,
@@ -103,7 +102,7 @@ The per-element sequence `@{`*field*`}` has the following requirements:
 **Map array elements to InfluxDB points**  
 In this example, an InfluxDB rule action sets the measurement name (`tableName`) to `@{measurement_type}` and a `location` tag to `@{room}`:
 
-```
+```JSON
 {
   "topicRulePayload": {
     "sql": "SELECT * FROM 'iot/topic'",
@@ -130,7 +129,7 @@ In this example, an InfluxDB rule action sets the measurement name (`tableName`)
 
 The following array payload triggers the rule:
 
-```
+```JSON
 [
     { "measurement_type": "temperature", "room": "kitchen", "value": 5,  "timestamp": 1700000000000 },
     { "measurement_type": "humidity",    "room": "bedroom", "value": 15, "timestamp": 1700000001000 }
@@ -152,7 +151,7 @@ The preceding example uses `SELECT *`, so the payload that the action receives m
 **Resolve against a payload that the SQL statement produces**  
 The payload that the action receives isn't always the payload that the device published. In this example, the device publishes an object that contains an array of readings:
 
-```
+```JSON
 {
     "device_id": "sensor-1",
     "readings": [
@@ -170,7 +169,7 @@ SELECT VALUE readings FROM 'iot/topic'
 
 The action receives the following array, even though the device published an object. It writes the same two points as the preceding example, because each element still contains `measurement_type`, `room`, and `value`.
 
-```
+```JSON
 [
     { "measurement_type": "temperature", "room": "kitchen", "value": 5,  "timestamp": 1700000000000 },
     { "measurement_type": "humidity",    "room": "bedroom", "value": 15, "timestamp": 1700000001000 }

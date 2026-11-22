@@ -1,7 +1,6 @@
 
 
 # Tutorial: Cleaning up after running the AWS IoT Device Client tutorials
-<a name="iot-dc-cleanup"></a>
 
 The procedures in this tutorial walk you through removing the files and resources you created while completing the tutorials in this learning path.
 

@@ -1,7 +1,6 @@
 
 
 # Specify job configurations by using the AWS IoT Jobs API
-<a name="job-configurations-api"></a>
 
 You can use the [CreateJob](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJob.html) or the [CreateJobTemplate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJobTemplate.html) API to specify the different job configurations. The following sections describe how to add these configurations. After you've added the configurations, you can use [JobExecutionSummary](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummary.html) and [JobExecutionSummaryForJob](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummaryForJob.html) to view their status.
 
@@ -16,7 +15,7 @@ You can specify a constant rollout rate or an exponential rollout rate for your 
 **Set a constant rollout rate**  
 To set a constant rollout rate, use the [`JobExecutionsRolloutConfig`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionsRolloutConfig.html) object to add the `maximumPerMinute` parameter to the `CreateJob` request. This parameter specifies the upper limit of the rate at which job executions can occur. This value is optional and ranges from 1 to 1000. If you don't set the value, it uses 1000 as the default value.
 
-  ```
+  ```JSON
       "jobExecutionsRolloutConfig": {
           "maximumPerMinute": 1000
       }
@@ -26,7 +25,7 @@ To set a constant rollout rate, use the [`JobExecutionsRolloutConfig`](https://d
 **Set an exponential rollout rate**  
 To set a variable job rollout rate, use the [`JobExecutionsRolloutConfig`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionsRolloutConfig.html) object. You can configure the `ExponentialRolloutRate`property when you run the `CreateJob` API operation. The following example sets an exponential rollout rate by using the `exponentialRate` parameter. For more information about the parameters, see [`ExponentialRolloutRate`](https://docs.aws.amazon.com/iot/latest/apireference/API_ExponentialRolloutRate.html).
 
-  ```
+  ```JSON
   {
   ...
     "jobExecutionsRolloutConfig": {
@@ -63,7 +62,7 @@ To add this configuration by using the API, specify the [`AbortConfig`](https://
 **Note**  
 Deleting a job execution affects the computation value of the total completed execution. When a job aborts, the service creates an automated `comment` and `reasonCode` to differentiate a user-driven cancellation from a job abort cancellation.
 
-```
+```JSON
    "abortConfig": { 
       "criteriaList": [ 
          { 
@@ -101,7 +100,7 @@ Specifies the total number of things for which jobs are executed that can initia
 
 To add this configuration by using the API, specify the optional [`SchedulingConfig`](https://docs.aws.amazon.com/iot/latest/apireference/API_SchedulingConfig.html) when you run the [`CreateJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJob.html), or the [`CreateJobTemplate`](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJobTemplate.html) API operation.
 
-```
+```JSON
     "SchedulingConfig": { 
       "endBehavior": string
       "endTime": string
@@ -136,7 +135,7 @@ To use the timeout configuration
 
 1. To set the in-progress timer when you're creating a job or job template, set a value for the `inProgressTimeoutInMinutes` property of the optional [TimeoutConfig](https://docs.aws.amazon.com/iot/latest/apireference/API_TimeoutConfig.html) object.
 
-   ```
+   ```JSON
        "timeoutConfig": { 
          "inProgressTimeoutInMinutes": number
       }
@@ -146,7 +145,7 @@ To use the timeout configuration
 **Note**  
 `UpdateJobExecution` can discard a step timer that's already been created by creating a new step timer with a value of -1.
 
-   ```
+   ```JSON
    {
       ... 
        "statusDetails": { 
@@ -166,7 +165,7 @@ When you're creating a job, consider the appropriate number of retries to use fo
 
 To add this configuration by using the API, specify the [`jobExecutionsRetryConfig`](https://docs.aws.amazon.com/iot/latest/apireference/API_jobExecutionsRetryConfig.html) parameter when you run the [`CreateJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJob.html), or the [`CreateJobTemplate`](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJobTemplate.html) API operation.
 
-```
+```JSON
 {
 ...
   "jobExecutionsRetryConfig": { 

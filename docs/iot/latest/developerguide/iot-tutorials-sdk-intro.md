@@ -1,7 +1,6 @@
 
 
 # Building solutions with the AWS IoT Device SDKs
-<a name="iot-tutorials-sdk-intro"></a>
 
 The tutorials in this section help walk you through the steps to develop an IoT solution that can be deployed to a production environment using AWS IoT.
 

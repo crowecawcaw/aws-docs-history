@@ -1,7 +1,6 @@
 
 
 # Location
-<a name="location-rule-action"></a>
 
 The Location (`location`) action sends your geographical location data to [Amazon Location Service](https://docs.aws.amazon.com/location/latest/developerguide/welcome.html).
 
@@ -48,7 +47,7 @@ Supports [substitution templates](iot-substitution-templates.md): API and AWS CL
 
 The following JSON example defines a Location action in an AWS IoT rule.
 
-```
+```JSON
 {
 	"topicRulePayload": {
 		"sql": "SELECT * FROM 'some/topic'",
@@ -75,7 +74,7 @@ The following JSON example defines a Location action in an AWS IoT rule.
 
 The following JSON example defines a Location action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
 	"topicRulePayload": {
 		"sql": "SELECT * FROM 'some/topic'",

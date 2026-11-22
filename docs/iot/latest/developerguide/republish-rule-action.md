@@ -1,7 +1,6 @@
 
 
 # Republish
-<a name="republish-rule-action"></a>
 
 The republish (`republish`) action republishes an MQTT message to another MQTT topic.
 
@@ -42,7 +41,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a republish action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -63,7 +62,7 @@ The following JSON example defines a republish action in an AWS IoT rule.
 
 The following JSON example defines a republish action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",
@@ -83,7 +82,7 @@ The following JSON example defines a republish action with substitution template
 
 The following JSON example defines a republish action with `headers` in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",
@@ -117,4 +116,4 @@ The following JSON example defines a republish action with `headers` in an AWS I
 ```
 
 **Note**  
-The original source IP won't be passed though [Republish action](#republish-rule-action).
+The original source IP won't be passed though [Republish action](republish-rule-action.md).

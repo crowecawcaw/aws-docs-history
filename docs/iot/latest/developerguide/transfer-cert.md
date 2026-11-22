@@ -1,7 +1,6 @@
 
 
 # Transfer a certificate to another account
-<a name="transfer-cert"></a>
 
 X.509 certificates that belong to one AWS account can be transferred to another AWS account.
 

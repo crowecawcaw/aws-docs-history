@@ -1,7 +1,6 @@
 
 
 # Query syntax
-<a name="query-syntax"></a>
 
 In fleet indexing, you use a query syntax to specify queries.
 

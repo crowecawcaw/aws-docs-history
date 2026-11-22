@@ -1,11 +1,10 @@
 
 
 # Describe things
-<a name="search-things"></a>
 
 You can use the **DescribeThing** command to display more detailed information about a thing:
 
-```
+```JSON
 $ aws iot describe-thing --thing-name "MyLightBulb"
 {
     "version": 3,

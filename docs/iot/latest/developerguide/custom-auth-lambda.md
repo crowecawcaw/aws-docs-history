@@ -1,11 +1,10 @@
 
 
 # Defining your Lambda function
-<a name="custom-auth-lambda"></a>
 
  When AWS IoT Core invokes your authorizer, it triggers the associated Lambda associated with the authorizer with an event that contains the following JSON object. The example JSON object contains all of the possible fields. Any fields that aren't relevant to the connection request aren't included.
 
-```
+```json
 {
     "token" :"aToken",
     "signatureVerified": Boolean, // Indicates whether the device gateway has validated the signature.
@@ -49,7 +48,7 @@ The value of `disconnectAfterInSeconds` (returned by the Lambda function) is set
 
  The following JavaScript contains a sample Node.js Lambda function that looks for a password in the MQTT Connect message with a value of `test` and returns a policy that grants permission to connect to AWS IoT Core with a client named `myClientName` and publish to a topic that contains the same client name. If it doesn't find the expected password, it returns a policy that denies those two actions. 
 
-```
+```javascript
 // A simple Lambda function for an authorizer. It demonstrates 
 // how to parse an MQTT password and generate a response.
 
@@ -96,7 +95,7 @@ var generateAuthResponse = function(token, effect) {
 
  The preceding Lambda function returns the following JSON when it receives the expected password of `test` in the MQTT Connect message. The values of the `password` and `principalId` properties will be the values from the MQTT Connect message.
 
-```
+```json
 {
   "password": "{{password}}",
   "isAuthenticated": true,

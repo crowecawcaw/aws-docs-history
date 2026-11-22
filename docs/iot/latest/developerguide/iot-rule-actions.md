@@ -1,7 +1,6 @@
 
 
 # AWS IoT rule actions
-<a name="iot-rule-actions"></a>
 
 AWS IoT rule actions specify what to do when a rule is invoked. You can define actions to send data to an Amazon DynamoDB database, send data to Amazon Kinesis Data Streams, invoke an AWS Lambda function, and so on. AWS IoT supports the following actions in AWS Regions where the action's service is available.
 

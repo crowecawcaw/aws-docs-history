@@ -1,7 +1,6 @@
 
 
 # Device Shadow service documents
-<a name="device-shadow-document"></a>
 
 The Device Shadow service respects all rules of the JSON specification. Values, objects, and arrays are stored in the device's shadow document.
 
@@ -30,7 +29,7 @@ The Device Shadow service uses these documents in UPDATE, GET, and DELETE operat
 
 A request state document has the following format:
 
-```
+```JSON
 {
     "state": {
         "desired": {
@@ -64,7 +63,7 @@ Response state documents have the following format depending on the response typ
 #### /accepted response state document
 <a name="device-shadow-example-response-json-accepted"></a>
 
-```
+```JSON
 {
     "state": {
         "desired": {
@@ -97,7 +96,7 @@ Response state documents have the following format depending on the response typ
 #### /delta response state document
 <a name="device-shadow-example-response-json-delta"></a>
 
-```
+```JSON
 {
     "state": {
         "{{attribute1}}": {{integer2}},
@@ -126,7 +125,7 @@ Response state documents have the following format depending on the response typ
 #### /documents response state document
 <a name="device-shadow-example-response-json-documents"></a>
 
-```
+```JSON
 {
   "previous" : {
     "state": {
@@ -236,7 +235,7 @@ Response state documents have the following format depending on the response typ
 
 An error response document has the following format:
 
-```
+```JSON
 {
     "code": {{error-code}},
     "message": "{{error-message}}",
@@ -256,7 +255,7 @@ For more information, see [Device Shadow error messages](device-shadow-error-mes
 
 A shadow name list response document has the following format:
 
-```
+```JSON
 {
     "results": [
         "{{shadowName-1}}",
@@ -303,7 +302,7 @@ For more information, see [Shadow document examples](#device-shadow-document-syn
 
 Delta state is a virtual type of state that contains the difference between the `desired` and `reported` states. Fields in the `desired` section that are not in the `reported` section are included in the delta. Fields that are in the `reported` section and not in the `desired` section are not included in the delta. The delta contains metadata, and its values are equal to the metadata in the `desired` field. For example:
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -353,7 +352,7 @@ Delta state is a virtual type of state that contains the difference between the 
 
 When nested objects differ, the delta contains the path all the way to the root.
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -413,7 +412,7 @@ The client token can be no longer than 64 bytes. A client token that is longer t
 
 The `reported` and `desired` properties in a shadow document can be empty or omitted when they don't apply to the current shadow state. For example, a shadow document contains a `desired` property only if it has a desired state. The following is a valid example of a state document with no `desired` property:
 
-```
+```JSON
 {
     "reported" : { "temp": 55 }
 }
@@ -421,7 +420,7 @@ The `reported` and `desired` properties in a shadow document can be empty or omi
 
 The `reported` property can also be empty, such as if the shadow has not been updated by the device:
 
-```
+```JSON
 {
     "desired" : { "color" : "RED" }
 }
@@ -429,7 +428,7 @@ The `reported` property can also be empty, such as if the shadow has not been up
 
 If an update causes the `desired` or `reported` properties to become null, it is removed from the document. The following shows how to remove the `desired` property by setting it to `null`. You might do this when a device updates its state, for example.
 
-```
+```JSON
 { 
     "state": {
         "reported": {
@@ -442,7 +441,7 @@ If an update causes the `desired` or `reported` properties to become null, it is
 
 A shadow document can also have neither `desired` or `reported` properties, making the shadow document empty. This is an example of an empty, yet valid shadow document.
 
-```
+```JSON
 {
 }
 ```
@@ -454,7 +453,7 @@ Shadows support arrays, but treat them as normal values in that an update to an 
 
 Initial state:
 
-```
+```JSON
 {
     "desired" : { "colors" : ["RED", "GREEN", "BLUE" ] }
 }
@@ -462,7 +461,7 @@ Initial state:
 
 Update:
 
-```
+```JSON
 {
     "desired" : { "colors" : ["RED"] }
 }
@@ -470,7 +469,7 @@ Update:
 
 Final state:
 
-```
+```JSON
 {
     "desired" : { "colors" : ["RED"] }
 }
@@ -478,7 +477,7 @@ Final state:
 
 Arrays can't have null values. For example, the following array is not valid and will be rejected.
 
-```
+```JSON
 {
     "desired" : { 
         "colors" : [ null, "RED", "GREEN" ]

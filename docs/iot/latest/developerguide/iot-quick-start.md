@@ -1,7 +1,6 @@
 
 
 # Try the AWS IoT Core quick connect tutorial
-<a name="iot-quick-start"></a>
 
 In this tutorial, you'll create your first thing object, connect a device to it, and watch it send MQTT messages.
 
@@ -97,7 +96,7 @@ For more information about topic subscription and publish, see the example code 
 
    After you run **./start.sh**, messages appear in the MQTT client, similar to the following:
 
-   ```
+   ```JSON
    {
      "message": "Hello World!" [1]
    }

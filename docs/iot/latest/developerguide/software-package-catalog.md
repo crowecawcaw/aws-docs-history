@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Management Software Package Catalog
-<a name="software-package-catalog"></a>
 
 With AWS IoT Device Management Software Package Catalog, you can maintain an inventory of software packages and their versions. You can associate package versions to individual things and AWS IoT dynamic thing groups, and deploy them through in-house processes or [AWS IoT jobs](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html). 
 

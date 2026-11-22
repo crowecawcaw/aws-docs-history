@@ -1,7 +1,6 @@
 
 
 # Tutorial: Interacting with Device Shadow using the sample app and the MQTT test client
-<a name="interact-lights-device-shadows"></a>
 
 To interact with the `shadow.py` sample app, enter a value in the terminal for the `desired` value. For example, you can specify colors that resemble the traffic lights and AWS IoT responds to the request and updates the reported values.
 
@@ -28,7 +27,7 @@ In the previous tutorial [Step 1: Run the shadow.py sample app](lightbulb-shadow
 
 In the previous example, we set the desired color to `yellow`. After you enter each value, the terminal prompts you to enter another `desired` value. If you again enter the same value (`yellow`), the app recognizes this and prompts you to enter a new `desired` value.
 
-```
+```bash
 Enter desired value:
 yellow
 Local value is already 'yellow'.
@@ -49,7 +48,7 @@ Now, say that you enter the color `green`. AWS IoT responds to the request and u
 
 Following shows the messages displayed in the terminal that shows how the update request is published.
 
-```
+```bash
 Enter desired value:
 green
 Changed local shadow value to 'green'.
@@ -66,7 +65,7 @@ Deleting a shadow doesn't reset the version number to 0. You'll see that the sha
 **Edit the Shadow document to observe delta events**  
 The `shadow.py` sample app is also subscribed to `delta` events, and responds when there is a change to the `desired` value. For example, you can change the `desired` value to the color `red`. To do this, in the AWS IoT console, edit the Shadow document by clicking **Edit** and then set the `desired` value to `red` in the JSON, while keeping the `reported` value to `green`. Before you save the changes, keep the terminal on the Raspberry Pi open as you'll see messages displayed in the terminal when the change occurs.
 
-```
+```JSON
 {
 "desired": {
   "welcome": "aws-iot",
@@ -81,7 +80,7 @@ The `shadow.py` sample app is also subscribed to `delta` events, and responds wh
 
 After you save the new value, the `shadow.py` sample app responds to this change and displays messages in the terminal indicating the delta. You should then see the following messages appear below the prompt for entering the `desired` value.
 
-```
+```bash
 Enter desired value:
 Received shadow delta event.
 Delta reports that desired value is 'red'. Changing local value...
@@ -128,7 +127,7 @@ If you haven't already used the MQTT test client, you can review [View MQTT mess
 
    1. Run the following command to restart the sample program. Replace {{your-iot-thing-name}} and {{your-iot-endpoint}} with the names of the AWS IoT thing that you created earlier (for example, `My_light_bulb`), and the endpoint to interact with the device. 
 
-      ```
+      ```bash
       cd ~/aws-iot-device-sdk-python-v2/samples/service-clients
       python3 shadow.py --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}} --thing_name {{your-iot-thing-name}}
       ```
@@ -156,7 +155,7 @@ If you haven't already used the MQTT test client, you can review [View MQTT mess
 
       Suppose that the latest color reported was `green`. Following shows the contents of the **$aws/things/{{thingname}}/shadow/get/accepted** JSON file.
 
-      ```
+      ```JSON
       {
       "state": {
         "desired": {
@@ -193,7 +192,7 @@ If you haven't already used the MQTT test client, you can review [View MQTT mess
 
    1. Enter a `desired` value in the terminal, such as `yellow`. The `shadow.py` sample app responds and displays the following messages in the terminal that show the change in the `reported` value to `yellow`.
 
-      ```
+      ```bash
       Enter desired value:
       yellow
       Changed local shadow value to 'yellow'.
@@ -285,7 +284,7 @@ If you haven't already used the MQTT test client, you can review [View MQTT mess
 
    To observe changes to the delta topic, edit the Shadow document in the AWS IoT console. For example, you can change the `desired` value to the color `red`. To do this, in the AWS IoT console, choose **Edit** and then set the `desired` value to red in the JSON, while keeping the `reported` value set to `green`. Before you save the change, keep the terminal open as you'll see the delta message reported in the terminal.
 
-   ```
+   ```JSON
    {
    "desired": {
      "welcome": "aws-iot",
@@ -302,7 +301,7 @@ If you haven't already used the MQTT test client, you can review [View MQTT mess
 
    You also see that the topic **$aws/things/{{thingname}}/shadow/update/delta** received a message. To see the message, choose this topic, which is listed under **Subscriptions**.
 
-   ```
+   ```JSON
    {
    "version": 13,
    "timestamp": 1617318480,

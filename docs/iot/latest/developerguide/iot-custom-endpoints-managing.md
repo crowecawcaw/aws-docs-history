@@ -1,7 +1,6 @@
 
 
 # Managing domain configurations
-<a name="iot-custom-endpoints-managing"></a>
 
 This topic covers key operations for you to manage your domain configuration resources. You can also manage the lifecycles of existing configurations by using the following APIs: [ListDomainConfigurations](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDomainConfigurations.html), [DescribeDomainConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeDomainConfiguration.html), [UpdateDomainConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateDomainConfiguration.html), and [DeleteDomainConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteDomainConfiguration.html).
 

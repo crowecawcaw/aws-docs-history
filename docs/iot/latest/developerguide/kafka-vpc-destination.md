@@ -1,7 +1,6 @@
 
 
 # Apache Kafka Virtual Private Cloud (VPC) destinations
-<a name="kafka-vpc-destination"></a>
 
 The Apache Kafka rule action routes data to an Apache Kafka cluster in an Amazon Virtual Private Cloud (Amazon VPC). The VPC configuration used by the Apache Kafka rule action is automatically enabled when you specify the VPC destination for your rule action.
 
@@ -49,7 +48,7 @@ The Amazon Resource Name (ARN) of a role that has permission to create network i
 This ARN should have a policy attached to it that looks like the following example.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

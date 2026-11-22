@@ -1,7 +1,6 @@
 
 
 # How to use the local proxy
-<a name="how-use-local-proxy"></a>
 
 You can run the local proxy on the source and destination devices to transmit data to the secure tunneling endpoints. If your devices are in a network that use a web proxy, the web proxy can intercept the connections before forwarding them to the internet. In this case, you'll need to configure your local proxy to use the web proxy. For more information, see [Configure local proxy for devices that use web proxy](configure-local-proxy-web-proxy.md). 
 
@@ -81,7 +80,7 @@ For more information about the parameters, see [Options set using command line a
 
 In Windows, you configure the local proxy similar to how you do for Linux or macOS, but how you define the environment variables is different from the other platforms. Run the following commands in the `cmd` window to configure and start the local proxy on your source.
 
-```
+```bash
 set AWSIOT_TUNNEL_ACCESS_TOKEN={{${access_token}}}
 .\localproxy -s 5555 -v 5 -r us-west-2
 ```
@@ -163,7 +162,7 @@ For more information about the parameters, see [Options set using command line a
 
 In Windows, you configure the local proxy similar to how you do for Linux or macOS, but how you define the environment variables is different from the other platforms. Run the following commands in the `cmd` window to configure and start the local proxy on your destination.
 
-```
+```bash
 set AWSIOT_TUNNEL_ACCESS_TOKEN={{${access_token}}}
 .\localproxy -d 22 -v 5 -r us-west-2
 ```

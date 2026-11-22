@@ -1,13 +1,12 @@
 
 
 # Connect and publish policy examples
-<a name="connect-and-pub"></a>
 
 For devices registered as things in the AWS IoT Core registry, the following policy grants permission to connect to AWS IoT Core with a client ID that matches the thing name and restricts the device to publishing on a client-ID or thing name-specific MQTT topic. For a connection to be successful, the thing name must be registered in the AWS IoT Core registry and be authenticated using an identity or principal attached to the thing:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -37,7 +36,7 @@ For devices not registered as things in the AWS IoT Core registry, the following
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

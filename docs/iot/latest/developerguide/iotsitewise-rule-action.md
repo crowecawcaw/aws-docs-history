@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise
-<a name="iotsitewise-rule-action"></a>
 
 The AWS IoT SiteWise (`iotSiteWise`) action sends data from an MQTT message to asset properties in AWS IoT SiteWise.
 
@@ -16,7 +15,7 @@ This rule action has the following requirements:
   You can attach the following example trust policy to the role.  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -32,7 +31,7 @@ This rule action has the following requirements:
   To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in the `Condition` property. The following example is a trust policy that specifies an asset hierarchy path.  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -111,7 +110,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a basic IoT SiteWise action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",
@@ -145,7 +144,7 @@ The following JSON example defines a basic IoT SiteWise action in an AWS IoT rul
 
 The following JSON example defines an IoT SiteWise action in an AWS IoT rule. This example uses the topic as the property alias and the `timestamp()` function. For example, if you publish data to `/company/windfarm/3/turbine/7/rpm`, this action sends the data to the asset property with a property alias that's the same as the topic that you specified.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM '/company/windfarm/+/turbine/+/+'",

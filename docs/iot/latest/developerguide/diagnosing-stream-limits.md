@@ -1,7 +1,6 @@
 
 
 # Diagnosing Stream Limits
-<a name="diagnosing-stream-limits"></a>
 
 **Troubleshooting "Stream limit exceeded for your AWS account"**
 
@@ -9,7 +8,7 @@ If you see `"Error: You have exceeded the limit for the number of streams in you
 
 To clean up an unused stream that you created using the AWS CLI or SDK:
 
-```
+```bash
 aws iot delete-stream –stream-id {{value}}
 ```
 

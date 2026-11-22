@@ -1,7 +1,6 @@
 
 
 # X.509 client certificates
-<a name="x509-client-certs"></a>
 
 X.509 certificates provide AWS IoT with the ability to authenticate client and device connections. Client certificates must be registered with AWS IoT before a client can communicate with AWS IoT. A client certificate can be registered in multiple AWS accounts in the same AWS Region to facilitate moving devices between your AWS accounts in the same region. See [Using X.509 client certificates in multiple AWS accounts with multi-account registration](#multiple-account-cert) for more information. 
 

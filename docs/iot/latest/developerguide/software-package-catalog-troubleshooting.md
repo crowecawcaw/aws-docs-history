@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Management Software Package Catalog Troubleshooting
-<a name="software-package-catalog-troubleshooting"></a>
 
 This is the troubleshooting section for AWS IoT Device Management Software Package Catalog.
 
@@ -16,27 +15,27 @@ The following error messages appear when calling the [`HeadBucket` API operation
 
 For more information on using an Amazon S3 bucket for uploading files during a job deployment, see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload).
 
-```
+```JSON
 InvalidRoleException
     "Permission denied when attempting to use role %s to access bucket %s."
 ```
 
-```
+```JSON
 InvalidRequestException
     "Cross region S3 bucket is not supported for presigned url upload placeholder"
 ```
 
-```
+```JSON
 InvalidRequestException
     "S3 bucket in job document presigned url upload placeholder not found"
 ```
 
-```
+```JSON
 InvalidRequestException
     "Given S3 bucket name is invalid."
 ```
 
-```
+```JSON
 InvalidRequestException
     "Provided S3 bucket is not valid: %s. Error: %s"
 ```
@@ -45,7 +44,7 @@ InvalidRequestException
 
 The following error message occurs when an invalid argument is provided, thus causing the Amazon S3 `GetObject` API operation to fail.
 
-```
+```JSON
 InvalidRequestException
     "Provided argument for presigned url is invalid"
 ```
@@ -56,7 +55,7 @@ When requesting access to an Amazon S3 bucket using versioning control, make sur
 
 For more information on Amazon S3 buckets using versioning control, see [Using versioning in Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html)
 
-```
+```JSON
 InvalidRequestException
     "VersionId not found when attempting to access s3 url"
 ```
@@ -67,14 +66,14 @@ The following error messages appear when encountering issues with a placeholder 
 
 The below error message appears when the local placeholder is not recognized.
 
-```
+```JSON
 InvalidJobDocumentException
     "Undefined placeholder, ${...}, inside of presign url upload parameter"
 ```
 
 The below error message appears when attempting to use the local placeholder in a presigned URL not meant for file upload.
 
-```
+```JSON
 InvalidJobDocumentException
     "Local placeholder, ${...}, is only valid inside of presign url upload"
 ```
@@ -83,7 +82,7 @@ InvalidJobDocumentException
 
 The following error message appears when the Amazon S3 URL is incorrectly nested inside of another placeholder.
 
-```
+```JSON
 InvalidJobDocumentException
     "${aws:%s[...]} should not be the second layer pattern."
 ```
@@ -92,7 +91,7 @@ InvalidJobDocumentException
 
 The following error message appears when the package version artifact presigned URL is incorrectly nested inside of another placeholder.
 
-```
+```JSON
 InvalidJobDocumentException
     "${aws:iot:package:[...]:artifact:s3-presigned-url} cannot be nested inside another placeholder."
 ```
@@ -101,7 +100,7 @@ InvalidJobDocumentException
 
 The following error message appears when the referenced package version artifact is not found.
 
-```
+```JSON
 InvalidJobDocumentException
     "Package %s version %s does not have an associated artifact to generate an S3 presigned url."
 ```
@@ -110,7 +109,7 @@ InvalidJobDocumentException
 
 The following error message appears when the job document placeholder for software package and package version can't resolve to the desired valid values for the job deployment due to multiple software packages and package versions referenced in the `destinationPackageVersions` parameter or the *Version ARN* tab on the *Package Version* details page.
 
-```
+```JSON
 InvalidJobDocumentException
     "Cannot resolve empty package name and version name given multiple elements in destination package versions."
 ```
@@ -119,7 +118,7 @@ InvalidJobDocumentException
 
 The following error message appears when you attempt to attempt to use an empty package or package version without the other in a job document.
 
-```
+```JSON
 InvalidJobDocumentException
     "Empty package name and version name have to be used in pair."
 ```
@@ -128,7 +127,7 @@ InvalidJobDocumentException
 
 The following error message appears when you attempt to specify `$null` as a package version in the job document. `$null` can only be used inside of the `destinationPackageVersions` parameter when using the `CreateJob` API operation.
 
-```
+```JSON
 InvalidJobDocumentException
     "$null is not allowed to be referenced as a package version in job documents."
 ```
@@ -139,7 +138,7 @@ The following error message appears when you attempt to use all attributes in a 
 
 For more information on using all attributes in a software package version, see [Substitution parameters for AWS IoT jobs](preparing-jobs-for-service-package-catalog.md#substitution-parameters)
 
-```
+```JSON
 InvalidJobDocumentException
     "The package version attribute placeholder for all attributes has to be a json value by itself and not appended with other strings or nested with other placeholders."
 ```
@@ -150,7 +149,7 @@ The following error message appears when you exceed the limit for number of loca
 
 For more information on using a presigned URL for file upload during a job deployment, see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload)
 
-```
+```JSON
 InvalidJobDocumentException
     "The occurrence of local placeholder %s within S3 presigned url upload placeholder exceeds limit of %d."
 ```
@@ -161,7 +160,7 @@ The following error message appears when you attempt to place a local placeholde
 
 For more information on using a presigned URL for file upload during a job deployment, see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload)
 
-```
+```JSON
 InvalidJobDocumentException
     "S3 bucket name in presigned url upload is not allowed to contain any placeholders"
 ```
@@ -170,7 +169,7 @@ InvalidJobDocumentException
 
 The following error message appears when you add a parameter or placeholder to a job document without a closing brace "}".
 
-```
+```JSON
 InvalidJobDocumentException
     "One or more parameters or placeholders are not terminated."
 ```
@@ -181,7 +180,7 @@ The following error message appears when you attempt to use an Amazon S3 presign
 
 For more information on Amazon S3 presigned URLs, see [Working with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html).
 
-```
+```JSON
 InvalidRequestException
     "presignedUrlConfig role ARN is required to generate an S3 presigned url in job document."
 ```
@@ -190,7 +189,7 @@ InvalidRequestException
 
 The following error message appears when you attempt to use an Amazon S3 presigned URL representing a package version artifact in a job document without an IAM role.
 
-```
+```JSON
 InvalidRequestException
     "presignedUrlConfig role ARN is required to generate an S3 presigned url in job document for package %s version %s artifact."
 ```
@@ -204,7 +203,7 @@ This section lists common errors associated with a software bill of materials (S
 
 The following error message appears when using the `AssociateSbomWithPackageVersion` API operation and the `s3Location` parameter is null.
 
-```
+```JSON
 InvalidRequestException "Associate request needs to include SBOM reference"
 ```
 
@@ -216,49 +215,49 @@ This section lists common errors seen during the initial validaiton of the softw
 
 The following error message appears when using the `AssociateSbomWithPackageVersion` API operation and `bucket` in the `s3Location` parameter is null.
 
-```
+```JSON
 InvalidRequestException "S3 bucket name for SBOM cannot be null"
 ```
 
 The following error message appears when the string in `bucket` in the `s3Location` parameter for the `AssociateSbomWithPackageVersion` API operation is too long.
 
-```
+```JSON
 InvalidRequestException "S3 bucket name for SBOM is illegal. String length exceeds limit"
 ```
 
 The following error message appears when the `key` parameter is null.
 
-```
+```JSON
 InvalidRequestException "S3 key name for SBOM cannot be null"
 ```
 
 The following error message appears when the string in `key` in the `s3Location` parameter for the `AssociateSbomWithPackageVersion` API operation is too long.
 
-```
+```JSON
 InvalidRequestException "S3 key name for SBOM is illegal. String length exceeds limit"
 ```
 
 The following error message appears when the string in `version` in the `s3Location` parameter for the `AssociateSbomWithPackageVersion` API operation is null.
 
-```
+```JSON
 InvalidRequestException "S3 object version for SBOM cannot be null"
 ```
 
 The following error message appears when the string in `version` in the `s3Location` parameter for the `AssociateSbomWithPackageVersion` API operation is too long.
 
-```
+```JSON
 InvalidRequestException "S3 object version for SBOM is illegal. String length exceeds limit"
 ```
 
 The following error message appears when the the size of the SBOM zip archive file stored in the Amazon S3 bucket is too big.
 
-```
+```JSON
 InvalidRequestException "S3 object file size exceeds limit"
 ```
 
 The following error message appears when you use the `AssociateSbomWithPackageVersion` API operation and the current number of SBOM validations in progress is already at the maximum limit.
 
-```
+```JSON
 LimitExceededException "Too many ongoing SBOM validation workflows. Please wait and retry"
 ```
 
@@ -268,30 +267,30 @@ The following error message appears when another entity fails to access the Amaz
 
 For more information on the required permissions policy for accessing the Amazon S3 bucket, see [Software Bill of Materials Storage](preparing-to-use-software-package-catalog.md#spc-sbom-storage).
 
-```
+```JSON
 InvalidRequestException "SBOM not accessible by the service. Please make sure the bucket exists and S3 permission is granted."
 ```
 
 The following error message appears when another entity fails to access the SBOM zip archive file in the `key` parameter due to the Amazon S3 bucket not existing or the proper permissions have not been granted for accessing content stored in the Amazon S3 bucket.
 
-```
+```JSON
 InvalidRequestException "SBOM not accessible by the service. Please make sure the key exists and S3 permission is granted."
 ```
 
 The following error message appears when another entity fails to access the Amazon S3 bucket due to the bucket, key, and version ID not existing or the proper permissions have not been granted for accessing the Amazon S3 bucket. Additionally, this error message can appear if the permissions granted are insufficient for accessing the SBOM zip archive file in the Amazon S3 bucket.
 
-```
+```JSON
 InvalidRequestException "SBOM not accessible by the service. Please make sure the bucket/key/version exists and S3 permission is granted."
 ```
 
 The following error message appears when another entity fails to access the Amazon S3 bucket due to the bucket being located in another region.
 
-```
+```JSON
 InvalidRequestException "Cross-region S3 bucket for %s is not supported."
 ```
 
 The following error message appears when another entity fails to access the Amazon S3 bucket due to the `bucket`, `key`, or `version` parameters being spelled incorrectly when using the `AssociateSbomWithPackageVersion` API operation.
 
-```
+```JSON
 InvalidRequestException "Please make sure SBOM S3 bucket name/key length/version is valid"
 ```

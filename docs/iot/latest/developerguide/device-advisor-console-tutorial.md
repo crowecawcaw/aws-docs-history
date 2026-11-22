@@ -1,7 +1,6 @@
 
 
 # Device Advisor detailed console workflow
-<a name="device-advisor-console-tutorial"></a>
 
 In this tutorial, you'll create a custom test suite and run tests against the device you want to test in the console. After the tests are complete, you can view the test results and detailed logs.
 

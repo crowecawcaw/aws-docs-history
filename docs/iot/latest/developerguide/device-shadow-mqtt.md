@@ -1,7 +1,6 @@
 
 
 # Device Shadow MQTT topics
-<a name="device-shadow-mqtt"></a>
 
 The Device Shadow service uses reserved MQTT topics to enable devices and apps to get, update, or delete the state information for a device (shadow). 
 
@@ -50,7 +49,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -168,7 +167,7 @@ The message body contains a [partial request state document](device-shadow-docum
 
 A client attempting to update the state of a device would send a JSON request state document with the `desired` property such as this:
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -181,7 +180,7 @@ A client attempting to update the state of a device would send a JSON request st
 
 A device updating its shadow would send a JSON request state document with the `reported` property, such as this:
 
-```
+```JSON
 {
   "state": {
     "reported": {
@@ -201,7 +200,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -243,7 +242,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -287,7 +286,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -331,7 +330,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -375,7 +374,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -423,7 +422,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -456,7 +455,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -500,7 +499,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

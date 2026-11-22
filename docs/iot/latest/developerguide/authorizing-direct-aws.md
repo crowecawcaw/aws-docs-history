@@ -1,7 +1,6 @@
 
 
 # Authorizing direct calls to AWS services using AWS IoT Core credential provider
-<a name="authorizing-direct-aws"></a>
 
 Devices can use X.509 certificates to connect to AWS IoT Core using TLS mutual authentication protocols. Other AWS services do not support certificate-based authentication, but they can be called using AWS credentials in [AWS Signature Version 4 format](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). The [Signature Version 4 algorithm](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) normally requires the caller to have an access key ID and a secret access key. AWS IoT Core has a credentials provider that allows you to use the built-in [X.509 certificate](x509-client-certs.html) as the unique device identity to authenticate AWS requests. This eliminates the need to store an access key ID and a secret access key on your device.
 
@@ -9,6 +8,7 @@ The credentials provider authenticates a caller using an X.509 certificate and i
 
  AWS IoT requires devices to send the [Server Name Indication (SNI) extension](https://www.rfc-editor.org/rfc/rfc3546#section-3.1) to the Transport Layer Security (TLS) protocol and provide the complete endpoint address in the `host_name` field. The `host_name` field must contain the endpoint you are calling, and it must be:
 + The `endpointAddress` returned by `aws iot [describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html) --endpoint-type iot:CredentialProvider`.
++ The domain name of an AWS managed or customer managed domain configuration. For more information, see [Important notes](iot-domain-configuration-what-is.md#iot-custom-endpoints-configurable-notes).
 
 Connections attempted by devices without the correct `host_name` value will fail.
 
@@ -43,7 +43,7 @@ The following section describes how to use a certificate to get a security token
 1. Configure the IAM role that the credentials provider assumes on behalf of your device. Attach the following trust policy to the role.   
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -66,7 +66,7 @@ The following section describes how to use a certificate to get a security token
 1. Make sure that the user who performs the next step (creating a role alias) has permission to pass the newly created role to AWS IoT Core. The following policy gives both `iam:GetRole` and `iam:PassRole` permissions to an AWS user. The `iam:GetRole` permission allows the user to get information about the role that you've just created. The `iam:PassRole` permission allows the user to pass the role to another AWS service.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -95,7 +95,7 @@ The `credentialDurationSeconds` value must be less than or equal to the maximum 
 1. Attach a policy to the device certificate. The policy attached to the device certificate must grant the device permission to assume the role. You do this by granting permission for the `iot:AssumeRoleWithCertificate` action to the role alias, as in the following example.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -125,7 +125,7 @@ The *ThingName* that you provide in `x-amzn-iot-thingname` must match the name o
 
    The following JSON object is sample output of the **describe-endpoint** command. It contains the `endpointAddress` that you use to request a security token.
 
-   ```
+   ```json
    {
        "endpointAddress": "{{your_aws_account_specific_prefix}}.credentials.iot.{{your region}}.amazonaws.com"
    }
@@ -144,5 +144,17 @@ The *roleAlias* name is case sensitive and must match the role alias created in 
    ```
        {"credentials":{"accessKeyId":"{{access key}}","secretAccessKey":"{{secret access key}}","sessionToken":"{{session token}}","expiration":"2018-01-18T09:18:06Z"}}
    ```
+
+   To call the credential provider HTTPS API through a domain configuration, use the domain name of an AWS managed or customer managed domain configuration in place of the endpoint address. For more information, see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping). For example:
+
+   ```
+   curl --cert {{your certificate}} \
+       --key {{your private key}} \
+       -H "x-amzn-iot-thingname: {{your thing name}}" \
+       --cacert AmazonRootCA1.pem \
+       https://{{your domain name}}/role-aliases/{{your role alias}}/credentials
+   ```
+**Note**  
+The `--cacert` option specifies the CA certificate that the client uses to verify the server certificate. If you use a customer managed domain, use the root CA certificate that issued your server certificate instead of `AmazonRootCA1.pem`. For more information, see [Server Authentication](x509-client-certs.html#server-authentication).
 
    You can then use the `accessKeyId`, `secretAccessKey`, and `sessionToken` values to sign requests to AWS services. For an end-to-end demonstration, see [How to Eliminate the Need for Hard-Coded AWS Credentials in Devices by Using the AWS IoT Credential Provider](https://aws.amazon.com/blogs/security/how-to-eliminate-the-need-for-hardcoded-aws-credentials-in-devices-by-using-the-aws-iot-credentials-provider/) blog post on the *AWS Security Blog*.

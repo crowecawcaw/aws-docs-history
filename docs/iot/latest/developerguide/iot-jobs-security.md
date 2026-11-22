@@ -1,7 +1,6 @@
 
 
 # Securing users and devices with AWS IoT Jobs
-<a name="iot-jobs-security"></a>
 
 To authorize users to use AWS IoT Jobs with their devices, you must grant them permissions by using IAM policies. The devices must then be authorized by using AWS IoT Core policies to connect securely to AWS IoT, receive job executions, and update the execution status.
 

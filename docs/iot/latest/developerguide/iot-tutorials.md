@@ -1,7 +1,6 @@
 
 
 # AWS IoT tutorials
-<a name="iot-tutorials"></a>
 
 The AWS IoT tutorials are divided into two learning paths to support two different goals. Choose the best learning path for your goal.
 + 

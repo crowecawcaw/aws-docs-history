@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core policy examples
-<a name="example-iot-policies"></a>
 
 The example policies in this section illustrate the policy documents used to complete common tasks in AWS IoT Core. You can use them as examples to start from when creating the policies for your solutions.<a name="example-iot-policies-elements"></a>
 

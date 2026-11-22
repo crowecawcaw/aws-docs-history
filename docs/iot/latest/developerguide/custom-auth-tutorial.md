@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a custom authorizer for AWS IoT Core
-<a name="custom-auth-tutorial"></a>
 
 This tutorial demonstrates the steps to create, validate, and use Custom Authentication by using the AWS CLI. Optionally, using this tutorial, you can use Postman to send data to AWS IoT Core by using the HTTP Publish API.
 
@@ -93,7 +92,7 @@ The Lambda function does the following:
 
 1. Replace the **index.js** code in the editor with the following code:
 
-   ```
+   ```javascript
    // A simple Lambda function for an authorizer. It demonstrates
    // How to parse a CLI and Http password to generate a response.
    
@@ -211,7 +210,7 @@ Your custom authorizer requires a public and private key to authenticate it. The
 
 1. Create the private key file.
 
-   ```
+   ```bash
    openssl genrsa -out private-key.pem 4096
    ```
 
@@ -225,7 +224,7 @@ Your custom authorizer requires a public and private key to authenticate it. The
 
 1. Create the public key file.
 
-   ```
+   ```bash
    openssl rsa -in private-key.pem -pubout -out public-key.pem
    ```
 
@@ -353,7 +352,7 @@ In this section, you'll grant permission the custom authorizer resource that you
 
 1. After inserting your values, enter the following command. Note that the `statement-id` value must be unique. Replace `{{Id-1234}}` with another value if you have run this tutorial before or if you get a `ResourceConflictException` error.
 
-   ```
+   ```bash
    aws lambda add-permission  \
    --function-name "custom-auth-function" \
    --principal "iot.amazonaws.com" \
@@ -364,7 +363,7 @@ In this section, you'll grant permission the custom authorizer resource that you
 
 1. If the command succeeds, it returns a permission statement, such as this example. You can continue to the next section to test the custom authorizer.
 
-   ```
+   ```json
    {
        "Statement": "{\"Sid\":\"{{Id-1234}}\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iot.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:{{Region}}:57EXAMPLE833:function:custom-auth-function\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:lambda:{{Region}}:57EXAMPLE833:function:custom-auth-function\"}}}"
    }
@@ -437,7 +436,7 @@ Note that when invoking the authorizer from the command line, `protocolData` is 
 
 1. To get your device data endpoint from the command line, call [describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html) as shown here
 
-   ```
+   ```bash
    aws iot describe-endpoint --output text --endpoint-type iot:Data-ATS
    ```
 
@@ -501,7 +500,7 @@ Note that when invoking the authorizer from the command line, `protocolData` is 
 
       1. In the text field, enter this JSON message payload for your test message:
 
-         ```
+         ```json
          {
              "data_mode": "test",
              "vibration": 200,

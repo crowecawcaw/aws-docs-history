@@ -1,13 +1,12 @@
 
 
 # Managing devices with AWS IoT
-<a name="iot-thing-management"></a>
 
 AWS IoT provides a registry that helps you manage *things*. A thing is a representation of a specific device or logical entity. It can be a physical device or sensor (for example, a light bulb or a switch on a wall). It can also be a logical entity like an instance of an application or physical entity that does not connect to AWS IoT but is related to other devices that do (for example, a car that has engine sensors or a control panel).
 
  Information about a thing is stored in the registry as JSON data. Here is an example thing:
 
-```
+```JSON
 {
      "version": 3,
     "thingName": "MyLightBulb",

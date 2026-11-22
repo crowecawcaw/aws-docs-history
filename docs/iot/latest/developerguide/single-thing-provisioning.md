@@ -1,7 +1,6 @@
 
 
 # Single thing provisioning
-<a name="single-thing-provisioning"></a>
 
 To provision a thing, use the [RegisterThing](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterThing.html) API or the `register-thing` CLI command. The `register-thing` CLI command takes the following arguments:
 
@@ -15,7 +14,7 @@ See [Provisioning templates](provision-template.md).
 
 [RegisterThing](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterThing.html) or `register-thing` returns the ARNs for the resources and the text of the certificate it created:
 
-```
+```json
 {
     "certificatePem": "{{certificate-text}}",
     "resourceArns": {

@@ -1,7 +1,6 @@
 
 
 # Update a thing
-<a name="update-thing"></a>
 
 You can use the **UpdateThing** command to update a thing. This command updates only the thing's attributes. You can't change a thing's name. To change a thing's name, create a new thing, give it the new name, and then delete the old thing.
 

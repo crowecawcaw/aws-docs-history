@@ -1,7 +1,6 @@
 
 
 # Passing role permissions
-<a name="pass-role"></a>
 
 Part of a rule definition is an IAM role that grants permission to access resources specified in the rule's action. The rules engine assumes that role when the rule's action is invoked. The role must be defined in the same AWS account as the rule.
 
@@ -9,7 +8,7 @@ When creating or replacing a rule you are, in effect, passing a role to the rule
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

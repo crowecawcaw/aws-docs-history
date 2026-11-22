@@ -1,7 +1,6 @@
 
 
 # Advanced configuration for AWS IoT Core Device Location
-<a name="device-location-advanced-configuration"></a>
 
 You can use the `AdvancedConfiguration` parameter to customize how AWS IoT Core Device Location resolves the location of your devices. This parameter is supported when using the [GetPositionEstimate](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html) API operation, the AWS IoT console, or the device location MQTT topics.
 
@@ -31,7 +30,7 @@ The `WiFiCellular` configuration is used only when the measurement data contains
 
 The following example shows a Wi-Fi measurement payload with the `AdvancedConfiguration` parameter that sets the confidence level to 95 percent.
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},
     "WiFiAccessPoints": [
@@ -54,7 +53,7 @@ The following example shows a Wi-Fi measurement payload with the `AdvancedConfig
 
 The following GeoJSON payload shows the resolved location with the confidence level set to 0.95, matching the requested 95 percent confidence.
 
-```
+```JSON
 {
     "coordinates": [
         23.864079,
@@ -74,7 +73,7 @@ The following GeoJSON payload shows the resolved location with the confidence le
 
 The following example shows a cellular measurement payload with the `AdvancedConfiguration` parameter that sets the confidence level to 55 percent.
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},
     "CellTowers": {
@@ -149,7 +148,7 @@ The following example shows a cellular measurement payload with the `AdvancedCon
 
 The following GeoJSON payload shows the resolved location with the confidence level set to 0.55, matching the requested 55 percent confidence.
 
-```
+```JSON
 {
     "coordinates": [
         13.376077,

@@ -1,7 +1,6 @@
 
 
 # Using tags with IAM policies
-<a name="tagging-iot-iam"></a>
 
 You can apply tag-based resource-level permissions in the IAM policies you use for AWS IoT API actions. This gives you better control over what resources a user can create, modify, or use. You use the `Condition` element (also called the `Condition` block) with the following condition context keys and values in an IAM policy to control user access (permissions) based on a resource's tags: 
 + Use `aws:ResourceTag/{{tag-key}}: {{tag-value}}` to allow or deny user actions on resources with specific tags.
@@ -19,7 +18,7 @@ The following example policy applies two tag-based restrictions for the `ThingGr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@ The following example policy applies two tag-based restrictions for the `ThingGr
 
 You can also specify multiple tag values for a given tag key by enclosing them in a list, like this: 
 
-```
+```JSON
             "StringEquals" : {
               "aws:ResourceTag/env" : ["dev", "test"]
             }

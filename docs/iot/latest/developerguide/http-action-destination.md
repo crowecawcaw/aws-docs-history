@@ -1,7 +1,6 @@
 
 
 # HTTP action destinations
-<a name="http-action-destination"></a>
 
 An HTTP action destination is a web service to which the rules engine can route data from a topic rule. An AWS IoT Core resource describes the web service for AWS IoT. Destination resources can be shared by different rules.
 

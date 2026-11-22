@@ -1,7 +1,6 @@
 
 
 # S3
-<a name="s3-rule-action"></a>
 
 The S3 (`s3`) action writes the data from an MQTT message to an Amazon Simple Storage Service (Amazon S3) bucket. 
 
@@ -42,7 +41,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines an S3 action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 

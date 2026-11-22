@@ -1,7 +1,6 @@
 
 
 # Device Advisor test cases
-<a name="device-advisor-tests"></a>
 
 Device Advisor provides prebuilt tests in six categories.
 + [TLS](device-advisor-tests-tls.md)

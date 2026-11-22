@@ -1,7 +1,6 @@
 
 
 # Batching HTTP action messages
-<a name="http_batching"></a>
 
 You can use batching to send multiple HTTP action messages in a single request.
 
@@ -63,7 +62,7 @@ We can't guarantee that the last message in the batch is the last message that y
 
 The following example shows the structure of a batched message payload sent to your HTTP endpoint:
 
-```
+```JSON
 [
   {
     "user_id": "user1",
@@ -100,7 +99,7 @@ When a batch request fails, AWS IoT Core Rules engine will follow the [HTTP acti
 
 The following is an example of an error action message with batching enabled:
 
-```
+```JSON
 {
     "ruleName": "FailedTopicRule",
     "topic": "topic/rulesengine",
@@ -160,7 +159,7 @@ The following is an example of an error action message with batching enabled:
 
 When `batchAcrossTopics` is enabled, the error action payload format changes. The `topic` field moves from the top level to inside each `payloadsWithMetadata` entry:
 
-```
+```JSON
 {
     "ruleName": "FailedTopicRule",
     "payloadsWithMetadata": [
@@ -204,18 +203,18 @@ Batched action failures also generate larger error action payloads which can inc
 1. Use the appropriate AWS CLI command to create or update a rule:
    + To create a new rule, use the [create-topic-rule](https://docs.aws.amazon.com/cli/latest/reference/iot/create-topic-rule.html) command:
 
-     ```
+     ```JSON
      aws iot create-topic-rule --rule-name {{myrule}} --topic-rule-payload file://{{myrule}}.json
      ```
    + To update an existing rule, use the [replace-topic-rule](https://docs.aws.amazon.com/cli/latest/reference/iot/replace-topic-rule.html) command:
 
-     ```
+     ```JSON
      aws iot replace-topic-rule --rule-name {{myrule}} --topic-rule-payload file://{{myrule}}.json
      ```
 
 1. Enable batching capabilities by setting the enableBatching parameter to true in your topic rule payload:
 
-   ```
+   ```JSON
    {
            "topicRulePayload": {
            "sql": "SELECT * FROM 'some/topic'", 

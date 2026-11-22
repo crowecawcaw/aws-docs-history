@@ -1,7 +1,6 @@
 
 
 # Indexing location data
-<a name="location-indexing-geoquery"></a>
 
 You can use [AWS IoT fleet indexing](https://docs.aws.amazon.com/iot/latest/developerguide/iot-indexing.html) to index your devices' last sent location data and search for devices using geoqueries. This feature resolves device monitoring and management use cases such as location tracking and proximity search. Location indexing works similarly to other fleet indexing features, and with additional configurations to specify in your [thing indexing](managing-fleet-index.md). 
 
@@ -100,7 +99,7 @@ If your location data is stored in a classic shadow, you must set `thingIndexing
 
 In the following thing indexing configuration example, you specify the location data path `shadow.reported.coordinates` as `name` and `LonLat` as `order`.
 
-```
+```JSON
 {
 	"thingIndexingMode": "REGISTRY_AND_SHADOW",
 	"filter": {
@@ -138,7 +137,7 @@ If your location data is stored in a named shadow, set `namedShadowIndexingMode`
 
 In the following thing indexing configuration example, you specify the location data path `shadow.name.namedShadow1.reported.coordinates` as `name` and `LonLat` as `order`.
 
-```
+```JSON
 {
 	"thingIndexingMode": "REGISTRY",
 	"namedShadowIndexingMode": "ON",

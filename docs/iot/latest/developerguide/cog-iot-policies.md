@@ -1,7 +1,6 @@
 
 
 # Authorization with Amazon Cognito identities
-<a name="cog-iot-policies"></a>
 
 There are two types of Amazon Cognito identities: unauthenticated and authenticated. If your app supports unauthenticated Amazon Cognito identities, no authentication is performed, so you don't know who the user is. 
 
@@ -21,7 +20,7 @@ The following example shows permissions in both the IAM policy and the IoT polic
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -51,7 +50,7 @@ The following example shows the permissions in an IAM policy of an Amazon Cognit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -96,7 +95,7 @@ Both examples perform the following steps.
 
 The first example uses the `AttachPolicy` API operation directly inside the authentication operation. The following example demonstrates how to implement this API call inside a React web application that uses Amplify and the AWS IoT Device SDK for JavaScript.
 
-```
+```javascript
 function attachPolicy(id, policyName) {
     var Iot = new AWS.Iot({region: AWSConfiguration.region, apiVersion: AWSConfiguration.apiVersion, endpoint: AWSConfiguration.endpoint});
     var params = {policyName: policyName, target: id};
@@ -119,7 +118,7 @@ This code appears in the [AuthDisplay.js](https://github.com/aws-samples/aws-amp
 
 The second example implements the `AttachPolicy` API operation in a Lambda function. The following example shows how the Lambda uses this API call.
 
-```
+```javascript
 iot.attachPolicy(params, function(err, data) {
      if (err) {
            if (err.code !== 'ResourceAlreadyExistsException') {

@@ -1,7 +1,6 @@
 
 
 # Associating an AWS IoT thing to an MQTT client connection
-<a name="exclusive-thing"></a>
 
 An exclusive thing association is when you attach an X.509 certificate to a single AWS IoT thing. In this case, the certificate cannot be used with other things. By ensuring that a certificate is used only by a single IoT thing, it helps prevent security vulnerabilities.
 
@@ -80,7 +79,7 @@ If your client ID matches your thing's name in the registry, after you attach an
 
    The output can look like the following.
 
-   ```
+   ```JSON
    {
        "PrincipalThingObjects": [
            {
@@ -102,7 +101,7 @@ If your client ID matches your thing's name in the registry, after you attach an
 
    The output can look like the following.
 
-   ```
+   ```JSON
    {
        "ThingPrincipalObjects": [
            {

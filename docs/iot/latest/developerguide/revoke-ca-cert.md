@@ -1,7 +1,6 @@
 
 
 # Revoke a client certificate
-<a name="revoke-ca-cert"></a>
 
 If you detect suspicious activity on a registered client certificate, you can revoke it so that it can't be used again.
 

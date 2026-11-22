@@ -1,7 +1,6 @@
 
 
 # Start and monitor command executions
-<a name="iot-remote-command-execution-start-monitor"></a>
 
 After creating a Command, start an Execution on the target device. The device updates results and publishes status to MQTT reserved Topics. Retrieve and monitor Execution status from your account.
 
@@ -27,13 +26,13 @@ Before starting an Execution, ensure:
 
   {{<devices>}} can be Things or MQTT clients. {{<DeviceID>}} is the Thing name or Client ID. Supported {{<PayloadFormat>}} values: JSON and CBOR. For more information, see [Commands topics](reserved-topics.md#reserved-topics-commands).
 
-  ```
+  ```JSON
   $aws/commands/{{<devices>}}/{{<DeviceID>}}/executions/+/request/{{<PayloadFormat>}}
   ```
 
   For non-JSON/CBOR {{<PayloadFormat>}}, use this Commands Topic format:
 
-  ```
+  ```JSON
   $aws/commands/{{<devices>}}/{{<DeviceID>}}/executions/+/request
   ```
 
@@ -143,7 +142,7 @@ In this example, replace:
 + `{{devices}}` with either `thing` or `client` depending on whether your devices have been registered as AWS IoT things, or are specified as MQTT clients.
 + `{{device-id}}` with your AWS IoT `thing-name` or `client-id`.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -169,7 +168,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 
 It returns the account-specific endpoint URL as shown in the sample response below.
 
-```
+```json
 {
     "endpointAddress":
     "{{<account-specific-prefix>}}-ats.iot.{{<region>}}.api.com"
@@ -214,7 +213,7 @@ Running this command returns a command execution ID. You can use this ID to quer
 **Note**  
 If the command has been deprecated, then the `StartCommandExecution` API request will fail with a validation exception. To fix this error, first restore the command using the `UpdateCommand` API, and then perform the `StartCommandExecution` request.
 
-```
+```json
 {
     "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542"
 }
@@ -248,7 +247,7 @@ The following code shows a sample device policy when using MQTT client ID.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -300,7 +299,7 @@ The following code shows a sample device policy when using an AWS IoT thing.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -389,7 +388,7 @@ The following are some important considerations when using the `UpdateCommandExe
 
 The following code shows an example of how your device can use the `UpdateCommandExecution` API to report the execution status, the `statusReason` field to provide additional information about the status, and the result field to provide information about the result of the execution, such as the car battery percentage in this case.
 
-```
+```JSON
 {
   "status": "IN_PROGRESS",
   "statusReason": {
@@ -464,7 +463,7 @@ In this example, replace:
 + `{{devices}}` with either `thing` or `client` depending on whether your devices have been registered as AWS IoT things, or are specified as MQTT clients.
 + `{{device-id}}` with your AWS IoT `thing-name` or `client-id`.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -501,7 +500,7 @@ The following code shows a sample response from the API request.
 **Note**  
 The `completedAt` field in the execution response corresponds to the time when the device reports a terminal status to the cloud. In the case of `TIMED_OUT` status, this field will be set only when the device reports a time out. When the `TIMED_OUT` status is set by the cloud, the `TIMED_OUT` status is not updated. For more information about the time out behavior, see [Command execution timeout considerations](#iot-command-execution-timeout).
 
-```
+```json
 {
     "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542",
     "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor",
@@ -556,7 +555,7 @@ You can find the thing name for your device from the [Thing Hub](https://console
 
    For example, consider a command that you executed to turn on the AC of your car to reduce the temperature to a desired value. The following JSON shows a sample message that the vehicle published to the response topic which shows that it failed to execute the command.
 
-   ```
+   ```JSON
    {
      "deviceId": "My_Car",
      "executionId": "07e4b780-7eca-4ffd-b772-b76358da5542",
@@ -615,7 +614,7 @@ In this example, replace:
 + `{{account-id}}` with your AWS account number, such as `{{123456789012}}`.
 + `{{command-id}}` with your unique AWS IoT command identifier, such as `{{LockDoor}}`.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "iot:ListCommandExecutions",
@@ -644,7 +643,7 @@ aws iot list-command-executions \
 
 Running this command generates a response that contains a list of command executions that you created, and the time when the executions started executing, and when it completed. It also provides status information, and the `statusReason` object that contains additional information about the status.
 
-```
+```JSON
 {
     "commandExecutions": [
         {
@@ -690,7 +689,7 @@ In this example, replace:
 + `{{devices}}` with either `thing` or `client` depending on whether your devices have been registered as AWS IoT things, or are specified as MQTT clients.
 + `{{device-id}}` with your AWS IoT `thing-name` or `client-id`.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [

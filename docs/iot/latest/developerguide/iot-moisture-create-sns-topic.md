@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an Amazon SNS topic and subscription
-<a name="iot-moisture-create-sns-topic"></a>
 
 Create an Amazon SNS topic and subscription.
 

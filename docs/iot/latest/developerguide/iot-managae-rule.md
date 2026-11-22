@@ -1,7 +1,6 @@
 
 
 # Managing an AWS IoT rule
-<a name="iot-managae-rule"></a>
 
 You can use the following actions to manage your AWS IoT rules.
 
@@ -35,7 +34,7 @@ For this example, you must use the following IAM policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": 

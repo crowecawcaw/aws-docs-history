@@ -1,7 +1,6 @@
 
 
 # Using AWS IoT Device Management secure tunneling with interface VPC endpoints
-<a name="IoTCore-ST-VPC"></a>
 
 AWS IoT Device Management secure tunneling supports interface VPC endpoints. You can use VPC endpoints to keep traffic between your VPC and AWS IoT Secure Tunneling within the AWS network, without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
 
@@ -70,7 +69,7 @@ The following examples show Proxy Server VPC endpoint policy configurations for 
 **Example - Default policy**  
 This policy allows devices within your VPC to connect to any tunnel in the same AWS Region where the endpoint is created, across any AWS account.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -86,7 +85,7 @@ This policy allows devices within your VPC to connect to any tunnel in the same 
 **Example - Restrict access to specific AWS accounts**  
 This policy allows the VPC endpoint to connect only to tunnels in specific AWS accounts.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -106,7 +105,7 @@ This policy allows the VPC endpoint to connect only to tunnels in specific AWS a
 You can restrict VPC endpoint access to only allow devices to connect to the source or destination end of a tunnel.  
 Source only:  
 
-```
+```json
 {
     "Statement": [
         {
@@ -126,7 +125,7 @@ Source only:
 
 Destination only:
 
-```
+```json
 {
     "Statement": [
         {
@@ -147,7 +146,7 @@ Destination only:
 **Example - Restrict access based on resource tags**  
 This policy allows the VPC endpoint to connect only to tunnels that are tagged with a specific key-value pair.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -168,7 +167,7 @@ This policy allows the VPC endpoint to connect only to tunnels that are tagged w
 **Example - Combined policy conditions**  
 This policy demonstrates combining multiple policy elements. It allows connections to any tunnel in a specific AWS account, but only if the tunnel is tagged with `AllowConnectionsThroughPrivateLink` set to `true` and the client is not connecting to the destination end of the tunnel.  
 
-```
+```json
 {
     "Statement": [
         {

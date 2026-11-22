@@ -1,7 +1,6 @@
 
 
 # Resolving AWS IoT secure tunneling connectivity issues by rotating client access tokens
-<a name="iot-secure-tunneling-troubleshooting"></a>
 
 When you use AWS IoT secure tunneling, you might run into connectivity issues even if the tunnel is open. The following sections show some possible issues and how you can resolve them by rotating the client access tokens. To rotate the client access token (CAT), use the [RotateTunnelAccessToken](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_RotateTunnelAccessToken.html) API or the [rotate-tunnel-access-token](https://docs.aws.amazon.com/cli/latest/reference/iotsecuretunneling/rotate-tunnel-access-token.html) AWS CLI. Depending on whether you run into an error with using the client in the source or destination mode, you can rotate the CAT either in source or destination mode, or both.
 
@@ -56,7 +55,7 @@ aws iotsecuretunneling rotate-tunnel-access-token \
 
 Running this command generates a new source access token and returns the ARN of your tunnel.
 
-```
+```JSON
 {
     "sourceAccessToken": "{{<source-access-token>}}", 
     "tunnelArn": "arn:aws:iot:{{<region>}}:{{<account-id>}}:tunnel/{{<tunnel-id>}}"
@@ -108,7 +107,7 @@ aws iotsecuretunneling open-tunnel \
 
 Running this command generates the tunnel details and the CAT for your source and destination.
 
-```
+```JSON
 {
     "sourceAccessToken": "{{<source-access-token>}}", 
     "destinationAccessToken": "{{<destination-access-token>}}", 
@@ -127,7 +126,7 @@ aws iotsecuretunneling describe-tunnel \
 
 Running this command displays that the device is still not connected.
 
-```
+```JSON
 {
     "tunnel": {
         ...
@@ -153,7 +152,7 @@ aws iotsecuretunneling rotate-tunnel-access-token \
 
 Running this command generates the new access token as shown below. The token is then delivered to the device to connect to the tunnel, if the device agent is set up correctly.
 
-```
+```JSON
 {
     "destinationAccessToken": "{{destination-access-token}}", 
     "tunnelArn": "arn:aws:iot:{{region}}:{{account-id}}:tunnel/{{tunnel-id}}"

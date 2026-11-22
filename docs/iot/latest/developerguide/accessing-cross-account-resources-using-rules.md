@@ -1,7 +1,6 @@
 
 
 # Accessing cross-account resources using AWS IoT rules
-<a name="accessing-cross-account-resources-using-rules"></a>
 
 You can configure AWS IoT rules for cross-account access so that data ingested on MQTT topics of one account can be routed into the AWS services, such as Amazon SQS and Lambda, of another account. The following explains how to set up AWS IoT rules for cross-account data ingestion, from an MQTT topic in one account, to a destination in another account. 
 
@@ -46,7 +45,7 @@ To run the following commands, your IAM user should have permissions to `iot:Cre
 
    The following is an example payload file with a rule that inserts all messages sent to the `iot/test` topic into the specified Amazon SQS queue. The SQL statement filters the messages and the role ARN grants AWS IoT permissions to add the message to the Amazon SQS queue.
 
-   ```
+   ```JSON
    {
    	"sql": "SELECT * FROM 'iot/test'",
    	"ruleDisabled": false,
@@ -102,7 +101,7 @@ Scenario: Account A sends data from an MQTT message to an Amazon SNS topic of ac
 
    The following is an example payload file with a rule that inserts all messages sent to the `iot/test` topic into the specified Amazon SNS topic. The SQL statement filters the messages, and the role ARN grants AWS IoT permissions to send the message to the Amazon SNS topic.
 
-   ```
+   ```JSON
    {
    	"sql": "SELECT * FROM 'iot/test'",
    	"ruleDisabled": false,
@@ -157,7 +156,7 @@ To run the following commands, your IAM user should have permissions to `iot:Cre
 
    The following is an example payload file with a rule that inserts all messages sent to the `iot/test` topic into the specified Amazon S3 bucket. The SQL statement filters the messages, and the role ARN grants AWS IoT permissions to add the message to the Amazon S3 bucket.
 
-   ```
+   ```JSON
    {
    	"sql": "SELECT * FROM 'iot/test'",
    	"ruleDisabled": false,
@@ -185,7 +184,7 @@ To run the following commands, your IAM user should have permissions to `iot:Cre
    The following is an example payload file that defines a bucket policy that trusts the principal of another account.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -239,7 +238,7 @@ Scenario: Account A invokes an AWS Lambda function of account B, passing in an M
 
    The following is an example payload file with a rule that inserts all messages sent to the `iot/test` topic into the specified Lambda function. The SQL statement filters the messages and the role ARN grants AWS IoT permission to pass in the data to the Lambda function.
 
-   ```
+   ```JSON
    {
    	"sql": "SELECT * FROM 'iot/test'",
    	"ruleDisabled": false,

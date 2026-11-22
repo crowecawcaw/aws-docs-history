@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using the AWS IoT Device SDK for Embedded C
-<a name="iot-embedded-c-sdk"></a>
 
 This section describes how to run the AWS IoT Device SDK for Embedded C.
 
@@ -29,14 +28,14 @@ In general, the AWS IoT Device SDK for Embedded C is intended for systems that u
 
 1. Navigate to that directory and checkout the latest release. Please see [ github.com/aws/aws-iot-device-sdk-embedded-C/tags](https://github.com/aws/aws-iot-device-sdk-embedded-C/tags) for the latest release tag.
 
-   ```
+   ```bash
    cd aws-iot-device-sdk-embedded-c
    git checkout {{latest-release-tag}}
    ```
 
 1. Install OpenSSL version 1.1.0 or later. The OpenSSL development libraries are usually called "libssl-dev" or "openssl-devel" when installed through a package manager.
 
-   ```
+   ```bash
    sudo apt-get install libssl-dev
    ```
 
@@ -69,7 +68,7 @@ Your private key file name, for example `certificates/private.pem.key`.
 
    For example:
 
-   ```
+   ```c
    // Get from demo_config.h
    // =================================================
    #define AWS_IOT_ENDPOINT               "{{my-endpoint}}-ats.iot.us-east-1.amazonaws.com"
@@ -83,7 +82,7 @@ Your private key file name, for example `certificates/private.pem.key`.
 
 1. Check to see if you have CMake installed on your device by using this command.
 
-   ```
+   ```bash
    cmake --version
    ```
 
@@ -91,7 +90,7 @@ Your private key file name, for example `certificates/private.pem.key`.
 
    If you get an error or don't see any information, then you'll need to install the cmake package using this command.
 
-   ```
+   ```bash
    sudo apt-get install cmake
    ```
 
@@ -99,7 +98,7 @@ Your private key file name, for example `certificates/private.pem.key`.
 
 1. Check to see if you have the development tools installed on your device by using this command.
 
-   ```
+   ```bash
    gcc --version
    ```
 
@@ -107,7 +106,7 @@ Your private key file name, for example `certificates/private.pem.key`.
 
    If you get an error or don't see any compiler information, you'll need to install the `build-essential` package using this command.
 
-   ```
+   ```bash
    sudo apt-get install build-essential
    ```
 
@@ -122,25 +121,25 @@ This procedure exaplains how to generate the `mqtt_demo_mutual_auth` application
 
 1. Navigate to `aws-iot-device-sdk-embedded-c` and create a build directory.
 
-   ```
+   ```bash
    mkdir build && cd build
    ```
 
 1. Enter the following CMake command to generate the Makefiles needed to build.
 
-   ```
+   ```bash
    cmake ..  
    ```
 
 1. Enter the following command to build the executable app file.
 
-   ```
+   ```bash
    make
    ```
 
 1. Run the `mqtt_demo_mutual_auth` app with this command.
 
-   ```
+   ```bash
    cd bin
    ./mqtt_demo_mutual_auth
    ```

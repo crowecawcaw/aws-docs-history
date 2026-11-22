@@ -1,7 +1,6 @@
 
 
 # Associating a package version to an AWS IoT thing
-<a name="associating-package-version"></a>
 
 After you install software on your device, you can associate a package version to an AWS IoT thing’s reserved named shadow. If AWS IoT jobs has been configured to update the thing’s reserved named shadow after the job deploys and successfully completes, you don’t need to complete this procedure. For more information, see [Reserved named shadow](preparing-to-use-software-package-catalog.md#reserved-named-shadow). 
 

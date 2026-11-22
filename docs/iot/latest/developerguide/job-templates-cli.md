@@ -1,7 +1,6 @@
 
 
 # Create custom job templates by using the AWS CLI
-<a name="job-templates-cli"></a>
 
 This topic explains how to create, delete, and retrieve details about job templates by using the AWS CLI.
 
@@ -53,7 +52,7 @@ aws iot describe-job-template \
 
 The command displays the following output.
 
-```
+```json
 {
    "abortConfig": { 
       "criteriaList": [ 
@@ -103,7 +102,7 @@ The following AWS CLI command lists all of the job templates in your AWS account
 
 The command displays the following output.
 
-```
+```json
 {
    "jobTemplates": [ 
       { 

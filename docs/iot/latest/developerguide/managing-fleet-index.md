@@ -1,7 +1,6 @@
 
 
 # Managing fleet indexing
-<a name="managing-fleet-index"></a>
 
 Fleet indexing manages two types of indexes for you: thing indexing and thing group indexing. 
 
@@ -41,7 +40,7 @@ Managed fields contain data associated with things, thing groups, device shadows
 The following lists managed fields for thing indexing: 
 + Managed fields for the registry
 
-  ```
+  ```json
   "managedFields" : [
     {name:thingId, type:String},
     {name:thingName, type:String},
@@ -52,7 +51,7 @@ The following lists managed fields for thing indexing:
   ```
 + Managed fields for classic unnamed shadows
 
-  ```
+  ```json
   "managedFields" : [
     {name:shadow.version, type:Number},
     {name:shadow.hasDelta, type:Boolean}
@@ -60,7 +59,7 @@ The following lists managed fields for thing indexing:
   ```
 + Managed fields for named shadows
 
-  ```
+  ```json
   "managedFields" : [
     {name:shadow.name.shadowName.version, type:Number},
     {name:shadow.name.shadowName.hasDelta, type:Boolean}
@@ -68,7 +67,7 @@ The following lists managed fields for thing indexing:
   ```
 + Managed fields for thing connectivity
 
-  ```
+  ```json
   "managedFields" : [
     {name:connectivity.timestamp, type:Number},
     {name:connectivity.version, type:Number},
@@ -82,7 +81,7 @@ The following lists managed fields for thing indexing:
   ```
 + Managed fields for Device Defender
 
-  ```
+  ```json
   "managedFields" : [
     {name:deviceDefender.violationCount, type:Number},
     {name:deviceDefender.securityprofile.behaviorname.metricName, type:String},
@@ -93,7 +92,7 @@ The following lists managed fields for thing indexing:
   ```
 + Managed fields for thing groups
 
-  ```
+  ```json
   "managedFields" : [
     {name:description, type:String},
     {name:parentGroupNames, type:String},

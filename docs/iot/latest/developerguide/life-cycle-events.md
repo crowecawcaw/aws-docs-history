@@ -1,7 +1,6 @@
 
 
 # Lifecycle events
-<a name="life-cycle-events"></a>
 
 AWS IoT can publish lifecycle events on the MQTT topics. These events are available by default and they can't be disabled.
 
@@ -87,7 +86,7 @@ If a client is not connected for approximately one hour, the version number is r
 
 A connect message has the following structure.
 
-```
+```json
 {
     "clientId": "186b5",
     "thingName": "exampleThing",
@@ -102,7 +101,7 @@ A connect message has the following structure.
 
 A disconnect message has the following structure.
 
-```
+```json
 {
     "clientId": "186b5",
     "thingName": "exampleThing",
@@ -126,7 +125,7 @@ The best practice is to always have a wait state implemented for lifecycle event
 
 AWS IoT publishes a message to the following MQTT topic when a client is not authorized to connect or when a last will and testament is configured and the client is not authorized to publish to that last will topic.
 
-```
+```text
 $aws/events/presence/connect_failed/{{clientId}}
 ```
 
@@ -159,7 +158,7 @@ The IP address of the connecting client. This can be in IPv4 or IPv6 format. Fou
 
 A connection failure message has the following structure.
 
-```
+```JSON
 {
     "clientId": "186b5",
     "thingName": "exampleThing",
@@ -177,13 +176,13 @@ A connection failure message has the following structure.
 
 AWS IoT publishes a message to the following MQTT topic when a client subscribes or unsubscribes to an MQTT topic:
 
-```
+```text
 $aws/events/subscriptions/subscribed/{{clientId}}
 ```
 
  or 
 
-```
+```text
 $aws/events/subscriptions/unsubscribed/{{clientId}}
 ```
 
@@ -191,7 +190,7 @@ Where `clientId` is the MQTT client ID that connects to the AWS IoT message brok
 
 The message published to this topic has the following structure:
 
-```
+```JSON
 {
     "clientId": "186b5",
     "thingName": "exampleThing",

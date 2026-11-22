@@ -1,7 +1,6 @@
 
 
 # Jobs device HTTP API
-<a name="jobs-http-device-api"></a>
 
 Devices can communicate with AWS IoT Jobs using HTTP Signature Version 4 on port 443. This is the method used by the AWS SDKs and CLI. For more information about those tools, see [AWS CLI Command Reference:iot-jobs-data](https://docs.aws.amazon.com/cli/latest/reference/iot-jobs-data/index.html) or [AWS SDKs and Tools](http://aws.amazon.com/tools/#sdk).
 
@@ -21,7 +20,7 @@ GET /things/{{thingName}}/jobs
 
 Response:
 
-```
+```JSON
 {
 "inProgressJobs" : [ JobExecutionSummary ... ], 
 "queuedJobs" : [ JobExecutionSummary ... ]
@@ -42,7 +41,7 @@ aws iot-jobs-data get-pending-job-executions \
 
  `cli-input-json` format:
 
-```
+```JSON
 {
 "thingName": "string"
 }
@@ -97,7 +96,7 @@ aws iot-jobs-data  start-next-pending-job-execution \
 
  `cli-input-json` format:
 
-```
+```JSON
 {
 "thingName": "string",
 "statusDetails": {
@@ -129,7 +128,7 @@ GET /things/{{thingName}}/jobs/{{jobId}}?executionNumber={{executionNumber}}&inc
 
 Response:
 
-```
+```JSON
 {
 "execution" : JobExecution,
 }
@@ -154,7 +153,7 @@ aws iot-jobs-data  describe-job-execution \
 
  `cli-input-json` format:
 
-```
+```JSON
 {
 "jobId": "string",
 "thingName": "string",
@@ -217,7 +216,7 @@ aws iot-jobs-data  update-job-execution \
 
  `cli-input-json` format:
 
-```
+```JSON
 {
 "jobId": "string",
 "thingName": "string",

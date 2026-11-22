@@ -1,7 +1,6 @@
 
 
 # Deploying a package version through AWS IoT jobs
-<a name="deploying-package-version"></a>
 
 You can use the following steps to deploy a package version through the AWS Management Console.
 

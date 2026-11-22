@@ -1,7 +1,6 @@
 
 
 # Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client
-<a name="iot-dc-testconn"></a>
 
 This tutorial demonstrates how the AWS IoT Device Client can subscribe to and publish MQTT messages, which are commonly used in IoT solutions.
 

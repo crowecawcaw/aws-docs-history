@@ -1,7 +1,6 @@
 
 
 # Install and verify required software on your device
-<a name="iot-dc-prepare-device-sw"></a>
 
 The procedures in this section continue from [the previous section](iot-dc-prepare-device-sys.md) to bring your Raspberry Pi's operating system up to date and install the software on the Raspberry Pi that will be used in the next section to build and install the AWS IoT Device Client.
 

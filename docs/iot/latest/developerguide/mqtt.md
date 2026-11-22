@@ -1,7 +1,6 @@
 
 
 # MQTT
-<a name="mqtt"></a>
 
 [MQTT](http://mqtt.org/) (Message Queuing Telemetry Transport) is a lightweight and widely adopted messaging protocol that is designed for constrained devices. AWS IoT Core support for MQTT is based on the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) and the [MQTT v5.0 specification](http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html), with some differences, as documented in [AWS IoT differences from MQTT specifications](#mqtt-differences). As the latest version of the standard, MQTT 5 introduces several key features that make an MQTT-based system more robust, including new scalability enhancements, improved error reporting with reason code responses, message and session expiry timers, and custom user message headers. For more information about MQTT 5 features that AWS IoT Core supports, see [MQTT 5 supported features](#mqtt5). AWS IoT Core also supports cross MQTT version (MQTT 3 and MQTT 5) communication. An MQTT 3 publisher can send an MQTT 3 message to an MQTT 5 subscriber that will be receiving an MQTT 5 publish message, and vice versa.
 

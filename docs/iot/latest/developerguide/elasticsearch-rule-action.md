@@ -1,7 +1,6 @@
 
 
 # Elasticsearch
-<a name="elasticsearch-rule-action"></a>
 
 The Elasticsearch (`elasticsearch`) action writes data from MQTT messages to an Amazon OpenSearch Service domain. You can then use tools like OpenSearch Dashboards to query and visualize data in OpenSearch Service.
 
@@ -47,7 +46,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines an Elasticsearch action in an AWS IoT rule and how you can specify the fields for the `elasticsearch` action. For more information, see [ElasticsearchAction](https://docs.aws.amazon.com/iot/latest/apireference/API_ElasticsearchAction.html).
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT *, timestamp() as timestamp FROM 'iot/test'",

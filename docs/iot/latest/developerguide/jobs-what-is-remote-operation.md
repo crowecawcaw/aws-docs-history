@@ -1,7 +1,6 @@
 
 
 # What is a remote operation?
-<a name="jobs-what-is-remote-operation"></a>
 
 **Note**  
 Over-the-air (OTA) updates are not available in the following regions:  

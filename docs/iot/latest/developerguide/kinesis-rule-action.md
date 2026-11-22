@@ -1,7 +1,6 @@
 
 
 # Kinesis Data Streams
-<a name="kinesis-rule-action"></a>
 
 The Kinesis Data Streams (`kinesis`) action writes data from an MQTT message to Amazon Kinesis Data Streams. 
 
@@ -36,7 +35,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a Kinesis Data Streams action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -57,7 +56,7 @@ The following JSON example defines a Kinesis Data Streams action in an AWS IoT r
 
 The following JSON example defines a Kinesis action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

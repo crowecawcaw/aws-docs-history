@@ -1,7 +1,6 @@
 
 
 # List things
-<a name="list-things"></a>
 
 You can use the **ListThings** command to list all things in your account:
 
@@ -9,7 +8,7 @@ You can use the **ListThings** command to list all things in your account:
 $ aws iot list-things
 ```
 
-```
+```JSON
 {
     "things": [
        {
@@ -37,7 +36,7 @@ You can use the **ListThings** command to search for all things of a specific th
 $  aws iot list-things --thing-type-name "LightBulb"
 ```
 
-```
+```JSON
 {
     "things": [
         {
@@ -68,7 +67,7 @@ You can use the **ListThings** command to search for all things that have an att
 $  aws iot list-things --attribute-name "wattage" --attribute-value "75"
 ```
 
-```
+```JSON
 {
     "things": [
         {

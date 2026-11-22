@@ -1,7 +1,6 @@
 
 
 # Authentication
-<a name="authentication"></a>
 
 Authentication is a mechanism where you verify the identity of a client or a server. Server authentication is the process where devices or other clients ensure they are communicating with an actual AWS IoT endpoint. Client authentication is the process where devices or other clients authenticate themselves with AWS IoT. 
 

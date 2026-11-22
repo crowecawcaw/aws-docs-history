@@ -1,7 +1,6 @@
 
 
 # Learn more about AWS IoT
-<a name="aws-iot-learn-more"></a>
 
 This topic helps you get familiar with the world of AWS IoT. You can get general information about how IoT solutions are applied in various use cases, training resources, links to social media for AWS IoT and all other AWS services, and a list of services and communication protocols that AWS IoT uses. 
 

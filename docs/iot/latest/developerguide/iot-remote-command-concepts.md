@@ -1,7 +1,6 @@
 
 
 # Commands concepts and status
-<a name="iot-remote-command-concepts"></a>
 
 Use AWS IoT Commands to send instructions from the cloud to connected devices. To use this feature:
 
@@ -83,7 +82,7 @@ When creating commands with payload templates, define value conditions to valida
 
 **Example: Temperature control command**
 
-```
+```json
 {
   "commandId": "SetTemperature",
   "namespace": "AWS-IoT",
@@ -128,7 +127,7 @@ Value conditions are evaluated on the final parameter value derived above on the
 
 **Example: SetTemperature command with `defaultValue`**
 
-```
+```json
 {
   "parameters": [
     {

@@ -1,7 +1,6 @@
 
 
 # Preparing fleet indexing
-<a name="preparing-fleet-indexing"></a>
 
 With AWS IoT fleet indexing, you can search and aggregate data by using the reserved named shadow (`$package`). You can also group AWS IoT things by querying the [Reserved named shadow](preparing-to-use-software-package-catalog.md#reserved-named-shadow) and [dynamic thing groups](https://docs.aws.amazon.com/iot/latest/developerguide/dynamic-thing-groups.html). For example, you can find information about which AWS IoT things use a specific package version, don't have a specific package version installed, or don’t have any package version installed. You can gain further insight by combining attributes. For example, identifying things that have a specific version and are of a specific thing type (such as version 1.0.0 and thing type of pump\_sensor). For more information, see [Fleet indexing](https://docs.aws.amazon.com/iot/latest/developerguide/iot-indexing.html).
 
@@ -46,7 +45,7 @@ In this example, a first device is named `AnyThing` and has the following packag
 
 The shadow looks as follows:
 
-```
+```json
 {
     "state": {
         "reported": {
@@ -76,7 +75,7 @@ A second device is named `AnotherThing` and has the following package installed:
 
 The shadow looks as follows:
 
-```
+```json
 {
     "state": {
         "reported": {

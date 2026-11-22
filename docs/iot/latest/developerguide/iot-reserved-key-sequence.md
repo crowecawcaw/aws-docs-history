@@ -1,7 +1,6 @@
 
 
 # Reserved character sequence in AWS IoT rule actions
-<a name="iot-reserved-key-sequence"></a>
 
 AWS IoT rules reserve the `^{` character sequence. You can't use it in rule action configuration fields. For example, AWS IoT rejects a field value such as `sensor^{data`. If a configuration field contains this sequence, the `CreateTopicRule` and `ReplaceTopicRule` operations fail with an error.
 

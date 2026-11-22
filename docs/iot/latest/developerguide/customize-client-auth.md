@@ -1,7 +1,6 @@
 
 
 # Custom client certificate validation
-<a name="customize-client-auth"></a>
 
 AWS IoT Core supports custom client certificate validation for X.509 client certificates, which enhances client authentication management. This certificate validation method is also known as pre-authentication certificate checks, in which you evaluate client certificates based on your own criteria (defined in a Lambda function) and revoke client certificates or the certificates' signing certificate authority (CA) certificate to prevent clients to connect to AWS IoT Core. For example, you can create your own certificate revocation checks that validate the certificates' status against validation authorities that support [Online Certificate Status Protocol (OCSP)](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol) or [Certificate Revocation Lists (CRL)](https://en.wikipedia.org/wiki/Certificate_revocation_list) endpoints, and prevent connections for clients with revoked certificates. The criteria used to evaluate client certificates are defined in a Lambda function (also known as pre-authentication Lambda). You must use the endpoints set in domain configurations and the[ authentication type](protocols.md#connection-protocol-auth-mode) must be X.509 certificate. In addition, clients must provide the [Server Name Indication (SNI)](https://www.rfc-editor.org/rfc/rfc3546#section-3.1) extension when connecting to AWS IoT Core.
 
@@ -34,7 +33,7 @@ You need to create a Lambda function that will perform certificate verification 
 
 **Lambda function event example**
 
-```
+```JSON
 {
 	"connectionMetadata": {
 		"id": "string"
@@ -62,7 +61,7 @@ The array of strings that represents the client's X.509 certificate chain.
 
 **Lambda function response example**
 
-```
+```JSON
 {
 	"isAuthenticated": "boolean"
 }

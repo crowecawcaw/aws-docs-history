@@ -1,13 +1,12 @@
 
 
 # Tutorial: Formatting a notification by using an AWS Lambda function
-<a name="iot-lambda-rule"></a>
 
 This tutorial demonstrates how to send MQTT message data to an AWS Lambda action for formatting and sending to another AWS service. In this tutorial, the AWS Lambda action uses the AWS SDK to send the formatted message to the Amazon SNS topic you created in the tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md).
 
 In the tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md), the JSON document that resulted from the rule's query statement was sent as the body of the text message. The result was a text message that looked something like this example:
 
-```
+```json
 {"device_id":"32","reported_temperature":38,"max_temperature":30}
 ```
 
@@ -90,7 +89,7 @@ Unlike the tutorial about how to [Tutorial: Sending an Amazon SNS notification](
 
    1. In the **Function code** window, delete all of the original program code from the blueprint and replace it with this code.
 
-      ```
+      ```python
       import boto3
       #
       #   expects event parameter to contain:
@@ -185,7 +184,7 @@ In this step, you'll use the rule query statement to format the data from the im
 
 A sample message payload received from the weather devices looks like this:
 
-```
+```json
 {
   "temperature": 28,
   "humidity": 80,
@@ -199,7 +198,7 @@ A sample message payload received from the weather devices looks like this:
 
 In this rule, you'll use the rule query statement to create a message payload for the Lambda function that looks like this:
 
-```
+```json
 {
   "device_id": "32",
   "reported_temperature": 38,
@@ -299,7 +298,7 @@ Open the [MQTT client in the AWS IoT console](https://console.aws.amazon.com/iot
 
    1. Copy the sample data shown here and, in the edit box below the topic name, paste the sample data.
 
-      ```
+      ```json
       {
         "temperature": 38,
         "humidity": 80,
@@ -321,7 +320,7 @@ Open the [MQTT client in the AWS IoT console](https://console.aws.amazon.com/iot
 
    1. Under **Subscriptions**, choose **device/\+/data** to check that the message payload matches what you just published and looks like this:
 
-      ```
+      ```json
       {
         "temperature": 38,
         "humidity": 80,
@@ -335,7 +334,7 @@ Open the [MQTT client in the AWS IoT console](https://console.aws.amazon.com/iot
 
    1. Check the phone that you used to subscribe to the SNS topic and confirm the contents of the message payload look like this:
 
-      ```
+      ```json
       Device 32 reports a temperature of 38, which exceeds the limit of 30.
       ```
 
@@ -349,7 +348,7 @@ Open the [MQTT client in the AWS IoT console](https://console.aws.amazon.com/iot
 
    1. Copy the sample data shown here and, in the edit box below the topic name, paste the sample data.
 
-      ```
+      ```json
       {
         "temperature": 28,
         "humidity": 80,

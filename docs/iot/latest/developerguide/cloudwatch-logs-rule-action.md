@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs
-<a name="cloudwatch-logs-rule-action"></a>
 
 The CloudWatch Logs (`cloudwatchLogs`) action sends data to Amazon CloudWatch Logs. You can use `batchMode` to upload and timestamp multiple device log records in one message. You can also specify the log group where the action sends data.
 
@@ -55,7 +54,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a CloudWatch Logs action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 

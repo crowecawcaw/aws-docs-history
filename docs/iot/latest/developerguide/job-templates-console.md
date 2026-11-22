@@ -1,7 +1,6 @@
 
 
 # Create custom job templates by using the AWS Management Console
-<a name="job-templates-console"></a>
 
 This topic explains how to create, delete, and view details about job templates by using the AWS IoT console.
 

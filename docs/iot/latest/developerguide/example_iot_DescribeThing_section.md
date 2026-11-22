@@ -1,7 +1,6 @@
 
 
 # Use `DescribeThing` with an AWS SDK or CLI
-<a name="example_iot_DescribeThing_section"></a>
 
 The following code examples show how to use `DescribeThing`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
-```
+```cpp
 //! Describe an AWS IoT thing.
 /*!
   \param thingName: The name for the thing.
@@ -83,7 +82,7 @@ For more information, see [How to Manage Things with the Registry](https://docs.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
-```
+```java
     /**
      * Describes an IoT Thing asynchronously.
      *
@@ -127,7 +126,7 @@ For more information, see [How to Manage Things with the Registry](https://docs.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
-```
+```kotlin
 suspend fun describeThing(thingNameVal: String) {
     val thingRequest =
         DescribeThingRequest {

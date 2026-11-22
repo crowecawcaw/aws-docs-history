@@ -1,7 +1,6 @@
 
 
 # Manage your CA certificates
-<a name="manage-your-CA-certs"></a>
 
 This section describes common tasks for managing your own certificate authority (CA) certificates.
 

@@ -1,7 +1,6 @@
 
 
 # Create and manage commands
-<a name="iot-remote-command-create-manage"></a>
 
 Use AWS IoT Device Management Commands to configure reusable remote actions or send immediate instructions to devices. Create and manage Commands from the AWS IoT console or using the AWS CLI.
 
@@ -40,18 +39,18 @@ Provide a unique Command ID to identify the Command when running it on target de
 Commands reserved Topics use a format based on Payload format type.
 + For `application/json` or `application/cbor` content types, use this request Topic:
 
-  ```
+  ```JSON
   $aws/commands/{{<devices>}}/{{<DeviceID>}}/executions/+/request/{{<PayloadFormat>}}
   ```
 + For other content types or unspecified format, use this request Topic. The Payload format appears in the MQTT message header.
 
-  ```
+  ```JSON
   $aws/commands/{{<devices>}}/{{<DeviceID>}}/executions/+/request
   ```
 
 The Commands response Topic uses `json` or `cbor` format regardless of Payload type. {{<PayloadFormat>}} must be `json` or `cbor`:
 
-```
+```JSON
 $aws/commands/{{<devices>}}/{{<DeviceID>}}/executions/{{<ExecutionId>}}/response/{{<PayloadFormat>}}
 ```
 
@@ -129,7 +128,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -160,7 +159,7 @@ aws iot create-command \
 
 Running this command generates a response that contains the ID and ARN (Amazon resource name) of the command. For example, if you specified the `{{LockDoor}}` command during creation, the following shows a sample output of running the command.
 
-```
+```json
 {
     "commandId": "LockDoor",
     "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor"
@@ -190,7 +189,7 @@ aws iot create-command \
 
 Running this command generates a response that contains the ID and ARN (Amazon resource name) of the command. For example, if you specified the `{{Light_Power_Status}}` command during creation, the following shows a sample output of running the command.
 
-```
+```json
 {
     "commandId": "Light_Power_Status",
     "commandArn": "arn:aws:iot:us-east-1:123456789012:command/Light_Power_Status"
@@ -232,7 +231,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -256,7 +255,7 @@ Running this command generates a response that contains information about the co
 
 For example, the following code shows a sample response. 
 
-```
+```json
 {
     "commandId": "LockDoor",
     "commandArn": "arn:aws:iot:<region>:<account>:command/LockDoor",
@@ -304,7 +303,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -364,7 +363,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -400,7 +399,7 @@ aws iot update-command \
 
 Running this command generates the following response.
 
-```
+```json
 {
     "commandId": "LockDoor",
     "commandArn": "arn:aws:iot:us-east-1:123456789012:command/LockDoor",
@@ -458,7 +457,7 @@ In this example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

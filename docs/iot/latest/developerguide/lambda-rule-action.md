@@ -1,7 +1,6 @@
 
 
 # Lambda
-<a name="lambda-rule-action"></a>
 
 A Lambda (`lambda`) action invokes an AWS Lambda function, passing in an MQTT message. AWS IoT invokes Lambda functions asynchronously.
 
@@ -24,7 +23,7 @@ If you add a permission for an AWS IoT principal without providing the `source-a
 
   For more information, see [AWS Lambda permissions](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html).
 
-  ```
+  ```bash
   aws lambda add-permission \ 
       --function-name {{function_name}} \ 
       --region {{region}} \ 
@@ -42,7 +41,7 @@ If you add a permission for an AWS IoT principal without providing the `source-a
   + {{account-id}} with the AWS account number where the rule is defined.
   + {{rule-name}} with the name of the AWS IoT rule for which you are defining the Lambda action.
 
-  ```
+  ```JSON
   Type: AWS::Lambda::Permission
   Properties:
     Action: lambda:InvokeFunction
@@ -73,7 +72,7 @@ Supports [substitution templates](iot-substitution-templates.md): API and AWS CL
 
 The following JSON example defines a Lambda action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -92,7 +91,7 @@ The following JSON example defines a Lambda action in an AWS IoT rule.
 
 The following JSON example defines a Lambda action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

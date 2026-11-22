@@ -1,7 +1,6 @@
 
 
 # Location solvers and device payload
-<a name="device-location-solvers-payload"></a>
 
 Location solvers are algorithms that can be used to resolve the location of your IoT devices. AWS IoT Core Device Location supports the following location solvers. You'll see examples of the JSON payload format for these measurement types, the devices supported by the solver, and how the location is resolved.
 
@@ -13,7 +12,7 @@ To resolve the device location, specify one or more of these measurement data ty
 + [IP reverse lookup solver](#location-solvers-ip)
 + [GNSS solver](#location-solvers-gnss)
 + [Multi-frame GNSS solver](#location-solvers-gnss-multiframe)
-+ [BLE solver for Amazon Sidewalk enabled devices](#location-solvers-ble)
++ [Location solvers for Amazon Sidewalk enabled devices](#location-solvers-ble)
 
 ## Wi-Fi based solver
 <a name="location-solvers-wifi"></a>
@@ -29,7 +28,7 @@ To learn more about resolving location data for Amazon Sidewalk enabled devices,
 
 The following code shows an example of the JSON payload from the device that contains the measurement data. When AWS IoT Core Device Location receives this data as input, it sends an HTTP request to the solver provider to resolve the location information. To retrieve the information, specify values for the MAC Address and RSS (received signal strength). To do this, either provide the JSON payload using this format, or use the [WiFiAccessPoints object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_WiFiAccessPoint.html) parameter of the [GetPositionEstimate](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html) API operation.
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},    // optional
     "WiFiAccessPoints": [ 
@@ -61,7 +60,7 @@ The following code shows examples of the JSON payload from the device that conta
 
 When you use this measurement data, you must specify information such as the network and country code of the mobile network, and optional additional parameters including information about the local ID. The following code shows an example of the payload format. For more information about these parameters, see [LTE object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_LteObj.html).
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},           // optional 
     "CellTowers": {
@@ -99,7 +98,7 @@ When you use this measurement data, you must specify information such as the net
 
 When you use this measurement data, you must specify information such as the network and country code of the mobile network, the base station information, and optional additional parameters. The following code shows an example of the payload format. For more information about these parameters, see [GSM object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GsmObj.html).
 
-```
+```JSON
 {   
     "Timestamp": {{1664313161}},           // optional
     "CellTowers": {
@@ -136,7 +135,7 @@ When you use this measurement data, you must specify information such as the net
 
 When you use this measurement data, you must specify information such as the signal power and identification information, the base station information, and optional additional parameters. The following code shows an example of the payload format. For more information about these parameters, see [CDMA object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_CdmaObj.html).
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},               // optional
     "CellTowers": {
@@ -172,7 +171,7 @@ When you use this measurement data, you must specify information such as the sig
 
 When you use this measurement data, you must specify information such as the network and country code, signal power and identification information, the base station information, and optional additional parameters. The following code shows an example of the payload format. For more information about these parameters, see [CDMA object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_CdmaObj.html).
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},           // optional
     "CellTowers": {
@@ -208,7 +207,7 @@ When you use this measurement data, you must specify information such as the net
 
 When you use this measurement data, you must specify information such as the network and country code, signal power and identification information, the base station information, and optional additional parameters. The following code shows an example of the payload format. For more information about these parameters, see [CDMA object](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_CdmaObj.html).
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},           // optional
     "CellTowers": {
@@ -256,7 +255,7 @@ The following code shows an example of the JSON payload from the device that con
 **Note**  
 When this solver is used, the city, state, country, and postal code where the device is located is also reported in addition to the coordinates. For an example, see [Resolving device location (console)](device-location-resolve-solvers.md#location-resolve-console).
 
-```
+```JSON
 {
     "Timestamp": {{1664313161}},
     "Ip":{
@@ -283,7 +282,7 @@ The following code shows an example of the JSON payload from the device that con
 **Note**  
 Before AWS IoT Core Device Location can resolve the device location, you must remove the destination byte from the payload.
 
-```
+```JSON
 {   
     "Timestamp": {{1664313161}},                  // optional
     "Gnss": { 
@@ -315,7 +314,7 @@ Before AWS IoT Core Device Location can resolve the device location, you must re
 The number of captures provided in the `Captures` list must be one of the following values: 2, 4, 8, 16, or 32.
 When a request has `Use2DSolver` set to `true`, you must also provide `AssistAltitude`. Otherwise, the request fails with a validation error.
 
-```
+```JSON
 {   
     "Timestamp": {{1664313161}},                  // optional
     "GnssMultiFrame": { 
@@ -342,10 +341,10 @@ When a request has `Use2DSolver` set to `true`, you must also provide `AssistAlt
 }
 ```
 
-## BLE solver for Amazon Sidewalk enabled devices
+## Location solvers for Amazon Sidewalk enabled devices
 <a name="location-solvers-ble"></a>
 
 **Note**  
-For Bluetooth Low Energy based location, AWS IoT returns location coordinates based on the approximate location of nearby Sidewalk Gateways that are connected to Amazon Sidewalk and have the Community Finding feature enabled. Gateway Location Data is AWS Content and is provided to you solely for the purpose of assisting you in locating your devices that are connected to Amazon Sidewalk, and you must only use the data for that purpose. You must only use and access location data via the interface and functionality that we generally make available to you, and you must not attempt to re-identify, reverse engineer, or re-map any Gateway location data provided by us to you.
+For Amazon Sidewalk Proximity based location, AWS IoT returns location coordinates based on the approximate location of nearby Sidewalk Gateways that are connected to Amazon Sidewalk and have the Community Finding feature enabled. Gateway Location Data is AWS Content and is provided to you solely for the purpose of assisting you in locating your devices that are connected to Amazon Sidewalk, and you must only use the data for that purpose. You must only use and access location data via the interface and functionality that we generally make available to you, and you must not attempt to re-identify, reverse engineer, or re-map any Gateway location data provided by us to you.
 
-Amazon Sidewalk end devices connecting over AWS IoT Core for Amazon Sidewalk can resolve their location data using BLE, Wi-Fi, or GNSS uplink messages published by the Amazon Sidewalk end device. For more information, see the [AWS IoT Core for Amazon Sidewalk developer guide](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/sidewalk-getting-started.html).
+Amazon Sidewalk end devices connecting over AWS IoT Core for Amazon Sidewalk can resolve their location data using BLE, LoRa, Wi-Fi, or GNSS uplink messages published by the Amazon Sidewalk end device. For more information, see the [AWS IoT Core for Amazon Sidewalk developer guide](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/sidewalk-getting-started.html).

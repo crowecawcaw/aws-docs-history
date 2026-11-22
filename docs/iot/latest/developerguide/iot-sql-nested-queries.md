@@ -1,13 +1,12 @@
 
 
 # Nested object queries
-<a name="iot-sql-nested-queries"></a>
 
 You can use nested SELECT clauses to query for attributes within arrays and inner JSON objects. Supported by SQL version 2016-03-23 and later.
 
 Consider the following MQTT message:
 
-```
+```JSON
 { 
     "e": [
         { "n": "temperature", "u": "Cel", "t": 1234, "v": 22.5 },
@@ -26,7 +25,7 @@ SELECT (SELECT VALUE n FROM e) as sensors FROM 'my/topic'
 
 The rule generates the following output.
 
-```
+```JSON
 {
     "sensors": [
         "temperature",
@@ -45,7 +44,7 @@ SELECT (SELECT v FROM e WHERE n = 'temperature') as temperature FROM 'my/topic'
 
 The rule generates the following output.
 
-```
+```JSON
 {
     "temperature": [
         {
@@ -64,7 +63,7 @@ SELECT get((SELECT v FROM e WHERE n = 'temperature'), 0).v as temperature FROM '
 
 The rule generates the following output.
 
-```
+```JSON
 {
     "temperature": 22.5
 }

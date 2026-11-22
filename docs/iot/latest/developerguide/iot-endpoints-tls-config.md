@@ -1,7 +1,6 @@
 
 
 # Configuring TLS settings in domain configurations
-<a name="iot-endpoints-tls-config"></a>
 
 AWS IoT Core provides [predefined security polices](transport-security.md#tls-policy-table) for you to customize your Transport Layer Security (TLS) settings for [TLS 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2) and [TLS 1.3](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3) in domain configurations. A security policy is a combination of TLS protocols and their ciphers that determine the supported protocols and ciphers during TLS negotiations between a client and a server. With the supported security policies, you can manage your devices' TLS settings with more flexibility, apply the most up-to-date security measures when connecting new devices, and maintain consistent TLS configurations for existing devices.
 
@@ -66,7 +65,7 @@ You can use the [**create-domain-configuration**](https://docs.aws.amazon.com/cl
 
    The output of this command can look like the following: 
 
-   ```
+   ```JSON
    {
    "domainConfigurationName": "test",
    "domainConfigurationArn": "arn:aws:iot:us-west-2:123456789012:domainconfiguration/test/34ga9"
@@ -84,7 +83,7 @@ You can use the [**create-domain-configuration**](https://docs.aws.amazon.com/cl
 
    This command can return the domain configuration details that include the TLS settings like the following:
 
-   ```
+   ```JSON
    {
     "tlsConfig": {
     "securityPolicy": "IoTSecurityPolicy_TLS13_1_2_2022_10"
@@ -110,7 +109,7 @@ You can use the [**create-domain-configuration**](https://docs.aws.amazon.com/cl
 
    The output of this command can look like the following:
 
-   ```
+   ```JSON
    {
    "domainConfigurationName": "test",
    "domainConfigurationArn": "arn:aws:iot:us-west-2:123456789012:domainconfiguration/test/34ga9"
@@ -127,7 +126,7 @@ You can use the [**create-domain-configuration**](https://docs.aws.amazon.com/cl
 
    The output of the command can look like the following:
 
-   ```
+   ```JSON
    {
    "domainConfigurationName": "iot:Data-ATS",
    "domainConfigurationArn": "arn:aws:iot:us-west-2:123456789012:domainconfiguration/iot:Data-ATS"

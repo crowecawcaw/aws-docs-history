@@ -1,7 +1,6 @@
 
 
 # Using shadows in apps and services
-<a name="device-shadow-comms-app"></a>
 
 This section describes how an app or service interacts with the AWS IoT Device Shadow service. This example assumes the app or service is interacting only with the shadow and, through the shadow, the device. This example doesn't include any management actions, such as creating or deleting shadows. 
 
@@ -27,7 +26,7 @@ where:
 endpoint  
 The endpoint returned by the CLI command:  
 
-```
+```bash
 aws iot describe-endpoint --endpoint-type IOT:Data-ATS
 ```
 
@@ -61,7 +60,7 @@ MQTT LWT messages sent to AWS IoT reserved topics (topics that begin with $) are
 
 1. Create a rule that republishes the MQTT LWT message on the reserved topic. The following example is a rule that listens for messages on the `my/things/myLightBulb/update` topic and republishes it to `$aws/things/myLightBulb/shadow/update`.
 
-   ```
+   ```JSON
    {
        "rule": {
        "ruleDisabled": false,
@@ -81,7 +80,7 @@ MQTT LWT messages sent to AWS IoT reserved topics (topics that begin with $) are
 
 1. When the device connects to AWS IoT, it registers an LWT message to a non-reserved topic for the republish rule to recognize. In this example, that topic is `my/things/myLightBulb/update` and it sets the connected property to `false`.
 
-   ```
+   ```JSON
    {
        "state": {        
            "reported": {
@@ -93,7 +92,7 @@ MQTT LWT messages sent to AWS IoT reserved topics (topics that begin with $) are
 
 1. After connecting, the device publishes a message on its shadow update topic, `$aws/things/myLightBulb/shadow/update`, to report its current state, which includes setting its `connected` property to `true`.
 
-   ```
+   ```JSON
    {
         "state": {        
            "reported": {
@@ -105,7 +104,7 @@ MQTT LWT messages sent to AWS IoT reserved topics (topics that begin with $) are
 
 1. Before the device disconnects gracefully, it publishes a message on its shadow update topic, `$aws/things/myLightBulb/shadow/update`, to report its latest state, which include setting its `connected` property to `false`.
 
-   ```
+   ```JSON
    {
        "state": {        
            "reported": {

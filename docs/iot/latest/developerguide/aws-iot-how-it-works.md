@@ -1,7 +1,6 @@
 
 
 # How AWS IoT works
-<a name="aws-iot-how-it-works"></a>
 
  AWS IoT provides cloud services and device support that you can use to implement IoT solutions. AWS provides many cloud services to support IoT-based applications. So to help you understand where to start, this section provides a diagram and definition of essential concepts to introduce you to the IoT universe. 
 

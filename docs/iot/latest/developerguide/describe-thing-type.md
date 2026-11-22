@@ -1,7 +1,6 @@
 
 
 # Describe a thing type
-<a name="describe-thing-type"></a>
 
 You can use the **DescribeThingType** command to get information about a thing type:
 
@@ -11,7 +10,7 @@ $ aws iot describe-thing-type --thing-type-name "LightBulb"
 
 The **DescribeThingType** command returns information about the specified type:
 
-```
+```JSON
 {
     "thingTypeProperties": {
         "searchableAttributes": [

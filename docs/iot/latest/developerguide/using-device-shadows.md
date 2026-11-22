@@ -1,7 +1,6 @@
 
 
 # Simulating Device Shadow service communications
-<a name="using-device-shadows"></a>
 
 This topic demonstrates how the Device Shadow service acts as an intermediary and allows devices and apps to use a shadow to update, store, and retrieve a device's state.
 
@@ -81,7 +80,7 @@ After a device has initialized itself and subscribed to the response topics, it 
 
    If you haven't created the named shadow, `simShadow1`, you receive a message in the `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/rejected` topic and the `code` is `404`, such as in this example as the shadow has not been created, so we'll create it next.
 
-   ```
+   ```json
    {
      "code": 404,
      "message": "No shadow exists with name: 'simShadow1'"
@@ -98,7 +97,7 @@ After a device has initialized itself and subscribed to the response topics, it 
 
 1. In the message body window below where you entered the topic, enter this shadow document to show the device is reporting its ID and its current color in RGB values. Choose **Publish** to publish the request.
 
-   ```
+   ```json
    {
      "state": {
        "reported": {
@@ -119,7 +118,7 @@ If you receive a message in the topic:
 + `$aws/things/mySimulatedThing/shadow/name/simShadow1/update/rejected`: Review the error in the message body.
 + `$aws/things/mySimulatedThing/shadow/name/simShadow1/get/accepted`: The shadow already exists and the message body has the current shadow state, such as in this example. With this, you could set your device or confirm that it matches the shadow state.
 
-  ```
+  ```json
   {
     "state": {
       "reported": {
@@ -163,19 +162,19 @@ This section uses the AWS CLI to demonstrate how an app can interact with a shad
 **To get the current state of the shadow using the AWS CLI**  
 From the command line, enter this command.
 
-```
+```bash
 aws iot-data get-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 /dev/stdout
 ```
 
 On Windows platforms, you can use `con` instead of `/dev/stdout`.
 
-```
+```bash
 aws iot-data get-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 con
 ```
 
 Because the shadow exists and had been initialized by the device to reflect its current state, it should return the following shadow document.
 
-```
+```json
 {
   "state": {
     "reported": {
@@ -220,7 +219,7 @@ From the command line, enter this command.
 ------
 #### [ AWS CLI v2.x ]
 
-```
+```bash
 aws iot-data update-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 \
     --cli-binary-format raw-in-base64-out \
     --payload '{"state":{"desired":{"ColorRGB":[255,255,0]}},"clientToken":"21b21b21-bfd2-4279-8c65-e2f697ff4fab"}' /dev/stdout
@@ -229,7 +228,7 @@ aws iot-data update-thing-shadow --thing-name mySimulatedThing --shadow-name sim
 ------
 #### [ AWS CLI v1.x ]
 
-```
+```bash
 aws iot-data update-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 \
     --payload '{"state":{"desired":{"ColorRGB":[255,255,0]}},"clientToken":"21b21b21-bfd2-4279-8c65-e2f697ff4fab"}' /dev/stdout
 ```
@@ -238,7 +237,7 @@ aws iot-data update-thing-shadow --thing-name mySimulatedThing --shadow-name sim
 
 If successful, this command should return the following shadow document.
 
-```
+```json
 {
   "state": {
     "desired": {
@@ -278,7 +277,7 @@ Returning to the **MQTT client** in the AWS console, you should see the messages
 **To view the update messages in the **MQTT client****  
 In the **MQTT client**, choose **$aws/things/mySimulatedThing/shadow/name/simShadow1/update/delta** in the **Subscriptions** column. If the topic name is truncated, you can pause on it to see the full topic. In the topic log of this topic, you should see a `/delta` message similar to this one.
 
-```
+```json
 {
   "version": 4,
   "timestamp": 1591141596,
@@ -316,7 +315,7 @@ After the device updates the state to match the `desired` state in the message, 
 
 1. In the message body window , in the topic field above the message body window, enter the shadow's topic followed by the `/update` action: `$aws/things/mySimulatedThing/shadow/name/simShadow1/update` and in the message body, enter this updated shadow document, which describes the current state of the device. Click **Publish** to publish the updated device state.
 
-   ```
+   ```javascro[t
    {
      "state": {
        "reported": {
@@ -329,7 +328,7 @@ After the device updates the state to match the `desired` state in the message, 
 
    If the message was successfully received by AWS IoT, you should see a new response in the **$aws/things/mySimulatedThing/shadow/name/simShadow1/update/accepted** message log in the **MQTT client** with the current state of the shadow, such as this example.
 
-   ```
+   ```json
    {
      "state": {
        "reported": {
@@ -363,7 +362,7 @@ After the device updates the state to match the `desired` state in the message, 
 
 A successful update to the reported state of the device also causes AWS IoT to send a comprehensive description of the shadow state in a message to the `update/documents` topic, such as this message body that resulted from the shadow update performed by the device in the preceding procedure.
 
-```
+```json
 {
   "previous": {
     "state": {
@@ -481,19 +480,19 @@ The app can now query the shadow for the current state as reported by the device
 
 1. From the command line, enter this command.
 
-   ```
+   ```bash
    aws iot-data get-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 /dev/stdout
    ```
 
    On Windows platforms, you can use `con` instead of `/dev/stdout`.
 
-   ```
+   ```bash
    aws iot-data get-thing-shadow --thing-name mySimulatedThing --shadow-name simShadow1 con
    ```
 
 1. Because the shadow has just been updated by the device to reflect its current state, it should return the following shadow document.
 
-   ```
+   ```json
    {
      "state": {
        "desired": {

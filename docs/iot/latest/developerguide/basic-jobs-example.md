@@ -1,7 +1,6 @@
 
 
 # Basic job policy example
-<a name="basic-jobs-example"></a>
 
 This sample shows the policy statments required for a job target that's a single device to receive a job request and communicate job execution status with AWS IoT.
 
@@ -9,7 +8,7 @@ Replace {{us-west-2:57EXAMPLE833}} with your AWS Region, a colon character (:), 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

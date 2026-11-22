@@ -1,7 +1,6 @@
 
 
 # Test your device and save the Amazon CA cert
-<a name="iot-dc-prepare-device-test"></a>
 
 The procedures in this section continue from [the previous section](iot-dc-prepare-device-sw.md) to install the AWS Command Line Interface and the Certificate Authority certificate used to authenticate your connections with AWS IoT Core.
 

@@ -1,7 +1,6 @@
 
 
 # Preparing AWS IoT Jobs
-<a name="preparing-jobs-for-service-package-catalog"></a>
 
 AWS IoT Device Management Software Package Catalog extends AWS IoT Jobs through substitution parameters, and integration with AWS IoT fleet indexing, dynamic thing groups, and the AWS IoT thing’s reserved named shadow.
 
@@ -31,7 +30,7 @@ In the following example, there is a software package named `samplePackage` and 
 
 For `s3URL`, the job document parameter is written as follows:
 
-```
+```json
 {
 "samplePackage": "${aws:iot:package:samplePackage1:version:2.1.5:attributes:s3URL}"
 }
@@ -39,7 +38,7 @@ For `s3URL`, the job document parameter is written as follows:
 
 For `signature`, the job document parameter is written as follows:
 
-```
+```json
 {
 "samplePackage": "${aws:iot:package:samplePackage1:version:2.1.5:attributes:signature}"
 }
@@ -47,7 +46,7 @@ For `signature`, the job document parameter is written as follows:
 
 The complete job document is written as follows:
 
-```
+```json
 {
   ...
   "Steps": {
@@ -66,7 +65,7 @@ The complete job document is written as follows:
 
 After the substitution is made, the following job document is deployed to the devices:
 
-```
+```json
 {
   ...
   "Steps": {
@@ -93,7 +92,7 @@ Using the "before-substitution" parameter in the `DescribeJob` and `GetJobDocume
 + `DescribeJob`
   + Default view
 
-    ```
+    ```JSON
     {
         "jobId": "<jobId>",
         "description": "<description>",
@@ -102,7 +101,7 @@ Using the "before-substitution" parameter in the `DescribeJob` and `GetJobDocume
     ```
   + Before substituion view
 
-    ```
+    ```JSON
     {
         "jobId": "<jobId>",
         "description": "<description>",
@@ -112,7 +111,7 @@ Using the "before-substitution" parameter in the `DescribeJob` and `GetJobDocume
 + `GetJobDocument`
   + Default view
 
-    ```
+    ```JSON
     {
         "attributes": {
             "location": "prod-artifacts.s3.us-east-1.amazonaws.com/mqtt-core",
@@ -124,7 +123,7 @@ Using the "before-substitution" parameter in the `DescribeJob` and `GetJobDocume
     ```
   + Before substituion view
 
-    ```
+    ```JSON
     {
         "attributes": "${aws:iot:package:TestPackage:version:$default:attributes}",
     }
@@ -152,7 +151,7 @@ If you use your own job document, you can update it directly in the *Deployment 
 
   Refer to the following example for the deployment instruction file as represented by `recipe`:
 
-  ```
+  ```JSON
   {
       "packageName": "{{sample-package-name}}",
       "versionName": "{{sample-package-version}}",
@@ -171,7 +170,7 @@ To store multiple object versions of the same file in your Amazon S3 bucket, you
   To access the package version artifacts in the Amazon S3 bucket when using the `CreatePackageVersion` or `UpdatePackageVersion` API operation, you must have the following permissions:  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -188,7 +187,7 @@ To store multiple object versions of the same file in your Amazon S3 bucket, you
 
   Refer to the following example that shows the version attribute `artifact` supporting the artifact location in Amazon S3 when creating a new package version:
 
-  ```
+  ```JSON
   {
       "packageName": "{{sample package name}}",
       "versionName": "{{1.0}}",
@@ -207,13 +206,13 @@ When a package version updates from a `draft` status state to a `published` stat
 **Package Version**
 + A default software package version can be denoted in the available versions of the software package providing a secure and stable package version. This serves as the baseline version of the software package when deploying the default package version to your device fleet using AWS IoT Jobs. When creating a job to deploy the `$default` package version for a software package, the package version in the job document and in the new job deployment must match as `$default`. The package version in the job deployment is represented by `destinationPackageVersions` for API and CLI commands and `VersionARN` in the AWS Management Console. The package version in the job document is represented by the following job document placeholder shown below:
 
-  ```
+  ```JSON
   arn:aws:iot:{{<regionCode>}}:{{111122223333}}:package/{{<packageName>}}/version/{{$default}}
   ```
 
   To create a job or job template using the default package version, use the `$default` flag in the `CreateJob` or `CreateJobTemplate` API command as shown below:
 
-  ```
+  ```JSON
   "$ aws iot create-job \
       --destination-package-versions "arn:aws:iot:us-west-2:123456789012:package/TestPackage/version/$default"
       --document file://jobdoc.json
@@ -262,13 +261,13 @@ To use this feature, replace the version name at the end of the [destinationPack
 
 The authorized ARN uses the following format:
 
-```
+```json
 arn:aws:iot:{{<regionCode>}}:{{111122223333}}:package/{{<packageName>}}/version/$null
 ```
 
 For example,
 
-```
+```json
 $ aws iot create-job \
     ... \
     --destinationPackageVersions ["arn:aws:iot:us-east-1:111122223333:package/samplePackage/version/$null"]

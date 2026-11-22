@@ -1,13 +1,12 @@
 
 
 # Thing policy examples
-<a name="thing-policy-examples"></a>
 
 The following policy allows a device to connect if the certificate used to authenticate with AWS IoT Core is attached to the thing for which the policy is being evaluated:
 
 ****  
 
-```
+```json
 {  
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -29,7 +28,7 @@ The following policy allows a device to publish if the certificate is attached t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -57,7 +56,7 @@ The following policy allows a device to publish to a topic that starts with an a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

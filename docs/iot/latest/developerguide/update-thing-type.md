@@ -1,7 +1,6 @@
 
 
 # Update a thing type
-<a name="update-thing-type"></a>
 
 You can use the **UpdateThingType** command to update a thing type when you create a thing:
 

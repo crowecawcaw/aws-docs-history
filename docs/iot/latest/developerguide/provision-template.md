@@ -1,7 +1,6 @@
 
 
 # Provisioning templates
-<a name="provision-template"></a>
 
 A provisioning template is a JSON document that uses parameters to describe the resources your device must use to interact with AWS IoT. A provisioning template contains two sections: `Parameters` and `Resources`. There are two types of provisioning templates in AWS IoT. One is used for just-in-time provisioning (JITP) and bulk registration, and the second is used for fleet provisioning.
 
@@ -17,7 +16,7 @@ A provisioning template is a JSON document that uses parameters to describe the 
 
 The `Parameters` section declares the parameters used in the `Resources` section. Each parameter declares a name, a type, and an optional default value. The default value is used when the dictionary passed in with the template does not contain a value for the parameter. The `Parameters` section of a template document looks like the following:
 
-```
+```JSON
 {
     "Parameters" : {
         "ThingName" : {
@@ -92,7 +91,7 @@ You can also provision devices without device certificates. For more information
 Examples:
 + Certificate specified with a CSR:
 
-  ```
+  ```JSON
   {
       "certificate" : {
           "Type" : "AWS::IoT::Certificate",
@@ -105,7 +104,7 @@ Examples:
   ```
 + Certificate specified with an existing certificate ID:
 
-  ```
+  ```JSON
   {
       "certificate" : {
           "Type" : "AWS::IoT::Certificate",
@@ -117,7 +116,7 @@ Examples:
   ```
 + Certificate specified with an existing certificate .pem and CA certificate .pem:
 
-  ```
+  ```JSON
   {
       "certificate" : {
           "Type" : "AWS::IoT::Certificate",
@@ -130,7 +129,7 @@ Examples:
   ```
 + Exclusively attach one thing to a principal:
 
-  ```
+  ```JSON
   {
       "certificate" : {
           "Type" : "AWS::IoT::Certificate",
@@ -182,7 +181,7 @@ When you declare a certificate resource, you can specify `OverrideSettings` for 
 
 The following template snippet declares a thing, a certificate, and a policy:
 
-```
+```JSON
 { 
     "Resources" : {
         "thing" : {
@@ -244,7 +243,7 @@ The following JSON file is an example of a complete provisioning template that s
 
 (The `PolicyDocument` field value must be a JSON object specified as an escaped string.)
 
-```
+```JSON
 {
     "Parameters" : {
         "ThingName" : {
@@ -294,7 +293,7 @@ The following JSON file is an example of a complete provisioning template that s
 
 The following JSON file is an example of a complete provisioning template that specifies an existing certificate with a certificate ID:
 
-```
+```JSON
 {
    "Parameters":{
       "AWS::IoT::Certificate::CommonName":{
@@ -367,7 +366,7 @@ For more information about how to use this template for just-in-time provisionin
 ## Fleet provisioning
 <a name="fleet-provision-template"></a>
 
-Fleet provisioning templates are used by AWS IoT to set up cloud and device configuration. These templates use the same parameters and resources as the JITP and bulk registration templates. For more information, see [Provisioning templates](#provision-template). Fleet provisioning templates can contain a `Mapping` section and a `DeviceConfiguration` section. You can use intrinsic functions inside a fleet provisioning template to generate a device-specific configuration. Fleet provisioning templates are named resources and are identified by ARNs (for example, `arn:aws:iot:us-west-2:1234568788:provisioningtemplate/{{templateName}}`).
+Fleet provisioning templates are used by AWS IoT to set up cloud and device configuration. These templates use the same parameters and resources as the JITP and bulk registration templates. For more information, see [Provisioning templates](provision-template.md). Fleet provisioning templates can contain a `Mapping` section and a `DeviceConfiguration` section. You can use intrinsic functions inside a fleet provisioning template to generate a device-specific configuration. Fleet provisioning templates are named resources and are identified by ARNs (for example, `arn:aws:iot:us-west-2:1234568788:provisioningtemplate/{{templateName}}`).
 
 ### Mappings
 <a name="mappings"></a>
@@ -381,7 +380,7 @@ You cannot include parameters, pseudo parameters, or call intrinsic functions in
 
 The device configuration section contains arbitrary data that you want to send to your devices when provisioning. For example: 
 
-```
+```json
 {
     "DeviceConfiguration": {
         "Foo":"Bar"
@@ -417,7 +416,7 @@ Substitutes variables in an input string with values that you specify. You can u
 ### Template example for fleet provisioning
 <a name="fleet-provisioning-example"></a>
 
-```
+```json
 {
     "Parameters" : {
         "ThingName" : {

@@ -1,7 +1,6 @@
 
 
 # Install and update the operating system of the device
-<a name="iot-dc-prepare-device-sys"></a>
 
 The procedures in this section describe how to initialize the microSD card that the Raspberry Pi uses for its system drive. The Raspberry Pi's microSD card contains its operating system (OS) software as well as space for its application file storage. If you're not using a Raspberry Pi, follow the device's instructions to install and update the device's operating system software.
 

@@ -1,7 +1,6 @@
 
 
 # Transport security in AWS IoT Core
-<a name="transport-security"></a>
 
 TLS (Transport Layer Security) is a cryptographic protocol that is designed for secure communication over a computer network. The AWS IoT Core Device Gateway requires customers to encrypt all communication while in-transit by using TLS for connections from devices to the Gateway. TLS is used to achieve confidentiality of the application protocols (MQTT, HTTP, and WebSocket) supported by AWS IoT Core. TLS support is available in a number of programming languages and operating systems. Data within AWS is encrypted by the specific AWS service. For more information about data encryption on other AWS services, see the security documentation for that service.
 

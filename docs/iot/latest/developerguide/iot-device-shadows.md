@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Shadow service
-<a name="iot-device-shadows"></a>
 
  The AWS IoT Device Shadow service adds shadows to AWS IoT thing objects. Shadows can make a device’s state available to apps and other services whether the device is connected to AWS IoT or not. AWS IoT thing objects can have multiple named shadows so that your IoT solution has more options for connecting your devices to other apps and services. 
 
@@ -72,7 +71,7 @@ There is no guarantee that messages from the AWS IoT service will arrive at the 
 
 Initial state document:
 
-```
+```JSON
 {
   "state": {
     "reported": {
@@ -86,7 +85,7 @@ Initial state document:
 
 Update 1:
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -100,7 +99,7 @@ Update 1:
 
 Update 2:
 
-```
+```JSON
 {
   "state": {
     "desired": {
@@ -114,7 +113,7 @@ Update 2:
 
 Final state document:
 
-```
+```JSON
 {
   "state": {
     "reported": {
@@ -128,7 +127,7 @@ Final state document:
 
 This results in two delta messages:
 
-```
+```JSON
 {
   "state": {
     "color": "RED"
@@ -138,7 +137,7 @@ This results in two delta messages:
 }
 ```
 
-```
+```JSON
 {
   "state": {
     "color": "GREEN"
@@ -157,7 +156,7 @@ To reduce the size of shadow messages sent to your device, define a rule that se
 
 The rule is specified in JSON and should look like the following: 
 
-```
+```JSON
 {
   "sql": "SELECT state, version FROM '$aws/things/+/shadow/update/delta'",
   "ruleDisabled": false,

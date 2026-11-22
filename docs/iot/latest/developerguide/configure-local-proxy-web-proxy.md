@@ -1,7 +1,6 @@
 
 
 # Configure local proxy for devices that use web proxy
-<a name="configure-local-proxy-web-proxy"></a>
 
 You can use local proxy on AWS IoT devices to communicate with AWS IoT secure tunneling APIs. The local proxy transmits data sent by the device application using secure tunneling over a WebSocket secure connection. The local proxy can work in `source` or `destination` mode. In `source` mode, it runs on the same device or network that initiates the TCP connection. In `destination` mode, the local proxy runs on the remote device, along with the destination application. For more information, see [Local proxy](local-proxy.md).
 
@@ -122,7 +121,7 @@ export HTTPS_PROXY=http://username:password@{{proxy.example.com:1234}}
 
 In Windows, you configure the local proxy similar to how you do for Linux or macOS, but how you define the environment variables is different from the other platforms. Run the following commands in the `cmd` window to configure and start the local proxy on your destination to use a web proxy listening to an HTTP port.
 
-```
+```bash
 set AWSIOT_TUNNEL_ACCESS_TOKEN={{${access_token}}}
 set HTTPS_PROXY=http://{{proxy.example.com:1234}}
 .\localproxy -r us-east-1 -d 22
@@ -172,7 +171,7 @@ export HTTPS_PROXY=http://username:password@{{proxy.example.com:1234}}
 
 In Windows, run the following commands in the `cmd` window to configure and start the local proxy running on your destination to use a web proxy listening to an HTTP port.
 
-```
+```bash
 set AWSIOT_TUNNEL_ACCESS_TOKEN={{${access_token}}}
 set HTTPS_PROXY=http://{{proxy.example.com:1234}}
 .\localproxy -r us-east-1 -d 22 -c {{\path\to\certs}}

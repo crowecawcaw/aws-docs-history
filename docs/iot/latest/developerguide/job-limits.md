@@ -1,7 +1,6 @@
 
 
 # AWS IoT Jobs limits
-<a name="job-limits"></a>
 
 AWS IoT Jobs has Service quotas, or limits, that correspond to the maximum number of service resources or operations for your AWS account.
 

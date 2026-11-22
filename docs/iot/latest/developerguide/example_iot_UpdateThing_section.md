@@ -1,7 +1,6 @@
 
 
 # Use `UpdateThing` with an AWS SDK or CLI
-<a name="example_iot_UpdateThing_section"></a>
 
 The following code examples show how to use `UpdateThing`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Updates an IoT Thing with attributes.
     /// </summary>
@@ -59,7 +58,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
-```
+```cpp
 //! Update an AWS IoT thing with attributes.
 /*!
   \param thingName: The name for the thing.
@@ -116,7 +115,7 @@ For more information, see [Thing Types](https://docs.aws.amazon.com/iot/latest/d
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
-```
+```kotlin
 suspend fun updateThing(thingNameVal: String?) {
     val newLocation = "Office"
     val newFirmwareVersion = "v2.0"

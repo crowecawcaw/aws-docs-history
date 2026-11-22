@@ -1,7 +1,6 @@
 
 
 # What's new in the AWS IoT console
-<a name="whats-new-in-console"></a>
 
 We're in the process of updating the user interface of the AWS IoT console to a new experience. We're updating the user interface in stages, so some pages in the console will have a new experience, some might have both the original and the new experience, and some might have only the original experience. 
 

@@ -1,7 +1,6 @@
 
 
 # Job templates
-<a name="job-templates"></a>
 
 Use job templates to preconfigure jobs that you can deploy to multiple sets of target devices. To deploy frequently performed remote actions to your devices, like rebooting or installing an application, you can use templates to define standard configurations. To perform operations such as deploying security patches and bug fixes, you can create templates from existing jobs.
 

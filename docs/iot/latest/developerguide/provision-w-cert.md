@@ -1,7 +1,6 @@
 
 
 # Provisioning devices that have device certificates
-<a name="provision-w-cert"></a>
 
 AWS IoT provides three ways to provision devices when they already have a device certificate (and associated private key) on them:
 + Single-thing provisioning with a provisioning template. This is a good option if you only need to provision devices one at a time.

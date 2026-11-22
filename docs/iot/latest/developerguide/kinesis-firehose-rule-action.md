@@ -1,7 +1,6 @@
 
 
 # Firehose
-<a name="kinesis-firehose-rule-action"></a>
 
 The Firehose(`firehose`) action sends data from an MQTT message to an Amazon Data Firehose stream. 
 
@@ -41,7 +40,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a Firehose action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 
@@ -61,7 +60,7 @@ The following JSON example defines a Firehose action in an AWS IoT rule.
 
 The following JSON example defines a Firehose action with substitution templates in an AWS IoT rule.
 
-```
+```json
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'",

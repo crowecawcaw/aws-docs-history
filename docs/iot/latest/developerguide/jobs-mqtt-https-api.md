@@ -1,7 +1,6 @@
 
 
 # Jobs device MQTT and HTTPS API operations and data types
-<a name="jobs-mqtt-https-api"></a>
 
 The following commands are available over the MQTT and HTTPS protocols. Use these API operations on the data plane for devices executing the jobs.
 
@@ -18,7 +17,7 @@ The `JobExecution` object represents the execution of a job on a device. The fol
 **Note**  
 When you use the MQTT and HTTP data plane API operations, the `JobExecution` data type contains a `JobDocument` field. Your devices can use this information to retrieve the job document from a job execution.
 
-```
+```JSON
 {
     "jobId" : "string",
     "thingName" : "string",
@@ -42,7 +41,7 @@ For more information, see [`JobExecution`](https://docs.aws.amazon.com/iot/lates
 
 The `JobExecutionState` contains information about the state of a job execution. The following example shows the syntax:
 
-```
+```JSON
 {
     "status": "QUEUED|IN_PROGRESS|FAILED|SUCCEEDED|CANCELED|TIMED_OUT|REJECTED|REMOVED",
     "statusDetails": {
@@ -60,7 +59,7 @@ For more information, see [`JobExecutionState`](https://docs.aws.amazon.com/iot/
 
 Contains a subset of information about a job execution. The following example shows the syntax:
 
-```
+```JSON
 {
     "jobId": "string",
     "queuedAt": timestamp,

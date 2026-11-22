@@ -1,7 +1,6 @@
 
 
 # Use `AttachThingPrincipal` with an AWS SDK or CLI
-<a name="example_iot_AttachThingPrincipal_section"></a>
 
 The following code examples show how to use `AttachThingPrincipal`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Attaches a certificate to an IoT Thing.
     /// </summary>
@@ -56,7 +55,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
-```
+```cpp
 //! Attach a principal to an AWS IoT thing.
 /*!
   \param principal: A principal to attach.
@@ -108,7 +107,7 @@ For more information, see [How to Manage Things with the Registry](https://docs.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
-```
+```java
     /**
      * Attaches a certificate to an IoT Thing asynchronously.
      *
@@ -156,7 +155,7 @@ For more information, see [How to Manage Things with the Registry](https://docs.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
-```
+```kotlin
 suspend fun attachCertificateToThing(
     thingNameVal: String?,
     certificateArn: String?,
@@ -181,7 +180,7 @@ suspend fun attachCertificateToThing(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
-```
+```python
 class IoTWrapper:
     """Encapsulates AWS IoT actions."""
 
@@ -230,7 +229,7 @@ class IoTWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
-```
+```sap-abap
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
     DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
     DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).

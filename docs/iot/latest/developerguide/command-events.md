@@ -1,7 +1,6 @@
 
 
 # Command execution events
-<a name="command-events"></a>
 
 AWS IoT publishes event messages to MQTT topics when command executions change status. You can use these events to monitor command execution progress and build applications that respond to status changes.
 
@@ -25,7 +24,7 @@ $aws/events/commandExecution/+/#
 **Command execution event message**  
 When a command execution status changes, AWS IoT publishes an event message to the corresponding MQTT topic. The message contains the following example payload:
 
-```
+```JSON
 {
     "executionId": "2bd65c51-4cfd-49e4-9310-d5cbfdbc8554",
     "status": "FAILED",

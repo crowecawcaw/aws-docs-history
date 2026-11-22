@@ -1,7 +1,6 @@
 
 
 # Prepare the Raspberry Pi to demonstrate MQTT message communication
-<a name="iot-dc-testconn-provision"></a>
 
 This procedure creates the resources in AWS IoT and in the Raspberry Pi to demonstrate MQTT message communication using the AWS IoT Device Client.
 
@@ -32,7 +31,7 @@ This procedure creates the device certificate files for this demo.
 
    The command returns a response like the following. Save the `{{certificateArn}}` value for later use.
 
-   ```
+   ```json
    {
    "certificateArn": "{{arn:aws:iot:us-west-2:57EXAMPLE833:cert/76e7e4edb3e52f52334be2f387a06145b2aa4c7fcd810f3aea2d92abc227d269}}",
    "certificateId": "76e7e4edb3e52f5233EXAMPLE7a06145b2aa4c7fcd810f3aea2d92abc227d269",
@@ -94,7 +93,7 @@ This section creates the AWS IoT resources that provision your Raspberry Pi in A
 
    The command from the previous steps returns a response like the following. Record the `{{endpointAddress}}` value for later use.
 
-   ```
+   ```json
    {
    "endpointAddress": "{{a3qjEXAMPLEffp-ats.iot.us-west-2.amazonaws.com}}"
    }
@@ -112,7 +111,7 @@ This section creates the AWS IoT resources that provision your Raspberry Pi in A
 
    If your AWS IoT thing resource was created, the command returns a response like this.
 
-   ```
+   ```json
    {
    "thingName": "PubSubTestThing",
    "thingArn": "arn:aws:iot:us-west-2:57EXAMPLE833:thing/PubSubTestThing",
@@ -127,7 +126,7 @@ This section creates the AWS IoT resources that provision your Raspberry Pi in A
    1. Copy this JSON document and paste it into your open text editor.  
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -185,7 +184,7 @@ This section creates the AWS IoT resources that provision your Raspberry Pi in A
 
    If the policy is created, the command returns a response like this.
 
-   ```
+   ```json
    {
                                        "policyName": "PubSubTestThingPolicy",
                                        "policyArn": "arn:aws:iot:us-west-2:57EXAMPLE833:policy/PubSubTestThingPolicy",
@@ -196,7 +195,7 @@ This section creates the AWS IoT resources that provision your Raspberry Pi in A
 
 1. Run this command to attach the policy to the device certificate. Replace `{{certificateArn}}` with the `certificateArn` value you saved earlier in this section.
 
-   ```
+   ```json
    aws iot attach-policy \
    --policy-name "PubSubTestThingPolicy" \
    --target "{{certificateArn}}"
@@ -229,7 +228,7 @@ This procedure creates a config file to test the AWS IoT Device Client.
 
    1. Copy this JSON document and paste it into your open text editor.
 
-      ```
+      ```json
       {
         "endpoint": "{{a3qEXAMPLEaffp-ats.iot.us-west-2.amazonaws.com}}",
         "cert": "~/certs/pubsub/device.pem.crt",

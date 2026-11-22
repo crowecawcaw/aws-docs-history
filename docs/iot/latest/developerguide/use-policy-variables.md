@@ -1,7 +1,6 @@
 
 
 # Using X.509 certificate policy variables
-<a name="use-policy-variables"></a>
 
 This topic provides details of how to use certificate policy variables. X.509 certificate policy variables are essential when you create AWS IoT Core policies that give permissions based on X.509 certificate attributes. If your X.509 certificate doesn't include a particular certificate attribute but the corresponding certificate policy variable is used in your policy document, the policy evaluation might lead to unexpected behavior. This is because the missing policy variable doesn't get evaluated in the policy statement.
 
@@ -148,7 +147,7 @@ If your X.509 certificate doesn't include a particular certificate attribute but
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -180,7 +179,7 @@ All of the certificate policy variables have String values, so all of the [Strin
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

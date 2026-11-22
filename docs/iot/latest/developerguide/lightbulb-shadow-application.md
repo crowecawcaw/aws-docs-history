@@ -1,7 +1,6 @@
 
 
 # Tutorial: Installing the Device SDK and running the sample application for Device Shadows
-<a name="lightbulb-shadow-application"></a>
 
 This section shows how you can install the required software and the AWS IoT Device SDK for Python and run the `shadow.py` sample application to edit the Shadow document and control the shadow's state. 
 
@@ -40,13 +39,13 @@ Before you run the `shadow.py` sample app, you'll need the following information
 
 1. Navigate to the sample app directory.
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-python-v2/samples/service-clients
    ```
 
 1. In the command line window, replace {{your-iot-endpoint}} and {{your-iot-thing-name}} as indicated and run this command.
 
-   ```
+   ```bash
    python3 shadow.py --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}} --thing_name {{your-iot-thing-name}}
    ```
 
@@ -79,7 +78,7 @@ If you're having trouble running the `shadow.py` sample app, review [Step 3: Tro
 **Enter values and observe the updates in Shadow document**  
 You can enter values in the terminal to specify the `desired` value, which also updates the `reported` value. Say you enter the color `yellow` in the terminal. The `reported` value is also updated to the color `yellow`. The following shows the messages displayed in the terminal:
 
-```
+```bash
 Enter desired value:
 yellow
 Changed local shadow value to 'yellow'.
@@ -96,7 +95,7 @@ When you publish this update request, AWS IoT creates a default, classic shadow 
 
 The Shadow document should look similar to the following, showing the `reported` and `desired` values set to the color `yellow`. You see these values in the **Shadow state** section of the document.
 
-```
+```JSON
 {
 "desired": {
   "welcome": "aws-iot",
@@ -113,7 +112,7 @@ You also see a **Metadata** section that contains the timestamp information and 
 
 You can use the state document version to ensure you are updating the most recent version of a device's Shadow document. If you send another update request, the version number increments by 1. When you supply a version with an update request, the service rejects the request with an HTTP 409 conflict response code if the current version of the state document doesn't match the version supplied. 
 
-```
+```JSON
 {
 "metadata": {
   "desired": {
@@ -151,7 +150,7 @@ For information about how you can make an informed decision about which protocol
 **MQTT**  
 The `shadow.py` sample calls `mtls_from_path` (shown here) in the [`mqtt_connection_builder`](https://github.com/awslabs/aws-crt-python/blob/89207bcf1387177034e02fe29e8e469ca45e39b7/awscrt/awsiot_mqtt_connection_builder.py) to establish a connection with AWS IoT Core by using the MQTT protocol. `mtls_from_path` uses X.509 certificates and TLS v1.2 to authenticate the device. The AWS-CRT library handles the lower-level details of that connection.
 
-```
+```python
 mqtt_connection = mqtt_connection_builder.mtls_from_path(
   endpoint=args.endpoint,
   cert_filepath=args.cert,
@@ -234,7 +233,7 @@ While certificates authenticate your device, AWS IoT policies permit the device 
   If you see error messages that indicate trouble connecting to AWS IoT, it could be because of the permissions you're using for the policy. If that's the case, we recommend that you start with a policy that provides full access to AWS IoT resources and then rerun the sample program. You can either edit the current policy, or choose the current policy, choose **Detach**, and then create another policy that provides full access and attach it to your thing resource. You can later restrict the policy to only the actions and policies you need to run the program.  
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

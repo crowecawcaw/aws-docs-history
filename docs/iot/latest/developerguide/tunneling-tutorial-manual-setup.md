@@ -1,7 +1,6 @@
 
 
 # Open a tunnel using manual setup and connect to remote device
-<a name="tunneling-tutorial-manual-setup"></a>
 
 When you open a tunnel, you can choose the quick setup or the manual setup method for opening a tunnel into the remote device. This tutorial shows how to open a tunnel using the manual setup method and configure and start the local proxy to connect to the remote device.
 
@@ -53,7 +52,7 @@ aws iotsecuretunneling open-tunnel \
 
 Running this command creates a new tunnel and provides you the source and destination access tokens. 
 
-```
+```JSON
 {
     "tunnelId": "01234567-89ab-0123-4c56-789a01234bcd",
     "tunnelArn": "arn:aws:iot:{{us-east-1}}:{{123456789012}}:tunnel/01234567-89ab-0123-4c56-789a01234bcd",
@@ -89,7 +88,7 @@ aws iotsecuretunneling rotate-tunnel-access-token \
 
 Running this command generates the new access token as shown in the following example. The token is then delivered to the device using MQTT to connect to the tunnel, if the device agent is set up correctly.
 
-```
+```JSON
 {
     "destinationAccessToken": "{{destination-access-token}}", 
     "tunnelArn": "arn:aws:iot:{{region}}:{{account-id}}:tunnel/{{tunnel-id}}"

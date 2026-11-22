@@ -1,7 +1,6 @@
 
 
 # Using AWS IoT Core with interface VPC endpoints
-<a name="IoTCore-VPC"></a>
 
 With AWS IoT Core, you can create [IoT control plane endpoints](https://docs.aws.amazon.com/iot/latest/developerguide/connect-to-iot.html#iot-service-endpoint-intro) and [IoT data endpoints](https://docs.aws.amazon.com/iot/latest/developerguide/iot-connect-devices.html) within your virtual private cloud (VPC) by using [interface VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint). Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that you can use to access services running on AWS by using private IP addresses. For more information, see [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html). 
 
@@ -25,7 +24,7 @@ To connect devices in the field on remote networks, such as a corporate network 
 
 You can create a VPC endpoint for AWS IoT Core control plane API to connect your devices to AWS IoT services and other AWS services. To get started with VPC endpoints, [create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#create-interface-endpoint) and select AWS IoT Core as the AWS service. If you are using the CLI, first call [describe-vpc-endpoint-services](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoint-services.html) to ensure that you are choosing an Availability Zone where AWS IoT Core is present in your particular AWS Region. For example, in us-east-1, this command would look like:
 
-```
+```sh
 aws ec2 describe-vpc-endpoint-services --service-name com.amazonaws.us-east-1.iot.api
 ```
 
@@ -36,7 +35,7 @@ See the detailed instructions below to [Create an Amazon VPC interface endpoint]
 
 You can create a VPC endpoint for AWS IoT Core data plane API to connect your devices to AWS IoT services and other AWS services. To get started with VPC endpoints, [create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#create-interface-endpoint) and select AWS IoT Core as the AWS service. If you are using the CLI, first call [describe-vpc-endpoint-services](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoint-services.html) to ensure that you are choosing an Availability Zone where AWS IoT Core is present in your particular AWS Region. For example, in us-east-1, this command would look like:
 
-```
+```sh
 aws ec2 describe-vpc-endpoint-services --service-name com.amazonaws.us-east-1.iot.data
 ```
 
@@ -181,7 +180,7 @@ For example, the following policy grants permission to connect to AWS IoT Core u
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Associate a thing type with a thing
-<a name="associate-thing-type"></a>
 
 You can use the **CreateThing** command to specify a thing type when you create a thing:
 

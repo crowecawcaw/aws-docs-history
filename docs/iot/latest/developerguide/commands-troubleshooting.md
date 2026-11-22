@@ -1,7 +1,6 @@
 
 
 # AWS IoT Commands Troubleshooting
-<a name="commands-troubleshooting"></a>
 
 This is the troubleshooting section for AWS IoT Device Management Commands.
 
@@ -46,7 +45,7 @@ When the `UpdateCommandExecution` MQTT request fails, the service publishes an e
 
 The following is an example of an error response published to the `/rejected` topic:
 
-```
+```JSON
 {
     "clientToken": "client-token-1",
     "executionId": "2bd65c51-4cfd-49e4-9310-d5cbfdbc8554",

@@ -1,7 +1,6 @@
 
 
 # AWS IoT SQL reference
-<a name="iot-sql-reference"></a>
 
 In AWS IoT, rules are defined using an SQL-like syntax. SQL statements are composed of three types of clauses:
 
@@ -28,7 +27,7 @@ SELECT color AS rgb FROM 'topic/subtopic' WHERE temperature > 50
 
 An example MQTT message (also called an incoming payload) looks like this:
 
-```
+```JSON
 {
     "color":"red",
     "temperature":100
@@ -37,7 +36,7 @@ An example MQTT message (also called an incoming payload) looks like this:
 
 If this message is published on the `'topic/subtopic'` topic, the rule is triggered and the SQL statement is evaluated. The SQL statement extracts the value of the `color` property if the `"temperature"` property is greater than 50. The WHERE clause specifies the condition `temperature > 50`. The `AS` keyword renames the `"color"` property to `"rgb"`. The result (also called an *outgoing payload*) looks like this:
 
-```
+```JSON
 {
     "rgb":"red"
 }

@@ -1,7 +1,6 @@
 
 
 # Dynamic thing groups
-<a name="dynamic-thing-groups"></a>
 
 Dynamic thing groups are created from specific search queries in the registry. Search query parameters such as device connectivity, device shadow creation, and AWS IoT Device Defender violations data support this. Dynamic thing groups require fleet indexing enabled to index, search, and aggregate your devices' data. You can preview the things in a dynamic thing group using a fleet indexing search query before creating it. For more information, see [Fleet indexing](iot-indexing.md) and [Query syntax](query-syntax.md).
 
@@ -63,7 +62,7 @@ Don't use personally identifiable information in your dynamic thing group names.
 
 The **CreateDynamicThingGroup** command returns a response. The response contains the index name, query string, query version, thing group name, thing group ID, and the Amazon Resource Name (ARN) of your thing group:
 
-```
+```JSON
 {
     "indexName": "AWS_Things", 
     "queryVersion": "2017-09-30", 
@@ -87,7 +86,7 @@ $ aws iot describe-thing-group --thing-group-name "80PercentBatteryLife"
 
 The **DescribeThingGroup** command returns information about the specified group:
 
-```
+```JSON
 {
     "status": "ACTIVE", 
     "indexName": "AWS_Things", 
@@ -131,7 +130,7 @@ $ aws iot update-dynamic-thing-group --thing-group-name "80PercentBatteryLife" -
 
 The **UpdateDynamicThingGroup** command returns a response that contains the group's version number after the update:
 
-```
+```JSON
 {
     "version": 2
 }

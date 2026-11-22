@@ -1,7 +1,6 @@
 
 
 # Jobs workflow
-<a name="jobs-workflow-jobs-online"></a>
 
 The following shows the different steps in the jobs workflow from starting a new job to reporting the completion status of a job execution.
 
@@ -12,7 +11,7 @@ When a new job is created, AWS IoT Jobs publishes a message on the `$aws/things/
 
 The message contains the following information:
 
-```
+```JSON
 {
     "timestamp":1476214217017,
     "jobs":{
@@ -40,7 +39,7 @@ To get more information about a job execution, the device calls the [DescribeJob
 
 If the request is successful, the AWS IoT Jobs service publishes a message on the `$aws/things/MyThing/jobs/0023/get/accepted` topic:
 
-```
+```JSON
 {
     "clientToken" : "client-001",
     "timestamp" : 1489097434407,
@@ -69,7 +68,7 @@ As the device is executing the job, it can call the [UpdateJobExecution](jobs-mq
 
 For example, a device can update the job execution status to `IN_PROGRESS` by publishing the following message on the `$aws/things/MyThing/jobs/0023/update` topic:
 
-```
+```JSON
 {
     "status":"IN_PROGRESS",
     "statusDetails": {
@@ -82,7 +81,7 @@ For example, a device can update the job execution status to `IN_PROGRESS` by pu
 
 Jobs respond by publishing a message to the `$aws/things/MyThing/jobs/0023/update/accepted` or `$aws/things/MyThing/jobs/0023/update/rejected` topic:
 
-```
+```JSON
 {
     "clientToken":"client001",
     "timestamp":1476289222841
@@ -102,7 +101,7 @@ When the device is finished executing the job, it calls the [UpdateJobExecution]
 
 For example:
 
-```
+```JSON
 {
     "status":"SUCCEEDED",
     "statusDetails": {
@@ -115,7 +114,7 @@ For example:
 
 If the job was not successful, set `status` to `FAILED` and, in `statusDetails`, add information about the error that occurred:
 
-```
+```JSON
 {
     "status":"FAILED",
     "statusDetails": {
@@ -132,7 +131,7 @@ The `statusDetails` attribute can contain any number of name-value pairs.
 
 When the AWS IoT Jobs service receives this update, it publishes a message on the `$aws/things/MyThing/jobs/notify` topic to indicate that the job execution is complete:
 
-```
+```JSON
 {
     "timestamp":1476290692776,
     "jobs":{}
@@ -146,7 +145,7 @@ If there are other job executions pending for the device, they are included in t
 
 For example:
 
-```
+```JSON
 {
     "timestamp":1476290692776,
     "jobs":{

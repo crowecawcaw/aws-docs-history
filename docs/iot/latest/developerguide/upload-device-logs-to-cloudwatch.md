@@ -1,7 +1,6 @@
 
 
 # Upload device-side logs to Amazon CloudWatch
-<a name="upload-device-logs-to-cloudwatch"></a>
 
 You can upload historical, device-side logs into Amazon CloudWatch to monitor and analyze a device's activity in the field. Device-side logs can include system, application, and device logs files. This process uses a CloudWatch Logs rules action parameter to publish device-side logs into a customer-defined [log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html). 
 

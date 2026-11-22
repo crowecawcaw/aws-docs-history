@@ -1,7 +1,6 @@
 
 
 # Register a client certificate
-<a name="register-device-cert"></a>
 
 Client certificates must be registered with AWS IoT to enable communications between the client and AWS IoT. You can register each client certificate manually, or you can configure the client certificates to register automatically when the client connects to AWS IoT for the first time.
 

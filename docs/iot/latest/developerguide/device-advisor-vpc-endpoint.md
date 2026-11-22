@@ -1,7 +1,6 @@
 
 
 # Device Advisor VPC endpoints (AWS PrivateLink)
-<a name="device-advisor-vpc-endpoint"></a>
 
 You can establish a private connection between your VPC and the AWS IoT Core Device Advisor test endpoint (data plane) by creating an *interface VPC endpoint*. You can use this endpoint to validate AWS IoT devices for reliable and secure connectivity with AWS IoT Core before deploying devices to production. Device Advisor's pre-built tests helps you validate your device software against best practices for usage of [TLS](https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html), [MQTT](https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html), [Device Shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html), and [AWS IoT Jobs](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html). 
 
@@ -32,7 +31,7 @@ Review the [ interface endpoint properties and limitations](https://docs.aws.ama
 
 To get started with VPC endpoints, [ create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html). Next, select AWS IoT Core Device Advisor as the AWS service. If you are using the AWS CLI, call [describe-vpc-endpoint-services](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoint-services.html) to confirm that AWS IoT Core Device Advisor is present in an Availability Zone in your AWS Region. Confirm that the security group attached to the endpoint allows [TCP protocol communication](https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html) for MQTT and TLS traffic. For example, in the US East (N. Virginia) Region, use the following command: 
 
-```
+```JSON
 aws ec2 describe-vpc-endpoint-services --service-name com.amazonaws.us-east-1.deviceadvisor.iot
 ```
 
@@ -58,7 +57,7 @@ The following policy grants permission to connect to AWS IoT Core Device Advisor
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [

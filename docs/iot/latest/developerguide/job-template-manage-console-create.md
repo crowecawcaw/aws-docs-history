@@ -1,7 +1,6 @@
 
 
 # Create a job from AWS managed templates by using the AWS Management Console
-<a name="job-template-manage-console-create"></a>
 
 Use the AWS Management Console to get information about AWS managed templates and create a job by using these templates. You can then save the job you create as your own custom template.
 
@@ -19,7 +18,7 @@ The details page contains the following information:
 + The environment on which the remote operations can be performed, such as Linux.
 + The JSON job document that specifies the path to the job handler and the commands to run on the device. For example, the following shows an example job document for the **AWS-Reboot** template. The template shows the path to the job handler and the shell script, `reboot.sh`, that the job handler must run to reboot the device. 
 
-  ```
+  ```JSON
   {
     "version": "1.0",
     "steps": [

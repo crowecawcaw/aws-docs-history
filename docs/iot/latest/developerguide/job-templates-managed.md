@@ -1,7 +1,6 @@
 
 
 # Use AWS managed templates to deploy common remote operations
-<a name="job-templates-managed"></a>
 
 AWS managed templates are job templates provided by AWS. They're used for frequently performed remote actions such as rebooting, downloading a file, or installing an application on your devices. These templates have a predefined job document for each remote action so you don't have to create your own job document.
 
@@ -89,7 +88,7 @@ The device downloads the file from the specified location, verifies that the dow
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `download-file.sh`, that the job handler must run to download the file. It also shows the required parameters `downloadUrl` and `filePath`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -134,7 +133,7 @@ The device installs the applications as specified in the job document.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `install-packages.sh`, that the job handler must run to download the file. It also shows the required parameter `packages`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -174,7 +173,7 @@ The device reboots successfully.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `reboot.sh`, that the job handler must run to reboot the device.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -215,7 +214,7 @@ The device uninstalls the applications as specified in the job document.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `remove-packages.sh`, that the job handler must run to download the file. It also shows the required parameter `packages`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -258,7 +257,7 @@ The specified applications are stopped and then restarted on the device.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `restart-services.sh`, that the job handler must run to restart the system services. It also shows the required parameter `services`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -302,7 +301,7 @@ The specified applications start running on the device.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `start-services.sh`, that the job handler must run to start the system services. It also shows the required parameter `services`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -346,7 +345,7 @@ The specified applications stop running on the device.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job handler and the shell script, `stop-services.sh`, that the job handler must run to stop the system services. It also shows the required parameter `services`.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [
@@ -390,7 +389,7 @@ The device runs the shell command as specified in the job document.
 **Job document**  
 The following shows the job document and its latest version. The template shows the path to the job command and the command that you provided which the device will run.
 
-```
+```JSON
 {
   "version": "1.0",
   "steps": [

@@ -1,7 +1,6 @@
 
 
 # Reducing messaging costs with Basic Ingest
-<a name="iot-basic-ingest"></a>
 
 You can use Basic Ingest, to securely send device data to the AWS services supported by [AWS IoT rule actions](iot-rule-actions.md), without incurring [messaging costs](https://aws.amazon.com/iot-core/pricing/). Basic Ingest optimizes data flow by removing the publish/subscribe message broker from the ingestion path.
 

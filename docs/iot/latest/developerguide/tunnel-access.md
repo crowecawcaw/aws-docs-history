@@ -1,7 +1,6 @@
 
 
 # Controlling access to tunnels
-<a name="tunnel-access"></a>
 
 Secure tunneling provides service-specific actions, resources, and condition context keys for use in IAM permissions policies.
 
@@ -31,7 +30,7 @@ In the `Resource` element of the IAM policy statement:
 
 For example, the following policy statement allows you to open a tunnel to the IoT thing named `TestDevice`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
@@ -51,7 +50,7 @@ The `iot:OpenTunnel` policy action supports the following condition keys:
 
 The following policy statement allows you to open a tunnel to the thing if the thing belongs to a thing group with a name that starts with `TestGroup` and the configured destination service on the tunnel is SSH.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
@@ -75,7 +74,7 @@ The following policy statement allows you to open a tunnel to the thing if the t
 
 You can also use resource tags to control permission to open tunnels. For example, the following policy statement allows a tunnel to be opened if the tag key `Owner` is present with a value of `Admin` and no other tags are specified. For general information about using tags, see [Tagging your AWS IoT resources](tagging-iot.md).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
@@ -112,7 +111,7 @@ In the `Resource` element of the IAM policy statement:
 
 For example, the following policy statement allows you to rotate either a tunnel's source access token or a client's destination access token for the IoT thing named `TestDevice`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:RotateTunnelAccessToken",
@@ -131,7 +130,7 @@ The `iot:RotateTunnelAccessToken` policy action supports the following condition
 
 The following policy statement allows you to rotate the destination access token to the thing if the thing belongs to a thing group with a name that starts with `TestGroup`, the configured destination service on the tunnel is SSH, and the client is in `DESTINATION` mode.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:RotateTunnelAccessToken",
@@ -173,7 +172,7 @@ The `iot:DescribeTunnel` policy action supports the following condition keys:
 
 The following policy statement allows you to call `DescribeTunnel` if the requested tunnel is tagged with the key `Owner` with a value of `Admin`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:DescribeTunnel",
@@ -205,7 +204,7 @@ The `iot:ListTunnels` policy action supports the condition key `aws:SecureTransp
 
 The following policy statement allows you to list tunnels for the thing named `TestDevice`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:ListTunnels",
@@ -251,7 +250,7 @@ The `iot:CloseTunnel` policy action supports the following condition keys:
 
 The following policy statement allows you to call `CloseTunnel` if the request's `Delete` parameter is `false` and the requested is tagged with the key `Owner` with a value of `QATeam`.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iot:CloseTunnel",

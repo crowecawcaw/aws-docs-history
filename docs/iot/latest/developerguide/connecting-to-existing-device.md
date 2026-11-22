@@ -1,7 +1,6 @@
 
 
 # Connect a Raspberry Pi or other device
-<a name="connecting-to-existing-device"></a>
 
 In this section, we'll configure a Raspberry Pi for use with AWS IoT. If you have another device that you'd like to connect, the instructions for the Raspberry Pi include references that can help you adapt these instructions to your device.
 
@@ -47,19 +46,19 @@ Before you install the AWS IoT Device SDK and sample code, make sure your system
 **Update the operating system and install required libraries**  
 Before you install an AWS IoT Device SDK, run these commands in a terminal window on your device to update the operating system and install the required libraries.
 
-   ```
+   ```bash
    sudo apt-get update
    ```
 
-   ```
+   ```bash
    sudo apt-get upgrade
    ```
 
-   ```
+   ```bash
    sudo apt-get install cmake
    ```
 
-   ```
+   ```bash
    sudo apt-get install libssl-dev
    ```
 
@@ -78,7 +77,7 @@ If your device's operating system doesn't come with Git installed, you must inst
 
    1. If an error is displayed when you run the **git** command, install Git by running this command.
 
-      ```
+      ```bash
       sudo apt-get install git
       ```
 
@@ -109,7 +108,7 @@ The AWS IoT Device SDK for Python requires Python v3.5 or later to be installed 
 
    1. Run this command to determine the version of Python installed on your device.
 
-      ```
+      ```bash
       python3 --version
       ```
 
@@ -119,13 +118,13 @@ The AWS IoT Device SDK for Python requires Python v3.5 or later to be installed 
 
    1. If the version displayed is less than `Python 3.5`, you can install the correct version by running this command.
 
-      ```
+      ```bash
       sudo apt install python3
       ```
 
    1. Run this command to confirm that the correct version of Python is now installed.
 
-      ```
+      ```bash
       python3 --version
       ```
 
@@ -136,7 +135,7 @@ In a terminal window to your device, run these commands.
 
    1. Run this command to see if **pip3** is installed.
 
-      ```
+      ```bash
       pip3 --version
       ```
 
@@ -144,13 +143,13 @@ In a terminal window to your device, run these commands.
 
    1. If the previous command returns an error, run this command to install **pip3**.
 
-      ```
+      ```bash
       sudo apt install python3-pip
       ```
 
    1. Run this command to see if **pip3** is installed.
 
-      ```
+      ```bash
       pip3 --version
       ```
 
@@ -161,12 +160,12 @@ Install the AWS IoT Device SDK for Python and download the sample apps to your d
 
    On your device, run these commands.
 
-   ```
+   ```bash
    cd ~
    python3 -m pip install awsiotsdk
    ```
 
-   ```
+   ```bash
    git clone https://github.com/aws/aws-iot-device-sdk-python-v2.git
    ```
 
@@ -182,20 +181,20 @@ The AWS IoT Device SDK for JavaScript requires Node.js and the npm package manag
 
    1. Download the latest version of the Node repository by entering this command.
 
-      ```
+      ```bash
       cd ~
       curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
       ```
 
    1. Install Node and npm.
 
-      ```
+      ```bash
       sudo apt-get install -y nodejs
       ```
 
    1. Verify the installation of Node.
 
-      ```
+      ```bash
       node -v
       ```
 
@@ -203,7 +202,7 @@ The AWS IoT Device SDK for JavaScript requires Node.js and the npm package manag
 
    1. Verify the installation of npm.
 
-      ```
+      ```bash
       npm -v
       ```
 
@@ -211,7 +210,7 @@ The AWS IoT Device SDK for JavaScript requires Node.js and the npm package manag
 
    1. Restart the device.
 
-      ```
+      ```bash
       sudo shutdown -r 0
       ```
 
@@ -226,14 +225,14 @@ Install the AWS IoT Device SDK for JavaScript on your Raspberry Pi.
 
       These commands create the `~/aws-iot-device-sdk-js-v2` directory and copy the SDK code into it.
 
-      ```
+      ```bash
       cd ~
       git clone https://github.com/aws/aws-iot-device-sdk-js-v2.git
       ```
 
    1. Change to the `aws-iot-device-sdk-js-v2` directory that you created in the preceding step and run `npm install` to install the SDK. The command `npm install` will invoke the `aws-crt` library build that can take a few minutes to complete.
 
-      ```
+      ```bash
       cd ~/aws-iot-device-sdk-js-v2
       npm install
       ```
@@ -296,13 +295,13 @@ The {{your-iot-endpoint}} value has a format of: `{{endpoint_id}}-ats.iot.{{regi
 
 1. Navigate to the sample app directory.
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-python-v2/samples
    ```
 
 1. In the command line window, replace {{your-iot-endpoint}} as indicated and run this command.
 
-   ```
+   ```bash
    python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
 
@@ -358,14 +357,14 @@ The {{your-iot-endpoint}} value has a format of: `{{endpoint_id}}-ats.iot.{{regi
 
 1. In your command line window, navigate to the `~/aws-iot-device-sdk-js-v2/samples/node/pub_sub` directory that the SDK created and install the sample app by using these commands. The command `npm install` will invoke the `aws-crt` library build that can take a few minutes to complete.
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
    npm install
    ```
 
 1. In the command line window, replace {{your-iot-endpoint}} as indicated and run this command.
 
-   ```
+   ```bash
    node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
 
@@ -426,7 +425,7 @@ You can see the sample app's messages as they pass through the message broker by
 ------
 #### [ Python ]
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-python-v2/samples
    python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
@@ -434,7 +433,7 @@ You can see the sample app's messages as they pass through the message broker by
 ------
 #### [ JavaScript ]
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
    node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```

@@ -1,7 +1,6 @@
 
 
 # Resolving device location using AWS IoT Core Device Location MQTT topics
-<a name="device-location-reserved-topics"></a>
 
 You can use reserved MQTT topics to get the latest location information for your devices with the AWS IoT Core Device Location feature.
 
@@ -37,7 +36,7 @@ The following is an example of the policy required for receiving messages for th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ The message payload format follows a similar structure as the AWS IoT Wireless A
 
 The following shows a sample message payload.
 
-```
+```JSON
 {
     "Timestamp": {{"1664313161"}},               
     "MessageId": {{"ABCD1"}},                
@@ -140,7 +139,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -173,7 +172,7 @@ The following shows the message payload and an example policy.
 
 The following is an example of the message payload in GeoJSON format. If you specified a `MessageId` in your raw measurement data and AWS IoT Core Device Location resolved the location information successfully, then the message payload returns the same `MessageId` information.
 
-```
+```JSON
 {
     "coordinates": [
         13.37704086303711,
@@ -202,7 +201,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -244,7 +243,7 @@ The following shows the message payload and example policy. For information abou
 
 The following is an example of the message payload that provides the error code and message, which indicates why AWS IoT Core Device Location failed to resolve the location information. If you specified a `MessageId` when providing your raw measurement data and AWS IoT Core Device Location failed to resolve the location information, then the same `MessageId` information will be returned in the message payload.
 
-```
+```JSON
 {
     "errorCode": 500,
     "errorMessage":"Internal server error",
@@ -259,7 +258,7 @@ The following is an example of the required policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

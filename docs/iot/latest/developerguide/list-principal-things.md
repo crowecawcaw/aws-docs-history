@@ -1,7 +1,6 @@
 
 
 # List things associated with a principal
-<a name="list-principal-things"></a>
 
 To list the things associated with the specified principal, run the [`list-principal-things`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-principal-things.htmls) command. Note that this command doesn't list the attachment type between the thing and the certificate. To list the attachment type, use the [`list-principal-things-v2`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-principal-thingsv2.html) command. For more information, see [List things associated with a principal V2](list-principal-things-v2.md).
 
@@ -12,7 +11,7 @@ $ aws iot list-principal-things \
 
 The output can look like the following.
 
-```
+```JSON
 {
     "things": [
         "MyLightBulb1",

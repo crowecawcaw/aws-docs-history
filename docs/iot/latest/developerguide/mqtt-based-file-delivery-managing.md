@@ -1,7 +1,6 @@
 
 
 # Managing a stream in the AWS Cloud
-<a name="mqtt-based-file-delivery-managing"></a>
 
 AWS IoT provides AWS SDK and AWS CLI commands that you can use to manage a stream in the AWS Cloud. You can use these commands to do the following:
 + Create a stream. [CLI](https://docs.aws.amazon.com/cli/latest/reference/iot/create-stream.html) / [SDK](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateStream.html)
@@ -27,7 +26,7 @@ You can follow the steps in [Create an AWS IoT policy](https://docs.aws.amazon.c
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -84,7 +83,7 @@ The policy supporting those two permissions is shown below:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Management commands
-<a name="iot-remote-command"></a>
 
 **Important**  
 This documentation describes how you can use the [commands feature in AWS IoT Device Management](https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-concepts.html#command-iot-namespace). For information about using this feature for AWS IoT FleetWise, see [Remote commands](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/remote-commands.html).  

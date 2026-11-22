@@ -1,17 +1,16 @@
 
 
 # Devices and jobs
-<a name="jobs-devices"></a>
 
 Devices can communicate with AWS IoT Jobs using MQTT, HTTP Signature Version 4, or HTTP TLS. To determine the endpoint to use when your device communicates with AWS IoT Jobs, run the **DescribeEndpoint** command. For example, if you run this command:
 
-```
+```bash
 aws iot describe-endpoint --endpoint-type iot:Data-ATS
 ```
 
 you get a result similar to the following:
 
-```
+```bash
 {
     "endpointAddress": "a1b2c3d4e5f6g7-ats.iot.us-west-2.amazonaws.com"
 }

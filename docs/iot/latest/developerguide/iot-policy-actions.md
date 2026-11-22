@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core policy actions
-<a name="iot-policy-actions"></a>
 
 The following policy actions are defined by AWS IoT Core:MQTT Policy Actions
 

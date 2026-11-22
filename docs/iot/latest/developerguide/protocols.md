@@ -1,7 +1,7 @@
 
 
 # Device communication protocols
-<a name="protocols"></a><a name="iot-message-broker"></a>
+<a name="iot-message-broker"></a>
 
 AWS IoT Core supports devices and clients that use the MQTT and the MQTT over WebSocket Secure (WSS) protocols to publish and subscribe to messages, devices and clients that use the HTTPS protocol to publish messages, and the Direct Messaging API to send messages to specific connected clients. All protocols support IPv4 and IPv6. This section describes the different connection options for devices and clients.
 

@@ -1,7 +1,6 @@
 
 
 # Domain configurations
-<a name="iot-custom-endpoints-configurable"></a>
 
 In AWS IoT Core, you can use domain configurations to configure and manage the behaviors of your data endpoints. With domain configurations, you can generate multiple AWS IoT Core data endpoints, customize them with your own fully qualified domain names (FQDN) and associated server certificates, and also associate a custom authorizer. For more information, see [Custom authentication and authorization](custom-authentication.md).
 

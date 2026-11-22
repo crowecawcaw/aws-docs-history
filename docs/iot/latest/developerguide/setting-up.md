@@ -1,7 +1,6 @@
 
 
 # Set up AWS account
-<a name="setting-up"></a>
 
 Before you use AWS IoT Core for the first time, complete the following tasks:
 

@@ -1,7 +1,6 @@
 
 
 # Reserved topics
-<a name="reserved-topics"></a>
 
 Topics that begin with a dollar sign ($) are reserved for use by AWS IoT. You can subscribe and publish to these reserved topics as they allow; however, you can't create new topics that begin with a dollar sign. Unsupported publish or subscribe operations to reserved topics can result in a terminated connection.
 

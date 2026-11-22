@@ -1,7 +1,6 @@
 
 
 # Uploading device-side logs by using AWS IoT rules
-<a name="uploading-logs-rules-action-procedure"></a>
 
 You can use the AWS IoT rules engine to upload log records from existing device-side log files (system, application, and device-client logs) to Amazon CloudWatch. When device-side logs are published to an MQTT topic, the CloudWatch Logs rules action transfers the messages to CloudWatch Logs. This process outlines how to upload device logs in batches using the rules action `batchMode` parameter turned on (set to `true`). 
 
@@ -150,7 +149,7 @@ To create an AWS IoT rule, complete the following steps. Choose the appropriate 
 **Note**  
 If you're using a Microsoft Windows operating system, you might need to replace the end of line marker (\\) with a tick (`) or another character.
 
-      ```
+      ```json
       aws iam create-policy \
           --policy-name {{uploadLogsPolicy}} \
           --policy-document \
@@ -196,7 +195,7 @@ If you're using a Microsoft Windows operating system, you might need to replace 
 
       To create an IAM policy, run the following command. Make sure you update the `role-name` parameter value. For more information, see [`create-role`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html) in the AWS CLI v2 Command Reference.
 
-      ```
+      ```json
       aws iam create-role \
       --role-name {{uploadLogsRole}} \
       --assume-role-policy-document \
@@ -219,7 +218,7 @@ If you're using a Microsoft Windows operating system, you might need to replace 
 
       To create an IAM policy, run the following command. Make sure you update the `role-name` and `policy-arn` parameter values. For more information, see [`attach-role-policy`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/attach-role-policy.html) in the AWS CLI v2 Command Reference.
 
-      ```
+      ```json
       aws iam attach-role-policy \
       --role-name {{uploadLogsRole}} \
       --policy-arn {{arn:aws:iam::111122223333:policy/uploadLogsPolicy}}
@@ -229,7 +228,7 @@ If you're using a Microsoft Windows operating system, you might need to replace 
 
       To confirm that the IAM role was created correctly, run the following command. Make sure you update the `role-name` parameter value. For more information, see [`get-role`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-role.html) in the AWS CLI v2 Command Reference.
 
-      ```
+      ```json
       aws iam get-role --role-name {{uploadLogsRole}}
       ```
 
@@ -267,7 +266,7 @@ If you're using a Microsoft Windows operating system, you might need to replace 
 
    1. To create an AWS IoT topic rule, run the following command. Make sure you update the `--rule-name`,`sql` statement, `description`,`roleARN `, and `logGroupName` parameter values. For more information, see [create-topic-rule](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/iot/create-topic-rule.html) in the AWS CLI v2 Command Reference.
 
-      ```
+      ```json
       aws iot create-topic-rule \
       --rule-name {{uploadLogsRule}} \
       --topic-rule-payload \

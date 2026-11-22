@@ -1,7 +1,6 @@
 
 
 # Activate or deactivate a client certificate
-<a name="activate-or-deactivate-device-cert"></a>
 
 AWS IoT verifies that a client certificate is active when it authenticates a connection.
 

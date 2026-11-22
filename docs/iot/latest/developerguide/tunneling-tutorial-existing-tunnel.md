@@ -1,7 +1,6 @@
 
 
 # Open a tunnel for remote device and use browser-based SSH
-<a name="tunneling-tutorial-existing-tunnel"></a>
 
 From the AWS IoT console, you can create a tunnel either from the **Tunnels hub** or from the details page of an IoT thing that you created. When you create a tunnel from the **Tunnels** hub, you can specify whether to create a tunnel using the quick setup or the manual setup. For an example tutorial, see [Open a tunnel and start SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md).
 
@@ -42,7 +41,7 @@ Following shows the contents for the `input.json` file. You can use the `destina
 
 **Contents of input.json**
 
-```
+```JSON
 {
    "description": "{{Tunnel to remote device1}}",
    "destinationConfig": { 
@@ -54,7 +53,7 @@ Following shows the contents for the `input.json` file. You can use the `destina
 
 Running this command creates a new tunnel and provides you the source and destination access tokens. 
 
-```
+```JSON
 {
     "tunnelId": "01234567-89ab-0123-4c56-789a01234bcd",
     "tunnelArn": "arn:aws:iot:{{us-east-1}}:{{123456789012}}:tunnel/01234567-89ab-0123-4c56-789a01234bcd",

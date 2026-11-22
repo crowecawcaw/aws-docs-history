@@ -1,7 +1,6 @@
 
 
 # How secure tunneling works
-<a name="how-secure-tunneling-works"></a>
 
 The following shows how secure tunneling establishes a connection between your source and destination device. For information about the different terms such as client access token (CAT), see [Secure tunneling concepts](secure-tunneling-concepts.md).
 

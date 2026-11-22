@@ -1,7 +1,6 @@
 
 
 # Detach a principal from a thing
-<a name="detach-thing-principal"></a>
 
 You can use the `DetachThingPrincipal` command to detach a certificate from a thing:
 

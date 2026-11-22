@@ -1,7 +1,6 @@
 
 
 # Jobs and job execution states
-<a name="iot-jobs-lifecycle"></a>
 
 The following sections describe the lifecycle of an AWS IoT job and the lifecycle of a job execution.
 

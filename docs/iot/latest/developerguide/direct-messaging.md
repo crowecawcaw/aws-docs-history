@@ -1,7 +1,6 @@
 
 
 # Direct Messaging
-<a name="direct-messaging"></a>
 
 AWS IoT Core now supports Direct Messaging. You can send a message to a single connected device by its MQTT client ID, without requiring the device to subscribe to a topic.
 
@@ -60,7 +59,7 @@ The following table lists the HTTP status codes returned by the SendDirectMessag
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws iot-data send-direct-message \
     --client-id myDevice \
     --topic commands/reboot \
@@ -77,7 +76,7 @@ The `--cli-binary-format` option is required if you're using AWS Command Line In
 ------
 #### [ curl (X.509 client certificate, port 8443) ]
 
-```
+```bash
 curl --tlsv1.2 \
     --cacert Amazon-root-CA-1.pem \
     --cert device.pem.crt \

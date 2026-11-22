@@ -1,7 +1,6 @@
 
 
 # Connect devices to AWS IoT
-<a name="iot-connect-devices"></a>
 
 Devices connect to AWS IoT and other services through AWS IoT Core. Through AWS IoT Core, devices send and receive messages using device endpoints that are specific to your account. The [AWS IoT Device SDKs](#iot-connect-device-sdks) support device communications using the MQTT and WSS protocols. For more information about the protocols that devices can use, see [Device communication protocols](protocols.md).
 

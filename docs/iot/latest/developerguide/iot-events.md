@@ -1,7 +1,6 @@
 
 
 # Event messages
-<a name="iot-events"></a>
 
 This section contains information about messages published by AWS IoT when things or jobs are updated or changed.
 
@@ -22,7 +21,7 @@ The following is an example of the policy required for receiving lifecycle event
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ Before subscribers to the reserved topics can receive messages, you must enable 
 + To enable event messages, go to the [Settings](https://console.aws.amazon.com/iot/home#/settings) tab of the AWS IoT console and then, in the **Event-based messages** section, choose **Manage events**. You can specify the events that you want to manage.
 + To control which event types are published by using the API or CLI, call the [UpdateEventConfigurations](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateEventConfigurations.html) API or use the **update-event-configurations** CLI command. For example:
 
-  ```
+  ```bash
   aws iot update-event-configurations --event-configurations "{\"THING\":{\"Enabled\": true}}"
   ```
 
@@ -56,7 +55,7 @@ All quotation marks (") are escaped with a backslash (\\).
 
 You can get the current event configuration by calling the [DescribeEventConfigurations](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeEventConfigurations.html) API or by using the **describe-event-configurations** CLI command. For example:.
 
-```
+```bash
 aws iot describe-event-configurations
 ```<a name="iot-events-settings-table"></a>
 

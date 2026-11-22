@@ -1,7 +1,6 @@
 
 
 # Create and manage jobs by using the AWS Management Console
-<a name="manage-job-console"></a>
 
 This section describes how you can create and manage jobs from the AWS IoT console. After you've created a job, you can view information about the job on the details page, and manage the job.
 
@@ -43,7 +42,7 @@ We recommend that you don't use personally identifiable information in your job 
 
        If you want to use presigned URLs for a code signing placeholder, use the following example template:
 
-       ```
+       ```JSON
            ${aws:iot:s3-presigned-url:${aws:iot:code-sign-signature:<S3 URL>}
        ```
    + **From template**: A job template containing a job document and job configurations. The job template can be a custom job template you created or an AWS managed template.

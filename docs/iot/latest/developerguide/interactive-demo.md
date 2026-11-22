@@ -1,7 +1,6 @@
 
 
 # Interactive tutorial
-<a name="interactive-demo"></a>
 
 The interactive tutorial shows the components of a simple IoT solution built on AWS IoT. The tutorial shows how IoT devices interact with AWS IoT Core services. This topic provides a preview of the AWS IoT Core interactive tutorial.
 

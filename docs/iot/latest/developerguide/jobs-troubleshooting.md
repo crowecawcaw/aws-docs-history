@@ -1,7 +1,6 @@
 
 
 # AWS IoT Jobs Troubleshooting
-<a name="jobs-troubleshooting"></a>
 
 This is the troubleshooting section for AWS IoT Jobs.
 

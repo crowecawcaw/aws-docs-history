@@ -1,7 +1,6 @@
 
 
 # Use `DeleteCertificate` with an AWS SDK or CLI
-<a name="example_iot_DeleteCertificate_section"></a>
 
 The following code examples show how to use `DeleteCertificate`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Deletes an IoT certificate.
     /// </summary>
@@ -63,7 +62,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
-```
+```cpp
 //! Delete a certificate.
 /*!
   \param certificateID: The ID of a certificate.
@@ -114,7 +113,7 @@ For more information, see [X.509 client certificates](https://docs.aws.amazon.co
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
-```
+```java
     /**
      * Deletes a certificate asynchronously.
      *
@@ -154,7 +153,7 @@ For more information, see [X.509 client certificates](https://docs.aws.amazon.co
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
-```
+```kotlin
 suspend fun deleteCertificate(certificateArn: String) {
     val certificateProviderRequest =
         DeleteCertificateRequest {
@@ -174,7 +173,7 @@ suspend fun deleteCertificate(certificateArn: String) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
-```
+```python
 class IoTWrapper:
     """Encapsulates AWS IoT actions."""
 
@@ -223,7 +222,7 @@ class IoTWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
-```
+```sap-abap
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
     DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
     DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).

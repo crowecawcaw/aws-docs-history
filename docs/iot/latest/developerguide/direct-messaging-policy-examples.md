@@ -1,7 +1,6 @@
 
 
 # Direct messaging policy examples
-<a name="direct-messaging-policy-examples"></a>
 
 Using direct messaging requires specific policies. Direct messaging uses the SendDirectMessage HTTP API to deliver messages from a sender to a single receiver identified by its MQTT client ID. This section presents examples of policies that allow common uses of direct messaging.
 
@@ -21,7 +20,7 @@ For a sender to send direct messages, the sender must have `iot:SendDirectMessag
 
 The following policy allows client `device1` to send direct messages to client `myDevice` on the topics `commands/reboot` and `commands/update`.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -46,7 +45,7 @@ The receiver's policy must grant `iot:Receive` on the topic. The receiver does n
 
 The following policy allows the receiver client `myDevice` to receive direct messages on the topics `commands/reboot` and `commands/update`.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -66,7 +65,7 @@ The following policy allows the receiver client `myDevice` to receive direct mes
 
 The following policy uses a wildcard to allow the receiver to receive direct messages on any topic under the `commands/` prefix.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -87,7 +86,7 @@ The receiver must establish an MQTT connection to AWS IoT Core before receiving 
 
 The following policy allows the sender to send direct messages to any client, but only on topics matching the `commands/*` prefix. This is useful for fleet management services that need to reach any device but only for specific command topics.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -113,7 +112,7 @@ The `iot:Topic` condition key supports wildcard matching with the `StringLike` c
 
 The following policy allows the sender to send direct messages to any client on any topic. This is suitable for administrative or fleet management use cases where a backend service needs unrestricted access.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

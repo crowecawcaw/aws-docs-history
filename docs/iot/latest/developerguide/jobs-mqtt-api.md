@@ -1,7 +1,7 @@
 
 
 # Jobs device MQTT API operations
-<a name="jobs-mqtt-api"></a><a name="jobs-mqtt-note"></a>
+<a name="jobs-mqtt-note"></a>
 
 You can issue jobs device commands by publishing MQTT messages to the [Reserved topics used for Jobs commands](reserved-topics.md#reserved-topics-job). 
 
@@ -29,7 +29,7 @@ To invoke this API, publish a message on `$aws/things/{{thingName}}/jobs/get`.
 
 Request payload:
 
-```
+```JSON
 { "clientToken": "string" }
 ```
 
@@ -37,7 +37,7 @@ The message broker will publish `$aws/things/{{thingName}}/jobs/get/accepted` an
 
 Response payload:
 
-```
+```JSON
 {
 "inProgressJobs" : [ JobExecutionSummary ... ], 
 "queuedJobs" : [ JobExecutionSummary ... ],
@@ -63,7 +63,7 @@ To invoke this API, publish a message on `$aws/things/{{thingName}}/jobs/start-n
 
 Request payload:
 
-```
+```JSON
 { 
 "statusDetails": {
     "string": "{{job-execution-state}}"
@@ -85,7 +85,7 @@ The message broker will publish `$aws/things/{{thingName}}/jobs/start-next/accep
 
 Response payload:
 
-```
+```JSON
 {
 "execution" : JobExecutionData,
 "timestamp" : timestamp,
@@ -95,7 +95,7 @@ Response payload:
 
 Where `execution` is a [JobExecution](jobs-mqtt-https-api.md#jobs-mqtt-job-execution-data) object. For example:
 
-```
+```JSON
 {
 "execution" : {
     "jobId" : "022",
@@ -123,7 +123,7 @@ To invoke this API, publish a message on `$aws/things/{{thingName}}/jobs/{{jobId
 
 Request payload:
 
-```
+```JSON
 { 
 "jobId" : "022",
 "thingName" : "MyThing",
@@ -150,7 +150,7 @@ The message broker will publish `$aws/things/{{thingName}}/jobs/{{jobId}}/get/ac
 
 Response payload:
 
-```
+```JSON
 {
 "execution" : JobExecutionData,
 "timestamp": "timestamp",
@@ -169,7 +169,7 @@ To invoke this API, publish a message on `$aws/things/{{thingName}}/jobs/{{jobId
 
 Request payload:
 
-```
+```JSON
 {
 "status": "{{job-execution-state}}",
 "statusDetails": { 
@@ -210,7 +210,7 @@ The message broker will publish `$aws/things/{{thingName}}/jobs/{{jobId}}/update
 
 Response payload:
 
-```
+```JSON
 {
 "executionState": JobExecutionState,
 "jobDocument": "string",
@@ -245,7 +245,7 @@ Use the topic:
 
 Message payload:
 
-```
+```JSON
 {
 "jobs" : {
     "JobExecutionState": [ [`JobExecutionSummary`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummary.html) ... ]
@@ -265,7 +265,7 @@ Use the topic:
 
 Message payload:
 
-```
+```JSON
 {
 "execution" : [`JobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecution.html),
 "timestamp": timestamp,

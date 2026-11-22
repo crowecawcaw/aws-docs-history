@@ -1,7 +1,6 @@
 
 
 # Diagnosing connectivity issues
-<a name="diagnosing-connectivity-issues"></a>
 
 **Help us improve this topic**  
  [Let us know what would help make it better](https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IoT%20Docs&topic_url=http://docs.aws.amazon.com/en_us/iot/latest/diagnosing-connectivity-issues.html) 

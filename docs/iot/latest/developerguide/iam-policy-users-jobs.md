@@ -1,7 +1,6 @@
 
 
 # Authorizing users and cloud services to use AWS IoT Jobs
-<a name="iam-policy-users-jobs"></a>
 
 To authorize your users and cloud services, you must use IAM policies on both the control plane and data plane. The policies must be used with HTTPS protocol and must use AWS Signature Version 4 authentication (port 443) to authenticate users.
 
@@ -63,7 +62,7 @@ In the example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ The following example shows how to allow only a specific IP address that can mak
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -165,7 +164,7 @@ The following shows a sample IAM policy that authorizes this action:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -189,7 +188,7 @@ The following example shows how to allow only a specific IP address that can mak
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -216,7 +215,7 @@ The following example shows how to restrict specific IP addresses or address ran
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -258,7 +257,7 @@ In the example, replace:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -326,7 +325,7 @@ For this example, you must use the following IAM policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

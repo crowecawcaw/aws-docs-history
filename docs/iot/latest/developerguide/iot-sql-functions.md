@@ -1,7 +1,6 @@
 
 
 # Functions
-<a name="iot-sql-functions"></a>
 
 You can use the following built-in functions in the SELECT or WHERE clauses of your SQL expressions.
 
@@ -164,7 +163,7 @@ If you add a permission for an AWS IoT principal without providing the `source-a
 
 Given a JSON message payload like:
 
-```
+```json
 {
     "attribute1": 21,
     "attribute2": "value"
@@ -492,7 +491,7 @@ A literal string representing the scheme used to decode the value. Currently, on
 
 In this example, the message payload includes an encoded value.
 
-```
+```json
 {
     encoded_temp: "eyAidGVtcGVyYXR1cmUiOiAzMyB9Cg=="
 }
@@ -500,19 +499,19 @@ In this example, the message payload includes an encoded value.
 
 The `decode` function in this SQL statement decodes the value in the message payload.
 
-```
+```SQL
 SELECT decode(encoded_temp,"base64").temperature AS temp from 'topic/subtopic'
 ```
 
 Decoding the `encoded_temp` value results in the following valid JSON document, which allows the SELECT statement to read the temperature value.
 
-```
+```JSON
 { "temperature": 33 }
 ```
 
 The result of the SELECT statement in this example is shown here.
 
-```
+```JSON
 { "temp": 33 }
 ```
 
@@ -528,7 +527,7 @@ If you omit the `source‐arn` or `source‐account` when setting permissions fo
 
 The function signature looks like the following:
 
-```
+```SQL
 decode(<ENCODED DATA>, 'proto', '<S3 BUCKET NAME>', '<S3 OBJECT KEY>', '<PROTO NAME>', '<MESSAGE TYPE>')            
 ```
 
@@ -536,12 +535,12 @@ decode(<ENCODED DATA>, 'proto', '<S3 BUCKET NAME>', '<S3 OBJECT KEY>', '<PROTO N
 Specifies the protobuf-encoded data to be decoded. If the entire message sent to the Rule is protobuf-encoded data, you can reference the raw binary incoming payload using `*`. Otherwise, this field must be a base-64 encoded JSON string and a reference to the string can be passed in directly.  
 1) To decode a raw binary protobuf incoming payload:  
 
-```
+```SQL
 decode(*, 'proto', ...)
 ```
 2) To decode a protobuf-encoded message represented by a base64-encoded string 'a.b':   
 
-```
+```SQL
 decode(a.b, 'proto', ...)
 ```
 
@@ -562,7 +561,7 @@ The name of the protobuf message structure within the `FileDescriptorSet` file, 
 
 An example SQL expression using the decode SQL function can look like the following:
 
-```
+```SQL
 SELECT VALUE decode(*, 'proto', 's3-bucket', 'messageformat.desc', 'myproto', 'messagetype') FROM 'some/topic'
 ```
 + `*`
@@ -687,7 +686,7 @@ roleArn
 The ARN of an IAM role that grants access to the DynamoDB table. The rules engine assumes this role to access the DynamoDB table on your behalf. Avoid using an overly permissive role. Grant the role only those permissions required by the rule. The following is an example policy that grants access to one DynamoDB table.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -739,7 +738,7 @@ The following table shows the acceptable function arguments and their associated
 
 The following example Rules SQL references any of the following MQTT5 headers: `contentType`, `payLoadFormatIndicator`, `responseTopic`, and `correlationData`.
 
-```
+```SQL
 SELECT *, get_mqtt_property('content_type') as contentType,
           get_mqtt_property('format_indicator') as payloadFormatIndicator,
           get_mqtt_property('response_topic') as responseTopic,
@@ -758,10 +757,10 @@ Returns the default value in the second parameter if specified or else returns u
 `get_or_default()` takes the following parameters:
 
 expression  
-Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](#iot-sql-functions), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). 
+Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](iot-sql-functions.md), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). 
 
 defaultValue  
-(Optional) Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](#iot-sql-functions), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). This is the value to be returned whenever the first argument returns null, undefined, or fails.   
+(Optional) Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](iot-sql-functions.md), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). This is the value to be returned whenever the first argument returns null, undefined, or fails.   
 Functions that fetch data from customer-owned resources, such as get\_secret, get\_dynamodb, aws\_lambda, get\_thing\_shadow, and decode-protobuf, are not allowed for the defaultValue parameter.
 
 The following table shows acceptable function arguments for each argument and their associated outputs:
@@ -779,7 +778,7 @@ Example 1:
 
 The following example provides a defaultValue value if a DynamoDB table or query fails:
 
-```
+```SQL
 SELECT 
     device_id,
     get_or_default(
@@ -793,7 +792,7 @@ Example 2:
 
 The following example provides a safe default value "UNKNOWN" if status is undefined:
 
-```
+```SQL
 SELECT 
   get_or_default( CASE status
     WHEN 'active' THEN 'GOOD'
@@ -807,7 +806,7 @@ Example 3:
 
 The following example shows how you can also use get\_or\_default with a single parameter. This is useful in scenarios where you may not have a clear default value, but you do not want your rule execution to fail.
 
-```
+```SQL
 SELECT 
   get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::{{123456789012}}:role/{{ROLE_NAME}}") as config
 FROM 'device/telemetry'
@@ -815,7 +814,7 @@ FROM 'device/telemetry'
 
 If the DynamoDB lookup fails, the rule execution will fail, and no actions will be executed. If the following SQL is used instead:
 
-```
+```SQL
 SELECT 
   get_or_default(get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::{{123456789012}}:role/{{ROLE_NAME}}")) as config
 FROM 'device/telemetry'
@@ -850,7 +849,7 @@ Example:
 
 You can retrieve thing type information to allow filtering the AWS IoT Core lifecycle event messages for things (with the thing name matching the MQTT client id) where thing type is `testenv`.
 
-```
+```SQL
 SELECT * 
 FROM '$aws/events/lifecycle/+' 
 WHERE 
@@ -861,7 +860,7 @@ Example:
 
 You can retrieve thing attributes for a device with thing name `sensor1` for all messages sent by its gateway device `gateway1`.
 
-```
+```SQL
 SELECT *, get_registry_data("DescribeThing","sensor1",[roleArn]).attributes.temperature_threhold AS device1_tempthreshold 
 FROM home1/gateway1/sensor1/#
 ```
@@ -931,7 +930,7 @@ Examples:
 
 When used with a named shadow, provide the `shadowName` parameter.
 
-```
+```SQL
 SELECT * from 'topic/subtopic'
 WHERE
     get_thing_shadow("MyThing","MyThingShadow","arn:aws:iam::123456789012:role/AllowsThingShadowAccess")
@@ -940,7 +939,7 @@ WHERE
 
 When used with an unnamed shadow, omit the `shadowName` parameter.
 
-```
+```SQL
 SELECT * from 'topic/subtopic'
 WHERE
     get_thing_shadow("MyThing","arn:aws:iam::123456789012:role/AllowsThingShadowAccess")
@@ -978,7 +977,7 @@ The following table shows the expected SQL behavior:
 
 The following example Rules SQL references User Properties (a type of MQTT5 property header) into the payload:
 
-```
+```SQL
 SELECT *, get_user_properties('user defined property key') as userProperty
 FROM 'some/topic'
 ```
@@ -1236,7 +1235,7 @@ Examples:
 
 When this message is published to the topic 'A/B', the payload `{"ts": "1970.01.01 AD at 21:46:40 CST"}` is sent to the S3 bucket:
 
-```
+```JSON
 {
     "ruleArn": "arn:aws:iot:us-east-2:ACCOUNT_ID:rule/RULE_NAME",
     "topicRulePayload": {
@@ -1260,7 +1259,7 @@ When this message is published to the topic 'A/B', the payload `{"ts": "1970.01.
 
 When this message is published to the topic 'A/B', a payload similar to `{"ts": "2017.06.09 AD at 17:19:46 UTC"}` (but with the current date/time) is sent to the S3 bucket:
 
-```
+```JSON
 {
     "ruleArn": "arn:aws:iot:us-east-2:ACCOUNT_ID:rule/RULE_NAME",
     "topicRulePayload": {
@@ -1283,7 +1282,7 @@ When this message is published to the topic 'A/B', a payload similar to `{"ts": 
 
 `parse_time()` can also be used as a substitution template. For example, when this message is published to the topic 'A/B', the payload is sent to the S3 bucket with key = "2017":
 
-```
+```JSON
 {
     "ruleArn": "arn:aws:iot:us-east-2:ACCOUNT_ID:rule/RULE_NAME",
     "topicRulePayload": {
@@ -1638,7 +1637,7 @@ Examples of how to use the sourceip() function in AWS IoT Core rule actions:
 
 The following example shows how to call the () function as a [substitution template](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in a [DynamoDB action](https://docs.aws.amazon.com/iot/latest/developerguide/dynamodb-rule-action.html).
 
-```
+```JSON
 {
 	"topicRulePayload": {
 		"sql": "SELECT * AS message FROM 'some/topic'",
@@ -1909,7 +1908,7 @@ This example shows how the **transform()** function produces a single array of o
 
 In this example, the following message is published to the MQTT topic `A/B`.
 
-```
+```json
 {
     "attributes": {
         "data1": 1,
@@ -1931,13 +1930,13 @@ In this example, the following message is published to the MQTT topic `A/B`.
 
 This SQL statement for a topic rule action uses the **transform()** function with a `String` value of `enrichArray`. In this example, `Object` is the `attributes` property from the message payload and `Array` is the `values` array, which contains three objects.
 
-```
+```sql
 select value transform("enrichArray", attributes, values) from 'A/B'
 ```
 
 Upon receiving the message payload, the SQL statement evaluates to the following response.
 
-```
+```json
 [
   {
     "a": 3,
@@ -1964,7 +1963,7 @@ This example shows how the **transform()** function can use literal values to in
 
 In this example, the following message is published to the MQTT topic `A/B`. This is the same message that was used in [Transform function example 1](#iot-func-transform-example1).
 
-```
+```json
 {
     "attributes": {
         "data1": 1,
@@ -1986,13 +1985,13 @@ In this example, the following message is published to the MQTT topic `A/B`. Thi
 
 This SQL statement for a topic rule action uses the **transform()** function with a `String` value of `enrichArray`. The `Object` in the **transform()** function has a single attribute named `key` with the value of `attributes.data1` in the message payload and `Array` is the `values` array, which contains the same three objects used in the previous example.
 
-```
+```sql
 select value transform("enrichArray", {"key": attributes.data1}, values) from 'A/B'
 ```
 
 Upon receiving the message payload, this SQL statement evaluates to the following response. Notice how the `data1` property is named `key` in the response.
 
-```
+```json
 [
   {
     "a": 3,
@@ -2016,7 +2015,7 @@ This example shows how the **transform()** function can be used in nested SELECT
 
 In this example, the following message is published to the MQTT topic `A/B`.
 
-```
+```json
 {
   "data1": "example",
   "data2": {

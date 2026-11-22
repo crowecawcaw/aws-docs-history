@@ -1,7 +1,6 @@
 
 
 # CloudWatch alarms
-<a name="cloudwatch-alarms-rule-action"></a>
 
 The CloudWatch alarm (`cloudWatchAlarm`) action changes the state of an Amazon CloudWatch alarm. You can specify the state change reason and value in this call. 
 
@@ -39,7 +38,7 @@ Supports [substitution templates](iot-substitution-templates.md): No
 
 The following JSON example defines a CloudWatch alarm action in an AWS IoT rule.
 
-```
+```JSON
 {
     "topicRulePayload": {
         "sql": "SELECT * FROM 'some/topic'", 

@@ -1,7 +1,6 @@
 
 
 # Long duration tests console workflow
-<a name="device-advisor-long-duration-console-tutorial"></a>
 
 This tutorial helps you get started with the Long duration tests on Device Advisor using the console. To complete the tutorial, follow the steps at [Setting up](device-advisor-setting-up.md).
 

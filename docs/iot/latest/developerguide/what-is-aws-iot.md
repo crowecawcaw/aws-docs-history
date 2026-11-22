@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT?
-<a name="what-is-aws-iot"></a>
 
 AWS IoT provides the cloud services that connect your IoT devices to other devices and AWS cloud services. AWS IoT provides device software that can help you integrate your IoT devices into AWS IoT-based solutions. If your devices can connect to AWS IoT, AWS IoT can connect them to the cloud services that AWS provides.
 

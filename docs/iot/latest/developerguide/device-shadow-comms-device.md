@@ -1,7 +1,6 @@
 
 
 # Using shadows in devices
-<a name="device-shadow-comms-device"></a>
 
 This section describes device communications with shadows using MQTT messages, the preferred method for devices to communicate with the AWS IoT Device Shadow service.
 
@@ -51,7 +50,7 @@ After subscribing to the messages in the preceding table for each shadow, the de
 
 For example, suppose you have a thing `My_IoT_Thing` which doesn't have any classic or named shadows. If you now publish a `/get` request on the reserved topic `$aws/things/My_IoT_Thing/shadow/get`, it returns an error on the `$aws/things/My_IoT_Thing/shadow/get/rejected` topic because the thing doesn't have any shadows. To resolve this error, first publish an `/update` message by using the `$aws/things/My_IoT_Thing/shadow/update` topic with the current device state such as the following payload.
 
-```
+```JSON
 {
 	"state": {
 		"reported": {

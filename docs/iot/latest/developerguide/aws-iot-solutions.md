@@ -1,7 +1,6 @@
 
 
 # What AWS IoT can do
-<a name="aws-iot-solutions"></a>
 
 This topic describes some of the solutions that you might need that AWS IoT supports.
 

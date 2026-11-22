@@ -1,7 +1,6 @@
 
 
 # Apache Kafka
-<a name="apache-kafka-rule-action"></a>
 
 The Apache Kafka (Kafka) action sends messages directly to your [Amazon Managed Streaming for Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) (Amazon MSK), Apache Kafka clusters managed by third-party providers such as [Confluent Cloud](https://www.confluent.io/), or self-managed Apache Kafka clusters. With Kafka rule action, you can route your IoT data to Kafka clusters. This enables you to build high-performance data pipelines for various purposes, such as streaming analytics, data integration, visualization, and mission-critical business applications.
 
@@ -21,7 +20,7 @@ This rule action has the following requirements:
   The policy attached to the role that you specify should look like the following example.  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -47,7 +46,7 @@ This rule action has the following requirements:
   The policy attached to the role that you specify should look like the following example.  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -157,7 +156,7 @@ The unique Kerberos identity to which Kerberos can assign tickets to access Kerb
 
 The following JSON example defines an Apache Kafka action in an AWS IoT rule. The following example passes the [ sourceIp()](iot-sql-functions.md#iot-function-sourceip) inline function as a [substitution template](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in the Kafka Action header.
 
-```
+```JSON
 {
 	"topicRulePayload": {
 		"sql": "SELECT * FROM 'some/topic'",

@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT Jobs?
-<a name="jobs-what-is"></a>
 
 Use AWS IoT Jobs to define a set of remote operations that can be sent to and run on one or more devices connected to AWS IoT. 
 

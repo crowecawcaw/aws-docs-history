@@ -1,7 +1,6 @@
 
 
 # Custom authentication with X.509 client certificates
-<a name="custom-auth-509cert"></a>
 
 When connecting devices to AWS IoT Core, you have multiple [authentication types](protocols.md#connection-protocol-auth-mode) available. You can use [X.509 client certificates](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html) that can be used to authenticate client and device connections, or define [custom authorizers](https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html) to manage your own client authentication and authorization logic. This topic covers how to use custom authentication with X.509 client certificates.
 
@@ -42,7 +41,7 @@ AWS IoT Core uses custom authorizers to implement custom authentication and auth
 
 The following example JSON object contains all possible fields that can be included. The actual JSON object will only contain fields relevant to the specific connection request.
 
-```
+```JSON
 {
 	"token": "aToken",
 	"signatureVerified": true,
@@ -99,7 +98,7 @@ The Lambda function should use information from the event JSON object to authent
 
 The following JSON object contains an example response that your Lambda function can send.
 
-```
+```JSON
 {
 	"isAuthenticated": true,
 	"principalId": "xxxxxxxx",
@@ -215,7 +214,7 @@ function generateAuthResponse(principalId, effect) {
 
 The preceding Lambda function returns the following JSON when it receives a certificate with the expected serial, fingerprint, and subject. The value of `x509CertificatePem` will be the client certificate provided in the TLS handshake. For more information, see [Defining your Lambda function](https://docs.aws.amazon.com/iot/latest/developerguide/config-custom-auth.html#custom-auth-lambda).
 
-```
+```JSON
 {
 	"isAuthenticated": true,
 	"principalId": "principalId in the event JSON object",

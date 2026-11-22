@@ -1,7 +1,6 @@
 
 
 # Create a virtual device with Amazon EC2
-<a name="creating-a-virtual-thing"></a>
 
 In this tutorial, you'll create an Amazon EC2 instance to serve as your virtual device in the cloud.
 
@@ -129,7 +128,7 @@ Your Amazon EC2 instance comes preloaded with the AWS CLI. However, you must com
 
    In your **Amazon EC2 Instance Connect** window, enter this command:
 
-   ```
+   ```bash
    aws configure
    ```
 
@@ -144,7 +143,7 @@ Your Amazon EC2 instance comes preloaded with the AWS CLI. However, you must com
 
 1. You can test your AWS CLI configuration with this command:
 
-   ```
+   ```bash
    aws iot describe-endpoint --endpoint-type iot:Data-ATS
    ```
 
@@ -184,13 +183,13 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
 
 1. In your **Amazon EC2 Instance Connect** window, create a directory to store your certificate and key files.
 
-   ```
+   ```bash
    mkdir ~/certs
    ```
 
 1. In your **Amazon EC2 Instance Connect** window, download a copy of the Amazon certificate authority (CA) certificate by using this command.
 
-   ```
+   ```bash
    curl -o ~/certs/Amazon-root-CA-1.pem \
        https://www.amazontrust.com/repository/AmazonRootCA1.pem
    ```
@@ -251,7 +250,7 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
 
    If you don't have a favorite Linux editor, you can open **nano**, by using this command.
 
-   ```
+   ```bash
    nano ~/policy.json
    ```
 
@@ -260,7 +259,7 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
    Contents of the policy document for `policy.json`.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -282,7 +281,7 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
 
 1. In your **Amazon EC2 Instance Connect** window, create your policy by using the following command.
 
-   ```
+   ```bash
    aws iot create-policy \
        --policy-name "MyIotThingPolicy" \
        --policy-document "file://~/policy.json"
@@ -291,7 +290,7 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
    Output:  
 ****  
 
-   ```
+   ```json
    {
        "policyName": "MyIotThingPolicy",
        "policyArn": "arn:aws:iot:us-east-1:{{your-aws-account}}:policy/MyIotThingPolicy",
@@ -318,7 +317,7 @@ The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentatio
 
 1. In your **Amazon EC2 Instance Connect** window, attach the policy to your virtual device's certificate by using the following command.
 
-   ```
+   ```bash
    aws iot attach-policy \
        --policy-name "MyIotThingPolicy" \
        --target "{{certificateArn}}"
@@ -335,20 +334,20 @@ In this section, you'll install the AWS IoT Device SDK for JavaScript, which con
 
 1. In your **Amazon EC2 Instance Connect** window, clone the AWS IoT Device SDK for JavaScript repository into the `aws-iot-device-sdk-js-v2` directory of your home directory by using this command.
 
-   ```
+   ```bash
    cd ~
    git clone https://github.com/aws/aws-iot-device-sdk-js-v2.git
    ```
 
 1. Navigate to the `aws-iot-device-sdk-js-v2` directory that you created in the preceding step.
 
-   ```
+   ```bash
    cd aws-iot-device-sdk-js-v2
    ```
 
 1. Use npm to install the SDK.
 
-   ```
+   ```bash
    npm install
    ```
 
@@ -379,13 +378,13 @@ In this section, you'll install and run the `pub-sub.js` sample app found in the
 
 1. In your **Amazon EC2 Instance Connect** window, get {{your-iot-endpoint}} from AWS IoT by using this command.
 
-   ```
+   ```bash
    aws iot describe-endpoint --endpoint-type iot:Data-ATS
    ```
 
 1. In your **Amazon EC2 Instance Connect** window, insert {{your-iot-endpoint}} as indicated and run this command.
 
-   ```
+   ```bash
    node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
 
@@ -399,7 +398,7 @@ The sample app:
 
 1. Displays output similar to the following:
 
-   ```
+   ```json
    Publish received. topic:"topic_1" dup:false qos:1 retain:false
    {"message":"Hello world!","sequence":1}
    Publish received. topic:"topic_1" dup:false qos:1 retain:false
@@ -441,7 +440,7 @@ You can see the sample app's messages as they pass through the message broker by
 
 1. In your **Amazon EC2 Instance Connect** window, run the sample app again and watch the messages in the **MQTT test client** in the **AWS IoT console**.
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
    node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```

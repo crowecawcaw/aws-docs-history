@@ -1,7 +1,6 @@
 
 
 # Job configurations
-<a name="jobs-configurations"></a>
 
 You can have the following additional configurations for each job that you deploy to the specified targets.
 + **Rollout**: Defines how many devices receive the job document every minute.

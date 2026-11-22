@@ -1,7 +1,6 @@
 
 
 # Operators
-<a name="iot-sql-operators"></a>
 
 The following operators can be used in SELECT and WHERE clauses. 
 
@@ -69,7 +68,7 @@ Returns a `Boolean` result. You can use the IN operator in a WHERE clause to che
 
 *Example:*
 
-```
+```SQL
 SQL: "select * from 'a/b' where 3 in arr"
 
 JSON: {"arr":[1, 2, 3, "three", 5.7, null]}
@@ -86,7 +85,7 @@ Returns a `Boolean` result. You can use the EXISTS operator in a conditional cla
 
 *Example:*
 
-```
+```SQL
 SQL: "select * from 'a/b' where exists (select * from arr as a where a = 3)"
 
 JSON: {"arr":[1, 2, 3]}
@@ -96,7 +95,7 @@ In this example, the condition clause `where exists (select * from arr as a wher
 
 *Example:*
 
-```
+```SQL
 SQL: select * from 'a/b' where exists (select * from e as e where foo = 2)
 
 JSON: {"foo":4,"bar":5,"e":[{"foo":1},{"foo":2}]}

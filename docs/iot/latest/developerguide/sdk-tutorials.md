@@ -1,7 +1,6 @@
 
 
 # Tutorial: Connecting a device to AWS IoT Core by using the AWS IoT Device SDK
-<a name="sdk-tutorials"></a>
 
 This tutorial demonstrates how to connect a device to AWS IoT Core so that it can send and receive data to and from AWS IoT. After you complete this tutorial, your device will be configured to connect to AWS IoT Core and you'll understand how devices communicate with AWS IoT.
 
@@ -103,7 +102,7 @@ The `pubsub.py` sample demonstrates an MQTT connection using the MQTT and MQTT o
 
 The `pubsub.py` sample calls `mtls_from_path` (shown here) in the [`mqtt_connection_builder`](https://github.com/awslabs/aws-crt-python/blob/89207bcf1387177034e02fe29e8e469ca45e39b7/awscrt/awsiot_mqtt_connection_builder.py) to establish a connection with AWS IoT Core by using the MQTT protocol. `mtls_from_path` uses X.509 certificates and TLS v1.2 to authenticate the device. The AWS CRT library handles the lower-level details of that connection.
 
-```
+```python
 mqtt_connection = mqtt_connection_builder.mtls_from_path(
     endpoint=args.endpoint,
     cert_filepath=args.cert,
@@ -156,7 +155,7 @@ The keep alive value, in seconds, to send in the `CONNECT` request. A ping will 
 
 The `pubsub.py` sample calls `websockets_with_default_aws_signing` (shown here) in the [`mqtt_connection_builder`](https://github.com/awslabs/aws-crt-python/blob/89207bcf1387177034e02fe29e8e469ca45e39b7/awscrt/awsiot_mqtt_connection_builder.py) to establish a connection with AWS IoT Core using the MQTT protocol over WSS. `websockets_with_default_aws_signing` creates an MQTT connection over WSS using [Signature V4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate the device.
 
-```
+```python
 mqtt_connection = mqtt_connection_builder.websockets_with_default_aws_signing(
     endpoint=args.endpoint,
     client_bootstrap=client_bootstrap,
@@ -255,7 +254,7 @@ When a device subscribes to a message with QoS level 1, the message broker saves
 
 After successfully establishing a connection to AWS IoT Core, devices can publish messages. The `pubsub.py` sample does this by calling the `publish` operation of the `mqtt_connection` object.
 
-```
+```python
 mqtt_connection.publish(
     topic=args.topic,
     payload=message,
@@ -280,7 +279,7 @@ The QoS level for this message
 
 To receive messages from AWS IoT and other services and devices, devices subscribe to those messages by their topic name. Devices can subscribe to individual messages by specifying a [topic name](topics.md#topicnames), and to a group of messages by specifying a [topic filter](topics.md#topicfilters), which can include wild card characters. The `pubsub.py` sample uses the code shown here to subscribe to messages and register the callback functions to process the message after it’s received.
 
-```
+```python
 subscribe_future, packet_id = mqtt_connection.subscribe(
     topic=args.topic,
     qos=mqtt.QoS.AT_LEAST_ONCE,
@@ -305,7 +304,7 @@ The `mqtt_connection.subscribe` function returns a future and a packet ID. If th
 **The callback function**  
 The callback in the `pubsub.py` sample processes the subscribed messages as the device receives them.
 
-```
+```python
 def on_message_received(topic, payload, **kwargs):
     print("Received message from topic '{}': {}".format(topic, payload))
     global received_count
@@ -365,7 +364,7 @@ For this exercise, imagine that your device contains a temperature control and a
 
 1. Before starting the exercise, try running this command from the [Getting started with AWS IoT Core tutorials](iot-gs.md) tutorials on your device to make sure that everything is ready for the exercise.
 
-   ```
+   ```bash
    cd ~/aws-iot-device-sdk-python-v2/samples
    python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
@@ -389,7 +388,7 @@ For this exercise, imagine that your device contains a temperature control and a
 
    Making these changes to the initial command line results in this command line. Enter this command in the terminal window for your device.
 
-   ```
+   ```bash
    python3 pubsub.py --message "" --count 2 --topic device/+/details --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
 
@@ -460,7 +459,7 @@ Building on the previous exercise, modify the `pubsub.py` sample app to evaluate
 
 1. In `on_message_received`, insert the following code after the line that starts with `print("Received message` and before the line that starts with `global received_count`.
 
-   ```
+   ```python
        topic_parsed = False
        if "/" in topic:
            parsed_topic = topic.split("/")
@@ -480,7 +479,7 @@ Building on the previous exercise, modify the `pubsub.py` sample app to evaluate
 
 1. Save your changes and run the modified program by using this command line.
 
-   ```
+   ```bash
    python3 pubsub2.py --message "" --count 2 --topic device/+/details --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint {{your-iot-endpoint}}
    ```
 
@@ -546,7 +545,7 @@ You can use the pubsub.py sample app to publish messages from your device. While
 
 In this exercise, the following message will be sent with the `device/data` topic.
 
-```
+```json
 {
     "timestamp": 1601048303,
     "sensorId": 28,
@@ -595,7 +594,7 @@ In this exercise, the following message will be sent with the `device/data` topi
 
 1. On your device, run this command to send the message two times.
 
-   ```
+   ```bash
    python3 pubsub3.py  --ca_file ~/certs/Amazon-root-CA-1.pem  --cert ~/certs/device.pem.crt  --key ~/certs/private.pem.key  --topic device/data  --count 2 --message '{"timestamp":1601048303,"sensorId":28,"sensorData":[{"sensorName":"Wind speed","sensorValue":34.2211224}]}'  --endpoint {{your-iot-endpoint}}
    ```
 

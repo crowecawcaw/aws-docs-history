@@ -1,7 +1,6 @@
 
 
 # Device workflow
-<a name="jobs-workflow-device-online"></a>
 
 A device can handle jobs that it runs using either of the following ways. 
 + 

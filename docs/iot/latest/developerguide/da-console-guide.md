@@ -1,7 +1,6 @@
 
 
 # Getting started with Device Advisor in the console
-<a name="da-console-guide"></a>
 
 This tutorial helps you get started with AWS IoT Core Device Advisor on the console. Device Advisor offers features such as required tests and signed qualification reports. You can use these tests and reports to qualify and list devices in the [AWS Partner Device Catalog](https://devices.amazonaws.com/) as detailed in the [AWS IoT Core qualification program](https://aws.amazon.com/partners/dqp/).
 

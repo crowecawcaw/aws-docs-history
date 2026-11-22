@@ -1,7 +1,6 @@
 
 
 # Secure tunneling concepts
-<a name="secure-tunneling-concepts"></a>
 
 The following terms are used by secure tunneling when establishing communication with remote devices. For information about how secure tunneling works, see [How secure tunneling works](how-secure-tunneling-works.md).
 

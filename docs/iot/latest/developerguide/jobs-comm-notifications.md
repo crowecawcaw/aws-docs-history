@@ -1,7 +1,6 @@
 
 
 # Jobs notifications
-<a name="jobs-comm-notifications"></a>
 
 The AWS IoT Jobs service publishes MQTT messages to reserved topics when jobs are pending or when the first job execution in the list changes. Devices can track pending jobs by subscribing to these topics.
 
@@ -44,7 +43,7 @@ The messages contain the following example payloads:
 
 `$aws/things/{{thingName}}/jobs/notify`:
 
-```
+```JSON
 {
   "timestamp" : 10011,
   "jobs" : {
@@ -68,7 +67,7 @@ The messages contain the following example payloads:
 
 If the job execution called `this-job` originated from a job with the optional scheduling configuration selected and the job document rollout scheduled to take place during a maintenance window, it'll only appear during a recurring maintenance window. Outside of a maintenance window, the job called `this-job` will be excluded from the list of pending job executions as shown in the following example.
 
-```
+```JSON
 {
   "timestamp" : 10011,
   "jobs" : {
@@ -86,7 +85,7 @@ If the job execution called `this-job` originated from a job with the optional s
 
 `$aws/things/{{thingName}}/jobs/notify-next`:
 
-```
+```JSON
 {
   "timestamp" : 10011,
   "execution" : {
@@ -103,11 +102,11 @@ If the job execution called `this-job` originated from a job with the optional s
 
 If the job execution called `other-job` originated from a job with the optional scheduling configuration selected and the job document rollout scheduled to take place during a maintenance window, it'll only appear during a recurring maintenance window. Outside of a maintenance window, the job called `other-job` won't be listed as the next job execution as shown in the following example.
 
-```
+```JSON
 {} //No other pending jobs
 ```
 
-```
+```JSON
 {
   "timestamp" : 10011,
   "execution" : {
@@ -127,7 +126,7 @@ The following series of examples show the published notifications to each topic 
 
 First, one job, called `job1`, is created. This notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517016948,
   "jobs": {
@@ -146,7 +145,7 @@ First, one job, called `job1`, is created. This notification is published to the
 
 This notification is published to the `jobs/notify-next` topic:
 
-```
+```JSON
 {
   "timestamp": 1517016948,
   "execution": {
@@ -165,7 +164,7 @@ This notification is published to the `jobs/notify-next` topic:
 
 When another job is created (`job2`), this notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517017192,
   "jobs": {
@@ -193,7 +192,7 @@ A notification is not published to the `jobs/notify-next` topic because the next
 
 When a third job (`job3`) is added, this notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517017906,
   "jobs": {
@@ -231,7 +230,7 @@ A notification is not published to the `jobs/notify-next` topic because the next
 
 When `job1` is complete, its status changes to `SUCCEEDED`, and this notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517186269,
   "jobs": {
@@ -257,7 +256,7 @@ When `job1` is complete, its status changes to `SUCCEEDED`, and this notificatio
 
 At this point, `job1` has been removed from the queue, and the next job to be executed is `job2`. This notification is published to the `jobs/notify-next` topic:
 
-```
+```JSON
 {
   "timestamp": 1517186269,
   "execution": {
@@ -276,7 +275,7 @@ At this point, `job1` has been removed from the queue, and the next job to be ex
 
 If `job3` must begin executing before `job2` (which is not recommended), the status of `job3` can be changed to `IN_PROGRESS`. If this happens, `job2` is no longer next in the queue, and this notification is published to the `jobs/notify-next` topic:
 
-```
+```JSON
 {
   "timestamp": 1517186779,
   "execution": {
@@ -298,7 +297,7 @@ No notification is published to the `jobs/notify` topic because no job has been 
 
 If the device rejects `job2` and updates its status to `REJECTED`, this notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517189392,
   "jobs": {
@@ -318,7 +317,7 @@ If the device rejects `job2` and updates its status to `REJECTED`, this notifica
 
 If `job3` (which is still in progress) is force deleted, this notification is published to the `jobs/notify` topic:
 
-```
+```JSON
 {
   "timestamp": 1517189551,
   "jobs": {}
@@ -327,7 +326,7 @@ If `job3` (which is still in progress) is force deleted, this notification is pu
 
 At this point, the queue is empty. This notification is published to the `jobs/notify-next` topic:
 
-```
+```JSON
 {
   "timestamp": 1517189551
 }

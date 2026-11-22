@@ -1,7 +1,6 @@
 
 
 # Security best practices in AWS IoT Core
-<a name="security-best-practices"></a>
 
 This section contains information about security best practices for AWS IoT Core. For information about security rules for Industrial IoT solutions, see [Ten security golden rules for Industrial IoT solutions](https://aws.amazon.com/blogs/iot/ten-security-golden-rules-for-industrial-iot-solutions/).
 
@@ -26,7 +25,7 @@ For example, if you registered your devices in the AWS IoT registry, you can use
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -43,7 +42,7 @@ For example, if you registered your devices in the AWS IoT registry, you can use
 
 If you want to identify ongoing client ID conflicts, you can enable and use [CloudWatch Logs for AWS IoT](cloud-watch-logs.md). For every MQTT connection that the AWS IoT message broker disconnects due to client ID conflicts, a log record similar to the following is generated:
 
-```
+```json
 {
     "timestamp": "2019-04-28 22:05:30.105",
     "logLevel": "ERROR",
@@ -123,7 +122,7 @@ The following policy template shows the minimum permissions and IAM entity requi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -197,7 +196,7 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

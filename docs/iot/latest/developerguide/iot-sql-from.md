@@ -1,7 +1,6 @@
 
 
 # FROM clause
-<a name="iot-sql-from"></a>
 
 The FROM clause subscribes your rule to a [topic](topics.md#topicnames) or [topic filter](topics.md#topicfilters). Enclose the topic or topic filter in single quotes ('). The rule is triggered for each message sent to an MQTT topic that matches the topic filter specified here. You can subscribe to a group of similar topics using a topic filter. 
 

@@ -1,7 +1,6 @@
 
 
 # Configure your device
-<a name="configure-device"></a>
 
 This section describes how to configure your device to connect to AWS IoT Core. If you'd like to get started with AWS IoT Core but don't have a device yet, you can create a virtual device by using Amazon EC2 or you can use your Windows PC or Mac as an IoT device.
 

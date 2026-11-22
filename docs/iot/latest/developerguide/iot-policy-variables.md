@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core policy variables
-<a name="iot-policy-variables"></a>
 
 AWS IoT Core defines policy variables that can be used in AWS IoT Core policies in the `Resource` or `Condition` block. When a policy is evaluated, the policy variables are replaced by actual values. For example, if a device is connected to the AWS IoT Core message broker with a client ID of 100-234-3456, the `iot:ClientId` policy variable is replaced in the policy document by 100-234-3456.
 

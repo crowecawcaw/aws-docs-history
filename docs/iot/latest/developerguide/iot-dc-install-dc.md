@@ -1,7 +1,6 @@
 
 
 # Tutorial: Installing and configuring the AWS IoT Device Client
-<a name="iot-dc-install-dc"></a>
 
 This tutorial walks you through the installation and configuration of the AWS IoT Device Client and the creation of AWS IoT resources that you'll use in this and other demos.
 

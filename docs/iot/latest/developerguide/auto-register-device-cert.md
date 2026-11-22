@@ -1,7 +1,6 @@
 
 
 # Register a client certificate when the client connects to AWS IoT just-in-time registration (JITR)
-<a name="auto-register-device-cert"></a>
 
 You can configure a CA certificate to enable client certificates it has signed to register with AWS IoT automatically the first time the client connects to AWS IoT.
 
@@ -55,6 +54,8 @@ When the client connects to AWS IoT, use the client certificate you created in [
 **Note**  
 You can provision devices using AWS IoT Core just-in-time registration (JITR) feature without having to send the entire trust chain on devices' first connection to AWS IoT Core. Presenting the CA certificate is optional but the device is required to send the [Server Name Indication (SNI)](https://datatracker.ietf.org/doc/html/rfc3546#section-3.1) extension when they connect.
 
+Just-in-time registration also applies when a client sends a request to your account's credential provider endpoint. The first request fails: AWS IoT registers the certificate with a status of `PENDING_ACTIVATION` and closes the connection without returning a response. AWS IoT publishes the registration message to the JITR topic described later in this section. After your rule's Lambda function attaches the policies and activates the certificate, the device can retry the request. Because of caching, retries can fail for a few seconds after activation. For more information, see [Authorizing direct calls to AWS services using AWS IoT Core credential provider](authorizing-direct-aws.md).
+
 When AWS IoT automatically registers a certificate or when a client presents a certificate in the `PENDING_ACTIVATION` status, AWS IoT publishes a message to the following MQTT topic:
 
 `$aws/events/certificates/registered/{{caCertificateId}}`
@@ -63,7 +64,7 @@ Where `{{caCertificateId}}` is the ID of the CA certificate that issued the clie
 
 The message published to this topic has the following structure:
 
-```
+```json
 {
         "certificateId": "{{certificateId}}",
         "caCertificateId": "{{caCertificateId}}",
@@ -76,7 +77,7 @@ The message published to this topic has the following structure:
 
 You can create a rule that listens on this topic and performs some actions. We recommend that you create a Lambda rule that verifies the client certificate is not on a certificate revocation list (CRL), activates the certificate, and creates and attaches a policy to the certificate. The policy determines which resources the client can access. If the policy you are creating requires the client ID from the connecting devices, you can use rule's clientid() function to retrieve the client ID. An example rule definition can look like the following:
 
-```
+```SQL
 SELECT *,
    clientid() as clientid
 from $aws/events/certificates/registered/caCertificateId

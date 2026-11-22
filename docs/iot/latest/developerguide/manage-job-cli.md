@@ -1,7 +1,6 @@
 
 
 # Create and manage jobs by using the AWS CLI
-<a name="manage-job-cli"></a>
 
 This section describes how to create and manage jobs.
 
@@ -17,7 +16,7 @@ For more information on the syntax when entering the date and time using an API 
 
 If you're using code signing for AWS IoT, you must start a code signing job and include the output in your job document. This will replace the code sign signature placeholder in your job document, which is required as a placeholder until it is replaced with the signed code file path using your **Code signing profile**. The code sign signature placeholder will look like the following:
 
-```
+```JSON
     ${aws:iot:code-sign-signature:s3://region.bucket/code-file@code-file-version-id}
 ```
 
@@ -25,7 +24,7 @@ Use the [start-signing-job](https://docs.aws.amazon.com/signer/latest/developerg
 
 Your job document must contain a presigned URL placeholder for your code file and the JSON signature output placed in an Amazon S3 bucket using the **start-signing-job** command:
 
-```
+```JSON
 {
     "presign": "${aws:iot:s3-presigned-url:https://s3.region.amazonaws.com/bucket/image}",
 }
@@ -88,7 +87,7 @@ aws iot cancel-job --job-id 010
 
 The command displays the following output:
 
-```
+```json
 {
     "jobArn": "string",
     "jobId": "string",
@@ -160,7 +159,7 @@ aws iot get-job-document --job-id 010
 
 The command returns the job document for the specified job:
 
-```
+```JSON
 {
     "document": "{\n\t\"operation\":\"install\",\n\t\"url\":\"http://amazon.com/firmWareUpate-01\",\n\t\"data\":\"${aws:iot:s3-presigned-url:https://s3.amazonaws.com/amzn-s3-demo-bucket/datafile}\"\n}"
 }
@@ -180,7 +179,7 @@ aws iot list-jobs
 
 The command returns all jobs in your account, sorted by the job status:
 
-```
+```JSON
 {
     "jobs": [
         {
@@ -223,7 +222,7 @@ $ aws iot describe-job --job-id 010
 
 The command returns the status of the specified job. For example:
 
-```
+```JSON
 {
     "documentSource": "https://s3.amazonaws.com/amzn-s3-demo-bucket/job-document.json", 
     "job": {
@@ -295,7 +294,7 @@ aws iot list-job-executions-for-job --job-id 010
 
 The command returns a list of job executions:
 
-```
+```JSON
 {
     "executionSummaries": [
     {
@@ -332,7 +331,7 @@ aws iot list-job-executions-for-thing --thing-name thingOne
 
 The command returns a list of job executions that are running or have run on the specified thing:
 
-```
+```JSON
 {
     "executionSummaries": [
     {
@@ -389,7 +388,7 @@ aws iot describe-job-execution --job-id 017 --thing-name thingOne
 
 The command returns the [`JobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecution.html). For example:
 
-```
+```JSON
 {
     "execution": {
         "jobId": "017", 

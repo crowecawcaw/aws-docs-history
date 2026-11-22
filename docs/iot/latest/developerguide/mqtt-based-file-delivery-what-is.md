@@ -1,7 +1,6 @@
 
 
 # What is a stream?
-<a name="mqtt-based-file-delivery-what-is"></a>
 
 In AWS IoT, a *stream* is a publicly addressable resource that is an abstraction for a list of files that can be transferred to an IoT device. A typical stream contains the following information:
 + **An Amazon Resource Name (ARN)** that uniquely identifies a stream at a given time. This ARN has the pattern `arn:{{partition}}:iot:{{region}}:{{account-ID}}:stream/{{stream ID}}`. 
