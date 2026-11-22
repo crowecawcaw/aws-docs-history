@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon Nova Act
-<a name="data-protection"></a>
 
 **Note**  
 This data protection section applies to your deployment on the Nova Act AWS service as an AWS customer.

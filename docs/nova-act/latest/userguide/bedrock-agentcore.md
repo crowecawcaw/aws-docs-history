@@ -1,7 +1,6 @@
 
 
 # Integrating Nova Act with Amazon Bedrock AgentCore
-<a name="bedrock-agentcore"></a>
 
 Amazon Bedrock AgentCore offers purpose-built infrastructure to deploy and operate production AI agents at scale. AgentCore is comprised of several modules that can be used a la carte depending on your requirements. In this guide we show an example of using each integration with Nova Act.
 
@@ -19,7 +18,7 @@ In this example, we use a custom OAuth provider to generate access tokens for a 
 
 First, we create a credential provider using the AWS CLI. Refer to the [Bedrock AgentCore documentation](https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.html) for more details on how to create these. Below is a partial sample for a `CustomOauth2` provider:
 
-```
+```bash
 aws bedrock-agentcore-control create-oauth2-credential-provider \
   --region us-east-1 \
   --name "custom-oauth-provider" \
@@ -37,7 +36,7 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
 
 AgentCore Runtime automatically handles all identity management. When your agent is deployed, the runtime provides the agent identity and user context from the caller, then injects credentials via the decorator `@requires_access_token`.
 
-```
+```python
 from bedrock_agentcore.identity.auth import requires_access_token
 from nova_act_sdk import NovaAct
 
@@ -73,7 +72,7 @@ To do this, follow these steps:
 
 Here is an example of instrumenting a Nova Act workflow and writing the telemetry data to CloudWatch logs:
 
-```
+```python
 import uuid
 import os
 import boto3

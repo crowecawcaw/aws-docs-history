@@ -1,7 +1,6 @@
 
 
 # Get started with Nova Act
-<a name="getting-started"></a>
 
 **Note**  
 When using the Nova Act Playground and/or choosing Nova Act developer tools with API key authentication, access and use are subject to the nova.amazon.com [Terms of Use](https://www.amazon.com/gp/help/customer/display.html?&nodeId=Tsn7s47ytlgjRBHozK). When choosing Nova Act developer tools with AWS IAM authentication and/or deploying workflows to the Nova Act AWS service, your [AWS Service Terms](https://aws.amazon.com/service-terms/) and/or [Customer Agreement](https://aws.amazon.com/agreement/) (or other agreement governing your use of the AWS service) apply.

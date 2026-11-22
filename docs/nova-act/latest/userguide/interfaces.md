@@ -1,7 +1,6 @@
 
 
 # Understand the available interfaces for using Nova Act
-<a name="interfaces"></a>
 
 Nova Act consists of the Nova Act AWS service for production deployment and monitoring, plus Nova Act developer tools (SDK, CLI, and IDE extension) that support your development journey from exploration to production. The Nova Act Playground provides a separate environment for initial exploration at [nova.amazon.com/act](https://nova.amazon.com/act).
 
@@ -34,7 +33,7 @@ The Nova Act SDK enables you to build automation workflows quickly using Python.
 
 To install the SDK:
 
-```
+```bash
 pip install nova-act
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Nova Act glossary
-<a name="glos-chap"></a>
 
  [A](#a) \| [B](#b) \| [C](#c) \| [H](#h) \| [I](#i) \| [M](#m) \| [O](#o) \| [S](#s) \| [T](#t) \| [U](#u) \| [W](#w) 
 

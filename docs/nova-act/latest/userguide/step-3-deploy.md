@@ -1,7 +1,6 @@
 
 
 # Step 3: Deploy to AWS
-<a name="step-3-deploy"></a>
 
 Nova Act provides two deployment approaches depending on your needs.
 

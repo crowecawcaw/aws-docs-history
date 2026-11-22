@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Nova Act
-<a name="monitoring-overview"></a>
 
 ## Monitoring
 <a name="monitoring"></a>

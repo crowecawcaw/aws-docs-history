@@ -1,7 +1,6 @@
 
 
 # Document history for the Amazon Nova Act User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for Amazon Nova Act.
 

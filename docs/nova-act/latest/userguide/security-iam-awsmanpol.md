@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Nova Act
-<a name="security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -30,7 +29,7 @@ Amazon Nova Act does not yet define a managed policy which grants access to the 
 
 For example:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

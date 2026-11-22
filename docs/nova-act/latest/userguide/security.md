@@ -1,7 +1,6 @@
 
 
 # Security in Amazon Nova Act
-<a name="security"></a>
 
 **Note**  
 This security section applies to your deployment on the Nova Act AWS service as an AWS customer. Not all of this content in this section applies to Nova Act developer tools on [nova.amazon.com/act](https://nova.amazon.com/act).

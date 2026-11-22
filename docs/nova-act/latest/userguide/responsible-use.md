@@ -1,7 +1,6 @@
 
 
 # Responsible use
-<a name="responsible-use"></a>
 
 ## Responsible AI
 <a name="responsible-ai"></a>

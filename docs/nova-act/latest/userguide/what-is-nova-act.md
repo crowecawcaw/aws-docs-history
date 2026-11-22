@@ -1,7 +1,6 @@
 
 
 # What is Amazon Nova Act?
-<a name="what-is-nova-act"></a>
 
 Amazon Nova Act is available as a new AWS service to build and manage fleets of reliable AI agents for automating production UI workflows at scale. Nova Act completes repetitive UI workflows in the browser and escalates to a human supervisor when appropriate. Nova Act also integrates with external tools through API calls, remote MCP, or agentic frameworks, such as Strand Agents (Preview). You can define workflows by combining the flexibility of natural language with Python code. Start by exploring in the web playground at [nova.amazon.com/act](https://nova.amazon.com/act), develop and debug in the Nova Act IDE extension, deploy to AWS, and monitor your workflows in the AWS Management Console, all in just a few steps.
 

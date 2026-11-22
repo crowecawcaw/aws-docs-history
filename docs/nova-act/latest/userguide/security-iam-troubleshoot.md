@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Nova Act identity and access
-<a name="security-iam-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Amazon Nova Act and IAM.
 
@@ -16,7 +15,7 @@ If the AWS Management Console tells you that you’re not authorized to perform 
 
 The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about workflow runs but does not have `nova-act:ListWorkflowRuns` permissions.
 
-```
+```json
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: nova-act:ListWorkflowRuns on resource: my-workflow-definition
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Nova Act model version selection
-<a name="model-version-selection"></a>
 
 The Nova Act service relies on a custom foundation model, specially trained for UI-forward applications such as browser automation, tool use, and Human-in-the-Loop.
 
@@ -37,7 +36,7 @@ At launch (December 2, 2025), all three model IDs point to the same v1.0 model. 
 
 Specify the model version using the ** `model_id` ** parameter in your workflow definition. The following example uses ** `model_id="nova-act-latest"` **:
 
-```
+```python
 from nova_act import NovaAct, workflow
 
 @workflow(workflow_definition_name="<your-workflow-name-here>", model_id="nova-act-latest")

@@ -1,7 +1,6 @@
 
 
 # How Amazon Nova Act works with IAM
-<a name="security-iam-service-with-iam"></a>
 
 ## How Amazon Nova Act works with IAM
 <a name="_how_amazon_nova_act_works_with_iam"></a>
@@ -44,7 +43,7 @@ Policy actions in Amazon Nova Act use the following prefix before the action: `n
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": [
       "nova-act:CreateWorkflowDefinition",
       "nova-act:GetWorkflowDefinition"
@@ -53,7 +52,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "nova-act:List*"
 ```
 
@@ -74,13 +73,13 @@ The following resource types are defined by this service and can be used in the 
 
 Amazon Nova Act workflow definition resources have the following ARN:
 
-```
+```json
 arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDefinitionId}
 ```
 
 Amazon Nova Act workflow run resources have the following ARN:
 
-```
+```json
 arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDefinitionId}/workflow-run/${WorkflowRunId}
 ```
 
@@ -88,31 +87,31 @@ For more information about the format of ARNs, see [Amazon Resource Names (ARNs)
 
 For example, to specify a specific workflow definition in your statement, use the following ARN:
 
-```
+```json
 "Resource": "arn:aws:nova-act:us-east-1:123456789012:workflow-definition/my-workflow-123"
 ```
 
 To specify a specific workflow run in your statement, use the following ARN:
 
-```
+```json
 "Resource": "arn:aws:nova-act:us-east-1:123456789012:workflow-run/a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 ```
 
 To specify all workflow definitions that belong to a specific account, use the wildcard (\*):
 
-```
+```json
 "Resource": "arn:aws:nova-act:us-east-1:123456789012:workflow-definition/*"
 ```
 
 Some Amazon Nova Act actions, such as those for creating resources, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
-```
+```json
 "Resource": "*"
 ```
 
 Some Amazon Nova Act API actions may be used across multiple resources. For example, an IAM user may need permissions to access multiple workflow runs. To specify multiple resources in a single statement, separate the ARNs with commas.
 
-```
+```json
 "Resource": [
       "arn:aws:nova-act:us-east-1:123456789012:workflow-run/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
       "arn:aws:nova-act:us-east-1:123456789012:workflow-run/b2c3d4e5-f6a7-8901-bcde-f12345678901"

@@ -1,7 +1,6 @@
 
 
 # Quotas for Nova Act
-<a name="load-balancer-limits"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. You can request increases for some quotas, while other quotas cannot be increased. To request a quota increase, contact AWS support.
 
