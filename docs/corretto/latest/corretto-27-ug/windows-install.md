@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 27 Installation Instructions for Windows 10 or Later
-<a name="windows-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 27 on a host or container running the Windows 10 or later Windows operating system. 
 
@@ -18,7 +17,7 @@
 
 1.  Once the install wizard is finished, set the `JAVA_HOME` and `PATH` environment variables. 
 
-   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 27.0.1, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk27.0.1_0`.
+   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 27.0.1.1, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk27.0.1_1`.
 
    Add `%JAVA_HOME%\bin` to the current `PATH` variable.
 
@@ -26,9 +25,9 @@
 **Example**  
 
    ```
-   openjdk 27.0.1 2026-10-20
-    OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27.0.1+11-FR)
-    OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27.0.1+11-FR, mixed mode, sharing)
+   openjdk 27.0.1.1 2026-11-17
+    OpenJDK Runtime Environment Corretto-27.0.1.1.4 (build 27.0.1.1+4-FR)
+    OpenJDK 64-Bit Server VM Corretto-27.0.1.1.4 (build 27.0.1.1+4-FR, mixed mode, sharing)
    ```
 
 ## Uninstall Amazon Corretto 27

@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon Corretto 27 on Docker Images
-<a name="docker-install"></a>
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 27. You must have the latest version of Docker installed. 
 
@@ -21,9 +20,9 @@ docker run amazoncorretto:27 java -version
 **Example**  
 
 ```
-openjdk 27.0.1 2026-10-20
- OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27.0.1+11-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27.0.1+11-FR, mixed mode, sharing)
+openjdk 27.0.1.1 2026-11-17
+ OpenJDK Runtime Environment Corretto-27.0.1.1.4 (build 27.0.1.1+4-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.1.1.4 (build 27.0.1.1+4-FR, mixed mode, sharing)
 ```
 
 ## Using the Corretto ECR Instance

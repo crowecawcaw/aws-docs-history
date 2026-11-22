@@ -1,7 +1,6 @@
 
 
 # Downloads for Amazon Corretto 27
-<a name="downloads-list"></a>
 
 This topic lists all the downloads available for Amazon Corretto 27. You can choose Permanent URLs pointing to the latest version, or use Version Specific URLs which point to a specific version. 
 
@@ -110,7 +109,7 @@ https://corretto.aws/[latest/latest_checksum]/amazon-corretto-[corretto_version]
 ## Signature Verification
 <a name="signature"></a>
 
-The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/27.0.1.0.11/A122542AB04F24E3.pub) 
+The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/27.0.1.1.4/A122542AB04F24E3.pub) 
 
 ## Versioned Downloads
 <a name="versioned-downloads"></a>
