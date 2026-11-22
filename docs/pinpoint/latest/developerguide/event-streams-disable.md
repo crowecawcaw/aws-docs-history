@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Delete an event stream from Amazon Pinpoint
-<a name="event-streams-disable"></a>
 
 If you assign a Kinesis stream to an application, you can disable event streaming for that application. Amazon Pinpoint stops streaming the events to Kinesis, but you can view event analytics by using the Amazon Pinpoint console.
 
@@ -21,6 +20,6 @@ aws pinpoint delete-event-stream --application-id {{application-id}}
 
 Use the [`deleteEventStream`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/pinpoint/model/DeleteEventStreamRequest.html) method of the Amazon Pinpoint client:
 
-```
+```java
 pinClient.deleteEventStream(new DeleteEventStreamRequest().withApplicationId(appId));
 ```

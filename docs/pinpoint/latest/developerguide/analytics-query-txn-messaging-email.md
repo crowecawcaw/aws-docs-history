@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Query Amazon Pinpoint data for transactional email messages
-<a name="analytics-query-txn-messaging-email"></a>
 
 To query the data for transactional email messages that were sent for a project, you use the [Application Metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) API and specify values for the following required parameters:
 + **application-id** – The project ID, which is the unique identifier for the project. In Amazon Pinpoint, the terms *project* and *application* have the same meaning.
@@ -18,7 +17,7 @@ The following examples show how to query analytics data for transactional email 
 
 To query analytics data for transactional email messages by using the Amazon Pinpoint REST API, send an HTTP(S) GET request to the [Application Metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) URI. In the URI, specify the appropriate values for the required path parameters:
 
-```
+```HTTP
 https://{{endpoint}}/v1/apps/{{application-id}}/kpis/daterange/{{kpi-name}}
 ```
 
@@ -33,7 +32,7 @@ To apply a filter that queries the data for a specific date range, append the `s
 
 For example, the following request retrieves the number of transactional email messages that were sent for a project from September 6, 2019 through September 13, 2019:
 
-```
+```HTTP
 https://pinpoint.us-east-1.amazonaws.com/v1/apps/1234567890123456789012345example/kpis/daterange/txn-emails-sent?start-time=2019-09-06T00:00:00Z&end-time=2019-09-13T23:59:59Z
 ```
 
@@ -80,7 +79,7 @@ Where:
 
 To query analytics data for transactional email messages by using the AWS SDK for Java, use the **GetApplicationDateRangeKpiRequest** method of the [Application Metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) API. Specify the appropriate values for the required parameters:
 
-```
+```java
 GetApplicationDateRangeKpiRequest request = new GetApplicationDateRangeKpiRequest()
         .withApplicationId("{{applicationId}}")
         .withKpiName("{{kpiName}}")
@@ -92,7 +91,7 @@ Where:
 
 To apply a filter that queries the data for a specific date range, include the `startTime` and `endTime` parameters and values in your query. By using these parameters, you can specify the first and last date and time, in extended ISO 8601 format, of an inclusive date range to retrieve the data for. For example, the following request retrieves the number of transactional email messages that were sent for a project from September 6, 2019 through September 13, 2019:
 
-```
+```java
 GetApplicationDateRangeKpiRequest request = new GetApplicationDateRangeKpiRequest()
         .withApplicationId("1234567890123456789012345example")
         .withKpiName("txn-emails-sent")
@@ -110,7 +109,7 @@ Where:
 
 After you send your query, Amazon Pinpoint returns the query results in a JSON response. The structure of the results varies depending on the metric that you queried. Some metrics return only one value. For example, the *sends* (`txn-emails-sent`) application metric, which is used in the preceding examples, returns one value—the number of transactional email messages that were sent from a project. In this case, the JSON response is the following:
 
-```
+```json
 {
     "ApplicationDateRangeKpiResponse":{
         "ApplicationId":"1234567890123456789012345example",

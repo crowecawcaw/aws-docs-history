@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # OTP code examples for using SDK for Python (Boto3) in Amazon Pinpoint
-<a name="send-validate-otp-examples"></a>
 
 This section contains code examples that show how to use the SDK for Python (Boto3) to send and verify OTP codes. 
 
@@ -14,7 +13,7 @@ The following function generates a unique reference ID for each recipient, based
 
 This function isn't required, but it is a useful way to scope the OTP sending and verification process to a specific transaction in a way that can be easily re-submitted during the verification step. You can use any reference ID you want—this is just a basic example. However, the other code examples in this section rely on this function.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier:  Apache-2.0
 
@@ -30,7 +29,7 @@ def generate_ref_id(destinationNumber,brandName,source):
 
 The following code example shows you how to use the SDK for Python (Boto3) to send an OTP code.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier:  Apache-2.0
 
@@ -88,7 +87,7 @@ send_otp("+14255550142",6,15,"ExampleCorp","CreateAccount","en-US")
 
 The following code example shows you how to use the SDK for Python (Boto3) to verify an OTP code that you've already sent. In order for the validation step to succeed, your request must include a reference ID that exactly matches the reference ID that was used to send the message.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier:  Apache-2.0
 

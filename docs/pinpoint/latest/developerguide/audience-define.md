@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use endpoints to represent your audience in Amazon Pinpoint
-<a name="audience-define"></a>
 
 In Amazon Pinpoint, each member of your audience is represented by one or more endpoints. When you use Amazon Pinpoint to send a message, you direct that message to endpoints that represent the members of your target audience. Each endpoint definition includes a message destination—such as a device token, email address, or phone number. It also includes data about your users and their devices. Before you analyze, segment, or engage your audience, you must add endpoints to your Amazon Pinpoint project. 
 

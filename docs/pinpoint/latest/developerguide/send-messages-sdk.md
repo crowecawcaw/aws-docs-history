@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send email by using the Amazon Pinpoint API
-<a name="send-messages-sdk"></a>
 
 This section contains complete code examples that you can use to send email through the Amazon Pinpoint API by using an AWS SDK. You need to have verified either an email address or domain before you can send a message.
 
@@ -16,7 +15,7 @@ This example assumes that you're using a shared credentials file to specify the 
 
 This code example was tested using the AWS SDK for .NET version 3.3.29.13 and .NET Core runtime version 2.1.2.
 
-```
+```cs 
 using Amazon;
 using Amazon.Pinpoint;
 using Amazon.Pinpoint.Model;
@@ -153,7 +152,7 @@ This example assumes that you're using a shared credentials file to specify the 
 
 This code example was tested using the AWS SDK for Java version 2.3.1 and OpenJDK version 11.0.1.
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.AddressConfiguration;
@@ -177,7 +176,7 @@ import java.util.HashMap;
 import java.util.Map;
 ```
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.AddressConfiguration;
@@ -302,7 +301,7 @@ This example assumes that you're using a shared credentials file to specify the 
 
 This code example was tested using the SDK for JavaScript in Node.js version 2.388.0 and Node.js version 11.7.0.
 
-```
+```js
 "use strict";
 
 const AWS = require("aws-sdk");
@@ -410,7 +409,7 @@ pinpoint.sendMessages(params, function (err, data) {
 
 Use this example to send email by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). This example assumes that you've already installed and configured the SDK for Python (Boto3). For more information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in the *AWS SDK for Python (Boto3) API Reference*.
 
-```
+```py
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -518,7 +517,7 @@ if __name__ == "__main__":
 
 You can also use message templates to send email messages, as shown in the following example:
 
-```
+```py
 import logging
 import boto3
 from botocore.exceptions import ClientError

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # IAM role for streaming events to Kinesis
-<a name="permissions-streams"></a>
 
 Amazon Pinpoint can automatically send app usage data, or *event data*, from your app to an Amazon Kinesis data stream or Amazon Data Firehose delivery stream in your AWS account. Before Amazon Pinpoint can begin streaming the event data, you must delegate the required permissions to Amazon Pinpoint. 
 
@@ -34,7 +33,7 @@ If you haven't installed the AWS CLI, see [Installing the AWS CLI](https://docs.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -79,7 +78,7 @@ If you haven't installed the AWS CLI, see [Installing the AWS CLI](https://docs.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -107,7 +106,7 @@ If you haven't installed the AWS CLI, see [Installing the AWS CLI](https://docs.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {

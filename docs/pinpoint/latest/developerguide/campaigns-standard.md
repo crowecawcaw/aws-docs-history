@@ -3,11 +3,10 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create a standard Amazon Pinpoint campaign
-<a name="campaigns-standard"></a>
 
 A standard campaign sends a custom push notification to a specified segment according to a schedule that you define. The following example demonstrates how to create a campaign with the AWS SDK for Java. For an example of creating a segment to pass in, see [Build segments in Amazon Pinpoint](segments-dimensional.md).
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.CampaignResponse;
@@ -21,7 +20,7 @@ import software.amazon.awssdk.services.pinpoint.model.CreateCampaignRequest;
 import software.amazon.awssdk.services.pinpoint.model.PinpointException;
 ```
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.CampaignResponse;

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint journey engagement metrics
-<a name="journey-metrics-engagement-email"></a>
 
 The following table lists and describes standard journey engagement metrics that you can query to monitor trends for all the email messages that were sent by an Amazon Pinpoint journey. To query data for these metrics, use the [Journey engagement metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id-kpis-daterange-kpi-name.html) resource of the Amazon Pinpoint API. The **kpi-name** column in the table indicates the value to use for the `kpi-name` parameter in a query. 
 

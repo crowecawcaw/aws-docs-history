@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Actions for Amazon Pinpoint using AWS SDKs
-<a name="service_code_examples_pinpoint_actions"></a>
 
 The following code examples demonstrate how to perform individual Amazon Pinpoint actions with AWS SDKs. Each example includes a link to GitHub, where you can find instructions for setting up and running the code. 
 

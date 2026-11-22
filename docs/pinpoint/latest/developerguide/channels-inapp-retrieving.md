@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Retrieve in-app messages for an endpoint programmatically using Amazon Pinpoint
-<a name="channels-inapp-retrieving"></a>
 
 Your applications can call the [GetInAppMessages](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id-inappmessages.html#GetInAppMessages) API to retrieve all of the in-app messages that a given endpoint is entitled to. When you call the `GetInAppMessages` API, you provide the following parameters:
 + `ApplicationId` – The unique ID of the Amazon Pinpoint project that the in-app message campaign is associated with.
@@ -18,7 +17,7 @@ You can use the AWS SDKs to call the `GetInAppMessages` operation. The following
 
 Create the client in a separate module and export it:
 
-```
+```js
 import { PinpointClient } from "@aws-sdk/client-pinpoint";
 const REGION = "us-east-1";
 const pinClient = new PinpointClient({ region: REGION });
@@ -27,7 +26,7 @@ export { pinClient };
 
 Retrieve in-app messages for an endpoint:
 
-```
+```js
 // Import required AWS SDK clients and commands for Node.js
 import { PinpointClient, GetInAppMessagesCommand } from "@aws-sdk/client-pinpoint";
 import { pinClient } from "./lib/pinClient.js";
@@ -60,7 +59,7 @@ run();
 ------
 #### [ Python ]
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError

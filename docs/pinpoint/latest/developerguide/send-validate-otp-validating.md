@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Validate OTP messages in Amazon Pinpoint
-<a name="send-validate-otp-validating"></a>
 
 After you send a one-time-password, your application can call the Amazon Pinpoint API to verify it. To verify an OTP code, call the `VerifyOtpMessages` API. Your request must include the following parameters:
 + `DestinationIdentity` – The phone number, in E.164 format, that the OTP code was sent to.
@@ -29,7 +28,7 @@ In the preceding command, do the following:
 
 When you send a request to the `VerifyOTPMessage` API, it returns a `VerificationResponse` object, which contains a single property, `Valid`. If the reference ID, phone number, and OTP all match the values that Amazon Pinpoint expects, and if the OTP hasn't expired, the value of `Valid` is `true`; otherwise, it is `false`. The following is an example of response for a successful OTP verification:
 
-```
+```json
 {
     "VerificationResponse": {
         "Valid": true

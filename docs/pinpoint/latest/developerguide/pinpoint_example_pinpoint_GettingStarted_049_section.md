@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Getting started with push notifications
-<a name="pinpoint_example_pinpoint_GettingStarted_049_section"></a>
 
 The following code example shows how to:
 + Create an application
@@ -17,7 +16,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/049-aws-end-user-messaging-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS End User Messaging Push Getting Started Script

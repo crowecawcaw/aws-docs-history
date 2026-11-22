@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `GetEndpoint` with an AWS SDK or CLI
-<a name="pinpoint_example_pinpoint_GetEndpoint_section"></a>
 
 The following code examples show how to use `GetEndpoint`.
 
@@ -61,7 +60,7 @@ For more information, see [Add endpoints to Amazon Pinpoint](https://docs.aws.am
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 
-```
+```java
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -142,7 +141,7 @@ public class LookUpEndpoint {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples). 
 
-```
+```kotlin
 suspend fun lookupPinpointEndpoint(
     appId: String?,
     endpoint: String?,

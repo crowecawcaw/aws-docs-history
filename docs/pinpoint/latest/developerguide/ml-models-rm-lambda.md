@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use a recommender model in Amazon Pinpoint with AWS Lambda
-<a name="ml-models-rm-lambda"></a>
 
 In Amazon Pinpoint, you can retrieve personalized recommendations from a recommender model and add them to messages that you send from campaigns and journeys. A *recommender model* is a type of machine learning (ML) model that finds patterns in data and generates predictions and recommendations based on the patterns that it finds. It predicts what a particular user will prefer from a given set of products or items, and it provides that information as a set of recommendations for the user.
 

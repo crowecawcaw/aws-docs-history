@@ -3,13 +3,12 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Assign a Lambda function policy to authorize Amazon Pinpoint to process recommendation data
-<a name="ml-models-rm-lambda-trust-policy"></a>
 
 Before you can use your Lambda function to process recommendation data, you must authorize Amazon Pinpoint to invoke the function. To grant invocation permission, assign a Lambda function policy to the function. A *Lambda function policy* is a resource-based permissions policy that designates which entities can use a function and what actions those entities can take. For more information, see [Using Resource-Based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *AWS Lambda Developer Guide*.
 
 The following example policy allows the Amazon Pinpoint service principal to use the `lambda:InvokeFunction` action for a particular Amazon Pinpoint campaign ({{campaignId}}) in a particular Amazon Pinpoint project ({{projectId}}):
 
-```
+```json
 {
   "Sid": "{{sid}}",
   "Effect": "Allow",
@@ -30,7 +29,7 @@ The function policy requires a `Condition` block that includes an `AWS:SourceArn
 
 You can also write a policy that allows the Amazon Pinpoint service principal to use the `lambda:InvokeFunction` action for all the campaigns and journeys in a specific Amazon Pinpoint project ({{projectId}}). The following example policy shows this:
 
-```
+```json
 {
   "Sid": "{{sid}}",
   "Effect": "Allow",
@@ -51,7 +50,7 @@ Unlike the first example, the `AWS:SourceArn` key in the `Condition` block of th
 
 To write a more generic policy, you can use a multicharacter match wildcard (\*). For example, you can use the following `Condition` block to allow any Amazon Pinpoint project to invoke the function:
 
-```
+```json
 "Condition": {
   "ArnLike": {
     "AWS:SourceArn": "arn:aws:mobiletargeting:us-east-1:{{accountId}}:recommenders/*"

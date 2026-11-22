@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Manage the maximum number of endpoints in Amazon Pinpoint
-<a name="audience-define-auto-inactive"></a>
 
 Each member of your audience can have a maximum of 15 endpoints associated with their **UserId**, see [Endpoint quotas](quotas.md#quotas-endpoint). If you try to add a 16th endpoint then, depending on the **ChannelType**, you will either get **BadRequestException** or it will succeed by removing the endpoint with the oldest **EffectiveDate**.
 

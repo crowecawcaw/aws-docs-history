@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `SendVoiceMessage` with an AWS SDK
-<a name="pinpoint-sms-voice_example_pinpoint-sms-voice_SendVoiceMessage_section"></a>
 
 The following code examples show how to use `SendVoiceMessage`.
 
@@ -13,7 +12,7 @@ The following code examples show how to use `SendVoiceMessage`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpointsmsvoice.PinpointSmsVoiceClient;
@@ -130,7 +129,7 @@ public class SendVoiceMessage {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/pinpoint-sms-voice#code-examples). 
 
-```
+```javascript
 "use strict";
 
 var AWS = require("aws-sdk");
@@ -219,7 +218,7 @@ pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/pinpoint-sms-voice#code-examples). 
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -317,7 +316,7 @@ if __name__ == "__main__":
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Create SSML message type object with voice parameters
         DATA(lo_ssml_message) = NEW /aws1/cl_ppsssmlmessagetype(

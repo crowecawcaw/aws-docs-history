@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint quotas
-<a name="quotas"></a>
 
 The following sections list and describe the quotas, formerly referred to as *limits*, that apply to Amazon Pinpoint resources and operations. Some quotas can be increased, while others cannot. To determine whether you can request an increase for a quota, refer to the **Eligible for Increase** column or statement in each section.
 

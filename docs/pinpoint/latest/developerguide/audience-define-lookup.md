@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Look up endpoints in an Amazon Pinpoint project
-<a name="audience-define-lookup"></a>
 
 You can look up the details for any individual endpoint that was added to an Amazon Pinpoint project. These details can include the destination address for your messages, the messaging channel, data about the user's device, data about the user's location, and any custom attributes that you record in your endpoints.
 
@@ -94,7 +93,7 @@ You can use the Amazon Pinpoint API in your Java applications by using the clien
 **Example Code**  
 To look up an endpoint, initialize a `GetEndpointRequest` object. Then, pass this object to the `getEndpoint` method of the `AmazonPinpoint` client:  
 
-```
+```java
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -106,7 +105,7 @@ import software.amazon.awssdk.services.pinpoint.model.PinpointException;
 import software.amazon.awssdk.services.pinpoint.model.GetEndpointRequest;
 ```
 
-```
+```java
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -189,7 +188,7 @@ You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
 **Example GET endpoint request**  
 To look up an endpoint, issue a `GET` request to the [Endpoint](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html) resource:  
 
-```
+```http
 GET /v1/apps/{{application_id}}/endpoints/{{endpoint_id}} HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json

@@ -3,13 +3,12 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create an A/B test Amazon Pinpoint campaign with the AWS SDK for Java
-<a name="campaigns-abtest"></a>
 
 An A/B test campaign behaves like a standard campaign, but enables you to define different treatments for the campaign message or schedule. An A/B test includes two or more treatments of the message or schedule. Treatments are variations of your message or schedule. As your users respond to the campaign, you can view campaign analytics to compare the effectiveness of each treatment.
 
 The following example demonstrates how to create an A/B test campaign with the AWS SDK for Java.
 
-```
+```java
 import com.amazonaws.services.pinpoint.AmazonPinpointClient;
 import com.amazonaws.services.pinpoint.model.Action;
 import com.amazonaws.services.pinpoint.model.CampaignResponse;

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Add tags to Amazon Pinpoint resources programmatically
-<a name="tags-add"></a>
 
 The following examples show how to add a tag to an Amazon Pinpoint resource by using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/) and the [Amazon Pinpoint REST API](https://docs.aws.amazon.com/pinpoint/latest/apireference/). You can also use any supported AWS SDK to add a tag to a resource.
 
@@ -14,7 +13,7 @@ To add a tag to multiple Amazon Pinpoint resources in a single operation, use th
 
 To create a new resource and add a tag to it by using the Amazon Pinpoint REST API, send a POST request to the appropriate resource URI. Include the `tags` parameter and values in the body of the request. The following example shows how to specify a tag when you create a new project.
 
-```
+```HTTP
 POST /v1/apps HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/x-www-form-urlencoded
@@ -31,7 +30,7 @@ Cache-Control: no-cache
 
 To add a tag to an existing resource, send a POST request to the [Tags](https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html) URI. Include the Amazon Resource Name (ARN) of the resource in the URI. The ARN should be URL encoded. In the body of the request, include the `tags` parameter and values, as shown in the following example.
 
-```
+```HTTP
 POST /v1/tags/{{resource-arn}} HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json
@@ -55,7 +54,7 @@ To create a new resource and add a tag to it by using the AWS CLI, use the appro
 ------
 #### [ Linux, macOS, or Unix ]
 
-```
+```shell
 $ aws pinpoint create-app \
   --create-application-request '{
     "Name":"{{MyProject}}",
@@ -69,7 +68,7 @@ $ aws pinpoint create-app \
 ------
 #### [ Windows Command prompt ]
 
-```
+```cmd
 C:\> aws pinpoint create-app ^
      --create-application-request Name={{MyProject}},tags={{{key1}}={{value1}},{{key2}}={{value2}}}
 ```
@@ -88,7 +87,7 @@ To add a tag to an existing resource, use the `tag-resource` command and specify
 ------
 #### [ Linux, macOS, or Unix ]
 
-```
+```shell
 $ aws pinpoint tag-resource \
   --resource-arn {{resource-arn}} \
   --tags-model '{
@@ -102,7 +101,7 @@ $ aws pinpoint tag-resource \
 ------
 #### [ Windows Command Prompt ]
 
-```
+```cmd
 C:\> aws pinpoint tag-resource ^
      --resource-arn {{resource-arn}} ^
      --tags-model tags={{{key1}}={{value1}},{{key2}}={{value2}}}

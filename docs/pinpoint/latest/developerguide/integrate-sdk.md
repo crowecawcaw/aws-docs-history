@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Connect your frontend application to Amazon Pinpoint using AWS Amplify
-<a name="integrate-sdk"></a>
 
 Use AWS Amplify to integrate your app with AWS. For Swift apps, see [Getting started](https://docs.amplify.aws/gen1/swift/start/getting-started/introduction/) in the Amplify for Swift documentation. For Android apps, see [Getting started](https://docs.amplify.aws/gen1/android/start/getting-started/introduction/) in the Amplify for Android SDK documentation. For React Native app, see [Getting started](https://docs.amplify.aws/gen1/react-native/start/getting-started/introduction/) in the Amplify JavaScript documentation. For Flutter apps, see [Getting started](https://docs.amplify.aws/gen1/flutter/start/getting-started/introduction/) in the Flutter SDK documentation. These topics help you to:
 + Set up your backend resources.

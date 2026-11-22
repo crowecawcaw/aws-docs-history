@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Report Amazon Pinpoint events in your application
-<a name="integrate-events"></a>
 
 In your mobile or web application, you can use AWS Mobile SDKs or the [Amazon Pinpoint events API](https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-events.html) to report usage data, or *events*, to Amazon Pinpoint. You can report events to capture information such as session times, users' purchasing behavior, sign-in attempts, or any custom event type that you need.
 

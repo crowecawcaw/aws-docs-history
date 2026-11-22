@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose
-<a name="event-streams-setup"></a>
 
 You can set up Amazon Pinpoint to send event data to an Amazon Kinesis stream or an Amazon Data Firehose delivery stream. Amazon Pinpoint can send event data for campaigns, journeys, and transactional email and SMS messages.
 
@@ -33,7 +32,7 @@ aws pinpoint put-event-stream \
 
 The following Java example configures Amazon Pinpoint to send events to a Kinesis stream:
 
-```
+```java
 public PutEventStreamResult createEventStream(AmazonPinpoint pinClient, 
         String appId, String streamArn, String roleArn) {
         
@@ -53,7 +52,7 @@ This example constructs a `WriteEventStream` object that stores the ARNs of the 
 
 You can assign a Kinesis stream to multiple applications. If you do this, Amazon Pinpoint sends event data encoded in base64 from each application to the stream, which enables you to analyze the data as a collection. The following example method accepts a list of application (app) IDs, and it uses the previous example method, `createEventStream`, to assign a stream to each application:
 
-```
+```java
 public List<PutEventStreamResult> createEventStreamFromAppList(
         AmazonPinpoint pinClient, List<String> appIDs, 
         String streamArn, String roleArn) {

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Customize Amazon Pinpoint segments using an AWS Lambda function
-<a name="segments-dynamic"></a>
 
 
 |  | 
@@ -37,7 +36,7 @@ For more code examples, see [Code examples](https://docs.aws.amazon.com/pinpoint
 
 When Amazon Pinpoint invokes your Lambda function, it provides the following payload as the event data:
 
-```
+```json
 {
   "MessageConfiguration": {{{Message configuration}}}
   "ApplicationId": {{ApplicationId}},
@@ -76,7 +75,7 @@ Amazon Pinpoint only accepts endpoint definitions in the function's return value
 
 Your Lambda function processes the event data sent by Amazon Pinpoint, and it returns the modified endpoints, as shown by the following example handler, written in Node.js:
 
-```
+```javascript
 'use strict';
  
 exports.handler = (event, context, callback) => {
@@ -153,7 +152,7 @@ For more information, see [Using resource-based policies for AWS Lambda](https:/
 
 The following policy grants permission to the Amazon Pinpoint service principal to use the `lambda:InvokeFunction` action for a specific campaign ({{campaign-id}}):
 
-```
+```json
 {
   "Sid": "{{sid}}",
   "Effect": "Allow",
@@ -177,7 +176,7 @@ Your function policy requires a `Condition` block that includes an `AWS:SourceAr
 
 To write a more generic policy, use a multicharacter match wildcard (\*). For example, you can use the following `Condition` block to allow any campaign in a specific Amazon Pinpoint project ({{application-id}}) to invoke the function:
 
-```
+```json
 ...
 "Condition": {
   "StringEquals": {

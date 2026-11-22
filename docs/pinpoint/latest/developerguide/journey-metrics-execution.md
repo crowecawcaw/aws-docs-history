@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint journey execution metrics
-<a name="journey-metrics-execution"></a>
 
 The following table lists and describes standard execution metrics that you can query to assess the status of participants in an Amazon Pinpoint journey. To query data for these metrics, use the [Journey execution metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id-execution-metrics.html) resource of the Amazon Pinpoint API. The **Field** column in the table identifies the name of the field that appears in the query results for each metric. 
 

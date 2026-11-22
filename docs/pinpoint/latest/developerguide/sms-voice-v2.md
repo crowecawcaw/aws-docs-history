@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use the AWS End User Messaging SMS and Voice API, version 2
-<a name="sms-voice-v2"></a>
 
 Amazon Pinpoint includes an API—called the SMS and Voice API, version 2—that was designed for sending SMS and voice messages. While the Amazon Pinpoint API is focused on sending messages through scheduled and event-driven campaigns and journeys, the SMS and Voice API provides new features and capabilities for sending SMS and voice messages directly to individual recipients. You can use SMS and Voice API independently of the Amazon Pinpoint campaign and journey features, or you can use both at the same time to accommodate different use cases. If you already use Amazon Pinpoint to send SMS or voice messages, your account is already configured to use this API.
 

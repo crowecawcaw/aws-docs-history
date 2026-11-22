@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Add unsubscribe headers to email using Amazon Pinpoint
-<a name="send-messages-email-cli"></a>
 
 **Note**  
 Before you can use email headers, you must set up an email orchestration sending role if you are sending email from a campaign or a journey. For direct send email, you must have permissions for `ses:SendEmail` and `ses:SendRawEmail`. For more information, see [Creating an email orchestration sending role](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-orchestration-sending-role.html) in the [Amazon Pinpoint User Guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/).
@@ -24,7 +23,7 @@ In the following command, do the following:
 + Replace {{https://example.com/unsub}} with your unsubscribe link.
 + Replace {{example123456}} with a unique identifier for the recipient.
 
-```
+```bsh
 aws pinpoint send-messages --application-id {{AppId}} --message-request '{
  "Addresses": {
    "{{richard_roe@example.com}}": {

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # IAM role for sending email with Amazon SES
-<a name="permissions-ses"></a>
 
 Amazon Pinpoint uses your Amazon SES resources to send email for your campaign or journey. Before Amazon Pinpoint can use your Amazon SES resources to send email, you must grant the required permissions to Amazon Pinpoint. Your account must have the `iam:PutRolePolicy` and `iam:UpdateAssumeRolePolicy` permissions to update or create IAM roles.
 
@@ -34,7 +33,7 @@ Complete the following steps to manually create an IAM role for your campaign or
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -66,7 +65,7 @@ Complete the following steps to manually create an IAM role for your campaign or
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

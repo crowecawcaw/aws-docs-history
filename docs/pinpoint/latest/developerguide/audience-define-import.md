@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Import endpoints into Amazon Pinpoint
-<a name="audience-define-import"></a>
 
 You can add or update endpoints in large numbers by importing them from an Amazon S3 bucket. Importing endpoints is useful if you have records about your audience outside of Amazon Pinpoint, and you want to add this information to an Amazon Pinpoint project. In this case, you would:
 
@@ -57,7 +56,7 @@ Line breaks are not supported within a value in the CSV.
 
 You can import endpoints that are defined in a newline-delimited JSON file, as in the following example:
 
-```
+```json
 {"ChannelType":"SMS","Address":"12065550182","Location":{"Country":"CN"},"Demographic":{"Platform":"Android","Make":"LG"},"User":{"UserId":"example-user-id-1"}}
 {"ChannelType":"APNS","Address":"1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f","Location":{"Country":"US"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
 {"ChannelType":"EMAIL","Address":"john.stiles@example.com","Location":{"Country":"US"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
@@ -193,7 +192,7 @@ You can use the Amazon Pinpoint API in your Java applications by using the clien
 To upload a file with endpoint definitions to Amazon S3, use the `putObject` method of the `AmazonS3` client.   
 To import the endpoints into an Amazon Pinpoint project, initialize a `CreateImportJobRequest` object. Then, pass this object to the `createImportJob` method of the `AmazonPinpoint` client.  
 
-```
+```java
 package com.amazonaws.examples.pinpoint;
 
 import com.amazonaws.AmazonServiceException;
@@ -359,7 +358,7 @@ You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
 **Example S3 PUT object request**  
 To add your endpoint definitions to a bucket, use the Amazon S3 [PUT object](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) operation, and provide the endpoint definitions as the body:  
 
-```
+```http
 PUT {{/prefix/key}} HTTP/1.1
 Content-Type: text/plain
 Accept: application/json
@@ -381,7 +380,7 @@ Where:
 **Example POST import job request**  
 To import endpoint definitions from an Amazon S3 bucket, issue a POST request to the [Import jobs](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html) resource. In your request, include the required headers and provide the [ImportJobRequest](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html#apps-application-id-jobs-import-schemas) JSON as the body:  
 
-```
+```http
 POST /v1/apps/{{application_id}}/jobs/import HTTP/1.1
 Content-Type: application/json
 Accept: application/json
@@ -425,7 +424,7 @@ The response provides the job ID with the `Id` attribute. You can use this ID to
 **Example GET import job request**  
 To check the current status of an import job, issue a `GET` request to the [Import job](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import-job-id.html) resource:  
 
-```
+```http
 GET /v1/apps/{{application_id}}/jobs/import/{{job_id}} HTTP/1.1
 Content-Type: application/json
 Accept: application/json

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint application metrics for transactional email messages
-<a name="application-metrics-txn-email"></a>
 
 The following table lists and describes standard application metrics that you can query to monitor trends for all the transactional email messages that are associated with an Amazon Pinpoint project. To query data for these metrics, use the [Application metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) resource of the Amazon Pinpoint API. The **kpi-name** column in the table indicates the value to use for the `kpi-name` parameter in a query. 
 

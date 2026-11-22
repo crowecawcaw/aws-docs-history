@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create a Lambda function for Amazon Pinpoint to invoke for a recommender model
-<a name="ml-models-rm-lambda-create-function"></a>
 
 To learn how to create a Lambda function, see [Getting Started](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*. When you design and develop your function, keep the following requirements and guidelines in mind. 
 
@@ -16,7 +15,7 @@ The endpoint definitions use the structure defined by the [Endpoint](https://doc
 
 For example:
 
-```
+```json
 "Endpoints": {
     "endpointIDexample-1":{
         "ChannelType":"EMAIL",
@@ -113,7 +112,7 @@ Finally, we recommend that you reserve 256 concurrent executions for the functio
 
 Overall, your Lambda function should process the event data that's sent by Amazon Pinpoint and return modified endpoint definitions. It can do this by iterating through each endpoint in the `Endpoints` object and, for each endpoint, creating and setting values for the custom recommended attributes that you want to use. The following example handler, written in Python and continuing with the preceding example of input event data, shows this:
 
-```
+```python
 import json
 import string
  
@@ -169,7 +168,7 @@ In the preceding example, AWS Lambda passes the event data to the handler as the
 
 Continuing with the earlier example of input event data, the updated endpoint definitions are:
 
-```
+```json
 "Endpoints":{
     "endpointIDexample-1":{
         "ChannelType":"EMAIL",

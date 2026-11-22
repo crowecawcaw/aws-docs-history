@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Build segments in Amazon Pinpoint
-<a name="segments-dimensional"></a>
 
 To reach the intended audience for a campaign, build a segment based on the data reported by your app. For example, to reach users who haven’t used your app recently, you can define a segment for users who haven’t used your app in the last 30 days.
 
@@ -14,7 +13,7 @@ For more code examples, see [Code examples](https://docs.aws.amazon.com/pinpoint
 
 The following example demonstrates how to build a segment with the AWS SDK for Java. The example creates a segment of users who's team is the `Lakers` and have been active in the past 30 days. Once the segment has been built you can use it as part of a campaign or journey. For an example of using a segment with a campaign, see [Create Amazon Pinpoint campaigns programmatically](campaigns.md). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.AttributeDimension;
@@ -33,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 ```
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.AttributeDimension;

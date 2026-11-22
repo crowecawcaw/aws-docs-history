@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Generate one-time passwords (OTPs) with Amazon Pinpoint
-<a name="send-validate-otp"></a>
 
 Amazon Pinpoint includes a one-time password (OTP) management feature that you can use to generate new one-time passwords and send them to your recipients as SMS messages.
 
@@ -76,7 +75,7 @@ In the preceding command, do the following:
 
 When you successfully send an OTP message, you receive a response that resembles the following example:
 
-```
+```json
 {
     "MessageResponse": {
         "ApplicationId": "7353f53e6885409fa32d07cedexample",

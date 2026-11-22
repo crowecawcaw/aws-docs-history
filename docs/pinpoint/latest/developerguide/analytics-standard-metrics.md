@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Standard metrics that apply to Amazon Pinpoint projects, campaigns, and journeys
-<a name="analytics-standard-metrics"></a>
 
 You can use Amazon Pinpoint Analytics APIs to query analytics data for a subset of standard metrics that apply to Amazon Pinpoint projects, campaigns, and journeys. These metrics, also referred to as a *key performance indicators (KPIs)*, are measurable values that can help you monitor and assess the performance of projects, campaigns, and journeys.
 

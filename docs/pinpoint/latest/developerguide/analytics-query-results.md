@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use Amazon Pinpoint analytics JSON query results
-<a name="analytics-query-results"></a>
 
 When you use Amazon Pinpoint Analytics APIs to query analytics data, Amazon Pinpoint returns the results in a JSON response. For application metrics, campaign metrics, and journey engagement metrics, the data in the response adheres to a standard JSON schema for reporting Amazon Pinpoint analytics data. 
 
@@ -45,7 +44,7 @@ For a single-value metric, the `Rows` object contains a `Values` object that:
 
 For example, the following JSON response contains the query results for a single-value metric. This metric reports the number of unique endpoints that messages were delivered to by all the campaigns that are associated with a project, from August 1, 2019 through August 31, 2019:
 
-```
+```json
 {
     "ApplicationDateRangeKpiResponse":{
         "ApplicationId":"1234567890123456789012345example",
@@ -76,7 +75,7 @@ In this example, the response indicates that all the project's campaigns deliver
 
 If the query results for a single-value metric is null (not greater than or equal to zero), the `Rows` object is empty. Amazon Pinpoint returns a null value for a metric if there isn't any data to return for the metric. For example:
 
-```
+```json
 {
     "ApplicationDateRangeKpiResponse":{
         "ApplicationId":"2345678901234567890123456example",
@@ -101,7 +100,7 @@ However, the `Rows` object for a multiple-value metric also contains one or more
 
 For example, the following JSON response contains the query results for a multiple-value metric that reports the number of unique endpoints that messages were delivered to, for each campaign that's associated with a project, from August 1, 2019 through August 31, 2019:
 
-```
+```json
 {
     "ApplicationDateRangeKpiResponse":{
         "ApplicationId":"1234567890123456789012345example",

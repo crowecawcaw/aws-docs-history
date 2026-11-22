@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Query Amazon Pinpoint data for multiple campaigns
-<a name="analytics-query-campaigns-multiple"></a>
 
 There are two ways to query the data for multiple campaigns. The best way depends on whether you want to query the data for campaigns that are all associated with the same project. If you do, it also depends on whether you want to query the data for all or only or subset of those campaigns.
 
@@ -22,7 +21,7 @@ The following examples show how to query analytics data for a campaign by using 
 
 To query analytics data for multiple campaigns by using the Amazon Pinpoint REST API, send an HTTP(S) GET request to the [Application Metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) URI. In the URI, specify the appropriate values for the required path parameters:
 
-```
+```HTTP
 https://{{endpoint}}/v1/apps/{{application-id}}/kpis/daterange/{{kpi-name}}
 ```
 
@@ -37,7 +36,7 @@ To apply a filter that retrieves the data for a specific date range, append the 
 
 For example, the following request retrieves the number of unique endpoints that messages were delivered to, by each of a project's campaigns, from July 19, 2019 through July 26, 2019:
 
-```
+```HTTP
 https://pinpoint.us-east-1.amazonaws.com/v1/apps/1234567890123456789012345example/kpis/daterange/unique-deliveries-grouped-by-campaign?start-time=2019-07-19T00:00:00Z&end-time=2019-07-26T23:59:59Z
 ```
 
@@ -84,7 +83,7 @@ Where:
 
 To query analytics data for multiple campaigns by using the AWS SDK for Java, use the **GetApplicationDateRangeKpiRequest** method of the [Application Metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html) API. Specify the appropriate values for the required parameters:
 
-```
+```java
 GetApplicationDateRangeKpiRequest request = new GetApplicationDateRangeKpiRequest()
         .withApplicationId("{{applicationId}}")
         .withKpiName("{{kpiName}}")
@@ -96,7 +95,7 @@ Where:
 
 To apply a filter that retrieves the data for a specific date range, include the `startTime` and `endTime` parameters and values in your query. By using these parameters, you can specify the first and last date and time, in extended ISO 8601 format, of an inclusive date range to retrieve the data for. For example, the following request retrieves the number of unique endpoints that messages were delivered to, by each of a project's campaigns, from July 19, 2019 through July 26, 2019:
 
-```
+```java
 GetApplicationDateRangeKpiRequest request = new GetApplicationDateRangeKpiRequest()
         .withApplicationId("1234567890123456789012345example")
         .withKpiName("unique-deliveries-grouped-by-campaign")
@@ -116,7 +115,7 @@ After you send your query, Amazon Pinpoint returns the query results in a JSON r
 
 For example, the *endpoint deliveries, grouped by campaign* (`unique-deliveries-grouped-by-campaign`) application metric, which is used in the preceding examples, returns multiple values—the number of unique endpoints that messages were delivered to, for each campaign that's associated with a project. In this case, the JSON response is the following:
 
-```
+```json
 {
     "ApplicationDateRangeKpiResponse":{
         "ApplicationId":"1234567890123456789012345example",

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # How Amazon Pinpoint works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 To use Amazon Pinpoint, users in your AWS account require permissions that allow them to view analytics data, create projects, define user segments, deploy campaigns, and more. If you integrate a mobile or web app with Amazon Pinpoint, users of your app also require access to Amazon Pinpoint. This access enables your app to register endpoints and report usage data to Amazon Pinpoint. To grant access to Amazon Pinpoint features, create AWS Identity and Access Management (IAM) policies that allow Amazon Pinpoint actions for IAM identities or Amazon Pinpoint resources.
 
@@ -39,7 +38,7 @@ For example, to grant someone permission to view information about all the segme
 
 To specify multiple actions in a single statement, separate them with commas:
 
-```
+```json
 "Action": [
       "mobiletargeting:action1",
       "mobiletargeting:action2"
@@ -47,7 +46,7 @@ To specify multiple actions in a single statement, separate them with commas:
 
 You can also specify multiple actions by using wildcards (\*). For example, to specify all actions that begin with the word `Get`, include the following action:
 
-```
+```json
 "Action": "mobiletargeting:Get*"
 ```
 
@@ -72,7 +71,7 @@ For example, the `mobiletargeting:GetSegments` action retrieves information abou
 
 
 
-```
+```json
 arn:aws:mobiletargeting:${Region}:${Account}:apps/${projectId}
 ```
 
@@ -88,19 +87,19 @@ In IAM policies, you can specify ARNs for the following types of Amazon Pinpoint
 
 For example, to create a policy statement for the project that has the project ID `810c7aab86d42fb2b56c8c966example`, use the following ARN:
 
-```
+```json
 "Resource": "arn:aws:mobiletargeting:us-east-1:123456789012:apps/810c7aab86d42fb2b56c8c966example"
 ```
 
 To specify all the projects that belong to a specific account, use the wildcard (\*):
 
-```
+```json
 "Resource": "arn:aws:mobiletargeting:us-east-1:123456789012:apps/*"
 ```
 
 Some Amazon Pinpoint actions, such as certain actions for creating resources, can't be performed on a specific resource. In those cases, you must use the wildcard (\*):
 
-```
+```json
 "Resource": "*"
 ```
 
@@ -131,7 +130,7 @@ Some Amazon Pinpoint SMS and Voice actions are not performed on a specific resou
 
 Some Amazon Pinpoint API actions involve multiple resources. For example, the `TagResource` action can add a tag to multiple projects. To specify multiple resources in a single statement, separate the ARNs with commas:
 
-```
+```json
 "Resource": [
       "resource1",
       "resource2"

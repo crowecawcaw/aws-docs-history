@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Remove tags from Amazon Pinpoint resources programmatically
-<a name="tags-remove"></a>
 
 The following examples show how to remove a tag (both the key and value) from an Amazon Pinpoint resource by using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/) and the [Amazon Pinpoint REST API](https://docs.aws.amazon.com/pinpoint/latest/apireference/). You can also use any supported AWS SDK to remove a tag from a resource.
 
@@ -14,7 +13,7 @@ To remove a tag from multiple Amazon Pinpoint resources in a single operation, u
 
 To remove a tag from a resource by using the Amazon Pinpoint REST API, send a DELETE request to the [Tags](https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-tags.html) URI. In the URI, include the Amazon Resource Name (ARN) of the resource that you want to remove a tag from, followed by the `tagKeys` parameter and the tag to remove. For example:
 
-```
+```HTTP
 https://{{endpoint}}/v1/tags/{{resource-arn}}?tagKeys={{key}}
 ```
 
@@ -27,7 +26,7 @@ All the parameters should be URL encoded.
 
 To remove multiple tag keys and their associated values from a resource, append the `tagKeys` parameter and argument for each additional tag to remove, separated by an ampersand (&). For example: 
 
-```
+```HTTP
 https://{{endpoint}}/v1/tags/{{resource-arn}}?tagKeys={{key1}}&tagKeys={{key2}}
 ```
 
@@ -41,7 +40,7 @@ To remove a tag from a resource by using the AWS CLI, run the `untag-resource` c
 ------
 #### [ Linux, macOS, or Unix ]
 
-```
+```shell
 $ aws pinpoint untag-resource \
   --resource-arn {{resource-arn}} \
   --tag-keys {{key1}} {{key2}}
@@ -50,7 +49,7 @@ $ aws pinpoint untag-resource \
 ------
 #### [ Windows Command Prompt ]
 
-```
+```cmd
 C:\> aws pinpoint untag-resource ^
      --resource-arn {{resource-arn}} ^
      --tag-keys {{key1}} {{key2}}

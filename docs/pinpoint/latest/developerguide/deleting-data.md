@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Delete your Amazon Pinpoint project and remove sensitive personal data
-<a name="deleting-data"></a>
 
 Depending on how you use it, Amazon Pinpoint might store certain data that could be considered personal. For example, an endpoint in Amazon Pinpoint contains contact information for an end user, such as that person's email address or mobile phone number.
 

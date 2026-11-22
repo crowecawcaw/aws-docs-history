@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Add recommender model recommendations to messages in Amazon Pinpoint
-<a name="ml-models-rm-lambda-overview"></a>
 
 To use a recommender model with Amazon Pinpoint, you start by creating an Amazon Personalize solution and deploying that solution as an Amazon Personalize campaign. Then, you create a configuration for the recommender model in Amazon Pinpoint. In the configuration, you specify settings that determine how to retrieve and process recommendation data from the Amazon Personalize campaign. This includes whether to invoke an AWS Lambda function to perform additional processing of the data that's retrieved.
 

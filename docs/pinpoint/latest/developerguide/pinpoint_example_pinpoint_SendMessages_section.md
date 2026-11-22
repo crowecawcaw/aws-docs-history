@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `SendMessages` with an AWS SDK or CLI
-<a name="pinpoint_example_pinpoint_SendMessages_section"></a>
 
 The following code examples show how to use `SendMessages`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Pinpoint#code-examples). 
 Send an email message.  
 
-```
+```csharp
 using Amazon;
 using Amazon.Pinpoint;
 using Amazon.Pinpoint.Model;
@@ -146,7 +145,7 @@ public class SendEmailMainClass
 ```
 Send an SMS message.  
 
-```
+```csharp
 using Amazon;
 using Amazon.Pinpoint;
 using Amazon.Pinpoint.Model;
@@ -314,7 +313,7 @@ For more information, see [Amazon Pinpoint SMS channel](https://docs.aws.amazon.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 Send an email message.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.AddressConfiguration;
@@ -429,7 +428,7 @@ public class SendEmailMessage {
 ```
 Send an email message with CC values.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.model.PinpointException;
 import  software.amazon.awssdk.services.pinpointemail.PinpointEmailClient;
@@ -532,7 +531,7 @@ public class SendEmailMessageCC {
 ```
 Send an SMS message.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.DirectMessageConfiguration;
@@ -650,7 +649,7 @@ public class SendMessage {
 ```
 Send batch SMS messages.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpoint.PinpointClient;
 import software.amazon.awssdk.services.pinpoint.model.DirectMessageConfiguration;
@@ -781,7 +780,7 @@ public class SendMessageBatch {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/pinpoint#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { PinpointClient } from "@aws-sdk/client-pinpoint";
 // Set the AWS Region.
 const REGION = "us-east-1";
@@ -789,7 +788,7 @@ export const pinClient = new PinpointClient({ region: REGION });
 ```
 Send an email message.  
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import { SendMessagesCommand } from "@aws-sdk/client-pinpoint";
 import { pinClient } from "./libs/pinClient.js";
@@ -882,7 +881,7 @@ run();
 ```
 Send an SMS message.  
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import { SendMessagesCommand } from "@aws-sdk/client-pinpoint";
 import { pinClient } from "./libs/pinClient.js";
@@ -959,7 +958,7 @@ run();
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/pinpoint#code-examples). 
 Send an email message.  
 
-```
+```javascript
 "use strict";
 
 const AWS = require("aws-sdk");
@@ -1063,7 +1062,7 @@ pinpoint.sendMessages(params, function (err, data) {
 ```
 Send an SMS message.  
 
-```
+```javascript
 "use strict";
 
 var AWS = require("aws-sdk");
@@ -1160,7 +1159,7 @@ pinpoint.sendMessages(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples). 
 
-```
+```kotlin
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -1257,7 +1256,7 @@ suspend fun sendEmail(
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/pinpoint#code-examples). 
 Send an email message.  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -1364,7 +1363,7 @@ if __name__ == "__main__":
 ```
 Send an SMS message.  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -1445,7 +1444,7 @@ if __name__ == "__main__":
 ```
 Send an email message with an existing email template.  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -1520,7 +1519,7 @@ if __name__ == "__main__":
 ```
 Send a text message with an existing SMS template.  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -1606,7 +1605,7 @@ if __name__ == "__main__":
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ppt#code-examples). 
 Send an email message.  
 
-```
+```sap-abap
     " Build the addresses map from the list of to_addresses
     DATA lt_addresses TYPE /aws1/cl_pptaddressconf=>tt_mapofaddressconfiguration.
     LOOP AT it_to_addresses INTO DATA(lo_address).
@@ -1651,7 +1650,7 @@ Send an email message.
 ```
 Send an SMS message.  
 
-```
+```sap-abap
     " Build the addresses map for the destination number
     DATA lt_addresses TYPE /aws1/cl_pptaddressconf=>tt_mapofaddressconfiguration.
     INSERT VALUE /aws1/cl_pptaddressconf=>ts_mapofaddressconf_maprow(
@@ -1688,7 +1687,7 @@ Send an SMS message.
 ```
 Send an email message with an existing email template.  
 
-```
+```sap-abap
     " Build the addresses map from the list of to_addresses
     DATA lt_addresses TYPE /aws1/cl_pptaddressconf=>tt_mapofaddressconfiguration.
     LOOP AT it_to_addresses INTO DATA(lo_address).
@@ -1725,7 +1724,7 @@ Send an email message with an existing email template.
 ```
 Send a text message with an existing SMS template.  
 
-```
+```sap-abap
     " Build the addresses map for the destination number
     DATA lt_addresses TYPE /aws1/cl_pptaddressconf=>tt_mapofaddressconfiguration.
     INSERT VALUE /aws1/cl_pptaddressconf=>ts_mapofaddressconf_maprow(

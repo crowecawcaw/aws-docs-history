@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint campaign metrics
-<a name="campaign-metrics"></a>
 
 The following table lists and describes standard campaign metrics that you can query to assess the performance of an individual campaign. To query data for these metrics, use the [Campaign metrics](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-kpis-daterange-kpi-name.html) resource of the Amazon Pinpoint API. The **kpi-name** column in the table indicates the value to use for the `kpi-name` parameter in your query.
 

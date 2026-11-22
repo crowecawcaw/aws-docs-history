@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Display tags for Amazon Pinpoint resources programmatically
-<a name="tags-display"></a>
 
 The following examples show how to use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/) and the [Amazon Pinpoint REST API](https://docs.aws.amazon.com/pinpoint/latest/apireference/) to display a list of all the tags (keys and values) that are associated with an Amazon Pinpoint resource. You can also use any supported AWS SDK to display the tags associated with a resource.
 
@@ -12,7 +11,7 @@ The following examples show how to use the [AWS CLI](https://docs.aws.amazon.com
 
 To use the Amazon Pinpoint REST API to display all the tags that are associated with a specific resource, send a GET request to the [Tags](https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-tags.html) URI and include the Amazon Resource Name (ARN) of the resource in the URI. The ARN should be URL encoded. For example, the following request retrieves all the tags that are associated with a specified campaign ({{resource-arn}}):
 
-```
+```HTTP
 GET /v1/tags/{{resource-arn}} HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json
@@ -24,7 +23,7 @@ The JSON response to the request includes a `tags` object. The `tags` object lis
 
 To display all the tags that are associated with more than one resource of the same type, send a GET request to the appropriate URI for that type of resource. For example, the following request retrieves information about all the campaigns in the specified project ({{application-id}}):
 
-```
+```HTTP
 GET /v1/apps/{{application-id}}/campaigns HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json
@@ -42,7 +41,7 @@ The JSON response to the request lists all the campaigns in the project. The `ta
 ------
 #### [ Linux, macOS, or Unix ]
 
-```
+```shell
 $ aws pinpoint list-tags-for-resource \
   --resource-arn {{resource-arn}}
 ```
@@ -50,7 +49,7 @@ $ aws pinpoint list-tags-for-resource \
 ------
 #### [ Windows Command Prompt ]
 
-```
+```cmd
 C:\> aws pinpoint list-tags-for-resource ^
      --resource-arn {{resource-arn}}
 ```
@@ -62,7 +61,7 @@ To display a list of all the Amazon Pinpoint resources that have tags, and all t
 ------
 #### [ Linux, macOS, or Unix ]
 
-```
+```shell
 $ aws resourcegroupstaggingapi get-resources \
      --resource-type-filters "mobiletargeting"
 ```
@@ -70,7 +69,7 @@ $ aws resourcegroupstaggingapi get-resources \
 ------
 #### [ Windows Command Prompt ]
 
-```
+```cmd
 C:\> aws resourcegroupstaggingapi get-resources ^
      --resource-type-filters "mobiletargeting"
 ```

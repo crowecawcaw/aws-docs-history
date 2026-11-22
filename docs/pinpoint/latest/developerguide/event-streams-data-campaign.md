@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Campaign event data stream from Amazon Pinpoint
-<a name="event-streams-data-campaign"></a>
 
 If you use Amazon Pinpoint to send campaigns through a channel, Amazon Pinpoint can stream event data about those campaigns. After you set up event streaming, Amazon Pinpoint retrieves your app's event data for email or SMS messages that you send from a campaign from the destination that you specified during setup for you to view. For detailed information about the data that Amazon Pinpoint streams for email and SMS messages, see [Email event data stream from Amazon Pinpoint](event-streams-data-email.md) and [SMS event data stream from Amazon Pinpoint](event-streams-data-sms.md). For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md). 
 
@@ -12,7 +11,7 @@ If you use Amazon Pinpoint to send campaigns through a channel, Amazon Pinpoint 
 
 The JSON object for a campaign event contains the data shown in the following example.
 
-```
+```json
 {
   "event_type": "_campaign.send",
   "event_timestamp": 1562109497426,
