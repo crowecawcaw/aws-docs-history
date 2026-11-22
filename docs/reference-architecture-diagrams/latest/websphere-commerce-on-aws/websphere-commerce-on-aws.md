@@ -1,7 +1,6 @@
 
 
 # WebSphere Commerce on AWS
-<a name="websphere-commerce-on-aws"></a>
 
 Publication date: **May 20, 2021 ([Diagram history](#wcs-history))**
 
