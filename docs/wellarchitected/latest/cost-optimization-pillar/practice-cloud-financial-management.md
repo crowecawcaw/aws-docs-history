@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Practice Cloud Financial Management
-<a name="practice-cloud-financial-management"></a>
 
  Managing cloud finance requires evolving your existing finance processes to establish and operate with cost transparency, control, planning, and optimization for your AWS environments. 
 
@@ -14,6 +17,8 @@
  AWS CFM offers a set of capabilities to manage, optimize, and plan for cloud costs while maintaining business agility. CFM is paramount not only to effectively manage costs, but also to verify that investments are driving expected business outcomes. These are the four pillars of the Cloud Financial Management Framework in the AWS Cloud: *see*, *save*, *plan*, and *run*. Each of these pillars has a set of activities and capabilities. 
 
 ![Descriptions of the four CFM pillars see, save, plan, and run.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/cfm-pillars.png)
+
+*The four pillars of Cloud Financial Management.*
 
 
  

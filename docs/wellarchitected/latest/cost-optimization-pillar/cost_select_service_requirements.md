@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST05-BP01 Identify organization requirements for cost
-<a name="cost_select_service_requirements"></a>
 
  Work with team members to define the balance between cost optimization and other pillars, such as performance and reliability, for this workload. 
 

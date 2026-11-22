@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Cost effective resources
-<a name="cost-effective-resources"></a>
 
  Using the appropriate services, resources, and configurations for your workloads is key to cost savings.Consider the following when creating cost-effective resources: 
 

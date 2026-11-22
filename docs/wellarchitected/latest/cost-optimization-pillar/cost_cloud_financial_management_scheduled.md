@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST01-BP07 Keep up-to-date with new service releases
-<a name="cost_cloud_financial_management_scheduled"></a>
 
  Consult regularly with experts or AWS Partners to consider which services and features provide lower cost. Review AWS blogs and other information sources. 
 

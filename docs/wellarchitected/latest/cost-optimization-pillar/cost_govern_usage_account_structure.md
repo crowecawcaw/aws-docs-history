@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST02-BP03 Implement an account structure
-<a name="cost_govern_usage_account_structure"></a>
 
  Implement a structure of accounts that maps to your organization. This assists in allocating and managing costs throughout your organization. 
 
@@ -24,6 +27,8 @@
  The following diagram shows how you can use AWS Organizations with organizational units (OU) to group multiple accounts, and place multiple AWS accounts under each OU. It is recommended to use OUs for various use cases and workloads which provides patterns for organizing accounts. 
 
 ![Tree diagram showing how to group multiple accounts under organizational units.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/aws-organizations-ou-grouping.png)
+
+*Example of grouping multiple AWS accounts under organizational units.*
 
 
  [AWS Control Tower](https://aws.amazon.com/controltower/) can quickly set up and configure multiple AWS accounts, ensuring that governance is aligned with your organization’s requirements.

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST04-BP02 Implement a decommissioning process
-<a name="cost_decomissioning_resources_implement_process"></a>
 
  Implement a process to identify and decommission unused resources. 
 
@@ -37,6 +40,8 @@ Implement a standardized process across your organization to identify and remove
  The following simple decommissioning process flowchart outlines the decommissioning steps. Before decommissioning resources, verify that resources you have identified for decommissioning are not being used by the organization. 
 
 ![Flow chart depicting the steps of decommissioning a resource.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/decommissioning-process-flowchart.png)
+
+*Resource decommissioning flow.*
 
 
 ## Resources

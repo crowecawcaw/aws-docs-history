@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST07-BP02 Choose Regions based on cost
-<a name="cost_pricing_model_region_cost"></a>
 
 Resource pricing may be different in each Region. Identify Regional cost differences and only deploy in Regions with higher costs to meet latency, data residency and data sovereignty requirements. Factoring in Region cost helps you pay the lowest overall price for this workload.
 
@@ -19,6 +22,8 @@ When you architect your solutions, a best practice is to seek to place computing
  Use Regions that provide lower prices for AWS services to deploy your workloads if you have no obligations in data privacy, security and business requirements. For example, if your default Region is Asia Pacific (Sydney) (`ap-southwest-2`), and if there are no restrictions (data privacy, security, for example) to use other Regions, deploying non-critical (development and test) Amazon EC2 instances in US East (N. Virginia) (`us-east-1`) will cost you less. 
 
 ![Chart showing different Regions with compliance, latency, cost, and services and features.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/region-feature-matrix.png)
+
+*Region feature matrix table*
 
 
  

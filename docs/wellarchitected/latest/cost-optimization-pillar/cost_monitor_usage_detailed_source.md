@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST03-BP01 Configure detailed information sources
-<a name="cost_monitor_usage_detailed_source"></a>
 
 Set up cost management and reporting tools for enhanced analysis and transparency of cost and usage data. Configure your workload to create log entries that facilitate the tracking and segregation of costs and usage.
 
@@ -14,9 +17,8 @@ Set up cost management and reporting tools for enhanced analysis and transparenc
 
  You can use AWS Data Exports to create exports of the AWS Cost and Usage Report (CUR) 2.0. This is the new and recommended way to receive your detailed cost and usage data from AWS. It provides daily or hourly usage granularity, rates, costs, and usage attributes for all chargeable AWS services (the same information as CUR), along with some improvements. All possible dimensions are in the CUR such as tagging, location, resource attributes, and account IDs. 
 
- You can create 4 types of exports: 
+ There are three export types based on the type of export you want to create: a standard data export, an export to a cost and usage dashboard with Quick integration, or a legacy data export. 
 +  **Standard data export:** A customized export of a table that delivers to Amazon S3 on a recurring basis. 
-+  **Carbon emissions export:** An export of your carbon emissions data to Amazon S3. 
 +  **Cost and usage dashboard:** An export and integration to Quick to deploy a pre-built cost and usage dashboard. 
 +  **Legacy data export:** An export of the legacy AWS Cost and Usage Report (CUR). 
 

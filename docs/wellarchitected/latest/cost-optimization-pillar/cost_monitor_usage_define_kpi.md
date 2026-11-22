@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST03-BP04 Establish organization metrics
-<a name="cost_monitor_usage_define_kpi"></a>
 
  Establish the organization metrics that are required for this workload. Example metrics of a workload are customer reports produced, or web pages served to customers. 
 

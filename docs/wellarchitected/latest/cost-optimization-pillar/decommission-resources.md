@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Decommission resources
-<a name="decommission-resources"></a>
 
  After you manage a list of projects, employees, and technology resources over time, you can identify resources that are no longer being used and projects that no longer have an owner. 
 

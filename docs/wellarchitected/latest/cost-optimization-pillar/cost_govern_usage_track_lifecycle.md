@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # COST02-BP06 Track project lifecycle
-<a name="cost_govern_usage_track_lifecycle"></a>
 
  Track, measure, and audit the lifecycle of projects, teams, and environments to avoid using and paying for unnecessary resources. 
 

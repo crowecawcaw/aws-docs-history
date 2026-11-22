@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Evaluate cost when selecting services
-<a name="evaluate-cost-when-selecting-services"></a>
 
 **Topics**
 + [COST05-BP01 Identify organization requirements for cost](cost_select_service_requirements.md)
