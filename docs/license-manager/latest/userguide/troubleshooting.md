@@ -1,7 +1,6 @@
 
 
 # Troubleshooting License Manager
-<a name="troubleshooting"></a>
 
 The following information can help you troubleshoot issues when using AWS License Manager. Before you start, confirm that your License Manager setup meets the requirements stated in [Settings in License Manager](settings.md).
 

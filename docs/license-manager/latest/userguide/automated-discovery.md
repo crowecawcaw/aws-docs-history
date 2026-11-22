@@ -1,7 +1,6 @@
 
 
 # Automated discovery of inventory in License Manager
-<a name="automated-discovery"></a>
 
 License Manager uses [Systems Manager inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html) to discover software usage on Amazon EC2 instances and on-premises instances. You can add product information to your self-managed license, and License Manager will track the instances that have those products installed. Additionally, you can specify exclusion rules based on your licensing agreement to decide which instances to exclude. You can exclude instances belonging to AWS account IDs or associated with resource tags from being considered for automated discovery
 

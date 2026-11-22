@@ -1,7 +1,6 @@
 
 
 # Conversion prerequisites for License Manager license types
-<a name="conversion-prerequisites"></a>
 
 To convert license types with License Manager, there are general and operating system specific prerequisites.
 
@@ -72,12 +71,12 @@ Linux instances must meet the following prerequisites:
 + The Ubuntu Pro Client must be installed in your Ubuntu operating system.
   + Run the following command to confirm if the Ubuntu Pro Client is installed:
 
-    ```
+    ```sh
     pro --version
     ```
   + If the command is not found, or the version needs to be updated, run the following command to install the Ubuntu Pro Client:
 
-    ```
+    ```sh
     apt-get update && apt-get dist-upgrade
     ```
 + Instances must be able to reach multiple endpoints to activate their Ubuntu Pro subscription and receive updates. You must allow outbound traffic from your instance over TCP port 443 to reach the following endpoints: 

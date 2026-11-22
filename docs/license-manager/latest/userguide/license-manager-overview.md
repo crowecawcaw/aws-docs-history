@@ -1,7 +1,6 @@
 
 
 # How License Manager works
-<a name="license-manager-overview"></a>
 
 Effective software license management relies on the following:
 + An expert understanding of language in enterprise licensing agreements

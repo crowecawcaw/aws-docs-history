@@ -1,7 +1,6 @@
 
 
 # License Manager – Core role
-<a name="license-manager-role-core"></a>
 
 License Manager requires a service-linked role to manage licenses on your behalf.
 

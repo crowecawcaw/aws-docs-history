@@ -1,7 +1,6 @@
 
 
 # Identity and access management for License Manager
-<a name="identity-access-management"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be authenticated (signed in) and authorized (have permissions) to use AWS resources. With IAM you can create users and groups under your AWS account. You control the permissions that users have to perform tasks using AWS resources. You can use IAM for no additional charge.
 
@@ -21,7 +20,7 @@ You can create users and groups for your AWS account and then assign them the pe
 
 An IAM policy is a JSON document that consists of one or more statements. Each statement is structured as follows.
 
-```
+```json
 {
   "Statement":[{
     "Effect":"{{effect}}",
@@ -64,19 +63,19 @@ For more information on the available License Manager APIs, see the following AP
 
 To specify multiple operations in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": ["license-manager:action1", "license-manager:action2"]
 ```
 
 You can also specify multiple operations using wildcards. For example, you can specify all License Manager API operations whose name begins with the word *List* as follows:
 
-```
+```json
 "Action": "license-manager:List*"
 ```
 
 To specify all License Manager API operations, use the \* wildcard as follows:
 
-```
+```json
 "Action": "license-manager:*"
 ```
 
@@ -90,7 +89,7 @@ ISVs that distribute licenses through License Manager require the following perm
 
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	      
     "Statement": [ 

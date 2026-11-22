@@ -1,7 +1,6 @@
 
 
 # Monitoring License Manager with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor metric statistics for License Manager by using Amazon CloudWatch. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing. You can set alarms that watch for certain thresholds and send notifications or take actions when those thresholds are met. For example, you can watch for the percentage of licenses using the `LicenseConfigurationUsagePercentage` metric, and take action before limits are exceeded. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

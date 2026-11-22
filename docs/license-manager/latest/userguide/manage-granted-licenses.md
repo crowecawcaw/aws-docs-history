@@ -1,7 +1,6 @@
 
 
 # Manage your granted licenses in License Manager
-<a name="manage-granted-licenses"></a>
 
 Licenses that have been granted to you will appear in the License Manager console. Recipients must accept and activate granted licenses before they can use the product. How you accept and activate a license depends on whether the license is from AWS Marketplace, if your account is member account in an organization for AWS Organizations, and whether all features is enabled for your organization.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring License Manager with Amazon EventBridge
-<a name="monitoring-eventbridge"></a>
 
 When a license or grant changes state, AWS License Manager (License Manager) sends an event to Amazon EventBridge. EventBridge lets you act on system events, such as resource changes, and automate your AWS services. You write rules that specify which events interest you. Each rule also defines the actions to take when an event matches the rule. For example, you can start workflows, send notifications, or keep an audit trail of license and grant changes. You don't need to poll the License Manager API.
 

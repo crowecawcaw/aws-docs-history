@@ -1,7 +1,6 @@
 
 
 # Monitoring License Manager
-<a name="monitoring-overview"></a>
 
 You can monitor the usage of licenses and subscriptions tracked in AWS License Manager using Amazon CloudWatch. CloudWatch collects raw data and processes it into readable, near real-time metrics. You can set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For more information, see [Monitoring License Manager with Amazon CloudWatch](monitoring-cloudwatch.md).
 

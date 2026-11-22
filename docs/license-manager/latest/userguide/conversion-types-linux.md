@@ -1,7 +1,6 @@
 
 
 # Eligible subscription types for Linux in License Manager
-<a name="conversion-types-linux"></a>
 
 License type conversion is available for supported versions of Ubuntu. The supported versions include updates such as Ubuntu 18.04.1 LTS. When you convert a subscription to Ubuntu Pro, security updates are provided for an additional five years. For more information, see [Ubuntu Pro](https://ubuntu.com/pro) in the Canonical documentation.
 

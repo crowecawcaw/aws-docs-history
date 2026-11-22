@@ -1,7 +1,6 @@
 
 
 # Work with inventory search in License Manager
-<a name="discovery"></a>
 
 License Manager uses [Systems Manager inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html) to discover software usage on premises. After you associate a self-managed license with on-premises servers, License Manager periodically collects software inventory, updates licensing information, and refreshes its dashboards to report usage.
 

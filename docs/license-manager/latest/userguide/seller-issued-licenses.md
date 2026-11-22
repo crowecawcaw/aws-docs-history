@@ -1,7 +1,6 @@
 
 
 # Seller issued licenses in License Manager
-<a name="seller-issued-licenses"></a>
 
 Independent software vendors (ISVs) can use AWS License Manager to manage and distribute software licenses to end-users. As an issuer, you can track the usage of the licenses you issue centrally using the License Manager dashboard.
 

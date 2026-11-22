@@ -1,7 +1,6 @@
 
 
 # Troubleshooting license type conversion in License Manager
-<a name="conversion-troubleshooting"></a>
 
 **Topics**
 + [Windows activation](#conversion-troubleshooting-kms)

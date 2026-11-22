@@ -1,7 +1,6 @@
 
 
 # Report storage
-<a name="report-storage-location"></a>
 
 Usage reports begin publishing within 60 minutes. If you do not already have an Amazon S3 bucket associated with your account, License Manager will create a new Amazon S3 bucket when you create a usage report. Reports are stored with the following Amazon S3 URI pattern:
 

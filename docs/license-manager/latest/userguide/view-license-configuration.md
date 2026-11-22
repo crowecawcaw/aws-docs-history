@@ -1,7 +1,6 @@
 
 
 # View self-managed licenses in License Manager
-<a name="view-license-configuration"></a>
 
 You can view your self-managed licenses through the License Manager console to monitor usage, compliance, and distribution across your AWS environment.
 

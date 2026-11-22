@@ -1,7 +1,6 @@
 
 
 # Launch an instance from a license included AMI
-<a name="usubs-launch-instance"></a>
 
 After you have subscribed to a product, you must launch instances for your users to connect to from the AWS Marketplace AMI that includes the product. After you launch an instance, AWS Systems Manager attempts to join the instance to the Active Directory domain and perform additional configuration and hardening on the resource. The configurations to make the instance ready to use can take around 20 minutes to complete. You can confirm the resource is ready to use from the **User association** page of the License Manager console by checking for a **Health status** of **Active** for the instance.
 

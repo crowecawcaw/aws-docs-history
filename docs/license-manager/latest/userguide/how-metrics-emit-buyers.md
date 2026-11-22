@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics for buyer accounts in License Manager
-<a name="how-metrics-emit-buyers"></a>
 
 When a grant for a seller issued license is configured with **allow submission of usage records** selected, License Manager emits a CloudWatch metric to the seller account, root buyer account, and the account against which the usage is being recorded. Buyer accounts are the AWS accounts who have purchased or been granted a seller issued license. For more information, see [Granting licenses to customers](https://docs.aws.amazon.com/license-manager/seller-issued-licenses.html#isv-grant-licenses).
 

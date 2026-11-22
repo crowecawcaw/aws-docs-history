@@ -1,7 +1,6 @@
 
 
 # Seller issued license entitlements in License Manager
-<a name="entitlements"></a>
 
 License Manager captures seller issued license capabilities as *entitlements* in the license. Entitlements can be characterized with a limited or unlimited quantity. An example of a limited entitlement is ‘40 GB of data transfer’. An example of an unlimited quantity entitlement is ‘Platinum Tier’.
 

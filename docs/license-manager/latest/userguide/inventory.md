@@ -1,7 +1,6 @@
 
 
 # Inventory search in License Manager
-<a name="inventory"></a>
 
 License Manager allows you to discover on-premises applications using [Systems Manager inventory](https://aws.amazon.com/systems-manager/faq/), and then to attach licensing rules to them. After licensing rules are attached to these servers, you can track them along with your AWS servers in the License Manager dashboard.
 

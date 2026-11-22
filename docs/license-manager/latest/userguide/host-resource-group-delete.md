@@ -1,7 +1,6 @@
 
 
 # Delete a host resource group in License Manager
-<a name="host-resource-group-delete"></a>
 
 You can delete a host resource group if it has no hosts.
 

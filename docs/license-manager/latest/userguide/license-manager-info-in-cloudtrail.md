@@ -1,7 +1,6 @@
 
 
 # License Manager information in CloudTrail
-<a name="license-manager-info-in-cloudtrail"></a>
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in License Manager, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 

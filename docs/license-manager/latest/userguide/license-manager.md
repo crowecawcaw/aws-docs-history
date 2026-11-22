@@ -1,7 +1,6 @@
 
 
 # What is AWS License Manager?
-<a name="license-manager"></a>
 
 AWS License Manager makes it easier to manage your software licenses from software vendors (for example, Microsoft, SAP, Oracle, and IBM) across multiple AWS regions and accounts within an organization, offering consolidated visibility and comprehensive reporting for software license compliance at scale. This enables you to limit licensing overages and reduce the risk of non-compliance and misreporting.
 

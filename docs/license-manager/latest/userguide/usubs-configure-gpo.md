@@ -1,7 +1,6 @@
 
 
 # Configure Active Directory GPO for more active remote user sessions
-<a name="usubs-configure-gpo"></a>
 
 By default, Microsoft RDS allows a maximum of two user sessions at the same time on an EC2 Windows instance that provides user-based subscription products. After you've configured your RDS License Server endpoints, you can configure Microsoft RDS to allow more than two user sessions at the same time with an Active Directory Group Policy Object (GPO), as follows.
 

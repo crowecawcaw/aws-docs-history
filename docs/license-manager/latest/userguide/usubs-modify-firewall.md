@@ -1,7 +1,6 @@
 
 
 # Modify firewall settings for your Microsoft Office subscription
-<a name="usubs-modify-firewall"></a>
 
 A firewall protects your network resources from unauthorized inbound or outbound traffic. The rules that you define for your security group act as the firewall for the VPC resources that work together to provide user-based subscriptions Microsoft Office on EC2 Windows instances.
 

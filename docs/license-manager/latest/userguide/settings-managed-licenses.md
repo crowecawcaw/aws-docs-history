@@ -1,7 +1,6 @@
 
 
 # Managed license settings in License Manager
-<a name="settings-managed-licenses"></a>
 
 The following settings are available for managed licenses.
 

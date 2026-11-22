@@ -1,7 +1,6 @@
 
 
 # License Manager – Member account role
-<a name="member-role"></a>
 
 License Manager requires a service-linked role that allows the management account to manage licenses.
 
@@ -38,7 +37,7 @@ You can use the License Manager console to create a service-linked role.
 
 1. Choose **Link AWS Organizations accounts**.
 
-1. Choose **Apply**. This creates the roles [AWSServiceRoleForAWSLicenseManagerRole](license-manager-role-core.md) and [AWSServiceRoleForAWSLicenseManagerMemberAccountRole](#member-role) in all child accounts.
+1. Choose **Apply**. This creates the roles [AWSServiceRoleForAWSLicenseManagerRole](license-manager-role-core.md) and [AWSServiceRoleForAWSLicenseManagerMemberAccountRole](member-role.md) in all child accounts.
 
 You can also use the IAM console to create a service-linked role with the `License Manager - Member account` use case. Alternatively, in the AWS CLI or AWS API, create a service-linked role with the `license-manager.member-account.amazonaws.com` service name. For more information, see [Creating a Service-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*. 
 

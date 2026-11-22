@@ -1,7 +1,6 @@
 
 
 # Convert a license type in License Manager
-<a name="conversion-procedures"></a>
 
 You can convert Windows licenses, Microsoft SQL Server licenses, and Ubuntu Linux subscriptions using the License Manager console or AWS CLI. You might need to complete additional steps to convert the license or subscription in the operating system of the instance.
 

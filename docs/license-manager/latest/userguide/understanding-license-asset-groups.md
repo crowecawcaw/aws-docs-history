@@ -1,7 +1,6 @@
 
 
 # Understanding AWS License Manager license asset groups
-<a name="understanding-license-asset-groups"></a>
 
 License asset groups in AWS License Manager provide centralized license management across AWS regions and accounts within an organization, offering consolidated visibility, automated notifications, and comprehensive reporting for software license compliance.
 

@@ -1,7 +1,6 @@
 
 
 # Individual License asset group View
-<a name="individual-license-asset-group-view"></a>
 
 Select a license asset group from the dropdown menu to view detailed information
 

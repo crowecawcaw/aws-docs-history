@@ -1,7 +1,6 @@
 
 
 # Document history for License Manager
-<a name="doc-history"></a>
 
 The following table describes the releases of AWS License Manager.
 

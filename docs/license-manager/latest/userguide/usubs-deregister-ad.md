@@ -1,7 +1,6 @@
 
 
 # Deregister an Active Directory from License Manager settings
-<a name="usubs-deregister-ad"></a>
 
 You can deregister an Active Directory from License Manager settings if you no longer want to use it for user-based subscriptions. Deregistering the directory configuration from License Manager settings doesn't delete the directory. When you deregister the directory from the settings, you can no longer associate users from that directory for user-based subscriptions in License Manager.
 

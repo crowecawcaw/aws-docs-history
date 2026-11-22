@@ -1,7 +1,6 @@
 
 
 # Get started with user-based subscriptions in License Manager
-<a name="user-based-subscriptions-getting-started"></a>
 
 The following steps detail how you can get started with using user-based subscriptions. These steps assume you have already implemented the required prerequisites. For more information, see the [Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites).
 

@@ -1,7 +1,6 @@
 
 
 # Grant acceptance and activation in License Manager
-<a name="grant-acceptance"></a>
 
 When a grant is created for a granted license, it is distributed to the recipient. A granted license must be accepted and activated before it can be used by the grant recipient. The grant activation process can include additional options for granted licenses sourced from the AWS Marketplace.
 

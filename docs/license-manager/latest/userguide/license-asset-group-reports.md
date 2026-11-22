@@ -1,7 +1,6 @@
 
 
 # License asset group reports
-<a name="license-asset-group-reports"></a>
 
 License asset group reports provide on-demand, comprehensive reporting for software license compliance across multiple AWS regions and accounts within your organization. These reports offer detailed inventory of all resources discovered and mapped to a License asset group.
 

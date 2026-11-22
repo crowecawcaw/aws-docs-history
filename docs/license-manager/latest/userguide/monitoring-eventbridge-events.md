@@ -1,7 +1,6 @@
 
 
 # License Manager event structure and change events
-<a name="monitoring-eventbridge-events"></a>
 
 Each License Manager event has a `source` of `aws.license-manager`. The `detail-type` field names the event. This topic covers the `License Change`, `Grant Change`, and `License Token Change` events. License Manager also sends `License Consumption Change` events. For the full list of License Manager events, see [AWS License Manager events](https://docs.aws.amazon.com/eventbridge/latest/ref/events-ref-license-manager.html) in the *AWS Events Reference*.
 
@@ -15,7 +14,7 @@ The fields in the `detail` object depend on the event type. The following exampl
 
 The following example shows a `License Change` event for a new license:
 
-```
+```json
 {
  "version": "0",
  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -43,7 +42,7 @@ The following example shows a `License Change` event for a new license:
 
 The following example shows a `Grant Change` event for a new grant that is pending acceptance:
 
-```
+```json
 {
  "version": "0",
  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
@@ -72,7 +71,7 @@ The following example shows a `Grant Change` event for a new grant that is pendi
 
 The following example shows a `License Token Change` event for a new license token:
 
-```
+```json
 {
  "version": "0",
  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",

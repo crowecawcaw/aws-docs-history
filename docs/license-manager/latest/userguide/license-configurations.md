@@ -1,7 +1,6 @@
 
 
 # Self-managed licenses in License Manager
-<a name="license-configurations"></a>
 
 Self-managed licenses (formerly known as *license configurations*) are the core of License Manager. Self-managed licenses contain licensing rules based on the terms of your enterprise agreements. The rules that you create determine how AWS processes commands that consume licenses. While creating self-managed licenses, work closely with your organization's compliance team to review your enterprise agreements.
 

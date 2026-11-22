@@ -1,7 +1,6 @@
 
 
 # Convert a license type for Windows and SQL Server in License Manager
-<a name="conversion-procedures-windows"></a>
 
 You can use either the License Manager Console or the AWS CLI to convert the license type of eligible Windows and SQL Server instances.
 
@@ -70,13 +69,13 @@ You might need to update the AWS CLI to run certain commands and receive all req
 
 1. To determine the license type currently associated with your instance, run the following AWS CLI command. Replace the instance ID with the ID of the instance for which you want to determine the license type.
 
-   ```
+   ```sh
    aws ec2 describe-instances --instance-ids {{<instance-id>}} --query "Reservations[*].Instances[*].{InstanceId: InstanceId, PlatformDetails: PlatformDetails, ProductCode: ProductCode, UsageOperation: UsageOperation, UsageOperationUpdateTime: UsageOperationUpdateTime}"
    ```
 
 1. The following is an example response to the `describe-instances` command. Note that the `UsageOperation` value is the billing information code associated with the license. The `UsageOperationUpdateTime` is the time when the billing code was updated. For more information, see [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html) in the *Amazon EC2 API reference*.
 
-   ```
+   ```json
    "InstanceId": "i-0123456789abcdef",
    "Platform details": "Windows with SQL Server Enterprise",
    "UsageOperation": "RunInstances:0800",
@@ -96,7 +95,7 @@ Check your Microsoft license agreement to determine what methods you can use to 
 
 1. To convert the license type of your instance, run the following command, replacing the ARN with the ARN of the instance you want to convert:
 
-   ```
+   ```sh
    aws license-manager create-license-conversion-task-for-resource \
    	--resource-arn {{<instance_arn>}} \
    	--source-license-context UsageOperation=RunInstances:0002 \
@@ -105,7 +104,7 @@ Check your Microsoft license agreement to determine what methods you can use to 
 
 1. To activate Windows after you convert your license, you must point the Windows Server KMS server for your operating system to your own KMS servers. Log in to the Windows instance and run the following command:
 
-   ```
+   ```sh
    slmgr.vbs /skms {{<your-kms-address>}}
    ```
 
@@ -114,7 +113,7 @@ When you convert Windows Server from BYOL to license included, License Manager a
 
 To convert the license type of your instance from BYOL to license included, run the following command, replacing the ARN with the ARN of the instance you want to convert:
 
-```
+```sh
 aws license-manager create-license-conversion-task-for-resource \
 	--resource-arn {{<instance_arn>}} \
 	--source-license-context UsageOperation=RunInstances:0800 \
@@ -126,7 +125,7 @@ You can switch multiple products at the same time. For example, you can convert 
 
 To convert the license type of your Windows Server instance from BYOL to license included, and SQL Server Standard from BYOL to license included, run the following command, replacing the ARN with the ARN of the instance you want to convert:
 
-```
+```sh
 aws license-manager create-license-conversion-task-for-resource \
 	--resource-arn {{<instance_arn>}} \
 	--source-license-context UsageOperation=RunInstances:0800 \

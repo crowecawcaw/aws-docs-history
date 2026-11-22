@@ -1,7 +1,6 @@
 
 
 # Create a host resource group in License Manager
-<a name="host-resource-group-create"></a>
 
 Configure a host resource group to enable License Manager to manage your Dedicated Hosts. You can create a host resource group with or without license tracking. To track license usage, associate one or more core- or socket-based self-managed licenses with your host resource group. To manage Dedicated Hosts without license tracking (for example, for Mac workloads), choose the option that does not require license configurations.
 

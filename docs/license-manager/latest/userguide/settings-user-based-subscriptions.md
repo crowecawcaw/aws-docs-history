@@ -1,7 +1,6 @@
 
 
 # User-based subscription settings in License Manager
-<a name="settings-user-based-subscriptions"></a>
 
 The following settings are available depending on which products you require for user-based subscriptions.
 

@@ -1,7 +1,6 @@
 
 
 # Create seller issued licenses in License Manager
-<a name="create-seller-issued-license"></a>
 
 Use the following procedure to create a block of licenses to grant to customers using the AWS Management Console. Alternatively, you can create the license using the [CreateLicense](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateLicense.html) API action.
 

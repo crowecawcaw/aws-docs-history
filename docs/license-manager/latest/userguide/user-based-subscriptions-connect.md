@@ -1,7 +1,6 @@
 
 
 # Connect to a user-based subscription instance with RDP
-<a name="user-based-subscriptions-connect"></a>
 
 Once you have associated users with the instance providing the product, they can connect to the instance if the **Health status** of the instance is **Active**. The users will need to connect with their user credentials for the domain to use the product with their associated identity.
 

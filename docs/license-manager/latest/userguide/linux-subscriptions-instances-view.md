@@ -1,7 +1,6 @@
 
 
 # View discovered instance data in License Manager
-<a name="linux-subscriptions-instances-view"></a>
 
 After License Manager completes the initial resource discovery process in your selected AWS Regions, you can view the results in the console. If you chose to link AWS Organizations, License Manager aggregates data from accounts across your organization. To view a list of instances with subscriptions that meet your filter criteria, navigate to the **Instances** section of the AWS License Manager console. The list displays the following key fields.
 + **Instance ID** – The ID of the instance.

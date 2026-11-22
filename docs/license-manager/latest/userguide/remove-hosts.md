@@ -1,7 +1,6 @@
 
 
 # Remove Dedicated Hosts from a host resource group in License Manager
-<a name="remove-hosts"></a>
 
 When you remove a host from the host resource group, the instance running on the host remains on the host. The instances attached to the host resource group remain associated with the group, and instances directly attached to the host through affinity maintain the same property. If you share the host resource group with other AWS accounts, License Manager automatically removes the shared host and consumers receive an eviction notice to move their instances from the host in 15 days. To work with a Dedicated Host that has been removed from a host resource group, see [Work with Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html) in the *Amazon EC2 User Guide*.
 

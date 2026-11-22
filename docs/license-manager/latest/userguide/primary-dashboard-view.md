@@ -1,7 +1,6 @@
 
 
 # Primary Dashboard view
-<a name="primary-dashboard-view"></a>
 
 The license asset groups dashboard displays your top 5 license asset groups based on instance count with real-time consumption tracking.
 

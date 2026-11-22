@@ -1,7 +1,6 @@
 
 
 # License Manager – User-based subscription role
-<a name="user-based-subscription-role"></a>
 
 License Manager requires a service-linked role for managing AWS resources that will provide user-based subscriptions.
 

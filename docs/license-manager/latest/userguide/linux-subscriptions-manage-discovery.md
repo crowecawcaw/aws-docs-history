@@ -1,7 +1,6 @@
 
 
 # Configure Linux subscription discovery in License Manager
-<a name="linux-subscriptions-manage-discovery"></a>
 
 You can configure discovery of Linux subscriptions through the License Manager console, the AWS CLI, the License Manager Linux subscription API, or the associated SDKs. When you activate discovery of Linux subscriptions for the AWS Regions you specify, you can optionally extend discovery to your accounts in AWS Organizations. If you no longer want to track subscription utilization, you can also deactivate discovery.
 

@@ -1,7 +1,6 @@
 
 
 # Create a self-managed license in License Manager
-<a name="create-license-configuration"></a>
 
 A self-managed license represents the licensing terms in the agreement with your software vendor. Your self-managed license specifies how your licenses should be counted (for example, by vCPUs or number of instances). It also specifies limits on your usage, so that you can prevent usage from going over the number of allocated licenses. Additionally, it can also specify other constraints on your licenses, such as the tenancy type.
 

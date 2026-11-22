@@ -1,7 +1,6 @@
 
 
 # Self Managed License Rules in License Manager
-<a name="license-rules"></a>
 
 After self-managed license rules are in place, they can be attached to the relevant launch mechanisms, where they can directly prevent the deployment of new resources that are non-compliant. Users in your organization can seamlessly launch EC2 instances from designated AMIs, and administrators can track license inventory through the built-in License Manager dashboard. Launch controls and dashboard alerts allow easier compliance enforcement. 
 

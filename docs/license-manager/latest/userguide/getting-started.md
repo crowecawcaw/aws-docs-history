@@ -1,7 +1,6 @@
 
 
 # Get started with License Manager
-<a name="getting-started"></a>
 
 To use AWS License Manager, you must first complete onboarding steps. The following procedure walks you through the onboarding steps in the AWS Management Console.
 

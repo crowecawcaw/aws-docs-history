@@ -1,7 +1,6 @@
 
 
 # Use License Manager user-based subscriptions for supported software products
-<a name="user-based-subscriptions"></a>
 
 With user-based subscriptions in AWS License Manager, you can purchase fully-compliant licensed software subscriptions. Licenses are provided by Amazon and have a per-user subscription fee. Amazon EC2 provides pre-configured Amazon Machine Images (AMIs) with the supported software, along with license-included Windows Server licenses. These licenses can be used without long-term licensing commitments.
 
@@ -217,7 +216,7 @@ To use your own KMS key to encrypt and decrypt the administrative credentials se
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Id": "key-policy",
@@ -506,6 +505,9 @@ This table indicates which types of Active Directory are supported by each softw
 | Microsoft Visual Studio  | Supported | Not supported | 
 | Microsoft Office | Supported | Not supported | 
 | RDS SAL Product | Supported | Supported | 
+
+**Note**  
+License Manager user-based subscriptions support the Hybrid Edition of AWS Managed Microsoft AD, in addition to the Standard and Enterprise editions. The Hybrid Edition extends your existing self-managed Active Directory domain to AWS, so you can provide Microsoft Office and Microsoft Visual Studio subscriptions without creating a new directory in AWS Directory Service. For more information, see [AWS Managed Microsoft AD Hybrid Edition](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/aws-hybrid-directory.html) in the *AWS Directory Service Administration Guide*.
 
 ## Multiple Active Directory support for Microsoft Office
 <a name="usubs-multi-ad"></a>

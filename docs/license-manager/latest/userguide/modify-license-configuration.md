@@ -1,7 +1,6 @@
 
 
 # Edit a self-managed license in License Manager
-<a name="modify-license-configuration"></a>
 
 You can edit values for the following fields in a self-managed license: 
 + Self-managed license name

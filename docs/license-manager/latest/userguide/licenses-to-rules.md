@@ -1,7 +1,6 @@
 
 
 # Build License Manager rules from vendor licenses
-<a name="licenses-to-rules"></a>
 
 You can create License Manager rule sets based on the language of software vendor licenses. The examples that follow are not intended as blueprints for actual use cases. In any real-world application of a license agreement, you choose among competing options depending on the architecture and licensing history of your particular on-premises server environment. Your options also depend on the details of your planned migration of resources to AWS.
 

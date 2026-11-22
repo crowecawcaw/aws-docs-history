@@ -1,7 +1,6 @@
 
 
 # Convert a license type for Linux in License Manager
-<a name="conversion-procedures-linux"></a>
 
 You can use either the License Manager Console or the AWS CLI to convert the license type of eligible Ubuntu LTS, RHEL, and RHEL for SAP instances.
 
@@ -54,13 +53,13 @@ You might need to update the AWS CLI to run certain commands and receive all req
 
 To determine the license type currently associated with your instance, run the following AWS CLI command. Replace the instance ID with the ID of the instance for which you want to determine the license type:
 
-```
+```sh
 aws ec2 describe-instances --instance-ids {{<instance-id>}} --query "Reservations[*].Instances[*].{InstanceId: InstanceId, PlatformDetails: PlatformDetails, UsageOperation: UsageOperation, UsageOperationUpdateTime: UsageOperationUpdateTime}"
 ```
 
 The following is an example response to the `describe-instances` command. The **UsageOperation** value is the billing information code associated with the license. A usage operation value of `RunInstances` indicates that the instance is using AWS provided licensing. The `UsageOperationUpdateTime` is the time when the billing code was updated. For more information, see [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html) in the *Amazon EC2 API Reference*.
 
-```
+```json
 "InstanceId": "i-0123456789abcdef",
 "Platform details": "Linux/UNIX",
 "UsageOperation": "RunInstances",

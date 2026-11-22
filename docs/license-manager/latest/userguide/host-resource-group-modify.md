@@ -1,7 +1,6 @@
 
 
 # Modify a host resource group in License Manager
-<a name="host-resource-group-modify"></a>
 
 You can modify the settings for a host resource group at any time. You cannot set the host limit lower than the number of existing hosts in the host resource group. You cannot remove an instance type if there's an instance of that type running in the host resource group.
 

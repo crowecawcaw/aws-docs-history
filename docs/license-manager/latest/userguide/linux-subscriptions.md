@@ -1,7 +1,6 @@
 
 
 # Manage Linux subscriptions in License Manager
-<a name="linux-subscriptions"></a>
 
 With AWS License Manager, you can view and manage commercial Linux subscriptions that your Amazon EC2 instances use. You can track utilization of your Linux subscriptions for the AWS Regions and accounts in AWS Organizations that you've defined in your settings. License Manager gives you a comprehensive view of your running instances that use Linux subscriptions. It also indicates when an instance has more than one subscription defined.
 
