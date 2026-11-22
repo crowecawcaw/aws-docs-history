@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Guidelines for Responsible AI
-<a name="ai-practitioner-01-domain4"></a>
 
 Domain 4 covers guidelines for responsible AI and represents 14% of the scored content on the exam.
 

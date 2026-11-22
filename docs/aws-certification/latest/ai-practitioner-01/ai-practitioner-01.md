@@ -1,7 +1,6 @@
 
 
 # AWS Certified AI Practitioner (AIF-C01)
-<a name="ai-practitioner-01"></a>
 
 The AWS Certified AI Practitioner (AIF-C01) exam is designed for individuals who want to demonstrate a foundational understanding of AI concepts and AWS AI tools. This certification focuses on practical business applications of AI.
 
@@ -60,16 +59,14 @@ The following list contains job tasks that the target candidate is not expected 
 ## Exam content
 <a name="ai-practitioner-01-exam-content"></a>
 
-### Question types
+### Response types
 <a name="ai-practitioner-01-question-types"></a>
 
-The exam contains one or more of the following question types:
-+ **Multiple choice:** Has one correct response and three incorrect responses (distractors).
-+ **Multiple response:** Has two or more correct responses out of five or more response options. You must select all the correct responses to receive credit for the question.
-+ **Ordering:** Has a list of 3–5 responses to complete a specified task. You must select the correct responses and place the responses in the correct order to receive credit for the question.
-+ **Matching:** Has a list of responses to match with a list of 3–7 prompts. You must match all the pairs correctly to receive credit for the question.
+There are two types of questions on the exam:
++ **Multiple choice:** Has one correct response and three incorrect responses (distractors)
++ **Multiple response:** Has two or more correct responses out of five or more response options
 
-Unanswered questions are scored as incorrect. There is no penalty for guessing. The exam includes 50 questions that affect your score.
+Unanswered questions are scored as incorrect; there is no penalty for guessing. The exam includes 50 questions that affect your score.
 
 ### Unscored content
 <a name="ai-practitioner-01-unscored-content"></a>
