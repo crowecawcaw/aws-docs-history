@@ -1,7 +1,6 @@
 
 
 # Integration use cases and required permissions
-<a name="integration-use-cases"></a>
 
 AWS Security Hub CSPM allows AWS customers to receive findings from APN Partners. The partner's products might run either inside or outside of the customer's AWS account. The permission configuration in the customer's account differs based on the model that the partner product uses.
 
@@ -37,7 +36,7 @@ Here is an example of an IAM policy that grants the principal in the partner acc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ Here is an example of an IAM policy that grants the necessary Security Hub CSPM 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -137,7 +136,7 @@ Here is an example of an IAM policy that grants the necessary Security Hub CSPM 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Resources for learning about AWS Security Hub CSPM
-<a name="sechub-information-resources"></a>
 
 The following materials can help you to better understand the AWS Security Hub CSPM solution and how AWS customers can use the service.
 + [Introduction to AWS Security Hub CSPM video](https://www.youtube.com/watch?v=o0NDi01YPXs)

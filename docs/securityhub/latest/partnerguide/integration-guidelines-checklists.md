@@ -1,7 +1,6 @@
 
 
 # Guidelines and checklists
-<a name="integration-guidelines-checklists"></a>
 
 As you prepare the required materials for your AWS Security Hub CSPM integration, use these guidelines.
 

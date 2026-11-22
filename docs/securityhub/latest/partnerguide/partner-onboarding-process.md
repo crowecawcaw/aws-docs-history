@@ -1,7 +1,6 @@
 
 
 # Partner onboarding process
-<a name="partner-onboarding-process"></a>
 
 As a partner, you can expect to complete several high-level steps as part of your onboarding process. You must complete these steps before you can send security findings to AWS Security Hub CSPM.
 

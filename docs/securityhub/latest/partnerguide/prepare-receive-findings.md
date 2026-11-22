@@ -1,7 +1,6 @@
 
 
 # Preparing to receive findings from AWS Security Hub CSPM
-<a name="prepare-receive-findings"></a>
 
 To receive findings from AWS Security Hub CSPM, use one of the following options:
 + Have your customers automatically send all findings to CloudWatch Events. A customer can create specific CloudWatch event rules to send findings to specific targets, such as a SIEM or an S3 bucket. 

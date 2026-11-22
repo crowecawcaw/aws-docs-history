@@ -1,7 +1,6 @@
 
 
 # Guidelines for mapping findings into the AWS Security Finding Format (ASFF)
-<a name="guidelines-asff-mapping"></a>
 
 Use the following guidelines to map your findings to the ASFF. For detailed descriptions of each ASFF field and object, see [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) in the *AWS Security Hub User Guide*.
 
@@ -23,7 +22,7 @@ Use the following guidelines to map your findings to the ASFF. For detailed desc
 
 Add longer detailed information to `Description`. `Description` is limited to 1024 characters, including spaces. You can consider adding truncation to descriptions. Here's an example:
 
-```
+```JSON
 "Title": "Instance i-12345678901 is vulnerable to CVE-2019-1234",
 "Description": "Instance i-12345678901 is vulnerable to CVE-2019-1234. This vulnerability affects version 1.0.1 of widget-1 and earlier, and can lead to buffer overflow when someone sends a ping.",
 ```

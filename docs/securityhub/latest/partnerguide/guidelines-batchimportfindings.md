@@ -1,7 +1,6 @@
 
 
 # Guidelines for using the `BatchImportFindings` API
-<a name="guidelines-batchimportfindings"></a>
 
 When using the [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) API operation to send findings to AWS Security Hub CSPM, use the following guidelines.
 + You must call [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) using the account that is associated with the findings. The identifier of the associated account is the value of the `AwsAccountId` attribute for the finding.

@@ -1,7 +1,6 @@
 
 
 # Partner prerequisites
-<a name="partner-prerequisites"></a>
 
 Before you can begin an integration with AWS Security Hub CSPM, you must meet one of the following criteria:
 + You are an AWS Select Tier Partner or above.

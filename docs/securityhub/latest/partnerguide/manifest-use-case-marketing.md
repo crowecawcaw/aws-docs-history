@@ -1,7 +1,6 @@
 
 
 # Use case and marketing information
-<a name="manifest-use-case-marketing"></a>
 
 The following use cases can help you configure AWS Security Hub CSPM for different purposes.
 

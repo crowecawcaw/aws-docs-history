@@ -1,7 +1,6 @@
 
 
 # Why integrate with AWS Security Hub CSPM?
-<a name="why-integrate"></a>
 
 AWS Security Hub CSPM provides a comprehensive view of high-priority security alerts and security status across Security Hub CSPM accounts. Security Hub CSPM allows partners like you to send security findings to Security Hub CSPM to provide your customers with insight into the security findings that you generate.
 

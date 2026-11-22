@@ -1,7 +1,6 @@
 
 
 # AWS Security Hub CSPM console information
-<a name="manifest-console-information"></a>
 
 Provide JSON text to the AWS Security Hub CSPM team that contains the following information. Security Hub CSPM uses this information to create your product ARN, display the providers list in the console, and include your proposed managed insights in the Security Hub CSPM insight library.
 

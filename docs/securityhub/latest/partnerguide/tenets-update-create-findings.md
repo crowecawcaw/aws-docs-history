@@ -1,7 +1,6 @@
 
 
 # Tenets for creating and updating findings
-<a name="tenets-update-create-findings"></a>
 
 As you plan how you will create and update findings in AWS Security Hub CSPM, keep the following tenets in mind.
 

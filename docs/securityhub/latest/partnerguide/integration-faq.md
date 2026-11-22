@@ -1,7 +1,6 @@
 
 
 # AWS Security Hub CSPM partner FAQ
-<a name="integration-faq"></a>
 
 The following are common questions about setting up and maintaining an integration with AWS Security Hub CSPM.
 
