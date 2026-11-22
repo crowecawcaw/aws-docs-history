@@ -1,7 +1,6 @@
 
 
 # Retail Customer Service Contact Center
-<a name="retail-contact-center"></a>
 
 Publication date: **December 9, 2021 ([Diagram history](#rcc-history))**
 
