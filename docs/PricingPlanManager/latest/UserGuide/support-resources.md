@@ -1,7 +1,6 @@
 
 
 # Support and Resources
-<a name="support-resources"></a>
 
 ## Getting Help
 <a name="getting-help"></a>

@@ -1,7 +1,6 @@
 
 
 # Overview of AWS Flat-Rate Pricing Plans
-<a name="overview"></a>
 
 ## What are AWS Flat-Rate Pricing Plans?
 <a name="what-are-plans"></a>

@@ -1,7 +1,6 @@
 
 
 # Understanding Your Bill
-<a name="understanding-bill"></a>
 
 ## AWS Invoice
 <a name="aws-invoice"></a>

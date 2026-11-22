@@ -1,7 +1,6 @@
 
 
 # Monitoring and Managing Costs
-<a name="monitoring-costs"></a>
 
 ## AWS Cost Explorer
 <a name="cost-explorer"></a>
@@ -79,7 +78,7 @@ Flat-rate plans appear in CUR as charge line items only. No usage metrics (reque
 
  **Monthly flat-rate charges (example: CloudFront)** 
 
-```
+```sql
 SELECT
   DATE_TRUNC('month', line_item_usage_start_date) AS month,
   line_item_usage_account_id,
@@ -93,7 +92,7 @@ ORDER BY month, total_cost DESC;
 
  **Charges by plan tier** 
 
-```
+```sql
 SELECT
   line_item_usage_type AS plan_tier,
   line_item_line_item_description AS plan_description,
@@ -108,7 +107,7 @@ ORDER BY total_cost DESC;
 
  **Resource-level charges** 
 
-```
+```sql
 SELECT
   line_item_resource_id,
   line_item_usage_type AS plan_tier,
@@ -123,7 +122,7 @@ ORDER BY total_cost DESC;
 
  **Department-level charges (requires cost allocation tags)** 
 
-```
+```sql
 SELECT
   resource_tags_user_department AS department,
   line_item_usage_type AS plan_tier,

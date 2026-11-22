@@ -1,7 +1,6 @@
 
 
 # Frequently Asked Questions
-<a name="frequently-asked-questions"></a>
 
  **Do I need an annual commitment?** 
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with the PricingPlanManager API
-<a name="getting-started-pricingplanmanager-api"></a>
 
 You can use the AWS CLI or the PricingPlanManager API to create, modify, and cancel flat-rate pricing plan subscriptions programmatically. The PricingPlanManager service manages subscriptions across plan families. Currently, `CloudFront` (CloudFront flat-rate pricing) is the only supported plan family.
 
@@ -55,7 +54,7 @@ We recommend using `MANUAL` approval mode for all programmatic workflows. You ca
 
 To enforce the two-phase pattern, grant your automated workflows (such as deployment pipelines, agents, or service roles) only the `pricingplanmanager:CreateSubscription` permission. Reserve the `pricingplanmanager:ApprovePaidSubscription` permission for roles that require human authorization (such as administrator roles used interactively).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -94,7 +93,7 @@ Creates a new pricing plan subscription for one or more resources. For CloudFron
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager create-subscription \
     --plan-family <value> \
     --plan-tier <value> \
@@ -118,7 +117,7 @@ aws pricing-plan-manager create-subscription \
 
  **Example request (recommended two-phase pattern)** 
 
-```
+```bash
 aws pricing-plan-manager create-subscription \
     --plan-family CloudFront \
     --plan-tier PRO \
@@ -130,7 +129,7 @@ aws pricing-plan-manager create-subscription \
 
  **Example response** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -163,7 +162,7 @@ Approves a subscription that is in `PENDING_APPROVAL` status. This activates the
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager approve-paid-subscription \
     --arn <value> \
     --if-match <value> \
@@ -181,7 +180,7 @@ aws pricing-plan-manager approve-paid-subscription \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager approve-paid-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v1aXample1234"
@@ -189,7 +188,7 @@ aws pricing-plan-manager approve-paid-subscription \
 
  **Example response** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -220,7 +219,7 @@ Retrieves the details of a single pricing plan subscription.
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager get-subscription \
     --arn <value>
 ```
@@ -234,14 +233,14 @@ aws pricing-plan-manager get-subscription \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager get-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
 ```
 
  **Example response** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -271,7 +270,7 @@ Lists all pricing plan subscriptions in your account.
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager list-subscriptions \
     [--next-token <value>]
 ```
@@ -285,13 +284,13 @@ aws pricing-plan-manager list-subscriptions \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager list-subscriptions
 ```
 
  **Example response** 
 
-```
+```json
 {
   "subscriptionSummaries": [
     {
@@ -321,7 +320,7 @@ Changes the plan tier or usage level of an existing subscription.
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager update-subscription \
     --arn <value> \
     --if-match <value> \
@@ -345,7 +344,7 @@ You must specify at least one of `--plan-tier` or `--usage-level`.
 
  **Example request (upgrade)** 
 
-```
+```bash
 aws pricing-plan-manager update-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v3cXample9012" \
@@ -355,7 +354,7 @@ aws pricing-plan-manager update-subscription \
 
  **Example response (upgrade)** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -376,7 +375,7 @@ aws pricing-plan-manager update-subscription \
 
  **Example request (downgrade)** 
 
-```
+```bash
 aws pricing-plan-manager update-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v4dXample3456" \
@@ -385,7 +384,7 @@ aws pricing-plan-manager update-subscription \
 
  **Example response (downgrade)** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -421,7 +420,7 @@ Cancels a pricing plan subscription. For paid plans, the cancellation is schedul
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager cancel-subscription \
     --arn <value> \
     --if-match <value> \
@@ -439,7 +438,7 @@ aws pricing-plan-manager cancel-subscription \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager cancel-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v4dXample3456"
@@ -447,7 +446,7 @@ aws pricing-plan-manager cancel-subscription \
 
  **Example response** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -484,7 +483,7 @@ Cancels a pending scheduled change (downgrade or cancellation) on a subscription
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager cancel-subscription-change \
     --arn <value> \
     --if-match <value> \
@@ -502,7 +501,7 @@ aws pricing-plan-manager cancel-subscription-change \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager cancel-subscription-change \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v6fXample1234"
@@ -510,7 +509,7 @@ aws pricing-plan-manager cancel-subscription-change \
 
  **Example response** 
 
-```
+```json
 {
   "subscription": {
     "arn": "arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -542,7 +541,7 @@ Adds one or more resources to an existing subscription. For CloudFront plans, us
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager associate-resources-to-subscription \
     --arn <value> \
     --if-match <value> \
@@ -562,7 +561,7 @@ aws pricing-plan-manager associate-resources-to-subscription \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager associate-resources-to-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v3cXample9012" \
@@ -583,7 +582,7 @@ Removes one or more optional resources from an existing subscription. You cannot
 
  **CLI syntax** 
 
-```
+```bash
 aws pricing-plan-manager disassociate-resources-from-subscription \
     --arn <value> \
     --if-match <value> \
@@ -603,7 +602,7 @@ aws pricing-plan-manager disassociate-resources-from-subscription \
 
  **Example request** 
 
-```
+```bash
 aws pricing-plan-manager disassociate-resources-from-subscription \
     --arn arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --if-match "v3cXample9012" \
@@ -627,7 +626,7 @@ This section shows end-to-end workflows using the AWS CLI.
 
 This workflow creates a subscription with manual approval, then approves it.
 
-```
+```bash
 # Step 1: Create the subscription
 read SUBSCRIPTION_ARN ETAG < <(aws pricing-plan-manager create-subscription \
     --plan-family CloudFront \
@@ -653,7 +652,7 @@ aws pricing-plan-manager approve-paid-subscription \
 
 This workflow retrieves a subscription, then upgrades it to a higher tier.
 
-```
+```bash
 # Step 1: Get the current subscription to retrieve the ETag
 SUBSCRIPTION_ARN="arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 
@@ -678,7 +677,7 @@ aws pricing-plan-manager update-subscription \
 
 This workflow downgrades a subscription. The downgrade is scheduled for the end of the billing period.
 
-```
+```bash
 # Step 1: Get the current subscription
 SUBSCRIPTION_ARN="arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 
@@ -700,7 +699,7 @@ aws pricing-plan-manager update-subscription \
 
 This workflow cancels a paid subscription, then undoes the cancellation before it takes effect.
 
-```
+```bash
 SUBSCRIPTION_ARN="arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 
 # Step 1: Get the current subscription
@@ -806,7 +805,7 @@ A `CloudFront` plan subscription requires both a CloudFront distribution and an 
 
 The following example creates a web ACL in the `CLOUDFRONT` scope with the AWS Managed Rules rule groups that correspond to the default one-click protection applied in the CloudFront console. The `AWSManagedRulesCommonRuleSet` and `AWSManagedRulesAmazonIpReputationList` rule groups provide baseline protection suitable for most applications.
 
-```
+```bash
 aws wafv2 create-web-acl \
     --name my-plan-web-acl \
     --scope CLOUDFRONT \
@@ -871,7 +870,7 @@ The response includes the web ACL’s ARN under `Summary.ARN`. Note this ARN �
 
 Create a distribution that references the web ACL from Step 1. In the distribution configuration, set the `WebACLId` field to the web ACL ARN you noted previously. The following example creates a distribution from a configuration file.
 
-```
+```bash
 aws cloudfront create-distribution \
     --distribution-config file://distribution-config.json
 ```
@@ -882,7 +881,7 @@ The response includes the distribution’s ARN under `Distribution.ARN` and its 
 
 Create the subscription, passing both the distribution ARN and the web ACL ARN in `resourceArns`. When you run this interactively and are ready to start billing, use `IMMEDIATE` approval mode to create and activate the subscription in a single step.
 
-```
+```bash
 aws pricing-plan-manager create-subscription \
     --plan-family CloudFront \
     --plan-tier BUSINESS \
@@ -903,7 +902,7 @@ For `BUSINESS` and `PREMIUM` plans, we recommend adding the AWS WAF Anti-DDoS ma
 
 Add the following rule to the `--rules` array shown previously (adjust `Priority` so it doesn’t collide with your other rules):
 
-```
+```json
 {
     "Name": "AWS-AWSManagedRulesAntiDDoSRuleSet",
     "Priority": 3,
@@ -947,7 +946,7 @@ The PricingPlanManager API returns the following error types. Handle these in yo
 
 Because the PricingPlanManager API uses optimistic concurrency, your application should handle `ConflictException` gracefully. The recommended pattern is to retrieve the latest ETag and retry the operation:
 
-```
+```bash
 SUBSCRIPTION_ARN="arn:aws:pricingplanmanager:us-east-1:111122223333:subscription/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 
 # Get the latest ETag
@@ -968,7 +967,7 @@ aws pricing-plan-manager update-subscription \
 
 If you receive a `ThrottlingException` (HTTP 429), wait before retrying. Implement exponential backoff in your scripts by increasing the wait time between retries:
 
-```
+```bash
 MAX_RETRIES=5
 ATTEMPT=0
 

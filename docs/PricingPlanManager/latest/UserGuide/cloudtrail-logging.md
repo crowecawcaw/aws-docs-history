@@ -1,7 +1,6 @@
 
 
 # Logging AWS Flat-Rate Plans Activity Using AWS CloudTrail
-<a name="cloudtrail-logging"></a>
 
 AWS Flat-Rate Plans is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to record all console actions as events. CloudTrail captures details about each action, including the source IP address, timestamp, and user identity. Each CloudTrail event identifies whether the action was performed by:
 + Root user or IAM user credentials
@@ -16,7 +15,7 @@ For flat-rate plans, the `eventSource` is `pricingplanmanager.amazonaws.com`.
 
 The following example shows a CloudTrail log entry that demonstrates the action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

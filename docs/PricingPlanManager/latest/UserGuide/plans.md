@@ -1,7 +1,6 @@
 
 
 # Available Plans
-<a name="plans"></a>
 
 ## CloudFront Flat-Rate Plans
 <a name="cloudfront-plans"></a>
