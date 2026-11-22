@@ -1,7 +1,6 @@
 
 
 # Manufacturing Data Lake on AWS
-<a name="manufacturing-data-lake"></a>
 
 Publication date: **June 29, 2020 ([Diagram history](#mdl-diagram-history))**
 
