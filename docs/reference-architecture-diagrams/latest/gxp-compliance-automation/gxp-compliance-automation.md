@@ -1,7 +1,6 @@
 
 
 # GxP Compliance Automation
-<a name="gxp-compliance-automation"></a>
 
 Publication date: **May 6, 2021 ([Diagram history](#gxp-history))**
 
