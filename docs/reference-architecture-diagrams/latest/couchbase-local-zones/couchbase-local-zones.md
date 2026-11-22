@@ -1,7 +1,6 @@
 
 
 # Couchbase on AWS Local Zones for Low Latency Edge Use Case
-<a name="couchbase-local-zones"></a>
 
 Publication date: **December 25, 2021 ([Diagram history](#diagram-history))**
 
