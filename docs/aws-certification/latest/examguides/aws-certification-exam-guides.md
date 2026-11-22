@@ -1,7 +1,6 @@
 
 
 # AWS Certification Exam Guides
-<a name="aws-certification-exam-guides"></a>
 
 AWS Certification validates cloud expertise to help professionals highlight in-demand skills and organizations build effective, innovative teams for cloud initiatives using AWS.
 
