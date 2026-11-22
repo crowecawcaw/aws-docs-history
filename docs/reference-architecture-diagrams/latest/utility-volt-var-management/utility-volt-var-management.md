@@ -1,7 +1,6 @@
 
 
 # Utility Volt-VAR Management Framework
-<a name="utility-volt-var-management"></a>
 
 Publication date: **February 22, 2022 ([Diagram history](#vvo-history))**
 
