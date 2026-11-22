@@ -1,7 +1,6 @@
 
 
 # Streaming audio
-<a name="al-streaming"></a>
 
 Ambient documentation processes audio in real time over a streaming connection. Your application opens a connection, sends audio chunks as event-encoded messages, and receives transcription results as the conversation progresses. Ambient documentation supports two streaming transports: HTTP/2 and WebSocket (`wss://`). Both transports deliver the same capability, with the same authentication and authorization requirements, quotas, and throttling. Session behavior — creation, streaming, and termination — is identical across both transports.
 
@@ -52,7 +51,7 @@ The SDK handles connection setup, request signing, and event-stream encoding for
 
 The following code example shows how to set up an Amazon Connect Health ambient documentation streaming session using the AWS SDK for Java 2.x. It captures audio from a microphone, publishes it as a sequence of configuration, audio, and session control events, and prints transcript segments as they arrive.
 
-```
+```java
 package com.example.connecthealth;
 
 import io.reactivex.rxjava3.core.BackpressureStrategy;
@@ -310,7 +309,7 @@ No new IAM action is required for WebSocket. The service authorizes WebSocket co
 
 The following example shows the format of a presigned WebSocket URL. Line breaks are added for readability.
 
-```
+```text
 wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket
     ?X-Amz-Algorithm=AWS4-HMAC-SHA256
     &X-Amz-Credential=<access-key>/<date>/<region>/health-agent/aws4_request
@@ -328,7 +327,7 @@ Every event-stream frame you send after the upgrade — configuration, audio, an
 
 To sign a frame, build a string to sign using the `AWS4-HMAC-SHA256-PAYLOAD` algorithm, then compute an HMAC-SHA256 over it with a SigV4 signing key derived for the request date, Region, and `health-agent` service. The string to sign has the following format:
 
-```
+```text
 AWS4-HMAC-SHA256-PAYLOAD
 <date>                       # signing time, ISO 8601 basic format (YYYYMMDDTHHMMSSZ)
 <date-stamp>/<region>/health-agent/aws4_request
@@ -403,7 +402,7 @@ Whatever language or transport you use, the pattern is the same:
 
 Language-agnostic pseudocode:
 
-```
+```text
 CHUNK_SIZE = 30720          # bytes; <= service max of 32000
 SEND_INTERVAL_MS = 700      # pace sends at roughly real time
 
@@ -419,7 +418,7 @@ send_session_control_event(END_OF_SESSION)
 
 The AWS SDKs stream over HTTP/2 and handle SigV4 signing for you; your responsibility is to feed audio in appropriately sized chunks at a real-time pace. For example, with the AWS SDK for Java 2.x you read the source in `CHUNK_SIZE_IN_BYTES` buffers and publish each buffer as a `MedicalScribeAudioEvent`:
 
-```
+```java
 static final int CHUNK_SIZE_IN_BYTES = 30720; // <= 32000 (service max)
 
 byte[] audioBytes = new byte[CHUNK_SIZE_IN_BYTES];

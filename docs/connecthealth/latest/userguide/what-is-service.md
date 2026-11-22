@@ -1,7 +1,6 @@
 
 
 # What is Amazon Connect Health?
-<a name="what-is-service"></a>
 
 Amazon Connect Health is an AI-powered healthcare service that helps healthcare organizations reduce administrative and documentation burden across the patient journey. Its agents are pre-built and fully managed. You don’t train models or manage infrastructure.
 
@@ -33,11 +32,11 @@ Use this table to identify which family of agents applies to you. Everything els
 |  | Patient engagement agents | Point of care agents | 
 | --- | --- | --- | 
 | Built for | Health systems and provider organizations | Healthcare technology builders, such as electronic health record (EHR) vendors and independent software vendors (ISVs) | 
-| What they do | Verify patient identity and manage appointments through voice conversations | Generate pre-visit summaries, clinical documentation, and suggested medical codes for clinician and coder review | 
+| What they do | Verify patient identity, manage appointments and prescription refills, reset MyChart passwords, and answer general questions through voice conversations | Generate pre-visit summaries, clinical documentation, and suggested medical codes for clinician and coder review | 
 | How you access them | Through your contact center | Amazon Connect Health SDKs and APIs, integrated into your own application | 
 | Contact center | Required. Patient engagement agents are used through a Contact Center as a Service (CCaaS) solution. Amazon Connect Customer is natively supported. For other CCaaS solutions, contact your AWS account team. | Not required | 
 | EHR and data integration | Epic EHR integration is natively supported through the Amazon Connect Health application for Epic, using Fast Healthcare Interoperability Resources (FHIR) R4 APIs and Epic private APIs. See [Epic EHR integration](epic-ehr-integration.md). For other EHRs, contact your AWS account team. | Clinical data is retrieved through FHIR APIs (AWS HealthLake or another FHIR server) and Amazon S3 | 
-| Agents | Patient verification, Appointment management | Patient insights, Ambient documentation, Medical coding | 
+| Agents | Patient verification, Appointment management, Prescription management, MyChart password reset, Information assistance | Patient insights, Ambient documentation, Medical coding | 
 
 The following diagram shows how each family connects to your systems. Patient engagement agents are used through your contact center and work with your EHR. Point of care agents are embedded in your application and work with FHIR data and Amazon S3.
 
@@ -52,8 +51,11 @@ Patient engagement agents handle inbound and outbound voice interactions with pa
 
 | Agent | What it does | Status | 
 | --- | --- | --- | 
-| Patient verification | Verifies patient identity at the start of a call by matching caller information against EHR records. | Generally available | 
-| Appointment management | Helps patients schedule, reschedule, and cancel appointments through voice conversations, with optional real-time insurance eligibility verification. | Preview | 
+| Patient verification | Verifies patient identity at the start of a call by matching patient demographic information against EHR records. | Generally available | 
+| Appointment management | Helps patients schedule, reschedule, cancel, and look up appointments following your specialty workflows, including open and direct scheduling configurations, with optional real-time insurance eligibility checks. | Generally available | 
+| Prescription management | Handles refill requests and refill status for existing prescriptions that your health system pharmacy fills. Clinical medication questions transfer to a person. | Generally available | 
+| MyChart password reset | Sends a MyChart password reset link to a verified patient by email or text message. | Generally available | 
+| Information assistance | Answers general, non-clinical questions, such as hours, directions, and parking, from the knowledge base that you provide. | Generally available | 
 
 ### Deep integration with Amazon Connect Customer
 <a name="deep-integration-amazon-connect-customer"></a>
@@ -73,7 +75,7 @@ Point of care agents assist clinicians and coders across the visit (before, duri
 | --- | --- | --- | 
 | Patient insights | Generates pre-visit summaries that consolidate patient history, medications, and recent lab results, retrieved through FHIR APIs (AWS HealthLake or another FHIR server) and Amazon S3. | Preview | 
 | Ambient documentation | Captures patient-clinician conversations in real time and generates structured clinical documentation for provider review. | Generally available | 
-| Medical coding | Generates International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM) diagnosis codes and Current Procedural Terminology (CPT) procedure and service codes, with modifiers, from clinical documentation. Each code is linked to the evidence that supports it. | Gated preview | 
+| Medical coding | Generates International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM) diagnosis codes and Current Procedural Terminology (CPT) procedure and service codes, with modifiers, from clinical documentation. Each code is linked to the evidence that supports it. | Preview | 
 
 ## Model training, evaluation, and guardrails
 <a name="model-training-evaluation-and-guardrails"></a>
@@ -113,12 +115,12 @@ Amazon Connect Health is available in the following AWS Regions. Availability di
 
 | Region name | Region code | Patient engagement agents | Point of care agents | 
 | --- | --- | --- | --- | 
-| US East (N. Virginia) | us-east-1 | Patient verification (generally available), Appointment management (preview) | Patient insights (preview), Ambient documentation (generally available), Medical coding (gated preview) | 
-| US West (Oregon) | us-west-2 | Patient verification (generally available), Appointment management (preview) | Patient insights (preview), Ambient documentation (generally available), Medical coding (gated preview) | 
+| US East (N. Virginia) | us-east-1 | Patient verification (generally available), Appointment management (preview) | Patient insights (preview), Ambient documentation (generally available), Medical coding (preview) | 
+| US West (Oregon) | us-west-2 | Patient verification (generally available), Appointment management (preview) | Patient insights (preview), Ambient documentation (generally available), Medical coding (preview) | 
 | Europe (London) | eu-west-2 | Not available | Ambient documentation (preview) | 
 
 **Note**  
-Preview and gated preview agents are subject to change and are not intended for production use. Gated preview agents additionally require access to be granted by your AWS account team.
+Preview agents are subject to change and are not intended for production use.
 
 ## Related services
 <a name="related-services"></a>

@@ -1,15 +1,11 @@
 
 
 # Getting started with medical coding
-<a name="mc-getting-started"></a>
 
 This tutorial walks you through a single medical coding job from end to end. Each step links to a topic with full detail. Use this page to understand the flow, and the linked topics as reference when you build.
 
 ![Request flow: start a medical coding job, poll its status, then read the results file from Amazon S3.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/medical-coding-request-sequence.png)
 
-
-**Important**  
-Medical coding is a gated preview feature. Complete the access request with your AWS account team before you begin.
 
 **Topics**
 + [Prerequisites](#mc-gs-prerequisites)
@@ -23,7 +19,6 @@ Medical coding is a gated preview feature. Complete the access request with your
 <a name="mc-gs-prerequisites"></a>
 
 Before you start, make sure you have:
-+ Gated preview access to medical coding, granted through your AWS account team.
 + An Amazon Connect Health domain in a supported Region (`us-east-1` or `us-west-2`).
 + An Amazon S3 bucket to receive job output.
 + A submission rate within the default quotas: 5 `StartMedicalCodingJob` and 10 `GetMedicalCodingJob` requests per second per account and Region. See [Quotas for Amazon Connect Health](connecthealth-quotas.md).
@@ -31,7 +26,7 @@ Before you start, make sure you have:
 + The authorizations your organization requires to send protected health information (PHI) to AWS. Clinical documentation contains PHI. If you are subject to HIPAA, you must have a Business Associate Addendum (BAA) with AWS in place before you send PHI. See [Compliance validation for Amazon Connect Health](compliance-validation.md).
 
 **Note**  
-During the gated preview, SDK and CLI support for the medical coding APIs is provided by your AWS account team as part of onboarding. These operations are not yet available in the generally available AWS SDKs. In the preview SDKs, the operations are on the `HealthAgent` client. In the AWS CLI, they are `aws health-agent start-medical-coding-job` and `aws health-agent get-medical-coding-job`.
+In the AWS SDKs, the medical coding operations are on the `ConnectHealth` client. In the AWS CLI, they’re under `aws connecthealth`, for example `aws connecthealth start-medical-coding-job` and `aws connecthealth get-medical-coding-job`. IAM actions and ARNs use the `health-agent` prefix. For the full request and response syntax, see [StartMedicalCodingJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_StartMedicalCodingJob.html) and [GetMedicalCodingJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetMedicalCodingJob.html) in the *Amazon Connect Health API Reference*.
 
 **Tip**  
 The model is currently optimized for primary care. For your first jobs, use primary care documentation so that you evaluate the model where it performs best. If your use case is another specialty, see [Specialty scope and model performance](medical-coding.md#mc-specialty-scope).
@@ -41,7 +36,7 @@ The model is currently optimized for primary care. For your first jobs, use prim
 
 The following policy allows a caller to start and get medical coding jobs in one domain. The actions support resource-level permissions on the domain and on its medical coding jobs. Medical coding supports only the AWS global condition keys.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -65,15 +60,15 @@ The caller also needs `s3:PutObject` on the output location. `StartMedicalCoding
 ## Step 1: Submit a coding job
 <a name="mc-gs-step1"></a>
 
-Call `StartMedicalCodingJob` with your clinical documentation in the `text` field and an S3 output location in `outputDataConfig.s3OutputPath`. Also include the `encounterContext` and `patientContext` fields. They are optional, but they are important for optimal coding accuracy, because the visit and patient details change which codes apply. For a complete example request and every allowed value, see [Medical coding inputs](mc-inputs.md).
+Call `StartMedicalCodingJob` with your clinical documentation in the `text` field and an S3 output location in `outputDataConfig.s3OutputPath`. Also include the `encounterContext` and `patientContext` fields. They are optional, but they are important for optimal coding accuracy, because the visit and patient details change which codes apply. For a complete example request and every allowed value, see [Medical coding inputs](mc-inputs.md). To code against a site-specific dataset, also include its `datasetId`. See [Use a dataset in a coding job](mc-datasets.md#mc-ds-use).
 
-```
+```text
 POST /domain/{domainId}/medical-coding-job
 ```
 
 The response returns a `jobId` that identifies the job:
 
-```
+```json
 {
   "creationTime": "2026-10-03T14:05:12Z",
   "jobArn": "arn:aws:health-agent:us-east-1:111122223333:domain/dom-a1b2c3d4e5f6g7h8/medical-coding-job/4f9c2e1a-7b3d-4e8a-9c21-5d6f0a1b2c3d",
@@ -86,7 +81,7 @@ The response returns a `jobId` that identifies the job:
 
 Medical coding runs asynchronously. Poll `GetMedicalCodingJob` with your domain ID and the `jobId` (1 to 36 characters) returned in Step 1. The request has no body.
 
-```
+```text
 GET /domain/{domainId}/medical-coding-job/{jobId}
 ```
 
@@ -95,14 +90,14 @@ Check `jobStatus`, which moves from `SUBMITTED` to `IN_PROGRESS` and then to `SU
 ## Step 3: Retrieve the suggested codes
 <a name="mc-gs-step3"></a>
 
-When `jobStatus` is `SUCCEEDED`, the response includes `medicalCodingOutput.uri`, the S3 location of the results file. Read that file. It contains a `medicalCodes` array. Each code gives its code system, a description, the linked diagnoses, the supporting evidence passages, any modifiers, and a confidence score. For an example response, the full structure of the results file, and rendering guidance, see [Medical coding outputs](mc-outputs.md).
+When `jobStatus` is `SUCCEEDED`, the response includes `medicalCodingOutput.uri`, the S3 location of the results file. Read that file. It contains a `medicalCodes` array. Each code gives its code system, a description, the linked ICD-10-CM diagnoses, the supporting evidence passages, any modifiers, and a confidence score. For an example response, the full structure of the results file, and rendering guidance, see [Medical coding outputs](mc-outputs.md).
 
 ## End-to-end example
 <a name="mc-gs-end-to-end"></a>
 
-The following language-neutral sketch shows the full flow for one encounter. Map each call to the equivalent method on the `HealthAgent` client in your SDK.
+The following language-neutral sketch shows the full flow for one encounter. Map each call to the equivalent operation on the `ConnectHealth` client in your SDK.
 
-```
+```text
 # One clientToken per encounter, so a retry never creates a duplicate job
 token = "encounter-" + encounter_id
 
@@ -133,4 +128,6 @@ codes = read_json_from_s3(result.medicalCodingOutput.uri)["medicalCodes"]
 <a name="mc-gs-next-steps"></a>
 + Choose where medical coding fits in your revenue cycle: at the point of care, in a coding workbench, or in an autonomous coding pipeline. See [Integrating medical coding into your workflows](mc-integration.md).
 + Build a review experience that lets coders accept, reject, or modify each suggestion. See [Medical coding outputs](mc-outputs.md).
++ Have jobs reference how your organization codes by creating a site-specific dataset. See [Site-specific medical coding](mc-site-specific.md).
++ Send the final codes for a job back as feedback. See [Submitting feedback on medical codes](mc-feedback.md).
 + If a job fails or an API call is rejected, see [Troubleshooting medical coding](mc-troubleshooting.md).

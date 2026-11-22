@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon Connect Health
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon Connect Health. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](http://aws.amazon.com/compliance/data-privacy-faq). For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr) blog post on the *AWS Security Blog*.
 
@@ -19,11 +18,11 @@ We strongly recommend that you never put confidential or sensitive information, 
 <a name="data-handled"></a>
 
 Amazon Connect Health handles a variety of data related to healthcare interactions, including but not limited to the following categories:
-+  **Patient data** — Patient information retrieved in real time from EHR systems or other external data sources during each interaction.
-+  **Call transcripts** — Retained in the customer’s Amazon Connect instance for the customer-configured retention period.
-+  **Contact Trace Records (CTRs)** — Retained in Amazon Connect for up to 24 months.
-+  **CloudWatch Logs** — Retained per the customer-configured log group retention policy.
-+  **Domain and agent configurations** — Resources and configurations including domains, agents, agent versions, and integrations.
++  **Patient data** – Patient information retrieved in real time from EHR systems or other external data sources during each interaction.
++  **Call transcripts** – Retained in your Amazon Connect Customer instance for the customer-configured retention period.
++  **Contact Trace Records (CTRs)** – Retained in Amazon Connect Customer for up to 24 months.
++  **CloudWatch Logs** – Retained per the customer-configured log group retention policy.
++  **Domain and agent configurations** – Resources and configurations including domains, agents, agent versions, and integrations.
 
 ## Encryption at rest
 <a name="encryption-rest"></a>
@@ -39,26 +38,40 @@ All data exchanged with Amazon Connect Health is protected in transit using indu
 + Communications between the user’s web browser and Amazon Connect Health
 + Patient calls and agent workspace communications
 + EHR API requests and responses
-+ Integrations with AWS services such as AWS Lambda, Amazon Bedrock, and Amazon Connect
++ Integrations with AWS services such as AWS Lambda, Amazon Bedrock, and Amazon Connect Customer
 
 When Amazon Connect Health integrates with AWS services, data is always encrypted in transit using TLS.
 
 ## PHI handling
 <a name="phi-handling"></a>
 
-Amazon Connect Health does not store Patient Health Info (PHI) outside of an active call session — once a patient interaction ends, no PHI is retained within the service layer, minimizing compliance exposure for healthcare customers.
+By default, Amazon Connect Health does not retain protected health information (PHI) after a call ends. If memory and personalization is turned on for your domain, Amazon Connect Health keeps a limited amount of structured information between calls so that a patient can resume an unfinished task or reuse an earlier choice. For more information, see [Memory and personalization](pe-memory.md).
 
-For Amazon Connect Health patient engagement workflows integrated with Amazon Connect contact center features, customers can rely on Connect’s native PHI handling. Amazon Connect provides proactive PHI redaction in chats and transcripts, encrypts data in transit, and manages customer profiles securely. For example, customers can enable Connect Contact Lens sensitive data blocking to prevent PHI from being stored in plain text.
+For Amazon Connect Health patient engagement workflows integrated with Amazon Connect Customer contact center features, Amazon Connect Customer handles PHI at the contact center layer. For more information about how Amazon Connect Customer protects your data, including encryption, see [Data protection in Amazon Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/data-protection.html) in the *Amazon Connect Customer Administrator Guide*.
 
-Both services are HIPAA eligible. Together, the two services form a layered approach: Amazon Connect Health handles session-scoped PHI securely at the agentic layer, while Amazon Connect provides PHI protection controls at the contact center infrastructure level.
+Both services are HIPAA eligible. Together, the two services form a layered approach: Amazon Connect Health handles PHI securely at the agentic layer, while Amazon Connect Customer provides PHI protection controls at the contact center infrastructure level.
+
+### Memory and personalization
+<a name="phi-patient-memory"></a>
+
+When memory and personalization is turned on for your domain, Amazon Connect Health keeps a limited amount of structured information between calls. It stores this information in Amazon Bedrock AgentCore Memory, in a memory resource that Amazon Connect Health manages for your domain. There is one store for each domain, and the information is keyed by patient.
+
+Amazon Connect Health stores only structured values, such as record identifiers, categories, and dates. It screens free text before saving and does not store free text. Amazon Connect Health keeps the following information:
++  **Unfinished appointment tasks** – The appointment, appointment type, department, provider, coverage ID, search constraints, and how the call ended, kept for 30 days. A chosen time slot is kept for 24 hours.
++  **Unfinished password resets** – The reset channel and the send attempt, kept for 30 days.
++  **Preferences** – Preferences such as provider by appointment type, time of day (morning, afternoon, or evening), location, and reset channel. Amazon Connect Health uses a preference only when the patient has made the same choice at least two times in the last 30 days. Stored preference signals expire after 365 days.
+
+Amazon Connect Health deletes a task record when the patient completes the task or declines to resume it. Amazon Connect Health deletes all stored information for a domain when you delete the domain.
+
+Amazon Connect Health encrypts stored information with the customer managed AWS KMS key that you set for the domain. If the domain does not have a customer managed key, Amazon Connect Health uses an AWS owned key. The key encrypts all stored information, including patient identifiers.
 
 ## Cross-Region Inference (CRIS) disclosure
 <a name="cris-disclosure"></a>
 
 Amazon Connect Health uses Amazon Bedrock foundation models to power AI capabilities. Customers need to be aware of the following:
-+  **Cross-Region Inference** — Depending on your AWS Region and model availability, inference requests might be processed across AWS Regions to optimize performance and availability. All data transmission occurs within the AWS secure infrastructure with end-to-end encryption. For detailed information about Amazon Bedrock’s cross-region inference capabilities and data handling practices, refer to the [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/).
-+  **Compliance considerations** — Organizations using Amazon Connect Health agents need to review their data residency requirements and ensure alignment with their HIPAA Business Associate Agreement (BAA) with AWS. The service maintains HIPAA eligibility across all supported Regions.
-+  **Model usage** — The agents use Amazon Bedrock models in accordance with provider license restrictions. All usage complies with the AWS Responsible AI Policy and provider-specific restrictions.
++  **Cross-Region Inference** – Depending on your AWS Region and model availability, inference requests might be processed across AWS Regions to optimize performance and availability. All data transmission occurs within the AWS secure infrastructure with end-to-end encryption. For detailed information about Amazon Bedrock’s cross-region inference capabilities and data handling practices, refer to the [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/).
++  **Compliance considerations** – Organizations using Amazon Connect Health agents need to review their data residency requirements and ensure alignment with their HIPAA Business Associate Addendum (BAA) with AWS. The service maintains HIPAA eligibility across all supported Regions.
++  **Model usage** – The agents use Amazon Bedrock models in accordance with provider license restrictions. All usage complies with the AWS Responsible AI Policy and provider-specific restrictions.
 
 ## Service improvement and how to opt out
 <a name="service-improvement"></a>
@@ -66,8 +79,8 @@ Amazon Connect Health uses Amazon Bedrock foundation models to power AI capabili
 You can always choose to opt out of having your data used to develop and improve the AI features of Amazon Connect Health by using an AWS Organizations opt-out policy. For information about how to opt out, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) in the *AWS Organizations User Guide*.
 
 Amazon Connect Health supports two opt-out types that you can set independently in your AWS Organizations opt-out policy:
-+  `connecthealth::operations` — Opts out of having your content used for quality evaluations and troubleshooting. When you stay opted in, Amazon Connect Health can proactively detect problems and improve performance and quality.
-+  `connecthealth::training` — Opts out of using de-identified data for training general service models used for Amazon Connect Health.
++  `connecthealth::operations` – Opts out of having your content used for quality evaluations and troubleshooting. When you stay opted in, Amazon Connect Health can proactively detect problems and improve performance and quality.
++  `connecthealth::training` – Opts out of using de-identified data for training general service models used for Amazon Connect Health.
 
 To check your opt-out status, review the opt-out policy configured by your organization. For more information, see [AI services opt-out policy syntax and examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.html#ai-opt-out-policy-syntax-reference).
 

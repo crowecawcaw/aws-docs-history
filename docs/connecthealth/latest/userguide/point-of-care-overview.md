@@ -1,13 +1,12 @@
 
 
 # Point of care agents
-<a name="point-of-care-overview"></a>
 
 Amazon Connect Health point of care features are AI-powered capabilities that streamline administrative workflows in outpatient clinical settings. Point of care agentic capabilities combine speech recognition, generative AI, and reasoning to reduce documentation burden for clinicians and back-office staff.
 
 Point of care features operate within a domain that you provision in your AWS account. Each feature accepts inputs (such as a real-time audio stream of a patient-clinician conversation, patient context from the EHR, a clinical note template, or finalized clinical documentation) and produces structured outputs for provider review, including clinical documentation, evidence mappings, after-visit summaries, and suggested medical codes.
 
-Point of care agents include patient insights (preview), ambient documentation (generally available), and medical coding (gated preview). Each agent supports a different stage of the visit. The agents don’t pass outputs to each other. Your application decides what to send to each agent. For example, it can send the pre-visit summary from patient insights to ambient documentation as encounter context (optional), and submit the clinical note from ambient documentation to medical coding.
+Point of care agents include patient insights (preview), ambient documentation (generally available), and medical coding (preview). Each agent supports a different stage of the visit. The agents don’t pass outputs to each other. Your application decides what to send to each agent. For example, it can send the pre-visit summary from patient insights to ambient documentation as encounter context (optional), and submit the clinical note from ambient documentation to medical coding.
 
 ![Point of care agents across a visit: patient insights before, ambient documentation during, and medical coding after.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/point-of-care-visit-timeline.png)
 
@@ -39,9 +38,9 @@ Point of care agents are available in the following AWS Regions. Availability di
 
 | Region name | Region code | Point of care agents | 
 | --- | --- | --- | 
-| US East (N. Virginia) |  `us-east-1`  | Patient insights (preview), Ambient documentation (generally available), Medical coding (gated preview) | 
-| US West (Oregon) |  `us-west-2`  | Patient insights (preview), Ambient documentation (generally available), Medical coding (gated preview) | 
+| US East (N. Virginia) |  `us-east-1`  | Patient insights (preview), Ambient documentation (generally available), Medical coding (preview) | 
+| US West (Oregon) |  `us-west-2`  | Patient insights (preview), Ambient documentation (generally available), Medical coding (preview) | 
 | Europe (London) |  `eu-west-2`  | Ambient documentation (preview) | 
 
 **Note**  
-Preview and gated preview agents are subject to change and are not intended for production use. Gated preview agents additionally require access to be granted by your AWS account team.
+Preview agents are subject to change and are not intended for production use.

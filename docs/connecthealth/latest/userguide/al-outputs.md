@@ -1,7 +1,6 @@
 
 
 # Storage and outputs
-<a name="al-outputs"></a>
 
 **Topics**
 + [Storage](#al-storage)
@@ -31,7 +30,16 @@ Ambient documentation generates three output files:
 ### Transcript file
 <a name="al-transcript"></a>
 
-The transcript file contains turn-by-turn transcription with word-level timestamps. Amazon Connect Health adds participant role detection, labeling each speaker as CLINICIAN or PATIENT. If a conversation has more than one participant in each category, each participant is assigned a number (for example, `CLINICIAN_0`, `CLINICIAN_1`).
+The transcript file contains turn-by-turn transcription with word-level timestamps. Amazon Connect Health adds participant role detection, labeling each transcript segment with one of the following `ParticipantRole` values:
++  `CLINICIAN` 
++  `PATIENT` 
++  `NURSE` 
++  `CAREGIVER` 
++  `UNKNOWN` – Amazon Connect Health couldn’t determine the role of the speaker.
+
+If more than one speaker has the same role (for example, two clinicians), all of their segments use the same label, and the transcript doesn’t distinguish between them.
+
+If you use channel identification, the role for each channel comes from the channel definitions in your request, and each segment is labeled `CLINICIAN` or `PATIENT`. Channel identification supports up to two channels.
 
 ### Clinical documentation and evidence mapping file
 <a name="al-clinical-doc"></a>

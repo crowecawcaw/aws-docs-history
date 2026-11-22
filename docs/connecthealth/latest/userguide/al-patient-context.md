@@ -1,7 +1,6 @@
 
 
 # Encounter context
-<a name="al-patient-context"></a>
 
 Encounter context provides the agent with clinical history before the conversation through the `encounterContext` API parameter. The `encounterContext` object contains the field `unstructuredContext`, which accepts free-form text that gives the service background that isn’t spoken aloud during the visit. When you include encounter context, the agent uses it to enrich the generated documentation with background information that was not explicitly discussed during the visit. Encounter context is optional — if you omit it, the session still runs, but providing it helps the service generate a more accurate and complete note, because providers rarely restate a patient’s full history out loud.
 
@@ -81,7 +80,7 @@ If your source system (for example, an EHR) can emit characters outside the supp
 
  **Before / after** 
 
-```
+```text
 Before:  Temp 38°C, follow-up in 2–3 weeks — see notes.
 After:   Temp 38 degrees C, follow-up in 2-3 weeks - see notes.
 ```
@@ -91,7 +90,7 @@ After:   Temp 38 degrees C, follow-up in 2-3 weeks - see notes.
 
 The supported set includes the `|`, `#`, `*`, `[`, `]`, `(`, `)`, `{`, and `}` characters, so you can format context as Markdown — including headings, lists, and tables — to present structured information clearly. For example, a medication list as a Markdown table:
 
-```
+```text
 ## Current medications
 
 | Medication | Dose   | Frequency   |
@@ -105,7 +104,7 @@ The following example uses fictional patient data for illustration purposes only
 
  **Example encounter context** 
 
-```
+```text
 ## Patient Information
 Name: Patricia Underwood
 Age: 28 years

@@ -1,18 +1,18 @@
 
 
 # Medical coding inputs
-<a name="mc-inputs"></a>
 
-A medical coding job requires the clinical documentation and an output location in the request body, and your domain ID in the request path. Two optional context objects describe the encounter and the patient.
+A medical coding job requires the clinical documentation and an output location in the request body, and your domain ID in the request path. Two optional context objects describe the encounter and the patient. An optional `datasetId` names a site-specific dataset to code against.
 
 
 | Parameter | Required | Purpose | 
 | --- | --- | --- | 
 |  `text`  | Yes | The clinical documentation to generate codes from | 
 |  `outputDataConfig.s3OutputPath`  | Yes | The S3 location where results are written | 
-|  `encounterContext`  | No | Context about the encounter: type, reason, and timing | 
+|  `encounterContext`  | No | Context about the encounter: type, reason, timing, date, and duration | 
 |  `patientContext`  | No | Context about the patient: sex, status, date of birth, and insurance | 
 |  `domainId` (request path) | Yes | Your Amazon Connect Health domain ID: 20 to 25 characters, beginning with `hai-` or `dom-`  | 
+|  `datasetId`  | No | The `ACTIVE` site-specific dataset in this domain to code against. When omitted, the job uses the generalized knowledge base. See [Site-specific dataset](#mc-input-dataset). | 
 |  `clientToken`  | No | Case-sensitive idempotency token for safe retries. See [Idempotent submissions](mc-how-it-works.md#mc-idempotency). | 
 
 **Topics**
@@ -21,6 +21,7 @@ A medical coding job requires the clinical documentation and an output location 
 + [Encounter context (`encounterContext`)](#mc-input-encounter-context)
 + [Patient context (`patientContext`)](#mc-input-patient-context)
 + [How context affects code selection](#mc-input-context-impact)
++ [Site-specific dataset (`datasetId`)](#mc-input-dataset)
 + [Output location (`outputDataConfig.s3OutputPath`)](#mc-input-output-location)
 + [Validation patterns](#mc-input-patterns)
 
@@ -29,14 +30,16 @@ A medical coding job requires the clinical documentation and an output location 
 
 The following `StartMedicalCodingJob` request body uses fictional clinical text and includes both context objects.
 
-```
+```json
 {
   "clientToken": "encounter-20261003-000123",
   "text": "Established patient seen in clinic for follow-up of type 2 diabetes and essential hypertension. Blood pressure controlled on current regimen. A1c reviewed. Continue metformin and lisinopril. Return in 3 months.",
   "encounterContext": {
     "encounterType": "IN_PERSON",
     "encounterReason": "Follow-up of diabetes and hypertension",
-    "afterHours": false
+    "afterHours": false,
+    "encounterDate": "2026-10-03",
+    "encounterDurationMinutes": 25
   },
   "patientContext": {
     "sex": "FEMALE",
@@ -69,6 +72,8 @@ Describes the clinical encounter. This field is optional, but it is important fo
 |  `encounterType`  | String |  `TELEHEALTH` or `IN_PERSON`  | The type of encounter | 
 |  `encounterReason`  | String | Free text, up to 256 characters | Letters, digits, spaces, periods, commas, and hyphens only | 
 |  `afterHours`  | Boolean |  `true` or `false`  | Whether the encounter occurred outside regular business hours | 
+|  `encounterDate`  | String |  `YYYY-MM-DD`  | ISO 8601 calendar date that the encounter occurred, in local time at the place of service. Used with `patientContext.dateOfBirth` to calculate the patient’s age on the date of service. | 
+|  `encounterDurationMinutes`  | Integer | 1 to 1,440 | The length of the encounter or session in whole minutes. Enables time-based psychotherapy code tiering. | 
 
 ## Patient context (`patientContext`)
 <a name="mc-input-patient-context"></a>
@@ -95,9 +100,18 @@ Coding rules depend on facts about the encounter and the patient that the note a
 |  `encounterContext.encounterType`  | Depending on the payer, telehealth visits can require telehealth modifiers and different place-of-service reporting. | 
 |  `encounterContext.afterHours`  | Services outside regular hours can qualify for additional after-hours service codes. | 
 |  `encounterContext.encounterReason`  | The reason for the visit anchors the primary diagnosis. | 
+|  `encounterContext.encounterDurationMinutes`  | Time-based codes, such as psychotherapy codes 90832, 90834, and 90837, are tiered by session length. | 
 |  `patientContext.dateOfBirth`  | Age determines age-banded codes, such as preventive visits, and age-related code edits. | 
+|  `encounterContext.encounterDate`  | The patient’s age is calculated as of this date, so age-banded codes match the patient’s age on the day of the visit rather than the day the job runs. Send `encounterDate` with `dateOfBirth` whenever you code an encounter after the date of service. | 
 |  `patientContext.sex`  | Some diagnosis and procedure codes are valid only for a specific sex. | 
 |  `patientContext.insurance`  | The model aims to broadly follow common payer-specific coding patterns, but it doesn’t guarantee that codes match every payer’s billing practices. Medical coding is not a claim scrubber and doesn’t track or enforce individual payer policies. Apply your own payer rules before claim submission. | 
+
+When you omit `encounterDate`, age is calculated as of the time the job runs.
+
+## Site-specific dataset (`datasetId`)
+<a name="mc-input-dataset"></a>
+
+Names a site-specific dataset to code against. The dataset must be `ACTIVE` and in the same domain as the job. When the request includes a `datasetId`, the service looks up similar encounters that your organization has already coded and uses them as examples. When you omit `datasetId`, the job uses the generalized knowledge base. The value is 1 to 64 lowercase letters and digits. For more information, see [Site-specific medical coding](mc-site-specific.md) and [Use a dataset in a coding job](mc-datasets.md#mc-ds-use).
 
 ## Output location (`outputDataConfig.s3OutputPath`)
 <a name="mc-input-output-location"></a>
@@ -116,5 +130,8 @@ The service validates the following values and returns a `ValidationException` w
 |  `outputDataConfig.s3OutputPath`  |  `s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?`  | Up to 1,024 characters | 
 |  `encounterContext.encounterReason`  |  `[a-zA-Z0-9 .,-]+`  | Up to 256 characters | 
 |  `patientContext.dateOfBirth`  |  `\d{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])`  | 10 characters (`YYYY-MM-DD`) | 
+|  `encounterContext.encounterDate`  |  `\d{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])`  | 10 characters (`YYYY-MM-DD`) | 
+|  `encounterContext.encounterDurationMinutes`  | Integer from 1 to 1,440 | Not applicable | 
+|  `datasetId`  |  `[a-z0-9]+`  | 1 to 64 characters | 
 |  `text`  | At least one non-whitespace character | Up to 100,000 characters | 
 |  `clientToken`  | At least one non-whitespace character | No documented maximum | 

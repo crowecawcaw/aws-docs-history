@@ -1,9 +1,8 @@
 
 
 # How medical coding works
-<a name="mc-how-it-works"></a>
 
-Medical coding follows the same reasoning a professional coder uses. It runs as an asynchronous job: you start a job, the service processes it in the background, and you retrieve the results when the job completes. This model suits coding workflows where documentation is finalized first and coded afterward, and it lets you submit many jobs without holding a connection open.
+Medical coding uses AI to follow the same reasoning a professional coder uses. It runs as an asynchronous job: you start a job, the service processes it in the background, and you retrieve the results when the job completes. This model suits coding workflows where documentation is finalized first and coded afterward, and it lets you submit many jobs without holding a connection open.
 
 **Topics**
 + [From documentation to codes](#mc-derivation)
@@ -14,19 +13,23 @@ Medical coding follows the same reasoning a professional coder uses. It runs as 
 ## From documentation to codes
 <a name="mc-derivation"></a>
 
-After you call `StartMedicalCodingJob`, the medical coding service processes the job in the following steps. Your application doesn’t run or control these steps. It submits the job and reads the result.
+After you call `StartMedicalCodingJob`, the medical coding service works through the following stages. The stages describe what the service considers, not a fixed sequence of separate steps. Your application doesn’t run or control them. It submits the job and reads the result.
 
 1.  **Read the encounter.** The service reads the clinical documentation together with the encounter context and patient context you provide.
 
 1.  **Extract the clinical facts.** It identifies the conditions addressed, the procedures performed, and the services rendered.
 
-1.  **Determine the E/M level.** For visits, it assesses the problems addressed and the risk of patient management documented in the note, following MDM guidelines, and assigns the E/M level the documentation supports.
+1.  **Determine the E/M level.** For visits, it follows MDM guidelines to assess the three MDM elements documented in the note (the problems addressed, the data reviewed and analyzed, and the risk of patient management) and assigns the E/M level the documentation supports.
 
 1.  **Assign codes.** It assigns ICD-10-CM codes to diagnoses and CPT codes to procedures and services, adding modifiers where the documentation requires them. It uses the most specific code the documentation supports.
 
 1.  **Link and support.** It links each CPT code to the diagnoses that establish its medical necessity, attaches the note passages that support each code, and assigns each code a confidence score.
 
 1.  **Deliver.** It writes the result as structured JSON to your S3 output location, and `GetMedicalCodingJob` returns the location of the file.
+
+When the request includes a `datasetId`, the service also looks up similar encounters in that site-specific dataset. It uses them as reference examples alongside the note. See [Site-specific medical coding](mc-site-specific.md).
+
+Every suggestion carries the record that supports it, so a coder can defend the code rather than take it on trust. Each code arrives with the note passages it was drawn from, with character offsets into the submitted documentation. Each CPT code arrives with the ICD-10-CM codes that establish its medical necessity, and E/M levels are set from the MDM documented in the note. The service doesn’t add codes without documentation support, and it doesn’t fill gaps in the documentation. Where the note is thin, the result is a less specific code or a lower confidence score, not an inferred one. Keep the results file alongside the note it was generated from, so your audit trail holds both the suggestion and its evidence. See [Medical coding outputs](mc-outputs.md).
 
 ![How the medical coding agent turns a clinical note and context into linked ICD-10-CM and CPT codes.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/medical-coding-derivation.png)
 

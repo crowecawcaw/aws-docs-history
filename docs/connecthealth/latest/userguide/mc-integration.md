@@ -1,7 +1,6 @@
 
 
 # Integrating medical coding into your workflows
-<a name="mc-integration"></a>
 
 Medical coding returns structured, evidence-linked codes, so you can place it wherever coding happens in your revenue cycle. Three integration patterns are common.
 
@@ -13,7 +12,7 @@ Medical coding returns structured, evidence-linked codes, so you can place it wh
 | Autonomous coding | After the note is signed, in an automated pipeline | Coders review exceptions and low-confidence encounters; the rest go through audit sampling | Organizations that measure accuracy on their own encounters and want to reduce manual coding | 
 
 **Important**  
-During the gated preview, a qualified coder should review every suggested code before claim submission. Use the preview to measure accuracy on your own encounters and to design the review policy you will use in production.
+During the preview, a qualified coder must review every suggested code before claim submission. Use the preview to measure accuracy on your own encounters and to design the review policy you will use in production.
 
 **Topics**
 + [Point of care coding](#mc-int-point-of-care)
@@ -45,8 +44,6 @@ Route each encounter by the confidence score on each suggested code and by your 
 +  **Coder review.** New patients, higher E/M levels, modifiers, low-confidence codes, and any suggestion your policy flags go to a coder, who accepts, edits, or rejects each code.
 +  **Audit sampling.** Keep a standing audit sample of encounters that moved forward with reduced review, send it to coder review, and track accuracy over time.
 
-Both paths end in claim submission.
-
 ![Autonomous coding: routing rules send codes to reduced review or coder review, with audit sampling.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/medical-coding-autonomous-workflow.png)
 
 
@@ -58,4 +55,6 @@ Set your routing policy from accuracy you measure on your own encounters, not fr
 +  **Use one `clientToken` per encounter.** Derive it from your encounter identifier so that a retry can’t create a duplicate job. See [Idempotent submissions](mc-how-it-works.md#mc-idempotency).
 +  **Always send context.** Patient status, encounter type, and demographics change which codes are correct. See [How context affects code selection](mc-inputs.md#mc-input-context-impact).
 +  **Keep the evidence.** Store the evidence references with the final codes to keep an audit trail for compliance reviews and payer audits.
-+  **Capture coder decisions.** Record each accept, edit, and reject. These decisions are your accuracy signal, and your AWS account team can use them to adapt the model to your code distribution.
++  **Capture coder decisions.** Record each accept, edit, and reject. These decisions are your accuracy signal.
++  **Submit final codes as feedback.** After review, send the final codes for each job with `SubmitFeedback`. See [Submitting feedback on medical codes](mc-feedback.md).
++  **Code against your own reference data.** Create a site-specific dataset from your historical coded encounters, and include its `datasetId` in each job. See [Site-specific medical coding](mc-site-specific.md).

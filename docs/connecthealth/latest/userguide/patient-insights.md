@@ -1,7 +1,6 @@
 
 
 # Patient insights
-<a name="patient-insights"></a>
 
 Patient insights synthesizes longitudinal patient data into a concise, actionable pre-visit summary by retrieving structured clinical records, clinical documents, and ad-hoc files, then generating a focused summary for clinicians to review before each encounter.
 

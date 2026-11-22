@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon Connect Health
-<a name="setting-up"></a>
 
 This section is intended for IT administrators who are responsible for setting up and configuring Amazon Connect Health.
 
@@ -11,7 +10,7 @@ Before you use Amazon Connect Health, complete the following tasks.
 + [Sign up for an AWS account](#sign-up-for-aws)
 + [Create an Amazon Connect Health domain](#setting-up-create-domain)
 + [Manage user access](#setting-up-manage-users)
-+ [Enable single sign-on with Amazon Connect](#setting-up-sso)
++ [Enable single sign-on with Amazon Connect Customer](#setting-up-sso)
 + [Access the Amazon Connect Health application](#setting-up-access-app)
 
 ## Sign up for an AWS account
@@ -45,13 +44,13 @@ The remaining steps don’t apply to domains for point-of-care agents only. For 
 
 1. (Optional) Configure an integration function. Set up an AWS Lambda function for the AI agent to perform insurance verification using your own insurance RTE vendor. See [sample-healthcare-realtime-eligibility](https://github.com/aws-samples/sample-healthcare-realtime-eligibility) on GitHub for a reference implementation. Choose **Create function** to build a new function, then enter the Lambda ARN in the provided field.
 
-1. (Optional) Deploy a sample agent flow. Set up an Amazon Connect instance to deploy a sample contact flow and test the agent in an end-to-end patient conversation:
+1. (Optional) Deploy a sample agent flow. Set up an Amazon Connect Customer instance to deploy a sample contact flow and test the agent in an end-to-end patient conversation:
    +  **Skip for now** — Defer this setup to a later time.
-   +  **Create and use a new Amazon Connect instance** (selected by default) — Recommended for most users. The access URL is auto-populated based on the domain name.
-   +  **Use an existing Amazon Connect instance** — For organizations with an existing Amazon Connect instance.
+   +  **Create and use a new Amazon Connect Customer instance** (selected by default) — Recommended for most users. The access URL is auto-populated based on the domain name.
+   +  **Use an existing Amazon Connect Customer instance** — For organizations with an existing Amazon Connect Customer instance.
 
 **Important**  
-Before you create a new Amazon Connect instance, check your service quota. By default, each account can have 2 Amazon Connect instances. To request a quota increase, see [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Amazon Connect Administrator Guide*.
+Before you create a new Amazon Connect Customer instance, check your service quota. By default, each account can have 2 Amazon Connect Customer instances. To request a quota increase, see [Amazon Connect Customer service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Amazon Connect Customer Administrator Guide*.
 
 **Important**  
 Inputs on the domain creation page cannot be changed after domain creation, except for fields marked as recommended.
@@ -66,12 +65,12 @@ User access to the Amazon Connect Health application is managed through AWS IAM 
 **Important**  
 Amazon Connect Health must be in the same AWS Region as your AWS IAM Identity Center instance. If they are in different Regions, you can [replicate your IAM Identity Center instance to an additional Region](https://docs.aws.amazon.com/singlesignon/latest/userguide/replicate-to-additional-region.html) or change your Amazon Connect Health Region.
 
-## Enable single sign-on with Amazon Connect
+## Enable single sign-on with Amazon Connect Customer
 <a name="setting-up-sso"></a>
 
-To enable single sign-on (SSO) between Amazon Connect and Amazon Connect Health, assign the same IAM Identity Center user or user group to both applications. With SSO enabled, workforce users authenticate once and can access both Amazon Connect and Amazon Connect Health based on their enterprise identity.
+To enable single sign-on (SSO) between Amazon Connect Customer and Amazon Connect Health, assign the same IAM Identity Center user or user group to both applications. With SSO enabled, workforce users authenticate once and can access both Amazon Connect Customer and Amazon Connect Health based on their enterprise identity.
 
-Amazon Connect is available directly from the IAM Identity Center application catalog. See [Step-by-step instructions](https://static.global.sso.amazonaws.com/app-20950d6d247fd7bd/instructions/index.htm) to integrate Amazon Connect with IAM Identity Center using SAML 2.0.
+Amazon Connect Customer is available directly from the IAM Identity Center application catalog. See [Step-by-step instructions](https://static.global.sso.amazonaws.com/app-20950d6d247fd7bd/instructions/index.htm) to integrate Amazon Connect Customer with IAM Identity Center using SAML 2.0.
 
 ## Access the Amazon Connect Health application
 <a name="setting-up-access-app"></a>

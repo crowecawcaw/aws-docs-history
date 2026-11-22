@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon Connect Health
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Amazon Connect Health resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -21,7 +20,7 @@ How you use AWS Identity and Access Management (IAM) differs, depending on the w
 
 Authentication is how you sign in to AWS using your identity credentials. You must be authenticated (signed in to AWS) as the AWS account root user, as an IAM user, or by assuming an IAM role.
 
-For programmatic access, AWS provides an SDK and CLI that cryptographically sign your requests using your credentials. If you don’t use AWS tools, you must sign requests yourself. Amazon Connect Health supports Signature Version 4, a protocol for authenticating inbound API requests. For more information about authenticating requests, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html) in the *IAM User Guide*.
+For programmatic access, AWS provides an SDK and CLI that cryptographically sign your requests using your credentials. If you don’t use AWS tools, you must sign requests yourself. Amazon Connect Health supports Signature Version 4, a protocol for authenticating inbound API requests. For more information about authenticating requests, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) in the *IAM User Guide*.
 
 Regardless of the authentication method that you use, you might also be required to provide additional security information. For example, AWS recommends that you use multi-factor authentication (MFA) to increase the security of your account.
 
@@ -53,7 +52,7 @@ Amazon Connect Health supports the following IAM features:
 +  **Identity-based policies**: Yes
 +  **Resource-based policies**: No
 +  **Policy actions**: Yes (`health-agent:*`)
-+  **Policy resources**: Yes (domain, agent, integration, and medical coding job ARNs)
++  **Policy resources**: Yes (domain, agent, integration, medical coding job, and dataset ARNs)
 +  **Policy condition keys**: Yes (`aws:RequestTag`, `aws:ResourceTag`, `aws:TagKeys`)
 +  **ABAC (attribute-based access control)**: Yes
 
@@ -61,7 +60,7 @@ Amazon Connect Health supports attribute-based access control (ABAC) through IAM
 
 Read-only console policy:
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -81,7 +80,7 @@ Read-only console policy:
 
 Full access console policy:
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -226,7 +225,7 @@ Policy best practices:
 
 The following policy grants full access to a specific Amazon Connect Health domain and its integrations.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -249,7 +248,7 @@ The following policy grants full access to a specific Amazon Connect Health doma
 
 The following policy allows users to start and retrieve ambient documentation sessions.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -270,7 +269,7 @@ The following policy allows users to start and retrieve ambient documentation se
 
 The following policy grants read-only access to ambient documentation sessions.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -290,7 +289,7 @@ The following policy grants read-only access to ambient documentation sessions.
 
 The following policy grants full access to all Amazon Connect Health resources.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -308,7 +307,7 @@ The following policy grants full access to all Amazon Connect Health resources.
 
 The following policy grants read-only access to domains and agents while explicitly denying delete operations.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -338,7 +337,7 @@ The following policy grants read-only access to domains and agents while explici
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -376,9 +375,9 @@ This example shows how you might create a policy that allows IAM users to view t
 ### Example 7: Allow users to start and view medical coding jobs in a domain
 <a name="iam-example-medical-coding"></a>
 
-The following policy allows users to start and retrieve medical coding jobs in a specific domain. Medical coding is in gated preview. The caller also needs permission to write to the S3 output location and, if the domain uses a customer managed AWS KMS key, to use that key. For details, see [Example IAM policy](mc-getting-started.md#mc-gs-permissions).
+The following policy allows users to start and retrieve medical coding jobs in a specific domain. The caller also needs permission to write to the S3 output location and, if the domain uses a customer managed AWS KMS key, to use that key. For details, see [Example IAM policy](mc-getting-started.md#mc-gs-permissions).
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -397,6 +396,45 @@ The following policy allows users to start and retrieve medical coding jobs in a
 }
 ```
 
+### Example 8: Allow users to manage medical coding datasets and submit feedback
+<a name="iam-example-medical-coding-datasets"></a>
+
+The following policy allows users to create, view, list, and delete site-specific medical coding datasets in a specific domain, and to submit feedback on medical codes. `SubmitFeedback` reads the coding job as the caller, so the policy also grants `health-agent:GetMedicalCodingJob`. The caller also needs Amazon S3 and AWS KMS permissions on the dataset input and output locations, and `s3:GetObject` on the final codes that it submits as feedback. For details, see [Required permissions](mc-datasets.md#mc-ds-permissions) and [Requirements](mc-feedback.md#mc-fb-requirements).
+
+```json
+{
+  "Version": "2012-10-17" ,
+  "Statement": [
+    {
+      "Sid": "ManageMedicalCodingDatasets",
+      "Effect": "Allow",
+      "Action": [
+        "health-agent:CreateDataset",
+        "health-agent:GetDataset",
+        "health-agent:ListDatasets",
+        "health-agent:DeleteDataset"
+      ],
+      "Resource": [
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>",
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>/dataset/*"
+      ]
+    },
+    {
+      "Sid": "SubmitMedicalCodesFeedback",
+      "Effect": "Allow",
+      "Action": [
+        "health-agent:SubmitFeedback",
+        "health-agent:GetMedicalCodingJob"
+      ],
+      "Resource": [
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>",
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>/medical-coding-job/*"
+      ]
+    }
+  ]
+}
+```
+
 ## Service roles and trust policies
 <a name="iam-service-roles"></a>
 
@@ -404,7 +442,7 @@ Amazon Connect Health uses an IAM service role to perform actions on your behalf
 
 The following example shows a service role policy for Amazon Connect Health that grants permissions for domain, integration, and agent management.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -468,7 +506,7 @@ The following example shows a service role policy for Amazon Connect Health that
 
 The following example shows a trust policy that allows the Amazon Connect Health service principal to assume the role.
 
-```
+```json
 {
   "Version": "2012-10-17" ,
   "Statement": [
@@ -497,3 +535,89 @@ The following example shows a trust policy that allows the Amazon Connect Health
 ```
 
 To help prevent the confused deputy problem, we recommend using the `aws:SourceArn` and `aws:SourceAccount` condition keys in the trust policy. The source ARN should be scoped to the specific Amazon Connect Health domain that the role is intended to serve.
+
+## AWS KMS key policy for memory and personalization
+<a name="iam-kms-patient-memory"></a>
+
+When memory and personalization is turned on for a domain that uses a customer managed AWS Key Management Service (AWS KMS) key, the key policy must allow the Amazon Connect Health service principal to use the key. If the domain does not use a customer managed key, Amazon Connect Health uses an AWS owned key and no key policy change is required.
+
+Replace `<region>` with the AWS Region of your domain. The third statement lets Amazon Connect Health use the key for the decision tree documents that you upload.
+
+```json
+{
+  "Version": "2012-10-17" ,
+  "Statement": [
+    {
+      "Sid": "AllowHealthAgentToUsePatientMemoryKey",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "health-agent.amazonaws.com"
+      },
+      "Action": [
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "bedrock-agentcore.<region>.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowHealthAgentToCreateAgentCoreGrants",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "health-agent.amazonaws.com"
+      },
+      "Action": "kms:CreateGrant",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "bedrock-agentcore.<region>.amazonaws.com"
+        },
+        "Bool": {
+          "kms:GrantIsForAWSResource": "true"
+        },
+        "ForAllValues:StringEquals": {
+          "kms:GrantOperations": [
+            "CreateGrant",
+            "Decrypt",
+            "DescribeKey",
+            "GenerateDataKey",
+            "GenerateDataKeyWithoutPlaintext",
+            "ReEncryptFrom",
+            "ReEncryptTo"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "AllowHealthAgentToUseKeyForDecisionTreeDocuments",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "health-agent.amazonaws.com"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "s3.<region>.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+The key policy has the following statements:
++  `AllowHealthAgentToUsePatientMemoryKey` – Lets Amazon Connect Health encrypt and decrypt memory and personalization data. The `kms:ViaService` condition allows this only for requests that come through Amazon Bedrock AgentCore in your Region.
++  `AllowHealthAgentToCreateAgentCoreGrants` – Lets Amazon Connect Health create grants so that Amazon Bedrock AgentCore can use the key. The `kms:GrantIsForAWSResource` condition allows grants only for AWS resources, and `kms:GrantOperations` lists the operations that a grant can allow.
++  `AllowHealthAgentToUseKeyForDecisionTreeDocuments` – Lets Amazon Connect Health encrypt and decrypt the decision tree documents that you upload. The `kms:ViaService` condition allows this only for requests that come through Amazon S3 in your Region.
+
+In a key policy, `"Resource": "*"` refers to the key that the policy is attached to.

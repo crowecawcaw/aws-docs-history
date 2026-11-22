@@ -1,7 +1,6 @@
 
 
 # Getting started with ambient documentation
-<a name="al-getting-started"></a>
 
 This tutorial walks you through the minimum steps to run your first ambient documentation session, from creating a subscription to retrieving the generated clinical note. Each step links to a topic with full details — use this page to understand the overall flow, and the linked topics as reference when you implement each step.
 

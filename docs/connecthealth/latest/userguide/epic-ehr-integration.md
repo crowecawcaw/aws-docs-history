@@ -1,32 +1,21 @@
 
 
 # Epic EHR integration
-<a name="epic-ehr-integration"></a>
 
-Amazon Connect Health integrates directly with Epic EHR through the Amazon Connect Health application for Epic, which is privately listed. The integration uses OAuth2 authentication with FHIR R4 APIs and Epic private APIs to support patient verification and appointment management workflows.
-
-**Topics**
-+ [Prerequisites](#ehr-prerequisites)
-+ [Setup process](#ehr-setup-process)
-+ [Authentication configuration](#ehr-authentication)
-+ [FHIR resources and API configuration](#ehr-api-configuration)
-+ [Configuration fields](#ehr-configuration-fields)
-+ [Pre-production testing](#ehr-testing)
-+ [Production deployment](#ehr-production)
+Amazon Connect Health integrates directly with Epic EHR through the Amazon Connect Health application for Epic, which is privately listed. The integration uses OAuth2 authentication with FHIR R4 APIs, Epic public APIs, and Epic private APIs to support the agentic capabilities for patient access.
 
 ## Prerequisites
 <a name="ehr-prerequisites"></a>
 
 Before you begin, make sure that you have the following:
-+ Epic instance accessible via FHIR R4 endpoint
-+ Epic Administrator with access to Epic Showroom
++ Epic instance accessible through a Fast Healthcare Interoperability Resources (FHIR) R4 endpoint
++ Epic Administrator
 + AWS account team contact to initiate onboarding
-+ JWK Set URL (JKU) configuration
 
 ## Setup process
 <a name="ehr-setup-process"></a>
 
-The Amazon Connect Health application for Epic is privately listed and not publicly available in Epic Showroom. Follow these steps to complete the integration.
+The Amazon Connect Health application for Epic is privately listed. Follow these steps to complete the integration.
 
 ### Step 1: Submit an Interested Organization request
 <a name="ehr-step1"></a>
@@ -48,7 +37,7 @@ AWS sets up authentication when you request to download the Amazon Connect Healt
 ### Step 4: Install the application and configure backend EMP user
 <a name="ehr-step4"></a>
 
-Your Epic Administrator installs the Amazon Connect Health application and configures the backend EMP user with appropriate security points for all required APIs. See [FHIR resources and API configuration](#ehr-api-configuration) for the complete list of required APIs.
+Your Epic Administrator installs the Amazon Connect Health application and configures the backend EMP user with appropriate access permissions for all required APIs. See [FHIR resources and API configuration](#ehr-api-configuration) for the complete list of required APIs.
 
 ### Step 5: Configure EHR credentials in the AWS Healthcare AI console
 <a name="ehr-step5"></a>
@@ -66,9 +55,9 @@ Amazon Connect Health uses OAuth2 authentication with JWK Set URL (JKU) for secu
 ### Configure backend EMP user
 <a name="ehr-backend-emp"></a>
 
-1. Follow Epic’s standard process for configuring a backend EMP user for the Amazon Connect Health application.
+1. Follow Epic’s standard process to configure a backend EMP user that lets the Amazon Connect Health application access the Epic API and patient data. **Each Amazon Connect Health application supports only one EMP user.** 
 
-1. Grant the backend EMP user security points for all APIs listed in [FHIR resources and API configuration](#ehr-api-configuration).
+1. Grant the backend EMP user permissions for all APIs listed in [FHIR resources and API configuration](#ehr-api-configuration).
 
 1. Verify the user can access all required FHIR resources and Epic private APIs.
 
@@ -118,6 +107,30 @@ Enable the following Epic private APIs with appropriate security endpoints:
 | ScheduleAppointment | 2019 | Book new appointments | 
 | ScheduleAppointmentWithInsurance | 2019 | Book appointments with insurance | 
 
+### MyChart password reset APIs
+<a name="ehr-password-reset-apis"></a>
+
+To enable MyChart password reset, license MyChart for the Epic environment. Without a MyChart license, the agent can’t reset the password and transfers the call to a person.
+
+
+| API | Version | Purpose | 
+| --- | --- | --- | 
+| SendPasswordReset | 2025 - Epic private API (Class C) | Sends the password reset to the patient. Enable it for the Amazon Connect Health client during Epic onboarding. | 
+| Patient.Read | FHIR R4 | Returns the patient’s MyChart account ID. Configure it to include this field. | 
+
+You don’t need a separate text message opt-in check. If a patient hasn’t opted in to MyChart text messages, Epic returns an error, and the capability offers to send the link by email.
+
+### Prescription management APIs
+<a name="ehr-medication-apis"></a>
+
+The Epic Willow module is required for the Prescription management feature to function. To enable prescription management with Epic Willow, complete the following Epic setup.
+
+
+| API | Version | Purpose | 
+| --- | --- | --- | 
+| GetPrescriptionInfo | 2018 - PharmacyServices2018, SOAP | Retrieves prescription information, supporting refill status. | 
+| RequestFills | 2018 - PharmacyServices2018, SOAP | Submits pharmacy refill requests. | 
+
 ### Security configuration checklist
 <a name="ehr-security-checklist"></a>
 + All FHIR R4 resources enabled
@@ -134,12 +147,13 @@ The following fields are required to configure the Epic EHR integration in the A
 
 | Field | Description | Example | 
 | --- | --- | --- | 
-| Organization Email | Administrative email address associated with the Epic environment |  [admin@healthsystem.org](mailto:admin@healthsystem.org)  | 
+| Organization Email | Administrative email address associated with the Epic environment |  [admin@example.com](mailto:admin@example.com)  | 
 | FHIR Server Endpoint | Base URL of the Epic FHIR R4 API endpoint | https://epic\_xyz.xxyy.com/FhirProxy/api/FHIR/R4/ | 
 | Metadata Endpoint | URL used to retrieve OAuth 2.0 server metadata | https://epic\_xyz.xxyy.com/FhirProxy/api/FHIR/R4/metadata | 
 | MRN Identifier System | System URI used to identify MRN values within Epic | urn:oid:1.2.840.114350.646473.0 | 
 | MRN Identifier Type | Code used to classify the MRN identifier | MR | 
 | Appointment Serial Number (ASN) | Identifier system used for appointment serial numbers within Epic | urn:oid:1.2.840.114350.1.13.0.1.7.2.798268 | 
+| EHR Pharmacy Server endpoint (Epic only) | Epic pharmacy Interconnect SOAP endpoint URL used by prescription management. If you add this endpoint to an ACTIVE integration, the integration returns to PENDING. After you set the endpoint, you can’t change it while the integration is ACTIVE. |  `https://epic_xyz.xxyy.com/interconnect-{ENVIRONMENT}/wcf`  | 
 
 ## Pre-production testing
 <a name="ehr-testing"></a>
@@ -148,14 +162,14 @@ Testing must occur in a non-production Epic environment using mocked patient dat
 
 ### Testing checklist
 <a name="ehr-testing-checklist"></a>
-+ ❏ Application successfully activated in non-production Epic
-+ ❏ Authentication working with JKU URL
-+ ❏ All FHIR resources accessible
-+ ❏ All Epic private APIs responding correctly
-+ ❏ End-to-end patient appointment flow tested
-+ ❏ Error handling validated
-+ ❏ Performance benchmarks met
-+ ❏ Team trained on configuration and troubleshooting
++ Application successfully activated in non-production Epic
++ Authentication working with the JSON Web Key Set URL (JKU)
++ All FHIR resources accessible
++ All Epic private APIs responding correctly
++ End-to-end patient appointment flow tested
++ Error handling validated
++ Performance benchmarks met
++ Team trained on configuration and troubleshooting
 
 ## Production deployment
 <a name="ehr-production"></a>
@@ -164,12 +178,12 @@ Complete all pre-production testing and resolve any issues before deploying to p
 
 ### Pre-deployment checklist
 <a name="ehr-production-checklist"></a>
-+ ❏ Pre-production testing completed successfully
-+ ❏ All issues from testing resolved
-+ ❏ Production JKU URL received from AWS
-+ ❏ Production Client ID documented
-+ ❏ Rollback plan prepared
-+ ❏ Support team briefed
++ Pre-production testing completed successfully
++ All issues from testing resolved
++ Production JKU URL received from AWS
++ Production Client ID documented
++ Rollback plan prepared
++ Support team briefed
 
 ### Production configuration steps
 <a name="ehr-production-steps"></a>
@@ -182,7 +196,7 @@ Complete all pre-production testing and resolve any issues before deploying to p
 
 1. Enable all FHIR resources and Epic private APIs in the production environment.
 
-1. Create and configure the production backend EMP user with appropriate security points.
+1. Create and configure the production backend EMP user with appropriate access permissions.
 
 1. Update EHR credentials in the Amazon Connect Health console with production values.
 

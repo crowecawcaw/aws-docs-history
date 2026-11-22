@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon Connect Health
-<a name="logging-using-cloudtrail"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Connect Health and your other AWS solutions. AWS provides the following monitoring tools to watch Amazon Connect Health, report when something is wrong, and take automatic actions when appropriate.
 
@@ -33,7 +32,7 @@ CloudTrail log files contain one or more log entries. An event represents a sing
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateSubscription` action.
 
-```
+```json
 {
   "eventVersion": "1.09",
   "userIdentity": {

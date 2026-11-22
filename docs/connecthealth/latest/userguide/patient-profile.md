@@ -1,17 +1,15 @@
 
 
 # Patient profile
-<a name="patient-profile"></a>
 
-The patient profile is a unified view displayed in the Amazon Connect Agent Workspace that provides human agents with complete context when they are connected with a caller. Whether the call is transferred after successful patient verification or escalated during appointment management, this profile reduces the need for patients to repeat information and reduces cognitive burden on contact center staff.
+The patient profile is a unified view displayed in the Amazon Connect Customer Agent Workspace that provides human agents with upstream call leg context when they are connected with a caller. Whether the call is transferred after successful patient verification or escalated during appointment management, this profile reduces the need for patients to repeat information and reduces cognitive burden on human agents.
 
-![Patient Profile feature in Amazon Connect Agent Workspace.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/patient-profile-workspace.png)
+![Patient Profile feature in Amazon Connect Customer Agent Workspace.](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/patient-profile-workspace.png)
 
 
 **Topics**
 + [Patient information displayed](#pp-patient-info)
-+ [Appointment intent and details](#pp-appointment-intent)
-+ [Verification status](#pp-verification-status)
++ [Patient verification status](#pp-verification-status)
 + [Escalation information](#pp-escalation-info)
 + [Self-service summary](#pp-self-service-summary)
 + [Error scenarios](#pp-error-scenarios)
@@ -19,20 +17,12 @@ The patient profile is a unified view displayed in the Amazon Connect Agent Work
 ## Patient information displayed
 <a name="pp-patient-info"></a>
 
-The patient profile displays the following demographic and clinical information:
-+ Full name, date of birth, and medical record number (MRN)
+The patient profile displays the following information:
++ Verified demographic info as it applies: Full name, date of birth, medical record number (MRN), and last 4 digits of SSN
 + Contact information, including phone number and address
 + Primary care provider and care team
 
-## Appointment intent and details
-<a name="pp-appointment-intent"></a>
-
-When a call involves appointment management, the profile displays:
-+ Appointment type, date, time, and location
-+ Provider name and department
-+ Scheduling intent captured during the AI interaction
-
-## Verification status
+## Patient verification status
 <a name="pp-verification-status"></a>
 
 The profile shows the outcome of the identity verification process:
@@ -50,10 +40,11 @@ When a call is escalated from an AI agent, the profile includes:
 ## Self-service summary
 <a name="pp-self-service-summary"></a>
 
-The profile provides a summary of actions completed by the AI agent before the escalation:
+The profile provides a summary of actions completed by the AI agent before the escalation, including any of the following:
 + Actions completed or attempted during the self-service interaction
 + Appointment changes made or confirmed
 + Insurance verification outcome, if applicable
++ Prescription names, refill request and refill status details
 
 ## Error scenarios
 <a name="pp-error-scenarios"></a>
