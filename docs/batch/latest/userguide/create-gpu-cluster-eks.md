@@ -1,13 +1,12 @@
 
 
 # Create a GPU-based Kubernetes cluster on Amazon EKS
-<a name="create-gpu-cluster-eks"></a>
 
 Before you create a GPU-based Kubernetes cluster on Amazon EKS, you must have completed the steps in [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md). In addition, also consider the following:
 + AWS Batch supports instance types with NVIDIA GPUs.
 + By default, AWS Batch selects the Amazon EKS accelerated AMI with the Kubernetes version that matches your Amazon EKS cluster control plane version.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-gpu-ce.json
 {
   "computeEnvironmentName": "My-Eks-GPU-CE1",
@@ -44,7 +43,7 @@ AWS Batch doesn't manage the NVIDIA GPU device plugin on your behalf. You must i
 
 To configure the NVIDIA device plugin (`DaemonSet`) to target the AWS Batch nodes, run the following commands.
 
-```
+```sh
 # pull nvidia daemonset spec
 $ curl -O https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.12.2/nvidia-device-plugin.yml
 # using your favorite editor, add Batch node toleration
@@ -59,7 +58,7 @@ We do not recommend that you mix compute-based (CPU and memory) workloads with G
 
 To attach job queues, run the following commands.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-gpu-jq.json
  {
     "jobQueueName": "My-Eks-GPU-JQ1",

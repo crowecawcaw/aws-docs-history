@@ -1,7 +1,6 @@
 
 
 # Terminate service jobs
-<a name="terminate-service-jobs"></a>
 
 Use the [`TerminateServiceJob`](https://docs.aws.amazon.com/batch/latest/APIReference/API_TerminateServiceJob.html) operation to stop a running service job.
 

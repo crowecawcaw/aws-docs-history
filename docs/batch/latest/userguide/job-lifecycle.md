@@ -1,7 +1,6 @@
 
 
 # Job lifecycle for MNP jobs
-<a name="job-lifecycle"></a>
 
 When you submit a multi-node parallel job, the job enters the `SUBMITTED` status. Then, the job waits for any job dependencies to finish. The job also moves to the `RUNNABLE` status. Last, AWS Batch provisions the instance capacity that's required to run your job and launches these instances.
 

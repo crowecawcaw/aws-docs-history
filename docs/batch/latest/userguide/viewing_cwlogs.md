@@ -1,7 +1,6 @@
 
 
 # Tutorial: View CloudWatch Logs
-<a name="viewing_cwlogs"></a>
 
 You can view and search CloudWatch Logs logs in the AWS Management Console.
 

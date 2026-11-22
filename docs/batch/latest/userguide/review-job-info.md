@@ -1,7 +1,6 @@
 
 
 # Review AWS Batch job information
-<a name="review-job-info"></a>
 
 You can review AWS Batch job information such as status, job definition and container information.
 

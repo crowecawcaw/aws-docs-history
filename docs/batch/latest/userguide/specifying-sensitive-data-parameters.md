@@ -1,7 +1,6 @@
 
 
 # Specify sensitive data with Systems Manager Parameter Store
-<a name="specifying-sensitive-data-parameters"></a>
 
 With AWS Batch, you can inject sensitive data into your containers by storing your sensitive data in AWS Systems Manager Parameter Store parameters and then referencing them in your container definition.
 
@@ -36,7 +35,7 @@ The following example inline policy adds the required permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -66,7 +65,7 @@ Within your container definition, specify `secrets` with the name of the environ
 
 The following is a snippet of a task definition showing the format when referencing an Systems Manager Parameter Store parameter. If the Systems Manager Parameter Store parameter exists in the same Region as the task that you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 
-```
+```json
 {
   "containerProperties": [{
     "secrets": [{
@@ -87,7 +86,7 @@ If the Systems Manager Parameter Store parameter exists in the same Region as th
 
 The following is a snippet of a task definition showing the format when referencing an Systems Manager Parameter Store parameter.
 
-```
+```json
 {
   "containerProperties": [{
     "logConfiguration": [{

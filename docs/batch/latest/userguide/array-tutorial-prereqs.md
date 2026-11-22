@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="array-tutorial-prereqs"></a>
 
 This tutorial workflow has the following prerequisites:
 + An AWS Batch compute environment. For more information, see [Create a compute environment](create-compute-environment.md).

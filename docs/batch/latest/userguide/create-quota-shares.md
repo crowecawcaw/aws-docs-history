@@ -1,7 +1,6 @@
 
 
 # Creating quota shares
-<a name="create-quota-shares"></a>
 
 Quota shares function as virtual queues within the associated job queue that the AWS Batch scheduler iterates between when scheduling. They enable administrators to allocate a compute quota to a team or project via ` capacity limits `, with explicit configuration for resource sharing strategy. 
 

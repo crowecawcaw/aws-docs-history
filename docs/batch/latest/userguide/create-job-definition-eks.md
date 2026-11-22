@@ -1,7 +1,6 @@
 
 
 # Create a single-node job definition on Amazon EKS resources
-<a name="create-job-definition-eks"></a>
 
 Complete the following steps to create a single-node job definition on Amazon Elastic Kubernetes Service (Amazon EKS).
 

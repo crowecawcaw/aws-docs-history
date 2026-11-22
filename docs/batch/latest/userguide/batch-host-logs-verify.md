@@ -1,7 +1,6 @@
 
 
 # Step 4: Verify and troubleshoot
-<a name="batch-host-logs-verify"></a>
 
 After you submit a job that triggers instance scale-up, verify that log files appear in the Amazon S3 bucket.
 
@@ -22,7 +21,7 @@ To test log collection before a full rollout, set `minvCpus` to a non-zero value
 
 Run the following command to list uploaded log objects:
 
-```
+```bash
 aws s3 ls s3://{{host-level-logs-bucket}}/ecs-logs/ --recursive
 ```
 
@@ -31,6 +30,8 @@ If the command returns objects organized by instance ID, date, and source tag, l
 ------
 
 If logs are not appearing, connect to the instance by using SSH or SSM Session Manager to debug the Fluent Bit agent. Check the service status with `systemctl status fluent-bit`. Review `/var/log/cloud-init-output.log` to confirm the user-data script ran successfully.
+
+**Considerations for Spot and short-lived instances**
 
 When you use Spot instances or short-lived compute environments that scale to zero frequently, consider the following adjustments to avoid log data loss:
 + **Spot reclaim risk** – Lower the `upload_timeout` and `total_file_size` values in `fluent-bit.conf` to flush log data more frequently. This reduces the window of data that might be lost if an instance is reclaimed.

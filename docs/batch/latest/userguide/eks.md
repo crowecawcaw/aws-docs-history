@@ -1,7 +1,6 @@
 
 
 # Amazon EKS compute environments
-<a name="eks"></a>
 
 [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md) provides a short guide to creating EKS compute environments. This section provides more details on Amazon EKS compute environments.
 

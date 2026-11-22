@@ -1,11 +1,10 @@
 
 
 # Override an Amazon EKS MNP job definition
-<a name="mnp-eks-override-eks-mnp-job-definition"></a>
 
 Optionally, you can override the job definition details (such as changing the MNP job size or child job details). The following provides an example JSON request payload to submit a five node MNP job, and changes to the `test-eks-container-1` container’s command.
 
-```
+```json
 {
   "numNodes": 5,
   "nodePropertyOverrides": [

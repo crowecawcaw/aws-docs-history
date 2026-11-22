@@ -1,7 +1,6 @@
 
 
 # How to add the Job logs widget to the AWS Batch dashboard
-<a name="job-logs"></a>
 
 This widget displays different logs from your jobs in one convenient location. For more information about job logs, see [View AWS Batch job logs in CloudWatch Logs](review-job-logs.md).
 

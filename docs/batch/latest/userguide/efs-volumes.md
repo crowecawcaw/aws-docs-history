@@ -1,7 +1,6 @@
 
 
 # Amazon EFS volumes
-<a name="efs-volumes"></a>
 
 Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with your AWS Batch jobs. With Amazon EFS, storage capacity is elastic. It scales automatically as you add and remove files. Your applications can have the storage they need, when they need it.
 
@@ -17,14 +16,14 @@ If you create your own AMI, you must use container agent 1.38.0 or later, `ecs-i
 
 Amazon Linux 2  
 
-  ```
+  ```bash
   $ yum install amazon-efs-utils
   systemctl enable --now amazon-ecs-volume-plugin
   ```
 
 Amazon Linux  
 
-  ```
+  ```bash
   $ yum install amazon-efs-utils
   sudo shutdown -r now
   ```
@@ -48,7 +47,7 @@ You can use an AWS Batch job IAM role to enforce that specific applications use 
 
 To use Amazon EFS file system volumes for your containers, you must specify the volume and mount point configurations in your job definition. The following job definition JSON snippet shows the syntax for the `volumes` and `mountPoints` objects for a container:
 
-```
+```JSON
 {
     "containerProperties": [
         {

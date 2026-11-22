@@ -1,7 +1,6 @@
 
 
 # Use Amazon EC2 Spot best practices for AWS Batch
-<a name="bestpractice6"></a>
 
 When you choose Amazon Elastic Compute Cloud (EC2) Spot instances, you likely can optimize your workflow to save costs, sometimes significantly. For more information, see [Best practices for Amazon EC2 Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#be-instance-type-flexible).
 
@@ -13,7 +12,7 @@ To optimize your workflow to save costs, consider the following Amazon EC2 Spot 
 
   For AWS Batch, if you set the retry parameter, the job is placed at the front of the job queue. That is, the job is given priority. When you create the job definition or you submit the job in the AWS CLI, you can configure a retry strategy. For more information, see [submit-job](https://docs.aws.amazon.com/goto/aws-cli/batch-2016-08-10/SubmitJob       ).
 
-  ```
+  ```sh
   $ aws batch submit-job --job-name MyJob \
       --job-queue MyJQ \
       --job-definition MyJD \
@@ -21,7 +20,7 @@ To optimize your workflow to save costs, consider the following Amazon EC2 Spot 
   ```
 + **Use custom retries** – You can configure a job retry strategy to a specific application exit code or instance reclamation. In the following example, if the host causes the failure, the job can be retried up to five times. However, if the job fails for a different reason, the job exits and the status is set to `FAILED`.
 
-  ```
+  ```json
   "retryStrategy": {
       "attempts": 5,
       "evaluateOnExit":

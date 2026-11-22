@@ -1,7 +1,6 @@
 
 
 # Tutorial: Check the IAM execution role
-<a name="check-execution-role"></a>
 
 Use the following procedure to check that your account already has the IAM execution role and attach the managed IAM policy, if needed.<a name="procedure_check_execution_role"></a>
 
@@ -28,7 +27,7 @@ Use the following procedure to check that your account already has the IAM execu
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

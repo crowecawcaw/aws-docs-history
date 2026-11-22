@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Batch
-<a name="security-iam-awsmanpol"></a>
 
 
 

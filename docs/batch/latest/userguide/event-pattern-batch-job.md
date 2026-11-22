@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a rule with an event pattern
-<a name="event-pattern-batch-job"></a>
 
 The following procedure covers how to create a rule with an event pattern.
 

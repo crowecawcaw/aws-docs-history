@@ -1,7 +1,6 @@
 
 
 # Job definitions
-<a name="job_definitions"></a>
 
 AWS Batch job definitions specify how jobs are to be run. While each job must reference a job definition, many of the parameters that are specified in the job definition can be overridden at runtime. 
 

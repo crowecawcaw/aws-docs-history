@@ -1,7 +1,6 @@
 
 
 # Supported resource-level permissions for AWS Batch API actions
-<a name="batch-supported-iam-actions-resources"></a>
 
 The term *resource-level permissions* refers to the ability to specify the resources that users are allowed to perform actions on. AWS Batch has partial support for resource-level permissions. For some AWS Batch actions, you can control when users are allowed to use those actions based on conditions that must be met. You can also control based on the specific resources that users are allowed to use. For example, you can grant users permissions to submit jobs, but only to a specific job queue and only with a specific job definition. 
 

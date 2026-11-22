@@ -1,7 +1,6 @@
 
 
 # Parameter substitution
-<a name="example-use-parameters"></a>
 
 The following example job definition illustrates how to allow for parameter substitution and to set default values.
 
@@ -9,7 +8,7 @@ The `Ref::` declarations in the `command` section are used to set placeholders f
 
 For more information, see [Parameters](job_definition_parameters.md#parameters).
 
-```
+```json
 {
     "jobDefinitionName": "ffmpeg_parameters",
     "type": "container",

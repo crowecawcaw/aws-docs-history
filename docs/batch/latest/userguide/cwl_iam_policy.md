@@ -1,7 +1,6 @@
 
 
 # Tutorial: Add a CloudWatch Logs IAM policy
-<a name="cwl_iam_policy"></a>
 
 Before your jobs can send log data and detailed metrics to CloudWatch Logs, you must create an IAM policy that uses the CloudWatch Logs APIs. After you create the IAM policy, attach it to the `ecsInstanceRole` role.
 
@@ -27,7 +26,7 @@ If you aren't using the first-run wizard, you can specify the `ecsInstanceRole` 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

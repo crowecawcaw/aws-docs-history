@@ -1,7 +1,6 @@
 
 
 # Considerations for AWS Batch
-<a name="vpc-endpoint-considerations"></a>
 
 Before you set up an interface endpoint for AWS Batch, review [Interface endpoint properties and limitations](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#vpce-interface-limitations) in the *AWS PrivateLink Guide*.
 
@@ -17,6 +16,3 @@ Before you set up interface VPC endpoints for AWS Batch, be aware of the followi
 + VPC endpoints currently don't support cross-Region requests. Ensure that you create your endpoint in the same Region where you plan to issue your API calls to AWS Batch.
 + VPC endpoints only support Amazon-provided DNS through Amazon Route 53. If you want to use your own DNS, you can use conditional DNS forwarding. For more information, see [DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in the *Amazon VPC User Guide*.
 + The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private subnet of the VPC.
-+ AWS Batch does not support VPC interface endpoints in the following AWS Regions:
-  + Asia Pacific (Osaka) (`ap-northeast-3`)
-  + Asia Pacific (Jakarta) (`ap-southeast-3`)

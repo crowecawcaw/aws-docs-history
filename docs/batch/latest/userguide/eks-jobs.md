@@ -1,7 +1,6 @@
 
 
 # Amazon EKS jobs
-<a name="eks-jobs"></a>
 
 A job is the smallest unit of work in AWS Batch. An AWS Batch job on Amazon EKS has a one-to-one mapping to a Kubernetes pod. An AWS Batch job definition is a template for an AWS Batch job. When you submit an AWS Batch job, you reference a job definition, target a job queue, and provide a name for a job. In the job definition of an AWS Batch job on Amazon EKS, the [eksProperties](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksProperties.html) parameter defines the set of parameters that an AWS Batch on Amazon EKS job supports. In a [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) request, the [eksPropertiesOverride](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksPropertiesOverride.html) parameter allows for overrides to some common parameters. This way, you can use templates of job definitions for multiple jobs. When a job is dispatched to your Amazon EKS cluster, AWS Batch transforms the job into a `podspec` (`Kind: Pod`). The `podspec` uses some additional AWS Batch parameters to ensure that jobs are scaled and scheduled correctly. AWS Batch combines labels and taints to ensure jobs run only on AWS Batch managed nodes and that other pods don't run on those nodes.
 

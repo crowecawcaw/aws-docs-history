@@ -1,7 +1,6 @@
 
 
 # Manage tags using the CLI or API
-<a name="tag-resources-api-sdk"></a>
 
 Use the following AWS CLI commands or AWS Batch API operations to add, update, list, and delete the tags for your resources.
 

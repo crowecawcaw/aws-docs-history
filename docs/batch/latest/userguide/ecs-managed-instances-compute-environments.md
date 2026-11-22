@@ -1,7 +1,6 @@
 
 
 # Compute environments on Amazon ECS Managed Instances
-<a name="ecs-managed-instances-compute-environments"></a>
 
 AWS Batch compute environments on Amazon ECS Managed Instances use a `managedInstancesProvider` configuration block inside `computeResources`. This structure aligns with the Amazon ECS capacity provider model and is self-contained. All networking, instance profile, and instance selection configuration lives within this block.
 
@@ -10,20 +9,20 @@ The following list describes the compute environment parameters for Amazon ECS M
 `type` (top-level)  
 Must be `MANAGED`.  
 
-```
+```json
 "type": "MANAGED"
 ```
 
 `computeResources.type`  
 Must be `ECS_MANAGED_INSTANCES`. Unlike Fargate and Amazon EC2 compute environments, Spot capacity is not expressed as a separate type (there is no `ECS_MANAGED_INSTANCES_SPOT` type). Instead, use `capacityOptionType` inside `managedInstancesProvider.instanceLaunchTemplate` to specify On-Demand or Spot capacity.  
 
-```
+```json
 "type": "ECS_MANAGED_INSTANCES"
 ```
 
 `computeResources.maxvCpus`  
-The maximum number of vCPUs that the compute environment can scale to. Works the same as `maxvCpus` for Fargate compute environments — it caps the total vCPU consumed across all running jobs.  
-Currently, AWS Batch evaluates `maxvCpus` based on the total vCPUs requested by running jobs, not the total vCPUs of the underlying Amazon EC2 instances. Amazon ECS Managed Instances uses multi-tenant instance allocation. As a result, the actual instance vCPU capacity provisioned might exceed the job vCPU total. The compute environment might provision more instance capacity than the `maxvCpus` value implies. This behavior might be refined in a future update.
+The maximum number of vCPUs that the compute environment can scale to. This limit applies to the vCPUs of the Amazon EC2 instances that the compute environment provisions. It also applies to the vCPUs that running jobs request.  
+Amazon ECS Managed Instances launches whole instances and places multiple jobs on each one. Set `maxvCpus` to at least the vCPU count of the largest instance type that your jobs need. Otherwise, jobs that don't fit on running instances stay in the `RUNNABLE` state.
 
 `computeResources.managedInstancesProvider`  
 Required for Amazon ECS Managed Instances compute environments. Contains all Amazon ECS Managed Instances-specific configuration. For more information, see [ManagedInstancesProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ManagedInstancesProvider.html) in the *Amazon Elastic Container Service API Reference*. The following fields are available:    
@@ -103,7 +102,7 @@ The following cannot be changed after creation:
 
 The following example shows the minimum configuration required to create an Amazon ECS Managed Instances compute environment. Amazon ECS selects instance types automatically from all available types.
 
-```
+```json
 {
   "computeEnvironmentName": "my-managed-instances-ce",
   "type": "MANAGED",
@@ -130,7 +129,7 @@ The following example shows the minimum configuration required to create an Amaz
 
 The following example creates a compute environment constrained to NVIDIA GPU instance types for machine learning workloads.
 
-```
+```json
 {
   "computeEnvironmentName": "my-gpu-managed-instances-ce",
   "type": "MANAGED",
@@ -161,7 +160,7 @@ The following example creates a compute environment constrained to NVIDIA GPU in
 
 The following example creates a Spot-backed compute environment for fault-tolerant batch workloads.
 
-```
+```json
 {
   "computeEnvironmentName": "my-spot-managed-instances-ce",
   "type": "MANAGED",

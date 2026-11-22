@@ -1,7 +1,6 @@
 
 
 # Quota management
-<a name="quota-management"></a>
 
 AWS Batch schedules jobs based on the resources that the job requires and the capacity available in the connected Service Environment (SE), enabling high utilization of compute resources. With quota management, administrators can also control how many resources a team or project can consume via finer-grained resource allocations.
 

@@ -1,7 +1,6 @@
 
 
 # Delete a consumable resource
-<a name="resource-aware-scheduling-how-to-delete"></a>
 
 You can delete a consumable resource at any time, even when the jobs that require the resource are still running. Once a consumable resource is deleted, there may be a gap between the time the delete command is received and the job scheduler honors the delete, so it's possible jobs that consume the resource may be scheduled right after the delete call. If the deleted consumable resource has resource type (`resourceType`) `REPLENISHABLE`, this will be ignored when the jobs complete. If you delete a consumable resource and re-create it with the same name, it is considered to be the same resource and it can be used by `RUNNABLE` jobs.
 

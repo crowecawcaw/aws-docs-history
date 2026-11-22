@@ -1,7 +1,6 @@
 
 
 # Check your account's Amazon ECS instance role
-<a name="batch-check-ecsinstancerole"></a>
 
 The Amazon ECS instance role and instance profile are automatically created for you in the console first-run experience. However, you can follow these steps to check if your account already has the Amazon ECS instance role and instance profile. The following steps also cover how to attach the managed IAM policy.<a name="procedure_check_instance_role"></a>
 
@@ -40,7 +39,7 @@ Alternatively, you can use the AWS CLI to create the `ecsInstanceRole` IAM role.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -57,7 +56,7 @@ Alternatively, you can use the AWS CLI to create the `ecsInstanceRole` IAM role.
 
 1. Use the [create-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the `ecsInstanceRole` role. Specify the trust policy file location in the `assume-role-policy-document` parameter.
 
-   ```
+   ```sh
    $ aws iam create-role \
        --role-name ecsInstanceRole \
        --assume-role-policy-document file://ecsInstanceRole-role-trust-policy.json
@@ -67,13 +66,13 @@ Alternatively, you can use the AWS CLI to create the `ecsInstanceRole` IAM role.
 **Note**  
 You need to create roles and instance profiles as separate actions in the AWS CLI and AWS API. 
 
-   ```
+   ```sh
    $ aws iam create-instance-profile --instance-profile-name ecsInstanceRole
    ```
 
    The following is an example response.
 
-   ```
+   ```JSON
    {
        "InstanceProfile": {
            "Path": "/",
@@ -94,7 +93,7 @@ You need to create roles and instance profiles as separate actions in the AWS CL
 
 1. Use the [attach-role-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command to attach the `AmazonEC2ContainerServiceforEC2Role` AWS managed policy to the `ecsInstanceRole` role.
 
-   ```
+   ```sh
    $ aws iam attach-role-policy \
        --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role \
        --role-name ecsInstanceRole

@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 On-Demand or Amazon EC2 Spot
-<a name="bestpractice5"></a>
 
 Most AWS Batch customers use Amazon EC2 Spot instances because of the savings over On-Demand instances. However, if your workload runs for multiple hours and can't be interrupted, On-Demand instances might be more suitable for you. You can always try Spot instances first and switch to On-Demand if necessary.
 

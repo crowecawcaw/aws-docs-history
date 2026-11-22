@@ -1,7 +1,6 @@
 
 
 # Create a service environment in AWS Batch
-<a name="create-service-environments"></a>
 
 Before you can run SageMaker Training jobs in AWS Batch, you need to create a service environment. You can create a service environment that contains the configuration parameters required for AWS Batch to integrate with SageMaker AI services and submit SageMaker Training jobs on your behalf.
 

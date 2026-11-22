@@ -1,7 +1,6 @@
 
 
 # Tutorial: View state machine details
-<a name="stepfunctions-configure"></a>
 
 The AWS Batch console displays a list of your state machines in the current AWS Region that contain at least one workflow step that submits a AWS Batch job.
 

@@ -1,7 +1,6 @@
 
 
 # Jobs stuck in RUNNABLE due to misconfiguration
-<a name="job_stuck_in_runnable_misconfiguration"></a>
 
 Misconfiguration issues occur when the compute environment or job definition settings prevent AWS Batch from placing jobs on compute resources.
 

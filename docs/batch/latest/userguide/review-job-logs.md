@@ -1,7 +1,6 @@
 
 
 # View AWS Batch job logs in CloudWatch Logs
-<a name="review-job-logs"></a>
 
 You can [configure your AWS Batch jobs](using_cloudwatch_logs.md) to send log information to Amazon CloudWatch Logs. This way, you can view different logs from your jobs in one convenient location. For more information, see [Using CloudWatch Logs with AWS Batch](using_cloudwatch_logs.md).
 

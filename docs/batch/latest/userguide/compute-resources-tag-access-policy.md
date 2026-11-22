@@ -1,7 +1,6 @@
 
 
 # Control access to compute resource tags with condition keys
-<a name="compute-resources-tag-access-policy"></a>
 
 The following actions support both the `batch:ComputeResourcesTag/{{tag-key}}` and `batch:ComputeResourcesTagKeys` condition keys:
 + `batch:CreateComputeEnvironment`

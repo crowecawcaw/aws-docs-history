@@ -1,7 +1,6 @@
 
 
 # Reference: AWS Batch job scenarios using EcsProperties
-<a name="multi-container-jobs-scenarios"></a>
 
 To illustrate how AWS Batch job definitions that use `EcsProperties` can be structured based on your needs, this topic presents the following [`RegisterJobDefinition`](https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) payloads. You can copy these examples into a file, customize them to your needs, and then use the AWS Command Line Interface (AWS CLI) to call `RegisterJobDefinition`.
 
@@ -10,7 +9,7 @@ To illustrate how AWS Batch job definitions that use `EcsProperties` can be stru
 
 The following is an example of a AWS Batch job for Amazon Elastic Container Service on Amazon Elastic Compute Cloud:
 
-```
+```json
 {
     "jobDefinitionName": "multicontainer-ecs-ec2",
     "type": "container",
@@ -93,7 +92,7 @@ The following is an example of a AWS Batch job for Amazon Elastic Container Serv
 
 The following is an example of a AWS Batch job for Amazon Elastic Container Service on AWS Fargate:
 
-```
+```json
 {
     "jobDefinitionName": "multicontainer-ecs-fargate",
     "type": "container",
@@ -154,7 +153,7 @@ The following is an example of a AWS Batch job for Amazon Elastic Container Serv
 
 The following is an example of a AWS Batch job for Amazon Elastic Kubernetes Service:
 
-```
+```json
 {
   "jobDefinitionName": "multicontainer-eks",
   "type": "container",
@@ -232,7 +231,7 @@ The following is an example of a AWS Batch job for Amazon Elastic Kubernetes Ser
 
 The following is an example of a multi-node parallel (MNP) AWS Batch job with multiple containers per node:
 
-```
+```json
 {
   "jobDefinitionName": "multicontainer-mnp",
   "type": "multinode",

@@ -1,7 +1,6 @@
 
 
 # Resource: AWS Batch service quotas
-<a name="service_limits"></a>
 
 The following table provides the service quotas for AWS Batch that can't be changed. Each quota is Region specific.
 

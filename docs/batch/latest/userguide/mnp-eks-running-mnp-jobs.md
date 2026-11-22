@@ -1,7 +1,6 @@
 
 
 # Running MNP jobs
-<a name="mnp-eks-running-mnp-jobs"></a>
 
 AWS Batch supports MNP jobs on Amazon Elastic Container Service and Amazon EKS using Amazon EC2. The following provides more specifics about the instance and container parameters for the feature.
 

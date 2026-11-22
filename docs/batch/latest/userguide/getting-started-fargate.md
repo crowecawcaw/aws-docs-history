@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch and Fargate orchestration using the Wizard
-<a name="getting-started-fargate"></a>
 
 AWS Fargate launches and scales the compute to closely match the resource requirements that you specify for the container. With Fargate, you don't need to over-provision or pay for additional servers. For more information, see [Fargate](https://docs.aws.amazon.com/batch/latest/userguide/fargate.html#when-to-use-fargate).
 

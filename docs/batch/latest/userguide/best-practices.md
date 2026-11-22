@@ -1,7 +1,6 @@
 
 
 # Best practices for AWS Batch
-<a name="best-practices"></a>
 
 You can use AWS Batch to run a variety of demanding computational workloads at scale without managing a complex architecture. AWS Batch jobs can be used in a wide range of use cases in areas such as epidemiology, gaming, and machine learning.
 

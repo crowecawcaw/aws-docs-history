@@ -1,7 +1,6 @@
 
 
 # AWS Batch
-<a name="batch-troubleshooting"></a>
 
 Review the following topics to find review processes and potential solutions to common issues that you may encounter when using AWS Batch.
 

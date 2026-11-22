@@ -1,7 +1,6 @@
 
 
 # Service environment state definitions
-<a name="service-environment-state-definitions"></a>
 
 Service environments can be in one of four possible states that indicate their current operational status and readiness to process SageMaker Training jobs. Each state represents a specific phase in the service environment lifecycle, from initial creation through operational readiness to eventual deletion. The following table describes each state and its meaning:
 

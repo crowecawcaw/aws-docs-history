@@ -1,7 +1,6 @@
 
 
 # Instance type compute table
-<a name="instance-type-compute-table"></a>
 
 The following table lists the AWS Region, instance family keyword, and available instance families. AWS Batch will try to allocate an instance from the latest family but because instance family availability varies by AWS Region you may get an earlier instance family generation. 
 

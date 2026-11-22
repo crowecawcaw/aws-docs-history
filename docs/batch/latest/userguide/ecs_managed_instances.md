@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Managed Instances compute environments
-<a name="ecs_managed_instances"></a>
 
 With Amazon ECS Managed Instances, you run containers on Amazon EC2 instances that Amazon ECS fully manages on your behalf. You don't need to configure Auto Scaling groups, select specific AMIs, or manage instance lifecycle. Amazon ECS handles instance provisioning, scaling, patching, and termination automatically based on the resource requirements of your jobs.
 

@@ -1,7 +1,6 @@
 
 
 # Step 5: Clean up resources
-<a name="batch-host-logs-cleanup"></a>
 
 If you no longer need the host-level log collection, remove the following resources to avoid unnecessary charges:
 

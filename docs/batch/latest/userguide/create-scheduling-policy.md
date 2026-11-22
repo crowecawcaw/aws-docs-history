@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a fair-share scheduling policy
-<a name="create-scheduling-policy"></a>
 
 Before you can create a job queue with a scheduling policy, you must create a scheduling policy. When you create a fair-share scheduling policy, you associate one or more share identifiers or share identifier prefixes with weights for the queue and optionally assign a decay period and compute reservation to the policy.
 

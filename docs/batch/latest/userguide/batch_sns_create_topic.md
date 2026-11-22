@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create and subscribe to an Amazon SNS topic
-<a name="batch_sns_create_topic"></a>
 
  For this tutorial, you configure an Amazon SNS topic to serve as an event target for your new event rule. 
 

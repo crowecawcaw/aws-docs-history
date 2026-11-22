@@ -1,7 +1,6 @@
 
 
 # Tutorial: Sending Amazon Simple Notification Service alerts for failed job events
-<a name="batch_sns_tutorial"></a>
 
 In this tutorial, you configure an Amazon EventBridge event rule that only captures job events where the job has moved to a `FAILED` status. At the end of this tutorial, you can optionally also submit a job to this job queue. This is to test that you have configured your Amazon SNS alerts correctly.
 
@@ -26,7 +25,7 @@ To create an event rule that monitors for *batch job queue blocked*, repeat thes
 
 1. **In [Tutorial: Register an event rule](batch_sns_reg_rule.md) **, use the following pattern in the JSON editor:
 
-   ```
+   ```json
    {
       "detail-type": [
         "Batch Job Queue Blocked"

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Test your rule
-<a name="batch_sns_test_rule"></a>
 
 To test your rule, submit a job that exits shortly after it starts with a non-zero exit code. If your event rule is configured correctly, you should receive an email message within a few minutes with the event text. 
 

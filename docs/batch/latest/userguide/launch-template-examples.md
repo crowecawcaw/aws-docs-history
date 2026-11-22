@@ -1,7 +1,6 @@
 
 
 # Reference: Amazon EC2 launch template examples
-<a name="launch-template-examples"></a>
 
 The following are example MIME multi-part files that you can use to create your own templates.
 
@@ -82,7 +81,7 @@ runcmd:
 ```
 In the [volumes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html#Batch-Type-ContainerProperties-volumes) and [mountPoints](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html#Batch-Type-ContainerProperties-mountPoints) members of the container properties the mount points must be mapped into the container.  
 
-```
+```json
 {
     "volumes": [
         {

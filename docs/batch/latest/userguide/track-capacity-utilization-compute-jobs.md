@@ -1,7 +1,6 @@
 
 
 # Track compute job capacity utilization
-<a name="track-capacity-utilization-compute-jobs"></a>
 
 AWS Batch provides multiple API operations that you can use together to track capacity utilization for ECS, EKS, and Fargate compute jobs in a queue. The monitoring workflow depends on the type of scheduling policy that is attached to your job queue.
 
@@ -45,7 +44,7 @@ For job queues that use a fair-share scheduling policy, the response also includ
 
 Use the [get-job-queue-snapshot](https://docs.aws.amazon.com/cli/latest/reference/batch/get-job-queue-snapshot.html) command to retrieve a snapshot of the capacity utilization for a job queue.
 
-```
+```sh
 aws batch get-job-queue-snapshot \
     --job-queue {{my-job-queue}}
 ```
@@ -57,7 +56,7 @@ The response varies depending on the scheduling policy that is attached to your 
 
 The following is an example response for a FIFO job queue running compute jobs. Because a FIFO queue does not use a scheduling policy, the response does not include per-share utilization.
 
-```
+```json
 {
     "frontOfQueue": {
         "jobs": [],
@@ -82,7 +81,7 @@ In this example, the queue consumes a total of 96 vCPUs across all dispatched jo
 
 The following is an example response for a fair-share job queue. The `queueUtilization` object contains a point-in-time snapshot of the total capacity consumed by all dispatched jobs from the queue, along with a per-share breakdown.
 
-```
+```json
 {
     "frontOfQueue": {
         "jobs": [],
@@ -155,7 +154,7 @@ Use the [list-jobs](https://docs.aws.amazon.com/cli/latest/reference/batch/list-
 
 View running compute jobs in your queue:
 
-```
+```sh
 aws batch list-jobs \
     --job-queue {{my-job-queue}} \
     --job-status RUNNING
@@ -163,7 +162,7 @@ aws batch list-jobs \
 
 View compute jobs waiting to be dispatched:
 
-```
+```sh
 aws batch list-jobs \
     --job-queue {{my-job-queue}} \
     --job-status RUNNABLE
@@ -173,7 +172,7 @@ For queues with a fair-share scheduling policy, use the `--filters` parameter wi
 
 List only `RUNNING` compute jobs for a share from a fair-share queue:
 
-```
+```sh
 aws batch list-jobs \
     --job-queue {{my-job-queue}} \
     --job-status RUNNING \
@@ -182,7 +181,7 @@ aws batch list-jobs \
 
 The following is an example response for listing running compute jobs.
 
-```
+```json
 {
     "jobSummaryList": [
         {
@@ -215,7 +214,7 @@ After you identify a compute job of interest, use the [`DescribeJobs`](https://d
 
 View detailed information about a specific compute job:
 
-```
+```sh
 aws batch describe-jobs \
     --jobs {{b5e7d839-9ff9-5d76-9f3b-0b6f9g5c8e4f}}
 ```

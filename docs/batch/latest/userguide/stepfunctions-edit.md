@@ -1,7 +1,6 @@
 
 
 # Tutorial: Edit a state machine
-<a name="stepfunctions-edit"></a>
 
 When you want to edit a state machine, AWS Batch opens the **Edit definition** page of the Step Functions console.
 

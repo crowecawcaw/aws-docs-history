@@ -1,7 +1,6 @@
 
 
 # Create a job definition on Amazon ECS Managed Instances
-<a name="create-job-definition-ecs-managed-instances"></a>
 
 Amazon ECS Managed Instances job definitions use `ecsProperties` with the `MANAGED_INSTANCES` platform capability. Unlike Fargate, there are no restrictions on vCPU and memory size combinations, and GPU resources are supported. For more information about supported parameters, see [Job definitions on Amazon ECS Managed Instances](ecs-managed-instances-job-definitions.md).
 
@@ -52,7 +51,7 @@ Use the `register-job-definition` command to create a job definition for Amazon 
 
 The following example creates a minimal job definition that runs a simple command.
 
-```
+```sh
 $ aws batch register-job-definition \
     --job-definition-name {{my-managed-instances-job-def}} \
     --type container \
@@ -78,7 +77,7 @@ $ aws batch register-job-definition \
 
 The following example creates a job definition that requests GPU resources.
 
-```
+```sh
 $ aws batch register-job-definition \
     --job-definition-name {{my-gpu-managed-instances-job-def}} \
     --type container \
@@ -105,7 +104,7 @@ $ aws batch register-job-definition \
 
 The following example creates a job definition with a main container and a sidecar logging container.
 
-```
+```sh
 $ aws batch register-job-definition \
     --job-definition-name {{my-sidecar-managed-instances-job-def}} \
     --type container \

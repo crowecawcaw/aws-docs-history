@@ -1,7 +1,6 @@
 
 
 # AWS Batch event stream for Amazon EventBridge
-<a name="cloudwatch_event_stream"></a>
 
 You can use the AWS Batch event stream for Amazon EventBridge to receive near real-time notifications regarding the current state of jobs in your job queues.
 

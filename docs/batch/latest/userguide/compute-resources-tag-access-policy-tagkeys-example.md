@@ -1,11 +1,10 @@
 
 
 # Example: Restrict the compute resource tag keys a principal can set
-<a name="compute-resources-tag-access-policy-tagkeys-example"></a>
 
 The following identity-based policy, which you attach to an IAM user or role, allows a principal to create and update compute environments, but only when every tag key in `computeResources.tags` is `CostCenter`, `Team`, or `Project`. Requests that set any other tag key are denied.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -31,7 +30,7 @@ This policy restricts the request to the allowed tag keys, but it doesn't requir
 
 You can combine both condition keys in a single statement to restrict the allowed tag keys and the value permitted for one of those keys at the same time. The following policy allows a principal to create and update compute environments only when the `CostCenter` tag value is `engineering`, and only when no tag key other than `CostCenter`, `Team`, or `Project` is used.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

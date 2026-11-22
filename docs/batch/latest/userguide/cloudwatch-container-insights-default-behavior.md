@@ -1,7 +1,6 @@
 
 
 # Default behavior
-<a name="cloudwatch-container-insights-default-behavior"></a>
 
 When you create a compute environment without specifying a Container Insights setting, AWS Batch does not pass a Container Insights configuration to the underlying Amazon ECS cluster. In this case, the Amazon ECS account-level default applies at cluster creation. The Amazon ECS default is `disabled` unless you have changed your account setting.
 

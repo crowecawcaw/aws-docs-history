@@ -1,7 +1,6 @@
 
 
 # Automatic remediation with `jobStateTimeLimitActions`
-<a name="job_stuck_in_runnable_time_limit_actions"></a>
 
 Optionally, you can configure the `jobStateTimeLimitActions` parameter through `[CreateJobQueue](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html)` and [`UpdateJobQueue`](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateJobQueue.html) API actions.
 

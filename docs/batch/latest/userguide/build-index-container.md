@@ -1,7 +1,6 @@
 
 
 # Build a container image
-<a name="build-index-container"></a>
 
 You can use the `AWS_BATCH_JOB_ARRAY_INDEX` in a job definition in the command parameter. However, we recommend that you create a container image that uses the variable in an entrypoint script instead. This section describes how to create such a container image.
 
@@ -25,7 +24,7 @@ You can use the `AWS_BATCH_JOB_ARRAY_INDEX` in a job definition in the command p
 **Note**  
 The `LINE` variable is set to the `AWS_BATCH_JOB_ARRAY_INDEX` \+ 1 because the array index starts at 0, but line numbers start at 1. The `COLOR` variable is set to the color in `colors.txt` that's associated with its line number.
 
-   ```
+   ```sh
    #!/bin/sh
    LINE=$((AWS_BATCH_JOB_ARRAY_INDEX + 1))
    COLOR=$(sed -n ${LINE}p /tmp/colors.txt)
@@ -34,7 +33,7 @@ The `LINE` variable is set to the `AWS_BATCH_JOB_ARRAY_INDEX` \+ 1 because the a
 
 1. Create a file named `Dockerfile` in your workspace directory and paste the following content into it. This Dockerfile copies the previous files to your container and sets the entrypoint script to run when the container starts.
 
-   ```
+   ```dockerfile
    FROM busybox
    COPY print-color.sh /tmp/print-color.sh
    COPY colors.txt /tmp/colors.txt
@@ -44,13 +43,13 @@ The `LINE` variable is set to the `AWS_BATCH_JOB_ARRAY_INDEX` \+ 1 because the a
 
 1. Build your Docker image.
 
-   ```
+   ```sh
    $ docker build -t print-color .
    ```
 
 1. Test your container with the following script. This script sets the `AWS_BATCH_JOB_ARRAY_INDEX` variable to 0 locally and then increments it to simulate what an array job with seven children does.
 
-   ```
+   ```sh
    $ AWS_BATCH_JOB_ARRAY_INDEX=0
    while [ $AWS_BATCH_JOB_ARRAY_INDEX -le 6 ]
    do

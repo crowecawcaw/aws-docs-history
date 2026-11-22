@@ -1,7 +1,6 @@
 
 
 # Amazon EKS default AMI
-<a name="eks-ce-ami-selection"></a>
 
 When you create an Amazon EKS compute environment, you don't need to specify an Amazon Machine Image (AMI). AWS Batch selects an Amazon EKS optimized AMI based on the Kubernetes version and instance types that are specified in your [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) request. In general, we recommend that you use the default AMI selection. For information about AMI selection precedence, see [AMI selection order](ami-selection-order.md). For more information about Amazon EKS optimized AMIs, see [Amazon EKS optimized Amazon Linux AMIs](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) in the *Amazon EKS User Guide*.
 
@@ -11,7 +10,7 @@ AWS will end support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, star
 
 Run the following command to see which AMI type AWS Batch selected for your Amazon EKS compute environment. The following example is a non-GPU instance type.
 
-```
+```sh
 # compute CE example: indicates Batch has chosen the AL2023 x86 or ARM EKS 1.37 AMI, depending on instance types
     $ aws batch describe-compute-environments --compute-environments {{My-Eks-CE1}} \
         | jq '.computeEnvironments[].computeResources.ec2Configuration'
@@ -25,7 +24,7 @@ Run the following command to see which AMI type AWS Batch selected for your Amaz
 
 The following example is a GPU instance type.
 
-```
+```sh
 # GPU CE example: indicates Batch has chosen the AL2023 x86 EKS Accelerated 1.37 AMI
     $ aws batch describe-compute-environments --compute-environments {{My-Eks-GPU-CE}} \
         | jq '.computeEnvironments[].computeResources.ec2Configuration'

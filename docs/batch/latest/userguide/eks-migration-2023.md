@@ -1,7 +1,6 @@
 
 
 # How to upgrade from EKS AL2 to EKS AL2023
-<a name="eks-migration-2023"></a>
 
 The Amazon EKS optimized AMIs are available in two families based on Amazon Linux 2 (AL2) and Amazon Linux 2023 (AL2023). AL2023 is a Linux-based operating system designed to provide a secure, stable, and high-performance environment for your cloud applications. For more information about the differences between AL2 and AL2023 see [Upgrade from Amazon Linux 2 to Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/al2023.html) in the *Amazon EKS User Guide*.
 

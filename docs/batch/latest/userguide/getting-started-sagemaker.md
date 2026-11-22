@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch on SageMaker AI
-<a name="getting-started-sagemaker"></a>
 
 AWS Batch service jobs enable you to submit SageMaker Training jobs through AWS Batch job queues with scheduling, prioritization, and queuing capabilities. This tutorial demonstrates how to set up and run a simple SageMaker Training job using AWS Batch service jobs.
 
@@ -80,7 +79,7 @@ Before you create an execution role for your production environment we recommend
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -99,7 +98,7 @@ Before you create an execution role for your production environment we recommend
 
    Create the IAM role using the trust policy:
 
-   ```
+   ```bsh
    aws iam create-role \
        --role-name SageMakerExecutionRole \
        --assume-role-policy-document file://sagemaker-trust-policy.json \
@@ -112,13 +111,13 @@ Before you create an execution role for your production environment we recommend
 
    Attach the required managed policies to the role:
 
-   ```
+   ```bsh
    aws iam attach-role-policy \
        --role-name SageMakerExecutionRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
    ```
 
-   ```
+   ```bsh
    aws iam attach-role-policy \
        --role-name SageMakerExecutionRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
@@ -130,7 +129,7 @@ Before you create an execution role for your production environment we recommend
 
    Get the role ARN, which you'll need in later steps:
 
-   ```
+   ```bsh
    aws iam get-role --role-name SageMakerExecutionRole --query 'Role.Arn' --output text
    ```
 
@@ -146,7 +145,7 @@ When you create your first service environment for SageMaker Training, AWS Batch
 
 Create a service environment that can handle up to 5 instances:
 
-```
+```sh
 aws batch create-service-environment \
     --service-environment-name {{TutorialServiceEnvironment}} \
     --service-environment-type SAGEMAKER_TRAINING \
@@ -155,7 +154,7 @@ aws batch create-service-environment \
 
 Output:
 
-```
+```json
 {
     "serviceEnvironmentName": "{{TutorialServiceEnvironment}}",
     "serviceEnvironmentArn": "arn:aws:batch:{{your-region}}:{{your-account-id}}:service-environment/{{TutorialServiceEnvironment}}"
@@ -164,13 +163,13 @@ Output:
 
 Verify that your service environment was created successfully:
 
-```
+```sh
 aws batch describe-service-environments --service-environments {{TutorialServiceEnvironment}}
 ```
 
 Output:
 
-```
+```json
 {
     "serviceEnvironments": [
         {
@@ -200,7 +199,7 @@ A SageMaker job queue manages the scheduling and execution of service jobs. Jobs
 
 Create a SageMaker Training job queue:
 
-```
+```bsh
 aws batch create-job-queue \
     --job-queue-name {{my-sm-training-fifo-jq}} \
     --job-queue-type SAGEMAKER_TRAINING \
@@ -210,7 +209,7 @@ aws batch create-job-queue \
 
 Output:
 
-```
+```json
 {
     "jobQueueName": "{{my-sm-training-fifo-jq}}",
     "jobQueueArn": "arn:aws:batch:{{your-region}}:{{your-account-id}}:job-queue/{{my-sm-training-fifo-jq}}"
@@ -219,13 +218,13 @@ Output:
 
 Verify that your job queue was created successfully:
 
-```
+```bsh
 aws batch describe-job-queues --job-queues {{my-sm-training-fifo-jq}}
 ```
 
 Output:
 
-```
+```json
 {
     "jobQueues": [
         {
@@ -261,7 +260,7 @@ Create a file named `{{my_training_job.json}}` with the following content. Repla
 **Note**  
 `S3OutputPath` is required for creating the SageMaker Training job but the results of this tutorial are not stored in the Amazon S3 bucket and you can use the path in the following JSON. In your production environment you will need a valid Amazon S3 bucket to store output there if you choose to.
 
-```
+```json
 {
     "TrainingJobName": "{{my-simple-training-job}}",
     "RoleArn": "arn:aws:iam::{{your-account-id}}:role/SageMakerExecutionRole",
@@ -289,7 +288,7 @@ Create a file named `{{my_training_job.json}}` with the following content. Repla
 
 Submit the training job using the [SubmitServiceJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitServiceJob.html) API:
 
-```
+```sh
 aws batch submit-service-job \
     --job-queue {{my-sm-training-fifo-jq}} \
     --job-name {{my-batch-sm-job}} \
@@ -301,7 +300,7 @@ aws batch submit-service-job \
 
 Output:
 
-```
+```json
 {
     "jobArn": "arn:aws:batch:{{your-region}}:{{your-account-id}}:service-job/{{your-job-id}}",
     "jobName": "{{my-batch-sm-job}}",
@@ -318,14 +317,14 @@ You can monitor your training jobs using the following AWS Batch APIs: [Describe
 
 View running jobs in your queue:
 
-```
+```sh
 aws batch list-service-jobs \
     --job-queue {{my-sm-training-fifo-jq}} --job-status RUNNING
 ```
 
 Output:
 
-```
+```json
 {
     "jobSummaryList": [
         {
@@ -349,20 +348,20 @@ Output:
 
 View jobs that are in the `RUNNABLE` state:
 
-```
+```sh
 aws batch list-service-jobs \
     --job-queue {{my-sm-training-fifo-jq}} --job-status RUNNABLE
 ```
 
 Get a snapshot of upcoming jobs in your queue:
 
-```
+```sh
 aws batch get-job-queue-snapshot --job-queue {{my-sm-training-fifo-jq}}
 ```
 
 Output:
 
-```
+```json
 {
     "frontOfQueue": {
         "jobs": [
@@ -382,7 +381,7 @@ Output:
 
 Search for jobs by name:
 
-```
+```sh
 aws batch list-service-jobs \
     --job-queue {{my-sm-training-fifo-jq}} \
     --filters name=JOB_NAME,values="{{my-batch-sm-job}}"
@@ -390,7 +389,7 @@ aws batch list-service-jobs \
 
 Output:
 
-```
+```json
 {
     "jobSummaryList": [
         {
@@ -420,14 +419,14 @@ Once your job completes, you can view its output and logs through both AWS Batch
 
 Get detailed information about your job from AWS Batch:
 
-```
+```sh
 aws batch describe-service-job \
     --job-id {{your-job-id}}
 ```
 
 Output:
 
-```
+```json
 {
     "attempts": [
         {
@@ -470,14 +469,14 @@ Output:
 
 This command returns comprehensive job information including the SageMaker Training job ARN, which you can use to access the job directly through SageMaker AI:
 
-```
+```sh
 aws sagemaker describe-training-job \
     --training-job-name AWSBatch{{<my-simple-training-job>}}{{<your-attempt-id>}}
 ```
 
 To view the CloudWatch logs for your training job, first get the log stream name:
 
-```
+```sh
 aws logs describe-log-streams \
     --log-group-name /aws/sagemaker/TrainingJobs \
     --log-stream-name-prefix AWSBatch{{my-simple-training-job}}
@@ -485,7 +484,7 @@ aws logs describe-log-streams \
 
 Output:
 
-```
+```json
 {
     "logStreams": [
         {
@@ -504,7 +503,7 @@ Output:
 
 Then retrieve the logs using the log stream name from the previous response:
 
-```
+```sh
 aws logs get-log-events \
     --log-group-name /aws/sagemaker/TrainingJobs \
     --log-stream-name {{your-log-stream-name}}
@@ -512,7 +511,7 @@ aws logs get-log-events \
 
 Output:
 
-```
+```json
 {
     "events": [
         {
@@ -535,7 +534,7 @@ When you're done with the tutorial, clean up the resources you created to avoid 
 
 First, disable and delete the job queue:
 
-```
+```sh
 aws batch update-job-queue \
     --job-queue {{my-sm-training-fifo-jq}} \
     --state DISABLED
@@ -543,14 +542,14 @@ aws batch update-job-queue \
 
 Wait for the job queue to be disabled, then delete it:
 
-```
+```sh
 aws batch delete-job-queue \
     --job-queue {{my-sm-training-fifo-jq}}
 ```
 
 Next, disable and delete the service environment:
 
-```
+```sh
 aws batch update-service-environment \
     --service-environment {{TutorialServiceEnvironment}} \
     --state DISABLED
@@ -558,7 +557,7 @@ aws batch update-service-environment \
 
 Wait for the service environment to be disabled, then delete it:
 
-```
+```sh
 aws batch delete-service-environment \
     --service-environment {{TutorialServiceEnvironment}}
 ```

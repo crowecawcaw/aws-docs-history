@@ -1,7 +1,6 @@
 
 
 # Resource: Deny action when any condition keys match strings
-<a name="iam-example-job-def-deny-any-image-logdriver"></a>
 
 The following policy denies access to the [RegisterJobDefinition](https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) API operation when either the `batch:Image` (container image ID) condition key is "{{string1}}" or the `batch:LogDriver` (container log driver) condition key is "{{string2}}." When a job spans multiple containers such as a multi-node parallel job, it's possible for the containers to have different configurations. If multiple condition keys are evaluated in one statement, they're combined using `AND` logic. So, if any of the multiple condition keys doesn't match for a container, the `Deny` effect isn't applied for that container. Rather, a different container in the same job might be denied.
 
@@ -12,7 +11,7 @@ For the list of condition keys for AWS Batch, see [Condition keys for AWS Batch]
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

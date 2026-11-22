@@ -1,7 +1,6 @@
 
 
 # Tag your resources
-<a name="tag-resources"></a>
 
 You can tag new or existing AWS Batch compute environments, jobs, job definitions, job queues, and scheduling policies.
 

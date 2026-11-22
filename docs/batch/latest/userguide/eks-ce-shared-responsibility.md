@@ -1,7 +1,6 @@
 
 
 # Shared responsibility of the Kubernetes nodes
-<a name="eks-ce-shared-responsibility"></a>
 
 Maintenance of the compute environments is a shared responsibility.
 + Don't change or remove AWS Batch nodes, labels, taints, namespaces, launch templates, or auto scaling groups. Don't add taints to AWS Batch managed nodes. If you make any of these changes, your compute environment cannot be supported and failures including idle instances occur.
@@ -10,7 +9,7 @@ Maintenance of the compute environments is a shared responsibility.
 
 AWS Batch doesn't automatically update compute environment AMIs. It's your responsibility to update them. Run the following command to update your AMIs to the latest AMI version.
 
-```
+```sh
 $ aws batch update-compute-environment \
     --compute-environment {{<compute-environment-name>}} \
     --compute-resources 'updateToLatestImageVersion=true'
@@ -18,7 +17,7 @@ $ aws batch update-compute-environment \
 
 AWS Batch doesn't automatically upgrade the Kubernetes version. Run the following command to update the Kubernetes version of your compute environment to {{1.37}}.
 
-```
+```sh
 $ aws batch update-compute-environment \
     --compute-environment {{<compute-environment-name>}} \
     --compute-resources \

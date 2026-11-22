@@ -1,7 +1,6 @@
 
 
 # `INVALID` compute environment
-<a name="batch_eks_invalid_compute_environment"></a>
 
 It's possible that you might have incorrectly configured a managed compute environment. If you did, the compute environment enters an `INVALID` state and can't accept jobs for placement. The following sections describe the possible causes and how to troubleshoot based on the cause.
 

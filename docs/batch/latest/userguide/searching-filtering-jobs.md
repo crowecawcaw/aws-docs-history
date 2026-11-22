@@ -1,7 +1,6 @@
 
 
 # Search AWS Batch for jobs in a job queue
-<a name="searching-filtering-jobs"></a>
 
 You can search and filter your jobs in AWS Batch using Job search. This feature provides an option to search within an existing job queue and filter its jobs.
 

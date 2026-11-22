@@ -1,7 +1,6 @@
 
 
 # Tag restrictions
-<a name="tag-restrictions"></a>
 
 The following basic restrictions apply to tags:
 + Maximum number of tags per resource – 50

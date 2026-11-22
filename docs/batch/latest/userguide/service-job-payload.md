@@ -1,7 +1,6 @@
 
 
 # Service job payloads in AWS Batch
-<a name="service-job-payload"></a>
 
 When you submit service jobs using [SubmitServiceJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitServiceJob.html), you provide two key parameters that define the job: `serviceJobType`, and `serviceRequestPayload`.
 + The `serviceJobType` specifies which AWS service will execute the job. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING`.
@@ -20,7 +19,7 @@ The following example shows a simple service job payload for a SageMaker Trainin
 
 This payload would be passed as a JSON string to the `serviceRequestPayload` parameter when calling `SubmitServiceJob`.
 
-```
+```json
 {
   "TrainingJobName": "my-simple-training-job",
   "RoleArn": "arn:aws:iam::123456789012:role/SageMakerExecutionRole",

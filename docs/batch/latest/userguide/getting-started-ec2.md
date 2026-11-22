@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EC2 orchestration using the Wizard
-<a name="getting-started-ec2"></a>
 
 Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Batch on Amazon EKS
-<a name="batch-eks-troubleshooting"></a>
 
 **Topics**
 + [`INVALID` compute environment](batch_eks_invalid_compute_environment.md)

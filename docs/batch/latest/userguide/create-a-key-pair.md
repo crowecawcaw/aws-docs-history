@@ -1,7 +1,6 @@
 
 
 # Create a key pair for your instances
-<a name="create-a-key-pair"></a>
 
 AWS uses public-key cryptography to secure the login information for your instance. A Linux instance, such as an AWS Batch compute environment container instance, has no password to use for SSH access. You use a key pair to log in to your instance securely. You specify the name of the key pair when you create your compute environment, then provide the private key when you log in using SSH. 
 

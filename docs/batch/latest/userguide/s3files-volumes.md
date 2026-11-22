@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Files volumes
-<a name="s3files-volumes"></a>
 
 S3 Files provides direct file system access to data stored in Amazon Simple Storage Service (Amazon S3) buckets. With AWS Batch, you can define S3 Files volumes in your job definitions so that your containers can read and write Amazon S3 data using standard file operations.
 
@@ -31,7 +30,7 @@ For more information about creating and managing access points, see [Creating ac
 
 To use S3 Files volumes for your containers, you must specify the volume and mount point configurations in your job definition. The following job definition JSON snippet shows the syntax for the `volumes` and `mountPoints` objects for a container:
 
-```
+```JSON
 {
     "ecsProperties": {
         "taskProperties": [
@@ -94,7 +93,7 @@ For jobs that use Amazon EKS resources, AWS Batch supports S3 Files volumes thro
 
 The following job definition snippet shows how to reference an S3 Files persistent volume claim:
 
-```
+```JSON
 {
     "eksProperties": {
         "podProperties": {

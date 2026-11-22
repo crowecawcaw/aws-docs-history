@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EC2 job queue
-<a name="create-job-queue-ec2"></a>
 
 Complete the following steps to create a job queue for Amazon Elastic Compute Cloud (Amazon EC2).
 

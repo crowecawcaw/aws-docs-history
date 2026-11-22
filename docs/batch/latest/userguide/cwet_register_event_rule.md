@@ -1,7 +1,6 @@
 
 
 # Tutorial: Register the event rule
-<a name="cwet_register_event_rule"></a>
 
 In this section, you create an EventBridge event rule that captures job events that are coming from your AWS Batch resources. This rule captures all events coming from AWS Batch within the account where it's defined. The job messages themselves contain information about the event source, including the job queue where it was submitted. You can use this information to filter and sort events programmatically.
 
@@ -32,7 +31,7 @@ If you use the AWS Management Console to create an event rule, the console autom
 
 1. Paste the following event pattern into the text area.
 
-   ```
+   ```json
    {
      "source": [
        "aws.batch"

@@ -1,7 +1,6 @@
 
 
 # Create a job queue
-<a name="create-job-queue"></a>
 
 Before you can submit jobs in AWS Batch, you must create a job queue. When you create a job queue, you associate one or more compute environments to the queue and assign an order of preference.
 

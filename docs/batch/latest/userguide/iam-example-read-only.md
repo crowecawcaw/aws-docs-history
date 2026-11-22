@@ -1,7 +1,6 @@
 
 
 # Resource: Read-only access for AWS Batch
-<a name="iam-example-read-only"></a>
 
 The following policy grants users permissions to use all AWS Batch API actions with a name that starts with `Describe` and `List`.
 
@@ -12,7 +11,7 @@ Unless another statement grants them permission to do so, users don't have permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

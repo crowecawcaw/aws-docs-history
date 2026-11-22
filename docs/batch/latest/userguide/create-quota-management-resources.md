@@ -1,7 +1,6 @@
 
 
 # Create quota management resources
-<a name="create-quota-management-resources"></a>
 
 Quota management requires specific settings when creating an associated scheduling policy, service environment, and job queue.
 

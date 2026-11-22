@@ -1,7 +1,6 @@
 
 
 # Jobs stuck in a `RUNNABLE` status
-<a name="job_stuck_in_runnable"></a>
 
 Suppose that your compute environment contains compute resources, but your jobs don't progress beyond the `RUNNABLE` status. Then, it's likely that something is preventing the jobs from being placed on a compute resource and causing your job queues to be blocked. Here's how to know if your job is waiting for its turn or stuck and blocking the queue.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a managed compute environment using Amazon ECS Managed Instances
-<a name="create-compute-environment-ecs-managed-instances"></a>
 
 This tutorial walks you through creating an AWS Batch compute environment that uses Amazon ECS Managed Instances. Amazon ECS manages the Amazon EC2 instances on your behalf — you specify the maximum capacity and optional instance constraints, and Amazon ECS handles provisioning, scaling, and termination.
 
@@ -59,7 +58,7 @@ Use the `create-compute-environment` command to create an Amazon ECS Managed Ins
 
 The following example creates a compute environment with the minimum required configuration. Amazon ECS can use any available instance type.
 
-```
+```sh
 $ aws batch create-compute-environment \
     --compute-environment-name {{my-managed-instances-ce}} \
     --type MANAGED \
@@ -85,7 +84,7 @@ $ aws batch create-compute-environment \
 
 The following example creates a Spot-backed compute environment constrained to specific instance types.
 
-```
+```sh
 $ aws batch create-compute-environment \
     --compute-environment-name {{my-spot-managed-instances-ce}} \
     --type MANAGED \
@@ -112,7 +111,7 @@ $ aws batch create-compute-environment \
 
 Output:
 
-```
+```json
 {
     "computeEnvironmentName": "my-spot-managed-instances-ce",
     "computeEnvironmentArn": "arn:aws:batch:us-east-1:123456789012:compute-environment/my-spot-managed-instances-ce"
@@ -124,7 +123,7 @@ Output:
 
 The following example creates a compute environment that targets On-Demand Capacity Reservations for predictable capacity.
 
-```
+```sh
 $ aws batch create-compute-environment \
     --compute-environment-name {{my-reserved-managed-instances-ce}} \
     --type MANAGED \

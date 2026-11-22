@@ -1,7 +1,6 @@
 
 
 # Jobs
-<a name="jobs"></a>
 
 Jobs are the unit of work that's started by AWS Batch. Jobs can be invoked as containerized applications that run on Amazon ECS container instances in an ECS cluster.
 

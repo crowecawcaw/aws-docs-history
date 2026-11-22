@@ -1,7 +1,6 @@
 
 
 # Elastic Fabric Adapter
-<a name="efa"></a>
 
 An Elastic Fabric Adapter (EFA) is a network device to accelerate High Performance Computing (HPC) applications. AWS Batch supports applications that use EFA if the following conditions are met.
 + For a list of instance types that support EFAs, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types) in the *Amazon EC2 User Guide*.
@@ -20,7 +19,7 @@ To see a list of instance types that support EFAs in an AWS Region, run the foll
   The location of the [LinuxParameters](https://docs.aws.amazon.com/batch/latest/APIReference/API_LinuxParameters.html) members are different for multi-node parallel jobs and single-node container jobs. The following examples show the differences, but are missing required values.  
 **Example for multi-node parallel job**  
 
-  ```
+  ```json
   {
     "jobDefinitionName": "EFA-MNP-JobDef",
     "type": "multinode",
@@ -50,7 +49,7 @@ To see a list of instance types that support EFAs in an AWS Region, run the foll
   ```  
 **Example for single-node container job**  
 
-  ```
+  ```json
   {
     "jobDefinitionName": "EFA-Container-JobDef",
     "type": "container",

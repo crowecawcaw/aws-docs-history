@@ -1,7 +1,6 @@
 
 
 # AWS Batch on Amazon EKS job is stuck in `RUNNABLE` status
-<a name="batch_eks_job_stuck_in_runnable"></a>
 
 An `aws-auth` `ConfigMap` is automatically created and applied to your cluster when you create a managed node group or a node group using `eksctl`. An `aws-auth` `ConfigMap` is initially created to allow nodes to join your cluster. However, you also use the `aws-auth``ConfigMap` to add role-based access control (RBAC) access to users and roles.
 
@@ -9,7 +8,7 @@ To verify that the `aws-auth` `ConfigMap` is configured correctly:
 
 1. Retrieve the mapped roles in the `aws-auth` `ConfigMap`:
 
-   ```
+   ```sh
    $ kubectl get configmap -n kube-system aws-auth -o yaml
    ```
 

@@ -1,11 +1,10 @@
 
 
 # Multi-node parallel job
-<a name="example-mnp-job-definition"></a>
 
 The following example job definition illustrates a multi-node parallel job. For more information, see [Building a tightly coupled molecular dynamics workflow with multi-node parallel jobs in AWS Batch](https://aws.amazon.com/blogs/compute/building-a-tightly-coupled-molecular-dynamics-workflow-with-multi-node-parallel-jobs-in-aws-batch/) in the *AWS Compute* blog.
 
-```
+```json
 {
   "jobDefinitionName": "gromacs-jobdef",
   "jobDefinitionArn": "arn:aws:batch:us-east-2:{{123456789012}}:job-definition/gromacs-jobdef:1",

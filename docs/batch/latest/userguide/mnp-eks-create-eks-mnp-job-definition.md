@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EKS MNP job definition
-<a name="mnp-eks-create-eks-mnp-job-definition"></a>
 
 To define and run MNP jobs on Amazon EKS, there are new parameters within the [`RegisterJobDefinition`](https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) and [`SubmitJob`](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API operations. 
 + Use [`eksProperties`](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksProperties.html) under the [`nodeProperties`](https://docs.aws.amazon.com/batch/latest/APIReference/API_NodeProperties.html) section to define your MNP job definition.
@@ -14,7 +13,7 @@ These actions can be defined through API operations and the AWS Management Conso
 
 The following example illustrates how you can register an Amazon EKS MNP job definition with two nodes.
 
-```
+```json
 {
   "jobDefinitionName": "MyEksMnpJobDefinition",
   "type": "multinode",
@@ -80,13 +79,13 @@ The following example illustrates how you can register an Amazon EKS MNP job def
 
 To register the job definition using the AWS CLI, copy the definition to a local file named *MyEksMnpJobDefinition.json* and run the following command.
 
-```
+```json
 aws batch register-job-definition --cli-input-json file://MyEksMnpJobDefinition.json
 ```
 
 You will receive the following JSON response.
 
-```
+```json
 {
     "jobDefinitionName": "MyEksMnpJobDefinition",
     "jobDefinitionArn": "arn:aws:batch:us-east-1:0123456789:job-definition/MyEksMnpJobDefinition:1",

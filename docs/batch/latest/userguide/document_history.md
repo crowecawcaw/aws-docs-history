@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="document_history"></a>
 
 The following table describes the important changes to the documentation since the initial release of AWS Batch. We also update the documentation frequently to address the feedback that you send us.
 
@@ -51,4 +50,4 @@ The following table describes the important changes to the documentation since t
 | [Expanded AWS Batch tagging](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment.html) | AWS Batch expands support for the tagging function. You can use this function to specify tags for Amazon EC2 Spot Instances launched within managed compute environments. | October 26, 2017 | 
 | [AWS Batch event stream for EventBridge](https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch_event_stream.html) | AWS Batch adds the event stream for EventBridge. You can use AWS Batch event stream to receive near real-time notifications regarding the state of jobs that are submitted to your job queues. | October 24, 2017 | 
 | [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) | AWS Batch adds support for job retries. With this update, you can apply a retry strategy to your jobs and job definitions that allows your jobs to be automatically retried if they fail. | March 28, 2017 | 
-| [AWS Batch general availability](#document_history) | AWS Batch is introduced, designed as a means for you to run batch computing workloads on the AWS Cloud. | January 5, 2017 | 
+| [AWS Batch general availability](document_history.md) | AWS Batch is introduced, designed as a means for you to run batch computing workloads on the AWS Cloud. | January 5, 2017 | 

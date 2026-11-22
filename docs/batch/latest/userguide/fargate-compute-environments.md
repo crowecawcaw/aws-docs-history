@@ -1,7 +1,6 @@
 
 
 # Compute environments on Fargate
-<a name="fargate-compute-environments"></a>
 
 AWS Batch compute environments on AWS Fargate don't support all of the compute environment parameters that are available. Some parameters are not supported at all. Others have specific requirements for Fargate.
 
@@ -10,7 +9,7 @@ The following list describes compute environment parameters that aren't valid or
 `type`  
 This parameter must be `MANAGED`.  
 
-```
+```json
 "type": "MANAGED"
 ```
 
@@ -24,6 +23,6 @@ This isn't applicable for Fargate compute environments and can't be provided. To
 `type`  
 This must be either `FARGATE` or `FARGATE_SPOT`.  
 
-```
+```json
 "type": "FARGATE_SPOT"
 ```

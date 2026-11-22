@@ -1,7 +1,6 @@
 
 
 # Multi-node parallel jobs on Amazon EKS
-<a name="mnp-eks-jobs"></a>
 
 You can use AWS Batch on Amazon Elastic Kubernetes Service to run multi-node parallel (MNP) jobs (also known as *gang scheduling*) on your managed Kubernetes clusters. This option is commonly used for large, tightly-coupled, high-performance jobs that can’t be run on a single Amazon Elastic Compute Cloud instance. For more information, see [Multi-node parallel jobs](multi-node-parallel-jobs.md).
 

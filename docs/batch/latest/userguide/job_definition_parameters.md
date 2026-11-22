@@ -1,7 +1,6 @@
 
 
 # Job definition parameters for ContainerProperties
-<a name="job_definition_parameters"></a>
 
 Job definitions that use [`ContainerProperties`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) are split into several parts:
 + The job definition name
@@ -57,7 +56,7 @@ Type: String to string map
 Required: No  
 When you register a job definition, you can use parameter substitution placeholders in the `command` field of a job's container properties. The syntax is as follows.  
 
-```
+```json
 "command": [
     "ffmpeg",
     "-i",
@@ -71,7 +70,7 @@ When you register a job definition, you can use parameter substitution placehold
 AWS Batch examines each element in the `command` array. If an element starts with `Ref::`, AWS Batch removes the prefix and uses the remaining text as the parameter name. Therefore, each parameter substitution placeholder must be a separate `command` array element. AWS Batch doesn't search for or replace placeholders that are embedded in another string. For example, `s3://Ref::s3Bucket/Ref::objectKey` is passed to the container unchanged.  
 To construct this S3 URI with `bash -c`, pass each placeholder as a separate command array element and reference the substituted values as positional parameters in the command string. For example:  
 
-```
+```json
 "command": [
     "/bin/bash",
     "-c",
@@ -84,7 +83,7 @@ To construct this S3 URI with `bash -c`, pass each placeholder as a separate com
 AWS Batch replaces `{{Ref::s3Bucket}}` and `{{Ref::objectKey}}` before the container starts. The `_` value supplies `$0`, so Bash receives the substituted bucket and object key as `$1` and `$2`.  
 In the `ffmpeg` example, there are `{{Ref::inputfile}}`, `{{Ref::codec}}`, and `{{Ref::outputfile}}` parameter substitution placeholders in the command. You can use the `parameters` object in the job definition to set default values for these placeholders. For example, to set a default for the `{{Ref::codec}}` placeholder, you specify the following in the job definition:  
 
-```
+```json
 "parameters" : {"codec" : "mp4"}
 ```
 When this job definition is submitted to run, the `{{Ref::codec}}` argument in the command for the container is replaced with the default value, `mp4`.
@@ -97,7 +96,7 @@ When you register a job definition, specify a list of container properties that 
 `command`  
 The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `COMMAND` parameter to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/). For more information about the Docker `CMD` parameter, see [https://docs.docker.com/engine/reference/builder/\#cmd](https://docs.docker.com/engine/reference/builder/#cmd).  
 
-```
+```json
 "command": ["{{string}}", ...]
 ```
 Type: String array  
@@ -118,7 +117,7 @@ The value of the environment variable.
 Type: String  
 Required: Yes, when `environment` is used.
 
-```
+```json
 "environment" : [
     { "name" : "{{envName1}}", "value" : "{{envValue1}}" },
     { "name" : "{{envName2}}", "value" : "{{envValue2}}" }
@@ -164,7 +163,7 @@ Required: No
 `linuxParameters`  
 Linux-specific modifications that are applied to the container, such as details for device mappings.  
 
-```
+```json
 "linuxParameters": {
     "devices": [
         {
@@ -261,7 +260,7 @@ This parameter maps to `LogConfig` in the [Create a container](https://docs.dock
 AWS Batch currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/batch/latest/APIReference/API_LogConfiguration.html) data type).
 This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: `sudo docker version | grep "Server API version"`   
 
-```
+```json
 "logConfiguration": {
     "devices": [
         {
@@ -336,14 +335,14 @@ Required: Yes
 The number of MiB of memory reserved for the job.  
 As an example for how to use `resourceRequirements`, if your job definition contains syntax that's similar to the following.  
 
-```
+```json
 "containerProperties": {
   "memory": {{512}}
 }
 ```
 The equivalent syntax using `resourceRequirements` is as follows.  
 
-```
+```json
 "containerProperties": {
   "resourceRequirements": [
     {
@@ -359,7 +358,7 @@ Required: Yes
 `mountPoints`  
 The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--volume` option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/).  
 
-```
+```json
 "mountPoints": [
                 {
                   "sourceVolume": "{{string}}",
@@ -387,7 +386,7 @@ Default: False
 `networkConfiguration`  
 The network configuration for jobs that run on Fargate resources. Jobs that run on EC2 resources must not specify this parameter.  
 
-```
+```json
 "networkConfiguration": { 
    "assignPublicIp": "string"
 }
@@ -404,7 +403,7 @@ Default: `DISABLED`
 `privileged`  
 When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--privileged` option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/). This parameter isn't applicable to jobs that run on Fargate resources. Don't provide it or specify it as false.  
 
-```
+```json
 "privileged": {{true|false}}
 ```
 Type: Boolean  
@@ -413,7 +412,7 @@ Required: No
 `readonlyRootFilesystem`  
 When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--read-only` option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/).  
 
-```
+```json
 "readonlyRootFilesystem": {{true|false}}
 ```
 Type: Boolean  
@@ -422,7 +421,7 @@ Required: No
 `resourceRequirements`  
 The type and amount of a resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.  
 
-```
+```json
 "resourceRequirements" : [
   {
     "type": "GPU",
@@ -472,7 +471,7 @@ Required: Yes, when `resourceRequirements` is used.
 `runtimePlatform`  
 An object that represents the compute environment architecture for AWS Batch jobs. This parameter applies to jobs that run on AWS Fargate and Amazon ECS Managed Instances resources.  
 
-```
+```json
 "runtimePlatform": {
     "cpuArchitecture": "string",
     "operatingSystemFamily": "string"
@@ -496,7 +495,7 @@ Required: No
 `secrets`  
 The secrets for the job that are exposed as environment variables. For more information, see [Specify sensitive data](specifying-sensitive-data.md).  
 
-```
+```json
 "secrets": [
     {
       "name": "{{secretName1}}",
@@ -525,7 +524,7 @@ Required: Yes, when `secrets` is used.
 `ulimits`  
 A list of `ulimits` values to set in the container. This parameter maps to `Ulimits` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--ulimit` option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/).   
 
-```
+```json
 "ulimits": [
   {
     "name": {{string}},
@@ -556,7 +555,7 @@ Required: Yes, when `ulimits` is used.
 `user`  
 The user name to use inside the container. This parameter maps to `User` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--user` option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/).  
 
-```
+```json
 "user": "{{string}}"
 ```
 Type: String  
@@ -567,14 +566,14 @@ Required: No
 The number of vCPUs reserved for the container.  
 As an example for how to use `resourceRequirements`, if your job definition contains lines similar to this:  
 
-```
+```json
 "containerProperties": {
   "vcpus": {{2}}
 }
 ```
 The equivalent lines using `resourceRequirements` is as follows.  
 
-```
+```json
 "containerProperties": {
   "resourceRequirements": [
     {
@@ -590,7 +589,7 @@ Required: Yes
 `volumes`  
 When you register a job definition, you can specify a list of volumes that are passed to the Docker daemon on a container instance. The following parameters are allowed in the container properties:  
 
-```
+```json
 "volumes": [
   {
     "name": "{{string}}",
@@ -961,15 +960,15 @@ Required: No
 `attempts`  
 The number of times to move a job to the `RUNNABLE` status. You can specify between 1 and 10 attempts. If `attempts` is greater than one, the job is retried that many times if it fails, until it has moved to `RUNNABLE`.  
 
-```
+```json
 "attempts": {{integer}}
 ```
 Type: Integer  
 Required: No  
 `evaluateOnExit`  
-Array of up to 6 objects that specify conditions under which AWS Batch retries or fails the job. If this parameter is specified, then the `attempts` parameter must also be specified. If `evaluateOnExit` is specified but none of the entries match, then the job is retried.  
+Array of up to 10 objects that specify conditions under which AWS Batch retries or fails the job. If this parameter is specified, then the `attempts` parameter must also be specified. If `evaluateOnExit` is specified but none of the entries match, then the job is retried.  
 
-```
+```json
 "evaluateOnExit": [
    {
       "action": "{{string}}",

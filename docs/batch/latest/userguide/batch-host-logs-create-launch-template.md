@@ -1,13 +1,14 @@
 
 
 # Step 3: Create a launch template and attach it to a compute environment
-<a name="batch-host-logs-create-launch-template"></a>
 
 When the instance starts, the user-data script automatically installs Fluent Bit, retrieves the instance ID from IMDSv2, syncs configuration from Amazon S3, and starts the Fluent Bit service. For more information about launch templates, see [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md). For more information about IMDS configuration, see [Instance Metadata Service (IMDS) configuration](imds-compute-environments.md).
 
 For a sample user-data script, see the [companion GitHub repository](https://github.com/aws-samples/sample-batch-host-level-logs). Use the `launch-template-userdata-minimal.txt` file for your launch template. This file excludes comments to reduce user-data size. The `launch-template-userdata.txt` file is a commented version for reference. Replace the following placeholders in the template before use:
 + `<BUCKET_NAME>` – The name of your Amazon S3 bucket.
 + `<FLUENT_BIT_VERSION>` – The Fluent Bit version to install. Leave blank to install the latest available version.
+
+**Prerequisites**
 + [Step 1: Set up the Amazon S3 bucket and Fluent Bit configuration](batch-host-logs-s3-setup.md)
 + [Step 2: Configure IAM permissions on your instance role](batch-host-logs-configure-iam.md)
 
@@ -61,7 +62,7 @@ Create the compute environment:
 
 Create the launch template. Save the user-data script from the [companion GitHub repository](https://github.com/aws-samples/sample-batch-host-level-logs) to a file and encode it with base64:
 
-```
+```bash
 aws ec2 create-launch-template \
     --launch-template-name {{batch-host-logs}} \
     --launch-template-data '{
@@ -75,7 +76,7 @@ aws ec2 create-launch-template \
 
 Create the compute environment with the launch template:
 
-```
+```bash
 aws batch create-compute-environment \
     --compute-environment-name {{my-host-logs-ce}} \
     --type MANAGED \

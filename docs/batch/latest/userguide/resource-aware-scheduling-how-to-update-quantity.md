@@ -1,7 +1,6 @@
 
 
 # Update the quantity of a resource while it is in use by jobs
-<a name="resource-aware-scheduling-how-to-update-quantity"></a>
 
 You can reset the total quantity of a resource to a new value, add to the total quantity or subtract from it.
 

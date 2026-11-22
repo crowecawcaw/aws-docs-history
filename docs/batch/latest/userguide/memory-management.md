@@ -1,7 +1,6 @@
 
 
 # Compute resource memory management
-<a name="memory-management"></a>
 
 When the Amazon ECS container agent registers a compute resource into a compute environment, the agent must determine how much memory the compute resource has available to reserve for your jobs. Because of platform memory overhead and memory occupied by the system kernel, this number is different than the installed memory amount for Amazon EC2 instances. For example, an `m4.large` instance has 8 GiB of installed memory. However, this doesn't always translate to exactly 8192 MiB of memory available for jobs when the compute resource registers.
 
@@ -14,7 +13,7 @@ The Amazon ECS container agent uses the Docker `ReadMemInfo()` function to query
 **Example - Determine Linux total memory**  
 The **free** command returns the total memory that's recognized by the operating system.  
 
-```
+```sh
 $ free -b
 ```
 The following is example output for an `m4.large` instance that's running the Amazon ECS-optimized Amazon Linux AMI.  

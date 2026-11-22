@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Batch
-<a name="troubleshooting"></a>
 
 You might need to troubleshoot issues that are related to your compute environments, job queues, job definitions, or jobs. This chapter describes how to troubleshoot and resolve such issues in your AWS Batch environment.
 

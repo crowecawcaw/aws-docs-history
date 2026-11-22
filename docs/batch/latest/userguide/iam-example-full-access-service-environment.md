@@ -1,7 +1,6 @@
 
 
 # Manage SageMaker AI resources with AWS Batch
-<a name="iam-example-full-access-service-environment"></a>
 
 This policy allows AWS Batch to manage SageMaker AI resources.
 
@@ -10,7 +9,7 @@ This policy allows AWS Batch to manage SageMaker AI resources.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

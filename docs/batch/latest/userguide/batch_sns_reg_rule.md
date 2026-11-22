@@ -1,7 +1,6 @@
 
 
 # Tutorial: Register an event rule
-<a name="batch_sns_reg_rule"></a>
 
  Next, register an event rule that captures only job-failed events. 
 
@@ -29,7 +28,7 @@
 
 1. Paste the following event pattern into the text area.
 
-   ```
+   ```json
    {
      "detail-type": [
        "Batch Job State Change"

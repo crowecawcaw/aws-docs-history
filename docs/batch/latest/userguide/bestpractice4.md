@@ -1,7 +1,6 @@
 
 
 # Choose the right compute environment resource
-<a name="bestpractice4"></a>
 
 AWS Fargate requires less initial setup and configuration than Amazon EC2 and is likely easier to use, particularly if it's your first time. With Fargate, you don't need to manage servers, handle capacity planning, or isolate container workloads for security.
 

@@ -1,7 +1,6 @@
 
 
 # Create a VPC
-<a name="create-a-vpc"></a>
 
 With Amazon Virtual Private Cloud (Amazon VPC), you can launch AWS resources into a virtual network that you've defined. We strongly recommend that you launch your container instances in a VPC. 
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Listen for AWS Batch job events using EventBridge
-<a name="batch_cwet"></a>
 
 In this tutorial, you set up a simple AWS Lambda function that listens for AWS Batch job events and writes them out to a CloudWatch Logs log stream.
 

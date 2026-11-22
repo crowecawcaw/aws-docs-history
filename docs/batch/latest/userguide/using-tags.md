@@ -1,7 +1,6 @@
 
 
 # Tag your AWS Batch resources
-<a name="using-tags"></a>
 
 To help you manage your AWS Batch resources, you can assign your own metadata to each resource in the form of *tags*. This topic describes tags and shows you how to create them.
 

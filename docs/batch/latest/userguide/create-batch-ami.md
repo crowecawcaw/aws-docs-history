@@ -1,13 +1,14 @@
 
 
 # Tutorial: Create a compute resource AMI
-<a name="create-batch-ami"></a>
 
 You can create your own custom compute resource AMI to use for your managed and unmanaged compute environments. For instructions, see the [Compute resource AMI specification](batch-ami-spec.md). Then, after you created a custom AMI, you can create a compute environment that uses that AMI that you can associate a job queue with. Last, start submitting jobs to that queue.
 
 **To create a custom compute resource AMI**
 
 1. Choose a base AMI to start from. The base AMI must use HVM virtualization. The base AMI can't be a Windows AMI.
+**Note**  
+AWS Batch doesn't support Windows AMIs for Amazon EC2 compute resources in compute environments that use Amazon ECS orchestration. These compute resources must use a Linux-based AMI. The AMI must meet the requirements in [Compute resource AMI specification](batch-ami-spec.md). To run Windows containers, use AWS Fargate compute resources and set the operating system family in the job definition's `runtimePlatform` parameter. For more information, see [runtimePlatform](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html#Batch-Type-ContainerProperties-runtimePlatform) in the *AWS Batch API Reference*.
 **Note**  
 The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -40,12 +41,12 @@ You can choose a base AMI that doesn't support the `ecs-init` package. However, 
    1. Stop the Amazon ECS container agent.
       + Amazon ECS-optimized Amazon Linux 2 AMI:
 
-        ```
+        ```sh
         sudo systemctl stop ecs
         ```
       + Amazon ECS-optimized Amazon Linux AMI:
 
-        ```
+        ```sh
         sudo stop ecs
         ```
 

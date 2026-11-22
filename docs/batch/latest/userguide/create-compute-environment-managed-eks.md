@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a managed compute environment using Amazon EKS resources
-<a name="create-compute-environment-managed-eks"></a>
 
 Complete the following steps to create a managed compute environment using Amazon Elastic Kubernetes Service (Amazon EKS) resources.
 

@@ -1,7 +1,6 @@
 
 
 # Create a single-node job definition on Amazon EC2 resources
-<a name="create-job-definition-EC2"></a>
 
 Complete the following steps to create a single-node job definition on Amazon Elastic Compute Cloud (Amazon EC2) resources.
 

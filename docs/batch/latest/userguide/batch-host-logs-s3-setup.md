@@ -1,7 +1,6 @@
 
 
 # Step 1: Set up the Amazon S3 bucket and Fluent Bit configuration
-<a name="batch-host-logs-s3-setup"></a>
 
 Create an Amazon S3 bucket to store the uploaded log files and the Fluent Bit configuration that each instance downloads at boot. The Amazon S3 bucket organizes content under two prefixes. The `ecs-logs/` prefix stores the compressed log files that each instance uploads, organized by instance ID. The `fluent-bit/` prefix stores the configuration files that each instance downloads at boot time.
 
@@ -38,7 +37,7 @@ Sample configuration files are available in the [companion GitHub repository](ht
 
 Run the following commands to create the bucket and upload the configuration files:
 
-```
+```bash
 aws s3 mb s3://{{host-level-logs-bucket}}
 
 aws s3api put-public-access-block \

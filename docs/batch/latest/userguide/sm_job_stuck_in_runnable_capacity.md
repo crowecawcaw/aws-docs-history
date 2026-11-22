@@ -1,7 +1,6 @@
 
 
 # Jobs stuck in `RUNNABLE` due to capacity
-<a name="sm_job_stuck_in_runnable_capacity"></a>
 
 The following scenario describes how AWS Batch identifies insufficient capacity conditions.
 

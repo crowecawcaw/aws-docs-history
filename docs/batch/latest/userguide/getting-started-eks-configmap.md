@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch on Amazon EKS using ConfigMap authentication
-<a name="getting-started-eks-configmap"></a>
 
 AWS Batch on Amazon EKS is a managed service for scheduling and scaling batch workloads into existing Amazon EKS clusters. AWS Batch doesn't create, administer, or perform lifecycle operations of your Amazon EKS clusters on your behalf. AWS Batch orchestration scales up and down nodes managed by AWS Batch and run pods on those nodes.
 
@@ -88,7 +87,7 @@ To get started as simply and quickly as possible, this tutorial includes steps w
 
 Once you have installed the prerequisites you need to create your cluster using `eksctl`. Creating the cluster can take between 10-15 minutes. 
 
-```
+```sh
 $  eksctl create cluster --name {{my-cluster-name}} --region {{region-code}}
 ```
 
@@ -109,11 +108,11 @@ All steps are required.
 
    Use `kubectl` to create a new namespace.
 
-   ```
+   ```sh
    $ namespace={{my-aws-batch-namespace}}
    ```
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl create -f -
    {
      "apiVersion": "v1",
@@ -140,7 +139,7 @@ All steps are required.
 
    Use `kubectl` to create a Kubernetes role for the cluster to allow AWS Batch to watch nodes and pods, and to bind the role. You must do this once for each EKS cluster.
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl apply -f -
    apiVersion: rbac.authorization.k8s.io/v1
    kind: ClusterRole
@@ -193,11 +192,11 @@ All steps are required.
 
 1. Create namespace-scoped Kubernetes role for AWS Batch to manage and lifecycle pods and bind it. You must do this once for each unique namespace.
 
-   ```
+   ```sh
    $ namespace={{my-aws-batch-namespace}}
    ```
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl apply -f - --namespace "${namespace}"
    apiVersion: rbac.authorization.k8s.io/v1
    kind: Role
@@ -243,7 +242,7 @@ All steps are required.
    In the following command replace:
    + Replace {{<your-account-number>}} with your AWS account number. 
 
-   ```
+   ```sh
    $ eksctl create iamidentitymapping \
        --cluster {{my-cluster-name}} \
        --arn "arn:aws:iam::{{<your-account-number>}}:role/AWSServiceRoleForBatch" \
@@ -267,14 +266,14 @@ Now that the **AWSServiceRoleForBatch** service-linked role has access to your A
 + For `subnets` run `eksctl get cluster {{my-cluster-name}}` to get the subnets used by the cluster. 
 + For `securityGroupIds` parameter you can use the same security group as the Amazon EKS cluster. This command retrieves the security group ID for the cluster.
 
-  ```
+  ```sh
   $ aws eks describe-cluster \
       --name {{my-cluster-name}} \
       --query cluster.resourcesVpcConfig.clusterSecurityGroupId
   ```
 + The `instanceRole` is created when you create the cluster. To find the `instanceRole` list all entities that use the `AmazonEKSWorkerNodePolicy` policy: 
 
-  ```
+  ```sh
   $  aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
   ```
 
@@ -282,19 +281,19 @@ Now that the **AWSServiceRoleForBatch** service-linked role has access to your A
 
   To find the `instanceRole` arn run the following command:
 
-  ```
+  ```sh
   $  aws iam list-instance-profiles-for-role --role-name eksctl-{{my-cluster-name}}-nodegroup-example        
   ```
 
   Output:
 
-  ```
+  ```sh
   INSTANCEPROFILES        arn:aws:iam::{{<your-account-number>}}:instance-profile/eks-04cb2200-94b9-c297-8dbe-87f12example
   ```
 
   For more information, see [Creating the Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role) and [Enabling IAM principal access to your cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html) in the *Amazon EKS User Guide*. If you're using pod networking, see [Configuring the Amazon VPC CNI plugin for Kubernetes to use IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html) in the **Amazon EKS User Guide**.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-compute-environment.json
 {
   "computeEnvironmentName": "{{My-Eks-CE1}}",
@@ -324,7 +323,7 @@ $ cat <<EOF > ./batch-eks-compute-environment.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-compute-environment --cli-input-json file://./batch-eks-compute-environment.json
 ```
 
@@ -337,14 +336,14 @@ $ aws batch create-compute-environment --cli-input-json file://./batch-eks-compu
 **Important**  
 It's important to confirm that the compute environment is healthy before proceeding. The [DescribeComputeEnvironments](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeComputeEnvironments.html) API operation can be used to do this.  
 
-```
+```sh
 $ aws batch describe-compute-environments --compute-environments {{My-Eks-CE1}}
 ```
 Confirm that the `status` parameter is not `INVALID`. If it is, look at the `statusReason` parameter for the cause. For more information, see [Troubleshooting AWS Batch](troubleshooting.md).
 
 Jobs submitted to this new job queue are run as pods on AWS Batch managed nodes that joined the Amazon EKS cluster that's associated with your compute environment.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-queue.json
  {
     "jobQueueName": "{{My-Eks-JQ1}}",
@@ -359,7 +358,7 @@ $ cat <<EOF > ./batch-eks-job-queue.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json
 ```
 
@@ -368,7 +367,7 @@ $ aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json
 
 The following Job definition instructs the pod to sleep for 60 seconds.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-definition.json
 {
   "jobDefinitionName": "{{MyJobOnEks_Sleep}}",
@@ -402,7 +401,7 @@ $ cat <<EOF > ./batch-eks-job-definition.json
 EOF
 ```
 
-```
+```sh
 $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-definition.json
 ```
 
@@ -414,14 +413,14 @@ $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-defi
 
 Run the following AWS CLI command to submit a new Job.
 
-```
+```sh
 $ aws batch submit-job --job-queue {{My-Eks-JQ1}} \
     --job-definition {{MyJobOnEks_Sleep}} --job-name {{My-Eks-Job1}}
 ```
 
 To check the status of a Job:
 
-```
+```sh
 $ aws batch describe-jobs --job {{<jobId-from-submit-response>}}
 ```
 
@@ -448,7 +447,7 @@ To view the Job's output, do the following:
 
 This job overrides the command passed to the container. AWS Batch aggressively cleans up the pods after the jobs complete to reduce the load to Kubernetes. To examine the details of a job, logging must be configured. For more information, see [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md).
 
-```
+```sh
 $ cat <<EOF > ./submit-job-override.json
 {
   "jobName": "{{EksWithOverrides}}",
@@ -473,7 +472,7 @@ $ cat <<EOF > ./submit-job-override.json
 EOF
 ```
 
-```
+```sh
 $ aws batch submit-job --cli-input-json file://./submit-job-override.json
 ```
 

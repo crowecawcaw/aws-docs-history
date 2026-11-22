@@ -1,7 +1,6 @@
 
 
 # How to migrate from ECS AL2 to ECS AL2023
-<a name="ecs-migration-2023"></a>
 
 AL2023 is a Linux-based operating system designed to provide a secure, stable, and high-performance environment for your cloud applications. For more information about the differences between AL2 and AL2023 see [Compare Amazon Linux 2023 and Amazon Linux 2](https://docs.aws.amazon.com/linux/al2023/ug/compare-with-al2.html) in the *Amazon Linux 2023 User Guide*.
 
@@ -27,7 +26,7 @@ Depending on how your compute environment is configured you can use one of the f
 **Upgrade using CloudFormation**
 + If you use CloudFormation to manage your compute environments, update your template to change the `ImageType` property in the `Ec2Configuration` from `ECS_AL2` to `ECS_AL2023` (or `ECS_AL2023_NVIDIA` when using GPU instances):
 
-  ```
+  ```yaml
   ComputeEnvironment:
     Type: AWS::Batch::ComputeEnvironment
     Properties:

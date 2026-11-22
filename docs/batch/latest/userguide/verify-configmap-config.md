@@ -1,7 +1,6 @@
 
 
 # Verify that the `aws-auth ConfigMap` is configured correctly
-<a name="verify-configmap-config"></a>
 
 **Note**  
 For Amazon EKS access entry authentication instead of the `aws-auth` ConfigMap, see [Amazon EKS access entry authentication](eks-access-entries.md).
@@ -13,7 +12,7 @@ To verify that the `aws-auth` `ConfigMap` is configured correctly:
 
 1. Retrieve the mapped roles in the `aws-auth` `ConfigMap`.
 
-   ```
+   ```sh
    $ kubectl get configmap -n kube-system aws-auth -o yaml
    ```
 

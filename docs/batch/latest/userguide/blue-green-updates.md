@@ -1,7 +1,6 @@
 
 
 # Perform blue/green updates for compute environments
-<a name="blue-green-updates"></a>
 
 A blue/green update is an update strategy that reduces downtime and risk by creating a new compute environment (green) alongside your existing compute environment (blue). This approach allows you to gradually transition workloads to the new environment while keeping the existing environment operational. Blue/green updates provide the safest update path and work with any service role type or allocation strategy.
 
@@ -123,7 +122,7 @@ Delete the old compute environment.
 
    Replace the example values with your actual configuration from the previous step:
 
-   ```
+   ```sh
    cat <<EOF > ./blue-green-compute-environment.json
    {
      "computeEnvironmentName": "{{your-new-compute-environment-name}}",
@@ -156,7 +155,7 @@ Delete the old compute environment.
    EOF
    ```
 
-   ```
+   ```sh
    $ aws batch create-compute-environment --cli-input-json file://./blue-green-compute-environment.json
    ```
 

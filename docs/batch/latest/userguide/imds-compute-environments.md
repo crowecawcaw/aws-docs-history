@@ -1,7 +1,6 @@
 
 
 # Instance Metadata Service (IMDS) configuration
-<a name="imds-compute-environments"></a>
 
 The Instance Metadata Service (IMDS) provides metadata about your EC2 instances to applications running on those instances. Use IMDSv2 for all new workloads and migrate existing workloads from IMDSv1 to IMDSv2 for improved security. For more information about IMDS and configuring IMDS, see [Use instance metadata to manage your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) and [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html) in the *Amazon EC2 User Guide*.
 
@@ -39,7 +38,7 @@ Account-level IMDS configuration can be overridden by launch template or AMI con
 
 When you use launch templates in your compute environment, add metadata options to your launch template to require IMDSv2. For more information about using launch templates with Batch, see [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md).
 
-```
+```json
 {
     "LaunchTemplateName": "batch-imdsv2-template",
     "VersionDescription": "IMDSv2 only template for Batch",
@@ -53,6 +52,6 @@ When you use launch templates in your compute environment, add metadata options 
 
 Create the launch template using the AWS CLI:
 
-```
+```sh
 aws ec2 create-launch-template --cli-input-json file://imds-template.json
 ```

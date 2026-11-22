@@ -1,7 +1,6 @@
 
 
 # Amazon Linux deprecation
-<a name="al1-ami-deprecation"></a>
 
 The Amazon Linux AMI (also called Amazon Linux 1) reached its end of life on December 31, 2023. AWS Batch has ended support for Amazon Linux AMI as it will not receive any security updates or bug fixes starting January 1, 2024. For more information about the Amazon Linux end-of-life, see [AL FAQ](https://aws.amazon.com/amazon-linux-ami/faqs/). 
 

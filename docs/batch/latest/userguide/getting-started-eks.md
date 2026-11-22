@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch on Amazon EKS
-<a name="getting-started-eks"></a>
 
 AWS Batch on Amazon EKS is a managed service for scheduling and scaling batch workloads into existing Amazon EKS clusters. AWS Batch doesn't create, administer, or perform lifecycle operations of your Amazon EKS clusters on your behalf. AWS Batch orchestration scales up and down nodes managed by AWS Batch and run pods on those nodes.
 
@@ -89,7 +88,7 @@ To get started as simply and quickly as possible, this tutorial includes steps w
 
 Once you have installed the prerequisites you need to create your cluster using `eksctl`. Creating the cluster can take between 10-15 minutes. 
 
-```
+```sh
 $  eksctl create cluster --name {{my-cluster-name}} --region {{region-code}}
 ```
 
@@ -110,11 +109,11 @@ This method uses Amazon EKS access entries to grant AWS Batch cluster access. It
 
    Use `kubectl` to create a new namespace.
 
-   ```
+   ```sh
    $ namespace={{my-aws-batch-namespace}}
    ```
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl create -f -
    {
      "apiVersion": "v1",
@@ -143,7 +142,7 @@ This method uses Amazon EKS access entries to grant AWS Batch cluster access. It
 
    The node instance role is created when you create the cluster. To find the node instance role, list all entities that use the `AmazonEKSWorkerNodePolicy` policy:
 
-   ```
+   ```sh
    $  aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
    ```
 
@@ -151,7 +150,7 @@ This method uses Amazon EKS access entries to grant AWS Batch cluster access. It
 
    This step is only needed if the node instance role doesn't already have an access entry on the cluster. For example, Amazon EKS typically creates an access entry for the node role of a managed node group, such as the one that `eksctl` created in Step 1. To check whether the role already has an access entry, run the following command:
 
-   ```
+   ```sh
    $ aws eks describe-access-entry \
        --cluster-name {{my-cluster-name}} \
        --principal-arn arn:aws:iam::{{your-account-number}}:role/{{eksctl-my-cluster-name-nodegroup-example}}
@@ -161,7 +160,7 @@ This method uses Amazon EKS access entries to grant AWS Batch cluster access. It
 
    If the command returns the access entry, skip the rest of this step. If it returns a `ResourceNotFoundException` error, create an access entry for the node instance role:
 
-   ```
+   ```sh
    $ aws eks create-access-entry \
        --cluster-name {{my-cluster-name}} \
        --principal-arn arn:aws:iam::{{your-account-number}}:role/{{eksctl-my-cluster-name-nodegroup-example}} \
@@ -181,26 +180,26 @@ Create a compute environment that targets your Amazon EKS cluster. Because the c
 + For `subnets` run `eksctl get cluster {{my-cluster-name}}` to get the subnets used by the cluster. 
 + For `securityGroupIds` parameter you can use the same security group as the Amazon EKS cluster. This command retrieves the security group ID for the cluster.
 
-  ```
+  ```sh
   $ aws eks describe-cluster \
       --name {{my-cluster-name}} \
       --query cluster.resourcesVpcConfig.clusterSecurityGroupId
   ```
 + The `instanceRole` is the instance profile for the node instance role that you found in Step 2. To find the `instanceRole` arn run the following command:
 
-  ```
+  ```sh
   $  aws iam list-instance-profiles-for-role --role-name eksctl-{{my-cluster-name}}-nodegroup-example        
   ```
 
   Output:
 
-  ```
+  ```sh
   INSTANCEPROFILES        arn:aws:iam::{{<your-account-number>}}:instance-profile/eks-04cb2200-94b9-c297-8dbe-87f12example
   ```
 
   For more information, see [Creating the Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role) and [Grant IAM users access to Kubernetes with Amazon EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) in the *Amazon EKS User Guide*. If you're using pod networking, see [Configuring the Amazon VPC CNI plugin for Kubernetes to use IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html) in the **Amazon EKS User Guide**.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-compute-environment.json
 {
   "computeEnvironmentName": "{{My-Eks-CE1}}",
@@ -233,7 +232,7 @@ $ cat <<EOF > ./batch-eks-compute-environment.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-compute-environment --cli-input-json file://./batch-eks-compute-environment.json
 ```
 
@@ -254,7 +253,7 @@ Without the namespace-scoped policy association, jobs will remain stuck in `RUNN
 
    Check the access entry status:
 
-   ```
+   ```sh
    $ aws batch describe-compute-environments \
        --compute-environments {{My-Eks-CE1}} \
        --query 'computeEnvironments[0].eksConfiguration.accessEntry.status' \
@@ -275,7 +274,7 @@ Without the namespace-scoped policy association, jobs will remain stuck in `RUNN
 
    Once the access entry is `ACTIVE`, associate the namespace-scoped policy:
 
-   ```
+   ```sh
    $ aws eks associate-access-policy \
        --cluster-name {{my-cluster-name}} \
        --principal-arn arn:aws:iam::{{your-account-number}}:role/aws-service-role/batch.amazonaws.com/AWSServiceRoleForBatch \
@@ -309,14 +308,14 @@ Without the namespace-scoped policy association, jobs will remain stuck in `RUNN
 **Important**  
 It's important to confirm that the compute environment is healthy before proceeding. The [DescribeComputeEnvironments](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeComputeEnvironments.html) API operation can be used to do this.  
 
-```
+```sh
 $ aws batch describe-compute-environments --compute-environments {{My-Eks-CE1}}
 ```
 Confirm that the `status` parameter is not `INVALID`. If it is, look at the `statusReason` parameter for the cause. For more information, see [Troubleshooting AWS Batch](troubleshooting.md).
 
 Jobs submitted to this new job queue are run as pods on AWS Batch managed nodes that joined the Amazon EKS cluster that's associated with your compute environment.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-queue.json
  {
     "jobQueueName": "{{My-Eks-JQ1}}",
@@ -331,7 +330,7 @@ $ cat <<EOF > ./batch-eks-job-queue.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json
 ```
 
@@ -340,7 +339,7 @@ $ aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json
 
 The following Job definition instructs the pod to sleep for 60 seconds.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-definition.json
 {
   "jobDefinitionName": "{{MyJobOnEks_Sleep}}",
@@ -374,7 +373,7 @@ $ cat <<EOF > ./batch-eks-job-definition.json
 EOF
 ```
 
-```
+```sh
 $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-definition.json
 ```
 
@@ -386,14 +385,14 @@ $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-defi
 
 Run the following AWS CLI command to submit a new Job.
 
-```
+```sh
 $ aws batch submit-job --job-queue {{My-Eks-JQ1}} \
     --job-definition {{MyJobOnEks_Sleep}} --job-name {{My-Eks-Job1}}
 ```
 
 To check the status of a Job:
 
-```
+```sh
 $ aws batch describe-jobs --job {{<jobId-from-submit-response>}}
 ```
 
@@ -420,7 +419,7 @@ To view the Job's output, do the following:
 
 This job overrides the command passed to the container. AWS Batch aggressively cleans up the pods after the jobs complete to reduce the load to Kubernetes. To examine the details of a job, logging must be configured. For more information, see [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md).
 
-```
+```sh
 $ cat <<EOF > ./submit-job-override.json
 {
   "jobName": "{{EksWithOverrides}}",
@@ -445,7 +444,7 @@ $ cat <<EOF > ./submit-job-override.json
 EOF
 ```
 
-```
+```sh
 $ aws batch submit-job --cli-input-json file://./submit-job-override.json
 ```
 
@@ -482,7 +481,7 @@ To delete the resources you created, do the following:
 
 1. Once the Job queue is deleted, set `accessEntry.desiredState` to `DISABLED` on the compute environment so that AWS Batch removes the access entry that it created on your cluster:
 
-   ```
+   ```sh
    $ aws batch update-compute-environment \
        --compute-environment {{My-Eks-CE1}} \
        --eks-configuration 'accessEntry={desiredState=DISABLED}'

@@ -1,7 +1,6 @@
 
 
 # Create consumable resources
-<a name="resource-aware-scheduling-how-to-create"></a>
 
 You must first create the consumable resources that represent the non-CE resources that are consumed when a job is running and are only available in limited quantities. Each consumable resource has a: 
 + resource name (`consumableResourceName`) that must be unique at the account level.

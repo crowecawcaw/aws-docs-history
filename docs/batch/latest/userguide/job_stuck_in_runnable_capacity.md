@@ -1,7 +1,6 @@
 
 
 # Jobs stuck in RUNNABLE due to capacity
-<a name="job_stuck_in_runnable_capacity"></a>
 
 **Insufficient instance capacity**  
 All connected compute environments have insufficient capacity errors. When requested, AWS Batch detects Amazon EC2 instances that experience insufficient capacity errors. Manually canceling the job will allow the subsequent job to move to the head of the queue.  

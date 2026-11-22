@@ -1,21 +1,20 @@
 
 
 # RBAC permissions or bindings aren't configured properly
-<a name="batch_eks_rbac"></a>
 
 If you experience any RBAC permissions or binding issues, verify that the `aws-batch` Kubernetes role can access the Kubernetes namespace:
 
-```
+```sh
 $ kubectl get namespace {{namespace}} --as=aws-batch
 ```
 
-```
+```sh
 $ kubectl auth can-i get ns --as=aws-batch
 ```
 
 You can also use the **kubectl describe** command to view the authorizations for a cluster role or Kubernetes namespace.
 
-```
+```sh
 $ kubectl describe clusterrole {{aws-batch-cluster-role}}
 ```
 
@@ -41,7 +40,7 @@ PolicyRule:
   events                                         []                 []              [list]
 ```
 
-```
+```sh
 $ kubectl describe role {{aws-batch-compute-environment-role}} -n {{my-aws-batch-namespace}}
 ```
 

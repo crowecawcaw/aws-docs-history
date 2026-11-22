@@ -1,7 +1,6 @@
 
 
 # Optimize containers and AMIs
-<a name="bestpractice3"></a>
 
 Container size and structure are important for the first set of jobs that you run. This is especially true if the container is larger than 4 GB. Container images are built in layers. The layers are retrieved in parallel by Docker using three concurrent threads. You can increase the number of concurrent threads using the `max-concurrent-downloads` parameter. For more information, see the [Dockerd documentation](https://docs.docker.com/engine/reference/commandline/dockerd/).
 

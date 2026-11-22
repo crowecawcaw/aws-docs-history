@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch tutorials
-<a name="Batch_GetStarted"></a>
 
 You can use the AWS Batch first-run wizard to get started quickly with AWS Batch. After you complete the Prerequisites, you can use the first-run wizard to create a compute environment, a job definition, and a job queue. 
 

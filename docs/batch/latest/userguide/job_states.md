@@ -1,7 +1,6 @@
 
 
 # Job states
-<a name="job_states"></a>
 
 When you submit a job to an AWS Batch job queue, the job enters the `SUBMITTED` state. It then passes through the following states until it succeeds (exits with code `0`) or fails (exits with a non-zero code). AWS Batch jobs can have the following states:
 

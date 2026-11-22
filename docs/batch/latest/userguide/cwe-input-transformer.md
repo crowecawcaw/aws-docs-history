@@ -1,7 +1,6 @@
 
 
 # Tutorial: Pass event information to an AWS Batch target on a schedule using the EventBridge input transformer
-<a name="cwe-input-transformer"></a>
 
 You can use the EventBridge input transformer to pass event information to AWS Batch in a job submission. This can be especially valuable if you invoke jobs as a result of other AWS event information. One example is an object upload to an Amazon S3 bucket. You can also use a job definition with parameter substitution values in the container's command. The EventBridge input transformer can provide the parameter values based on the event data. 
 
@@ -67,7 +66,7 @@ A rule can't have the same name as another rule in the same AWS Region and on th
 
 1. In the **Target input transformer** section, for **Input path**, specify the values to parse from the triggering event. For example, to parse **Batch Job State Change** event, use the following JSON format.
 
-   ```
+   ```json
    {
        "instance": "$.detail.jobId",
        "state": "$.detail.status"
@@ -76,7 +75,7 @@ A rule can't have the same name as another rule in the same AWS Region and on th
 
 1. For **Template**, enter the following.
 
-   ```
+   ```json
    {
        "instance": <jobId> ,
        "status": <status>

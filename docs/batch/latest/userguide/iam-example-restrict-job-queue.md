@@ -1,7 +1,6 @@
 
 
 # Resource: Restrict to a job queue
-<a name="iam-example-restrict-job-queue"></a>
 
 Use the following policy to submit jobs to a specific job queue that's named **queue1** with any job definition name.
 
@@ -13,7 +12,7 @@ When scoping resource-level access for job submission, you must provide both job
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Turn off Container Insights
-<a name="cloudwatch-container-insights-disable"></a>
 
 To explicitly disable Container Insights on a compute environment, set the value to `DISABLED`.
 
@@ -21,7 +20,7 @@ To explicitly disable Container Insights on a compute environment, set the value
 
 Use `update-compute-environment` to disable Container Insights on an existing compute environment.
 
-```
+```sh
 $ aws batch update-compute-environment \
     --compute-environment {{my-compute-env}} \
     --ecs-settings containerInsights=DISABLED
@@ -32,7 +31,7 @@ $ aws batch update-compute-environment \
 
 Set `containerInsights` to `DISABLED` in your [UpdateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) request.
 
-```
+```JSON
 {
     "computeEnvironment": "{{my-compute-env}}",
     "ecsSettings": {

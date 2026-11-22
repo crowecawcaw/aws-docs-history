@@ -1,7 +1,6 @@
 
 
 # Job definitions on Amazon ECS Managed Instances
-<a name="ecs-managed-instances-job-definitions"></a>
 
 AWS Batch jobs on Amazon ECS Managed Instances use the `ecsProperties` job definition format with a platform capability of `MANAGED_INSTANCES`. Amazon ECS Managed Instances jobs do not support legacy `containerProperties`.
 
@@ -10,14 +9,14 @@ The following list describes job definition parameters that are specific to or r
 `platformCapabilities`  
 Must be specified as `MANAGED_INSTANCES`.  
 
-```
+```json
 "platformCapabilities": [ "MANAGED_INSTANCES" ]
 ```
 
 `type`  
 Must be specified as `container`.  
 
-```
+```json
 "type": "container"
 ```
 
@@ -27,13 +26,13 @@ Controls how the task's network is configured. This parameter only applies to Am
 Valid values: `host`  
 When not specified, the default is `host`. With `host` mode, the container shares the host instance's network stack directly, providing maximum network bandwidth.  
 
-```
+```json
 "networkMode": "host"
 ```  
 `runtimePlatform`  
 Specifies the operating system family and CPU architecture for the task. This parameter applies to both Fargate and Amazon ECS Managed Instances job definitions. Use this to run jobs on ARM64 (AWS Graviton) instances. The valid value for `operatingSystemFamily` is `LINUX` (default). The valid values for `cpuArchitecture` are `X86_64` and `ARM64`.  
 
-```
+```json
 "runtimePlatform": {
   "operatingSystemFamily": "LINUX",
   "cpuArchitecture": "ARM64"
@@ -45,7 +44,7 @@ The IAM role that grants the Amazon ECS container agent permission to make AWS A
 `resourceRequirements`  
 Both memory and vCPU requirements must be specified in `resourceRequirements`. Unlike Fargate, Amazon ECS Managed Instances does not restrict which vCPU and memory combinations are valid — you can specify any values that fit within the instance types available to your compute environment. GPU resources are supported.  
 
-```
+```json
 "resourceRequirements": [
   {"type": "MEMORY", "value": "8192"},
   {"type": "VCPU", "value": "4"},

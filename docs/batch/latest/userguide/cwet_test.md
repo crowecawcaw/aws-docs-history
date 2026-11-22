@@ -1,7 +1,6 @@
 
 
 # Tutorial: Test your configuration
-<a name="cwet_test"></a>
 
 You can now test your EventBridge configuration by submitting a job to your job queue. If everything is configured properly, your Lambda function is triggered and it writes the event data to a CloudWatch Logs log stream for the function.
 

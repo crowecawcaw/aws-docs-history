@@ -1,7 +1,6 @@
 
 
 # EC2 configurations
-<a name="ec2-configurations"></a>
 
 AWS Batch uses Amazon ECS optimized AMIs for EC2 and EC2 Spot compute environments. The default is [Amazon Linux 2](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`). Starting in January 2026, the default will change to [AL2023](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2023ami) (`ECS_AL2023`). 
 

@@ -1,7 +1,6 @@
 
 
 # Resource: Restrict to POSIX user, Docker image, privilege level, and role on job submission
-<a name="iam-example-job-def"></a>
 
 The following policy allows a POSIX user to manage their own set of restricted job definitions.
 
@@ -19,7 +18,7 @@ Use the third statement to restrict to only a specific role to a job definition.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

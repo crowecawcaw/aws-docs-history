@@ -1,7 +1,6 @@
 
 
 # AWS Batch on Amazon EKS job is stuck in `STARTING` status
-<a name="batch-eks-job-stuck-in-starting"></a>
 
 A Job may remain in `STARTING` status when the Pod is stuck in `PENDING` on `ContainerCreating` for any long running requests from the kubelet (`pull`, `log`, `exec`, and `attach`) until the Pod startup issue is resolved or the Job is terminated. In the qualifying scenarios below AWS Batch will terminate the job on your behalf, otherwise the job must be terminated manually using the [TerminateJob API](https://docs.aws.amazon.com/batch/latest/APIReference/API_TerminateJob.html). 
 

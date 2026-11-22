@@ -1,7 +1,6 @@
 
 
 # Perform infrastructure updates
-<a name="infrastructure-updates"></a>
 
 Infrastructure updates replace the instances in your compute environment with new instances that have updated settings. This update strategy takes longer than scaling updates and requires specific service role and allocation strategy settings. Infrastructure updates provide a way to modify fundamental compute environment configurations while maintaining service availability.
 
@@ -103,7 +102,7 @@ To just update to the latest AMI version in the console, see [Updating AMI versi
 Use the **update-compute-environment** command with an change to one or more of the [settings that require an infrastructure updates](#infrastructure-updates-triggers). The following three examples are common infrastructure operations.
 + This example updates the instance types and configures the update policy:
 
-  ```
+  ```sh
   aws batch update-compute-environment \
       --compute-environment {{your-compute-environment-name}} \
       --compute-resources instanceTypes={{default_x86_64}} \
@@ -111,7 +110,7 @@ Use the **update-compute-environment** command with an change to one or more of 
   ```
 + This example updates the VPC subnets and security groups:
 
-  ```
+  ```sh
   aws batch update-compute-environment \
       --compute-environment {{your-compute-environment-name}} \
       --compute-resources subnets={{subnet-abcd1234}},{{subnet-efgh5678}} securityGroupIds={{sg-abcd1234}} \
@@ -119,7 +118,7 @@ Use the **update-compute-environment** command with an change to one or more of 
   ```
 + This example enables automatic updates to the latest Amazon ECS optimized AMI:
 
-  ```
+  ```sh
   aws batch update-compute-environment \
       --compute-environment {{your-compute-environment-name}} \
       --compute-resources updateToLatestImageVersion={{true}} \

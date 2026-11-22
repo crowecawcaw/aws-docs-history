@@ -1,7 +1,6 @@
 
 
 # Quota shares
-<a name="quota-shares"></a>
 
 **Quota shares** are virtual queues that are nested under a job queue. A maximum of 20 can be attached to any job queue. Quota shares enable allocating a compute quota to a team or project, via the use of **capacity limits**; a quota share requires at least one capacity limit be provided and supports a maximum of 5 capacity limits. Each capacity limit should be expressed as instance limits for supported SageMaker Training job instances types.
 

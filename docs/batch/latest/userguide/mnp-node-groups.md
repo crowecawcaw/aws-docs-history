@@ -1,7 +1,6 @@
 
 
 # Node groups
-<a name="mnp-node-groups"></a>
 
 A node group is an identical group of job nodes that all share the same container properties. You can use AWS Batch to specify up to five distinct node groups for each job.
 

@@ -1,7 +1,6 @@
 
 
 # Resource: Restrict job submission by resource tags on job definition and job queue
-<a name="iam-example-restrict-job-submission-by-tags"></a>
 
 Use the following policy to submit jobs only when both the job queue has the tag `Environment=dev` and the job definition has the tag `Project=calc`. This policy demonstrates how to use resource tags to control access to AWS Batch resources during job submission.
 
@@ -10,7 +9,7 @@ When submitting jobs with policies that evaluate job definition resource tags, y
 
 This policy uses two separate statements because it applies different tag conditions to different resource types. When scoping resource-level access for job submission, you must provide both job queue and job definition resource types.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

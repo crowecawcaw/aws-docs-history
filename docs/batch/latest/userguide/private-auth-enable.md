@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a secret for private registry authentication
-<a name="private-auth-enable"></a>
 
 Complete the following steps to create a secret for your private registry credentials with AWS Secrets Manager.
 
@@ -15,7 +14,7 @@ Complete the following steps to create a secret for your private registry creden
 
 1. Select **Plaintext** and enter your private registry credentials using the following format:
 
-   ```
+   ```json
    {
      "username" : "{{privateRegistryUsername}}",
      "password" : "{{privateRegistryPassword}}"

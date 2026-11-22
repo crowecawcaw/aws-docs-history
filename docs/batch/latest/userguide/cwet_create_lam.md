@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create the Lambda function
-<a name="cwet_create_lam"></a>
 
  In this procedure, you create a simple Lambda function to serve as a target for AWS Batch event stream messages. 
 
@@ -19,7 +18,7 @@
 
 1. In the **Code source** section, edit the sample code to match the following example:
 
-   ```
+   ```python
    import json
    
    

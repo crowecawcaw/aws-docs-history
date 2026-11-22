@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Batch
-<a name="get-set-up-for-aws-batch"></a>
 
 If you've already signed up for Amazon Web Services (AWS) and are using Amazon Elastic Compute Cloud (Amazon EC2) or Amazon Elastic Container Service (Amazon ECS), you can soon use AWS Batch. The setup process for these services is similar. This is because AWS Batch uses Amazon ECS container instances in its compute environments. To use the AWS CLI with AWS Batch, you must use a version of the AWS CLI that supports the latest AWS Batch features. If you don't see support for an AWS Batch feature in the AWS CLI, upgrade to the latest version. For more information, see [http://aws.amazon.com/cli/](http://aws.amazon.com/cli/).
 

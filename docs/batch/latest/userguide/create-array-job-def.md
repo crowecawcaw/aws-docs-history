@@ -1,7 +1,6 @@
 
 
 # Create and register a job definition
-<a name="create-array-job-def"></a>
 
 Now that your Docker image is in an image registry, you can specify it in an AWS Batch job definition. Then, you can use it later to run an array job. This example only uses the AWS CLI. However, you can also use the AWS Management Console. For more information, see [Create a single-node job definition](create-job-definition.md).
 
@@ -9,7 +8,7 @@ Now that your Docker image is in an image registry, you can specify it in an AWS
 
 1. Create a file named `print-color-job-def.json` in your workspace directory and paste the following into it. Replace the image repository URI with your own image's URI.
 
-   ```
+   ```json
    {
      "jobDefinitionName": "print-color",
      "type": "container",
@@ -31,6 +30,6 @@ Now that your Docker image is in an image registry, you can specify it in an AWS
 
 1. Register the job definition with AWS Batch.
 
-   ```
+   ```sh
    $ aws batch register-job-definition --cli-input-json file://print-color-job-def.json
    ```

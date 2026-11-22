@@ -1,7 +1,6 @@
 
 
 # Jobs stuck in `RUNNABLE` due to misconfiguration
-<a name="sm_job_stuck_in_runnable_misconfiguration"></a>
 
 **Service environment max resource exceeded**  
 When a job submitted to AWS Batch via `SubmitServiceJob` reaches the front of the queue, and it requires more instances than the connected service environment's capacity limits allow, then AWS Batch will infer a misconfiguration due to exceeding service environment capacity limits. The service environment `capacityLimits` structure supports different `capacityUnit` values depending on the scheduling algorithm configured on the job queue.  

@@ -1,7 +1,6 @@
 
 
 # Submitting jobs to a quota share
-<a name="submit-job-quota-share"></a>
 
 Quota management job queues require that all jobs specify a quota share at job submission. To submit jobs to a quota share, specify the `quotaShareName` in [SubmitServiceJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitServiceJob.html). A `preemptionConfiguration` can optionally be supplied to limit the number of preemption attempts before a job attempt enters `FAILED`. To limit the number of preemptions a job experiences, set `preemptionRetriesBeforeTermination` within [ServiceJobPreemptionConfiguration](https://docs.aws.amazon.com/batch/latest/APIReference/API_ServiceJobPreemptionConfiguration.html) on job submission.
 
@@ -25,7 +24,7 @@ The [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v3-example
 
 Create a `ModelTrainer` that defines the training job configuration.
 
-```
+```python
 from sagemaker.train.model_trainer import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute, StoppingCondition
 
@@ -42,7 +41,7 @@ model_trainer = ModelTrainer(
 
 Create a `TrainingQueue` object that references your quota management enabled job queue by name.
 
-```
+```python
 from sagemaker.train.aws_batch.training_queue import TrainingQueue
 
 queue = TrainingQueue({{"my-sagemaker-job-queue"}})
@@ -50,7 +49,7 @@ queue = TrainingQueue({{"my-sagemaker-job-queue"}})
 
 Submit jobs to a quota share by calling `queue.submit` and specifying the `quota_share_name`. You should set a `priority` to influence job ordering within the quota share. A real-world `ModelTrainer` will require `inputs` so that it has data to train on.
 
-```
+```python
 job = queue.submit(
     job_name={{"my-training-job"}},
     training_job=model_trainer,
@@ -65,7 +64,7 @@ job = queue.submit(
 
 The following example uses the **submit-service-job** command to submit a job to a quota share.
 
-```
+```bash
 aws batch submit-service-job \
     --job-name {{"my-sagemaker-training-job"}} \
     --job-queue {{"my-sagemaker-job-queue"}} \

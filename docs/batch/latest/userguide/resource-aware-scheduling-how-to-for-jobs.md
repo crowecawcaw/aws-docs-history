@@ -1,7 +1,6 @@
 
 
 # Specify the resources needed to run a job
-<a name="resource-aware-scheduling-how-to-for-jobs"></a>
 
 When you register a job you can specify the name of one or more resources you created (`consumableResource`) and the quantity of that resource each instance of the job requires (`quantity`).
 

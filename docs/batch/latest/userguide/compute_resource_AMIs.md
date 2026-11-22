@@ -1,7 +1,6 @@
 
 
 # Compute resource AMIs
-<a name="compute_resource_AMIs"></a>
 
 By default, AWS Batch managed compute environments use a recent, approved version of the Amazon ECS optimized AMI for compute resources. However, you might want to create your own AMI to use for your managed and unmanaged compute environments. If you require any of the following, we recommend you create your own AMI:
 + Increasing the storage size of your AMI root or data volumes.
@@ -9,6 +8,9 @@ By default, AWS Batch managed compute environments use a recent, approved versio
 + Customizing the Amazon ECS container agent.
 + Customizing Docker
 + Configuring a GPU workload AMI to allow containers to access GPU hardware on supported Amazon EC2 instance types
+
+**Note**  
+AWS Batch doesn't support Windows AMIs for Amazon EC2 compute resources in compute environments that use Amazon ECS orchestration. These compute resources must use a Linux-based AMI. The AMI must meet the requirements in [Compute resource AMI specification](batch-ami-spec.md). To run Windows containers, use AWS Fargate compute resources and set the operating system family in the job definition's `runtimePlatform` parameter. For more information, see [runtimePlatform](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html#Batch-Type-ContainerProperties-runtimePlatform) in the *AWS Batch API Reference*.
 
 **Note**  
 After a compute environment is created, AWS Batch doesn't upgrade the AMIs in the compute environment. AWS Batch also doesn't update the AMIs in your compute environment when a newer version of the Amazon ECS optimized AMI is available. You're responsible for the management of the guest operating system. This includes any updates and security patches. You're also responsible for any additional application software or utilities that you install on the compute resources. To use a new AMI for your AWS Batch jobs, do the following:  

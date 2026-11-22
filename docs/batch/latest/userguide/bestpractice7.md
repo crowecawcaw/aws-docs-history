@@ -1,7 +1,6 @@
 
 
 # Common errors and troubleshooting
-<a name="bestpractice7"></a>
 
 Errors in AWS Batch often occur at the application level or are caused by instance configurations that don’t meet your specific job requirements. Other issues include jobs getting stuck in the `RUNNABLE` status or compute environments getting stuck in an `INVALID` state. For more information about troubleshooting jobs getting stuck in `RUNNABLE` status, see [Jobs stuck in a `RUNNABLE` status](job_stuck_in_runnable.md). For information about troubleshooting compute environments in an `INVALID` state, see [`INVALID` compute environment](invalid_compute_environment.md).
 + **Check Amazon EC2 Spot vCPU quotas** – Verify that your current service quotas meet the job requirements. For example, suppose that your current service quota is 256 vCPUs and the job requires 10,000 vCPUs. Then, the service quota doesn't meet the job requirement. For more information and troubleshooting instructions, see [Amazon EC2 service quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) and [How do I increase the service quota of my Amazon EC2resources?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-limit/).

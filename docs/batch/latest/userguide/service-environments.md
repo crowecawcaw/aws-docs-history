@@ -1,7 +1,6 @@
 
 
 # Service environments for AWS Batch
-<a name="service-environments"></a>
 
 Service environments enable AWS Batch to integrate with SageMaker AI. A service environment contains the SageMaker AI specific configuration parameters required for AWS Batch to submit and manage SageMaker Training jobs while providing AWS Batch's queuing, scheduling, and priority management capabilities.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EKS Amazon Linux 2 AMI deprecation
-<a name="eks-al2-ami-deprecation"></a>
 
 AWS ended support for Amazon EKS optimized Amazon Linux 2 AMIs on November 26, 2025. On October 27, 2025, AWS Batch changed the default AMI for new Amazon EKS compute environments to Amazon Linux 2023. Amazon EKS optimized Amazon Linux 2 AMIs no longer receive software updates, security patches, or bug fixes from AWS.
 

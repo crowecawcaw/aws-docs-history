@@ -1,7 +1,6 @@
 
 
 # How to add the CloudWatch Container Insights widget to the AWS Batch dashboard
-<a name="container-insight"></a>
 
 This widget displays aggregated metrics for AWS Batch compute environments and jobs. For more information about Container Insights, see [AWS Batch CloudWatch Container Insights](cloudwatch-container-insights.md). 
 

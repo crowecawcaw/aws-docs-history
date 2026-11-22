@@ -1,13 +1,12 @@
 
 
 # Getting started with AWS Batch on Amazon EKS Private Clusters
-<a name="getting-started-eks-privateclusters"></a>
 
 AWS Batch is a managed service that orchestrates batch workloads in your Amazon Elastic Kubernetes Service (Amazon EKS) clusters. This includes queuing, dependency tracking, managed job retries and priorities, pod management, and node scaling. This feature connects your existing private Amazon EKS cluster with AWS Batch to run your jobs at scale. You can use [`eksctl`](https://eksctl.io/usage/eks-private-cluster/) (a command line interface for Amazon EKS), the AWS console, or the [AWS Command Line Interface](https://aws.amazon.com/cli/) to create a private Amazon EKS cluster with all the other necessary resources. 
 
 [Amazon EKS private only clusters](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html#private-access) by default have no inbound/outbound internet access, and you can only access the API server from within your VPC or a connected network. Amazon VPC endpoints are used to enable private access to other AWS services. `eksctl` supports creating fully private clusters using a pre-existing Amazon VPC and subnets. `eksctl` also creates Amazon VPC endpoints in the supplied Amazon VPC and modifies route tables for the supplied subnets.
 
-Each subnet should have an explicit route table associated with it because `eksctl` does not modify the main route table. Your [cluster](#getting-started-eks-privateclusters) must pull images from a container registry that's in your Amazon VPC. As well, you can create an Amazon Elastic Container Registry in your Amazon VPC and copy container images to it for your nodes to pull from. For more information, see [Copy a container image from one repository to another repository](https://docs.aws.amazon.com/eks/latest/userguide/copy-image-to-repository.html). To get started with Amazon ECR private repositories, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html).
+Each subnet should have an explicit route table associated with it because `eksctl` does not modify the main route table. Your [cluster](getting-started-eks-privateclusters.md) must pull images from a container registry that's in your Amazon VPC. As well, you can create an Amazon Elastic Container Registry in your Amazon VPC and copy container images to it for your nodes to pull from. For more information, see [Copy a container image from one repository to another repository](https://docs.aws.amazon.com/eks/latest/userguide/copy-image-to-repository.html). To get started with Amazon ECR private repositories, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html).
 
 You can optionally create a [pull through cache rule](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html) with Amazon ECR. Once a pull through cache rule is created for an external public registry, you can pull an image from that external public registry using your Amazon ECR private registry uniform resource identifier (URI). Then Amazon ECR creates a repository and caches the image. When a cached image is pulled using the Amazon ECR private registry URI, Amazon ECR checks the remote registry to see if there is a new version of the image and updates your private registry up to once every 24 hours.
 
@@ -91,7 +90,7 @@ We recommend you use `eksctl` and the following config file to create your clust
 
 1. Create a private EKS cluster in the `us-east-1` region using the sample `eksctl` config file. Save the yaml file to your AWS CloudShell environment and name it `clusterConfig.yaml` .You can change {{my-test-cluster}} with the name you want to use for your cluster. 
 
-   ```
+   ```sh
    kind: ClusterConfig 
    apiVersion: eksctl.io/v1alpha5
    metadata:
@@ -113,13 +112,13 @@ We recommend you use `eksctl` and the following config file to create your clust
 
 1. Once the cluster has finished being created you have to add your AWS CloudShell IP address to the allow list. To find your AWS CloudShell IP address run the following command:
 
-   ```
+   ```sh
    curl http://checkip.amazonaws.com
    ```
 
    Once you have the public IP address you have to create an allow list rule:
 
-   ```
+   ```sh
    aws eks update-cluster-config \
      --name {{my-test-cluster}} \
      --region us-east-1 \
@@ -158,11 +157,11 @@ All steps are required and must be done in AWS CloudShell.
 
    Use `kubectl` to create a new namespace.
 
-   ```
+   ```sh
    $ namespace={{my-aws-batch-namespace}}
    ```
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl create -f -
    {
      "apiVersion": "v1",
@@ -189,7 +188,7 @@ All steps are required and must be done in AWS CloudShell.
 
    Use `kubectl` to create a Kubernetes role for the cluster to allow AWS Batch to watch nodes and pods, and to bind the role. You must do this once for each Amazon EKS cluster.
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl apply -f -
    apiVersion: rbac.authorization.k8s.io/v1
    kind: ClusterRole
@@ -242,11 +241,11 @@ All steps are required and must be done in AWS CloudShell.
 
    Create namespace-scoped Kubernetes role for AWS Batch to manage and lifecycle pods and bind it. You must do this once for each unique namespace.
 
-   ```
+   ```sh
    $ namespace={{my-aws-batch-namespace}}
    ```
 
-   ```
+   ```sh
    $ cat - <<EOF | kubectl apply -f - --namespace "${namespace}"
    apiVersion: rbac.authorization.k8s.io/v1
    kind: Role
@@ -289,7 +288,7 @@ All steps are required and must be done in AWS CloudShell.
 
    Update Kubernetes `aws-auth` conﬁguration map to map the preceding RBAC permissions to the AWS Batch service-linked role.
 
-   ```
+   ```sh
    $ eksctl create iamidentitymapping \
        --cluster {{my-test-cluster}} \
        --arn "arn:aws:iam::{{<your-account-ID>}}:role/AWSServiceRoleForBatch" \
@@ -313,14 +312,14 @@ Now that the **AWSServiceRoleForBatch** service-linked role has access to your A
 + For `subnets` run `eksctl get cluster {{my-test-cluster}}` to get the subnets used by the cluster. 
 + For `securityGroupIds` parameter you can use the same security group as the Amazon EKS cluster. This command retrieves the security group ID for the cluster.
 
-  ```
+  ```sh
   $ aws eks describe-cluster \
       --name {{my-test-cluster}} \
       --query cluster.resourcesVpcConfig.clusterSecurityGroupId
   ```
 + Use the ARN of the `instanceRole` you created in the Prerequisites.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-compute-environment.json
 {
   "computeEnvironmentName": "{{My-Eks-CE1}}",
@@ -350,7 +349,7 @@ $ cat <<EOF > ./batch-eks-compute-environment.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-compute-environment --cli-input-json file://./batch-eks-compute-environment.json
 ```
 
@@ -363,14 +362,14 @@ $ aws batch create-compute-environment --cli-input-json file://./batch-eks-compu
 **Important**  
 It's important to confirm that the compute environment is healthy before proceeding. The [DescribeComputeEnvironments](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeComputeEnvironments.html) API operation can be used to do this.  
 
-```
+```sh
 $ aws batch describe-compute-environments --compute-environments {{My-Eks-CE1}}
 ```
 Confirm that the `status` parameter is not `INVALID`. If it is, look at the `statusReason` parameter for the cause. For more information, see [Troubleshooting AWS Batch](troubleshooting.md).
 
 Jobs submitted to this new job queue are run as pods on AWS Batch managed nodes that joined the Amazon EKS cluster that's associated with your compute environment.
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-queue.json
  {
     "jobQueueName": "{{My-Eks-JQ1}}",
@@ -385,7 +384,7 @@ $ cat <<EOF > ./batch-eks-job-queue.json
 EOF
 ```
 
-```
+```sh
 $ aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json
 ```
 
@@ -396,7 +395,7 @@ Because the cluster doesn't have public internet access you have to create an Am
 
 1. The following command create the pull-through cache rule. You can replace {{tutorial-prefix}} with a different prefix.
 
-   ```
+   ```sh
    aws ecr create-pull-through-cache-rule \
        --ecr-repository-prefix "{{my-prefix}}" \
        --upstream-registry-url "public.ecr.aws" \
@@ -405,23 +404,23 @@ Because the cluster doesn't have public internet access you have to create an Am
 
 1. Authenticate with the public ECR.
 
-   ```
+   ```sh
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin {{<your-account-ID>}}.dkr.ecr.us-east-1.amazonaws.com
    ```
 
    Now you can pull an image.
 
-   ```
+   ```sh
    docker pull {{<your-account-ID>}}.dkr.ecr.us-east-1.amazonaws.com/{{my-prefix}}/amazonlinux/amazonlinux:2
    ```
 
 1. You can verify the repositry and image by running the following commands:
 
-   ```
+   ```sh
    aws ecr describe-repositories
    ```
 
-   ```
+   ```sh
    aws ecr describe-images --repository-name {{my-prefix}}/amazonlinux/amazonlinux
    ```
 
@@ -438,7 +437,7 @@ The following Job definition instructs the pod to sleep for 60 seconds.
 
 In the image field of the job definition, instead of providing a link to image in a public ECR repository, provide the link to the image stored in our private ECR repository. See the following sample job definition:
 
-```
+```sh
 $ cat <<EOF > ./batch-eks-job-definition.json
 {
   "jobDefinitionName": "{{MyJobOnEks_Sleep}}",
@@ -472,7 +471,7 @@ $ cat <<EOF > ./batch-eks-job-definition.json
 EOF
 ```
 
-```
+```sh
 $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-definition.json
 ```
 
@@ -486,7 +485,7 @@ $ aws batch register-job-definition --cli-input-json file://./batch-eks-job-defi
 
 Run the following AWS CLI command in AWS CloudShell to submit a new Job and returns the unique JobID.
 
-```
+```sh
 $ aws batch submit-job --job-queue {{My-Eks-JQ1}} \
     --job-definition {{MyJobOnEks_Sleep}} - -job-name {{My-Eks-Job1}}
 ```
@@ -499,7 +498,7 @@ $ aws batch submit-job --job-queue {{My-Eks-JQ1}} \
 
 To check the status of a Job:
 
-```
+```sh
 $ aws batch describe-jobs --job {{<JobID-from-submit-response>}}
 ```
 
@@ -510,7 +509,7 @@ The `startedAt` and `stoppedAt` should be one minute apart.
 
 This job overrides the command passed to the container.
 
-```
+```sh
 $ cat <<EOF > ./submit-job-override.json
 {
   "jobName": "{{EksWithOverrides}}",
@@ -535,7 +534,7 @@ $ cat <<EOF > ./submit-job-override.json
 EOF
 ```
 
-```
+```sh
 $ aws batch submit-job - -cli-input-json file://./submit-job-override.json
 ```
 

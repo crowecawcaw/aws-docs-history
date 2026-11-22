@@ -1,7 +1,6 @@
 
 
 # Compute resource AMI specification
-<a name="batch-ami-spec"></a>
 
 The basic AWS Batch compute resource AMI specification consists of the following:
 
@@ -9,6 +8,8 @@ Required
 
  
 + A modern Linux distribution that's running at least version 3.10 of the Linux kernel on an HVM virtualization type AMI. Windows containers aren't supported.
+**Note**  
+AWS Batch doesn't support Windows AMIs for Amazon EC2 compute resources in compute environments that use Amazon ECS orchestration. These compute resources must use a Linux-based AMI. The AMI must meet the requirements on this page. To run Windows containers, use AWS Fargate compute resources and set the operating system family in the job definition's `runtimePlatform` parameter. For more information, see [runtimePlatform](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html#Batch-Type-ContainerProperties-runtimePlatform) in the *AWS Batch API Reference*.
 **Important**  
 Multi-node parallel jobs can only run on compute resources that were launched on an Amazon Linux instance with the `ecs-init` package installed. We recommend that you use the default Amazon ECS optimized AMI when you create your compute environment. You can do this by not specifying a custom AMI. For more information, see [Multi-node parallel jobs](multi-node-parallel-jobs.md).
 + The Amazon ECS container agent. We recommend that you use the latest version. For more information, see [Installing the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-install.html) in the *Amazon Elastic Container Service Developer Guide*.

@@ -1,7 +1,6 @@
 
 
 # Use share identifiers to identify workloads
-<a name="share-identifiers"></a>
 
 You can use share identifiers to tag jobs and differentiate between users and workloads. The AWS Batch scheduler tracks usage for each share identifier by using the `(T * weightFactor)` formula, where *`T`* is the vCPU usage over time. The scheduler picks jobs with the lowest usage from the share identifier. You can use a share identifier without overriding it.
 

@@ -1,7 +1,6 @@
 
 
 # Instance type allocation strategies for AWS Batch
-<a name="allocation-strategies"></a>
 
 When a managed compute environment is created, AWS Batch selects instance types from the `[instanceTypes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes)` specified that best fit the needs of the jobs. The allocation strategy defines behavior when AWS Batch needs additional capacity. This parameter isn't applicable to jobs that run on Fargate resources or Amazon ECS Managed Instances. Don't specify this parameter for those compute environment types.
 

@@ -1,7 +1,6 @@
 
 
 # Mapping AWS Batch service job status to SageMaker AI status
-<a name="service-job-status"></a>
 
 When you submit jobs to a SageMaker job queue using [SubmitServiceJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitServiceJob.html), AWS Batch manages the job lifecycle and maps AWS Batch [job states](job_states.md) to equivalent SageMaker Training job states. Service jobs, such as SageMaker Training jobs, follow a different state lifecycle than traditional container jobs. While service jobs share most states with container jobs, they introduce the `SCHEDULED` state and exhibit different retry behaviors, particularly for handling insufficient capacity errors from the target service.
 

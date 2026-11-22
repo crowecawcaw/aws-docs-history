@@ -1,7 +1,6 @@
 
 
 # Memory and vCPU considerations for AWS Batch on Amazon EKS
-<a name="memory-cpu-batch-eks"></a>
 
 In AWS Batch on Amazon EKS, you can specify the resources that are made available to a container. For example, you can specify `requests` or `limits` values for vCPU and memory resources.
 
@@ -29,7 +28,7 @@ The following are constraints for specifying GPU resources:
 
 The following AWS Batch on Amazon EKS job definition configures soft vCPU shares. This lets AWS Batch on Amazon EKS use all of the vCPU capacity for the instance type. However, if there are other jobs running, the job is allocated a maximum of `2` vCPUs. Memory is limited to 2 GB.
 
-```
+```json
 {
    "jobDefinitionName": "MyJobOnEks_Sleep",
    "type": "container",
@@ -54,7 +53,7 @@ The following AWS Batch on Amazon EKS job definition configures soft vCPU shares
 
 The following AWS Batch on Amazon EKS job definition has a `request` value of `1` and allocates a maximum of `4` vCPUs to the job.
 
-```
+```json
 {
    "jobDefinitionName": "MyJobOnEks_Sleep",
    "type": "container",
@@ -82,7 +81,7 @@ The following AWS Batch on Amazon EKS job definition has a `request` value of `1
 
 The following AWS Batch on Amazon EKS job definition sets a vCPU `limits` value of `1` and a memory `limits` value of 1 GB.
 
-```
+```json
 {
    "jobDefinitionName": "MyJobOnEks_Sleep",
    "type": "container",
@@ -107,7 +106,7 @@ The following AWS Batch on Amazon EKS job definition sets a vCPU `limits` value 
 
 When AWS Batch translates an AWS Batch on Amazon EKS job into an Amazon EKS pod, AWS Batch copies the`limits` value to the `requests` value. This is if a `requests` value isn't specified. When you submit the preceding example job definition, the pod `spec` is as follows.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 ...

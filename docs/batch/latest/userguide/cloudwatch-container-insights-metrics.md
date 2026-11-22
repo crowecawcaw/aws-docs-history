@@ -1,7 +1,6 @@
 
 
 # Container Insights metrics
-<a name="cloudwatch-container-insights-metrics"></a>
 
 By default, the following metrics are displayed in the AWS Batch console under the **Container insights** tab on a compute environment detail page. For a full list of Amazon ECS Container Insights metrics, see [Amazon ECS Container Insights Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.html) in the *Amazon CloudWatch User Guide*.
 

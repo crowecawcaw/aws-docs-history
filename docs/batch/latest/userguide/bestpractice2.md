@@ -1,7 +1,6 @@
 
 
 # Checklist to run at scale
-<a name="bestpractice2"></a>
 
 Before you run a large workload on 50 thousand or more vCPUs, consider the following checklist.
 

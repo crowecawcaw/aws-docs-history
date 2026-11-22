@@ -1,7 +1,6 @@
 
 
 # IAM policy structure
-<a name="iam-policy-structure"></a>
 
 The following topics explain the structure of an IAM policy.
 
@@ -16,7 +15,7 @@ The following topics explain the structure of an IAM policy.
 
 An IAM policy is a JSON document that consists of one or more statements. Each statement is structured as follows.
 
-```
+```json
 {
   "Statement":[{
     "Effect":"{{effect}}",
@@ -47,19 +46,19 @@ In an IAM policy statement, you can specify any API action from any service that
 
 To specify multiple actions in a single statement, separate each action with a comma.
 
-```
+```json
 "Action": ["batch:action1", "batch:action2"]
 ```
 
 You can also specify multiple actions by including a wildcard (\*). For example, you can specify all actions with a name that begins with the word "Describe."
 
-```
+```json
 "Action": "batch:Describe*"
 ```
 
 To specify all AWS Batch API actions, include a wildcard (\*).
 
-```
+```json
 "Action": "batch:*"
 ```
 
@@ -93,7 +92,7 @@ A path that identifies the resource. You can use a wildcard (\*) in your paths.
 
 AWS Batch API operations currently support resource-level permissions on several API operations. For more information, see [Supported resource-level permissions for AWS Batch API actions](batch-supported-iam-actions-resources.md). To specify all resources, or if a specific API action doesn't support ARNs, include a wildcard (\*) in the `Resource` element.
 
-```
+```json
 "Resource": "*"
 ```
 

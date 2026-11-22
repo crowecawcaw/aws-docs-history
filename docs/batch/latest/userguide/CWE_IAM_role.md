@@ -1,7 +1,6 @@
 
 
 # EventBridge IAM role
-<a name="CWE_IAM_role"></a>
 
 Amazon EventBridge delivers a near-real time stream of system events that describe changes in AWS resources. AWS Batch jobs are available as EventBridge targets. Using simple rules that you can quickly set up, you can match events and submit AWS Batch jobs in response to them. Before you can submit AWS Batch jobs with EventBridge rules and targets, EventBridge must have permissions to run AWS Batch jobs on your behalf.
 
@@ -15,7 +14,7 @@ The trust relationship for your EventBridge IAM role must provide the `events.am
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -40,7 +39,7 @@ Make sure that the policy that's attached to your EventBridge IAM role allows `b
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

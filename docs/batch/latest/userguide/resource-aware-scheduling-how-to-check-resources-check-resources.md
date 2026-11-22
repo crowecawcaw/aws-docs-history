@@ -1,7 +1,6 @@
 
 
 # Check how many resources are in-use and available
-<a name="resource-aware-scheduling-how-to-check-resources-check-resources"></a>
 
 Batch lets you query the number of available resources (`availableQuantity`), the number of resources in use (`inUseQuantity`), and the total resources (`totalQuantity`) at a given moment.
 
@@ -30,7 +29,7 @@ You can also view current information about consumable resources from a job deta
 
 Use the [`DescribeConsumableResource` API](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeConsumableResource.html) which returns the following information:
 
-```
+```JSON
 {
    "availableQuantity": number,
    "consumableResourceArn": "string",

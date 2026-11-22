@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions for private registry authentication
-<a name="private-auth-iam"></a>
 
 The execution role is required to use this feature. This allows the container agent to pull the container image. For more information, see [AWS Batch IAM execution role](execution-IAM-role.md).
 
@@ -16,7 +15,7 @@ The following is an example inline policy that adds the permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

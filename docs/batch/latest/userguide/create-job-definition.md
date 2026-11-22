@@ -1,7 +1,6 @@
 
 
 # Create a single-node job definition
-<a name="create-job-definition"></a>
 
 Before you can run jobs in AWS Batch, you must create a job definition. This process varies slightly between single-node and multi-node parallel jobs. This topic covers specifically how to create a job definition for an AWS Batch job that's not a multi-node parallel job (also known as *gang scheduling*).
 

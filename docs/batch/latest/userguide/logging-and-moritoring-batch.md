@@ -1,7 +1,6 @@
 
 
 # Monitor AWS Batch
-<a name="logging-and-moritoring-batch"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Batch and your AWS solution.
 

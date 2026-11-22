@@ -1,7 +1,6 @@
 
 
 # Job state change events
-<a name="batch_job_events"></a>
 
 Anytime that an existing (previously submitted) job changes states, an event is created. For more information about AWS Batch job states, see [Job states](job_states.md).
 
@@ -11,7 +10,7 @@ Events aren't created for the initial job submission.
 **Example Job State Change Event**  
 Job state change events are delivered in the following format. The `detail` section resembles the [JobDetail](https://docs.aws.amazon.com/batch/latest/APIReference/API_JobDetail.html) object that's returned from a [DescribeJobs](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html) API operation in the *AWS Batch API Reference*. For more information about EventBridge parameters, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 
-```
+```json
 {
     "version": "0",
     "id": "c8f9c4b5-76e5-d76a-f980-7011e206042b",

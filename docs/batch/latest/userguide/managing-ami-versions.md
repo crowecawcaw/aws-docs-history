@@ -1,7 +1,6 @@
 
 
 # Managing AMI versions in compute environments
-<a name="managing-ami-versions"></a>
 
 AWS Batch provides visibility into the Amazon Machine Images (AMIs) that your compute environments use.
 
@@ -20,10 +19,14 @@ In the AWS Batch console, AMI status information appears in two locations with t
 **Note**  
 AMI status information appears only for AWS Batch-managed AMIs. The status does not appear when images are specified in `imageId` (deprecated), `imageIdOverride`, or in the default launch template. The status does not appear when the compute environment has a launch template override. For more information on AMI selection, see [AMI selection order](ami-selection-order.md).
 
+<a name="console-ce-page"></a>**Compute environments page**
+
 The compute environments page displays a **Batch image status** column that shows the overall `batchImageStatus` for each compute environment. If a compute environment has multiple AMIs and any one AMI has **Update available**, the console shows **Update available** for the entire compute environment.
 
 **Note**  
 The status appears after the compute environment has started scaling for any **Image type**.
+
+<a name="console-ce-detail-page"></a>**Compute environment detail page**
 
 On the compute environment detail page, the **Ec2 configuration** section of the **Compute resources** tab shows the **Batch image status** for each **Image type** in the compute environment. If an **Image type** has multiple AMIs and any one AMI has **Update available**, the console shows **Update available** for that **Image type**.
 

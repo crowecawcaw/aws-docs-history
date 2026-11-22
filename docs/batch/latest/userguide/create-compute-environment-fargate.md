@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a managed compute environment using Fargate resources
-<a name="create-compute-environment-fargate"></a>
 
 Complete the following steps to create a managed compute environment using AWS Fargate resources.
 

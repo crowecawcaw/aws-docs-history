@@ -1,7 +1,6 @@
 
 
 # Preemption
-<a name="preemption"></a>
 
 Quota management is the only AWS Batch scheduling algorithm to incorporate **preemption**, where AWS Batch stops a `SCHEDULED`, `STARTING`, or `RUNNING` job to create capacity for a `RUNNABLE` job.
 

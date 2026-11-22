@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Batch and Amazon ECS Managed Instances using the wizard
-<a name="getting-started-ecs-managed-instances"></a>
 
 Amazon ECS Managed Instances provides fully managed Amazon EC2 capacity with broader compute flexibility than Fargate, including GPU instances, bare metal, and arbitrary vCPU/memory combinations. Amazon ECS handles instance provisioning, scaling, and termination on your behalf. For more information, see [Amazon ECS Managed Instances compute environments](ecs_managed_instances.md).
 

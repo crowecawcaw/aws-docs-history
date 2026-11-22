@@ -1,7 +1,6 @@
 
 
 # Amazon ECS Amazon Linux 2 AMI deprecation
-<a name="ecs-al2-ami-deprecation"></a>
 
 AWS is ending support for Amazon ECS Amazon Linux 2-optimized and accelerated AMIs on June 30, 2026. On January 12, 2026, AWS Batch changed the default AMI for new Amazon ECS compute environments from Amazon Linux 2 to Amazon Linux 2023. Effective June 30, 2026, AWS Batch will block creation of new Amazon ECS compute environments using Batch-provided Amazon Linux 2 AMIs. After this date, you can only create new Amazon ECS compute environments using Amazon Linux 2023 or customer-provided AMIs.
 

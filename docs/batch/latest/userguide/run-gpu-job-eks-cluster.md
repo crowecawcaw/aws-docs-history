@@ -1,13 +1,12 @@
 
 
 # Run a GPU job in your Amazon EKS cluster
-<a name="run-gpu-job-eks-cluster"></a>
 
 The GPU resource is non-compressible. AWS Batch creates a pod spec for GPU jobs where the value of **request** equals the value of **limits**. This is a Kubernetes requirement.
 
 To submit a GPU job, run the following commands.
 
-```
+```sh
 $ aws batch submit-job --job-queue My-Eks-GPU-JQ1 --job-definition MyGPUJobOnEks_Smi --job-name My-Eks-GPU-Job
 
 # locate information that can help debug or find logs (if using Amazon CloudWatch Logs with Fluent Bit)

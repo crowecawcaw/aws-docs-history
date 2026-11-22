@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EKS job queue
-<a name="create-job-queue-eks"></a>
 
 Complete the following steps to create a job queue for Amazon Elastic Kubernetes Service (Amazon EKS).
 

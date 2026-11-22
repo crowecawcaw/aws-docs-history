@@ -1,7 +1,6 @@
 
 
 # Job queues on Amazon ECS Managed Instances
-<a name="ecs-managed-instances-job-queues"></a>
 
 AWS Batch job queues for Amazon ECS Managed Instances follow the same model as Fargate: a job queue can only contain compute environments of the same platform type. You cannot mix Amazon ECS Managed Instances compute environments with Fargate or Amazon EC2 compute environments in the same job queue.
 

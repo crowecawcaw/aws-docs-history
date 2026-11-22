@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an unmanaged compute environment using Amazon EC2 resources
-<a name="create-compute-environment-unmanaged-ec2"></a>
 
 Complete the following steps to create an unmanaged compute environment using Amazon Elastic Compute Cloud (Amazon EC2) resources.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: submit a job
-<a name="submit_job"></a>
 
 After you register a job definition, you can submit it as a job to an AWS Batch job queue. You can override many of the parameters that are specified in the job definition at runtime.
 
