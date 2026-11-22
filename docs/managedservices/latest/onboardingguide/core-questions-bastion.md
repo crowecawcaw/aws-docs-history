@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Access: Bastions, SSH and RDP
-<a name="core-questions-bastion"></a>
 + SSH Bastion settings
 
   AMS provides SSH bastions in your Shared Services account to access hosts in the AMS environment. In order to access the AMS network as an SSH user, you must use SSH Bastions as the entry point. The network path originates from the On-Prem network, goes through DX/VPN to the transit gateway (TGW), and then is routed to the Shared Services VPC. Once you are able to access the bastion, you can jump to other hosts in your AMS environment, provided that the proper access request has been granted.

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Understand RFC action and activity states
-<a name="ex-rfc-action-state"></a>
 
 `RfcActionState` (API) / **Activity State** (console) help you understand the status of human intervention, or action, on an RFC. Used primarily for manual RFCs, the `RfcActionState` helps you understand when there is action needed by either you or AMS operations, and helps you see when AMS Operations is actively working on your RFC. This provides increased transparency into the actions being taken on an RFC during its lifecycle.
 

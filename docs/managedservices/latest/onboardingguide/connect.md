@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Connect Customer in your AMS account
-<a name="connect"></a>
 
 **Note**  
 After careful consideration, we decided to end support for Connect Customer Voice ID, effective May 20, 2026. Connect Customer Voice ID will no longer accept new customers beginning May 20, 2025. As an existing customer with an account signed up for the service before May 20, 2025, you can continue to use Connect Customer Voice ID features. After May 20, 2026, you will no longer be able to use Connect Customer Voice ID.

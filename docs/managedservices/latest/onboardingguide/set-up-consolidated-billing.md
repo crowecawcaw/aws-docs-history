@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Set up consolidated billing–link new account to Payer account
-<a name="set-up-consolidated-billing"></a>
 
 If you'd like your new AMS-managed AWS account bill to be rolled into a payment for an existing AWS Organizations management account, you need to set up consolidated billing and link the accounts. For details on doing this, see
 +  [Consolidated billing for AWS Organizations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html) and [AWS Multi-Account Billing Strategy](https://d0.awsstatic.com/aws-answers/AWS_Multi_Account_Billing_Strategy.pdf).

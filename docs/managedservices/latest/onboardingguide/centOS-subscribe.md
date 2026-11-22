@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Subscribe to AWS Marketplace for CentOS 7.6
-<a name="centOS-subscribe"></a>
 
 AMS now provides the CentOS 7 (x86\_64) - with Updates HVM sold by Centos.org, as an AMS AMI. In order to utilize this AMI, you must opt in to the FREE Cent OS license, and accept the license on all your AMS accounts.
 

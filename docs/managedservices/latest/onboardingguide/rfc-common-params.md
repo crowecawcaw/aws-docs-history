@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Learn about common RFC parameters
-<a name="rfc-common-params"></a>
 
 The following are RFC parameters that you are required to submit, and parameters that are commonly used in RFCs:
 + Change type information: ChangeTypeId and ChangeTypeVersion. Ror a list of change type IDs and version numbers, see [Change Type Reference](https://docs.aws.amazon.com/managedservices/latest/ctref/index.html). 

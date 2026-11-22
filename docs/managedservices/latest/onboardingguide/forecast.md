@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Forecast in your AMS account
-<a name="forecast"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Forecast (Forecast) capabilities directly in your AMS managed account. Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts.
 

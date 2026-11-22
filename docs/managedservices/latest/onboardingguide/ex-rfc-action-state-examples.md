@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Review RFC action states use case examples
-<a name="ex-rfc-action-state-examples"></a>
 
 **Use Case: Visibility on Manual RFC Process**
 + Once you submit a manual RFC, the RFC action state automatically changes to `AwsActionPending` to indicate that an operator needs to review and approve the RFC. When an operator begins actively reviewing your RFC, the RFC action state changes to `AwsOperatorAssigned`.

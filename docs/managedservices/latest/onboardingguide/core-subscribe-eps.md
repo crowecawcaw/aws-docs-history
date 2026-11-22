@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Subscribe to AWS Marketplace for Trend Micro Endpoint Protection (EPS)
-<a name="core-subscribe-eps"></a>
 
 Trend Micro Endpoint Protection (EPS) is the primary component within AMS for operating system security. In order to set up EPS once AMS landing zone creation is started, you need to log in to the shared services core account and subscribe to the Trend Micro Deep Security AMI on AWS Marketplace. Your CSDM or CA will advise you. 
 

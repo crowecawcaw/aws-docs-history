@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon SageMaker AI in your AMS account
-<a name="sagemaker"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon SageMaker AI capabilities directly in your AMS managed account. SageMaker AI provides every developer and data scientist with the ability to build, train, and deploy machine learning models quickly. Amazon SageMaker AI is a fully-managed service that covers the entire machine learning workflow to label and prepare your data, choose an algorithm, train the model, tune and optimize it for deployment, make predictions, and take action. Your models get to production faster with much less effort and lower cost. To learn more, see [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/).
 

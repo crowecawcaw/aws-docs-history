@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Global Accelerator in your AMS account
-<a name="global-acc"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Global Accelerator capabilities directly in your AMS managed account. Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience. To learn more, see [Global Accelerator](https://aws.amazon.com/global-accelerator/).
 

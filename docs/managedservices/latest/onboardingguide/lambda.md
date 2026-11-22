@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Lambda in your AMS account
-<a name="lambda"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Lambda capabilities directly in your AMS managed account. AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume, there is no charge when your code is not running. With Lambda, you can run code for virtually any type of application or back-end service, all with zero administration. upload your code and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services, or call it directly from any Web or mobile app. To learn more, see [AWS Lambda](https://aws.amazon.com/lambda/).
 

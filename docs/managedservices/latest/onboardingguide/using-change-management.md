@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Change management modes
-<a name="using-change-management"></a>
 
 AWS Managed Services (AMS) uses change management mode to guardrail changes in AMS Advanced. The change management modes help you maintain high operational standards for the environment, and to control risk and prevent adverse impact. AMS Advanced has different modes that provide different levels of control and risk. All modes, except for Customer-Managed mode, are managed by AMS. The following are the available change management modes:
 + RFC mode (formerly Standard CM mode): Provides a "request for change" (RFC) system and AMS-custom change types (CTs) 

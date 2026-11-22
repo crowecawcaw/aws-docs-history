@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Set up access management
-<a name="set-up-access-mgmt"></a>
 
 Using a network managed by AWS Managed Services (AMS) means giving AMS access to manage your cloud infrastructure. You'll need to configure a means of securely connecting between your private network and AMS. This starts with some decisions:
 + *AMS API/CLI and Console access*: You will want to install the AMS CLI (instructions are provided in this document). You use the AMS change management API to make change requests to AMS and the AMS SKMS API to learn about your AMS-managed resources. Using Active Directory Federation Services (AD FS), you can access the AMS Console.

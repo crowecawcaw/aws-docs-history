@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Trend Micro Endpoint Protection (EPS)
-<a name="core-questions-eps"></a>
 + Instance sizes for your EC2 instances and Auto Scaling groups
 
   Trend Micro Endpoint Protection (EPS) is the primary component within AMS for operating system security. The system is comprised of Deep Security Manager (DSM) EC2 instances, relay EC2 instances, and an agent present within all of AMS data plane and your EC2 instances.

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Maintenance Window
-<a name="og-maintenance-window"></a>
 
 You will want to create a maintenance window that considers different application needs, different AWS Regions, and different stress periods. Your maintenance window is when AMS will apply patching. Here are some guidelines:
 + To limit the impact on users, plan your maintenance window according to the AWS Region where your environments are deployed.

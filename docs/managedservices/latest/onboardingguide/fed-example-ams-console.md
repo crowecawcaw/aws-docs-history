@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Configuring federation to the AMS console
-<a name="fed-example-ams-console"></a>
 
 The IAM roles and SAML identity provider (Trusted Entity) detailed in the following table are provisioned in your new application account. These roles allow you to gain access to the new application account and file RFCs, write to S3 buckets, and perform other actions.
 

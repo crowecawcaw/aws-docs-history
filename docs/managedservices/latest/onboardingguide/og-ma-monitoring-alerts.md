@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS multi-account landing zone monitoring alerts
-<a name="og-ma-monitoring-alerts"></a>
 
 AMS provides a way for you to be directly alerted (versus getting AMS service notifications) for certain monitoring alerts. To sign up for this, make sure that your Cloud Architect (CA) or Cloud Service Delivery Manager (CSDM) receive this information:
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Resilience Hub in your AMS account
-<a name="res-hub"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Resilience Hub capabilities directly in your AMS managed account. AWS Resilience Hub helps you proactively prepare and protect your AWS applications from disruptions. The Resilience Hub offers resiliency assessment and validation that integrate into your software development lifecycle to uncover resiliency weaknesses. Resilience Hub helps you estimate whether or not your applications can meet the recovery time objective (RTO) and recovery point objective (RPO) targets, and helps resolve issues before they are released into production. After you deploy an AWS application into production, you can use Resilience Hub to continue tracking the resiliency posture of your application. If an outage occurs, Resilience Hub sends a notification to the operator to launch the associated recovery process.
 

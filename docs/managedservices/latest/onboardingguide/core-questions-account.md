@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS multi-account landing zone account configuration
-<a name="core-questions-account"></a>
 + New Account ID
 
   The AWS account ID that you created for AMS multi-account landing zone. Should not be part of an AWS organization.

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Allocate IP Space for your AMS Environment
-<a name="allocate-ip-space"></a>
 
 AMS was designed and tested using a /16 CIDR block as the recommended network allocation. It is important that the trusted network connected to AMS use a CIDR block that does not overlap with the CIDR block assigned to AMS. These addresses are required to set up your virtual private cloud (VPC) and subnets. For more information about AWS VPCs, see [Amazon VPC Limits](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html) and [Amazon VPC FAQs](https://aws.amazon.com/vpc/faqs/). 
 

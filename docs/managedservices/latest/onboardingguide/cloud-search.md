@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon CloudSearch in your AMS account
-<a name="cloud-search"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon CloudSearch capabilities directly in your AMS managed account. Amazon CloudSearch is a managed service in the AWS Cloud that you use to cost-effective to set up, manage, and scale a search solution for your website or application. Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search. To learn more, see [Amazon CloudSearch](https://aws.amazon.com/cloudsearch/).
 

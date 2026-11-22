@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Service Catalog in AMS before you begin
-<a name="ams-service-catalog-section-faq"></a>
 
 **Does Service Catalog replace the existing AMS request for change (RFC) process?**  
 In accounts where Service Catalog is enabled, it will act as the change management system in which you provision and update IT services in your AMS account through your predefined product catalog; AMS will provide a default portfolio/product catalog, and your IT admins can create and configure your own. Service Catalog will only acknowledge stacks provisioned through Service Catalog. Likewise, services provisioned through Service Catalog will not be modifiable through the AMS RFC process as modification outside of Service Catalog will drift the stack from the approved product configuration. 

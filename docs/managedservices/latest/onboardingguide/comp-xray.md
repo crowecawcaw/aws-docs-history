@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS X-Ray in your AMS account
-<a name="comp-xray"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS X-Ray (X-Ray) capabilities directly in your AMS managed account. AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing, to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through your application, and shows a map of your application’s underlying components. You can use X-Ray to analyze both applications in development and in production, from simple three-tier applications, to complex microservices applications consisting of thousands of services. To learn more, see [AWS X-Ray](https://aws.amazon.com/xray/).
 

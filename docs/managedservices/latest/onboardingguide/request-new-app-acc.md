@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Requesting a new application account
-<a name="request-new-app-acc"></a>
 
 You must have a multi-account AWS Managed Services (AMS) environment set up with core accounts, before requesting a new application account. For information about setting up a multi-account environment with core accounts, see [MALZ: Core account onboarding](core-acc.md). 
 

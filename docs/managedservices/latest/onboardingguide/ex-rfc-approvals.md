@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Approve or reject RFCs
-<a name="ex-rfc-approvals"></a>
 
 RFCs submitted with approval-required (manual) CTs must be approved by you or AMS. Pre-approved CTs are automatically processed. For more information, see [CT approval requirements](constrained-unconstrained-ctis.md).
 

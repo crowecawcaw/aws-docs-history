@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 Some things to try if you run into trouble:
 + The AMS-managed Active Directory outbound security group needs to be allowed connection through your CIDR block (e.g. 10.27.0.0/16) to your domain controller.

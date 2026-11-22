@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Connecting Direct Connect to Transit Gateway
-<a name="setup-net-connect-to-tg"></a>
 
 You can use your existing Direct Connect connection or create a new Direct Connect connection in one of your existing AWS accounts. The Direct Connect connection should be a dedicated or hosted connection running at 1 Gbps or more.
 

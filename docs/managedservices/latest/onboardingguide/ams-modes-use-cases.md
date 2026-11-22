@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Real world use cases for AMS modes
-<a name="ams-modes-use-cases"></a>
 
 Examine these to help determine how to use AMS modes.
 + **Use Case 1, business imperative to lower costs with a time-sensitive data center exit**: An enterprise with a compelling business event, like a data center exit, is interested in re-hosting their on-prem applications on the cloud. Most of the on-prem inventory consists of Windows and Linux servers with a mix of operating system versions. In doing so, the customer also wants to take advantage of cost savings that moving to the cloud offers and improving the technical and security posture of their applications. The customer wants to move fast but does not have the in-house cloud operations expertise built out yet. The customer has to find a balance of refactoring, too much refactoring can be risky against a tight timeline. However, with some refactoring, like updating OS versions and optimizing databases, applications can achieve the next level of performance. In this example, the customer can select AMS-managed RFC mode to re-host most of their applications. AMS provides infrastructure operations, while also guiding the customer operations teams on best practices on securely operating in the cloud.

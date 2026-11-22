@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Configure the AD trust
-<a name="set-up-access-mgmt-con-trust"></a>
 
 Follow this Microsoft AD article [ Create a one-way, incoming, forest trust for one side of the trust](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc756735(v=ws.10)), using the settings and choices described in this section.
 

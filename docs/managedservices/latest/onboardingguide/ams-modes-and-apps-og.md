@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS modes and applications or workloads
-<a name="ams-modes-and-apps-og"></a>
 
 Consider operational and governance requirements for your applications when selecting the right mode, either by requesting a new application account or hosting the application in an existing application account. The selection of the appropriate AMS mode for each application or workload depends on the following factors:
 + The type of SDLC lifecycle function that the environment will provide (e.g., sandbox with unmoderated changes, UAT with some frequent changes, production with minimal changes and highly regulated)

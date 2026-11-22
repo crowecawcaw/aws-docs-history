@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Shield Advanced in your AMS account
-<a name="aws-shield"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Shield Advanced capabilities directly in your AMS managed account. AWS Shield Advanced is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS. Shield Advanced provides always-on detection and automatic inline mitigations that minimize application downtime and latency, so there is no need to engage AWS Support to benefit from DDoS protection. There are two tiers of AWS Shield - Standard and Advanced; AMS offers Shield Advanced. To learn more, see [Shield Advanced](https://aws.amazon.com/shield/).
 

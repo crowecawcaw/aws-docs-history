@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Transit Gateway in your AMS account
-<a name="transit-gateway"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Transit Gateway capabilities directly in your AMS managed account. AWS Transit Gateway is a service that enables you to connect your Amazon Virtual Private Cloud (VPCs) and your on-premises networks to a single gateway. As you grow the number of workloads running on AWS, you need to be able to scale your networks across multiple accounts and Amazon VPCs to keep up with the growth. Today, you can connect pairs of Amazon VPCs using peering. However, managing point-to-point connectivity across many Amazon VPCs, without the ability to centrally manage the connectivity policies, can be operationally costly and cumbersome. For on-premises connectivity, you need to attach your AWS VPN to each individual Amazon VPC. This solution can be time consuming to build and hard to manage when the number of VPCs grows into the hundreds. To learn more, see [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/).
 

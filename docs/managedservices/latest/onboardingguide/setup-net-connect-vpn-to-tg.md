@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Connecting VPN to Transit Gateway
-<a name="setup-net-connect-vpn-to-tg"></a>
 
 To attach a VPN connection to your transit gateway, you must specify the customer gateway. For more information about the requirements for a customer gateway, see Requirements for Your Customer Gateway in the Amazon VPC Network Administrator Guide.
 

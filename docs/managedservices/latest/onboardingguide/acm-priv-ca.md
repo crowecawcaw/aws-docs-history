@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Private Certificate Authority in your AMS account
-<a name="acm-priv-ca"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Private Certificate Authority capabilities directly in your AMS managed account. Private certificates are used for identifying and securing communication between connected resources on private networks, such as servers, mobile, and IoT devices and applications. AWS Private CA is a managed private CA service that helps you easily and securely manage the lifecycle of your private certificates. AWS Private CA provides you a highly-available private CA service without the upfront investment and ongoing maintenance costs of operating your own private CA. AWS Private CA extends ACM’s certificate management capabilities to private certificates, enabling you to create and manage public and private certificates centrally. You can easily create and deploy private certificates for your AWS resources using the AWS Management Console or the ACM API. For EC2 instances, containers, IoT devices, and on-premises resources, you can easily create and track private certificates and use your own client-side automation code to deploy them. You also have the flexibility to create private certificates and manage them yourself for applications that require custom certificate lifetimes, key algorithms, or resource names To learn more, see [AWS Private CA](https://aws.amazon.com/certificate-manager/private-certificate-authority/).
 
@@ -31,7 +30,7 @@ Currently, AWS Resource Access Manager (AWS RAM) cannot be used to share your AW
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

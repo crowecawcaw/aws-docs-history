@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Bastion Options during Application Migrations/Onboarding
-<a name="bastion-options"></a>
 
 In order to provide you with the best experience during migration efforts, below are the potential options AMS could currently leverage:
 + *Option 1*: Bypass Bastions for migration efforts only (you must sign off on this for security purposes as a temporary measure).

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Cognito user pools in your AMS account
-<a name="cognito-pool"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Cognito user pools capabilities directly in your AMS managed account. Amazon Cognito user pools provide a secure user directory that scales to hundreds of millions of users. As a fully managed service, Amazon Cognito user pools can be set up without any worries about standing up server infrastructure. This service enables you to manage a pool of final users that you can use to integrate with your internal applications. This service provides you an alternative to a customized database or a directory of final users for web or mobile applications. At the same time, Amazon Cognito user pools provides the full set of functionalities of a directory service like passwords policies, multi factor authentication, password recovery and self-sign up into services. It also allows the application to federate the access in other popular public services like OpenID, Facebook, Amazon or Google.
 

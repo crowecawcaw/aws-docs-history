@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Kendra in your AMS account
-<a name="kendra"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Kendra capabilities directly in your AMS managed account. Amazon Kendra is an intelligent search service that uses natural language processing and advanced machine learning algorithms to return specific answers to search questions from your data. Unlike traditional keyword-based search, Amazon Kendra uses its semantic and contextual understanding capabilities to determine if a document is relevant to a search query. Amazon Kendra returns specific answers to questions, so your experience is close to interacting with a human expert. Amazon Kendra is highly scalable, capable of meeting performance demands, is tightly integrated with other AWS services such as Amazon S3 and Amazon Lex, and offers enterprise-grade security. To learn more, see [Amazon Kendra;](https://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html).
 

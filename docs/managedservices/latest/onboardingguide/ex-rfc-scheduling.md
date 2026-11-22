@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Schedule RFCs
-<a name="ex-rfc-scheduling"></a>
 
 The **Scheduling** feature allows you to choose a start time for RFCs. The following options are available in the **Scheduling** feature:
 + **Execute this change ASAP**: AMS runs the RFC as soon as it's approved. Most CTs are automatically approved. Use this option if don't want the RFC to start at a specific time.

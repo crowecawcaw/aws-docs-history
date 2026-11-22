@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AWS Managed Services Onboarding Introduction
-<a name="og-intro"></a>
 
 Welcome to AWS Managed Services (AMS). AMS is an enterprise service that provides ongoing management of your AWS infrastructure. This guide is designed to help you get started using AMS, including how to set up a new account for AMS, set up networking and access to AMS, and validate your onboarding setup.
 
