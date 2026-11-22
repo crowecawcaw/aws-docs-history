@@ -1,7 +1,6 @@
 
 
 # Task workflow state
-<a name="state-task"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -16,7 +15,7 @@ The following Task state definition (JSONata) invokes a Lambda function named `{
 
 Note the use of JSONata expressions to query input data to use in Arguments and the task result in the assign field.
 
-```
+```json
 "Get Current Price": {
   "Type": "Task",
   "QueryLanguage" : "JSONata",
@@ -110,19 +109,19 @@ The form of your Lambda function `Resource` field varies based on the type of in
 
 For a standard AWS SDK integration with a Lambda function, the `Resource` field will contain the following value:
 
-```
+```json
 "arn:aws:states:::aws-sdk:lambda:invoke"
 ```
 
 We **recommend** using the optimized integration for your Lambda functions, using the following value for the `Resource` field:
 
-```
+```json
 "arn:aws:states:::lambda:invoke"
 ```
 
 The following `Task` state definition shows an example of an optimized integration with a Lambda function named `{{HelloWorld}}` using JSONata.
 
-```
+```json
 "Optimized call to Lambda function (JSONata)": {
       "Type": "Task",
       "Resource": "arn:aws:states:::lambda:invoke",
@@ -153,7 +152,7 @@ To create a synchronous connection to a connected resource, append `.sync` to th
 
 For example:
 
-```
+```json
 {
  "StartAt": "BATCH_JOB",
  "States": {
@@ -294,7 +293,7 @@ If this task fails to complete within the interval set dynamically by the AWS Gl
 
 The following example specifies a target IAM role that a state machine's execution role must assume to access a cross-account Lambda function named `Echo`. In this example, the target role ARN is specified as a hard-coded value.
 
-```
+```json
 {
   "StartAt": "Cross-account call",
   "States": {
@@ -318,7 +317,7 @@ The following example specifies a target IAM role that a state machine's executi
 
 The following example specifies a JSONPath value, which will resolve to an IAM role ARN at runtime.
 
-```
+```json
 {
   "StartAt": "Lambda",
   "States": {
@@ -339,7 +338,7 @@ The following example specifies a JSONPath value, which will resolve to an IAM r
 
 The following example uses the [`States.Format`](intrinsic-functions.md#asl-intrsc-func-generic) intrinsic function, which resolves to an IAM role ARN at runtime.
 
-```
+```json
 {
   "StartAt": "Lambda",
   "States": {

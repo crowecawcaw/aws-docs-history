@@ -1,7 +1,6 @@
 
 
 # Using AWS CDK to create an Express workflow in Step Functions
-<a name="tutorial-step-functions-rest-api-integration-cdk"></a>
 
 In this tutorial, you learn how to create an API Gateway REST API with a synchronous express state machine as the backend integration, using the AWS Cloud Development Kit (AWS CDK) Infrastructure as Code (IAC) framework.
 
@@ -216,7 +215,7 @@ This is the AWS CDK code that defines a simple state machine with a `Pass` state
 ------
 #### [ TypeScript ]
 
-```
+```javascript
 const machineDefinition = new stepfunctions.Pass(this, 'PassState', {
     result: {value:"Hello!"},
 })
@@ -230,7 +229,7 @@ const stateMachine = new stepfunctions.StateMachine(this, 'MyStateMachine', {
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const machineDefinition = new sfn.Pass(this, 'PassState', {
     result: {value:"Hello!"},
 })
@@ -244,7 +243,7 @@ const stateMachine = new sfn.StateMachine(this, 'MyStateMachine', {
 ------
 #### [ Python ]
 
-```
+```python
 machine_definition = sfn.Pass(self,"PassState", 
                         result = sfn.Result("Hello"))
     
@@ -256,7 +255,7 @@ state_machine = sfn.StateMachine(self, 'MyStateMachine',
 ------
 #### [ Java ]
 
-```
+```java
 Pass machineDefinition = Pass.Builder.create(this, "PassState")
                         .result(Result.fromString("Hello"))
                         .build();
@@ -270,7 +269,7 @@ StateMachine stateMachine = StateMachine.Builder.create(this, "MyStateMachine")
 ------
 #### [ C\# ]
 
-```
+```csharp
 var machineDefinition = new Pass(this, "PassState", new PassProps
 {
     Result = Result.FromString("Hello")
@@ -286,7 +285,7 @@ var stateMachine = new StateMachine(this, "MyStateMachine", new StateMachineProp
 ------
 #### [ Go ]
 
-```
+```go
 var machineDefinition = awsstepfunctions.NewPass(stack, jsii.String("PassState"), &awsstepfunctions.PassProps
 {
     Result: awsstepfunctions.NewResult(jsii.String("Hello")),
@@ -315,7 +314,7 @@ We will use `StepFunctionsRestApi` construct to create the API Gateway REST API 
 ------
 #### [ TypeScript ]
 
-```
+```javascript
 const api = new apigateway.StepFunctionsRestApi(this, 
   'StepFunctionsRestApi', { stateMachine: stateMachine });
 ```
@@ -323,7 +322,7 @@ const api = new apigateway.StepFunctionsRestApi(this,
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const api = new apigateway.StepFunctionsRestApi(this, 
   'StepFunctionsRestApi', { stateMachine: stateMachine });
 ```
@@ -331,7 +330,7 @@ const api = new apigateway.StepFunctionsRestApi(this,
 ------
 #### [ Python ]
 
-```
+```python
 api = apigw.StepFunctionsRestApi(self, "StepFunctionsRestApi",
                             state_machine = state_machine)
 ```
@@ -339,7 +338,7 @@ api = apigw.StepFunctionsRestApi(self, "StepFunctionsRestApi",
 ------
 #### [ Java ]
 
-```
+```java
 StepFunctionsRestApi api = StepFunctionsRestApi.Builder.create(this, "StepFunctionsRestApi")
                            .stateMachine(stateMachine)
                            .build();
@@ -348,7 +347,7 @@ StepFunctionsRestApi api = StepFunctionsRestApi.Builder.create(this, "StepFuncti
 ------
 #### [ C\# ]
 
-```
+```csharp
 var api = new StepFunctionsRestApi(this, "StepFunctionsRestApi", new StepFunctionsRestApiProps
 {
     StateMachine = stateMachine
@@ -358,7 +357,7 @@ var api = new StepFunctionsRestApi(this, "StepFunctionsRestApi", new StepFunctio
 ------
 #### [ Go ]
 
-```
+```go
 awsapigateway.NewStepFunctionsRestApi(stack, jsii.String("StepFunctionsRestApi"), &awsapigateway.StepFunctionsRestApiProps
 {
     StateMachine = stateMachine,
@@ -377,7 +376,7 @@ In the AWS CDK project you created, edit the file containing the definition of t
 
 Update ` lib/stepfunctions-rest-api-stack.ts` to read as follows.
 
-```
+```javascript
 import * as cdk from 'aws-cdk-lib';
 import * as stepfunctions from 'aws-cdk-lib/aws-stepfunctions' 
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
@@ -405,7 +404,7 @@ export class StepfunctionsRestApiStack extends cdk.Stack {
 
 Update `lib/stepfunctions-rest-api-stack.js` to read as follows.
 
-```
+```javascript
 const cdk = require('@aws-cdk/core');
 const stepfunctions = require('@aws-cdk/aws-stepfunctions');
 const apigateway = require('@aws-cdk/aws-apigateway');
@@ -438,7 +437,7 @@ module.exports = { StepStack }
 
 Update `stepfunctions_rest_api/stepfunctions_rest_api_stack.py` to read as follows.
 
-```
+```python
 from aws_cdk import App, Stack
 from constructs import Construct
 from aws_cdk import aws_stepfunctions as sfn
@@ -467,7 +466,7 @@ class StepfunctionsRestApiStack(Stack):
 
 Update `src/main/java/com.myorg/StepfunctionsRestApiStack.java` to read as follows.
 
-```
+```java
 package com.myorg;
 
 
@@ -509,7 +508,7 @@ public class StepfunctionsRestApiStack extends Stack {
 
 Update `src/StepfunctionsRestApi/StepfunctionsRestApiStack.cs` to read as follows.
 
-```
+```csharp
 using Amazon.CDK;
 using Amazon.CDK.AWS.StepFunctions;
 using Amazon.CDK.AWS.APIGateway;
@@ -546,7 +545,7 @@ namespace StepfunctionsRestApi
 
 Update `stepfunctions-rest-api.go` to read as follows.
 
-```
+```go
 package main
 import (
     "github.com/aws/aws-cdk-go/awscdk"
@@ -652,7 +651,7 @@ After you create your API Gateway REST API with Synchronous Express State Machin
 
 1. For **Request body**, copy the following request parameters.
 
-   ```
+   ```json
    {
        "key": "Hello"
    }
@@ -670,7 +669,7 @@ Although the CloudWatch Logs entries are simulated, the results of the method ca
 
 The **Response body** output should be something like this:
 
-```
+```json
 "Hello"
 ```
 
@@ -684,7 +683,7 @@ Try the API Gateway with different methods and an invalid input to see the error
 
 1. Copy the following cURL command and paste it into the terminal window, replacing `<api-id>` with your API's API ID and `<region>` with the region where your API is deployed. 
 
-   ```
+   ```json
    curl -X POST\
     'https://<api-id>.execute-api.<region>.amazonaws.com/prod' \
     -d '{"key":"Hello"}' \
@@ -693,7 +692,7 @@ Try the API Gateway with different methods and an invalid input to see the error
 
 The **Response Body** output should be something like this:
 
-```
+```json
 "Hello"
 ```
 

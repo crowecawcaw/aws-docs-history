@@ -1,7 +1,6 @@
 
 
 # Example: Alias and version deployment in Step Functions
-<a name="example-alias-version-deployment"></a>
 
 The following example of the Canary deployment technique shows how you can deploy a new state machine version with the AWS Command Line Interface. In this example, the alias you create routes 20 percent of execution traffic to the new version. It then routes the remaining 80 percent the earlier version. To deploy a new state machine [version](concepts-state-machine-version.md) and shift execution traffic with an [alias](concepts-state-machine-alias.md), complete the following steps:
 

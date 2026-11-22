@@ -1,7 +1,6 @@
 
 
 # Continue long-running workflows using Step Functions API (recommended)
-<a name="tutorial-continue-new"></a>
 
 AWS Step Functions is designed to run workflows with a finite duration and number of steps. Standard workflow executions have a maximum duration of one year and 25,000 events (see [Step Functions service quotas](service-quotas.md)).
 
@@ -44,13 +43,13 @@ Make sure to copy the name and Amazon Resource Name of this state machine in a t
 
       1. For `Input` node, replace the existing placeholder text with the following value:
 
-         ```
+         ```json
          "Comment": "Starting workflow execution using a Step Functions API action"
          ```
 
       1. Make sure your inputs in **API Parameters** look similar to the following:
 
-         ```
+         ```json
          {
            "StateMachineArn": "arn:aws:states:us-east-2:123456789012:stateMachine:{{LambdaStateMachine}}",
            "Input": {
@@ -95,7 +94,7 @@ To make sure your state machine has permissions to start the execution of the [s
    1. Replace the existing text with the following policy.  
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Testing and debugging Step Functions state machines
-<a name="test-and-debug"></a>
 
 Step Functions provides the following ways to test and debug state machines:
 

@@ -1,7 +1,6 @@
 
 
 # ItemSelector (Map)
-<a name="input-output-itemselector"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -19,7 +18,7 @@ You can specify the `ItemSelector` field in both an *Inline Map state* and a *Di
 
 For example, consider the following JSON input that contains an array of three items within the `imageData` node. For each *`Map` state iteration*, an array item is passed to the iteration as input.
 
-```
+```json
 [
   {
     "resize": "true",
@@ -38,7 +37,7 @@ For example, consider the following JSON input that contains an array of three i
 
 Using the `ItemSelector` field, you can define a custom JSON input to override the original input as shown in the following example. Step Functions then passes this custom input to each *`Map` state iteration*. The custom input contains a static value for `size` and the value of a Context object data for `Map` state. The `$$.Map.Item.Value` Context object contains the value of each individual data item.
 
-```
+```json
 {
   "ItemSelector": {
     "size": 10,
@@ -49,7 +48,7 @@ Using the `ItemSelector` field, you can define a custom JSON input to override t
 
 The following example shows the input received by one iteration of the *Inline Map state*:
 
-```
+```json
 {
   "size": 10,
   "value": {

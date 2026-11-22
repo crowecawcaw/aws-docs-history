@@ -1,7 +1,6 @@
 
 
 # Learn about Activities in Step Functions
-<a name="concepts-activities"></a>
 
 With Step Functions activities, you can set up a task in your state machine where the actual work is performed by a *worker* running outside of Step Functions. For example you could have a worker program running on Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), or even mobile devices.
 
@@ -63,7 +62,7 @@ The following example activity worker code implements a consumer-producer patter
 
 The following code is the main entry point for this example Ruby activity worker.
 
-```
+```ruby
 require_relative '{{../lib/step_functions/activity}}'
     credentials = Aws::SharedCredentials.new
     region = '{{us-west-2}}'

@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch Logs to log execution history in Step Functions
-<a name="cw-logs"></a>
 
 Standard Workflows record execution history in AWS Step Functions, although you can optionally configure logging to Amazon CloudWatch Logs.
 
@@ -46,7 +45,7 @@ The following is an example policy you can use to configure your permissions. As
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

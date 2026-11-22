@@ -1,7 +1,6 @@
 
 
 # Restarting state machine executions with redrive in Step Functions
-<a name="redrive-executions"></a>
 
 You can use redrive to restart executions of Standard Workflows that didn't complete successfully in the last 14 days. These include failed, aborted, or timed out executions.
 
@@ -48,7 +47,7 @@ Step Functions needs appropriate permission to redrive an execution. The followi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

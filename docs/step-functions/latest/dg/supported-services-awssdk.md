@@ -1,7 +1,6 @@
 
 
 # Learning to use AWS service SDK integrations in Step Functions
-<a name="supported-services-awssdk"></a>
 
 With Step Functions' AWS SDK integration, your workflows can call almost any AWS service's API actions. The services or SDKs that are not available might be recently released, require customized configuration, or are not suitable for use in a workflow, such as SDKs for streaming audio or video.
 
@@ -974,6 +973,10 @@ Exception prefix: `LambdaCore`
 **AWS Lambda MicroVMs {{New}}**  
 Task state resource: `arn:aws:states:::aws-sdk:lambdamicrovms:{{[apiAction]}}`  
 Exception prefix: `LambdaMicrovms`
+
+**AWS Lambda Web {{New}}**  
+Task state resource: `arn:aws:states:::aws-sdk:lambdaweb:{{[apiAction]}}`  
+Exception prefix: `LambdaWeb`
 
 **AWS Launch Wizard**  
 Task state resource: `arn:aws:states:::aws-sdk:launchwizard:{{[apiAction]}}`  

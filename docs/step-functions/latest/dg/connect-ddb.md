@@ -1,7 +1,6 @@
 
 
 # Perform DynamoDB CRUD operations with Step Functions
-<a name="connect-ddb"></a>
 
 You can integrate Step Functions with DynamoDB to perform CRUD operations on a DynamoDB table. This page lists the supported DynamoDB APIs and provides an example `Task` state to retrieve an item from DynamoDB.
 
@@ -14,7 +13,7 @@ Only [`GetItem`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/
 
 The following is an example `Task` state that retrieves a message from DynamoDB.
 
-```
+```json
 "Read next Message from DynamoDB": {
     "Type": "Task",
     "Resource": "arn:aws:states:::dynamodb:getItem",
@@ -54,7 +53,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

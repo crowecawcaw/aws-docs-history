@@ -1,7 +1,6 @@
 
 
 # Discovering workflow states to use in Step Functions
-<a name="workflow-states"></a>
 
 *States* are elements in your state machine. A state is referred to by its *name*, which can be any string, but which must be unique within the scope of the entire state machine. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues in Step Functions
-<a name="troubleshooting"></a>
 
 If you encounter difficulties when working with Step Functions, use the following troubleshooting resources.
 
@@ -31,7 +30,7 @@ For a JsonPath, a JSON key must end with `.$`. This means a JsonPath can only be
 
 **Task A output:**
 
-```
+```json
 {
     "sample": "test"
 }
@@ -39,7 +38,7 @@ For a JsonPath, a JSON key must end with `.$`. This means a JsonPath can only be
 
 **Task B:**
 
-```
+```json
 {
     "JsonPathSample.$": "$.sample"
 }
@@ -101,7 +100,7 @@ If cross-account access of AWS resources is unavailable in your Region, use the 
 
 In the `Task` state’s `Resource` field, use `arn:aws:states:::lambda:invoke` and pass the `FunctionArn` in parameters. The IAM role that is associated with the state machine must have the right permissions to invoke cross-account Lambda functions: `lambda:invokeFunction`. 
 
-```
+```json
 {  
    "StartAt":"CallLambda",
    "States":{  
@@ -122,7 +121,7 @@ In the `Task` state’s `Resource` field, use `arn:aws:states:::lambda:invoke` a
 
  In the `Task` state’s `Parameters` field, you must pass a task token. For example, you could use something similar to the following code.
 
-```
+```json
 {  
    "StartAt":"taskToken",
    "States":{  
@@ -174,7 +173,7 @@ Express Workflows don't record execution history in AWS Step Functions. Instead,
 
 To list executions based on duration:
 
-```
+```json
 fields ispresent(execution_arn) as exec_arn
 | filter exec_arn 
 | filter type in ["ExecutionStarted", "ExecutionSucceeded", "ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"]
@@ -187,7 +186,7 @@ fields ispresent(execution_arn) as exec_arn
 
 To list failed and cancelled executions:
 
-```
+```json
 fields ispresent(execution_arn) as isRes | filter type in ["ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"]
 ```
 

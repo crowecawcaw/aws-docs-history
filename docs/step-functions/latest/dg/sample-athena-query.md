@@ -1,7 +1,6 @@
 
 
 # Start an Athena query and send a results notification
-<a name="sample-athena-query"></a>
 
 This sample project demonstrates how to use Step Functions and Amazon Athena to start an Athena query and send a notification with query results using Standard workflows.
 

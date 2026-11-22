@@ -1,7 +1,6 @@
 
 
 # Perform gradual deployment of state machine versions in Step Functions
-<a name="version-rolling-deployment"></a>
 
 A rolling deployment is a deployment strategy that slowly replaces previous versions of an application with new versions of an application. To perform a rolling deployment of a state machine version, gradually send an increasing amount of execution traffic to the new version. The amount of traffic and rate of increase are parameters that you configure.
 
@@ -292,7 +291,7 @@ The following CloudFormation template example publishes two versions of a state 
 
 In this example, 10 percent of traffic is shifted to the version `2` every five minutes until this version receives 100 percent of the traffic. This example also shows how you can set CloudWatch alarms. If any of the alarms you set go into the `ALARM` state, the deployment fails and rolls back immediately.
 
-```
+```yaml
 MyStateMachine:
   Type: AWS::StepFunctions::StateMachine
   Properties:

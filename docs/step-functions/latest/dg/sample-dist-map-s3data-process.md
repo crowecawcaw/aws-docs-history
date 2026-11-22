@@ -1,7 +1,6 @@
 
 
 # Process data in an Amazon S3 bucket with Distributed Map
-<a name="sample-dist-map-s3data-process"></a>
 
 This sample project demonstrates how you can use the [*Distributed Map state*](state-map-distributed.md) to process large-scale data, for example, analyze historical weather data and identify the weather station that has the highest average temperature on the planet each month. The weather data is recorded in over 12,000 CSV files, which in turn are stored in an Amazon S3 bucket.
 

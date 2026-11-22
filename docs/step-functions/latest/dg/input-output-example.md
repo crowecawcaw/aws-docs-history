@@ -1,7 +1,6 @@
 
 
 # Example: Manipulating state data with paths in Step Functions workflows
-<a name="input-output-example"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -14,7 +13,7 @@ You can also use the `Parameters` field to manipulate the JSON data as it moves 
 
 For example, start with the AWS Lambda function and state machine described in the [Creating a Step Functions state machine that uses Lambda](tutorial-creating-lambda-state-machine.md) tutorial. Modify the state machine so that it includes the following `InputPath`, `ResultPath`, and `OutputPath`.
 
-```
+```json
 {
   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda function",
   "StartAt": "HelloWorld",
@@ -33,7 +32,7 @@ For example, start with the AWS Lambda function and state machine described in t
 
 Start an execution using the following input.
 
-```
+```json
 {
   "comment": "An input comment.",
   "data": {
@@ -51,19 +50,19 @@ Assume that the `comment` and `extra` nodes can be discarded, but that you want 
 
 In the updated state machine, the `Task` state is altered to process the input to the task.
 
-```
+```json
 "InputPath": "$.lambda",
 ```
 
 This line in the state machine definition limits the task input to only the `lambda` node from the state input. The Lambda function receives only the JSON object `{"who": "AWS Step Functions"}` as input. 
 
-```
+```json
 "ResultPath": "$.data.lambdaresult",
 ```
 
 This `ResultPath` tells the state machine to insert the result of the Lambda function into a node named `lambdaresult`, as a child of the `data` node in the original state machine input. Because you are not performing any other manipulation on the original input and the result using `OutputPath`, the output of the state now includes the result of the Lambda function with the original input.
 
-```
+```json
 {
   "comment": "An input comment.",
   "data": {
@@ -80,13 +79,13 @@ This `ResultPath` tells the state machine to insert the result of the Lambda fun
 
 But, our goal was to preserve only the `data` node, and include the result of the Lambda function. `OutputPath` filters this combined JSON before passing it to the state output.
 
-```
+```json
 "OutputPath": "$.data",
 ```
 
 This selects only the `data` node from the original input (including the `lambdaresult` child inserted by `ResultPath`) to be passed to the output. The state output is filtered to the following.
 
-```
+```json
 {
   "val1": 23,
   "val2": 17,
@@ -106,7 +105,7 @@ In this `Task` state:
 Consider the following state machine that verifies an insurance applicant's identity and address.  
 To view the complete example, see [How to use JSON Path in Step Functions](https://github.com/aws-samples/serverless-account-signup-service).
 
-```
+```json
 {
   "Comment": "Sample state machine to verify an applicant's ID and address",
   "StartAt": "Verify info",
@@ -150,7 +149,7 @@ To view the complete example, see [How to use JSON Path in Step Functions](https
 ```
 If you run this state machine using the following input, the execution fails because the Lambda functions that perform verification only expect the data that needs to be verified as input. Therefore, you must specify the nodes that contain the information to be verified using an appropriate JsonPath.  
 
-```
+```json
 {
   "data": {
     "firstname": "Jane",
@@ -187,22 +186,22 @@ If you run this state machine using the following input, the execution fails bec
 ```
 To specify the node that the `{{check-identity}}` Lambda function must use, use the `InputPath` field as follows:  
 
-```
+```json
 "InputPath": "$.data.identity"
 ```
 And to specify the node that the `{{check-address}}` Lambda function must use, use the `InputPath` field as follows:  
 
-```
+```json
 "InputPath": "$.data.address"
 ```
 Now if you want to store the verification result within the original state machine input, use the `ResultPath` field as follows:  
 
-```
+```json
 "ResultPath": "$.results"
 ```
 However, if you only need the identity and verification results and discard the original input, use the `OutputPath` field as follows:  
 
-```
+```json
 "OutputPath": "$.results"
 ```
 

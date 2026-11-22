@@ -1,7 +1,6 @@
 
 
 # Using mocked service integrations for testing in Step Functions Local
-<a name="sfn-local-test-sm-exec"></a>
 
 **Step Functions Local is unsupported**  
 Step Functions Local does **not** provide feature parity and is **unsupported**.  
@@ -44,7 +43,7 @@ To do this, you must create a mock configuration file containing sections as def
 
    The following is an example of a mock configuration file which demonstrates how to mock responses from [invoking a Lambda function](connect-lambda.md) and [sending a message to Amazon SQS](connect-sqs.md). In this example, the [`LambdaSQSIntegration`](#mock-cfg-sm-sect) state machine contains three test cases named `HappyPath`, `RetryPath`, and `HybridPath` which mock the `Task` states named `LambdaState` and `SQSState`. These states use the `MockedLambdaSuccess`, `MockedSQSSuccess`, and `MockedLambdaRetry` mocked service responses. These mocked service responses are defined in the `MockedResponses` section of the file.
 
-   ```
+   ```json
    {
      "StateMachines":{
        "LambdaSQSIntegration":{
@@ -123,7 +122,7 @@ To do this, you must create a mock configuration file containing sections as def
 
    The following is an example of a state machine definition called `LambdaSQSIntegration`, which defines two service integration task states named `LambdaState` and `SQSState`. `LambdaState` contains a retry policy based on `States.ALL`.
 
-   ```
+   ```json
    {
      "Comment":"This state machine is called: LambdaSQSIntegration",
      "StartAt":"LambdaState",
@@ -166,7 +165,7 @@ To do this, you must create a mock configuration file containing sections as def
    + `HappyPath` - This test mocks the output of `LambdaState` and `SQSState` using `MockedLambdaSuccess` and `MockedSQSSuccess` respectively.
      + The `LambdaState` will return the following value:
 
-       ```
+       ```json
        "0":{
          "Return":{
            "StatusCode":200,
@@ -179,7 +178,7 @@ To do this, you must create a mock configuration file containing sections as def
        ```
      + The `SQSState` will return the following value:
 
-       ```
+       ```json
        "0":{
          "Return":{
            "MD5OfMessageBody":"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51",
@@ -190,7 +189,7 @@ To do this, you must create a mock configuration file containing sections as def
    + `RetryPath` - This test mocks the output of `LambdaState` and `SQSState` using `MockedLambdaRetry` and `MockedSQSSuccess` respectively. In addition, `LambdaState` is configured to perform four retry attempts. The mocked responses for these attempts are defined and indexed in the `MockedLambdaRetry` state.
      + The initial attempt ends with a task failure containing a cause and error message as shown in the following example:
 
-       ```
+       ```json
        "0":{
          "Throw": {
            "Error": "Lambda.ResourceNotReadyException",
@@ -200,7 +199,7 @@ To do this, you must create a mock configuration file containing sections as def
        ```
      + The first and second retry attempts end with a task failure containing a cause and error message as shown in the following example:
 
-       ```
+       ```json
        "1-2":{
          "Throw": {
            "Error": "Lambda.TimeoutException",
@@ -210,7 +209,7 @@ To do this, you must create a mock configuration file containing sections as def
        ```
      + The third retry attempt ends with a task success containing state result from Payload section in the mocked Lambda response.
 
-       ```
+       ```json
        "3":{
          "Return": {
            "StatusCode": 200,
@@ -330,7 +329,7 @@ After you create and provide a mock configuration file to Step Functions Local, 
 
    The following example demonstrates parts of a response to calling `GetExecutionHistory` using the execution ARN from the example response shown in step 2. In this example, the output of `LambdaState` and `SQSState` is the mock data defined in `MockedLambdaSuccess` and `MockedSQSSuccess` in the [mock configuration file](#create-mock-config-file). In addition, the mocked data is used the same way that data returned by performing actual service integration calls would be used. Also, in this example, the output from `LambdaState` is passed onto `SQSState` as input.
 
-   ```
+   ```json
    {
        "events": [
            ...
@@ -412,7 +411,7 @@ A mock configuration is a JSON object containing the following top-level fields:
 
 The following is an example of a mock configuration file which includes a `StateMachine` definition and `MockedResponse`.
 
-```
+```json
 {
   "StateMachines":{
     "LambdaSQSIntegration":{
@@ -519,7 +518,7 @@ The fields of `TestCases` represent individual test cases for the state machine.
 
 The following example of a `TestCase` links two `Task` states to two `MockedResponses`:
 
-```
+```json
 "HappyPath": {
   "SomeTaskState": "SomeMockedResponse",
   "AnotherTaskState": "AnotherMockedResponse"

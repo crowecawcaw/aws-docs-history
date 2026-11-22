@@ -1,7 +1,6 @@
 
 
 # Wait workflow state
-<a name="state-wait"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).

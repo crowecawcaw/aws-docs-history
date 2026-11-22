@@ -1,7 +1,6 @@
 
 
 # ResultWriter (Map)
-<a name="input-output-resultwriter"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -233,7 +232,7 @@ Exporting the results to an Amazon S3 bucket is helpful if your output payload s
 
 The following example, using **JSONPath**, shows the syntax of the `ResultWriter` field with `Parameters` to export the child workflow execution results. In this example, you store the results in a bucket named `amzn-s3-demo-destination-bucket` within a prefix called `csvProcessJobs`. 
 
-```
+```json
 {
   "ResultWriter": {
     "Resource": "arn:aws:states:::s3:putObject",
@@ -247,7 +246,7 @@ The following example, using **JSONPath**, shows the syntax of the `ResultWriter
 
 For **JSONata** states, `Parameters` will be replaced with `Arguments`.
 
-```
+```json
 {
   "ResultWriter": {
     "Resource": "arn:aws:states:::s3:putObject",
@@ -266,7 +265,7 @@ Step Functions needs appropriate permissions to access the bucket and folder whe
 
 If you export the child workflow execution results, the *Distributed Map state* execution returns the Map Run ARN and data about the Amazon S3 export location in the following format:
 
-```
+```json
 {
   "MapRunArn": "arn:aws:states:us-east-2:{{account-id}}:mapRun:{{csvProcess}}/{{Map:ad9b5f27-090b-3ac6-9beb-243cd77144a7}}",
   "ResultWriterDetails": {
@@ -290,7 +289,7 @@ Step Functions supports individual result files of up to 5 GB. If a file size ex
 
 If you didn’t specify to export the child workflow execution results, the state machine execution returns an array of child workflow execution results as shown in the following example:
 
-```
+```json
 [
   {
     "statusCode": 200,
@@ -331,7 +330,7 @@ The following IAM policy example grants the least privileges required to write y
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

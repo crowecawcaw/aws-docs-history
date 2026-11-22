@@ -1,13 +1,12 @@
 
 
 # Creating tag-based IAM policies in Step Functions
-<a name="tag-based-policies"></a>
 
 Step Functions supports policies based on tags. For example, you could restrict access to all Step Functions resources that include a tag with the key `environment` and the value `production`.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

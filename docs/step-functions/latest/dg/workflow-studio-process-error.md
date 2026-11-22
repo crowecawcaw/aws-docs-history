@@ -1,7 +1,6 @@
 
 
 # Configure error handling with Workflow Studio in Step Functions
-<a name="workflow-studio-process-error"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).

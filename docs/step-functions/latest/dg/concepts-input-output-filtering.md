@@ -1,7 +1,6 @@
 
 
 # Processing input and output in Step Functions
-<a name="concepts-input-output-filtering"></a>
 
 **Managing state with variables and JSONata**  
 Step Functions recently added variables and JSONata to manage state and transform data.  

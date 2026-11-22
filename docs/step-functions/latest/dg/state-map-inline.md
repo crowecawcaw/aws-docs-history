@@ -1,7 +1,6 @@
 
 
 # Using Map state in Inline mode in Step Functions workflows
-<a name="state-map-inline"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -129,7 +128,7 @@ Specifies a collection of key-value pairs, where the values can contain any of t
 
 Consider the following input data for a `Map` state running in **Inline** mode.
 
-```
+```json
 {
   "ship-date": "2016-03-14T01:59:00Z",
   "detail": {
@@ -147,7 +146,7 @@ Consider the following input data for a `Map` state running in **Inline** mode.
 
 Given the previous input, the `Map` state in the following example invokes an AWS Lambda function named `ship-val` once for each item of the array in the `shipped` field. 
 
-```
+```json
 "Validate All": {
     "Type": "Map",
     "InputPath": "$.detail",
@@ -176,7 +175,7 @@ Given the previous input, the `Map` state in the following example invokes an AW
 
 Each iteration of the `Map` state sends an item in the array, selected with the [`ItemsPath`](input-output-itemspath.md) field, as input to the `ship-val` Lambda function. The following values are an example of input the `Map` state sends to an invocation of the Lambda function:
 
-```
+```json
 {
   "prod": "R31",
   "dest-code": 9511,
@@ -191,7 +190,7 @@ When complete, the output of the `Map` state is a JSON array, where each item is
 
 Suppose that the `ship-val` Lambda function in the previous example also needs information about the shipment's courier. This information is in addition to the items in the array for each iteration. You can include information from the input, along with information specific to the current iteration of the `Map` state. Note the `ItemSelector` field in the following example:
 
-```
+```json
 "Validate-All": {
   "Type": "Map",
   "InputPath": "$.detail",
@@ -218,7 +217,7 @@ Suppose that the `ship-val` Lambda function in the previous example also needs i
 
 The `ItemSelector` block replaces the input to the iterations with a JSON node. This node contains both the current item data from the [Context object](input-output-contextobject.md#contextobject-map) and the courier information from the `Map` state input's `delivery-partner` field. The following is an example of input to a single iteration. The `Map` state passes this input to an invocation of the `ship-val` Lambda function.
 
-```
+```json
 {
   "parcel": {
     "prod": "R31",

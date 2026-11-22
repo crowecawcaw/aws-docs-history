@@ -1,7 +1,6 @@
 
 
 # IAM policies for using Distributed Map states
-<a name="iam-policies-eg-dist-map"></a>
 
 When you create workflows with the Step Functions console, Step Functions can automatically generate IAM policies based on the resources in your workflow definition. Generated policies include the least privileges necessary to allow the state machine role to invoke the `[StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html)` API action for the *Distributed Map state* and access AWS resources, such as Amazon S3 buckets and objects, and Lambda functions.
 
@@ -22,7 +21,7 @@ Make sure that you replace `{{stateMachineName}}` with the name of the state mac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -58,7 +57,7 @@ Make sure that you replace `{{stateMachineName}}` with the name of the state mac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -137,7 +136,7 @@ The following IAM policy example grants the least privileges required to write y
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -166,7 +165,7 @@ The following IAM policy example grants permission to the `kms:Decrypt`, `kms:En
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

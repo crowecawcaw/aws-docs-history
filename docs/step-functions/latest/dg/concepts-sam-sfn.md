@@ -1,7 +1,6 @@
 
 
 # Using AWS SAM to build Step Functions workflows
-<a name="concepts-sam-sfn"></a>
 
 You can use AWS Serverless Application Model with Step Functions to build workflows and deploy the infrastructure you need, including Lambda functions, APIs and events, to create serverless applications.
 

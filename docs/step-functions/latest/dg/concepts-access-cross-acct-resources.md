@@ -1,7 +1,6 @@
 
 
 # Accessing resources in other AWS accounts in Step Functions
-<a name="concepts-access-cross-acct-resources"></a>
 
 Step Functions provides cross-account access to resources configured in different AWS accounts in your workflows. Using Step Functions service integrations, you can invoke any cross-account AWS resource even if that AWS service does not support resource-based policies or cross-account calls.
 
@@ -74,7 +73,7 @@ For nested Express Workflows, `arn:aws:states:::states:startExecution.sync` isn'
 
 Update the trust policy of your target IAM role as shown in the following example. The `sts:ExternalId` field further controls who can assume the role. The state machine's name must include only characters that the AWS Security Token Service `AssumeRole` API supports. For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference*.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -101,7 +100,7 @@ To grant the permissions required for your state machine, update the required pe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

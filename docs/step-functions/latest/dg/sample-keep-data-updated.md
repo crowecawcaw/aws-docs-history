@@ -1,7 +1,6 @@
 
 
 # Keep data in a target table updated with AWS Glue and Athena
-<a name="sample-keep-data-updated"></a>
 
 This sample project demonstrates how to query a target table to get current data with AWS Glue Catalog, then update it with new data from other sources using Amazon Athena.
 

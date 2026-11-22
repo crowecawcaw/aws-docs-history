@@ -1,7 +1,6 @@
 
 
 # Handling errors in Step Functions workflows
-<a name="concepts-error-handling"></a>
 
 All states, except `Pass` and `Wait` states, can encounter runtime errors. Errors can happen for various reasons, including the following:
 + **State machine definition issues** - such as a Choice state without a matching rule
@@ -247,7 +246,7 @@ When a state has both `Retry` and `Catch` fields, Step Functions uses any approp
 
 A catcher returns a string payload as an output. When working with service integrations such as Amazon Athena or AWS CodeBuild, you may want to convert the `Cause` string to JSON. The following example of a `Pass` state with intrinsic functions shows how to convert a `Cause` string to JSON.
 
-```
+```json
 "Handle escaped JSON with JSONtoString": {
   "Type": "Pass",
   "Parameters": {
@@ -264,7 +263,7 @@ The state machines defined in the following examples assume the existence of two
 
 This is a definition of a Node.js Lambda function that always fails, returning the message `error`. In the state machine examples that follow, this Lambda function is named `FailFunction`. For information about creating a Lambda function, see [Step 1: Create a Lambda function](tutorial-creating-lambda-state-machine.md#create-lambda-function) section.
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     callback("error");
 };
@@ -272,7 +271,7 @@ exports.handler = (event, context, callback) => {
 
 This is a definition of a Node.js Lambda function that sleeps for 10 seconds. In the state machine examples that follow, this Lambda function is named `sleep10`.
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     setTimeout(function(){
     }, 11000);
@@ -287,7 +286,7 @@ When you create the Lambda function for the examples, remember to set the `Timeo
 
 This state machine uses a `Retry` field to retry a function that fails and outputs the error name `HandledError`. It retries this function twice with an exponential backoff between retries.
 
-```
+```json
 {
    "Comment": "A Hello World example invoking Lambda function",
    "StartAt": "HelloWorld",
@@ -309,7 +308,7 @@ This state machine uses a `Retry` field to retry a function that fails and outpu
 
 This variant uses the predefined error code `States.TaskFailed`, which matches any error that a Lambda function outputs.
 
-```
+```json
 {
    "Comment": "Hello World example which invokes a AWS Lambda function",
    "StartAt": "HelloWorld",
@@ -337,7 +336,7 @@ Tasks that reference a Lambda function should handle Lambda service exceptions. 
 
 This example uses a `Catch` field. When a Lambda function outputs an error, it catches the error and the state machine transitions to the `fallback` state.
 
-```
+```json
 {
    "Comment": "Hello World example which invokes a AWS Lambda function",
    "StartAt": "HelloWorld",
@@ -362,7 +361,7 @@ This example uses a `Catch` field. When a Lambda function outputs an error, it c
 
 This variant uses the predefined error code `States.TaskFailed`, which matches any error that a Lambda function outputs.
 
-```
+```json
 {
    "Comment": "Hello World example which invokes a AWS Lambda function",
    "StartAt": "HelloWorld",
@@ -390,7 +389,7 @@ This variant uses the predefined error code `States.TaskFailed`, which matches a
 
 This state machine uses a `Retry` field to retry a `Task` state that times out, based on the timeout value specified in `TimeoutSeconds`. Step Functions retries the Lambda function invocation in this `Task` state twice, with an exponential backoff between retries.
 
-```
+```json
 {
    "Comment": "Hello World example which invokes a AWS Lambda function",
    "StartAt": "HelloWorld",
@@ -416,7 +415,7 @@ This state machine uses a `Retry` field to retry a `Task` state that times out, 
 
 This example uses a `Catch` field. When a timeout occurs, the state machine transitions to the `fallback` state.
 
-```
+```json
 {
    "Comment": "Hello World example which invokes a AWS Lambda function",
    "StartAt": "HelloWorld",

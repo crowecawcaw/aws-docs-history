@@ -1,7 +1,6 @@
 
 
 # Creating an Activity state machine using Step Functions
-<a name="tutorial-creating-activity-state-machine"></a>
 
 This tutorial shows you how to create an activity-based state machine using Java and AWS Step Functions. Activities allow you to control worker code that runs somewhere else from your state machine. For an overview, see [Learn about Activities in Step Functions](concepts-activities.md) in [Learn about state machines in Step Functions](concepts-statemachines.md). 
 
@@ -46,7 +45,7 @@ Create a state machine that determines when your activity is invoked and when yo
 
 1. Remove the existing boilerplate code and paste the following code. Remember to replace the example ARN in the `Resource` field with the ARN of the activity task that you created earlier in [Step 1: Create an Activity](#create-activity-state-machine-step-1).
 
-   ```
+   ```json
    {
      "Comment": "An example using a Task state.",
      "StartAt": "getGreeting",
@@ -102,7 +101,7 @@ For a more complete example of an activity worker, see [Example: Activity Worker
 
 1. Add the following code to it.
 
-   ```
+   ```java
    import com.amazonaws.ClientConfiguration;
    import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
    import com.amazonaws.regions.Regions;
@@ -181,7 +180,7 @@ Step Functions accepts names for state machines, executions, activities, and lab
 
    1. In the **Input** box, enter the following JSON input to run your workflow.
 
-      ```
+      ```json
       {
         "who": "AWS Step Functions"
       }
@@ -204,13 +203,13 @@ To have the worker poll your state machine for activities, you must run the work
 
 1. Compile the file.
 
-   ```
+   ```bash
    $ javac GreeterActivities.java
    ```
 
 1. Run the file.
 
-   ```
+   ```bash
    $ java GreeterActivities
    ```
 

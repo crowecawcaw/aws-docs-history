@@ -1,7 +1,6 @@
 
 
 # Perform selective checkpointing using Standard and Express workflows
-<a name="sample-project-express-selective-checkpointing"></a>
 
 This sample project demonstrates how to combine Standard and Express Workflows by running a mock e-commerce workflow that does selective checkpointing. Deploying this sample project creates a Standard workflows state machine, a nested Express Workflows state machine, an AWS Lambda function, an Amazon Simple Queue Service (Amazon SQS) queue, and an Amazon Simple Notification Service (Amazon SNS) topic.
 

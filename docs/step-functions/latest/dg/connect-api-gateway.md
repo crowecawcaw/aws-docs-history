@@ -1,7 +1,6 @@
 
 
 # Create API Gateway REST APIs with Step Functions
-<a name="connect-api-gateway"></a>
 
 Learn how to use Amazon API Gateway to create, publish, maintain, and monitor HTTP and REST APIs with Step Functions. To integrate with API Gateway, you define a `Task` state in Step Functions that directly calls an API Gateway HTTP or API Gateway REST endpoint, without writing code or relying on other infrastructure. A `Task` state definition includes all the necessary information for the API call. You can also select different authorization methods.
 
@@ -228,7 +227,7 @@ In both cases, the `cause` is returned as a string.
 
 The following example shows a response where an error has occurred:
 
-```
+```json
 {
     "error": "ApiGateway.403", 
     "cause": "{\"message\":\"Missing Authentication Token\"}"
@@ -247,7 +246,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -269,7 +268,7 @@ The following code example shows a resource policy for calling API Gateway.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

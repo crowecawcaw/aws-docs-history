@@ -1,7 +1,6 @@
 
 
 # State machine structure in Amazon States Language for Step Functions workflows
-<a name="statemachine-structure"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -46,7 +45,7 @@ A state machine is defined by the states it contains and the relationships betwe
 
 The following is an example.
 
-```
+```json
 {
   "Comment": "A Hello World example of the Amazon States Language using a Pass state",
   "StartAt": "HelloWorld",

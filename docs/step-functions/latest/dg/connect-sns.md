@@ -1,7 +1,6 @@
 
 
 # Publish messages to an Amazon SNS topic with Step Functions
-<a name="connect-sns"></a>
 
 Learn how to use Step Functions to publish messages to an Amazon SNS topic. This page lists the supported Amazon SNS API actions and provides example `Task` states to publish message to Amazon SNS.
 
@@ -12,7 +11,7 @@ There are no specific optimizations for the [Request Response](connect-to-resour
 
 The following includes a `Task` state that publishes to an Amazon Simple Notification Service (Amazon SNS) topic.
 
-```
+```json
 {
  "StartAt": "Publish to SNS",
  "States": {
@@ -67,7 +66,7 @@ The following sets values using JSONata expressions for the `StringValue` fields
 
 The following includes a `Task` state that publishes to an Amazon SNS topic, and then waits for the task token to be returned. See [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token).
 
-```
+```json
 {  
    "StartAt":"Send message to SNS",
    "States":{  
@@ -106,7 +105,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

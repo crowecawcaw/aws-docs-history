@@ -1,7 +1,6 @@
 
 
 # Viewing execution details in the Step Functions console
-<a name="concepts-view-execution-details"></a>
 
 You can view in-progress and past executions of workflows in the *Executions* section of the Step Functions console. 
 

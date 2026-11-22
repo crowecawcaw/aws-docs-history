@@ -1,7 +1,6 @@
 
 
 # Add EventBridge events with Step Functions
-<a name="connect-eventbridge"></a>
 
 Step Functions provides a service integration API for integrating with Amazon EventBridge. Learn how to build event-driven applications by sending custom events directly from Step Functions workflows.
 
@@ -21,7 +20,7 @@ If the response from `PutEvents` contains a non-zero `FailedEntryCount` then the
 
 The following includes a `Task` that sends a custom event:
 
-```
+```json
 {
   "Type": "Task",
   "Resource": "arn:aws:states:::events:putEvents",
@@ -72,7 +71,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -93,7 +92,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

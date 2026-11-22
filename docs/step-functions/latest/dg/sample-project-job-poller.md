@@ -1,7 +1,6 @@
 
 
 # Poll for job status with Lambda and AWS Batch
-<a name="sample-project-job-poller"></a>
 
 This sample project creates an AWS Batch job poller. It implements an AWS Step Functions state machine that uses AWS Lambda to create a `Wait` state loop that checks on an AWS Batch job. 
 

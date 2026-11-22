@@ -1,7 +1,6 @@
 
 
 # Invoke and customize Amazon Bedrock models with Step Functions
-<a name="connect-bedrock"></a>
 
 You can integrate Step Functions with Amazon Bedrock to invoke a specified Amazon Bedrock model and create a fine-tuning job to customize a model. This page lists the optimized Amazon Bedrock APIs and provides an example `Task` state to extract the result of a model invocation.
 
@@ -109,7 +108,7 @@ The following is an IAM policy example for a state machine that accesses a speci
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ The following is an IAM policy example for a state machine that accesses a speci
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -159,7 +158,7 @@ The following is an IAM policy example for a state machine that provides full ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ The following is an IAM policy example for a state machine to access a specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -222,7 +221,7 @@ The following is an IAM policy example for a state machine to access a specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -258,7 +257,7 @@ The following is an IAM policy example for a state machine that provides full ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -295,7 +294,7 @@ The following is an IAM policy example for a state machine to access a specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -343,7 +342,7 @@ The following is an IAM policy example for a state machine to access a custom mo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -390,7 +389,7 @@ The following is an IAM policy example for a state machine that provides full ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

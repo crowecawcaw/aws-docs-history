@@ -1,7 +1,6 @@
 
 
 # Using Map state in Distributed mode for large-scale parallel workloads in Step Functions
-<a name="state-map-distributed"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -61,7 +60,7 @@ Use the `Map` state in Distributed mode when you need to orchestrate large-scale
 
 The following *Distributed Map state* definition example specifies the dataset as a CSV file stored in an Amazon S3 bucket. It also specifies a Lambda function that processes the data in each row of the CSV file. Because this example uses a CSV file, it also specifies the location of the CSV column headers. To view the complete state machine definition of this example, see the tutorial [Copying large-scale CSV data using Distributed Map](tutorial-map-distributed.md).
 
-```
+```json
 {
   "Map": {
     "Type": "Map",
@@ -120,7 +119,7 @@ Make sure that you replace `{{stateMachineName}}` with the name of the state mac
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -270,14 +269,14 @@ Defines the percentage of failed items to tolerate. Your Map Run fails if this v
 Alternatively, you can specify the percentage as a [reference path](amazon-states-language-paths.md#amazon-states-language-reference-paths) to an existing key-value pair in your *Distributed Map state* input. This path must resolve to a positive integer between 0 and 100 at runtime. You specify the reference path in the `ToleratedFailurePercentagePath` sub-field.  
 For example, given the following input:  
 
-```
+```json
 {
   "percentage": 15
 }
 ```
 You can specify the percentage using a reference path to that input as follows:  
 
-```
+```json
 {
   ...
   "Map": {
@@ -295,14 +294,14 @@ Defines the number of failed items to tolerate. Your Map Run fails if this value
 Alternatively, you can specify the count as a [reference path](amazon-states-language-paths.md#amazon-states-language-reference-paths) to an existing key-value pair in your *Distributed Map state* input. This path must resolve to a positive integer at runtime. You specify the reference path in the `ToleratedFailureCountPath` sub-field.  
 For example, given the following input:  
 
-```
+```json
 {
   "count": 10
 }
 ```
 You can specify the number using a reference path to that input as follows:  
 
-```
+```json
 {
   ...
   "Map": {

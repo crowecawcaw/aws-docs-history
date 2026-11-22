@@ -1,7 +1,6 @@
 
 
 # Create a task timer with Lambda and Amazon SNS
-<a name="task-timer-sample"></a>
 
 This sample project creates a task timer. It implements an AWS Step Functions state machine that implements a `Wait` state, and uses an AWS Lambda function that sends an Amazon Simple Notification Service (Amazon SNS) notification. A [Wait workflow state](state-wait.md) state is a state type that waits for a trigger to perform a single unit of work.
 

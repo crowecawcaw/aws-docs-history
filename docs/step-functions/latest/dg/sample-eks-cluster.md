@@ -1,7 +1,6 @@
 
 
 # Create and manage an Amazon EKS cluster with a node group
-<a name="sample-eks-cluster"></a>
 
 This sample project demonstrates how to use Step Functions and Amazon Elastic Kubernetes Service to create an Amazon EKS cluster with a node group, run a job on Amazon EKS, then examine the output. When finished, it removes the node groups and Amazon EKS cluster.
 

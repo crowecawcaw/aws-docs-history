@@ -1,7 +1,6 @@
 
 
 # Authorization for versions and aliases in Step Functions workflows
-<a name="auth-version-alias"></a>
 
 To invoke Step Functions API actions with a version or an alias, you need appropriate permissions. To authorize a version or an alias to invoke an API action, Step Functions uses the state machine’s ARN instead of using the version ARN or alias ARN. You can also scope down the permissions for a specific version or alias. For more information, see [Scoping down permissions](#auth-scope-permission-version-alias).
 
@@ -9,7 +8,7 @@ You can use the following IAM policy example of a state machine named `{{myState
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -31,7 +30,7 @@ When you set permissions to allow or deny access to API actions using state mach
 
 You can use a qualifier to further scope down the authorization permission needed by a version or an alias. A qualifier refers to a version number or an alias name. You use the qualifier to qualify a state machine. The following example is a state machine ARN that uses an alias named `PROD` as the qualifier.
 
-```
+```json
 arn:aws:states:{{region}}:{{account-id}}:stateMachine:{{myStateMachine}}:{{PROD}}
 ```
 
@@ -41,7 +40,7 @@ You scope down the permissions using the optional context key named `states:Stat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

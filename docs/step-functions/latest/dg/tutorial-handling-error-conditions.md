@@ -1,7 +1,6 @@
 
 
 # Handling error conditions in a Step Functions state machine
-<a name="tutorial-handling-error-conditions"></a>
 
 In this tutorial, you create an AWS Step Functions state machine with a **Task** state that invokes an example Lambda function built to throw a custom error.
 
@@ -26,7 +25,7 @@ Use a Lambda function to simulate an error condition.
 
    The following code should be displayed in the **code** pane.
 
-   ```
+   ```javascript
    export const handler = async () => {
        function CustomError(message) {
            this.name = 'CustomError';
@@ -68,7 +67,7 @@ Use the Step Functions console to create a state machine that uses a [Task workf
 
 1. Choose **Code** to switch to the ASL editor, then replace the code with following state machine definition:
 
-   ```
+   ```json
    {
      "Comment": "Example state machine that can catch a custom error thrown by a function integration.",
      "StartAt": "CreateAccount",
@@ -153,7 +152,7 @@ After you create and configure your state machine, you can run it and examine th
 
 1. In the **Start execution** dialog box, accept the generated ID, and for **Input**, enter the following JSON:
 
-   ```
+   ```JSON
    { "Cause" : "Custom Function Error" }
    ```
 

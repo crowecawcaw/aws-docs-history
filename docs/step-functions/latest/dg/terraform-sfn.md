@@ -1,7 +1,6 @@
 
 
 # Using Terraform to deploy state machines in Step Functions
-<a name="terraform-sfn"></a>
 
 [Terraform](https://www.terraform.io/intro/) by HashiCorp is a framework for building applications using infrastructure as code (IaC). With Terraform, you can create state machines and use features, such as previewing infrastructure deployments and creating reusable templates. Terraform templates help you maintain and reuse the code by breaking it down into smaller chunks.
 
@@ -89,7 +88,7 @@ The following IAM policy example grants your state machine access to invoke a La
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -108,7 +107,7 @@ We also recommend using the [`aws_iam_policy_document`](https://registry.terrafo
 
 The following IAM policy example uses the `aws_iam_policy_document` data source and grants your state machine access to invoke a Lambda function named `{{myFunction}}`.
 
-```
+```json
 data "aws_iam_policy_document" "state_machine_role_policy" {
   
   statement {

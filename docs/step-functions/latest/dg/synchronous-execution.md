@@ -1,7 +1,6 @@
 
 
 # Invoke Synchronous Express Workflows through API Gateway
-<a name="synchronous-execution"></a>
 
 This sample project demonstrates how to invoke Synchronous Express Workflows through Amazon API Gateway to manage an employee database.
 

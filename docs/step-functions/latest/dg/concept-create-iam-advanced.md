@@ -1,7 +1,6 @@
 
 
 # Creating granular permissions for non-admin users in Step Functions
-<a name="concept-create-iam-advanced"></a>
 
 The default managed policies in IAM, such as `ReadOnly`, don't fully cover all types of AWS Step Functions permissions. This section describes these different types of permissions and provides some example configurations. 
 
@@ -26,7 +25,7 @@ This permission level applies to all API actions that do **not** act on a specif
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ This permission level applies to all API actions that act on a specific state ma
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -93,7 +92,7 @@ This permission level applies to all the API actions that act on a specific exec
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -120,7 +119,7 @@ This permission level applies to all the API actions that act on a specific acti
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

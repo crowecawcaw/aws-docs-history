@@ -1,7 +1,6 @@
 
 
 # Copying large-scale CSV data using Distributed Map in Step Functions
-<a name="tutorial-map-distributed"></a>
 
 This tutorial helps you start using the `Map` state in Distributed mode. A `Map` state set to **Distributed** is known as a *Distributed Map state*. You use the *Distributed Map state* in your workflows to iterate over large-scale Amazon S3 data sources. The `Map` state runs each iteration as a child workflow execution, which enables high concurrency. For more information about Distributed mode, see [Map state in Distributed mode](state-map-distributed.md).
 
@@ -93,7 +92,7 @@ In addition to the required settings for a *Distributed Map state*, you can also
 
    1. Enter the following JSON input:
 
-      ```
+      ```json
       {
         "index.$": "$$.Map.Item.Index",
         "value.$": "$$.Map.Item.Value"
@@ -132,7 +131,7 @@ Ensure that your Lambda function is under the same AWS Region as your state mach
 
 1. Copy the following code for the Lambda function and paste it into the **Code source** section of the **distributedMapLambda** page.
 
-   ```
+   ```javascript
    exports.handler = async function(event, context) {
        console.log("Received Input:\n", event);
    
@@ -169,7 +168,7 @@ You can also view the ASL definition in the [Code editor](workflow-studio.md#wfs
 
    The following example code shows the automatically generated Amazon States Language definition for your workflow.
 
-   ```
+   ```json
    {
      "Comment": "Using Map state in Distributed mode",
      "StartAt": "Process data",

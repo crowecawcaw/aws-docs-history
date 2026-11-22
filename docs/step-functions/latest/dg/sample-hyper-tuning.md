@@ -1,7 +1,6 @@
 
 
 # Tune the hyperparameters of a machine learning model in SageMaker AI
-<a name="sample-hyper-tuning"></a>
 
 This sample project demonstrates using SageMaker AI to tune the hyperparameters of a machine learning model, and to batch transform a test dataset.
 

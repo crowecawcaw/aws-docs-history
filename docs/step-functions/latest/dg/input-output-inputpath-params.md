@@ -1,7 +1,6 @@
 
 
 # Manipulate parameters in Step Functions workflows
-<a name="input-output-inputpath-params"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -19,7 +18,7 @@ Use `InputPath` to select a portion of the state input.
 
 For example, suppose the input to your state includes the following.
 
-```
+```json
 {
   "comment": "Example for InputPath.",
   "dataset1": {
@@ -37,13 +36,13 @@ For example, suppose the input to your state includes the following.
 
 You could apply the `InputPath`.
 
-```
+```json
 "InputPath": "$.dataset2",
 ```
 
 With the previous `InputPath`, the following is the JSON that is passed as the input.
 
-```
+```json
 {
   "val1": "a",
   "val2": "b",
@@ -54,12 +53,12 @@ With the previous `InputPath`, the following is the JSON that is passed as the i
 **Note**  
 A path can yield a selection of values. Consider the following example.  
 
-```
+```json
 { "a": [1, 2, 3, 4] }
 ```
 If you apply the path `$.a[0:2]`, the following is the result.  
 
-```
+```json
 [ 1, 2 ]
 ```
 
@@ -75,7 +74,7 @@ Use the `Parameters` field to create a collection of key-value pairs that are pa
 
 For example, suppose you provide the following input. 
 
-```
+```json
 {
   "comment": "Example for Parameters.",
   "product": {
@@ -93,7 +92,7 @@ For example, suppose you provide the following input.
 
 To select some of the information, you could specify these parameters in your state machine definition. 
 
-```
+```json
 "Parameters": {
         "comment": "Selecting what I care about.",
         "MyDetails": {
@@ -106,7 +105,7 @@ To select some of the information, you could specify these parameters in your st
 
 Given the previous input and the `Parameters` field, this is the JSON that is passed.
 
-```
+```json
 {
   "comment": "Selecting what I care about.",
   "MyDetails": {
@@ -150,7 +149,7 @@ With the `ResultPath` field, you can add the output of the `ResultSelector` fiel
 
 For example, Step Functions service integrations return metadata in addition to the payload in the result. `ResultSelector` can select portions of the result and merge them with the state input with `ResultPath`. In this example, we want to select just the `resourceType` and `ClusterId`, and merge that with the state input from an Amazon EMR createCluster.sync. Given the following:
 
-```
+```json
 {
   "resourceType": "elasticmapreduce",
   "resource": "createCluster.sync",
@@ -174,7 +173,7 @@ For example, Step Functions service integrations return metadata in addition to 
 
 You can then select the `resourceType` and `ClusterId` using `ResultSelector`:
 
-```
+```json
 "Create Cluster": {
   "Type": "Task",
   "Resource": "arn:aws:states:::elasticmapreduce:createCluster.sync",
@@ -192,7 +191,7 @@ You can then select the `resourceType` and `ClusterId` using `ResultSelector`:
 
 With the given input, using `ResultSelector` produces:
 
-```
+```json
 {
   "OtherDataFromInput": {},
   "EMROutput": {
@@ -209,7 +208,7 @@ If the [Parallel workflow state](state-parallel.md) or [Map workflow state](stat
 
 To flatten arrays, use the syntax: `[*]` in the `ResultSelector` field as shown in the following example.
 
-```
+```json
 "ResultSelector": {
     "flattenArray.$": "$[*][*]"
   }

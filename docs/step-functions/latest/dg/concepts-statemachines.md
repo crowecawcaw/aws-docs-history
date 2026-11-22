@@ -1,7 +1,6 @@
 
 
 # Learn about state machines in Step Functions
-<a name="concepts-statemachines"></a>
 
 Step Functions is based on *state machines*, which are also called *workflows*. Workflows are comprised of a series of event-driven steps. 
 
@@ -117,7 +116,7 @@ In the following example, the state machine adds two numbers together.
 
 1. Define the AWS Lambda function.
 
-   ```
+   ```javascript
    function Add(input) {
      var numbers = JSON.parse(input).numbers;
      var total = numbers.reduce(
@@ -129,7 +128,7 @@ In the following example, the state machine adds two numbers together.
 
 1. Define the state machine.
 
-   ```
+   ```json
    {
      "Comment": "An example that adds two numbers together.",
      "StartAt": "Add",
@@ -148,7 +147,7 @@ In the following example, the state machine adds two numbers together.
 
 1. Start an execution with the following JSON text.
 
-   ```
+   ```json
    { "numbers": [3, 4] }
    ```
 
@@ -158,7 +157,7 @@ In the following example, the state machine adds two numbers together.
 
    The state returns the following value in its output.
 
-   ```
+   ```json
    { "result": 7 }
    ```
 

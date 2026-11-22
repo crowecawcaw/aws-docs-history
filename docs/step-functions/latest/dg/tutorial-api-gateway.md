@@ -1,7 +1,6 @@
 
 
 # Creating a Step Functions API using API Gateway
-<a name="tutorial-api-gateway"></a>
 
 You can use Amazon API Gateway to associate your AWS Step Functions APIs with methods in an API Gateway API. When an HTTPS request is sent to an API method, API Gateway invokes your Step Functions API actions.
 
@@ -113,7 +112,7 @@ Once you have created the API, test and deploy it. <a name="api-gateway-test-api
 
 1. On the **/execution - POST - Method Test** tab, copy the following request parameters into the **Request body** section using the ARN of an existing state machine (or [create a new state machine that uses a Lambda function](tutorial-creating-lambda-state-machine.md)), and then choose **Test**.
 
-   ```
+   ```json
    {
       "input": "{}",
       "name": "MyExecution",
@@ -135,7 +134,7 @@ With this approach, you can specify ARNs of different state machines based on yo
 
 1. The execution starts and the execution ARN and its epoch date are displayed under **Response body**.
 
-   ```
+   ```json
    {
       "executionArn": "{{arn:aws:states:{{region}}:123456789012:execution:HelloWorld:MyExecution}}",
       "startDate": 1486768956.878
@@ -168,13 +167,13 @@ You can view the execution by choosing your state machine on the [AWS Step Funct
 
 1. From the command line, run the `curl` command using the ARN of your state machine, and then invoke the URL of your deployment, as shown in the following example.
 
-   ```
+   ```bsh
    curl -X POST -d '{"input": "{}","name": "MyExecution","stateMachineArn": "arn:aws:states:{{region}}:123456789012:stateMachine:HelloWorld"}' https://a1b2c3d4e5.execute-api.{{region}}.amazonaws.com/alpha/execution
    ```
 
    The execution ARN and its epoch date are returned, as shown in the following example.
 
-   ```
+   ```json
    {"executionArn":"arn:aws:states:{{region}}:123456789012:execution:HelloWorld:MyExecution","startDate":1.486772644911E9}
    ```
 **Note**  

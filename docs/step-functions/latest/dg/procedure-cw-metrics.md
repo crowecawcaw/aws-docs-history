@@ -1,7 +1,6 @@
 
 
 # Monitoring Step Functions metrics using Amazon CloudWatch
-<a name="procedure-cw-metrics"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Step Functions and your AWS solutions. You can collect data from the AWS services that you use to debug multi-point failures. 
 

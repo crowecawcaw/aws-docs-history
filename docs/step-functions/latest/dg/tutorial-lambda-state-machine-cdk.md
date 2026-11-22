@@ -1,7 +1,6 @@
 
 
 # Using AWS CDK to create a Standard workflow in Step Functions
-<a name="tutorial-lambda-state-machine-cdk"></a>
 
 You can use the AWS Cloud Development Kit (AWS CDK) Infrastructure as Code (IAC) framework, to create an AWS Step Functions state machine that contains an AWS Lambda function.
 
@@ -125,7 +124,7 @@ The following AWS CDK code defines the Lambda function, providing its source cod
 ------
 #### [ TypeScript ]
 
-```
+```javascript
 const helloFunction = new lambda.Function(this, 'MyLambdaFunction', {
     code: lambda.Code.fromInline(`
           exports.handler = (event, context, callback) => {
@@ -141,7 +140,7 @@ const helloFunction = new lambda.Function(this, 'MyLambdaFunction', {
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const helloFunction = new lambda.Function(this, 'MyLambdaFunction', {
     code: lambda.Code.fromInline(`
           exports.handler = (event, context, callback) => {
@@ -157,7 +156,7 @@ const helloFunction = new lambda.Function(this, 'MyLambdaFunction', {
 ------
 #### [ Python ]
 
-```
+```python
 hello_function = lambda_.Function(
             self, "MyLambdaFunction",
             code=lambda_.Code.from_inline("""
@@ -172,7 +171,7 @@ hello_function = lambda_.Function(
 ------
 #### [ Java ]
 
-```
+```java
 final Function helloFunction = Function.Builder.create(this, "MyLambdaFunction")
         .code(Code.fromInline(
                 "exports.handler = (event, context, callback) => { callback(null, 'Hello World!' );}"))
@@ -185,7 +184,7 @@ final Function helloFunction = Function.Builder.create(this, "MyLambdaFunction")
 ------
 #### [ C\# ]
 
-```
+```csharp
 var helloFunction = new Function(this, "MyLambdaFunction", new FunctionProps
 {
     Code = Code.FromInline(@"`
@@ -213,7 +212,7 @@ Our state machine has two states: a Lambda function task, and a [Succeed workflo
 ------
 #### [ TypeScript ]
 
-```
+```javascript
 const stateMachine = new sfn.StateMachine(this, 'MyStateMachine', {
   definition: new tasks.LambdaInvoke(this, "MyLambdaTask", {
     lambdaFunction: helloFunction
@@ -224,7 +223,7 @@ const stateMachine = new sfn.StateMachine(this, 'MyStateMachine', {
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const stateMachine = new sfn.StateMachine(this, 'MyStateMachine', {
   definition: new tasks.LambdaInvoke(this, "MyLambdaTask", {
     lambdaFunction: helloFunction
@@ -235,7 +234,7 @@ const stateMachine = new sfn.StateMachine(this, 'MyStateMachine', {
 ------
 #### [ Python ]
 
-```
+```python
 state_machine = sfn.StateMachine(
                                  self, "MyStateMachine",
                                  definition=tasks.LambdaInvoke(
@@ -247,7 +246,7 @@ state_machine = sfn.StateMachine(
 ------
 #### [ Java ]
 
-```
+```java
 final StateMachine stateMachine = StateMachine.Builder.create(this, "MyStateMachine")
         .definition(LambdaInvoke.Builder.create(this, "MyLambdaTask")
             .lambdaFunction(helloFunction)
@@ -259,7 +258,7 @@ final StateMachine stateMachine = StateMachine.Builder.create(this, "MyStateMach
 ------
 #### [ C\# ]
 
-```
+```csharp
 var stateMachine = new StateMachine(this, "MyStateMachine", new StateMachineProps {
     DefinitionBody = DefinitionBody.FromChainable(new LambdaInvoke(this, "MyLambdaTask", new LambdaInvokeProps
     {
@@ -283,7 +282,7 @@ In your newly created AWS CDK project, edit the file that contains the stack's d
 
    Update `lib/step-stack.ts` with the following code.
 
-   ```
+   ```javascript
    import * as cdk from 'aws-cdk-lib';
    import * as lambda from 'aws-cdk-lib/aws-lambda';
    import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
@@ -318,7 +317,7 @@ In your newly created AWS CDK project, edit the file that contains the stack's d
 
    Update `lib/step-stack.js` with the following code.
 
-   ```
+   ```javascript
    import * as cdk from 'aws-cdk-lib';
    import * as lambda from 'aws-cdk-lib/aws-lambda';
    import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
@@ -353,7 +352,7 @@ In your newly created AWS CDK project, edit the file that contains the stack's d
 
    Update `step/step_stack.py` with the following code.
 
-   ```
+   ```python
    from aws_cdk import (
        Duration,
        Stack,
@@ -389,7 +388,7 @@ In your newly created AWS CDK project, edit the file that contains the stack's d
 
    Update `src/main/java/com.myorg/StepStack.java` with the following code.
 
-   ```
+   ```java
    package com.myorg;
    
    import software.constructs.Construct;
@@ -434,7 +433,7 @@ In your newly created AWS CDK project, edit the file that contains the stack's d
 
    Update `src/Step/StepStack.cs` with the following code.
 
-   ```
+   ```csharp
    using Amazon.CDK;
    using Constructs;
    using Amazon.CDK.AWS.Lambda;
@@ -484,7 +483,7 @@ If you used TypeScript to create your AWS CDK project, running the `cdk synth` c
    ```
 Modify the `bin/step.ts` file as shown in the following example to resolve this error.  
 
-   ```
+   ```javascript
    #!/usr/bin/env node
    import 'source-map-support/register';
    import * as cdk from 'aws-cdk-lib';

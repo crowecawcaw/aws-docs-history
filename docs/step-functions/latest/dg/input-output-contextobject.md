@@ -1,7 +1,6 @@
 
 
 # Accessing execution data from the Context object in Step Functions
-<a name="input-output-contextobject"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -15,7 +14,7 @@ The Context object is an internal JSON structure that is available during an exe
 
 To access the Context object in JSONata states, use `$states.context` in a JSONata expression. 
 
-```
+```json
 {
   "ExecutionID" : "{% $states.context.Execution.Id %}"
 }
@@ -25,7 +24,7 @@ To access the Context object in JSONata states, use `$states.context` in a JSONa
 
 To access the Context object in JSONPath, you first append `.$` to the end of the key to indicate the value is a path. Then, prepend the value with `$$.` to select a node in the Context object.
 
-```
+```json
 {
   "ExecutionID.$": "$$.Execution.Id"
 }
@@ -45,7 +44,7 @@ JSONPath states can refer to the context (`$$.`) from the following JSONPath fie
 
 The Context object includes information about the state machine, state, execution, and task. The Context JSON object includes nodes for each type of data in the following format:
 
-```
+```json
 {
     "Execution": {
         "Id": "{{String}}",
@@ -79,7 +78,7 @@ Occasionally, new fields are added to the context. If you are processing the JSO
 
 Content from a running execution includes specifics in the following format: 
 
-```
+```json
 {
     "Execution": {
         "Id": "arn:aws:states:{{region}}:123456789012:execution:stateMachineName:executionName",
@@ -121,7 +120,7 @@ For each `Map` state iteration, `Index` contains the index number for the array 
 
 Within a `Map` state, the Context object includes the following data:
 
-```
+```json
 "Map": {
    "Item": {
       "Index" : {{Number}},
@@ -139,7 +138,7 @@ You must define parameters from the Context object in the `ItemSelector` block o
 
 Given a state machine using a **JSONPath** `Map` state, you can inject information from the Context object as follows.
 
-```
+```json
 {
   "StartAt": "ExampleMapState",
   "States": {
@@ -170,7 +169,7 @@ Given a state machine using a **JSONPath** `Map` state, you can inject informati
 
 For JSONata, the additional Map state context information can be accessed from the `$states.context` variable:
 
-```
+```json
 {
   "StartAt": "ExampleMapState",
   "States": {
@@ -203,7 +202,7 @@ For JSONata, the additional Map state context information can be accessed from t
 
 If you execute the previous state machine with the following input, `Index` and `Value` are inserted in the output.
 
-```
+```json
 [
   {
     "who": "bob"
@@ -219,7 +218,7 @@ If you execute the previous state machine with the following input, `Index` and 
 
 The output for the execution returns the values of `Index` and `Value` items for each of the three iterations as follows:
 
-```
+```json
 [
   {
     "ContextIndex": 0,

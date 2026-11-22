@@ -1,7 +1,6 @@
 
 
 # Starting a Step Functions workflow in response to events
-<a name="tutorial-cloudwatch-events-s3"></a>
 
 You can execute an AWS Step Functions state machine in response to an event routed by an Amazon EventBridge rule to Step Functions as a target. 
 
@@ -128,7 +127,7 @@ Now that everything is in place, test adding a file to the Amazon S3 bucket, and
 
 The following example shows a typical input to the state machine execution.
 
-```
+```json
 {
     "version": "0",
     "id": "6c540ad4-0671-9974-6511-756fbd7771c3",

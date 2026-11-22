@@ -1,7 +1,6 @@
 
 
 # Create a callback pattern example with Amazon SQS, Amazon SNS, and Lambda
-<a name="callback-task-sample-sqs"></a>
 
 This sample project demonstrates how to have AWS Step Functions pause during a task, and wait for an external process to return a task token that was generated when the task started. 
 

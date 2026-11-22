@@ -1,7 +1,6 @@
 
 
 # Start a workflow within a workflow with Step Functions and Lambda
-<a name="sample-start-workflow"></a>
 
 This sample project demonstrates how to use an AWS Step Functions state machine to start other state machine executions. For information about starting state machine executions from another state machine, see [Start workflow executions from a task state in Step Functions](concepts-nested-workflows.md).
 

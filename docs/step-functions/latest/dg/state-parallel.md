@@ -1,7 +1,6 @@
 
 
 # Parallel workflow state
-<a name="state-parallel"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -46,7 +45,7 @@ A `Parallel` state causes AWS Step Functions to execute each branch, starting wi
 ## Parallel State Example
 <a name="parallel-example"></a>
 
-```
+```json
 {
   "Comment": "Parallel Example.",
   "StartAt": "LookupCustomerInfo",
@@ -93,7 +92,7 @@ Each branch must be self-contained. A state in one branch of a `Parallel` state 
 
 A `Parallel` state provides each branch with a copy of its own input data (subject to modification by the `InputPath` field). It generates output that is an array with one element for each branch, containing the output from that branch. There is no requirement that all elements be of the same type. The output array can be inserted into the input data (and the whole sent as the `Parallel` state's output) by using a `ResultPath` field in the usual way (see [Input and Output Processing](concepts-input-output-filtering.md)).
 
-```
+```json
 {
   "Comment": "Parallel Example.",
   "StartAt": "FunWithMath",

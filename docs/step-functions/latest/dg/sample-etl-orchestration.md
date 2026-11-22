@@ -1,7 +1,6 @@
 
 
 # Run an ETL/ELT workflow using Step Functions and the Amazon Redshift API
-<a name="sample-etl-orchestration"></a>
 
 This sample project demonstrates how to use Step Functions and the Amazon Redshift Data API to run an ETL/ELT workflow that loads data into the Amazon Redshift data warehouse. 
 

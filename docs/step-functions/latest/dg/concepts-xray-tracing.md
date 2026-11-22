@@ -1,7 +1,6 @@
 
 
 # Trace Step Functions request data in AWS X-Ray
-<a name="concepts-xray-tracing"></a>
 
 You can use [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) to visualize the components of your state machine, identify performance bottlenecks, and troubleshoot requests that resulted in an error. Your state machine sends trace data to X-Ray, and X-Ray processes the data to generate a service map and searchable trace summaries.
 
@@ -61,7 +60,7 @@ To enable X-Ray tracing, you will need an IAM policy with suitable permissions t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ You must specify the `traceHeader` format as `\p{ASCII}∗`. Additionally, to le
 
 The following is an example written in Python to showcase how to specify the `traceHeader`.
 
-```
+```python
 state_machine = config.get_string_paramter("STATE_MACHINE_ARN")
     if (xray_recorder.current_subsegment() is not None and 
         xray_recorder.current_subsegment().sampled) :

@@ -1,7 +1,6 @@
 
 
 # How AWS Step Functions works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Step Functions, learn what IAM features are available to use with Step Functions.
 
@@ -105,7 +104,7 @@ To see a list of Step Functions condition keys, see [Condition Keys for AWS Step
 
  If your policy must depend on the Step Functions service principal name, we recommend you check for the existence or non-existence of `states.amazonaws.com` in the `aws:PrincipalServiceNamesList` [ multivalued context key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.html#reference_policies_condition-multi-valued-context-keys), rather than the `aws:PrincipalServiceName` condition key. The `aws:PrincipalServiceName` condition key contains only one entry from the list of service principal names and it may not always be `states.amazonaws.com`. The following condition block demonstrates checking for the existence of `states.amazonaws.com`. 
 
-```
+```json
 {
     "Condition": {
         "ForAnyValue:StringEquals": {

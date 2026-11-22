@@ -1,7 +1,6 @@
 
 
 # Choice workflow state
-<a name="state-choice"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -67,7 +66,7 @@ The following example checks whether the string is not null.
 
 The following example shows a `Choice` state with per-rule `Assign` blocks that set different variables based on the matched condition:
 
-```
+```json
 {
   "Type": "Choice",
   "Choices": [

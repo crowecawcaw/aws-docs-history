@@ -1,7 +1,6 @@
 
 
 # Set up execution roles with Workflow Studio in Step Functions
-<a name="manage-state-machine-permissions"></a>
 
 You can use Workflow Studio to set up execution roles for your workflows. Every Step Functions state machine requires an AWS Identity and Access Management (IAM) role which grants the state machine permission to perform actions on AWS services and resources or call HTTPS APIs. This role is called an *execution role*. 
 

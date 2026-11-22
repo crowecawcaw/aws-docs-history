@@ -1,7 +1,6 @@
 
 
 # Map workflow state
-<a name="state-map"></a>
 
 Use the `Map` state to run a set of workflow steps for each item in a dataset. The `Map` state's iterations run in parallel, which makes it possible to process a dataset quickly. `Map` states can use a variety of input types, including a JSON array, a list of Amazon S3 objects, or a CSV file.
 

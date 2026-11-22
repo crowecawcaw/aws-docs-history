@@ -1,7 +1,6 @@
 
 
 # Tutorial: Testing workflows using Step Functions and AWS SAM CLI Local
-<a name="sfn-local-lambda"></a>
 
 **Step Functions Local is unsupported**  
 Step Functions Local does **not** provide feature parity and is **unsupported**.  
@@ -40,7 +39,7 @@ Before installing the AWS SAM CLI, you need to install the AWS CLI and Docker. S
 
 Now that you have installed AWS SAM and created the Hello World Lambda function, you can test the function. In the `sam-app` directory, enter the following command:
 
-```
+```bash
 sam local start-api
 ```
 
@@ -61,7 +60,7 @@ http://127.0.0.1:3000/hello
 
 This will output a response similar to the following:
 
-```
+```json
 {"message": "hello world", "location": "72.21.198.66"}
 ```
 
@@ -123,7 +122,7 @@ You can specify the endpoint through the command line or by setting environment 
 
 After Step Functions Local is running, create a state machine that references the `HelloWorldFunction` that you initialized in [Step 1: Set Up AWS SAM](#install-sam).
 
-```
+```bash
 aws stepfunctions --endpoint http://localhost:8083 create-state-machine --definition "{\
   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Local function\",\
   \"StartAt\": \"HelloWorld\",\
@@ -139,7 +138,7 @@ aws stepfunctions --endpoint http://localhost:8083 create-state-machine --defini
 
 This will create a state machine and provide an Amazon Resource Name (ARN) that you can use to start an execution.
 
-```
+```json
 {
     "creationDate": 1548805711.403, 
     "stateMachineArn": "arn:aws:states:{{region}}:{{account-id}}:stateMachine:HelloWorld"
@@ -151,7 +150,7 @@ This will create a state machine and provide an Amazon Resource Name (ARN) that 
 
 Once you have created a state machine, start an execution. You'll need to reference the endpoint and state machine ARN when using the following **aws stepfunctions** command:
 
-```
+```bash
 aws stepfunctions --endpoint http://localhost:8083 start-execution --state-machine arn:aws:states:{{region}}:{{account-id}}:stateMachine:HelloWorld --name test
 ```
 
@@ -172,7 +171,7 @@ aws stepfunctions --endpoint http://localhost:8083 describe-execution --executio
 
 Calling `describe-execution` for an execution provides more complete details, similar to the following output:
 
-```
+```json
 {
     "status": "SUCCEEDED", 
     "startDate": 1549056334.073, 

@@ -1,7 +1,6 @@
 
 
 # Using CloudFormation to create a workflow in Step Functions
-<a name="tutorial-lambda-state-machine-cloudformation"></a>
 
 In this tutorial, you will create a AWS Lambda function using AWS CloudFormation. You'll use the CloudFormation console and a YAML template to create a *stack* (IAM roles, the Lambda function, and the state machine). Then, you'll use the Step Functions console to start the state machine execution.
 
@@ -20,7 +19,7 @@ Define the trust policy associated with the IAM role for the Lambda function. Th
 ------
 #### [ YAML ]
 
-```
+```yaml
 LambdaExecutionRole:
     Type: "AWS::IAM::Role"
     Properties:
@@ -36,7 +35,7 @@ LambdaExecutionRole:
 ------
 #### [ JSON ]
 
-```
+```json
           "LambdaExecutionRole": {
               "Type": "AWS::IAM::Role",
               "Properties": {
@@ -68,7 +67,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
 ------
 #### [ YAML ]
 
-```
+```yaml
 MyLambdaFunction:
     Type: "AWS::Lambda::Function"
     Properties:
@@ -86,7 +85,7 @@ MyLambdaFunction:
 ------
 #### [ JSON ]
 
-```
+```json
         "MyLambdaFunction": {
               "Type": "AWS::Lambda::Function",
               "Properties": {
@@ -116,7 +115,7 @@ Define the trust policy associated with the IAM role for the state machine execu
 ------
 #### [ YAML ]
 
-```
+```yaml
 StatesExecutionRole:
     Type: "AWS::IAM::Role"
     Properties:
@@ -143,7 +142,7 @@ StatesExecutionRole:
 ------
 #### [ JSON ]
 
-```
+```json
         "StatesExecutionRole": {
               "Type": "AWS::IAM::Role",
               "Properties": {
@@ -195,7 +194,7 @@ Define the Lambda state machine.
 ------
 #### [ YAML ]
 
-```
+```yaml
 MyStateMachine:
     Type: "AWS::StepFunctions::StateMachine"
     Properties:
@@ -220,7 +219,7 @@ MyStateMachine:
 ------
 #### [ JSON ]
 
-```
+```json
         "MyStateMachine": {
               "Type": "AWS::StepFunctions::StateMachine",
               "Properties": {
@@ -262,7 +261,7 @@ Once you understand the components of the CloudFormation template, you can put t
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: "2010-09-09"
      Description: "An example template with an IAM role for a Lambda state machine."
      Resources:
@@ -336,7 +335,7 @@ Once you understand the components of the CloudFormation template, you can put t
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
          "AWSTemplateFormatVersion": "2010-09-09",
          "Description": "An example template with an IAM role for a Lambda state machine.",

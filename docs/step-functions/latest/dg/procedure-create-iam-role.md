@@ -1,7 +1,6 @@
 
 
 # Creating an IAM role for your state machine in Step Functions
-<a name="procedure-create-iam-role"></a>
 
 AWS Step Functions can execute code and access AWS resources (such as invoking an AWS Lambda function). To maintain security, you must grant Step Functions access to those resources by using an IAM role.
 
@@ -43,7 +42,7 @@ Here's an example of a *trusted policy* that shows how you can use `aws:SourceAr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

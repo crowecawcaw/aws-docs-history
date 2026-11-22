@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring AWS Step Functions service performance
-<a name="monitoring-logging"></a>
 
 Learn how to log and monitor Step Functions to maintain the reliability, availability, and performance of Step Functions and your AWS solutions. 
 

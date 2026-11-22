@@ -1,7 +1,6 @@
 
 
 # Succeed workflow state
-<a name="state-succeed"></a>
 
 A `Succeed` state (`"Type": "Succeed"`) either terminates a state machine successfully, ends a branch of a [Parallel workflow state](state-parallel.md), or ends an iteration of a [Map workflow state](state-map.md). The `Succeed` state is a useful target for `Choice` state branches that don't do anything except terminate the state machine.
 

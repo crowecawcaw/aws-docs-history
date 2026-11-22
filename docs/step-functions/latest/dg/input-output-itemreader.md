@@ -1,13 +1,12 @@
 
 
 # ItemReader (Map)
-<a name="input-output-itemreader"></a>
 
 The `ItemReader` field is a JSON object, which specifies a dataset and its location. A *Distributed Map state* uses this dataset as its input. 
 
 The following example shows the syntax of the `ItemReader` field in a **JSONPath-based** workflow, for a dataset in a text delimited file that's stored in an Amazon S3 bucket.
 
-```
+```json
 "ItemReader": {
     "ReaderConfig": {
         "InputType": "CSV",
@@ -24,7 +23,7 @@ The following example shows the syntax of the `ItemReader` field in a **JSONPath
 
 In the following **JSONata-based** workflow, note that `Parameters` is replaced with **Arguments**.
 
-```
+```json
 "ItemReader": {
     "ReaderConfig": {
         "InputType": "CSV",
@@ -95,7 +94,7 @@ With the `CSVDelimiter` field, `ItemReader` can process files that are delimited
 
     For example, if your file contains the following data.
 
-    ```
+    ```json
     1,307,3.5,1256677221
     1,481,3.5,1256677456
     1,1091,1.5,1256677471
@@ -104,7 +103,7 @@ With the `CSVDelimiter` field, `ItemReader` can process files that are delimited
 
     You might provide the following JSON array as a CSV header:
 
-    ```
+    ```json
     "ItemReader": {
         "ReaderConfig": {
             "InputType": "CSV",
@@ -134,7 +133,7 @@ Step Functions supports headers of up to 10 KiB for text delimited files.
 
   For example, if your JSON file contains:
 
-  ```
+  ```json
   {"data": {"items": [{"id": 1}, {"id": 2}]}}
   ```
 
@@ -228,7 +227,7 @@ The `ItemReader` field is not needed when your dataset is JSON data from a previ
 
 Consider the following JSON array of three items.
 
-```
+```json
 "facts": [
     {
         "verdict": "true",
@@ -253,7 +252,7 @@ Consider the following JSON array of three items.
 
 The *Distributed Map state* starts three child workflow executions. Each execution receives an array item as input. The following example shows the input received by a child workflow execution.
 
-```
+```json
 {
   "verdict": "true",
   "statement_date": "6/11/2008",
@@ -284,7 +283,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 
 In this example, you've organized your data, which includes images, JSON files, and objects, within a prefix named `processData` in an Amazon S3 bucket named `amzn-s3-demo-bucket`.
 
-```
+```json
 "ItemReader": {
     "Resource": "arn:aws:states:::s3:listObjectsV2",
     "Parameters": {
@@ -299,7 +298,7 @@ In this example, you've organized your data, which includes images, JSON files, 
 
 The *Distributed Map state* starts as many child workflow executions as the number of metadata items present in the Amazon S3 bucket. The following example shows the input received by a child workflow execution.
 
-```
+```json
 {
   "Etag": "\"05704fbdccb224cb01c59005bebbad28\"",
   "Key": "{{processData}}/{{images}}/{{n02085620_1073.jpg}}",
@@ -376,7 +375,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 
 For this example, imagine you have a JSON file named `{{factcheck.json}}`. You've stored this file within a prefix named `{{jsonDataset}}` in an Amazon S3 bucket. The following is an example of the JSON dataset.
 
-```
+```json
 [
   {
     "verdict": "true",
@@ -400,7 +399,7 @@ For this example, imagine you have a JSON file named `{{factcheck.json}}`. You'v
 ------
 #### [ ItemReader syntax ]
 
-```
+```json
 "ItemReader": {
    "Resource": "arn:aws:states:::s3:getObject",
    "ReaderConfig": {
@@ -418,7 +417,7 @@ For this example, imagine you have a JSON file named `{{factcheck.json}}`. You'v
 
 The *Distributed Map state* starts as many child workflow executions as the number of array items present in the JSON file. The following example shows the input received by a child workflow execution.
 
-```
+```json
 {
   "verdict": "true",
   "statement_date": "6/11/2008",
@@ -442,7 +441,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 
 For this example, imagine you have a JSON Lines file named `{{factcheck.jsonl}}`. You've stored this file within a prefix named `{{jsonlDataset}}` in an Amazon S3 bucket. The following is an example of the file's contents.
 
-```
+```json
 {"verdict": "true", "statement_date": "6/11/2008", "statement_source": "speech"} 
 {"verdict": "false", "statement_date": "6/7/2022", "statement_source": "television"}
 {"verdict": "mostly-true", "statement_date": "5/18/2016", "statement_source": "news"}
@@ -451,7 +450,7 @@ For this example, imagine you have a JSON Lines file named `{{factcheck.jsonl}}`
 ------
 #### [ ItemReader syntax ]
 
-```
+```json
 "ItemReader": {
    "Resource": "arn:aws:states:::s3:getObject",
    "ReaderConfig": {
@@ -469,7 +468,7 @@ For this example, imagine you have a JSON Lines file named `{{factcheck.jsonl}}`
 
 The *Distributed Map state* starts as many child workflow executions as the number of lines present in the JSONL file. The following example shows the input received by a child workflow execution.
 
-```
+```json
 {
   "verdict": "true",
   "statement_date": "6/11/2008",
@@ -520,7 +519,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 
 For example, say that you have a CSV file named `{{ratings.csv}}`. Then, you've stored this file within a prefix that's named `{{csvDataset}}` in an Amazon S3 bucket.
 
-```
+```json
 "ItemReader": {
    "ReaderConfig": {
       "InputType": "CSV",
@@ -540,7 +539,7 @@ For example, say that you have a CSV file named `{{ratings.csv}}`. Then, you've 
 
 The *Distributed Map state* starts as many child workflow executions as the number of rows present in the CSV file, excluding the header row, if in the file. The following example shows the input received by a child workflow execution.
 
-```
+```json
 {
   "rating": "3.5",
   "movieId": "307",
@@ -655,7 +654,7 @@ For more information about Amazon S3 inventories and how to set them up, see [Am
 
 The following example of an Amazon S3 inventory manifest file shows the CSV headers for the inventory object metadata.
 
-```
+```json
 {
   "sourceBucket" : "{{amzn-s3-demo-source-bucket}}",
   "destinationBucket" : "arn:aws:s3:::{{amzn-s3-demo-inventory}}",
@@ -676,7 +675,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 ------
 #### [ ItemReader syntax ]
 
-```
+```json
 "ItemReader": {
    "ReaderConfig": {
       "InputType": "MANIFEST"
@@ -692,7 +691,7 @@ The following tabs show examples of the `ItemReader` field syntax and the input 
 ------
 #### [ Input to a child workflow execution ]
 
-```
+```json
 {
   "LastModifiedDate": "2022-11-16T00:29:32.000Z",
   "Bucket": "amzn-s3-demo-source-bucket",

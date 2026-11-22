@@ -1,7 +1,6 @@
 
 
 # Redriving Map Runs in Step Functions executions
-<a name="redrive-map-run"></a>
 
 You can restart unsuccessful child workflow executions in a Map Run by [redriving](redrive-executions.md) your [parent workflow](state-map-distributed.md#dist-map-orchestrate-parallel-workloads-key-terms). A redriven parent workflow redrives all the unsuccessful states, including Distributed Map. A parent workflow redrives unsuccessful states if there's no `<stateType>Exited` event corresponding to the `<stateType>Entered` event for a state when the parent workflow completed its execution. For example, if the event history doesn't contain the `MapStateExited` event for a `MapStateEntered` event, you can redrive the parent workflow to redrive all the unsuccessful child workflow executions in the Map Run.
 
@@ -71,7 +70,7 @@ Step Functions needs appropriate permission to redrive a Map Run. The following 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

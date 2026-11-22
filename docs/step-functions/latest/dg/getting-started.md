@@ -1,7 +1,6 @@
 
 
 # Learn how to get started with Step Functions
-<a name="getting-started"></a>
 
 With the Step Functions service, you can orchestrate complex application workflows. To get started, you'll use Workflow Studio to create and run a built-in **Hello World** workflow. You'll review the auto-generated [Amazon States Language](concepts-amazon-states-language.md) (ASL) definition in code. Finally, you'll drag-and-drop a service integration to do sentiment analysis.
 
@@ -223,7 +222,7 @@ Take note of the **Duration** and **Timeline** fields in the previous screenshot
 
 1. Replace the **Output** with following JSON:
 
-   ```
+   ```json
    {
      "IsHelloWorldExample": "{% $states.input.hello_world %}",
      "ExecutionWaitTimeInSeconds":  "{% $states.input.wait %}"
@@ -355,7 +354,7 @@ Note that API actions will be *camelCase* (lowercase initial), but *ParameterNam
 
 1. Select the **Arguments & Output** tab, then replace the **Arguments** with the following JSON: 
 
-   ```
+   ```json
    {
       "LanguageCode": "en",
       "Text": "{% %}"
@@ -376,7 +375,7 @@ Note that API actions will be *camelCase* (lowercase initial), but *ParameterNam
 
  After choosing those auto-complete options, you should have the following JSON for your states **Arguments**: 
 
-```
+```json
 {
     "LanguageCode": "en",
     "Text": "{% $states.context.Execution.Input.feedback_comment %}"
@@ -435,7 +434,7 @@ If you review the policy, you'll see it allows all resources to take the **Actio
 
  Start executing your state machine with the following JSON for input: 
 
-```
+```json
 {
     "hello_world": false,
     "wait": 42,
@@ -448,7 +447,7 @@ If you review the policy, you'll see it allows all resources to take the **Actio
 
  Without the correct policy, you will receive a **permissions error**, similar to the following: 
 
-```
+```json
 User: arn:aws:sts::{{account-id}}:assumed-role/StepFunctions-MyStateMachine-role is not authorized
 to perform: comprehend:DetectSentiment because no identity-based policy allows the comprehend:DetectSentiment
 action (Service: Comprehend, Status Code: 400, Request ID: a1b2c3d4-5678-90ab-cdef-EXAMPLE11111)

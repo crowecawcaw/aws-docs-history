@@ -1,7 +1,6 @@
 
 
 # Examining state machine executions in Step Functions
-<a name="debug-sm-exec-using-ui"></a>
 
 In this tutorial, you will learn how to inspect the execution information displayed on the *Execution Details* page and view the reason for a failed execution. Then, you'll learn how to access different iterations of a `Map` state execution. Finally, you'll learn how to configure the columns on the **Table view** and apply suitable filters to view only the information of interest to you.
 
@@ -23,7 +22,7 @@ While the following procedure contains instructions for how to examine the detai
 
 1. Copy the following code for the Lambda function into the **Code source** area of the **GetListOfFruits** page.
 
-   ```
+   ```javascript
    function getRandomSubarray(arr, size) {
        var shuffled = arr.slice(0), i = arr.length, temp, index;
        while (i--) {
@@ -62,7 +61,7 @@ While the following procedure contains instructions for how to examine the detai
 
    1. Copy the following code into the **Code source** area of the **GetFruitPrice** Lambda function:
 
-      ```
+      ```javascript
       exports.handler = async function(event, context) {
           
           const errorChance = 0;
@@ -81,7 +80,7 @@ While the following procedure contains instructions for how to examine the detai
 
    1. Copy the following code into the **Code source** area of the **CalculateAverage** Lambda function:
 
-      ```
+      ```javascript
       function getRandomSubarray(arr, size) {
           var shuffled = arr.slice(0), i = arr.length, temp, index;
           while (i--) {
@@ -133,7 +132,7 @@ Ensure that your state machine is under the same AWS account and Region as the L
 
 1. Copy the following Amazon States Language definition and paste it under **Definition**. Make sure to replace the ARNs shown with those of the Lambda functions that you previously created.
 
-   ```
+   ```json
    {
        "StartAt": "LoopOverStores",
        "States": {
@@ -242,7 +241,7 @@ Ensure that your state machine is under the same AWS account and Region as the L
 
 1. Open the page titled with your state machine name. Perform steps 1 through 4 in the [Step 4: Run the state machine](tutorial-creating-lambda-state-machine.md#start-lambda-function) section, but use the following data as the execution input:
 
-   ```
+   ```json
    {
        "stores": [
          "Store A",

@@ -1,7 +1,6 @@
 
 
 # Start a new AWS Step Functions state machine from a running execution
-<a name="connect-stepfunctions"></a>
 
 Step Functions integrates with its own API as a service integration. Learn how to use Step Functions to start a new execution of a state machine directly from the task state of a running execution. When building new workflows, use [nested workflow executions](concepts-nested-workflows.md) to reduce the complexity of your main workflows and to reuse common processes.
 
@@ -22,7 +21,7 @@ For more information, see the following:
 
 The following includes a `Task` state that starts an execution of another state machine and waits for it to complete.
 
-```
+```json
 {  
    "Type":"Task",
    "Resource":"arn:aws:states:::states:startExecution.sync:2",
@@ -39,7 +38,7 @@ The following includes a `Task` state that starts an execution of another state 
 
 The following includes a `Task` state that starts an execution of another state machine.
 
-```
+```json
 {  
    "Type":"Task",
    "Resource":"arn:aws:states:::states:startExecution",
@@ -56,7 +55,7 @@ The following includes a `Task` state that starts an execution of another state 
 
 The following includes a `Task` state that implements the [callback](connect-to-resource.md#connect-wait-token) service integration pattern.
 
-```
+```json
 { 
    "Type":"Task",
    "Resource":"arn:aws:states:::states:startExecution.waitForTaskToken",
@@ -74,7 +73,7 @@ The following includes a `Task` state that implements the [callback](connect-to-
 
 To associate a nested workflow execution with the parent execution that started it, pass a specially named parameter that includes the execution ID pulled from the [Context object](input-output-contextobject.md). When starting a nested execution, use a parameter named `AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID`. Pass the execution ID and referencing the ID in the Context object with `$states.context.Execution.Id`. For more information, see [Accessing the Context object](input-output-contextobject.md#contextobject-access).
 
-```
+```json
 {  
    "Type":"Task",
    "Resource":"arn:aws:states:::states:startExecution.sync",
@@ -102,7 +101,7 @@ Both will wait for the nested state machine to complete, but they return differe
 
 For startExecution.sync:
 
-```
+```json
 {
    {{<other fields>}}
    "Output": "{ \"MyKey\": \"MyValue\" }" 
@@ -111,7 +110,7 @@ For startExecution.sync:
 
 For startExecution.sync:2:
 
-```
+```json
 {
    {{<other fields>}} 
    "Output": {
@@ -134,7 +133,7 @@ For a state machine that calls `StartExecution` for a single nested workflow exe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -154,14 +153,14 @@ For a state machine that calls `StartExecution` for a single nested workflow exe
 For more information, see the following:
 + [Integrating services with Step Functions](integrate-services.md)
 + [Passing parameters to a service API in Step Functions](connect-parameters.md)
-+ [Start a new AWS Step Functions state machine from a running execution](#connect-stepfunctions)
++ [Start a new AWS Step Functions state machine from a running execution](connect-stepfunctions.md)
 
 ------
 #### [ Synchronous ]<a name="sync-async-iam-policies"></a>
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -204,7 +203,7 @@ For more information, see the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

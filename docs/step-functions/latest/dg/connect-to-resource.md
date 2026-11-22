@@ -1,7 +1,6 @@
 
 
 # Discover service integration patterns in Step Functions
-<a name="connect-to-resource"></a>
 
 For service integrations, you can specify various integration patterns to control how your state machine interacts with the integrated AWS services :
 + [Request Response](#connect-default) - Call a service and Step Functions will progress to the next state immediately after it receives an HTTP response.
@@ -66,7 +65,7 @@ When you specify a service in the `"Resource"` string of your task state, and yo
 
 The following example shows how you can publish an Amazon SNS topic.
 
-```
+```json
 "Send message to SNS": {
     "Type":"Task",
     "Resource":"arn:aws:states:::sns:publish",
@@ -99,7 +98,7 @@ For integrated services such as AWS Batch and Amazon ECS, Step Functions can wai
 
 For example, when submitting an AWS Batch job, use the `"Resource"` field in the state machine definition as shown in this example.
 
-```
+```json
 "Manage Batch task": {
     "Type": "Task",
     "Resource": "arn:aws:states:::batch:submitJob.sync",
@@ -167,7 +166,7 @@ In this example, a Step Functions workflow needs to integrate with an external m
 
 The `"Resource"` field of the task definition that references Amazon SQS includes `.waitForTaskToken` appended to the end.
 
-```
+```json
 "Send message to SQS": {
     "Type": "Task",
     "Resource": "arn:aws:states:::sqs:sendMessage.waitForTaskToken",
@@ -194,7 +193,7 @@ To avoid waiting indefinitely if a process fails to send the task token with `Se
 
 The Context object is an internal JSON object that contains information about your execution. Like state input, it can be accessed with a path from the `"Parameters"` field during an execution. When accessed from within a task definition, it includes information about the specific execution, including the task token.
 
-```
+```json
 {
     "Execution": {
         "Id": "arn:aws:states:{{region}}:{{account-id}}:execution:stateMachineName:executionName",
@@ -222,7 +221,7 @@ The Context object is an internal JSON object that contains information about yo
 
 You can access the task token by using a special path from inside the `"Parameters"` field of your task definition. To access the input or the Context object, you first specify that the parameter will be a path by appending a `.$` to the parameter name. The following specifies nodes from both the input and the Context object in a `"Parameters"` specification.
 
-```
+```json
 "Parameters": {
     "Input.$": "$",
     "TaskToken.$": "$$.Task.Token"
@@ -233,7 +232,7 @@ In both cases, appending `.$` to the parameter name tells Step Functions to expe
 
 In the Amazon SQS example, `.waitForTaskToken` in the `"Resource"` field tells Step Functions to wait for the task token to be returned. The `"TaskToken.$": "$$.Task.Token"` parameter passes that token as a part of the Amazon SQS message.
 
-```
+```json
 "Send message to SQS": {
     "Type": "Task",
     "Resource": "arn:aws:states:::sqs:sendMessage.waitForTaskToken",
@@ -255,7 +254,7 @@ For more information about the Context object, see [Accessing execution data fro
 
 A task that is waiting for a task token will wait until the execution reaches the one year service quota (see, [Quotas related to state throttling](service-quotas.md#service-limits-api-state-throttling)). To avoid stuck executions you can configure a heartbeat timeout interval in your state machine definition. Use the [`HeartbeatSeconds`](state-task.md) field to specify the timeout interval.
 
-```
+```json
 {
     "StartAt": "Push to SQS",
         "States": {

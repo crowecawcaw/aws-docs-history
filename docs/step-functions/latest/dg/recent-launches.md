@@ -1,7 +1,6 @@
 
 
 # Recent feature launches
-<a name="recent-launches"></a>
 
 The following table lists dates and links to announcements for recent Step Functions feature releases:
 

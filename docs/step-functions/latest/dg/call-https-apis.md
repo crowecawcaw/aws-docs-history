@@ -1,7 +1,6 @@
 
 
 # Call HTTPS APIs in Step Functions workflows
-<a name="call-https-apis"></a>
 
 An HTTP Task is a type of [Task workflow state](state-task.md) state that you can use to call HTTPS APIs in your workflows. The API can be public, such as third-party SaaS applications like Stripe or Salesforce. You can also call private API, such as HTTPS-based applications in an Amazon Virtual Private Cloud.
 
@@ -48,7 +47,7 @@ HTTP task requests will timeout after 60 seconds.
 
 The [ASL definition](concepts-amazon-states-language.md) represents an HTTP Task with `http:invoke` resource. The following HTTP Task definition invokes a public Stripe API that returns a list of all customers.
 
-```
+```json
 "Call HTTPS API": {
   "Type": "Task",
   "Resource": "arn:aws:states:::http:invoke",
@@ -357,52 +356,52 @@ To encode arrays in your request body, Step Functions provides the following arr
 
   For example, if your request body contains the following array.
 
-  ```
+  ```json
   {"array": ["a","b","c","d"]}
   ```
 
   Step Functions encodes this array to the following string.
 
-  ```
+  ```json
   array[0]=a&array[1]=b&array[2]=c&array[3]=d
   ```
 + `REPEAT` – Repeats a key for each item in an array.
 
   For example, if your request body contains the following array.
 
-  ```
+  ```json
   {"array": ["a","b","c","d"]}
   ```
 
   Step Functions encodes this array to the following string.
 
-  ```
+  ```json
   array=a&array=b&array=c&array=d
   ```
 + `COMMAS` – Encodes all the values in a key as a comma-delimited list of values.
 
   For example, if your request body contains the following array.
 
-  ```
+  ```json
   {"array": ["a","b","c","d"]}
   ```
 
   Step Functions encodes this array to the following string.
 
-  ```
+  ```json
   array=a,b,c,d
   ```
 + `BRACKETS` – Repeats a key for each item in an array and appends a bracket, [], to the key to indicate that it is an array.
 
   For example, if your request body contains the following array.
 
-  ```
+  ```json
   {"array": ["a","b","c","d"]}
   ```
 
   Step Functions encodes this array to the following string.
 
-  ```
+  ```json
   array[]=a&array[]=b&array[]=c&array[]=d
   ```
 
@@ -419,7 +418,7 @@ The following IAM policy example grants the least privileges required to your st
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

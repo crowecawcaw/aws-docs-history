@@ -1,7 +1,6 @@
 
 
 # Orchestrate AWS Lambda functions with Step Functions
-<a name="sample-lambda-orchestration"></a>
 
 The **Orchestrate Lambda functions** template uses several Lambda functions in a sample stock trading workflow. One function checks a stock price, then a human is prompted to choose to buy or sell the stock. A choice state selects the next function based on the `recommended_type` variable to complete the purchase or sale. After either function finishes, the result of the trade is then published before reaching the end of the workflow.
 

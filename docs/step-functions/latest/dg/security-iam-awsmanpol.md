@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Step Functions
-<a name="security-iam-awsmanpol"></a>
 
 
 

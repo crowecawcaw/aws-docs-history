@@ -1,7 +1,6 @@
 
 
 # Passing parameters to a service API in Step Functions
-<a name="connect-parameters"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -21,7 +20,7 @@ You can include a JSON object directly in your state machine definition to pass 
 
 For example, to set the `RetryStrategy` parameter for the `SubmitJob` API for AWS Batch, you could include the following in your parameters.
 
-```
+```json
 "RetryStrategy": {
   "attempts": 5
 }
@@ -29,7 +28,7 @@ For example, to set the `RetryStrategy` parameter for the `SubmitJob` API for AW
 
 You can also pass multiple parameters with static JSON. As a more complete example, the following are the `Resource` and `Parameters` fields of the specification of a task that publishes to an Amazon SNS topic named `{{myTopic}}`.
 
-```
+```json
 "Resource": "arn:aws:states:::sns:publish",
   "Parameters": {
      "TopicArn": "arn:aws:sns:us-east-2:{{account-id}}:{{myTopic}}",
@@ -56,7 +55,7 @@ To specify that a parameter use a path, end the parameter name with `.$`. For ex
 
 Consider the following state input:
 
-```
+```json
 {
   "comment": "A message in the state input",
   "input": {
@@ -69,7 +68,7 @@ Consider the following state input:
 
 To pass the value of the node named `message` as a parameter named `myMessage`, specify the following syntax:
 
-```
+```json
 "Parameters": {"myMessage.$": "$.input.message"},
 ```
 

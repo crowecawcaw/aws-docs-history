@@ -1,7 +1,6 @@
 
 
 # Triage support tickets with Amazon Bedrock AgentCore invokeHarness
-<a name="sample-bedrock-agentcore-invoke-harness"></a>
 
 This sample project demonstrates how you can use Amazon Bedrock AgentCore invokeHarness to triage customer-support tickets with AI. The state machine issues two invokeHarness calls with role-specific system prompts. First, an analyst prompt analyzes the ticket for category, sentiment, and urgency. Then, a triage director prompt recommends an action. The workflow records the final triage decision to an Amazon DynamoDB table.
 

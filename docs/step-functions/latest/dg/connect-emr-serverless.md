@@ -1,7 +1,6 @@
 
 
 # Create and manage Amazon EMR Serverless applications with Step Functions
-<a name="connect-emr-serverless"></a>
 
 Learn how to create, start, stop, and delete applications on EMR Serverless using Step Functions. This page lists the supported APIs and provides example `Task` states to perform common use cases.
 
@@ -58,7 +57,7 @@ In the examples shown in the following use cases, replace the {{italicized}} tex
 
 The following Task state example creates an application using the *createApplication.sync* service integration API.
 
-```
+```json
 "Create_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:createApplication.sync",
@@ -76,7 +75,7 @@ The following Task state example creates an application using the *createApplica
 
 The following Task state example starts an application using the *startApplication.sync* service integration API.
 
-```
+```json
 "Start_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:startApplication.sync",
@@ -92,7 +91,7 @@ The following Task state example starts an application using the *startApplicati
 
 The following Task state example stops an application using the *stopApplication.sync* service integration API.
 
-```
+```json
 "Stop_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:stopApplication.sync",
@@ -108,7 +107,7 @@ The following Task state example stops an application using the *stopApplication
 
 The following Task state example deletes an application using the *deleteApplication.sync* service integration API.
 
-```
+```json
 "Delete_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:deleteApplication.sync",
@@ -124,7 +123,7 @@ The following Task state example deletes an application using the *deleteApplica
 
 The following Task state example starts a job in an application using the *startJobRun.sync* service integration API.
 
-```
+```json
 "Start_Job": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:startJobRun.sync",
@@ -148,7 +147,7 @@ The following Task state example starts a job in an application using the *start
 
 The following Task state example cancels a job in an application using the *cancelJobRun.sync* service integration API.
 
-```
+```json
 "Cancel_Job": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:cancelJobRun.sync",
@@ -195,7 +194,7 @@ Static and dynamic resources for the following policies are the same.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -248,7 +247,7 @@ Static and dynamic resources for the following policies are the same.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    
@@ -289,7 +288,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -324,7 +323,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -351,7 +350,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -386,7 +385,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -416,7 +415,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -450,7 +449,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -477,7 +476,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -511,7 +510,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -541,7 +540,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -575,7 +574,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -602,7 +601,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -636,7 +635,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -666,7 +665,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -721,7 +720,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -760,7 +759,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -807,7 +806,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -849,7 +848,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -883,7 +882,7 @@ The following are IAM policy examples for static resources when you use a state 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -910,7 +909,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -944,7 +943,7 @@ The following are IAM policy examples for dynamic resources when you use a state
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

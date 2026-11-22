@@ -1,7 +1,6 @@
 
 
 # Use your Step Functions workflows as tools for AI agents
-<a name="tutorial-agentcore-gateway"></a>
 
 You can let AI agents run your Step Functions workflows by exposing a state machine as Model Context Protocol (MCP) tools through Amazon Bedrock AgentCore Gateway. An agent connected to the gateway can start executions, check their status and output, read the event history, and stop executions. You don't need to write a Lambda function or define the tools yourself. The gateway creates the tool schemas and calls Step Functions for the agent.
 
@@ -40,7 +39,7 @@ Create a Standard state machine for the agent to run. The following definition h
 
 1. Choose **Code** and replace the definition with the following.
 
-   ```
+   ```json
    {
      "Comment": "A workflow that an AI agent starts through AgentCore Gateway",
      "StartAt": "Hello",
@@ -72,7 +71,7 @@ To create the same state machine with the AWS CLI instead, use the following pro
 
 1. Create an execution role that Step Functions can assume. Replace the Region and account ID with your own.
 
-   ```
+   ```bsh
    aws iam create-role \
      --role-name AgentHelloWorldExecutionRole \
      --assume-role-policy-document '{
@@ -97,7 +96,7 @@ To create the same state machine with the AWS CLI instead, use the following pro
 
 1. Save the definition shown in the console procedure to a file named `definition.json`, and then create the state machine.
 
-   ```
+   ```bsh
    aws stepfunctions create-state-machine \
      --name AgentHelloWorld \
      --type STANDARD \
@@ -119,7 +118,7 @@ The gateway calls Step Functions with a service role. Scope the role to the stat
 
 1. For **Trusted entity type**, choose **Custom trust policy**, and enter the following. Replace the Region and account ID with your own.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -146,7 +145,7 @@ The gateway calls Step Functions with a service role. Scope the role to the stat
 
 1. Open the role, choose **Add permissions**, **Create inline policy**, choose **JSON**, and enter the following policy. Replace the Region and account ID with your own.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -196,7 +195,7 @@ Create a gateway that accepts requests signed with AWS credentials, and then add
 
 1. Create the gateway with the AWS CLI. Replace the role ARN with the one from Step 2.
 
-   ```
+   ```bsh
    aws bedrock-agentcore-control create-gateway \
      --name "step-functions-gateway" \
      --protocol-type MCP \
@@ -209,7 +208,7 @@ Create a gateway that accepts requests signed with AWS credentials, and then add
 
 1. Wait until the gateway status is `READY`. This can take a few minutes. Replace {{GATEWAY\_ID}} with the `gatewayId` from the previous step.
 
-   ```
+   ```bsh
    aws bedrock-agentcore-control get-gateway \
      --gateway-identifier "{{GATEWAY_ID}}" \
      --query status --output text --region {{{{region}}}}
@@ -217,7 +216,7 @@ Create a gateway that accepts requests signed with AWS credentials, and then add
 
 1. Add the connector target. The `configurations` list chooses which operations become tools. `StartExecution`, `ListExecutions`, and `DescribeStateMachine` are pinned to your state machine. `DescribeExecution`, `GetExecutionHistory`, and `StopExecution` take an execution ARN from the agent. Replace {{GATEWAY\_ID}} with your gateway ID.
 
-   ```
+   ```bsh
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "{{GATEWAY_ID}}" \
      --name "hello" \
@@ -257,7 +256,7 @@ Create a gateway that accepts requests signed with AWS credentials, and then add
 
 1. Wait until the target status is `READY`. This can take a few minutes. Replace {{TARGET\_ID}} with the `targetId` from the `create-gateway-target` response.
 
-   ```
+   ```bsh
    aws bedrock-agentcore-control get-gateway-target \
      --gateway-identifier "{{GATEWAY_ID}}" --target-id "{{TARGET_ID}}" \
      --query status --output text --region {{{{region}}}}
@@ -274,7 +273,7 @@ An MCP client calls the gateway with JSON-RPC requests. Because the gateway uses
 
 1. List the tools the agent sees.
 
-   ```
+   ```bsh
    awscurl --service bedrock-agentcore --region {{{{region}}}} \
      -X POST "{{GATEWAY_URL}}" \
      -H "Content-Type: application/json" \
@@ -285,7 +284,7 @@ An MCP client calls the gateway with JSON-RPC requests. Because the gateway uses
 
 1. Start an execution.
 
-   ```
+   ```bsh
    awscurl --service bedrock-agentcore --region {{{{region}}}} \
      -X POST "{{GATEWAY_URL}}" \
      -H "Content-Type: application/json" \
@@ -302,7 +301,7 @@ An MCP client calls the gateway with JSON-RPC requests. Because the gateway uses
 
    The tool result contains the Step Functions response with the new execution's ARN.
 
-   ```
+   ```json
    {
      "jsonrpc": "2.0",
      "id": 2,
@@ -329,7 +328,7 @@ Use the execution-level tools to check whether the execution succeeded and to re
 
 1. Describe the execution. By default, the response contains metadata only. To include the input and output, set `includedData` to `ALL_DATA`. Replace {{EXECUTION\_ARN}} with the `executionArn` from Step 4.
 
-   ```
+   ```bsh
    awscurl --service bedrock-agentcore --region {{{{region}}}} \
      -X POST "{{GATEWAY_URL}}" \
      -H "Content-Type: application/json" \
@@ -351,7 +350,7 @@ Use the execution-level tools to check whether the execution succeeded and to re
 
 1. Read the event history to see each step the execution took.
 
-   ```
+   ```bsh
    awscurl --service bedrock-agentcore --region {{{{region}}}} \
      -X POST "{{GATEWAY_URL}}" \
      -H "Content-Type: application/json" \
@@ -368,7 +367,7 @@ Use the execution-level tools to check whether the execution succeeded and to re
 
 1. List recent executions of the pinned state machine, optionally filtered by status.
 
-   ```
+   ```bsh
    awscurl --service bedrock-agentcore --region {{{{region}}}} \
      -X POST "{{GATEWAY_URL}}" \
      -H "Content-Type: application/json" \
@@ -397,7 +396,7 @@ To avoid ongoing charges, delete the resources that you created.
 
 1. Delete the gateway target, and then the gateway.
 
-   ```
+   ```bsh
    aws bedrock-agentcore-control delete-gateway-target \
      --gateway-identifier "{{GATEWAY_ID}}" --target-id "{{TARGET_ID}}" --region {{{{region}}}}
    aws bedrock-agentcore-control delete-gateway \

@@ -1,7 +1,6 @@
 
 
 # Gather Amazon S3 bucket info using AWS SDK service integrations
-<a name="tutorial-gather-s3-info"></a>
 
 This tutorial shows you how to perform an [AWS SDK integration](supported-services-awssdk.md) with Amazon Simple Storage Service. The state machine you create in this tutorial gathers information about your Amazon S3 buckets, then list your buckets along with version information for each bucket in the current region. 
 
@@ -20,7 +19,7 @@ Using the Step Functions console, you'll create a state machine that includes a 
 
 1. Remove the existing boilerplate code and paste the following state machine definition.
 
-   ```
+   ```json
    {
      "Comment": "A description of my state machine",
      "StartAt": "ListBuckets",
@@ -113,7 +112,7 @@ To gather information about the Amazon S3 buckets in your current region, you mu
 1. Choose the **JSON** tab, and then paste the following permissions into the JSON editor.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

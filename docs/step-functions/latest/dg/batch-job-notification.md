@@ -1,7 +1,6 @@
 
 
 # Manage a batch job with AWS Batch and Amazon SNS
-<a name="batch-job-notification"></a>
 
 This sample project demonstrates how to submit an AWS Batch job, and then send an Amazon SNS notification based on whether that job succeeds or fails. Deploying this sample project creates an AWS Step Functions state machine, an AWS Batch job, and an Amazon SNS topic.
 

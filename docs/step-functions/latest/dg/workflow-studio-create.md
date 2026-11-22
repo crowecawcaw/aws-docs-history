@@ -1,7 +1,6 @@
 
 
 # Creating a workflow with Workflow Studio in Step Functions
-<a name="workflow-studio-create"></a>
 
 Learn to create, edit, and run workflows using Step Functions Workflow Studio. After your workflow is ready, you can save, run, and export it. 
 

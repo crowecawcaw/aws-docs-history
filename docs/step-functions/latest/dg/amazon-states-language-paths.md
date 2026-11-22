@@ -1,7 +1,6 @@
 
 
 # Using JSONPath paths
-<a name="amazon-states-language-paths"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -22,7 +21,7 @@ A *reference path* is a path whose syntax is limited in such a way that it can i
 
 For example, if state input data contains the following values:
 
-```
+```json
 {
   "foo": 123,
   "bar": ["a", "b", "c"],
@@ -49,7 +48,7 @@ If the [Parallel workflow state](state-parallel.md) or [Map workflow state](stat
 
 To flatten arrays, use the syntax: `[*]` in the `ResultSelector` field as shown in the following example.
 
-```
+```json
 "ResultSelector": {
     "flattenArray.$": "$[*][*]"
   }

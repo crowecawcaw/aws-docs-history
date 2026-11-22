@@ -1,7 +1,6 @@
 
 
 # Recording Step Functions API calls with AWS CloudTrail
-<a name="procedure-cloud-trail"></a>
 
 AWS Step Functions is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Step Functions as events. The calls captured include calls from the Step Functions console and code calls to the Step Functions API operations. Using the information collected by CloudTrail, you can determine the request that was made to Step Functions, the IP address from which the request was made, when it was made, and additional details.
 
@@ -105,7 +104,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail **data event** that demonstrates `InvokeHTTPEndpoint`.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -142,7 +141,7 @@ The following example shows a CloudTrail **data event** that demonstrates `Invok
 
 The following example shows a CloudTrail **management event** that demonstrates the `CreateStateMachine` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

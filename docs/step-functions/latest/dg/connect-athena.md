@@ -1,7 +1,6 @@
 
 
 # Run Athena queries with Step Functions
-<a name="connect-athena"></a>
 
 You can integrate AWS Step Functions with Amazon Athena to start and stop query execution and get query results with Step Functions. Using Step Functions, you can run ad-hoc or scheduled data queries, and retrieve results targeting your S3 data lakes. Athena is serverless, so there is no infrastructure to set up or manage, and you pay only for the queries you run. This page lists the supported Athena APIs and provides an example `Task` state to start an Athena query.
 
@@ -26,7 +25,7 @@ The service integration APIs are the same as the corresponding Athena APIs. Not 
 
 The following includes a Task state that starts an Athena query.
 
-```
+```json
 "Start an Athena query": {
   "Type": "Task",
   "Resource": "arn:aws:states:::athena:startQueryExecution.sync",
@@ -69,7 +68,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -154,7 +153,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -237,7 +236,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -322,7 +321,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -405,7 +404,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -429,7 +428,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -453,7 +452,7 @@ In addition to IAM policies, you might need to use AWS Lake Formation to grant a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[

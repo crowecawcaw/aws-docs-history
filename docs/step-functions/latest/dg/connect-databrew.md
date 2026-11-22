@@ -1,7 +1,6 @@
 
 
 # Start AWS Glue DataBrew jobs with Step Functions
-<a name="connect-databrew"></a>
 
 Learn how you can use the DataBrew integration to add data cleaning and data normalization steps into your analytics and machine learning workflows with Step Functions.
 
@@ -9,7 +8,7 @@ To learn about integrating with AWS services in Step Functions, see [Integrating
 
 The following includes a `Task` state that starts a request-response DataBrew job.
 
-```
+```json
 "DataBrew StartJobRun": {
             "Type": "Task",
             "Resource": "arn:aws:states:::databrew:startJobRun",
@@ -22,7 +21,7 @@ The following includes a `Task` state that starts a request-response DataBrew jo
 
 The following includes a `Task` state that starts a sync DataBrew job.
 
-```
+```json
 "DataBrew StartJobRun": {
            "Type": "Task",
            "Resource": "arn:aws:states:::databrew:startJobRun.sync",
@@ -50,7 +49,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ The following example templates show how AWS Step Functions generates IAM polici
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

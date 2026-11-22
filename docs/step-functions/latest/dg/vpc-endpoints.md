@@ -1,7 +1,6 @@
 
 
 # Creating Amazon VPC endpoints for Step Functions
-<a name="vpc-endpoints"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a connection between your Amazon VPC and AWS Step Functions workflows. You can use this connection with your Step Functions workflows without crossing the public internet. Amazon VPC endpoints are supported by Standard Workflows, Express Workflows, and Synchronous Express Workflows. 
 
@@ -22,7 +21,7 @@ For information about creating and configuring an endpoint using the Amazon VPC 
 **Note**  
 It's possible to use VPC Endpoints without overriding the endpoint in the SDK through [Private DNS](https://docs.aws.amazon.com/vpc/latest/privatelink/verify-domains.html). However, if you want to override the endpoint in the SDK for Synchronous Express Workflows, you need to set `DisableHostPrefixInjection` configuration to `true`. Example (Java SDK V2):   
 
-```
+```java
 SfnClient.builder()
   .endpointOverride(URI.create("https://vpce-{vpceId}.sync-states.us-east-1.vpce.amazonaws.com"))
   .overrideConfiguration(ClientOverrideConfiguration.builder()
@@ -53,7 +52,7 @@ The following example shows an Amazon VPC endpoint policy that allows one user t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

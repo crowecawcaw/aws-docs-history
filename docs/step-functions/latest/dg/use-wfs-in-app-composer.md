@@ -1,7 +1,6 @@
 
 
 # Using Workflow Studio in Infrastructure Composer to build Step Functions workflows
-<a name="use-wfs-in-app-composer"></a>
 
 Workflow Studio is available in Infrastructure Composer to help you design and build your workflows. Workflow Studio in Infrastructure Composer provides a visual infrastructure as code (IaC) environment that makes it easy for you to incorporate workflows in your serverless applications built using IaC tools, such as CloudFormation templates. 
 

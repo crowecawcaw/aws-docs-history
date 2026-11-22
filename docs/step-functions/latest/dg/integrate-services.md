@@ -1,7 +1,6 @@
 
 
 # Integrating services with Step Functions
-<a name="integrate-services"></a>
 
 Learn how to integrate AWS services and call HTTPS APIs with Step Functions. With service integrations, your workflows can coordinate resources and orchestrate your business processes. 
 

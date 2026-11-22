@@ -1,7 +1,6 @@
 
 
 # Best practices for Step Functions
-<a name="sfn-best-practices"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -116,7 +115,7 @@ For example, you could restrict access to all Step Functions resources that incl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -170,7 +169,7 @@ To avoid this situation, specify a reasonable timeout when you create a `Task` i
 
 If you use a [callback with a task token (.waitForTaskToken)](connect-to-resource.md#connect-wait-token), we recommend that you use heartbeats and add the `HeartbeatSeconds` field in your `Task` state definition. You can set `HeartbeatSeconds` to be less than the task timeout so if your workflow fails with a heartbeat error then you know it's because of the task failure instead of the task taking a long time to complete.
 
-```
+```json
 {
   "StartAt": "Push to SQS",
   "States": {
@@ -207,7 +206,7 @@ The following Lambda function named `{{pass-large-payload}}` reads the contents 
 **Note**  
 After you create this Lambda function, make sure you provide its IAM role the appropriate permission to read from an Amazon S3 bucket. For example, attach the **AmazonS3ReadOnlyAccess** permission to the Lambda function's role.
 
-```
+```python
 import json
 import boto3
 import io
@@ -238,7 +237,7 @@ def lambda_handler(event, context):
 **Create the state machine**  
 The following state machine invokes the Lambda function you previously created.
 
-```
+```json
 {  
    "StartAt":"Invoke Lambda function",
    "States":{  
@@ -260,7 +259,7 @@ The following state machine invokes the Lambda function you previously created.
 
 Rather than pass a large amount of data in the input, you could save that data in an Amazon S3 bucket, and pass the Amazon Resource Name (ARN) of the bucket in the `Payload` parameter to get the bucket name and key value. Your Lambda function can then use that ARN to access the data directly. The following is example input for the state machine execution, where the data is stored in `data.json` in an Amazon S3 bucket named `{{amzn-s3-demo-large-payload-json}}`.
 
-```
+```json
 {
   "key": "data.json",
   "bucket": "{{arn:aws:s3:::amzn-s3-demo-large-payload-json}}"
@@ -288,7 +287,7 @@ AWS Lambda can occasionally experience transient service errors. In this case, i
 
 Lambda errors are reported as `Lambda.{{ErrorName}}`. To retry a Lambda service exception error, you could use the following `Retry` code.
 
-```
+```json
 "Retry": [ {
    "ErrorEquals": [ "Lambda.ClientExecutionTimeoutException", "Lambda.ServiceException", "Lambda.AWSLambdaException", "Lambda.SdkClientException"],
    "IntervalSeconds": 2,

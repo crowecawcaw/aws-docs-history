@@ -1,7 +1,6 @@
 
 
 # Intrinsic functions for JSONPath states in Step Functions
-<a name="intrinsic-functions"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -28,13 +27,13 @@ In Amazon States Language, intrinsic functions are grouped into the following ca
 
 To use intrinsic functions, you must specify `.$` in the key value in your state machine definitions, as shown in the following example:
 
-```
+```json
 {{"KeyId.$": "{{States.Array}}($.Id)"}}
 ```
 
 You can nest up to 10 intrinsic functions within a field in your workflows. The following example shows a field named `{{myArn}}` that includes nine nested intrinsic functions:
 
-```
+```json
 "{{myArn.$}}": "States.Format('{}.{}.{}', States.ArrayGetItem(States.StringSplit(States.ArrayGetItem(States.StringSplit({{$.ImageRecipe.Arn}}, '/'), 2), '.'), 0), States.ArrayGetItem(States.StringSplit(States.ArrayGetItem(States.StringSplit({{$.ImageRecipe.Arn}}, '/'), 2), '.'), 1))"
 ```
 
@@ -66,7 +65,7 @@ The `States.Array` intrinsic function takes zero or more arguments. The interpre
 ```
 You could use  
 
-```
+```json
 "BuildId.$": "States.Array($.Id)"
 ```
 Which would return the following result:``  
@@ -87,17 +86,17 @@ This intrinsic function takes two arguments. The first argument is an array, whi
 + The input array can't exceed Step Functions' payload size limit of 256 KiB.
 For example, given the following input array:  
 
-```
+```json
 {"inputArray": [1,2,3,4,5,6,7,8,9] }
 ```
 You could use the `States.ArrayPartition` function to divide the array into chunks of four values:  
 
-```
+```json
 "inputArray.$": "States.ArrayPartition($.inputArray,4)"
 ```
 Which would return the following array chunks:  
 
-```
+```json
 {"inputArray": [ [1,2,3,4], [5,6,7,8], [9]] }
 ```
 In the previous example, the `States.ArrayPartition` function outputs three arrays. The first two arrays each contain four values, as defined by the chunk size. A third array contains the remaining value and is smaller than the defined chunk size.
@@ -112,7 +111,7 @@ This intrinsic function takes two arguments. The first argument is an array, whi
 + The input array can't exceed Step Functions' payload size limit of 256 KiB.
 For example, given the following input array:  
 
-```
+```json
 {
    "inputArray": [1,2,3,4,5,6,7,8,9],
    "lookingFor": 5
@@ -120,12 +119,12 @@ For example, given the following input array:
 ```
 You could use the `States.ArrayContains` function to find the `lookingFor` value within the `inputArray`:  
 
-```
+```json
 "contains.$": "States.ArrayContains($.inputArray, $.lookingFor)"
 ```
 Because the value stored in `lookingFor` is included in the `inputArray`, `States.ArrayContains` returns the following result:  
 
-```
+```json
 {"contains": true }
 ```
 
@@ -141,12 +140,12 @@ This function takes three arguments. The first argument is the first element of 
 + The newly generated array can't contain more than 1000 items.
 For example, the following use of the `States.ArrayRange` function will create an array with a first value of 1, a final value of 9, and values in between the first and final values increase by two for each item:  
 
-```
+```json
 "array.$": "States.ArrayRange(1, 9, 2)"
 ```
 Which would return the following array:  
 
-```
+```json
 {"array": [1,3,5,7,9] }
 ```
 
@@ -154,7 +153,7 @@ Which would return the following array:
 This intrinsic function returns a specified index's value. This function takes two arguments. The first argument is an array of values and the second argument is the array index of the value to return.  
 For example, use the following `inputArray` and `index` values:  
 
-```
+```json
 {
    "inputArray": [1,2,3,4,5,6,7,8,9],
    "index": 5
@@ -162,12 +161,12 @@ For example, use the following `inputArray` and `index` values:
 ```
 From these values, you can use the `States.ArrayGetItem` function to return the value in the `index` position 5 within the array:  
 
-```
+```json
 "item.$": "States.ArrayGetItem($.inputArray, $.index)"
 ```
 In this example, `States.ArrayGetItem` would return the following result:  
 
-```
+```json
 { "item": 6 }
 ```
 
@@ -175,19 +174,19 @@ In this example, `States.ArrayGetItem` would return the following result:
 The `States.ArrayLength` intrinsic function returns the length of an array. It has one argument, the array to return the length of.  
 For example, given the following input array:  
 
-```
+```json
 {
    "inputArray": [1,2,3,4,5,6,7,8,9]
 }
 ```
 You can use `States.ArrayLength` to return the length of `inputArray`:  
 
-```
+```json
 "length.$": "States.ArrayLength($.inputArray)"
 ```
 In this example, `States.ArrayLength` would return the following JSON object that represents the array length:  
 
-```
+```json
 { "length": 9 }
 ```
 
@@ -195,17 +194,17 @@ In this example, `States.ArrayLength` would return the following JSON object tha
 The `States.ArrayUnique` intrinsic function removes duplicate values from an array and returns an array containing only unique elements. This function takes an array, which can be unsorted, as its sole argument.  
 For example, the following `inputArray` contains a series of duplicate values:  
 
-```
+```json
 {"inputArray": [1,2,3,3,3,3,3,3,4] }
 ```
 You could use the `States.ArrayUnique` function as and specify the array you want to remove duplicate values from:  
 
-```
+```json
 "array.$": "States.ArrayUnique($.inputArray)"
 ```
 The `States.ArrayUnique` function would return the following array containing only unique elements, removing all duplicate values:  
 
-```
+```json
 {"array": [1,2,3,4] }
 ```
 
@@ -219,17 +218,17 @@ Use the `States.Base64Encode` intrinsic function to encode data based on MIME Ba
 This function takes a data string of up to 10,000 characters to encode as its only argument.  
 For example, consider the following `input` string:  
 
-```
+```json
 {"input": "Data to encode" }
 ```
 You can use the `States.Base64Encode` function to encode the `input` string as a MIME Base64 string:  
 
-```
+```json
 "base64.$": "States.Base64Encode($.input)"
 ```
 The `States.Base64Encode` function returns the following encoded data in response:  
 
-```
+```json
 {"base64": "RGF0YSB0byBlbmNvZGU=" }
 ```
 
@@ -238,17 +237,17 @@ Use the `States.Base64Decode` intrinsic function to decode data based on MIME Ba
 This function takes a Base64 encoded data string of up to 10,000 characters to decode as its only argument.  
 For example, given the following input:  
 
-```
+```json
 {"base64": "RGF0YSB0byBlbmNvZGU=" }
 ```
 You can use the `States.Base64Decode` function to decode the base64 string to a human-readable string:  
 
-```
+```json
 "data.$": "States.Base64Decode($.base64)"
 ```
 The `States.Base64Decode function` would return the following decoded data in response:  
 
-```
+```json
 {"data": "Decoded data" }
 ```
 
@@ -266,7 +265,7 @@ The hashing algorithm you specify can be any of the following algorithms:
 + `SHA-512`
 For example, you can use this function to calculate the hash value of the `Data` string using the specified `Algorithm`:  
 
-```
+```json
 {
    "Data": "input data", 
    "Algorithm": "SHA-1" 
@@ -274,12 +273,12 @@ For example, you can use this function to calculate the hash value of the `Data`
 ```
 You can use the `States.Hash` function to calculate the hash value:  
 
-```
+```json
 "output.$": "States.Hash($.Data, $.Algorithm)"
 ```
 The `States.Hash` function returns the following hash value in response:  
 
-```
+```json
 {"output": "aaff4a450a104cd177d28d18d7485e8cae074b7" }
 ```
 
@@ -293,7 +292,7 @@ Use the `States.JsonMerge` intrinsic function to merge two JSON objects into a s
 Currently, Step Functions only supports the shallow merging mode; therefore, you must specify the boolean value as `false`. In the shallow mode, if the same key exists in both JSON objects, the latter object's key overrides the same key in the first object. Additionally, objects nested within a JSON object are not merged when you use shallow merging.  
 For example, you can use the `States.JsonMerge` function to merge the following JSON objects that share the key `a`.  
 
-```
+```json
 {
    "json1": { "a": {"a1": 1, "a2": 2}, "b": 2 },
    "json2": { "a": {"a3": 1, "a4": 2}, "c": 3 }
@@ -301,12 +300,12 @@ For example, you can use the `States.JsonMerge` function to merge the following 
 ```
 You can specify the json1 and json2 objects as inputs in the `States.JsonMerge` function to merge them together:  
 
-```
+```json
 "output.$": "States.JsonMerge($.json1, $.json2, false)"
 ```
 The `States.JsonMerge` returns the following merged JSON object as result. In the merged JSON object `output`, the `json2` object's key `a` replaces the `json1` object's key `a`. Also, the nested object in `json1` object's key `a` is discarded because shallow mode doesn't support merging nested objects.  
 
-```
+```json
 {
    "output": {
       "a": {"a3": 1, "a4": 2},
@@ -320,14 +319,14 @@ The `States.JsonMerge` returns the following merged JSON object as result. In th
 The `States.StringToJson` function takes a reference path to an escaped JSON string as its only argument.  
 The interpreter applies a JSON parser and returns the input's parsed JSON form. For example, you can use this function to escape the following input string:  
 
-```
+```json
 {
  "escapedJsonString": "{\"foo\": \"bar\"}"
 }
 ```
 Use the `States.StringToJson` function and specify the `escapedJsonString` as the input argument:  
 
-```
+```json
 States.StringToJson($.escapedJsonString)
 ```
 The `States.StringToJson` function returns the following result:   
@@ -348,7 +347,7 @@ The `States.JsonToString` function takes only one argument, which is the path th
 ```
 Provide the `States.JsonToString` function with the data contained within `unescapedJson`:  
 
-```
+```json
 States.JsonToString($.unescapedJson)
 ```
 The `States.JsonToString` function returns the following response:  
@@ -374,7 +373,7 @@ Because the `States.MathRandom` function does not return cryptographically secur
   If you specify a non-integer value for the start number or end number argument, Step Functions will round it off to the nearest integer.
 For example, to generate a random number between one and 999, you can use the following input values:  
 
-```
+```json
 {
    "start": 1,
    "end": 999
@@ -382,12 +381,12 @@ For example, to generate a random number between one and 999, you can use the fo
 ```
 To generate the random number, provide the `start` and `end` values to the `States.MathRandom` function:  
 
-```
+```json
 "random.$": "States.MathRandom($.start, $.end)"
 ```
 The `States.MathRandom` function returns the following random number as a response:  
 
-```
+```json
 {"random": 456 }
 ```
 
@@ -401,7 +400,7 @@ Use the `States.MathAdd` intrinsic function to return the sum of two numbers. Fo
 + You must specify integer values in the range of -2147483648 and 2147483647.
 For example, you can use the following values to subtract one from 111:  
 
-```
+```json
 {
    "value1": 111,
    "step": -1
@@ -409,12 +408,12 @@ For example, you can use the following values to subtract one from 111:
 ```
 Then, use the `States.MathAdd` function defining `value1` as the starting value, and `step` as the value to increment `value1` by:  
 
-```
+```json
 "value1.$": "States.MathAdd($.value1, $.step)"
 ```
 The `States.MathAdd` function would return the following number in response:  
 
-```
+```json
 {"value1": 110 }
 ```
 
@@ -427,7 +426,7 @@ Use the `States.StringSplit` intrinsic function to split a string into an array 
 **Example - Split an input string using a single delimiting character**  
 For this example, use `States.StringSplit` to divide the following `inputString`, which contains a series of comma separated values:  
 
-```
+```json
 {
     "inputString": "1,2,3,4,5",
     "splitter": ","
@@ -435,19 +434,19 @@ For this example, use `States.StringSplit` to divide the following `inputString`
 ```
 Use the `States.StringSplit` function and define `inputString` as the first argument, and the delimiting character `splitter` as the second argument:  
 
-```
+```json
 "array.$": "States.StringSplit($.inputString, $.splitter)"
 ```
 The `States.StringSplit` function returns the following string array as result:  
 
-```
+```json
 {"array":  ["1","2","3","4","5"] }
 ```
 
 **Example - Split an input string using multiple delimiting characters**  
 For this example, use `States.StringSplit` to divide the following `inputString`, which contains multiple delimiting characters:  
 
-```
+```json
 {
   "inputString": "This.is+a,test=string",
   "splitter": ".+,="
@@ -455,14 +454,14 @@ For this example, use `States.StringSplit` to divide the following `inputString`
 ```
 Use the `States.StringSplit` function as follows:  
 
-```
+```json
 {
   "myStringArray.$": "States.StringSplit($.inputString, $.splitter)"
 }
 ```
 The `States.StringSplit` function returns the following string array as result:  
 
-```
+```json
 {"myStringArray": [
   "This",
   "is",
@@ -479,12 +478,12 @@ The `States.StringSplit` function returns the following string array as result:
 Use the `States.UUID` intrinsic function to return a version 4 universally unique identifier (v4 UUID) generated using random numbers. For example, you can use this function to call other AWS services or resources that need a UUID parameter or insert items in a DynamoDB table.  
 The `States.UUID` function is called with no arguments specified:  
 
-```
+```json
 "uuid.$": "States.UUID()"
 ```
 The function returns a randomly generated UUID, as in the following example:  
 
-```
+```json
 {"uuid": "ca4c1140-dcc1-40cd-ad05-7b4aa23df4a8" }
 ```
 
@@ -495,7 +494,7 @@ The function returns a randomly generated UUID, as in the following example:
 Use the `States.Format` intrinsic function to construct a string from both literal and interpolated values. This function takes one or more arguments. The value of the first argument must be a string, and may include zero or more instances of the character sequence `{}`. There must be as many remaining arguments in the intrinsic function invocation as there are occurrences of `{}`. The interpreter returns the string defined in the first argument with each `{}` replaced by the value of the positionally-corresponding argument in the Intrinsic invocation.  
 For example, you can use the following inputs of an individual's `name`, and a `template` sentence to have their name inserted into:   
 
-```
+```json
 {
  "name": "Arnav",
  "template": "Hello, my name is {}."
@@ -503,12 +502,12 @@ For example, you can use the following inputs of an individual's `name`, and a `
 ```
 Use the `States.Format` function and specify the `template` string and the string to insert in place of the `{}` characters:  
 
-```
+```json
 States.Format('Hello, my name is {}.', $.name)
 ```
 or  
 
-```
+```json
 States.Format($.template, $.name)
 ```
 With either of the previous inputs, the `States.Format` function returns the completed string in response:   

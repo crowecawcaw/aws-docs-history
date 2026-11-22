@@ -1,7 +1,6 @@
 
 
 # Tutorials and workshops for learning Step Functions
-<a name="learning-resources"></a>
 
 Learn from this guide, workshops, and practical tutorials how to integrate and orchestrate services with Step Functions.
 

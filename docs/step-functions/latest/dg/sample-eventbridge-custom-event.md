@@ -1,7 +1,6 @@
 
 
 # Send a custom event to an EventBridge event bus
-<a name="sample-eventbridge-custom-event"></a>
 
 This sample project demonstrates how to use Step Functions to send a custom event to an event bus that matches a rule with multiple targets (Amazon EventBridge, AWS Lambda, Amazon Simple Notification Service, Amazon Simple Queue Service).
 

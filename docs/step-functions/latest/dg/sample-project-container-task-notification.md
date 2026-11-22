@@ -1,7 +1,6 @@
 
 
 # Manage a container task with Amazon ECS and Amazon SNS
-<a name="sample-project-container-task-notification"></a>
 
 This sample project demonstrates how to run an AWS Fargate task, and then send an Amazon SNS notification based on whether that job succeeds or fails. Deploying this sample project will create an AWS Step Functions state machine, a Fargate cluster, and an Amazon SNS topic. 
 

@@ -1,7 +1,6 @@
 
 
 # Developing workflows with Step Functions
-<a name="developing-workflows"></a>
 
 We recommend starting to build workflows in the Step Functions console and Workflow Studio visual editor. You can start from a blank canvas or choose starter templates for common scenarios.
 
@@ -52,7 +51,7 @@ The following example CloudFormation templates show how you can provide the same
 ------
 #### [ JSON with Definition ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "AWS Step Functions sample template.",
@@ -129,7 +128,7 @@ The following example CloudFormation templates show how you can provide the same
 ------
 #### [ JSON with DefinitionString ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "AWS Step Functions sample template.",
@@ -198,7 +197,7 @@ The following example CloudFormation templates show how you can provide the same
 ------
 #### [ YAML with Definition ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS Step Functions sample template.
 Resources:
@@ -249,7 +248,7 @@ Outputs:
 ------
 #### [ YAML with DefinitionString ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS Step Functions sample template.
 Resources:

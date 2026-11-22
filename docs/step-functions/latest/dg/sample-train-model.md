@@ -1,7 +1,6 @@
 
 
 # Train a machine learning model using Amazon SageMaker AI
-<a name="sample-train-model"></a>
 
 This sample project demonstrates how to use SageMaker AI and AWS Step Functions to train a machine learning model and how to batch transform a test dataset.
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon States Language to define Step Functions workflows
-<a name="concepts-amazon-states-language"></a>
 
 The Amazon States Language is a JSON-based, structured language used to define your state machine, a collection of [states](workflow-states.md), that can do work (`Task` states), determine which states to transition to next (`Choice` states), stop an execution with an error (`Fail` states), and so on. 
 
@@ -15,7 +14,7 @@ If you define your state machines outside the Step Functions' console, such as i
 ## Example Amazon States Language Specification (JSONata)
 <a name="example-amazon-states-language-specification"></a>
 
-```
+```json
 {
   "Comment": "An example of the Amazon States Language using a choice state.",
   "QueryLanguage": "JSONata",

@@ -1,7 +1,6 @@
 
 
 # Configure states inputs and outputs with Workflow Studio in Step Functions
-<a name="workflow-studio-process"></a>
 
 **Managing state and transforming data**  
 Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
@@ -27,7 +26,7 @@ Your `InputPath` filter will be added to your workflow.
 **Example 1: Use InputPath filter in Workflow Studio**  
 Say the input to your state includes the following JSON data.  
 
-```
+```json
 {
   "comment": "Example for InputPath",
   "dataset1": {
@@ -61,7 +60,7 @@ To specify that a parameter uses a reference path to point to a JSON node in the
 **Example 2: Create custom JSON input for Parallel state**  
 Say the following JSON data is the input to a Parallel state.  
 
-```
+```json
 {
   "comment": "Example for Parameters",
   "product": {
@@ -79,7 +78,7 @@ Say the following JSON data is the input to a Parallel state.
 
 To select part of this input and pass additional key-value pairs with a static value, you can specify the following in the **Parameters** field, under the **Parallel** state’s **Input** tab.
 
-```
+```json
 {
  "comment": "Selecting what I care about.",
  "MyDetails": {
@@ -92,7 +91,7 @@ To select part of this input and pass additional key-value pairs with a static v
 
 The following JSON data will be the result.
 
-```
+```json
 {
   "comment": "Selecting what I care about.",
   "MyDetails": {
@@ -130,7 +129,7 @@ To specify that a parameter uses a path to reference a JSON node in the result, 
 **Example to use ResultSelector filter**  
 In this example, you use `ResultSelector` to manipulate the response from the Amazon EMR CreateCluster API call for an Amazon EMR `CreateCluster` state. The following is the result from the Amazon EMR `CreateCluster` API call.  
 
-```
+```json
 {
   "resourceType": "elasticmapreduce",
   "resource": "createCluster.sync",
@@ -153,7 +152,7 @@ In this example, you use `ResultSelector` to manipulate the response from the Am
 ```
 To select part of this information and pass an additional key-value pair with a static value, specify the following in the **ResultSelector** field, under the state’s **Output** tab.  
 
-```
+```json
 {
  "result": "found",
  "ClusterId.$": "$.output.ClusterId", 
@@ -162,7 +161,7 @@ To select part of this information and pass an additional key-value pair with a 
 ```
 Using `ResultSelector` produces the following result.  
 
-```
+```json
 {
  "result": "found",
  "ClusterId": "AKIAIOSFODNN7EXAMPLE",
@@ -186,7 +185,7 @@ The output of a state can be a copy of its input, the result it produces, or a c
 **Example to use ResultPath filter**  
 Say the following is the input to a Task state.  
 
-```
+```json
 {
   "details": "Default example",
   "who": "AWS Step Functions"
@@ -200,7 +199,7 @@ Hello, AWS Step Functions
 You can add this result to the state’s input by applying `ResultPath` and entering a reference [path](amazon-states-language-paths.md) that indicates where to add the result, such as `$.taskresult`:  
 With this `ResultPath`, the following is the JSON that is passed as the state’s output.  
 
-```
+```json
 {
   "details": "Default example",
   "who": "AWS Step Functions",
@@ -216,7 +215,7 @@ The `OutputPath` filter lets you filter out unwanted information, and pass only 
 **Example to use OutputPath filter**  
 Imagine a Lambda Invoke API call returns metadata in addition to the Lambda function’s result.  
 
-```
+```json
 {
   "ExecutedVersion": "$LATEST",
   "Payload": {
@@ -240,7 +239,7 @@ Imagine a Lambda Invoke API call returns metadata in addition to the Lambda func
 You can use `OutputPath` to filter out the additional metadata. By default, the value of **OutputPath** filter for Lambda Invoke states created through the Workflow Studio is `$.Payload`. This default value removes the additional metadata and returns an output equivalent to running the Lambda function directly.  
 The Lambda Invoke task result example and the value of `$.Payload` for the **Output** filter pass the following JSON data as the output.  
 
-```
+```json
 {
  "foo": "bar",
  "colors": [
