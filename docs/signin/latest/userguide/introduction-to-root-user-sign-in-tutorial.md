@@ -1,7 +1,6 @@
 
 
 # Sign in to the AWS Management Console as the root user
-<a name="introduction-to-root-user-sign-in-tutorial"></a>
 
 When you first create an AWS account, you begin with one sign-in identity that has complete access to all AWS services and resources in the account. This identity is called the AWS account *root user* and is accessed by signing in with the email address and password that you used to create the account.
 

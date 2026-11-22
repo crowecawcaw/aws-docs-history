@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink
-<a name="oauth-privatelink"></a>
 
 AWS Sign-In OAuth APIs support AWS PrivateLink, enabling you to access OAuth authorization endpoints from within your Amazon VPC without traversing the public internet. You can configure VPC endpoints for AWS Sign-In to keep OAuth authorization traffic on the AWS network.
 
@@ -56,7 +55,7 @@ The AWS Sign-In VPC endpoint requires policies with specific Sign-In actions and
 
 This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OAuth operations for AWS accounts in the specified AWS organization at both the pre-authentication and post-authentication phases.
 
-```
+```JSON
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -96,7 +95,7 @@ This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OA
 
 This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OAuth operations for a list of specific AWS accounts at both the pre-authentication and post-authentication phases.
 
-```
+```JSON
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -136,7 +135,7 @@ This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OA
 
 This AWS Sign-In VPC endpoint policy restricts Dynamic Client Registration to localhost redirect URIs only.
 
-```
+```JSON
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -161,7 +160,7 @@ This AWS Sign-In VPC endpoint policy restricts Dynamic Client Registration to lo
 
 This AWS Sign-In VPC endpoint policy allows token introspection and revocation for specific AWS accounts.
 
-```
+```JSON
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -196,7 +195,7 @@ The `signin:CreateAccount` action controls whether the AWS account signup flow i
 
 When using the AWS Sign-In VPC endpoint policy format, the signup flow is blocked by implicit deny unless you explicitly allow it. If your organization requires account signup from within the private network, add the following statement to your AWS Sign-In VPC endpoint policy:
 
-```
+```JSON
 {
   "Version":"2012-10-17",
   "Statement": [

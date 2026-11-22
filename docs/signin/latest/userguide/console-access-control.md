@@ -1,7 +1,6 @@
 
 
 # Controlling console access with resource-based policies and resource control policies
-<a name="console-access-control"></a>
 
 **Important**  
 Console sign-in access is enabled by default. AWS Sign-In allows unrestricted console access initially. To add restrictions, enable console authorization configuration for your account or organization. The resource permission statements that you create have no effect until you enable console authorization. See [Getting started with console access control using resource policies](#console-access-control-getting-started).

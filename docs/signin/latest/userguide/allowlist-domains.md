@@ -1,7 +1,6 @@
 
 
 # Domains to add to your allow list
-<a name="allowlist-domains"></a>
 
 If you filter access to specific AWS domains or URL endpoints by using a web content filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways (SWG), you must add the following domains or URL endpoints to your web-content filtering solution allowlists.
 

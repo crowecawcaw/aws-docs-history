@@ -1,7 +1,6 @@
 
 
 # Sign in through the AWS Command Line Interface
-<a name="command-line-sign-in"></a>
 
  You must establish how the AWS CLI authenticates with AWS. Choose the method that best fits your workflow and security requirements.
 + [Login with console credentials (Recommended)](#command-line-sign-in-local-development) if you use root, IAM users or federation with IAM for AWS account access.

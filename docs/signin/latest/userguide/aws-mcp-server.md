@@ -1,7 +1,6 @@
 
 
 # Configure OAuth access to AWS MCP Server
-<a name="aws-mcp-server"></a>
 
 ## Overview
 <a name="aws-mcp-server-overview"></a>
@@ -121,7 +120,7 @@ Required IAM permission:
 
 The following example shows how to obtain an access token using the AWS CLI:
 
-```
+```bash
 aws signin create-oauth2-token-with-iam \
     --grant-type client_credentials \
     --resource aws-mcp.amazonaws.com \
@@ -150,7 +149,7 @@ Required IAM permission:
 
 The following example shows how to exchange an OIDC token to obtain access:
 
-```
+```bash
 aws signin create-oauth2-token-with-token-exchange \
     --grant-type urn:ietf:params:oauth:grant-type:token-exchange \
     --subject-token "$OIDC_TOKEN" \
@@ -158,6 +157,26 @@ aws signin create-oauth2-token-with-token-exchange \
     --resource aws-mcp.amazonaws.com \
     --region us-east-1
 ```
+
+### Enterprise-managed authorization
+<a name="aws-mcp-server-enterprise-managed"></a>
+
+Enterprise-managed authorization uses the Identity Assertion JWT Authorization Grant (ID-JAG). Organizations can authorize AI agents through their existing enterprise identity providers, such as Okta. Enterprise administrators can centrally manage which AI applications access AWS MCP Server on behalf of employees. This approach does not require employees to manage AWS credentials or complete additional authorization flows.
+
+The general workflow is:
+
+1. The AI client requests an ID-JAG assertion from the enterprise identity provider.
+
+1. The identity provider evaluates enterprise access policies and issues a short-lived, signed ID-JAG assertion.
+
+1. The AI client exchanges the assertion with AWS Sign-In for an OAuth access token associated with an IAM role.
+
+1. The AI client uses the access token to access AWS MCP Server. IAM role permissions continue to govern access to AWS resources.
+
+Required IAM permission:
++ `signin:CreateOAuth2Token`
+
+For setup steps for the identity provider, the IAM role, and each agent, see [Enterprise-managed authorization](enterprise-managed-authorization.md).
 
 ## OAuth resource types
 <a name="aws-mcp-server-resource-types"></a>

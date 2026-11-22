@@ -1,7 +1,6 @@
 
 
 # Sign in to the AWS Management Console
-<a name="how-to-sign-in"></a>
 
 When you sign in to the AWS Management Console from the main AWS sign-in URL ([https://console.aws.amazon.com/](https://console.aws.amazon.com/)) you must choose your user type: **Root user**, **IAM user**, or **project user**. If you're not sure what kind of user you are, see [Determine your user type](user-types-list.md).
 

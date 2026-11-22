@@ -1,7 +1,6 @@
 
 
 # AWS Builder ID and other AWS credentials
-<a name="differences-builder-id"></a>
 
 Your AWS Builder ID is separate from any AWS account or sign in credential. You can use the same email for your AWS Builder ID and for the root user email of an AWS account.
 

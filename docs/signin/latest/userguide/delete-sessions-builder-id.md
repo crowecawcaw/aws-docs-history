@@ -1,7 +1,6 @@
 
 
 # Delete all active sessions for your AWS Builder ID
-<a name="delete-sessions-builder-id"></a>
 
 Under **Signed in devices**, you can view all the devices that you're currently signed in to. If you don't recognize a device, as a security best practice, first [change your password](https://docs.aws.amazon.com/signin/latest/userguide/change-password-aws_builder_id.html) and then sign out everywhere. You can sign out from all devices by deleting all your active sessions on the **Security** page for your AWS Builder ID.
 

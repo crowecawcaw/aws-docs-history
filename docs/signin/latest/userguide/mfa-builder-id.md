@@ -1,7 +1,6 @@
 
 
 # Manage AWS Builder ID multi-factor authentication (MFA)
-<a name="mfa-builder-id"></a>
 
 Multi-factor authentication (MFA) is a simple and effective mechanism to enhance your security. The first factor — your password — is a secret that you memorize, also known as a knowledge factor. Other factors can be possession factors (something you have, such as a security key) or inherence factors (something you are, such as a biometric scan). We strongly recommend that you configure MFA to add an additional layer for your AWS Builder ID.
 

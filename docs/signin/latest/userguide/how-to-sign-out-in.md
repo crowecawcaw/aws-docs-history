@@ -1,7 +1,6 @@
 
 
 # Sign out of your AWS account
-<a name="how-to-sign-out-in"></a>
 
 How you sign out of your AWS account depends on what type of AWS user you are. You can be an account root user, an IAM user, a user in IAM Identity Center, a federated identity, or an AWS Builder ID user. If you're not sure what kind of user you are, see [Determine your user type](user-types-list.md).
 

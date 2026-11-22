@@ -1,7 +1,6 @@
 
 
 # Security best practices for AWS account administrators
-<a name="best-practices-admin"></a>
 
 If you’re an account administrator who has created a new AWS account using [Sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html), we recommend the following steps to help your users follow AWS security best practices when they sign in. 
 

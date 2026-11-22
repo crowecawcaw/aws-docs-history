@@ -1,7 +1,6 @@
 
 
 # AWS Sign-In condition keys reference
-<a name="reference-signin-condition-keys"></a>
 
 This page lists the condition keys you can use in AWS Sign-In resource-based policies and resource control policies (RCPs), and shows the evaluation phase and action that each key applies to. Only `signin:PrincipalArn` is specific to AWS Sign-In; the others are AWS global condition keys. For the global key definitions, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html).
 
@@ -126,7 +125,7 @@ The following OAuth condition keys are available.
 | --- | --- | --- | --- | 
 | signin:OAuthClientId | String | Restricts authorization to approved OAuth clients. | signin:AuthorizeOAuth2Access, signin:CreateOAuth2Token, signin:IntrospectOAuth2Token | 
 | signin:OAuthRedirectUri | String | Restricts OAuth authorization to approved redirect URIs. | signin:AuthorizeOAuth2Access, signin:CreateOAuth2Token, signin:CreateOAuth2PublicClient | 
-| signin:OAuthGrantType | String | Controls which OAuth grant types are permitted. Values: authorization\_code, refresh\_token, client\_credentials, urn:ietf:params:oauth:grant-type:token-exchange. | signin:CreateOAuth2Token | 
+| signin:OAuthGrantType | String | Controls which OAuth grant types are permitted. Values: authorization\_code, refresh\_token, client\_credentials, urn:ietf:params:oauth:grant-type:token-exchange, urn:ietf:params:oauth:grant-type:jwt-bearer. | signin:CreateOAuth2Token | 
 | signin:OAuthClientAuthentication | String | Controls permitted OAuth client authentication methods. | signin:CreateOAuth2Token | 
 | signin:OAuthTokenType | String | Controls operations performed on OAuth access and refresh tokens. Values: access\_token, refresh\_token. | signin:RevokeOAuth2Token, signin:IntrospectOAuth2Token | 
 
@@ -140,6 +139,8 @@ OAuth client IDs are represented as AWS Sign-In Dynamic Client Registration (DCR
 For the non-interactive (client credentials) flow, the implicit client ID is `arn:aws:signin:::client-credentials/sigv4`.
 
 For the non-interactive token exchange flow, the implicit client ID is `arn:aws:signin:::external-client/token-exchange/jwt`.
+
+For [enterprise-managed authorization](enterprise-managed-authorization.md), the client ID is `arn:aws:signin:::external-client/jwt-bearer/{{agent-client-id}}`, where {{agent-client-id}} is the agent client ID that you configure in your identity provider.
 
 Applicable actions  
 + `signin:AuthorizeOAuth2Access`
@@ -222,6 +223,7 @@ Supported values include:
 + `refresh_token`
 + `client_credentials`
 + `urn:ietf:params:oauth:grant-type:token-exchange`
++ `urn:ietf:params:oauth:grant-type:jwt-bearer`
 
 Applicable actions  
 + `signin:CreateOAuth2Token`

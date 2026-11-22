@@ -1,7 +1,6 @@
 
 
 # Sign in to the AWS Management Console as an IAM user
-<a name="introduction-to-iam-user-sign-in-tutorial"></a>
 
 An [IAM user](https://docs.aws.amazon.com/signin/latest/userguide/user-types-list.html#iam-user-type) is an identity created within an AWS account that has permission to interact with AWS resources. IAM users sign-in using their account ID or alias, their user name, and a password. IAM user names are configured by your administrator. IAM user names can be either friendly names, such as {{Zhang}}, or email addresses such as {{zhang@example.com}}. IAM user names can't include spaces, but can include upper and lower case letters, numbers, and the symbols `+ = , . @ _ -`. 
 

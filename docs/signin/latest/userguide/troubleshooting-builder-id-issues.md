@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Builder ID issues
-<a name="troubleshooting-builder-id-issues"></a>
 
 Use the information here to help you troubleshoot issues you might have with your AWS Builder ID.
 

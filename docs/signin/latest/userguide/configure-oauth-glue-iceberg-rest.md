@@ -1,7 +1,6 @@
 
 
 # Configure OAuth access to AWS Glue Iceberg REST Catalog
-<a name="configure-oauth-glue-iceberg-rest"></a>
 
 ## Overview
 <a name="configure-oauth-glue-iceberg-rest-overview"></a>

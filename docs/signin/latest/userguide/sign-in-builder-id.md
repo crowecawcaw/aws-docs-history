@@ -1,7 +1,6 @@
 
 
 # Sign in with AWS Builder ID
-<a name="sign-in-builder-id"></a>
 
 AWS Builder ID is a personal profile that provides access to select tools and services including [AWS Builder Center](https://builder.aws.com), [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html), and [AWS Skill Builder](https://skillbuilder.aws/). AWS Builder ID represents you as an individual and is independent from any credentials and data you may have in existing AWS accounts. Like other personal profiles, AWS Builder ID remains with you as you progress through your personal, educational, and career goals.
 

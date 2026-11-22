@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for Access Portal
-<a name="iam-id-center-privatelink"></a>
 
 AWS IAM Identity Center (successor to AWS Single Sign-On) supports AWS PrivateLink, enabling you to access IAM Identity Center sign-in from within your Amazon VPC without traversing the public internet. You can configure a VPC endpoint for IAM Identity Center to keep workforce sign-in traffic on the AWS network, and configure network controls to require that sign-in requests originate from that VPC endpoint.
 
@@ -40,7 +39,7 @@ The sign-in endpoint is shared with AWS Console Private Access. Do not write a p
 #### Example: Allow IAM Identity Center sign-in for a specific instance
 <a name="iam-id-center-privatelink-example-instance"></a>
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -60,7 +59,7 @@ The sign-in endpoint is shared with AWS Console Private Access. Do not write a p
 
 This VPC endpoint policy allows both IAM Identity Center sign-in and IAM sign-in (Console Private Access) for identities in the same AWS Organizations.
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -116,7 +115,7 @@ Network controls in IAM Identity Center let you require that all AWS access port
 
 Use the `sso-admin update-instance` API with a `network-configuration` object to require VPC endpoint access for your instance.
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{

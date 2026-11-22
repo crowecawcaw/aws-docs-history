@@ -1,7 +1,6 @@
 
 
 # Sign-In with OAuth 2.0
-<a name="oauth-sign-in-overview"></a>
 
 ## OAuth overview
 <a name="oauth-sign-in-overview-intro"></a>
@@ -10,7 +9,7 @@ With AWS Sign-In industry-standard OAuth 2.0 support, agents and applications ca
 
 OAuth integrates with your existing AWS identities and authorization model. Applications obtain short-lived OAuth tokens through AWS Sign-In. OAuth tokens work with your existing IAM identities, policies, service control policies (SCPs), resource control policies (RCPs), and other AWS authorization controls. OAuth introduces a standards-based authorization model without changing how access to AWS resources is governed.
 
-With AWS Sign-In, you can authorize applications through a browser (interactive), or applications with existing AWS credentials can obtain OAuth access tokens programmatically (non-interactive).
+With AWS Sign-In, you can authorize applications interactively, programmatically, or through enterprise-managed authorization controlled by your organization's existing identity provider policies. For more information, see [Authorization models](#oauth-sign-in-authorization-models).
 
 ## Supported capabilities
 <a name="oauth-sign-in-capabilities"></a>
@@ -89,16 +88,14 @@ The token exchange grant issues only access tokens (no refresh tokens). Request 
 
 For a walkthrough of connecting an external integration partner using token exchange, see [Configure OAuth access to AWS Glue Iceberg REST Catalog](configure-oauth-glue-iceberg-rest.md).
 
-## Sign-in session management
-<a name="oauth-sign-in-session-mgmt-intro"></a>
+#### Enterprise-managed authorization
+<a name="oauth-sign-in-non-interactive-ema"></a>
 
-A sign-in session represents how long a principal remains authenticated through AWS Sign-In before needing to authenticate again. You can configure its duration on an IAM role or IAM user, up to 90 days.
+With enterprise-managed authorization (EMA), organizations can authorize AI agents and applications through their existing enterprise identity providers, such as Okta, without requiring additional interactive authorization. EMA uses the Identity Assertion JSON Web Token (JWT) Authorization Grant (ID-JAG) so enterprise identity providers can evaluate access policies and issue short-lived, signed assertions for approved applications and resources.
 
-During a sign-in session, AWS Sign-In issues short-lived OAuth access tokens (up to one hour) and automatically refreshes them using a rotating refresh token. Configuring a longer sign-in session does not create long-lived AWS credentials.
+Applications exchange these assertions at the AWS Sign-In OAuth token endpoint for short-lived OAuth access tokens associated with IAM roles. Enterprise identity provider policies control which applications can request access, while IAM permissions govern the AWS operations those applications can perform.
 
-Sign-in session duration is supported for the AWS CLI, the AWS MCP Server, and other OAuth-enabled applications. It does not apply to AWS Management Console sessions, which continue to follow their existing session duration limits.
-
-For more information, see [Sign-in session management](oauth-sign-in-session-management.md).
+For setup steps for the identity provider and for each agent, see [Enterprise-managed authorization](enterprise-managed-authorization.md).
 
 ## Security model
 <a name="oauth-sign-in-security-model"></a>
@@ -136,6 +133,7 @@ Use this regional endpoint for the OAuth flow at `https://{region}.oauth.signin.
 ## Related topics
 <a name="oauth-sign-in-related"></a>
 + [AWS MCP Server](aws-mcp-server.md)
++ [Enterprise-managed authorization](enterprise-managed-authorization.md)
 + [OAuth condition keys](reference-signin-condition-keys.md#reference-signin-condition-keys-oauth)
 + [AWS Sign-In API Reference](https://docs.aws.amazon.com/signin/latest/APIReference/API_Operations.html)
 + [Actions, resources, and condition keys for AWS Sign-In](https://docs.aws.amazon.com/service-authorization/latest/reference/list_signin.html)

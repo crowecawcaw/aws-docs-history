@@ -1,7 +1,6 @@
 
 
 # Change your AWS Builder ID password
-<a name="change-password-builder-id"></a>
 
 Your password must adhere to the following requirements:
 + Passwords are case-sensitive.
