@@ -1,7 +1,6 @@
 
 
 # Create a Node Operational Certificate (NOC)
-<a name="JavaApiCBC-NodeOperatingCertificate"></a>
 
 This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough) template to create a [Matter](https://buildwithmatter.com) Node Operational Certificate. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
@@ -10,7 +9,7 @@ The example calls the following AWS Private CA API action:
 
 If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
-```
+```java
 package com.amazonaws.samples.matter;
 
 import com.amazonaws.auth.AWSCredentials;

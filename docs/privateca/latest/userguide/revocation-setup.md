@@ -1,7 +1,6 @@
 
 
 # Plan your AWS Private CA certificate revocation method
-<a name="revocation-setup"></a>
 
 As you plan your private PKI with AWS Private CA, you should consider how to handle situations where you no longer wish endpoints to trust an issued certificate, such as when the private key of an endpoint is exposed. The common approaches to this problem are to use short-lived certificates or to configure certificate revocation. Short-lived certificates expire in such a short period of time, in hours or days, that revocation makes no sense, with the certificate becoming invalid in about the same time it takes to notify an endpoint of revocation. This section describes the revocation options for AWS Private CA customers, including configuration and best practices.
 

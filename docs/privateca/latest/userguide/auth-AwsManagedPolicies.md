@@ -1,7 +1,6 @@
 
 
 # AWS managed policies
-<a name="auth-AwsManagedPolicies"></a>
 
 AWS Private CA includes a set of predefined AWS managed policies for AWS Private CA administrators, users, and auditors. Understanding these policies can help you implement [Customer managed policies](auth-CustManagedPolicies.md).
 

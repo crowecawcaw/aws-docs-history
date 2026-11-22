@@ -1,7 +1,6 @@
 
 
 # Integrating Connector for AD into event-driven applications using Amazon EventBridge
-<a name="eventbridge-integration"></a>
 
 You can incorporate Connector for AD into event-driven applications (EDAs) that use events that occur in Connector for AD to communicate between application components and initiate downstream processes. 
 

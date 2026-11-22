@@ -1,7 +1,6 @@
 
 
 # Terms and concepts for AWS Private CA
-<a name="PcaTerms"></a>
 
 The following terms and concepts can help you as you work with AWS Private Certificate Authority.
 

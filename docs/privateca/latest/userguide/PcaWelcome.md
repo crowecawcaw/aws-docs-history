@@ -1,7 +1,6 @@
 
 
 # What is AWS Private CA?
-<a name="PcaWelcome"></a>
 
 AWS Private CA enables creation of private certificate authority (CA) hierarchies, including root and subordinate CAs, without the investment and maintenance costs of operating an on-premises CA. Your private CAs can issue end-entity X.509 certificates useful in scenarios including:
 + Creating encrypted TLS communication channels 
@@ -86,7 +85,7 @@ AWS Private CA does not enforce certain constraints defined in [RFC 5280](https:
 + [Subject Directory Attributes](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.8). Used to convey identification attributes of the subject.
 + [Subject Information Access](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2). How to access information and services for the subject of the certificate in which the extension appears.
 + [Subject Key Identifier (SKI)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.2) and [Authority Key Identifier (AKI)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.1). The RFC requires a CA certificate to contain the SKI extension. Certificates issued by the CA must contain an AKI extension matching the CA certificate's SKI. AWS does not enforce these requirements. If your CA Certificate does not contain an SKI, the issued end-entity or subordinate CA certificate AKI will be the SHA-1 hash of the issuer public key instead.
-+ [SubjectPublicKeyInfo](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1) and [Subject Alternative Name (SAN)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6). When issuing a certificate, AWS Private CA copies the SubjectPublicKeyInfo and SAN extensions from the provided CSR without performing validation.
++ [SubjectPublicKeyInfo](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1) and [Subject Alternative Name (SAN)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6). When issuing a certificate, AWS Private CA copies the SubjectPublicKeyInfo and SAN extensions from the provided CSR without validating that they conform to RFC 5280. However, AWS Private CA rejects a request if it can't read the attributes that X.509 certificate condition keys describe. For example, it rejects EC and SM2 keys with absent or `implicitCurve` parameters, and SAN entries that are empty or contain control characters. For more information, see [Certificate request validation](certguard-validation.md).
 
 ## Pricing for AWS Private Certificate Authority
 <a name="PcaPricing"></a>

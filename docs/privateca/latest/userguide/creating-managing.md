@@ -1,7 +1,6 @@
 
 
 # Certificate authorities in AWS Private CA
-<a name="creating-managing"></a>
 
 Using AWS Private Certificate Authority, you can create an entirely AWS hosted hierarchy of root and subordinate certificate authorities (CAs) for internal use by your organization. To manage certificate revocation, you can enable Online Certificate Status Protocol (OCSP), certificate revocation lists (CRLs), or both. AWS Private CA stores and manages your CA certificates, CRLs, and OCSP responses, and the private keys for your root authorities are securely stored by AWS.
 

@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Private CA Connector for Active Directory
-<a name="connector-for-ad-getting-started"></a>
 
 With AWS Private CA Connector for Active Directory, you can issue certificates from your private CA to your Active Directory objects for authentication and encryption. When you create a connector, AWS Private Certificate Authority creates an endpoint for you in your VPC for your directory objects to request certificates.
 

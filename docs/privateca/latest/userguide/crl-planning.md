@@ -1,7 +1,6 @@
 
 
 # Set up a CRL for AWS Private CA
-<a name="crl-planning"></a>
 
 Before you can configure a certificate revocation list (CRL) as part of the [CA creation process](create-CA.md), some prior setup may be necessary. This section explains the prerequisites and options that you should understand before creating a CA with a CRL attached. 
 

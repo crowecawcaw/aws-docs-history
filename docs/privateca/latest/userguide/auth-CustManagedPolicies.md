@@ -1,7 +1,6 @@
 
 
 # Customer managed policies
-<a name="auth-CustManagedPolicies"></a>
 
 As a best practice, don't use your AWS account root user to interact with AWS, including AWS Private CA. Instead use AWS Identity and Access Management (IAM) to create an IAM user, IAM role, or federated user. Create an administrator group and add yourself to it. Then log in as an administrator. Add additional users to the group as needed. 
 
@@ -26,7 +25,7 @@ The following example [customer-managed policy](https://docs.aws.amazon.com/IAM/
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Create single-account permissions for an IAM user
-<a name="assign-permissions"></a>
 
 When the CA administrator (that is, the owner of the CA) and the certificate issuer reside in a single AWS account, a [best practice](ca-best-practices.md) is to separate the issuer and administrator roles by creating an AWS Identity and Access Management (IAM) user with limited permissions. For information about using IAM with AWS Private CA, along with example permissions, see [Identity and Access Management (IAM) for AWS Private Certificate Authority](security-iam.md).
 

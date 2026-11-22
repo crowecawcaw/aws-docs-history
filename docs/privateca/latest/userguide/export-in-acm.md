@@ -1,7 +1,6 @@
 
 
 # Export a private certificate and its secret key
-<a name="export-in-acm"></a>
 
 AWS Private CA cannot directly export a private certificate that it has signed and issued. However, you can use AWS Certificate Manager to export such a certificate along with its encrypted secret key. The certificate is then completely portable for deployment anywhere in your private PKI. For more information, see [Exporting a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html) in the AWS Certificate Manager User Guide.
 

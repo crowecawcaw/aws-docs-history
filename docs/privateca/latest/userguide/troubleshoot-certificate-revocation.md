@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Private CA certificate revocation issues
-<a name="troubleshoot-certificate-revocation"></a>
 
 ## OCSP response latency
 <a name="OCSP-latency-troubleshooting"></a>

@@ -1,7 +1,6 @@
 
 
 # CreateCertificateAuthorityAuditReport
-<a name="JavaApi-CreateCertificateAuthorityAuditReport"></a>
 
 The following Java sample shows how to use the [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html) operation.
 
@@ -10,7 +9,7 @@ The operation creates an audit report that lists every time a certificate is iss
 **Note**  
 Audit report generation is not supported for certificate authorities that have issued more than 100 million certificates. If you call this operation for such a CA, the service returns a `LimitExceededException`.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

@@ -1,7 +1,6 @@
 
 
 # Use AWS Private CA with the AWS SDK for Java
-<a name="PcaApiIntro"></a>
 
 You can use the AWS Private Certificate Authority API to programmatically interact with the service by sending HTTP requests. The service returns HTTP responses. For more information see [AWS Private Certificate Authority API Reference](https://docs.aws.amazon.com/privateca/latest/APIReference/). 
 

@@ -1,7 +1,6 @@
 
 
 # Monitor AWS Private CA with CloudWatch Events
-<a name="CloudWatchEvents"></a>
 
 You can use [Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/) to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of interest to you and the automated actions to take when an event matches a rule. CloudWatch Events are published at least once. For more information, see [Creating a CloudWatch Events Rule That Triggers on an Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html). 
 
@@ -15,7 +14,7 @@ These events are triggered by the [CreateCertificateAuthority](https://docs.aws.
 **Success**  
 On success, the operation returns the ARN of the new CA.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -36,7 +35,7 @@ On success, the operation returns the ARN of the new CA.
 **Failure**  
 On failure, the operation returns an ARN for the CA. Using the ARN, you can call [DescribeCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html) to determine the status of the CA.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -62,7 +61,7 @@ These events are triggered by the [IssueCertificate](https://docs.aws.amazon.com
 **Success**  
 On success, the operation returns the ARNs of the CA and of the new certificate.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -84,7 +83,7 @@ On success, the operation returns the ARNs of the CA and of the new certificate.
 **Failure**  
 On failure, the operation returns a certificate ARN and the ARN of the CA. With the certificate ARN, you can call [GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html) to view the reason for the failure.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -113,7 +112,7 @@ No event is sent if the revocation fails or if the certificate has already been 
 ****Success****  
 On success, the operation returns the ARNs of the CA and of the revoked certificate.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -148,7 +147,7 @@ The `detail` object of each event includes `CrlUrl`, the URL of the CRL that AWS
 **Success**  
 On success, the event includes the ARN of the CA that's associated with the CRL.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -170,7 +169,7 @@ On success, the event includes the ARN of the CA that's associated with the CRL.
 **Failure 1 – CRL could not be saved to Amazon S3 because of a permission error**  
 Check your Amazon S3 bucket permissions if this error occurs. 
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -193,7 +192,7 @@ Check your Amazon S3 bucket permissions if this error occurs.
 **Failure 2 – CRL could not be saved to Amazon S3 because of an internal error**  
 Retry the operation if this error occurs.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -216,7 +215,7 @@ Retry the operation if this error occurs.
 **Failure 3 – AWS Private CA failed to create a CRL**  
 To troubleshoot this error, check your [CloudWatch metrics](https://docs.aws.amazon.com/privateca/latest/APIReference/PcaCloudWatch.html).
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -244,7 +243,7 @@ These events are triggered by the [CreateCertificateAuthorityAuditReport](https:
 **Success**  
 On success, the operation returns the ARN of the CA and the ID of the audit report.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -266,7 +265,7 @@ On success, the operation returns the ARN of the CA and the ID of the audit repo
 **Failure**  
 An audit report can fail when AWS Private CA lacks `PUT` permissions on your Amazon S3 bucket, when encryption is enabled on the bucket, or for other reasons.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",

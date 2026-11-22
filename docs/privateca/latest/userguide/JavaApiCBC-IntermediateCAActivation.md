@@ -1,7 +1,6 @@
 
 
 # Activate a Subordinate CA for Node Operational Certificates (NOC)
-<a name="JavaApiCBC-IntermediateCAActivation"></a>
 
 This Java sample shows how to use the [BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough) template to issue and install a [Matter](https://buildwithmatter.com) Subordinate CA certificate to issue NOCs. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
@@ -15,7 +14,7 @@ The example calls the following AWS Private CA API actions:
 
 If problems occur, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
-```
+```java
 package com.amazonaws.samples.matter;
 
 import com.amazonaws.auth.AWSCredentials;

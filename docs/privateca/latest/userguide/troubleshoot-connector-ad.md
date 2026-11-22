@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with AWS Private CA Connector for Active Directory
-<a name="troubleshoot-connector-ad"></a>
 
 Use the information here to help you diagnose and fix AWS Private Certificate Authority Connector for AD issues.
 

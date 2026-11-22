@@ -1,7 +1,6 @@
 
 
 # Issue private end-entity certificates
-<a name="PcaIssueCert"></a>
 
 With a private CA in place, you can request private end-entity certificates from either AWS Certificate Manager (ACM) or AWS Private CA. The capabilities of both services are compared in the following table.
 
@@ -43,19 +42,19 @@ If you use the AWS Private CA API or AWS CLI to issue a private certificate, the
 
 The following OpenSSL command generates a CSR and a private key for a certificate:
 
-```
+```bash
 $ openssl req -out {{csr.pem}} -new -newkey rsa:{{2048}} -nodes -keyout {{private-key.pem}}
 ```
 
 You can inspect the content of the CSR as follows:
 
-```
+```bash
 $ openssl req -in {{csr.pem}} -text -noout
 ```
 
 The resulting output should resemble the following abbreviated example:
 
-```
+```bash
 Certificate Request:
     Data:
         Version: 0 (0x0)
@@ -88,7 +87,7 @@ Certificate Request:
 
 The following command creates a certificate. Because no template is specified, a base end-entity certificate is issued by default.
 
-```
+```bash
 $ aws acm-pca issue-certificate \
       --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
       --csr fileb://{{csr.pem}} \
@@ -98,7 +97,7 @@ $ aws acm-pca issue-certificate \
 
 The ARN of the issued certificate is returned:
 
-```
+```bash
 {
    "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
@@ -134,7 +133,7 @@ In this example, a certificate is issued containing customized subject name elem
 
 The sample configuration file `api_passthrough_config.txt` contains the following code:
 
-```
+```json
 {
   "Subject": {
     "CustomAttributes": [
@@ -157,7 +156,7 @@ The sample configuration file `api_passthrough_config.txt` contains the followin
 
 Use the following command to issue the certificate:
 
-```
+```bash
 $ aws acm-pca issue-certificate \
       --validity Type={{DAYS}},Value={{10}} 
       --signing-algorithm "{{SHA256WITHRSA}}" \
@@ -169,7 +168,7 @@ $ aws acm-pca issue-certificate \
 
 The ARN of the issued certificate is returned:
 
-```
+```json
 {
    "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
@@ -177,7 +176,7 @@ The ARN of the issued certificate is returned:
 
 Retrieve the certificate locally as follows:
 
-```
+```bash
 $ aws acm-pca get-certificate \
       --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
       --certificate-arn arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}} | \
@@ -186,7 +185,7 @@ $ aws acm-pca get-certificate \
 
 You can inspect the certificate's contents using OpenSSL:
 
-```
+```bash
 $ openssl x509 -in {{cert.pem}} -text -noout
 ```
 
@@ -200,7 +199,7 @@ In this example, a certificate is issued that contains customized extensions. Fo
 
 The sample configuration file `api_passthrough_config.txt` contains the following code:
 
-```
+```json
 {
   "Extensions": {
     "CustomExtensions": [
@@ -216,7 +215,7 @@ The sample configuration file `api_passthrough_config.txt` contains the followin
 
 The customized certificate is issued as follows:
 
-```
+```bash
 $ aws acm-pca issue-certificate \
       --validity Type=DAYS,Value=10 
       --signing-algorithm "SHA256WITHRSA" \
@@ -228,7 +227,7 @@ $ aws acm-pca issue-certificate \
 
 The ARN of the issued certificate is returned:
 
-```
+```json
 {
    "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
@@ -236,7 +235,7 @@ The ARN of the issued certificate is returned:
 
 Retrieve the certificate locally as follows:
 
-```
+```bash
 $ aws acm-pca get-certificate \
       --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
       --certificate-arn arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}} | \
@@ -245,6 +244,6 @@ $ aws acm-pca get-certificate \
 
 You can inspect the certificate's contents using OpenSSL:
 
-```
+```bash
 $ openssl x509 -in {{cert.pem}} -text -noout
 ```

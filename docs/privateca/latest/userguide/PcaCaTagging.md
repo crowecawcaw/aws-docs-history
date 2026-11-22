@@ -1,7 +1,6 @@
 
 
 # Add tags for your private CA
-<a name="PcaCaTagging"></a>
 
 Tags are words or phrases that act as metadata for identifying and organizing AWS resources. Each tag consists of a **key** and a **value**. You can use the AWS Private CA console, AWS Command Line Interface (AWS CLI), or the PCA API to add, view, or remove tags for private CAs. 
 

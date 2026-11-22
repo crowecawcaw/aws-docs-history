@@ -1,7 +1,6 @@
 
 
 # Log Connector for SCEP API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail-c4scep"></a>
 
 Connector for Simple Certificate Enrollment Protocol (SCEP) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, client, or an AWS service. CloudTrail captures all API calls for Connector for SCEP as events. The calls captured include calls from the Connector for SCEP console and code calls to the Connector for SCEP API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Connector for SCEP. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Connector for SCEP, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -94,7 +93,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 **Example 1: Management event, `CreateConnector`**  
 The following example shows a CloudTrail log entry that demonstrates the `CreateConnector` action.
 
-```
+```json
 {
         "eventVersion": "1.09",
         "userIdentity": {
@@ -143,7 +142,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 **Example 2: Management event, `CreateChallenge`**  
 The following example shows a CloudTrail log entry that demonstrates the `CreateChallenge` action.
 
-```
+```json
 {
         "eventVersion": "1.09",
         "userIdentity": {
@@ -198,7 +197,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 **Example 3: Management event, `GetChallengePassword`**  
 The following example shows a CloudTrail log entry that demonstrates the `GetChallengePassword` action.
 
-```
+```json
 {
         "eventVersion": "1.09",
         "userIdentity": {
@@ -245,7 +244,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetCha
 **Example 4: Data event, `PkiOperationPost`**  
 The following example shows a CloudTrail log entry that demonstrates a failed `PkiOperationPost` call. The log includes an error code and error message with an explanation of the failure.
 
-```
+```json
 {
         "eventVersion": "1.10",
         "userIdentity": {

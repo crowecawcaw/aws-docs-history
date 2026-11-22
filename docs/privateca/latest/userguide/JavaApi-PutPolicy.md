@@ -1,7 +1,6 @@
 
 
 # PutPolicy
-<a name="JavaApi-PutPolicy"></a>
 
 The following Java sample shows how to use the [PutPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html) operation.
 
@@ -9,7 +8,7 @@ The operation attaches a resource-based policy to a private CA, enabling cross-a
 
 Once a policy is attached to a CA, you can inspect it with the [GetPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html) action or delete it with the [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html) action.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

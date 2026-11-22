@@ -1,7 +1,6 @@
 
 
 # Revoke a private certificate
-<a name="PcaRevokeCert"></a>
 
 You can revoke an AWS Private CA certificate using the [revoke-certificate](https://docs.aws.amazon.com/cli/latest/reference/acm-pca/revoke-certificate.html) AWS CLI command or the [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) API action. A certificate may need to be revoked before its scheduled expiration if, for example, its secret key is compromised or its associated domain becomes invalid. For revocation to be effective, the client using the certificate needs a way to check revocation status whenever it attempts to build a secure network connection.
 
@@ -84,7 +83,7 @@ Revoked Certificates:
 
 All certificates, including revoked certificates, are included in the audit report for a private CA. The following example shows an audit report with one issued and one revoked certificate. For more information, see [Use audit reports with your private CA](PcaAuditReport.md). 
 
-```
+```json
 [
    {
       "awsAccountId":"account",

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Private Certificate Authority API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail-pca"></a>
 
 AWS Private Certificate Authority is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Private CA. CloudTrail captures API calls and signing operations for AWS Private CA as events. The calls captured include calls from the AWS Private CA console and code calls to the AWS Private CA API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Private CA. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Private CA, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -105,7 +104,7 @@ The `IssueCertificateDetails` event complements the existing `SignCertificate` e
 **Example: Successful certificate issuance**  
 The following example shows an `IssueCertificateDetails` event for a successfully issued certificate.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -158,7 +157,7 @@ The following example shows an `IssueCertificateDetails` event for a successfull
 **Example: Failed certificate issuance**  
 The following example shows an `IssueCertificateDetails` event for a failed certificate issuance. When issuance fails, the `status` field is `FAILED` and the `statusReason` field describes the cause. The validity fields (`notBefore`, `notAfter`) and `issuedAt` are omitted because no certificate was issued. Fields derived from the TBS certificate (`tbsCertificate`, `subject`, `issuerName`, `serialNumber`, and `issuerAuthorityKeyIdentifier`) are present only when the failure occurred after AWS Private CA generated the TBS certificate.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -241,7 +240,7 @@ The following are examples of AWS Private CA CloudTrail events.
 **Example 1: Management event, `IssueCertificate`**  
 The following example shows a CloudTrail log entry that demonstrates the `IssueCertificate` action.
 
-```
+```json
 {
    "version":"0",
    "id":"{{event_ID}}",
@@ -263,7 +262,7 @@ The following example shows a CloudTrail log entry that demonstrates the `IssueC
 **Example 2: Management event, `ImportCertificateAuthorityCertificate`**  
 The following example shows a CloudTrail log entry that demonstrates the `ImportCertificateAuthorityCertificate` action.
 
-```
+```json
 {
    "eventVersion":"1.05",
    "userIdentity":{

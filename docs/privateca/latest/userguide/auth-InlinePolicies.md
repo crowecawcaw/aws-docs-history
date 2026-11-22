@@ -1,7 +1,6 @@
 
 
 # Inline policies
-<a name="auth-InlinePolicies"></a>
 
 Inline policies are policies that you create and manage and embed directly into a user, group, or role. The following policy examples show how to assign permissions to perform AWS Private CA actions. For general information about inline policies, see [Working with Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#inline-policies) in the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/). You can use the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the IAM API to create and embed inline policies. 
 
@@ -29,7 +28,7 @@ We strongly recommend the use of multi-factor authentication (MFA) any time you 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -54,7 +53,7 @@ We strongly recommend the use of multi-factor authentication (MFA) any time you 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":{
@@ -77,7 +76,7 @@ The following policy allows a user to import a private CA certificate.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":{
@@ -100,7 +99,7 @@ The following policy allows a user to delete a specific private CA.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":{
@@ -122,7 +121,7 @@ The following policy allows a user to apply tags during CA creation.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -150,7 +149,7 @@ The following tag-on-create policy *prevents* use of the key-value pair Environm
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -187,7 +186,7 @@ The following policy allows access only to CAs with the key-value pair Environme
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -221,7 +220,7 @@ The following policy allows access only to CAs with the key-value pair Environme
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -252,7 +251,7 @@ The following policy allows access only to CAs with the key-value pair Environme
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Automate Connector for SCEP using EventBridge
-<a name="c4scep-monitor-eventbridge-events"></a>
 
 You can use [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cwe-now-eb.html) to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near-real time. You can write simple rules to indicate which events are of interest to you and the automated actions to take when an event matches a rule. EventBridge are published at least once. For more information, see [Creating rules that react to events in EventBridge](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html). 
 
@@ -17,7 +16,7 @@ Connector for SCEP sends a `Certificate Issuance Succeeded` event to EventBridge
 
 The following is example data for the event.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",
@@ -45,7 +44,7 @@ Connector for SCEP sends a `Certificate Issuance Failed` event to EventBridge wh
 
 The following is example data for the event.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",
@@ -73,7 +72,7 @@ Connector for SCEP sends a `Certificate Authority Certificate Retrieval Succeede
 
 The following is example data for the event.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",
@@ -100,7 +99,7 @@ Connector for SCEP sends a `Certificate Authority Certificate Retrieval Failed` 
 
 The following is example data for the event.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",
@@ -128,7 +127,7 @@ Connector for SCEP sends a `Certificate Authority Certificate Retrieval Succeede
 
 The following is example data for the event.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",
@@ -155,7 +154,7 @@ Connector for SCEP sends a `Certificate Authority Capabilities Retrieval Succeed
 
 The following is example data for the event.
 
-```
+```json
 ```
 
 ### Certificate Authority Capabilities Retrieval Failed
@@ -165,7 +164,7 @@ Connector for SCEP sends a `Certificate Authority Capabilities Retrieval Failed`
 
 The following is example data for the event.
 
-```
+```json
 {                                 
  "resources":
      [
@@ -188,7 +187,7 @@ The following is example data for the event.
 **Unsupported Operation Invoked**  
 Connector for SCEP sends an `Unsupported Operation Invoked` event to EventBridge if the operation sent to the connector endpoint is unsupported or unknown.
 
-```
+```json
 {
    "version": "0",
    "id": "event_ID",

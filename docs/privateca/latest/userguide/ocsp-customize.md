@@ -1,7 +1,6 @@
 
 
 # Customize OCSP URL for AWS Private CA
-<a name="ocsp-customize"></a>
 
 **Note**  
 This topic is for customers who want to customize the public URL of the Online Certificate Status Protocol (OCSP) responder endpoint for branding or other purposes. If you plan to use the default configuration of AWS Private CA managed OCSP, you can skip this topic and follow the configuration instructions in [Configure revocation](create-CA.md#PcaCreateRevocation).

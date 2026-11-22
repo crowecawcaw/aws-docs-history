@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Private Certificate Authority exception messages
-<a name="PCATsExceptions"></a>
 
 An AWS Private CA command might fail for several reasons. For information on each exception and recommendations for resolving them, see the table below.
 
@@ -10,11 +9,11 @@ An AWS Private CA command might fail for several reasons. For information on eac
 
 |  Exception Returned by AWS Private CA  | Description | Remediation | 
 | --- | --- | --- | 
-| <a name="AccessDeniedException"></a>`AccessDeniedException` | The permissions required to use the given command have not been delegated by a private CA to the calling account. | For information on delegating permissions in AWS Private CA, see [Assign certificate renewal permissions to ACM](assign-permissions.md#PcaPermissions). | 
+| <a name="AccessDeniedException"></a>`AccessDeniedException` | The permissions required to use the given command have not been delegated by a private CA to the calling account. | For information on delegating permissions in AWS Private CA, see [Assign certificate renewal permissions to ACM](assign-permissions.md#PcaPermissions).<br />If an `IssueCertificate` request is denied, a policy that uses X.509 certificate condition keys might match the requested certificate. For more information, see [AccessDeniedException with X.509 certificate condition keys](troubleshoot-certguard.md). | 
 | <a name="InvalidArgsException"></a>`InvalidArgsException` | A certificate creation or renewal request was made with invalid parameters. | Check the command's individual documentation to make sure that your input parameters are valid. If you are creating a new certificate, make sure that the requested signing algorithm can be used with the CA's key type. | 
 | <a name="InvalidStateException"></a>`InvalidStateException` | The associated private CA cannot renew the certificate because it is not in the ACTIVE state. | Attempt to [restore the private CA](PCARestoreCA.md). If the private CA is outside of its restoration period, the CA cannot be restored and the certificate cannot be renewed. | 
 | <a name="LimitExceededException"></a>`LimitExceededException` | Each certificate authority (CA) has a quota of certificates that it can issue. The private CA that is associated with the designated certificate has reached its quota. For more information, see [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) in the AWS General Reference Guide. | Contact the [AWS Support Center](https://aws.amazon.com/premiumsupport/) to request a quota increase. | 
-| <a name="MalformedCSRException"></a>`MalformedCSRException` | The certificate signing request (CSR) that was submitted to AWS Private CA cannot be verified or validated. | Confirm that your CSR was properly generated and configured.  | 
+| <a name="MalformedCSRException"></a>`MalformedCSRException` | The certificate signing request (CSR) that was submitted to AWS Private CA cannot be verified or validated. | Confirm that your CSR was properly generated and configured.<br />AWS Private CA also returns this exception when it can't read an attribute of the requested certificate that an X.509 certificate condition key describes. For more information, see [MalformedCSRException with X.509 certificate condition keys](troubleshoot-certguard-malformed-csr.md). | 
 | `OtherException` | An internal error has caused the request to fail. | Attempt to run the command again. If the problem persists, contact the [AWS Support Center](https://aws.amazon.com/premiumsupport/). | 
 | <a name="RequestFailedException"></a>`RequestFailedException` | A networking problem in your AWS environment caused the request to fail. | Retry the request. If the failure persists, check your [Amazon VPC (VPC) configuration](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html). | 
 | <a name="ResourceNotFoundException"></a>`ResourceNotFoundException` | The private CA that issued the certificate was deleted and no longer exists. | Request a new certificate from another active CA. | 

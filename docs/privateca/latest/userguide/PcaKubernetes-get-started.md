@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Private CA Connector for Kubernetes.
-<a name="PcaKubernetes-get-started"></a>
 
 The following topics show how to use AWS Private CA to secure communications in a Kubernetes cluster. For another example, refer to [ Encryption in transit for Kubernetes ](https://github.com/aws-samples/sample-encryption-in-transit-for-kubernetes) on GitHub.
 
@@ -24,7 +23,7 @@ You can use a private certificate authority to secure communications with your A
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ You can use a private certificate authority to secure communications with your A
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,19 +117,19 @@ You can use a private certificate authority to secure communications with your A
 ------
 + A Kubernetes cluster. To create a Amazon Elastic Kubernetes Service cluster, refer to the [Amazon EKS quickstart guide](https://docs.aws.amazon.com/eks/latest/userguide/quickstart.html). For simplicity, create an environment variable to hold the cluster name:
 
-  ```
+  ```bash
   export CLUSTER={{aws-privateca-demo}}
   ```
 
   
 + The AWS Region where your CA and Amazon EKS cluster are located. For simplicity, create an environment variable to hold the Region:
 
-  ```
+  ```bash
   export REGION={{{{aws-region}}}}
   ```
 + The Amazon Resource Name (ARN) of a AWS Private CA private certificate authority. For simplicity, create an environment variable to hold the private CA ARN:
 
-  ```
+  ```bash
   export CA_ARN="arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
   ```
 
@@ -150,7 +149,7 @@ To use a private CA, you must install the `cert-manager>` add-on that requests c
 
 Install `cert-manager` as an Amazon EKS add-on:
 
-```
+```bash
 aws eks create-addon \
   --cluster-name {{$CLUSTER}} \
   --addon-name cert-manager \
@@ -162,7 +161,7 @@ aws eks create-addon \
 
 Install `cert-manager` using Helm:
 
-```
+```bash
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
@@ -191,7 +190,7 @@ Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKuberne
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -214,7 +213,7 @@ Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKuberne
 
 1. Run the following commands to create an IAM role:
 
-   ```
+   ```bash
    ROLE_ARN=$(aws iam create-role \
      --role-name CertManagerPrivateCARole \
      --assume-role-policy-document file://trust-policy.json \
@@ -232,7 +231,7 @@ Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKuberne
 
 1. Create a trust anchor that trusts the private CA stored in `CA_ARN`. For instructions, refer to [Getting started with IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/getting-started.html). Create an environment variable to store the trust anchor ARN:
 
-   ```
+   ```bash
    export TRUST_ANCHOR_ARN={{trustAnchorArn}}
    ```
 
@@ -243,7 +242,7 @@ Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKuberne
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -277,7 +276,7 @@ Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKuberne
 
 1. Run the following commands to create an IAM role:
 
-   ```
+   ```base
    ROLE_ARN=$(aws iam create-role \
      --role-name CertManagerPrivateCARole \
      --assume-role-policy-document file://trust-policy.json \
@@ -303,7 +302,7 @@ To install the `aws-privateca-connector-for-kubernetes` add-on, use the followin
 
 Create the add-on:
 
-```
+```bash
 aws eks create-addon --region $REGION \
   --cluster-name $CLUSTER \
   --addon-name aws-privateca-connector-for-kubernetes \
@@ -315,7 +314,7 @@ aws eks create-addon --region $REGION \
 
 Then wait for the add-on to be active:
 
-```
+```bash
 aws eks describe-addon \
   --cluster-name $CLUSTER \
   --addon-name aws-privateca-connector-for-kubernetes \
@@ -328,7 +327,7 @@ aws eks describe-addon \
 
 1. Create a profile in IAM Roles Anywhere:
 
-   ```
+   ```bash
    PROFILE_ARN=$(aws rolesanywhere create-profile \
      --name "privateca-profile" \
      --role-arns "$ROLE_ARN" \
@@ -342,13 +341,13 @@ aws eks describe-addon \
 
    1. Generate a private key for the client certificate:
 
-      ```
+      ```bash
       openssl genrsa -out client.key 2048
       ```
 
    1. Generate a certificate signing request (CSR) for the client certificate:
 
-      ```
+      ```bash
       openssl req -new \
         -key client.key \
         -out client.csr \
@@ -357,7 +356,7 @@ aws eks describe-addon \
 
    1. Issue the client certificate from AWS Private CA:
 
-      ```
+      ```bash
       CERT_ARN=$(aws acm-pca issue-certificate \
         --signing-algorithm SHA256WITHRSA \
         --csr fileb://client.csr \
@@ -370,7 +369,7 @@ aws eks describe-addon \
 
    1. Store the client certificate locally:
 
-      ```
+      ```bash
       aws acm-pca get-certificate \
         --certificate-authority-arn $CA_ARN \
         --certificate-arn $CERT_ARN \
@@ -383,20 +382,20 @@ aws eks describe-addon \
 
    1. Add the `awspca` Helm repository:
 
-      ```
+      ```bash
       helm repo add awspca https://cert-manager.github.io/aws-privateca-issuer 
       helm repo update
       ```
 
    1. Create a namespace:
 
-      ```
+      ```bash
       kubectl create namespace aws-privateca-issuer
       ```
 
    1. Put the certificate created earlier into a secret:
 
-      ```
+      ```bash
       kubectl create secret tls aws-privateca-credentials \
         -n aws-privateca-issuer \
         --cert=pca-issuer-client-cert.pem \
@@ -407,7 +406,7 @@ aws eks describe-addon \
 
    1. Create a file named `values.yaml` to configure the AWS Private CA issuer plugin to use with IAM Roles Anywhere: 
 
-      ```
+      ```bash
       cat > values.yaml <<EOF
       env:
         AWS_EC2_METADATA_SERVICE_ENDPOINT: "http://127.0.0.1:9911"
@@ -442,7 +441,7 @@ aws eks describe-addon \
 
    1. Install the AWS Private CA issuer with IAM Roles Anywhere:
 
-      ```
+      ```bash
       helm install aws-privateca-issuer awspca/aws-privateca-issuer \
         -n aws-privateca-issuer \
         -f values.yaml
@@ -452,19 +451,19 @@ aws eks describe-addon \
 
 Wait for the issuer to be ready. Use the following command: 
 
-```
+```bash
 kubectl wait --for=condition=ready pods --all -n aws-privateca-issuer --timeout=120s
 ```
 
 And then verify the installation to make sure that all pods have reached the `READY` state:
 
-```
+```bash
 kubectl -n aws-privateca-issuer get all
 ```
 
 To configure the `aws-private-ca-cluster-issuer`, create a YAML file named `cluster-issuer.yaml`containing the configuration of the issuer:
 
-```
+```bash
 cat > cluster-issuer.yaml <<EOF
 apiVersion: awspca.cert-manager.io/v1beta1
 kind: AWSPCAClusterIssuer
@@ -478,7 +477,7 @@ EOF
 
 Next, apply the cluster configuration:
 
-```
+```bash
 kubectl apply -f cluster-issuer.yaml
 ```
 
@@ -507,7 +506,7 @@ If you are not using an Amazon EKS cluster, after you manually bootstrap a trust
 
 1. Create a file called `pca-auth-cert.yaml`:
 
-   ```
+   ```bash
    cat > pca-auth-cert.yaml <<EOF
    apiVersion: cert-manager.io/v1
    kind: Certificate
@@ -534,13 +533,13 @@ If you are not using an Amazon EKS cluster, after you manually bootstrap a trust
 
 1. Create the new managed client authentication certificate:
 
-   ```
+   ```bash
    kubectl apply -f pca-auth-cert.yaml
    ```
 
 1. Validate that the certificate was created:
 
-   ```
+   ```bash
    kubectl get certificate aws-privateca-client-cert -n aws-privateca-issuer
    ```
 
@@ -558,7 +557,7 @@ Now that the `cert-manager` and `aws-privateca-issuer` are installed, you can is
 
 Create a YAML file named `certificate.yaml` containing the certificate resource:
 
-```
+```bash
 cat > certificate.yaml <<EOF
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -586,13 +585,13 @@ EOF
 
 Apply the certificate using the following command:
 
-```
+```bash
 kubectl apply -f certificate.yaml
 ```
 
 You can then check the status of the certificate with the following commands:
 
-```
+```bash
 kubectl get certificate example-certificate
 kubectl describe certificate example-certificate
 ```
@@ -606,12 +605,12 @@ example-certificate  True    example-certificate-tls   30s
 
 You can inspect the issued certificate with the following command:
 
-```
+```bash
 kubectl get secret example-certificate-tls -o yaml
 ```
 
 You can also decode and examine the certificate with the following command:
 
-```
+```bash
 kubectl get secret example-certificate-tls -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -text -noout
 ```

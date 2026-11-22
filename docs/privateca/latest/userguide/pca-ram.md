@@ -1,7 +1,6 @@
 
 
 # Attach a policy for cross-account access
-<a name="pca-ram"></a>
 
 When the CA administrator and the certificate issuer reside in different AWS accounts, the CA administrator must share CA access. This is accomplished by attaching a resource-based policy to the CA. The policy grants issuance permissions to a specific principal, which can be an AWS account owner, an IAM user, an AWS Organizations ID, or an organizational unit ID. 
 

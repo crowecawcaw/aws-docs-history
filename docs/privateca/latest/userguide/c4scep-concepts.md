@@ -1,7 +1,6 @@
 
 
 # Connector for SCEP concepts
-<a name="c4scep-concepts"></a>
 
 Connector for SCEP is an add-on feature for AWS Private Certificate Authority.
 

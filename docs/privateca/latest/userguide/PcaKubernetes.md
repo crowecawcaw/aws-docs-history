@@ -1,7 +1,6 @@
 
 
 # Secure Kubernetes with AWS Private Certificate Authority
-<a name="PcaKubernetes"></a>
 
 You can use AWS Private Certificate Authority to provide certificates for secure authentication and encryption over TLS and mTLS. AWS Private CA provides an open source plugin, [AWS Private CA Connector for Kubernetes](https://github.com/cert-manager/aws-privateca-issuer), (`aws-privateca-issuer`) for the widely adopted [cert-manager](https://cert-manager.io/docs/) add-on to Kubernetes that requests certificates, distributes them to Kubernetes secrets, and automates certificate renewal.
 

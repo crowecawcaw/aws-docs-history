@@ -1,7 +1,6 @@
 
 
 # Dual-stack endpoint support
-<a name="dual-stack-endpoint-support"></a>
 
 AWS Private Certificate Authority provides a dual-stack public endpoint that supports both IPv4 and IPv6 clients. A dual-stack endpoint enables clients to communicate with AWS Private CA using either IPv4 or IPv6 addresses. AWS Private CA for Active Directory and AWS Private CA Connector for SCEP also support dual-stack endpoints.
 

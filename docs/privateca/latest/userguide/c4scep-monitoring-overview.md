@@ -1,7 +1,6 @@
 
 
 # Monitor Connector for SCEP
-<a name="c4scep-monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Connector for SCEP and your other AWS solutions. AWS provides the following monitoring tools to watch Connector for SCEP, report when something is wrong, and take automatic actions when appropriate:
 + *AWS CloudTrail* captures API calls and related events made by or on behalf of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can identify which users and accounts called AWS APIs, the source IP address from which the calls were made, and when the calls occurred.

@@ -1,7 +1,6 @@
 
 
 # AWS Private CA best practices
-<a name="ca-best-practices"></a>
 
 Best practices are recommendations that can help you use AWS Private CA effectively. The following best practices are based on real-world experience from current AWS Certificate Manager and AWS Private CA customers. 
 

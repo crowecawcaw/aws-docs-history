@@ -1,7 +1,6 @@
 
 
 # Update a template for Active Directory
-<a name="update-template-connector-for-ad"></a>
 
 Use the following procedures to update a template using the console, command line, or API for AWS Private CA Connector for Active Directory.
 

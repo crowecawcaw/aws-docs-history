@@ -1,7 +1,6 @@
 
 
 # Get started with Connector for SCEP
-<a name="connector-for-scep-getting-started"></a>
 
 With AWS Private Certificate Authority Connector for SCEP, you can issue certificates from your private CA to SCEP-enabled devices and mobile device management (MDM) systems. When you create a connector, AWS Private Certificate Authority creates a SCEP URL for you to request certificates, and also provides you with information that you can use to integrate into your MDM systems.
 

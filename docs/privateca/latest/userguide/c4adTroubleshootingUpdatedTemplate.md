@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Connector for AD template update issues
-<a name="c4adTroubleshootingUpdatedTemplate"></a>
 
 If you made changes to your template or group access control entry, but you don't see the changes, this might be due to policy caching. AWS Private CA applies template to your policy when your client refreshes the policy cache, which is every eight hours. When your client refreshes the cache, it queries the connector for available templates. In the case of **auto-enrollment refresh, the client issues certificates that match either or both of the following conditions:
 + The certificate is within the renewal period.

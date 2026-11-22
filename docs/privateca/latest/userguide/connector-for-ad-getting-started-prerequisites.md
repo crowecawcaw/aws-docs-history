@@ -1,7 +1,6 @@
 
 
 # Set up Connector for AD
-<a name="connector-for-ad-getting-started-prerequisites"></a>
 
 The steps in this section are prerequisites to using Connector for AD. It assumes that you've already created an AWS account. After you complete the steps on this page, you can get started with creating a connector for AD.
 
@@ -66,7 +65,7 @@ This is an example a user managed policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ Connector for AD requires additional AWS RAM permissions, for both console and c
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -178,6 +177,9 @@ Connector for AD requires additional AWS RAM permissions, for both console and c
 ```
 
 ------
+
+**Note**  
+If you add X.509 certificate condition keys (`acm-pca:x509*`) to the `acm-pca:IssueCertificate` permission, connector creation might fail. For more information, see [Allow connector creation when you use X.509 certificate condition keys](pca-rbp.md#connector-permission-check-condition-keys).
 
 ## Step 5: Share your private CA with Connector for AD
 <a name="prereq-share-pca"></a>

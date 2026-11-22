@@ -1,7 +1,6 @@
 
 
 # Security best practices for Cross-account access to private CAs
-<a name="pca-resource-sharing"></a>
 
 An AWS Private CA administrator can share a CA with principals (users, roles, etc.) in another AWS account. When a share has been received and accepted, the principal can use the CA to issue end-entity certificates using AWS Private CA or AWS Certificate Manager resources. The principal can use the CA to issue subordinate CA certificates using AWS Private CA.
 

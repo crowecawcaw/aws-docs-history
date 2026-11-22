@@ -1,7 +1,6 @@
 
 
 # Activate an issuing authority certificate authority (IACA) certificate
-<a name="JavaApiMDL-ActivateIACA"></a>
 
 This Java sample shows how to use the [BlankRootCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough) template to create and install an [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html)-compliant issuing authority certificate authority (IACA) certificate. You must generate base64-encoded values for `KeyUsage`, `IssuerAlternativeName`, and `CRLDistributionPoint`, and pass them through `CustomExtensions`.
 
@@ -15,7 +14,7 @@ The example calls the following AWS Private CA API actions:
 + [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
 + [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
 
-```
+```java
 package com.amazonaws.samples.mdl;
 
 import com.amazonaws.auth.AWSCredentials;

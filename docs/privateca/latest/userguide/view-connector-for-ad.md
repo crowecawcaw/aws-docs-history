@@ -1,7 +1,6 @@
 
 
 # View connector details
-<a name="view-connector-for-ad"></a>
 
 Use the following procedures to view the configuration details of a connector in the console, command line, or API for AWS Private CA Connector for Active Directory.
 

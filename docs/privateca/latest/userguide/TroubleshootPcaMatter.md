@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Private CA Matter-compliant certificate errors
-<a name="TroubleshootPcaMatter"></a>
 
 The [Matter connectivity standard](https://github.com/project-chip/connectedhomeip) specifies certificate configurations that improve the security and consistency of internet of things (IoT) devices. Java samples for creating Matter-compliant root CA, intermediate CA, and end-entity certificates can be found at [Use AWS Private CA to implement Matter certificates](API-CBR-intro.md).
 

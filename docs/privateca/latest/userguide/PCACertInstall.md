@@ -1,7 +1,6 @@
 
 
 # Installing the CA certificate
-<a name="PCACertInstall"></a>
 
 Complete the following procedures to create and install your private CA certificate. Your CA will then be ready to use.
 
@@ -315,7 +314,7 @@ $ aws acm-pca describe-certificate-authority \
 
 The status now appears as ACTIVE.
 
-```
+```json
 {
     "CertificateAuthority": {
         "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",

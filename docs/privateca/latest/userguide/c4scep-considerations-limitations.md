@@ -1,7 +1,6 @@
 
 
 # Understand Connector for SCEP considerations and limitations
-<a name="c4scep-considerations-limitations"></a>
 
 Keep in mind the following considerations and limitations when using Connector for SCEP.
 

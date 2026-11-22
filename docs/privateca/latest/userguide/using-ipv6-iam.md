@@ -1,7 +1,6 @@
 
 
 # Using IPv6 addresses in IAM and AWS Private CA
-<a name="using-ipv6-iam"></a>
 
 Before trying to access AWS Private Certificate Authority over IPv6, ensure any IAM policies containing IP address restrictions are updated to include IPv6 address ranges. IP based policies that are not updated to handle IPv6 addresses may result in clients incorrectly losing or gaining access when they start using IPv6. To learn more about AWS Private CA and dual-stack support, see [Dual-stack endpoint support](dual-stack-endpoint-support.md).
 

@@ -1,7 +1,6 @@
 
 
 # Activate an Product Attestation Intermediate (PAI)
-<a name="JavaApiCBC-ProductAttestationIntermediateActivation"></a>
 
 This Java sample shows how to use the [BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough) template to create and install a [Matter](https://buildwithmatter.com) Subordinate CA (PAI) certificate for product attestation. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
@@ -15,7 +14,7 @@ The example calls the following AWS Private CA API actions:
 
 If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
-```
+```java
 package com.amazonaws.samples.matter;
 
 import com.amazonaws.auth.AWSCredentials;

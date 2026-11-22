@@ -1,7 +1,6 @@
 
 
 # AWS Private Certificate Authority Customer CP/CPS Framework
-<a name="pca-customer-cpcps"></a>
 
 AWS Private Certificate Authority provides infrastructure services that enable you to create certificate authority (CA) hierarchies, including root and subordinate CAs, without the investment and maintenance costs of operating an on-premise CA. When you use AWS Private CA to create your CA hierarchies, there is a shared responsibility between you and AWS Private CA. The shared responsibility model can help relieve your operational burden as AWS operates, manages and controls the physical security of the facilities in which the service operates. You assume responsibility and management of the certificate authority (including creation and deletion of CA resources; distributing trust anchors; PKI hierarchy creation; certification policies and practices; configuration for allowing or denying CA sharing across AWS accounts; policies for template usage; auditing; access controls, including separation of duties; and other CA configuration and policies). You should carefully consider the services you choose as your responsibilities vary depending on the services used, the integration of those services into your IT environment, and applicable laws and regulations. For more information, see the [AWS Cloud Security Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model).
 

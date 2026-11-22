@@ -1,7 +1,6 @@
 
 
 # Use AWS Private CA certificate templates
-<a name="UsingTemplates"></a>
 
 AWS Private CA uses configuration templates to issue both CA certificates and end-entity certificates. When you issue a CA certificate from the PCA console, the appropriate root or subordinate CA certificate template is applied automatically. 
 

@@ -1,7 +1,6 @@
 
 
 # Manage directory registrations
-<a name="directory-registration"></a>
 
 ------
 #### [ Console ]

@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="PcaKubernetes-considerations"></a>
 
 When using AWS Private Certificate Authority with Kubernetes, keep the following considerations in mind.
 

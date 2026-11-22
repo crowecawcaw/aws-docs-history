@@ -1,7 +1,6 @@
 
 
 # List private certificates
-<a name="PcaListCerts"></a>
 
 To list your private certificates, generate an audit report, retrieve it from its S3 bucket, and parse the report contents as needed. For information about creating AWS Private CA audit reports, see [Use audit reports with your private CA](PcaAuditReport.md). For information about retrieving an object from an S3 bucket, see [Downloading an object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html) in the *Amazon Simple Storage Service User Guide*.
 
@@ -10,7 +9,7 @@ The following examples illustrate approaches to creating audit reports and parsi
 **1. Create an audit report.**  
 The following command generates an audit report for a specified CA. 
 
-```
+```bash
 $ aws acm-pca create-certificate-authority-audit-report \
      --region {{region}} \     
      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
@@ -20,7 +19,7 @@ $ aws acm-pca create-certificate-authority-audit-report \
 
 When successful, the command returns the ID and location of the new audit report.
 
-```
+```json
 {
    "AuditReportId":"{{audit_report_ID}}",
    "S3Key":"audit-report/{{CA_ID}}/{{audit_report_ID.json}}"
@@ -30,7 +29,7 @@ When successful, the command returns the ID and location of the new audit report
 **2. Retrieve and format an audit report.**  
 This command retrieves an audit report, displays its contents in standard output, and filters the results to show only certificates issued on or after 2020-12-01.
 
-```
+```bash
 $ aws s3api get-object \
      --region {{region}} \
      --bucket {{bucket_name}} \
@@ -40,7 +39,7 @@ $ aws s3api get-object \
 
 The returned items resemble the following:
 
-```
+```json
 {
    "awsAccountId":"{{account}}",
    "certificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}",
@@ -56,7 +55,7 @@ The returned items resemble the following:
 **3. Save an audit report locally.**  
 If you want to perform multiple queries, it is convenient to save an audit report to a local file.
 
-```
+```bash
 $ aws s3api get-object \
      --region {{region}} \
      --bucket {{bucket_name}} \
@@ -65,7 +64,7 @@ $ aws s3api get-object \
 
 The same filter as before yields the same output:
 
-```
+```json
 $ cat my_local_audit_report.json | jq '.[] | select(.issuedAt >= "2020-12-01")'
 {
    "awsAccountId":"{{account}}",
@@ -82,13 +81,13 @@ $ cat my_local_audit_report.json | jq '.[] | select(.issuedAt >= "2020-12-01")'
 **4. Query within a date range**  
 You can query for certificates issued within a date range as follows:
 
-```
+```bash
 $ cat my_local_audit_report.json | jq '.[] | select(.issuedAt >= "2020-11-01" and .issuedAt <= "2020-11-10")'
 ```
 
 The filtered content is displayed in standard output:
 
-```
+```json
 {
    "awsAccountId": "{{account}}",
    "certificateArn": "arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}",
@@ -124,13 +123,13 @@ The filtered content is displayed in standard output:
 **5. Search for certificates following a specified template.**  
 The following command filters the report content using a template ARN:
 
-```
+```bash
 $ cat my_local_audit_report.json | jq '.[] | select(.templateArn == "arn:aws:acm-pca:::template/RootCACertificate/V1")'
 ```
 
 The output displays matching certificate records:
 
-```
+```json
 {
    "awsAccountId": "{{account}}",
    "certificateArn": "arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}",
@@ -146,13 +145,13 @@ The output displays matching certificate records:
 **6. Filter for revoked certificates**  
 To find all revoked certificates, use the following command:
 
-```
+```bash
 $ cat my_local_audit_report.json | jq '.[] | select(.revokedAt != null)'
 ```
 
 A revoked certificate is displayed as follows:
 
-```
+```json
 {
    "awsAccountId": "{{account}}",
    "certificateArn": "arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}",
@@ -170,13 +169,13 @@ A revoked certificate is displayed as follows:
 **7. Filter using a regular expression.**  
 The following command searches for subject names that contain the string "leaf":
 
-```
+```bash
 $ cat my_local_audit_report.json | jq '.[] | select(.subject|test("leaf"))'
 ```
 
 Matching certificate records are returned as follows:
 
-```
+```json
 {
    "awsAccountId": "{{account}}",
    "certificateArn": "arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}",

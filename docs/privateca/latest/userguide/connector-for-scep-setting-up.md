@@ -1,7 +1,6 @@
 
 
 # Set up Connector for SCEP
-<a name="connector-for-scep-setting-up"></a>
 
 The procedures in this section help you get started with Connector for SCEP. It assumes that you've already created an AWS account. After you complete the steps on this page, you can proceed with creating a connector for SCEP.
 
@@ -22,7 +21,7 @@ The following example is a customer managed policy that you can use for Connecto
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,6 +74,9 @@ The following example is a customer managed policy that you can use for Connecto
 ```
 
 ------
+
+**Note**  
+If you add X.509 certificate condition keys (`acm-pca:x509*`) to the `acm-pca:IssueCertificate` permission, connector creation might fail. For more information, see [Allow connector creation when you use X.509 certificate condition keys](pca-rbp.md#connector-permission-check-condition-keys).
 
 ## Step 2: Create a private CA
 <a name="scep-prequisite-pca"></a>

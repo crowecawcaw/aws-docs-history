@@ -1,7 +1,6 @@
 
 
 # List private CAs
-<a name="list-CAs"></a>
 
 You can use the AWS Private CA console or AWS CLI to list private CAs that you own or have access to.
 

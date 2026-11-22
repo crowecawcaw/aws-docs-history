@@ -1,7 +1,6 @@
 
 
 # Configure your MDM system for Connector for SCEP
-<a name="using-connector-for-scep-with-mdm"></a>
 
 Simple Certificate Enrollment Protocol (SCEP) is a standard protocol used for certificate enrollment and renewal. Connector for SCEP is a [RFC 8894](https://www.rfc-editor.org/rfc/rfc8894.html)-based SCEP server that automatically issues certificates from AWS Private Certificate Authority to your SCEP clients. When you create a connector, Connector for SCEP provides an HTTPS endpoint for SCEP clients to request certificates from. The clients authenticate using a challenge password that's included as part of their certificate signing request (CSR) to the service. You can use Connector for SCEP with popular mobile device management (MDM) systems, including Microsoft Intune, Omnissa Workspace ONE and Jamf Pro, to enroll mobile devices. It's designed to work with any client or endpoint that supports SCEP.
 

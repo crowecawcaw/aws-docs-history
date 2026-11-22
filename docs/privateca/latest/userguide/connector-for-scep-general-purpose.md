@@ -1,7 +1,6 @@
 
 
 # Configure Jamf Pro for Connector for SCEP
-<a name="connector-for-scep-general-purpose"></a>
 
 You can use AWS Private CA as an external certificate authority (CA) with the Jamf Pro mobile device management (MDM) system. This guide provides instructions on how to configure Jamf Pro after you create a general-purpose connector.
 
@@ -29,7 +28,7 @@ A fingerprint is a unique identifier for your private CA that can be used to ver
 
 1. In OpenSSL, run the following command to generate the fingerprint:
 
-   ```
+   ```bash
    openssl x509 -in ca.pem -sha256 -fingerprint
    ```
 

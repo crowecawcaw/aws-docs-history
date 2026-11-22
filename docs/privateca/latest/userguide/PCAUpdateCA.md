@@ -1,7 +1,6 @@
 
 
 # Update a private CA in AWS Private Certificate Authority
-<a name="PCAUpdateCA"></a>
 
 You can update the status of a private CA or change its [revocation configuration](revocation-setup.md) after creating it. This topic provides details about CA status and the CA lifecycle, along with examples of console and CLI updates to CAs.
 
@@ -134,7 +133,7 @@ $ aws acm-pca describe-certificate-authority \
 
 This results in output similar to the following.
 
-```
+```json
 {
     "CertificateAuthority": {
         "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",
@@ -190,7 +189,7 @@ $ aws acm-pca describe-certificate-authority \
 
 The status now appears as `ACTIVE`.
 
-```
+```json
 {
     "CertificateAuthority": {
         "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",
@@ -242,7 +241,7 @@ In some cases, you might have an active CA with no revocation mechanism configur
 
    The output confirms that the CA has status `ACTIVE` but is not configured to use a CRL.
 
-   ```
+   ```json
    {
        "CertificateAuthority": {
            "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",
@@ -279,7 +278,7 @@ In some cases, you might have an active CA with no revocation mechanism configur
 
 1. Create and save a file with a name such as `revoke_config.txt` to define your CRL configuration parameters.
 
-   ```
+   ```json
    {
       "CrlConfiguration":{
          "Enabled": true,
@@ -291,7 +290,7 @@ In some cases, you might have an active CA with no revocation mechanism configur
 **Note**  
 When updating a Matter device attestation CA to enable CRLs, you must configure it to omit the CDP extension from the issued certificates to help conform to the current Matter standard. To do this, define your CRL configuration parameters as illustrated below:   
 
-   ```
+   ```json
    {
       "CrlConfiguration":{
          "Enabled": true,
@@ -322,7 +321,7 @@ When updating a Matter device attestation CA to enable CRLs, you must configure 
 
    The output confirms that CA is now configured to use a CRL.
 
-   ```
+   ```json
    {
        "CertificateAuthority": {
            "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",
@@ -365,7 +364,7 @@ When updating a Matter device attestation CA to enable CRLs, you must configure 
 
 1. Create and save a file with a name such as `revoke_config.txt` to define your OCSP parameters.
 
-   ```
+   ```json
    {
       "OcspConfiguration":{
          "Enabled":true
@@ -391,7 +390,7 @@ When updating a Matter device attestation CA to enable CRLs, you must configure 
 
    The output confirms that CA is now configured to use OCSP.
 
-   ```
+   ```json
    {
        "CertificateAuthority": {
            "Arn": "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}",

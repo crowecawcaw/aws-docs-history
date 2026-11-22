@@ -1,7 +1,6 @@
 
 
 # Create a connector template
-<a name="create-ad-template"></a>
 
 A template is a list of configurations for how the certificate should look once issued, and how the client should handle the certificates. The following procedures explain how to create a template.
 

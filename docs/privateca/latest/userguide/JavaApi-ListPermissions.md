@@ -1,13 +1,12 @@
 
 
 # ListPermissions
-<a name="JavaApi-ListPermissions"></a>
 
 The following Java sample shows how to use the [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) operation.
 
 This operation lists the permissions, if any, that your private CA has assigned. Permissions, including `IssueCertificate`, `GetCertificate`, and `ListPermissions`, can be assigned to an AWS service principal with the [CreatePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html) operation, and revoked with the [DeletePermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html) operation.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

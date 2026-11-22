@@ -1,7 +1,6 @@
 
 
 # Control access to the private CA
-<a name="granting-ca-access"></a>
 
 Any user with the necessary permissions on a private CA from AWS Private CA can use that CA to sign other certificates. The CA owner can issue certificates or delegate the required permissions for issuing certificates to an AWS Identity and Access Management (IAM) user that resides in the same AWS account. A user that resides in a different AWS account can also issue certificates if authorized by the CA owner through a [resource-based policy](pca-rbp.md).
 

@@ -1,7 +1,6 @@
 
 
 # Connector for SCEP VPC endpoints (AWS PrivateLink)
-<a name="c4scep-vpc-endpoints"></a>
 
 You can create a private connection between your VPC and Connector for SCEP by configuring an interface VPC endpoint. Interface endpoints are powered by [AWS PrivateLink](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-privatelink.html), a technology for privately accessing Connector for SCEP API operations. AWS PrivateLink routes all network traffic between your VPC and Connector for SCEP through the Amazon network, avoiding exposure on the open internet. Each VPC endpoint is represented by one or more [elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) with private IP addresses in your VPC subnets.
 
@@ -50,7 +49,7 @@ For more information, see [Controlling Access to Services with VPC Endpoints](ht
 **Example – VPC endpoint policy for Connector for SCEP actions**  
 When attached to an endpoint, the following policy grants access for all principals to the listed Connector for SCEP actions on the specified connector resource.
 
-```
+```json
 {
    "Statement": [
       {
@@ -99,7 +98,7 @@ You can attach a VPC endpoint policy to control access to enrollment operations.
 
 Connector for SCEP enrollment operations aren't authenticated with SigV4. Due to this, they aren't associated with an IAM principal and instead are considered anonymous by VPC endpoint policies. As such, your VPC endpoint policy must allow all principals for these actions.
 
-```
+```json
 {
    "Statement": [
       {

@@ -1,7 +1,6 @@
 
 
 # Understand AWS Private CA CA modes
-<a name="short-lived-certificates"></a>
 
 AWS Private CA supports the creation of a certificate authority (CA) in either of two modes. The modes, general-purpose and short-lived certificate, affect the allowed validity period of the certificates issued by the CA.
 

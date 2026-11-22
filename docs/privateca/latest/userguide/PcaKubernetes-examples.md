@@ -1,7 +1,6 @@
 
 
 # Examples
-<a name="PcaKubernetes-examples"></a>
 
 The following examples show how AWS Private CA can be used with Kubernetes clusters.
 

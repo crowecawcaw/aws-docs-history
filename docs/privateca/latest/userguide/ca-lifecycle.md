@@ -1,7 +1,6 @@
 
 
 # Manage the private CA lifecycle
-<a name="ca-lifecycle"></a>
 
 CA certificates have a fixed lifetime, or validity period. When a CA certificate expires, all of the certificates issued directly or indirectly by subordinate CAs below it in the CA hierarchy become invalid. You can avoid CA certificate expiration by planning in advance. 
 

@@ -1,11 +1,10 @@
 
 
 # RestoreCertificateAuthority
-<a name="JavaApi-RestoreCertificateAuthority"></a>
 
 The following Java sample shows how to use the [RestoreCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html) operation. A private CA can be restored at any time during its restoration period. Currently, this period can last 7 to 30 days from the date of deletion and can be defined when you delete the CA. For more information, see [Restore a CA](PCARestoreCA.md). See also the [DeleteCertificateAuthority](JavaApi-DeleteCertificateAuthority.md) Java example. 
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

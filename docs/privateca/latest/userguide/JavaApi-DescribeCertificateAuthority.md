@@ -1,7 +1,6 @@
 
 
 # DescribeCertificateAuthority
-<a name="JavaApi-DescribeCertificateAuthority"></a>
 
 The following Java sample shows how to use the [DescribeCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html) operation.
 
@@ -14,7 +13,7 @@ The operation lists information about your private certificate authority (CA). Y
 + `FAILED` – Your private CA cannot be created.
 + `DELETED` – Your private CA is within the restoration period, after which it will be permanently deleted.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

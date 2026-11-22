@@ -1,7 +1,6 @@
 
 
 # What is the best certificate service for my needs?
-<a name="service-options"></a>
 
 There are two AWS services for issuing and deploying X.509 certificates. Choose the one that best fits your needs. Considerations include whether you need public- or private-facing certificates, customized certificates, certificates you want to deploy into other AWS services, or automated certificate management and renewal.
 

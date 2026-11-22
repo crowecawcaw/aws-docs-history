@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Connector for AD error codes
-<a name="c4adTroubleshootingError"></a>
 
 Connector for AD sends error messages for several reasons. For information on each error and recommendations about resolving them, see the following table. You can receive these errors by subscribing to Amazon EventBridge Scheduler events (event source: `aws.pca-connector-ad`) or by using manual enrollment in Windows.
 

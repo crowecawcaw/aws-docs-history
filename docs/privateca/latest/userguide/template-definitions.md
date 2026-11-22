@@ -1,7 +1,6 @@
 
 
 # AWS Private CA template definitions
-<a name="template-definitions"></a>
 
 The following sections provide configuration details about supported AWS Private CA certificate templates. 
 

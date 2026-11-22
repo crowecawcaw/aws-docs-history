@@ -1,7 +1,6 @@
 
 
 # AWS Private CA connectors for Active Directory
-<a name="connector-for-ad-procedures"></a>
 
 The procedures in this section describe how to create Active Directory (AD) connectors, configure templates, and integrate with AWS Private CA and Active Directory. You can perform these operations from the AWS Private CA Connector for AD console, by using the Connector for AD section of the AWS CLI, or by using the AWS Private CA Connector for AD API.
 

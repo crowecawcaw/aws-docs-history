@@ -1,7 +1,6 @@
 
 
 # Activate a Product Attestation Authority (PAA)
-<a name="JavaApiCBC-ProductAttestationAuthorityActivation"></a>
 
 This Java sample shows how to use the [RootCACertificate\_APIPassthrough/V1 definition](template-definitions.md#RootCACertificate_APIPassthrough) template to create and install a [Matter](https://buildwithmatter.com) Root CA (PAA) certificate for product attestation. The AuthorityKeyIdentifier (AKI) extension is optional for PAAs. To set an AKI, you must generate a Base64-encoded AKI value and pass it through a CustomExtension.
 
@@ -14,7 +13,7 @@ The example calls the following AWS Private CA API actions:
 
 If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
-```
+```java
 package com.amazonaws.samples.matter;
 
 import com.amazonaws.auth.AWSCredentials;

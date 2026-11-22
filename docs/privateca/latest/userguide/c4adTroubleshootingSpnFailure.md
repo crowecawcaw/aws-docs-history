@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Connector for AD SPN creation failure
-<a name="c4adTroubleshootingSpnFailure"></a>
 
 Service principal name (SPN) creation can fail for various reasons. When SPN creation fails you'll receive the failure reason in the API response. If you're using the console, then the failure reason is displayed in the Connector details page under the **Additional status details** field within the **Service principal name (SPN)** container. The following table describes failure reasons and recommended steps for resolution.
 

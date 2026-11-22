@@ -1,7 +1,6 @@
 
 
 # Create certificates with custom extensions
-<a name="JavaApi-CustomExtensions"></a>
 
 The [CustomExtension](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CustomExtension.html) object allows administrators to set custom X.509 extensions in private certificates. Customized certificates must be created using one of the ApiPassthrough templates. For more information about templates, see [AWS Private CA template varieties](template-varieties.md). For more information about using custom extensions, see [Issue private end-entity certificates](PcaIssueCert.md).
 
@@ -12,7 +11,7 @@ The [CustomExtension](https://docs.aws.amazon.com/privateca/latest/APIReference/
 ## Activate a subordinate CA with the NameConstraints extension
 <a name="Sub_CA_NameConstraints"></a>
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;
@@ -427,7 +426,7 @@ public class SubordinateCAActivationWithNameConstraints {
 ## Issue a certificate with the QC statement extension
 <a name="Certificate_QC_statement"></a>
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.auth.AWSCredentials;

@@ -1,7 +1,6 @@
 
 
 # Tagging Connector for AD resources
-<a name="ad-tags"></a>
 
 You can apply tags to your connectors, templates, and directory registrations. Tagging adds metadata to a resource that can assist with organization and management.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Private CA API operations and permissions
-<a name="api-permissions"></a>
 
 When you set up access control and permissions policies that you plan to attach to an IAM identity (identity-based policies), use the following table as a reference. The first column in the table lists each AWS Private CA API operation. You specify actions in a policy's `Action` element. The remaining columns provide the additional information.
 
@@ -21,7 +20,7 @@ When you set up access control and permissions policies that you plan to attach 
 | [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html) | `acm-pca:GetCertificateAuthorityCsr` | `arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}` | 
 | [GetPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html) | acm-pca:GetPolicy | arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} | 
 | [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html) | `acm-pca:ImportCertificateAuthorityCertificate` | `arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}` | 
-| [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) | `acm-pca:IssueCertificate` | `arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}` | 
+| [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) | `acm-pca:IssueCertificate`<br />You can restrict the certificates that a principal can request with X.509 certificate condition keys. For more information, see [Control certificate issuance with X.509 certificate condition keys](certguard-condition-keys.md). | `arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}` | 
 | [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) | `acm-pca:ListCertificateAuthorities` | N/A | 
 | [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) | acm-pca:ListPermissions | arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} | 
 | [ListTags](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html) | `acm-pca:ListTags` | N/A | 
