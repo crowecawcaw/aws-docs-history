@@ -1,7 +1,6 @@
 
 
 # Smart Factory on AWS Outposts
-<a name="smart-factory-outposts"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#sfo-diagram-history))**
 
