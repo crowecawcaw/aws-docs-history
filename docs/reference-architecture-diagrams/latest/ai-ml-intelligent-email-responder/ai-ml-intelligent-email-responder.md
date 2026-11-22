@@ -1,7 +1,6 @@
 
 
 # AI/ML Based Intelligent Email Responder
-<a name="ai-ml-intelligent-email-responder"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#diagram-history))**
 
