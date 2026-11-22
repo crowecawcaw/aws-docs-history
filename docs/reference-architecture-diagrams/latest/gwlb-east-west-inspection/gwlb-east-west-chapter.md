@@ -1,7 +1,6 @@
 
 
 # Gateway Load Balancer East/West Inspection
-<a name="gwlb-east-west-chapter"></a>
 
 Publication date: **April 8, 2021 ([Diagram history](#diagram-history))**
 
