@@ -1,7 +1,6 @@
 
 
 # Start Discoverer
-<a name="v1-discoverers-id-discovererid-start"></a>
 
 ## URI
 <a name="v1-discoverers-id-discovererid-start-url"></a>
@@ -64,7 +63,7 @@ Starts the discoverer
 #### DiscovererStateOutput schema
 <a name="v1-discoverers-id-discovererid-start-response-body-discovererstateoutput-example"></a>
 
-```
+```json
 {
   "DiscovererId": "string",
   "State": enum
@@ -74,7 +73,7 @@ Starts the discoverer
 #### ErrorOutput schema
 <a name="v1-discoverers-id-discovererid-start-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

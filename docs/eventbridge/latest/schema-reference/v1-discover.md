@@ -1,7 +1,6 @@
 
 
 # Discover
-<a name="v1-discover"></a>
 
 Allows you get the discovered schemas that have been inferred from events on an event bus.
 
@@ -54,7 +53,7 @@ Get the discovered schema that was generated based on sampled events.
 #### POST schema
 <a name="v1-discover-request-body-post-example"></a>
 
-```
+```json
 {
   "Type": enum,
   "Events": [
@@ -69,7 +68,7 @@ Get the discovered schema that was generated based on sampled events.
 #### GetDiscoveredSchemaOutput schema
 <a name="v1-discover-response-body-getdiscoveredschemaoutput-example"></a>
 
-```
+```json
 {
   "Content": "string"
 }
@@ -78,7 +77,7 @@ Get the discovered schema that was generated based on sampled events.
 #### ErrorOutput schema
 <a name="v1-discover-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

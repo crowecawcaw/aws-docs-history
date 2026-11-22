@@ -1,7 +1,6 @@
 
 
 # Schemas
-<a name="v1-registries-name-registryname-schemas"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-url"></a>
@@ -72,7 +71,7 @@ List the schemas.
 #### ListSchemasOutput schema
 <a name="v1-registries-name-registryname-schemas-response-body-listschemasoutput-example"></a>
 
-```
+```json
 {
   "NextToken": "string",
   "Schemas": [
@@ -91,7 +90,7 @@ List the schemas.
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

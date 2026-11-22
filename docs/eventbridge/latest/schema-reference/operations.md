@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="operations"></a>
 
 The Amazon EventBridge Schemas REST API includes the following operations.
 + [CreateDiscoverer](v1-discoverers.md#CreateDiscoverer)

@@ -1,7 +1,6 @@
 
 
 # Get Code Binding Source
-<a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-source"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-source-url"></a>
@@ -82,14 +81,14 @@ Get the code binding source URI.
 #### GetCodeBindingSourceOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-source-response-body-getcodebindingsourceoutput-example"></a>
 
-```
+```json
 "string"
 ```
 
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-source-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

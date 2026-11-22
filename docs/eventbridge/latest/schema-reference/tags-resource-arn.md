@@ -1,7 +1,6 @@
 
 
 # Tag
-<a name="tags-resource-arn"></a>
 
 A tag is a key-value pair associated with a resource. You can use these metadata tags to identify the purpose of a broker or configuration. 
 
@@ -114,7 +113,7 @@ Removes tags from a resource.
 #### POST schema
 <a name="tags-resource-arn-request-body-post-example"></a>
 
-```
+```json
 {
   "tags": {
   }
@@ -127,7 +126,7 @@ Removes tags from a resource.
 #### ListTagsForResourceOutput schema
 <a name="tags-resource-arn-response-body-listtagsforresourceoutput-example"></a>
 
-```
+```json
 {
   "tags": {
   }
@@ -137,7 +136,7 @@ Removes tags from a resource.
 #### ErrorOutput schema
 <a name="tags-resource-arn-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

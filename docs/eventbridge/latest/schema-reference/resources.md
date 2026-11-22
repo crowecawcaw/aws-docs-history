@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
 The Amazon EventBridge Schemas REST API includes the following resources.
 

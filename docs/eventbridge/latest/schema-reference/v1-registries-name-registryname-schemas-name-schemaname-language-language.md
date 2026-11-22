@@ -1,7 +1,6 @@
 
 
 # Code Binding
-<a name="v1-registries-name-registryname-schemas-name-schemaname-language-language"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-url"></a>
@@ -119,7 +118,7 @@ Put code binding URI
 #### CodeBindingOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-response-body-codebindingoutput-example"></a>
 
-```
+```json
 {
   "Status": enum,
   "LastModified": "string",
@@ -131,7 +130,7 @@ Put code binding URI
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-language-language-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

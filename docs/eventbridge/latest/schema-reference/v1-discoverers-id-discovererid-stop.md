@@ -1,7 +1,6 @@
 
 
 # Stop Discoverer
-<a name="v1-discoverers-id-discovererid-stop"></a>
 
 ## URI
 <a name="v1-discoverers-id-discovererid-stop-url"></a>
@@ -64,7 +63,7 @@ Stops the discoverer
 #### DiscovererStateOutput schema
 <a name="v1-discoverers-id-discovererid-stop-response-body-discovererstateoutput-example"></a>
 
-```
+```json
 {
   "DiscovererId": "string",
   "State": enum
@@ -74,7 +73,7 @@ Stops the discoverer
 #### ErrorOutput schema
 <a name="v1-discoverers-id-discovererid-stop-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

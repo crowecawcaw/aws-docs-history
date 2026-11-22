@@ -1,7 +1,6 @@
 
 
 # Discoverers
-<a name="v1-discoverers"></a>
 
 Discoverers allow you to infer EventBridge Schemas based on the events on an event bus. 
 
@@ -83,7 +82,7 @@ Due to no name being passed in the CreateDiscoverer API call there is no resourc
 #### POST schema
 <a name="v1-discoverers-request-body-post-example"></a>
 
-```
+```json
 {
   "CrossAccount": boolean,
   "Description": "string",
@@ -99,7 +98,7 @@ Due to no name being passed in the CreateDiscoverer API call there is no resourc
 #### ListDiscoverersOutput schema
 <a name="v1-discoverers-response-body-listdiscoverersoutput-example"></a>
 
-```
+```json
 {
   "NextToken": "string",
   "Discoverers": [
@@ -119,7 +118,7 @@ Due to no name being passed in the CreateDiscoverer API call there is no resourc
 #### DiscovererOutput schema
 <a name="v1-discoverers-response-body-discovereroutput-example"></a>
 
-```
+```json
 {
   "DiscovererArn": "string",
   "DiscovererId": "string",
@@ -135,7 +134,7 @@ Due to no name being passed in the CreateDiscoverer API call there is no resourc
 #### ErrorOutput schema
 <a name="v1-discoverers-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

@@ -1,7 +1,6 @@
 
 
 # List Schema Versions
-<a name="v1-registries-name-registryname-schemas-name-schemaname-versions"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-name-schemaname-versions-url"></a>
@@ -74,7 +73,7 @@ Provides a list of the schema versions and related information.
 #### ListSchemaVersionsOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-versions-response-body-listschemaversionsoutput-example"></a>
 
-```
+```json
 {
   "NextToken": "string",
   "SchemaVersions": [
@@ -91,7 +90,7 @@ Provides a list of the schema versions and related information.
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-versions-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

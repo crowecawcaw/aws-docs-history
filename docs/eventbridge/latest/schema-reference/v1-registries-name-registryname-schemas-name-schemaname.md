@@ -1,7 +1,6 @@
 
 
 # Schema
-<a name="v1-registries-name-registryname-schemas-name-schemaname"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-name-schemaname-url"></a>
@@ -161,7 +160,7 @@ Delete a schema definition.
 #### POST schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-request-body-post-example"></a>
 
-```
+```json
 {
   "Type": enum,
   "Description": "string",
@@ -174,7 +173,7 @@ Delete a schema definition.
 #### PUT schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-request-body-put-example"></a>
 
-```
+```json
 {
   "Type": enum,
   "Description": "string",
@@ -189,7 +188,7 @@ Delete a schema definition.
 #### DescribeSchemaOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-response-body-describeschemaoutput-example"></a>
 
-```
+```json
 {
   "LastModified": "string",
   "Type": "string",
@@ -207,7 +206,7 @@ Delete a schema definition.
 #### SchemaOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-response-body-schemaoutput-example"></a>
 
-```
+```json
 {
   "LastModified": "string",
   "Type": "string",
@@ -224,7 +223,7 @@ Delete a schema definition.
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

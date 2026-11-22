@@ -1,7 +1,6 @@
 
 
 # Registry
-<a name="v1-registries-name-registryname"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-url"></a>
@@ -143,7 +142,7 @@ Deletes a Registry.
 #### POST schema
 <a name="v1-registries-name-registryname-request-body-post-example"></a>
 
-```
+```json
 {
   "Description": "string",
   "tags": {
@@ -154,7 +153,7 @@ Deletes a Registry.
 #### PUT schema
 <a name="v1-registries-name-registryname-request-body-put-example"></a>
 
-```
+```json
 {
   "Description": "string"
 }
@@ -166,7 +165,7 @@ Deletes a Registry.
 #### RegistryOutput schema
 <a name="v1-registries-name-registryname-response-body-registryoutput-example"></a>
 
-```
+```json
 {
   "Description": "string",
   "RegistryName": "string",
@@ -179,7 +178,7 @@ Deletes a Registry.
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

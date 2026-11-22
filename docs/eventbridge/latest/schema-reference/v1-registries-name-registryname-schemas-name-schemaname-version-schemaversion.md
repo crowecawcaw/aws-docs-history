@@ -1,7 +1,6 @@
 
 
 # Delete Schema Version
-<a name="v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion"></a>
 
 ## URI
 <a name="v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion-url"></a>
@@ -68,7 +67,7 @@ Delete the schema version definition
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"

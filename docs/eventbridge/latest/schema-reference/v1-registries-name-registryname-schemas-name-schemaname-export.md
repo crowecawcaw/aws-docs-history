@@ -1,7 +1,6 @@
 
 
 # Export
-<a name="v1-registries-name-registryname-schemas-name-schemaname-export"></a>
 
 Exports a schema.
 
@@ -77,7 +76,7 @@ Exports a schema.
 #### ExportSchemaOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-export-response-body-exportschemaoutput-example"></a>
 
-```
+```json
 {
   "Type": "string",
   "SchemaVersion": "string",
@@ -90,7 +89,7 @@ Exports a schema.
 #### ErrorOutput schema
 <a name="v1-registries-name-registryname-schemas-name-schemaname-export-response-body-erroroutput-example"></a>
 
-```
+```json
 {
   "Message": "string",
   "Code": "string"
