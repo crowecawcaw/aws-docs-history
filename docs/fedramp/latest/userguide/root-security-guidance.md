@@ -1,7 +1,6 @@
 
 
 # Root Security Guidance
-<a name="root-security-guidance"></a>
 
 This topic discusses root security guidance.
 
@@ -340,7 +339,7 @@ This section covers identity and access management configurations that require m
 
  **Enable MFA Delete (requires root account with MFA)** 
 
-```
+```bash
 aws s3api put-bucket-versioning \
 --bucket BUCKET-NAME \
 --versioning-configuration Status=Enabled,MFADelete=Enabled \
@@ -349,7 +348,7 @@ aws s3api put-bucket-versioning \
 
  **Verify MFA Delete status** 
 
-```
+```bash
 aws s3api get-bucket-versioning --bucket BUCKET-NAME
 ```
 
@@ -388,7 +387,7 @@ aws s3api get-bucket-versioning --bucket BUCKET-NAME
 
  **Example Problematic Policy**:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -409,7 +408,7 @@ aws s3api get-bucket-versioning --bucket BUCKET-NAME
 
  **Using AWS Organizations privileged actions with temporary elevated permissions.** 
 
-```
+```bash
 aws organizations enable-policy-type \
 --root-id r-example \
 --policy-type SERVICE_CONTROL_POLICY
@@ -436,7 +435,7 @@ aws sts assume-role \
 
  **Delete the problematic bucket policy using assumed role credentials** 
 
-```
+```bash
 export AWS_ACCESS_KEY_ID=ASSUMED-ROLE-ACCESS-KEY
 export AWS_SECRET_ACCESS_KEY=ASSUMED-ROLE-SECRET-KEY
 export AWS_SESSION_TOKEN=ASSUMED-ROLE-SESSION-TOKEN
@@ -474,7 +473,7 @@ CloudTrail Configuration for Root activities can help to identify usage of AWS r
 
  **Create dedicated CloudTrail for root account monitoring** 
 
-```
+```bash
 aws cloudtrail create-trail \
 --name root-activity-trail \
 --s3-bucket-name security-audit-logs-bucket \
@@ -488,7 +487,7 @@ Create real-time Alerting for Root Usage as well to make sure you can maintain a
 
  **CloudWatch metric filter for root account usage** 
 
-```
+```bash
 aws logs put-metric-filter \
 --log-group-name CloudTrail/RootAccountActivity \
 --filter-name RootAccountUsage \
@@ -499,7 +498,7 @@ metricName=RootAccountAPIUsage,metricNamespace=Security/RootAccount,metricValue=
 
  **CloudWatch alarm for root account API usage** 
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
 --alarm-name "Root-Account-API-Usage" \
 --alarm-description "Alert on root account API usage" \
@@ -543,7 +542,7 @@ Using AWS Config Rules for Root Account Security are recommended for monitoring 
 
 Deploy AWS Config rules for root account compliance. The two provided AWS Config rules monitor for account compliance in having MFA enabled for root accounts, and identification if a root account has access keys.
 
-```
+```bash
 aws configservice put-config-rule \
 --config-rule '{
   "ConfigRuleName": "root-mfa-enabled",
@@ -555,7 +554,7 @@ aws configservice put-config-rule \
 }'
 ```
 
-```
+```bash
 aws configservice put-config-rule \
 --config-rule '{
   "ConfigRuleName": "root-access-key-check",

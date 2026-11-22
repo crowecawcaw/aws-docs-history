@@ -1,7 +1,6 @@
 
 
 # Privileged Account Guidance
-<a name="privileged-account-guidance"></a>
 
 This guide provides security configuration for privileged account access.
 
@@ -103,7 +102,7 @@ This subsection covers accounts responsible for managing security services, poli
 
  **Example IAM Policy (Security Administrator)**:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -222,7 +221,7 @@ This command creates a PostgreSQL database instance with multiple security layer
 
 These configurations implement defense-in-depth by combining encryption, access controls, monitoring, and operational safeguards. Together, they help prevent unauthorized access, detect security incidents, maintain audit trails, and ensure data can be recovered in case of failure or attack.
 
-```
+```bash
 aws rds create-db-instance \
   --db-instance-identifier secure-db-instance \
   --db-instance-class db.r5.large \
@@ -282,7 +281,7 @@ This subsection covers organization-wide policy controls that can only be manage
 
 The example policy uses a sample IAM role of SecurityAdministratorRole to indicate you organizations security administrtor role that has far reaching access to your org. EmergencyAccessRole is a role your organization can adopt as a break-glass mechanism for access to AWS. AWS recommends implementing a break-glass mechanism to your AWS accounts in case of emergencies. Please read more in the [AWS DevOps Guidance docs](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.html) 
 
-```
+```bash
 aws organizations create-policy \
   --name "SecurityGuardrails-SCP" \
   --description "Prevent high-risk security actions" \
@@ -337,7 +336,7 @@ This subsection covers IAM trust policies that enable cross-account access and c
 
 In this example the important factor is the ExternalID IAM condition that limits access to assume the role to only accounts that are allowed and provide the unique external ID.
 
-```
+```bash
 aws iam create-role \
   --role-name CrossAccountSecurityRole \
   --assume-role-policy-document '{
@@ -387,7 +386,7 @@ This subsection covers encryption key management operations that require privile
 
  **Create KMS key with comprehensive administrative controls** 
 
-```
+```bash
 aws kms create-key \
   --description "Privileged access encryption key" \
   --key-usage ENCRYPT_DECRYPT \
@@ -443,7 +442,7 @@ This subsection covers AWS security services that can only be configured at the 
 
  **Enable Security Hub organization-wide with compliance standards** 
 
-```
+```bash
 # Enable Security Hub in management account
 aws securityhub enable-security-hub \
   --enable-default-standards
@@ -484,7 +483,7 @@ This subsection covers S3 bucket policies that can create access lockouts requir
 
  **Create S3 bucket policy with secure access controls** 
 
-```
+```bash
 aws s3api put-bucket-policy \
   --bucket secure-data-bucket \
   --policy '{
@@ -545,7 +544,7 @@ This subsection covers emergency access procedures for critical incidents requir
 
  **Assume emergency access role with enhanced monitoring** 
 
-```
+```bash
 aws sts assume-role \
   --role-arn "arn:aws:iam::ACCOUNT-ID:role/EmergencyAccessRole" \
   --role-session-name "emergency-$(date +%Y%m%d-%H%M%S)" \
@@ -559,7 +558,7 @@ This subsection covers comprehensive monitoring and analysis of privileged accou
 
  **CloudWatch metric filter for privileged account activities** 
 
-```
+```bash
 aws logs put-metric-filter \
 --log-group-name CloudTrail/PrivilegedAccounts \
 --filter-name PrivilegedAccountActivity \
@@ -570,7 +569,7 @@ metricName=PrivilegedAccountActivity,metricNamespace=Security/PrivilegedAccess,m
 
  **CloudWatch alarm for unusual privileged activity** 
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name "Unusual-Privileged-Activity" \
   --alarm-description "Alert on unusual privileged account activity" \
@@ -611,7 +610,7 @@ This subsection covers systematic review processes for privileged account permis
 
  **Generate privileged account usage report** 
 
-```
+```bash
 # Generate credential report for privileged account analysis
 aws iam generate-credential-report
 
@@ -633,7 +632,7 @@ This subsection covers automated monitoring and validation of privileged account
 
  **AWS Config rule for privileged account MFA compliance** 
 
-```
+```bash
 aws configservice put-config-rule \
   --config-rule '{
     "ConfigRuleName": "privileged-accounts-mfa-enabled",

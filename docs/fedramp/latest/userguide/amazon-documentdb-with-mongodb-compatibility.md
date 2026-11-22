@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB (with MongoDB compatibility)
-<a name="amazon-documentdb-with-mongodb-compatibility"></a>
 
 This guide provides security configuration requirements and implementation examples for Amazon DocumentDB (with MongoDB compatibility) in accordance with FedRAMP requirements.
 
@@ -98,7 +97,7 @@ Amazon DocumentDB administrative access is managed through the master user accou
    + Implement MFA requirements for privileged operations
    + Example policy for cluster administration:
 
-     ```
+     ```json
      {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -403,7 +402,7 @@ Choose the appropriate policy based on your role:
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify read access works
 aws docdb describe-db-clusters
 
@@ -413,7 +412,7 @@ aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -446,7 +445,7 @@ aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify operator access works (requires MFA)
 aws docdb modify-db-cluster --db-cluster-identifier my-docdb-cluster --apply-immediately
 
@@ -456,7 +455,7 @@ aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -498,7 +497,7 @@ aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify full admin access works (requires MFA)
 aws docdb create-db-cluster --db-cluster-identifier my-docdb-cluster --engine docdb
 aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster --skip-final-snapshot
@@ -506,7 +505,7 @@ aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster --skip-fina
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -552,7 +551,7 @@ Amazon DocumentDB requires comprehensive master user security, TLS encryption, a
 
    Create dedicated KMS key and configure secure master user for DocumentDB cluster
 
-   ```
+   ```bash
    # Create KMS key for DocumentDB encryption
    aws kms create-key \
      --description 'DocumentDB Encryption Key' \
@@ -575,7 +574,7 @@ Amazon DocumentDB requires comprehensive master user security, TLS encryption, a
 
    Create DocumentDB cluster with encryption enabled and secure master user configuration
 
-   ```
+   ```bash
    # Retrieve master user credentials from Secrets Manager
    MASTER_CREDS=$(aws secretsmanager get-secret-value \
      --secret-id documentdb/master-user \
@@ -616,7 +615,7 @@ Amazon DocumentDB requires comprehensive master user security, TLS encryption, a
 
    Enable TLS for client connections and configure MongoDB-compatible security features
 
-   ```
+   ```bash
    # Download DocumentDB CA certificate for TLS connections
    wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
    
@@ -664,7 +663,7 @@ Amazon DocumentDB requires implementation of privileged account security control
 
    Configure Amazon DocumentDB with minimal required permissions for administrative accounts
 
-   ```
+   ```bash
    # Create least privilege IAM policy for DocumentDB administration
    cat > documentdb-admin-policy.json << 'EOF'
    {
@@ -710,7 +709,7 @@ Amazon DocumentDB requires implementation of privileged account security control
 
    Require MFA for all privileged operations and administrative access
 
-   ```
+   ```bash
    # MFA enforcement is configured through IAM policy conditions
    # Verify MFA enforcement for privileged operations
    aws iam simulate-principal-policy \
@@ -723,7 +722,7 @@ Amazon DocumentDB requires implementation of privileged account security control
 
    Enable comprehensive logging and monitoring of all privileged account activities
 
-   ```
+   ```bash
    # Enable CloudTrail for API logging
    aws cloudtrail create-trail \
      --name DocumentDBPrivilegedAccess \
@@ -798,7 +797,7 @@ Export Amazon Documentdb With Mongodb Compatibility configuration using AWS CLI 
 
  **API Command:** 
 
-```
+```bash
 Configure via IAM policies for Amazon Documentdb With Mongodb Compatibility
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud (EC2)
-<a name="amazon-elastic-cloud-compute-ec2"></a>
 
 This guide provides security configuration requirements and implementation examples for Amazon Elastic Compute Cloud (EC2) in accordance with FedRAMP requirements.
 
@@ -437,7 +436,7 @@ Choose the appropriate policy based on your role:
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify read access works
 aws ec2 describe-instances
 
@@ -447,7 +446,7 @@ aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -481,7 +480,7 @@ aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify operator access works (requires MFA)
 aws ec2 stop-instances --instance-ids i-0123456789abcdef0
 
@@ -491,7 +490,7 @@ aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -532,7 +531,7 @@ aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify full admin access works (requires MFA)
 aws ec2 run-instances --image-id ami-0123456789abcdef0 --instance-type t3.micro
 aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
@@ -540,7 +539,7 @@ aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 
  **Policy JSON:** 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -575,7 +574,7 @@ Configure EC2 Instance Metadata Service v2 (IMDSv2) for enhanced security and di
 
    Create EC2 instance with IMDSv2 enforcement
 
-   ```
+   ```bash
    aws ec2 run-instances --image-id AMI-12345678 --instance-type t3.micro --metadata-options HttpTokens=required,HttpPutResponseHopLimit=1,HttpEndpoint=enabled,InstanceMetadataTags=enabled
    ```
 
@@ -583,7 +582,7 @@ Configure EC2 Instance Metadata Service v2 (IMDSv2) for enhanced security and di
 
    Update existing instances to require IMDSv2
 
-   ```
+   ```bash
    aws ec2 modify-instance-metadata-options --instance-id <instance-id> --http-tokens required --http-put-response-hop-limit 1
    ```
 
@@ -603,7 +602,7 @@ Configure EC2 security groups with least privilege access rules and comprehensiv
 
    Create security group with minimal required access
 
-   ```
+   ```bash
    aws ec2 create-security-group --group-name web-tier-sg --description 'Web tier security group' --vpc-id vpc-12345678
    aws ec2 authorize-security-group-ingress --group-id sg-abcdef12 --protocol tcp --port 443 --source-group sg-alb-sg
    aws ec2 authorize-security-group-ingress --group-id sg-abcdef12 --protocol tcp --port 22 --cidr 10.0.0.0/8
@@ -625,7 +624,7 @@ Amazon Elastic Compute Cloud (EC2) requires implementation of privileged account
 
    Configure Amazon Elastic Compute Cloud (EC2) with minimal required permissions for administrative accounts
 
-   ```
+   ```bash
    # Create least privilege IAM policy for Amazon Elastic Compute Cloud (EC2) administration
    aws iam create-policy --policy-name ServiceAdminPolicy --policy-document file://admin-policy.json
    # Attach policy to administrative role
@@ -636,7 +635,7 @@ Amazon Elastic Compute Cloud (EC2) requires implementation of privileged account
 
    Require MFA for all privileged operations and administrative access
 
-   ```
+   ```bash
    # Create MFA-required policy condition
    # Add MFA condition to administrative policies
    # Verify MFA enforcement for privileged operations
@@ -646,7 +645,7 @@ Amazon Elastic Compute Cloud (EC2) requires implementation of privileged account
 
    Enable comprehensive logging and monitoring of all privileged account activities
 
-   ```
+   ```bash
    # Enable CloudTrail for API logging
    aws cloudtrail create-trail --name ServicePrivilegedAccess --s3-bucket-name audit-logs
    # Configure CloudWatch alarms for privileged operations
@@ -695,7 +694,7 @@ Deploy AWS Config rules to continuously monitor Amazon Elastic Compute Cloud (EC
 
  **Comparison Commands:** 
 
-```
+```bash
 # List all EC2 instances
 aws ec2 describe-instances --output json
 # List all security groups
@@ -730,7 +729,7 @@ JSON via AWS CLI
 
  **Export Commands:** 
 
-```
+```bash
 # Export all EC2 instances
 aws ec2 describe-instances --output json > amazon_ec2_instances.json
 # Export all security groups
@@ -763,7 +762,7 @@ aws ec2 describe-vpcs --output json > amazon_ec2_vpcs.json
 
  **API Command:** 
 
-```
+```bash
 aws ec2 run-instances --image-id <AMI-id> --instance-type <type> --key-name <key-pair> --security-group-ids <sg-id> --encrypted
 ```
 

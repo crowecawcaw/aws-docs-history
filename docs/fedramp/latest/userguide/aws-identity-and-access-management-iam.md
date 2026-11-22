@@ -1,7 +1,6 @@
 
 
 # AWS Identity and Access Management (IAM)
-<a name="aws-identity-and-access-management-iam"></a>
 
 This guide provides security configuration requirements and implementation examples for AWS Identity and Access Management (IAM) in accordance with FedRAMP requirements.
 
@@ -200,7 +199,7 @@ Choose the appropriate policy based on your role:
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify read access works
 aws iam list-users
 aws iam get-account-authorization-details
@@ -213,7 +212,7 @@ aws iam create-user --user-name test-user
 
  **Purpose:** Provides read-only access to IAM for monitoring and auditing purposes.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -250,7 +249,7 @@ aws iam create-user --user-name test-user
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify operator access works (requires MFA)
 aws iam add-user-to-group --user-name alice --group-name Developers
 
@@ -262,7 +261,7 @@ aws iam delete-role --role-name SomeAdminRole
 
  **Purpose:** Provides operational access for routine identity management tasks with MFA. To preserve least privilege and prevent self-escalation, the operator can create users only with a required permissions boundary attached; can attach or detach only an approved set of policies; and can manage group membership only for an explicit list of approved (non-administrative) group ARNs. Because both the attachable policies and the assignable groups are restricted to safe, pre-approved sets, the operator cannot grant administrative access (for example, `AdministratorAccess`) to any user, including themselves. Replace `123456789012`, the policy names, and the group names with values for your account, and ensure the approved groups do not carry administrative permissions.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -351,7 +350,7 @@ aws iam delete-role --role-name SomeAdminRole
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify full admin access works (requires MFA)
 aws iam create-role --role-name NewAdminRole --assume-role-policy-document file://trust.json
 aws iam delete-user --user-name old-user
@@ -361,7 +360,7 @@ aws iam delete-user --user-name old-user
 
  **Purpose:** Provides full IAM administrative access with MFA and session time restrictions.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -431,7 +430,7 @@ Ensure IAM is configured with security-first defaults that align with AWS securi
 ### Configuration Monitoring
 <a name="aws_identity_and_access_management_iam_configuration_monitoring"></a>
 
-```
+```bash
 # Generate and retrieve the IAM credential report for baseline comparison
 aws iam generate-credential-report
 aws iam get-credential-report --query 'Content' --output text | base64 --decode > credential-report.csv
@@ -460,7 +459,7 @@ aws iam get-account-authorization-details --output json > iam-authz-details.json
 
  **Primary Export Commands:** 
 
-```
+```bash
 # Export IAM identities, policies, and credential posture
 aws iam get-account-authorization-details --output json > iam-authz-details.json
 aws iam get-account-summary --output json > iam-account-summary.json
@@ -486,7 +485,7 @@ aws iam get-credential-report --query 'Content' --output text | base64 --decode 
 
  **API Command:** 
 
-```
+```bash
 # Set an account password policy
 aws iam update-account-password-policy \
   --minimum-password-length 14 \
@@ -502,7 +501,7 @@ aws iam update-account-password-policy \
 
  **API Command:** 
 
-```
+```bash
 # Create an IAM Access Analyzer to detect external access
 aws accessanalyzer create-analyzer --analyzer-name org-analyzer --type ACCOUNT
 ```

@@ -1,7 +1,6 @@
 
 
 # AWS FedRAMP Rev5 Secure Configuration Guidance - Per Service Guidance
-<a name="service-guidance-introduction"></a>
 
 This page provides comprehensive security configuration guidance for AWS services aligned with FedRAMP Revision 5 Recommended Secure Configuration (FRR-RSC) requirements. This site contains FedRAMP specific guidance for AWS services. These guidances are provided as a point in time reference to how to configure AWS services and AWS top-level administration accounts in a secure fashion.
 

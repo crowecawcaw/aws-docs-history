@@ -1,7 +1,6 @@
 
 
 # AWS Directory Service
-<a name="aws-directory-service"></a>
 
 This guide provides security configuration requirements and implementation examples for AWS Directory Service in accordance with FedRAMP requirements.
 
@@ -75,7 +74,7 @@ This requirement consolidates guidance for: 1. Instructions on how to securely a
 
  **Configuring the Admin Account:** 
 
-```
+```bash
 # Enable RADIUS-based MFA for the directory (requires a reachable RADIUS server)
 aws ds enable-radius \
   --directory-id d-0123456789 \
@@ -222,7 +221,7 @@ Choose the appropriate policy based on your role:
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify read access works
 aws ds describe-directories --output json
 
@@ -234,7 +233,7 @@ aws ds create-microsoft-ad --name corp.example.com --password <pw> --vpc-setting
 
  **Purpose:** Provides read-only access to Directory Service resources for monitoring and auditing purposes.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -266,7 +265,7 @@ aws ds create-microsoft-ad --name corp.example.com --password <pw> --vpc-setting
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify operator access works (requires MFA)
 aws ds enable-ldaps --directory-id d-0123456789 --type Client
 
@@ -278,7 +277,7 @@ aws ds delete-directory --directory-id d-0123456789
 
  **Purpose:** Provides operational access for routine directory management tasks with MFA requirement.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -323,7 +322,7 @@ aws ds delete-directory --directory-id d-0123456789
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify full admin access works (requires MFA)
 aws ds create-microsoft-ad --name corp.example.com --password <pw> --vpc-settings VpcId=vpc-123,SubnetIds=subnet-1,subnet-2
 aws ds delete-directory --directory-id d-0123456789
@@ -333,7 +332,7 @@ aws ds delete-directory --directory-id d-0123456789
 
  **Purpose:** Provides full administrative access with MFA and session time restrictions.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -403,7 +402,7 @@ Ensure AWS Directory Service resources are created with security-first configura
 ### Configuration Monitoring
 <a name="aws_directory_service_configuration_monitoring"></a>
 
-```
+```bash
 # Describe directories and compare against baseline
 aws ds describe-directories \
   --query 'DirectoryDescriptions[*].{Id:DirectoryId,Type:Type,Stage:Stage,RadiusStatus:RadiusStatus}' \
@@ -433,7 +432,7 @@ aws ds describe-directories --output json > current-ds-config.json
 
  **Primary Export Commands:** 
 
-```
+```bash
 # Export complete Directory Service configuration
 aws ds describe-directories --output json > ds-directories.json
 aws ds describe-trusts --output json > ds-trusts.json
@@ -458,7 +457,7 @@ aws ds list-log-subscriptions --output json > ds-log-subscriptions.json
 
  **API Command:** 
 
-```
+```bash
 # Create AWS Managed Microsoft AD in private subnets
 aws ds create-microsoft-ad \
   --name corp.example.com \
@@ -474,7 +473,7 @@ aws ds create-microsoft-ad \
 
  **API Command:** 
 
-```
+```bash
 # Enable client-side LDAPS (AWS Managed Microsoft AD acting as an LDAP client to a self-managed AD).
 # For server-side LDAPS that protects the directory's own inbound LDAP traffic, install a
 # certificate from a domain-joined Microsoft enterprise CA on the domain controllers.
@@ -488,7 +487,7 @@ aws ds enable-ldaps --directory-id d-0123456789 --type Client
 
  **API Command:** 
 
-```
+```bash
 # Forward directory logs to CloudWatch Logs
 aws ds create-log-subscription \
   --directory-id d-0123456789 \

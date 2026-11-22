@@ -1,7 +1,6 @@
 
 
 # AWS CloudHSM
-<a name="aws-cloudhsm"></a>
 
 This guide provides security configuration requirements and implementation examples for AWS CloudHSM in accordance with FedRAMP requirements.
 
@@ -231,7 +230,7 @@ Choose the appropriate policy based on your role:
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify read access works
 aws cloudhsmv2 describe-clusters --output json
 
@@ -243,7 +242,7 @@ aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
 
  **Purpose:** Provides read-only access to CloudHSM resources for monitoring and auditing purposes.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -275,7 +274,7 @@ aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify operator access works (requires MFA)
 aws cloudhsmv2 create-hsm --cluster-id cluster-1234567890abcdef0 --availability-zone us-east-1a
 
@@ -287,7 +286,7 @@ aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
 
  **Purpose:** Provides operational access for routine CloudHSM management tasks with MFA requirement.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -326,7 +325,7 @@ aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
 
  **Testing this policy:** 
 
-```
+```bash
 # Verify full admin access works (requires MFA)
 aws cloudhsmv2 create-cluster --hsm-type hsm2m.medium --mode FIPS --backup-retention-policy Type=DAYS,Value=90 --subnet-ids subnet-12345678 subnet-87654321
 aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
@@ -336,7 +335,7 @@ aws cloudhsmv2 delete-cluster --cluster-id cluster-1234567890abcdef0
 
  **Purpose:** Provides full administrative access with MFA and session time restrictions.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -406,7 +405,7 @@ Ensure AWS CloudHSM resources are created with security-first configurations tha
 ### Configuration Monitoring
 <a name="aws_cloudhsm_configuration_monitoring"></a>
 
-```
+```bash
 # Describe clusters and compare against baseline
 aws cloudhsmv2 describe-clusters \
   --query 'Clusters[*].{Id:ClusterId,State:State,HsmType:HsmType,Mode:Mode}' \
@@ -436,7 +435,7 @@ aws cloudhsmv2 describe-clusters --output json > current-cloudhsm-config.json
 
  **Primary Export Commands:** 
 
-```
+```bash
 # Export complete CloudHSM configuration
 aws cloudhsmv2 describe-clusters --output json > cloudhsm-clusters.json
 aws cloudhsmv2 describe-backups --output json > cloudhsm-backups.json
@@ -460,7 +459,7 @@ aws cloudhsmv2 describe-backups --output json > cloudhsm-backups.json
 
  **API Command:** 
 
-```
+```bash
 # Create a FIPS-mode cluster in private subnets (required for FedRAMP)
 aws cloudhsmv2 create-cluster \
   --hsm-type hsm2m.medium \
@@ -476,7 +475,7 @@ aws cloudhsmv2 create-cluster \
 
  **API Command:** 
 
-```
+```bash
 # Copy a backup to another Region for disaster recovery
 aws cloudhsmv2 copy-backup-to-region \
   --destination-region us-west-2 \

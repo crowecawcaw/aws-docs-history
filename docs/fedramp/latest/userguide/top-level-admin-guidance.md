@@ -1,7 +1,6 @@
 
 
 # Top Level Admin Guidance
-<a name="top-level-admin-guidance"></a>
 
 This topic discusses top level admin guidance.
 
@@ -185,13 +184,13 @@ To enable organization root access management in AWS, you must first enable the 
 
  **Step 1: Enable AWS SSO service access**:
 
-```
+```bash
 aws organizations enable-aws-service-access --service-principal sso.amazonaws.com
 ```
 
  **Step 2: Enable additional organization services (recommended)**:
 
-```
+```bash
 # Enable AWS Config service access
 aws organizations enable-aws-service-access --service-principal config.amazonaws.com
 
@@ -201,13 +200,13 @@ aws organizations enable-aws-service-access --service-principal cloudtrail.amazo
 
  **Step 3: Enable IAM service access in Organizations**:
 
-```
+```bash
 aws organizations enable-aws-service-access --service-principal iam.amazonaws.com
 ```
 
  **Enable root credentials management**:
 
-```
+```bash
 # Note: Root access management is configured through the AWS Organizations console
 # Navigate to AWS Organizations > Settings > Root access management
 # This cannot be enabled via CLI at this time
@@ -215,7 +214,7 @@ aws organizations enable-aws-service-access --service-principal iam.amazonaws.co
 
  **Enable root sessions capability**:
 
-```
+```bash
 # Note: Root sessions are configured through the AWS Organizations console
 # Navigate to AWS Organizations > Settings > Root access management
 # This cannot be enabled via CLI at this time
@@ -225,7 +224,7 @@ aws organizations enable-aws-service-access --service-principal iam.amazonaws.co
 
 Request temporary root credentials for specific task
 
-```
+```bash
 # Note: Root sessions must be initiated through the AWS Organizations console
 # Navigate to AWS Organizations > Accounts > Select account > Root access
 # CLI access for root sessions is not currently available
@@ -310,7 +309,7 @@ Enable MFA for all users with hardware tokens or authenticator apps Configure se
 
  **Implementation Example (RDS)**:
 
-```
+```bash
 # Create RDS instance with IAM authentication
 aws rds create-db-instance \
     --db-instance-identifier mydb-instance \
@@ -350,7 +349,7 @@ This section describes how to establish and maintain consistent security configu
 
 Establish organization-wide configuration compliance rules for administrative accounts
 
-```
+```bash
 # Deploy organization-wide Config rule for root account MFA
 aws configservice put-organization-config-rule \
     --organization-config-rule-name "org-root-mfa-enabled" \
@@ -362,7 +361,7 @@ aws configservice put-organization-config-rule \
 
 Implement preventive guardrails for administrative account security
 
-```
+```bash
 # Create SCP to prevent root account usage
 aws organizations create-policy \
     --name "PreventRootAccountUsage" \
@@ -398,7 +397,7 @@ This section explains how to monitor and detect unauthorized changes to administ
 
  **AWS Config Compliance Monitoring**:
 
-```
+```bash
 # Get compliance status for administrative accounts
 aws configservice get-compliance-details-by-config-rule \
     --config-rule-name "root-mfa-enabled" \
@@ -407,7 +406,7 @@ aws configservice get-compliance-details-by-config-rule \
 
  **AWS Systems Manager Compliance**:
 
-```
+```bash
 # Create compliance association for administrative instances
 aws ssm create-association \
     --name "AWS-GatherSoftwareInventory" \
@@ -447,7 +446,7 @@ This section provides specific AWS CLI commands for generating reports and monit
 
  **Generate Administrative Access Report**:
 
-```
+```bash
 # List all administrative users and their last activity
 aws iam generate-credential-report
 aws iam get-credential-report --query 'Content' --output text | base64 -d > credential-report.csv
@@ -455,7 +454,7 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d > cred
 
  **Review Root Account Activity**:
 
-```
+```bash
 # Query CloudTrail for root account usage in last 30 days
 aws logs filter-log-events \
     --log-group-name "CloudTrail/RootAccountActivity" \
@@ -479,7 +478,7 @@ This section covers the essential steps that must be completed before closing an
 
  **Resource Inventory and Transfer**:
 
-```
+```bash
 # List all resources in account before decommissioning
 aws resourcegroupstaggingapi get-resources \
     --resources-per-page 100 \
@@ -499,7 +498,7 @@ This section provides the step-by-step process for safely closing AWS accounts w
 
  **Step 1: Remove from AWS Organizations**:
 
-```
+```bash
 # Remove account from organization (if member account)
 aws organizations remove-account-from-organization \
     --account-id 123456789012
@@ -507,7 +506,7 @@ aws organizations remove-account-from-organization \
 
  **Step 2: Close AWS Account**:
 
-```
+```bash
 # Note: Account closure must be done through the AWS Console
 # 1. Sign in as root user to the account being closed
 # 2. Navigate to Account Settings in the AWS Console
@@ -529,7 +528,7 @@ This section describes how to verify successful account closure and maintain req
 
  **Verify Account Closure**:
 
-```
+```bash
 # Verify account is no longer accessible
 aws organizations list-accounts \
     --query 'Accounts[?Id==`123456789012`]'
@@ -548,7 +547,7 @@ This section explains how to set up comprehensive audit logging for administrati
 
  **Root Account Activity Monitoring**:
 
-```
+```bash
 # Create CloudTrail for root account monitoring
 aws cloudtrail create-trail \
     --name root-account-trail \
@@ -570,7 +569,7 @@ This section covers setting up automated alerts for suspicious or unauthorized a
 
  **CloudWatch Alarms for Root Account Usage**:
 
-```
+```bash
 # Create metric filter for root account usage
 aws logs put-metric-filter \
     --log-group-name CloudTrail/RootAccountActivity \
@@ -619,7 +618,7 @@ This section details how to activate emergency access to administrative accounts
 
  **Emergency Access Activation**:
 
-```
+```bash
 # Assume emergency access role (pre-configured)
 aws sts assume-role \
     --role-arn "arn:aws:iam::ACCOUNT-ID:role/EmergencyAccessRole" \
@@ -628,7 +627,7 @@ aws sts assume-role \
 
  **Emergency Root Session Request**:
 
-```
+```bash
 # Note: Emergency root access must be requested through AWS Organizations console
 # 1. Navigate to AWS Organizations > Accounts
 # 2. Select the target account
@@ -685,7 +684,7 @@ This section describes how to automate the collection of compliance evidence and
 
  **Monthly Compliance Reports**:
 
-```
+```bash
 # Generate AWS Config compliance summary
 aws configservice get-compliance-summary-by-config-rule \
     --output table > monthly-config-compliance.txt
@@ -698,7 +697,7 @@ aws securityhub get-findings \
 
  **Continuous Monitoring Automation**:
 
-```
+```bash
 # Create EventBridge rule for real-time compliance monitoring
 aws events put-rule \
     --name "FedRAMP-ComplianceMonitoring" \
@@ -720,7 +719,7 @@ This section covers the configuration of audit logging systems to meet FedRAMP r
 
  **Log Retention Configuration**:
 
-```
+```bash
 # Set CloudTrail log retention to 7 years for FedRAMP
 aws logs put-retention-policy \
     --log-group-name "CloudTrail/FedRAMP-AuditLogs" \
@@ -729,7 +728,7 @@ aws logs put-retention-policy \
 
  **Cross-Account Log Aggregation**:
 
-```
+```bash
 # Create organization-wide CloudTrail
 aws cloudtrail create-trail \
     --name "FedRAMP-OrganizationTrail" \
@@ -747,7 +746,7 @@ aws cloudtrail create-trail \
 
 This section provides specific AWS Config rules for monitoring and enforcing security requirements on root accounts across the organization.
 
-```
+```bash
 # Deploy Config rule for root account MFA
 aws configservice put-config-rule \
     --config-rule '{
@@ -759,7 +758,7 @@ aws configservice put-config-rule \
     }'
 ```
 
-```
+```bash
 # Deploy Config rule for root account access key check
 aws configservice put-config-rule \
     --config-rule '{
