@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Understand Code conversion billing for Assembler conversion
-<a name="assembler-conversion-billing"></a>
 
 You will refer this page to understand the Code conversion billing scope and process before doing the actual conversion. The billing calculation section mentions the process though which conversion from Assembler to COBOL is charged per each line of code.
 

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Replatforming applications with Rocket Software (formerly Micro Focus)
-<a name="replatforming-m2"></a>
 
 This guide covers the end-to-end process of replatforming mainframe applications using AWS Mainframe Modernization solutions on AWS. It describes all tasks and includes information on configuring and operating AWS Mainframe Modernization runtime on Amazon EC2 from initial setup and analysis to building, testing, and deploying your modernized applications on AWS. It also covers advanced topics like working with legacy data structures, using templates and predefined projects, and setting up automation for streaming sessions. 
 

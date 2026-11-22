@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure a File Transfer agent
-<a name="m2-agent-configuration"></a>
 
 Once you have installed a file transfer agent, follow these steps to configure the agent. If you need to install a new agent, follow instructions on the [Install a File Transfer agent](m2-agent-installation.md) page.
 
@@ -92,7 +91,7 @@ Optionally, create a new target Amazon S3 bucket for the transferred data sets. 
 **Important**  
 Add the statement to the existing statements. Don't replace what's already in the policy.
 
-   ```
+   ```json
    {
        "Sid" : "Enable AWS M2 File Transfer Permissions",
        "Effect" : "Allow",
@@ -141,7 +140,7 @@ Mainframe credentials are required to access the data sets to be transferred and
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement" : [ {
@@ -259,7 +258,7 @@ Save the IAM user ARN used to set up a trust relationship with an IAM role.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [ {

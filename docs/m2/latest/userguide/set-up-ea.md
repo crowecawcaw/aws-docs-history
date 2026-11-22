@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Set up Enterprise Analyzer on WorkSpaces Applications
-<a name="set-up-ea"></a>
 
 This tutorial describes how to set up Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) to analyze one or more mainframe applications. The Enterprise Analyzer tool provides several reports based on its analysis of the application source code and system definitions.
 

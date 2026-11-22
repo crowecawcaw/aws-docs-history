@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorials for Rocket Software (formerly Micro Focus)
-<a name="tutorials-mf"></a>
 
 The tutorials in this section help you to get started with setting up various tasks in the Rocket Software runtime engine for the AWS Mainframe Modernization service. These tutorials are for setting up sample application, using templates with Rocket Enterprise Developer, and setting up Enterprise Analyzer.
 

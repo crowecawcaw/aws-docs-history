@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)
-<a name="tutorial-runtime-mf"></a>
 
 You can deploy and run an application in AWS Mainframe Modernization managed runtime environment with the Rocket Software runtime engine. This tutorial shows how to deploy and run the CardDemo sample application in an AWS Mainframe Modernization managed runtime environment with the Rocket Software runtime engine. The CardDemo sample application is a simplified credit card application developed to test and showcase AWS and partner technology for mainframe modernization use cases.
 
@@ -171,7 +170,7 @@ To store credentials securely for the Amazon RDS instance, first create an AWS K
 
 1. On the review screen, edit the **Key policy**, then enter the following **inside the existing "Statement" array**:
 
-   ```
+   ```json
    {
         "Sid" : "Allow access for Mainframe Modernization Service",
         "Effect" : "Allow",
@@ -219,7 +218,7 @@ Now store the database credentials securely using the AWS Secrets Manager and AW
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -320,7 +319,7 @@ When you've created your environment, a banner appears that says `Environment na
 
    Enter the following application definition in the editor:
 
-   ```
+   ```json
    {
      "template-version": "2.0",
      "source-locations": [
@@ -437,7 +436,7 @@ When the CardDemo application deploys successfully, the status changes to **Read
 
 1. Copy and paste the following JSON but don't choose "Submit" yet. This JSON contains all the data sets required for the demo application but needs your Amazon S3 bucket details.
 
-   ```
+   ```json
    {
        "dataSets": [
            {

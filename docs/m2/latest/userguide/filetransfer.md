@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # File Transfer in AWS Mainframe Modernization
-<a name="filetransfer"></a>
 
 AWS Mainframe Modernization File Transfer lets you transfer and convert mainframe data sets to Amazon S3 for mainframe modernization, migration, and augmentation use cases. It simplifies the process of transferring data sets from your mainframe to the AWS Cloud. Key features include: discovery of source mainframe data sets and artifacts, and scalability and efficiency for faster data transfers to Amazon S3. File Transfer supports various mainframe data set types like sequential, PDS, GDS, GDG, and VSAM KSDS. The service transfers the data sets to an intermediate Amazon S3 bucket, converts them to the specified target code page, and then moves them to your desired target S3 bucket. 
 

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Logging AWS Mainframe Modernization API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Mainframe Modernization is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Mainframe Modernization. CloudTrail captures all API calls for AWS Mainframe Modernization as events. The calls captured include calls from the AWS Mainframe Modernization console and code calls to the AWS Mainframe Modernization API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Mainframe Modernization. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Mainframe Modernization, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -39,7 +38,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateApplication` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

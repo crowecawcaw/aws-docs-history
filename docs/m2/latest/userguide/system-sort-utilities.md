@@ -5,11 +5,10 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Sort Utilities
-<a name="system-sort-utilities"></a>
 
 The sort utilities rely on datasets whose reference holds a special meaning for the utility. Hence, all the sort utilities on the modernized side share the same invokation pattern in groovy scripts:
 
-```
+```java
 mpr.withFileConfigurations(<FILE CONFIGURATIONS DETAILS>...)
    .withParameters(params)
    .runProgram("<SORT UTILITY ALIAS>")
@@ -46,7 +45,7 @@ The program does not take any argument but relies on specific datasets reference
 
 For instance, considering the following join keys directives:
 
-```
+```jcl
 JOINKEYS FILE=F1,FIELDS=(13,5,A)
 JOINKEYS FILE=F2,FIELDS=(24,5,A)
 ```
@@ -75,7 +74,7 @@ Here is a sample `ICEMAN` invokation from a job script snippet:
 
 The control card is inlined and commands to merge fields from the input files (see the `SYSIN` entry)
 
-```
+```jcl
 //*
 //PASOSO03 EXEC PGM=ICEMAN,REGION=0M
 //SORTIN01 DD DSN=input(input809a.data),DISP=SHR,LRECL=10
@@ -91,7 +90,7 @@ The control card is inlined and commands to merge fields from the input files (s
 
 And the matching modernized groovy script snippet -- please note that, as already mentioned, the `SORTWK` entries are not taken into account during the modernization process, and that the inlined control card is exactly matching the legacy control card content.
 
-```
+```java
 // STEP PASOSO03 - PGM - ICEMAN***************************************************
 def stepPASOSO03(Object shell, Map params, Map programResults){
     shell.with {
@@ -131,7 +130,7 @@ def stepPASOSO03(Object shell, Map params, Map programResults){
 
 A simple legacy SORT step (job script snippet) with inlined control card, picked up from the carddemo sample application:
 
-```
+```jcl
 //*********************************************************************
 //* CREATE COPY OF TRANSACT FILE WITH CARD NUMBER AND TRAN ID AS KEY
 //*********************************************************************
@@ -151,7 +150,7 @@ A simple legacy SORT step (job script snippet) with inlined control card, picked
 
 and the matching modernized groovy script snippet:
 
-```
+```java
 // STEP STEP010 - PGM - SORT******************************************************
 def stepSTEP010(Object shell, Map params, Map programResults){
     shell.with {
@@ -239,7 +238,7 @@ Here is a legacy jcl sample using ICETOOL for sorting purposes:
 + each SORT operator control statement uses a dedicated control card, whose reference is specified through the USING keyword
 + all control cards are defined after the `TOOLIN` definition, and are inlined (see `SEL1CNTL` and following `*CNTL` entries)
 
-```
+```jcl
 //SAMPLO52 EXEC PGM=ICETOOL,REGION=1024K
 //TOOLMSG  DD SYSOUT=*
 //DFSMSG   DD SYSOUT=*
@@ -293,7 +292,7 @@ Here is a legacy jcl sample using ICETOOL for sorting purposes:
 
 Once modernized, the matching groovy script snippet looks like:
 
-```
+```java
 // STEP SAMPLO52 - PGM - ICETOOL**************************************************
 def stepSAMPLO52(Object shell, Map params, Map programResults){
     shell.with {
@@ -390,7 +389,7 @@ Notes:
 
 Here is another ICETOOL sample, using the COPY operator. The `TOOLIN` is inlined in the jcl script snippet:
 
-```
+```jcl
 //SAMPLO51 EXEC PGM=ICETOOL,REGION=1024K
 //TOOLMSG  DD SYSOUT=*
 //DFSMSG   DD SYSOUT=*
@@ -411,7 +410,7 @@ Here is another ICETOOL sample, using the COPY operator. The `TOOLIN` is inlined
 
 And here is the matching modernized groovy script snippet:
 
-```
+```java
 // STEP SAMPLO51 - PGM - ICETOOL**************************************************
 def stepSAMPLO51(Object shell, Map params, Map programResults){
     shell.with {
@@ -494,7 +493,7 @@ mfsort take TESTSRT1.CTL
 
 Here is the matching modernized adapted groovy script snippet:
 
-```
+```java
 mpr.withFileConfigurations(new FileConfigurationUtils()
 .fileSystem("TAKE")
 .path("input(TESTSRT1.CTL)")

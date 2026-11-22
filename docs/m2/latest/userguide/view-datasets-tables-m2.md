@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)
-<a name="view-datasets-tables-m2"></a>
 
 You can access mainframe datasets that are deployed in AWS Mainframe Modernization using the Rocket Software (formerly Micro Focus) runtime. You can view the migrated data sets as tables and columns from an Rocket Enterprise Developer instance. Viewing data sets this way allows you to: 
 + Perform `SQL SELECT` operations on the migrated data files.
@@ -79,7 +78,7 @@ In this step, you create a configuration file that describes the Micro Focus dat
 
 1. In your Home Folder, for example, in `D:\PhotonUser\My Files\Home Folder\MFED\cfg\MFDBFH.cfg`, create the MFDBFH.cfg file with the following content.
 
-   ```
+   ```xml
    <datastores>
           <server name="ESPACDatabase" type="postgresql" access="odbc">
            <dsn name="PG.POSTGRES" type="database" dbname="postgres"/>
@@ -167,7 +166,7 @@ In this step, you use the previously created structure file to create a database
 In this step, connect to the database using `pgAdmin` so you can run queries to view the datasets like tables and columns.
 + Connect to the database `MicroFocus$SEE$Files$VSAM` using pgAdmin and query the database view you created in step 4.
 
-  ```
+  ```sql
   SELECT * FROM public."V_AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS.DAT";
   ```  
 ![Migrated data set showing tables and columns in pgAdmin.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-new-view-pgadmin.png)

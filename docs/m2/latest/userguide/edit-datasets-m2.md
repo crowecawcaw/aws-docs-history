@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools in Enterprise Developer
-<a name="edit-datasets-m2"></a>
 
 You can view and edit data sets in AWS Mainframe Modernization using the Rocket Software runtime for any migrated data sets.  The steps in this document will guide you through the process of accessing data sets using Data File Tools.  This allows you to view and edit the migrated data sets as needed. 
 

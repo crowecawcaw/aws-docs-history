@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Set up Automation for Rocket Enterprise Analyzer (formerly Micro Focus) and Rocket Enterprise Developer Streaming Sessions
-<a name="set-up-automation-m2"></a>
 
 You can automatically run a script at session start and end to allow automation that is specific to your customer context. For more information on this WorkSpaces Applications feature, see [Use Session Scripts to Manage Your AppStream 2.0 Users' Streaming Experience](https://docs.aws.amazon.com/appstream2/latest/developerguide/use-session-scripts.html) in the *Amazon WorkSpaces Applications Administration Guide*.
 

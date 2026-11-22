@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Use templates with Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)
-<a name="tutorial-templates-ed"></a>
 
 This tutorial describes how to use templates and predefined projects with Rocket Enterprise Developer. It covers three use cases. All of the use cases use the sample code provided in the BankDemo sample. To download the sample, choose [`bankdemo.zip`](https://d1vi4vxke6c2hu.cloudfront.net/demo/bankdemo.zip) .
 

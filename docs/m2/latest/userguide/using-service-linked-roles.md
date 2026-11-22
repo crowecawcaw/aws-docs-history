@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Using service-linked roles for AWS Mainframe Modernization
-<a name="using-service-linked-roles"></a>
 
 AWS Mainframe Modernization uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to AWS Mainframe Modernization. Service-linked roles are predefined by AWS Mainframe Modernization and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -34,7 +33,7 @@ The role permissions policy named AWSM2ServicePolicy allows AWS Mainframe Modern
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime Redis Error Codes
-<a name="ba-runtime-error-codes-r"></a>
 
 Redis error codes, prefixed with `BA-R`.
 
@@ -52,7 +51,7 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R0089 | Fatal | Unexpected error connecting to Redis for path : %s. Details: %s. Review error message and Redis configuration. |  | 
 | BA-R0090 | Fatal | Failed to create Redis pool configuration. Review error message and Redis configuration. |  | 
 | BA-R0091 | Warn | Redis client I/O thread %s (%s) has run no task for %d ms (pending tasks: %d). Thread stack:%s Commands cannot be written on the connections served by this thread until it runs again. Look for the blocking call in the thread stack |  | 
-| BA-R0092 | Warn | Closed %d Redis connections served by the stalled I/O thread %s The connection pools open new connections on demand |  | 
+| BA-R0092 | Warn | Closed %d Redis connection(s) served by the stalled I/O thread %s. The connection pools open new connections on demand. |  | 
 | BA-R0093 | Warn | Redis client I/O thread stall timeout of %d ms is below the minimum, %d ms is used instead A shorter timeout would report threads that are only busy. Set bluesam.redis.eventLoopStallTimeoutMillis to at least the minimum, or to 0 to disable the check |  | 
 
 ## Feature-specific Configuration Errors
@@ -125,7 +124,7 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R1601 | Error | Failed to publish metadata update for cache. Check Redis pub/sub properties: connectTimeout (default: 10000), readTimeout (default: 2000). |  | 
 | BA-R1602 | Error | Failed to create cache invalidation listener for cache. Check Redis pub/sub properties and adjust based on invalidation load. |  | 
 | BA-R1603 | Error | Failed to publish cache invalidation for cache. Consider increasing timeout values for large invalidation sets. |  | 
-| BA-R1604 | Warn | Failed to remove listener from topic: %s, error: %s |  | 
+| BA-R1604 | Warn | Failed to remove listener from topic: %s, error: %s. The listener belongs to a data set instance that is not used anymore (data set deleted or recreated). Check the Redis connection. Until the listener is removed, the memory of that data set instance may not be released. |  | 
 
 ### Cache Record Operations
 <a name="cache-record-operations"></a>
@@ -142,8 +141,8 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R1731 | Error | Batch delete operation partially failed. Verify Redis cluster status and record existence. |  | 
 | BA-R1732 | Error | Failed to clear cache. Check Redis connection and cache name. |  | 
 | BA-R1733 | Error | Failed to clear cache %s due to resource limits: %s. Set bluesam.redis.clearStrategy=REDISSON in application configuration to resolve this issue. |  | 
-| BA-R1734 | Warn | Scoped clear of cache %s failed, falling back to a full clear: %s Check the Redis connection. |  | 
-| BA-R1735 | Warn | Failed to evict the tracked ids of deleted cache %s: %s The next clear of a dataset with this name does a full clear. Check the Redis connection. |  | 
+| BA-R1734 | Warn | Scoped clear of cache %s failed, falling back to a full clear: %s. Check the Redis connection. |  | 
+| BA-R1735 | Warn | Failed to evict the tracked ids of deleted cache %s: %s. The next clear of a dataset with this name does a full clear. Check the Redis connection. |  | 
 
 ### Cache Index Operations
 <a name="cache-index-operations"></a>
@@ -203,7 +202,7 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R2318 | Error | Failed to check dataset read permission. Check Redis connection and lock state. |  | 
 | BA-R2319 | Error | Failed to check record read permission for dataset. Verify record and lock state. |  | 
 | BA-R2320 | Error | Failed to save state. Check Redis connection and state data integrity. |  | 
-| BA-R2321 | Error | The application is stopping while %d Bluesam locks are still held locally: %s. Their lock state entries keep a non zero counter in Redis, the lock state reaper will not reclaim them, and every dataset listed stays unavailable for write until they are removed. A lock still held at shutdown means a job was interrupted: drain the jobs before stopping the application. Then, once no job is running, remove the listed entries from the Bluesam locks Redis database: for each entry <id>, run 'DEL DatasetRecordLockState:<id>' followed by 'SREM DatasetRecordLockState <id>' (the second command drops the id from the index set Spring Data maintains). The reaper only deletes entries whose readLock and writeLock are both 0, which is why it cannot do it for you. Note that the counters are deliberately not decremented at shutdown: a job thread may still be writing, and returning its counter would let another instance write the same dataset concurrently. |  | 
+| BA-R2321 | Error | The application is stopping while %d Bluesam lock(s) are still held locally: %s. Their lock state entries keep a non zero counter in Redis, the lock state reaper will not reclaim them, and every dataset listed stays unavailable for write until they are removed. A lock still held at shutdown means a job was interrupted: drain the jobs before stopping the application. Then, once no job is running, remove the listed entries from the Bluesam locks Redis database: for each entry <id>, run 'DEL DatasetRecordLockState:<id>' followed by 'SREM DatasetRecordLockState <id>' (the second command drops the id from the index set Spring Data maintains). The reaper only deletes entries whose readLock and writeLock are both 0, which is why it cannot do it for you. Note that the counters are deliberately not decremented at shutdown: a job thread may still be writing, and returning its counter would let another instance write the same dataset concurrently. |  | 
 | BA-R2322 | Error | Failed to release the Bluesam %s locks of dataset %s at job boundary: %s. These locks stay held for the terminated job, and with the Redis locker the lock state entry of that dataset keeps a non zero counter that the reaper will not reclaim, denying the write to every later execution. With the Redis locker, once no job is running, remove the entry from the Bluesam locks Redis database: 'DEL DatasetRecordLockState:<dataset>' then 'SREM DatasetRecordLockState <dataset>', adding the '<dataset>::R::<record>' entries for record level locks. With the in memory locker, restarting the application releases them. In both cases the stack trace logged at debug level tells whether the cause is the cache or the lock registry itself. |  | 
 
 ### Lock Timeout Errors
@@ -214,7 +213,7 @@ Redis error codes, prefixed with `BA-R`.
 | --- | --- | --- | --- | 
 | BA-R2330 | Error | Timeout while waiting for dataset write permission. Consider increasing the lock timeout or check for deadlocks. |  | 
 | BA-R2331 | Error | Timeout while acquiring lock for dataset. Verify if there are long-running operations holding the lock. |  | 
-| BA-R2332 | Error | Interrupted while waiting to lock dataset. Check for thread interruptions or system issues. |  | 
+| BA-R2332 | Error | Interrupted while waiting to lock dataset %s: %s. Check for thread interruptions or system issues. |  | 
 | BA-R2333 | Error | Timeout while acquiring lock for record in dataset. Consider increasing the lock timeout or optimize record access patterns. |  | 
 | BA-R2334 | Error | Interrupted while waiting to lock record in dataset. Investigate thread interruptions or system-level issues. |  | 
 

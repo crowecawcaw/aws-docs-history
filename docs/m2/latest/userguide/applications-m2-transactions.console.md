@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Manage transactions for AWS Mainframe Modernization applications
-<a name="applications-m2-transactions.console"></a>
 
 With AWS Mainframe Modernization you can run an application, by request, at the same time as many other users who submit requests to run the same application using the same files and programs. A single transaction consists of one or more application programs that carry out the needed processing.
 

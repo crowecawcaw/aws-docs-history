@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Create data transfer endpoints for File Transfer
-<a name="filetransfer-data-transfer-endpoints"></a>
 
 Data transfer endpoints enable connectivity with the source mainframe, and support high availability, scalability, and streamlined management of agents. Individual agents are installed on mainframe LPARs and can be grouped together into a data transfer endpoint. When a request is made to transfer a dataset, one agent in the data transfer endpoint will handle that specific transfer. To initiate data transfers, at least one agent on the data transfer endpoint must be online.
 

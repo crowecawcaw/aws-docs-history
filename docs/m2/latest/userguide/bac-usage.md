@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Using the BAC
-<a name="bac-usage"></a>
 
 Because the BAC is secured and delivers permissions to use features based on the user role, the first step to access the application is to authenticate yourself. After the authentication step, you'll be redirected to the home page. The home page presents the paginated list of data sets found in the Blusam storage:
 

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Set up AWS Transform for mainframe Runtime (on Amazon EC2) Amazon CloudWatch alarms
-<a name="ba-cw-alarms-ec2"></a>
 
 You can set up CloudWatch to receive your application log and add an alarm to warn you of possible errors. This allows you to have more visible notifications whenever your deployed applications encounter exceptions. The following sections help you understand and learn about the configuration of CloudWatch logging and alarm setup.
 
@@ -14,7 +13,7 @@ You can set up CloudWatch to receive your application log and add an alarm to wa
 
 To enable CloudWatch logging, create a `logback-cloudwatch.xml` file in the config folder using the configuration template provided in the following section. Then, reference this file in the `application-main.yml` file by uncommenting the following lines:
 
-```
+```bash
 # logging:
 #  config: classpath:logback-cloudwatch.xml
 ```
@@ -26,7 +25,7 @@ To enable CloudWatch logging, create a `logback-cloudwatch.xml` file in the conf
 
 Use the following template to create the `logback-cloudwatch.xml` file:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>

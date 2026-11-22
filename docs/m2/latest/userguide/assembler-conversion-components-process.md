@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Understand components and processes for Code conversion
-<a name="assembler-conversion-components-process"></a>
 
 AWS Mainframe Modernization Code conversion process includes various components such as AWS Mainframe Modernization container, S3 project bucket, and Log file locations.
 
@@ -26,7 +25,7 @@ To use the images, you can follow either of the two options:
 + Use the latest tag when consuming the image via AWS CodeBuild. When using the image, you will use this path: `381492161314.dkr.ecr.us-east-1.amazonaws.com/aws-mlogica-codebuild-prod`. This means that AWS CodeBuild will pick up whichever was the last pushed image into the repository.
 + Listing the version and selecting from that. To do this use the following command via CLI to list the different versions in the repository:
 
-  ```
+  ```json
   aws ecr describe-images \
     --registry-id 381492161314 \
     --repository-name aws-mlogica-codebuild-prod \

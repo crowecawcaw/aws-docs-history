@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Convert code from Assembler to COBOL in AWS Mainframe Modernization
-<a name="assembler-conversion-steps"></a>
 
 You can use this document as a step-by-step guide to understand how to convert the mainframe modernization Assembler code to COBOL. In addition to this, you can also refer the [Automated code conversion from Assembler to COBOL workshop](https://catalog.workshops.aws/awsm2ccm-assembler-cobol/en-US) to learn more about the conversion process.
 
@@ -83,7 +82,7 @@ To learn about creating an IAM policy, see [Creating IAM policies](https://docs.
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	  
        "Statement": [ 
@@ -165,7 +164,7 @@ For information about creating a service role, see [Creating a Role to Delegate 
 
 ****  
 
-   ```
+   ```json
    {
              "Version":"2012-10-17",		 	 	 
              "Statement": [

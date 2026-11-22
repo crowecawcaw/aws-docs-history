@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Set up Rocket Enterprise Developer on WorkSpaces Applications
-<a name="set-up-ed"></a>
 
 This tutorial describes how to set up Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) for one or more mainframe applications in order to maintain, compile, and test them using the Enterprise Developer features. The setup is based on the WorkSpaces Applications Windows images that AWS Mainframe Modernization shares with the customer and on the creation of WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md).
 

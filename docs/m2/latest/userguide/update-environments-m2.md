@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Update an AWS Mainframe Modernization runtime environment
-<a name="update-environments-m2"></a>
 
 Use the AWS Mainframe Modernization console to update an AWS Mainframe Modernization runtime environment. You can update the minor version of the runtime engine or the instance type that hosts the runtime environment. You can choose whether you want to apply updates immediately or during the preferred maintenance window.
 

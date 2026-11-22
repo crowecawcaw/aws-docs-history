@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure access to utilities for managed applications
-<a name="applications-m2-ba-utilities"></a>
 
 When you refactor a mainframe application with AWS Transform for mainframe, you might need to provide support for various legacy platform utility programs, such as IDCAMS, INFUTILB, SORT, and so on, if your application depends on them. AWS Transform for mainframe refactoring provides this access with a dedicated web application that is deployed alongside modernized applications. This web application requires a configuration file, `application-utility-pgm.yml`, that you must provide. If you don't provide this configuration file, the web application can't deploy alongside your application and won't be available.
 
@@ -14,7 +13,7 @@ When you refactor a mainframe application with AWS Transform for mainframe, you 
 
 This topic describes all the possible properties that you can specify in the `application-utility-pgm.yml` configuration file, along with their defaults. The topic describes both required and optional properties. The following example is a complete configuration file. It lists properties in the order that we recommend. You can use this example as a starting point for your own configuration file.
 
-```
+```yaml
 # If the datasource support mode is not static-xa, spring JTA transactions autoconfiguration must be disabled
  spring.jta.enabled: false
  logging.config: 'classpath:logback-utility.xml'
@@ -77,28 +76,28 @@ You can specify the following properties in your configuration file.
 **spring.jta.enabled**  
  (Optional) Controls whether JTA support is enabled. For utilities, we recommend that you set this value to `false`.  
 
-```
+```yaml
 spring.jta.enabled : false
 ```
 
 **logging.config**  
  (Required) Specifies the path to the dedicated logger configuration file. We recommend that you use the name `logback-utility.xml` and provide this file as part of the modernized application. The common way to organize these files is to put all logger configuration files in the same place, usually in the subfolder `/config/logback` where `/config` is the folder that contains YAML configuration files. For more information, see [Chapter 3: Logback configuration](https://logback.qos.ch/manual/configuration.html) in the Logback documentation.   
 
-```
+```yaml
 logging.config : classpath:logback-utility.xml
 ```
 
 **encoding**  
  (Required) Specifies the character set that the utility program uses. For most cases, when you migrate from z/OS platforms, this character set is an EBCDIC variant, and should match the character set that is configured for the modernized applications. Default if not set is `ASCII`.  
 
-```
+```yaml
 encoding : cp1047
 ```
 
 **sysPunchEncoding**  
  (Optional) Specifies the character set that INFUTILB and DSNUTILB use to generate and read SYSPUNCH files. If you use the SYSPUNCH files from the legacy platform as they are, this value should be an EBCDIC variant. Default if not set is `ASCII`.  
 
-```
+```yaml
 sysPunchEncoding : cp1047
 ```
 
@@ -115,14 +114,14 @@ This is the primary business application database.
 **spring.aws.client.datasources.primary.secret**  
  (Optional) Specifies the secret in Secrets Manager that contains the data source properties.  
 
-```
+```yaml
 spring.aws.client.datasources.primary.secret: {{datasource-secret-ARN}}
 ```
 
 **spring.aws.client.datasources.primary.dbname**  
 (Optional) Specifies the target database name if the database name isn't provided directly in the database secret, with the `dbname` property.   
 
-```
+```yaml
 spring.aws.client.datasources.primary.dbname: {{target-database-name}}
 ```
 
@@ -206,7 +205,7 @@ spring:
 **treatLargeNumberAsInteger**  
  (Optional) Related to Oracle database engine specifics and DSNTEP2/DSNTEP4 utilities usage. If you set this flag to true, large numbers coming from the Oracle database (NUMBER (38,0)) are treated as integers. Default: `false`  
 
-```
+```yaml
 treatLargeNumberAsInteger : false
 ```
 
@@ -218,7 +217,7 @@ treatLargeNumberAsInteger : false
 + *EBCDIC\_MODIFIED*: Use a modified definition for signs handling. For both EBDIC and ASCII, the same list of characters represent the sign digits, that is, `+0` to `+9` mapped to `{` \+ `A` to `I` and `-0` to `-9` mapped to `}` \+ `J` to `R`. \\ 
 + *AS400*: Use for modernized legacy assets that come from iSeries (AS400) platforms.
 
-```
+```yaml
 zonedMode:EBCDIC_STRICT
 ```
 
@@ -227,7 +226,7 @@ zonedMode:EBCDIC_STRICT
 + `mvs` (Default)
 + `vse`
 
-```
+```yaml
 jcl.type : mvs
 ```
 
@@ -238,7 +237,7 @@ jcl.type : mvs
 
  This example shows all the possible unload properties.
 
-```
+```yaml
 # Unload properties 
  # For date/time: if use database configuration is enabled, formats are ignored
  # For nbi; use hexadecimal syntaxe to specify the byte value
@@ -261,7 +260,7 @@ jcl.type : mvs
 **sqlCodePointShift**  
  (Optional) Specifies an integer value that represents the SQL code point shift used on data. The default is 0. This means that no code point shifting is made. Align this setting with the SQL code point shift parameter used for modernized applications. When code point shifting is in use, the most common value for this parameter is 384.  
 
-```
+```yaml
 unload.sqlCodePointShift: 0
 ```
 
@@ -269,12 +268,12 @@ unload.sqlCodePointShift: 0
  (Optional) Specifies a null indicator byte. This is a hexadecimal value (as a string) added to the right of the data value. The two possible values are as follows:  
 + *whenNull*: Add the hexadecimal value when the data value is null. Default is `6``. Sometimes the high value `FF` is used instead.
 
-  ```
+  ```yaml
   unload.nbi.whenNull: "6F"
   ```
 + *whenNotNull*: Add the hexadecimal value when the data value is not null, but the column is nullable. Default is `00` (low value).
 
-  ```
+  ```yaml
   unload.nbi.whenNotNull: "00"
   ```
 
@@ -289,14 +288,14 @@ unload.sqlCodePointShift: 0
 **chunkSize**  
  (Optional) Specifies the size of data chunks used to create SYSREC data sets. These data sets are the target of the data set unload operation, with parallel operations. Default is `0` (no chunks).  
 
-```
+```yaml
 unload.chunkSize:0
 ```
 
 **fetchSize**  
  (Optional) Specifies the data fetch size. The value is the number of records to fetch at one time when a data chunks strategy is used. Default: `0`.  
 
-```
+```yaml
 unload.fetchSize:0
 ```
 
@@ -304,14 +303,14 @@ unload.fetchSize:0
  (Optional) Specifies how to handle a non nullable varchar column with blank content. Default is `false`.  
  If you set this value to `true`, the column content is treated as an empty string for unload purposes, instead of a single space string. Set this flag to `true` for the Oracle database engine case only.  
 
-```
+```yaml
 unload.varCharIsNull: false
 ```
 
 **columnFiller**  
  (Optional) Specifies the value to use for padding unloaded columns in varchar columns. Possible values are space or low values. Default is space.  
 
-```
+```yaml
 unload.columnFiller: space
 ```
 
@@ -322,7 +321,7 @@ unload.columnFiller: space
 
  This example shows all of the possible load properties.
 
-```
+```yaml
 # Load properties 
  # Batch size for DSNUTILB Load Task
  load:
@@ -342,14 +341,14 @@ unload.columnFiller: space
 **sqlCodePointShift**  
  (Optional) Specifies an integer value that represents the SQL code point shift that is used on data. Defaults to 0, which means that applications make no code point shifting. Align this setting with the SQL code point shift parameter used for modernized applications. When you use code point shifts, the most common value for this parameter is 384.  
 
-```
+```yaml
 load.sqlCodePointShift : 384
 ```
 
 **batchSize**  
  (Optional) Specifies an integer value that represents the number of records to treat before you send an actual batch statement to the database. Defaults to 0.  
 
-```
+```yaml
 load.batchSize: 500
 ```
 
@@ -365,7 +364,7 @@ load.batchSize: 500
 Specify the values in the following format: *MODERN\_TABLE\_NAME : LEGACY\_TABLE\_NAME*  
 Here is an example:  
 
-```
+```yaml
 table-mappings:
  TABLE_1_NAME : LEGACY_TABLE_1_NAME
  TABLE_2_NAME : LEGACY_TABLE_2_NAME

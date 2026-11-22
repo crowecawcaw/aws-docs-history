@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Upgrade the AWS Transform for mainframe Runtime on Amazon EC2
-<a name="ba-runtime-maint-ec2"></a>
 
 This guide describes how to upgrade the AWS Transform for mainframe Runtime on Amazon EC2.
 

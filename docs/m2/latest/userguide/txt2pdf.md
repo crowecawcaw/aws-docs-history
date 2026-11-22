@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # TXT2PDF batch utility
-<a name="txt2pdf"></a>
 
 TXT2PDF is a mainframe utility program commonly used to convert a text file to a PDF file. This utility uses the same source code for TXT2PDF (z/OS freeware). We modified it to run under the AWS Mainframe Modernization Rocket Software (formerly Micro Focus) runtime environment.
 

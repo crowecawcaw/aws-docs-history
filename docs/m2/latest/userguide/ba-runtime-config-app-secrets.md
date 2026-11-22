@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime secrets
-<a name="ba-runtime-config-app-secrets"></a>
 
 Some of the resource configurations that contain credentials can be further secured by using AWS secrets. The idea is to store critical data in an AWS secret and have a reference to the secret in the YAML configuration so the secret content is picked up on the fly at Apache Tomcat startup.
 
@@ -32,7 +31,7 @@ The `application-main.yml` can reference the secret ARN for various resources:
 
 JICS database credentials with `spring.aws.jics.db.secret`
 
-```
+```yaml
 spring:
    aws:
      jics:
@@ -65,7 +64,7 @@ The name of the database is either supplied in the secret or in the yaml referen
 
 Blusam database credentials with `spring.aws.client.bluesam.db.secret`
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -176,7 +175,7 @@ Default: `com.zaxxer.hikari.HikariDataSource`
 
 For a multi-datasources secret:
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -240,7 +239,7 @@ The secret value overrides the YAML properties.
 
 You can also configure application-main.yml to retrieve the username and the password of the default super admin user in the secret from AWS Secrets Manager by specifying the ARN. The following example shows how to declare this secret in a YAML file.
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -261,7 +260,7 @@ Supported default super admin database secret keys:
 
 You can also configure `application-main.yml` to retrieve the OAuth2 client secret from AWS Secrets Manager by specifying the provider and ARN. The default value for the provider property is Amazon Cognito. The following is an example configuration for the OAuth2 provider Keycloak:
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -297,7 +296,7 @@ The `application-main.yml` file can reference the secret ARN for Redis caches. T
 
  The following example shows how to declare these secrets in a YAML file.
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -359,7 +358,7 @@ The `application-main.yml` file can reference the secret ARN for SSL password se
 
 The following example shows how to declare these secrets in a YAML file.
 
-```
+```yaml
 spring:
    aws:
      client:
@@ -414,7 +413,7 @@ If `queueManager` is set in the secret, it will override the `mq.queues.jmsMQQue
 
 The client `application-jhdb.yml` file can reference the secret ARNs for JHDB metadata databases. Each database connection requires a unique name and corresponding secret ARN containing the connection credentials. Database names are defined in a comma-separated list, with individual secret ARNs mapped to each database name.
 
-```
+```yaml
 spring:
    aws:
      jhdb:

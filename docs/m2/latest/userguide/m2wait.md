@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # M2WAIT batch utility
-<a name="m2wait"></a>
 
 M2WAIT is a mainframe utility program that enables you to introduce a wait period in your JCL scripts by specifying a time duration in seconds, minutes, or hours. You can call M2WAIT directly from JCL by passing the time you want to wait as an input parameter. Internally, the M2WAIT program calls the Rocket Software (formerly Micro Focus) supplied module `C$SLEEP` to wait for a specified time.
 

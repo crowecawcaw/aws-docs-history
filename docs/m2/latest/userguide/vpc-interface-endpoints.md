@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Mainframe Modernization. You can access AWS Mainframe Modernization as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS Mainframe Modernization.
 
@@ -48,7 +47,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for AWS Mainframe Modernization actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed AWS Mainframe Modernization actions for all principals on all resources.
 
-```
+```json
 //Example of an endpoint policy where access is granted to the 
 //listed AWS Mainframe Modernization actions for all principals on all resources
 {"Statement": [

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime Error codes related to Datasimplifier
-<a name="ba-runtime-error-codes-d"></a>
 
 Datasimplifier error codes, prefixed with `BA-D`
 
@@ -19,6 +18,6 @@ Datasimplifier error codes, prefixed with `BA-D`
 | BA-D2002 | Fatal | The utility method recordCount, corresponding to the EasyTrieve built-in RECORD-COUNT, is not implemented in the current version of the AWS Transform for mainframe Runtime. Avoid relying on RECORD-COUNT, or implement an equivalent count in application logic. |  | 
 | BA-D2003 | Warn | The utility method readXmlFromFile, corresponding to the PL/I built-in PLISAXB, is currently partially implemented. Validate PLISAXB-based XML parsing results; unsupported cases may not behave as on the mainframe. |  | 
 | BA-D2004 | Error | PLISAXB: Unexpected error: %s. Review the input parameters passed to the function. |  | 
-| BA-D2005 | Fatal | Substring target out of range for a varying-length field: positions %d to %d requested, current length %d (RPG status 00100, value out of range for string operation). |  | 
+| BA-D2005 | Fatal | Substring target out of range for a varying-length field: positions %d to %d requested, current length %d (RPG status 00100, value out of range for string operation). Set the field's length (%LEN) before writing a substring past its current length, or guard the write with a MONITOR / ON-ERROR block. |  | 
 | BA-D3001 | Fatal | Unexpected value for GS21 print mode function: %s. Verify the GS21 print-mode function value is one the runtime supports. |  | 
 | BA-D3002 | Fatal | Unexpected value for GS21 print mode: %s. Verify the GS21 print-mode value is one the runtime supports. |  | 

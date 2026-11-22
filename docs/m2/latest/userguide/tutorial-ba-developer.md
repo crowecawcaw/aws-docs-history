@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Use AWS Transform for mainframe Developer on WorkSpaces Applications
-<a name="tutorial-ba-developer"></a>
 
 This tutorial shows you how to access AWS Transform for mainframe Developer on WorkSpaces Applications and use it with a sample application so you can try out the features. When you finish this tutorial, you can use the same steps with your own applications.
 

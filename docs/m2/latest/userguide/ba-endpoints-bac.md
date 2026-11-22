@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Blusam application console REST endpoints
-<a name="ba-endpoints-bac"></a>
 
 In this section, you can learn about the Blusam application console, which is an API designed to simplify the management of modernized VSAM datasets. Endpoints for the Blusam web application use the root path `/bac`.
 
@@ -689,7 +688,7 @@ Use the following endpoints to manage user interactions.
 
 Sample response:
 
-```
+```json
 {
      "login": "some-admin",
      "password": null,
@@ -718,7 +717,7 @@ Sample response:
 + Returns the boolean value `true` if the user was successfully created. Returns `false` otherwise.
 + Sample request JSON:
 
-  ```
+  ```json
    {
        "login": "simpleuser",
        "password": "simplepassword",

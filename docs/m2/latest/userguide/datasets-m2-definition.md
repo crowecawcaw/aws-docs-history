@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Mainframe Modernization data set definition reference
-<a name="datasets-m2-definition"></a>
 
 If your application requires more than a few data sets for processing, entering them one by one in the AWS Mainframe Modernization console is inefficient. Instead, we recommend that you create a JSON file to specify each data set. Different data set types are specified differently in the JSON, although many parameters are common. This document describes the details of the JSON required to import different types of data sets.
 
@@ -32,7 +31,7 @@ Several parameters are common to all data sets. These parameters cover the follo
 
 Each data set definition has the same JSON structure. The following example JSON shows all these common parameters. 
 
-```
+```json
 {
     "dataSet": {
         "storageType": "Database",
@@ -68,7 +67,7 @@ Required. Applies to the **target** location. Specifies whether the data set is 
 **Note**  
 If your application requires files that are not COBOL data files but are PDF or other binary files, you can specify them as follows:   
 
-  ```
+  ```json
   "datasetOrg": {
               "type": PS {
                   "format": U
@@ -82,7 +81,7 @@ If your application requires files that are not COBOL data files but are PDF or 
 
 If you are importing VSAM data sets, specify `vsam` as the `datasetOrg`. Your JSON should resemble the following example:
 
-```
+```json
 {
     "storageType": "Database",
     "datasetName": "AWS.M2.VSAM.KSDS",
@@ -134,7 +133,7 @@ The following properties are supported for VSAM data sets.
 
 The AWS Transform for mainframe runtime engine supports compression for VSAM data sets. The following example shows how you can specify this property in JSON.
 
-```
+```json
 {
     common properties
         ...
@@ -162,7 +161,7 @@ Specify the compression property as follows:
 
 If you are importing GDG base data sets, specify `gdg` as the `datasetOrg`. Your JSON should resemble the following example:
 
-```
+```json
 {
     "storageType": "Database",
     "datasetName": "AWS.M2.GDG",
@@ -191,7 +190,7 @@ The following properties are supported for GDG base data sets.
 
 If you are importing PS or GDG generations data sets, specify `ps` as the `datasetOrg`. Your JSON should resemble the following example:
 
-```
+```json
 {
     "storageType": "Database",
     "datasetName": "AWS.M2.PS.FB",
@@ -232,7 +231,7 @@ The following properties are supported for PS or GDG generations data sets.
 
 If you are importing PO data sets, specify `po` as the `datasetOrg`. Your JSON should resemble the following example:
 
-```
+```json
 {
     "storageType": "Database",
     "datasetName": "AWS.M2.PO.PROC",

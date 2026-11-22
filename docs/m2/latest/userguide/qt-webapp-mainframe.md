@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for modernizing mainframe applications
-<a name="qt-webapp-mainframe"></a>
 
 AWS Transform for mainframe empowers you to modernize legacy COBOL mainframe applications to Java applications faster by automating the complex, time-consuming tasks of analyzing codebases, planning the transformation, generate technical documentation, extracting business logic, decomposition of code, wave planning, and executing the refactoring and reforging. It reduces the cost and complexity of mainframe modernization by leveraging generative AI and automation, while preserving your mission-critical business logic. AWS Transform's natural language interface and objective-driven approach keeps you in control of the transformation––enabling you to focus on strategic priorities, while the automation handles the heavy lifting of the modernization journey.
 

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Set up Rocket Software (formerly Micro Focus) (on Amazon EC2)
-<a name="mf-runtime-setup"></a>
 
 AWS Mainframe Modernization provides several Amazon Machine Images (AMIs) that include Rocket Software (formerly Micro Focus) licensed products. These AMIs allow you to quickly provision Amazon Elastic Compute Cloud (Amazon EC2) instances to support Rocket Software environments that you control and manage. This topic provides the steps required to access and launch these AMIs. Using these AMIs is entirely optional and they are not required to complete the tutorials in this user guide.
 

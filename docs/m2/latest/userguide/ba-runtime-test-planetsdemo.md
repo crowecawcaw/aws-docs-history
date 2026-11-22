@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Test the PlanetsDemo application
-<a name="ba-runtime-test-planetsdemo"></a>
 
 To check the status of the deployed PlanetsDemo application, run the following commands after you replace `load-balancer-DNS-name`, `listener-port`, and `web-binary-name` with the correct values for your setup.
 

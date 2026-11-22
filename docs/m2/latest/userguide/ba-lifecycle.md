@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe lifecycle
-<a name="ba-lifecycle"></a>
 
 This section defines end of life (EOL) dates for the AWS Transform for mainframe Runtime major versions. This enables you to plan for version upgrades so that you can stay up to date with the latest maintenance and features. To upgrade your version, see [Upgrading instructions for AWS Transform for mainframe](ba-migration-notes.md).
 

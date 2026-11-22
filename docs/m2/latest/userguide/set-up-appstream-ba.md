@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Set up WorkSpaces Applications for AWS Transform for mainframe Developer IDE
-<a name="set-up-appstream-ba"></a>
 
 AWS Mainframe Modernization provides several tools through Amazon WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. WorkSpaces Applications provides users with instant access to the applications that they need with a responsive, fluid user experience on the device of their choice. Using WorkSpaces Applications to host runtime engine-specific tools gives customer application teams the ability to use the tools directly from their web browsers, interacting with application files stored in either Amazon S3 buckets or CodeCommit repositories. 
 
@@ -58,7 +57,7 @@ Make sure to replace `amzn-s3-demo-bucket` with the actual name of the bucket th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

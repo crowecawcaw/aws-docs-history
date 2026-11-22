@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # LISTCAT JSON format
-<a name="ba-shared-bac-listcat-json-format"></a>
 
 The LISTCAT JSON format is defined by the following attributes:
 + optional "catalogId": identifier of the legacy catalog as a String, or "default" for the default catalog.
@@ -36,7 +35,7 @@ The LISTCAT JSON format is defined by the following attributes:
 
 The following is a sample KSDS LISTCAT JSON file.
 
-```
+```JSON
 {
   "catalogId": "default",
   "identifier": "AWS_M2_CARDDEMO_CARDXREF_VSAM_KSDS",

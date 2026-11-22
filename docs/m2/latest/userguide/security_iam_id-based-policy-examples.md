@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Identity-based policy examples for AWS Mainframe Modernization
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Mainframe Modernization resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -44,7 +43,7 @@ To ensure that users and roles can still use the AWS Mainframe Modernization con
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

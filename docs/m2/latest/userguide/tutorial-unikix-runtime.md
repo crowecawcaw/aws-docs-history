@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Deploy CardDemo application on NTT DATA
-<a name="tutorial-unikix-runtime"></a>
 
 This page guides you through the step-by-step process for deploying the CardDemo sample application on the AWS Mainframe Modernization replatform with NTT DATA Unikix runtime.
 

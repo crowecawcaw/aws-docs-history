@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Add configuration properties for the managed application with AWS Transform for mainframe engine
-<a name="applications-m2-ba-config-props"></a>
 
 You can add a file in the `config` folder for your refactored application that will give you access to new features in the AWS Transform for mainframe runtime engine. You must name this file `user-properties.yml`. This file doesn’t replace the application definition but extends it. This topic describes the properties you can include in the `user-properties.yml` file.
 

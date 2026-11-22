@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Manage JICS application console in AWS Transform for mainframe
-<a name="ba-endpoints-jac"></a>
 
 The JICS component is the AWS Transform for mainframe support for modernization of the legacy CICS resources. The JICS application console web application is dedicated to administrate JICS resources. The following endpoints allow to perform the administration tasks without having to interact with the JAC user interface. Whenever an endpoint requires authentication, the request will have to include authentication details (username/password typically, as required by Basic Authentication). Endpoints for the JICS application console web application use the root path `/jac/`.
 

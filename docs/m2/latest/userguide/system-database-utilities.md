@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Database Utilities
-<a name="system-database-utilities"></a>
 
 This section is about database related utilities. On legacy platforms, these programs usually operate on DB2 databases, whereas alternative databases are chosen (AWS Aurora being a popular choice) on modern environments.
 
@@ -53,7 +52,7 @@ Please see [Available properties for optional web applications](ba-runtime-key-v
 
 Here is a sample JCL usage of DNSTEP4:
 
-```
+```jcl
 //********************************************************************
 //* RETRIEVE DATA FROM TABLE AP_JBI7_INVOICE                      *
 //********************************************************************
@@ -67,7 +66,7 @@ Here is a sample JCL usage of DNSTEP4:
 
 and the matching modernized groovy script snippet:
 
-```
+```java
 def stepDSNTEP03(Object shell, Map params, Map programResults){
     shell.with {
         if (checkValidProgramResults(programResults)) {
@@ -143,7 +142,7 @@ Please see [Available properties for optional web applications](ba-runtime-key-v
 
 Here is a sample usage of DSNUTILB in a JCL script:
 
-```
+```jcl
 //********************************************************************
 //* LOAD DATA IN TABLE AP_JBI7_INVOICE.                           *
 //********************************************************************
@@ -180,7 +179,7 @@ with the commands card content (dsn01.card) -- used to load data into database, 
 
 and the matching groovy modernized script snippet:
 
-```
+```java
 // STEP DSN01 - PGM - DSNUTILB****************************************************
 def stepDSN01(Object shell, Map params, Map programResults){
     shell.with {
@@ -270,7 +269,7 @@ Please see [Available properties for optional web applications](ba-runtime-key-v
 
 Here is a sample legacy jcl script snippet:
 
-```
+```jcl
 //********************************************************************
 //* UNLOAD DATA FROM TABLE AP_JBI7_INVOICE.                       *
 //********************************************************************
@@ -284,7 +283,7 @@ Here is a sample legacy jcl script snippet:
 
 that uses the following commands card (inf12.card) to unload some data from the database (here, records are selected based on their date):
 
-```
+```sql
   UNLOAD                                                                        
       SELECT * FROM BUR000.AP_JB17_INVOICE                                  
       WHERE INVC_DAT >= 
@@ -299,7 +298,7 @@ that uses the following commands card (inf12.card) to unload some data from the 
 
 and the matching groovy script snippet, result of the automated jcl modernization:
 
-```
+```java
 // STEP INF1 - PGM - INFUTILB*****************************************************
 def stepINF1(Object shell, Map params, Map programResults){
     shell.with {
@@ -375,7 +374,7 @@ For any of the following conditions, the program return code will be set to 8 an
 
 A sample JXHDBCLR usage with an inlined commands card:
 
-```
+```jcl
 //*******************************************************************
 //**  Step 1 - JXHDBCLR UTILITY - DBCLEAR TYPE=2/3
 //*******************************************************************
@@ -389,7 +388,7 @@ END
 
 and the matching modernized groovy script snippet:
 
-```
+```java
 // STEP STEP01 - PGM - JXHDBCLR***************************************************
 def stepSTEP01(Object shell, Map params, Map programResults){
  shell.with {

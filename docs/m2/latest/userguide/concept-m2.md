@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Mainframe Modernization Concepts
-<a name="concept-m2"></a>
 
 AWS Mainframe Modernization provides tools and resources to help you migrate, modernize, and run mainframe workloads on AWS. You can use this page to understand about various concepts in AWS Mainframe Modernization including applications, modernization, environments, replatforming, refactoring, and runtime engines.
 

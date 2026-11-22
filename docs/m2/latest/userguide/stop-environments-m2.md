@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Stop an AWS Mainframe Modernization runtime environment
-<a name="stop-environments-m2"></a>
 
 Use the AWS Mainframe Modernization console to stop an AWS Mainframe Modernization runtime environment. When you stop an environment the current application deployments are retained and you won't be charged for the environment until the environment is restarted. 
 

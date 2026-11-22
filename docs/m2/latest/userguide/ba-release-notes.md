@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe release notes
-<a name="ba-release-notes"></a>
 
 This section contains the release notes of AWS Transform for mainframe Runtime and Modernization Tools from version 3.5.0 onward, most recent first, organized by version number.
 
@@ -13,6 +12,213 @@ For each release, AWS Transform for mainframe Runtime has been validated on spec
 
 **Note**  
 For release notes predating this document, contact AWS Transform for mainframe delivery services. For information about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor releases](https://bluinsights.aws/releases).
+
+## Release notes 5.323.0
+<a name="ba-release-notes-5.323.0"></a>
+
+Released on: November 7, 2026
+
+This release of AWS Transform for mainframe Runtime and Transformation Engines focuses on framework upgrades (Spring Boot, Tomcat, and Angular) and faster processing of COBOL numeric data. It also broadens coverage of embedded SQL, CICS, and JCL utilities. In addition, it improves Blusam resilience and memory use on large data sets, and extends AS/400 terminal integration and RPG transformation support.
++ **Major Framework Upgrades:**
+  + **Spring Boot & Spring Core** – Upgraded to Spring Boot 4.1.1 and Spring Core 7.0.9, migrating from Spring Boot 4.0.6 and Spring Core 7.0.6.
+  + **Apache Tomcat** – Upgraded to Tomcat 11.0.26, migrating from Tomcat 11.0.15.
+  + **Front-end Modernization** – Front-end applications have been upgraded to Angular 22 from Angular 21.
+
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
+
+
+|  |  | 
+| --- |--- |
+| Component | Version tested | 
+| Java | Java 21 | 
+| Presentation layer | Node.js 24.17.0 | 
+| Npm 11.13.0 | 
+| Angular 22 | 
+| Service layer | Spring Boot 4.1.1 | 
+| Spring Core 7.0.9 | 
+| Spring Session 4.1.1 | 
+| Spring Statemachine 4.0.2 | 
+| Persistence layer | PostgreSQL engine 15.10 | 
+| Oracle 21c | 
+| Report | Jasper 7 | 
+| Application server | Apache Tomcat 11.0.26 | 
+| Build tool | Apache Maven 3.9.11 | 
+
+## AWS Transform for mainframe Runtime
+<a name="ba-release-notes-5.323.0-runtime"></a>
+
+### zOS
+<a name="runtime-zos-5.323.0"></a>
+
+**Improvements**
++ COBOL
+  + Improved performance of edited numeric and alphanumeric data types by caching the picture-clause expansion (for example, 9(4) to 9999)
+  + Improved zoned and packed decimal encode/decode performance by using integer arithmetic for precisions of up to 18 digits, and by reusing the cached zero form for MOVE ZEROES
+  + Improved binary (COMP, COMP-4, BINARY) encode/decode and packed (COMP-3) encode performance for fields of up to 18 digits, with identical results and automatic fallback for wider fields, negative scales, or overflow
+  + Improved support for JSON GENERATE on records with OCCURS arrays, duplicate keys, and NAME OF.
+  + Added support for the ABD suboption of the SSRANGE compiler option, so FUNCTION NUMVAL and NUMVAL-C abend with code 1097 on an invalid argument, set by the PROCESS/CBL statement or `compiler.option.ssrange` (default off)
+  + Improved support for comparing the XML-TEXT and XML-EVENT special registers directly against a figurative constant (for example, IF XML-TEXT > SPACES), which previously failed generation
+  + Improved support for SORT statements that mix group keys and elementary keys
+  + Improved support for variable-size records (OCCURS DEPENDING ON) written to temporary sort work files.
+  + Improved support for variable-length (RDW) sequential files: a record with an empty payload returns file status 00 and a length of 0, and a truncated trailing RDW returns file status 10
+  + Added support for FUNCTION NUMVAL and FUNCTION NUMVAL-C on reference-modified arguments such as X(I:L)
++ BMS
+  + Improved support for RECEIVE MAP of a NUM=YES field whose PICOUT ends in a sign position (-, \+, CR, DB): a positive value returned at full field length no longer gains a spurious leading zero.
+  + Improved support for COLOR, HILIGHT, and CURSLOC at mapset (DFHMSD) and map (DFHMDI) level: RECEIVE MAP on a CURSLOC=YES map flags the cursor field (X'02') and does not raise MAPFAIL when the cursor is in a named field with no typed data.
++ PL/I
+  + Added support for the SYSTEM built-in with the TSO ALLOCATE command.
+  + Added support for the MEMINDEX and MEMVERIFY built-in functions.
++ SQL
+  + Improved positioned UPDATE/DELETE (WHERE CURRENT OF) on PostgreSQL tables without a primary key, which locates the current row through the CTID system column when `database.cursor.positioned.update.without.primary.key.allowed` is true (default false).
+  + Improved SQLDA descriptor support so a DESCRIBE statement with an INTO :SQLDA clause resolves a descriptor nested inside an enclosing group or sharing a union record, not only a top-level record.
+  + Improved SQLDA descriptor FETCH to write columns into caller-supplied SQLDATA/SQLIND storage, masked to 31 bits, and to report an invalid address as SQLCODE -822 / SQLSTATE 51004.
+  + Improved support for descriptor cursors by rebinding the SQLDA bound at OPEN when a later FETCH presents a different descriptor.
+  + Improved SQLDA support by detecting the z/OS or IBM i descriptor layout at runtime and selecting the matching INCLUDE SQLDA copybook for the program's legacy system.
+  + Improved support for static SQL SELECT INTO against non-DB2 targets by stripping the DB2-specific WITH UR isolation clause, preventing a PSQLException on PostgreSQL.
+  + Improved support for multi-row INSERT statements with a FOR :n ROWS clause: OCCURS null-indicator arrays apply per row, so a negative indicator inserts NULL, and negative binary and packed indicators keep their sign.
+  + Added support for the Db2 QUERYNO clause on SELECT, UPDATE, DELETE, and INSERT.
+  + Added support for Db2 for z/OS special registers as values (for example, CURRENT PACKAGESET, CURRENT PATH, CURRENT USER, CURRENT TIME ZONE), with CURRENT PACKAGESET translated to the current schema of the target database.
+  + Added support for CURRENT PATH inside functions, multi-row FETCH statements with a FOR :LOOP ROWS clause, and the MICROSECOND() function, for PostgreSQL, Oracle, MSSQL, and MySQL.
+  + Improved support for multi-row FETCH statements that use a ROWSET clause: SQLERRD(3) is set to 0 when the fetch reaches the end of the cursor without returning any row.
+  + Added support for DECLARE GLOBAL TEMPORARY TABLE and CREATE TABLE statements with an AS (fullselect) WITH [NO] DATA clause and the z/OS copy options, and for the CROSS JOIN operator, in embedded SQL.
+  + Added support for CASE expressions in the GROUP BY clause of embedded SQL.
++ CICS
+  + Improved JICS audit user-name resolution for OIDC and JWT, using the OAuth2 principal (OIDC) or the preferred\_username, username, then sub claims (bearer). The resolved name is used for audit and display only, not for authorization.
+  + Added optional propagation of the request's Spring Security SecurityContext to pooled JICS worker threads (`taskExecutor.propagateSecurityContext`, default false), for audit and display only, not for authorization.
+  + Improved support for the FROM option of EXEC CICS ENTER.
+  + Improved support for EXEC CICS ENQ: resources a task enqueued are released when the task rolls back (SYNCPOINT ROLLBACK) or abends, not only on commit.
+  + Added support for the DSNAME option of EXEC CICS INQUIRE FILE, taken from the JICS FILE resource definition.
+  + Improved support for ASKTIME / FORMATTIME: ABSTIME is an 8-byte signed packed decimal.
+  + Improved support for EXEC CICS WRITE OPERATOR by decoding the TEXT, ACTION, and ROUTECODES fields with the program encoding.
++ Blusam
+  + Added variable-length record support (RECORD VARYING DEPENDING ON) for ESDS and KSDS files. WRITE and REWRITE store the length given by the DEPENDING ON field. READ, including READ by key on KSDS, sets that field to the length of the read record. An invalid length returns file status 44. To turn this off, set `bluesam.applyDependingOnRecordLength=false` in `application-main.yml` (default true).
+  + Added the `indexBuildMaxResidentPages` property, which limits memory use when building indexes in append mode on very large data sets and avoids OutOfMemoryError. The default is 0, meaning no limit. Appended keys that fall between existing keys are now placed correctly in the index.
+  + Improved DELETE, EMPTY and REUSE on Redis (avoid scanning the whole Redis instance). A DELETE on a large data set no longer blocks operations on other data sets. This is controlled by `bluesam.redis.scopedClearEnabled` in `application-main.yml` (default true). Set it to false if nodes on an older runtime share the same Redis instance, for example during a rolling deployment or a rollback.
+  + Improved resilience on Redis: Blusam now detects a stalled Redis connection thread, logs it (`BA-R0091`) and reconnects (`BA-R0092`). Configure this with `bluesam.redis.eventLoopStallTimeoutMillis` (default 5000 ms; 0 disables it).
+  + Improved index metadata warm-up at startup. It pauses while heap usage is above `bluesam.warmUpMetadataMaxHeapPercent` and resumes when usage drops back below it.
+  + Improved the Blusam Administration Console. Data sets whose names contain $ can now be deleted, cleared and warmed up.
+  + Fixed intermittent data loss on large KSDS files when using EhCache, which showed up as file status 23.
+  + Fixed lock contention between concurrent jobs writing to the same data set. An interrupted wait for write access is now reported with `BA-R2332`.
+  + Fixed data set locks that stayed held after a job ended abnormally without closing its data sets, or after a shutdown, which blocked other jobs. Locks released at shutdown are logged with `BA-R2321` and `BA-R2322`
++ Easytrieve
+  + Added a configurable installation date-component order (`Configuration.InstallationDateFormat`) and per-dialect configuration for Easytrieve report generation
+  + Improved support for report items (TITLE, LINE, HEADING, DISPLAY) positioned with COL n inside content already written
++ IMS - DBD
+  + Fixed IMS DL/I batch steps whose DFSRRC00 PARM omits the optional PSB positional: the PSB name now defaults to the program name instead of aborting the step with RC=1.
+  + Added support for variable-length IMS segments on the JHDB read path.
+  + Improved JHDB read error handling: DL/I call failures return status code AO for direct GU/GHU calls and BA for delegated GN/GHN calls, keep the IO area consistent, and are logged at error level.
++ IMS - CBLTDLI
+  + Added support for CBLTDLI PCB scheduling when the DLIUIB is in the LINKAGE SECTION: DL/I now allocates the UIB and sets ADDRESS OF DLIUIB (programs must be regenerated).
+  + Added support for the IMS NOT SIGN not-equal operator (¬= / =¬) in segment search arguments of CBLTDLI calls and EXEC DLI WHERE clauses.
++ MQ
+  + Improved support for MQGET in XA (JMS) mode: MQMD-MSGID and MQMD-CORRELID return the identifiers of the received message, handled as raw 24-byte values on GET and PUT.
+  + Improved support for MQPUT in XA mode with the native client (`mq.queues.non.jms.client`): MsgType, Report, Feedback, MsgId, and ReplyToQMgr set by the program are delivered with the message.
++ JCL - ICEGENER
+  + Improved support for the ADV control byte in the catalog record size for utility programs: the ASA byte is added only when the size is derived from the program record, not to an explicit `recordSize`
+  + Added support for SYSUT2=DUMMY on an ICEGENER/IEBGENER step: the output is discarded and the step ends with RC=0
+  + Improved INTRDR submissions from IEBGENER to carry a CALLER program parameter, so a submitter can correlate its own asynchronous job
++ JCL - DSNUTILB
+  + Improved support for REORG DISCARD COPYDDN on PostgreSQL: COPYDDN TEMPLATE symbolics (&DB, &SN, &PART, &DATE) are resolved as on LOAD, and the copy is transcoded to the configured charset.
+  + Improved support for LOAD RESUME YES above the memory threshold: primary-key existence probes bind typed key values in catalog order, and a failing probe now ends with RC=8 instead of RC=0.
++ JCL - INFUTILB
+  + Improved the INFUTILB/INZUTILB unload error when the SYSREC record size is unknown: new code U3022 reports the DD and program, and lists LRECL, catalog record length, or `unload.computeRecordSizeIfNull` as fixes.
++ JCL - IKJEFT01
+  + Added support for the IKJEFT01 PROFILE and EX subcommands: a sole PROFILE statement is a no-op, and EX runs the DB2 program named in the PGMNAME parameter like RUN PROGRAM.
+  + Added a compatibility-safe opt-in for reading the SYSTSIN control card as EBCDIC through `systin.encoding`. The engine default stays ASCII.
+  + Added support for the XMITIP email utility as a Gapwalk utility program, including XMITIP command decks run from IKJEFT1A/IKJEFT1B, with a file-only default delivery mode (`xmitip.delivery.mode=file`).
+  + Added support for an implicit TSO exec (CLIST/REXX) invocation in a SYSTSIN statement without a command verb, including the % prefix, TSO continuation characters, and sequence-numbered cards.
+  + Improved support for the RUN PROGRAM subcommand without a PARM clause.
++ JCL - IDCAMS
+  + Improved the step return code when the first functional command abends (LASTCC=-1): MAXCC takes LASTCC until a real condition code is recorded, so the step ends RC=-1 instead of RC=0.
+  + Improved IDCAMS control-card preprocessing to remove a sequence number in columns 73-80 that does not fill all 8 sequence columns.
++ JCL - SORT
+  + Added support for FINDREP with an empty replacement (OUT=C'') and inside INREC IFTHEN, and for the JFY options LENGTH, PREBLANK, and hexadecimal LEAD / TRAIL, including inside OVERLAY.
+  + Improved support for SORT OMIT / INCLUDE conditions on BI / FI fields: a hexadecimal mask whose length differs from the field length is padded with X'00' or truncated, as DFSORT does.
+  + Improved support for JOINKEYS on variable-length (TYPE=V) files.
+  + Added support for the E15 user exit and the MODS keyword.
+  + Improved support for OUTFIL HEADER1/TRAILER1: report records on fixed-length output are padded with blanks (X'40'/X'20').
+  + Improved support for ICETOOL to read its TOOLIN control card with the application encoding.
+  + Improved SORT fixed-length (FB) output padding: stream input is padded with the encoding's space (X'40' EBCDIC, X'20' ASCII), while a cataloged fixed-length input widened to a larger FB output keeps its X'00' tail.
+  + Improved ICETOOL SELECT to run in linear time.
+  + Added support for the CTO (short form OT) signed-numeric data format in a SORT key.
+  + Improved DFSORT implicit continuation at a trailing comma in ICETOOL USING statements when the next line starts with a control-statement keyword (for example, OUTREC), including character-literal and fixed-column handling.
++ JCL – Misc
+  + Improved support for symbolics (&SYMBOL) in a JOB-level fcmap DD.
+  + Added support for the ISRSUPC (SuperC) compare/search utility: FILECMP/BYTECMP/SRCHCMP, SYSIN process statements, and the SuperC return-code convention.
+  + Improved support for a JCL job and a cataloged PROC that share the same name.
+  + Added support for a JCL member with several JOB cards.
+  + Improved INTRDR handling of an empty JCL submission (a second consecutive /\*EOF) to ignore the empty job.
+  + Improved data set dispositions on step abend: DISP=CATLG catalogs an empty data set when the step ended before opening it, and DISP=DELETE closes and deletes the file, uncataloging it only on a confirmed physical delete.
+  + Added support for alterDSN on concatenated files: a DUMMY member ends the concatenation, and it and every member after it are ignored, as on z/OS.
+  + Improved support for EXEC PROC steps without COND, which are no longer skipped after an earlier abend. A job whose step abends now ends FAILED with that abend. This happens even when a later recovery step ends RC=0.
+  + Improved support for step names that contain $, \#, or @. The original step name is kept in logs and return-code tracking.
+  + Improved support for DD statements with a symbolic DSN (for example, DSN=&PARM), which now carry the same properties as regular DDs (record format, DCB parameters, and Blusam or file-system routing).
+  + Improved support for recreating a deleted variable-length data set.
+  + Added support for the EXPORT SYMLIST= statement in the JCL runtime parser, so exported symbols are substituted in in-stream data coded with SYMBOLS=.
+
+### AS400
+<a name="runtime-as400-5.323.0"></a>
+
+**Improvements**
++ CL
+  + Improved support for the DCLF/RCVF commands, so a CLOSE/CLOF followed by RCVF reopens the file and reads from the first record again (EOF tracked per OPNID).
+  + Added support for the CRTDTAQ command, which creates the data queue in the message broker.
+  + Improved member partition resolution for CRTDUPOBJ-duplicated tables.
+  + Improved support for the CPYF command with the FROMRCD(\*START) and TORCD(n) options.
+  + Improved support for the ALCOBJ and DLCOBJ commands called from COBOL in positional HLL form: the result goes to the caller's RETCODE (0 allocated, 6 locked by another job, 9 other error), and \*DTAQ locks key on LIBRARY.NAME.
+  + Improved RUNSQL to strip trailing blanks from the REQUEST parameter before preparing the SQL, removing a quadratic slowdown on long statements passed in a blank-padded \*CHAR variable.
++ Database access
+  + Improved positioned keyed reads over a descending access path.
++ Job
+  + Improved commitment-control journaling under JPA.
+  + Added a fast row-value comparison path for keyed seeks when the file's EBCDIC sort function is column-specific and the query keys are non-EBCDIC, keeping a single composite-index range scan.
+  + Added a server-side deadline for the break-message long poll (`blu4iv.break-message.poll-timeout-ms`, default 25000 ms), preventing thread leaks when a proxy or load balancer has a shorter idle timeout than the poll.
+  + Added support for reading custom HTTP request headers from an application program with terminal.getRequestData(name), declared with `blu4iv.propagatedHeaders` (off when the property is not set).
+  + Added support for sending custom data back to the browser with terminal.setResponseData(key, value), returned in a new optional responseData field of the transaction response.
+  + Added terminal-session log correlation: when `blu4iv.logging.terminalIdMdc` is true (default false), the TERMINAL\_ID is put in the SLF4J MDC (terminalId) and propagated to worker threads. To display it, add %X{terminalId} to the logback pattern.
+
+## AWS Transform for mainframe Transformation Engines
+<a name="ba-release-notes-5.323.0-transformation"></a>
+
+### zOS
+<a name="transformation-zos-5.323.0"></a>
+
+**Improvements**
++ COBOL
+  + Added support for the ON SIZE ERROR / NOT ON SIZE ERROR phrase on arithmetic statements (ADD, SUBTRACT, MULTIPLY, DIVIDE, COMPUTE).
+  + Improved support for UNSPEC on a PTR field and VERIFY with a '0'B bit literal.
+  + Improved support for COBOL XML PARSE special-register handling (XML-EVENT type inference, and XML-TEXT with no XML-PARSER).
++ PL/I
+  + Added support for the INDEXR built-in function.
+  + Improved support for SUBSTR and LENGTH applied to a group reference resolving to a single CHAR leaf.
+  + Added support for dynamic allocation of a CONTROLLED array whose members are CHAR(\*), where the ALLOCATE supplies both the array dimension and each member length.
+  + Improved BY NAME structure assignment for a leaf reached through two or more dimensioned levels.
+  + Added support for Danish characters Æ Ø Å (and æ ø å) in EXEC DLI identifiers.
+  + Added support for the keyword BY as a variable name in PL/I declarations.
+  + Improved support for STATIC arrays of file variables, which now keep their handles across calls instead of losing them on every entry into the owning subprogram.
+  + Added support for an external function, declared with the EXT ENTRY and RETURNS attributes, referenced directly as a PUT LIST item.
+  + Added support for DCL GENERIC references used as boolean operands.
+  + Improved support for UNSPEC on a pointer field with VERIFY and the '0'B/'1'B literals.
+  + Improved support for homonymous CONTROLLED structures declared in different internal procedures.
+  + Improved support for homonymous BASED(ADDR(x)) aliases in sibling procedures.
+  + Improved support for EXEC SQL COMMIT/ROLLBACK in programs declaring an SQLCA.
+  + Improved support for an array of BIT(1) declared with a repeated bit-string literal in the INIT clause (for example, INIT((24)(1)'1'B)), now initialized to the repeated bit pattern.
++ Easytrieve
+  + Improved support for masked numeric (N) fields, now emitted as zoned of their declared size with the mask kept as display-only metadata.
+  + Improved support for reports with a CONTROL clause that receive no rows.
+  + Improved the automatic report page layout (ASA carriage control, run date, right-aligned PAGE n, NOKDATE/NOKPAGE and NODATE/NOPAGE), POS n \+m column offsets in DISPLAY statements, centered titles and headings within LINESIZE, and the NOPRINT option of the CONTROL statement.
+  + Added the Easytrieve default edit mask (grouped, right-aligned) for unmasked numeric fields in report and file DISPLAY output.
+  + Fixed packed and zoned fields being emitted unsigned, and a spurious trailing minus on positive values.
+
+### AS400
+<a name="transformation-as400-5.323.0"></a>
+
+**Improvements**
++ RPG
+  + Added support for 14 RPG built-in functions (%UPPER/%LOWER, %LEFT/%RIGHT, %CONCAT, %SCANR, %HIVAL/%LOVAL, %BITOR/%BITXOR/%BITNOT, %UCS2/%GRAPH, %PROC) and %STATUS.
+  + Added support for the free-form ON-ERROR code lists, ON-EXCP, and FOR-EACH loops over IN %LIST and IN %RANGE.
+  + Added support for the DSPLY, TESTZ, DEALLOC/REALLOC, and ACQ/REL statements and the CHAIN result data structure.
+  + Added support for the XML-INTO, XML-SAX, DATA-INTO, and DATA-GEN statements in free-form RPG.
 
 ## Release notes 5.274.0
 <a name="ba-release-notes-5.274.0"></a>
@@ -45,6 +251,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### zOS
 <a name="runtime-zos-5.274.0"></a>
+
+**Improvements**
 + COBOL
   + Improved UNSTRING to preserve whitespace-like trailing bytes in alphanumeric receivers
   + Aligned level-88 condition evaluation with legacy semantics by comparing on the raw bytes
@@ -112,6 +320,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### AS400
 <a name="runtime-as400-5.274.0"></a>
+
+**Improvements**
 + File access
   + Added support for Extend open mode.
 + CL
@@ -130,6 +340,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### zOS
 <a name="transformation-zos-5.274.0"></a>
+
+**Improvements**
 + COBOL
   + Improved HEX built-in generation for ADDR expressions.
   + Added LEADING and TRAILING keyword support to COPY REPLACING
@@ -151,6 +363,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### AS400
 <a name="transformation-as400-5.274.0"></a>
+
+**Improvements**
 + RPG / CL
   + Improved support for the MONITOR statement with multiple ON-ERROR clauses.
 + RPG
@@ -193,6 +407,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### zOS
 <a name="runtime-zos-5.194.0"></a>
+
+**Improvements**
 + COBOL
   + Improved support for packed decimal by using the new YML property dataSimplifier.zeroInvalidBcdNibbles, which treats invalid BCD nibbles (non-decimal hex digits) as 00
   + Added support for configurable read buffer size for sequential files by using the new YML property gapwalk.io.sequential.readBufferSize, improving read performance on network-attached storage
@@ -243,6 +459,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### AS400
 <a name="runtime-as400-5.194.0"></a>
+
+**Improvements**
 + RPG
   + Improved CLEAR operation on Elementary arrays
   + Improved support of Program Status Data Structure
@@ -276,6 +494,8 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### zOS
 <a name="transformation-zos-5.194.0"></a>
+
+**Improvements**
 + COBOL
   + Added support for EXIT PROGRAM AND CONTINUE RUN UNIT statement
   + Added support for figurative SPACES in CALL statement
@@ -302,11 +522,15 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 ### AS400
 <a name="transformation-as400-5.194.0"></a>
+
+**Improvements**
 + RPG
   + Added support for accessing elements of arrays that are part of an overlay
 
 ### Code quality
 <a name="transformation-code-quality-5.194.0"></a>
+
+**Improvements**
 + Improved naming convention for generated entity identifiers.
   + Class names, field names, and getter/setter names that previously had a \_<digits> prefix are now stripped to proper Java naming conventions. For example, \_90CallFlowMainContext becomes CallFlowMainContext, and get\_90CallFlow() becomes getCallFlow().
   + A collision detection mechanism preserves the original prefix when multiple programs would produce the same name after stripping.

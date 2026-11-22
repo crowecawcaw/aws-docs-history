@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure Gapwalk OAuth2 authentication with Keycloak
-<a name="ba-runtime-auth-keycloak"></a>
 
 This topic describes how to configure OAuth2 authentication for Gapwalk applications using Keycloak as an identity provider (IdP). In this tutorial we use Keycloak 24.0.0.
 

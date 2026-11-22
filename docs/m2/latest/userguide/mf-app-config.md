@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure the Rocket Software (formerly Micro Focus) managed application
-<a name="mf-app-config"></a>
 
 You can configure your applications with Rocket Software runtime engine to customize additional properties including integrations.
 
@@ -27,7 +26,7 @@ A printer definition may define a custom or service-provided exit module for the
 
 1. Example of loading service provided binary.
 
-```
+```json
 ...
 {
     "name": "p1",
@@ -44,7 +43,7 @@ A printer definition may define a custom or service-provided exit module for the
 
 2. Example of providing binary from S3.
 
-```
+```json
 "exit-module": {
         "name": "s3Exit",
         "module": "${s3-source}/3pa/s3Exit.so"
@@ -56,7 +55,7 @@ A printer definition may define a custom or service-provided exit module for the
 **Note**  
 To use EFS mount, it must be attached during the creation of the environment, along with some additional values to be set such as `program-path`.
 
-```
+```json
 ...
 "batch-settings": {
     "jes-printers": [
@@ -92,7 +91,7 @@ To use LRS queue, you must be using a Rocket Software engine that supports third
 
 Additionally, the LRSQ\_ADDRESS must be specified as part of the `runtime-settings ` field in the application definition.
 
-```
+```json
 "runtime-settings": {
     "environment-variables": {
         "LRSQ_ADDRESS": "<lrsq-address>"

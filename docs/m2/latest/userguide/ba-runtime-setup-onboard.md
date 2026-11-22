@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Onboarding AWS Transform for mainframe Runtime
-<a name="ba-runtime-setup-onboard"></a>
 
 **Note**  
 The AWS Transform for mainframe Runtime access has transitioned from ticket-based requests to direct download through [AWS Transform for mainframe refactor](https://bluinsights.aws/). We have introduced a new and simplified way to access AWS Transform for mainframe products through the [AWS Transform for mainframe Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction) feature in AWS Transform for mainframe refactor.

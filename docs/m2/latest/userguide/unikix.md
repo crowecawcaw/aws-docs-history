@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Mainframe Modernization replatforming with NTT DATA
-<a name="unikix"></a>
 
 AWS Mainframe Modernization offers a variety of Amazon Machine Images (AMIs). These AMIs facilitate the rapid provisioning of Amazon EC2 instances, creating a tailored environment for rehosting and replatforming mainframe applications in AWS by using NTT Data. This guide provides the steps required to access and use these AMIs. 
 

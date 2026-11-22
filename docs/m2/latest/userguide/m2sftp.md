@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # M2SFTP batch utility
-<a name="m2sftp"></a>
 
 M2SFTP is a JCL utility program designed to perform secure file transfers between systems using the Secure File Transfer Protocol (SFTP). The program uses the Putty SFTP client, `psftp`, to perform the actual file transfers. The program works similarly to a mainframe FTP utility program and uses user and password authentication.
 

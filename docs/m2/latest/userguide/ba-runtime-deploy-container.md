@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Set up AWS Transform for mainframe Runtime on container
-<a name="ba-runtime-deploy-container"></a>
 
 This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Transform for mainframe Runtime on a docker container.
 
@@ -125,7 +124,7 @@ The contents of install-gapwalk.sh and install-app.sh scripts, which are used in
 
 1. Provide the connection information for the database that you created as part of the prerequisites in the following snippet in the `application-main.yml` file, which is located in the `{TOMCAT_GAPWALK_DIR}/config` folder. For more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.html#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster).
 
-   ```
+   ```yaml
    datasource:
       jicsDs:
         driver-class-name :  

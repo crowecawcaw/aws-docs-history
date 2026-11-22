@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Infrastructure setup requirements for AWS Transform for mainframe Runtime
-<a name="ba-infrastructure-setup"></a>
 
 This topic describes the minimum infrastructure configuration required to run AWS Transform for mainframe Runtime. The following procedures describe how to set up AWS Transform for mainframe Runtime on your compute of choice to deploy a modernized application on the AWS Transform for mainframe Runtime. The resources that you create must be in an Amazon VPC that has a subnet that is dedicated to your application domain.
 

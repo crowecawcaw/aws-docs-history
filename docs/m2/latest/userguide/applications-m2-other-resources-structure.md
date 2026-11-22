@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Structure of AWS Transform for mainframe managed applications
-<a name="applications-m2-other-resources-structure"></a>
 
 If you use the AWS Transform for mainframe refactoring pattern, the AWS Transform for mainframe runtime engine expects the following structure in the folder specified by `app-location` in your application definition:
 
@@ -40,7 +39,7 @@ Contains jars that can provide additional capabilities for the modernized applic
 
 To manage certain Java options for the application, add a properties file named `tomcat.properties` to the folder specified by `app-location`. This file can have three properties: `xms`, which specifies the minimum Java memory consumption, `xmx`, which specifies the maximum Java memory consumption, and `dnscachettl`, that manages the cache duration for dns resolutions. The following is an example of the contents of a valid `tomcat.properties` file. 
 
-```
+```json
 xms=512M
 xmx=1G
 dnscachettl=5

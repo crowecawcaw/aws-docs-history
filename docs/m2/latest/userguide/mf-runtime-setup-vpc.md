@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Create the Amazon VPC endpoint for Amazon S3
-<a name="mf-runtime-setup-vpc"></a>
 
 In this section, you create a Amazon VPC endpoint for Amazon S3 to use. Setting up this endpoint will help you later when setting up internet access for VPC. 
 

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Data protection in AWS Mainframe Modernization
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Mainframe Modernization. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -147,7 +146,7 @@ AWS Mainframe Modernization requires `kms:CreateGrant` and `kms:DescribeKey` per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -221,7 +220,7 @@ AWS Mainframe Modernization uses the same encryption context in all AWS KMS cryp
 
 **Example**  
 
-```
+```json
 "encryptionContextSubset": {
         "aws:m2:app": "a1bc2defabc3defabc4defabcd"
 }
@@ -237,7 +236,7 @@ You can use the encryption context in key policies and IAM policies as `conditio
 
 AWS Mainframe Modernization uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context. The following example is a grant that AWS Mainframe Modernization leverages to encrypt application artifact when creating an application.
 
-```
+```json
 //This grant is retired immediately after create application finish
 {
    "grantee-principal": m2.us-west-2.amazonaws.com,

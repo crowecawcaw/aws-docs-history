@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Set up configuration for AWS Transform for mainframe Runtime
-<a name="ba-runtime-config"></a>
 
 The AWS Transform for mainframe Runtime and the client code are web applications using the [Spring Boot framework](https://docs.spring.io/spring-boot/docs/2.5.14/reference/html/). It leverages Spring capabilities to supply configuration, with several possible locations and precedence rules. There are also similar precedence rules for supplying many other files, such as groovy scripts, sql, etc.
 
@@ -60,7 +59,7 @@ The database configuration might be supplied with JNDI in the context.xml file i
 
 The following example shows sample configurations for JICS and Blusam databases.
 
-```
+```xml
 <Resource auth="Container" driverClassName="org.postgresql.Driver" initialSize="0" maxIdle="5" 
    maxOpenPreparedStatements="-1" maxTotal="10" maxWaitMillis="-1" name="{{jdbc/jics}}"
    poolPreparedStatements="true" testOnBorrow="false" type="javax.sql.DataSource" 		

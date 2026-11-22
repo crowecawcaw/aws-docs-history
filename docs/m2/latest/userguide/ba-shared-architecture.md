@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime high level architecture
-<a name="ba-shared-architecture"></a>
 
 As a part of the AWS Transform for mainframe solution for modernizing legacy programs to Java, the AWS Transform for mainframe Runtime provides a unified, REST-based entry point for modernized applications, and a framework of execution for such applications, through libraries providing legacy constructs and a standardization of programs code organization.
 

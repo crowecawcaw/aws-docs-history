@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # How AWS Mainframe Modernization works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Mainframe Modernization, learn what IAM features are available to use with AWS Mainframe Modernization.
 

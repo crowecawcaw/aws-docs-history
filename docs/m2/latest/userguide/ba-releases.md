@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe releases
-<a name="ba-releases"></a>
 
 AWS Transform for mainframe engine has multiple versions that you can choose from. This page is an overview of the way AWS Transform for mainframe versioning works, what changes each version releases have, upgrading instructions for versions, how updates to AWS Transform for mainframe are communicated with customers, and the lifecycle of these versions. 
 

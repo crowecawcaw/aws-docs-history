@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Troubleshooting error: Time out while waiting for data set name to be unlocked
-<a name="ba-blusam-timeout"></a>
 
 This page describes how you can resolve your error when you see another application in an environment is holding a lock on a shared data set.
 + Engine: AWS Transform for mainframe

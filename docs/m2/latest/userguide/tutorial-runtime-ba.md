@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Tutorial: Set up managed runtime for AWS Transform for mainframe
-<a name="tutorial-runtime-ba"></a>
 
 You can deploy a AWS Transform for mainframe modernized application into an AWS Mainframe Modernization runtime environment with a demo application specified in this tutorial.
 
@@ -44,7 +43,7 @@ The folder in the bucket is required.
 
 To deploy an application to the managed runtime, you need an AWS Mainframe Modernization application definition. This definition is a JSON file that describes the application location and settings. The following example is such an application definition for the demo application:
 
-```
+```json
 {
     "template-version": "2.0",
     "source-locations": [{

@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Troubleshooting error: Environment unhealthy
-<a name="env-unhealthy"></a>
 
 This page describes how you can resolve your error when you receive a notification that one of your AWS Mainframe Modernization environments are unhealthy.
 + Engine: AWS Transform for mainframe and Rocket Software (formerly Micro Focus)
@@ -27,7 +26,7 @@ The error occurs when the resources in your AWS account associated with the AWS 
 For specific guidance, use the error code provided in the email from **AWS Health**, or through your **AWS Mainframe Modernization console**.
 
 Error code:
-+ Storage unreachable
++ `Storage unreachable`
 
 This error indicates that the attached storage (Amazon Elastic File System or Amazon FSx file systems) for the environment has failed to mount correctly. To check details about unhealthy environment, complete the following steps:
 

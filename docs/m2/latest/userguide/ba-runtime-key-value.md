@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Enable properties for AWS Transform for mainframe Runtime
-<a name="ba-runtime-key-value"></a>
 
 In Spring Boot applications `application-main.yml` is the configuration file in which we define different kinds of properties such as the listening port, database connectivity, and many more. You can use this page to learn about the available properties for AWS Transform for mainframe Runtime and how to enable them.
 
@@ -23,7 +22,7 @@ In Spring Boot applications `application-main.yml` is the configuration file in 
 
 In the following documentation, a property such as `parent.child1.child2=true` is written as follows in YAML format.
 
-```
+```yml
  parent:
   child1:
     child2: true
@@ -198,6 +197,10 @@ The following use cases show examples of the applicable keys and values.
   ##### DATABASE STATISTICS  ####
   ###############################
   databaseStatistics : false
+  # Allow a positioned UPDATE/DELETE (WHERE CURRENT OF) on a PostgreSQL table that has no
+  # primary key, by locating the current row with its CTID. Opt-in : left to false, the statement is
+  # delegated to the JDBC driver, which refuses it on such a table.
+  #database.cursor.positioned.update.without.primary.key.allowed : false
   
   ######################
   ##### CALLS GRAPH ####
@@ -343,6 +346,24 @@ The following use cases show examples of the applicable keys and values.
   #####  CBLQDA parameters  ####
   ########################################
   gapwalk.cobol.cblqda.enabled: false
+  
+  
+  ########################################################################
+  # blu4iv.break-message.poll-timeout-ms                                 #
+  # Server-side deadline for a single /break/message long poll, in ms.    #
+  # The server always completes the poll itself and returns an empty      #
+  # response; the frontend then re-polls. This releases the pooled        #
+  # thread within a known interval.                                      #
+  # MUST be lower than the smallest idle timeout in the request path      #
+  # (ALB, CloudFront, API Gateway, nginx/Apache, corporate proxy).        #
+  # If it is higher, the intermediary severs the connection first and the #
+  # client re-polls while the previous server task is still parked,       #
+  # which needlessly holds two threads per terminal.                     #
+  # Break-message delivery latency is unaffected by this value.          #
+  #                  Default value: 25000                                #
+  ########################################################################
+  blu4iv.break-message.poll-timeout-ms: 25000
+  
   ----
   ```
 + Use variable length files with LISTCAT commands
@@ -394,12 +415,15 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | Key | Type | Default value | Description | Release version | 
 | --- | --- | --- | --- | --- | 
 | `blockSizeDefault` | number | 32760 | The default block size to be used for BDW bytes. |  | 
+| `blu4iv.break-message.poll-timeout-ms` | number (long, milliseconds) | 25000 | Specifies the server-side deadline of a single `/break/message` long poll. When the deadline passes, the server completes the poll with an empty response and the frontend polls again. This releases the pooled thread within a known interval and does not change how fast break messages arrive. Set this value lower than the smallest idle timeout in the request path, such as a load balancer, CloudFront, API Gateway, a proxy, or nginx. Otherwise, the intermediary closes the connection first and each terminal holds two threads. | 5.323.0 | 
 | `blu4iv.dataaccess.useOldDaoDesign` | boolean | false | A global flag that determines if the application is to use the old DAO architecture or the new. This is dependent on whether the DAO's were generated using old or new design. |  | 
-| `blu4iv.logging.terminalIdMdc` | boolean | false | When set to `true`, adds the terminal ID of a terminal dialog to the logging context (MDC key `terminalId`) of both the HTTP request thread and the worker thread running its program, so log lines of a terminal session can be correlated. To print it, add `%X{terminalId}` to your logback pattern. Only `true` enables it; any other value leaves it disabled and is reported at startup as `BA-H0001`. The default is `false`. |  | 
+| `blu4iv.logging.terminalIdMdc` | boolean | false | When set to `true`, adds the terminal ID of a terminal dialog to the logging context (MDC key `terminalId`) of both the HTTP request thread and the worker thread running its program, so log lines of a terminal session can be correlated. To print it, add `%X{terminalId}` to your logback pattern. Only `true` enables it; any other value leaves it disabled and is reported at startup as `BA-H0001`. The default is `false`. | 5.323.0 | 
+| `blu4iv.propagatedHeaders` | string[] | None | Lists the HTTP request headers your program can read during a terminal dialog.+  Your program receives the values of the listed headers on every turn of the dialog. <br />+  Your program reads a value with `getRequestData("<header-name>")` on the `TerminalManager` object of the dialog. <br />+  The property accepts a YAML list or a single comma-separated value, for example `Client-Id,Codes`. <br />+  Header names are case-insensitive. <br />+  A listed header that the client doesn't send on a turn has the value `null`. <br />+  An unset or empty property passes no headers to your program. <br />Your program receives header values exactly as the client sends them, without verification. You must not use these values for authentication or authorization, because a client can spoof them to bypass access controls. | 5.322.0 | 
 | `blu4iv.userspace.batchThreshold` | int | 1 | Specifies the number of update or set operations on a userspace after which the userspace is persisted in an external data repository. | 5.75.0 | 
 | `blu4iv.userspace.pageSize` | int | 4096 | Specifies the page size which is used to allocate storage for user spaces. The size of the user space at any given time is always a multiple of this number specified. | 4.10.0 | 
 | `blu4iv.userspace.redis.*` | Supported Redis properties |  | Specifies configuration properties for the user spaces redis store, see [Available Redis cache properties in AWS Transform for mainframe Runtime](ba-runtime-redis-configuration.md). | 4.10.0 | 
 | `blu4iv.userspace.store-type` | string | memory | Specifies the store type that is used for user space registry. Supported values are memory and redis. If no store type is provided, memory is used by default. | 4.10.0 | 
+| `bluesam.applyDependingOnRecordLength` | boolean | true | Specifies whether the `RECORD VARYING DEPENDING ON` field of a file sets the length of the records you write to a Blusam data set. Set to `false` to write records with their full length. | 5.323.0 | 
 | `bluesam.bluesamStatusPollingInterval` | number | 1000 | Specifies time (in millisecond) to wait between each iteration when polling bluesam status to check online activities. | 4.5.0 | 
 | `bluesam.cache` | string |  | If not set, the Blusam cache will not be used. Possible values (cache implementations) are ehcache and redis ([Redis cache properties](ba-runtime-redis-configuration.md#ba-runtime-redis-caches-properties)). |  | 
 | `bluesam.checkBluesamStatus` | boolean | false | Specifies whether or not to check bluesam dataset status before accessing it. | 4.5.0 | 
@@ -408,21 +432,28 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `bluesam.externalDdlManagement` | boolean | false | When enabled, BlueSAM will not auto-create tables and instead adopts externally managed tables by registering metadata only. |  | 
 | `bluesam.fileList` | string[] |  | Specifies the list of bluesam dataset to be cached during open.<br />**Note:**<br />**- This parameter is only effective when `bluesam.openWarmUp` is set to `false`.** | 5.1.0 | 
 | `bluesam.fileLoading.commitInterval` | number | 100000 | The bluesam commit interval. |  | 
+| `bluesam.indexBuildKeyParallelism` | number | 4 | Specifies the maximum number of keys whose indexes are built at the same time when you append to an existing data set and set `bluesam.indexBuildMaxResidentPages`. Each of these keys uses two database connections while it builds, so your data source must allow twice this number of connections. The setting has no effect when `bluesam.indexBuildMaxResidentPages` is `0`. | 5.323.0 | 
+| `bluesam.indexBuildMaxResidentPages` | number | 0 | Specifies the maximum number of index pages kept in memory when you append to an existing Blusam data set. With `0`, Blusam loads all existing index pages up front, which is the fastest option but needs heap in proportion to the size of the index. With a positive value (raised to at least `2`), Blusam loads pages on demand and keeps only that many in memory. Each resident page can use more heap than the configured indexing page size, because pages are stored compressed and expanded in memory. | 5.323.0 | 
 | `bluesam.locks.locksCleanupIntervalMillis` | number (long, milliseconds) | -1 | Interval, in milliseconds, at which the in-memory (non-Redis) Blusam locker reclaims released record locks to bound heap growth during long-running processing. A value <= 0 disables the cleanup (default). A positive value below 60000 ms is clamped up to the 60000 ms floor to avoid sustained back-to-back cleanup passes. Requires `bluesam.locks.locksDeadTime` to be set when enabled: startup fails with an `IllegalStateException` if the interval is > 0 while `locksDeadTime` is unset, to prevent the reaper from reaping still-held locks using the 1000 ms fallback age. | 5.274.0 | 
 | `bluesam.locks.locksDeadTime` | number (long, milliseconds) | (none, must be set explicitly when the reaper is enabled) | Age threshold, in milliseconds, above which a released lock's tracking entry is considered dead and eligible for reclamation by the reaper. Mandatory when `bluesam.locks.locksCleanupIntervalMillis` > 0. |  | 
 | `bluesam.maxBlueSamDisablingThreadPoolSize` | number | 10 | Specifies maximum threadpool size used to disable bluesam datasets for batch processing. | 4.5.0 | 
 | `bluesam.maxBluesamStatusPollingRetry` | number | 3 | Specifies maximum number of retries when polling bluesam status is failing. | 4.5.0 | 
+| `bluesam.metadataWarmUpAsync` | boolean | false | Specifies whether the metadata warm-up loads the index pages on a background thread. With `true`, startup registers the tables and does not wait for the index pages. The background load stops reading pages when `bluesam.warmUpMetadataCacheLimit` is reached, pauses while the heap is above `bluesam.warmUpMetadataMaxHeapPercent`, and loads the smallest tables first. With `false`, startup waits until all indexes are loaded and ignores `bluesam.warmUpMetadataMaxHeapPercent`. | 5.323.0 | 
 | `bluesam.metadataWarmUpFileList` | string[] |  | Specifies the list of bluesam datasets whose index metadata will be pre-loaded into a permanent in-memory cache at application startup.<br />**Note:**<br />- Indexes are loaded on ApplicationReadyEvent and persist for the full application lifecycle.<br />- Only effective for large datasets. |  | 
 | `bluesam.openWarmUp` | boolean | false | Specifies whether to cache any bluesam datasets during open.<br />**Warning: Breaking Change in version 5.1.0**<br />**- Default value changed from `true` to `false`.** | 5.1.0 | 
 | `bluesam.prefetchWindowMultiples` | int | 5 | Specifies the multiplier for prefetch window size to determine maximum prefetch window capacity. The maximum capacity is calculated as `prefetchWindowSize × prefetchWindowMultiples`. This property is only effective when using Redis cache. |  | 
 | `bluesam.prefetchWindowSize` | int | 1000 | Specifies the number of records to prefetch and cache in memory for Redis cache optimization. This property is only effective when using Redis cache. |  | 
+| `bluesam.recordWriter.commitInterval` | int | 0 | Specifies the number of records that a utility program, such as SORT or ICETOOL, writes to a Blusam data set between two intermediate commits. A value of 0 or less turns intermediate commits off, so the records are committed only when the writer closes and stay in memory until then. | 5.323.0 | 
 | `bluesam.redis.batchClearSize` | int | 1000 | Batch size for Redis cache clear operations when `bluesam.redis.enableBatchClear` is enabled. |  | 
 | `bluesam.redis.clearStrategy` | string | DEFAULT | Specifies the strategy for cache clear operations.<br />`DEFAULT` uses the Spring `RedisCache.clear()` method.<br />`REDISSON` uses the Redisson `unlinkByPattern` method, which is cluster-safe and avoids out-of-memory errors.<br />`REDISSON_BATCHED` uses a Redisson SCAN operation with batched expire calls, which gives you maximum control over the Redis load. |  | 
 | `bluesam.redis.deleteAllBatchSize` | int | 1500 | Batch size for Redis deleteAll operations to optimize performance when working with large datasets. |  | 
 | `bluesam.redis.enableBatchClear` | boolean | false | Enable batch processing for Redis cache clear operations when working with large datasets. |  | 
+| `bluesam.redis.eventLoopStallTimeoutMillis` | number (long, milliseconds) | 5000 | Specifies how long a Redisson I/O thread can run no task before the runtime reports it and closes its connections. Set to `0` to disable the check. A positive value below `1000` is raised to `1000`. | 5.323.0 | 
 | `bluesam.redis.readBatchSize` | int | 1500 | Batch size for Redis cache read operations (bulk read from cache by IDs). |  | 
+| `bluesam.redis.scopedClearEnabled` | boolean | true | Specifies whether deleting or emptying a data set evicts only the Redis keys tracked for that data set. Set to `false` to scan the whole Redis keyspace instead, for example while nodes that run an earlier version still share the Redis instance. | 5.323.0 | 
 | `bluesam.sizesCleanUpThreshold` | int | 1000 | Maximum number of entries retained in the internal offset-tracking map per data set for large data sets (LargeKSDS, LargeESDS) during concurrent multi-threaded writes. When the map exceeds this threshold, it is trimmed to the 10 most recent entries to prevent heap exhaustion while preserving enough entries to avoid NullPointerException from concurrent thread access. Reduce this value if heap pressure is observed during high-volume large dataset bulk loads. |  | 
 | `bluesam.warmUpMetadataCacheLimit` | long | 0 | Maximum number of index entries allowed in the metadata warm-up cache. Set to 0 for unlimited.<br />**Note:**<br />- This is a global limit across all datasets configured in `bluesam.metadataWarmUpFileList`.<br />- When the limit is reached, additional indexes are skipped with a warning log. |  | 
+| `bluesam.warmUpMetadataMaxHeapPercent` | number | 0 | Specifies the old-generation heap occupancy, in percent of the maximum heap, above which the background metadata warm-up pauses. The warm-up keeps the pages it already loaded, checks the heap again after a wait that grows from 1 to 30 seconds, and resumes when occupancy falls below the threshold. Set to `0` to disable the check. Valid values are `0` to `99`. This property applies only when `bluesam.metadataWarmUpAsync` is `true`. | 5.323.0 | 
 | `cacheMetadata` | boolean | true | Specifies whether to cache database metadata. |  | 
 | `card.encoding` | string | CP1145 | Card encoding: to be used with`useControlMVariable`. |  | 
 | `check-groovy-file` | boolean | true | Specifies whether to check groovy files content before registering. |  | 
@@ -436,6 +467,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `context.preconstruct.minInstances` | number | 2 | The number of instances that will be created the first time a context is needed. |  | 
 | `context.preconstruct.parallelism` | number | 5 | The number of threads used to produce the missing instances in the queue when the adjustment task runs. |  | 
 | `database.cursor.overflow.allowed` | boolean | true | Specifies whether to allow the cursor overflow. Set to`true` to perform a next call on the cursor whatever its position. Set to`false` to check whether the cursor is at the last position before performing a next call on cursor. Only enable if cursor is SCROLLABLE (SENSITIVE or INSENSITIVE). |  | 
+| `database.cursor.positioned.update.without.primary.key.allowed` | boolean | false | Specifies whether a positioned `UPDATE` or `DELETE` (`WHERE CURRENT OF`) on a PostgreSQL table without a primary key locates the current row with its `CTID`. With `false`, the runtime passes the statement to the JDBC driver, which refuses it on such a table. | 5.323.0 | 
 | `database.cursor.raise.already.opened.error` | boolean | false | Specifies whether to enable raising SQLCODE error 502 when an already opened cursor is opening. |  | 
 | `databaseStatistics` | boolean | false | Specifies whether to allow SQL builders to collect and display statistics information. |  | 
 | `dataSimplifier.byteRangeBoundsCheck` | boolean | false | When set to true, it ensures that no ByteRange is created with improper values. The default is false. |  | 
@@ -590,6 +622,21 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `mq.queues.jmsMQQueueManagers[N].jmsMQStandbyList` | string[] |  | The list of standby IBM MQ connections for the queue manager at index N. |  | 
 | `mq.queues.jmsMQQueueManagers[N].secret` | string |  | The credential secret ARN for the queue manager at index N, resolved by the AWS secrets listener. See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). |  | 
 | `mq.queues.jms.connectionfactory.*` | Supported Atomikos connection factory properties |  | Specifies configuration properties for the JMS MQ connection pool. |  | 
+| `dataqueue.queues` | string | gapwalk | Specifies the backend for AS/400 data queues. Allowed values are `gapwalk` (in memory, single JVM, entries are lost on restart), `sqs` (Amazon SQS, shared across instances, available from 5.323.0), `rabbitmq`, and `jmsmq`. The `sqs` backend supports FIFO queues only, with one message group per data queue. It does not support keyed data queues or non-destructive reads, and a send is not part of an XA transaction. Credentials come from `spring.aws.credentials` when set, otherwise from the default provider chain. |  | 
+| `dataqueue.queues.sqs.region` | string | eu-west-3 | The Region that hosts the queues when `dataqueue.queues` is `sqs`. | 5.323.0 | 
+| `dataqueue.queues.sqs.endpoint-override` | string | None | The alternate endpoint for a local SQS-compatible server. Leave it empty to use the default endpoint. | 5.323.0 | 
+| `dataqueue.queues.sqs.queue-name-prefix` | string | None | The prefix that the runtime adds to every mapped queue name. Use it to isolate environments that share an account. | 5.323.0 | 
+| `dataqueue.queues.sqs.name-separator` | string | \_\_ | The text that replaces the dot between the library name and the queue name. | 5.323.0 | 
+| `dataqueue.queues.sqs.create-queues-if-missing` | boolean | true | Specifies whether the runtime creates a queue on first use when it does not exist. Set to `false` when you provision queues with infrastructure as code. | 5.323.0 | 
+| `dataqueue.queues.sqs.visibility-timeout-seconds` | number | 30 | The visibility timeout, in seconds, that the runtime sets on queues it creates. | 5.323.0 | 
+| `dataqueue.queues.sqs.long-poll-seconds` | number | 20 | The long-polling duration, in seconds. SQS caps this value at `20`. | 5.323.0 | 
+| `dataqueue.queues.sqs.clear-strategy` | string | drain | Specifies how `QCLRDTAQ` empties a queue. Allowed values are `drain` and `purge`. | 5.323.0 | 
+| `dataqueue.queues.sqs.clear-max-messages` | number | 10000 | The maximum number of messages that the `drain` strategy removes. | 5.323.0 | 
+| `dataqueue.queues.sqs.zero-wait-retry` | boolean | true | Specifies whether a receive with a zero wait time polls a second time before it reports an empty queue. | 5.323.0 | 
+| `dataqueue.queues.sqs.api-call-timeout-seconds` | number | 90 | The timeout, in seconds, of a whole SQS call, including retries. | 5.323.0 | 
+| `dataqueue.queues.sqs.api-call-attempt-timeout-seconds` | number | 30 | The timeout, in seconds, of a single SQS call attempt. At startup, the runtime raises this value to at least 10 seconds more than the long-poll duration (`dataqueue.queues.sqs.long-poll-seconds`, capped at 20 seconds). | 5.323.0 | 
+| `dataqueue.queues.sqs.connection-timeout-seconds` | number | 10 | The timeout, in seconds, for establishing a connection to SQS. | 5.323.0 | 
+| `dataqueue.queues.sqs.poison-message-max-receives` | number | 3 | The number of deliveries the runtime allows an entry whose body it cannot decode before it discards the entry. Because all entries of a data queue share one message group, such an entry blocks the data queue. Set to `0` to keep redelivering it. | 5.323.0 | 
 | `dataqueue.queues.rabbitMQHost` | string |  | The RabbitMQ host for data queues. |  | 
 | `dataqueue.queues.rabbitMQPort` | number |  | The RabbitMQ port for data queues. |  | 
 | `dataqueue.queues.rabbitMQVirtualHost` | string |  | The RabbitMQ virtual host for data queues. |  | 
@@ -603,6 +650,14 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `dataqueue.queues.rabbitMQSsl.trustStorePassword` | string |  | The trust store password for the data queue RabbitMQ SSL connection. |  | 
 | `dataqueue.queues.rabbitMQSsl.algorithm` | string | TLSv1.2 | The SSL algorithm for the data queue RabbitMQ connection. |  | 
 | `dataqueue.queues.rabbitMQRestApi` | string |  | The RabbitMQ management REST API endpoint for data queues. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQAppName` | string | None | The IBMMQ application name for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQChannel` | string | None | The IBMMQ channel name for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQHost` | string | None | The IBMMQ host name for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQMaxPoolSize` | number | None | The maximum size of the IBMMQ connection pool for data queues, when `dataqueue.queues` is `jmsmq`. If you don't set this property, the connection pool keeps its own default. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQPassword` | string | None | The IBMMQ user password for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQPort` | number | None | The IBMMQ port for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQQueueManager` | string | None | The IBMMQ queue manager name for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
+| `dataqueue.queues.jmsMQQueueManager.jmsMQUserid` | string | None | The IBMMQ user name for data queues, when `dataqueue.queues` is `jmsmq`. |  | 
 | `dataqueue.queues.rabbitMQChannelCacheSize` | number | 25 | The RabbitMQ channel cache size for data queues. |  | 
 | `dataqueue.queues.rabbitMQChannelCheckoutTimeout` | number | 0 | The channel checkout timeout, in milliseconds, for data queues. `0` means no timeout. |  | 
 | `blu4ivmq.queues.rabbitMQHost` | string |  | The RabbitMQ host for Blu4iv MQ queues. |  | 
@@ -647,7 +702,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `report.output.path.template` | string | `reports/{PROGID}` | The template for the report output path. Replaces the deprecated `reportOutputPath`. |  | 
 | `report.output.name.template` | string | `{PRINTERNAME}_{DATE}{TIME}` | The template for the report output file name. |  | 
 | `report.output.name.override.template` | string | `{PRINTERNAME}-{USRDTA}-{DATE}{TIME}` | The override template for the report output file name. |  | 
-| `report.output.time.format` | string | `HHmmss` | The time format used in report output name templates. |  | 
+| `report.output.time.format` | string | `HHmmss` | The time format used for the `{TIME}` placeholder in report output name templates. For example, at 14:42:18.123456, `HHmmss` gives `144218`, `HHmmssSSS` adds milliseconds (`144218123`), and `HHmmssSSSSSS` adds microseconds (`144218123456`). Use a sub-second pattern to avoid overwriting reports when you print the same printer file more than once within the same second. |  | 
 | `report.output.date.format` | string | `yyyyMMdd` | The date format used in report output name templates. |  | 
 | `report.output.jobName.default` | string | `Interactive` | The default job name used in report output name templates. |  | 
 | `report.output.jobNumber.default` | string | `000000` | The default job number used in report output name templates. |  | 
@@ -666,6 +721,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `spring.aws.client.jcl.checkpoint.redis.secret` | string | null |  Specifies the credential secret ARN for JCL checkpoint mechanism's Redis persistence provider, see [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md).  |  | 
 | `spring.aws.client.jics.queues.ts.redis.secret` | string | null | Specifies the credential secret ARN for JICS TS Queues Redis server, see [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). |  | 
 | `spring.aws.client.jics.redis.secret` | string | null |  Specifies the credential secret ARN for JICS Redis server connection factory, see [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). |  | 
+| `spring.aws.credentials` | string | None | Specifies the path of a credentials file for the `sqs` data queue backend. If you don't set this property, or the file doesn't exist, the backend uses the default credentials provider chain. | 5.323.0 | 
 | `spring.jta.enabled` | boolean | false | Standard key. If the datasource support mode is not static-xa, spring JTA transactions autoconfiguration must be disabled. |  | 
 | `spring.session.store-type` | string | none | The session cache for high-availability environments. Possible values are`none` or`redis`. Default is`none`. |  | 
 | `sqlCodePointShift` | number |  | Optional. The sql code point shift. Shifts the codepoint for control characters that we might encounter when migrating legacy RDBMS data to a modern RDBMS. For example, you can specify`384` to match Unicode character`\u0180`. |  | 
@@ -684,6 +740,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `taskExecutor.allowCoreThreadTimeOut` | boolean | false | Specifies whether to allow core threads to time out in JCIS. This enables dynamic growing and shrinking even in combination with a non-zero queue (since the max pool size will only grow once the queue is full). |  | 
 | `taskExecutor.corePoolSize` | number | 5 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the core pool size. **Note:** the `gapwalk-gs21.war` web application applies different defaults for the `taskExecutor.*` properties (`corePoolSize` 200, `maxPoolSize` 500, `queueCapacity` 10). |  | 
 | `taskExecutor.maxPoolSize` | number | 200 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the max pool size (max number of parallel threads). |  | 
+| `taskExecutor.propagateSecurityContext` | boolean | false | Specifies whether the JICS task executor runs each task with the Spring Security context of the thread that submitted it. With this context, audit and display reads on pooled worker threads see the correct user. Applies only when `gapwalk-application.security` is `enabled`. You must not use the propagated authentication for authorization decisions. | 5.323.0 | 
 | `taskExecutor.queueCapacity` | number | 0 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the queue size. (= maximum number of pending transactions when`taskExecutor.maxPoolSize` is reached) |  | 
 | `tempFilesDirectory` | string | null | Specifies the name of the folder location of the temporary files that are generated. |  | 
 | `tempFolderPattern` | string | null | Specifies a pattern that will be used to dynamically build the name of the temporary folder based on the following predefined and customizable information.<br />HOST: the host name.<br />JOBID: the ID of the job.<br />HASHCODE: the hash code of the job context.<br />TIMESTAMP: the pattern to use when getting the timestamp. Target name of the temporary folder is TMP\_DIR\_{tempFolderPattern}. For example, in the case of the following pattern, the name will start with the job ID and end with the “timestamp”: tempFolderPattern: JOBID,HOST=xxxxx,HASHCODE,TIMESTAMP=yyyymmddhhmmss. If the property `tempFolderPattern` is not added to the YAML file or is empty, the name of the temporary folder will be "TMP\_DIR\_" \+ this.hashCode() (DefaultJobContext). |  | 
@@ -748,6 +805,23 @@ This table provides an exhaustive view of key/values parameters for this applica
 | `unload.sqlCodePointShift` |  number |  0 |  The SQL code pointshift for unload utility. Runs the shifting characters process. Required when your target database from DB2 is Postgresql. |  | 
 | `unload.useDatabaseConfiguration` |  boolean |  false |  Specifies whether to use the date or time configuration from application-main.yml in unload utility.  |  | 
 | `unload.varCharIsNull` |  boolean |  false |  Use this parameter in INFTILB program, if set to`true` then all not nullable fields with blank (space) values returns an empty string. |  | 
+| `xmitip.attachment.encoding` | string | None | The character set of `FORMAT TXT` attachment data sets. If unset, XMITIP uses the utility encoding. | 5.323.0 | 
+| `xmitip.attachment.fail-if-empty` | boolean | false | Specifies whether an empty attachment fails the step. With `false`, XMITIP attaches the empty file. | 5.323.0 | 
+| `xmitip.attachment.fail-if-missing` | boolean | true | Specifies whether a missing attachment data set fails the step with return code 8. With `false`, XMITIP sends the message without the attachment and sets return code 4. | 5.323.0 | 
+| `xmitip.delivery.eml-dir` | string | xmitip-out | The directory where XMITIP writes the `.eml` files. A relative path resolves under the files directory. | 5.323.0 | 
+| `xmitip.delivery.mode` | string | file | Specifies how XMITIP delivers a message. With `file`, it writes an `.eml` file only. With `smtp`, it submits the message to the SMTP relay only. With `both`, it writes the `.eml` file first and then submits the message, so a relay failure still leaves the message on disk. | 5.323.0 | 
+| `xmitip.from-default` | string | None | The sender XMITIP uses when the deck has no `FROM` keyword. If unset, such a deck fails. | 5.323.0 | 
+| `xmitip.recipients.override.enabled` | boolean | false | Specifies whether XMITIP redirects every e-mail to the single address in `xmitip.recipients.override.to`. XMITIP keeps the deck recipients in the `X-XMITIP-Original-To` and `X-XMITIP-Original-Cc` headers and in a banner at the top of the body. Use it in every non-production environment that points at a real relay. | 5.323.0 | 
+| `xmitip.recipients.override.to` | string | None | The address that receives every e-mail when `xmitip.recipients.override.enabled` is `true`. | 5.323.0 | 
+| `xmitip.smtp.allow-plaintext-credentials` | boolean | false | Specifies whether XMITIP sends SMTP credentials when `xmitip.smtp.auth` is `true` and `xmitip.smtp.starttls` is `false`. By default, XMITIP refuses to send credentials over an unencrypted connection. Set to `true` only for an internal relay that requires authentication without STARTTLS. | 5.323.0 | 
+| `xmitip.smtp.auth` | boolean | false | Specifies whether XMITIP authenticates with the SMTP relay. | 5.323.0 | 
+| `xmitip.smtp.host` | string | localhost | The SMTP relay that XMITIP submits messages to. | 5.323.0 | 
+| `xmitip.smtp.password` | string | None | The password for SMTP authentication. | 5.323.0 | 
+| `xmitip.smtp.port` | number | 25 | The port of the SMTP relay. | 5.323.0 | 
+| `xmitip.smtp.starttls` | boolean | false | Specifies whether XMITIP requires STARTTLS and checks the relay certificate against the host name. If the relay does not offer STARTTLS, the step fails instead of sending the message in clear text. | 5.323.0 | 
+| `xmitip.smtp.timeout-ms` | number (milliseconds) | 30000 | The connection, read, and write timeout for the SMTP relay. | 5.323.0 | 
+| `xmitip.smtp.user` | string | None | The user name for SMTP authentication. | 5.323.0 | 
+| `xmitip.systsin.truncate-column` | number | 72 | The column after which XMITIP ignores the rest of a `SYSTSIN` record. TSO ignores columns 73 to 80, the sequence-number field. | 5.323.0 | 
 | `zonedMode` |  string |  EBCDIC\_STRICT |  The mode for encoding or decoding zoned data types. Allowed values are`EBCDIC_STRICT` /`EBCDIC_MODIFIED` /`AS400`. |  | 
 
 ### gapwalk-cl-command.war
@@ -890,7 +964,7 @@ Your modernized application may require specific property configurations for the
 
 The in-memory cache feature enables users to cache read-only data within memory, significantly improving performance for data-intensive programs. The cache system optimizes performance in three ways: loading data only on first access, creating data access maps on demand, and storing cached data efficiently near program memory. This design minimizes memory overhead while maximizing speed improvements.
 
-```
+```yml
 ###################################################################
 # Cache configuration for read operations called from DAO classes #
 ###################################################################
@@ -941,7 +1015,7 @@ When enabled, user can provide logback file configuration to log API access logs
 
 To configure a dedicated log file for API access logs, add the following to your logback configuration:
 
-```
+```xml
 <!-- File appender -->
 <appender name="ApiAccessFile" class="ch.qos.logback.core.FileAppender">
     <file>logs/main/main-api-access.log</file>

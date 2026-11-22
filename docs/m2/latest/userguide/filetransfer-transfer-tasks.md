@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Create transfer tasks in File Transfer
-<a name="filetransfer-transfer-tasks"></a>
 
 Transfer tasks are used to specify the data sets to be transferred from the mainframe to Amazon S3 and allow you to choose the code page conversion options.
 
@@ -38,7 +37,7 @@ You must configure the secret key with the following resource-based policy so th
 
 ****  
 
-       ```
+       ```json
        {
          "Version":"2012-10-17",		 	 	 
          "Statement" : [ {

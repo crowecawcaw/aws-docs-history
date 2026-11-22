@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Modernization approach
-<a name="modernization-m2"></a>
 
 Migration is complex and has many variables. AWS Mainframe Modernization offers an evolutionary approach that provides some short-term wins by improving agility with plenty of opportunities to optimize and innovate later on. In addition, AWS Mainframe Modernization helps simplify the journey and still respects the particulars of your client’s company and business. The two main approaches that AWS Mainframe Modernization supports are automated refactoring or replatforming. Which to choose depends on your client’s situation.
 

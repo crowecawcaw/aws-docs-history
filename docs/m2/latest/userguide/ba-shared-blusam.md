@@ -5,7 +5,6 @@
 **AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Blusam
-<a name="ba-shared-blusam"></a>
 
 On mainframe systems (referred to in the following topic as "legacy"), business data is often stored using VSAM (Virtual Storage Access Method). The data is stored in "records" (byte arrays), belonging to a "data set".
 
@@ -175,7 +174,7 @@ This section will help you writing groovy scripts to import legacy data sets int
 
 It starts with some mandatory imports:
 
-```
+```java
 import com.netfective.bluage.gapwalk.bluesam.BluesamManager
 import com.netfective.bluage.gapwalk.bluesam.metadata.Key;
 import com.netfective.bluage.gapwalk.rt.provider.ServiceRegistry
@@ -236,7 +235,7 @@ The following Groovy samples illustrate various loading scenarios.
 
 Loading a large KSDS, with two alternate keys:
 
-```
+```java
 import com.netfective.bluage.gapwalk.bluesam.BluesamManager
 import com.netfective.bluage.gapwalk.bluesam.metadata.Key;
 import com.netfective.bluage.gapwalk.rt.provider.ServiceRegistry
@@ -258,7 +257,7 @@ service.runService(map);
 
 Loading a variable record length ESDS, with no alternate keys:
 
-```
+```java
 import com.netfective.bluage.gapwalk.bluesam.BluesamManager
 import com.netfective.bluage.gapwalk.bluesam.metadata.Key;
 import com.netfective.bluage.gapwalk.rt.provider.ServiceRegistry
@@ -277,7 +276,7 @@ Variable record length data sets exports will contain the mandatory Record Decri
 
 Loading a fixed record length RRDS:
 
-```
+```java
 import com.netfective.bluage.gapwalk.bluesam.BluesamManager
 import com.netfective.bluage.gapwalk.bluesam.metadata.Key;
 import com.netfective.bluage.gapwalk.rt.provider.ServiceRegistry
@@ -448,7 +447,7 @@ Localized in-memory caching for Paginated Indexes:
 
 Sample configuration snippet:
 
-```
+```yaml
 dataSource:
   bluesamDs:
     driver-class-name: org.postgresql.Driver
