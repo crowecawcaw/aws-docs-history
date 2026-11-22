@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Create a schema
-<a name="t_creating_schema"></a>
 
 After you create a new database, you can create a new schema in the current database. A *schema* is a namespace that contains named database objects such as tables, views, and user-defined functions (UDFs). A database can contain one or multiple schemas, and each schema belongs to only one database. Two schemas can have different objects that share the same name.
 
@@ -15,7 +14,7 @@ To access an object in a schema, qualify the object by using the `schema_name.ta
 
 The following example creates a schema named **SALES** for the user `GUEST`.
 
-```
+```sql
 CREATE SCHEMA SALES AUTHORIZATION GUEST;
 ```
 
@@ -23,7 +22,7 @@ For information about more command options, see [CREATE SCHEMA](https://docs.aws
 
 To view the list of schemas in your database, run the following command.
 
-```
+```sql
 select * from pg_namespace;
 ```
 
@@ -48,12 +47,12 @@ Use the GRANT statement to give permissions to users for the schemas.
 
 The following example grants privilege to the `GUEST` user to select data from all tables or views in the `SALES` schema using a SELECT statement. 
 
-```
+```sql
 GRANT SELECT ON ALL TABLES IN SCHEMA SALES TO GUEST;
 ```
 
 The following example grants all available privileges at one time to the `GUEST` user.
 
-```
+```sql
 GRANT ALL ON SCHEMA SALES TO GUEST;
 ```

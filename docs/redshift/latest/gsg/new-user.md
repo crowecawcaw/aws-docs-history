@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Get started with Amazon Redshift provisioned data warehouses
-<a name="new-user"></a>
 
 If you are a first-time user of Amazon Redshift, we recommend that you read the following sections to help you get started using provisioned clusters. The basic flow of Amazon Redshift is to create provisioned resources, connect to Amazon Redshift, load sample data, and then run queries on the data. In this guide, you can choose to load sample data from Amazon Redshift or from an Amazon S3 bucket. The sample data is used throughout the Amazon Redshift documentation to demonstrate features.
 
@@ -195,7 +194,7 @@ Use the Amazon Redshift query editor v2 to copy and run the following create tab
 
 1. Run the following SQL command to CREATE the `sales` table.
 
-   ```
+   ```sql
       drop table if exists sales;
       create table sales(
    	salesid integer not null,
@@ -212,7 +211,7 @@ Use the Amazon Redshift query editor v2 to copy and run the following create tab
 
 1. Run the following SQL command to CREATE the `date` table.
 
-   ```
+   ```sql
    drop table if exists date;              
    create table date(
    	dateid smallint not null distkey sortkey,
@@ -233,7 +232,7 @@ We recommend using the COPY command to load large datasets into Amazon Redshift 
 
    Load the `sales` table using the following SQL command. You can optionally download and view from Amazon S3 the [ source data for the `sales` table](https://s3.amazonaws.com/redshift-downloads/tickit/sales_tab.txt). .
 
-   ```
+   ```sql
    COPY sales
        FROM 's3://redshift-downloads/tickit/sales_tab.txt' 
        DELIMITER '\t' 
@@ -244,7 +243,7 @@ We recommend using the COPY command to load large datasets into Amazon Redshift 
 
 1. Load the `date` table using the following SQL command. You can optionally download and view from Amazon S3 the [ source data for the `date` table](https://s3.amazonaws.com/redshift-downloads/tickit/date2008_pipe.txt). .
 
-   ```
+   ```sql
    COPY date
        FROM 's3://redshift-downloads/tickit/date2008_pipe.txt' 
        DELIMITER '|' 
@@ -293,14 +292,14 @@ set search_path to tickit;
 
 For more information on working with the SELECT command, see [SELECT](https://docs.aws.amazon.com/redshift/latest/dg/r_SELECT_synopsis.html) in the *Amazon Redshift Database Developer Guide*.
 
-```
+```sql
 -- Get definition for the sales table.
 SELECT *    
 FROM pg_table_def    
 WHERE tablename = 'sales';
 ```
 
-```
+```sql
 -- Find total sales on a given calendar date.
 SELECT sum(qtysold) 
 FROM   sales, date 
@@ -308,7 +307,7 @@ WHERE  sales.dateid = date.dateid
 AND    caldate = '2008-01-05';
 ```
 
-```
+```sql
 -- Find top 10 buyers by quantity.
 SELECT firstname, lastname, total_quantity 
 FROM   (SELECT buyerid, sum(qtysold) total_quantity
@@ -319,7 +318,7 @@ WHERE Q.buyerid = userid
 ORDER BY Q.total_quantity desc;
 ```
 
-```
+```sql
 -- Find events in the 99.9 percentile in terms of all time gross sales.
 SELECT eventname, total_price 
 FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 

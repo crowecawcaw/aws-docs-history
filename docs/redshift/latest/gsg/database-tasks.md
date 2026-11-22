@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Run commands to define and use a database in your data warehouse
-<a name="database-tasks"></a>
 
 Both Redshift Serverless data warehouses and Amazon Redshift provisoned data warehouses contain databases. After you have launched your data warehouse, you can manage most database actions using SQL commands. With few exceptions, the functionality and syntax of SQL is the same for all Amazon Redshift databases. For details of SQL commands available with Amazon Redshift, see [SQL commands](https://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html) in the *Amazon Redshift Database Developer Guide*.
 

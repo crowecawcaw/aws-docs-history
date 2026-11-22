@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Create a database
-<a name="t_creating_database"></a>
 
 After you verify that your data warehouse is up and running, you can create a database. This database is where you actually create tables, load data, and run queries. A data warehouse can host multiple databases. For example, you can have a database for sales data named `SALESDB` and a database for orders data named `ORDERSDB` in the same data warehouse.
 
 To create a database named **SALESDB**, run the following command in your SQL client tool.
 
-```
+```sql
 CREATE DATABASE salesdb;
 ```
 
