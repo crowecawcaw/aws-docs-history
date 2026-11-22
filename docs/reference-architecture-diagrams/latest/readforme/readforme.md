@@ -1,7 +1,6 @@
 
 
 # ReadForMe
-<a name="readforme"></a>
 
 Publication date: **January 25, 2022 ([Diagram history](#diagram-history))**
 
