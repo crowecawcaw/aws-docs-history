@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Deployment, Provisioning, and Automation
-<a name="sysops-administrator-associate-03-domain3"></a>
 
 **Topics**
 + [Task 3.1: Provision and maintain cloud resources.](#sysops-administrator-associate-03-domain3-task1)

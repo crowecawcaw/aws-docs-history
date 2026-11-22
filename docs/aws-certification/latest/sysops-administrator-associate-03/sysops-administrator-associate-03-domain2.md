@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Reliability and Business Continuity
-<a name="sysops-administrator-associate-03-domain2"></a>
 
 **Topics**
 + [Task 2.1: Implement scalability and elasticity.](#sysops-administrator-associate-03-domain2-task1)

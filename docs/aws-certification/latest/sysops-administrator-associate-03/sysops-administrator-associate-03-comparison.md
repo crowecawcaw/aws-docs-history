@@ -1,7 +1,6 @@
 
 
 # Comparison of SOA-C02 and SOA-C03
-<a name="sysops-administrator-associate-03-comparison"></a>
 
 **Topics**
 + [Side-by-side comparison](#sysops-administrator-associate-03-comparison-side-by-side)

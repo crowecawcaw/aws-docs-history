@@ -1,7 +1,6 @@
 
 
 # Content Domain 5: Networking and Content Delivery
-<a name="sysops-administrator-associate-03-domain5"></a>
 
 **Topics**
 + [Task 5.1: Implement and optimize networking features and connectivity.](#sysops-administrator-associate-03-domain5-task1)
