@@ -1,7 +1,6 @@
 
 
 # Creating a VPC for your AWS PCS cluster
-<a name="working-with_networking_create-vpc"></a>
 
 You can create an Amazon Virtual Private Cloud (Amazon VPC) for your clusters within AWS Parallel Computing Service (AWS PCS).
 

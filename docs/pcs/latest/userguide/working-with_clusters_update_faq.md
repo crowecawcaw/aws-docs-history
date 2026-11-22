@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions about updating clusters in AWS PCS
-<a name="working-with_clusters_update_faq"></a>
 
 Get answers to common questions about updating cluster configurations in AWS PCS.
 

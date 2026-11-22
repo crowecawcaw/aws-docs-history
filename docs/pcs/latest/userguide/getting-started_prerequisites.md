@@ -1,7 +1,6 @@
 
 
 # Prerequisites for getting started with AWS PCS
-<a name="getting-started_prerequisites"></a>
 
 Refer to the following topics to prepare your AWS account and local development environment for AWS PCS. 
 

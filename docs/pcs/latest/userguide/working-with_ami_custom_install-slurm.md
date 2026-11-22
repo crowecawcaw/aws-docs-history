@@ -1,7 +1,6 @@
 
 
 # Step 3 – Install Slurm
-<a name="working-with_ami_custom_install-slurm"></a>
 
 Install a version of Slurm that is compatible with AWS PCS. For more information, see [Slurm versions in AWS PCS](slurm-versions.md).
 
@@ -14,7 +13,7 @@ If you have an AMI with a previous version of the Slurm software installed on it
 
 1.  Download the Slurm installer software. The Slurm installer is packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command. Substitute {{us-east-1}} with the AWS Region of your temporary instance. 
 
-   ```
+   ```sh
    curl https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.5-2.tar.gz \
         -o aws-pcs-slurm-26.05-installer-26.05.5-2.tar.gz
    ```
@@ -27,20 +26,20 @@ This might change in future releases of the Slurm installer software.
 
    1. Download the public GPG key for AWS PCS and import it into your keyring. Substitute {{us-east-1}} with the AWS Region where you launched your temporary instance. The command should return a key value. Record the key value; you use it in the next step.
 
-      ```
+      ```sh
       wget https://aws-pcs-repo-public-keys-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-public-key.pub && \
           gpg --import aws-pcs-public-key.pub
       ```
 
    1.  Run the following command to verify the GPG key's fingerprint.
 
-      ```
+      ```sh
       gpg --fingerprint 7EEF030EDDF5C21C
       ```
 
       The command should return a fingerprint that is identical to the following:
 
-      ```
+      ```txt
       1C24 32C1 862F 64D1 F90A  239A 7EEF 030E DDF5 C21C
       ```
 **Important**  
@@ -48,7 +47,7 @@ Don't run the Slurm installation script if the fingerprint doesn't match. Contac
 
    1. Download the signature file and verify the signature of the Slurm installer tarball file. Replace {{us-east-1}} with the AWS Region where you launched your temporary instance.
 
-      ```
+      ```sh
       wget https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.5-2.tar.gz.sig && \
            gpg --verify ./aws-pcs-slurm-26.05-installer-26.05.5-2.tar.gz.sig
       ```
@@ -71,20 +70,20 @@ Don't run the Slurm installation script if the fingerprint doesn't match. Contac
 
 1. Extract the files from the compressed `.tar.gz` file and navigate into the extracted directory.
 
-   ```
+   ```sh
    tar -xf aws-pcs-slurm-26.05-installer-26.05.5-2.tar.gz && \
        cd aws-pcs-slurm-26.05-installer
    ```
 
 1. Install Slurm. The installer downloads, compiles, and installs Slurm and its dependencies. It takes several minutes, depending on the specifications of the temporary instance you selected.
 
-   ```
+   ```sh
    sudo ./installer.sh -y
    ```
 
 1. Check the scheduler version file to confirm the installation.
 
-   ```
+   ```sh
    cat /opt/aws/pcs/scheduler/slurm-26.05/version
    ```
 

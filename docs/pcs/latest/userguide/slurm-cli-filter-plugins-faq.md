@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions about Slurm CLI Filter Plugins in AWS PCS
-<a name="slurm-cli-filter-plugins-faq"></a>
 
 Review these frequently asked questions about CLI Filter Plugins.
 
@@ -9,7 +8,7 @@ Review these frequently asked questions about CLI Filter Plugins.
 CLI Filter Plugin runs client-side on login and compute nodes before job submission reaches the controller, while Job Submit Plugin runs server-side on the controller after job submission. CLI Filter Plugin can be bypassed by users but doesn't hold controller locks, while Job Submit is secure but can impact cluster performance during execution.
 
 **Does AWS PCS support Slurm Job Submit Plugin?**  
-No, Job Submit Plugin is not supported in AWS PCS. Use CLI Filter Plugin instead for job submission validation and modification.
+Yes. AWS PCS supports Job Submit Plugins written in Starlark on clusters that use Slurm 25.11 or later. For more information about Job Submit Plugins, see [Use Slurm Job Submit Plugins to validate and modify jobs in AWS PCS](slurm-job-submit-plugins.md).
 
 **Can I use CLI Filter Plugin for security enforcement?**  
 No, CLI Filter Plugin can be bypassed by determined users and should not be relied upon for security enforcement. Use it for user experience improvements, default parameter setting, and policy guidance rather than security-critical policies.

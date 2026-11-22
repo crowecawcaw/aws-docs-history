@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS PCS instances using Amazon CloudWatch
-<a name="monitoring-cloudwatch_instances"></a>
 
 AWS PCS launches Amazon EC2 instances as needed to meet the scaling requirements defined in your PCS compute node groups. You can monitor these instances while they are running using Amazon CloudWatch. You can inspect the logs of running instances by logging into them and using interactive command line tools. However, by default, CloudWatch metrics data is only retained for a limited period once an instance is terminated, and instance logs are usually deleted along with the EBS volumes that back the instance. To retain metrics or logging data from the instances launched by PCS after they are terminated, you can configure the CloudWatch agent on your instances with an EC2 launch template. This topic provides an overview of monitoring running instances and provides examples of how to configure persistent instance metrics and logs. 
 
@@ -190,13 +189,13 @@ https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/cloudwatch/assets/conf
 
  First, (this is optional if you have an existing bucket), create a bucket to hold your configuration file(s). 
 
-```
+```sh
 aws s3 mb s3://{{amzn-s3-demo-bucket}}
 ```
 
  Next, upload the file to the bucket. 
 
-```
+```sh
 aws s3 cp ./config.json s3://{{amzn-s3-demo-bucket}}/
 ```
 
@@ -207,7 +206,7 @@ To store your file as an SSM parameter, use the command that follows. Before run
 + Replace {{region-code}} with the AWS Region where you are working with AWS PCS.
 + (Optional) Replace {{AmazonCloudWatch-PCS}} with your own name for the parameter. Note that if you change the prefix of the name from `AmazonCloudWatch-` you will need to specifically add read access to the SSM parameter in your node group instance profile.
 
-```
+```sh
 aws ssm put-parameter \
    --region {{region-code}} \
    --name "{{AmazonCloudWatch-PCS}}" \
@@ -251,7 +250,7 @@ runcmd:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -305,7 +304,7 @@ runcmd:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

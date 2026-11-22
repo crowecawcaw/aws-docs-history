@@ -1,7 +1,6 @@
 
 
 # Best practices for node lifecycle actions in AWS PCS
-<a name="cng-node-lifecycle-actions-best-practices"></a>
 
 Follow these best practices when you use node lifecycle actions.
 + **Test crawl-walk-run.** Verify scripts on a standalone Amazon EC2 instance, then as a lifecycle action on a compute node group with a single static instance (`minInstanceCount` = `maxInstanceCount` = 1), then with dynamic scaling.

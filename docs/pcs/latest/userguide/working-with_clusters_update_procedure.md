@@ -1,7 +1,6 @@
 
 
 # Update an AWS PCS cluster
-<a name="working-with_clusters_update_procedure"></a>
 
 Use these steps to modify scheduler settings, accounting configuration, and Slurm custom settings on your cluster. For more information, see [Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md).
 

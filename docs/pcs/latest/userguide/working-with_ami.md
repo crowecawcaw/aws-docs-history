@@ -1,7 +1,6 @@
 
 
 # Amazon Machine Images (AMIs) for AWS PCS
-<a name="working-with_ami"></a>
 
 AWS PCS launches compute nodes from an AMI that you choose, so you control the software and configuration on the compute nodes in your cluster. For production AI/ML and HPC workloads, you can use the AWS-maintained PCS-ready AWS Deep Learning AMI (DLAMI). If you're evaluating AWS PCS, you can use a sample AMI that AWS provides. You can also build your own AMI for full control over your compute nodes.
 

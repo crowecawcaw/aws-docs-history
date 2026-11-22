@@ -1,7 +1,6 @@
 
 
 # Rotating cluster secrets in AWS PCS
-<a name="cluster-secret-rotation"></a>
 
 Use AWS Secrets Manager Managed Rotation to rotate cluster secrets in AWS PCS. Regular secret rotation is a security best practice for maintaining strong security posture in HPC environments. This capability enables you to meet industry compliance standards including HIPAA and FedRAMP, which mandate regular credential rotation.
 

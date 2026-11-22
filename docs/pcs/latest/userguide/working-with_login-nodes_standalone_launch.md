@@ -1,7 +1,6 @@
 
 
 # Step 2 – Launch an EC2 instance
-<a name="working-with_login-nodes_standalone_launch"></a>
 
 **To launch an EC2 instance**
 

@@ -1,7 +1,6 @@
 
 
 # (Optional) Use a CloudFormation template to create an EFA-enabled launch template
-<a name="working-with_networking_efa_create-lt-cfn"></a>
 
 Because there are several dependencies to setting up EFA, a CloudFormation template has been provided that you can use to configure a compute node group. It supports instances with up to four network cards. To learn more about instances with multiple network cards, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards) in the *Amazon Elastic Compute Cloud User Guide*.
 

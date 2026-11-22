@@ -1,7 +1,6 @@
 
 
 # Troubleshooting node lifecycle actions in AWS PCS
-<a name="cng-node-lifecycle-actions-troubleshooting"></a>
 
 Use this troubleshooting information to resolve common node lifecycle action issues.
 

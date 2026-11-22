@@ -1,7 +1,6 @@
 
 
 # Getting compute node group details in AWS PCS
-<a name="working-with_cng_get-details"></a>
 
 You can use the AWS Management Console or the AWS CLI to get details about a compute node group, such as its ID, Amazon Resource Name (ARN), and status. You often need these values for AWS PCS API actions and configurations. The details also include the [instance settings](working-with_cng_instance-settings.md) on the compute node group: the AMI ID, security groups, and SSH key pair.
 
@@ -134,5 +133,7 @@ The details page doesn't show whether the compute node group uses **Standard con
    ```
 
    In this example, the compute node group uses standard configuration (`launchTemplateMode` is `MANAGED`). If a compute node group uses launch template configuration, `launchTemplateMode` is `CUSTOM` and the output also includes `customLaunchTemplate`. The output includes `amiId`, `securityGroupIds`, and `sshKeyName` only if you set them on the compute node group. It doesn't include values from the launch template. For more information, see [Viewing instance settings](working-with_cng_instance-settings.md#working-with_cng_instance-settings_view).
+
+   If the compute node group has instance health checks, the output also includes `instanceHealthChecks`, with the values that you specified. For more information, see [Viewing instance health check settings](cng-instance-health-checks-configure.md#cng-instance-health-checks-configure-view).
 
 ------

@@ -1,7 +1,6 @@
 
 
 # Configure UltraServer instances
-<a name="capacity-blocks-nvidia-imex"></a>
 
 NVIDIA UltraServer instances connect multiple GPUs across instances using NVLink. GPU-to-GPU communication over NVLink requires the [NVIDIA IMEX](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html) service to be configured with the IP addresses of all compute nodes in the job. This page shows you how to create a Slurm prolog script that automatically configures IMEX for each job, and how to deploy it in your AWS PCS cluster.
 
@@ -30,7 +29,7 @@ When submitting jobs, you can use the `--segment=N` argument with `sbatch` and `
 
 The following are sample scenarios for allocating blocks on a queue with 18-node UltraServers (for example, a `u-p6e-gb200x72` which has 18 `p6e-gb200.36xlarge` instances):
 
-```
+```bash
 # Allocate a whole block (single UltraServer)
 sbatch -N18 --exclusive --partition=ultra job.sh
 
@@ -88,7 +87,7 @@ This prolog script supports `p6e-gb200` and `p6e-gb300` instance types. To adapt
 
 Save the following script as `91_nvidia_imex_prolog.sh`:
 
-```
+```bash
 #!/usr/bin/env bash
 
 # This prolog script configures NVIDIA IMEX on compute nodes involved in the job execution.
@@ -232,7 +231,7 @@ Set the following custom Slurm settings on the cluster:
 
 **Example Update cluster with prolog settings using the AWS CLI**  
 
-```
+```bash
 aws pcs update-cluster \
   --cluster-identifier <cluster-id> \
   --slurm-configuration '{
@@ -250,7 +249,7 @@ The prolog script runs automatically when you submit a Slurm job. Submit a test 
 
 Create a job script named `check-imex.sh`:
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=nvidia-imex-status
 #SBATCH --ntasks-per-node=1
@@ -263,7 +262,7 @@ srun bash -c "/usr/bin/nvidia-imex-ctl -N > imex_result_\${SLURM_JOB_ID}_\$(host
 
 Submit the job to your UltraServer queue:
 
-```
+```bash
 sbatch -p {{queue-name}} -N {{node-count}} check-imex.sh
 ```
 

@@ -1,7 +1,6 @@
 
 
 # (Optional) Test EFA
-<a name="working-with_networking_efa_test-efa"></a>
 
  You can demonstrate EFA-enabled communication between two nodes in a compute node group by running the `fi_pingpong` program, which is included in the EFA software installation. If this test is successful, it is likely that EFA is configured properly. 
 
@@ -68,7 +67,7 @@ Connect to one of the nodes (in this example case, `hpc7g-1`) using SSH (or SSM)
 
  Now, launch `fi_pingpong` in server mode. 
 
-```
+```sh
 /opt/amazon/efa/bin/fi_pingpong -p efa
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Minimum permissions for AWS PCS
-<a name="security-min-permissions"></a>
 
 This section describes the minimum IAM permissions required for an IAM identity (user, group, or role) to use the service.
 
@@ -10,6 +9,7 @@ This section describes the minimum IAM permissions required for an IAM identity 
 + [Minimum permissions to use tags](#security-min-permissions_tagging)
 + [Minimum permissions to support logs](#security-min-permissions_logging)
 + [Minimum permissions to use Capacity Blocks](#security-min-permissions_capacity-blocks)
++ [Minimum permissions to use Job Submit Plugins](#security-min-permissions_job-submit-plugins)
 + [Minimum permissions for a service administrator](#security-min-permissions_admin-policy)
 
 ## Minimum permissions to use API actions
@@ -67,6 +67,44 @@ ec2:DescribeCapacityBlocks,
 ec2:DescribeCapacityBlockStatus
 ```
 
+## Minimum permissions to use Job Submit Plugins
+<a name="security-min-permissions_job-submit-plugins"></a>
+
+The following permissions are required to use Job Submit Plugins in AWS PCS. `s3:GetObjectVersion` is required for versioned script objects, and `kms:Decrypt` is required if an AWS Key Management Service (AWS KMS) key encrypts the script object.
+
+```txt
+s3:GetObject,
+s3:GetObjectVersion,
+kms:Decrypt
+```
+
+The following example policy grants the Amazon S3 permissions for scripts under a prefix in one bucket. If an AWS KMS key encrypts the script object, also grant `kms:Decrypt` on that key.
+
+```json
+{
+  "Version": "2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "ReadJobSubmitPluginScripts",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/{{job-submit}}/*"
+    }
+  ]
+}
+```
+
+Replace the following values in the example policy:
+
+{{amzn-s3-demo-bucket}}  
+The name of your bucket.
+
+{{job-submit}}  
+The prefix of your scripts.
+
 ## Minimum permissions for a service administrator
 <a name="security-min-permissions_admin-policy"></a>
 
@@ -75,7 +113,7 @@ The following IAM policy specifies the minimum permissions required for an IAM i
 **Note**  
 Users who don't configure and manage the service don't require these permissions. Users who only run jobs use secure shell (SSH) to connect to the cluster. AWS Identity and Access Management (IAM) doesn't handle authentication or authorization for SSH.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

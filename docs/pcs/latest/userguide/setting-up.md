@@ -1,7 +1,6 @@
 
 
 # Sign up for AWS and create an administrative user
-<a name="setting-up"></a>
 
 Complete the following tasks to set up for AWS Parallel Computing Service (AWS PCS).
 

@@ -1,7 +1,6 @@
 
 
 # Using standalone instances as AWS PCS login nodes
-<a name="working-with_login-nodes_standalone"></a>
 
 You can set up independent EC2 instances to interact with an AWS PCS cluster's Slurm scheduler. This is useful for creating login nodes, workstations, or dedicated workflow management hosts that work with AWS PCS clusters but operate outside of AWS PCS management. To do this, each standalone instance must:
 

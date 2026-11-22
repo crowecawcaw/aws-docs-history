@@ -1,7 +1,6 @@
 
 
 # Job-level scaling
-<a name="scaling-job-level"></a>
 
 AWS PCS uses *job-level scaling* to manage the dynamic capacity of your cluster (the instances between the minimum and maximum counts you set on a compute node group). At regular intervals, AWS PCS reviews waiting jobs, launches Amazon EC2 instances to satisfy them, and scales dynamic capacity back down as jobs finish and instances become idle. You don't manage this process. AWS PCS evaluates your workload and adjusts capacity for you.
 

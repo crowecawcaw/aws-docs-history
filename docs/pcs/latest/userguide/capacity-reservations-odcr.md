@@ -1,7 +1,6 @@
 
 
 # Using ODCRs with AWS PCS
-<a name="capacity-reservations-odcr"></a>
 
  You can choose how AWS PCS consumes your reserved instances. If you create an **open** ODCR, any matching instances launched by AWS PCS or other processes in your account count against the reservation. With a **targeted** ODCR, only instances launched with the specific reservation ID count against the reservation. For time-sensitive workloads, targeted ODCRs are more common. 
 
@@ -24,7 +23,7 @@
 
  This example command creates a targeted ODCR for 32 hpc6a.48xlarge instances. To launch the reserved instances in a placement group, add `--placement-group-arn` to the command. You can define a stop date with `--end-date` and `--end-date-type`, otherwise the reservation will continue until it is manually terminated. 
 
-```
+```cmd
 aws ec2 create-capacity-reservation \
     --instance-type hpc6a.48xlarge \
     --instance-platform Linux/UNIX \
@@ -37,7 +36,7 @@ aws ec2 create-capacity-reservation \
 
  **Direct ODCR association:** Add the ODCR ID to the launch template. Here is an example launch template that references the ODCR ID. 
 
-```
+```json
 {
   "CapacityReservationSpecification": {
     "CapacityReservationTarget": {
@@ -49,7 +48,7 @@ aws ec2 create-capacity-reservation \
 
  **Capacity Reservation group association:** Create a Capacity Reservation group and add the group to the launch template. The following command creates a Capacity Reservation group named `EXAMPLE-CR-GROUP`. 
 
-```
+```cmd
 aws resource-groups create-group \
     --name EXAMPLE-CR-GROUP \
     --configuration \
@@ -59,14 +58,14 @@ aws resource-groups create-group \
 
  The following command adds the ODCR to the Capacity Reservation group. 
 
-```
+```cmd
 aws resource-groups group-resources --group EXAMPLE-CR-GROUP \
     --resource-arns arn:aws:ec2:us-east-2:123456789012:capacity-reservation/cr-1234567890abcdef1
 ```
 
  With the ODCR created and added to a Capacity Reservation group, it can now be connected to an AWS PCS compute node group by adding it to a launch template. Here is an example launch template that references the Capacity Reservation group. 
 
-```
+```json
 {
   "CapacityReservationSpecification": {
     "CapacityReservationResourceGroupArn": "arn:aws:resource-groups:us-east-2:123456789012:group/EXAMPLE-CR-GROUP"

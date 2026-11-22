@@ -1,13 +1,13 @@
 
 
 # AWS PCS agent versions
-<a name="pcs-agent-versions"></a>
 
 The AWS PCS agent software configures the EC2 instances AWS PCS launches for use with Slurm. You include the agent in an Amazon Machine Images (AMI) that you specify when you create compute node groups for your cluster. The EC2 instances launched in those compute node groups use the specified AMI and its included AWS PCS agent software. The AWS PCS agent enables an EC2 instance to register itself as part of the cluster. To use the latest AWS PCS agent software, you must update your custom AMIs. For more information, see [Step 2 – Install the AWS PCS agent](working-with_ami_custom_install-agent.md) in [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md).
 
 
 | AWS PCS agent version | Release date | Release notes | 
 | --- | --- | --- | 
+| v1.6.0-1 | November 20, 2026 |  +  Added support for instance health checks.   | 
 | v1.5.1-1 | August 11, 2026 |  +  Resolve S3 buckets cross-region during Node Lifecycle Actions download. <br />+  Determine the `slurmd` version to launch from RegisterComputeNodeGroupInstance response.   | 
 | v1.5.0-1 | July 23, 2026 |  +  Added support for node lifecycle actions. The agent runs custom scripts at the `nodeBootstrapped` and `nodeReady` stages of a compute node's lifecycle.   | 
 | v1.4.1-1 | July 15, 2026 |  +  Added a symbolic link at `/etc/aws/pcs/scheduler/slurm` that points to `/etc/aws/pcs/scheduler/slurm-{{version}}`. The agent creates this link at runtime based on the version of the launched `slurmd`.   | 

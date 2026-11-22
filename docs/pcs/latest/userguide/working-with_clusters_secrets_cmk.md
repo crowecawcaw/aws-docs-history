@@ -1,7 +1,6 @@
 
 
 # Use a customer managed key to encrypt the cluster secret
-<a name="working-with_clusters_secrets_cmk"></a>
 
 By default, AWS PCS stores the cluster secret in AWS Secrets Manager encrypted with an AWS managed key. AWS PCS doesn't require additional authorization to use the AWS managed key. Alternatively, you can encrypt the cluster secret with a customer managed key. The customer managed key must be a symmetric encryption key (`SYMMETRIC_DEFAULT`, `ENCRYPT_DECRYPT`) in the same AWS account and AWS Region as the cluster.
 
@@ -12,7 +11,7 @@ The AWS managed policy `AWSPCSServiceRolePolicy` that is attached to the AWS PCS
 
 Add the following statement to the customer managed key's key policy. Replace {{account-id}} with your AWS account ID. This statement gives the AWS PCS service-linked role (`AWSServiceRoleForPCS`) permission to use the customer managed key to protect the cluster secret.
 
-```
+```json
 {
    "Sid": "Allow service-linked role use of the customer managed key",
    "Effect": "Allow",
@@ -56,7 +55,7 @@ You attach the customer managed key to the cluster secret with the AWS Secrets M
 
 The following example attaches the customer managed key to the cluster secret. Replace the placeholders with your values.
 
-```
+```cmd
 aws secretsmanager update-secret \
     --region {{region}} \
     --secret-id {{secret-arn}} \

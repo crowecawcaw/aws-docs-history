@@ -1,7 +1,6 @@
 
 
 # Authenticating with Slurm REST API in AWS PCS
-<a name="slurm-rest-api-authenticate"></a>
 
 The Slurm REST API in AWS PCS uses JSON Web Token (JWT) authentication to ensure secure access to your cluster resources. AWS PCS provides a managed signing key stored in AWS Secrets Manager, which you use to generate JWT tokens containing specific user identity claims.
 
@@ -37,7 +36,7 @@ Before authenticating with the Slurm REST API, ensure you have:
 
 1. Query your cluster status with `aws pcs get-cluster`. Look for the `SLURMRESTD` endpoint in the `endpoints` field in the response. Here is an example:
 
-   ```
+   ```json
    "endpoints": [
          {
              "type": "SLURMCTLD",
@@ -109,7 +108,7 @@ Provide the username in only one location. If a token sets both the `name` field
 
    Here is an example of accessing the `/ping` API using curl and the `Authorized: Bearer` header.
 
-   ```
+   ```bash
    curl -X GET -H "Authorization: Bearer {{<jwt>}}" \
          http://{{<privateIpAddress>}}:6820/slurm/v0.0.43/ping
    ```
@@ -119,7 +118,7 @@ Provide the username in only one location. If a token sets both the `name` field
 
 Fetch the AWS PCS cluster JWT signing key and store it as a local file. Replace values for **aws-region**, **secret-arn**, and **secret version** with values appropriate for your cluster.
 
-```
+```bash
 #!/bin/bash
 SECRET_KEY=$(aws secretsmanager get-secret-value \
   --region {{aws-region}} \
@@ -132,7 +131,7 @@ echo "$SECRET_KEY" | base64 --decode > jwt.key
 
 This Python example illustrates how to use the signing key to generate a JWT token:
 
-```
+```python
 #!/usr/bin/env python3
 
 import sys

@@ -1,20 +1,19 @@
 
 
 # Run a multi-node MPI job with Slurm in AWS PCS
-<a name="getting-started_run-mpi-job"></a>
 
  These instructions demonstrate using Slurm to run a message passing interface (MPI) job in AWS PCS. 
 
 Run the following commands at a shell prompt of your login node.
 +  Become the default user. Change to its home directory. 
 
-  ```
+  ```sh
   sudo su - ec2-user
   cd ~/
   ```
 +  Create source code in the C programming language. 
 
-  ```
+  ```sh
   cat > hello.c << EOF
   // * mpi-hello-world - https://www.mpitutorial.com
   // Released under MIT License
@@ -72,17 +71,17 @@ Run the following commands at a shell prompt of your login node.
   ```
 + Load the OpenMPI module.
 
-  ```
+  ```sh
   module load openmpi
   ```
 + Compile the C program.
 
-  ```
+  ```sh
   mpicc -o hello hello.c
   ```
 + Write a Slurm job submission script.
 
-  ```
+  ```sh
   cat > hello.sh << EOF
   #!/bin/bash
   #SBATCH -J multi
@@ -97,18 +96,18 @@ Run the following commands at a shell prompt of your login node.
   ```
 + Change to the shared directory.
 
-  ```
+  ```sh
   cd /shared
   ```
 + Submit the job script.
 
-  ```
+  ```sh
   sbatch -p demo ~/hello.sh
   ```
 + Use `squeue` to monitor the job until it's done.
 + Check the contents of `multi.out`:
 
-  ```
+  ```sh
   cat multi.out
   ```
 

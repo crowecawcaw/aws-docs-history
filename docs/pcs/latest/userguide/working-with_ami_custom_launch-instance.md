@@ -1,7 +1,6 @@
 
 
 # Step 1 – Launch a temporary instance
-<a name="working-with_ami_custom_launch-instance"></a>
 
 Launch a temporary instance that you can use to install and configure the AWS PCS software and Slurm scheduler. You use this instance to create an AMI compatible with AWS PCS. 
 

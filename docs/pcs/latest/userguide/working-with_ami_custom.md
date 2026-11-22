@@ -1,7 +1,6 @@
 
 
 # Custom Amazon Machine Images (AMIs) for AWS PCS
-<a name="working-with_ami_custom"></a>
 
 AWS PCS is designed to work with Amazon Machine Images (AMI) that you bring to the service. These AMIs can have arbitrary software and configurations installed on them, so long as they have the AWS PCS agent and a compatible version of Slurm installed and configured correctly. You must use AWS-provided installers to install the AWS PCS software on your custom AMI. We recommend you use AWS-provided installers to install Slurm on your custom AMI but you can install Slurm on your own if you prefer (not recommended). 
 

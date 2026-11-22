@@ -1,11 +1,12 @@
 
 
 # Creating a compute node group in AWS PCS
-<a name="working-with_cng_create"></a>
 
 This topic describes how to create a compute node group in AWS Parallel Computing Service (AWS PCS). When you create a compute node group, you choose how to configure its compute nodes. With standard configuration, you specify the AMI, security groups, and SSH key pair on the compute node group. These are called instance settings. With launch template configuration, you also use a custom Amazon EC2 launch template, for Amazon EC2 settings that aren't available as instance settings, such as network interfaces or capacity reservations.
 
 You can also configure custom Slurm settings, and node lifecycle actions that run scripts at defined points in a compute node's lifecycle, such as to mount file systems or install software. For more information, see [Configuring custom Slurm settings in AWS PCS](slurm-custom-settings.md) and [Node lifecycle actions](cng-node-lifecycle-actions.md).
+
+To find GPU and accelerator faults on compute nodes and act on them, configure instance health checks. For more information, see [Instance health checks](cng-instance-health-checks.md).
 
 If this is your first time creating a compute node group in AWS PCS, we recommend that you follow the tutorial in [Get started with AWS Parallel Computing Service](getting-started.md).
 
@@ -133,6 +134,8 @@ You can create a compute node group by using the AWS Management Console or the A
 
 1. (Optional) In the **Node lifecycle actions** section, you can add scripts that run at defined points in a compute node's lifecycle. Choose **Add script**. Choose the lifecycle stage, and specify the script location, a name, optional arguments, error handling behavior, and execution policy. To add more scripts, repeat these steps. Scripts run from top to bottom within a stage. To change the execution order, choose **Actions** for a script, and then choose **Move up** or **Move down**. For more information, see [Node lifecycle actions](cng-node-lifecycle-actions.md).
 
+1. (Optional) In the **Instance health checks** section, turn on health monitoring, deep health checks, or both, and choose a repair action for each. For more information, see [Configuring instance health checks](cng-instance-health-checks-configure.md).
+
 1. (Optional) Under **Tags**, add any tags to your compute node group.
 
 1. Choose **Create compute node group**. The **Status** field shows `Creating` while AWS PCS provisions the compute node group. Provisioning can take several minutes.
@@ -240,6 +243,7 @@ You can add the following optional settings to the `create-compute-node-group` c
   +  `INTERRUPTIBLE_CAPACITY_RESERVATION` – Use a shared interruptible ODCR (I-ODCR). You need a custom launch template that targets the I-ODCR. For more information, see [Using I-ODCRs with AWS PCS](capacity-reservations-iodcr.md). 
 + Use `--slurm-configuration` to set Slurm options for the nodes in the compute node group as custom Slurm settings. For example, set `Weight` to set scheduling priority. Nodes with lower weights have higher priority. Set `RealMemory` to set the memory on each node, for use with the `CR_CPU_Memory` option. For the parameters that AWS PCS supports, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md).
 + Use `--node-lifecycle-actions` to run custom scripts at defined points in a compute node's lifecycle, such as mounting file systems, installing software, or joining a directory service. For more information, see [Configure node lifecycle actions in AWS PCS](cng-node-lifecycle-actions-configure.md). For example commands, see [Node lifecycle action examples for AWS PCS](cng-node-lifecycle-actions-examples.md).
++ Use `--instance-health-checks` to find GPU and accelerator faults on compute nodes and act on them. For more information and example commands, see [Configuring instance health checks](cng-instance-health-checks-configure.md).
 + Use `--tags {{key1}}={{value1}},{{key2}}={{value2}}` to add tags to the compute node group.
 
 It can take several minutes to create the compute node group. To check its status, run the following command. You can't add the compute node group to a queue until its status is `ACTIVE`. For more information, see [Creating a queue in AWS PCS](working-with_queues_create.md).

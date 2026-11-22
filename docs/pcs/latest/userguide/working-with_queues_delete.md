@@ -1,7 +1,6 @@
 
 
 # Deleting a queue in AWS PCS
-<a name="working-with_queues_delete"></a>
 
 This topic provides an overview of how to delete an queue in AWS PCS.
 
@@ -41,7 +40,7 @@ You can use commands native to your scheduler to confirm that the queue is delet
   +  Replace {{my-queue}} with the name or ID of your queue. 
   +  Replace {{my-cluster}} with the name or ID of your cluster. 
 
-  ```
+  ```cmd
   aws pcs delete-queue --region {{region-code}} \
          --queue-identifier {{my-queue}} \
          --cluster-identifier {{my-cluster}}

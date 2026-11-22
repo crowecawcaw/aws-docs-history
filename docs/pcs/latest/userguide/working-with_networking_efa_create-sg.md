@@ -1,7 +1,6 @@
 
 
 # Create a security group to support EFA communications
-<a name="working-with_networking_efa_create-sg"></a>
 
 ------
 #### [ AWS CLI ]
@@ -11,7 +10,7 @@ You can use the following AWS CLI command to create a security group that suppor
 + `{{vpc-id}}` – Specify the ID of the VPC that you use for AWS PCS.
 + `{{efa-group-name}}` – Provide your chosen name for the security group.
 
-```
+```cmd
 aws ec2 create-security-group \
     --group-name {{efa-group-name}} \
     --description "Security group to enable EFA traffic" \
@@ -22,7 +21,7 @@ aws ec2 create-security-group \
 Use the following commands to attach inbound and outbound security group rules. Make the following replacement: 
 + `{{efa-secgroup-id}}` – Provide the ID of the EFA security group you just created. 
 
-```
+```cmd
 aws ec2 authorize-security-group-ingress \
     --group-id {{efa-secgroup-id}} \
     --protocol -1 \

@@ -1,7 +1,6 @@
 
 
 # Install SPANK plugins on AWS PCS
-<a name="spank_install"></a>
 
 Follow the plugin's documentation to install SPANK plugins on your AMI.
 

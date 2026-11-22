@@ -1,7 +1,6 @@
 
 
 # Updating an AWS PCS queue
-<a name="working-with_queues_update"></a>
 
 This topic provides an overview of available options and describes what to consider when you update an AWS PCS queue. For information about Slurm custom settings, see [Custom Slurm settings for AWS PCS queues](slurm-custom-settings-queue.md).
 
@@ -56,7 +55,7 @@ Queue updates can take several minutes.
         --compute-node-group-configurations computeNodeGroupId=computeNodeGroupExampleID1,computeNodeGroupId=computeNodeGroupExampleID2
         ```
 
-   ```
+   ```bash
    aws pcs update-queue --region {{region-code}} \
        --queue-identifier {{my-queue}} \
        --cluster-identifier {{my-cluster}} \
@@ -65,7 +64,7 @@ Queue updates can take several minutes.
    ```  
 **Example – Updating a queue with custom Slurm settings**  
 
-   ```
+   ```bash
    aws pcs update-queue --region {{region-code}} \
        --queue-identifier {{my-queue}} \
        --cluster-identifier {{my-cluster}} \
@@ -77,7 +76,7 @@ Queue updates can take several minutes.
 
 1. It can take several minutes to update the queue. You can query the status of your queue with the following command. You won't be able to submit jobs to the queue until its status reaches `ACTIVE`.
 
-   ```
+   ```bash
    aws pcs get-queue --region {{region-code}} \
        --cluster-identifier {{my-cluster}} \ 
        --queue-identifier {{my-queue}}

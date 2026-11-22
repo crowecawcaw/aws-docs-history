@@ -1,7 +1,6 @@
 
 
 # Extend Slurm functionality on AWS PCS with SPANK plugins
-<a name="spank"></a>
 
 Use SPANK (Slurm Plug-in Architecture for Node and job Kontrol) plugins to extend and modify Slurm's behavior during job launch and execution on AWS PCS clusters. SPANK plugins provide a generic interface to intercept and modify job launch stages.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting missing job records in Slurm accounting
-<a name="troubleshooting-missing-accounting-records"></a>
 
 Jobs that ran to completion are missing from Slurm accounting reports, such as the output of the `sacct` or `sreport` commands. Records are absent only for a limited time window, typically one that follows a period of very high job submission rate. Accounting reports are complete before and after that window. This topic applies to clusters that have Slurm accounting enabled. For more information about accounting, see [Slurm accounting in AWS PCS](slurm-accounting.md).
 
@@ -30,7 +29,7 @@ Discarded messages aren't retried, so the job history that they carried is perma
 `SlurmdbdCustomSettings` replaces the slurmdbd settings of the cluster instead of adding to them. Any setting that you omit from the update request is removed. If the cluster might already have slurmdbd settings, run `aws pcs get-cluster` first, add `{parameterName=CommitDelay,parameterValue="1"}` to the retrieved list, then submit the complete list.  
 **Example – Setting `CommitDelay` on a cluster**  
 
-   ```
+   ```cmd
    aws pcs update-cluster --cluster-identifier {{my-cluster}} \
    --slurm-configuration \
    'SlurmdbdCustomSettings=[{parameterName=CommitDelay,parameterValue="1"}]'
@@ -38,7 +37,7 @@ Discarded messages aren't retried, so the job history that they carried is perma
 
 1. Confirm that the setting is in place. In the AWS Management Console, view **Additional scheduler settings** for the cluster. In the AWS CLI, run the following command and check the `slurmConfiguration` field of the response.
 
-   ```
+   ```cmd
    aws pcs get-cluster --cluster-identifier {{my-cluster}}
    ```
 

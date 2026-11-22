@@ -1,7 +1,6 @@
 
 
 # Document history for the AWS PCS User Guide
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation for AWS PCS.
 
@@ -9,6 +8,10 @@ The following table describes the important changes to the documentation for AWS
 
 | Date | Change | Documentation updates | API versions updated | 
 | --- | --- | --- | --- | 
+| November 20, 2026 | Updated AWS PCS agent to version 1.6.0 | You can now use AWS PCS agent version 1.6.0-1, which adds support for instance health checks. For more information, see [AWS PCS agent versions](pcs-agent-versions.md). | Not applicable | 
+| November 20, 2026 | New topic: instance health checks | You can now turn on instance health checks for a compute node group to detect GPU and accelerator faults and repair the affected compute nodes. For more information, see [Detecting and repairing hardware faults with instance health checks](cng-instance-health-checks.md). | Not applicable | 
+| November 19, 2026 | Slurm Job Submit Plugins | With AWS Parallel Computing Service (AWS PCS), you can now use Slurm Job Submit Plugins to enforce job policies on the Slurm controller. Your plugin script can accept, reject, or modify jobs when users submit or modify them. This feature requires Slurm version 25.11 or later. For more information, see [Use Slurm Job Submit Plugins to validate and modify jobs in AWS PCS](slurm-job-submit-plugins.md). | AWS SDK: 2026-11-19 | 
+| November 17, 2026 | New topic: view costs by job with split cost allocation data | Added a topic that describes how to use AWS split cost allocation data to see AWS PCS Slurm job-level costs in your AWS Cost and Usage Reports, including the job attributes you can analyze cost by. For more information, see [View costs by job in AWS billing with split cost allocation data](monitoring-cost-allocation.md). | Not applicable | 
 | November 12, 2026 | New scaling log status and reason code pairs | Added the `TERMINATED` / `NODE_GROUP_UPDATE` and `TERMINATE_FAILED` / `EC2_UNAUTHORIZED_OPERATION` pairs to the status and reason code table. AWS PCS reports `TERMINATED` / `NODE_GROUP_UPDATE` when lowering a compute node group's maximum instance count removes a node. AWS PCS reports `TERMINATE_FAILED` / `EC2_UNAUTHORIZED_OPERATION` when it cannot terminate an instance because the `AWSPCSManaged` tag was removed from the instance. For more information, see [Scaling logs in AWS PCS](monitoring_scaling-logs.md). | Not applicable | 
 | November 11, 2026 | AWS PCS released in US West (N. California) | AWS PCS is now available in US West (N. California) (us-west-1).<br />CloudFormation templates are available to get started in the US West (N. California) AWS Region. For more information, see [Use CloudFormation to create a sample AWS PCS cluster](get-started-cfn-create.md) and [CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md). | Not applicable | 
 | November 11, 2026 | Added support for RHEL 10, Rocky Linux 10, and Ubuntu 26.04 | Added RedHat Enterprise Linux 10 (RHEL 10), Rocky Linux 10, and Ubuntu 26.04 to the list of supported operating systems. Added Slurm installer versions 26.05.5-2, 25.11.8-2, 25.05.9-2, 24.11.7-4, 24.05.8-5, and 23.11.10-7, which support these operating systems, and updated the installation steps to use 26.05.5-2. For more information, see [Supported operating systems in AWS PCS](operating-systems.md) and [Software installers to build custom AMIs for AWS PCS](working-with_ami_installers.md). | Not applicable | 

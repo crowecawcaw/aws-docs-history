@@ -1,13 +1,12 @@
 
 
 # Get the Slurm cluster secret
-<a name="working-with_clusters_secrets_get"></a>
 
 You can use Secrets Manager to get the current version of a Slurm cluster secret. Secrets Manager returns the secret as a base64-encoded string. The following example uses the AWS CLI. Make the following substitutions before running the command. 
 + Replace `{{region}}` with the AWS Region to create your cluster in, such as `us-east-1`.
 + Replace `{{secret-arn}}` with the `secretArn` from an AWS PCS cluster.
 
-```
+```cmd
 aws secretsmanager get-secret-value \
     --region {{region}} \
     --secret-id '{{secret-arn}}' \
@@ -20,7 +19,7 @@ aws secretsmanager get-secret-value \
 Secrets Manager stores and returns the cluster secret as a base64-encoded string, but Slurm requires the secret as the raw (decoded) bytes. If you write the secret to a Slurm key file (for example, `/etc/slurm/slurm.key`), you must base64-decode the value first. Writing the base64-encoded string directly produces a key file that Slurm cannot use. `slurmd` then fails authentication with an error such as `decode_jwt: jwt_decode (with key) failure: Invalid argument`.  
 To decode the secret and write it to a key file, pipe the output through `base64 -d`:  
 
-```
+```cmd
 aws secretsmanager get-secret-value \
     --region {{region}} \
     --secret-id '{{secret-arn}}' \
@@ -39,7 +38,7 @@ You use an IAM principal to get the Slurm cluster secret. The IAM principal must
 
 The following sample IAM policy allows access to an example cluster secret.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

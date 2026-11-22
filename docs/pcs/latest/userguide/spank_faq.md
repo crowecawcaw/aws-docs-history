@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions about SPANK plugins on AWS PCS
-<a name="spank_faq"></a>
 
 This section addresses common questions about installing and configuring SPANK plugins on AWS PCS clusters.
 

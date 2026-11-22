@@ -1,7 +1,6 @@
 
 
 # Step 5 – Configure the connection to the AWS PCS cluster
-<a name="working-with_login-nodes_standalone_configure-connection"></a>
 
 To establish a connection to the AWS PCS cluster, launch `sackd` as a system service by following these steps.
 
@@ -10,13 +9,13 @@ To establish a connection to the AWS PCS cluster, launch `sackd` as a system ser
 
 1. Set up the environment file for the `sackd` service with the command that follows. Before running the command, replace {{ip-address}} and {{port}} with the values retrieved from endpoints in [Step 1](working-with_login-nodes_standalone_get-addr.md).
 
-   ```
+   ```sh
    sudo echo "SACKD_OPTIONS='--conf-server={{ip-address}}:{{port}}'" > /etc/sysconfig/sackd
    ```
 
 1. Create a `systemd` service file for managing the `sackd` process.
 
-   ```
+   ```sh
    sudo cat << EOF > /etc/systemd/system/sackd.service
    [Unit]
    Description=Slurm auth and cred kiosk daemon
@@ -45,19 +44,19 @@ To establish a connection to the AWS PCS cluster, launch `sackd` as a system ser
 
 1. Set ownership of the `sackd` service file.
 
-   ```
+   ```sh
    sudo chown root:root /etc/systemd/system/sackd.service && \
        sudo chmod 0644 /etc/systemd/system/sackd.service
    ```
 
 1. Enable the `sackd` service.
 
-   ```
+   ```sh
    sudo systemctl daemon-reload && sudo systemctl enable sackd
    ```
 
 1. Start the `sackd` service.
 
-   ```
+   ```sh
    sudo systemctl start sackd
    ```

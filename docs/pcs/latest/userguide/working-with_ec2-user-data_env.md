@@ -1,13 +1,12 @@
 
 
 # Example: Set global environment variables for AWS PCS
-<a name="working-with_ec2-user-data_env"></a>
 
  Provide this script as the value of `"userData"` in your launch template. For more information, see [Working with Amazon EC2 user data for AWS PCS](working-with_ec2-user-data.md). 
 
 The following example uses `/etc/profile.d` to set global variables on node group instances.
 
-```
+```txt
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
 

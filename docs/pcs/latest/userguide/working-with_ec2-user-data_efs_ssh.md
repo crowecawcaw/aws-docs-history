@@ -1,11 +1,10 @@
 
 
 # Example: Enabling passwordless SSH
-<a name="working-with_ec2-user-data_efs_ssh"></a>
 
 You can build on the shared home directory example to implement SSH connections between cluster instances using SSH keys. For each user using the shared home file system, run a script that resembles the following: 
 
-```
+```sh
 #!/bin/bash
 
 mkdir -p $HOME/.ssh && chmod 700 $HOME/.ssh

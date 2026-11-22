@@ -1,7 +1,6 @@
 
 
 # An EC2 instance in AWS PCS is terminated and replaced after reboot
-<a name="troubleshooting_instance-terminated-after-reboot"></a>
 
 **Problem overview**  
 After an EC2 instance in a compute node group is rebooted, AWS PCS automatically terminates and replaces the instance.

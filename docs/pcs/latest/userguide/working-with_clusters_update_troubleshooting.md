@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS PCS cluster updates
-<a name="working-with_clusters_update_troubleshooting"></a>
 
 This topic helps you identify and resolve common problems that can occur when updating cluster configurations.
 

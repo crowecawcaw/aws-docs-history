@@ -1,7 +1,6 @@
 
 
 # Job completion logs in AWS PCS
-<a name="monitoring_job-completion-logs"></a>
 
 Job completion logs give you key details about your AWS Parallel Computing Service (AWS PCS) jobs when they complete, at no additional cost. You can use other AWS services to access and process your log data, such as Amazon CloudWatch Logs, Amazon Simple Storage Service (Amazon S3), and Amazon Data Firehose; AWS PCS records metadata about your jobs, such as the following.
 + Job ID and name
@@ -38,7 +37,7 @@ The following example IAM policy grants the required permissions.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -85,7 +84,7 @@ You can set up job completion logs for your AWS PCS cluster with the AWS Managem
 
 1. Create a log delivery destination:
 
-   ```
+   ```cmd
    aws logs put-delivery-destination --region {{region}} \
      --name {{pcs-logs-destination}} \
      --delivery-destination-configuration \
@@ -101,7 +100,7 @@ You can set up job completion logs for your AWS PCS cluster with the AWS Managem
 
 1. Set the PCS cluster as a log delivery source:
 
-   ```
+   ```cmd
    aws logs put-delivery-source --region {{region}} \
      --name {{cluster-logs-source-name}} \
      --resource-arn {{cluster-arn}} \
@@ -117,7 +116,7 @@ You can set up job completion logs for your AWS PCS cluster with the AWS Managem
 
 1. Connect the delivery source to the delivery destination:
 
-   ```
+   ```cmd
    aws logs create-delivery --region {{region}} \
      --delivery-source-name {{cluster-logs-source}} \
      --delivery-destination-arn {{destination-arn}}
@@ -142,7 +141,7 @@ You can configure log destinations in CloudWatch Logs and Amazon S3. AWS PCS use
 
 AWS PCS uses the following name format for the CloudWatch Logs stream:
 
-```
+```txt
 AWSLogs/PCS/{{cluster-id}}/jobcomp.log
 ```
 
@@ -153,7 +152,7 @@ For example: `AWSLogs/PCS/pcs_abc123de45/jobcomp.log`
 
 AWS PCS uses the following name format for the S3 path:
 
-```
+```txt
 AWSLogs/{{account-id}}/PCS/{{region}}/{{cluster-id}}/jobcomp/{{year}}/{{month}}/{{day}}/{{hour}}/
 ```
 
@@ -161,7 +160,7 @@ For example: `AWSLogs/111122223333/PCS/us-east-1/pcs_abc123de45/jobcomp/2025/06/
 
 AWS PCS uses the following name format for the log files:
 
-```
+```txt
 PCS_jobcomp_{{year}}-{{month}}-{{day}}-{{hour}}_{{cluster-id}}_{{random-id}}.log.gz
 ```
 
@@ -236,7 +235,7 @@ The following table describes the fields inside the `fields` object.
 
 The following examples show job completion logs for various job types and states:
 
-```
+```json
 { "resource_id": "pcs_abc123de45", "resource_type": "PCS_CLUSTER", "event_timestamp": 1750350777, "scheduler_type": "slurm", "scheduler_major_version": "25.11", "fields": { "job_id": 1, "user": "root", "user_id": 0, "group": "root", "group_id": 0, "name": "wrap", "job_state": "COMPLETED", "partition": "MpiQueue-abcdef01-7", "time_limit": "UNLIMITED", "start_time": "2025-06-19T16:32:57", "end_time": "2025-06-19T16:33:03", "node_list": "MpiNG-abcdef01-2345-[1-2]", "node_cnt": 2, "proc_cnt": 2, "work_dir": "/usr/bin", "reservation_name": "", "tres": { "cpu": 2, "mem": { "val": 1944, "unit": "M" }, "node": 2, "billing": 2 }, "account": "", "qos": "", "wc_key": "", "cluster": "unknown", "submit_time": "2025-06-19T16:29:40", "eligible_time": "2025-06-19T16:29:41", "derived_exit_code_status": 0, "derived_exit_code_signal": 0, "exit_code_status": 0, "exit_code_signal": 0, "node_details": [ { "name": "MpiNG-abcdef01-2345-1", "instance_id": "i-0abc123def45678", "instance_type": "t4g.micro" }, { "name": "MpiNG-abcdef01-2345-2", "instance_id": "i-0def456abc78901", "instance_type": "t4g.micro" } ] } }
 { "resource_id": "pcs_abc123de45", "resource_type": "PCS_CLUSTER", "event_timestamp": 1750350793, "scheduler_type": "slurm", "scheduler_major_version": "25.11", "fields": { "job_id": 2, "user": "root", "user_id": 0, "group": "root", "group_id": 0, "name": "wrap", "job_state": "COMPLETED", "partition": "MpiQueue-abcdef01-7", "time_limit": "UNLIMITED", "start_time": "2025-06-19T16:33:13", "end_time": "2025-06-19T16:33:14", "node_list": "MpiNG-abcdef01-2345-[1-2]", "node_cnt": 2, "proc_cnt": 2, "work_dir": "/usr/bin", "reservation_name": "", "tres": { "cpu": 2, "mem": { "val": 1944, "unit": "M" }, "node": 2, "billing": 2 }, "account": "", "qos": "", "wc_key": "", "cluster": "unknown", "submit_time": "2025-06-19T16:33:13", "eligible_time": "2025-06-19T16:33:13", "derived_exit_code_status": 0, "derived_exit_code_signal": 0, "exit_code_status": 0, "exit_code_signal": 0, "node_details": [ { "name": "MpiNG-abcdef01-2345-1", "instance_id": "i-0abc123def45678", "instance_type": "t4g.micro" }, { "name": "MpiNG-abcdef01-2345-2", "instance_id": "i-0def456abc78901", "instance_type": "t4g.micro" } ] } }
 { "resource_id": "pcs_abc123de45", "resource_type": "PCS_CLUSTER", "event_timestamp": 1750373937, "scheduler_type": "slurm", "scheduler_major_version": "25.11", "fields": { "job_id": 3, "user": "root", "user_id": 0, "group": "root", "group_id": 0, "name": "wrap", "job_state": "COMPLETED", "partition": "MpiQueue-abcdef01-7", "time_limit": "UNLIMITED", "start_time": "2025-06-19T22:58:57", "end_time": "2025-06-19T22:58:57", "node_list": "MpiNG-abcdef01-2345-1", "node_cnt": 1, "proc_cnt": 1, "work_dir": "/root", "reservation_name": "", "tres": { "cpu": 1, "mem": { "val": 972, "unit": "M" }, "node": 1, "billing": 1 }, "account": "", "qos": "", "wc_key": "", "cluster": "unknown", "submit_time": "2025-06-19T22:55:46", "eligible_time": "2025-06-19T22:55:46", "derived_exit_code_status": 0, "derived_exit_code_signal": 0, "exit_code_status": 0, "exit_code_signal": 0, "node_details": [ { "name": "MpiNG-abcdef01-2345-1", "instance_id": "i-0abc234def56789", "instance_type": "t4g.micro" } ] } }

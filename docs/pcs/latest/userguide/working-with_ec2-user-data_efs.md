@@ -1,7 +1,6 @@
 
 
 # Example: Use an EFS file system as a shared home directory for AWS PCS
-<a name="working-with_ec2-user-data_efs"></a>
 
  Provide this script as the value of `"userData"` in your launch template. For more information, see [Working with Amazon EC2 user data for AWS PCS](working-with_ec2-user-data.md). 
 
@@ -11,7 +10,7 @@ Replace the following values in this script with your own details:
 + {{/mount-point-directory}} – The path on an instance where you want to mount the EFS file system.
 + {{filesystem-id}} – The file system ID for the EFS file system.
 
-```
+```txt
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
 

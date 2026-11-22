@@ -1,7 +1,6 @@
 
 
 # AWS PCS multi-cluster login node configuration script code
-<a name="multi-cluster-login-script-code"></a>
 
 Save the following source code to a file with the following name:
 
@@ -12,7 +11,7 @@ pcs-multi-cluster-login-configure.sh
 ## Script source code
 <a name="multi-cluster-login-script-code-content"></a>
 
-```
+```sh
 #!/bin/bash
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 

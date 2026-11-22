@@ -1,7 +1,6 @@
 
 
 # Delete your AWS resources for AWS PCS
-<a name="getting-started_delete"></a>
 
  After you are done with the cluster and node groups that you created for this tutorial, you should delete the resources that you created. 
 

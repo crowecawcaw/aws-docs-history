@@ -1,7 +1,6 @@
 
 
 # Create an instance profile for AWS PCS
-<a name="security-instance-profiles_create"></a>
 
 ------
 #### [ AWS PCS console ]
@@ -28,7 +27,7 @@ Replace {{example-role}} in the following examples with the name of your IAM rol
    1. Copy and paste the following content to a new text file named `trust_policy.json`.  
 ****  
 
-      ```
+      ```json
       {  
           "Version":"2012-10-17",		 	 	   
           "Statement": [  
@@ -49,13 +48,13 @@ Replace {{example-role}} in the following examples with the name of your IAM rol
 
    1. Use 1 of the following commands to create the IAM role.
 
-      ```
+      ```cmd
       aws iam create-role --path /aws-pcs/ --role-name {{example-role}} --assume-role-policy-document file://trust_policy.json
       ```
 
       or
 
-      ```
+      ```cmd
       aws iam create-role --role-name {{AWSPCS-example-role}} --assume-role-policy-document file://trust_policy.json
       ```
 
@@ -64,7 +63,7 @@ Replace {{example-role}} in the following examples with the name of your IAM rol
    1. Copy and paste the following content to a new text file named `policy_document.json`.  
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -81,7 +80,7 @@ Replace {{example-role}} in the following examples with the name of your IAM rol
 
    1. Attach the policy document to the role. This command attaches the policy as an inline policy.
 
-      ```
+      ```cmd
       aws iam put-role-policy \  
           --role-name {{example-role}} \  
           --policy-name pcsRegisterInstancePolicy \  
@@ -90,13 +89,13 @@ Replace {{example-role}} in the following examples with the name of your IAM rol
 
 1. **Create an instance profile. Replace {{example-profile}} with the name of your instance profile.**
 
-   ```
+   ```cmd
    aws iam create-instance-profile --instance-profile-name {{example-profile}}
    ```
 
 1. **Associate the IAM role with the instance profile.**
 
-   ```
+   ```cmd
    aws iam add-role-to-instance-profile \  
       --instance-profile-name {{example-profile}} \  
       --role-name {{example-role}}

@@ -1,7 +1,6 @@
 
 
 # Updating a cluster in AWS PCS
-<a name="working-with_clusters_update"></a>
 
 AWS PCS lets you update cluster configurations after creation through the UpdateCluster API or console. You can modify cluster settings without rebuilding your infrastructure, which reduces operational overhead and minimizes interruptions.
 

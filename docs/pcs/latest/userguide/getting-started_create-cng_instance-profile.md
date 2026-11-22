@@ -1,7 +1,6 @@
 
 
 # Create an instance profile for AWS PCS
-<a name="getting-started_create-cng_instance-profile"></a>
 
 Compute node groups require an instance profile when they are created. If you use the AWS Management Console to create a role for Amazon EC2, the console automatically creates an instance profile and gives it the same name as the role. For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *AWS Identity and Access Management User Guide*.
 

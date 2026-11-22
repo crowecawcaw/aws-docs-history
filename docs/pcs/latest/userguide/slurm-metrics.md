@@ -1,7 +1,6 @@
 
 
 # Slurm metrics in AWS PCS
-<a name="slurm-metrics"></a>
 
 AWS PCS supports Slurm metrics, which expose real-time cluster data through HTTP endpoints compatible with Prometheus and other monitoring systems. For details, including performance impact and security considerations, see the [Metrics Guide](https://slurm.schedmd.com/metrics.html) on the Slurm website.
 
@@ -29,7 +28,7 @@ For more information about custom Slurm settings, see [Configuring custom Slurm 
 
 Query the metrics endpoint from a host with network access to the controller:
 
-```
+```cmd
 curl http://{{controller-ip}}:6817/metrics
 ```
 

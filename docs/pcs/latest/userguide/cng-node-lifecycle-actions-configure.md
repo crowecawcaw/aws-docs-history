@@ -1,7 +1,6 @@
 
 
 # Configure node lifecycle actions in AWS PCS
-<a name="cng-node-lifecycle-actions-configure"></a>
 
 You define node lifecycle actions in your compute node group configuration. This topic describes how to define a script, control whether it re-runs on reboot, store it, pass it arguments, handle failures, cache it, validate its integrity, and read its logs.
 
@@ -13,7 +12,7 @@ Node lifecycle actions require AWS PCS agent version 1.5.0-1 or later. If your c
 
 Each script has a `name`, a `scriptSource`, optional `arguments`, an `onError` policy, and an `executionPolicy`. The location and integrity fields are grouped under `scriptSource`.
 
-```
+```json
 {
   "name": "My script",
   "scriptSource": {
@@ -111,7 +110,7 @@ External storage provides version control, auditability, and reuse across teams.
 
 Pass arguments as an ordered array. They reach your script as positional command-line parameters.
 
-```
+```bash
 arguments: ["fs-12345678", "/shared", "nfs4"]
 # script.sh fs-12345678 /shared nfs4   ($1=fs-12345678, $2=/shared, $3=nfs4)
 ```
@@ -126,7 +125,7 @@ The agent exports environment variables to every script. These variables contain
 | `PCS_NODE_ID` | Node identifier | 
 | `PCS_IS_FIRST_BOOT` | `1` on the node's first boot, `0` on every subsequent reboot. Use it to branch behavior in `EVERY_BOOT` scripts. | 
 
-```
+```bash
 #!/usr/bin/env bash
 echo "Configuring node $PCS_NODE_ID in cluster $PCS_CLUSTER_NAME"
 ```
@@ -159,7 +158,7 @@ The lifecycle *configuration* (which scripts run, their arguments, error handlin
 
 Optionally provide a SHA-256 `checksum` in a script's `scriptSource`, as a 64-character hexadecimal string. The agent validates it on download; a mismatch is treated as a download failure and triggers `onError`. We recommend a checksum for production, especially for scripts from shared or external sources.
 
-```
+```bash
 sha256sum mount-efs.sh   # use the 64-char hex hash as the checksum value
 ```
 

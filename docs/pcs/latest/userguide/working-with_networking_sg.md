@@ -1,7 +1,6 @@
 
 
 # Security groups in AWS PCS
-<a name="working-with_networking_sg"></a>
 
 Security groups in Amazon EC2 control inbound and outbound traffic to instances. To set the security groups for a compute node group, specify `securityGroupIds` on the compute node group, in its custom launch template, or both. With standard configuration, you must specify `securityGroupIds`. If you specify security groups in both places, AWS PCS uses only the security groups on the compute node group. It doesn't add the security groups in the launch template. For more information, see [Configuring instance settings for compute node groups in AWS PCS](working-with_cng_instance-settings.md).
 

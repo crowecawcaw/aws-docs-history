@@ -1,7 +1,6 @@
 
 
 # Configuring custom SlurmDBD settings in AWS PCS
-<a name="slurmdbd-custom-settings"></a>
 
 Slurm's database daemon (slurmdbd) manages accounting data, data retention policies, and privacy controls. AWS PCS lets you customize `slurmdbd.conf` settings at the cluster level through the `SlurmdbdCustomSettings` property of `SlurmConfiguration` during cluster creation or update.
 

@@ -1,7 +1,6 @@
 
 
 # Using network file systems with AWS PCS
-<a name="working-with_file-systems"></a>
 
 You can attach network file systems to nodes launched in an AWS Parallel Computing Service (AWS PCS) compute node group to provide a persistent location where data and files can be written and accessed. You can use file systems provided by AWS services, including [Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) (Amazon EFS), [Amazon FSx for Lustre](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html), [Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html), [Amazon FSx for OpenZFS](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html), and [Amazon File Cache](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/what-is.html). You can also use self-managed file systems, such as NFS servers.
 

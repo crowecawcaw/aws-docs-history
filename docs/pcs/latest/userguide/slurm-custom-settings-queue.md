@@ -1,7 +1,6 @@
 
 
 # Custom Slurm settings for AWS PCS queues
-<a name="slurm-custom-settings-queue"></a>
 
 The following custom Slurm settings are supported at the queue level:
 
@@ -28,4 +27,8 @@ Slurm deprecates `ExclusiveUser` from version 26.05 in favor of `Exclusive`. AWS
 + [PriorityJobFactor](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityJobFactor)
 + [PriorityTier](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityTier)
 + [QOS](https://slurm.schedmd.com/slurm.conf.html#OPT_QOS)
++ [SelectTypeParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters_1)
+**Note**  
+AWS PCS supports the `CR_Core`, `CR_Core_Memory`, `CR_Socket`, and `CR_Socket_Memory` values. AWS PCS supports the `CR_Socket` and `CR_Socket_Memory` values on Slurm version 25.11 and later.  
+Slurm uses the queue value only when the cluster-level `SelectTypeParameters` value is `CR_Core`, `CR_Core_Memory`, `CR_Socket`, or `CR_Socket_Memory`. If the cluster-level value is `CR_CPU` (the default) or `CR_CPU_Memory`, Slurm ignores the queue value.
 + [TRESBillingWeights](https://slurm.schedmd.com/slurm.conf.html#OPT_TRESBillingWeights)

@@ -1,7 +1,6 @@
 
 
 # Connect to your AWS PCS cluster
-<a name="getting-started_connect"></a>
 
  After the status of the `login` compute node group becomes **Active**, you can connect to the EC2 instance it created. 
 

@@ -1,7 +1,6 @@
 
 
 # Create shared storage for AWS PCS in Amazon Elastic File System
-<a name="getting-started_create-efs"></a>
 
 Amazon Elastic File System (Amazon EFS) is an AWS service that provides serverless, fully elastic file storage so that you can share file data without provisioning or managing storage capacity and performance. For more information, see [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) in the *Amazon Elastic File System User Guide*. 
 

@@ -1,9 +1,11 @@
 
 
 # Translate a Slurm Job Submit plugin script to use CLI Filter Plugin in AWS PCS
-<a name="slurm-cli-filter-plugins-translate"></a>
 
 Translate your existing Job Submit Plugin Lua script to CLI Filter Plugin when you migrate from other Slurm environments. The translation process involves updating function names and field access patterns to work with the CLI Filter Plugin API.
+
+**Note**  
+Your cluster's users can bypass CLI Filter Plugins. To enforce a policy on the Slurm controller, rewrite your Lua script in Starlark as a Job Submit Plugin instead. For more information about translating a Lua script to Starlark, see [Translate a Lua Job Submit Plugin script to Starlark for AWS PCS](slurm-job-submit-plugins-translate.md).
 
 ## Prerequisites
 <a name="slurm-cli-filter-plugin-translate-prerequisites"></a>

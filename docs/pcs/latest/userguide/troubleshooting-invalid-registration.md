@@ -1,7 +1,6 @@
 
 
 # Troubleshoot invalid node registrations (INVALID\_REG) in AWS PCS
-<a name="troubleshooting-invalid-registration"></a>
 
 When a node registers with hardware that conflicts with its configuration, Slurm sets the node state to `INVALID_REG` and drains it. The node's `Reason` field in the `scontrol show node` output reports the cause. The most common causes are a configured CPU topology that doesn't match the hardware, and, with GPU autodetection active, a socket layout that doesn't fit the detected GPU affinity. For additional information on how AWS PCS configures topology on each Slurm version, see [Configuring hardware topology in AWS PCS](hardware-topology.md).
 

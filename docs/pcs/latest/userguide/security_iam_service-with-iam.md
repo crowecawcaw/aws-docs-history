@@ -1,7 +1,6 @@
 
 
 # How AWS Parallel Computing Service works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS PCS, learn what IAM features are available to use with AWS PCS.
 

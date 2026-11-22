@@ -1,7 +1,6 @@
 
 
 # Update the scheduler version of an AWS PCS cluster
-<a name="working-with_clusters_version_update_procedure"></a>
 
 Use these steps to update the scheduler version on your cluster. There are two options depending on whether you can tolerate job interruption. For more information about choosing between options, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md).
 

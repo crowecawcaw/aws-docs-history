@@ -1,7 +1,6 @@
 
 
 # Example: Run early boot operations with a cloud-init boothook
-<a name="working-with_ec2-user-data_early-boot"></a>
 
  Provide this script as the value of `"userData"` in your launch template. For more information, see [Working with Amazon EC2 user data for AWS PCS](working-with_ec2-user-data.md). 
 
@@ -11,7 +10,7 @@ To create the boot hook, add a block with content type `text/cloud-boothook` to 
 
 The following example enables MIG mode on all GPUs and creates the MIG instances at every boot. Because no GPU client has started yet, the mode change takes effect immediately and no reboot is needed.
 
-```
+```txt
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
 

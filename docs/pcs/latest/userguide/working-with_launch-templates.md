@@ -1,7 +1,6 @@
 
 
 # Using Amazon EC2 launch templates with AWS PCS
-<a name="working-with_launch-templates"></a>
 
 A custom launch template is optional. You can configure the AMI, security groups, and SSH key pair directly on a compute node group. These are called instance settings. If you specify an instance setting both on the compute node group and in your launch template, AWS PCS uses the value on the compute node group instead of the value in the launch template. For more information, see [Configuring instance settings for compute node groups in AWS PCS](working-with_cng_instance-settings.md).
 

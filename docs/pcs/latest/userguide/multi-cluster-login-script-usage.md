@@ -1,7 +1,6 @@
 
 
 # Using the AWS PCS multi-cluster login node configuration script
-<a name="multi-cluster-login-script-usage"></a>
 
 ## Running the script
 <a name="running-script"></a>
@@ -10,19 +9,19 @@
 
 1. Save the [content of the script](multi-cluster-login-script-code.md#multi-cluster-login-script-code-content) in a file named:
 
-   ```
+   ```sh
    pcs-multi-cluster-login-configure.sh
    ```
 
 1. Make it executable:
 
-   ```
+   ```sh
    chmod +x pcs-multi-cluster-login-configure.sh
    ```
 
 1. Run the script:
 
-   ```
+   ```sh
    ./pcs-multi-cluster-login-configure.sh --cluster-identifier {{cluster-name}}
    ```
 

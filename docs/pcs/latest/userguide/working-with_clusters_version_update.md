@@ -1,7 +1,6 @@
 
 
 # Updating the scheduler version of a cluster in AWS PCS
-<a name="working-with_clusters_version_update"></a>
 
 AWS PCS lets you update the scheduler version on an existing cluster without rebuilding your infrastructure. Version updates move the cluster controller to a newer Slurm major version, giving you access to new features, performance improvements, and security patches. Newer versions also have a longer support lifetime before reaching end of life.
 

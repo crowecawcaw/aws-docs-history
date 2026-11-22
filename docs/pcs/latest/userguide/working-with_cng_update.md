@@ -1,14 +1,13 @@
 
 
 # Updating a compute node group in AWS PCS
-<a name="working-with_cng_update"></a>
 
 This topic describes how to update a compute node group in AWS Parallel Computing Service (AWS PCS). It also describes which changes cause AWS PCS to replace compute nodes. For information about custom Slurm settings, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md).
 
 ## Options for updating an AWS PCS compute node group
 <a name="working-with_cng_update_options"></a>
 
-You can change the settings that AWS PCS uses to launch compute nodes and the rules for how it launches them. For example, you can change the AMI to install different software, change the security groups to control network access, or change the SSH key pair. You can also change the configuration type, subnets, IAM instance profile, scaling configuration, purchase option, Slurm settings, and node lifecycle actions.
+You can change the settings that AWS PCS uses to launch compute nodes and the rules for how it launches them. For example, you can change the AMI to install different software, change the security groups to control network access, or change the SSH key pair. You can also change the configuration type, subnets, IAM instance profile, scaling configuration, purchase option, Slurm settings, node lifecycle actions, and instance health checks.
 
 You can't change these settings after you create a compute node group:
 + Name
@@ -19,7 +18,7 @@ You can't change these settings after you create a compute node group:
 
 Before you update a compute node group, consider the following:
 + Changes take effect when the compute node group status changes from `UPDATING` to `ACTIVE`. New compute nodes launch with the updated settings.
-+ If you change a setting that AWS PCS uses to launch compute nodes, AWS PCS replaces the existing compute nodes. These settings include the AMI, security groups, SSH key pair, custom launch template or its version, configuration type, and node lifecycle actions. AWS PCS lets running jobs finish before it replaces a node. AWS PCS terminates interactive user processes, such as processes on login nodes.
++ If you change a setting that AWS PCS uses to launch compute nodes, AWS PCS replaces the existing compute nodes. These settings include the AMI, security groups, SSH key pair, custom launch template or its version, configuration type, node lifecycle actions, and instance health checks. AWS PCS lets running jobs finish before it replaces a node. AWS PCS terminates interactive user processes, such as processes on login nodes.
 + When AWS PCS marks compute nodes for replacement, the compute node group status returns to `ACTIVE`. The replacement happens later, when the nodes are idle.
 + AWS PCS doesn't replace running compute nodes for changes that don't affect how it launches them. For example, adding a subnet or changing the Spot allocation strategy affects only compute nodes that AWS PCS launches later.
 + If you change the SSH key pair, running compute nodes keep the previous key pair until AWS PCS replaces them. If you specify an SSH key pair, the IAM identity that updates the compute node group also needs `ec2:DescribeKeyPairs`. For more information, see [Minimum permissions to use API actions](security-min-permissions.md#security-min-permissions_api).
@@ -52,7 +51,7 @@ You can update a compute node group by using the AWS Management Console or the A
 
 1. (Optional) Change the configuration type. You can switch between **Standard configuration** and **Launch template configuration**. For the requirements of each, see [How AWS PCS chooses the AMI, security groups, and SSH key pair](working-with_cng_create.md#working-with_cng_create_instance-settings).
 
-1. In the **Computing configuration**, **Network**, **Additional settings**, **Scheduler configuration**, **Slurm custom settings**, and **Node lifecycle actions** sections, change any values except **Instances**. You can't change the instance types in a compute node group.
+1. In the **Computing configuration**, **Network**, **Additional settings**, **Scheduler configuration**, **Slurm custom settings**, **Node lifecycle actions**, and **Instance health checks** sections, change any values except **Instances**. You can't change the instance types in a compute node group.
    + **Security groups** – To remove a security group, clear it in the list.
    + **Scale-down idle time** – Enter a value from 1 to 10000000 seconds. AWS PCS uses this value instead of the cluster-level value. To use the cluster-level value, clear the field. This setting requires Slurm version 25.11 or later.
 
@@ -103,6 +102,9 @@ For more information, see [Custom Slurm settings for AWS PCS compute node groups
 
 **Example – Updating node lifecycle actions**  
 To change the scripts that run at defined points in a compute node's lifecycle, specify `--node-lifecycle-actions`. For the format and example commands, see [Node lifecycle action examples for AWS PCS](cng-node-lifecycle-actions-examples.md).
+
+**Example – Updating instance health checks**  
+To turn on, change, or turn off instance health checks, specify `--instance-health-checks`. The value replaces all of the compute node group's instance health check settings. For example commands, see [Changing or turning off instance health checks](cng-instance-health-checks-configure.md#cng-instance-health-checks-configure-update).
 
 **Example – Updating the scale-down idle time**  
 

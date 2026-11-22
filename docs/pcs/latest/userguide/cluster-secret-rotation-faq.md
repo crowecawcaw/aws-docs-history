@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions about cluster secret rotation in AWS PCS
-<a name="cluster-secret-rotation-faq"></a>
 
 Find answers to common questions about cluster secret rotation in AWS PCS.
 

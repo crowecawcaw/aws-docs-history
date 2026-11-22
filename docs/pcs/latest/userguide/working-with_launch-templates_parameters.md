@@ -1,7 +1,6 @@
 
 
 # Useful launch template parameters
-<a name="working-with_launch-templates_parameters"></a>
 
 This section describes some launch template parameters that may be broadly useful with AWS PCS.
 
@@ -18,7 +17,7 @@ On the console pages for creating or editing launch templates, this option is fo
 ------
 #### [ YAML ]
 
-```
+```yaml
 Monitoring:
     Enabled: True
 ```
@@ -26,7 +25,7 @@ Monitoring:
 ------
 #### [ JSON ]
 
-```
+```json
 {"Monitoring": {"Enabled": "True"}}
 ```
 
@@ -47,7 +46,7 @@ On the console pages for creating or editing launch templates, this option is fo
 ------
 #### [ YAML ]
 
-```
+```yaml
 MetadataOptions:
   HttpEndpoint: enabled
   HttpTokens: required
@@ -57,7 +56,7 @@ MetadataOptions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "MetadataOptions": {
         "HttpEndpoint": "enabled",

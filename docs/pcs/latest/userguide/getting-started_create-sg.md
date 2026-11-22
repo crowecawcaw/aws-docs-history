@@ -1,7 +1,6 @@
 
 
 # Create security groups for AWS PCS
-<a name="getting-started_create-sg"></a>
 
  AWS PCS relies on security groups to manage network traffic into and out of a cluster and its compute node groups. For detailed information on this topic, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements). 
 

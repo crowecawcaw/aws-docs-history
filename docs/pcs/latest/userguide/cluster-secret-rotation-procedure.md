@@ -1,7 +1,6 @@
 
 
 # Rotate a cluster secret in AWS PCS
-<a name="cluster-secret-rotation-procedure"></a>
 
 Rotate your cluster secret to comply with security requirements and address potential compromises. This process requires putting your cluster into maintenance mode.
 
@@ -77,7 +76,7 @@ A previous rotation isn't complete. That rotation will be reattempted.
 
 The `cancel-rotate-secret` command alone doesn't remove the `AWSPENDING` staging label, and it sets `RotationEnabled` to `false`. To clear the stranded version, remove the `AWSPENDING` staging label from the pending version:
 
-```
+```cmd
 aws secretsmanager update-secret-version-stage \
     --secret-id {{secret-arn}} \
     --version-stage AWSPENDING \
@@ -91,7 +90,7 @@ To confirm that the Slurm controller is reachable and that nodes are healthy, us
 
 To confirm that nodes use the current key, compare the SHA-256 hash of the base64-decoded `AWSCURRENT` secret with the hash of `/etc/slurm/slurm.key` on the nodes:
 
-```
+```cmd
 sha256sum /etc/slurm/slurm.key
 ```
 

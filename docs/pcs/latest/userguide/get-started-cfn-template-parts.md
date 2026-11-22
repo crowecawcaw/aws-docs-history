@@ -1,7 +1,6 @@
 
 
 # Parts of a CloudFormation template for AWS PCS
-<a name="get-started-cfn-template-parts"></a>
 
 A CloudFormation template has 1 or more sections that each serve a specific purpose. CloudFormation defines standard format, syntax, and language in a template. For more information, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*.
 
@@ -21,7 +20,7 @@ The code samples in this topic are **not complete**. The presence of ellipsis (`
 ## Header
 <a name="get-started-cfn-template-parts-header"></a>
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: AWS Parallel Computing Service "getting started" cluster
@@ -34,7 +33,7 @@ Description: AWS Parallel Computing Service "getting started" cluster
 ## Metadata
 <a name="get-started-cfn-template-parts-metadata"></a>
 
-```
+```yaml
 ### Stack metadata
 Metadata:
   AWS::CloudFormation::Interface:
@@ -65,7 +64,7 @@ The `metadata` section of a CloudFormation template provides information about t
 
 The `Parameters` section defines the custom parameters for the template. CloudFormation uses these parameter definitions to construct and validate the form that you interact with when you launch a stack from this template.
 
-```
+```yaml
 Parameters:
 
   NodeArchitecture:
@@ -131,7 +130,7 @@ Parameters:
 
 The `Mappings` section defines key-value pairs that specify values based on certain conditions or dependencies.
 
-```
+```yaml
 Mappings:
 
   Architecture:
@@ -151,7 +150,7 @@ Mappings:
 
 The `Resources` section declares the AWS resources to provision and configure as part of the stack.
 
-```
+```yaml
 Resources:
 
   [...]
@@ -159,7 +158,7 @@ Resources:
 
 The template provisions the sample cluster infrastructure in layers. It starts with `Networking` for VPC configuration. Storage is provided by dual systems: `EfsStorage` for shared storage and `FSxLStorage` for high-performance storage. The core cluster is established through `PCSCluster`.
 
-```
+```yaml
   Networking:
     Type: AWS::CloudFormation::Stack
     Properties:
@@ -205,7 +204,7 @@ The template provisions the sample cluster infrastructure in layers. It starts w
 
 For compute resources, the template creates two node groups: `PCSNodeGroupLogin` for a single login node and `PCSNodeGroupCompute` for up to four compute nodes. These node groups are supported by `PCSInstanceProfile` for permissions and `PCSLaunchTemplate` for instance configurations. 
 
-```
+```yaml
   # Compute Node groups
   PCSInstanceProfile:
     Type: AWS::CloudFormation::Stack
@@ -269,7 +268,7 @@ For compute resources, the template creates two node groups: `PCSNodeGroupLogin`
 
 Both node groups include a `NodeLifecycleActions` block that mounts shared storage and forwards node logs to Amazon CloudWatch Logs at the `nodeBootstrapped` stage. This replaces the older approach of mounting file systems through launch-template user data. Amazon EFS is mounted at `/home` for user home directories, and FSx for Lustre is mounted at `/shared` for high-performance scratch storage. A fourth action forwards node lifecycle action logs to Amazon CloudWatch Logs. The mount and directory actions use `EVERY_BOOT` so that they run on every reboot and keep storage available, while `configure-cloudwatch-logs` uses `FIRST_BOOT_ONLY` because the CloudWatch agent configuration persists across reboots and does not need to be reapplied. For more information about node lifecycle actions, see [Node lifecycle actions](cng-node-lifecycle-actions.md). For details on the scripts that AWS maintains, see [AWS-maintained scripts](cng-node-lifecycle-actions-vetted-scripts.md).
 
-```
+```yaml
       NodeLifecycleActions:
         ScriptCachingPolicy: CACHE_ONCE
         Stages:
@@ -323,7 +322,7 @@ Both node groups include a `NodeLifecycleActions` block that mounts shared stora
 
 Job scheduling is handled through `PCSQueueCompute`.
 
-```
+```yaml
   PCSQueueCompute:
     Type: AWS::PCS::Queue
     Properties:
@@ -335,7 +334,7 @@ Job scheduling is handled through `PCSQueueCompute`.
 
 AMI selection happens automatically through the PcsAMILookupFn Lambda function and related resources.
 
-```
+```yaml
         
   PcsAMILookupRole:
     Type: AWS::IAM::Role
@@ -367,7 +366,7 @@ AMI selection happens automatically through the PcsAMILookupFn Lambda function a
 
 The template outputs cluster identification and management URLs through `ClusterId`, `PcsConsoleUrl`, and `Ec2ConsoleUrl`.
 
-```
+```yaml
 Outputs:
   ClusterId:
     Description: The Id of the PCS cluster

@@ -1,7 +1,6 @@
 
 
 # Access AWS Parallel Computing Service using an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Parallel Computing Service (AWS PCS). You can access AWS PCS as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS PCS.
 
@@ -53,7 +52,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for AWS PCS actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed AWS PCS actions for all principals to the cluster with the specified {{cluster-id}}. Replace {{region}} with the ID of the AWS Region of the cluster, such as `us-east-1`. Replace {{account-id}} with the AWS account number of the cluster.
 
-```
+```json
 {
     "Statement": [
             {

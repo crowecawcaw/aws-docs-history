@@ -1,7 +1,6 @@
 
 
 # Connect to a AWS PCS cluster created with CloudFormation
-<a name="get-started-cfn-connect"></a>
 
 After you create an AWS PCS cluster from a CloudFormation template, you can use the AWS PCS console (in the AWS Management Console) to administer the cluster. You can also connect to 1 of the cluster's login nodes to administer the cluster, run jobs, and manage data. The CloudFormation stack provides links you can use to connect to your cluster.
 

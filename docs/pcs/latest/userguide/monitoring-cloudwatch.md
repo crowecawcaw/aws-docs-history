@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Parallel Computing Service with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 Amazon CloudWatch provides monitoring of your AWS Parallel Computing Service (AWS PCS) cluster health and performance by collecting metrics from the cluster at intervals. These metrics are retained, allowing you to access historical data and gain insights into your cluster's performance over time.
 

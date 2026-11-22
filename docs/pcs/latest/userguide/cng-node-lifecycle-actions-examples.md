@@ -1,7 +1,6 @@
 
 
 # Node lifecycle action examples for AWS PCS
-<a name="cng-node-lifecycle-actions-examples"></a>
 
 The following examples use the AWS CLI to configure node lifecycle actions. You can define lifecycle actions when you create a compute node group with `create-compute-node-group`, or add or change them on an existing compute node group with `update-compute-node-group`. The `--node-lifecycle-actions` value is the same for both commands.
 

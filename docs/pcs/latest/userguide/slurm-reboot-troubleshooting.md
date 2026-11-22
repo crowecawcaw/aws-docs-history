@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Slurm reboot issues in AWS PCS
-<a name="slurm-reboot-troubleshooting"></a>
 
 When you encounter node reboot problems, first check the node status using `scontrol show node {{nodename}}`. Then examine CloudWatch logs for both Slurm (slurmctld and slurmd) and system logs to identify potential errors.
 

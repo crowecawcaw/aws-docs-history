@@ -1,7 +1,6 @@
 
 
 # Creating a cluster in AWS PCS
-<a name="working-with_clusters_create"></a>
 
 This topic provides an overview of available options and describes what to consider when you create a cluster in AWS Parallel Computing Service (AWS PCS). If this is your first time creating an AWS PCS cluster, we recommend you follow [Get started with AWS Parallel Computing Service](getting-started.md). The tutorial can help you create a working HPC system without expanding into all the available options and system architectures that are possible.
 
@@ -69,7 +68,7 @@ AWS PCS currently supports Slurm 25.11 and 25.05.
    + Replace the value for `subnetIds` with your own. We recommend you select a private subnet to avoid exposing your scheduler endpoints to the public internet.
    + Specify the `securityGroupIds` that you want AWS PCS to associate with the network interfaces it creates for your cluster. The security groups must be in the same VPC as the cluster. You must select at least one security group that allows communication between your cluster and its compute nodes. For more information, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements). 
 
-   ```
+   ```cmd
    aws pcs create-cluster --region {{region}} \
        --cluster-name {{my-cluster}} \
        --scheduler type=SLURM,version={{25.11}} \
@@ -78,7 +77,7 @@ AWS PCS currently supports Slurm 25.11 and 25.05.
    ```
    + to use IPv6, add `networkType=IPV6` to the `--networking` configuration.
 
-     ```
+     ```cmd
        --networking networkType=IPV6,subnetIds={{subnet-ExampleId1}},securityGroupIds={{sg-ExampleId1}}
      ```
    +  Optionally, you can add the `--slurm-configration` option to customize the Slurm behavior and specify Slurm configuration options. The following example sets the scale-down idle time to 60 minutes (3600 seconds), enables Slurm accounting, and specifies `slurm.conf` settings as the value for `slurmCustomSettings`. For more information, see [Slurm accounting in AWS PCS](slurm-accounting.md).
@@ -87,7 +86,7 @@ Accounting is supported for Slurm 24.11 or later.
 **Note**  
 The cluster-level `scaleDownIdleTimeInSeconds` applies to all compute node groups in the cluster by default. For Slurm 25.11 or later, individual compute node groups can override this value with their own `scaleDownIdleTimeInSeconds` setting.
 
-     ```
+     ```txt
      aws pcs create-cluster --region {{region}} \
          --cluster-name {{my-cluster}} \
          --scheduler type=SLURM,version={{25.11}} \
@@ -98,7 +97,7 @@ The cluster-level `scaleDownIdleTimeInSeconds` applies to all compute node group
 
 1. It can take several minutes to provision the cluster. You can query the status of your cluster with the following command. Don’t proceed to creating queues or compute node groups until the cluster’s status field is `ACTIVE`.
 
-   ```
+   ```cmd
    aws pcs get-cluster --region {{region}} --cluster-identifier {{my-cluster}}
    ```
 

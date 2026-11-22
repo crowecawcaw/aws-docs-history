@@ -1,7 +1,6 @@
 
 
 # Slurm REST API frequently asked questions in AWS PCS
-<a name="slurm-rest-api-faq"></a>
 
 This section answers frequently asked questions about the Slurm REST API in AWS PCS.
 
@@ -44,7 +43,7 @@ No, there are no additional charges for enabling or using the Slurm REST API fea
 
   Example error message:
 
-  ```
+  ```json
   {
   "errors": [
       {

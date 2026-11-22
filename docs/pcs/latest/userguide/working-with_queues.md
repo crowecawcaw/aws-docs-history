@@ -1,7 +1,6 @@
 
 
 # AWS PCS queues
-<a name="working-with_queues"></a>
 
 An AWS PCS queue is a lightweight abstraction over the scheduler’s native implementation of a work queue. In the case of Slurm, an AWS PCS queue is equivalent to a Slurm partition. 
 

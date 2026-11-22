@@ -1,7 +1,6 @@
 
 
 # Troubleshooting job submission failures due to MaxJobCount limit
-<a name="troubleshooting-job-submission-maxjobcount"></a>
 
 **Problem:** Job submissions fail with the following error message:
 

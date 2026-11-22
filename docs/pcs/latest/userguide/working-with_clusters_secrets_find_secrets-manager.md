@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets Manager to find the cluster secret
-<a name="working-with_clusters_secrets_find_secrets-manager"></a>
 
 ------
 #### [ AWS Management Console ]
@@ -20,7 +19,7 @@ Each AWS PCS cluster secret is also tagged with `aws:pcs:cluster-id`. You can ge
 + Replace `{{region}}` with the AWS Region to create your cluster in, such as `us-east-1`.
 + Replace `{{cluster-id}}` with the ID of the AWS PCS cluster to find the cluster secret for.
 
-```
+```cmd
 aws secretsmanager list-secrets \
     --region {{region}}  \
     --filters Key=tag-key,Values=aws:pcs:cluster-id \

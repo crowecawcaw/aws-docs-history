@@ -1,7 +1,6 @@
 
 
 # Using AWS CloudFormation with the AWS PCS tutorial
-<a name="getting-started_cfn-note"></a>
 
 The AWS PCS tutorial has many steps and is intended to help you understand the parts of an AWS PCS cluster and the procedures required to create it. We recommend that you go through the tutorial steps at least 1 time. After you have a good understanding of what is involved, you can use AWS CloudFormation to create the sample cluster quickly with automation.
 

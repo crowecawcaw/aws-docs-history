@@ -1,7 +1,6 @@
 
 
 # Using sample Amazon Machine Images (AMIs) with AWS PCS
-<a name="working-with_ami_samples"></a>
 
 AWS provides [sample AMIs](ami-release-notes.md) that you can use as a starting point for working with AWS PCS.
 
@@ -46,12 +45,12 @@ The single-version sample AMIs for Slurm 25.05 use Amazon Linux 2 (`amzn2`) inst
 **Examples**
    + Sample AMI for Arm64 instances
 
-     ```
+     ```txt
      aws-pcs-sample_ami-al2023-arm64
      ```
    + Sample AMI for x86 instances
 
-     ```
+     ```txt
      aws-pcs-sample_ami-al2023-x86_64
      ```
 **Note**  
@@ -67,7 +66,7 @@ Check the AMI description to confirm that the AMI supports the Slurm version of 
 You can find the latest AWS PCS sample AMI with the commands that follow. Replace {{region-code}} with the AWS Region where you use AWS PCS, such as `us-east-1`, and {{slurm-version}} with the Slurm major version of your cluster, such as `26.05`. The description filter selects an AMI that supports that version.
 + **x86\_64**
 
-  ```
+  ```cmd
   aws ec2 describe-images --region {{region-code}} --owners amazon \
   --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-x86_64*' \
               'Name=description,Values=*{{slurm-version}}*' \
@@ -76,7 +75,7 @@ You can find the latest AWS PCS sample AMI with the commands that follow. Replac
   ```
 + **Arm64**
 
-  ```
+  ```cmd
   aws ec2 describe-images --region {{region-code}} --owners amazon \
   --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-arm64*' \
               'Name=description,Values=*{{slurm-version}}*' \

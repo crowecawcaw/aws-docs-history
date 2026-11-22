@@ -1,7 +1,6 @@
 
 
 # Prerequisites for the AWS PCS multi-cluster login node configuration script
-<a name="multi-cluster-login-script-prerequisites"></a>
 
 ## System requirements
 <a name="system-requirements"></a>
@@ -41,6 +40,6 @@
 <a name="slurm-installation"></a>
 + Slurm must be installed in the same location as AWS PCS Slurm installer packages:
 
-  ```
+  ```cmd
   /opt/aws/pcs/scheduler/slurm-{{version}}
   ```

@@ -1,7 +1,6 @@
 
 
 # Placement groups for EC2 instances in AWS PCS
-<a name="working-with_networking_placement-groups"></a>
 
  You can use a **placement group** to influence the placement of EC2 instances to suit the needs of the workload that runs on them.
 

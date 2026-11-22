@@ -1,7 +1,6 @@
 
 
 # Configuring Multi-Instance GPU (MIG) in AWS PCS
-<a name="mig-configuration"></a>
 
 NVIDIA Multi-Instance GPU (MIG) partitions a supported GPU into isolated GPU instances, each with its own memory and compute resources. Slurm schedules each MIG profile as its own Generic Resource (GRES) type, so multiple jobs can share one physical GPU with hardware isolation.
 

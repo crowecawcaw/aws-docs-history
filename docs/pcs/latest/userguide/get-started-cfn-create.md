@@ -1,7 +1,6 @@
 
 
 # Use CloudFormation to create a sample AWS PCS cluster
-<a name="get-started-cfn-create"></a>
 
 The following procedure uses a CloudFormation template in the AWS Management Console to create a sample AWS PCS cluster. For more information about CloudFormation, see [What is CloudFormation?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in the *AWS CloudFormation User Guide*. For more information about AWS PCS resource types in CloudFormation, see [AWS PCS resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PCS.html) in the *AWS CloudFormation User Guide*.
 

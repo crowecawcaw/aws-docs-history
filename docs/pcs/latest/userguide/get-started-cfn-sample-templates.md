@@ -1,7 +1,6 @@
 
 
 # CloudFormation templates to create a sample AWS PCS cluster
-<a name="get-started-cfn-sample-templates"></a>
 
 
 

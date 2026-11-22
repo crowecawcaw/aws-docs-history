@@ -1,7 +1,6 @@
 
 
 # Troubleshooting problems in AWS Parallel Computing Service
-<a name="troubleshooting"></a>
 
 The following topics provide guidance to troubleshoot some problems you might encounter in AWS PCS.
 + [Cluster updates](working-with_clusters_update_troubleshooting.md)

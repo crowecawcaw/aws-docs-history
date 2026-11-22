@@ -1,7 +1,6 @@
 
 
 # Working with Amazon EC2 user data for AWS PCS
-<a name="working-with_ec2-user-data"></a>
 
 **Note**  
 For most node configuration tasks, we recommend node lifecycle actions. They provide reusable, API-native configuration with per-script error handling and reboot control. Use launch template user data for tasks that must run before the AWS PCS agent starts. For more information, see [Node lifecycle actions](cng-node-lifecycle-actions.md).
@@ -28,7 +27,7 @@ Our user data can perform common configuration scenarios, including but not limi
 **Note**  
  If you add user data to a launch template in the Amazon EC2 console, you can paste it in as plain text. Or, you can upload it from a file. If you use the AWS CLI or an AWS SDK, you must first base64 encode the user data and submit that string as the value of the `UserData` parameter when you call [CreateLaunchTemplate](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html), as shown in this JSON file. 
 
-```
+```json
 {
     "LaunchTemplateName": "base64-user-data",
     "LaunchTemplateData": {

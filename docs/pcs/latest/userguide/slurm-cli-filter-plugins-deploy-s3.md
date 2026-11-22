@@ -1,7 +1,6 @@
 
 
 # Use Amazon S3 to deploy a CLI Filter Plugin script in AWS PCS
-<a name="slurm-cli-filter-plugins-deploy-s3"></a>
 
 Use S3 to deploy your CLI Filter Plugin script when you want to update job submission logic on a live cluster without rebuilding AMIs. This approach downloads the script from S3 during instance launch using user data.
 

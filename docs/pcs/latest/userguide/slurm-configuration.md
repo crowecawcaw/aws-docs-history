@@ -1,7 +1,6 @@
 
 
 # Slurm configuration in AWS PCS
-<a name="slurm-configuration"></a>
 
 AWS PCS manages the Slurm configuration of your cluster. The cluster controller holds the authoritative configuration files, which include `slurm.conf`, `cgroup.conf`, and `slurmdbd.conf`. AWS PCS generates these files from your cluster, queue, and compute node group settings, and updates them as your cluster changes.
 
@@ -16,7 +15,7 @@ Slurm caches the files that it fetches on the node, and creates a symbolic link 
 
 To review the configuration that a node runs with, use the following command on the node.
 
-```
+```sh
 scontrol show config
 ```
 

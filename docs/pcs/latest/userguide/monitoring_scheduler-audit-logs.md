@@ -1,7 +1,6 @@
 
 
 # Scheduler audit logs in AWS PCS
-<a name="monitoring_scheduler-audit-logs"></a>
 
 Scheduler audit logs record Remote Procedure Call (RPC) operations processed by your cluster's Slurm controller (`slurmctld`) and database daemon (`slurmdbd`). The `AUDIT_RPCS:` prefix in the log message identifies these logs. They support security auditing and compliance use cases.
 
@@ -31,7 +30,7 @@ The following example IAM policy grants the required permissions.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -78,7 +77,7 @@ You can set up scheduler audit logs for your AWS PCS cluster with the AWS Manage
 
 1. Create a log delivery destination:
 
-   ```
+   ```cmd
    aws logs put-delivery-destination --region {{region}} \
      --name {{pcs-audit-logs-destination}} \
      --delivery-destination-configuration \
@@ -94,7 +93,7 @@ You can set up scheduler audit logs for your AWS PCS cluster with the AWS Manage
 
 1. Set the PCS cluster as a log delivery source:
 
-   ```
+   ```cmd
    aws logs put-delivery-source --region {{region}} \
      --name {{cluster-audit-logs-source-name}} \
      --resource-arn {{cluster-arn}} \
@@ -110,7 +109,7 @@ You can set up scheduler audit logs for your AWS PCS cluster with the AWS Manage
 
 1. Connect the delivery source to the delivery destination:
 
-   ```
+   ```cmd
    aws logs create-delivery --region {{region}} \
      --delivery-source-name {{cluster-audit-logs-source}} \
      --delivery-destination-arn {{destination-arn}}

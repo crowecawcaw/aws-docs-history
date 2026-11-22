@@ -1,7 +1,6 @@
 
 
 # Using I-ODCRs with AWS PCS
-<a name="capacity-reservations-iodcr"></a>
 
  Interruptible On-Demand Capacity Reservations (I-ODCRs) let ODCR owners temporarily share unused reserved capacity with other accounts in their AWS organization. Consumer instances receive a **2-minute termination warning** when the owner reclaims capacity, making I-ODCRs suitable for fault-tolerant workloads such as batch processing, ML training, and data analysis. 
 
@@ -25,7 +24,7 @@ Key characteristics:
 +  **Ensure you have access to the I-ODCR.** The ODCR owner must share the interruptible reservation with your account using [AWS Resource Access Manager (RAM)](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html). Once shared, the I-ODCR appears in your account under **Capacity Reservations** on the Amazon EC2 console. 
 +  **Create a launch template that targets the I-ODCR.** Reference the I-ODCR ID directly and set the market type to `interruptible-capacity-reservation`. Here is an example launch template: 
 
-  ```
+  ```json
   {
     "CapacityReservationSpecification": {
       "CapacityReservationTarget": {
@@ -59,7 +58,7 @@ Key characteristics:
 
  The ODCR owner creates an interruptible allocation of 16 instances from their existing 32-instance reservation: 
 
-```
+```cmd
 aws ec2 create-interruptible-capacity-reservation-allocation \
     --capacity-reservation-id cr-source1234567890a \
     --instance-count 16
@@ -71,7 +70,7 @@ aws ec2 create-interruptible-capacity-reservation-allocation \
 
  The owner shares the I-ODCR with the consumer account: 
 
-```
+```cmd
 aws ram create-resource-share \
     --name "HPC-Interruptible-Share" \
     --resource-arns arn:aws:ec2:us-east-2:123456789012:capacity-reservation/cr-interruptible456 \
@@ -82,7 +81,7 @@ aws ram create-resource-share \
 
  The consumer creates a launch template: 
 
-```
+```json
 {
   "CapacityReservationSpecification": {
     "CapacityReservationTarget": {

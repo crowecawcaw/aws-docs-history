@@ -1,7 +1,6 @@
 
 
 # Configure an AWS PCS compute node group to use a Capacity Block
-<a name="capacity-blocks-configure-cng"></a>
 
 **To associate a Capacity Block with a compute node group**
 

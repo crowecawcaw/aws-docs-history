@@ -1,7 +1,6 @@
 
 
 # Slurm versions in AWS PCS
-<a name="slurm-versions"></a>
 
 SchedMD continually enhances Slurm with new capabilities, optimizations, and security patches. SchedMD releases a new major version at [regular intervals](https://slurm.schedmd.com/upgrades.html#release_cycle) and plans to support up to 3 versions at any given time. AWS PCS is designed to automatically update the Slurm controller with patch versions. 
 

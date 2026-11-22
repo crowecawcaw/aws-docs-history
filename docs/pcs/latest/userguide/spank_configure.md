@@ -1,7 +1,6 @@
 
 
 # Configure SPANK plugins on AWS PCS
-<a name="spank_configure"></a>
 
 By default, store configuration files in `/etc/aws/pcs/scheduler/slurm-{{version}}/plugstack.conf.d/`.
 

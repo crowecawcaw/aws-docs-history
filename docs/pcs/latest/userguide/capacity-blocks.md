@@ -1,7 +1,6 @@
 
 
 # Using Amazon EC2 Capacity Blocks for ML with AWS PCS
-<a name="capacity-blocks"></a>
 
 Amazon EC2 Capacity Blocks for ML is an Amazon EC2 purchasing option that enables you to pay in advance to reserve GPU-based accelerated computing instances within a specific date and time range to support short duration workloads. Instances that run inside a Capacity Block are automatically placed close together inside Amazon EC2 UltraClusters, for low-latency, petabit-scale, non-blocking networking. For more information, see [Capacity Blocks for ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html) in the *Amazon Elastic Compute Cloud User Guide*.
 

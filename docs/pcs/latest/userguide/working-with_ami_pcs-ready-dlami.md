@@ -1,7 +1,6 @@
 
 
 # Using PCS-ready DLAMI with AWS PCS
-<a name="working-with_ami_pcs-ready-dlami"></a>
 
 AWS PCS-ready DLAMI Base GPU AMI (Ubuntu 24.04) is an AWS-maintained Amazon Machine Image for running AI/ML and HPC workloads on AWS PCS. It provides a production-ready foundation so you can deploy clusters in minutes instead of building and validating custom AMIs.
 
@@ -23,7 +22,7 @@ PCS-ready DLAMI does not include application software such as AI/ML frameworks (
 Each AMI's *Description* field summarizes its content, including the source DLAMI it is based on, the PCS Agent version, supported Slurm versions, and EFS utilities version. You can view this field in the Amazon EC2 console or by using the `describe-images` API. The following is an example of a Description field value:
 
 ```
-PCS-Ready DLAMI based on Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 24.04) 20260522. PCS Agent: 1.4.0-1. Slurm: 24.11.7-1, 25.05.7-1, 25.11.2-1. EFS Utils: 2.4.2
+PCS-Ready DLAMI based on Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 24.04) 20261113. PCS Agent: 1.6.0-1. Slurm: 25.05.9-2, 25.11.8-2, 26.05.5-2. EFS Utils: 2.4.2
 ```
 
 ## Find the current PCS-ready DLAMI
@@ -48,14 +47,14 @@ PCS-Ready DLAMI based on Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 24
 You can retrieve the latest PCS-ready DLAMI AMI ID using Amazon EC2 Systems Manager Parameter Store. Replace {{region-code}} with your AWS Region.
 + **x86\_64**
 
-  ```
+  ```cmd
   aws ssm get-parameter --region {{region-code}} \
     --name /aws/service/pcs/ami/dlami-base-ubuntu2404/x86_64/latest/ami-id \
     --query "Parameter.Value" --output text
   ```
 + **arm64**
 
-  ```
+  ```cmd
   aws ssm get-parameter --region {{region-code}} \
     --name /aws/service/pcs/ami/dlami-base-ubuntu2404/arm64/latest/ami-id \
     --query "Parameter.Value" --output text
@@ -64,7 +63,7 @@ You can retrieve the latest PCS-ready DLAMI AMI ID using Amazon EC2 Systems Mana
 Alternatively, you can search for PCS-ready DLAMI by name pattern:
 + **x86\_64**
 
-  ```
+  ```cmd
   aws ec2 describe-images --region {{region-code}} --owners amazon \
     --filters 'Name=name,Values=aws-pcs-ready-dlami-base-ubuntu2404-x86_64-*' \
               'Name=state,Values=available' \
@@ -72,7 +71,7 @@ Alternatively, you can search for PCS-ready DLAMI by name pattern:
   ```
 + **arm64**
 
-  ```
+  ```cmd
   aws ec2 describe-images --region {{region-code}} --owners amazon \
     --filters 'Name=name,Values=aws-pcs-ready-dlami-base-ubuntu2404-arm64-*' \
               'Name=state,Values=available' \
@@ -119,7 +118,7 @@ Messages are posted to this topic when a new PCS-ready DLAMI is published.
 
 The SSM parameter path provides a stable reference that always resolves to the latest AMI ID. You can use this in CloudFormation templates to automatically pick up new versions on redeployment:
 
-```
+```yaml
 AmiId: '{{resolve:ssm:/aws/service/pcs/ami/dlami-base-ubuntu2404/x86_64/latest/ami-id}}'
 ```
 

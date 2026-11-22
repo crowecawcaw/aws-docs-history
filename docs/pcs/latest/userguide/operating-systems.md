@@ -1,7 +1,6 @@
 
 
 # Supported operating systems in AWS PCS
-<a name="operating-systems"></a>
 
 AWS PCS uses the Amazon Machine Image (AMI) configured for a compute node group to launch EC2 instances in that compute node group. The AMI determines the operating system that the EC2 instances use. You can't change the operating system in AWS PCS sample AMIs. You must create a custom AMI if you want to use a different operating system. For more information, see [Amazon Machine Images (AMIs) for AWS PCS](working-with_ami.md). 
 
@@ -31,7 +30,7 @@ You can use the[ official Rocky Linux 9 AMIs](https://rockylinux.org/cloud-image
 
   1. ssh into the instance and run the following command:
 
-     ```
+     ```sh
      sudo yum -y update
      ```
 

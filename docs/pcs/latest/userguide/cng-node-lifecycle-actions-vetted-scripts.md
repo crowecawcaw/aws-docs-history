@@ -1,7 +1,6 @@
 
 
 # Use AWS-maintained scripts for node lifecycle actions in AWS PCS
-<a name="cng-node-lifecycle-actions-vetted-scripts"></a>
 
 AWS publishes maintained scripts for common lifecycle actions. You reference a maintained script directly from your compute node group configuration. The scripts are idempotent and safe to run on every boot.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot compute node bootstrap and registration problems in AWS PCS
-<a name="troubleshooting-compute-node-bootstrap"></a>
 
 When compute nodes fail to bootstrap or register properly with your AWS PCS cluster, you might experience the following symptoms:
 + Jobs don't start

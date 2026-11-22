@@ -1,7 +1,6 @@
 
 
 # Using an AWS PCS compute node group to provide login nodes
-<a name="working-with_login-nodes_compute-node-group-for-login"></a>
 
  This topic provides an overview of suggested configuration options and describes what to consider when you use an AWS PCS compute node group to provide persistent, interactive access to your cluster. 
 
