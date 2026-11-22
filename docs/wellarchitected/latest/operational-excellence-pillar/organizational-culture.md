@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Organizational culture
-<a name="organizational-culture"></a>
 
  Provide support for your team members so they can be more effective in taking *action and supporting your business outcome.* 
 

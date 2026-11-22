@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Operating model
-<a name="operating-model"></a>
 
  In this section, we provide a way to understand the operating model you work within, how that model can be visualized, and how, at a team level, you should evolve to extract maximum value from your investment in cloud services. By doing so, you can enhance your operational practices, build agile teams and workloads, and positively contribute to business outcomes. 
 

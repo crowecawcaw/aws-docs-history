@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Understanding operational health
-<a name="understanding-operational-health"></a>
 
 Define, capture, and analyze operations metrics to gain visibility to the activities of operations teams so that you can take appropriate action.
 

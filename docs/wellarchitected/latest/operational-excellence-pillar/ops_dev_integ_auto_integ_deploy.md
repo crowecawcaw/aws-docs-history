@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # OPS05-BP10 Fully automate integration and deployment
-<a name="ops_dev_integ_auto_integ_deploy"></a>
 
  Automate build, deployment, and testing of the workload. This reduces errors caused by manual processes and reduces the effort to deploy changes. 
 

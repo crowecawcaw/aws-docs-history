@@ -1,20 +1,23 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Document revisions
-<a name="document-revisions"></a>
 
 To be notified about updates to this whitepaper, subscribe to the RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Updated best practice guidance](#document-revisions) | Best practices were updated with new guidance in the following areas: OPS 2, OPS 5, OPS 9, and OPS 10. Guidance includes new recommendations on AWS services and generative AI. | November 6, 2024 | 
-| [Updated best practice guidance](#document-revisions) | Large-scale best practice updates were made throughout the pillar. Multiple consolidations of content in OPS 1, OPS 2, and OPS 3. Risk rating changes in OPS 10. | June 27, 2024 | 
-| [Major content update and consolidation](#document-revisions) | Content has been updated and consolidated in multiple best practice areas. Two best practice areas (OPS 4 and OPS 8) have been rewritten with new content and focus.<br />Best practices have been updated and consolidated in the following areas: Design for operations, Mitigate deployment risks, and Understanding operational health. Best practice area OPS 04 has been updated to Implement observability. Best practice area OPS 08 has been updated to Utilizing workload observability. | October 3, 2023 | 
-| [Updates for new Framework](#document-revisions) | Best practices updated with prescriptive guidance and new best practices added. | April 10, 2023 | 
-| [Whitepaper updated](#document-revisions) | Best practices updated with new implementation guidance. | December 15, 2022 | 
-| [Whitepaper updated](#document-revisions) | Best practices expanded and improvement plans added. | October 20, 2022 | 
-| [Minor update](#document-revisions) | Small editorial update. | August 8, 2022 | 
-| [Whitepaper updated](#document-revisions) | Updates to reflect new AWS services and features, and latest best practices. | February 2, 2022 | 
-| [Updates for new Framework](#document-revisions) | Updates to reflect new AWS services and features, and latest best practices. | July 8, 2020 | 
-| [Whitepaper updated](#document-revisions) | Updates to reflect new AWS services and features, and updated references. | July 1, 2018 | 
-| [Initial publication](#document-revisions) | Operational Excellence Pillar - AWS Well-Architected Framework published. | November 1, 2017 | 
+| [Updated best practice guidance](document-revisions.md) | Best practices were updated with new guidance in the following areas: OPS 2, OPS 5, OPS 9, and OPS 10. Guidance includes new recommendations on AWS services and generative AI. | November 6, 2024 | 
+| [Updated best practice guidance](document-revisions.md) | Large-scale best practice updates were made throughout the pillar. Multiple consolidations of content in OPS 1, OPS 2, and OPS 3. Risk rating changes in OPS 10. | June 27, 2024 | 
+| [Major content update and consolidation](document-revisions.md) | Content has been updated and consolidated in multiple best practice areas. Two best practice areas (OPS 4 and OPS 8) have been rewritten with new content and focus.<br />Best practices have been updated and consolidated in the following areas: Design for operations, Mitigate deployment risks, and Understanding operational health. Best practice area OPS 04 has been updated to Implement observability. Best practice area OPS 08 has been updated to Utilizing workload observability. | October 3, 2023 | 
+| [Updates for new Framework](document-revisions.md) | Best practices updated with prescriptive guidance and new best practices added. | April 10, 2023 | 
+| [Whitepaper updated](document-revisions.md) | Best practices updated with new implementation guidance. | December 15, 2022 | 
+| [Whitepaper updated](document-revisions.md) | Best practices expanded and improvement plans added. | October 20, 2022 | 
+| [Minor update](document-revisions.md) | Small editorial update. | August 8, 2022 | 
+| [Whitepaper updated](document-revisions.md) | Updates to reflect new AWS services and features, and latest best practices. | February 2, 2022 | 
+| [Updates for new Framework](document-revisions.md) | Updates to reflect new AWS services and features, and latest best practices. | July 8, 2020 | 
+| [Whitepaper updated](document-revisions.md) | Updates to reflect new AWS services and features, and updated references. | July 1, 2018 | 
+| [Initial publication](document-revisions.md) | Operational Excellence Pillar - AWS Well-Architected Framework published. | November 1, 2017 | 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # OPS05-BP04 Use build and deployment management systems
-<a name="ops_dev_integ_build_mgmt_sys"></a>
 
  Use build and deployment management systems. These systems reduce errors caused by manual processes and reduce the level of effort to deploy changes. 
 
@@ -28,6 +31,8 @@
 <a name="implementation-steps"></a>
 
 ![Diagram showing a CI/CD pipeline using AWS CodePipeline and related services](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/deployment-pipeline-tooling.png)
+
+*Diagram showing a CI/CD pipeline using AWS CodePipeline and related services*
 
 
  

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # OPS09-BP01 Measure operations goals and KPIs with metrics
-<a name="ops_operations_health_measure_ops_goals_kpis"></a>
 
  Obtain goals and KPIs that define operations success from your organization and determine that metrics reflect these. Set baselines as a point of reference and reevaluate regularly. Develop mechanisms to collect these metrics from teams for evaluation. The [DevOps Research and Assessment (DORA)](https://dora.dev/guides/dora-metrics-four-keys/) metrics provide a popular method to measure progress towards DevOps practices of software delivery. 
 
