@@ -1,7 +1,6 @@
 
 
 # Livestock Counting at the Edge
-<a name="livestock-counting-at-the-edge"></a>
 
 Publication date: **July 12, 2022 ([Diagram history](diagram-history.md))**
 

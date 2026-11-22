@@ -1,7 +1,6 @@
 
 
 # Edge Inference for Agriculture
-<a name="edge-inference-agriculture"></a>
 
 Publication date: **August 31, 2020 ([Diagram history](diagram-history.md))**
 
