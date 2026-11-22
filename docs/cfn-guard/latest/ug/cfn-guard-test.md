@@ -1,7 +1,6 @@
 
 
 # test
-<a name="cfn-guard-test"></a>
 
 Validates an AWS CloudFormation Guard rules file against a Guard unit testing file in JSON or YAML format to determine the success of individual rules.
 

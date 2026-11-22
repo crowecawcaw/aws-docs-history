@@ -1,7 +1,6 @@
 
 
 # parse-tree
-<a name="cfn-guard-parse-tree"></a>
 
 Generates a parse tree for the AWS CloudFormation Guard rules defined in a rules file.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS CloudFormation Guard
-<a name="troubleshooting"></a>
 
 If you encounter issues while working with AWS CloudFormation Guard, consult the topics in this section.
 

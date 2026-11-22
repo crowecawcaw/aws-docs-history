@@ -1,7 +1,6 @@
 
 
 # Installing Guard for Linux and macOS
-<a name="setting-up-linux"></a>
 
 You can install AWS CloudFormation Guard for Linux and macOS by using the pre-built release binary, Cargo, or through Homebrew.
 
@@ -12,13 +11,13 @@ Use the following procedure to install Guard from a pre-built binary.
 
 1. Open a terminal, and run the following command.
 
-   ```
+   ```ps
    curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
    ```
 
 1. Run the following command to set your `PATH` variable.
 
-   ```
+   ```ps
    export PATH=~/.guard/bin:$PATH
    ```
 
@@ -43,25 +42,25 @@ Cargo is the Rust package manager. Complete the following steps to install Rust,
 
 1. Run the following command from a terminal, and follow the onscreen instructions to install Rust.
 
-   ```
+   ```sh
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
    1. (Optional) For Ubuntu environments, run the following command.
 
-     ```
+     ```sh
      sudo apt-get update; sudo apt install build-essential
      ```
 
 1. Configure your `PATH` environment variable, and run the following command.
 
-   ```
+   ```sh
    source $HOME/.cargo/env
    ```
 
 1. With Cargo installed, run the following command to install Guard.
 
-   ```
+   ```sh
    cargo install cfn-guard
    ```
 
@@ -69,7 +68,7 @@ Cargo is the Rust package manager. Complete the following steps to install Rust,
 
    1. (Optional) To confirm the installation of Guard, run the following command.
 
-     ```
+     ```sh
      cfn-guard --version
      ```
 
@@ -86,13 +85,13 @@ Homebrew is a package manager for macOS and Linux. Complete the following steps 
 
 1. Run the following command from a terminal, and follow the onscreen instructions to install Homebrew.
 
-   ```
+   ```sh
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
 1. With Homebrew installed, run the following command to install Guard.
 
-   ```
+   ```sh
    brew install cloudformation-guard
    ```
 
@@ -100,7 +99,7 @@ Homebrew is a package manager for macOS and Linux. Complete the following steps 
 
    1. (Optional) To confirm the installation of Guard, run the following command.
 
-     ```
+     ```sh
      cfn-guard --version
      ```
 

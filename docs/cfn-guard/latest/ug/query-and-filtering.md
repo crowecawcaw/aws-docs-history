@@ -1,7 +1,6 @@
 
 
 # Defining Guard queries and filtering
-<a name="query-and-filtering"></a>
 
 This topic covers writing queries and using filtering when writing Guard rule clauses.
 

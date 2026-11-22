@@ -1,7 +1,6 @@
 
 
 # Assigning and referencing variables in Guard rules
-<a name="variables"></a>
 
 You can assign variables in your AWS CloudFormation Guard rules files to store information that you want to reference in your Guard rules. Guard supports one-shot variable assignment. Variables are evaluated lazily, meaning that Guard only evaluates variables when rules are run.
 

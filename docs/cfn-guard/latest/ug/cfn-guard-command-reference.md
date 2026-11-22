@@ -1,7 +1,6 @@
 
 
 # AWS CloudFormation Guard CLI parameters and command reference
-<a name="cfn-guard-command-reference"></a>
 
 The following global parameters and commands are available through the AWS CloudFormation Guard command line interface (CLI).
 

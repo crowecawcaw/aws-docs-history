@@ -1,7 +1,6 @@
 
 
 # Installing Guard as an AWS Lambda function
-<a name="setting-up-lambda"></a>
 
 You can install AWS CloudFormation Guard through Cargo, the Rust package manager. *Guard as an AWS Lambda* function (`cfn-guard-lambda`) is a lightweight wrapper around Guard (`cfn-guard`) that can be used as a Lambda function.
 
@@ -20,19 +19,19 @@ Cargo is the Rust package manager. Complete the following steps to install Rust,
 
 1. Run the following command from a terminal, and then follow the onscreen instructions to install Rust.
 
-   ```
+   ```sh
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
    1. (Optional) For Ubuntu environments, run the following command.
 
-     ```
+     ```sh
      sudo apt-get update; sudo apt install build-essential
      ```
 
 1. Configure your `PATH` environment variable, and run the following command.
 
-   ```
+   ```sh
    source $HOME/.cargo/env
    ```
 
@@ -43,13 +42,13 @@ To install Guard as a Lambda function, complete the following steps.
 
 1. From your command terminal, run the following command.
 
-   ```
+   ```sh
    cargo install cfn-guard-lambda
    ```
 
    1. (Optional) To confirm the installation of Guard as a Lambda function, run the following command.
 
-     ```
+     ```sh
      cfn-guard-lambda --version
      ```
 
@@ -61,13 +60,13 @@ To install Guard as a Lambda function, complete the following steps.
 
 1. To install `musl` support, run the following command.
 
-   ```
+   ```sh
    rustup target add x86_64-unknown-linux-musl
    ```
 
 1. Build with `musl`, and then run the following command in your terminal.
 
-   ```
+   ```sh
    cargo build --release --target x86_64-unknown-linux-musl
    ```
 
@@ -75,26 +74,26 @@ To install Guard as a Lambda function, complete the following steps.
 
    1. For macOS environments, create your cargo configuration file in the root of the Rust project or in `~/.cargo/config`.
 
-     ```
+     ```ini
      [target.x86_64-unknown-linux-musl]
      linker = "x86_64-linux-musl-gcc"
      ```
 
 1. Change to the `cfn-guard-lambda` root directory.
 
-   ```
+   ```sh
    cd ~/.cargo/bin/cfn-guard-lambda
    ```
 
 1. Run the following command in your terminal.
 
-   ```
+   ```sh
    cp ./../target/x86_64-unknown-linux-musl/release/cfn-guard-lambda ./bootstrap && zip lambda.zip bootstrap && rm bootstrap
    ```
 
 1. Run the following command to submit `cfn-guard`as a Lambda function to your account.
 
-   ```
+   ```sh
    aws lambda create-function --function-name {{cfnGuard}} \
     --handler guard.handler \
     --zip-file fileb://./lambda.zip \
@@ -109,7 +108,7 @@ To install Guard as a Lambda function, complete the following steps.
 
 To invoke the submitted `cfn-guard-lambda` as a Lambda function, run the following command.
 
-```
+```sh
 aws lambda invoke --function-name {{cfnGuard}} \
   --payload '{"data":"{{input data}}","rules":["{{rule1}}","{{rule2}}"]}' \
   output.json

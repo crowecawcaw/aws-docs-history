@@ -1,7 +1,6 @@
 
 
 # Testing AWS CloudFormation Guard rules
-<a name="testing-rules"></a>
 
 You can use the AWS CloudFormation Guard built-in unit testing framework to verify that your Guard rules work as intended. This section provides a walkthrough on how to write a unit testing file and how to use it to test your rules file with the `test` command.
 

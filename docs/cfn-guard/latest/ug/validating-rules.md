@@ -1,7 +1,6 @@
 
 
 # Validating input data against AWS CloudFormation Guard rules
-<a name="validating-rules"></a>
 
 You can use the AWS CloudFormation Guard `validate` command to validate data against Guard rules. For more information about the `validate` command, including its parameters and options, see [validate](cfn-guard-validate.md).
 

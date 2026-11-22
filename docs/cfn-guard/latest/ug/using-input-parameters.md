@@ -1,7 +1,6 @@
 
 
 # Using input parameters with AWS CloudFormation Guard rules
-<a name="using-input-parameters"></a>
 
 AWS CloudFormation Guard allows you to use input parameters for dynamic data lookups during validation. This feature is particularly useful when you need to reference external data in your rules. However, when specifying input parameter keys, Guard requires that there are no conflicting paths. 
 
@@ -46,7 +45,7 @@ AWS CloudFormation Guard allows you to use input parameters for dynamic data loo
 
 1. Create a failing data template (For example, `security_groups_fail.yaml`): 
 
-   ```
+   ```yaml
    # ---
    # AWSTemplateFormatVersion: 2010-09-09
    # Description: CloudFormation - EC2 Security Group

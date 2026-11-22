@@ -1,7 +1,6 @@
 
 
 # validate
-<a name="cfn-guard-validate"></a>
 
 Validates data against AWS CloudFormation Guard rules to determine success or failure.
 

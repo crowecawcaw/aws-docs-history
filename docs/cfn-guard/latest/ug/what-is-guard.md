@@ -1,7 +1,6 @@
 
 
 # What is AWS CloudFormation Guard?
-<a name="what-is-guard"></a>
 
 AWS CloudFormation Guard is an open-source, general-purpose, policy-as-code evaluation tool. The Guard command line interface (CLI) provides a simple-to-use and declarative domain-specific language (DSL) that you can use to express policy as code. In addition, you can use CLI commands to validate structured hierarchical JSON or YAML data against those rules. Guard also provides a built-in unit testing framework to verify that your rules work as intended.
 

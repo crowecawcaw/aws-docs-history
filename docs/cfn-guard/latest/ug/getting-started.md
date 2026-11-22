@@ -1,7 +1,6 @@
 
 
 # Prerequisites and overview for using Guard rules
-<a name="getting-started"></a>
 
 This section demonstrates how you can complete the core Guard tasks of writing, testing, and validating rules against JSON- or YAML-formatted data. In addition, it contains detailed walkthroughs that demonstrate writing rules that respond to specific use cases.
 
