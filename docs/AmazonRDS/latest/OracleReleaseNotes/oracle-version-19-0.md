@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle Database 19c (19.0.0.0)
-<a name="oracle-version-19-0"></a>
 
 Amazon RDS for Oracle Database 19c (19.0.0.0) releases a new Release Update (RU) engine version each quarter. In the months between quarterly RUs, RDS for Oracle can also release engine versions that add a Monthly Recommended Patch (MRP) to the current RU. An RU engine version incorporates bug fixes from Oracle by including the RU patches for the specified quarter. A Supplemental Patch Bundle (SPB) is an engine version that contains the RU patches plus additional database patches recommended by Oracle for specific use cases, such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. SPBs are supported only for Oracle Database 19c.
 
@@ -80,7 +79,7 @@ To determine which RUs, MRPs, and SPBs are applied to Amazon RDS for Oracle Data
 **Note**  
 The descriptions of DSTv46 patches 39938301 and 39938324 contain an ampersand (`&`). As a result, querying `dbms_qopatch.get_opatch_lsinventory` as XML fails with `ORA-31011`, `ORA-19213`, and `LPX-00242`. To view the patch inventory, use `getclobval()`:  
 
-```
+```sql
 SET LONG 2000000 LONGCHUNKSIZE 2000000 PAGESIZE 0
 SELECT xmltransform(dbms_qopatch.get_opatch_lsinventory, dbms_qopatch.get_opatch_xslt).getclobval() FROM dual;
 ```
@@ -2497,7 +2496,7 @@ Bugs fixed:
 **Note**  
 The descriptions of DSTv46 patches 39938301 and 39938324 contain an ampersand (`&`). As a result, querying `dbms_qopatch.get_opatch_lsinventory` as XML fails with `ORA-31011`, `ORA-19213`, and `LPX-00242`. To view the patch inventory, use `getclobval()`:  
 
-```
+```sql
 SET LONG 2000000 LONGCHUNKSIZE 2000000 PAGESIZE 0
 SELECT xmltransform(dbms_qopatch.get_opatch_lsinventory, dbms_qopatch.get_opatch_xslt).getclobval() FROM dual;
 ```

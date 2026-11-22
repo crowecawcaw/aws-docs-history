@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle Database 12c Release 2 (12.2.0.1)
-<a name="oracle-version-12-2"></a>
 
 For Oracle Database 12c Release 2 (12.2.0.1), Oracle changed the way it releases Oracle Database updates. Instead of Patch Set Updates (PSUs), Oracle supplies Release Updates (RUs) and Release Updates Revisions (RURs). RUs contain optimizer changes, feature additions, and security fixes. RURs only contain security fixes for the two preceding quarterly patch cycles. We don't support applying one-off patches to individual DB instances.
 

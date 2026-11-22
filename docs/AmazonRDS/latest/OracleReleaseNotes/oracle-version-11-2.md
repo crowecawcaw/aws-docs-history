@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4)
-<a name="oracle-version-11-2"></a>
 
 For Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4), Amazon RDS incorporates bug fixes from Oracle by using their quarterly Database Patch Set Updates (PSUs). If you apply updates, you can be confident that your DB instance is running a version of the database software that has been tested by both Oracle and Amazon. We don't support applying one-off patches to individual DB instances.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle Database 18c (18.0.0.0)
-<a name="oracle-version-18-0"></a>
 
 Amazon RDS for Oracle Database 18c (18.0.0.0) incorporates bug fixes from Oracle by using Release Updates (RUs). The naming format for an RU is as follows: release.ru-date.rur-date.rnumber. The release is the five-digit number, for example, 18.0.0.0. The date is the year and month when the update was made available by Oracle. The rnumber is the revision. The Oracle Database 18c update released by Oracle in April 2021 is named 18.0.0.0.ru-2021-04.rur-2021-04.r1.
 

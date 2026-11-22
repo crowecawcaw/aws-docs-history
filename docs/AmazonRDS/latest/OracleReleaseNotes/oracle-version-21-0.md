@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for Oracle Database 21c (21.0.0.0)
-<a name="oracle-version-21-0"></a>
 
 Amazon RDS for Oracle Database 21c (21.0.0.0) incorporates bug fixes from Oracle by using Release Updates (RUs). The naming format for an RU is as follows: `{{release}}.ru-{{date}}.rur-{{date}}.{{rnumber}}`. For example, the Oracle Database 21c update released by Oracle Corporation in April 2024 is named `21.0.0.0.ru-2024-04.rur-2024-04.r1`. The naming format has the following components:
 + The `{{release}}` is the five-digit number of the release, for example, `21.0.0.0`.
@@ -42,7 +41,7 @@ To find out which RUs are applied to Amazon RDS for Oracle Database 21c (21.0.0)
 **Note**  
 The descriptions of DSTv46 patches 39938301 and 39938324 contain an ampersand (`&`). As a result, querying `dbms_qopatch.get_opatch_lsinventory` as XML fails with `ORA-31011`, `ORA-19213`, and `LPX-00242`. To view the patch inventory, use `getclobval()`:  
 
-```
+```sql
 SET LONG 2000000 LONGCHUNKSIZE 2000000 PAGESIZE 0
 SELECT xmltransform(dbms_qopatch.get_opatch_lsinventory, dbms_qopatch.get_opatch_xslt).getclobval() FROM dual;
 ```
