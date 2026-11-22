@@ -1,7 +1,6 @@
 
 
 # Edit a Amazon MQ for RabbitMQ Configuration Revision
-<a name="edit-current-rabbitmq-configuration-console"></a>
 
  The following instructions describe how to edit a configuration revision for your broker. 
 

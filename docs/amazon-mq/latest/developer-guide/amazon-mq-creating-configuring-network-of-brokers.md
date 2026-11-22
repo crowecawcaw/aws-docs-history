@@ -1,7 +1,6 @@
 
 
 # Creating and configuring an Amazon MQ network of brokers
-<a name="amazon-mq-creating-configuring-network-of-brokers"></a>
 
 A *network of brokers* is comprised of multiple simultaneously active [single-instance brokers](amazon-mq-broker-architecture.md#single-broker-deployment) or [active/standby brokers](amazon-mq-broker-architecture.md#active-standby-broker-deployment). In this tutorial, you learn how to create a two-broker network of brokers with a *source and sink* topology. 
 
@@ -93,7 +92,7 @@ After you allow traffic between your brokers, you must configure network connect
       + Do one of the following:
         + If you are connecting the broker to a single-instance broker, use the `static:` prefix and the OpenWire endpoint `uri` for `MyBroker2`. For example:
 
-          ```
+          ```xml
           <networkConnectors>
             <networkConnector name="{{connector_1_to_2}}" userName="{{myCommonUser}}" duplex="true"
               uri="static:({{ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617}})"/>
@@ -101,7 +100,7 @@ After you allow traffic between your brokers, you must configure network connect
           ```
         + If you are connecting the broker to an active/standby broker, use the `static+failover` transport and the OpenWire endpoint `uri` for both brokers with the following query parameters `?randomize=false&maxReconnectAttempts=0`. For example:
 
-          ```
+          ```xml
           <networkConnectors>
             <networkConnector name="{{connector_1_to_2}}" userName="{{myCommonUser}}" duplex="true"
               uri="static:(failover:({{ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617,
@@ -150,7 +149,7 @@ You might also need to adjust your security group(s) settings to allow the produ
 
 1. From any machine that has access to broker `MyBroker2`, create a consumer. For example:
 
-   ```
+   ```bash
    activemq consumer --brokerUrl "ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617" \
    	--user commonUser \
    	--password myPassword456 \
@@ -161,7 +160,7 @@ You might also need to adjust your security group(s) settings to allow the produ
 
 1. From any machine that has access to broker `MyBroker1`, create a producer and send some messages. For example:
 
-   ```
+   ```bash
    activemq producer --brokerUrl "ssl://b-9876l5k4-32ji-109h-8gfe-7d65c4b132a1-1.mq.us-east-2.amazonaws.com:61617" \
    	--user commonUser \
    	--password myPassword456 \

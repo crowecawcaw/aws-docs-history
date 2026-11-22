@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for ActiveMQ best practices
-<a name="best-practices-activemq"></a>
 
 Use this as a reference to quickly find recommendations for maximizing performance and minimizing throughput costs when working with ActiveMQ brokers on Amazon MQ.
 
@@ -21,7 +20,7 @@ You must not modify or delete this network interface. Modifying or deleting the 
 
 In a scenario with a single producer and single consumer (such as the [Getting started: Creating and connecting to an ActiveMQ broker](getting-started-activemq.md) tutorial), you can use a single `ActiveMQConnectionFactory` class for every producer and consumer. For more information, see [ActiveMQConnectionFactory](https://javadoc.io/doc/org.apache.activemq/activemq-client/latest/org/apache/activemq/ActiveMQConnectionFactory.html) on the javadoc.io website. For example:
 
-```
+```java
 // Create a connection factory.
 final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(wireLevelEndpoint);
 
@@ -39,7 +38,7 @@ However, in more realistic scenarios with multiple producers and consumers, it c
 **Note**  
 Message consumers should *never* use the `PooledConnectionFactory` class.
 
-```
+```java
 // Create a connection factory.
 final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(wireLevelEndpoint);
 
@@ -149,7 +148,7 @@ To monitor your unresolved prepared XA transactions, you can use the `JournalFil
 
 The following example code walks through prepared XA transactions and closes them with a `rollback()`. 
 
-```
+```java
 import org.apache.activemq.ActiveMQXAConnectionFactory;
 
 import javax.jms.XAConnection;

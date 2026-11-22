@@ -1,7 +1,6 @@
 
 
 # Quorum queues for RabbitMQ on Amazon MQ
-<a name="quorum-queues"></a>
 
  Quorum queues are a replicated queue type made up of a leader (primary replica) and followers (other replicas). If the leader becomes unavailable, quorum queues uses the [Raft](https://raft.github.io/) consensus algorithm to elect a new leader node by majority of votes, and the previous leader is demoted to a follower node in the same cluster. The remaining followers continue replicating as before. Because each node is in a different availability zone, if one node is temporarily unavailable, message delivery continues with the newly elected leader replica in another availability zone. 
 

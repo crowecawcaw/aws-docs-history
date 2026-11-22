@@ -1,7 +1,6 @@
 
 
 # RabbitMQ on Amazon MQ: Invalid IAM Assume Role
-<a name="troubleshooting-action-required-codes-invalid-assumerole"></a>
 
  RabbitMQ on Amazon MQ will raise an INVALID\_ASSUMEROLE critical action required code when the IAM role ARN specified in `aws.arns.assume_role_arn` is invalid or cannot be assumed by Amazon MQ. This can occur when the role does not exist, is in a different AWS account than the broker, or lacks the necessary trust relationship with mq.amazonaws.com. 
 

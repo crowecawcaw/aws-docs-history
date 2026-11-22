@@ -1,7 +1,6 @@
 
 
 # RabbitMQ version support
-<a name="rabbitmq-version-support"></a>
 
  The Amazon MQ version support calendar below indicates when a broker engine version will reach end of support. When a version reaches end of support, Amazon MQ upgrades all brokers on this version to the next supported version automatically. This upgrade takes place during your broker's scheduled maintenance windows, within 45 days following the end-of-support date. 
 

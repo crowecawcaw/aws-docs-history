@@ -1,7 +1,6 @@
 
 
 # Best practices for broker setup and connection management in Amazon MQ for RabbitMQ
-<a name="best-practices-broker-setup"></a>
 
  Broker setup and connection management are the first step in preventing issues with broker message throughput, resource utilization, and ability to handle production workloads. When [creating and configuring an Amazon MQ for RabbitMQ broker](getting-started-rabbitmq.md#create-rabbitmq-broker), complete the following best practices for selecting appropriate instance types, managing connections efficiently, and configuring message pre-fetching to maximize your broker's performance. 
 

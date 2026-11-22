@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for RabbitMQ: Disk usage change alarm
-<a name="troubleshooting-action-required-disk-usage-change-alarm"></a>
 
  `RABBITMQ_DISK_USAGE_TOO_HIGH_FOR_CHANGE` indicates that a requested broker instance type change, storage size change, or both cannot proceed because of high disk usage on the current RabbitMQ node. Amazon MQ for RabbitMQ raises this alarm when current disk usage exceeds what would be available after the requested change, as identified by the CloudWatch metric `RabbitMQDiskFree`. 
 

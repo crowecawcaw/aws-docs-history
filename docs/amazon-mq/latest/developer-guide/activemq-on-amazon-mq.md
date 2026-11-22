@@ -1,7 +1,6 @@
 
 
 # ActiveMQ tutorials
-<a name="activemq-on-amazon-mq"></a>
 
 The following tutorials show how you can create and connect to your ActiveMQ brokers. To use the ActiveMQ Java example code, you must install the [Java Standard Edition Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and make some changes to the code
 
@@ -47,7 +46,7 @@ Without the necessary IAM permissions, your function will not be able to success
 **Note**  
  In the example, `testQueue` is the name of the queue. 
 
-   ```
+   ```json
    {
      "eventSource": "aws:amq",
      "eventSourceArn": "arn:aws:mq:us-west-2:112556298976:broker:test:b-9bcfa592-423a-4942-879d-eb284b418fc8",

@@ -1,7 +1,6 @@
 
 
 # Best practices for quorum queues for Amazon MQ for RabbitMQ
-<a name="quorum-queues-best-practices"></a>
 
 We recommend using the following best practices to improve performance when working with quorum queues.
 

@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon MQ cross-Region data replication broker
-<a name="create-replica-broker"></a>
 
  With Cross-Region data replication (CRDR), you can switch between Amazon MQ for ActiveMQ message brokers in two AWS Regions as needed. You can designate an existing broker as a primary broker and create a replica for this broker, or create a new primary and replica broker together. You can then promote the replica broker to the primary broker role using the Amazon MQ `Promote` API operation. For more information about primary and replica brokers, see [Primary and replica brokers for cross-Region data replication](crdr-for-active-mq.md#crdr-primary-replica-brokers). 
 

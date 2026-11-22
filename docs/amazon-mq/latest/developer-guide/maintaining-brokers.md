@@ -1,7 +1,6 @@
 
 
 # Scheduling the maintenance window for an Amazon MQ broker
-<a name="maintaining-brokers"></a>
 
  Periodically, Amazon MQ performs maintenance to the hardware, operating system, or the engine software of a message broker during the maintenance window. For example, if you changed the broker instance type, Amazon MQ will apply your changes during the next scheduled maintenance window. The duration of the maintenance can last up to two hours depending on the operations that are scheduled for your message broker. You can minimize downtime during a maintenance window by selecting a broker deployment mode with high availability across multiple Availability Zones (AZ). 
 
@@ -49,14 +48,14 @@
      + `TimeOfDay` – The time, in 24-hour format.
      + `TimeZone` – (Optional) The time zone, in either the Country/City, or the UTC offset format. Set to UTC by default.
 
-   ```
+   ```sh
    aws mq update-broker --broker-id {{broker-id}} \
    --maintenance-window-start-time DayOfWeek={{SUNDAY}},TimeOfDay={{13:00}},TimeZone={{America/Los_Angeles}}
    ```
 
 1.  (Optional) Use the [describe-broker](https://docs.aws.amazon.com/cli/latest/reference/mq/reboot-broker.html) CLI command to verify that the maintenance window is successfully updated. 
 
-   ```
+   ```sh
    aws mq describe-broker --broker-id {{broker-id}}
    ```
 
@@ -67,7 +66,7 @@
 
 1.  Use the [UpdateBroker](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#UpdateBroker) API operation. Specify `broker-id` as a path parameter. The following examples assumes a broker in the `us-west-2` region. For more information about available Amazon MQ endpoints, see [Amazon MQ endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/amazon-mq.html#amazon-mq_region) in the *AWS General Reference*. 
 
-   ```
+   ```http
    PUT /v1/brokers/{{broker-id}} HTTP/1.1
    Host: mq.us-west-2.amazonaws.com
    Date: Wed, 7 July 2021 12:00:00 GMT
@@ -77,7 +76,7 @@
 
    Use the `maintenanceWindowStartTime` parameter and the [`WeeklyStartTime`](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-model-weeklystarttime) resource type in the request payload.
 
-   ```
+   ```json
    {
    "maintenanceWindowStartTime": {
        "dayOfWeek": {{"SUNDAY"}},
@@ -89,7 +88,7 @@
 
 1.  (Optional) Use the [DescribeBroker](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-http-methods) API operation to verify that the maintenance window has been successfully updated. `broker-id` is specified as a path parameter. 
 
-   ```
+   ```http
    GET /v1/brokers/{{broker-id}} HTTP/1.1
    Host: mq.us-west-2.amazonaws.com
    Date: Wed, 7 July 2021 12:00:00 GMT

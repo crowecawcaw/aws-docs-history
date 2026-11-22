@@ -1,7 +1,6 @@
 
 
 # ARN support in RabbitMQ configuration
-<a name="arn-support-rabbitmq-configuration"></a>
 
 Amazon MQ for RabbitMQ supports AWS ARNs for the values of some RabbitMQ configuration settings. This is enabled by the RabbitMQ community plugin [rabbitmq-aws](https://github.com/amazon-mq/rabbitmq-aws). This plugin is developed and maintained by Amazon MQ and can also be used in self-hosted RabbitMQ brokers not managed by Amazon MQ.
 
@@ -20,6 +19,8 @@ Amazon MQ adds IAM global conditional keys `aws:SourceAccount` and `aws:SourceAr
 
 ## Supported keys
 <a name="arn-support-supported-keys"></a>
+
+**Required IAM role**
 
 `aws.arns.assume_role_arn`  
 IAM role ARN that Amazon MQ assumes to access other AWS resources. Required when any other ARN configuration is used.

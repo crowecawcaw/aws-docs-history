@@ -1,7 +1,6 @@
 
 
 # Cross-Region data replication for Amazon MQ for ActiveMQ
-<a name="crdr-for-active-mq"></a>
 
  Amazon MQ for ActiveMQ offers a Cross-Region data replication (CRDR) feature that allows for asynchronous message replication from the primary broker in a primary AWS Region to the replica broker in a replica Region. By issuing a failover request to the Amazon MQ API, the current replica broker is promoted to the primary broker role, and the current primary broker is demoted to the replica role. 
 

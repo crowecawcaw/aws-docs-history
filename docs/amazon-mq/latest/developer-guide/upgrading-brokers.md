@@ -1,7 +1,6 @@
 
 
 # Upgrading an Amazon MQ broker engine version
-<a name="upgrading-brokers"></a>
 
  Amazon MQ regularly provides new broker engine versions for all supported broker engine types. New engine versions include security patches, bug fixes, and other broker engine improvements. 
 
@@ -44,13 +43,13 @@ Single instance brokers are offline while being rebooted. For cluster brokers, o
    +  `--broker-id` – The unique ID that Amazon MQ generates for the broker. You can parse the ID from your broker ARN. For example, given the following ARN, `arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`, the broker ID would be `b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`. 
    +  `--engine-version` – The engine version number for the broker engine to upgrade to. 
 
-   ```
+   ```sh
    aws mq update-broker --broker-id {{broker-id}} --engine-version {{version-number}}
    ```
 
 1.  (Optional) Use the [reboot-broker](https://docs.aws.amazon.com/cli/latest/reference/mq/reboot-broker.html) CLI command to reboot your broker if you want to upgrade the engine version immediately. 
 
-   ```
+   ```sh
    aws mq reboot-broker --broker-id {{broker-id}}
    ```
 
@@ -65,7 +64,7 @@ Single instance brokers are offline while being rebooted. For cluster brokers, o
 
 1.  Use the [UpdateBroker](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#UpdateBroker) API operation. Specify `broker-id` as a path parameter. The following examples assumes a broker in the `us-west-2` region. For more information about available Amazon MQ endpoints, see [Amazon MQ endpoints and quotas.](https://docs.aws.amazon.com/general/latest/gr/amazon-mq.html#amazon-mq_region) in the *AWS General Reference* 
 
-   ```
+   ```http
    PUT /v1/brokers/{{broker-id}} HTTP/1.1
    Host: mq.us-west-2.amazonaws.com
    Date: Mon, 7 June 2021 12:00:00 GMT
@@ -75,7 +74,7 @@ Single instance brokers are offline while being rebooted. For cluster brokers, o
 
    Use `engineVersion` in the request payload to specify the version number for the broker to upgrade to.
 
-   ```
+   ```json
    {
        "engineVersion": "{{engine-version-number}}"
    }
@@ -83,7 +82,7 @@ Single instance brokers are offline while being rebooted. For cluster brokers, o
 
 1.  (Optional) Use the [RebootBroker](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id-reboot.html#RebootBroker) API operation to reboot your broker if you want to upgrade the engine version immediately. `broker-id` is specified as a path parameter. 
 
-   ```
+   ```http
    POST /v1/brokers/{{broker-id}}/reboot-broker HTTP/1.1
    Host: mq.us-west-2.amazonaws.com
    Date: Mon, 7 June 2021 12:00:00 GMT

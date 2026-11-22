@@ -1,7 +1,6 @@
 
 
 # Cross-Region data replication metrics in Amazon CloudWatch
-<a name="crdr-metrics"></a>
 
  The Amazon MQ for ActiveMQ cross-Region data replication feature offers metrics for maintaining the reliability, availability, and performance of your primary and replica brokers. During the replication process, a replica broker in a secondary Region receives asynchronously replicated data from the primary broker in the primary Region. If the primary broker in the primary Region fails, you can promote the replica broker in the secondary Region to primary by initiating a switchover or failover. For instructions on viewing metrics in Amazon CloudWatch, see [Accessing CloudWatch metrics for Amazon MQ](amazon-mq-accessing-metrics.md). 
 

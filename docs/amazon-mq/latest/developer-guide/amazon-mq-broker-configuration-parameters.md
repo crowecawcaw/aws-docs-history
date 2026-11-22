@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for ActiveMQ broker configurations
-<a name="amazon-mq-broker-configuration-parameters"></a>
 
  A configuration contains all of the settings for your ActiveMQ broker in XML format (similar to ActiveMQ's `activemq.xml` file). You can create a configuration before creating any brokers. You can then apply the configuration to one or more brokers. 
 

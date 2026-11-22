@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon MQ cross-Region data replication broker
-<a name="delete-crdr-broker"></a>
 
  To delete a primary or replica cross-Region data replication (CRDR) broker, you must first unpair then reboot the brokers. The following instructions show how you can unpair and reboot the brokers using the AWS Management Console. 
 

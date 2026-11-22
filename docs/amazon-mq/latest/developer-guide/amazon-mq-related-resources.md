@@ -1,7 +1,6 @@
 
 
 # Related resources
-<a name="amazon-mq-related-resources"></a>
 
 ## Amazon MQ resources
 <a name="amazon-mq-resources"></a>

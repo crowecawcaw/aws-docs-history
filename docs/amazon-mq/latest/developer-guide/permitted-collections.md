@@ -1,7 +1,6 @@
 
 
 # Elements, Child Collection Elements, and Their Child Elements Permitted in Amazon MQ Configurations
-<a name="permitted-collections"></a>
 
 The following is a detailed listing of the elements, child collection elements, and their child elements permitted in Amazon MQ configurations. For more information, see [XML Configuration](https://activemq.apache.org/xml-configuration.html) in the Apache ActiveMQ documentation.
 

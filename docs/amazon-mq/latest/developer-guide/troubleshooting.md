@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon MQ
-<a name="troubleshooting"></a>
 
  This section describes common issues you might encounter when using Amazon MQ brokers, and the steps you can take to resolve them. For general troubleshooting, see [Troubleshooting: General Amazon MQ](general.md). For troubleshooting your specific engine version, see the following sections. 
 

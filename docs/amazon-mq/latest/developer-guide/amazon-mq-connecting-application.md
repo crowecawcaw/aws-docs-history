@@ -1,7 +1,6 @@
 
 
 # Connecting a Java application to your Amazon MQ broker
-<a name="amazon-mq-connecting-application"></a>
 
 After you create an Amazon MQ ActiveMQ broker, you can connect your application to it. The following examples show how you can use the Java Message Service (JMS) to create a connection to the broker, create a queue, and send a message. For a complete, working Java example, see [Working examples of using Java Message Service (JMS) with ActiveMQ](amazon-mq-working-java-example.md).
 
@@ -58,7 +57,7 @@ Next, enable inbound connections for your application.
 
 Add the `activemq-client.jar` and `activemq-pool.jar` packages to your Java class path. The following example shows these dependencies in a Maven project `pom.xml` file.
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.apache.activemq</groupId>
@@ -88,7 +87,7 @@ In the following example code, producers and consumers run in a single thread. F
 For an active/standby broker, Amazon MQ provides two ActiveMQ Web Console URLs, but only one URL is active at a time. Likewise, Amazon MQ provides two endpoints for each wire-level protocol, but only one endpoint is active in each pair at a time. The `-1` and `-2` suffixes denote a redundant pair. For more information, see [Deployment options for Amazon MQ for ActiveMQ brokers](amazon-mq-broker-architecture.md)).  
 For wire-level protocol endpoints, you should allow your application to connect to either endpoint by using the [Failover Transport](https://activemq.apache.org/failover-transport-reference.html).
 
-   ```
+   ```java
    // Create a connection factory.
    final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(wireLevelEndpoint);
    
@@ -113,7 +112,7 @@ Message producers should always use the `PooledConnectionFactory` class. For mor
 
 1. Create a session, a queue named `MyQueue`, and a message producer.
 
-   ```
+   ```java
    // Create a session.
    final Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
    
@@ -127,7 +126,7 @@ Message producers should always use the `PooledConnectionFactory` class. For mor
 
 1. Create the message string `"Hello from Amazon MQ!"` and then send the message.
 
-   ```
+   ```java
    // Create a message.
    final String text = "Hello from Amazon MQ!";
    TextMessage producerMessage = producerSession.createTextMessage(text);
@@ -139,7 +138,7 @@ Message producers should always use the `PooledConnectionFactory` class. For mor
 
 1. Clean up the producer.
 
-   ```
+   ```java
    producer.close();
    producerSession.close();
    producerConnection.close();
@@ -152,7 +151,7 @@ Message producers should always use the `PooledConnectionFactory` class. For mor
 
 1. Create a JMS connection factory for the message producer using your broker's endpoint and then call the `createConnection` method against the factory.
 
-   ```
+   ```java
    // Create a connection factory.
    final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(wireLevelEndpoint);
    
@@ -169,7 +168,7 @@ Message consumers should *never* use the `PooledConnectionFactory` class. For mo
 
 1. Create a session, a queue named `MyQueue`, and a message consumer.
 
-   ```
+   ```java
    // Create a session.
    final Session consumerSession = consumerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
    
@@ -182,7 +181,7 @@ Message consumers should *never* use the `PooledConnectionFactory` class. For mo
 
 1. Begin to wait for messages and receive the message when it arrives.
 
-   ```
+   ```java
    // Begin to wait for messages.
    final Message consumerMessage = consumer.receive(1000);
    
@@ -195,7 +194,7 @@ Unlike AWS messaging services (such as Amazon SQS), the consumer is constantly c
 
 1. Close the consumer, session, and connection.
 
-   ```
+   ```java
    consumer.close();
    consumerSession.close();
    consumerConnection.close();

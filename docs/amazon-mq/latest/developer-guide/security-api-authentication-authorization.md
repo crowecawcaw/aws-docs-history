@@ -1,7 +1,6 @@
 
 
 # API authentication and authorization for Amazon MQ
-<a name="security-api-authentication-authorization"></a>
 
 Amazon MQ uses standard AWS request signing for API authentication. For more information, see [Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *AWS General Reference*.
 
@@ -33,7 +32,7 @@ The `ec2:AuthorizedService` condition key ensures that ENI permissions can be gr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

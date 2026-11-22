@@ -1,7 +1,6 @@
 
 
 # Available CloudWatch metrics Amazon MQ for ActiveMQ brokers
-<a name="activemq-logging-monitoring"></a>
 
 ## Amazon MQ for ActiveMQ metrics
 <a name="security-logging-monitoring-cloudwatch-metrics"></a>

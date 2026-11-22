@@ -1,7 +1,6 @@
 
 
 # RabbitMQ on Amazon MQ: Invalid AWS Key Management Service Key
-<a name="troubleshooting-action-required-codes-invalid-kms-key"></a>
 
  RabbitMQ on Amazon MQ will raise an INVALID\_KMS\_KEY critical action required code when a broker created with a customer managed AWS KMS key(CMK) detects that the AWS Key Management Service (KMS) key is disabled. A RabbitMQ broker with a CMK periodically verifies that the KMS key is enabled and the broker has all necessary grants. If RabbitMQ cannot verify that the key is enabled, the broker is quarantined and RabbitMQ will return INVALID\_KMS\_KEY. 
 

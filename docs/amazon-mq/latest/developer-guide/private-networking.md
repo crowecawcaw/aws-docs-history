@@ -1,7 +1,6 @@
 
 
 # Private networking for Amazon MQ for RabbitMQ
-<a name="private-networking"></a>
 
 Private networking enables Amazon MQ for RabbitMQ brokers to connect to private resources in your VPC. These resources can include private identity providers (LDAP or OAuth2), other Amazon MQ for RabbitMQ brokers, or self-hosted RabbitMQ brokers. You can connect to your resources privately without going over the public internet.
 
@@ -92,7 +91,7 @@ Use the `UpdateBroker` API operation to associate the AWS RAM resource share wit
 
 **Example Associate a resource share using the AWS CLI**  
 
-```
+```bash
 aws mq update-broker \
     --broker-id {{b-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
     --resource-share-arns {{arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}
@@ -106,7 +105,7 @@ For more information, see [UpdateBroker](https://docs.aws.amazon.com/amazon-mq/l
 
 To associate multiple resource shares, separate the ARNs with spaces:
 
-```
+```bash
 aws mq update-broker \
     --broker-id {{b-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
     --resource-share-arns {{arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}} {{arn:aws:ram:us-east-1:123456789012:resource-share/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333}}
@@ -125,7 +124,7 @@ Reboot the broker to apply the pending resource share changes. During the reboot
 
 **Example Reboot the broker using the AWS CLI**  
 
-```
+```bash
 aws mq reboot-broker --broker-id {{b-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 
@@ -140,7 +139,7 @@ Use the `DescribeSharedResources` API operation to verify that your resources ar
 
 **Example Verify shared resources using the AWS CLI**  
 
-```
+```bash
 aws mq describe-shared-resources --broker-id {{b-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 

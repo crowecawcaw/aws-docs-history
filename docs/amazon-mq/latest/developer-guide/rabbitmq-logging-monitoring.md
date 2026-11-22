@@ -1,7 +1,6 @@
 
 
 # Available CloudWatch metrics for Amazon MQ for RabbitMQ brokers
-<a name="rabbitmq-logging-monitoring"></a>
 
 **Warning**  
 Starting with RabbitMQ 4.2, `RabbitMQIOReadAverageTime` and `RabbitMQIOWriteAverageTime` are deprecated and will not publish meaningful values. These metrics will be removed from CloudWatch in the next major RabbitMQ release.

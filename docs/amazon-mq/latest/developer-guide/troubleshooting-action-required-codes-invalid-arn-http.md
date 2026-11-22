@@ -1,7 +1,6 @@
 
 
 # RabbitMQ on Amazon MQ: Invalid HTTP ARN
-<a name="troubleshooting-action-required-codes-invalid-arn-http"></a>
 
  RabbitMQ on Amazon MQ will raise an INVALID\_ARN\_HTTP critical action required code when one or more ARNs of SSL certificates or key file for HTTP auth\_backend are invalid or inaccessible. This applies to ARNS specified in `aws.arns.auth_http.ssl_options.cacertfile`, `aws.arns.auth_http.ssl_options.certfile` or `aws.arns.auth_http.ssl_options.keyfile`, which must reference Amazon S3 objects and AWS Secrets Manager secrets containing certificates and private key. 
 

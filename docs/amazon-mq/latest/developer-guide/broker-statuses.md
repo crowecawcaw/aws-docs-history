@@ -1,7 +1,6 @@
 
 
 # Amazon MQ broker statuses
-<a name="broker-statuses"></a>
 
 A broker's current condition is indicated by a *status*. The following table lists the statuses of an Amazon MQ broker.
 

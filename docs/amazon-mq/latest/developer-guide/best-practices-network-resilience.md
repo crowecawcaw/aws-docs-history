@@ -1,7 +1,6 @@
 
 
 # Best practices for network resilience and monitoring in Amazon MQ for RabbitMQ
-<a name="best-practices-network-resilience"></a>
 
  Network resilience and monitoring broker metrics are essential for maintaining reliable messaging applications. Complete the following best practices to implement automatic recovery mechanisms and resource monitoring strategies. 
 
@@ -14,7 +13,7 @@ Automatic connection recovery is triggered if an unhandled exception is thrown i
 
 In cases where the initial connection between a client and a RabbitMQ node fails, automatic recovery will not be triggered. We recommend writing your application code to account for initial connection failures by retrying the connection. The following example demonstrates retrying initial network failures using the RabbitMQ Java client library.
 
-```
+```java
 ConnectionFactory factory = new ConnectionFactory();
 // enable automatic recovery if using RabbitMQ Java client library prior to version 4.0.0.
 factory.setAutomaticRecoveryEnabled(true);

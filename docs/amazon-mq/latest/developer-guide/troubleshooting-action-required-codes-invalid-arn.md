@@ -1,7 +1,6 @@
 
 
 # RabbitMQ on Amazon MQ: Invalid ARN
-<a name="troubleshooting-action-required-codes-invalid-arn"></a>
 
  RabbitMQ on Amazon MQ will raise an INVALID\_ARN critical action required code when one or more ARNs configured in the broker are invalid or inaccessible. This applies to ARNs used for SSL certificates, AWS Secrets Manager secrets, Amazon S3 objects, or other AWS resource references not covered by more specific quarantine codes such as RABBITMQ\_INVALID\_ARN\_LDAP or RABBITMQ\_INVALID\_ASSUMEROLE. 
 

@@ -1,7 +1,6 @@
 
 
 # Simple authentication and authorization
-<a name="rabbitmq-simple-auth-broker-users"></a>
 
 ## Amazon MQ for RabbitMQ broker users
 <a name="rabbitmq-basic-elements-user"></a>
@@ -21,7 +20,7 @@ Amazon MQ for RabbitMQ does not support the username "guest", and will delete th
 
  To create a new user with the RabbitMQ management API, use the following API endpoint and request body. Replace {{username}} and {{password}} with your new sign-in credentials. 
 
-```
+```http
 PUT /api/users/{{username}} HTTP/1.1
         
     {"password":"{{password}}","tags":"administrator"}
@@ -35,7 +34,7 @@ The `tags` key is mandatory, and is a comma-separated list of tags for the user.
 
 You can set permissions for an individual user by using the following API endpoint and request body. Replace {{vhost}} and {{username}} with your information. For the default vhost `/`, use `%2F`.
 
-```
+```http
 PUT /api/permissions/{{vhost}}/{{username}} HTTP/1.1
 
     {"configure":".*","write":".*","read":".*"}

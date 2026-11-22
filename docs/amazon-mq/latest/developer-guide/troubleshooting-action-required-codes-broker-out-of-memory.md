@@ -1,7 +1,6 @@
 
 
 # ActiveMQ on Amazon MQ: Broker Out Of Memory alarm
-<a name="troubleshooting-action-required-codes-broker-out-of-memory"></a>
 
 ActiveMQ on Amazon MQ will raise a BROKER\_OOM alarm when the broker undergoes a restart loop due to the insufficient memory capacity. When a broker is in a restart loop, also called a bounce loop, the broker initiates repeated recovery attempts within a short time window. Brokers that cannot complete start-up due to insufficient memory capacity can enter a restart loop, during which interactions with the broker are limited.
 

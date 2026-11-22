@@ -1,7 +1,6 @@
 
 
 # In-place upgrade from RabbitMQ 3 to 4
-<a name="upgrading-rabbitmq-v3-to-v4-inplace"></a>
 
  Amazon MQ supports in-place major version upgrades from RabbitMQ 3.13 to RabbitMQ 4.2. RabbitMQ 4.2 is only supported on the `mq.m7g` instance type across all supported instance sizes. 
 

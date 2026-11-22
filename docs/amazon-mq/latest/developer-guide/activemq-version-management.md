@@ -1,7 +1,6 @@
 
 
 # Managing Amazon MQ for ActiveMQ engine versions
-<a name="activemq-version-management"></a>
 
  Apache ActiveMQ organizes version numbers according to semantic versioning specification as `X.Y.Z`. In Amazon MQ for ActiveMQ implementations, `X` denotes the major version, `Y` represents the minor version, and `Z` denotes the patch version number. Amazon MQ considers a version change to be major if the major version numbers change. For example, upgrading from version **5**.17 to **6**.0 is considered a *major version upgrade*. A version change is considered minor if only the minor or patch version number changes. For example, upgrading from version 5.**18** to 5.**19** is considered a *minor version upgrade*. When `autoMinorVersionUpgrade` is turned on, Amazon MQ upgrades your broker to the newest available patch version. 
 
@@ -37,13 +36,13 @@
 
  You can list all supported minor and major engine versions by using the [`describe-broker-instance-options`](https://docs.aws.amazon.com/cli/latest/reference/mq/describe-broker-instance-options.html) AWS CLI command. 
 
-```
+```sh
 aws mq describe-broker-instance-options
 ```
 
 To filter the results by engine and instance type use the `--engine-type` and `--host-instance-type` options as shown in the following.
 
-```
+```sh
 aws mq describe-broker-instance-options --engine-type {{engine-type}} --host-instance-type {{instance-type}}
 ```
 

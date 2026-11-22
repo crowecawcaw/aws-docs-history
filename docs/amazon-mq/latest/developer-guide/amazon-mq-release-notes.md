@@ -1,7 +1,6 @@
 
 
 # Amazon MQ release notes
-<a name="amazon-mq-release-notes"></a>
 
 The following table lists Amazon MQ feature releases and improvements.
 

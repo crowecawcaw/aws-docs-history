@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: General Amazon MQ
-<a name="general"></a>
 
  Use the information in this section to help you diagnose common issues you might encounter when working with Amazon MQ brokers, such as issues connecting to your broker, and broker reboots. 
 
@@ -51,7 +50,7 @@ The following ports are grouped according to engine types because ActiveMQ on Am
 
    1.  Run the following `nslookup` command to query your broker DNS record. For [active/standby](amazon-mq-broker-architecture.md#active-standby-broker-deployment) deployments, test both the active and standby endpoints. The active/standby endpoints are identified with a suffix, `-1` or `-2` added to the unique broker ID. Replace the endpoint with your information. 
 
-      ```
+      ```sh
       $ nslookup {{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}}
       ```
 
@@ -73,7 +72,7 @@ The following ports are grouped according to engine types because ActiveMQ on Am
 **Note**  
  For active/standby deployments, you will receive a `Connect failed` error message if you run `telnet` with the standby endpoint. This is expected, as the standby instance itself is running, but the ActiveMQ process is not running and does not have access to the broker's Amazon EFS storage volume. Run the command for both `-1` and `-2` endpoints to ensure you test both the active and the standby instances. 
 
-      ```
+      ```sh
       $ telnet {{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}} {{port}}
       ```
 
@@ -90,7 +89,7 @@ The following ports are grouped according to engine types because ActiveMQ on Am
 
    1.  Run the following `curl` command to check connectivity to the ActiveMQ admin web console. 
 
-      ```
+      ```sh
       $ curl https://{{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}}:8162/index.html
       ```
 
@@ -114,7 +113,7 @@ The following ports are grouped according to engine types because ActiveMQ on Am
 
    1.  Run the following `nslookup` command to query your broker DNS record. Replace the endpoint with your information. 
 
-      ```
+      ```sh
       $ nslookup {{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}}
       ```
 
@@ -135,7 +134,7 @@ The following ports are grouped according to engine types because ActiveMQ on Am
 
    1.  Run the following `telnet` command to test the network path for your broker. Replace the endpoint with your information. You can replace {{port}} with port `443` for the web console, and `5671` to test the wire-level AMQP connection. 
 
-      ```
+      ```sh
       $ telnet {{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}} {{port}}
       ```
 
@@ -156,7 +155,7 @@ This step does not apply to RabbitMQ on Amazon MQ brokers with public accessibil
 
    1.  Run the following `curl` command to check connectivity to the RabbitMQ admin web console. 
 
-      ```
+      ```sh
       $ curl https://{{b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-west-2.amazonaws.com}}:443/index.html
       ```
 

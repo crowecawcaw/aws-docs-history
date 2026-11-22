@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: RabbitMQ on Amazon MQ
-<a name="troubleshooting-rabbitmq"></a>
 
 Use the information in this section to help you diagnose and resolve common issues you might encounter when working with RabbitMQ on Amazon MQ brokers.
 

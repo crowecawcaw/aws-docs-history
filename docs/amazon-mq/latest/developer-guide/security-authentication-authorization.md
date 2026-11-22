@@ -1,7 +1,6 @@
 
 
 # Integrating ActiveMQ brokers with LDAP
-<a name="security-authentication-authorization"></a>
 
 **Important**  
 Amazon MQ does not support server certificate issued by a private CA.
@@ -83,7 +82,7 @@ In the **LDAP login configuration** section, provide the following required info
 In the **Optional settings** section, you can provide the following optional information:
 + **User Role Name** The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `userRoleName` option allows you to provide the name of this attribute. For example, let's consider the following user entry:
 
-  ```
+  ```sh
   dn: uid=jdoe,ou=user,dc=example,dc=com
   objectClass: user
   uid: jdoe
@@ -151,7 +150,7 @@ When you create a broker, Amazon MQ substitutes the values you provide via the A
 
 The following demonstrates a working example of the `cachedLdapAuthorizationMap`.
 
-```
+```xml
 <authorizationPlugin>
     <map>
         <cachedLDAPAuthorizationMap

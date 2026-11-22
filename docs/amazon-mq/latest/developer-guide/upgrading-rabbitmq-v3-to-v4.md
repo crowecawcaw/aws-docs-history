@@ -1,7 +1,6 @@
 
 
 # Upgrading Amazon MQ for RabbitMQ 3 broker to 4
-<a name="upgrading-rabbitmq-v3-to-v4"></a>
 
  Amazon MQ supports in-place upgrades from RabbitMQ 3.13 to RabbitMQ 4.2. An in-place upgrade requires no application code changes. During the upgrade, Amazon MQ blocks all connections to the broker. 
 

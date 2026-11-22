@@ -1,7 +1,6 @@
 
 
 # Resolving RabbitMQ paused queue synchronization
-<a name="rabbitmq-queue-sync"></a>
 
 In an Amazon MQ for RabbitMQ [cluster deployment](rabbitmq-broker-architecture.md#rabbitmq-broker-architecture-cluster), messages published to each queue are replicated across three broker nodes. This replication, referred to as *mirroring*, provides high availability (HA) for RabbitMQ brokers. Queues in a cluster deployment consist of a *main* replica on one node and one or more *mirrors*. Every operation applied to a mirrored queue, including enqueuing messages, is first applied to the main queue and then replicated across its mirrors.
 
@@ -105,7 +104,7 @@ The `ha-sync-mode` definition is required for all custom policies. If it is omit
 **Note**  
 Replace {{username}} and {{password}} with your broker administrator sign-in credentials. You might need to adjust and calibrate the value of `ha-sync-batch-size` ({{100}}) based on the number and size of unsynchronized messages in your queues. Replace the broker endpoint with the URL that you noted previously.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} -H "content-type:application/json" -XPUT \
    -d '{"pattern":".*", "priority":1, "definition":{"ha-sync-batch-size":{{100}}, "ha-mode":"all", "ha-sync-mode":"automatic"}}' \
    https://{{b-589c045f-f8ln-4ab0-a89c-co62e1c32ef8.mq.us-west-2.amazonaws.com}}/api/policies/%2F/{{batch-size-policy}}
@@ -113,7 +112,7 @@ Replace {{username}} and {{password}} with your broker administrator sign-in cre
 
 1. To confirm that the new policy is added to your broker's user policies, enter the following `curl` command to list all broker policies.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} https://{{b-589c045f-f8ln-4ab0-a89c-co62e1c32ef8.mq.us-west-2.amazonaws.com}}/api/policies
    ```
 

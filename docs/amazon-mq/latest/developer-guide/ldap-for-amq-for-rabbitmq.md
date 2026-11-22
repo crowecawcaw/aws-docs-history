@@ -1,7 +1,6 @@
 
 
 # LDAP authentication and authorization for Amazon MQ for RabbitMQ
-<a name="ldap-for-amq-for-rabbitmq"></a>
 
 Amazon MQ for RabbitMQ supports authentication and authorization of broker users using an external LDAP server. For other supported methods, see [Authentication and authorization for Amazon MQ for RabbitMQ brokers](rabbitmq-authentication.md).
 

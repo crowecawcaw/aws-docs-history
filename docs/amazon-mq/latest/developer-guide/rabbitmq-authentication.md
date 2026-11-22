@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for RabbitMQ Authentication and Authorization
-<a name="rabbitmq-authentication"></a>
 
 Amazon MQ for RabbitMQ supports the following authentication and authorization methods:
 

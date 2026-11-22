@@ -1,7 +1,6 @@
 
 
 # Editing broker preferences
-<a name="amazon-mq-rabbitmq-editing-broker-preferences"></a>
 
 You can edit your broker preferences, such as enabling or disabling CloudWatch logs using the AWS Management Console.
 

@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon MQ
-<a name="using-amazon-mq-securely"></a>
 
 The following design patterns can improve the security of your Amazon MQ broker.
 

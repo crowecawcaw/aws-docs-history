@@ -1,7 +1,6 @@
 
 
 # Getting started: Creating and connecting to a RabbitMQ broker
-<a name="getting-started-rabbitmq"></a>
 
 A *broker* is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ. The combined description of the broker instance *class* (`m5`) and *size* (`large`, `medium`) is called the *broker instance type* (for example, `mq.m5.large`). For more information, see [What is an Amazon MQ for RabbitMQ broker?](working-with-rabbitmq.md#rabbitmq-basic-elements-broker)
 

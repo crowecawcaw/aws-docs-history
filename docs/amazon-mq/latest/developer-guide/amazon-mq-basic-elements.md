@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for ActiveMQ brokers
-<a name="amazon-mq-basic-elements"></a>
 
 ## What is an Amazon MQ for ActiveMQ broker?
 <a name="broker"></a>

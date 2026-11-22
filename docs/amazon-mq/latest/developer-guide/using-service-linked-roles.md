@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon MQ
-<a name="using-service-linked-roles"></a>
 
 Amazon MQ uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon MQ. Service-linked roles are predefined by Amazon MQ and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -66,7 +65,7 @@ Amazon MQ uses the permission policy [`AmazonMQServiceRolePolicy`](https://conso
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

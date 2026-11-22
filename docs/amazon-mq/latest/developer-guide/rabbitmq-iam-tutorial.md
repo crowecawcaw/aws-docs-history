@@ -1,7 +1,6 @@
 
 
 # Using IAM authentication and authorization for Amazon MQ for RabbitMQ
-<a name="rabbitmq-iam-tutorial"></a>
 
 The following procedure demonstrates how to enable AWS IAM authentication and authorization for an Amazon MQ for RabbitMQ broker. After enabling IAM, users can authenticate using AWS IAM credentials to access the RabbitMQ Management API and connect via AMQP. For details on how IAM authentication works with Amazon MQ for RabbitMQ, see [IAM authentication and authorization for Amazon MQ for RabbitMQ](iam-for-amq-for-rabbitmq.md).
 

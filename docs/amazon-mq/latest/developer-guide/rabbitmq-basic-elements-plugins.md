@@ -1,7 +1,6 @@
 
 
 # Plugins
-<a name="rabbitmq-basic-elements-plugins"></a>
 
 Amazon MQ for RabbitMQ also supports the following plugins.
 + [RabbitMQ management plugin](#rabbitmq-management-plugin)
@@ -32,13 +31,13 @@ Amazon MQ does not support using static shovels.
 
 Only [dynamic shovels](https://www.rabbitmq.com/shovel-dynamic.html) are supported. Dynamic shovels are configured using runtime parameters and can be started and stopped at any time programmatically by a client connection. For example, using the RabbitMQ management API, you can create a PUT request to the following API endpoint to configure a dynamic shovel. In the example, {vhost} can be replaced by the name of the broker's vhost, and {name} replaced by the name of the new dynamic shovel.
 
-```
+```http
 /api/parameters/shovel/{vhost}/{name}
 ```
 
 In the request body, you must specify either a queue or an exchange but not both. This example below configures a dynamic shovel between a local queue specified in src-queue and a remote queue defined in dest-queue. Similarly, you can use src-exchange and dest-exchange parameters to configure a shovel between two exchanges.
 
-```
+```json
 {
 "value": {
 "src-protocol": "amqp091",
@@ -64,12 +63,12 @@ You cannot configure federation if the upstream queue or exchange is in a privat
 For example, using the management API, you can configure federation by doing the following.
 + Configure one or more upstreams that define federation connections to other nodes. You can define federation connections by using the RabbitMQ web console or the management API. Using the management API, you can create a POST request to /api/parameters/federation-upstream/%2f/myupstream with the following request body.
 
-  ```
+  ```json
   {"value":{"uri":"amqp://server-name","expires":3600000}}
   ```
 + Configure a policy to enable your queues or exchanges to become federated. You can configure policies by using the RabbitMQ web console, or the management API. Using the management API, you can create a POST request to /api/policies/%2f/federate-me with the following request body.
 
-  ```
+  ```json
   {"pattern":"^amq\.", "definition":{"federation-upstream-set":"all"}, "apply-to":"exchanges"}
   ```
 **Note**  

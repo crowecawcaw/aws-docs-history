@@ -1,7 +1,6 @@
 
 
 # Configuring a RabbitMQ broker
-<a name="rabbitmq-broker-configuration-parameters"></a>
 
 A configuration contains all the settings for your RabbitMQ broker in Cuttlefish format. You can create a configuration before creating any brokers. You can then apply the configuration to one or more brokers.
 

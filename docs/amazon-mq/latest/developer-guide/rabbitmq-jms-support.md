@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for RabbitMQ JMS support
-<a name="rabbitmq-jms-support"></a>
 
 You can now run JMS 1.1, 2.0, and 3.1 workloads on Amazon MQ for RabbitMQ 4 with RabbitMQ JMS client.
 

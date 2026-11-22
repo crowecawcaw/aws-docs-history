@@ -1,7 +1,6 @@
 
 
 # Amazon MQ network of brokers
-<a name="network-of-brokers"></a>
 
 Amazon MQ supports ActiveMQ's network of brokers feature.
 
@@ -18,7 +17,7 @@ Amazon MQ supports ActiveMQ's network of brokers feature.
 
 The following example shows a duplex `networkConnector` entry:
 
-```
+```xml
 <networkConnectors>
   <networkConnector name="connector1" duplex="true"
       uri="static:(ssl://{{broker-id}}.mq.{{region}}.amazonaws.com:61617)"/>
@@ -45,7 +44,7 @@ To configure a network of brokers like this example, you could add `networkConne
 
 *Network connectors for Broker1:*
 
-```
+```xml
 <networkConnectors>
     <networkConnector name="1_to_2" userName="myCommonUser" duplex="true"
         uri="static:(ssl://b-9876l5k4-32ji-109h-8gfe-7d65c4b132a1-2.mq.us-west-2.amazonaws.com:61617)"/>
@@ -58,7 +57,7 @@ To configure a network of brokers like this example, you could add `networkConne
 
 *Network connector for Broker2:*
 
-```
+```xml
 <networkConnectors>
     <networkConnector name="2_to_3" userName="myCommonUser" duplex="true"
         uri="static:(ssl://b-743c885d-2244-4c95-af67-a85017ff234e-3.mq.us-east-2.amazonaws.com:61617)"/>
@@ -67,7 +66,7 @@ To configure a network of brokers like this example, you could add `networkConne
 
 *Network connectors for Broker4:*
 
-```
+```xml
 <networkConnectors>
     <networkConnector name="4_to_3" userName="myCommonUser" duplex="true"
         uri="static:(ssl://b-743c885d-2244-4c95-af67-a85017ff234e-3.mq.us-east-2.amazonaws.com:61617)"/>
@@ -81,7 +80,7 @@ To configure a network of brokers like this example, you could add `networkConne
 
 In addition to configuring `networkConnector` elements, you can configure your broker `transportConnector` options to enable dynamic failover, and to rebalance connections when brokers are added or removed from the network. 
 
-```
+```xml
 <transportConnectors>
   <transportConnector name="openwire" updateClusterClients="true" rebalanceClusterClients="true" updateClusterClientsOnRemove="true"/>
 </transportConnectors>

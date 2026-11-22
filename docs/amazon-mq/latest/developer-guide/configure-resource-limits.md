@@ -1,7 +1,6 @@
 
 
 # Resource Limit Configuration
-<a name="configure-resource-limits"></a>
 
 Amazon MQ for RabbitMQ supports configuring broker resource limits from RabbitMQ 4 onwards. When you create a broker, Amazon MQ automatically applies default values to these resource limits. These defaults act as guardrails to protect your broker availability while accommodating common customer usage patterns. You can customize your broker behavior by changing the limit configuration values to better match your specific workload requirements. For more details about default and maximum allowed values, see [Amazon MQ for RabbitMQ sizing guidelines](rabbitmq-sizing-guidelines.md).
 

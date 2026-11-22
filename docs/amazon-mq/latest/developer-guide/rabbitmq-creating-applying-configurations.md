@@ -1,7 +1,6 @@
 
 
 # Creating and applying RabbitMQ broker configurations
-<a name="rabbitmq-creating-applying-configurations"></a>
 
 A *configuration* contains all of the settings for your RabbitMQ broker in Cuttlefish format. You can create a configuration before creating any brokers. You can then apply the configuration to one or more brokers
 

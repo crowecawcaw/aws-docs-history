@@ -1,7 +1,6 @@
 
 
 # Best practices for performance optimization and efficiency in Amazon MQ for RabbitMQ
-<a name="best-practices-performance"></a>
 
  You can optimize your Amazon MQ for RabbitMQ broker performance by maximizing throughput, minimizing latency, and ensuring efficient resource utilization. Complete the following best practices to optimize your application performance. 
 
@@ -94,7 +93,7 @@ All pre-fetched messages are removed from the queue.
 
 The following example desmonstrate setting a pre-fetch value of `10` for a single consumer using the RabbitMQ Java client library.
 
-```
+```java
 ConnectionFactory factory = new ConnectionFactory();
 
 Connection connection = factory.newConnection();

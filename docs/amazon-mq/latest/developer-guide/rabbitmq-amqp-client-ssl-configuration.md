@@ -1,7 +1,6 @@
 
 
 # AMQP client SSL configuration
-<a name="rabbitmq-amqp-client-ssl-configuration"></a>
 
  Federation and shovel use AMQP for communication between upstream and downstream brokers. By default, *TLS peer verification* is enabled for AMQP clients in Amazon MQ for RabbitMQ 4. With this setting, federation and shovel AMQP clients running on Amazon MQ brokers will perform peer verification when establishing connections with upstream broker. 
 

@@ -1,7 +1,6 @@
 
 
 # Initiating switchover or failover to promote an Amazon MQ replica broker to primary broker role
-<a name="initate-failover"></a>
 
  You can initiate a switchover or failover when you want to promote the replica broker to the primary broker role. When you promote the replica broker, the primary broker is demoted to the replica broker role. 
 

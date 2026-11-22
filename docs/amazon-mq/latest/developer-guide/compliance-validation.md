@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon MQ
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of Amazon MQ as part of multiple AWS compliance programs. These include SOC, PCI, HIPAA, and others.
 

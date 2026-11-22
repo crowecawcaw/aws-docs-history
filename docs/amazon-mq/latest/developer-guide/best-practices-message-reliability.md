@@ -1,7 +1,6 @@
 
 
 # Best practices for message durability and reliability in Amazon MQ for RabbitMQ
-<a name="best-practices-message-reliability"></a>
 
  Before moving your application to production, complete the following best practices for preventing message loss and resource overutilization. 
 
@@ -12,14 +11,14 @@
 
 To enable message persistence, you can declare your queues as `durable` and set message delivery mode to `persistent`. The following example demonstrates using the [RabbitMQ Java client library](https://www.rabbitmq.com/java-client.html) to declare a durable queue. When working with AMQP 0-9-1, you can mark messages as persistent by setting delivery mode "2". 
 
-```
+```java
 boolean durable = true;
 channel.queueDeclare("my_queue", durable, false, false, null);
 ```
 
  Once you have configured your queue as durable, you can send a persistent message to your queue by setting `MessageProperties` to `PERSISTENT_TEXT_PLAIN` as shown in the following example. 
 
-```
+```java
 import com.rabbitmq.client.MessageProperties;
 
 channel.basicPublish("", "my_queue",
@@ -38,7 +37,7 @@ channel.basicPublish("", "my_queue",
 
  Typically, delivery acknowledgement is enabled in a channel. For example, when working with the RabbitMQ Java client library, you can use the `Channel#basicAck` to set up a simple `basic.ack` positive acknowledgement as shown in the following example. 
 
-```
+```java
 // this example assumes an existing channel instance
 
 boolean autoAck = false;

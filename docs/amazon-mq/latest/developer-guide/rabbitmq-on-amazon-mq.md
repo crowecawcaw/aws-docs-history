@@ -1,7 +1,6 @@
 
 
 # RabbitMQ tutorials
-<a name="rabbitmq-on-amazon-mq"></a>
 
 The following tutorials show how you can configure and use RabbitMQ on Amazon MQ. To learn more about working with supported client libraries in a variety of programming languages such as Node.js, Python, .NET, and more, see [RabbitMQ Tutorials](https://www.rabbitmq.com/getstarted.html) in the *RabbitMQ Getting Started Guide*.
 
@@ -70,7 +69,7 @@ To ensure that your broker is accessible within your VPC, you must enable the `e
 
 If you are using Apache Maven for automating builds, add the following dependency to your `pom.xml` file. For more information on Project Object Model files in Apache Maven, see [Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
 
-```
+```xml
 <dependency>
     <groupId>com.rabbitmq</groupId>
     <artifactId>amqp-client</artifactId>
@@ -80,7 +79,7 @@ If you are using Apache Maven for automating builds, add the following dependenc
 
 If you are using [Gradle](https://docs.gradle.org/current/userguide/userguide.html) for automating builds, declare the following dependency.
 
-```
+```kotlin
 dependencies {
     compile 'com.rabbitmq:amqp-client:5.9.0'
 }
@@ -91,7 +90,7 @@ dependencies {
 
  RabbitMQ Java client uses `com.rabbitmq.client` as its top-level package, with `Connection` and `Channel` API classes representing an AMQP 0-9-1 connection and channel, respectively. Import the `Connection` and `Channel` classes before using them, as shown in the following example. 
 
-```
+```java
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 ```
@@ -101,7 +100,7 @@ import com.rabbitmq.client.Channel;
 
 Use the following example to create an instance of the `ConnectionFactory` class with the given parameters. Use the `setHost` method to configure the broker endpoint you noted earlier. For `AMQPS` wire-level connections, use port `5671`.
 
-```
+```java
 ConnectionFactory factory = new ConnectionFactory();
 
 factory.setUsername(username);
@@ -126,7 +125,7 @@ Channel channel = conn.createChannel();
 
  You can use `Channel.basicPublish` to publish messages to an exchange. The following example uses the AMQP `Builder` class to build a message properties object with content-type `plain/text`. 
 
-```
+```java
 byte[] messageBodyBytes = "Hello, world!".getBytes();
 channel.basicPublish(exchangeName, routingKey,
              new AMQP.BasicProperties.Builder()
@@ -146,7 +145,7 @@ You can receive a message by subscribing to a queue using the `Consumer` interfa
 
 The easiest way to implement a `Consumer` is to use the subclass `DefaultConsumer`. A `DefaultConsumer` object can be passed as part of a `basicConsume` call to set up the subscription as shown in the following example.
 
-```
+```java
 boolean autoAck = false;
 channel.basicConsume(queueName, autoAck, "myConsumerTag",
      new DefaultConsumer(channel) {
@@ -174,7 +173,7 @@ Because we specified `autoAck = false`, it is necessary to acknowledge messages 
 
 In order to disconnect from your RabbitMQ broker, close both the channel and connection as shown in the following.
 
-```
+```java
 channel.close();
 conn.close();
 ```
@@ -214,7 +213,7 @@ Without the necessary IAM permissions, your function will not be able to success
 **Note**  
  In the example, `test` is the name of the queue, and `/` is the name of the default virtual host. When receiving messages, the event source lists messages under `test::/`. 
 
-   ```
+   ```json
    {
      "eventSource": "aws:rmq",
      "eventSourceArn": "arn:aws:mq:us-west-2:112556298976:broker:test:b-9bcfa592-423a-4942-879d-eb284b418fc8",

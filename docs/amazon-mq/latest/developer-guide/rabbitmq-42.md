@@ -1,7 +1,6 @@
 
 
 # RabbitMQ 4.2
-<a name="rabbitmq-42"></a>
 
  Amazon MQ supports RabbitMQ 4.2 as the first release in the RabbitMQ 4 series. RabbitMQ 4.2 introduces AMQP 1.0 as a core protocol, Khepri as the default metadata store, quorum queue message priorities, and new authentication plugins including mTLS and HTTP authentication. For more information about this release, see the [RabbitMQ 4.0.0 release notes](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.0.0) on the GitHub website. 
 

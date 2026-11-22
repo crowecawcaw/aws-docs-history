@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for ActiveMQ broker instance types
-<a name="broker-instance-types"></a>
 
 The combined description of the broker instance *class* (`m5`) and *size* (`large`, `medium`) is called the *broker instance type* (for example, `mq.m5.large`). The following table lists the available Amazon MQ broker instance types for ActiveMQ brokers.
 

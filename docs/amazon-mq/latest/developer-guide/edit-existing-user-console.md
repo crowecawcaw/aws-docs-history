@@ -1,7 +1,6 @@
 
 
 # Edit an ActiveMQ broker user
-<a name="edit-existing-user-console"></a>
 
  To edit an existing user, do the following: 
 

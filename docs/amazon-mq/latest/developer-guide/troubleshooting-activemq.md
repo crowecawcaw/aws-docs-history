@@ -1,7 +1,6 @@
 
 
 # Troubleshooting ActiveMQ on Amazon MQ
-<a name="troubleshooting-activemq"></a>
 
 Use the information in this section to help you diagnose and resolve common issues you might encounter when working with ActiveMQ on Amazon MQ brokers.
 
@@ -54,7 +53,7 @@ Once the wire-level connections limit is reached, the broker will actively refus
 
  The following example `AuthorizationEntry` grants read and write permissions for all queues and topics to the `activemq-webconsole` group. 
 
-```
+```xml
 <authorizationEntries>
     <authorizationEntry admin="activemq-webconsole,admins,users" topic=">" read="activemq-webconsole,admins,users" write="activemq-webconsole,admins,users" />
     <authorizationEntry admin="activemq-webconsole,admins,users" queue=">" read="activemq-webconsole,admins,users" write="activemq-webconsole,admins,users" />

@@ -1,7 +1,6 @@
 
 
 # Accessing Prometheus metrics
-<a name="rabbitmq-prometheus-metrics"></a>
 
 **Note**  
 Prometheus metrics are only available for RabbitMQ 4.2 and later. ActiveMQ brokers do not support Prometheus metrics.
@@ -38,7 +37,7 @@ You can obtain the Prometheus endpoint for your Amazon MQ for RabbitMQ broker us
 + **AWS Management Console** — Navigate to the Amazon MQ console, open your broker's details page, and locate the Prometheus endpoint under the **Connections** section.
 + **AWS CLI** — Use the `describe-broker` command:
 
-  ```
+  ```bash
   aws mq describe-broker --broker-id <broker-id>
   ```
 
@@ -60,7 +59,7 @@ The following sections provide sample Prometheus scraping configurations for Ama
 
 The following configuration is recommended for most use cases. Scraping the `/metrics` endpoint provides well-aggregated metrics about overall cluster health, giving you a clear view of broker performance without the overhead of detailed metric collection.
 
-```
+```yaml
 global:
   scrape_interval: 60s
 
@@ -83,7 +82,7 @@ scrape_configs:
 
 The following configuration scrapes additional detailed metric families for deeper observability into specific broker components.
 
-```
+```yaml
 global:
   scrape_interval: 60s
 

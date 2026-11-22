@@ -1,7 +1,6 @@
 
 
 # Quotas in Amazon MQ
-<a name="amazon-mq-limits"></a>
 
 This topic lists limits within Amazon MQ. Many of the following limits can be changed for specific AWS accounts. To request an increase for a limit, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*. Updated limits will not be visible even after the limit increase has been applied. For more information on viewing current connection limits in Amazon CloudWatch, see [ Monitoring Amazon MQ brokers using Amazon CloudWatch](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/security-logging-monitoring-cloudwatch.html).
 

@@ -1,7 +1,6 @@
 
 
 # Policy configurations for quorum queues for Amazon MQ for RabbitMQ
-<a name="quorum-queues-policy-configurations"></a>
 
 You can add specific policy configurations to quorum queues for your RabbitMQ broker on Amazon MQ.
 

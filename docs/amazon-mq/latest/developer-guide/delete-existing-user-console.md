@@ -1,7 +1,6 @@
 
 
 # Delete an ActiveMQ broker user
-<a name="delete-existing-user-console"></a>
 
  When you no longer need a user, you can delete the user. 
 

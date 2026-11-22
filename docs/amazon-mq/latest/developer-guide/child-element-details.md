@@ -1,7 +1,6 @@
 
 
 # Amazon MQ Child Element Attributes
-<a name="child-element-details"></a>
 
 The following is a detailed explanation of child element attributes. For more information, see [XML Configuration](https://activemq.apache.org/xml-configuration.html) in the Apache ActiveMQ documentation.
 
@@ -31,7 +30,7 @@ If you specify an authorization map which doesn't include the `activemq-webconso
 ### Example Configuration
 <a name="admin-read-write-example"></a>
 
-```
+```xml
 <authorizationPlugin>
                                 <map>
                                     <authorizationMap>
@@ -108,7 +107,7 @@ When using a `networkConnector` to define a network of brokers, don't include th
 
 In this configuration, two brokers are connected in a network of brokers. The name of the network connector is `connector_1_to_2`, the username common to the brokers is `myCommonUser`, the connection is `duplex`, and the OpenWire endpoint URI is prefixed by `static:`, indicating a one-to-one connection between the brokers.
 
-```
+```xml
 <networkConnectors>
                                     <networkConnector name="connector_1_to_2" userName="myCommonUser" duplex="true"
                                         uri="static:(ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617)"/>
@@ -122,7 +121,7 @@ For more information, see [Step 2: Configure Network Connectors for Your Broker]
 
 In this configuration, multiple brokers are connected in a network of brokers. The name of the network connector is `connector_1_to_2`, the username common to the brokers is `myCommonUser`, the connection is `duplex`, and the comma-separated list of OpenWire endpoint URIs is prefixed by `masterslave:`, indicating a failover connection between the brokers. The failover from broker to broker isn't randomized and reconnection attempts continue indefinitely.
 
-```
+```xml
 <networkConnectors>
                                     <networkConnector name="connector_1_to_2" userName="myCommonUser" duplex="true"
                                         uri="masterslave:(ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617,
@@ -193,7 +192,7 @@ Configures how the broker will try to preallocate the journal files when a new j
 
 **Example**  
 
-```
+```xml
 <broker xmlns="http://activemq.apache.org/schema/core">
                                 <persistenceAdapter>
                                 <kahaDB preallocationStrategy="zeros" concurrentStoreAndDispatchQueues="false" journalDiskSyncInterval="10000" journalDiskSyncStrategy="periodic"/>
@@ -249,7 +248,7 @@ Sets whether a `send()` method should fail if there is no space free. The defaul
 
 **Example**  
 
-```
+```xml
 <broker xmlns="http://activemq.apache.org/schema/core">
                                 <systemUsage>
                                 <systemUsage sendFailIfNoSpace="true" sendFailIfNoSpaceAfterTimeout="2000">

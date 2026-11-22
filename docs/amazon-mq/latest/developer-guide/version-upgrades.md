@@ -1,7 +1,6 @@
 
 
 # Version upgrades
-<a name="version-upgrades"></a>
 
  You can manually upgrade your broker at any time to the next supported major or minor version. For more information about manually upgrading your broker, see [Upgrading an Amazon MQ broker engine version](upgrading-brokers.md). 
 

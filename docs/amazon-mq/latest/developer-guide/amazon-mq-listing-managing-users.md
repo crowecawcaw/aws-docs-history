@@ -1,7 +1,6 @@
 
 
 # Creating an ActiveMQ broker user
-<a name="amazon-mq-listing-managing-users"></a>
 
 An ActiveMQ *user* is a person or an application that can access the queues and topics of an ActiveMQ broker. You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](https://activemq.apache.org/web-console.html).
 

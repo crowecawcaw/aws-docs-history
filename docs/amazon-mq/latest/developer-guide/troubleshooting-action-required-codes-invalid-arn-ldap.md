@@ -1,7 +1,6 @@
 
 
 # RabbitMQ on Amazon MQ: Invalid LDAP ARN
-<a name="troubleshooting-action-required-codes-invalid-arn-ldap"></a>
 
  RabbitMQ on Amazon MQ will raise an INVALID\_ARN\_LDAP critical action required code when the ARN configured for the LDAP service account password is invalid or inaccessible. This applies to ARNs specified in `aws.arns.auth_ldap.dn_lookup_bind.password` or `aws.arns.auth_ldap.other_bind.password`, which must reference AWS Secrets Manager secrets containing plaintext passwords. 
 

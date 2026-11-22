@@ -1,19 +1,18 @@
 
 
 # Applying policies to Amazon MQ for RabbitMQ
-<a name="rabbitmq-defaults-applying-policies"></a>
 
  You can apply custom policies and limits with Amazon MQ recommended default values. If you have deleted the recommended default policies and limits, and want to re-create them, or you have created additional vhosts and want to apply the default policies and limits to your new vhosts, you can use the following steps. 
 
 **Important**  
  On Amazon MQ for RabbitMQ engine versions 3.13 and below, the current default operator policy is:   
 
-```
+```json
 vhost name pattern apply-to definition priority/ default_operator_policy_AWS_managed .* classic_queues {"ha-mode":"all","ha-sync-mode":"automatic","queue-version":2} 0
 ```
  On versions 4.0 and above, the default operator policy has changed to:   
 
-```
+```json
 vhost name pattern apply-to definition priority/ default_operator_policy_AWS_managed .* classic_queues {"queue-version":2} 0
 ```
  This change is required because classic queue mirroring and HA policy settings are not supported in RabbitMQ 4.   
@@ -109,7 +108,7 @@ For cluster brokers, Amazon MQ automatically applies the `ha-mode: all` and `ha-
 **Note**  
 Replace {{username}} and {{password}} with your administrator sign-in credentials. Replace {{number-of-messages}} with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values) according to the broker's instance size and deployment mode. Replace {{policy-name}} with a name for your policy. Replace {{broker-endpoint}} with the URL that you noted previously.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} -H "content-type:application/json" -XPUT \
    -d '{"pattern":".*", "priority":1, "definition":{"queue-mode":lazy, "overflow":"reject-publish", "max-length":"{{number-of-messages}}"}}' \
    {{broker-endpoint}}/api/policies/%2F/{{policy-name}}
@@ -117,7 +116,7 @@ Replace {{username}} and {{password}} with your administrator sign-in credential
 
 1. To confirm that the new policy is added to your broker's user policies, enter the following `curl` command to list all broker policies.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} {{broker-endpoint}}/api/policies
    ```
 
@@ -125,7 +124,7 @@ Replace {{username}} and {{password}} with your administrator sign-in credential
 **Note**  
 Replace {{username}} and {{password}} with your administrator sign-in credentials. Replace {{max-connections}} with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values) according to the broker's instance size and deployment mode. Replace the broker endpoint with the URL that you noted previously.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} -H "content-type:application/json" -XPUT \
    -d '{"value":"{{number-of-connections}}"}' \
    {{broker-endpoint}}/api/vhost-limits/%2F/max-connections
@@ -133,7 +132,7 @@ Replace {{username}} and {{password}} with your administrator sign-in credential
 
 1. To create a new `max-queues` virtual host limit, repeat the previous step, but modify the curl command as shown in the following.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} -H "content-type:application/json" -XPUT \
    -d '{"value":"{{number-of-queues}}"}' \
    {{broker-endpoint}}/api/vhost-limits/%2F/max-queues
@@ -141,6 +140,6 @@ Replace {{username}} and {{password}} with your administrator sign-in credential
 
 1. To confirm that the new limits are added to your broker's virtual host limits, enter the following `curl` command to list all broker virtual host limits.
 
-   ```
+   ```sh
    curl -i -u {{username}}:{{password}} {{broker-endpoint}}/api/vhost-limits
    ```

@@ -1,7 +1,6 @@
 
 
 # Amazon MQ for RabbitMQ maximum resource limit
-<a name="rabbitmq-resource-hard-limit"></a>
 
 You can configure resource limits up to the maximum values shown in the following tables. To learn how to update resource limits for your broker, see [Resource Limit Configuration](configure-resource-limits.md).
 
