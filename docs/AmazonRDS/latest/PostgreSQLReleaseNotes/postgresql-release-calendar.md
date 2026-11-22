@@ -1,7 +1,6 @@
 
 
 # Release calendars for Amazon RDS for PostgreSQL
-<a name="postgresql-release-calendar"></a>
 
 ## Version currency timelines
 <a name="Version.Currency.Timelines"></a>

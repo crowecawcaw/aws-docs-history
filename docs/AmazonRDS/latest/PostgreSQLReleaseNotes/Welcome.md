@@ -1,7 +1,6 @@
 
 
 # Release notes for Amazon Relational Database Service (Amazon RDS) for PostgreSQL
-<a name="Welcome"></a>
 
 The Amazon RDS for PostgreSQL release notes provide details about the PostgreSQL versions and extensions that are available for Amazon RDS. 
 

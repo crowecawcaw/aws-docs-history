@@ -1,7 +1,6 @@
 
 
 # Amazon RDS for PostgreSQL updates
-<a name="postgresql-versions"></a>
 
 Amazon RDS supports DB instances running several versions of PostgreSQL. You can specify any currently available PostgreSQL version when creating a new DB instance. You can specify the major version (such as PostgreSQL 10) and any available minor version for the specified major version. If no version is specified, Amazon RDS defaults to an available version, typically the most recent version. If a major version is specified but a minor version isn't, Amazon RDS defaults to a recent release of the major version that you specified. 
 
@@ -243,6 +242,8 @@ For version information on all extensions, see [Extensions supported for RDS for
 <a name="postgresql-versions-version186"></a>
 
 PostgreSQL version 18.6 is now available on Amazon RDS. This release contains fixes for critical Common Vulnerabilities and Exposures (CVE) and improvements announced in the [PostgreSQL 18.6 release](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/).
+
+**General enhancements**
 + This release also updates the SSL/TLS cryptographic library to [AWS-LC-FIPS 2025](https://github.com/aws/aws-lc/tree/fips-2025-09-12-lts) on the GitHub website.
 
 This version also includes the following extension changes:
@@ -557,6 +558,8 @@ For version information on all extensions, see [Extensions supported for RDS for
 <a name="postgresql-versions-version1711"></a>
 
 PostgreSQL version 17.11 is now available on Amazon RDS. This release contains fixes for critical Common Vulnerabilities and Exposures (CVE) and improvements announced in the [PostgreSQL 17.11 release](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/).
+
+**General enhancements**
 + This release also updates the SSL/TLS cryptographic library to [AWS-LC-FIPS 2025](https://github.com/aws/aws-lc/tree/fips-2025-09-12-lts) on the GitHub website.
 
 This version also includes the following extension changes:
@@ -953,6 +956,8 @@ For version information on all extensions, see [Extensions supported for RDS for
 <a name="postgresql-versions-version1615"></a>
 
 PostgreSQL version 16.15 is now available on Amazon RDS. This release contains fixes for critical Common Vulnerabilities and Exposures (CVE) and improvements announced in the [PostgreSQL 16.15 release](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/).
+
+**General enhancements**
 + This release also updates the SSL/TLS cryptographic library to [AWS-LC-FIPS 2025](https://github.com/aws/aws-lc/tree/fips-2025-09-12-lts) on the GitHub website.
 
 This version also includes the following extension changes:
@@ -4480,7 +4485,7 @@ PostgreSQL version 9.6.3 contains several new features and bug fixes. This versi
 + Supports `wal2json`, an output plugin for logical decoding.
 + Supports the `auto_explain` extension. You can use this extension to log execution plans of slow statements automatically. The following example shows how to use `auto_explain` from within an Amazon RDS PostgreSQL session:
 
-  ```
+  ```sql
   LOAD '$libdir/plugins/auto_explain';
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Extension versions for Amazon RDS for PostgreSQL
-<a name="postgresql-extensions"></a>
 
 Amazon RDS for PostgreSQL support multiple extensions that enhance your database functionality. Each major engine version has a minimum supported extension version. When we release the first minor version of a new major engine, we publish the minimum supported extension version for that major engine version. We recommend that you upgrade to the latest version of each extension when you upgrade your DB cluster. Extension versions don't automatically upgrade during engine version upgrade workflows.
 
@@ -11,7 +10,7 @@ AWS might need to end support for extensions. When feasible, we provide 12 month
 
 The PostgreSQL community sometimes refers to the extensions as modules. Extensions expand on the functionality provided by the PostgreSQL engine. You can find a list of extensions supported by Amazon RDS in the default DB parameter group for that PostgreSQL version. You can also see the current extensions list using `psql` by showing the `rds.extensions` parameter as in the following example.
 
-```
+```sql
 SHOW rds.extensions; 
 ```
 
