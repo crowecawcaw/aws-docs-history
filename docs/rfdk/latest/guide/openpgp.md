@@ -1,7 +1,6 @@
 
 
 # OpenPGP keys for the RFDK
-<a name="openpgp"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -24,7 +23,7 @@ This topic contains the OpenPGP key for the RFDK. This key is used to code-sign 
 
 Select the "Copy" icon to copy the following OpenPGP key:
 
-```
+```text
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBGcZLoYBEAClsY/NFxMjT9C33HFzVCb/GwyE9VUcy22ZhobqWmMIvN8/lmwh
@@ -65,7 +64,7 @@ These instructions are written for Linux and assume you have a recent version of
 
 Import the RFDK OpenPGP key:
 
-```
+```shell
 # Import RFDK's OpenPGP key
 gpg --import --armor <<EOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -107,7 +106,7 @@ Determine whether to trust the RFDK GPG key. Some factors to consider when decid
 
 If you have decided to trust the RFDK GPG key, then run:
 
-```
+```shell
 gpg --edit-key 0x83279914D7C7367B
 gpg (GnuPG) 2.0.22; Copyright (C) 2013 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -144,7 +143,7 @@ gpg> quit
 
 Finally, verify the signature:
 
-```
+```shell
 $ gpg --verify aws-rfdk-1.5.0.zip.sig aws-rfdk-1.5.0.zip
 gpg: Signature made Tue 10 Dec 2024 05:14:20 PM UTC using RSA key ID D7C7367B
 gpg: Good signature from "AWS Render Farm Deployment Kit <aws-rfdk@amazon.com>" [unknown]
@@ -171,7 +170,7 @@ The below key may be used to validate releases of RFDK before RFDK version 1.5.0
 
 Select the "Copy" icon to copy the following OpenPGP key:
 
-```
+```text
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2
 

@@ -1,7 +1,6 @@
 
 
 # Your first RFDK app
-<a name="first-rfdk-app"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -33,21 +32,21 @@ This guide is written assuming you are working on an EC2 instance running on Lin
 
 You can create your RFDK app anywhere on your machine, but each RFDK app should be in its own directory. Create a new directory for your app and enter it:
 
-```
+```bash
 mkdir hello-rfdk
 cd hello-rfdk
 ```
 
 First, you must determine the latest version of RFDK available. The following command uses `npm` (bundled with Node.js) to look-up the latest version of the `aws-rfdk` package, store it in the `RFDK_VERSION` shell variable, and output a message indicating the version:
 
-```
+```bash
 RFDK_VERSION=$(npm view aws-rfdk version)
 echo "Using RFDK version ${RFDK_VERSION}"
 ```
 
 Next, find the version of the AWS CDK that is compatible with this version of RFDK:
 
-```
+```bash
 CDK_VERSION=$(npm view aws-rfdk 'dependencies.aws-cdk-lib')
 echo "Using CDK version ${CDK_VERSION}"
 ```
@@ -60,14 +59,14 @@ Now, initialize the app using the CDK toolkit’s `cdk init` command:
 ------
 #### [ Python ]
 
-```
+```bash
 npx cdk@${CDK_VERSION} init app --language python
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npx cdk@${CDK_VERSION} init app --language typescript
 ```
 
@@ -80,7 +79,7 @@ With the CDK project initialized, install the `aws-rfdk` package:
 
 Modify `setup.py` in the root of the app directory to add an entry for `aws-rfdk` to the `install_requires` list. Replace {{RFDK\_VERSION}} with the version output in the previous step:
 
-```
+```python
 setup(
     # ...
     install_requires=[
@@ -94,7 +93,7 @@ setup(
 
 Now activate the app's Python virtual environment and install its dependencies:
 
-```
+```bash
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
@@ -102,13 +101,13 @@ python -m pip install -r requirements.txt
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npm install --save aws-rfdk@${RFDK_VERSION}
 ```
 
 To install all of the peer dependencies required by RFDK, use the following command (requires `jq`):
 
-```
+```bash
 npm view --json aws-rfdk@${RFDK_VERSION} peerDependencies | jq '. | to_entries[] | .key + "@" + .value' | xargs npm i --save
 ```
 
@@ -124,7 +123,7 @@ Each application needs to be associated with an [AWS environment](https://docs.a
 
 In `app.py`:
 
-```
+```python
 # ...
 import os
 
@@ -142,7 +141,7 @@ HelloRfdkStack(app, "hello-rfdk", env=env)
 
 In `bin/hello-rfdk.ts`:
 
-```
+```typescript
 new HelloRfdkStack(app, 'hello-rfdk', {
   env: {
     account: process.env.CDK_DEPLOY_ACCOUNT ?? process.env.CDK_DEFAULT_ACCOUNT,
@@ -162,7 +161,7 @@ Now you are ready to start building your render farm. The first thing you will n
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 import aws_cdk as cdk
 import aws_cdk.aws_ec2 as ec2
 from constructs import Construct
@@ -180,7 +179,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
@@ -203,7 +202,7 @@ The next thing you will need to do is select a version of AWS Thinkbox Deadline 
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 import aws_rfdk.deadline as rfdk_deadline
 
@@ -223,7 +222,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 import * as deadline from 'aws-rfdk/deadline';
 
@@ -252,7 +251,7 @@ In the Deadline documentation, the Database and Repository are two separate conc
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -270,7 +269,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -297,7 +296,7 @@ To use these images, add a `ThinkboxDockerImages` instance to your CDK app. For 
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -321,7 +320,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -357,7 +356,7 @@ This example explicitly turns [deletion protection](https://docs.aws.amazon.com/
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -378,7 +377,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -409,7 +408,7 @@ The `WorkerInstanceFleet` construct requires an [Amazon Machine Image (AMI)](htt
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -431,7 +430,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -466,7 +465,7 @@ No build step is necessary.
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npm run build
 ```
 
@@ -474,13 +473,13 @@ npm run build
 
 You can optionally synthesize the CloudFormation template for your app if you are curious to see it (the generated CloudFormation template is around *3300* lines long):
 
-```
+```bash
 npx cdk@${CDK_VERSION} synth
 ```
 
 Now, deploy the render farm with:
 
-```
+```bash
 npx cdk@${CDK_VERSION} deploy
 ```
 
@@ -500,7 +499,7 @@ We don’t need to retain any render farm information for this tutorial, so let�
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -523,7 +522,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -555,7 +554,7 @@ Let’s also scale down your `WorkerInstanceFleet` to 0 so that all workers are 
 
 In `hello_rfdk/hello_rfdk_stack.py`:
 
-```
+```python
 # ...
 class HelloRfdkStack(cdk.Stack):
 
@@ -581,7 +580,7 @@ class HelloRfdkStack(cdk.Stack):
 
 In `lib/hello-rfdk-stack.ts`:
 
-```
+```typescript
 // ...
 
 export class HelloRfdkStack extends cdk.Stack {
@@ -617,7 +616,7 @@ No build step is necessary.
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npm run build
 ```
 
@@ -625,13 +624,13 @@ npm run build
 
 You can optionally run `cdk diff` to see the changes in the CloudFormation template that will be applied:
 
-```
+```bash
 npx cdk@${CDK_VERSION} diff
 ```
 
 Now let’s deploy these changes:
 
-```
+```bash
 npx cdk@${CDK_VERSION} deploy
 ```
 
@@ -651,14 +650,14 @@ In order to submit a job, you will need to [create a secure connection to your r
 
 Once you set up the connection to the render farm and [allow the connection to the render queue](connecting-to-render-farm.md#allowing-connection-to-the-render-queue), you can build and deploy your changes.
 
-```
+```bash
 npm run build
 npx cdk@${CDK_VERSION} deploy
 ```
 
 When the changes are deployed, [get remote connection server address](connecting-to-render-farm.md#getting-remote-connection-server-address) and save it for later.
 
-```
+```bash
 RQ_DNS_NAME={{load-balancer-dns-name}}
 ```
 
@@ -669,7 +668,7 @@ You need to install [Deadline](https://www.awsthinkbox.com/deadline) Client on t
 
 Once you have downloaded an archive, extract the files and install Deadline Client. For more information, please visit [Deadline Client Installation (Quick)](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/quick-install-client.html) page. Here is how you can install Deadline client in a silent mode on Amazon Linux 2 (AL2):
 
-```
+```bash
 yum install lsb
 
 DEADLINE_VERSION={{deadline-version}}
@@ -691,13 +690,13 @@ You can now connect Deadline Client to your render farm.
 
 1. Navigate to `bin` folder in your Deadline Client installation directory. For example:
 
-   ```
+   ```bash
    cd /opt/Thinkbox/Deadline10/bin
    ```
 
 1. Change the repository you are connected to with Deadline Command:
 
-   ```
+   ```bash
    ./deadlinecommand ChangeRepository Remote $RQ_DNS_NAME:8080
    ```
 
@@ -710,7 +709,7 @@ Let’s submit a simple command line job that calls `ping` command.
 
 Navigate to `bin` folder in your Deadline Client installation directory and submit the job with `deadlinecommand`:
 
-```
+```bash
 cd /opt/Thinkbox/Deadline10/bin
 ./deadlinecommand SubmitCommandLineJob -frames 1 -executable "ping" -arguments "-c 3 localhost"
 ```
@@ -720,7 +719,7 @@ cd /opt/Thinkbox/Deadline10/bin
 
 The easiest way to check the result of the submitted job is to use another deadline command:
 
-```
+```bash
 cd /opt/Thinkbox/Deadline10/bin
 ./deadlinecommand GetFarmStatistics
 ```
@@ -747,7 +746,7 @@ You can also view the output of the job you submitted in the Deadline Worker log
 
 When you’re done with your render farm, you can destroy it:
 
-```
+```bash
 npx cdk@${CDK_VERSION} destroy
 ```
 

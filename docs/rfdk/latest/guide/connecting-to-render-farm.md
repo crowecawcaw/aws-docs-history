@@ -1,7 +1,6 @@
 
 
 # Connecting To Render Farm
-<a name="connecting-to-render-farm"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -23,7 +22,7 @@ Ensure that your network and VPC do not have overlapping IPv4 CIDR blocks. Other
 ------
 #### [ Python ]
 
-```
+```python
 vpc = ec2.Vpc(self, "Vpc",
     # for example, replace rfdk-vpc-cidr-range with 10.100.0.0/16
     cidr="{{rfdk-vpc-cidr-range}}",
@@ -49,7 +48,7 @@ vpc = ec2.Vpc(self, "Vpc",
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 const vpc = new ec2.Vpc(this, 'Vpc', {
   // for example, replace rfdk-vpc-cidr-range with 10.100.0.0/16
   cidr: "{{rfdk-vpc-cidr-range}}",
@@ -103,7 +102,7 @@ Below, we explicitly create a security group that is applied to the Client VPN e
 ------
 #### [ Python ]
 
-```
+```python
 AuthReq = ec2.CfnClientVpnEndpoint.ClientAuthenticationRequestProperty
 
 security_group = ec2.SecurityGroup(self, 'SG-VPN-RFDK', vpc=vpc)
@@ -133,7 +132,7 @@ endpoint = ec2.CfnClientVpnEndpoint(self, 'ClientVpnEndpointRFDK',
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { CfnClientVpnTargetNetworkAssociation, CfnClientVpnEndpoint, CfnClientVpnAuthorizationRule, CfnClientVpnRoute, SecurityGroup, Vpc } from '@aws-cdk/aws-ec2';
 ...
 const securityGroup = new SecurityGroup(this, 'SG-VPN-RFDK', {
@@ -167,7 +166,7 @@ To create network associations for the subnets of the VPN use [CfnClientVpnTarge
 ------
 #### [ Python ]
 
-```
+```python
 for i, subnet in enumerate(vpc.private_subnets):
     ec2.CfnClientVpnTargetNetworkAssociation(self, 'ClientVpnNetworkAssociation' + str(i),
         client_vpn_endpoint_id=endpoint.ref,
@@ -178,7 +177,7 @@ for i, subnet in enumerate(vpc.private_subnets):
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 let i = 0;
 vpc.privateSubnets.map(subnet => {
   new CfnClientVpnTargetNetworkAssociation(this, `ClientVpnNetworkAssociation${i}`, {
@@ -198,7 +197,7 @@ Substitute {{target\_network-cidr-block}} with the CIDR of the network for which
 ------
 #### [ Python ]
 
-```
+```python
 authorization_rule = ec2.CfnClientVpnAuthorizationRule(self, 'ClientVpnAuthRule',
     authorize_all_groups=True,
     client_vpn_endpoint_id=endpoint.ref,
@@ -210,7 +209,7 @@ authorization_rule = ec2.CfnClientVpnAuthorizationRule(self, 'ClientVpnAuthRule'
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 new CfnClientVpnAuthorizationRule(this, 'ClientVpnAuthRule', {
   authorizeAllGroups: true,
   clientVpnEndpointId: endpoint.ref,
@@ -237,7 +236,7 @@ Substitute {{peer-vpc-region}} and {{peer-vpc-id}} with the region and the VPC I
 
 For example, if you are working on an EC2 instance in `us-east-1` region, you can use the following commands to get these values:
 
-```
+```bash
 PEER_VPC_REGION=us-east-1
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 INTERFACE=$(curl -H "X-aws-ec2-metadata-token: ${TOKEN}" --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/)
@@ -250,7 +249,7 @@ Now you can use a CDK construct `CfnVPCPeeringConnection` to create a VPC peerin
 ------
 #### [ Python ]
 
-```
+```python
 vpc_peering_connection = ec2.CfnVPCPeeringConnection(self, 'VPCPeeringConnection',
     vpc_id=vpc.vpc_id,
     peer_vpc_id="{{peer-vpc-id}}",
@@ -261,7 +260,7 @@ vpc_peering_connection = ec2.CfnVPCPeeringConnection(self, 'VPCPeeringConnection
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 const vpcPeeringConnection = new ec2.CfnVPCPeeringConnection(this, 'VPCPeeringConnection', {
   vpcId: vpc.vpcId,
   peerVpcId: "{{peer-vpc-id}}",
@@ -278,7 +277,7 @@ To update all the route tables in the RFDK VPC, add the following code to your R
 ------
 #### [ Python ]
 
-```
+```python
 for i, subnet in enumerate(vpc.private_subnets):
     ec2.CfnRoute(self, 'PeerRoute' + str(i),
         route_table_id=subnet.route_table.route_table_id,
@@ -291,7 +290,7 @@ for i, subnet in enumerate(vpc.private_subnets):
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 let i = 0;
 vpc.privateSubnets.map(subnet => {
   new ec2.CfnRoute(this, `PeerRoute${i}`, {
@@ -315,20 +314,20 @@ There are multiple ways to get the id of the VPC peering connection:
 + Navigate directly to the deployed Peering Connection in the VPC console and copy the physical ID from there.
 + Use AWS CLI command [describe-vpc-peering-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) to view your VPC peering connections and find the connection id in the output.
 
-```
+```bash
 aws --region PEER_VPC_REGION ec2 describe-vpc-peering-connections
 VPC_PEERING_CONNECTION_ID={{peering-connection-id}}
 ```
 
 Now save the id of the route table in the shell variable as well:
 
-```
+```bash
 PEER_SUBNET_ID={{peer-subnet-id}}
 ```
 
 For example, if you want to use AWS CLI:
 
-```
+```bash
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 INTERFACE=$(curl -H "X-aws-ec2-metadata-token: ${TOKEN}" --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/)
 PEER_SUBNET_ID=$(curl -H "X-aws-ec2-metadata-token: ${TOKEN}" --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/${INTERFACE}/subnet-id)
@@ -337,7 +336,7 @@ echo $PEER_SUBNET_ID
 
 Finally, substitute {{rfdk-vpc-cidr-range}} with a CIDR range of the VPC created by RFDK application and create a route:
 
-```
+```bash
 RFDK_VPC_CIDR_RANGE=<replaceable>rfdk-vpc-cidr-range</replaceable>
 ROUTING_TABLE=$(aws --region $PEER_VPC_REGION ec2 describe-route-tables --query "RouteTables[*].Associations[?SubnetId=='$PEER_SUBNET_ID'].RouteTableId" --output text)
 aws --region $PEER_VPC_REGION ec2 create-route --route-table-id $ROUTING_TABLE --destination-cidr-block $RFDK_VPC_CIDR_RANGE --vpc-peering-connection-id $VPC_PEERING_CONNECTION_ID
@@ -345,7 +344,7 @@ aws --region $PEER_VPC_REGION ec2 create-route --route-table-id $ROUTING_TABLE -
 
 Your RFDK application will create a peering connection, but you will still need to [accept a VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/create-vpc-peering-connection.html#accept-vpc-peering-connection) when your app is deployed. You can accept the request in the AWS Console navigating to VPC service and switching to Peering Connections tab or with AWS CLI. Accept the request with AWS CLI using `accept-vpc-peering-connection` command:
 
-```
+```bash
 aws --region $PEER_VPC_REGION ec2 accept-vpc-peering-connection --vpc-peering-connection-id $VPC_PEERING_CONNECTION_ID
 ```
 
@@ -357,14 +356,14 @@ To allow the connection to the render queue from the machines in your network, a
 ------
 #### [ Python ]
 
-```
+```python
 render_queue.connections.allow_default_port_from(ec2.Peer.ipv4("{{customer-prefix-cidr-range}}"))
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 renderQueue.connections.allowDefaultPortFrom(ec2.Peer.ipv4("{{customer-prefix-cidr-range}}"));
 ```
 
@@ -375,14 +374,14 @@ You can grant access to the render queue for the security group instead of the I
 ------
 #### [ Python ]
 
-```
+```python
 render_queue.connections.allow_default_port_from(security_group);
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 renderQueue.connections.allowDefaultPortFrom(securityGroup);
 ```
 

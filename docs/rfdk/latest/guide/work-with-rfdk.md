@@ -1,7 +1,6 @@
 
 
 # Working with the RFDK
-<a name="work-with-rfdk"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -36,20 +35,20 @@ This section documents how to create a new RFDK Python project.
 
 The first step to create a new RFDK project is to select a version of RFDK to use. It is highly recommended to use the latest version of RFDK available when starting a new project. The following command lists the latest published version of RFDK, stores the result in the `RFDK_VERSION` shell variable, and outputs a message with the version number.
 
-```
+```bash
 RFDK_VERSION=$(npm view aws-rfdk version)
 echo "RFDK Version: ${RFDK_VERSION}"
 ```
 
 If you require a legacy version of RFDK, you can [list all available RFDK versions](#list-rfdk-versions) and set the variable to {{DESIRED\_RFDK\_VERSION}} manually.
 
-```
+```bash
 RFDK_VERSION={{DESIRED_RFDK_VERSION}}
 ```
 
 Once you have the desired version of RFDK stored in the `RFDK_VERSION` shell variable, you must determine the corresponding AWS CDK version. To determine the CDK version and store it in the `CDK_VERSION` shell variable, run the following command:
 
-```
+```bash
 CDK_VERSION=$(npm view aws-rfdk@${RFDK_VERSION} 'dependencies.@aws-cdk/core')
 ```
 
@@ -58,14 +57,14 @@ Next, initialize the CDK app with:
 ------
 #### [ Python ]
 
-```
+```bash
 npx cdk@${CDK_VERSION} init app --language=python
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npx cdk@${CDK_VERSION} init app --language=typescript
 ```
 
@@ -82,7 +81,7 @@ We also provide some sample applications in the [RFDK’s github](https://github
 
 Given that you want to use {{RFDK\_VERSION}} (see previous section), you will need to add the RFDK to the list of dependencies required by your python package. This is done by modifying the `setup.py` file in the root of your CDK application to add an entry for `aws-rfdk` to the `install_requires` argument of the `setup` function:
 
-```
+```python
 setup(
     # ...
     install_requires=[
@@ -95,7 +94,7 @@ setup(
 
 Once the dependency has been added to `setup.py`, install it into the virtual environment created by the CDK toolkit:
 
-```
+```bash
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -105,7 +104,7 @@ pip install -r requirements.txt
 
 Given that you have the version of RFDK in the `RFDK_VERSION` shell variable (see previous section), you will need to add the RFDK to the list of dependencies required by your npm package. This can be done with the following command:
 
-```
+```bash
 npm install --save aws-rfdk@${RFDK_VERSION}
 ```
 
@@ -147,7 +146,7 @@ The following sample code demonstrates how to use `ThinkboxDockerImages`:
 
 Replace {{"10.2.0"}} with your desired minor version of Deadline:
 
-```
+```python
 import aws_cdk as cdk
 import Vpc from aws_cdk.aws_ec2
 import Construct from constructs
@@ -194,7 +193,7 @@ class HelloRfdkStack(cdk.Stack):
 
 Replace {{"10.2.0"}} with your desired minor version of Deadline:
 
-```
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import { Vpc } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
@@ -265,14 +264,14 @@ To stage the Docker recipes for the latest version of Deadline, run the followin
 
 Assuming your CDK application uses {{RFDK\_VERSION}}:
 
-```
+```bash
 npx -p aws-rfdk@{{RFDK_VERSION}} stage-deadline 
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npx stage-deadline
 ```
 
@@ -285,14 +284,14 @@ To stage the Docker recipes for a specified Deadline version (<replaceable>DEADL
 
 Assuming your CDK application uses {{RFDK\_VERSION}}:
 
-```
+```bash
 npx -p aws-rfdk@{{RFDK_VERSION}} stage-deadline {{DEADLINE_VERSION}}
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npx stage-deadline {{DEADLINE_VERSION}}
 ```
 
@@ -305,14 +304,14 @@ If you have custom Deadline installers ({{DEADLINE\_INSTALLER\_S3\_URI}}) or Doc
 
 Assuming your CDK application uses {{RFDK\_VERSION}}:
 
-```
+```bash
 npx -p aws-rfdk@{{RFDK_VERSION}} stage-deadline {{DEADLINE_VERSION}}
 ```
 
 ------
 #### [ TypeScript ]
 
-```
+```bash
 npx stage-deadline {{DEADLINE_VERSION}}
 ```
 
@@ -332,7 +331,7 @@ The following sample code demonstrates how to use `ThinkboxDockerRecipes`:
 
 Replace {{STAGE\_DIR}} with the path to the stage directory:
 
-```
+```python
 import aws_cdk.core as cdk
 import aws_rfdk.deadline as rfdk_deadline
 
@@ -368,7 +367,7 @@ class HelloRfdkStack(cdk.Stack):
 
 Replace {{STAGE\_DIR}} with the path to the stage directory:
 
-```
+```typescript
 import * as cdk from '@aws-cdk/core';
 import * as deadline from 'aws-rfdk/deadline';
 
@@ -406,6 +405,6 @@ export class HelloRfdkStack extends cdk.Stack {
 
 Use the following command to output a list of available versions of RFDK:
 
-```
+```bash
 npm view aws-rfdk versions
 ```

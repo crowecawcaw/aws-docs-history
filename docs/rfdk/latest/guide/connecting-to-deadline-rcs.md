@@ -1,7 +1,6 @@
 
 
 # Creating a Remote Terminal Session into the Render Queue
-<a name="connecting-to-deadline-rcs"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -11,7 +10,7 @@ You can create a remote terminal session into the Render Queue to perform admini
 ------
 #### [ Python ]
 
-```
+```python
 render_queue = RenderQueue(self, 'RenderQueue',
   # ...
 )
@@ -21,7 +20,7 @@ SessionManagerHelper.grant_permissions_to(render_queue.asg)
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 const renderQueue = new RenderQueue(this, 'RenderQueue', {
   // ...
 });
@@ -46,7 +45,7 @@ Once you are on the instance, you will need to enter the Docker container that i
 
 1. List all running Docker containers.
 
-   ```
+   ```bash
    sudo docker container ls
    ```
 
@@ -54,7 +53,7 @@ Once you are on the instance, you will need to enter the Docker container that i
 
 1. Create a bash shell inside the Docker container by running the following command, replacing `<container-id>` with the value from the previous step.
 
-   ```
+   ```bash
    sudo docker exec -it <container-id> bash
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Deadline Secrets Management in the RFDK
-<a name="deadline-secrets-management-rfdk"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -23,7 +22,7 @@ When using Deadline 10.1.19 or later, the `Repository` construct enables Deadlin
 
 If you would like to create your own credentials for Deadline Secrets Management, you can store them as a Secret in AWS Secrets Manager and provide the Secret to the `Repository` construct. This secret must be a JSON document with the following fields:
 
-```
+```json
 {
   "username": "your_secrets_management_username",
   "password": "your_secrets_management_password"
@@ -38,7 +37,7 @@ In your RFDK app, you can provide this Secret to the `Repository` construct like
 ------
 #### [ Python ]
 
-```
+```python
 vpc = ec2.Vpc(self, 'Vpc')
 version = deadline.VersionQuery(self, 'Version',
   version={{'10.2.0'}},
@@ -63,7 +62,7 @@ repository = deadline.Repository(self, 'Repository',
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 const vpc = new ec2.Vpc(this, 'Vpc');
 const version = new deadline.VersionQuery(this, 'Version', {
   version: {{'10.2.0'}},
@@ -133,7 +132,7 @@ If you choose to attempt to re-install the Deadline Repository, here are some mo
 
 1. Even though the Deadline Repository gets installed by the `Service Tier`, the file system and database that it gets installed onto are in the `Storage Tier`, so we need to make sure we actually run the uninstaller. If your `RenderQueue` has the `SessionManagerHelper` applied to it [like in our example](https://github.com/aws/aws-rfdk/blob/8845f4787cd7761f4b94213a7577ad6745d4246e/examples/deadline/All-In-AWS-Infrastructure-Basic/ts/lib/service-tier.ts#L209) you can connect to it through the AWS Console using Session Manager, and then run these commands:
 
-```
+```bash
 $ cd /mnt/repo
 $ sudo ./uninstall
 Do you want to uninstall Deadline Repository and all of its modules? [Y/n]: y

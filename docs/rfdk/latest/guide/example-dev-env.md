@@ -1,7 +1,6 @@
 
 
 # Example development environment using Cloud9 and CodeCommit
-<a name="example-dev-env"></a>
 
 **Important**  
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
@@ -69,7 +68,7 @@ One important user interface element is the [**console**](https://docs.aws.amazo
 
 By default, Cloud9 EC2 environments come preconfigured with almost all of the required [Prerequisites](getting-started.md#prerequisites) for working with RFDK, except for the version of NodeJS. We recommend using the [LTS release](https://nodejs.org/en/about/releases/) of NodeJS, which can be installed and configured with the following commands:
 
-```
+```bash
 nvm install 14
 echo "nvm use 14" >> ~/.bash_profile
 ```
@@ -92,7 +91,7 @@ By default, AWS Cloud9 creates a 10GB EBS volume for the root file-system of the
 
 In this step, we configure git on our Cloud9 environment to use the AWS CLI credential helper. This uses Cloud9’s managed temporary credentials that are associated with the IAM user connected to the IDE. To configure this, run the following commands:
 
-```
+```bash
 git config --global credential.helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
 ```
@@ -108,12 +107,12 @@ In this step, we clone the CodeCommit repo created in [Step 1: Create an AWS Cod
 
 1. Run the following commands substituting {{my\_repo\_name}} with the CodeCommit repository name created in step 1.
 
-   ```
+   ```bash
    # Replace the value on the right-hand side with repository name from step 1
    CC_REPO_NAME={{my_repo_name}}
    ```
 
-   ```
+   ```bash
    aws codecommit get-repository \
      --repository-name ${CC_REPO_NAME} \
      --query repositoryMetadata.cloneUrlHttp \
