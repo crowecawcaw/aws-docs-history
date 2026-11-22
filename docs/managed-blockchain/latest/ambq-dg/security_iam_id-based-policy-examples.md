@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Identity-based policy examples for Amazon Managed Blockchain (AMB) Query
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AMB Query resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -33,7 +32,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ In order to access the AMB Query to make API calls, you will need user credentia
 This example grants an IAM user in your AWS account access to all AMB Query APIs.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ This example grants an IAM user in your AWS account access to the AMB Query `Lis
 You can replace or add on the APIs in the example with other APIs to give access to other or more APIs. For a list of AMB Query APIs, see the *Amazon Managed Blockchain (AMB) Query API Reference Guide*.  
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

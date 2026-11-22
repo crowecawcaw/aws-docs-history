@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # What is Amazon Managed Blockchain (AMB) Query?
-<a name="what-is-service"></a>
 
 Amazon Managed Blockchain (AMB) is a fully managed service designed to help you build resilient Web3 applications on both public and private blockchains. Use AMB Access for instant and serverless access to multiple blockchains. Build your Web3-ready applications without the requirement of deploying specialized blockchain infrastructure and keeping them connected to the blockchain network. With AMB Query, you can use developer-friendly API operations to access real-time and historical data from multiple blockchains. The standardized blockchain data can be integrated with AWS services, without requiring specialized blockchain infrastructure or ETL (extract, transform, and load). All AMB features scale securely for institutional grade and mainstream consumer application builds.
 
