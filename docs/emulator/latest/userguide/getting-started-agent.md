@@ -1,7 +1,6 @@
 
 
 # Getting started with an AI coding agent
-<a name="getting-started-agent"></a>
 
 The `aws-emulator` skill teaches your AI coding agent how to work with AWS Emulator. With the skill, your agent can do the following for you:
 + Install the emulator, using the Linux package or Docker, depending on your operating system
@@ -16,13 +15,13 @@ The skill uses the same steps that this guide describes for the Linux package an
 
 1. Check that you have the AWS CLI version 2.35.0 or later.
 
-   ```
+   ```bash
    aws --version
    ```
 
 1. Install the skill. The following command installs it for all the AI coding agents that the AWS CLI finds on your machine, such as Kiro, Cursor, and Claude Code.
 
-   ```
+   ```bash
    aws agent-toolkit add-skill --skill-name aws-emulator --region us-east-1
    ```
 

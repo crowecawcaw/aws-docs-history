@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Emulator
-<a name="setting-up"></a>
 
 Before you start, check the following. The prerequisites depend on how you run the emulator. You don’t need an AWS account to download or run the emulator.
 +  **An AWS SDK or the AWS CLI** – You use the emulator through the AWS CLI or an AWS SDK, the same way that you use AWS.

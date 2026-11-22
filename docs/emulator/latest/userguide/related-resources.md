@@ -1,7 +1,6 @@
 
 
 # Related resources
-<a name="related-resources"></a>
 
 To learn more, see these links:
 +  [AWS Emulator on GitHub](https://github.com/aws/aws-emulator) – Get the source code.

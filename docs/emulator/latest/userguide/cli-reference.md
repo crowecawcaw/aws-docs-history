@@ -1,7 +1,6 @@
 
 
 # AWS Emulator command reference
-<a name="cli-reference"></a>
 
 The `aws-emulator` command starts an instance of AWS Emulator. You install it with the Linux package, or run it in a container that you build. For installation, see [Getting started with AWS Emulator](getting-started.md). The container takes the same options as the native command.
 
@@ -74,7 +73,7 @@ Besides the AWS APIs, the emulator serves one control route. It serves this rout
 
 The following example checks the health of an emulator on the default port. It uses the certificate that the emulator wrote for that port.
 
-```
+```bash
 curl --cacert ~/.aws/emulator/9297/ca.pem https://127.0.0.1:9297/__admin/health
 ```
 

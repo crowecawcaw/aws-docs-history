@@ -1,7 +1,6 @@
 
 
 # Getting started with embedded mode
-<a name="getting-started-embedded"></a>
 
 Embedded mode runs the emulator in the same process as your tests. Each test gets its own emulator and its own data. This lets you run tests in parallel. Your code calls the emulator directly, not over the network. You don’t set an endpoint URL or a certificate.
 
@@ -12,7 +11,7 @@ Embedded mode works with the AWS SDK for Rust. Telemetry is on by default in emb
 
 Add the `aws-emulator-embedded` crate to the `[dev-dependencies]` section of your `Cargo.toml` file. This keeps the emulator out of the binary that you ship. You get the crate from GitHub. In the following example, `[dependencies]` holds the AWS SDK that your code uses. `[dev-dependencies]` adds the emulator.
 
-```
+```toml
 [dependencies]
 aws-config = "1"
 aws-sdk-s3 = "1"
@@ -39,7 +38,7 @@ Set the Region and the credentials provider as shown. If you leave them out, the
 
 The following example creates an Amazon S3 bucket, writes an object, and reads it back.
 
-```
+```rust
 use aws_emulator_embedded::{AwsEmulatorEmbedded, EmbeddedOptions};
 use aws_sdk_s3::primitives::ByteStream;
 
@@ -82,7 +81,7 @@ Authentication is off by default in embedded mode. The emulator serves any reque
 
 To make the emulator check signatures, set `Authentication::On` in `EmbeddedOptions`. Then API requests must be signed with the emulator’s credentials, or with access keys that you create in the emulator through IAM or AWS STS. Operations that AWS serves without a signature don’t need one. The emulator rejects other requests. In embedded mode, the emulator doesn’t write a credentials file.
 
-```
+```rust
 use aws_emulator_embedded::{Authentication, AwsEmulatorEmbedded, EmbeddedOptions};
 
 let emulator = AwsEmulatorEmbedded::new(

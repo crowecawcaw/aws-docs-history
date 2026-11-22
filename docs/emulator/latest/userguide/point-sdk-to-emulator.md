@@ -1,7 +1,6 @@
 
 
 # Pointing your AWS SDK at AWS Emulator
-<a name="point-sdk-to-emulator"></a>
 
 To use AWS Emulator, you configure the AWS CLI or your AWS SDK to send requests to the emulator instead of to AWS. When you run the emulator as a local process (Linux or Docker), you set environment variables. When you run it embedded in Rust tests, you replace the SDK HTTP client. For embedded mode, see [Getting started with embedded mode](getting-started-embedded.md).
 
@@ -23,7 +22,7 @@ To turn off signature checks, start the emulator with `--auth off` (`-a off`). T
 
     **macOS and Linux** 
 
-   ```
+   ```bash
    export AWS_ENDPOINT_URL=https://127.0.0.1:9297
    export AWS_SHARED_CREDENTIALS_FILE=~/.aws/emulator/9297/emulator_credentials
    export AWS_CONFIG_FILE=~/.aws/emulator/9297/config
@@ -36,7 +35,7 @@ To turn off signature checks, start the emulator with `--auth off` (`-a off`). T
 
     **Windows PowerShell** 
 
-   ```
+   ```powershell
    $env:AWS_ENDPOINT_URL = "https://127.0.0.1:9297"
    $env:AWS_SHARED_CREDENTIALS_FILE = "$env:USERPROFILE\.aws\emulator\9297\emulator_credentials"
    $env:AWS_CONFIG_FILE = "$env:USERPROFILE\.aws\emulator\9297\config"
@@ -61,13 +60,13 @@ To turn off signature checks, start the emulator with `--auth off` (`-a off`). T
 
     **macOS and Linux** 
 
-   ```
+   ```bash
    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_PROFILE
    ```
 
     **Windows PowerShell** 
 
-   ```
+   ```powershell
    Remove-Item Env:AWS_ACCESS_KEY_ID, Env:AWS_SECRET_ACCESS_KEY, Env:AWS_SESSION_TOKEN, Env:AWS_PROFILE -ErrorAction SilentlyContinue
    ```
 
@@ -75,13 +74,13 @@ To turn off signature checks, start the emulator with `--auth off` (`-a off`). T
 
 1. (Optional) Check that the emulator is ready. The health check returns HTTP 200 with the body `ok`. It uses the same port as the API, over HTTPS.
 
-   ```
+   ```bash
    curl --cacert ~/.aws/emulator/9297/ca.pem https://127.0.0.1:9297/__admin/health
    ```
 
    In a script, you can wait for the emulator before you run your tests. The following loop tries once per second, for up to 30 seconds.
 
-   ```
+   ```bash
    for i in $(seq 30); do
      curl -sf --cacert ~/.aws/emulator/9297/ca.pem https://127.0.0.1:9297/__admin/health && break
      sleep 1
@@ -90,7 +89,7 @@ To turn off signature checks, start the emulator with `--auth off` (`-a off`). T
 
 1. Run your code. Your SDK reads the variables that you set, so your code needs no endpoint or credentials. For example, the following Python code lists the Amazon S3 buckets in the emulator.
 
-   ```
+   ```python
    import boto3
    
    s3 = boto3.client("s3")
@@ -146,7 +145,7 @@ $ aws servicediscovery discover-instances --namespace-name my-namespace --servic
 
 To confirm that your shell sends requests to the emulator, run the following command.
 
-```
+```bash
 aws sts get-caller-identity
 ```
 
@@ -181,13 +180,13 @@ Java doesn’t read `ca.pem`. Instead, the emulator writes the same certificate 
 
  **macOS and Linux** 
 
-```
+```bash
 export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=$HOME/.aws/emulator/9297/truststore.p12 -Djavax.net.ssl.trustStoreType=PKCS12"
 ```
 
  **Windows PowerShell** 
 
-```
+```powershell
 $env:JAVA_TOOL_OPTIONS = "-Djavax.net.ssl.trustStore=$env:USERPROFILE\.aws\emulator\9297\truststore.p12 -Djavax.net.ssl.trustStoreType=PKCS12"
 ```
 

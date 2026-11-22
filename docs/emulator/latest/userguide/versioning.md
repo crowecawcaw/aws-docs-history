@@ -1,7 +1,6 @@
 
 
 # Versions and compatibility in AWS Emulator
-<a name="versioning"></a>
 
 We aim to keep breaking changes rare, so that your tests keep working when you upgrade. This topic explains version numbers, what you can rely on, and how fidelity fixes can change your test results.
 
@@ -22,7 +21,7 @@ We aim to keep breaking changes rare, so that your tests keep working when you u
 
 To see your version, run the following command.
 
-```
+```bash
 aws-emulator -v
 ```
 

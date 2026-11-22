@@ -1,7 +1,6 @@
 
 
 # Checking whether your project works with AWS Emulator
-<a name="check-project"></a>
 
 You can check which parts of your project you can rely on AWS Emulator for. The easiest way is the `aws-emulator` skill for AI coding agents. With the skill, your agent finds the AWS operations and resources that your project depends on. It checks them against the fidelity tests and fidelity scores for the emulator. It then tells you which parts of your project you can rely on the emulator for, and which ones might behave differently from AWS. If you find a behavior that differs from AWS, your agent can also draft an issue for you. It shows you the draft before it posts anything, so you can review it first.
 

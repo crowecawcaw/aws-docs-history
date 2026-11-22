@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Emulator
-<a name="getting-started"></a>
 
 You can get started with AWS Emulator in four ways. Choose the path that fits how you work, your operating system, and how you test:
 +  **With an AI coding agent** – Install the `aws-emulator` skill, and ask your agent to install, start, and connect the emulator for you. You need an AI coding agent and the AWS CLI version 2.35.0 or later. For more information, see [Getting started with an AI coding agent](getting-started-agent.md).
