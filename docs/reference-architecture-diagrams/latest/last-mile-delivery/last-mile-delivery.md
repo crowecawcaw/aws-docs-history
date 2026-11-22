@@ -1,7 +1,6 @@
 
 
 # Last Mile Delivery
-<a name="last-mile-delivery"></a>
 
 Publication date: **October 7, 2020 ([Diagram history](#lmd-history))**
 
