@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN logs
-<a name="monitoring-logs"></a>
 
 AWS Site-to-Site VPN logs provide you with deeper visibility into your Site-to-Site VPN deployments. With this feature, you have access to Site-to-Site VPN connection logs that provide details on IP Security (IPsec) tunnel establishment, Internet Key Exchange (IKE) negotiations, dead peer detection (DPD) protocol messages, Border Gateway protocol (BGP) status and routing updates.
 
@@ -158,7 +157,7 @@ The following information is included in the Site-to-Site VPN tunnel BGP log. Th
 ## Example log format for Tunnel BGP logs
 <a name="example-bgp-logs"></a>
 
-```
+```json
 {
     "resource_id": "vpn-1234abcd_1.2.3.4",
     "event_timestamp": 1762580429641,
@@ -200,7 +199,7 @@ For the logging feature to work properly, the IAM policy attached to the IAM pri
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

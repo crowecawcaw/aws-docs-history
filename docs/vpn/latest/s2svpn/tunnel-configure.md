@@ -1,7 +1,6 @@
 
 
 # Configure tunnel options for AWS Site-to-Site VPN
-<a name="tunnel-configure"></a>
 
 This section provides comprehensive guidance on configuring tunnel options for AWS Site-to-Site VPN connections, covering essential parameters such as dead peer detection, IKE versions, and encryption settings. You can customize these tunnel options to optimize your VPN connection's security, performance, and compatibility with your on-premises network infrastructure. 
 
@@ -9,6 +8,9 @@ The following are the tunnel options that you can configure.
 
 **Note**  
 Some tunnel options have multiple default values. For example, **IKE versions** has two default tunnel option values: `ikev1` and `ikev2`. All default values will be associated with that tunnel option if you don't choose specific values. Click to remove any default value that you don't want associated with the tunnel option. For example, if you only want to use `ikev1` for the IKE version, click `ikev2` to remove it.
+
+**Post-quantum key exchange**  
+Site-to-Site VPN supports hybrid post-quantum key exchange for IKEv2 tunnels. You can add up to seven additional key exchange rounds after the initial Diffie-Hellman exchange, as defined in RFC 9370. If a round uses ML-KEM, a post-quantum algorithm standardized by NIST in FIPS 203, the tunnel keys are derived from both the Diffie-Hellman exchange and the ML-KEM exchange. This helps protect your tunnel keys against future decryption by quantum computers. To enable this, add an additional key exchange round for phase 1 and phase 2, and permit key exchange method 35 (ML-KEM-512), 36 (ML-KEM-768), or 37 (ML-KEM-1024). Existing tunnels don't change unless you configure these options.
 
 **Dead peer detection (DPD) timeout**  
 The number of seconds after which a DPD timeout occurs. A DPD timeout of 30 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive. You can specify 30 or higher.  
@@ -91,6 +93,24 @@ Defaults: 2, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
 **Phase 2 Diffie-Hellman (DH) group numbers**  
 The DH group numbers that are permitted for the VPN tunnel for phase 2 of the IKE negotiations. You can specify one or more of the default values.  
 Defaults: 2, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+
+**Phase 1 additional key exchanges**  
+One or more additional key exchange rounds that are permitted for the VPN tunnel for phase 1 of the IKE negotiations, as defined in RFC 9370. Additional key exchanges occur after the initial Diffie-Hellman exchange. For each round, you specify the following:  
++ **Round**: The additional key exchange round number. Each round must have a unique round number. You can specify a number between 1 and 7.
++ **Key exchange methods**: The key exchange method numbers that are permitted for the round. The method numbers are the IANA IKEv2 key exchange method transform IDs. A required round must specify at least one method. If you omit the methods for an optional round, the round is disabled.
+
+  Valid values: 2, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 35, 36, 37
++ **Requirement**: Whether the round is mandatory. If `required`, the tunnel isn't established unless the customer gateway device negotiates the round. If `optional`, the round is negotiated only if the customer gateway device supports it.
+
+  Default: `required`
+IKEv2 requires that the initial Diffie-Hellman exchange and each required round use a different key exchange method. The permitted methods must allow a distinct method to be selected for each of them.  
+Additional key exchanges are supported only with IKEv2. You can't specify a `required` round if **IKE versions** contains only `ikev1`.
+Default: An empty list. No additional key exchange rounds are configured, and the tunnel uses only the initial Diffie-Hellman exchange.
+
+**Phase 2 additional key exchanges**  
+One or more additional key exchange rounds that are permitted for the VPN tunnel for phase 2 of the IKE negotiations, as defined in RFC 9370. Additional key exchanges occur after the initial Diffie-Hellman exchange. Each round has the same **Round**, **Key exchange methods**, and **Requirement** settings, valid values, and constraints as described for **Phase 1 additional key exchanges**.  
+Additional key exchanges are supported only with IKEv2. You can't specify a `required` round if **IKE versions** contains only `ikev1`.
+Default: An empty list. No additional key exchange rounds are configured, and the tunnel uses only the initial Diffie-Hellman exchange.
 
 **Phase 1 encryption algorithms**  
 The encryption algorithms that are permitted for the VPN tunnel for phase 1 of the IKE negotiations. You can specify one or more of the default values.  

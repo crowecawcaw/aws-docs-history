@@ -1,7 +1,6 @@
 
 
 # Create an AWS Site-to-Site VPN Concentrator connection using the CLI or API
-<a name="create-vpn-concentrator-cli-api"></a>
 
 ## Create a Site-to-Site VPN Concentrator connection using the CLI
 <a name="create-vpn-concentrator-connection"></a>

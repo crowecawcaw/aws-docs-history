@@ -1,7 +1,6 @@
 
 
 # Change the pre-shared key storage mode in AWS Site-to-Site VPN
-<a name="enhanced-security-storage"></a>
 
 Change the pre-shared key storage mode for an existing VPN tunnel.
 

@@ -1,7 +1,6 @@
 
 
 # Change the Secrets Manager pre-shared key in AWS Site-to-Site VPN
-<a name="enhanced-security-tunnel"></a>
 
 If your tunnel is inaccessible in Secrets Manager, you can change the pre-shared key for that tunnel.
 

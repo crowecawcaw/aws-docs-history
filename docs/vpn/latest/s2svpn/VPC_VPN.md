@@ -1,7 +1,6 @@
 
 
 # What is AWS Site-to-Site VPN?
-<a name="VPC_VPN"></a>
 
 By default, an instance that you launch within an Amazon VPC can't communicate with a local (AWS Cloud) network and a remote device — for example, this might be a site or an on-premises device. You can enable access to your remote devices from your VPC by creating an AWS Site-to-Site VPN (Site-to-Site VPN) connection, and configuring routing to pass traffic through the connection.
 

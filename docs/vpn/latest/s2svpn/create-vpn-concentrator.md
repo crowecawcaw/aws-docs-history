@@ -1,7 +1,6 @@
 
 
 # Create an AWS Site-to-Site VPN Concentrator
-<a name="create-vpn-concentrator"></a>
 
 Create a Concentrator using either the Amazon VPC Console, the APIs, or the AWS CLI. Before you create a Concentrator, you must first have created a transit gateway to associate with the Concentrator. For more information about creating transit gateways, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/create-tgw.html) in the *Amazon VPC AWS Transit Gateway Guide*.
 

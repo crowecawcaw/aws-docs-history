@@ -1,7 +1,6 @@
 
 
 # Downloadable static routing configuration files for an AWS Site-to-Site VPN customer gateway device
-<a name="cgw-static-routing-examples"></a>
 
 To download a sample configuration file with values specific to your Site-to-Site VPN connection configuration, use the Amazon VPC console, the AWS command line or the Amazon EC2 API. For more information, see [Step 6: Download the configuration file](SetUpVPNConnections.md#vpn-download-config).
 

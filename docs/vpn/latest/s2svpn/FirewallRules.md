@@ -1,7 +1,6 @@
 
 
 # Firewall rules for an AWS Site-to-Site VPN customer gateway device
-<a name="FirewallRules"></a>
 
 You must have a static IP address to use as the endpoint for the IPsec tunnels that connect your customer gateway device to AWS Site-to-Site VPN endpoints. If a firewall is in place between AWS and your customer gateway device, the rules in the following tables must be in place to establish the IPsec tunnels. The IP addresses for the AWS-side will be in the configuration file.
 

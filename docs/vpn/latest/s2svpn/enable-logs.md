@@ -1,7 +1,6 @@
 
 
 # Enable AWS Site-to-Site VPN logs
-<a name="enable-logs"></a>
 
 Enable Site-to-Site VPN logs to log VPN activity, such as tunnel state and other details. You can enable logging on a new connection or modify an existing connection to start logging activity. If you want to disable logging for a connection, see [Disable Site-to-Site VPN logs](disable-logs.md).
 

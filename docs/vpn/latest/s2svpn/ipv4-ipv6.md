@@ -1,7 +1,6 @@
 
 
 # IPv4 and IPv6 traffic in AWS Site-to-Site VPN
-<a name="ipv4-ipv6"></a>
 
 Your Site-to-Site VPN connection on a transit gateway can support either IPv4 traffic or IPv6 traffic inside the VPN tunnels. By default, a Site-to-Site VPN connection supports IPv4 traffic inside the VPN tunnels. You can configure a new Site-to-Site VPN connection to support IPv6 traffic inside the VPN tunnels. Then, if your VPC and your on-premises network are configured for IPv6 addressing, you can send IPv6 traffic over the VPN connection.
 

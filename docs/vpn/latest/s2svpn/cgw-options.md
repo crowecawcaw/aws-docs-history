@@ -1,7 +1,6 @@
 
 
 # Customer gateway options for your AWS Site-to-Site VPN connection
-<a name="cgw-options"></a>
 
 The following table describes the information you'll need to create a customer gateway resource in AWS.
 

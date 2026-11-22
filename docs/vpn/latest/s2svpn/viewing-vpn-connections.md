@@ -1,7 +1,6 @@
 
 
 # View AWS Site-to-Site VPN connections
-<a name="viewing-vpn-connections"></a>
 
 ## View VPN connections using the console
 <a name="viewing-vpn-connections-console"></a>

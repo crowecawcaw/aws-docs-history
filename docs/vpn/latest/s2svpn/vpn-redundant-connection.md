@@ -1,7 +1,6 @@
 
 
 # Redundant AWS Site-to-Site VPN connections for failover
-<a name="vpn-redundant-connection"></a>
 
 To protect against a loss of connectivity in case your customer gateway device becomes unavailable, you can set up a second Site-to-Site VPN connection to your VPC and virtual private gateway by adding a second customer gateway device. By using redundant VPN connections and customer gateway devices, you can perform maintenance on one of your devices while traffic continues to flow over the second VPN connection. 
 

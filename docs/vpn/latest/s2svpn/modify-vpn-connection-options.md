@@ -1,7 +1,6 @@
 
 
 # Modify AWS Site-to-Site VPN connection options
-<a name="modify-vpn-connection-options"></a>
 
 You can modify the connection options for your Site-to-Site VPN connection. You can modify the following options:
 + The IPv4 CIDR ranges on the local (customer gateway) side and the remote (AWS) side of the VPN connection that can communicate over the VPN tunnels. The default is `0.0.0.0/0` for both ranges.

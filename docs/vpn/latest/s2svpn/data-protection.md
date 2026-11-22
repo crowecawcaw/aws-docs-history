@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Site-to-Site VPN
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Site-to-Site VPN. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -20,9 +19,12 @@ We strongly recommend that you never put confidential or sensitive information, 
 ## Internetwork traffic privacy
 <a name="internetwork-traffic-privacy"></a>
 
+**Post-quantum key exchange**  
+Site-to-Site VPN supports hybrid post-quantum key exchange for IKEv2 tunnels. You can add up to seven additional key exchange rounds after the initial Diffie-Hellman exchange, as defined in RFC 9370. If a round uses ML-KEM, a post-quantum algorithm standardized by NIST in FIPS 203, the tunnel keys are derived from both the Diffie-Hellman exchange and the ML-KEM exchange. This helps protect your tunnel keys against future decryption by quantum computers. To enable this, add an additional key exchange round for phase 1 and phase 2, and permit key exchange method 35 (ML-KEM-512), 36 (ML-KEM-768), or 37 (ML-KEM-1024). Your customer gateway device must support RFC 9370 and the method you choose; if you mark the round as `required` and the device doesn't support it, the tunnel isn't established. Existing tunnels don't change unless you configure these options. For more information, see [Configure tunnel options](tunnel-configure.md).
+
 A Site-to-Site VPN connection privately connects your VPC to your on-premises network. Data that's transferred between your VPC and your network routes over an encrypted VPN connection to help maintain the confidentiality and integrity of the data in transit. Amazon supports Internet Protocol security (IPsec) VPN connections. IPsec is a protocol suite for securing IP communications by authenticating and encrypting each IP packet in a data stream. 
 
-Each Site-to-Site VPN connection consists of two encrypted IPsec VPN tunnels that link AWS and your network. Traffic in each tunnel can be encrypted with AES128 or AES256 and use Diffie-Hellman groups for key exchange, providing Perfect Forward Secrecy. AWS authenticates with SHA1 or SHA2 hashing functions. 
+Each Site-to-Site VPN connection consists of two encrypted IPsec VPN tunnels that link AWS and your network. Traffic in each tunnel can be encrypted with AES128 or AES256 and use Diffie-Hellman groups for key exchange, providing Perfect Forward Secrecy. For IKEv2 tunnels, you can also turn on hybrid post-quantum key exchange by adding ML-KEM key exchange rounds after the initial Diffie-Hellman exchange. This helps protect traffic against future decryption by quantum computers. For more information, see [Configure tunnel options](tunnel-configure.md). AWS authenticates with SHA1 or SHA2 hashing functions. 
 
 Instances in your VPC do not require a public IP address to connect to resources on the other side of your Site-to-Site VPN connection. Instances can route their internet traffic through the Site-to-Site VPN connection to your on-premises network. They can then access the internet through your existing outbound traffic points and your network security and monitoring devices.
 

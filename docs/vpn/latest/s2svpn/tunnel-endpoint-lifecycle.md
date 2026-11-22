@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN tunnel endpoint lifecycle control
-<a name="tunnel-endpoint-lifecycle"></a>
 
 Tunnel endpoint lifecycle control provides control over the schedule of endpoint replacements, and can help minimize connectivity disruptions during AWS managed tunnel endpoint replacements. With this feature, you can choose to accept AWS managed updates to tunnel endpoints at a time that works best for your business. Use this feature if you have short-term business needs or can only support a single tunnel per VPN connection.
 

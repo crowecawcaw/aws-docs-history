@@ -1,7 +1,6 @@
 
 
 # View AWS Site-to-Site VPN logs configuration
-<a name="status-logs"></a>
 
 View the activity log for a Site-to-Site VPN connection. Here you can view details about the configuration such encryption algorithms, or whether tunnel VPN logs are enabled. You can also view the tunnel state. This helps you to better track any issues or conflicts you might have with a VPN connection. 
 

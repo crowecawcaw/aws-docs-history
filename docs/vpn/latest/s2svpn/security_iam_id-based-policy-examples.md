@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Site-to-Site VPN
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Site-to-Site VPN resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -44,7 +43,7 @@ To ensure that users and roles can still use the Site-to-Site VPN console, also 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -69,7 +68,7 @@ To ensure that users and roles can still use the Site-to-Site VPN console, also 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Turn AWS Site-to-Site VPN tunnel endpoint lifecycle control off
-<a name="turn-elc-off"></a>
 
 If you no longer want to use the tunnel endpoint lifecycle control feature, you can turn it off using the AWS Management Console or the AWS CLI. When you turn off this feature, AWS will automatically deploy maintenance updates periodically, and these updates might happen during your business hours. To avoid any business impact, we highly recommend that you configure both tunnels in your VPN connection for high availability.
 

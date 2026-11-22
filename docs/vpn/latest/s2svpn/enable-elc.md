@@ -1,7 +1,6 @@
 
 
 # Enable AWS Site-to-Site VPN tunnel endpoint lifecycle control
-<a name="enable-elc"></a>
 
 Endpoint lifecycle control can be enabled on an existing or new VPN connection. This can be done using either the AWS Management Console or AWS CLI.
 

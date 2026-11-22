@@ -1,7 +1,6 @@
 
 
 # Verify if AWS Site-to-Site VPN tunnel endpoint lifecycle control is enabled
-<a name="view-elc-status"></a>
 
 You can verify whether tunnel endpoint lifecycle control is enabled on an existing VPN tunnel by using the AWS Management Console or CLI. 
 + If tunnel endpoint lifecycle control is disabled, and you want to enable it see [Enable tunnel endpoint lifecycle control](enable-elc.md).

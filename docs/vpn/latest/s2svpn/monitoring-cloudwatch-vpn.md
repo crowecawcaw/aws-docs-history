@@ -1,7 +1,6 @@
 
 
 # Monitor AWS Site-to-Site VPN tunnels using Amazon CloudWatch
-<a name="monitoring-cloudwatch-vpn"></a>
 
 You can monitor VPN tunnels using CloudWatch, which collects and processes raw data from the VPN service into readable, near real-time metrics. These statistics are recorded for a period of 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing. VPN metric data is automatically sent to CloudWatch as it becomes available.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN tunnel endpoint replacements
-<a name="endpoint-replacements"></a>
 
 Your Site-to-Site VPN connection consists of two VPN tunnels for redundancy. Sometimes, one or both of the VPN tunnel endpoints is replaced when AWS performs tunnel updates, or when you modify your VPN connection. During a tunnel endpoint replacement, connectivity over the tunnel might be interrupted while the new tunnel endpoint is provisioned.
 

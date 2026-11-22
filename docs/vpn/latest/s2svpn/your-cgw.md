@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN customer gateway devices
-<a name="your-cgw"></a>
 
 A *customer gateway device* is a physical or software appliance that you own or manage in your on-premises network (on your side of a Site-to-Site VPN connection). You or your network administrator must configure the device to work with the Site-to-Site VPN connection.
 

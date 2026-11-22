@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN and eero Integration
-<a name="eero-integration"></a>
 
 AWS Site-to-Site VPN has collaborated with [eero](http://eero.com) to make it simple and convenient for organizations to establish secure connectivity between their remote sites and AWS in just a few clicks.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Site-to-Site VPN connectivity when using Border Gateway Protocol
-<a name="Generic_Troubleshooting"></a>
 
 The following diagram and table provide general instructions for troubleshooting a customer gateway device that uses Border Gateway Protocol (BGP). We also recommend that you enable the debug features of your device. Consult your gateway device vendor for details.
 

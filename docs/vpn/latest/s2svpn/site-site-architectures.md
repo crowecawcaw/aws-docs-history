@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN architectural scenarios
-<a name="site-site-architectures"></a>
 
 The following are scenarios in which you might create multiple VPN connections with one or more customer gateway devices.
 

@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS Site-to-Site VPN
-<a name="security-iam"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Change the customer gateway for an AWS Site-to-Site VPN connection
-<a name="change-vpn-cgw"></a>
 
 You can change the customer gateway of your Site-to-Site VPN connection by using the Amazon VPC console or a command line tool.
 

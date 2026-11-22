@@ -1,7 +1,6 @@
 
 
 # Create a private IP AWS Site-to-Site VPN over Direct Connect
-<a name="private-ip-dx-steps"></a>
 
 To create a private IP VPN with Direct Connect follow these steps. Before you create the private IP VPN over Direct Connect, you need to ensure that a transit gateway and Direct Connect gateway are first created. After creating the two gateways you then need to create an assocation between the two. These prerequisites are described in the following table. Once you've created and associated the two gateways, you'll create a VPN customer cateway and connection using that association.
 

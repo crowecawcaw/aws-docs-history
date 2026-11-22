@@ -1,7 +1,6 @@
 
 
 # Work with AWS Site-to-Site VPN
-<a name="working-with-site-site"></a>
 
 You can work with Site-to-Site VPN resources using the Amazon VPC console or the AWS CLI.
 

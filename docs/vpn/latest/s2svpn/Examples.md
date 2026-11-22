@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN single and multiple VPN connection examples
-<a name="Examples"></a>
 
 The following diagrams illustrate single and multiple Site-to-Site VPN connections.
 

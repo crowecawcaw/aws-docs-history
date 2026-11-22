@@ -1,7 +1,6 @@
 
 
 # Create an AWS Site-to-Site VPN Cloud WAN connection using the CLI or API
-<a name="create-cwan-vpn-attachment"></a>
 
 You can create an Site-to-Site VPN connections between your on-premises and AWS Cloud WAN following the procedure below. For more information, see [ Site-to-site VPN attachments in AWS Cloud WAN ](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-s2s-vpn-attachment.html) in the *AWS Cloud WAN User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN routing options
-<a name="VPNRoutingTypes"></a>
 
 AWS recommends advertising specific BGP routes to influence routing decisions in the virtual private gateway. Check your vendor documentation for the commands that are specific to your device.
 

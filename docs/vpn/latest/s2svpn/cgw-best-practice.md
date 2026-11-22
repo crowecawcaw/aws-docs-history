@@ -1,7 +1,6 @@
 
 
 # Best practices for an AWS Site-to-Site VPN customer gateway device
-<a name="cgw-best-practice"></a>
 
 **Use IKEv2**  
 We strongly recommend using IKEv2 for your Site-to-Site VPN connection. IKEv2 is a simpler, more robust, and more secure protocol than IKEv1. You should only use IKEv1 if your customer gateway device does not support IKEv2. For more details on the differences between IKEv1 and IKEv2, see [Appendix A of RFC7296](https://www.rfc-editor.org/rfc/rfc7296#appendix-A).

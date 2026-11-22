@@ -1,7 +1,6 @@
 
 
 # Static and dynamic configuration files for an AWS Site-to-Site VPN customer gateway device
-<a name="example-configuration-files"></a>
 
 After you create the VPN connection, you additionally have the option to download an AWS-provided sample configuration file from the Amazon VPC console, or by using the EC2 API. See [Step 6: Download the configuration file](SetUpVPNConnections.md#vpn-download-config) for more information. You can also download .zip files of sample configurations specifically for static vs. dynamic routing from those respective pages.
 

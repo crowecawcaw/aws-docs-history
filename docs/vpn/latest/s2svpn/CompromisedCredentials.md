@@ -1,7 +1,6 @@
 
 
 # Replace compromised credentials for an AWS Site-to-Site VPN connection
-<a name="CompromisedCredentials"></a>
 
 If you believe that the tunnel credentials for your Site-to-Site VPN connection have been compromised, you can change the IKE pre-shared key or change the ACM certificate. The method you use depends on the authentication option you used for your VPN tunnels. For more information, see [AWS Site-to-Site VPN tunnel authentication options](vpn-tunnel-authentication-options.md).
 

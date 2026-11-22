@@ -1,7 +1,6 @@
 
 
 # Tunnel options for your AWS Site-to-Site VPN connection
-<a name="VPNTunnels"></a>
 
 You use a Site-to-Site VPN connection to connect your remote network to a VPC. Each Site-to-Site VPN connection has two tunnels, with each tunnel using a unique public IP address. It is important to configure both tunnels for redundancy. When one tunnel becomes unavailable (for example, down for maintenance), network traffic is automatically routed to the available tunnel for that specific Site-to-Site VPN connection.
 

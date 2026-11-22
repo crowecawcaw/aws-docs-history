@@ -1,7 +1,6 @@
 
 
 # View Amazon CloudWatch Logs metrics for AWS Site-to-Site VPN
-<a name="viewing-metrics"></a>
 
 When you create a Site-to-Site VPN connection, the VPN service sends metrics about your VPN connection to CloudWatch, as they become available. You can view the metrics for your VPN connection as follows.
 

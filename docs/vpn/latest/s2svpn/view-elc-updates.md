@@ -1,7 +1,6 @@
 
 
 # Check for available AWS Site-to-Site VPN tunnel updates
-<a name="view-elc-updates"></a>
 
 After you enable the tunnel endpoint lifecycle control feature, you can view whether a maintenance update is available for your VPN connection by using the AWS Management Console or CLI. Checking for an available Site-to-Site VPN tunnel update does not automatically download and deploy the update. You can choose when you want to deploy it. For the steps to download and deploy an update, see [Accept a maintenance update](accept-update.md). 
 

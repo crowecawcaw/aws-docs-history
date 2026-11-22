@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device
-<a name="Cisco_Troubleshooting"></a>
 
 When you troubleshoot the connectivity of a Cisco customer gateway device, consider four things: IKE, IPsec, the tunnel, and BGP. You can troubleshoot these areas in any order, but we recommend that you start with IKE (at the bottom of the network stack) and move up. 
 

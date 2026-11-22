@@ -1,7 +1,6 @@
 
 
 # Route tables and AWS Site-to-Site VPN route priority
-<a name="vpn-route-priority"></a>
 
 [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) determine where network traffic from your VPC is directed. In your VPC route table, you must add a route for your remote network and specify the virtual private gateway as the target. This enables traffic from your VPC that's destined for your remote network to route via the virtual private gateway and over one of the VPN tunnels. You can enable route propagation for your route table to automatically propagate your network routes to the table for you. 
 

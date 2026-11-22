@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN tunnel authentication options
-<a name="vpn-tunnel-authentication-options"></a>
 
 You can use pre-shared keys, or certificates to authenticate your Site-to-Site VPN tunnel endpoints.
 

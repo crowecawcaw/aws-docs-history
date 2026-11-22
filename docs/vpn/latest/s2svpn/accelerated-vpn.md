@@ -1,7 +1,6 @@
 
 
 # Accelerated AWS Site-to-Site VPN connections
-<a name="accelerated-vpn"></a>
 
 You can optionally enable acceleration for your Site-to-Site VPN connection. An accelerated Site-to-Site VPN connection (accelerated VPN connection) uses AWS Global Accelerator to route traffic from your on-premises network to an AWS edge location that is closest to your customer gateway device. AWS Global Accelerator optimizes the network path, using the congestion-free AWS global network to route traffic to the endpoint that provides the best application performance (for more information, see [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/)). You can use an accelerated VPN connection to avoid network disruptions that might occur when traffic is routed over the public internet.
 

@@ -1,7 +1,6 @@
 
 
 # Test an AWS Site-to-Site VPN connection
-<a name="HowToTestEndToEnd_Linux"></a>
 
 After you create the AWS Site-to-Site VPN connection and configure the customer gateway, you can launch an instance and test the connection by pinging the instance. 
 

@@ -1,7 +1,6 @@
 
 
 # Configure Windows Server as an AWS Site-to-Site VPN customer gateway device
-<a name="customer-gateway-device-windows"></a>
 
 You can configure a server running Windows Server as a customer gateway device for your VPC. Use the following process whether you are running Windows Server on an EC2 instance in a VPC, or on your own server. The following procedures apply to Windows Server 2012 R2 and later.
 
