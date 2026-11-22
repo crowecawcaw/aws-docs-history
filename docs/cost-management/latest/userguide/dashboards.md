@@ -1,7 +1,6 @@
 
 
 # Visualizing and analyzing cost and usage data using Dashboards
-<a name="dashboards"></a>
 
 AWS Billing and Cost Management Dashboards enable you to create and share customized views of your cost and usage data in a single page. You can create collections of charts and tables, called widgets, that combine data from Cost Explorer, Savings Plans and Reserved Instance coverage and utilization, Budgets, Cost Efficiency, and Detected Anomalies. Together, these widgets provide comprehensive insights into your AWS spending patterns.
 

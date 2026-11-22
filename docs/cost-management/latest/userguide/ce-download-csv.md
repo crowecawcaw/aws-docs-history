@@ -1,7 +1,6 @@
 
 
 # Downloading the cost data CSV file
-<a name="ce-download-csv"></a>
 
 When you want to review comprehensive detail, you can download a comma-separated values (CSV) file of the cost data that Cost Explorer uses to generate the chart. This is the same data that appears in the data table under the chart. The data table sometimes doesn't display the complete dataset that is used for the chart. For more information, see [Reading the Cost Explorer data table](ce-table.md). 
 

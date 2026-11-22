@@ -1,7 +1,6 @@
 
 
 # Configure new services in my workload estimate
-<a name="pc-create-workload-configure-service"></a>
 
 This section outlines how to configure new services in a workload estimate.
 

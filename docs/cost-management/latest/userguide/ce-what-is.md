@@ -1,7 +1,6 @@
 
 
 # Analyzing your costs and usage with AWS Cost Explorer
-<a name="ce-what-is"></a>
 
 AWS Cost Explorer is a tool that enables you to view and analyze your costs and usage. You can explore your usage and costs using the main graph, the Cost Explorer cost and usage reports, or the Cost Explorer RI reports. You can also ask questions about your costs using suggested prompts or the **Ask question** button to ask in your own words, and receive detailed insights in **AWS assistant** while Cost Explorer automatically updates its charts, tables, and report parameters including filters, groupings, and dates to reflect the analysis. For a deeper dive, choose **Analyze with AWS assistant** on any cost report to receive comprehensive explanations covering your cost trends, top drivers, and anomalies based on your exact filters and time period. You can view data for up to the last 13 months, forecast how much you're likely to spend for the next 18 months, and get recommendations for what Reserved Instances to purchase. You can use Cost Explorer to identify areas that need further inquiry and see trends that you can use to understand your costs.
 

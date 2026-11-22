@@ -1,7 +1,6 @@
 
 
 # Using the Cost Explorer chart
-<a name="ce-chart"></a>
 
 By default, you can view your costs at the chargeable rate as either a cash-based view with unblended costs or as an accrual-based view. In a cash-based view, your costs are recorded when cash is received or paid. In an accrual-based view, your costs are recorded when income is earned or costs are incurred. You can view data for up to the last 13 months, the current month, and forecast how much you're likely to spend for the next 12 months. You can also specify time ranges for the data and view time data by day or by month.
 

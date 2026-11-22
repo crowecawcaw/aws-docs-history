@@ -1,7 +1,6 @@
 
 
 # Accessing reservation recommendations
-<a name="ri-recommendations"></a>
 
 If you enable Cost Explorer, you automatically get Amazon EC2, Amazon RDS, ElastiCache, OpenSearch Service, Amazon Redshift, Amazon MemoryDB, and Amazon DynamoDB purchase recommendations that could help reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to On-Demand or provisioned capacity pricing. Cost Explorer generates your reservation recommendations using the following process:
 + Identifies your On-Demand instance or provisioned capacity usage for a service during a specific time period

@@ -1,7 +1,6 @@
 
 
 # Understanding widget types
-<a name="dashboard-widget-types"></a>
 
 Dashboards help you monitor and analyze your AWS costs, usage, and resource commitments. Two types of widgets are available: custom widgets that you configure from scratch to track costs, usage, and commitment metrics, and predefined widgets that come with preset cost breakdowns over time.
 

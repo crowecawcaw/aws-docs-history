@@ -1,7 +1,6 @@
 
 
 # Adding tags to dashboards
-<a name="add-tags-to-dashboards"></a>
 
 Tags help you identify, organize, and manage your dashboards by adding descriptive labels. You might tag your dashboards to identify which department created them, track them by project or initiative, label their purpose, or mark them for different environments. For example, you could use tags like Department = Marketing or Project = Cost-Optimization-2025 to categorize your dashboards.
 

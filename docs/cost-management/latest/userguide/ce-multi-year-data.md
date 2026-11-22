@@ -1,7 +1,6 @@
 
 
 # Multi-year data at monthly granularity
-<a name="ce-multi-year-data"></a>
 
 While you can use the default 14-month historical data to perform cost analysis at quarterly or monthly level, you should enable multi-year data in Cost Explorer if you want to evaluate your year-over-year cost or identify long-term cost trends.
 

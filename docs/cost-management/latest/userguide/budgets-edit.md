@@ -1,7 +1,6 @@
 
 
 # Editing a budget
-<a name="budgets-edit"></a>
 
 **Note**  
 You can't edit the budget name.

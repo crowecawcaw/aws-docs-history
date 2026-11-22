@@ -1,7 +1,6 @@
 
 
 # Customizing your Cost Optimization Hub preferences
-<a name="coh-preferences"></a>
 
 In **Cost Management preferences**, you can customize various Cost Optimization Hub settings, including how savings are estimated and your commitment preferences.
 

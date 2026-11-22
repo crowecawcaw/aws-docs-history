@@ -1,7 +1,6 @@
 
 
 # Viewing a Cost Explorer report using billing views
-<a name="access-data-cost-explorer-report"></a>
 
 Cost Explorer provides two types of default reports: cost and usage reports and Reserved Instance reports. Only Cost Explorer reports of type “cost and usage reports” are supported by custom and AWS managed billing views; “Reserved Instance reports” can’t be used with a custom and AWS managed billing views. Cost Explorer also enables you to create your own reports by saving the results of a Cost Explorer query as a report. Cost Explorer reports can be used alongside custom billing views to access the cost management data contained in a custom billing view with the query saved as a Cost Explorer report.
 

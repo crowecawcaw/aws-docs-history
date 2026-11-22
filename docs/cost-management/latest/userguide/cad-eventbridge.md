@@ -1,7 +1,6 @@
 
 
 # Using EventBridge with Cost Anomaly Detection
-<a name="cad-eventbridge"></a>
 
 AWS Cost Anomaly Detection is integrated with EventBridge, an event bus service that you can use to connect your applications with data from a variety of sources. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for AWS Budgets
-<a name="budgets-best-practices"></a>
 
 Note the following best practices when you're working with budgets.
 

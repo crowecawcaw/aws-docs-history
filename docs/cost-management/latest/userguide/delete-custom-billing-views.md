@@ -1,7 +1,6 @@
 
 
 # Deleting custom billing views
-<a name="delete-custom-billing-views"></a>
 
 Deleting a custom billing view permanently removes access to the custom billing view for all users. This action cannot be undone. Once a custom billing view is deleted, it will no longer appear in the **Choose billing view** menu in the navigation pane for the management account and any member accounts with which the view was shared. End users attempting to access the URL of the deleted custom billing view will receive an error message.
 

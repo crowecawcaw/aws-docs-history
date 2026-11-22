@@ -1,7 +1,6 @@
 
 
 # Customizing a budget (advanced)
-<a name="custom-budgets"></a>
 
 You can customize a budget to set parameters specific to your use case. You can customize the time period, the start month, and specific accounts. Creating a customized budget involves a 5-step workflow.
 

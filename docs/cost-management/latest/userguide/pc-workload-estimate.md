@@ -1,7 +1,6 @@
 
 
 # Workload estimates
-<a name="pc-workload-estimate"></a>
 
 Workload estimates allow you to estimate the cost of specific workloads, applications, resources, and architectural changes. This type of estimate is available to all account types: standalone AWS accounts, management accounts and member accounts. Management accounts can configure the effective rate type that is used for member accounts within their organization. The rate types are Before discounts, After discounts, and After discounts and purchase commitments. For more information about how a rate is applied to workload estimate, see [After discount rates](pc-rates-discounts.md#pc-rates-discounts-after).
 

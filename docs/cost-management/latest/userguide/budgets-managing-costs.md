@@ -1,7 +1,6 @@
 
 
 # Managing your costs with AWS Budgets
-<a name="budgets-managing-costs"></a>
 
 You can use AWS Budgets to track and take action on your AWS costs and usage. You can use AWS Budgets to monitor your aggregate utilization and coverage metrics for your Reserved Instances (RIs) or Savings Plans. If you're new to AWS Budgets, see [Best practices for AWS Budgets](budgets-best-practices.md).
 

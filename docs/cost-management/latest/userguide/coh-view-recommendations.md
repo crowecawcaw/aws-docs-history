@@ -1,7 +1,6 @@
 
 
 # Viewing recommended actions and estimated savings
-<a name="coh-view-recommendations"></a>
 
 Use the following procedure to view a recommended action and estimated savings for a specific resource ID.
 
@@ -19,3 +18,5 @@ Use the following procedure to view a recommended action and estimated savings f
    + **Estimated savings percentage:** The estimated savings percentage relative to the total cost.
 
 1. Based on the recommended action, you can choose to view the recommendation in the AWS Billing and Cost Management console, or you can open it in AWS Compute Optimizer or the relevant console.
+
+   For an idle Amazon EC2 instance recommendation, you can also stop the instance from the recommendation. For more information, see [Stopping idle resources](coh-stop-idle-resources.md).

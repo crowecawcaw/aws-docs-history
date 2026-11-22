@@ -1,7 +1,6 @@
 
 
 # Available Managed Dashboards
-<a name="managed-dashboards-available"></a>
 
 Five Managed Dashboards are available, organized around three layers of cloud financial visibility.
 

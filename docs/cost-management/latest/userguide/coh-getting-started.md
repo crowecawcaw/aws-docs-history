@@ -1,7 +1,6 @@
 
 
 # Getting started with Cost Optimization Hub
-<a name="coh-getting-started"></a>
 
 The overviews in this section describe how to get started with Cost Optimization Hub in AWS Billing and Cost Management.
 
@@ -50,7 +49,7 @@ The following are two policy statements. Choose the appropriate one based on you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ The following are two policy statements. Choose the appropriate one based on you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS Cost Management policy examples
-<a name="billing-example-policies"></a>
 
 **Note**  
 The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  
@@ -63,7 +62,7 @@ To explicitly deny a user access to the all Billing and Cost Management console 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -96,7 +95,7 @@ Adding this policy to a user or role will deny users access to Cost Explorer (AW
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -124,7 +123,7 @@ This policy doesn't allow any actions. Use this policy in combination with other
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ This policy allows read-only access to all of the Billing and Cost Management co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ To allow users to modify account billing information in the Billing and Cost Man
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -212,7 +211,7 @@ To allow users to create budgets in the Billing and Cost Management console, you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -265,7 +264,7 @@ To protect your account password, contact information, and security questions, y
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -303,7 +302,7 @@ For more information, see [ Using Bucket Policies and User Policies](https://doc
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -342,7 +341,7 @@ To allow users to use the AWS Cost Explorer API, use the following policy to gra
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -376,7 +375,7 @@ This policy allows a user to view and update using the **Cost Explorer preferenc
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -402,7 +401,7 @@ The following policy allows users to view Cost Explorer, but deny permission to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -436,7 +435,7 @@ The following policy allows users to view Cost Explorer, but deny permission to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -472,7 +471,7 @@ This policy allows a user to view, create, update, and delete using the **Cost E
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -500,7 +499,7 @@ The following policy allows users to view Cost Explorer, but deny permission to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -541,7 +540,7 @@ This policy allows a user to view, create, update, and delete [reservation expir
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -569,7 +568,7 @@ The following policy allows users to view Cost Explorer, but denies permission t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -605,7 +604,7 @@ The following policy allows users to view Cost Explorer, but denies permission t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -643,7 +642,7 @@ To allow users read-only access to AWS Cost Anomaly Detection, use the following
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -670,7 +669,7 @@ This policy allows AWS Budgets to apply IAM policies and service control policie
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -709,7 +708,7 @@ This trust policy allows AWS Budgets to assume a role that can call other servic
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -741,7 +740,7 @@ Permissions policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -782,7 +781,7 @@ This policy allows IAM users to create, list, and add usage to workload estimate
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -819,7 +818,7 @@ This policy allows IAM users to create, list, and add usage and commitments to b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -854,7 +853,7 @@ This policy allows IAM users to create bill estimate and list bill estimate line
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -889,7 +888,7 @@ This policy allows IAM users to create and get rate preferences.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -918,7 +917,7 @@ This policy allows IAM users to create, manage, and share custom billing views. 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -964,7 +963,7 @@ This policy allows IAM users to access Cost Explorer when accessing a specific c
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

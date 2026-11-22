@@ -1,7 +1,6 @@
 
 
 # Quotas and restrictions
-<a name="management-limits"></a>
 
 The following table describes the current quotas, restrictions, and naming constraints within AWS Cost Management features.
 

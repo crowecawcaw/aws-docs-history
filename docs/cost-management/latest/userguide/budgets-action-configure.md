@@ -1,7 +1,6 @@
 
 
 # Configuring a budget action
-<a name="budgets-action-configure"></a>
 
 You can attach budget actions to an alert for either a cost budget or a usage budget. To configure a budget action on a new budget, first follow the steps for [Creating a cost budget](create-cost-budget.md) or [Creating a usage budget](create-usage-budget.md). To configure a budget action on an existing cost or usage budget, first follow the steps for [Editing a budget](budgets-edit.md). Then, after you reach the **Configure alerts** step of creating or editing the budget, use the following procedure.<a name="create-budget-action"></a>
 

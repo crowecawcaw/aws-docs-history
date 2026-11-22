@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Cost Anomaly Detection
-<a name="getting-started-ad"></a>
 
 With AWS Cost Anomaly Detection in AWS Billing and Cost Management, you can configure your cost monitors and alert subscriptions to automatically adapt to your growing AWS environment.
 

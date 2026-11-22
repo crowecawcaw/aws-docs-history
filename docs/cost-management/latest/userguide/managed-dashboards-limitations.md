@@ -1,7 +1,6 @@
 
 
 # Limitations of Managed Dashboards
-<a name="managed-dashboards-limitations"></a>
 
 Managed Dashboards are read-only. The following actions are not available for Managed Dashboards:
 + **Editing** - You cannot modify widget configurations, add new widgets, remove widgets, or change the dashboard layout permanently.

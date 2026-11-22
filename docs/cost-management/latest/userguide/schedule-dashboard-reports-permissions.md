@@ -1,13 +1,12 @@
 
 
 # Execution role permissions for scheduled reports
-<a name="schedule-dashboard-reports-permissions"></a>
 
 When you create a scheduled report, you must provide an IAM execution role that grants AWS Billing and Cost Management permissions to generate and deliver reports on your behalf. The execution role requires the following permissions and trust policy.
 
 **Permissions policy**
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -57,7 +56,7 @@ If you created an execution role before the launch of the AWS Budgets report wid
 
 The execution role must trust the `bcm-dashboards.amazonaws.com` service principal. Replace `<account-id>` with your AWS account ID.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

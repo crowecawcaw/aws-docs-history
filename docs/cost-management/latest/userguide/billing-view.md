@@ -1,7 +1,6 @@
 
 
 # Controlling cost management data access with Billing View
-<a name="billing-view"></a>
 
 Billing View is a feature that helps you manage and control access to cost management data within your AWS environment. With Billing View, cost management data is represented as an AWS resource. Through resource-based policies, you can configure what data is accessible to an account when using AWS Billing and Cost Management tools. A billing view is identified by a unique Amazon Resource Name (ARN), which can be referenced in identity-based policies to perform specific IAM actions on the cost management data contained in that billing view.
 

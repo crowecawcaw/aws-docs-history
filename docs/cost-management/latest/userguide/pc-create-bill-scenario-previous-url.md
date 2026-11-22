@@ -1,7 +1,6 @@
 
 
 # Adding previously saved estimates to my bill scenario
-<a name="pc-create-bill-scenario-previous-url"></a>
 
 This section outlines how to add previously saved estimates from the public Pricing Calculator to a bill scenario. For instructions on how to generate a public Pricing Calculator URL, see [Sharing an estimate link](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/save-share-estimate.html#create-estimate-link) in the public Pricing Calculator user guide.
 

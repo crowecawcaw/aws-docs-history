@@ -1,7 +1,6 @@
 
 
 # Viewing and creating budgets using billing views
-<a name="access-data-budgets"></a>
 
 AWS Budgets supports primary and custom billing views, allowing you to create and manage budgets based on filtered cost and usage data across multiple accounts within your organization. This feature enables decentralized cloud cost management across your organization without requiring access to the management account.
 

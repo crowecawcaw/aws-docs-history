@@ -1,7 +1,6 @@
 
 
 # Getting started with Cost Explorer
-<a name="ce-getting-started"></a>
 
 After you enable Cost Explorer, you can launch it from the AWS Cost Management console.<a name="ce-start"></a>
 

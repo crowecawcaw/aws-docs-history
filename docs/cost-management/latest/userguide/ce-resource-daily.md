@@ -1,7 +1,6 @@
 
 
 # Resource-level data at daily granularity
-<a name="ce-resource-daily"></a>
 
 In Cost Explorer, you can enable resource-level data for your chosen AWS services at daily granularity for the past 14 days.
 

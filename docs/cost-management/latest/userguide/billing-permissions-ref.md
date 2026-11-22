@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies (IAM policies) for AWS Cost Management
-<a name="billing-permissions-ref"></a>
 
 **Note**  
 The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  
@@ -150,7 +149,7 @@ This managed policy is focused on the user, ensuring that you have the proper pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -216,7 +215,7 @@ This managed policy allows read only access to AWS Budgets through the AWS Manag
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -249,7 +248,7 @@ Allows AWS Budgets to verify access to billing views shared across account bound
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -337,12 +336,14 @@ Managed policy name: `CostOptimizationHubReadOnlyAccess`
 
 This managed policy provides read-only access to Cost Optimization Hub.
 
+To stop idle Amazon EC2 instances from Cost Optimization Hub, you also need Amazon EC2 permissions. For more information, see [Prerequisites and permissions](coh-stop-idle-resources.md#coh-stop-idle-resources-prereqs).
+
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -376,7 +377,7 @@ This managed policy provides admin access to Cost Optimization Hub.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -443,7 +444,7 @@ Allows split cost allocation data to retrieve AWS Organizations information, if 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -487,7 +488,7 @@ Allows Data Exports to access other AWS services such as Cost Optimization Hub o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

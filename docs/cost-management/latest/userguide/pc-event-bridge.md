@@ -1,7 +1,6 @@
 
 
 # Using EventBridge with AWS Pricing Calculator
-<a name="pc-event-bridge"></a>
 
 The in-console AWS Pricing Calculator can send events to Amazon EventBridge whenever certain events happen in your bill estimate. Unlike other destinations, you don't need to select which event types you want to deliver. After you have EventBridge set up, Pricing Calculator events can be sent to EventBridge. You can use EventBridge rules to route events to additional targets. For more information about setting up EventBridge, see [ Amazon EventBridge setup and prerequisites](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-setup.html) in the *Amazon EventBridge API Reference*.
 
@@ -29,7 +28,7 @@ AWS Pricing Calculator doesn't require any additional permissions to deliver eve
 
 **BillEstimate Created**
 
-```
+```json
 {
     "version": "0",
     "id": "00000000-0000-0000-0000-000000000001",

@@ -1,7 +1,6 @@
 
 
 # Editing a Cost Explorer report
-<a name="edit-saved-ce-reports"></a>
 
 You can use the console to edit Cost Explorer reports.
 

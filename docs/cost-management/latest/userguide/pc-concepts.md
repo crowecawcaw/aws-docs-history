@@ -1,7 +1,6 @@
 
 
 # Understanding AWS Pricing Calculator concepts
-<a name="pc-concepts"></a>
 
 To help you get started, this page explains the key concepts of the in-console AWS Pricing Calculator and how they interact. 
 

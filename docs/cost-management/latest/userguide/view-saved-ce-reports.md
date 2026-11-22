@@ -1,7 +1,6 @@
 
 
 # Viewing a Cost Explorer report
-<a name="view-saved-ce-reports"></a>
 
 You can use the console to view saved Cost Explorer reports.
 

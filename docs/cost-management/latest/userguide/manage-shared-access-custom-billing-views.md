@@ -1,7 +1,6 @@
 
 
 # Managing shared access to custom billing views in your organization
-<a name="manage-shared-access-custom-billing-views"></a>
 
 **Note**  
 Custom billing views use AWS Resource Access Manager (AWS RAM) for sharing. When you share a custom billing view, an AWS resource share is automatically created. You can also directly modify the resource share from the AWS RAM console. For more information about modifying the resource share in AWS RAM, see [Update a resource share in AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-update.html).

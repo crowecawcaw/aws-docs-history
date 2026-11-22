@@ -1,7 +1,6 @@
 
 
 # Migrating access control for AWS Cost Management
-<a name="migrate-granularaccess-whatis"></a>
 
 **Note**  
 The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  

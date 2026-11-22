@@ -1,7 +1,6 @@
 
 
 # Adding Savings Plans to my bill scenario
-<a name="pc-create-bill-scenario-sp"></a>
 
 This section outlines how to add Savings Plans to a bill scenario.
 

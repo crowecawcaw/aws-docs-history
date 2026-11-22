@@ -1,7 +1,6 @@
 
 
 # Reviewing and approving your budget action
-<a name="budgets-action-review"></a>
 
 You receive a notification to inform you that an action is pending or has already run on your behalf, regardless of your action preferences. The notification includes a link to the **Budget details** page of the action. You can also navigate to the **Budget details** page by choosing the budget name on the AWS Budgets page.
 

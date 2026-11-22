@@ -1,7 +1,6 @@
 
 
 # Controlling access to Cost Explorer
-<a name="ce-access"></a>
 
 You can manage access to your Cost Explorer in the following ways:
 + Using the management account, you can enable Cost Explorer as a root user, automatically enabling all member accounts.

@@ -1,7 +1,6 @@
 
 
 # Setting your rates for member accounts
-<a name="pc-setting-rates"></a>
 
 This section outlines how to set estimate rates for member accounts.
 

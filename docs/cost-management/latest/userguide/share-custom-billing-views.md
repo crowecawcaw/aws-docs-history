@@ -1,7 +1,6 @@
 
 
 # Sharing custom billing views
-<a name="share-custom-billing-views"></a>
 
 You can share custom billing views with accounts within and outside your organization. Sharing is not supported for billing views of type “Primary” or “Billing group”.
 

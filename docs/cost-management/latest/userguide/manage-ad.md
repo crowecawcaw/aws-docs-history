@@ -1,7 +1,6 @@
 
 
 # Detecting unusual spend with AWS Cost Anomaly Detection
-<a name="manage-ad"></a>
 
 AWS Cost Anomaly Detection is a feature that uses machine learning models to detect and alert on anomalous spend patterns in your deployed AWS services.
 

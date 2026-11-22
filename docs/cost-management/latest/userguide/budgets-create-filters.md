@@ -1,7 +1,6 @@
 
 
 # Budget filters
-<a name="budgets-create-filters"></a>
 
 Based on your choice of budget type, you can choose one or more of the available budget filters.
 
@@ -58,7 +57,7 @@ Choose an AWS account that is a member of the consolidated billing family that y
 Do not use this filter within a member account. If the current account is a member account, filtering by `linked account` is not supported.
 
 **Platform**  
-Choose the operating system that your RI runs on. **Platform** is either **Linux** or **Windows**.
+Choose the operating system or platform of the usage that you want to create a budget for, such as `Linux/UNIX` or `Red Hat Enterprise Linux`.
 
 **Product attribute**  
 Choose an attribute and one or more values to track your Amazon Bedrock costs. You can choose from the following attributes:  

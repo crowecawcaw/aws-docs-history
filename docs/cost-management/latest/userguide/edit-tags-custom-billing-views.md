@@ -1,7 +1,6 @@
 
 
 # Editing the tags of custom billing views
-<a name="edit-tags-custom-billing-views"></a>
 
 **To edit the tags of a custom billing view**
 

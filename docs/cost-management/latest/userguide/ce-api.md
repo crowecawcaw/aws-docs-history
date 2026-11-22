@@ -1,7 +1,6 @@
 
 
 # Using the AWS Cost Explorer API
-<a name="ce-api"></a>
 
 The Cost Explorer API allows you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for DynamoDB database tables in your production environment.
 

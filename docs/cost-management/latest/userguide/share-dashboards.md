@@ -1,7 +1,6 @@
 
 
 # Sharing dashboards
-<a name="share-dashboards"></a>
 
 You can share dashboards with accounts in your AWS Organization or with external accounts (using AWS Resource Access Manager). When you share a dashboard, only dashboard configurations are shared, not the underlying data. Recipients receive access to the dashboard layout and widget configurations, and will see data based on their own access permissions.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding your costs using Cost Explorer reports
-<a name="ce-reports"></a>
 
 Cost Explorer provides default reports, but also enables you to change the filters and constraints used to create the reports. Cost Explorer also provides ways to save your reports. You can save the exact configuration as a bookmark, download the CSV file of the data that Cost Explorer used to create your graphs, or save the Cost Explorer configuration as a saved report. Cost Explorer keeps your saved reports and lists them on your report page along with the default Cost Explorer reports.
 

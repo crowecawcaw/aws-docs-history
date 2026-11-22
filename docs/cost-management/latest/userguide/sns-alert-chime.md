@@ -1,7 +1,6 @@
 
 
 # Receiving budget alerts in chat applications
-<a name="sns-alert-chime"></a>
 
 You can use Amazon Q Developer to receive and monitor your budget alerts in Amazon Chime, Microsoft Teams, and Slack.
 

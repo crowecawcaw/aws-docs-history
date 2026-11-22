@@ -1,7 +1,6 @@
 
 
 # Comparing your costs between time periods
-<a name="ce-cost-comparison"></a>
 
 Cost Comparison is a feature in Cost Explorer that helps you quickly identify and understand changes in your AWS spending. It automatically analyzes cost variations between two selected months, highlighting the largest cost drivers and explaining the reasons behind these changes. The feature provides both console and API access to help you analyze cost changes across your AWS spending.
 

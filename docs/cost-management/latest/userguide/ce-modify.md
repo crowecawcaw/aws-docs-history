@@ -1,7 +1,6 @@
 
 
 # Modifying your chart
-<a name="ce-modify"></a>
 
 You can modify the parameters that Cost Explorer uses to create your chart to explore different sets of data.
 + [Selecting a style for your chart](#ce-style)

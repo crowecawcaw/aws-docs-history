@@ -1,7 +1,6 @@
 
 
 # Creating a bill scenario
-<a name="pc-create-bill-scenario"></a>
 
 This section outlines how to generate a bill scenario.
 

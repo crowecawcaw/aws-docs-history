@@ -1,7 +1,6 @@
 
 
 # Understanding how a cost comparison works
-<a name="ce-understand-cost-comparison"></a>
 
 You can use Cost Comparison to quickly understand your cloud spending by automatically identifying and unfolding the largest cost drivers driving the cost variations between two selected months. Cost Comparison provides a detailed breakdown for these cost variances, from usage shifts to changes in commitment-based discounts like Savings Plans coverage and applied credits, eliminating hours of manual investigation.
 

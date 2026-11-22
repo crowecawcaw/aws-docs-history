@@ -1,7 +1,6 @@
 
 
 # Deleting a Cost Explorer report
-<a name="delete-saved-ce-report"></a>
 
 You can use the console to delete saved Cost Explorer reports.
 

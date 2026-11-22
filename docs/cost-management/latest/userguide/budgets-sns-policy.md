@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon SNS topic for budget notifications
-<a name="budgets-sns-policy"></a>
 
 When you create a budget that sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, you need to either have a preexisting Amazon SNS topic or create one. Amazon SNS topics allow you to send notifications over SNS in addition to email. Your budget must have permissions to send a notification to your topic. 
 

@@ -1,7 +1,6 @@
 
 
 # Using the default Cost Explorer reports
-<a name="ce-default-reports"></a>
 
 Cost Explorer provides you with a couple of default reports. You can't modify these reports, but you can use them to create your own custom reports.
 + [Cost and usage reports](#ce-cost-usage-reports)
@@ -54,7 +53,7 @@ The reservation reports show your Amazon EC2 coverage and utilization in either 
 ### RI utilization reports
 <a name="ce-utilization-views"></a>
 
-The RI Utilization reports show how much of your Amazon EC2, Amazon Redshift, Amazon RDS, Amazon OpenSearch Service, and Amazon ElastiCache Reserved Instance (RIs) that you use, how much you saved by using RIs, how much you overspent on RIs, and your net savings from purchasing RIs during the selected time range. This helps you to see if you have purchased too many RIs. 
+The RI Utilization reports show how much of your Amazon EC2, Amazon Redshift, Amazon Relational Database Service (Amazon RDS), Amazon OpenSearch Service, and Amazon ElastiCache Reserved Instances (RIs) you use. They also show how much you saved by using RIs, how much you overspent on RIs, and your net savings from purchasing RIs during the selected time range. This helps you to see if you have purchased too many RIs. 
 
 The RI Utilization charts display the number of RI hours that your account uses, helping you to understand and monitor your combined usage (utilization) across all of your RIs and services. It also shows how much you saved over On-Demand Instance costs by purchasing a reservation, the amortized costs of your unused reservations, and your total net savings from purchasing reservations. AWS calculates your total net savings by subtracting the costs of your unused reservations from your reservations savings. 
 
@@ -82,7 +81,7 @@ You can filter the chart to analyze the purchasing accounts, instance types, and
 + **Availability Zone** – Filter your RI usage by specific Availability Zones.
 + **Instance Type** – Filter your RI usage by specific instance types, such as **t2.micro** or **m3.medium**. This also applies to Amazon RDS instance classes, such as **db.m4**, and Amazon Redshift and ElastiCache node types, such as **dc2.large**.
 + **Linked Account** – Filter your reservations by specific member accounts.
-+ **Platform** – Filter your RI usage by platform, such as **Linux** or **Windows**. This also applies to Amazon RDS database engines.
++ **Platform** – Filter your RI usage by operating system or platform, such as `Linux/UNIX` or `Red Hat Enterprise Linux`. This also applies to Amazon RDS database engines.
 + **Region** – Filter your RI usage by specific regions, such as **US East (N. Virginia)** or **Asia Pacific (Singapore)**.
 + **Scope** (Amazon EC2) – Filter your Amazon EC2 usage to show RIs that are purchased for use in specific Availability Zones or regions.
 + **Tenancy** (Amazon EC2) – Filter your Amazon EC2 usage by tenancy, such as **Dedicated** or **Default**. An RI with a **Dedicated** tenancy is reserved for a single tenant, and an RI with a **Default** tenancy might share hardware with another RI.
@@ -145,7 +144,7 @@ The RI coverage reports use the Cost Explorer filters instead of the RI Utilizat
 + **Availability Zone** – Filter your RI usage by specific Availability Zones.
 + **Instance Type** – Filter your RI usage by specific instance types, such as **t2.micro** or **m3.medium**. This also applies to Amazon RDS instance classes such as **db.m4**.
 + **Linked Account** – Filter your RI usage by specific member accounts.
-+ **Platform** – Filter your RI usage by platform, such as **Linux** or **Windows**. This also applies to Amazon RDS database engines.
++ **Platform** – Filter your RI usage by operating system or platform, such as `Linux/UNIX` or `Red Hat Enterprise Linux`. This also applies to Amazon RDS database engines.
 + **Region** – Filter your RI usage by specific regions, such as **US East (N. Virginia)** or **Asia Pacific (Singapore)**.
 + **Scope** (Amazon EC2) – Filter your Amazon EC2 usage to show RIs that are purchased for use in specific Availability Zones or regions.
 + **Tenancy** (Amazon EC2) – Filter your Amazon EC2 usage by tenancy, such as **Dedicated** or **Default**. A **Dedicated** RI is reserved for a single tenant, and a **Default** RI might share hardware with another RI.

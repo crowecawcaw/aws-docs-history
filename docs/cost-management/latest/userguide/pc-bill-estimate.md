@@ -1,7 +1,6 @@
 
 
 # Bill estimates
-<a name="pc-bill-estimate"></a>
 
 Bill estimates allow you to estimate pre-tax costs of your usage and commitments across your consolidated bill family. The bill estimate automatically includes your consolidated usage from the previous month. For example, if you add 100 instance-hours for a specific EC2 instance type in a given AWS Region, those hours will be added on top of your existing usage for that instance type in that Region with no extra input needed. It also includes your existing commitments like Savings Plans and Reserved Instances. Your benefit sharing preferences are applied, and any applicable discounts, credits, or refunds are included just as they were on your most recent anniversary bill. You can model new usage changes as well as add new commitments, modify your existing commitments, and add how you want your reserved instance and savings plans benefits to be shared.
 

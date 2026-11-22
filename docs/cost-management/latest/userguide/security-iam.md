@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Cost Management
-<a name="security-iam"></a>
 
 
 

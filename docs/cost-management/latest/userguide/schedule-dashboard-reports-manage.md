@@ -1,7 +1,6 @@
 
 
 # Managing scheduled reports
-<a name="schedule-dashboard-reports-manage"></a>
 
 You can view, edit, disable, or delete your scheduled reports from the Dashboards list page. The **Reports** column indicates which dashboards have scheduled reports configured.
 

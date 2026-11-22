@@ -1,7 +1,6 @@
 
 
 # Controlling access for Cost Anomaly Detection
-<a name="accesscontrol-ad"></a>
 
 You can use resource-level access controls and attribute-based access control (ABAC) tags for cost anomaly monitors and anomaly subscriptions. Each anomaly monitor and anomaly subscription resource has a unique Amazon Resource Name (ARN). You can also attach tags (key-value pairs) to each feature. Both resource ARNs and ABAC tags can be used to give granular access control to user roles or groups within your AWS accounts.
 
@@ -35,7 +34,7 @@ For `ce:GetAnomalies`, use the optional `monitorArn` parameter. When used with t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -68,7 +67,7 @@ To allow the IAM entity to update or delete anomaly monitors, use a policy simil
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ Create an identity-based policy that allows updating anomaly monitors. If the mo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

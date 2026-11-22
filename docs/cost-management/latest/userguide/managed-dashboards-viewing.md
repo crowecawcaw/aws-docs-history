@@ -1,7 +1,6 @@
 
 
 # Viewing Managed Dashboards
-<a name="managed-dashboards-viewing"></a>
 
 To view Managed Dashboards, navigate to the Billing and Cost Management console, choose **Dashboards** from the left navigation, and select the **Managed** tab to see only AWS-authored dashboards. You can also find them in the **All dashboards** tab where they appear alongside your custom and shared dashboards, identified by a lock icon indicating read-only status.
 

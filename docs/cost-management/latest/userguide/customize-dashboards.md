@@ -1,7 +1,6 @@
 
 
 # Customizing dashboards
-<a name="customize-dashboards"></a>
 
 After adding widgets, you can customize your dashboard layout and settings. You can drag widgets to different positions and resize them to emphasize important information.
 

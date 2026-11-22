@@ -1,7 +1,6 @@
 
 
 # Reading the Cost Explorer data table
-<a name="ce-table"></a>
 
 A data table follows each Cost Explorer chart. The data table displays the cost figures that the chart represents. If your chart is using a grouping, the data table displays the aggregate amounts for the filter types that you choose for your chart. If your chart isn't using a grouping, the table displays the aggregate amounts for your past and forecasted cost data. You can [download](ce-download-csv.md) the .csv file that contains the complete data set for your chart.
 

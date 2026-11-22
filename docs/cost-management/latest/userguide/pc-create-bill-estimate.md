@@ -1,7 +1,6 @@
 
 
 # Creating a bill estimate
-<a name="pc-create-bill-estimate"></a>
 
 This section outlines how to generate a bill estimate.
 

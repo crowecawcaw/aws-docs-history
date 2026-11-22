@@ -1,7 +1,6 @@
 
 
 # Logging AWS Cost Management API calls with AWS CloudTrail
-<a name="logging-with-cloudtrail"></a>
 
 AWS Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Cost Management. CloudTrail captures API calls for AWS Cost Management as events. The calls captured include API calls from the AWS Cost Management console and from your applications.
 
@@ -109,7 +108,7 @@ The following examples show CloudTrail log entries that demonstrate API actions 
 
 The following example shows a log entry for a throttling exception.
 
-```
+```json
     {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -159,7 +158,7 @@ The following example shows a log entry for a throttling exception.
 
 The following example shows a log entry for an `AccessDenied` exception.
 
-```
+```json
 {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -210,7 +209,7 @@ The following example shows a log entry for an `AccessDenied` exception.
 
 The following example shows a log entry for the `ListEnrollmentStatus` API action.
 
-```
+```json
     {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -261,7 +260,7 @@ The following example shows a log entry for the `ListEnrollmentStatus` API actio
 
  The following example shows a log entry for the `ListRecommendations` API action.
 
-```
+```json
     {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -317,7 +316,7 @@ The following example shows a log entry for the `ListEnrollmentStatus` API actio
 
 The following example shows a log entry for the `ListRecommendationSummaries` API action.
 
-```
+```json
     {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -419,7 +418,7 @@ The following example shows a log entry for the `GetRecommendation` API action.
 
 The following example shows a log entry for the `UpdateEnrollmentStatus` API action.
 
-```
+```json
 {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -472,7 +471,7 @@ The following example shows a log entry for the `UpdateEnrollmentStatus` API act
 
  The following example shows a log entry for the `UpdatePreferences` API action.
 
-```
+```json
     {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -579,7 +578,7 @@ The event source for the following events is `bcm-pricing-calculator.amazonaws.c
 
 The following example shows a CloudTrail log entry that uses the `CreateWorkloadEstimate` API action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

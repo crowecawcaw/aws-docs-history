@@ -1,7 +1,6 @@
 
 
 # Managed Dashboards
-<a name="managed-dashboards"></a>
 
 Managed Dashboards are preconfigured, read-only dashboards authored and maintained by AWS that appear automatically in your dashboard list. They are populated with your account data and provide immediate visibility into your cost trends, service costs, and commitment performance without requiring any setup. These dashboards are built on common customer reporting patterns and FinOps best practices, combining widget types and configurations that address the most frequently needed cost analysis scenarios.
 

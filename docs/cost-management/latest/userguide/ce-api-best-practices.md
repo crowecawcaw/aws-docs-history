@@ -1,7 +1,6 @@
 
 
 # Best practices for the AWS Cost Explorer API
-<a name="ce-api-best-practices"></a>
 
 The following are best practices when working with the [Cost Explorer API](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Cost_Explorer_Service.html).
 

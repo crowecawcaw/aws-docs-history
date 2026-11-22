@@ -1,7 +1,6 @@
 
 
 # Stale and expired bill scenarios
-<a name="pc-scenario-stale"></a>
 
 This section describes the stale and expired status of your bill scenario.
 

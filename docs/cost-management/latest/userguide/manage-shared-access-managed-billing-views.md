@@ -1,7 +1,6 @@
 
 
 # Understanding AWS managed billing views
-<a name="manage-shared-access-managed-billing-views"></a>
 
 AWS managed billing views are created when you map accounts to Billing Conductor billing groups or use billing transfer.
 

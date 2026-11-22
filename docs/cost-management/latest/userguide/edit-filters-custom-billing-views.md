@@ -1,7 +1,6 @@
 
 
 # Editing the filters of custom billing views
-<a name="edit-filters-custom-billing-views"></a>
 
 **To edit the filters of a custom billing view**
 

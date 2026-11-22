@@ -1,7 +1,6 @@
 
 
 # Using your rightsizing recommendations
-<a name="rr-use"></a>
 
 You can see the following top-level key performance indicators (KPIs) in your rightsizing recommendations:
 + **Optimization opportunities** – The number of recommendations available based on your resources and usage

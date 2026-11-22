@@ -1,7 +1,6 @@
 
 
 # Exporting your recommendations
-<a name="coh-export-recommendations"></a>
 
 Use the following procedure to export your recommendations and their estimated savings.
 

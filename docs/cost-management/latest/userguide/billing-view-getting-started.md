@@ -1,7 +1,6 @@
 
 
 # Getting started with custom billing views
-<a name="billing-view-getting-started"></a>
 
 Custom billing views in AWS Billing and Cost Management allow you to make cost management data accessible to accounts both inside and outside your organization. These views can only be created by the management account of an organization. By creating and sharing a custom billing view, you provide recipient accounts with access to specific cost management data. End users of the recipient account can then select from a list of shared custom billing views in the navigation pane. For example, you can define a custom billing view to contain all cost management data for a business unit that spans multiple member accounts. When shared with a relevant accounts, end users can monitor and analyze costs using Cost Explorer across all accounts and resources mapped to that business unit without requiring direct access to the management account. Additionally, you can consolidate cost management data across multiple organizations by creating a custom billing view that combines data from multiple shared billing views, enabling centralized cost monitoring.
 

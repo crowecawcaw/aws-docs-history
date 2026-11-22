@@ -1,7 +1,6 @@
 
 
 # Deleting an AWS Budgets report
-<a name="delete-budget-report"></a>
 
 Use the following procedure to delete an AWS Budgets report.<a name="delete-budget-report-steps"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Understanding scheduled report emails
-<a name="schedule-dashboard-reports-emails"></a>
 
 When a scheduled report is generated, recipients receive an email notification containing:
 + A secure, time-limited download link to access the PDF report. The link expires after 15 days.

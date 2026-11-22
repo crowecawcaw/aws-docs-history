@@ -1,7 +1,6 @@
 
 
 # Viewing your cost optimization opportunities
-<a name="coh-view-opportunities"></a>
 
 Cost optimization findings for your resources are displayed on the Cost Optimization Hub dashboard. You can use this dashboard to filter cost optimization opportunities and aggregate estimated savings. You can compare your total savings opportunities against your previous month's AWS spend. These estimated savings reflect your preferred commitment preferences for reservations and Savings Plans. To customize these preferences, see [Customizing your Cost Optimization Hub preferences](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html).
 
@@ -10,6 +9,8 @@ Use the dashboard to group your savings opportunities by AWS account, Region, re
 You can use the summary chart to filter recommendations.
 
 Explore and narrow down the categories and recommended actions for cost optimization. To identify resources and specific actions per resource, choose **View opportunities** to go to the list of resources available for optimization. You can choose a particular recommendation, view its details, and deep link to the relevant pages in the AWS Billing and Cost Management console and AWS Compute Optimizer. For deeper analysis of any recommendation, select it and choose **Analyze with AWS assistant**.
+
+To stop an idle Amazon EC2 instance from its recommendation, see [Stopping idle resources](coh-stop-idle-resources.md).
 
 At the bottom of the dashboard, you can see your total estimated savings as a percentage of your previous month's net amortized cost. This way, you can benchmark your cost efficiency.
 

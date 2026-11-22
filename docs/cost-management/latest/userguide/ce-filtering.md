@@ -1,7 +1,6 @@
 
 
 # Filtering the data that you want to view
-<a name="ce-filtering"></a>
 
 With Cost Explorer, you can filter how you view your AWS costs by one or more of the following values:
 + **API operation**
@@ -112,7 +111,7 @@ The Seller of Record of a specific product or service. In most cases, the invoic
 The member accounts in an organization. For more information, see [Consolidated billing for AWS Organizations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html).
 
 **Platform**  
-The operating system that your RI runs on. **Platform** is either **Linux** or **Windows**.
+The operating system or platform of the usage, such as `Linux/UNIX`, `Windows (Amazon VPC)`, or `Red Hat Enterprise Linux`. Use this filter to compare your costs across operating systems for your cost and usage data, not only for Reserved Instances. Filter values must match exactly. To get the exact values in your account, use the `GetDimensionValues` API operation with `Dimension` set to `PLATFORM`. For more information, see the [AWS Billing and Cost Management API Reference](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html).
 
 **Product attribute**  
 Standardized attributes that describe your Amazon Bedrock usage. You can filter and group your Amazon Bedrock costs by the following attributes:  
@@ -259,9 +258,12 @@ Usage type groups are available for DynamoDB, Amazon EC2, ElastiCache, Amazon RD
   + DedicatedUsage
   + HighUsage
   + InstanceUsage
+  + InstanceUsageIOOptimized
   + MirrorUsage
+  + Multi-AZClusterUsage
   + Multi-AZUsage
   + SpotUsage
+  + UnusedBox
 + **RDS: Data Transfer – CloudFront – In**
 
   Filters by the costs associated with how many GB are transferred into Amazon RDS from a CloudFront distribution.

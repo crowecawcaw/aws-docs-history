@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon SNS topic for anomaly notifications
-<a name="ad-SNS"></a>
 
 To create an anomaly detection monitor that sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, you must already have Amazon SNS topic or create a new one. You can use Amazon SNS topics to send notifications over Amazon SNS in addition to email. AWS Cost Anomaly Detection must have permissions to send a notification to your topic. 
 
@@ -123,7 +122,7 @@ Ensure that the key policies of the KMS key allow the necessary permissions. To 
 
 ****  
 
-   ```
+   ```json
    {
        "Version": "{{2012-10-17}}",
        "Statement": [
@@ -151,7 +150,7 @@ Ensure that the key policies of the KMS key allow the necessary permissions. To 
 
 ****  
 
-   ```
+   ```json
    {
        "Version": "{{2012-10-17}}",
        "Statement": [

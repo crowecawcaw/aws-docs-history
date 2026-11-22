@@ -1,7 +1,6 @@
 
 
 # Viewing your savings opportunities
-<a name="coh-savings-opportunities"></a>
 
 You can view details about your recommended actions on the **Savings opportunities** page. Use filters to refine the list of savings opportunities, and learn more about each recommendation by using a split-view panel. For deeper analysis of any recommendation, select it and choose **Analyze with AWS assistant**.
 

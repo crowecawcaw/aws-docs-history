@@ -1,7 +1,6 @@
 
 
 # Adding new services to my workload estimate
-<a name="pc-create-workload-new-service"></a>
 
 This section outlines how to add new services to a workload estimate.
 

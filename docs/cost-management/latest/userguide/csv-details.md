@@ -1,7 +1,6 @@
 
 
 # Sharing your rightsizing recommendations
-<a name="csv-details"></a>
 
 You can download a rightsizing recommendations report in CSV format.
 

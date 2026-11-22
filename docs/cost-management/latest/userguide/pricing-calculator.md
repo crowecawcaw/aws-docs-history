@@ -1,7 +1,6 @@
 
 
 # Generating estimates with Pricing Calculator
-<a name="pricing-calculator"></a>
 
  The in-console AWS Pricing Calculator is an AWS Billing and Cost Management feature that enables you to estimate your planned cloud costs using your discounts and purchase commitments. You can use Pricing Calculator to assess the cost impact and understand the return on investment for migrating workloads, planning new or growth of existing workloads, and plan for commitment purchases. 
 

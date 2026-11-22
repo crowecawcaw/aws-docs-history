@@ -1,7 +1,6 @@
 
 
 # Creating a workload estimate
-<a name="pc-create-workload"></a>
 
 This section outlines how to generate a workload estimate.
 

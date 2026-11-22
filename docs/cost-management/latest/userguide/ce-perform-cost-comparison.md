@@ -1,7 +1,6 @@
 
 
 # Performing a cost comparison
-<a name="ce-perform-cost-comparison"></a>
 
 You can compare costs between any two months within the last 13 months to identify and understand changes in your AWS spending. If you have enabled multi-year data at monthly granularity, you can go back up to 38 months. For more information, see [Configuring multi-year and granular data](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-configuring-data.html).
 

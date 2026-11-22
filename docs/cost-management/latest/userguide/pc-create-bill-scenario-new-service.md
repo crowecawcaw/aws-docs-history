@@ -1,7 +1,6 @@
 
 
 # Adding new services to my bill scenario
-<a name="pc-create-bill-scenario-new-service"></a>
 
 This section outlines how to add new services to a bill scenario.
 

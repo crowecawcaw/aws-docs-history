@@ -1,7 +1,6 @@
 
 
 # Reviewing your bills and usage
-<a name="step-3"></a>
 
 Use features in the Billing and Cost Management console to view your current AWS charges and AWS usage.
 

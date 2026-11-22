@@ -1,7 +1,6 @@
 
 
 # Adding historical usage to my workload estimate
-<a name="pc-create-workload-historical-usage"></a>
 
 This section outlines how to add historical usage to a workload estimate.
 

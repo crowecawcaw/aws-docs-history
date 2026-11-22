@@ -1,7 +1,6 @@
 
 
 # Creating a reservation budget
-<a name="create-reservation-budget"></a>
 
 Use this procedure to create a budget for RI utilization or coverage.
 

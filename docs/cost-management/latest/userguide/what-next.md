@@ -1,7 +1,6 @@
 
 
 # What do I do next?
-<a name="what-next"></a>
 
 Now that you have AWS Cost Management set up, you're ready to use the features available to you. The rest of this guide helps you navigate your journey using the console.
 

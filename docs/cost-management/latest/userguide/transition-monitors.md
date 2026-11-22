@@ -1,7 +1,6 @@
 
 
 # Transitioning from customer to AWS managed monitors
-<a name="transition-monitors"></a>
 
 If you currently use multiple customer managed monitors to track individual accounts, teams, or categories, you can transition to AWS managed monitors for simplified management and automatic coverage.
 

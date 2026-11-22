@@ -1,7 +1,6 @@
 
 
 # Overview of cost management capabilities in AWS assistant
-<a name="ce-q-overview"></a>
 
 The AWS assistant is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, analyze, and optimize your AWS costs. With the AWS assistant, you can ask complex, open-ended questions about your costs and let the AWS assistant perform the analysis on your behalf. The AWS assistant explores your cost data, forms and tests hypotheses, gathers information from multiple sources, performs calculations, and provides custom visualizations and actionable insights, all through a natural language conversation.
 

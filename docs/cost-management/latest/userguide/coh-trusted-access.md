@@ -1,7 +1,6 @@
 
 
 # Cost Optimization Hub and AWS Organizations trusted access
-<a name="coh-trusted-access"></a>
 
 When you opt in using your organization's management account and include all member accounts within the organization, trusted access for Cost Optimization Hub is automatically enabled in your organization account. Every time that you access recommendations for member accounts, Cost Optimization Hub verifies that trusted access is enabled in your organization account. If you disable Cost Optimization Hub trusted access after you opt in, Cost Optimization Hub denies access to recommendations for your organization's member accounts. Moreover, the member accounts within the organization aren't opted in to Cost Optimization Hub. To re-enable trusted access, opt in to Cost Optimization Hub again using your organization's management account and include all the member accounts within the organization. For more information, see [Opting in your account](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-getting-started.html#coh-access). For more information about AWS Organizations trusted access, see [Using AWS Organizations with other AWS services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) in the *AWS Organizations User Guide*.
 
@@ -15,7 +14,7 @@ This policy provides all the permissions necessary for a management account to o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ This policy provides the permissions necessary for a member account to have full
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Download your recommendations in the AWS Billing and Cost Management console
-<a name="bcm-lite-coh-download"></a>
 
 **Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.

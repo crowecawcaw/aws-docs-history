@@ -1,7 +1,6 @@
 
 
 # Viewing and creating exports using billing views
-<a name="access-data-exports"></a>
 
 AWS Cost Management Data Export supports primary, billing group, and billing transfer views that help you generate detailed cost and usage reports. You can filter data across multiple accounts in your organization. When you create a data export, you can choose a billing view to define which cost and usage data to include. This enables you to focus on specific departments or projects without requiring access to the management account.
 

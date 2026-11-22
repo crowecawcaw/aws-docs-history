@@ -1,7 +1,6 @@
 
 
 # Asking questions about your costs using AWS assistant
-<a name="ce-nlq"></a>
 
 Cost Explorer enables you to ask questions about your AWS costs using suggested prompts or in your own words via the **Ask question** button, powered by **AWS assistant**. You can receive detailed insights in **AWS assistant** while Cost Explorer automatically updates its charts, tables, and report parameters including filters, groupings, and dates to reflect the analysis. This capability is available through two features: suggested prompts and the **Ask question** button.
 

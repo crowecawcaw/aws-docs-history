@@ -1,7 +1,6 @@
 
 
 # Adding Reserved Instances to my bill scenario
-<a name="pc-create-bill-scenario-ri"></a>
 
 This section outlines how to add Reserved Instances to a bill scenario.
 

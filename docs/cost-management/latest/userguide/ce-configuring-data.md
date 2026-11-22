@@ -1,7 +1,6 @@
 
 
 # Configuring multi-year and granular data
-<a name="ce-configuring-data"></a>
 
 Using the management account, you can enable multi-year data and granular data in Cost Explorer. You do this in the Cost Management preferences in the console.
 

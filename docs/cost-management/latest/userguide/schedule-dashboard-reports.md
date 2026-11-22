@@ -1,7 +1,6 @@
 
 
 # Scheduling email delivery of dashboard reports
-<a name="schedule-dashboard-reports"></a>
 
 You can schedule automated email delivery of your dashboard reports to stakeholders on a recurring basis. Scheduled reports generate a PDF snapshot of your dashboard at the configured time and deliver it to your specified recipients through email. This allows stakeholders who don't have AWS console access to receive regular visibility into cost and usage data.
 

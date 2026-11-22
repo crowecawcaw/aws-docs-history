@@ -1,7 +1,6 @@
 
 
 # Configuring budget actions
-<a name="budgets-controls"></a>
 
 You can use AWS Budgets to run an action on your behalf when a budget exceeds a certain cost or usage threshold. To do this, after you set a threshold, configure a budget action to run either automatically or after your manual approval.
 

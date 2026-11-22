@@ -1,7 +1,6 @@
 
 
 # Custom billing views
-<a name="access-data-custom"></a>
 
 If your account has access to a custom billing view, you can access the cost management data defined in that custom billing view. This is in addition to the cost management data owned by your account, which is contained in your primary billing view. The primary billing view supports all AWS Billing and Cost Management tools. To access the data in a custom billing view, you can use either Cost Explorer or the AWS Billing and Cost Management home page. Cost Explorer offers additional functionality with custom billing views, allowing you to create forecasts and access Cost Explorer Saved Reports based on the data.
 

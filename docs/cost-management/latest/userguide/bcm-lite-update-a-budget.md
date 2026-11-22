@@ -1,7 +1,6 @@
 
 
 # Update a budget in the AWS Billing and Cost Management console
-<a name="bcm-lite-update-a-budget"></a>
 
 **Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.

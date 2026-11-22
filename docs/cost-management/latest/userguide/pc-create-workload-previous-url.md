@@ -1,7 +1,6 @@
 
 
 # Adding previously saved estimates to my workload estimate
-<a name="pc-create-workload-previous-url"></a>
 
 This section outlines how to add previously saved estimates from the public Pricing Calculator to a workload estimate. For instructions on how to generate a public Pricing Calculator URL, see [Sharing an estimate link](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/save-share-estimate.html#create-estimate-link) in the public Pricing Calculator user guide.
 

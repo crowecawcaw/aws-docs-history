@@ -1,7 +1,6 @@
 
 
 # Creating a cost budget
-<a name="create-cost-budget"></a>
 
 Use this procedure to create a budget that's based on your costs.<a name="cost-budget"></a>
 

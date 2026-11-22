@@ -1,7 +1,6 @@
 
 
 # Setting up your anomaly detection
-<a name="settingup-ad"></a>
 
 The overviews in this section describe how to get started with AWS Cost Anomaly Detection in AWS Billing and Cost Management.
 

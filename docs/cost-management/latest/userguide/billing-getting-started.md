@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Cost Management
-<a name="billing-getting-started"></a>
 
 This section provides information that you need to get started with using the AWS Cost Management console. As a first step, you need to sign up for an AWS account and set up IAM users.
 

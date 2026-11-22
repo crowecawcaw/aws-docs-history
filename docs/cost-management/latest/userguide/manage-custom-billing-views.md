@@ -1,7 +1,6 @@
 
 
 # Managing custom billing views
-<a name="manage-custom-billing-views"></a>
 
 As the creator of a custom billing view, you retain full control over the resource even after sharing it with other accounts. You can update the definition of a custom billing view to reflect changes in your organization. You can also manage which accounts can access a custom billing view, or you can delete a custom billing view, which immediately revokes access to all accounts. Accounts that have been given access to the view can’t modify the definition of the custom billing view. This ensures you retain full control over which accounts can access specific cost management data.
 

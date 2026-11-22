@@ -1,7 +1,6 @@
 
 
 # Setting up your AWS Cost Management features
-<a name="step-4"></a>
 
 Review the process that's needed to activate your AWS Cost Management features.
 + **AWS Cost Explorer**: [Enabling Cost Explorer](ce-enable.md)

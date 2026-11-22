@@ -1,7 +1,6 @@
 
 
 # Exploring your data using Cost Explorer
-<a name="ce-exploring-data"></a>
 
 On the Cost Explorer dashboard, Cost Explorer shows your estimated costs for the month to date, your forecasted costs for the month, a graph of your daily costs, your five top cost trends, and a list of reports that you recently viewed. 
 

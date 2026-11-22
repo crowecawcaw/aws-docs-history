@@ -1,7 +1,6 @@
 
 
 # Editing the sources of custom billing views
-<a name="edit-sources-custom-billing-views"></a>
 
 **To edit the sources of a custom billing view**
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with rightsizing recommendations
-<a name="rr-getting-started"></a>
 
 You can access your reservation recommendations and resource-based recommendations in the Billing and Cost Management console. After you enable the feature, it can take up to 24 hours to generate your recommendations.
 

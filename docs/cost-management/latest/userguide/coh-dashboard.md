@@ -1,7 +1,6 @@
 
 
 # Viewing the dashboard
-<a name="coh-dashboard"></a>
 
 Use the following procedure to view the dashboard and your cost optimization opportunities.
 

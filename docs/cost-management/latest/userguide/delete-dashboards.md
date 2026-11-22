@@ -1,7 +1,6 @@
 
 
 # Deleting dashboards
-<a name="delete-dashboards"></a>
 
 Deleting a dashboard permanently removes access to the dashboard for all users, including any accounts you've shared it with. This action cannot be undone. After a dashboard is deleted, it no longer appears in the **All dashboards** tab for owners or the **Shared with me** tab for those it was shared with. End users attempting to access the URL of the deleted dashboard will receive an error message.
 

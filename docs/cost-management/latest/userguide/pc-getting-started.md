@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Pricing Calculator
-<a name="pc-getting-started"></a>
 
 Before you can use AWS Pricing Calculator, you must make sure that you have properly set up your AWS account and user permissions. For instructions about how to set up your AWS account and permissions, see [ Getting started with AWS Cost Management](https://docs.aws.amazon.com/cost-management/latest/userguide/billing-getting-started.html).
 

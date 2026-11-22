@@ -1,7 +1,6 @@
 
 
 # Delegating an administrator account
-<a name="coh-delegated-admin"></a>
 
 You can delegate a member account in your organization as an administrator for Cost Optimization Hub. Delegating an administrator removes the need for you to use the management account to access and manage Cost Optimization Hub on behalf of the organization. This also enables you to adopt an AWS security best-practice, which recommends that you delegate responsibilities outside of the management account where possible.
 
