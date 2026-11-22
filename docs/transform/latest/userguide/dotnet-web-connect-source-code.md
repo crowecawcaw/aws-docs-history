@@ -1,7 +1,6 @@
 
 
 # Connect to source code
-<a name="dotnet-web-connect-source-code"></a>
 
 After [Create a .NET modernization job](dotnet-web-create-job.md), on the **Job Plan** tab, the left pane of the AWS Transform window lists the phases of the transformation job. The first phase is *Connect source code*. In this phase, you connect to your source code.
 

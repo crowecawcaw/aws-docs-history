@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Transform
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Transform resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -42,7 +41,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -133,7 +132,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 The following policy grants the permissions that an administrator needs to manage IAM Identity Center users and groups in the AWS Transform console. With this policy, an administrator can assign and remove users and groups, view display names, create new IAM Identity Center users, manage application assignments, and configure application session settings.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -214,7 +213,7 @@ The following policy grants the permissions that an administrator needs to manag
 
 The following policy grants the permissions that an administrator needs to enable and administer AWS Transform through the AWS console. This includes managing profiles, configuring agents, and managing connectors. This policy is intended for administrators only and should be scoped to trusted principals in your account.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -327,7 +326,7 @@ The following policy grants an IAM principal access to the AWS Transform web app
 
 Replace `{{region}}`, `{{account-id}}`, and `{{profile-id}}` with your values. You can find the profile ID in the AWS Transform console under **Settings**.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -343,7 +342,7 @@ Replace `{{region}}`, `{{account-id}}`, and `{{profile-id}}` with your values. Y
 
 To grant access to all profiles in an account, use a wildcard for the profile ID:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Modernizing .NET with AWS Transform
-<a name="dotnet"></a>
 
 AWS Transform for .NET is a generative AI-powered agent that helps you modernize your .NET applications. You can modernize legacy .NET Framework applications to cross-platform .NET, and upgrade .NET applications to later versions.
 
@@ -32,8 +31,8 @@ The .NET agent can transform the following versions, languages, and project type
 
 |  |  | 
 | --- |--- |
-| Transform from | .NET Framework 3.5, .NET Core 3.1, .NET 5.x\+ through .NET 10 | 
-| Transform to | .NET 8, .NET 10, .NET Standard (class libraries) | 
+| Transform from | .NET Framework 3.5, .NET Core 3.1, .NET 5.x\+ through .NET 11 | 
+| Transform to | .NET 8, .NET 10, .NET 11, .NET Standard (class libraries) | 
 | Languages | C\#, VB.NET | 
 | Supported project types | Class libraries, Console apps, ASP.NET (MVC, Web API, Web Forms), Unit test projects (NUnit, xUnit, MSTest), Windows Communication Foundation (WCF) services, Desktop (WinForms, WPF), Mobile (Xamarin), ASMX web service | 
 
@@ -45,14 +44,13 @@ For more information on quotas and limitations for AWS Transform, see [Quotas fo
 AWS Transform does not transform the following:
 + Win32 DLLs that don't have core compatible libraries
 + Repositories that do not contain any .NET solutions.
-+ Web site projects without a project file (must be converted to a Web application).
 
 ## Human intervention
 <a name="human-intervention"></a>
 
 During the porting of .NET Framework applications to cross-platform .NET, you may be requested to provide input or approvals in the following scenarios:
 + Set up a connector to your source code and permissions
-+ Validate the proposed modernization plan
++ Review and customize the proposed modernization plan
 + Upload missing package dependencies as NuGets
 + Review and accept the transformed code
 

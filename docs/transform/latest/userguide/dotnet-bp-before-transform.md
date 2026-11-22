@@ -1,7 +1,6 @@
 
 
 # Before you transform
-<a name="dotnet-bp-before-transform"></a>
 
 Review the following recommendations before you start a .NET transformation job.
 

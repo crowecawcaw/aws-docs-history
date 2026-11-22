@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Transform
-<a name="transform-limits"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 
@@ -25,7 +24,7 @@ Your AWS account has the following quotas related to AWS Transform.
 |  | Decomposition monthly lines of code | 50,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Decomposition job objective in a calendar month | 
 |  | Reforge monthly lines of code | 50,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Reforge job objective in a calendar month | 
 |  | Extracted business logic monthly lines of code | 50,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Extracted Business Logic job objective in a calendar month | 
-| .NET | .NET monthly lines of code (web & IDE) | 1,000,000 lines of code for each supported Region | Yes | The maximum lines of .NET application code that can be transformed in a calendar month in each supported AWS Region of an IAM Identity Center account | 
+| .NET | .NET monthly lines of code (web & IDE) | 3,000,000 lines of code for each supported Region | Yes | The maximum lines of .NET application code that can be transformed in a calendar month in each supported AWS Region of an IAM Identity Center account | 
 |  | Concurrent .NET jobs with the Microsoft Visual Studio Extension for each IAM Identity Center account | 10 jobs for each supported Region | Yes | The maximum number of concurrent .NET transformation jobs in each supported AWS Region of an IAM Identity Center account when using the Microsoft Visual Studio Extension. | 
 |  | Concurrent .NET web jobs for each IAM Identity Center account | 5 jobs for each supported Region | Yes | The maximum number of concurrent .NET transformation jobs in each supported AWS Region of an IAM Identity Center account when using the AWS Transform web app. | 
 | Custom transformations | Custom transformation definitions | 1,000 | Yes | The maximum number of custom transformation definitions | 

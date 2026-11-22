@@ -1,7 +1,6 @@
 
 
 # AWS Transform discovery tool
-<a name="discovery-tool"></a>
 
 The AWS Transform discovery tool helps you automatically discover server inventory in your organization to prepare for migration. The tool supports VMware vCenter, Microsoft Hyper-V, and imported servers. To use the discovery tool, you configure one or more discovery sources, let the tool run, and then review the results in the **Discovered inventory** pane. 
 

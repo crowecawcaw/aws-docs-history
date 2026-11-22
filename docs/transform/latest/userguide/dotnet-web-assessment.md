@@ -1,7 +1,6 @@
 
 
 # Assessment
-<a name="dotnet-web-assessment"></a>
 
 After you confirm repositories for assessment in the *Discovery* phase, your job will enter the *Assessment* phase. AWS Transform analyzes your repositories for modernization suitability based on the following considerations.
 + Framework version and upgrade path

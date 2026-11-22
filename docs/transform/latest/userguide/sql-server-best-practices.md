@@ -1,7 +1,6 @@
 
 
 # Best practices and troubleshooting
-<a name="sql-server-best-practices"></a>
 
 Best practices, and common issues and their resolutions during the modernization process.
 

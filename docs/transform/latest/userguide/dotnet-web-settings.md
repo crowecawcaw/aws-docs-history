@@ -1,7 +1,6 @@
 
 
 # Transformation settings
-<a name="dotnet-web-settings"></a>
 
 ## Transformation mode
 <a name="transformation-mode"></a>

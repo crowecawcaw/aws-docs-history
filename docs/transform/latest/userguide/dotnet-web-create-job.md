@@ -1,7 +1,6 @@
 
 
 # Create a .NET modernization job
-<a name="dotnet-web-create-job"></a>
 
 After you create or select your workspace, create a .NET modernization job:
 

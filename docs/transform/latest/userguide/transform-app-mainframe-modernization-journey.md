@@ -1,7 +1,6 @@
 
 
 # High-level overview of mainframe modernization journey
-<a name="transform-app-mainframe-modernization-journey"></a>
 
 Modernizing mainframe applications to AWS is typically achieved in four phases: (a) assess, (b) mobilize, (c) migrate and modernize, and (d) operate, optimize, and innovate. Each of these phases are further described in detail with goals and associated activities to support your modernization journey.
 

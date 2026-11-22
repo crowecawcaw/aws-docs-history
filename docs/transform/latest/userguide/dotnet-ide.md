@@ -1,7 +1,6 @@
 
 
 # Modernizing .NET in the IDE
-<a name="dotnet-ide"></a>
 
 AWS Transform includes an interactive, agentic AI assistant in the AWS Toolkit for Visual Studio. It enables you to modernize applications through a conversational, step-by-step guided experience directly in your IDE. To transform a .NET solution or project, the AWS Transform agent analyzes your codebase, determines the necessary updates to port your application, and generates an assessment report and transformation plan before the transformation begins.
 

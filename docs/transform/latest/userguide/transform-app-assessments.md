@@ -1,7 +1,6 @@
 
 
 # Migration assessments
-<a name="transform-app-assessments"></a>
 
 AWS Transform assessments help you evaluate the cost, feasibility, and business value of migrating on-premises infrastructure to AWS. Using agentic AI, AWS Transform generates a data-driven total cost of ownership (TCO) business case in minutes from a server inventory, finding the best-fit AWS services for your workloads and producing pricing options, licensing analysis, and actionable next steps. From there, you refine the business case through natural language chat—adding missing inventory, adjusting on-premises costs, modeling alternative AWS services, changing assumptions, and exploring what-if scenarios—without re-running the full assessment.
 

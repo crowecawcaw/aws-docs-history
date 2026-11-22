@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Transform
-<a name="getting-started"></a>
 
 **Topics**
 + [Setting up AWS Transform](transform-setup.md)
@@ -10,6 +9,7 @@
 + [Managing users](transform-user-management.md)
 + [AWS Transform environment](transform-environment.md)
 + [AWS Transform Connectors](transform-user-connectors.md)
++ [Engagements](transform-engagements.md)
 
 ## Enable AWS Transform
 <a name="transform-enable"></a>

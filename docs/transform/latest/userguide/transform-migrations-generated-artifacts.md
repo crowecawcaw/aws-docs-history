@@ -1,7 +1,6 @@
 
 
 # Understanding the generated network artifacts
-<a name="transform-migrations-generated-artifacts"></a>
 
 AWS Transform generates your target network as Infrastructure as Code (IaC) so you can review and deploy it using your own tools and processes. It produces the network in a fraction of the time, and you decide how and when to deploy it: check it against your own standards, adjust it to fit how your team works, deploy it the way you already deploy infrastructure, and keep it in version control so you can track changes and deploy again later.
 
@@ -15,7 +14,7 @@ To verify the downloaded file hasn't been corrupted or tampered with, generate a
 ## Output directory structure
 <a name="transform-migrations-generated-artifacts-layout"></a>
 
-Each IaC format has its own output directory (`cdk/` and `cfn/`, `cdk_l2/`, `terraform/`, or `lza/`). Each contains a `network_segments/` directory for network definitions and a `security/` directory for security definitions. The following trees show the structure of each format, where `<segment>` is a placeholder for each segment:
+Each IaC format has its own output directory (`cdk/` and `cfn/`, `cdk_l2/`, `terraform/`, or `lza/`). Each contains a `network_segments/` directory for network definitions and a `security/` directory for security definitions. When you migrate load balancers, the `cfn/` and `cdk/` outputs also contain a `load_balancers/` directory for load balancer definitions. The following trees show the structure of each format, where `<segment>` is a placeholder for each segment:
 
 **CloudFormation** (`cfn/`) contains CloudFormation templates.
 
@@ -23,9 +22,11 @@ Each IaC format has its own output directory (`cdk/` and `cfn/`, `cdk_l2/`, `ter
 cfn/
 ├── network_segments/
 │   └── <segment>/                        # CloudFormation template JSON
-└── security/
-    ├── <segment>_security/
-    └── <segment>_security_dependencies/   # only when the segment has cross-VPC rules
+├── security/
+│   ├── <segment>_security/
+│   └── <segment>_security_dependencies/   # only when the segment has cross-VPC rules
+└── load_balancers/                         # only when you migrate load balancers
+    └── <segment>_lb/                      # CloudFormation template JSON
 ```
 
 **CDK L1** (`cdk/`) contains a AWS CDK project. It includes a `README.md` file.
@@ -35,11 +36,15 @@ cdk/
 ├── README.md
 ├── network_segments/
 │   └── <segment>/
-└── security/
-    ├── security-interface.json
-    ├── validate-references.py
-    ├── <segment>_security/
-    └── <segment>_security_dependencies/   # only when the segment has cross-VPC rules
+├── security/
+│   ├── security-interface.json
+│   ├── validate-references.py
+│   ├── <segment>_security/
+│   └── <segment>_security_dependencies/   # only when the segment has cross-VPC rules
+└── load_balancers/                         # only when you migrate load balancers
+    └── <segment>_lb/
+        ├── app.ts
+        └── <segment>_lb.ts                # segment name in lowercase
 ```
 
 **CDK L2** (`cdk_l2/`) contains AWS CDK projects that use higher-level (L2) constructs from the AWS CDK Construct Library. L2 constructs provide sensible defaults and less boilerplate than the L1 constructs that CDK L1 uses. For more information, see [Constructs](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html) in the *AWS Cloud Development Kit (AWS CDK) Developer Guide*. Workload segments are delivered as complete project zip files, and the deployment `README.md` is inside each zip.
@@ -95,7 +100,7 @@ lza/
 ## Security definitions
 <a name="transform-migrations-generated-artifacts-security"></a>
 
-Within `security/`, security groups are split per segment. Each segment's own security groups are in its `<segment>_security/` directory. If a segment has rules that reference another segment, its cross-VPC rules are separated into a `<segment>_security_dependencies/` directory that deploys last, after the security groups it references exist.
+Within `security/`, security groups are split per segment. Each segment's own security groups are in its `<segment>_security/` directory. If a segment has rules that reference another segment, its cross-VPC rules are separated into a `<segment>_security_dependencies/` directory that deploys after the security groups it references exist.
 
 A segment whose VPC already exists in the account keeps its original name under `security/<segment>/` with no suffix.
 
@@ -105,6 +110,15 @@ The `cdk/`, `cdk_l2/`, and `terraform/` outputs include two additional files in 
 
 **Note**  
 Deploy the resources in `network_segments/` before those in `security/`. The security definitions reference the network resources' exports and parameters, which must already exist.
+
+## Load balancer definitions
+<a name="transform-migrations-generated-artifacts-load-balancers"></a>
+
+When you migrate load balancers, the `cfn/` and `cdk/` outputs contain a `load_balancers/` directory with one `<segment>_lb/` directory for each segment that has load balancers. Each directory holds the definitions for that segment's load balancers.
+
+In `cfn/`, each directory contains one CloudFormation template. In `cdk/`, each directory contains an `app.ts` file and a TypeScript file for the segment's load balancers.
+
+Deploy the load balancer stacks after the `network_segments/` and `security/` stacks. They reference the VPC and subnets from the `network_segments/` stacks and the load balancer security groups from the `security/` stacks.
 
 ## Multi-account output
 <a name="transform-migrations-generated-artifacts-accounts"></a>

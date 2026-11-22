@@ -1,7 +1,6 @@
 
 
 # Design a new AWS network
-<a name="transform-vmware-design-network"></a>
 
 Build a clean, AWS-native network in a fraction of the time, without carrying over your legacy on-premises design or needing deep networking expertise. AWS Transform designs a production-ready network that follows AWS best practices from the start, which you review and adjust before deployment.
 

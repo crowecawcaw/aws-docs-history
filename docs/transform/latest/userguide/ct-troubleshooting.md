@@ -1,10 +1,69 @@
 
 
 # Troubleshooting
-<a name="ct-troubleshooting"></a>
 
 Checking system health  
 You no longer need to start a local server; the `atx ct server` command is deprecated. Verify the system is reachable with `atx ct status --health`.
+
+Finding the error for a failed analysis or remediation  
+When an analysis or remediation hits an error for a repository, you can find an error record in the `/aws/TransformContinuousModernization` CloudWatch log group in the AWS account and Region where the analysis or remediation ran.  
+Each repository of each analysis or remediation has its own log stream, named `{{mode}}/{{run-id}}/{{source}}%3A%3A{{repo}}/logs`. {{mode}} is the `computeMode` value in the following table, and {{run-id}} is the analysis or remediation ID. AWS Transform URL-encodes the source and repository name, so the `::` between them appears as `%3A%3A`. AWS Transform shortens a very long name in the middle.  
+Each record is a JSON object with the following fields.  
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>timestamp</code></td><td>When the error happened.</td></tr>
+  <tr><td><code>logClass</code></td><td>Always <code>error</code>.</td></tr>
+  <tr><td><code>resourceType</code></td><td><code>analysis</code> or <code>remediation</code>.</td></tr>
+  <tr><td><code>analysisId</code> or <code>remediationId</code></td><td>The ID of the analysis or remediation.</td></tr>
+  <tr><td><code>repositoryName</code></td><td>The repository, as <code>source::repo</code>.</td></tr>
+  <tr><td><code>computeMode</code></td><td>Where the run happened: <code>local</code>, <code>batch</code> (AWS Batch), <code>ec2</code> (Amazon EC2), or <code>aws-managed</code>.</td></tr>
+  <tr><td><code>message</code></td><td>The error message.</td></tr>
+  <tr><td><code>rawLogGroup</code> and <code>rawLogStream</code></td><td>AWS Batch and Amazon EC2 runs only. The location of the run's full log.</td></tr>
+</tbody>
+</table>
+
+Each execution of a scheduled analysis has its own analysis ID. To find it, use `atx ct analysis list --schedule-id {{schedule-id}}`.  
+To read the errors of one analysis, use the following command. Replace {{analysis-id}} with the ID of the analysis.  
+
+```bash
+aws logs filter-log-events --log-group-name /aws/TransformContinuousModernization \
+  --filter-pattern '{ $.analysisId = "{{analysis-id}}" }'
+```
+Occasionally, the log group contains a duplicate record.
+
+No error records in /aws/TransformContinuousModernization  
+If no error records appear, the credentials that ran the analysis or remediation are usually missing permissions on the log group. The credentials need permissions on two resources:  
++ `logs:CreateLogGroup` and `logs:PutRetentionPolicy` on the log group, `arn:aws:logs:{{region}}:{{account-id}}:log-group:/aws/TransformContinuousModernization`.
++ `logs:CreateLogStream` and `logs:PutLogEvents` on the log group's streams, `arn:aws:logs:{{region}}:{{account-id}}:log-group:/aws/TransformContinuousModernization:log-stream:*`.
+Who grants these permissions depends on how the analysis or remediation runs:  
++ Roles that `atx ct remote provision` creates for AWS Batch and Amazon EC2 have these permissions. If you provisioned the stack with an earlier version of the AWS Transform CLI, run `atx ct remote update` to add them.
++ For runs with `--mode aws-managed`, the execution role that AWS Transform creates for you, for example when you choose **Create one for me** in the AWS Transform web application, has these permissions.
++ For local runs, and for roles that you create yourself, add these permissions to the credentials or role that runs the analysis or remediation.
+The following example policy grants these permissions. Replace {{region}} and {{account-id}} with your values.  
+
+```json
+{
+  "Version": "2012-10-17", 		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["logs:CreateLogGroup", "logs:PutRetentionPolicy"],
+      "Resource": "arn:aws:logs:{{region}}:{{account-id}}:log-group:/aws/TransformContinuousModernization"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+      "Resource": "arn:aws:logs:{{region}}:{{account-id}}:log-group:/aws/TransformContinuousModernization:log-stream:*"
+    }
+  ]
+}
+```
+A missing permission doesn't change the result of the analysis or remediation. AWS Transform still runs it, but doesn't write the error record.
 
 Discovery scan returns zero repositories  
 For local sources, verify that `--path` points to a parent directory that contains repositories as subdirectories (for example, `/home/user/repos`), not to a repository directly (for example, `/home/user/repos/my-app`). The scanner looks for child directories that contain a `.git` folder.
@@ -16,7 +75,10 @@ AUTH\_REQUIRED error
 No valid token found for the source. Verify your token is correct and has the required scopes. For GitHub, ensure the token has `repo` scope. For GitLab, ensure `api` scope.
 
 INVALID\_INPUT error  
-Verify you are using the correct analysis type name. Valid values are: `rapid-techdebt-analysis`, `tech-debt-comprehensive`, `security`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom`.
+Verify you are using the correct analysis type name. Valid values are: `rapid-techdebt-analysis`, `tech-debt-comprehensive`, `security`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `aws-health-readiness`, `custom`.
+
+AWS Health readiness findings don't name affected resources  
+The analysis couldn't read AWS Health. Check that the credentials that run the analysis have the AWS Health read permissions. Also check that your account has an AWS Support plan that includes the AWS Health API. The findings themselves don't depend on AWS Health. See [Permissions and AWS Support plan](ct-aws-health.md#ct-aws-health-permissions).
 
 Permission errors during remediation  
 Remediation creates branches and pull/merge requests, which requires write access to the repository. Update your token with write permissions. For GitHub, ensure full `repo` scope. For GitLab, ensure `api` scope. For Bitbucket, ensure `write:repository:bitbucket` and `write:pullrequest:bitbucket` scopes.
@@ -53,3 +115,12 @@ Schedules run on remote infrastructure. Provision an Amazon EC2 or Batch stack w
 
 Continuous modernization not visible in the web application  
 If continuous modernization does not appear after you sign in to the AWS Transform web application, sign in with the IAM credentials of the AWS account where AWS Transform is enabled instead of AWS IAM Identity Center. For steps, see [AWS Transform web application](ct-working-with.md#ct-web-application).
+
+**Generate specialized skill** is unavailable  
+Generating a specialized skill needs a deployed AWS Batch or Amazon EC2 stack and an up-to-date dispatcher. Deploy or update them on the **Settings** tab. The option is also unavailable when the group has no open findings, when a skill is already being generated for it, or when you don't have permission to generate skills.
+
+Group doesn't start when you remediate a plan  
+The **Remediate** dialog lists each group that doesn't start under **Not started with the rest**, with the reason. For example, the group has more than 250 open findings in one repository, one of its repositories was uploaded rather than connected, or its approved skill version is no longer in your registry. To approve a group again, choose **Change** in its row. For more information, see [Plan limits](ct-remediation-plans.md#ct-plans-limits).
+
+Remediation plans aren't available for this account yet  
+Remediation plans aren't available in your account yet. To remediate findings in the meantime, create remediations from the **All findings** view.

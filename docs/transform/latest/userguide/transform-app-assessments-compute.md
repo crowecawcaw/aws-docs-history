@@ -1,7 +1,6 @@
 
 
 # Compute assessments
-<a name="transform-app-assessments-compute"></a>
 
 AWS Transform analyzes your on-premises servers and recommends the best-fit, lowest-cost Amazon EC2 instance for each one. For every server, AWS Transform produces multiple pricing options, licensing analysis, and right-sizing recommendations so you can build a data-driven total cost of ownership business case in minutes.
 

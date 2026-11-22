@@ -1,7 +1,6 @@
 
 
 # Database assessments
-<a name="transform-app-assessments-databases"></a>
 
 AWS Transform assesses your Microsoft SQL Server workloads and helps you choose between a fully managed database on Amazon RDS for SQL Server and running SQL Server yourself on Amazon EC2. For each option, AWS Transform detects the SQL Server edition, right-sizes compute and storage to your workload, analyzes licensing, and produces a cost comparison so you can see the trade-offs side by side.
 

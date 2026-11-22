@@ -1,7 +1,6 @@
 
 
 # Hand-off to AI code companion
-<a name="dotnet-next-steps"></a>
 
 A common pattern is to transform with AWS Transform, then use an AI code companion to finalize the application such as [Kiro](https://kiro.dev/). Use an AI code companion to:
 + Perform post-transformation tasks that AWS Transform recommends

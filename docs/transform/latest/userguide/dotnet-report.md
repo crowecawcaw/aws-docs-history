@@ -1,7 +1,6 @@
 
 
 # Transformation Report
-<a name="dotnet-report"></a>
 
 After a transformation job finishes, transformation reports are available for both web console and IDE users.
 + **Web console users:** a transformation report is available for each transformed repository. You can download transformation reports from the dashboard or the **Artifacts** tab.

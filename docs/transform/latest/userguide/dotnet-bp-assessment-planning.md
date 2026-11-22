@@ -1,7 +1,6 @@
 
 
 # Assessment and planning
-<a name="dotnet-bp-assessment-planning"></a>
 
 After you start a transformation job, AWS Transform analyzes your code and produces an assessment report and transformation plan. Use the following best practices to get the most from this phase.
 

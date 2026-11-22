@@ -1,7 +1,6 @@
 
 
 # Accessing the AWS Transform web application from a VPC
-<a name="vpc-webapp-access"></a>
 
 When you use AWS PrivateLink to access the AWS Transform API privately from your VPC, the web application requires additional network configuration. It serves static content (HTML, JavaScript, CSS) through CloudFront, which requires internet connectivity. API calls from the web application go through your VPC endpoint and remain fully private.
 
@@ -60,7 +59,7 @@ If your `com.amazonaws.{{region}}.api.transform` VPC endpoint has a custom endpo
 
 Add the following statement to your VPC endpoint policy. Replace {{AWS\_TRANSFORM\_PROFILE\_ARN}} with your AWS Transform service profile ARN, which you can find in the AWS Transform console on the *Settings* page.
 
-```
+```json
 {
     "Statement": [
         {
@@ -94,7 +93,7 @@ Complete the following steps to configure Network Firewall with domain-based fil
 
 Create a small /28 subnet dedicated to the Network Firewall endpoint. This subnet must be in the same Availability Zone as your private subnet.
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id {{your-vpc-id}} \
   --cidr-block {{firewall-subnet-cidr}} \
@@ -105,7 +104,7 @@ aws ec2 create-subnet \
 ### Step 2: Create a public subnet for the NAT Gateway
 <a name="vpc-webapp-step2"></a>
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id {{your-vpc-id}} \
   --cidr-block {{public-subnet-cidr}} \
@@ -118,7 +117,7 @@ aws ec2 create-subnet \
 
 Create a route table for the public subnet that routes internet traffic to the internet gateway.
 
-```
+```bash
 # Create route table
 PUB_RTB=$(aws ec2 create-route-table \
   --vpc-id {{your-vpc-id}} \
@@ -142,7 +141,7 @@ aws ec2 associate-route-table \
 ### Step 4: Create the NAT Gateway
 <a name="vpc-webapp-step4"></a>
 
-```
+```bash
 # Allocate an Elastic IP
 EIP=$(aws ec2 allocate-address --domain vpc \
   --region {{region}} --query 'AllocationId' --output text)
@@ -164,7 +163,7 @@ aws ec2 wait nat-gateway-available \
 
 Create a stateful rule group that allows traffic only to the domains required by the AWS Transform web application.
 
-```
+```bash
 aws network-firewall create-rule-group \
   --rule-group-name transform-webapp-domains \
   --type STATEFUL \
@@ -220,7 +219,7 @@ API calls to `api.transform.{{region}}.on.aws` go through AWS PrivateLink and do
 
 The policy must use `STRICT_ORDER` rule evaluation with `drop_established` as the default action. This ensures that any traffic not matching the allowlist is dropped.
 
-```
+```bash
 # Get the rule group ARN
 RG_ARN=$(aws network-firewall describe-rule-group \
   --rule-group-name transform-webapp-domains \
@@ -250,7 +249,7 @@ aws network-firewall create-firewall-policy \
 ### Step 7: Create the Network Firewall
 <a name="vpc-webapp-step7"></a>
 
-```
+```bash
 # Get the policy ARN
 FW_POLICY_ARN=$(aws network-firewall describe-firewall-policy \
   --firewall-policy-name transform-webapp-policy \
@@ -280,7 +279,7 @@ done
 ### Step 8: Get the firewall endpoint ID
 <a name="vpc-webapp-step8"></a>
 
-```
+```bash
 FW_ENDPOINT=$(aws network-firewall describe-firewall \
   --firewall-name transform-webapp-firewall \
   --region {{region}} \
@@ -294,7 +293,7 @@ echo "Firewall endpoint: $FW_ENDPOINT"
 
 Route internet-bound traffic from the firewall subnet to the NAT Gateway.
 
-```
+```bash
 FW_RTB=$(aws ec2 create-route-table \
   --vpc-id {{your-vpc-id}} \
   --region {{region}} \
@@ -317,7 +316,7 @@ aws ec2 associate-route-table \
 
 Route all internet-bound traffic from the private subnet through the firewall.
 
-```
+```bash
 aws ec2 create-route \
   --route-table-id {{private-subnet-route-table-id}} \
   --destination-cidr-block 0.0.0.0/0 \
@@ -333,7 +332,7 @@ If a default route already exists, use `replace-route` instead of `create-route`
 **Important**  
 This step is critical. Network Firewall uses TLS SNI inspection and must see both directions of a TCP connection. Add a route in the NAT Gateway subnet's route table that sends return traffic destined for the private subnet back through the firewall.
 
-```
+```bash
 aws ec2 create-route \
   --route-table-id $PUB_RTB \
   --destination-cidr-block {{private-subnet-cidr}} \
@@ -350,7 +349,7 @@ Without symmetric routing, the firewall only sees one direction of traffic. The 
 
 If the private subnet route table has an IPv6 default route (`::/0`) pointing directly to an internet gateway, it will bypass the firewall for IPv6-capable destinations. Remove it:
 
-```
+```bash
 aws ec2 delete-route \
   --route-table-id {{private-subnet-route-table-id}} \
   --destination-ipv6-cidr-block ::/0 \
@@ -362,7 +361,7 @@ aws ec2 delete-route \
 
 From an instance in the private subnet, verify the configuration:
 
-```
+```bash
 # Should SUCCEED - web application content via CloudFront (allowed)
 curl -vL --connect-timeout 15 \
   'https://{{tenant-id}}.transform.{{region}}.on.aws'
@@ -384,7 +383,7 @@ The domain `api.transform.{{region}}.on.aws` should resolve to a private IP addr
 + Verify you have created the `com.amazonaws.{{region}}.api.transform` endpoint.
 + Verify private DNS is enabled on the endpoint:
 
-  ```
+  ```bash
   aws ec2 describe-vpc-endpoints \
     --filters "Name=service-name,Values=com.amazonaws.{{region}}.api.transform" \
     --query 'VpcEndpoints[*].[State,PrivateDnsEnabled]' \
@@ -422,7 +421,7 @@ Estimated base cost is approximately $325/month for a single Availability Zone d
 
 To remove all resources created by this guide, run the following commands in reverse order. Replace the placeholders with the resource IDs from your deployment. You can find these values in the AWS Management Console or by using the `describe` commands from the setup steps.
 
-```
+```bash
 # Remove return route from NAT Gateway subnet
 aws ec2 delete-route --route-table-id {{pub-rtb-id}} \
   --destination-cidr-block {{private-subnet-cidr}} \

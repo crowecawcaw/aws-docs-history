@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="ct-getting-started"></a>
 
 ## Prerequisites
 <a name="ct-prerequisites"></a>
@@ -11,7 +10,7 @@ To use continuous modernization effectively, you should have a basic understandi
 Before you use continuous modernization, verify that you have the following:
 + AWS Transform CLI installed:
 
-  ```
+  ```bash
   curl -fsSL https://transform-cli.awsstatic.com/install.sh | bash
   ```
 + Node.js 22 or later
@@ -29,7 +28,7 @@ You no longer need to start a local server. The `atx ct server` command is depre
 
 1. Add a source:
 
-   ```
+   ```bash
    atx ct source add --name {{name}} --provider {{provider}} --org {{org-or-group}} --token {{token}}
    ```
 
@@ -37,24 +36,24 @@ You no longer need to start a local server. The `atx ct server` command is depre
 
 1. Discover repositories:
 
-   ```
+   ```bash
    atx ct discovery scan --source {{name}}
    ```
 
 1. Run an analysis:
 
-   ```
+   ```bash
    atx ct analysis run --type {{type}} --source {{name}} --wait
    ```
 
 1. Explore findings:
 
-   ```
+   ```bash
    atx ct findings list --json
    ```
 
 1. Remediate findings:
 
-   ```
+   ```bash
    atx ct remediation create --ids {{id1}},{{id2}} --name "{{remediation-name}}"
    ```

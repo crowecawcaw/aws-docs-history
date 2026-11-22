@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Transform
-<a name="transform-setup"></a>
 
 ## Before you begin
 <a name="transform-prerequisites"></a>

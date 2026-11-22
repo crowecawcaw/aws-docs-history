@@ -1,7 +1,6 @@
 
 
 # Convert cloud-native code to AWS services
-<a name="dotnet-azure-to-aws"></a>
 
 When moving cloud-native applications from other clouds to AWS, AWS Transform can help update code to use equivalent AWS services. For example, an Azure Functions serverless function that uses Azure Cosmos DB can be converted to an AWS Lambda function using Amazon DynamoDB. This feature converts application code only and does not handle migration of cloud infrastructure.
 

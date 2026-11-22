@@ -1,7 +1,6 @@
 
 
 # JCL
-<a name="transform-app-mainframe-reimagine-jcl"></a>
 
 This reference describes how AWS Transform represents JCL (Job Control Language) statements in the business rules produced by the reimagine workflow. For the definitions of the representation categories used on this page, see [Supported languages for business rules extraction](transform-app-mainframe-reimagine-supported.md).
 

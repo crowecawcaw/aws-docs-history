@@ -1,7 +1,6 @@
 
 
 # Data collection
-<a name="discovery-tool-data-collection"></a>
 
 ## Discovery tool collection schedule
 <a name="discovery-tool-scheduling"></a>

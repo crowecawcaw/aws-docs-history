@@ -1,7 +1,6 @@
 
 
 # Setting up source code connector and HITL review
-<a name="sql-server-source-connector-hitl"></a>
 
 
 

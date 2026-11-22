@@ -1,7 +1,6 @@
 
 
 # Modernizing .NET using AWS Transform in Visual Studio
-<a name="dotnet-ide-vs"></a>
 
 Complete these steps to port a Windows-based .NET application to a Linux-compatible cross-platform .NET application with AWS Transform in Visual Studio 2026 or 2022. Review the AWS Transform [capabilities](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#capabilities) and [limitations](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#limitations) for .NET modernization to confirm that your code can be transformed.
 

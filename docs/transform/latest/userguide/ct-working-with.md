@@ -1,28 +1,32 @@
 
 
 # Working with continuous modernization
-<a name="ct-working-with"></a>
 
 ## Source management
 <a name="ct-source-management"></a>
 
 Use `atx ct source` commands to connect repositories. Supported providers: GitHub, GitLab, Bitbucket, local.
 
+GitHub and GitLab sources authenticate either with a personal access token, described per provider below, or with OAuth. See [Connecting with OAuth](#ct-source-oauth).
+
 ### GitHub organizations
 <a name="ct-source-github"></a>
 
 Token: personal access token (classic) with `repo` scope. Read-only for analysis, full repo for remediation.
 
-```
+```bash
 atx ct source add --name {{name}} --provider github --org {{org}} --token {{pat}}
 ```
+
+**Note**  
+The `--url` flag is supported for self-hosted GitLab or Bitbucket only.
 
 ### GitLab groups and users
 <a name="ct-source-gitlab"></a>
 
 Token: personal access token with `api` scope.
 
-```
+```bash
 atx ct source add --name {{name}} --provider gitlab --org {{group-or-user}} --token {{pat}}
 # Self-hosted:
 atx ct source add --name {{name}} --provider gitlab --org {{group-or-user}} --token {{pat}} --url https://{{gitlab.example.com}}
@@ -33,32 +37,80 @@ atx ct source add --name {{name}} --provider gitlab --org {{group-or-user}} --to
 
 Bitbucket Cloud — scopes: `read:repository:bitbucket`, `write:repository:bitbucket`, `read:pullrequest:bitbucket`, `write:pullrequest:bitbucket`. Also needs `--email` and `--username`.
 
-```
+```bash
 atx ct source add --name {{name}} --provider bitbucket --org {{workspace}} --token {{api-token}} --email {{email}} --username {{username}}
 ```
 
 Bitbucket Data Center:
 
-```
+```bash
 atx ct source add --name {{name}} --provider bitbucket --org {{project-key}} --token {{http-access-token}} --url https://{{bitbucket.example.com}}
 ```
 
 ### Local repositories
 <a name="ct-source-local"></a>
 
-```
+```bash
 atx ct source add --name {{name}} --provider local --path {{parent-directory}}
 ```
 
 **Important**  
 `--path` must point to a parent directory containing git repos as subdirectories, not to a single repo.
 
+### Connecting with OAuth
+<a name="ct-source-oauth"></a>
+
+Instead of a personal access token, connect a GitHub or GitLab source with OAuth. You sign in through your browser with the AWS Transform app, and no token is requested or stored. AWS Transform clones and pushes through its own git endpoint, using a short-lived credential that AWS Transform mints for each request.
+
+Connect an OAuth source with the CLI, or from the AWS Transform web application. For the web application steps, see [Connecting with OAuth in the web application](#ct-web-application-oauth). Connecting an OAuth source from the CLI requires AWS Transform CLI version 3.25.0 or later.
+
+Your own permissions to add and connect a source are the ones described in [Setting up AWS Transform](https://docs.aws.amazon.com/transform/latest/userguide/transform-setup.html). Scheduled and remote analyses run under an execution role instead of your own identity, and that role needs permission to read a repository's content through the source, and to write it when a remediation opens a pull request. A role that predates OAuth support has neither, so a scheduled or remote run on an OAuth source fails to clone until the role's permissions are updated. For how to grant them, see [Setting up AWS Transform](https://docs.aws.amazon.com/transform/latest/userguide/transform-setup.html).
+
+The following AWS Transform CLI commands connect a source with OAuth in each of the supported cases. Replace {{name}}, {{org}}, and {{login}} with your own values:
+
+```bash
+# GitHub organization that already has the AWS Transform app installed
+atx ct source add --name {{name}} --provider github --auth oauth --org {{org}}
+
+# GitHub personal account that already has the app installed
+atx ct source add --name {{name}} --provider github --auth oauth --user {{login}}
+
+# GitHub, naming neither: opens the app's install page
+atx ct source add --name {{name}} --provider github --auth oauth
+
+# GitLab (gitlab.com only, and no organization or user to name)
+atx ct source add --name {{name}} --provider gitlab --auth oauth
+
+# Finish, or repeat, the connection for a source that already exists
+atx ct source connect --name {{name}}
+```
+
+`atx ct source add --auth oauth` creates the source and connects it in one step. If the connection doesn't finish, AWS Transform still creates the source, with a disconnected status, and `atx ct source connect --name {{name}}` completes it. Use the same command to reconnect a source at any time.
+
+**Important**  
+The browser must run on the same machine as the CLI. The command opens the provider's sign-in page and receives the result on a one-time listener on `127.0.0.1`, so it doesn't work over a terminal-only session unless you forward that port.
+
+When you name neither `--org` nor `--user`, the command opens the app's install page. The page always lists your personal account and every organization you have access to. Each entry shows **Configure** when that account or organization already has the app, and is empty when it doesn't.
+
+If you don't complete a new installation, the connection has nothing to return, and AWS Transform creates the source with a disconnected status. Connect it by naming the organization or account: `atx ct source connect --name {{name}} --org {{org}}`.
+
+When a connection from the CLI succeeds, the browser confirms that you can close the tab and return to the terminal, and the CLI prints the connected account and the source's status.
+
+A source belongs to one AWS account and one AWS Region. Connect the source in each AWS Region where you run continuous modernization.
+
+**Note**  
+If the AWS Transform app is uninstalled and installed again on the provider, run `atx ct source connect` for each source that uses it. Installing the app again replaces the installation the source recorded, and requests for that source fail until you reconnect.
+
+To stop AWS Transform reaching your repositories, remove the access at the provider as well as removing the source. On GitHub, uninstall the AWS Transform app from the organization or account. On GitLab, revoke the aws-transform-custom authorization in your account settings. Then remove the source with `atx ct source remove --name {{name}}`; see [Managing sources](#ct-managing-sources). Revoking access without removing the source leaves the source in place and its requests failing, in the same way the note above describes.
+
+Use OAuth with gitlab.com, where it covers the projects your GitLab account is a member of. For a self-managed GitLab host, use a personal access token with `--url` instead.
+
 ### Repository conventions
 <a name="ct-source-conventions"></a>
 
 Repositories can enforce rules that reject a push at the end of a remediation — a required commit message format (GitLab push rules, Bitbucket commit hooks, GitHub rulesets), a restricted branch namespace, or a known commit author. Record those conventions on the source so remediation commits and result branches are written in the shape the repositories require. Each option is available on both `atx ct source add` and `atx ct source update`.
 
-```
+```bash
 # Commit message format ({PLACEHOLDER} is replaced with a description of each change)
 atx ct source update --name {{name}} --commit-message-template "fix: {PLACEHOLDER}"
 
@@ -74,7 +126,7 @@ Pass an empty string to remove a template or to clear the committer pair. The op
 ### Managing sources
 <a name="ct-managing-sources"></a>
 
-```
+```bash
 atx ct source list
 atx ct source update --name {{name}} --token {{new-token}}
 atx ct source remove --name {{name}}
@@ -85,7 +137,7 @@ atx ct source remove --name {{name}}
 ## Repository discovery and management
 <a name="ct-repository-discovery"></a>
 
-```
+```bash
 atx ct discovery scan --source {{name}}
 atx ct discovery status --source {{name}}
 atx ct discovery scan --source {{name}} --path {{new-directory}}
@@ -93,7 +145,7 @@ atx ct discovery scan --source {{name}} --path {{new-directory}}
 
 After discovery:
 
-```
+```bash
 atx ct repository list
 atx ct repository list --source {{name}}
 atx ct repository list --labels "{{team:frontend,priority:high}}"
@@ -111,9 +163,10 @@ The `--type` flag specifies the kind of analysis to run:
 + `agentic-readiness` – Readiness of your repositories for AI agents (frameworks, APIs, documentation).
 + `modernization-readiness` – Modernization opportunities across your infrastructure, application, data, security, and operations dimensions.
 + `graviton-readiness` – AWS Graviton (Arm64) compatibility of your Java applications (native libraries, dependencies, architecture-specific code, Dockerfiles, build configuration, and JVM flags).
++ `aws-health-readiness` – Lambda runtimes, Amazon EKS Kubernetes versions, and Elastic Beanstalk PHP platforms in your infrastructure code that are deprecated or reach a lifecycle date within 180 days. See [Upgrading resources in AWS Health planned lifecycle events](ct-aws-health.md).
 + `custom` – Issues described by one of your own transformation definitions. Requires `--transformation-name`.
 
-```
+```bash
 atx ct analysis run --type {{type}} --source {{name}} [--repo {{source}}::{{repo}}] [--wait]
 atx ct analysis get --id {{id}} --json
 atx ct analysis list --json
@@ -138,7 +191,7 @@ A **custom analysis** runs one of your own transformation definitions against yo
 
 1. Run it with `--type custom` and `--transformation-name`, locally, remotely (including on AWS Transform-managed infrastructure), or on a schedule.
 
-```
+```bash
 atx ct analysis run --type custom --transformation-name {{name}} --source {{source}} --repo {{source}}::{{repo}} --wait
 ```
 
@@ -149,7 +202,7 @@ If the command fails because the transformation definition was not found, check 
 ## Managing findings
 <a name="ct-managing-findings"></a>
 
-```
+```bash
 atx ct findings list --json
 atx ct findings list --repo {{source}}::{{repo}} --source {{name}} --severity {{high|medium|low}} --type {{analysis-type}} --status {{open|dismissed|obsolete|change_ready}} --analysis-id {{id}} --fix-transform {{transform-name}} --json
 ```
@@ -167,7 +220,7 @@ In `atx ct findings get` and `atx ct findings list --json`, the matched transfor
 
 To list the findings matched to one of your transformation definitions:
 
-```
+```bash
 atx ct findings list --fix-transform {{my-transformation-name}} --json
 ```
 + `{{my-transformation-name}}` – The name of your transformation definition.
@@ -181,7 +234,7 @@ A findings-based remediation (`atx ct remediation create --ids`) runs each findi
 + `obsolete` — System-set when re-analysis no longer produces the finding
 + `change_ready` — System-set when a remediation succeeds for the finding's repository: a code change is ready to review or was already applied. You can't set this status by hand, but you can still dismiss a `change_ready` finding if you decide not to take the change.
 
-```
+```bash
 atx ct findings update --id {{id}} --status dismissed --reason "{{reason}}"
 atx ct findings update --id {{id}} --status open
 atx ct findings batch-update --ids {{id1}},{{id2}} --status dismissed --reason "{{reason}}"
@@ -199,7 +252,7 @@ Re-analysis marks resolved findings as obsolete. Cannot be re-opened. Retained f
 
 Three modes: findings-based, TD override, direct TD. With `--transformation-name`, use one of your own transformation definitions with the `remediation` category, or an AWS managed transformation (see [Transformation definition categories](custom.md#custom-transformation-categories)).
 
-```
+```bash
 atx ct remediation create --ids {{id1}},{{id2}} --name "{{name}}"
 atx ct remediation create --ids {{id1}},{{id2}} --transformation-name {{TD}}
 atx ct remediation create --transformation-name {{TD}} --repo {{source}}::{{repo}}
@@ -215,7 +268,7 @@ Remote remediations for `graviton-readiness` findings run on x86 infrastructure 
 
 Local execution with `--local` flag.
 
-```
+```bash
 atx ct remediation create --transformation-name {{TD}} --repo {{source}}::{{repo}} -g "{{additionalPlanContext=Upgrade to Node.js 22}}"
 atx ct remediation list
 atx ct remediation status --id {{id}}
@@ -239,7 +292,7 @@ Provisioning, updating, and tearing down infrastructure creates and modifies AWS
 
 To run an analysis remotely without provisioning anything, use `--mode aws-managed`. The submission goes to AWS Transform, which runs the analysis on AWS Transform-managed infrastructure. There is no stack to provision, no networking to configure, and no credentials to store in AWS Secrets Manager. The submission is the run. Choose the AWS Region the workload runs in with `--region`.
 
-```
+```bash
 # Run an analysis on AWS Transform-managed infrastructure
 atx ct remote analysis --type {{type}} --mode aws-managed --sources {{name}} [--repos {{repo1,repo2}}] [--region {{region}}]
 
@@ -251,7 +304,7 @@ This mode runs analyses only. In this mode, you can't run remediations or use lo
 
 To run a custom analysis on AWS Transform-managed infrastructure, add `--type custom` and the name of a transformation definition that you published with the `analysis` category in the same AWS account and Region. For more information about custom analyses, see [Custom analysis](#ct-custom-analysis). In the following command, replace {{transformation-name}} and {{source-name}} with your own values:
 
-```
+```bash
 atx ct remote analysis --type custom --transformation-name {{transformation-name}} --mode aws-managed --sources {{source-name}}
 ```
 
@@ -260,7 +313,7 @@ atx ct remote analysis --type custom --transformation-name {{transformation-name
 
 Remote compute must run in private subnets. Discover existing networking or create a new VPC before you provision:
 
-```
+```bash
 # List VPCs, private subnets, and security groups in the current account and Region
 atx ct remote network discover
 atx ct remote network discover --vpc {{vpc-id}} --json
@@ -292,7 +345,7 @@ Free addresses do not add up across subnets. AWS Transform treats your available
 
 Provisioning does not check subnet capacity for you. Check it yourself with `--json`, which reports `availableIpCount` for each subnet. The default table output does not include this value. Compare the **smallest** count against the concurrency limit for the analysis type you plan to run.
 
-```
+```bash
 atx ct remote network discover --vpc {{vpc-id}} --json
 ```
 
@@ -305,11 +358,11 @@ AWS Transform limits how many remote jobs run at the same time in an AWS account
 | Analysis type | Concurrent jobs | 
 | --- | --- | 
 | `security` | 5 | 
-| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, and `custom` analysis, and remediation other than security remediation | 30, shared across all of these | 
+| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `aws-health-readiness`, and `custom` analysis, and remediation other than security remediation | 50, shared across all of these | 
 | Security remediation | 128 | 
 
 **Note**  
-The types in the second row share a single pool of 30 jobs. Running a comprehensive tech-debt analysis and a custom remediation at the same time gives you 30 jobs in total, not 60.
+The types in the second row share a single pool of 50 jobs. Running a comprehensive tech-debt analysis and a custom remediation at the same time gives you 50 jobs in total, not 100.
 
 #### Minimum subnet size
 <a name="ct-remote-sizing-table"></a>
@@ -322,8 +375,8 @@ The addresses each subnet needs are the peak concurrent jobs, plus one or more f
 | Analysis type | Peak concurrent jobs | Minimum subnet size | 
 | --- | --- | --- | 
 | `security` | 5 | `/27` | 
-| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom` | 30 | `/26` | 
-| Every type running at its limit at once | 163 | `/24` | 
+| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `aws-health-readiness`, `custom` | 50 | `/25` | 
+| Every type running at its limit at once | 183 | `/24` | 
 
 The minimums above include headroom for interface endpoints and for the addresses AWS reserves. Size up if other workloads share the subnet. A `/25` is not enough for 128 concurrent jobs: it provides 128 addresses but only 123 usable ones.
 
@@ -362,7 +415,7 @@ Provisioning creates the compute stack for the mode you choose, plus dispatcher 
 
 By default, Amazon EC2 stacks are named `atx-runner` and AWS Batch stacks are named `AtxInfrastructureStack`. To run more than one stack of the same mode, give each a distinct name when you provision: use `--stack-name` (Amazon EC2 only; the name must start with `atx-runner`) or `--suffix` to append a suffix to all resource names. For `update`, `detect`, and remote analyses or remediations, pass `--stack-name` to target a custom-named stack. If you omit it, they use the default name (`atx-runner` for Amazon EC2, `AtxInfrastructureStack` for AWS Batch). `teardown` always requires `--stack-name`. On Amazon EC2, `--workers` sets the number of parallel worker containers (1-5, default 5) and sizes the instance.
 
-```
+```bash
 # Preview, then deploy an EC2 stack
 atx ct remote provision --mode ec2 --vpc {{vpc-id}} --subnets {{subnet-a,subnet-b}}
 atx ct remote provision --mode ec2 --vpc {{vpc-id}} --subnets {{subnet-a,subnet-b}} --execute --ack
@@ -384,7 +437,7 @@ When you run remote analyses and remediations, they execute inside a container i
 
 To run a different image—for example, a private Amazon ECR image that bundles additional languages or tools—pass `--image-uri` when you provision:
 
-```
+```bash
 # Batch: provision with a custom image
 atx ct remote provision --mode batch --vpc {{vpc-id}} --subnets {{subnet-a,subnet-b}} --securityGroup {{sg-id}} --image-uri {{account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{repo}}:{{tag}} --execute --ack
 
@@ -400,7 +453,7 @@ A later `atx ct remote update` (see [Provisioning infrastructure](#ct-remote-pro
 
 Remote containers clone your repositories using tokens stored in AWS Secrets Manager. Register a token for each SCM source before running remote analysis or remediation:
 
-```
+```bash
 atx ct remote credentials --source {{name}} --token {{token}}
 atx ct remote credentials --source {{name}} --remove
 ```
@@ -410,7 +463,7 @@ atx ct remote credentials --source {{name}} --remove
 
 Remote analysis runs one container for each repository; remote remediation runs one container for each finding. Use `--sources`, `--repos`, and `--labels` to control fan-out, and `--stack-name` or `--tags` to select which provisioned stack to use.
 
-```
+```bash
 # Run analysis across a source on Batch
 atx ct remote analysis --type {{type}} --mode batch --sources {{name}} [--repos {{repo1,repo2}}] [--labels "{{team:frontend}}"]
 
@@ -422,7 +475,7 @@ atx ct remote remediation --mode ec2 --sources {{name}} --min-severity high
 ### Monitoring and managing runs
 <a name="ct-remote-monitor"></a>
 
-```
+```bash
 # Check whether infrastructure is deployed
 atx ct remote detect --mode {{ec2|batch}}
 
@@ -448,7 +501,7 @@ Use `atx ct schedule` to run analyses automatically on a recurring cadence. You 
 
 The `--recurrence` value accepts `daily`, `weekly:{{DAY}}` (for example, `weekly:MONDAY`), or `monthly:{{N}}` where {{N}} is a day from 1 to 28. Schedules on AWS Transform-managed infrastructure run in UTC.
 
-```
+```bash
 # AWS Transform-managed schedule (no infrastructure; requires an execution role)
 atx ct schedule create --name {{name}} --mode aws-managed --execution-role {{role-arn}} --recurrence {{daily}} --type {{type}} --sources {{name}} [--repos {{repo1,repo2}}]
 
@@ -465,7 +518,7 @@ atx ct schedule delete {{schedule-id}}
 
 To schedule a custom analysis on AWS Transform-managed infrastructure, add `--type custom` and `--transformation-name`. Every run of the schedule uses that transformation definition. In the following command, replace {{schedule-name}}, {{role-arn}}, {{transformation-name}}, and {{source-name}} with your own values:
 
-```
+```bash
 atx ct schedule create --name {{schedule-name}} --mode aws-managed --execution-role {{role-arn}} --recurrence daily --type custom --transformation-name {{transformation-name}} --sources {{source-name}}
 ```
 
@@ -480,10 +533,11 @@ A schedule created with `--mode aws-managed` requires an `--execution-role` ARN 
 + The identity creating the schedule must have `iam:PassRole` permission on the execution role.
 + The role's trust policy must allow the `transform-custom.amazonaws.com` service principal to assume it.
 + At a minimum, the role must have the AWS managed policy [`AWSTransformCustomFullAccess`](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess) attached, plus `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions on secrets under the `atx/*` prefix so that scheduled runs can retrieve the source clone credentials.
++ For an `aws-health-readiness` schedule, the role also needs the AWS Health read permissions in [Permissions and AWS Support plan](ct-aws-health.md#ct-aws-health-permissions). Without them, the findings don't name your affected resources.
 
 The following inline policy grants the AWS Secrets Manager access that scheduled runs need to retrieve source clone credentials. Attach it to the execution role alongside the [`AWSTransformCustomFullAccess`](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess) managed policy, replacing {{region}} and {{account-id}} with the AWS Region and account the schedule runs in.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -505,7 +559,7 @@ The following inline policy grants the AWS Secrets Manager access that scheduled
 
 You can apply tags (comma-separated `key=value` pairs) to sources, analyses, and remediations with the `--tags` option. Tags are also supported on remote infrastructure, stored credentials, and networking resources. With tags, you can organize resources. Combined with IAM tag conditions, tags implement attribute-based access control (ABAC) so that teams access only the resources that carry their tags.
 
-```
+```bash
 atx ct source add --name {{name}} --provider github --org {{org}} --token {{pat}} --tags {{team=platform,env=prod}}
 atx ct analysis run --type {{type}} --source {{name}} --tags {{team=platform}}
 atx ct remediation create --ids {{id1,id2}} --tags {{team=platform}}
@@ -513,7 +567,7 @@ atx ct remediation create --ids {{id1,id2}} --tags {{team=platform}}
 
 By default, resources are tagged with the tags you define in `~/.aws/atx/settings.json`. Add the tags you want applied to every resource under `applyTags`, and they become your default tags.
 
-```
+```json
 {
   "applyTags": [
     { "team": "alpha" }
@@ -536,9 +590,7 @@ Before you use the web application, your organization must enable your user iden
 
 To access the AWS Transform web application, complete the following steps.
 
-1. Open `https://aws.amazon.com/transform/` and sign in with AWS IAM Identity Center credentials.
-
-1. If continuous modernization does not appear, sign in with IAM credentials instead:
+1. Sign in with the IAM credentials of the AWS account where AWS Transform is enabled. Continuous modernization doesn't appear when you sign in with AWS IAM Identity Center credentials. To sign in with IAM credentials:
 
    1. In the AWS Management Console, open AWS Transform and choose **Settings**.
 
@@ -546,7 +598,7 @@ To access the AWS Transform web application, complete the following steps.
 
    1. Copy the **Web application URL (with IAM)** and paste it into the same browser window where the console is open.
 
-1. Open the left navigation menu and choose **continuous modernization**.
+1. Open the left navigation menu and choose **Continuous modernization**.
 
 ### Infrastructure modes
 <a name="ct-web-application-prerequisites"></a>
@@ -573,14 +625,94 @@ For CLI-based provisioning and networking configuration, see [Remote execution](
 ### Getting started workflow
 <a name="ct-web-application-workflow"></a>
 
-1. **Connect sources** – Open the **Sources** tab and add repositories from GitHub, GitLab, or Bitbucket.
+1. **Connect sources** – Open the **Sources** tab and add repositories from GitHub, GitLab, or Bitbucket. **GitHub (OAuth)** and **GitLab (OAuth)** are separate entries in the provider list that connect without an access token. For more information, see [Connecting with OAuth in the web application](#ct-web-application-oauth).
 
 1. **Run or schedule an analysis** – Open the **Analyses** tab, select repositories, choose an analysis type, select an infrastructure mode, and choose **Run**. To run on a recurring cadence (daily, weekly, or monthly), choose **Schedule** instead.
 
-1. **Review findings** – Open the **Findings** tab to view results by severity.
+1. **Review findings** – Open the **Findings** tab to view results by severity, or grouped by the problem they share.
 
-1. **Create a remediation** – Select findings and choose **Create remediation**.
+1. **Create a remediation** – Select findings and choose **Create remediation**. To remediate groups of findings together, create a remediation plan instead. For more information, see [Remediating grouped findings with remediation plans](ct-remediation-plans.md).
 
 1. **Review pull requests** – Open the **Remediations** tab to view generated PR links per repository.
 
-Chat with AWS Transform directly from the web application to ask questions about your analyses, findings, or remediations.
+### Chat about continuous modernization
+<a name="ct-web-application-chat"></a>
+
+Use the chat pane on the right side of the continuous modernization page to ask about your sources, repositories, analyses, findings, and remediations. In a narrow browser window, choose **Open chat** to show the chat pane. Chat is available only when you sign in with IAM credentials. For more information about signing in, see [Sign in](#ct-web-application-sign-in).
+
+To make a change, ask chat. Chat replies with a description of one action and a button for it, such as **Run analysis** or **Start remediation**. Chat can propose the following actions:
++ Run an analysis.
++ Start a remediation.
++ Dismiss findings.
++ Reopen findings.
++ Set notes on findings.
++ Clear notes on findings.
++ Cancel an analysis.
++ Cancel a remediation.
++ Create a schedule that runs on customer-owned infrastructure.
+
+For an action that runs on customer-owned infrastructure, chat first uses your own permissions to check which of your continuous modernization stacks are deployed. If chat finds no deployed stack, or finds several and you didn't name one, it tells you what to do instead of proposing the action. If chat can't read your stacks, it still proposes the action, and AWS Transform checks the stack when you choose the button.
+
+Nothing changes until you choose the button. AWS Transform then makes the change with your own IAM credentials.
+
+After you choose the button, AWS Transform tells you if you don't have permission for the action. If the items that the action applies to changed after chat proposed it, AWS Transform makes no change, and you can ask chat for an up-to-date proposal.
+
+Use the page to connect sources, delete resources, or enable or disable schedules. Chat doesn't do these tasks.
+
+Chat reads your data with your own IAM permissions, so your IAM policies apply. Lists and details in chat show only what you can view on the continuous modernization pages. To read your data, chat needs the following permissions:
++ `transform-custom:ListSources`
++ `transform-custom:GetSource`
++ `transform-custom:ListRepositories`
++ `transform-custom:GetRepository`
++ `transform-custom:ListAnalyses`
++ `transform-custom:GetAnalysis`
++ `transform-custom:ListFindings`
++ `transform-custom:GetFinding`
++ `transform-custom:GetFindingGroups`
++ `transform-custom:ListRemediations`
++ `transform-custom:GetRemediation`
+
+Without these permissions, chat tells you that you don't have permission instead of showing data.
+
+When you choose the button, AWS Transform needs the permissions for that action, in addition to the read permissions:
+
+
+| Action | Permissions | 
+| --- | --- | 
+| Run an analysis | `transform-custom:CreateAnalysis` and `transform-custom:GetRepository` on each repository in the analysis. On customer-owned infrastructure, also `transform-custom:UpdateAnalysis`. | 
+| Start a remediation | `transform-custom:CreateRemediation`, `transform-custom:UpdateRemediation`, `transform-custom:GetFinding` on each finding, and `transform-custom:GetRepository` on each repository | 
+| Dismiss findings, reopen findings, set notes, or clear notes | `transform-custom:BatchUpdateFindings` | 
+| Cancel an analysis | `transform-custom:UpdateAnalysis` | 
+| Cancel a remediation | `transform-custom:UpdateRemediation` | 
+| Create a schedule | `transform-custom:CreateAnalysis`, `transform-custom:GetRepository` on each repository, `scheduler:CreateSchedule`, and `iam:PassRole` on the `AtxSchedulerInvocationRole-{{region}}` role for `scheduler.amazonaws.com` | 
+
+For an analysis or remediation that uses a custom transformation, AWS Transform also needs `transform-custom:ListTransformationPackageMetadata`.
+
+A remediation, a schedule, and an analysis on customer-owned infrastructure run on your continuous modernization stack. For these actions, chat and AWS Transform also need `cloudformation:ListStacks` and `cloudformation:DescribeStacks` to find your stack, and `sqs:SendMessage` to send the job to it. Grant `cloudformation:DescribeStacks` on all stacks, because for a security analysis AWS Transform finds the stack by listing all your stacks.
+
+The AWS managed policy [AWSTransformCustomFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess) includes all the `transform-custom` permissions in this section. The AWS managed policies [AWSTransformInfrastructureExecutorAccessBatch](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch) and [AWSTransformInfrastructureExecutorAccessEC2](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2) include the other permissions for your compute mode. To grant only what chat uses, create a policy with the permissions for the actions you need.
+
+### Connecting with OAuth in the web application
+<a name="ct-web-application-oauth"></a>
+
+In the AWS Transform web application, the OAuth providers are their own entries in the provider list, separate from the personal access token entries. For more information about signing in, see [Sign in](#ct-web-application-sign-in).
+
+1. On the continuous modernization page, open the **Sources** tab and choose **Connect new source**.
+
+1. For **Provider**, choose **GitHub (OAuth)** or **GitLab (OAuth)**. Neither asks for an access token, and AWS Transform stores nothing in AWS Secrets Manager.
+
+1. You must enter a **Source name**.
+
+1. For **Organization / group / workspace**, enter the GitHub organization or the GitLab group or user to discover repositories from. It is optional, and defaults to the source name when you leave it blank.
+
+1. (Optional) Set the branch name, commit message, and git commit author options. You can change these later; see [Repository conventions](#ct-source-conventions).
+
+1. Choose **Connect**.
+
+What happens next depends on the provider, because only GitHub has an app to install.
+
+For **GitHub (OAuth)**, AWS Transform shows an authorization page naming the source and the organization. The page also says whether the app is already installed. Choose **Install on GitHub** to open GitHub, install or authorize the app, and select the organization or account there, the same page the CLI opens.
+
+For **GitLab (OAuth)**, there is no app to install and no organization to select. AWS Transform sends you straight to GitLab.com, which asks you to authorize the aws-transform-custom application for your account and then redirects you back.
+
+When the source connects, a notification confirms it and names the provider, and the source page opens with its repositories listed, ready to select and analyze. Unlike the CLI, the web application shows no confirmation page in the provider's tab.

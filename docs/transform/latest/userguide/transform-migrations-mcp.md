@@ -1,7 +1,6 @@
 
 
 # Run migrations with the AWS Transform MCP server
-<a name="transform-migrations-mcp"></a>
 
 The AWS Transform Model Context Protocol (MCP) server lets you plan and run migrations from any MCP-compatible client, such as Kiro, Claude Code, Cursor, or Cline, without leaving your development environment. MCP is a standardized interface that gives the AI assistant in your client real-time, contextual access to your AWS Transform workspaces and jobs. With it, you can create workspaces, launch migration jobs, respond to human-in-the-loop tasks, and download artifacts through natural language.
 
@@ -18,11 +17,13 @@ Before you begin, make sure you have the following:
 + An AWS Transform account with tenant access. For information about setting up AWS Transform, see [Getting started with AWS Transform](getting-started.md).
 + An MCP-compatible client, such as Kiro, Claude Code, Claude Desktop, Cursor, or Cline.
 
+**Install the MCP server**
+
 You can install the AWS Transform MCP server from PyPI as `awslabs.aws-transform-mcp-server`. The following examples run the server with `uvx`.
 
 **Claude Code**
 
-```
+```bash
 claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp-server@latest
 ```
 
@@ -30,7 +31,7 @@ claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp
 
 Add the following to your client's MCP configuration file. For Kiro, use `~/.kiro/settings/mcp.json`.
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.aws-transform-mcp-server": {
@@ -47,7 +48,7 @@ Add the following to your client's MCP configuration file. For Kiro, use `~/.kir
 
 **Windows**
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.aws-transform-mcp-server": {
@@ -69,6 +70,8 @@ Add the following to your client's MCP configuration file. For Kiro, use `~/.kir
 
 For configuration details for your specific MCP client, see the [aws-transform-mcp-server](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server) README on GitHub.
 
+**Configure environment variables**
+
 You can set the following environment variables in the `env` block of your MCP client configuration.
 
 
@@ -79,6 +82,8 @@ You can set the following environment variables in the `env` block of your MCP c
 | FASTMCP\_LOG\_LEVEL | The log level (DEBUG, INFO, WARNING, or ERROR). Defaults to INFO. | 
 | AWS\_TRANSFORM\_MCP\_WRITE\_DIR | The base directory that artifact downloads are confined to. A download path must resolve within this directory. If your client launches the server outside a shell, set this variable so that artifact downloads have a valid destination. | 
 
+**Authenticate**
+
 Most MCP tools use web API authentication (browser login). The `accept_connector` tool also requires AWS credentials, which the server detects automatically. AWS Transform supports the following authentication methods.
 
 IAM Identity Center (SSO)  
@@ -88,6 +93,8 @@ IAM role
 Your environment provides AWS credentials automatically. Set `AWS_PROFILE` in your MCP client configuration to select a specific profile.
 
 For more information about setting up authentication for AWS Transform, see the prerequisites earlier in this topic.
+
+**Verify the connection**
 
 After you install and configure the server, restart your MCP client. Then ask the AI assistant to "Check my AWS Transform connection status." A successful response confirms that the server is installed, configured, and authenticated.
 
@@ -133,6 +140,8 @@ Follow these best practices when you run migrations through the AWS Transform MC
 
 Running AWS Transform through the MCP server does more than move the web experience into your IDE. The AI assistant chains multiple tool calls, reads and writes files in your local workspace, and applies conditional logic. As a result, you can express multi-step, iterative, and batch workflows that go beyond a single web-application interaction. The following examples show sophisticated prompts. Adapt them to your environment.
 
+**Verification and monitoring loops**
+
 Have the assistant poll a running step, react to what it finds, and pause for you only when a decision is required. An autonomous loop like this is driven by the assistant, not the web application.
 
 ```
@@ -155,6 +164,8 @@ data-quality errors, list the affected servers grouped by issue and stop. If
 it validates cleanly, proceed to application grouping using the rules in
 ./planning/grouping-rules.md.
 ```
+
+**Reports that combine assessment and planning data**
 
 Ask the assistant to cross-reference artifacts from different stages and synthesize a consolidated report. The assistant can then save it to your local workspace for review or version control.
 
@@ -179,6 +190,8 @@ servers were newly discovered, which changed operating system or strategy, and
 which moved between waves. Write the diff to ./reports/plan-change-log.md.
 ```
 
+**Per-application diagrams and batch generation**
+
 Iterate over the applications or waves in your plan and generate an artifact for each, saving them locally in one pass.
 
 ```
@@ -194,6 +207,8 @@ servers plus their cross-wave dependencies, and save each one to
 ./diagrams/waves/wave-N.html. Highlight any dependency that crosses a wave
 boundary, since those need sequencing attention.
 ```
+
+**Local-environment integration**
 
 Combine AWS Transform with files and tools in your local development environment, something the web application cannot do.
 
@@ -216,6 +231,8 @@ migration-artifacts git repo in this workspace under ./artifacts/$(date +%F)/,
 and write a short changelog entry describing what changed since the last
 snapshot.
 ```
+
+**Conditional and gated automation**
 
 Express approval gates and branching so the assistant advances the migration only when your conditions are met.
 

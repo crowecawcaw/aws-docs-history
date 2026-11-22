@@ -1,7 +1,6 @@
 
 
 # Quick start guide for migration assessments
-<a name="transform-app-assessments-quick-start"></a>
 
 This guide explains how to get the inventory data that an assessment needs, how to run an assessment, how to review the results, and which prompts to use. Start here if you want to produce a first business case quickly. Before you start, confirm that you have the items in [Prerequisites](transform-app-assessments.md#transform-app-assessments-prerequisites).
 

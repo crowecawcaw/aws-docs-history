@@ -1,7 +1,6 @@
 
 
 # Transform your .NET code
-<a name="dotnet-web-transform-code"></a>
 
 In the *Transform* phase, the agent transforms your repositories.
 

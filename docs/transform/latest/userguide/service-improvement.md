@@ -1,7 +1,6 @@
 
 
 # AWS Transform service improvement
-<a name="service-improvement"></a>
 
 To help AWS Transform provide the most relevant information, we may use certain content from AWS Transform, such as questions that you ask AWS Transform and its responses, for service improvement. This page explains what content we use and how to opt out.
 

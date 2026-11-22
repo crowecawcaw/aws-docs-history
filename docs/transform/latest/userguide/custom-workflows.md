@@ -1,7 +1,6 @@
 
 
 # Workflows
-<a name="custom-workflows"></a>
 
 ## Executing Transformations
 <a name="custom-executing-transformations"></a>
@@ -141,6 +140,8 @@ atx custom def exec -n my-transformation -p ./my-project -d
 ```
 
 The `-d` or `--do-not-learn` flag opts out of allowing lesson extraction from the current execution.
+
+Runs of a transformation definition shared with your account never add lessons to your account. To contribute lessons from a run to the owner's transformation definition, use `--share-learnings`. For more information, see [Lessons and shared transformation definitions](custom-sharing-lessons.md).
 
 ### Resuming Conversations
 <a name="custom-resuming-conversations"></a>
@@ -686,7 +687,7 @@ After you tag your customer-owned transformation definitions, activate those tag
 
 After a tag key is active, you can group AWS Transform charges by that key in Cost Explorer. You can also include resource IDs in AWS Cost and Usage Reports to see the transformation definition ARN and its tag values on each line item. For the columns that carry those values, see [Resource tags columns](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2-resource-tags.html) in the *AWS Data Exports User Guide*. The following example returns AWS Transform cost and Agent Minutes for one day, grouped by a `CostCenter` tag.
 
-```
+```bash
 aws ce get-cost-and-usage \
     --time-period Start=2026-09-01,End=2026-09-02 \
     --granularity DAILY \
@@ -937,7 +938,7 @@ atx custom def delete -n my-transformation
 ```
 
 **Important**  
-This permanently deletes the specified transformation definition from your account.
+This permanently deletes the specified transformation definition from your account. If the transformation definition is shared, revoke its shares first. For more information, see [Manage your shares](custom-sharing-manage.md).
 
 ### Managing Transformation Versions
 <a name="custom-managing-transformation-versions"></a>

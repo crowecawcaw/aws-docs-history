@@ -1,7 +1,6 @@
 
 
 # SQL Server requirements
-<a name="sql-requirements"></a>
 
 ## Database requirements
 <a name="sql-database-requirements"></a>

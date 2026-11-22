@@ -1,7 +1,6 @@
 
 
 # AWS Transform permissions reference
-<a name="security_iam_permissions"></a>
 
 This section provides information about the APIs used by AWS Transform, and what they do. 
 
@@ -32,6 +31,9 @@ This section provides information about the APIs used by AWS Transform, and what
 + transform:GetHitlTask
 + transform:GetJob
 + transform:GetLoginRedirectUri
++ transform:GetPartner
++ transform:GetPartnerByAccountId
++ transform:GetPartnerByArn
 + transform:GetUserDetails
 + transform:GetUserPreferences
 + transform:GetWebAppUrl
@@ -46,8 +48,10 @@ This section provides information about the APIs used by AWS Transform, and what
 + transform:ListUserRoleMappings
 + transform:ListWorklogs
 + transform:ListWorkspaces
++ transform:PutPartner
 + transform:PutUserPreferences
 + transform:PutUserRoleMappings
++ transform:RemovePartner
 + transform:RevokeSession
 + transform:SearchUsers
 + transform:SearchUsersTypeahead

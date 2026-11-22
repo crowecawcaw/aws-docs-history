@@ -1,7 +1,6 @@
 
 
 # Containerization permissions
-<a name="transform-containers-permissions"></a>
 
 During the containerization workflow, AWS Transform deploys an IAM role to your AWS account that uses to build container images and deploy infrastructure. You are asked to review and approve the creation of this role before the workflow continues.
 

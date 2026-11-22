@@ -1,7 +1,6 @@
 
 
 # Wave execution
-<a name="transform-vmware-ms-wave-execution"></a>
 
 After you complete the prerequisites and configure migration defaults, you migrate your servers in waves. Each wave represents a group of servers that are migrated together. For each wave, the agent walks you through the following steps:
 

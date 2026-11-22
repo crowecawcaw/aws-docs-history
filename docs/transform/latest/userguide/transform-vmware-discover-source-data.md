@@ -1,7 +1,6 @@
 
 
 # Discovery
-<a name="transform-vmware-discover-source-data"></a>
 
 Discovery imports your inventory into AWS Transform, so that you can assess costs and plan your migration.
 

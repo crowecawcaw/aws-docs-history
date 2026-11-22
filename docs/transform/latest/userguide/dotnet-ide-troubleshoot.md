@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with .NET transformations in the IDE
-<a name="dotnet-ide-troubleshoot"></a>
 
 Use the following sections to troubleshoot common issues with .NET transformations in the IDE with AWS Transform.
 

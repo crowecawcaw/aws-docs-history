@@ -1,7 +1,6 @@
 
 
 # Diagramming and reporting
-<a name="transform-vmware-diagrams-and-reports"></a>
 
 During migration planning, AWS Transform turns your discovered inventory and planning results into visual *diagrams* and analytical *reports*. You generate them conversationally in the planning chat. For example, "Show me a network topology diagram" or "Generate a risk report." AWS Transform builds them from the data you have already provided, with no setup required.
 

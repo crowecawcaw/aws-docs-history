@@ -1,7 +1,6 @@
 
 
 # Generate landing zone IaC without deployment
-<a name="transform-vmware-lz-iac-only-flow"></a>
 
 The IaC-only flow enables you to use the AWS Transform landing zone capability for analysis, recommendations, and Infrastructure as Code generation without direct deployment. This mode is available in two scenarios:
 + **Delegated Administrator connector:** When you connect via a Delegated Administrator account, AWS Transform operates exclusively in IaC-only mode. This allows organizations with strict governance policies to use AWS Transform without granting access to the management account.

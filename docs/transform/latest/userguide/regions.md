@@ -1,7 +1,6 @@
 
 
 # Supported Regions for AWS Transform
-<a name="regions"></a>
 
 **Note**  
 If you make a request that requires AWS Transform to retrieve information from an opt-in Region not listed on this page, AWS Transform can make calls to that Region. To manage access to Regions AWS Transform can make calls to, see [Security in AWS Transform](security.md).
@@ -10,7 +9,7 @@ This topic describes the AWS Regions where you can use AWS Transform. For more i
 
 Your data might be processed in a different Region from the Region where you use AWS Transform. For information on cross-region processing in AWS Transform, see [Cross-region processing](cross-region-processing.md). For information on where data is stored during processing, see [Data protection](data-protection.md).
 
-## Supported AWS Regions (enabled by default)
+## Supported AWS Regions
 <a name="default-regions"></a>
 
 You can create AWS Transform workspaces in the following AWS Regions. These Regions are enabled by default - you don't need to enable them before use. For more information, see [Regions that are enabled by default](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#regionthat). 
@@ -31,4 +30,4 @@ AWS GovCloud (US-West) is available only when you use AWS Transform in the AWS G
 
 The workspace in which you create a job determines the AWS Region of the job. To create a job in a different Region, you must use a different workspace that is in your desired Region.
 
-For VMware projects, the Region of the workspace is used for discovery. However, you can specify a different Region as the migration target. That target Region is where your workloads are hosted when the migration is complete. For more information about AWS Region considerations for VMware migrations, including the list of possible target Regions, see [Supported target Regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions).
+For [migration projects](transform-app-vmware.md), the Region of the workspace is used for assessment, discovery, and planning. However, you can specify a different Region as the migration target. That target Region is where AWS Transform deploys your landing zone and networks, and where your workloads are hosted when the migration is complete. For more information about AWS Region considerations for migrations, including the list of possible target Regions, see [Supported target Regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions).

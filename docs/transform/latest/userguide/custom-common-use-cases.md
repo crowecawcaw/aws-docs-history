@@ -1,7 +1,6 @@
 
 
 # Common Use Cases
-<a name="custom-common-use-cases"></a>
 
 This section provides step-by-step guidance for common transformation scenarios using the AWS Transform CLI.
 

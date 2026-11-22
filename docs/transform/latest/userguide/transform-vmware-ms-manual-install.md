@@ -1,7 +1,6 @@
 
 
 # Manual agent installation
-<a name="transform-vmware-ms-manual-install"></a>
 
 For manual installation, you first generate AWS credentials (temporary or permanent) and then install the agent on each source server.
 

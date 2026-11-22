@@ -1,7 +1,6 @@
 
 
 # AWS-Managed Transformations
-<a name="transform-aws-customs"></a>
 
 AWS-managed transformations are pre-built, AWS-vetted transformations for common use cases that are ready to use without any additional setup.
 
@@ -141,6 +140,16 @@ Analyze codebases and portfolios to plan modernization. These transformations pr
 | AWS/portfolio-agentic-readiness-analysis | Portfolio | Early access | Aggregate individual agentic readiness analysis reports across a portfolio of applications to identify cross-cutting blockers, shared remediation patterns, and prioritized recommendations. | 
 | AWS/portfolio-modernization-readiness-analysis | Portfolio | Early access | Aggregate individual modernization analysis reports across a portfolio into a consolidated roadmap with prioritized migration waves and recommended modernization pathways. | 
 | AWS/business-rules-extraction | Multiple languages | Early access | This transformation statically analyzes a monolithic codebase to produce rewrite-ready documentation without requiring a build, a run, or source code modifications. It decomposes the system into bounded domains and extracts per-domain business rules, workflows, cross-cutting concerns, and database structure. The output includes a machine-readable manifest, an interactive dashboard, and language-neutral implementation specifications per domain to guide modernization or full rewrites. | 
+
+### Testing
+<a name="transform-aws-customs-testing"></a>
+
+Generate tests for existing code.
+
+
+| Transformation | Language / stack | Status | Description | 
+| --- | --- | --- | --- | 
+| AWS/unit-test-generation | C\#, Java, JavaScript, Python | Generally available | Analyze a repository for gaps in unit test coverage and generate tests to fill them. Supports C\# (.NET 8 and later), Java (Maven and Gradle), JavaScript (Jest), and Python (pytest). The transformation measures baseline coverage, generates tests in batches, and builds and runs each batch, delivering only the tests that compile and pass. Everything else it changed while validating is reverted, so the only additions to your repository are the delivered tests. It also produces a coverage report and a summary of the coverage achieved. | 
 
 ### Security
 <a name="transform-aws-customs-security"></a>

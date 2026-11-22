@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="custom-troubleshooting"></a>
 
 This section provides guidance for troubleshooting common issues with AWS Transform custom.
 

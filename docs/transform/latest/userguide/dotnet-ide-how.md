@@ -1,7 +1,6 @@
 
 
 # How AWS Transform modernizes .NET applications
-<a name="dotnet-ide-how"></a>
 
 Review the following sections for details about how .NET transformation with AWS Transform works. 
 

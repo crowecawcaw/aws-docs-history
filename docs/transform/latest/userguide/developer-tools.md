@@ -1,7 +1,6 @@
 
 
 # Developer tools
-<a name="developer-tools"></a>
 
 You can access AWS Transform agents from agentic IDEs, agent plugins, and the MCP server. Choose the surface that fits your workflow.
 
@@ -34,7 +33,7 @@ The plugin includes `.claude-plugin`, `.codex-plugin`, and `.mcp.json` configura
 
 Run the following commands:
 
-```
+```bash
 /plugin marketplace add awslabs/agent-plugins
 /plugin install aws-transform@agent-plugins-for-aws
 ```
@@ -54,11 +53,15 @@ The AWS Transform IDE plugin is available on VS Code and Open VSX compatible edi
 <a name="developer-tools-mcp"></a>
 
 Use the MCP server to integrate AWS Transform programmatically with any MCP-compatible client. You can install the MCP server from PyPI as `awslabs.aws-transform-mcp-server`. It provides 19 tools for workspace management, job management, human-in-the-loop (HITL) tasks, artifact handling, connector management, chat, and resource browsing.
+
+**Prerequisites**
 + Python 3.10 or later
+
+**Installation**
 
 **Claude Code**
 
-```
+```bash
 claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp-server@latest
 ```
 
@@ -66,7 +69,7 @@ claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp
 
 Add to `~/.kiro/settings/mcp.json`:
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.aws-transform-mcp-server": {
@@ -108,6 +111,8 @@ The [agent builder toolkit](https://kiro.dev/launch/powers/aws-transform-agent-t
 Alternatively, in the Powers panel choose **Add Custom Power** > **Import power from GitHub** and paste: `https://github.com/kirodotdev/powers/tree/main/aws-transform-agent-toolkit`
 
 The agent builder toolkit enables Migration and Modernization Competency Partners, ISVs, or customers to create transformation solutions for specific use cases. You can integrate specialized agents, tools, knowledge bases, and workflows with AWS Transform agentic AI capabilities.
+
+**Agent lifecycle**
 
 Build  
 Use the Kiro Power to combine the base agent and SDK to write your own customized agent.

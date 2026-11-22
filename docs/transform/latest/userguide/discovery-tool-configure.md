@@ -1,7 +1,6 @@
 
 
 # Configure the discovery tool
-<a name="discovery-tool-configure"></a>
 
 ## Access the discovery tool console
 <a name="discovery-tool-access-console"></a>
@@ -190,7 +189,7 @@ Reverse lookups must also be turned on for the VM. They are on by default. Do no
 
 To check reverse lookups, run the following command on the discovery tool VM.
 
-```
+```bash
 getent hosts <target-ip>
 ```
 
@@ -318,6 +317,8 @@ If Windows PowerShell Transcription logging is enabled on your target servers, t
 Because collection uses standard operating system commands rather than an agent, the discovery tool works across a wide range of operating system versions, including older ones. The following operating systems are validated end to end. Other versions that meet the requirements in the preceding list are also collected.
 + **Linux** – Amazon Linux 2, Amazon Linux 2023, RHEL 7.9, Rocky Linux 9.7, AlmaLinux 9.7, SLES 12 SP5, Debian 11, Ubuntu 16.04, and Ubuntu 22.04
 + **Windows** – Windows Server 2012 R2, 2016, 2019, and 2022
+
+**Reduced data coverage on older operating systems**
 
 On older operating systems, the discovery tool substitutes alternative commands and some fields can be empty:
 + Linux distributions released before `/etc/os-release` became standard — such as RHEL 6, CentOS 6, SLES 11, Ubuntu 14.04 and earlier, and Amazon Linux 1 — are identified from `/etc/*-release` or `uname` instead, which can report less detail.
@@ -449,7 +450,7 @@ Configure Oracle database access to collect detailed Oracle database metadata di
    + **Password** – The Oracle service account password.
    + **Auto-connect** – Turn on this option to try the credential against all servers in your inventory. Turn off this option to manually assign the credential to specific servers.
 
-1. To add more credentials (for example, for different Oracle environments), choose **Add Oracle credential** again.
+1. To add more credentials (for example, for different Oracle environments), choose **Add Oracle credential** again. You can configure up to 50 Oracle credentials for each discovery tool. For each server, the discovery tool collects one container database (CDB), including all of its pluggable databases (PDBs), or one non-container database.
 
 1. Choose **Save and collect**. The discovery tool immediately starts a full Oracle collection round for all servers in your inventory.
 
@@ -597,24 +598,24 @@ Before you update, take a snapshot of the VM and complete the backup step. You n
 1. Get the latest installer script onto the VM, and make it executable. Choose one of the following:
    + If the VM has outbound internet access, download it directly:
 
-     ```
+     ```bash
      curl -O https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.sh
      ```
    + If the VM has no outbound internet access (for example, an air-gapped appliance), download the installer script on a machine that does have internet access, and then transfer it over SSH into the home directory of the discovery tool service user on the VM. If SSH access is disabled, first run `enablessh` on the discovery tool VM (see [Accessing the discovery tool VM](#discovery-tool-vm-access)).
 
-   ```
+   ```bash
    chmod +x AWS-Transform-discovery-tool.sh
    ```
 
 1. Stop the discovery tool service so that the backup in the next step captures a consistent snapshot of the database.
 
-   ```
+   ```bash
    sudo ./AWS-Transform-discovery-tool.sh stop
    ```
 
 1. Back up the discovery tool application, its service files, and the data directory, so that you can roll back without a snapshot if you need to. The following Bash script reads the data directory from the service's own configuration, so it works whether you are on the standard OVA or VHD appliance or a standalone Linux-installer host:
 
-   ```
+   ```bash
    SVC=discovery-tool.service
    DATA_DIR=$(systemctl show -p Environment "$SVC" | sed 's/^Environment=//' | tr ' ' '\n' | sed -n 's/^DT_DATA_DIR=//p')
    if [ -z "$DATA_DIR" ]; then
@@ -641,13 +642,13 @@ Before you update, take a snapshot of the VM and complete the backup step. You n
 **Note**  
 On an update, the installer always installs required system packages regardless of whether you pass `--install-deps`. This step only reaches out to your OS package repository if a required package is missing; it does not need network access if your appliance already has the required packages installed, which is typically the case on an appliance that is already running. If a package manager call does need network access and your appliance has none, host the packages in a local or mirrored repository that your package manager is configured to use, or install the missing packages manually before you run the installer.
 
-   ```
+   ```bash
    sudo ./AWS-Transform-discovery-tool.sh install --install-deps
    ```
 
 1. Start the discovery tool service.
 
-   ```
+   ```bash
    sudo ./AWS-Transform-discovery-tool.sh start
    ```
 
@@ -668,7 +669,7 @@ Before you begin, make sure that you have the backup file that you created in th
 
 1. Stop the discovery tool service.
 
-   ```
+   ```bash
    sudo ./AWS-Transform-discovery-tool.sh stop
    ```
 
@@ -676,7 +677,7 @@ Before you begin, make sure that you have the backup file that you created in th
 **Warning**  
 This step permanently deletes the current application, service files, and data directory before it restores them from the backup. The script checks the backup first and stops without deleting anything if the backup is missing, unreadable, or doesn't contain the application, the service file, and the data directory. If you are not sure that your backup is good, revert to a VM snapshot instead.
 
-   ```
+   ```bash
    SVC=discovery-tool.service
    DATA_DIR=$(systemctl show -p Environment "$SVC" | sed 's/^Environment=//' | tr ' ' '\n' | sed -n 's/^DT_DATA_DIR=//p')
    if [ -z "$DATA_DIR" ]; then
@@ -701,7 +702,7 @@ This step permanently deletes the current application, service files, and data d
 
 1. Start the discovery tool service. The second command starts the self-update watcher, if your restored version has one.
 
-   ```
+   ```bash
    sudo systemctl start discovery-tool
    sudo systemctl start discovery-tool-updater.path 2>/dev/null
    ```

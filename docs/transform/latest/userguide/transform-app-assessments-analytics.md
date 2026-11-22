@@ -1,7 +1,6 @@
 
 
 # Analytics assessments
-<a name="transform-app-assessments-analytics"></a>
 
 AWS Transform assesses analytics and streaming workloads and recommends managed AWS alternatives that reduce the operational overhead of running the same workload yourself. The analytics assessment estimates the total cost of ownership of the target managed service and reviews the source workload for anything that would behave differently after migrating.
 

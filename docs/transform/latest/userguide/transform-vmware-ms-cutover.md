@@ -1,7 +1,6 @@
 
 
 # Step 6: Cutover
-<a name="transform-vmware-ms-cutover"></a>
 
 Cutover is the final migration step where your production workloads are moved to AWS. For more information, see [Launch cutover instances](https://docs.aws.amazon.com/mgn/latest/ug/launch-cutover-instances.html) in the *MGN User Guide*. Similar to testing, AWS Transform supports full wave cutover or selective cutover for specific servers.
 
@@ -10,6 +9,8 @@ During cutover, AWS Transform launches Amazon EC2 instances from the latest repl
 The cutover process includes the following steps:
 
 1. **Launch cutover instances** – AWS Transform launches Amazon EC2 instances for the selected servers. You can choose full wave cutover or selective cutover.
+
+1. **Register targets with load balancers (if you migrated load balancers)** – If a server belonged to a load balancer target group, AWS Transform asks in the chat whether to register its launched instance in the same target group. Confirm to register it. Registering lets the load balancer send live traffic to the instance, so confirm only when you are ready for that. For more information, see [Migrate source load balancers](transform-vmware-migrate-network-load-balancers.md).
 
 1. **Verify cutover instances** – Connect to the launched instances and verify they are functioning correctly.
 

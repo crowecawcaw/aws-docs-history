@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="discovery-tool-troubleshooting"></a>
 
 ## Incomplete or failed export
 <a name="discovery-tool-export-troubleshooting"></a>
@@ -39,7 +38,7 @@ If the discovery tool VM runs out of memory, check whether the `sssd-kcm` servic
 
 1. Access the discovery tool VM, and check which processes are using the most memory. For more information, see [Accessing the discovery tool VM](discovery-tool-configure.md#discovery-tool-vm-access).
 
-   ```
+   ```bash
    ps aux --sort=-rss | head
    ```
 
@@ -47,7 +46,7 @@ If the discovery tool VM runs out of memory, check whether the `sssd-kcm` servic
 
    If the VM already ran out of memory, you can also check the kernel log:
 
-   ```
+   ```bash
    sudo dmesg | grep -i -E "out of memory|oom-kill"
    ```
    + If the `oom-kill` line contains `global_oom`, the whole VM ran out of memory. The process that the kernel stopped, often `discovery_tool`, isn't necessarily the one using the most memory. Check `sssd_kcm` with the `ps` command above, and if it's large, continue with the next step.
@@ -55,13 +54,13 @@ If the discovery tool VM runs out of memory, check whether the `sssd-kcm` servic
 
 1. Stop and disable `sssd-kcm`.
 
-   ```
+   ```bash
    sudo systemctl disable --now sssd-kcm sssd-kcm.socket
    ```
 
 1. Confirm that the service is stopped.
 
-   ```
+   ```bash
    systemctl status sssd-kcm
    ```
 
@@ -293,6 +292,8 @@ net localgroup Administrators
 
 WMI requires local administrator privileges to access operating system information. SQL Server collection also requires that the service account has local administrator access on the target server.
 
+**FQDN unavailable for servers discovered through Hyper-V**
+
 For servers discovered through Hyper-V, the discovery tool resolves the server FQDN from guest metadata provided by Integration Services, which is required for Kerberos SPN matching. If Integration Services is not running in the guest, the FQDN is unavailable and Kerberos authentication fails. Confirm that Integration Services is running in the guest (see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent)).
 
 ### Kerberos configuration checklist
@@ -433,9 +434,15 @@ If the discovery tool is unable to collect the server UUID (showing as empty or 
 ### Server appears in inventory but is never collected
 <a name="discovery-tool-inventory-not-collected"></a>
 
+**Symptom**
+
 A server appears in **Discovered inventory** with no IP address, and its collection status never leaves pending. This typically means the guest agent is not supplying a guest address, so the discovery tool has nothing to connect to for OS-level collection.
+
+**Checks**
 + On Hyper-V, run `Get-VMIntegrationService -VMName {{vm-name}}` on the Hyper-V host and confirm that the Key-Value Pair Exchange service is running.
 + On VMware, check the VMware Tools status for the virtual machine in the vSphere Client.
+
+**Resolution**
 + Install and start the guest agent (VMware Tools or Hyper-V Integration Services) in the guest, and then wait for the next discovery cycle.
 + Alternatively, import the server from a CSV file with its IP address, which supplies the address directly. For more information, see [Import servers](discovery-tool-configure.md#discovery-tool-bare-metal-import).
 

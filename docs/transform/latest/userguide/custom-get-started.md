@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Transform custom
-<a name="custom-get-started"></a>
 
 This section describes how to choose an interface, set up AWS Transform custom, and run your first transformation.
 
@@ -38,12 +37,16 @@ For the GitHub import option and authentication information, see [Kiro Power](de
 
 Use the AWS Transform agent plugin with Claude Code, Codex, or Cursor in the repository that you want to transform.
 
+**To install in Claude Code**
+
 Add the AWS agent plugin marketplace and install the AWS Transform plugin:
 
-```
+```bash
 /plugin marketplace add awslabs/agent-plugins
 /plugin install aws-transform@agent-plugins-for-aws
 ```
+
+**To install in Codex or Cursor**
 
 Follow the installation instructions in the [agent-plugins repository README](https://github.com/awslabs/agent-plugins) on the GitHub website. For more information, see [Agent plugin](developer-tools.md#developer-tools-agent-plugin).
 
@@ -203,6 +206,7 @@ For more information about these policies, see [AWS managed policies for AWS Tra
 
 **Note**  
 Transformation definitions are AWS resources with ARNs (Amazon Resource Names). You can use IAM policies to control access to specific transformations or groups of transformations by specifying the transformation ARN in your IAM policy resource statements. Tags can be used for grouped access control.
+To share transformation definitions with other AWS accounts, or to run one shared with you, you also need AWS RAM permissions. For more information, see [Identity-based policy examples for sharing](custom-sharing-policy-examples.md).
 AWS IAM Identity Center is required to access the AWS Transform, but is not required to use the CLI.
 
 ## Configuring AWS Region

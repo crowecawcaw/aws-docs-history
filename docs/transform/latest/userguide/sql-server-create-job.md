@@ -1,7 +1,6 @@
 
 
 # Create SQL Server modernization job
-<a name="sql-server-create-job"></a>
 
 To create a SQL Server modernization job, AWS Transform modernizes your schema from uploaded DDL files — no direct connection to your database is required. You run a provided extraction script against your SQL Server, upload the resulting schema files, and AWS Transform discovers, assesses, converts, and deploys the schema to Amazon Aurora PostgreSQL.
 

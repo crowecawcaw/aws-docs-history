@@ -1,7 +1,6 @@
 
 
 # Map source network to new VPCs
-<a name="transform-vmware-migrate-network-new-vpcs"></a>
 
 Get a complete, production-ready target network generated from your migration plan data or source configuration in a fraction of the time. AWS Transform translates your source environment into AWS network resources, including VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables, which you review and adjust before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
@@ -18,6 +17,8 @@ The AWS Transform agent guides you through the following steps, handling the ana
 1. Select a security groups mapping strategy.
 
 1. Review and optimize your network.
+
+1. Run a Well-Architected review (optional).
 
 1. Generate a network diagram (optional).
 
@@ -43,7 +44,7 @@ If your migration plan includes observed network connections, choose **Use my mi
 
 To work from a discovery or configuration export instead, choose **Upload a network file**.
 
-AWS Transform generates target network infrastructure from a wide variety of source network configuration files. Upload one or more configuration files from your source environment, and AWS Transform uses them to generate target networks, including Amazon VPCs, subnets, and security groups. AWS Transform does not generate firewall or load balancer resources. However, it can use configuration from these network elements as input to generate target networks. The maximum supported source network file size is 70 MB.
+AWS Transform generates target network infrastructure from a wide variety of source network configuration files. Upload one or more configuration files from your source environment, and AWS Transform uses them to generate target networks, including Amazon VPCs, subnets, and security groups. AWS Transform does not generate firewall resources. However, it can use configuration from firewalls and load balancers as input to generate target networks. AWS Transform can also migrate F5 BIG-IP LTM load balancers. See [Migrate source load balancers](transform-vmware-migrate-network-load-balancers.md). The maximum supported source network file size is 70 MB.
 
 AWS Transform accepts configuration files from the following source types:
 + **Software Defined Networks (SDN):** Import/Export for VMware NSX network virtualization or Cisco ACI config for Cisco Application Centric Infrastructure.
@@ -218,7 +219,7 @@ The IP address assignment strategy is set at the wave level. You can assign diff
 ## Step 5: Review and optimize your network
 <a name="transform-vmware-review-vpc-configs"></a>
 
-After AWS Transform generates your target network configuration, you can review the on-premises network segments converged to AWS infrastructure. Use the visual interface to review your network, and the chat interface to make changes and receive guided recommendations. AWS Transform performs cascading impact analysis and implements the required changes to maintain network consistency and compliance with best practices. You can also ask AWS Transform to analyze your network and suggest optimizations. For more information, see [Guided recommendations](#transform-vmware-guided-recommendations).
+After AWS Transform generates your target network configuration, you can review the on-premises network segments converged to AWS infrastructure. Use the visual interface to review your network, and the chat interface to make changes and receive guided recommendations. AWS Transform performs cascading impact analysis and implements the required changes to maintain network consistency and compliance with best practices. You can also ask AWS Transform to analyze your network and suggest optimizations. For more information, see [Guided recommendations](#transform-vmware-guided-recommendations). When you finish editing, AWS Transform offers an optional review of your design against AWS Well-Architected best practices. For more information, see [Step 6: Well-Architected review](#transform-vmware-well-architected-review).
 
 ### Existing VPCs in your target account
 <a name="transform-vmware-brownfield-network"></a>
@@ -314,14 +315,61 @@ AWS Transform might recommend the following optimizations:
 
 AWS Transform presents trade-offs when a recommendation affects multiple aspects of your network.
 
-## Step 6: Network diagram
+## Step 6: Well-Architected review
+<a name="transform-vmware-well-architected-review"></a>
+
+Check your network design against AWS best practices before you deploy it. When you finish editing your network, AWS Transform offers an optional review by [AWS Well-Architected Agent](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent.html). The review returns prioritized recommendations for the security, resilience, and cost optimization pillars of the AWS Well-Architected Framework. AWS Transform applies the recommendations that are in scope for your network design. You apply recommendations that go beyond network migration in your AWS account.
+
+AWS Transform offers the review when the following conditions are met:
++ AWS Well-Architected Agent is available in your target Region. AWS Transform runs the review in your target Region, so it offers the review only where AWS Well-Architected Agent is available.
++ Your target account has an AWS Support plan at the Business\+ tier or higher. For more information, see [Getting started with AWS Well-Architected Agent](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-getting-started.html).
+
+### Start the review
+<a name="transform-vmware-war-start"></a>
+
+When you finish editing your network design, choose **Yes, run the Well-Architected review**. To skip the review, choose **No, continue without the review**, and continue the network migration.
+
+The review runs asynchronously in AWS Well-Architected Agent. It usually takes 20 to 30 minutes, and it can take longer. You can keep working on your network while it runs.
+
+### Choose a profile
+<a name="transform-vmware-war-profile"></a>
+
+AWS Transform lists your AWS Well-Architected Agent profiles that have the tag `AWSTransformNetworkMigration=enabled`. Choose the profile to use for the review. AWS Transform adds its review goals and context to that profile. Your existing goals and contexts stay as they are.
+
+To use a profile that isn't in the list, create a profile in the AWS Well-Architected Agent console, or tag an existing profile. If you have no tagged profiles, AWS Transform asks you to create or tag one. For steps to create a profile, see [Getting started with AWS Well-Architected Agent](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-getting-started.html).
+
+To tag a profile, run the following command. Replace {{region}} with your target Region and {{profile-ARN}} with the ARN of the profile.
+
+```
+aws wellarchitected tag-resource --region {{region}} --workload-arn {{profile-ARN}} --tags AWSTransformNetworkMigration=enabled
+```
+
+### Wait for the review or continue
+<a name="transform-vmware-war-wait"></a>
+
+After the review starts, choose one of the following options:
++ **Wait for the review:** AWS Transform shows the recommendations when the review finishes, so you can apply changes before you continue. You can still choose to continue at any time.
++ **Continue the migration:** You move on to the next steps of the network migration. To apply a recommendation later, ask AWS Transform in the chat. AWS Transform reopens your network design and applies the change for you.
+
+### Review and apply the recommendations
+<a name="transform-vmware-war-results"></a>
+
+When the review finishes, AWS Transform lists the recommendations. Each recommendation shows its pillar (Security, Resilience, or Cost optimization) and its priority. AWS Transform groups the recommendations as follows:
++ **Recommendations that AWS Transform can apply:** Ask in the chat to stage the changes that you want. AWS Transform asks you about each change separately, so you choose which changes to apply and which to skip. When you finish, AWS Transform applies all staged changes together. Applying changes regenerates your network design, so staging them lets AWS Transform apply them in one pass.
++ **Apply manually:** Changes that go beyond network migration, so AWS Transform can't make them to your network design. Make them in your AWS account after you deploy your network.
+
+Review each recommendation before you stage or apply it. To get every recommendation with its full details, download the recommendations file (.md) from the link in the chat.
+
+To move on, choose **Finish the review and continue the migration**.
+
+## Step 7: Network diagram
 <a name="transform-vmware-network-diagram"></a>
 
 After reviewing the generated VPC configurations, you can optionally generate a network diagram to visualize your network topology. AWS Transform supports the following diagram formats:
 + **Mermaid code (.mmd):** This format produces a text-based diagram definition file that you can render with Mermaid-compatible tools.
 + **Image (.png):** This format produces a rendered image of your network topology.
 
-## Step 7: Configure resource tagging
+## Step 8: Configure resource tagging
 <a name="transform-vmware-tag-network-resources"></a>
 
 Your network resources are tagged for launch and replication. You can also add custom tags and AWS Migration Acceleration Program (MAP) tags.
@@ -362,7 +410,7 @@ AWS Transform applies these tags when it generates the Infrastructure as Code te
 If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, AWS Transform applies a MAP tag to your resources. If you provided your MPE ID earlier in the migration process, the tag is applied automatically. Otherwise, after you finish reviewing the generated VPC configurations, AWS Transform asks whether you have a MAP agreement and prompts you to provide your MPE ID. The MPE ID is a 10-character code using uppercase letters and digits (for example, ABCDE12345). The applied tag uses the format:
 + **Key:** `map-migrated` **Value:** `mig{{MPE_ID}}`
 
-## Step 8: Deploy your network
+## Step 9: Deploy your network
 <a name="transform-vmware-deploy-network"></a>
 
 After tagging, select your deployment strategy:

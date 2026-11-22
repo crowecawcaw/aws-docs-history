@@ -1,7 +1,6 @@
 
 
 # AWS Transform continuous modernization
-<a name="continuous-modernization"></a>
 
 ## What is AWS Transform continuous modernization?
 <a name="ct-what-is"></a>
@@ -36,6 +35,7 @@ AWS Transform continuous modernization supports the following analysis types to 
 | agentic-readiness | AI and agent integration readiness assessment. Scores 56 criteria across five categories: Infrastructure & Platform, Application Architecture, Data Foundations, Identity/Security/Governance, and Operations & Observability. | 
 | modernization-readiness | Cloud modernization opportunity assessment. Evaluates readiness across infrastructure, application, data, security, and operations dimensions. Identifies candidates for containerization, serverless migration, and platform upgrades. | 
 | graviton-readiness | AWS Graviton (Arm64) compatibility assessment for Java applications. Checks native libraries, dependencies, architecture-specific code, Dockerfiles, build configuration, and JVM flags. Each finding includes a recommended fix that you can apply with a remediation. | 
+| aws-health-readiness | Finds the Lambda runtimes, Amazon EKS Kubernetes versions, and Elastic Beanstalk PHP platforms that your infrastructure code sets and that need an upgrade soon. Each finding links to an AWS managed transformation that upgrades it. For more information, see [Upgrading resources in AWS Health planned lifecycle events](ct-aws-health.md). | 
 | custom | Run one of your own transformation definitions as an analysis where each issue described is reported as a finding, which can link to an AWS managed transformation that fixes it. | 
 
 ## Understanding key concepts
@@ -58,12 +58,14 @@ Repositories are discovered by scanning sources. After discovery, you can filter
 ### Analyses
 <a name="ct-concept-analyses"></a>
 
-An analysis is a scan of one or more repositories using a specific analysis type. Each analysis produces findings that identify issues in your code. You can run analyses on demand or schedule them to run automatically. Analysis types include rapid-techdebt-analysis, tech-debt-comprehensive, security, agentic-readiness, modernization-readiness, graviton-readiness, and custom. Each analysis tracks its status (pending, running, complete, cancelled, or failed) and the repositories it scanned.
+An analysis is a scan of one or more repositories using a specific analysis type. Each analysis produces findings that identify issues in your code. You can run analyses on demand or schedule them to run automatically. Analysis types include rapid-techdebt-analysis, tech-debt-comprehensive, security, agentic-readiness, modernization-readiness, graviton-readiness, aws-health-readiness, and custom. Each analysis tracks its status (pending, running, complete, cancelled, or failed) and the repositories it scanned.
 
 ### Findings
 <a name="ct-concept-findings"></a>
 
 Findings are the results of analysis. Each finding includes severity (high, medium, or low), status (open, dismissed, or obsolete), and the fix transform that can remediate it (if auto-fixable). New findings start as open, and users can dismiss them with a reason. Re-analysis marks resolved findings as obsolete automatically.
+
+In the web application, AWS Transform also groups findings across your repositories by the problem they share, so that you can remediate each group together in a remediation plan. For more information, see [Remediating grouped findings with remediation plans](ct-remediation-plans.md).
 
 ### Remediations
 <a name="ct-concept-remediations"></a>
@@ -174,7 +176,7 @@ Your IAM user or role must have the following additional permissions to run the 
 
 Use the following commands to manage the security agent infrastructure:
 
-```
+```bash
 # Provision the security agent infrastructure
 atx ct setup security-agent
 

@@ -1,7 +1,6 @@
 
 
 # Step 4: Data replication
-<a name="transform-vmware-ms-data-replication"></a>
 
 After the replication agents are installed, data replication begins automatically. AWS Transform uses continuous block-level replication to synchronize data from source servers to AWS.
 
@@ -10,6 +9,8 @@ The replication process consists of two phases:
 + **Continuous replication** – Ongoing synchronization of changed blocks with minimal impact on source server performance. Maintains an up-to-date copy in AWS.
 
 Replication servers are temporary Amazon EC2 instances deployed in the staging area subnet. They receive replicated data from source servers and are automatically managed by MGN. For more information, see [Replication server settings](https://docs.aws.amazon.com/mgn/latest/ug/replication-server-settings.html) in the *MGN User Guide*.
+
+To migrate to an Outpost, specify a subnet on the Outpost as your staging area subnet. To migrate to an AWS Local Zone, we recommend that you specify a subnet in the parent AWS Region of the Local Zone as your staging area subnet. For more information, see [Replicating to AWS Local Zones](https://docs.aws.amazon.com/mgn/latest/ug/replication-server-settings.html#local-zone-snapshots) in the *AWS Transform MGN User Guide*.
 
 AWS Transform monitors the replication progress and provides status updates, including replication status, replication lag (the time difference between source and replicated data), and bandwidth usage.
 

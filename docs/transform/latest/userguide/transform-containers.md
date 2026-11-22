@@ -1,7 +1,6 @@
 
 
 # Source code containerization
-<a name="transform-containers"></a>
 
 AWS Transform supports replatforming applications to containers during migration to AWS. This chapter describes AWS Transform's agentic AI capabilities to automate the containerization of your source code. You can migrate and modernize in parallel, reducing the time and complexity of moving from on-premises to cloud-native architectures. You can containerize source code from GitHub, Bitbucket, GitLab, or .zip files, generate Docker images, publish to Amazon Elastic Container Registry (Amazon ECR), and deploy to Amazon Elastic Container Service (Amazon ECS) or Amazon Elastic Kubernetes Service (Amazon EKS). This brings containerization into the same workflow you use to plan and execute rehost migrations.
 

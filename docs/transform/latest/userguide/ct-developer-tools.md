@@ -1,7 +1,6 @@
 
 
 # Developer tools
-<a name="ct-developer-tools"></a>
 
 You can access continuous modernization from agentic IDEs using the AWS Transform Power and agent plugin. The agent orchestrates setup, onboarding, and ongoing use of continuous modernization through conversational interaction.
 + **Kiro IDE** — Install the [AWS Transform Kiro Power](https://kiro.dev/launch/powers/aws-transform). Open Kiro Chat and ask the agent to help with continuous modernization workflows.

@@ -1,7 +1,6 @@
 
 
 # Use expert mode
-<a name="transform-app-vmware-expert-mode"></a>
 
 Expert mode minimizes interaction during a migration job. You provide inputs and preferences before execution, and the agent applies them automatically as the job progresses. The agent pauses only when it can't resolve a question or when an error requires action.
 

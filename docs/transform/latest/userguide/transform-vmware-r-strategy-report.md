@@ -1,7 +1,6 @@
 
 
 # Migration strategy (7Rs) recommendations
-<a name="transform-vmware-r-strategy-report"></a>
 
 During migration planning, AWS Transform can analyze your discovered inventory and recommend a migration strategy, one of the industry-standard *7Rs*, for every server and application. Each recommendation includes a suggested AWS target service, a confidence score, and the reasoning behind it. This gives you a defensible starting point for your wave plan and surfaces modernization opportunities that you might otherwise miss.
 

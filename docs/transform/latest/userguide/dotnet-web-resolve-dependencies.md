@@ -1,7 +1,6 @@
 
 
 # Resolving package dependencies to prepare for transformation
-<a name="dotnet-web-resolve-dependencies"></a>
 
 In the *Prepare for transformation* phase, you will:
 + Select repositories for transformation.
@@ -69,7 +68,7 @@ For NuGet uploads AWS Transform requires either:
 
   **Example format:**
 
-  ```
+  ```xml
   <dependencies>
       <group targetFramework="net8.0" />
   </dependencies>

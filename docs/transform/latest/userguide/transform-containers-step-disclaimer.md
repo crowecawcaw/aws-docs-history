@@ -1,7 +1,6 @@
 
 
 # Step 1: Review security disclaimer
-<a name="transform-containers-step-disclaimer"></a>
 
 Before the containerization workflow begins, AWS Transform presents a security disclaimer that you must review and accept.
 

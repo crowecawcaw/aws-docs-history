@@ -1,7 +1,6 @@
 
 
 # Configure AWS Toolkit for Visual Studio
-<a name="dotnet-ide-toolkit"></a>
 
 ## Step 1: Install AWS Toolkit
 <a name="transform-dotnet-prerequisites"></a>

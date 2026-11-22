@@ -1,7 +1,6 @@
 
 
 # Notifications
-<a name="qt-notifications"></a>
 
 AWS Transform provides email notifications to keep you informed about workspace access changes, job status updates, and pending collaborator requests.
 

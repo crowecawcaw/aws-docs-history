@@ -1,7 +1,6 @@
 
 
 # Migrate network
-<a name="transform-vmware-migrate-network"></a>
 
 With AWS Transform, you can migrate your network to AWS in a fraction of the time it takes to design and deploy manually. AWS Transform uses an AI-powered agent to translate your source environment configuration into production-ready AWS network resources. You review and modify the generated configuration through a conversational interface before deployment.
 
@@ -11,3 +10,5 @@ AWS Transform supports three approaches to network migration. Choose the one tha
 + [Apply security posture to existing VPCs](transform-vmware-apply-security-posture.md) – AWS Transform applies security groups from your migration plan data or source configuration to VPCs that you have already provisioned in AWS, and leaves the rest of your network untouched. Choose this approach when your target VPCs and subnets already exist and you only need to bring over your security posture.
 
 You can start the first and third approaches from your migration plan data instead of a source network file. If your migration plan includes observed network connections, AWS Transform offers to generate your network from your plan. For more information, see [Use migration plan data as network input](transform-vmware-network-plan-data.md).
+
+You can also migrate your source load balancers. Provide the configuration of your source load balancer, and AWS Transform maps it to Application Load Balancers or Network Load Balancers, generates CloudFormation and AWS CDK (L1) output, and deploys the load balancers. For more information, see [Migrate source load balancers](transform-vmware-migrate-network-load-balancers.md).

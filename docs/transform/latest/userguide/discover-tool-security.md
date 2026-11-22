@@ -1,7 +1,6 @@
 
 
 # Security considerations
-<a name="discover-tool-security"></a>
 
 ## Securing the discovery tool VM
 <a name="securing-collector-vm"></a>

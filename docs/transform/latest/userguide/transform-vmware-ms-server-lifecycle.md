@@ -1,7 +1,6 @@
 
 
 # Server lifecycle states
-<a name="transform-vmware-ms-server-lifecycle"></a>
 
 During migration, each server progresses through the following lifecycle states. For more information, see [Source server lifecycle](https://docs.aws.amazon.com/mgn/latest/ug/migration-dashboard.html) in the *MGN User Guide*.
 + **Not ready** – The server is undergoing the initial sync process and is not yet ready for testing.

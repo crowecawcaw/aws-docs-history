@@ -1,7 +1,6 @@
 
 
 # Step 5: Publish images
-<a name="transform-containers-step-publish"></a>
 
 In this step, AWS Transform publishes your container images to Amazon Elastic Container Registry. If you have not yet configured Amazon ECR access, AWS Transform prompts you to provide your Amazon ECR repository details at this point.
 

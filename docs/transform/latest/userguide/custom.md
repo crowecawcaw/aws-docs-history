@@ -1,7 +1,6 @@
 
 
 # Custom
-<a name="custom"></a>
 
 ## What is AWS Transform custom?
 <a name="custom-what-is"></a>
@@ -128,7 +127,7 @@ To get useful findings, write the transformation definition so that it describes
 
 The following example finds Java projects that still target a Java version earlier than 17.
 
-```
+```markdown
 ---
 name: java-version-detector
 description: Report where a repository still targets a Java version earlier than 17, in build files, Dockerfiles, toolchain files, and CI workflows. Analysis only - no code is modified.
@@ -202,11 +201,11 @@ Test the transformation definition on a repository that you know contains the is
 The **transformation registry** is your AWS account's centralized repository for storing and managing transformation definitions. Transformations in the registry can be:
 + Listed using `atx custom def list`
 + Executed across multiple codebases
-+ Shared with other users in your AWS account
++ Shared with other users in your AWS account, and shared with other AWS accounts, OUs, or your organization through AWS Resource Access Manager (AWS RAM)
 + Version-controlled
 
-**Important**  
-Transformation definitions are account-specific. If you want to use a transformation in a different AWS account, you must publish it separately in that account.
+**Note**  
+A transformation definition belongs to the AWS account that publishes it. To let other accounts run it without publishing their own copy, share it. For more information about sharing, see [Sharing transformation definitions across AWS accounts](custom-sharing.md).
 
 ### Draft vs Published Transformations
 <a name="custom-draft-vs-published"></a>
@@ -216,6 +215,8 @@ AWS Transform custom supports two states for transformations in the registry:
 **Draft transformations** are in-progress or untested transformation definitions. They are saved as specific versions and can be retrieved, updated, and executed by users referring to that specific version. Drafts are useful for iterative development, testing, and refinement before the transformation is ready to be shared with your team. Drafts are also associated to specific conversation. If you restart the CLI, you can use `atx --conversation-id {id}` to restore a previous one.
 
 **Published transformations** are available in your account's transformation registry for execution by other users with the required IAM permissions. Published transformations can be discovered using `atx custom def list`.
+
+You can share published transformations with other AWS accounts. Drafts can't be shared. For more information about sharing, see [Sharing transformation definitions across AWS accounts](custom-sharing.md).
 
 The typical workflow is:
 
@@ -257,7 +258,7 @@ For examples and detailed guidance, see Build and Validation Commands in the Wor
 The continual learning system processes this information to create **lessons** that it adds to the transformation definition to improve future transformations. The system runs the learning process automatically after transformations complete, requiring no additional input from you.
 
 **Important**  
-Lessons are transformation-specific and are not shared across different transformations or different customer accounts.
+Lessons belong to one transformation definition and are stored in the account that owns it. They aren't shared across transformation definitions. When you share a transformation definition, you choose whether the accounts that you share with can use its lessons and contribute new ones. For more information, see [Lessons and shared transformation definitions](custom-sharing-lessons.md).
 
 #### Managing Lessons
 <a name="custom-managing-lessons-concept"></a>

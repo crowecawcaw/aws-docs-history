@@ -1,7 +1,6 @@
 
 
 # SQL Server modernization
-<a name="sql-server-modernization"></a>
 
 AWS Transform for SQL Server Modernization is an AI-powered service that automates the full-stack modernization of Microsoft SQL Server databases and their associated .NET applications to Amazon Aurora PostgreSQL. AWS Transform converts SQL Server storage objects and code objects (stored procedures) using an agentic, interactive experience. The service orchestrates the migration journey from schema conversion, synthetic data generation, and modifying application code to match the new target PostgreSQL, making your teams more productive by automating complex and labor-intensive tasks.
 

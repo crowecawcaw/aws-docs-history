@@ -1,7 +1,6 @@
 
 
 # AWS support for AWS Transform
-<a name="transform-support"></a>
 
 AWS Transform enables you to create and manage AWS Support cases through the chat if you encounter issues during your transformation jobs. Your cases are automatically enriched with job context and routed to the appropriate support team. If you are an active Countdown Premium customer, your designated engineer will reach out to manage issue resolution. Learn more in [AWS Countdown Premium](https://aws.amazon.com/premiumsupport/aws-countdown/). Otherwise, your case will be investigated by the AWS Transform support team in their support queue. 
 

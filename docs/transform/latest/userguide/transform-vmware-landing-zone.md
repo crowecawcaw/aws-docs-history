@@ -1,7 +1,6 @@
 
 
 # Build landing zone
-<a name="transform-vmware-landing-zone"></a>
 
 AWS Transform guides you through designing and deploying an AWS landing zone as part of your migration project. A landing zone is a multi-account AWS environment that serves as the foundation for your workloads. It puts organizational boundaries, governance controls, and account structure in place before any workloads arrive. AWS Transform analyzes your migration inventory and business requirements. Based on this analysis, it recommends an Organizational Unit (OU) and account structure, applies recommended Service Control Policies (SCPs), and generates and deploys the infrastructure as code (IaC). What typically takes weeks of manual planning and configuration, AWS Transform can complete in a single conversation.
 

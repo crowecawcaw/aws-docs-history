@@ -1,7 +1,6 @@
 
 
 # Build and deploy your modernized application post-refactoring
-<a name="transform-app-mainframe-workflow-build-deploy"></a>
 
 After you complete the refactoring process with AWS Transform, you can build and deploy your modernized Java application. This guide walks you through retrieving your modernized code, configuring your environment, and deploying and testing your application.
 

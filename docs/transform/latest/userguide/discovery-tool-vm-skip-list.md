@@ -1,7 +1,6 @@
 
 
 # Excluding VMs from collection
-<a name="discovery-tool-vm-skip-list"></a>
 
 You can exclude specific virtual machines from VMware and Hyper-V inventory by editing a skip list file on the discovery tool appliance. VMs whose names match a pattern in the skip list are excluded from VMware and Hyper-V inventory and do not appear in the discovered inventory. This is useful for excluding infrastructure or management VMs that are not part of your migration scope.
 

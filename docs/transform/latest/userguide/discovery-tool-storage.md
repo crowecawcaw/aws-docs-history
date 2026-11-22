@@ -1,7 +1,6 @@
 
 
 # Managing discovery tool storage
-<a name="discovery-tool-storage"></a>
 
 The discovery tool stores collected data in a local database on the appliance or host. The tool collects data continuously, so the database grows with the size of your server inventory and the length of the collection period.
 
