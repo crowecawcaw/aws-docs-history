@@ -1,7 +1,6 @@
 
 
 # Launching RCS in the Netherlands
-<a name="rcs-country-launch-nl"></a>
 
 To launch your AWS RCS Agent in the Netherlands, submit a country launch registration using the `NL_RCS_LAUNCH_REGISTRATION` registration type. The Netherlands uses the standard baseline registration form but both carriers require a proactive brand approval email. For the baseline fields, see [Standard country launch registration](rcs-country-launch-standard.md).
 

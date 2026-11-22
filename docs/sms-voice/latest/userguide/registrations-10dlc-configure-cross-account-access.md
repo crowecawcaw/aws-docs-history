@@ -1,7 +1,6 @@
 
 
 # 10DLC cross-account access
-<a name="registrations-10dlc-configure-cross-account-access"></a>
 
 Each 10DLC phone number is associated with a single account in a single AWS Region. If you want to use the same 10DLC phone number to send messages in more than one account or Region, you have two options:
 

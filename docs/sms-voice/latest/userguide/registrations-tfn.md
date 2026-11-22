@@ -1,7 +1,6 @@
 
 
 # United States Toll-free number registration process
-<a name="registrations-tfn"></a>
 
 **Important**  
 It can take up to 15 business days for your registration to be processed after it is submitted.

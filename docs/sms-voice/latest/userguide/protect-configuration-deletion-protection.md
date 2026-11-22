@@ -1,7 +1,6 @@
 
 
 # Set up deletion protection in AWS End User Messaging SMS
-<a name="protect-configuration-deletion-protection"></a>
 
 When you turn on deletion protection for a protect configuration you will not be able to delete the protect configuration until deletion protection is disabled and the protect configuration is no longer associated with a configuration set or the *account default* protect configuration. By default, deletion protection is disabled.
 

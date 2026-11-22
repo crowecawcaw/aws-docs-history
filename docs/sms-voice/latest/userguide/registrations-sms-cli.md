@@ -1,7 +1,6 @@
 
 
 # Create a registration using the AWS CLI in AWS End User Messaging SMS
-<a name="registrations-sms-cli"></a>
 
 The following section gives examples of how to create, populate, and submit a registration using the AWS CLI. For examples of how to create and submit a Toll-free phone number registration using python or shell script, see [Automate AWS End User Messaging US toll-free Number Registrations](https://aws.amazon.com/blogs/messaging-and-targeting/automate-us-tfn-registrations/). Registrations vary from country to country, some are single page forms while others, like 10DLC, may require multiple forms to be submitted in a specific order. Check the [individual registration](registrations.md) for details on order and if you need to upload any supporting documentation like a Letter of Authorization (LOA).
 

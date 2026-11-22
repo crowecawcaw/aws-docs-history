@@ -1,7 +1,6 @@
 
 
 # Delete a keyword from a phone number in AWS End User Messaging SMS
-<a name="keywords-phone-number-delete"></a>
 
 Use the AWS End User Messaging SMS console to delete a keyword from your phone number.
 

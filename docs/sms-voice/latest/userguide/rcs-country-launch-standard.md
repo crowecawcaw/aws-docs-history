@@ -1,7 +1,6 @@
 
 
 # Standard country launch registration
-<a name="rcs-country-launch-standard"></a>
 
 The following countries use the standard baseline registration form with no additional out-of-band requirements:
 + Colombia (CO)

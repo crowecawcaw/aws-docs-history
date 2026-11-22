@@ -1,7 +1,6 @@
 
 
 # Immutable 10DLC campaign fields
-<a name="registrations-edit-10dlc-immutable-fields"></a>
 
 Certain 10DLC campaign fields are permanently locked by The Campaign Registry (TCR) after initial submission. These fields cannot be modified regardless of whether the campaign is approved, denied, or in a **Requires Updates** state. If you attempt to change one of these fields during resubmission, the update is rejected with the following error:
 

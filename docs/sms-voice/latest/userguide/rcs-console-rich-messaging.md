@@ -1,7 +1,6 @@
 
 
 # Sending rich RCS messages from the console
-<a name="rcs-console-rich-messaging"></a>
 
 The AWS End User Messaging console provides a visual message composer that you can use to build and send rich RCS messages without writing code. The composer maps directly to the `SendRcsMessage` API and supports all content types: text messages, file messages, rich cards, and carousels. You can attach interactive suggestions to any message type, configure time-to-live (TTL) settings, and set up SMS or MMS fallback for recipients whose devices do not support RCS.
 

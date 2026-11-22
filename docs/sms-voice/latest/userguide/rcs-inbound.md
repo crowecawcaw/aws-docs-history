@@ -1,7 +1,6 @@
 
 
 # Receiving inbound RCS messages
-<a name="rcs-inbound"></a>
 
 AWS End User Messaging supports two-way RCS messaging, allowing you to receive text messages from your customers. Inbound RCS messages follow the same pattern as SMS two-way messaging: incoming messages are delivered to an Amazon SNS topic that you configure, and you process them using Lambda functions or other SNS subscribers.
 
@@ -72,7 +71,7 @@ To configure your two-way messaging destination using the API, call the `UpdateR
 
 The following example configures the two-way messaging destination using the AWS CLI:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 update-rcs-agent \
     --rcs-agent-id rcs-a1b2c3d4 \
     --two-way-enabled \
@@ -94,7 +93,7 @@ Create an IAM role that AWS End User Messaging can assume to publish messages to
 
 The following is the **trust policy** for the IAM role. Replace {{accountId}} with the unique ID for your AWS account.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -121,7 +120,7 @@ The following is the **permission policy** for the IAM role. The `SMSVoiceAllowS
 + Replace {{accountId}} with the unique ID for your AWS account.
 + Replace {{snsTopicName}} with the name of the Amazon SNS topic that receives inbound messages.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -160,7 +159,7 @@ The following is the **permission policy** for the IAM role. The `SMSVoiceAllowS
 
 Alternatively, add a policy statement directly to the SNS topic that allows AWS End User Messaging to publish messages. Replace {{snsTopicArn}} with the ARN of your SNS topic.
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": {
@@ -176,7 +175,7 @@ Alternatively, add a policy statement directly to the SNS topic that allows AWS 
 
 When your AWS RCS Agent receives an inbound text message, AWS End User Messaging publishes a JSON payload to the configured Amazon SNS topic. The RCS inbound message payload uses the same format as SMS two-way messaging:
 
-```
+```json
 {
   "originationNumber": "+14255550182",
   "destinationNumber": "+12125550101",
@@ -228,7 +227,7 @@ A common pattern for processing inbound RCS messages is to subscribe a Lambda fu
 
 The following Python example shows a Lambda function that processes inbound RCS messages and sends a response using the `SendTextMessage` API:
 
-```
+```python
 import json
 import boto3
 

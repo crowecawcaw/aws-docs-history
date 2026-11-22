@@ -1,7 +1,6 @@
 
 
 # Update shared routes in AWS End User Messaging SMS
-<a name="phone-pool-shared-routes"></a>
 
 In some countries, AWS End User Messaging SMS maintains a pool of shared origination identities. When you activate shared routes, AWS End User Messaging SMS makes an effort to deliver your message using one of the shared identities. The origination identity could be a sender ID, long code or short code and could vary within each country. When shared routes uses a sender ID as the origination identity, the sender ID will be a generic sender ID, such as `NOTICE`. Shared identities are unavailable in some countries, including the United States.
 

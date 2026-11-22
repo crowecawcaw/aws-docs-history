@@ -1,7 +1,6 @@
 
 
 # Add a destination phone number to an opt-out list in AWS End User Messaging SMS
-<a name="opt-out-list-add-phone-number"></a>
 
 Use the AWS End User Messaging SMS console or AWS CLI to add a destination phone number to an opt-out list. When you add a phone number to an opt-out list that phone number will no longer receive messages sent from an origination identity that is linked to the opt-out list.
 
@@ -27,7 +26,7 @@ You can use the [put-opted-out-number](https://docs.aws.amazon.com/cli/latest/re
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 put-opted-out-number \
 > --opt-out-list-name {{optOutListName}} \
 > --opted-out-number {{+12065550123}}

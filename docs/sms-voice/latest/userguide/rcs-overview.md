@@ -1,7 +1,6 @@
 
 
 # What is RCS?
-<a name="rcs-overview"></a>
 
 Rich Communication Services (RCS) for business is a messaging protocol that enhances traditional SMS with verified brand identity. With AWS End User Messaging, you can send RCS text messages to recipients in 22 supported countries, with automatic SMS fallback for devices or carriers that don't support RCS.
 

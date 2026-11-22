@@ -1,7 +1,6 @@
 
 
 # Rejection troubleshooting
-<a name="registration-help-rejection-troubleshooting"></a>
 
 When your registration is denied, the AWS End User Messaging SMS console displays a rejection reason. These rejection reasons apply to all US registration types including 10DLC campaigns, Toll-Free numbers, and Short Codes. Use this guide to identify your rejection, understand what went wrong, and determine how to fix it.
 

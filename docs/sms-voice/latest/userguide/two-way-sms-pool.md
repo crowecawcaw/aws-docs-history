@@ -1,7 +1,6 @@
 
 
 # Set up two-way SMS messaging for a phone pool in AWS End User Messaging SMS
-<a name="two-way-sms-pool"></a>
 
 Use the AWS End User Messaging SMS console or AWS CLI to enable two way SMS for your phone pool.
 
@@ -41,7 +40,7 @@ You can use the [update-pool](https://docs.aws.amazon.com/cli/latest/reference/p
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-pool \
 > --pool-id {{poolid}} \
 > --two-way-channel-arn {{TwoWayARN}} \

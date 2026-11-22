@@ -1,7 +1,6 @@
 
 
 # QR code opt-in
-<a name="registration-help-optin-qrcode"></a>
 
 Use this pattern for **physical signage** (in-store displays, receipts, mailers, posters) with a QR code or NFC tag. All required disclosures must be printed directly on the signage — the user sees them before scanning. Scanning the QR code deeplinks to the native messaging app to send an inbound message to the registered number.
 

@@ -1,7 +1,6 @@
 
 
 # Add a keyword to a phone number in AWS End User Messaging SMS
-<a name="keywords-manage-phone-number"></a>
 
 Use the AWS End User Messaging SMS console or AWS CLI to customize the keyword responses for your phone number.
 
@@ -34,7 +33,7 @@ You can use the [put-keyword](https://docs.aws.amazon.com/cli/latest/reference/p
 
 To create a keyword, run the following command in the AWS CLI:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 put-keyword \
 > --origination-identity {{OriginationIdentity}} \
 > --keyword {{Keyword}} \

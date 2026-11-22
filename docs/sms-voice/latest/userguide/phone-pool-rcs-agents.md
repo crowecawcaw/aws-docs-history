@@ -1,7 +1,6 @@
 
 
 # Managing AWS RCS Agents in pools
-<a name="phone-pool-rcs-agents"></a>
 
 You can add an AWS RCS Agent as an origination identity in a phone pool alongside your SMS phone numbers. When a pool contains both an AWS RCS Agent and SMS phone numbers, AWS End User Messaging attempts RCS delivery first and automatically falls back to SMS if RCS delivery is not possible. For details on how fallback works, see [RCS to SMS fallback using phone pools](rcs-sms-fallback.md).
 

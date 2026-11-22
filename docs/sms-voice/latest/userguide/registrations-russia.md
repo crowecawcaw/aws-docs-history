@@ -1,7 +1,6 @@
 
 
 # Russia sender ID registration in AWS End User Messaging SMS
-<a name="registrations-russia"></a>
 
 Follow these directions to register your sender ID in Russia.
 

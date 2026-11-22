@@ -1,7 +1,6 @@
 
 
 # Testing RCS messages
-<a name="rcs-testing"></a>
 
 Before you launch RCS messaging in production, you can test your integration using a testing agent. The testing agent is an RCS for Business ID that is created when you submit a testing registration for your AWS RCS Agent. It provides full API access identical to production, but restricts message delivery to registered test devices only. No carrier approval is needed for testing.
 
@@ -46,7 +45,7 @@ In the console, test devices are managed on the **RBM tester management** sub-ta
 
 Use the `create-verified-destination-number` command with the `--rcs-agent-id` parameter to register a test device for your AWS RCS Agent:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 create-verified-destination-number \
     --destination-phone-number +12065550100 \
     --rcs-agent-id rcs-a1b2c3d4
@@ -77,7 +76,7 @@ To view your registered test devices in the console, navigate to the details pag
 
 Use the `describe-verified-destination-numbers` command to list test devices for your AWS RCS Agent. Use the `--filters` parameter with `rcs-agent-id` to show only RCS test devices:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 describe-verified-destination-numbers \
     --filters Name=rcs-agent-id,Values=rcs-a1b2c3d4
 ```
@@ -115,7 +114,7 @@ After a test device has accepted the tester invitation, you can send RCS message
 
 Use the `send-text-message` command to send a test message to a verified destination number. Specify the AWS RCS Agent ARN as the origination identity:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 send-text-message \
     --destination-phone-number +12065550100 \
     --origination-identity arn:aws:sms-voice:us-east-1:123456789012:rcs-agent/rcs-a1b2c3d4 \

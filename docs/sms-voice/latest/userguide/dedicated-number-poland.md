@@ -1,7 +1,6 @@
 
 
 # Poland dedicated number registration in AWS End User Messaging SMS
-<a name="dedicated-number-poland"></a>
 
 Registering a dedicated number is the first step in creating an origination identity.
 

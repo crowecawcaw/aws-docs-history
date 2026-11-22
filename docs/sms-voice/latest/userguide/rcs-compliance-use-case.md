@@ -1,7 +1,6 @@
 
 
 # Use case selection and pre-submission checklist
-<a name="rcs-compliance-use-case"></a>
 
 Your declared use case (OTP, Transactional, Promotional, or Multi-use) must align with ALL other elements of your registration.
 

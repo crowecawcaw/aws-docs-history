@@ -1,7 +1,6 @@
 
 
 # Configuring RCS message expiration
-<a name="rcs-message-expiration"></a>
 
 Time-sensitive messages, such as one-time passwords (OTPs), flash-sale announcements, and appointment reminders, lose value if delivered after the relevant window has passed. When you include the `TimeToLive` parameter in a `SendRcsMessage` request, AWS End User Messaging removes the message if it has not been delivered within the specified number of seconds. The recipient never sees an expired message.
 

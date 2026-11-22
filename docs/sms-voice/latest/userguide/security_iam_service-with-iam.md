@@ -1,7 +1,6 @@
 
 
 # How AWS End User Messaging SMS works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS End User Messaging SMS, learn what IAM features are available to use with AWS End User Messaging SMS.
 
@@ -120,7 +119,7 @@ To view examples of AWS End User Messaging SMS identity-based policies, see [Ide
 
 Some AWS End User Messaging SMS actions, such as certain actions for creating resources, can't be performed on a specific resource. In those cases, you must use the wildcard (\*):
 
-```
+```json
 "Resource": "*"
 ```
 

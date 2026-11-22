@@ -1,7 +1,6 @@
 
 
 # How Short Message Service (SMS) works
-<a name="what-is-sms"></a>
 
 [Short Message Service](https://aws.amazon.com/what-is/sms/), commonly known as SMS, is a service that allows the exchange of text messages between mobile devices. SMS messages are typically short, with a maximum length of 160 characters, supported by virtually all mobile devices, and can be sent and received on various mobile networks. SMS is widely used for personal and business communication, providing a quick and convenient way to send concise messages to individuals or groups of people.
 

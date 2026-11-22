@@ -1,7 +1,6 @@
 
 
 # Required AWS End User Messaging SMS opt-out list keywords
-<a name="opt-out-list-keywords"></a>
 
 Where required by local laws and regulations (such as in the US and Canada), SMS and MMS recipients can use their devices to opt out by replying to the message with any of the following: 
 + ARRET

@@ -1,7 +1,6 @@
 
 
 # Configuring RCS suggestions
-<a name="rcs-suggestions"></a>
 
 Suggestions are interactive chips that appear below or within an RCS message. They guide recipients through a conversation by presenting predefined replies and actions, such as opening a URL, calling a phone number, or sharing a location, without requiring the recipient to type. Suggestions are how you build interactive, conversational experiences with `SendRcsMessage`.
 
@@ -46,7 +45,7 @@ Persistent suggestions appear inside the message bubble and remain visible after
 
 A `Reply` suggestion sends a predefined text reply back to your agent. The display text appears as a sent message in the conversation, and the `PostbackData` is delivered to your application.
 
-```
+```json
 { "Reply": { "Text": "Yes, confirm", "PostbackData": "confirm_order_12345" } }
 ```
 
@@ -61,7 +60,7 @@ A `Reply` suggestion sends a predefined text reply back to your agent. The displ
 
 An `OpenUrl` suggestion opens a URL. By default the URL opens in the device browser. To open the URL in a webview that keeps the recipient inside the messaging app, set `Application` to `WEBVIEW` and specify a `WebviewViewMode`.
 
-```
+```json
 {
   "OpenUrl": {
     "Text": "Complete payment",
@@ -90,7 +89,7 @@ The `Url` must use the `https://` protocol. An `s3://` URL is rejected. Unlike a
 
 A `DialPhone` suggestion starts a phone call to the number you specify.
 
-```
+```json
 { "DialPhone": { "Text": "Call support", "PostbackData": "dial_support", "PhoneNumber": "+18005551234" } }
 ```
 
@@ -106,7 +105,7 @@ A `DialPhone` suggestion starts a phone call to the number you specify.
 
 A `ShowLocation` suggestion opens a map at the coordinates you specify.
 
-```
+```json
 {
   "ShowLocation": {
     "Text": "View on map",
@@ -132,7 +131,7 @@ A `ShowLocation` suggestion opens a map at the coordinates you specify.
 
 A `RequestLocation` suggestion prompts the recipient to share their current location. The shared coordinates arrive as a separate inbound location event.
 
-```
+```json
 { "RequestLocation": { "Text": "Share location", "PostbackData": "request_user_location" } }
 ```
 
@@ -147,7 +146,7 @@ A `RequestLocation` suggestion prompts the recipient to share their current loca
 
 A `CreateCalendarEvent` suggestion creates a calendar event on the recipient's device with the details you specify.
 
-```
+```json
 {
   "CreateCalendarEvent": {
     "Text": "Add to calendar",
@@ -175,7 +174,7 @@ A `CreateCalendarEvent` suggestion creates a calendar event on the recipient's d
 
 When a recipient chooses a suggestion, AWS End User Messaging publishes an inbound message to your two-way SNS topic. The `messageBody` contains a JSON object with the suggestion type, the display text, and the `postbackData` you set. Route your logic on `postbackData`.
 
-```
+```json
 {
   "originationNumber": "+12065551234",
   "destinationNumber": "rcs-a1b2c3d4",

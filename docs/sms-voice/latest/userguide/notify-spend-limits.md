@@ -1,7 +1,6 @@
 
 
 # Notify spend limits
-<a name="notify-spend-limits"></a>
 
 Notify has its own dedicated monthly spend limit, separate from your SMS, MMS, and voice spend limits. Sending messages via Notify does not count against your SMS or voice spend limits.
 

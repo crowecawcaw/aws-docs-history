@@ -1,7 +1,6 @@
 
 
 # Notify quotas and limits
-<a name="notify-quotas"></a>
 
 This section describes the default quotas, rate limits, and supported countries for Notify.
 

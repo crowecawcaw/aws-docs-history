@@ -1,7 +1,6 @@
 
 
 # Agent setup guide
-<a name="agent-setup-guide"></a>
 
 AI coding agents can accelerate messaging development by guiding you through workflows that historically required navigating multiple documentation pages. Examples include creating a Rich Communication Services (RCS) branded agent, sending a one-time passcode, registering to send SMS, and moving from the sandbox to production. AWS End User Messaging SMS publishes an agent skill that gives your agent step-by-step, validated guidance for these tasks. An agent configured with your AWS credentials can also run the underlying API calls. Without credentials, the skill provides guidance only.
 
@@ -28,7 +27,7 @@ The AWS MCP Server, built on the Model Context Protocol (MCP), gives your agent 
 
 The `aws-core` plugin bundles the AWS MCP Server configuration and a curated set of skills in one install:
 
-```
+```bash
 /plugin marketplace add aws/agent-toolkit-for-aws
 /plugin install aws-core@agent-toolkit-for-aws
 ```
@@ -38,7 +37,7 @@ The `aws-core` plugin bundles the AWS MCP Server configuration and a curated set
 
 Add the server to `.kiro/settings/mcp.json`:
 
-```
+```json
 {
   "mcpServers": {
     "aws": {
@@ -63,7 +62,7 @@ See [Setting up the AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/la
 
 For Claude Code, Codex, and Cursor, `aws-core` already includes the skill, so you can skip this step. For any other agent:
 
-```
+```bash
 npx skills add aws/agent-toolkit-for-aws/skills --skill aws-sms-voice --yes --global
 ```
 

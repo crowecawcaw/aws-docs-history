@@ -1,7 +1,6 @@
 
 
 # Business verification for toll-free registrations
-<a name="registration-help-tfn-verification"></a>
 
 When you submit a toll-free number registration, your business identity is verified using the company identification number (such as an EIN) that you provide. This verification confirms that your business is legitimate and that the company name on your registration matches official records.
 

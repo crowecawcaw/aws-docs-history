@@ -1,7 +1,6 @@
 
 
 # Edit a registration in AWS End User Messaging SMS
-<a name="registrations-edit"></a>
 
 After you submit your registration, the **registration status** will display as **Requires Updates** if there is an issue with the registration. In this state, the registration form is editable. Fields that require updates have a warning icon and a brief description of the issue.
 

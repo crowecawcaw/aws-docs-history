@@ -1,7 +1,6 @@
 
 
 # Opt-in requirements checklist
-<a name="registration-help-quickstart"></a>
 
 Before submitting any registration (10DLC, Toll-Free, or Short Code), verify your opt-in workflow meets all applicable requirements. Incomplete opt-in documentation is the most common cause of registration denial.
 

@@ -1,7 +1,6 @@
 
 
 # Query phone number override rule in AWS End User Messaging SMS
-<a name="protect-rule-override-rules-querying"></a>
 
 To query phone number override rules, you can use the AWS End User Messaging SMS console, the [ListProtectConfigurationRuleSetNumberOverrides](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ListProtectConfigurationRuleSetNumberOverrides.html) action in the AWS End User Messaging SMS and voice v2 API, or the [list-protect-configuration-rule-set-number-overrides](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/list-protect-configuration-rule-set-number-overrides.html) command in the AWS CLI. This section shows how to query phone number override rules using the AWS End User Messaging SMS console and the AWS CLI. 
 
@@ -43,7 +42,7 @@ To query a phone number override rule using the AWS End User Messaging SMS conso
 
 You can use the [list-protect-configuration-rule-set-number-overrides](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/list-protect-configuration-rule-set-number-overrides.html) AWS CLI command to list all phone number rule overrides in a protect configuration. 
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 list-protect-configuration-rule-set-number-overrides --protect-configuration-id {{ProtectConfigurationID}}
 ```
 

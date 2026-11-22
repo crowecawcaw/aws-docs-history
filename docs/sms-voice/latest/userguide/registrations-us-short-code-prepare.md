@@ -1,7 +1,6 @@
 
 
 # Prepare for your US Short Code submission
-<a name="registrations-us-short-code-prepare"></a>
 
 Before submitting your short code registration, review the following industry guidelines to ensure your SMS campaign is compliant with carrier requirements:
 + [CTIA Short Code Monitoring Handbook](https://api.ctia.org/wp-content/uploads/2024/01/CTIA-Short-Code-Monitoring-Handbook-v1.9-FINAL.pdf) – Comprehensive guidelines for short code program compliance and monitoring.

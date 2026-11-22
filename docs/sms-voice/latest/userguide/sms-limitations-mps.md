@@ -1,7 +1,6 @@
 
 
 # What are the Message Parts per Second (MPS) limits
-<a name="sms-limitations-mps"></a>
 
 SMS messages are delivered in 140-byte sections known as *message parts*. Messages that are very long, or that contain many multi-byte characters, are split into several message parts. These messages are usually re-assembled on the recipient's device, appearing as a single long message rather than several small ones. For more information about SMS character limits, see [SMS character limits](sms-limitations-character.md).
 

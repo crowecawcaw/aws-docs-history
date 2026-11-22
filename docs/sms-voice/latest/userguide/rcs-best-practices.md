@@ -1,7 +1,6 @@
 
 
 # RCS best practices
-<a name="rcs-best-practices"></a>
 
 With RCS rich messaging, you can create conversational, interactive experiences that go beyond traditional SMS. This topic provides guidance for designing effective RCS messages, including suggestion strategy, rich card and carousel layout, media optimization, message expiration, fallback planning, and monitoring.
 

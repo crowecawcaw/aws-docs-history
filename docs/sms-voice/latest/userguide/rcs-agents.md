@@ -1,7 +1,6 @@
 
 
 # Managing RCS agents
-<a name="rcs-agents"></a>
 
 An AWS RCS Agent is the top-level resource in AWS End User Messaging that represents your brand for RCS messaging. It serves as the unified resource that binds together your testing agent and country launch agents (RCS for Business IDs). Keywords and two-way messaging configuration are defined on the AWS RCS Agent. Brand assets are defined on each registration (testing agent or country launch agent). For an overview of how the AWS RCS Agent relates to RCS for Business IDs, see [What is RCS?](rcs-overview.md).
 
@@ -147,7 +146,7 @@ The AWS End User Messaging console presents AWS RCS Agent creation and testing r
 
 Use the `create-rcs-agent` command to create an AWS RCS Agent. Brand assets (display name, description, logo, banner, and brand color) are not parameters of this command. They are submitted as registration fields when you create a testing registration.
 
-```
+```bash
 aws pinpoint-sms-voice-v2 create-rcs-agent \
     --deletion-protection-enabled
 ```
@@ -187,13 +186,13 @@ Choose an agent to view its details, including brand assets, configuration setti
 
 Use the `describe-rcs-agents` command to list all AWS RCS Agents in your account:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 describe-rcs-agents
 ```
 
 To retrieve details for a specific agent, use the `--rcs-agent-ids` parameter:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 describe-rcs-agents \
     --rcs-agent-ids rcs-a1b2c3d4
 ```
@@ -224,7 +223,7 @@ To view the country launch status in the console, navigate to the details page f
 
 Use the `describe-rcs-agent-country-launch-status` command to retrieve the per-carrier launch status:
 
-```
+```bash
 aws pinpoint-sms-voice-v2 describe-rcs-agent-country-launch-status \
     --rcs-agent-id rcs-a1b2c3d4
 ```

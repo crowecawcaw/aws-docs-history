@@ -1,7 +1,6 @@
 
 
 # RCS billing and pricing model
-<a name="rcs-billing"></a>
 
 RCS messaging in AWS End User Messaging uses a pricing model with two cost components: an AWS message fee and a carrier fee that is passed through with no markup. This chapter explains the pricing structure for RCS messaging. For current rates, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
 

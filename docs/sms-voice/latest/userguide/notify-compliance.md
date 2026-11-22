@@ -1,7 +1,6 @@
 
 
 # Notify mobile carrier prerequisites
-<a name="notify-compliance"></a>
 
 When using AWS End User Messaging Notify, you are responsible for complying with applicable messaging laws and mobile carrier requirements in each country or region where your customers are located. Consult an attorney to assess compliance obligations. Non-compliance with these requirements may result in carrier audit and removal of your access to Notify. This page specifies mobile-carrier mandated prerequisites for using Notify, including the minimum required language you must make available to your customers detailing your terms and conditions, privacy policy, and opt-in flow applicable to your messaging.
 

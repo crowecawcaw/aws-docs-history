@@ -1,7 +1,6 @@
 
 
 # Create a new registration using the AWS End User Messaging SMS console
-<a name="registrations-create"></a>
 
 You can use the AWS End User Messaging SMS console to manage registrations for your AWS End User Messaging SMS account. If your registration was already created as part of requesting a phone number or sender ID then you do not need to create a new registration. You can view the resources associated with a registration in the **Associated resources** tab, for more information see [View a registration associated resources in AWS End User Messaging SMS](registrations-associated-resource.md).
 

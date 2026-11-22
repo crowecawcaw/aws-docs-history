@@ -1,7 +1,6 @@
 
 
 # Manage registrations
-<a name="registrations-manage"></a>
 
 The following sections contain directions on how to manage a registration. 
 

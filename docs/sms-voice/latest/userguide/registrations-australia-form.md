@@ -1,7 +1,6 @@
 
 
 # Australia sender ID registration form
-<a name="registrations-australia-form"></a>
 
 Complete the Australia sender ID registration form to submit your sender ID for ACMA verification. For the documents and identity evidence you must attach, and the most common reasons registrations are denied, see [Document requirements and common reasons for denial](registrations-australia.md#registrations-australia-document-requirements).
 

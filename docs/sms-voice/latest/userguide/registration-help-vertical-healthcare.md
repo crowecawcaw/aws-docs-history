@@ -1,7 +1,6 @@
 
 
 # Healthcare Providers
-<a name="registration-help-vertical-healthcare"></a>
 
 This guide covers A2P SMS registration requirements specific to healthcare providers, clinics, hospitals, and medical practices. Healthcare messaging is permitted but requires careful attention to patient privacy, consent mechanisms, and content restrictions.
 

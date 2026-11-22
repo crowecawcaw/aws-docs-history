@@ -1,7 +1,6 @@
 
 
 # Using protect configurations in AWS End User Messaging SMS
-<a name="protect-configuration"></a>
 
 Use protect configurations to control which destination countries AWS End User Messaging SMS can send your messages to. By controlling which countries you allow messages to be sent to, you can avoid sending to countries with high message prices or countries you don't operate in. Each protect configuration contains individual allow and block country rules for SMS, MMS, and voice. Create separate protect configurations for each messaging use case to improve detection accuracy. Separating use cases like marketing notifications from login/sign-up enables more precise risk evaluation. Additionally, when one use case faces AIT, other use cases continue to deliver messages without any message filtering.
 
@@ -23,7 +22,7 @@ A protect configuration can be associated to multiple configuration sets, while 
 
 The following example for `SendMediaMessage` has both a configuration set and protect configuration specified in the command. The protect configuration specified in the *ProtectConfigurationId* parameter is used regardless of whether the configuration set has an associated protect configuration or if there is an *account default* protect configuration.
 
-```
+```bsh
 aws pinpoint-sms-voice-v2 --region '{{us-east-1}}' send-media-message --destination-phone-number {{+12065550150}} --origination-identity {{+14255550120}} --message-body '{{text body}}' --media-urls '{{s3://s3-bucket/media_file.jpg}}' --configuration-set-name {{ConfigSetName}} --protect-configuration-id {{ProtectConfigId}}
 ```
 

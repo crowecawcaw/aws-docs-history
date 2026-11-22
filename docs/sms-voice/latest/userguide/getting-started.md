@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS End User Messaging SMS
-<a name="getting-started"></a>
 
 This topic shows you how to use the AWS End User Messaging SMS console to manage phone numbers, sender IDs, pools, and configuration sets, and then send test SMS messages. We recommend you use simulator phone numbers to test both sending and receiving an SMS message. The [workshop](https://catalog.workshops.aws/build-sms-program/en-US) is targeted for developers and technical individuals who are comfortable using the AWS Command Line Interface (AWS CLI) to run API commands. For more information about SMS, MMS, or origination identity pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
 

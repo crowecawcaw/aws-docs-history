@@ -1,7 +1,6 @@
 
 
 # Amazon SNS access policy
-<a name="configuration-sets-sns-creating-role"></a>
 
 Access to an Amazon SNS topic is controlled by a *resource policy* attached to the Amazon SNS topic, this is also called an *access policy*. For more information about Amazon SNS *access polices*, see [Identity and access management](https://docs.aws.amazon.com/sns/latest/dg/security-iam.html) in the *Amazon SNS Developer Guide*. 
 
@@ -19,7 +18,7 @@ Update the *access policy* with the following statement to permit AWS End User M
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -55,7 +54,7 @@ If your Amazon SNS topic has server-side encryption enabled with AWS Key Managem
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "example-ID",

@@ -1,7 +1,6 @@
 
 
 # RCS to SMS fallback using phone pools
-<a name="rcs-sms-fallback"></a>
 
 A phone pool is a container of messaging identities, such as AWS RCS Agents and SMS phone numbers, that provides an abstraction layer between your API requests and the underlying origination identities. Pools simplify configuration changes, number type migration, and RCS-to-SMS fallback. You send a single API call to the pool, and AWS End User Messaging handles channel selection for you.
 

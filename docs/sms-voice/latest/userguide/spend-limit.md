@@ -1,7 +1,6 @@
 
 
 # Set an SMS, MMS or voice spending limit in AWS End User Messaging SMS
-<a name="spend-limit"></a>
 
 In AWS End User Messaging SMS there are spending limits for each messaging channel. 
 

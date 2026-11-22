@@ -1,7 +1,6 @@
 
 
 # Launch video requirements
-<a name="rcs-compliance-video"></a>
 
 Country launch registrations for the United States and Canada require a screen recording (video) that demonstrates your RCS messaging experience. This is the second most common source of denials.
 

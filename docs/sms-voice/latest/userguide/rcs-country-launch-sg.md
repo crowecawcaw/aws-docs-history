@@ -1,7 +1,6 @@
 
 
 # Launching RCS in Singapore
-<a name="rcs-country-launch-sg"></a>
 
 To launch your AWS RCS Agent in Singapore, submit a country launch registration using the `SG_RCS_LAUNCH_REGISTRATION` registration type. Singapore has a significant prerequisite: you must have a registered SMS sender on the SGNIC portal before you can register for RCS.
 

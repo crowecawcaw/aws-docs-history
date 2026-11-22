@@ -1,7 +1,6 @@
 
 
 # 10DLC registration process
-<a name="registrations-10dlc-setup"></a>
 
 You can set up 10DLC directly in the AWS End User Messaging SMS console. To set up 10DLC, you must complete all of the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # Edit a keyword in a phone pool
-<a name="keywords-pool-edit"></a>
 
 Use the AWS End User Messaging SMS console or AWS CLI to edit keyword responses for your phone pool.
 
@@ -34,7 +33,7 @@ You can use the [put-keyword](https://docs.aws.amazon.com/cli/latest/reference/p
 
 To create a keyword, run the following command in the AWS CLI:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 put-keyword \
 > --origination-identity {{OriginationIdentity}} \
 > --keyword {{Keyword}} \

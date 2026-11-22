@@ -1,7 +1,6 @@
 
 
 # Keywords in AWS End User Messaging SMS
-<a name="keywords"></a>
 
 A *keyword* is a specific word or phrase that a customer can send to your phone number to elicit a response, such as an informational message, opting-in to receive more messages, a special offer and other promotional and transactional messages. When your number receives a message that begins with a keyword, AWS End User Messaging SMS responds with a customizable message.
 

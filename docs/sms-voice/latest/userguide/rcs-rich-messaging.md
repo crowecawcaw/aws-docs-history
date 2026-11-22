@@ -1,7 +1,6 @@
 
 
 # Sending rich RCS messages
-<a name="rcs-rich-messaging"></a>
 
 With the `SendRcsMessage` API action in AWS End User Messaging, you can send rich, interactive content to recipients over RCS (Rich Communication Services). Rich RCS messages go beyond plain text to include rich cards, carousels, media files, and suggestions that recipients choose to take action. These interactive elements turn one-way notifications into two-way conversational experiences, such as letting a recipient confirm an appointment, browse a product catalog, or share their location without leaving the conversation.
 

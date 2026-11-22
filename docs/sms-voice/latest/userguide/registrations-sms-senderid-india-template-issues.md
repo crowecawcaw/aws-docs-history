@@ -1,7 +1,6 @@
 
 
 # Understanding template matching issues when sending messages
-<a name="registrations-sms-senderid-india-template-issues"></a>
 
 Indian carriers will reject your messages if they don't align exactly with the templates that you submitted during the registration process. If you experience message delivery issues, check your messages for the following common issues:
 + **Message content doesn't match registered template** – All of the messages that you send must correspond to a registered template. If you send a message that doesn't exactly match the template associated with the Template ID that you provided, the mobile carriers will reject your message.

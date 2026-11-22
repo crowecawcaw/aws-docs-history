@@ -1,7 +1,6 @@
 
 
 # Supported countries and regions for MMS messaging in AWS End User Messaging SMS
-<a name="phone-numbers-mms-by-country"></a>
 
 You can use AWS End User Messaging SMS to send MMS messages to the countries, regions, and territories listed in the following table. 
 

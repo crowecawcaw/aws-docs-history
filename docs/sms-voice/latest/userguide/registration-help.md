@@ -1,7 +1,6 @@
 
 
 # Registration support
-<a name="registration-help"></a>
 
 When you send A2P (application-to-person) SMS messages to US destinations through AWS End User Messaging SMS, your traffic must be registered with the appropriate number type. This guide helps you prepare and submit successful registrations, troubleshoot denials, and meet compliance requirements for your industry.
 

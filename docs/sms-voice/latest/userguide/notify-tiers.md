@@ -1,7 +1,6 @@
 
 
 # Notify tiers
-<a name="notify-tiers"></a>
 
 Notify offers two service tiers with different capabilities and limits. All new configurations start on the Basic tier. You can upgrade to the Advanced tier after completing tier upgrade verification.
 

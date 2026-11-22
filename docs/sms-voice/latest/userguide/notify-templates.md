@@ -1,7 +1,6 @@
 
 
 # Working with Notify templates
-<a name="notify-templates"></a>
 
 Notify templates are pre-approved, AWS-managed message templates for sending OTP and verification messages. Templates are pre-validated across supported countries. You select from available templates but cannot create or modify them.
 

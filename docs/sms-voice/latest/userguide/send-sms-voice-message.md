@@ -1,7 +1,6 @@
 
 
 # Example of sending an SMS or voice message using AWS End User Messaging SMS
-<a name="send-sms-voice-message"></a>
 
 You can use the AWS End User Messaging SMS API to send messages directly from your apps. Transactional messages are messages that you send to specific recipients.
 
@@ -19,7 +18,7 @@ To use a shared resource you must use the full Amazon Resource Name (ARN).
 
 If you are using a shared resource then you must use the full Amazon Resource Name (ARN) of the resource. You can use the following code example to send an SMS message using the AWS SDK for Python (Boto3).
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 
@@ -100,7 +99,7 @@ If you don't use a registered sender ID to send messages to customers in India, 
 
 You can use the following code example to send a voice message using the AWS SDK for Python (Boto3).
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 

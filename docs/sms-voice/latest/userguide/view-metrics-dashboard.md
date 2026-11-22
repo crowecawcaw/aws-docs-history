@@ -1,7 +1,6 @@
 
 
 # Dashboard metrics for AWS End User Messaging SMS
-<a name="view-metrics-dashboard"></a>
 
 The **Dashboard** page contains several charts and metrics that provide an overview of message sending, message feedback, and messages evaluated by Protect. For a list of all CloudWatch metrics, see [CloudWatch metrics](monitoring-cloudwatch.md#cw-metrics). For directions on how to setup an alarm, see [Create CloudWatch Alarms](monitoring-sms-cw.md).
 

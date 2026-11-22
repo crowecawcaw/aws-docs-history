@@ -1,7 +1,6 @@
 
 
 # AWS End User Messaging SMS concepts
-<a name="what-is-concepts"></a>
 
 This section describes key concepts and defines terminology specific to AWS End User Messaging SMS.
 

@@ -1,7 +1,6 @@
 
 
 # Add a destination phone number while in the AWS End User Messaging SMS sandbox
-<a name="verify-destination-phone-number"></a>
 
 **Note**  
 Verified destination phone numbers are only required for testing while your account is in the sandbox. If your account is in production, you don't need to add verified destination phone numbers.

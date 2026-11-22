@@ -1,7 +1,6 @@
 
 
 # Australia sender ID registration in AWS End User Messaging SMS
-<a name="registrations-australia"></a>
 
 Starting July 1, 2026, the Australian Communications and Media Authority (ACMA) requires all alphanumeric SMS sender IDs used to send messages to Australian recipients to be registered in the ACMA SMS Sender ID Register. Messages sent using an unregistered sender ID will be labeled as "Unverified" or may be blocked by Australian carriers. Please submit your registration as soon as possible to allow time for processing before the enforcement date.
 

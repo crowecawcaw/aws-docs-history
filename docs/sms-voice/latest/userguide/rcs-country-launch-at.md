@@ -1,7 +1,6 @@
 
 
 # Launching RCS in Austria
-<a name="rcs-country-launch-at"></a>
 
 To launch your AWS RCS Agent in Austria, submit a country launch registration using the `AT_RCS_LAUNCH_REGISTRATION` registration type. Austria uses the standard baseline registration form. For the baseline fields, see [Standard country launch registration](rcs-country-launch-standard.md).
 

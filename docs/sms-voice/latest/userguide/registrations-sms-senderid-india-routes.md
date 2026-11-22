@@ -1,7 +1,6 @@
 
 
 # Understanding international and local routes for India
-<a name="registrations-sms-senderid-india-routes"></a>
 
 **International routes (ILDO)**
 

@@ -1,7 +1,6 @@
 
 
 # Registration forms
-<a name="registrations-country"></a>
 
 The following registrations can be filled out and submitted through the AWS End User Messaging SMS console. 
 

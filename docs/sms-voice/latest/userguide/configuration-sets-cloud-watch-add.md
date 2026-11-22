@@ -1,7 +1,6 @@
 
 
 # Create an Amazon CloudWatch event destination in AWS End User Messaging SMS
-<a name="configuration-sets-cloud-watch-add"></a>
 
 After you create the IAM role and the CloudWatch group, you can create the event destination.
 
@@ -45,7 +44,7 @@ You can use the [create-event-destination](https://docs.aws.amazon.com/cli/lates
 
 At the command line, run the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-event-destination \
 > --event-destination-name {{eventDestinationName}} \
 > --configuration-set-name {{configurationSet}} \

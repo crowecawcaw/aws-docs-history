@@ -1,7 +1,6 @@
 
 
 # Set up an Amazon Data Firehose event destination in AWS End User Messaging SMS
-<a name="configuration-sets-kinesis"></a>
 
 Amazon Data Firehose is a fully managed service for delivering real-time streaming data to multiple types of destinations. Amazon Data Firehose is part of the Kinesis streaming data platform. To learn more about Amazon Data Firehose, see the [Amazon Data Firehose Developer Guide](https://docs.aws.amazon.com/firehose/latest/dev/).
 

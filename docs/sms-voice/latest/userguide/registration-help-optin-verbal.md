@@ -1,7 +1,6 @@
 
 
 # Verbal script opt-in
-<a name="registration-help-optin-verbal"></a>
 
 Use this pattern when consent is collected **verbally** (call center, in-person enrollment, patient intake). The full script must be provided in the registration submission. Agents must read the script verbatim — paraphrasing risks missing required elements.
 

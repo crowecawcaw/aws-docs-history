@@ -1,7 +1,6 @@
 
 
 # View a phone number status and capabilities in AWS End User Messaging SMS
-<a name="phone-numbers-status"></a>
 
 This section explains how to check that status and capabilities of your phone number in the AWS End User Messaging SMS console.
 

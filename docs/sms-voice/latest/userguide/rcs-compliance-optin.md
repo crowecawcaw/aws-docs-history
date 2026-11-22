@@ -1,7 +1,6 @@
 
 
 # Opt-in, privacy policy, and terms of service
-<a name="rcs-compliance-optin"></a>
 
 Your call-to-action (CTA) or web opt-in URL must demonstrate how users consent to receive RCS messages from your agent. Your privacy policy and terms of service URLs are also checked during the review process.
 

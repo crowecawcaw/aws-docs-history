@@ -1,7 +1,6 @@
 
 
 # Delete a protect configuration in AWS End User Messaging SMS
-<a name="protect-configuration-delete"></a>
 
 To delete a protect configuration, you can use the AWS End User Messaging SMS console, the `DeleteProtectConfiguration` action in the AWS End User Messaging SMS and voice v2 API, or the `aws sms-voice delete-protect-configuration` command in the AWS CLI. This section shows how to delete a protect configuration using the AWS End User Messaging SMS console and the AWS CLI.
 
@@ -34,7 +33,7 @@ You can use the delete-protect-configuration command to delete a protect configu
 **To delete a protect configuration**
 + At the command line, enter the following command:
 
-  ```
+  ```bsh
   $ aws pinpoint-sms-voice-v2 delete-protect-configuration --protect-configuration-id {{ProtectConfigId}}
   ```
 

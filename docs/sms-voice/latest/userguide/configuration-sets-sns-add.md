@@ -1,7 +1,6 @@
 
 
 # Create an Amazon SNS event destination in AWS End User Messaging SMS
-<a name="configuration-sets-sns-add"></a>
 
 Before you can create an Amazon SNS event destination, you must first create an Amazon SNS topic. For more information about creating Amazon SNS topics, see [Creating a topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) in the *Amazon Simple Notification Service Developer Guide*.
 
@@ -43,7 +42,7 @@ To create an Amazon SNS event destination using the AWS End User Messaging SMS c
 
 You can use the [create-event-destination](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/create-event-destination.html) command to create an event destination.
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 create-event-destination \
 > --event-destination-name {{eventDestinationName}} \
 > --configuration-set-name {{configurationSet}} \

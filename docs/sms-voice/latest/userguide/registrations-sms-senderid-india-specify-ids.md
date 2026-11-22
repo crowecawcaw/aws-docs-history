@@ -1,7 +1,6 @@
 
 
 # Specify the Entity ID and Template ID values to send messages to India
-<a name="registrations-sms-senderid-india-specify-ids"></a>
 
 To successfully deliver your messages using local routes, you must specify Entity ID and Template ID values that you received after completing the sender ID registration process. You must also choose the correct entity type, and confirm that your messages match the example templates that you registered.
 

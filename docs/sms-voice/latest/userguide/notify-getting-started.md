@@ -1,7 +1,6 @@
 
 
 # Getting started with Notify
-<a name="notify-getting-started"></a>
 
 This tutorial walks you through creating a Notify configuration and sending your first OTP message. You can complete this tutorial in about 5 minutes.
 
@@ -12,7 +11,7 @@ This tutorial walks you through creating a Notify configuration and sending your
 
 The following IAM policy grants permissions to send messages and browse templates:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -34,7 +33,7 @@ The following IAM policy grants permissions to send messages and browse template
 
 The following policy grants full Notify management permissions:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -156,7 +155,7 @@ aws pinpoint-sms-voice-v2 send-notify-text-message \
 ------
 #### [ Python (boto3) ]
 
-```
+```python
 import boto3
 
 client = boto3.client('pinpoint-sms-voice-v2')

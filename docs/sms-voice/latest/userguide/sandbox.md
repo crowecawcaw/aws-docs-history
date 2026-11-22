@@ -1,7 +1,6 @@
 
 
 # SMS/MMS and Voice sandbox in AWS End User Messaging SMS
-<a name="sandbox"></a>
 
 New AWS End User Messaging SMS accounts are placed into an SMS/MMS or voice sandbox. The sandbox protects both AWS customers and recipients from fraud and abuse. It creates a safe environment for test and development.
 
@@ -85,7 +84,7 @@ To help protect our customers from fraud and abuse, we place your account in a s
 + You can send voice messages only to specific countries. For more information, see [Voice quotas](quotas.md#quotas-voice).
 + For more information on how to add a verified destination phone number, see [Add a verified destination phone number](verify-destination-phone-number.md).
 
-When you're ready to move your account out of the voice sandbox, create an AWS Support case for a **Service limit increase** request. For more information, see [SMS/MMS and Voice sandbox in AWS End User Messaging SMS](#sandbox).
+When you're ready to move your account out of the voice sandbox, create an AWS Support case for a **Service limit increase** request. For more information, see [SMS/MMS and Voice sandbox in AWS End User Messaging SMS](sandbox.md).
 
 **Note**  
 Before you request production access, you must send at least one voice message from your AWS End User Messaging SMS account. You can send a voice message by using the [SendVoiceMessage](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_SendVoiceMessage.html) API.

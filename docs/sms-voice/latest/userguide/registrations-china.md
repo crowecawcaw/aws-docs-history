@@ -1,13 +1,14 @@
 
 
 # China sender ID registration in AWS End User Messaging SMS
-<a name="registrations-china"></a>
 
 **Mainland China business entity required**  
 To register a sender for China, the registration must be held by a company that is legally registered in mainland China. A business registered outside mainland China does not satisfy this requirement. The contact person's identity document must be a Chinese ID, because the mobile operators' systems only recognize Chinese IDs.  
 If your company is not registered in mainland China, you can establish a mainland China legal entity through the local branch of the State Administration for Market Regulation (SAMR) or a local municipal administrative service center, and then register with that entity's business license.
 
 Registering a sender ID lets your company send SMS messages to recipients in China that meet local carrier requirements. Follow these directions to register your sender ID in China. Sender ID registration takes about 10 business days.
+
+**Before you begin**
 
 Before you create the registration, have the following ready. You cannot submit the registration without them.
 + Your mainland China business license.

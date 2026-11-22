@@ -1,7 +1,6 @@
 
 
 # SMS character limits
-<a name="sms-limitations-character"></a>
 
 A single SMS message can contain up to 140 bytes of information. The number of characters you can include in a single SMS message depends on the type of characters the message contains.
 

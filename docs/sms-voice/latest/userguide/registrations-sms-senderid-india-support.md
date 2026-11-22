@@ -1,7 +1,6 @@
 
 
 # India sender ID registration in AWS End User Messaging SMS
-<a name="registrations-sms-senderid-india-support"></a>
 
 After you register your company and use case with TRAI, you must create a case with Support. The Support team uses the information that you provide in your case to associate your Entity ID and Template ID with your AWS account.
 

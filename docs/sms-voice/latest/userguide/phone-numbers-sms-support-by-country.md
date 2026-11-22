@@ -1,7 +1,6 @@
 
 
 # SMS and MMS country capabilities and limitations
-<a name="phone-numbers-sms-support-by-country"></a>
 
 AWS End User Messaging SMS is currently unable to send SMS or MMS messages to a small number of countries, including Cuba, Iran, North Korea, Syria, and Sudan. For a complete list of countries and regions that you can send SMS messages to, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md) and [Supported countries and regions for MMS messaging in AWS End User Messaging SMS](phone-numbers-mms-by-country.md) .
 

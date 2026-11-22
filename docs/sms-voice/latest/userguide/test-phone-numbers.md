@@ -1,7 +1,6 @@
 
 
 # Simulator phone numbers in AWS End User Messaging SMS
-<a name="test-phone-numbers"></a>
 
 You can use the SMS simulator that is included with AWS End User Messaging SMS to send text messages and receive realistic event records. The SMS simulator is also useful for:
 + Viewing actual SMS event records.

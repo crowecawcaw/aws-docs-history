@@ -1,7 +1,6 @@
 
 
 # Release a sender ID in AWS End User Messaging SMS
-<a name="sender-id-release"></a>
 
 If you don't need a sender ID anymore, you can remove it from your account. When you remove a sender ID, we stop charging you for it in your bill for the next calendar month.
 

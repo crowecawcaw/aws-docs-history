@@ -1,7 +1,6 @@
 
 
 # Change a registration's name in AWS End User Messaging SMS
-<a name="registrations-friendly-name"></a>
 
 To help manage your registrations you should give them a descriptive name. You can add or edit the name of your registration at any time without having to resubmit it. You need to add a tag with the **Key** set to **Name** and the **Value** set to the name to use.
 

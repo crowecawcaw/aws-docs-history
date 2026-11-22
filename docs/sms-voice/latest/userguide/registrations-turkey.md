@@ -1,7 +1,6 @@
 
 
 # Turkey sender ID registration in AWS End User Messaging SMS
-<a name="registrations-turkey"></a>
 
 **URL content restrictions effective April 1, 2026**  
 Starting April 1, 2026, SMS messages to Turkey mobile numbers that contain URLs are at risk of being blocked or having the URL masked (for example, replaced with \*\*\*\*\*\*\*). To ensure reliable delivery, remove all URLs from your SMS message content.

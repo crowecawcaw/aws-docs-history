@@ -1,7 +1,6 @@
 
 
 # Setting up AWS End User Messaging SMS
-<a name="setting-up"></a>
 
 This topic provides tasks and information to help you start using AWS End User Messaging SMS. After you complete this topic, you can move on to the [Getting started with AWS End User Messaging SMS](getting-started.md) tutorial. If you already have an AWS account, you can skip to the [Getting started with AWS End User Messaging SMS](getting-started.md) tutorial.
 

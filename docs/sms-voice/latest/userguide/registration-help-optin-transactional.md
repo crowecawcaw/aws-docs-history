@@ -1,7 +1,6 @@
 
 
 # Transactional opt-in
-<a name="registration-help-optin-transactional"></a>
 
 Use this pattern when your campaign sends **transactional or informational** messages (order confirmations, account alerts, appointment reminders). Transactional messages have two variants depending on whether the phone number is optional or required for the service.
 

@@ -1,7 +1,6 @@
 
 
 # Using phone number deletion protection in AWS End User Messaging SMS
-<a name="phone-numbers-deletion-protection"></a>
 
 When you turn on deletion protection you will not be able to release the phone number until deletion protection is disabled. By default deletion protection is turned off.
 
@@ -46,7 +45,7 @@ You can use the [update-phone-number](https://docs.aws.amazon.com/cli/latest/ref
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-phone-number --phonenumber-id {{PhoneNumberid}} --deletion-protection-enabled
 ```
 

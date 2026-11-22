@@ -1,7 +1,6 @@
 
 
 # IAM policies for Connect Customer
-<a name="two-way-connect-iam-policy"></a>
 
 If you want AWS End User Messaging SMS to use an existing IAM role or if you create a new role, attach the following policies to that role so that AWS End User Messaging SMS can assume it. For information about how to modify an existing trust relationship of a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the [*IAM user guide*](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html). 
 
@@ -24,7 +23,7 @@ The following is the **permission policy** for the IAM role to allow for publish
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -51,7 +50,7 @@ The following is the **trust policy** for the IAM role, make the following chang
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

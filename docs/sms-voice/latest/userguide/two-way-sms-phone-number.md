@@ -1,7 +1,6 @@
 
 
 # Set up two-way SMS messaging for a phone number in AWS End User Messaging SMS
-<a name="two-way-sms-phone-number"></a>
 
 AWS End User Messaging SMS includes support for two-way SMS. When you set up two-way SMS, you can receive incoming messages from your customers. You can also use two-way messaging together with other AWS services, such as Lambda and Amazon Lex, to create interactive text messaging experiences. 
 
@@ -55,7 +54,7 @@ You can use the [update-phone-number](https://docs.aws.amazon.com/cli/latest/ref
 
 At the command line, enter the following command:
 
-```
+```bsh
 $ aws pinpoint-sms-voice-v2 update-phone-number \
 > --phone-number-id {{PhoneNumber}} \
 > --two-way-enabled {{True}} \

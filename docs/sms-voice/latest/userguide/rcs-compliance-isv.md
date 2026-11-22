@@ -1,7 +1,6 @@
 
 
 # ISV and multi-brand registration
-<a name="rcs-compliance-isv"></a>
 
 If you are an Independent Software Vendor (ISV) or platform that sends messages on behalf of other brands, additional requirements apply.
 

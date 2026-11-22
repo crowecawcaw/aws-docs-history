@@ -1,7 +1,6 @@
 
 
 # View a registration associated resources in AWS End User Messaging SMS
-<a name="registrations-associated-resource"></a>
 
 Registrations can have one to many resources associated with them depending on the registration type. You can view any resources associated with a registration on the **Associated resources tab of the registration**.
 

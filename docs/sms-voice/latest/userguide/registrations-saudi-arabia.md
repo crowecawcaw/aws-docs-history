@@ -1,7 +1,6 @@
 
 
 # Saudi Arabia sender ID registration in AWS End User Messaging SMS
-<a name="registrations-saudi-arabia"></a>
 
 Follow these directions to register your sender ID in Saudi Arabia.
 

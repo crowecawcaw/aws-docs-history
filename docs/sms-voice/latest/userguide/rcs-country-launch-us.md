@@ -1,7 +1,6 @@
 
 
 # Launching RCS in the United States
-<a name="rcs-country-launch-us"></a>
 
 **Note**  
 Carriers do not review RCS agent submissions during the following carrier holiday freeze windows. The year-end freeze extends through January 1, 2027. Submit your agent registration ahead of these windows. Carrier review resumes after each window ends.  

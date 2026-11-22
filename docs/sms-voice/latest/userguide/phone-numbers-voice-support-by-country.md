@@ -1,7 +1,6 @@
 
 
 # Supported countries and regions for voice in AWS End User Messaging SMS
-<a name="phone-numbers-voice-support-by-country"></a>
 
 You can use the voice channel to send voice messages to recipients all around the world. However, in some countries and regions, you have to use a local phone number to make automated calls, such as the calls that you make by using the AWS End User Messaging SMS voice channel. You can obtain local phone numbers, also referred to as *long codes*, directly from AWS for several countries and regions.
 

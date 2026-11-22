@@ -1,7 +1,6 @@
 
 
 # Country rule modes in AWS End User Messaging SMS
-<a name="filter-and-monitor-messages"></a>
 
 Artificially inflated traffic (AIT) occurs when bots or bad actors target web or mobile applications that trigger SMS message sends. This results in unwanted and unaccepted SMS message charges. To help lessen the impact of an SMS AIT attack on your web or mobile application, set country rules to either block (prevent all messages to a country), or filter (to use the End User Messaging AIT detection model to filter suspected AIT message requests).
 

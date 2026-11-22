@@ -1,7 +1,6 @@
 
 
 # View your current messaging limits
-<a name="sms-limitations-mps-view"></a>
 
 The preceding tables show the general message parts per second (MPS) limits by origination number type and country. You can also view the messaging limits that apply to a specific origination identity, such as a phone number, sender ID, or RCS agent. The messaging limits include the following:
 + **Send rate limits** – The maximum send rate for each supported capability, in message parts per second. A capability can be `SMS`, `MMS`, `VOICE`, or `RCS`.

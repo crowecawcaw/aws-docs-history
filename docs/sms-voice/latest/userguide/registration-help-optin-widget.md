@@ -1,7 +1,6 @@
 
 
 # Widget and ISV opt-in
-<a name="registration-help-optin-widget"></a>
 
 Use this pattern for **embedded widgets** (modals, pop-ups, chatbots) provided by an ISV (Independent Software Vendor) to their customers. The ISV is the message controller — they control the data and messaging flow. The Privacy Policy and Terms link to the ISV's policies. All disclosures must be visible within the widget itself.
 

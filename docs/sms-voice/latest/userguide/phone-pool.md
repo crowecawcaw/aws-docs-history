@@ -1,7 +1,6 @@
 
 
 # Phone pools in AWS End User Messaging SMS
-<a name="phone-pool"></a>
 
 A phone pool, also refereed to as just pool, is a collection of phone numbers or sender IDs that share the same settings that you can use to send messages. When you send messages through a phone pool, it chooses an appropriate origination identity to send the message as. If an origination identity in the phone pool fails, the phone pool will fail over to another origination identity if it is in the same phone pool. 
 

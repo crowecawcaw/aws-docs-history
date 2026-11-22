@@ -1,7 +1,6 @@
 
 
 # Requesting support for SMS, MMS, and voice messaging through Support
-<a name="awssupport"></a>
 
 Certain SMS options in AWS End User Messaging SMS can only be configured by creating a case in the [AWS Support Center](https://console.aws.amazon.com/support/home#/). Open a case to request any of the following:
 + 

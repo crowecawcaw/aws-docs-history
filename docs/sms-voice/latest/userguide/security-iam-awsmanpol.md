@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS End User Messaging SMS
-<a name="security-iam-awsmanpol"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Origination identity registration in AWS End User Messaging SMS
-<a name="registrations"></a>
 
 Some countries require you to register your company's identity to be able to purchase phone numbers or sender IDs and review the messages you send to recipients in their country. For more information on which countries require registration, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md). 
 

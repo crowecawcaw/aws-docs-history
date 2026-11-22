@@ -1,7 +1,6 @@
 
 
 # Launching RCS in countries
-<a name="rcs-country-launch"></a>
 
 After you have tested your RCS messaging integration using a testing agent, the next step is to launch your AWS RCS Agent in one or more countries. Each country launch creates a separate RCS for Business ID that is approved for each carrier in that country. AWS End User Messaging supports RCS country launches in 22 countries across North America, South America, Europe, and Asia Pacific.
 

@@ -1,7 +1,6 @@
 
 
 # Register your company and use case with the TRAI and create the required Telemarketer chains
-<a name="registrations-sms-senderid-india-register"></a>
 
 The first step is to register your company and use case with TRAI. All distributed ledger technology (DLT) registration portals require you to provide the same registration details. The Entity ID and Template ID values that you receive from these portals are interchangeable. 
 

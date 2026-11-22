@@ -1,7 +1,6 @@
 
 
 # Access AWS End User Messaging SMS using an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS End User Messaging SMS. You can access AWS End User Messaging SMS as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS End User Messaging SMS.
 
@@ -46,7 +45,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for AWS End User Messaging SMS actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed AWS End User Messaging SMS actions for all principals on all resources.
 
-```
+```json
 {
    "Statement": [
       {

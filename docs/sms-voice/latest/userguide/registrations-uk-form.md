@@ -1,7 +1,6 @@
 
 
 # United Kingdom sender ID registration form
-<a name="registrations-uk-form"></a>
 
 Complete the following form to register your sender ID in the United Kingdom. If your sender ID is protected by then a completed [Letter of Authorization (LOA)](registrations-uk.md) is required as well.
 

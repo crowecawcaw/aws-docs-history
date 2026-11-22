@@ -1,7 +1,6 @@
 
 
 # Sending RCS text messages
-<a name="rcs-text-messages"></a>
 
 A `TextMessage` is the simplest content type you can send with the `SendRcsMessage` API. It consists of a plain-text body (up to 3,072 characters) with optional suggestion chips that appear as interactive buttons below the message.
 
@@ -21,7 +20,7 @@ When you call `SendRcsMessage`, you pass the message payload as the `RcsMessageC
 
 The following JSON snippet shows the structure of `RcsMessageContent` for a text message with suggestions:
 
-```
+```json
 {
   "Content": {
     "TextMessage": {

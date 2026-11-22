@@ -1,7 +1,6 @@
 
 
 # Understanding SMS billing and usage reports for AWS End User Messaging SMS
-<a name="sms-billing"></a>
 
 The AWS End User Messaging SMS channel generates a usage type that contains five fields in the following format: `{{Region code}}–{{MessagingType}}–{{ISO}}–{{RouteType}}–{{OriginationID}}–{{MessageCount/Fee}}`. For example, SMS messages sent from the Asia Pacific (Tokyo) Region to a Japanese phone number would appear as **APN1–OutboundSMS–JP–Standard–Senderid–MessageCount**.
 

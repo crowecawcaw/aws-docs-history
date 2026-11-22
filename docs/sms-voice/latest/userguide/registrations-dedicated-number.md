@@ -1,7 +1,6 @@
 
 
 # Dedicated number registration forms
-<a name="registrations-dedicated-number"></a>
 
 The following countries require you to complete a registration before you can obtain a dedicated SMS number (both short and long codes). You can submit these registrations through the AWS End User Messaging SMS console or API. Once your registration is approved, the dedicated number is provisioned for your account. 
 

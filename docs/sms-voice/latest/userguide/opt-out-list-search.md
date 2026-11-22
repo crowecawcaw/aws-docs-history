@@ -1,7 +1,6 @@
 
 
 # Search an opt-out list for a destination phone number in AWS End User Messaging SMS
-<a name="opt-out-list-search"></a>
 
 Use the AWS End User Messaging SMS console to search an opt-out list to see if it contains a destination number.
 

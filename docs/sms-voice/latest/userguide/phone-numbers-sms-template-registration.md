@@ -1,7 +1,6 @@
 
 
 # China SMS template registration form
-<a name="phone-numbers-sms-template-registration"></a>
 
 **China SMS template registration has moved**  
 You no longer register China SMS templates by opening a support case. China SMS registration is now self-service in the AWS End User Messaging SMS console, and you register your message templates as part of the registration. Choose the registration that fits what you want to send to China:  

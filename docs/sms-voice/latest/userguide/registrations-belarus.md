@@ -1,7 +1,6 @@
 
 
 # Belarus sender ID registration in AWS End User Messaging SMS
-<a name="registrations-belarus"></a>
 
 Follow these directions to register your sender ID in Belarus.
 

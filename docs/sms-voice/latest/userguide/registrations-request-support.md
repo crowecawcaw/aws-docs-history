@@ -1,7 +1,6 @@
 
 
 # Get help with registration issues through Support
-<a name="registrations-request-support"></a>
 
 If your registration is denied, the denial reason and feedback are available on the registration form in the console. For AI-powered analysis of your denial reason with suggestions on how to fix your registration, see [Gen-AI Feedback on Registrations (Preview)](registrations-genai-feedback.md). You should also review [10DLC Registration Best Practices to Send SMS with Amazon Pinpoint](https://aws.amazon.com/blogs/messaging-and-targeting/10dlc-registration-best-practices-to-send-sms-with-amazon-pinpoint/) and [How to Build a Compliant SMS Opt-In Process With Amazon Pinpoint](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-build-a-compliant-sms-opt-in-process-with-amazon-pinpoint/) for detailed guidance on how to successfully register an SMS use case.
 

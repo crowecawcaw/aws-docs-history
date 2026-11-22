@@ -1,7 +1,6 @@
 
 
 # Requesting an SMS, MMS, or voice spending quota change for AWS End User Messaging SMS
-<a name="awssupport-spend-threshold"></a>
 
 Your spending quota determines how much money you can spend sending SMS, MMS, or voice messages through AWS End User Messaging SMS each month. When AWS End User Messaging SMS determines that sending an SMS, MMS, or voice message would incur a cost that exceeds your spending quota for the current month, it stops publishing SMS, MMS, or voice messages within minutes.
 

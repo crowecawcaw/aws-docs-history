@@ -1,7 +1,6 @@
 
 
 # United Kingdom sender ID registration process in AWS End User Messaging SMS
-<a name="registrations-uk"></a>
 
 **Note**  
 With our updated console experience you are now seeing a registration **Name** field for your registration. This field is set to "–" as we do not manually backfill any of your service values to prevent interruption to your service and let you maintain your security posture. A registration **Name** is an optional friendly name field that can be updated using the tags on the registration details page. For more information on how to add a **Name** tag, see [Change a registration's name in AWS End User Messaging SMS](registrations-friendly-name.md).

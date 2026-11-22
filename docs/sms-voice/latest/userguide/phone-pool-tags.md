@@ -1,7 +1,6 @@
 
 
 # Manage AWS End User Messaging SMS tags for phone pools
-<a name="phone-pool-tags"></a>
 
 Tags are pairs of keys and values that you can optionally apply to your AWS resources to control access or usage. To change the name of a Pool by editing the value of the Name key/value pair.
 
@@ -30,7 +29,7 @@ Use the AWS End User Messaging SMS console to add or edit a Tag in your pool.
 
 Use the AWS CLI to add or edit a Tag. 
 
-```
+```shell
 $ aws pinpoint-sms-voice-v2 tag-resource \
   --resource-arn {{resource-arn}} \
   --tags tags={{{key1}}={{value1}},{{key2}}={{value2}}}
@@ -43,7 +42,7 @@ In the preceding example, do the following:
 
 Use the AWS CLI to delete a Tag. 
 
-```
+```shell
 $ aws pinpoint-sms-voice-v2 untag-resource \
   --resource-arn {{resource-arn}} \
   --tag-keys tags={{{key1}}={{value1}},{{key2}}={{value2}}}

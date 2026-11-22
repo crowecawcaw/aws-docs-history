@@ -1,7 +1,6 @@
 
 
 # Configuration sets in AWS End User Messaging SMS
-<a name="configuration-sets"></a>
 
 A *configuration set* is a set of rules that are applied when you send a message. For example, a configuration set can specify a destination for events related to a message. When SMS events occur (such as delivery or failure events), they are routed to the destination associated with the configuration set that you specified when you sent the message. You're not required to use configuration sets when you send messages, but we recommend that you do. If you don't specify a configuration set with an event destination, the API doesn't emit event records. These event records are a useful way to determine how many messages you sent, how much you paid for each one, and whether or not the message was received by the recipient.
 

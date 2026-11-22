@@ -1,7 +1,6 @@
 
 
 # Germany short code registration in AWS End User Messaging SMS
-<a name="dedicated-number-germany"></a>
 
 Follow these directions to register your short code in Germany.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring with EventBridge
-<a name="monitor-event-bridge"></a>
 
 AWS End User Messaging SMS sends events to EventBridge for Registration, SMS, MMS, and voice events. You can use EventBridge to write rules that take actions, such as notifying you, when specific event types are received. For more information, see the following topics in the Amazon EventBridge User Guide: 
 + [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
@@ -20,7 +19,7 @@ For text, media, and voice message events, the `detail` section in the following
 ## Event for a delivered SMS message
 <a name="event-delivered-sms-message"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "5c0fa4f8-e4ba-ed02-6101-c795472fccd0",
@@ -61,7 +60,7 @@ For text, media, and voice message events, the `detail` section in the following
 ## Event for a sent SMS message
 <a name="event-sent-sms-message"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "4111946b-816c-e73a-9ea0-a8367b9d57e4",
@@ -99,7 +98,7 @@ For text, media, and voice message events, the `detail` section in the following
 ## Event for a sent voice message
 <a name="event-sent-voice-message"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "3bd18839-b5b4-79c5-1b18-bd6545f40566",
@@ -132,7 +131,7 @@ AWS End User Messaging SMS sends the following registration status changes to Am
 
 For definitions of these status values, see [RegistrationInformation](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_RegistrationInformation.html) in the AWS End User Messaging SMS API Reference.
 
-```
+```json
 {
     "version": "0",
     "id": "d2e8812b-d34c-90f9-a8a9-3f18e15d1db9",

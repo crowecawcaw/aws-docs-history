@@ -1,7 +1,6 @@
 
 
 # View all origination identities associated with an opt-out list in AWS End User Messaging SMS
-<a name="opt-out-list-originators"></a>
 
 You can view all of the origination identities that are linked to the opt-out list using the AWS End User Messaging SMS console, follow these steps:
 

@@ -1,7 +1,6 @@
 
 
 # Sending RCS carousels
-<a name="rcs-carousels"></a>
 
 A carousel message in AWS End User Messaging displays 2 to 10 rich cards in a horizontally scrollable strip. Recipients can scroll through cards and choose suggestions on individual cards to take action. With carousels, you can create conversational and interactive experiences such as product catalogs, service menus, plan comparisons, and location listings.
 
@@ -122,7 +121,7 @@ The `TALL` media height is not supported in carousel cards. For tall media, use 
 
 The following JSON shows the structure of the `RcsMessageContent` parameter for a carousel message:
 
-```
+```json
 {
   "Content": {
     "Carousel": {

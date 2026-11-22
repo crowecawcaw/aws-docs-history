@@ -1,7 +1,6 @@
 
 
 # Launching RCS in Germany
-<a name="rcs-country-launch-de"></a>
 
 To launch your AWS RCS Agent in Germany, submit a country launch registration using the `DE_RCS_LAUNCH_REGISTRATION` registration type. Germany requires an additional out-of-band brand verification step that you must complete outside the AWS End User Messaging console.
 

@@ -1,7 +1,6 @@
 
 
 # Direct Lenders
-<a name="registration-help-vertical-lenders"></a>
 
 This guide covers registration requirements for direct lending organizations including mortgage lenders, auto lenders, personal loan providers, and other licensed financial institutions that originate loans directly to consumers.
 

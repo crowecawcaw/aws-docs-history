@@ -1,7 +1,6 @@
 
 
 # Event destinations in AWS End User Messaging SMS
-<a name="configuration-sets-event-destinations"></a>
 
 An *event destination* is a location (such as a CloudWatch Group, a Amazon Data Firehose stream, or an Amazon SNS topic) that SMS and voice events are sent to. To use event destinations, you first create the destination, and then associate it with a [Configuration sets in AWS End User Messaging SMS](configuration-sets.md). You can associate up to five event destinations with a single configuration set. When you send a message, your call to the API includes a reference to the configuration set. 
 

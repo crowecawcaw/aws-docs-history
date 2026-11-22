@@ -1,7 +1,6 @@
 
 
 # Create CloudWatch Alarms for AWS End User Messaging SMS metrics
-<a name="monitoring-sms-cw"></a>
 
 With CloudWatch you can create alarms that trigger based on metric thresholds for AWS End User Messaging SMS metrics. For example, you can create an alarm for the `NumberOfTextMessagePartsSent` metric. If more than 1000 text message parts are sent in 1 hour, an email notification can be sent. For more information, see [Using Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Finland sender ID registration in AWS End User Messaging SMS
-<a name="registrations-finland"></a>
 
 Follow these directions to register your sender ID in Finland. As required by Finnish regulation (Traficom Order 28 L/2025 M), all sender IDs used to send SMS messages to Finnish mobile numbers must be pre-registered with local operators.
 

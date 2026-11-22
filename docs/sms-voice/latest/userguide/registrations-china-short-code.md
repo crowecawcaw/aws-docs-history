@@ -1,7 +1,6 @@
 
 
 # China short code registration in AWS End User Messaging SMS
-<a name="registrations-china-short-code"></a>
 
 **Mainland China business entity required**  
 A China short code is available only to companies with a mainland China presence. A business registered outside mainland China does not satisfy this requirement. The contact person's identity document must be a Chinese ID, because the mobile operators' systems only recognize Chinese IDs.  
@@ -11,6 +10,8 @@ Registering a short code lets your company send two-way SMS messages to recipien
 
 **Note**  
 A China short code is a non-standard number that can vary by mobile network. Your recipients might see a different number depending on their mobile carrier.
+
+**Before you begin**
 
 Before you create the registration, have the following ready. You cannot submit the registration without them.
 + Your mainland China business license.

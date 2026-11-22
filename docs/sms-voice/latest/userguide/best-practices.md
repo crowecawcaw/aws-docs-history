@@ -1,7 +1,6 @@
 
 
 # AWS End User Messaging SMS Best Practices
-<a name="best-practices"></a>
 
 For the best results for creating and sending messages, we recommend that you perform the following best practices.
 
