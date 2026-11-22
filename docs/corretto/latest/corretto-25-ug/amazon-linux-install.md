@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 25 Installation Instructions for Amazon Linux 2023 and Amazon Linux 2027
-<a name="amazon-linux-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 25 on a host or container running the Amazon Linux 2023 or Amazon Linux 2027 operating systems. 
 
@@ -68,12 +67,12 @@ sudo yum install java-25-amazon-corretto-jmods
 ```
 java -version
 ```
-Expected output for 25.0.5:   
+Expected output for 25.0.5.1:   
 
 ```
-openjdk version "25.0.5" 2026-10-20 LTS
-OpenJDK Runtime Environment Corretto-25.0.5.0.10 (build 25.0.5+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.5.0.10 (build 25.0.5+10-LTS, mixed mode)
+openjdk version "25.0.5.1" 2026-11-17 LTS
+OpenJDK Runtime Environment Corretto-25.0.5.1.2 (build 25.0.5.1+2-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.5.1.2 (build 25.0.5.1+2-LTS, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
