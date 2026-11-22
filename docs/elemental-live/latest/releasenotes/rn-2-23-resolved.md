@@ -1,7 +1,6 @@
 
 
 # Resolved issues in version 2.23 and 3.23
-<a name="rn-2-23-resolved"></a>
 
 The **Version** column shows the point release that the issue applies to.
 

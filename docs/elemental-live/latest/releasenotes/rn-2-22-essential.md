@@ -1,7 +1,6 @@
 
 
 # Essential notes for version 2.22 and 3.22
-<a name="rn-2-22-essential"></a>
 
 Read the following essential notes before you upgrade to version 2.22 (3.22 for Conductor Live).
 

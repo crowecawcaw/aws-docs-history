@@ -1,7 +1,6 @@
 
 
 # Newly identified issues in version 2.26 and 3.26
-<a name="rn-2-26-known"></a>
 
 The **Version** column shows the point release that the issue applies to.
 

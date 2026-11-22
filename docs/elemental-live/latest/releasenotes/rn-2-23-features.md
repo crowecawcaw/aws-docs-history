@@ -1,7 +1,6 @@
 
 
 # New features in version 2.23 and 3.23
-<a name="rn-2-23-features"></a>
 
 This version includes the following new features.
 

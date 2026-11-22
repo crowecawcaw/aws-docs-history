@@ -1,7 +1,6 @@
 
 
 # New features in version 2.21 and 3.21
-<a name="rn-2-21-features"></a>
 
 This topic describes the new features in version 2.21 (3.21 for Conductor Live).
 

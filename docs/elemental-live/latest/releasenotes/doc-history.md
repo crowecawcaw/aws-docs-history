@@ -1,7 +1,6 @@
 
 
 # Document history for the release notes
-<a name="doc-history"></a>
 
 The following table describes the main changes to the release notes. To get a notification when the release notes for a new release are published, subscribe to the RSS feed.
 

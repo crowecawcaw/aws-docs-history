@@ -1,7 +1,6 @@
 
 
 # Resolved issues in version 2.25 and 3.25
-<a name="rn-2-25-resolved"></a>
 
 The **Version** column shows the point release that the issue applies to.
 
@@ -67,7 +66,7 @@ The following table lists the resolved issues in Elemental Live 2.25.
 | 2.25.2 | SOCK-39331 | Web interface | There was a problem with the web interface in Elemental Live 2.25.1. The web interface couldn't display event details. This problem has been fixed. | 
 | 2.25.1 | SOCK-39291 | Outputs, epoch locking | There was a problem where an event with epoch locking enabled could produce an invalid HLS manifest. The two outputs weren't correctly epoch locked, and one of the segments had an incorrect duration. This problem has been resolved. | 
 | 2.25.1 | SOCK-38580 | SCTE 35 | Previously, when a SCTE 104 message included multiple nested SCTE 35 messages, Live parsed and ingested only the first message. This issue has been fixed. Live now ingests all the nested SCTE 35 messages. | 
-| 2.25.1 | SOCK-39250 | Time | The timezone component of Elemental Live has been updated to the newest version using the IANA Timezone database version 2023c. | 
+| 2.25.1 | SOCK-39250 | Time | The time zone component of Elemental Live has been updated to the newest version using the IANA Time Zone database version 2023c. | 
 | 2.25.0 | SOCK-38903 | Alerts and messages | Previously there was no alert when a SMPTE 2110 redundant input pair was missing a source. There is now an alert: 5318 Redundant input pair is not receiving data from source: <identification of the source>. | 
 | 2.25.0 | SOCK-38892 | Alerts and messages | Previously there was no alert when a 2022-6 input was missing a source. There is now an alert: 5318 Redundant input pair is not receiving data from source: <identification of the source>. | 
 | 2.25.0 | SOCK-39076 | Output, Zixi | There was an issue that could cause instability in delivering a Zixi output. The output would continually fail and restart. The root cause that prevented a successful connection has been resolved. | 

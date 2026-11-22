@@ -1,7 +1,6 @@
 
 
 # About these release notes
-<a name="rn-about"></a>
 
 These release notes describe the new features, resolved issues, and newly identified issues in each release of the following AWS Elemental products:
 + AWS Elemental Live version 2.{{x}}

@@ -1,7 +1,6 @@
 
 
 # Essential notes for version 2.26 and 3.26
-<a name="rn-2-26-essential"></a>
 
 ## New operating system
 <a name="rn-2-26-essential-os"></a>

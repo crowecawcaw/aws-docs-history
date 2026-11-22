@@ -1,7 +1,6 @@
 
 
 # Essential notes for version 2.27 and 3.27
-<a name="rn-2-27-essential"></a>
 
 ## Support for the migration lifeboat script
 <a name="rn-2-27-essential-lifeboat"></a>

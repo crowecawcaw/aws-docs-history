@@ -1,7 +1,6 @@
 
 
 # Resolved issues in version 2.27 and 3.27
-<a name="rn-2-27-resolved"></a>
 
 The **Version** column shows the point release that the issue applies to.
 

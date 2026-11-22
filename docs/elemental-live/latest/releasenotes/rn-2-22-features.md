@@ -1,7 +1,6 @@
 
 
 # New features in version 2.22 and 3.22
-<a name="rn-2-22-features"></a>
 
 This topic describes the new features in version 2.22 (3.22 for Conductor Live).
 

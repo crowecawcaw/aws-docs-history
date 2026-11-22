@@ -1,7 +1,6 @@
 
 
 # New features in version 2.25 and 3.25
-<a name="rn-2-25-features"></a>
 
 ## New features in Elemental Live and Statmux 2.25
 <a name="rn-2-25-features-live"></a>

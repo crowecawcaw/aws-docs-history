@@ -1,7 +1,6 @@
 
 
 # New features in version 2.27 and 3.27
-<a name="rn-2-27-features"></a>
 
 The following sections describe the new features in each release of version 2.27 (3.27 for Conductor Live), with the newest release first. Version 2.27.1 (3.27.1) has no new features.
 
