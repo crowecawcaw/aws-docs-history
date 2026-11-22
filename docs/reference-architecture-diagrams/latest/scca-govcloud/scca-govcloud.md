@@ -1,7 +1,6 @@
 
 
 # Secure Cloud Computing Architecture (SCCA) on AWS GovCloud
-<a name="scca-govcloud"></a>
 
 Publication date: **June 20, 2022 ([Diagram history](#diagram-history))**
 
