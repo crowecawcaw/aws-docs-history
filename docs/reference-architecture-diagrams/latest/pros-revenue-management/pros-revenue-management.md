@@ -1,7 +1,6 @@
 
 
 # PROS Revenue Management Platform on AWS
-<a name="pros-revenue-management"></a>
 
 Publication date: **August 20, 2020 ([Diagram history](#pros-revenue-management-history))**
 
