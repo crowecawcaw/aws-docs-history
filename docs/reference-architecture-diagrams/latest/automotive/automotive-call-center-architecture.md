@@ -1,7 +1,6 @@
 
 
 # Automotive Call Center Architecture
-<a name="automotive-call-center-architecture"></a>
 
 Publication date: **February 28, 2022 ([Diagram history](diagram-history.md))**
 

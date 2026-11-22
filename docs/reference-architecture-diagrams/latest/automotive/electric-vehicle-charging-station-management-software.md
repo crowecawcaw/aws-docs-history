@@ -1,7 +1,6 @@
 
 
 # Electric Vehicle Charging Station Management System
-<a name="electric-vehicle-charging-station-management-software"></a>
 
 Publication date: **June 4, 2024 ([Diagram history](diagram-history.md))**
 

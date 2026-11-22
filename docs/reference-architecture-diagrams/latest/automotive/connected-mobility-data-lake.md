@@ -1,7 +1,6 @@
 
 
 # Connected Mobility Data Lake
-<a name="connected-mobility-data-lake"></a>
 
 Publication date: **January 1, 2023 ([Diagram history](diagram-history.md))**
 

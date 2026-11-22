@@ -1,7 +1,6 @@
 
 
 # Camera as a Service
-<a name="camera-as-a-service"></a>
 
 Publication date: **January 25, 2023 ([Diagram history](diagram-history.md))**
 

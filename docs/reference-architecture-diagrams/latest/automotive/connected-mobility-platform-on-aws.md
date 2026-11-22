@@ -1,7 +1,6 @@
 
 
 # Connected Mobility Platform
-<a name="connected-mobility-platform-on-aws"></a>
 
 Publication date: **December 13, 2022 ([Diagram history](diagram-history.md))**
 

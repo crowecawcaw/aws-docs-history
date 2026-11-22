@@ -1,7 +1,6 @@
 
 
 # Electric Vehicle Charging OCPP Handler
-<a name="electric-vehicle-charging-ocpp-handler"></a>
 
 Publication date: **November 15, 2023 ([Diagram history](diagram-history.md))**
 
