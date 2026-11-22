@@ -1,7 +1,6 @@
 
 
 # Example: Create uneven teams (Hunters vs Monster)
-<a name="match-examples-2"></a>
 
 This example describes a game mode in which a group of players hunt a single monster. People choose either a hunter or a monster role. Hunters specify the minimum skill level for the monster that they want to face. The minimum size of the hunter team can be relaxed over time to complete the match. This scenario sets out the following instructions: 
 + Create one team of exactly five hunters. 

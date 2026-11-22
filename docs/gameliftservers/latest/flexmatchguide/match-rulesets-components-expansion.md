@@ -1,7 +1,6 @@
 
 
 # Allow requirements to relax over time
-<a name="match-rulesets-components-expansion"></a>
 
 Expansions allow you to relax rule criteria over time when FlexMatch can't find a match. This feature ensures that FlexMatch makes a best available when it can't make a perfect match. By relaxing your rules with an expansion, you gradually expand the pool of players that are an acceptable match. 
 

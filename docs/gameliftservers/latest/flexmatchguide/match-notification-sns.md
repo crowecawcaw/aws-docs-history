@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up an Amazon SNS topic
-<a name="match-notification-sns"></a>
 
 You can have Amazon GameLift Servers publish all events that a FlexMatch matchmaker generates to an Amazon SNS topic.
 
@@ -24,7 +23,7 @@ You can have Amazon GameLift Servers publish all events that a FlexMatch matchma
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Id": "__default_policy_ID",

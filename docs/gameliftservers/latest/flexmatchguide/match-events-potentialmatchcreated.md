@@ -1,7 +1,6 @@
 
 
 # PotentialMatchCreated
-<a name="match-events-potentialmatchcreated"></a>
 
 A potential match has been created. This is emitted for all new potential matches, regardless of whether acceptance is required.
 

@@ -1,7 +1,6 @@
 
 
 # Example: Create a rule that uses a player's block list
-<a name="match-examples-11"></a>
 
 This example illustrates a rule set that lets players avoid being matched with certain other players. Players can create a block list, which the matchmaker evaluates during player selection for a match. For more guidance on adding a block list or avoid list feature, see [AWS for Games Blog](https://aws.amazon.com/blogs/gametech/category/game-development/amazon-gamelift/).
 

@@ -1,7 +1,6 @@
 
 
 # Set rules for large matches
-<a name="match-design-rulesets-large-rule"></a>
 
 Matchmaking for large matches relies primarily on the balancing strategy and latency batching optimizations. Most custom rules are not available. However, you can incorporate the following types of rules: 
 + Rule that sets a hard limit on player latency. Use the `latency` rule type with the property `maxLatency`. See [Latency rule](match-rules-reference-ruletype.md#match-rules-reference-ruletype-latency) reference. Here's an example that sets maximum player latency to 200 milliseconds:

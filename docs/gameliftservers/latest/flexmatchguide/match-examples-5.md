@@ -1,7 +1,6 @@
 
 
 # Example: Find intersections across multiple player attributes
-<a name="match-examples-5"></a>
 
 This example illustrates how to use a collection rule to find intersections in two or more player attributes. When working with collections, you can use the `intersection` operation for a single attribute, and the `reference_intersection_count` operation for multiple attributes. 
 

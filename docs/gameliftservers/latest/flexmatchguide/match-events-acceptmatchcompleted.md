@@ -1,7 +1,6 @@
 
 
 # AcceptMatchCompleted
-<a name="match-events-acceptmatchcompleted"></a>
 
 Match acceptance is complete due to player acceptance, player rejection, or acceptance timeout.
 

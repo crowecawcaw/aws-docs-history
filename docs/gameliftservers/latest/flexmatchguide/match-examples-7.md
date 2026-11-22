@@ -1,7 +1,6 @@
 
 
 # Example: Create a large match
-<a name="match-examples-7"></a>
 
 This example illustrates how to set up a rule set for matches that can exceed 40 players. When a rule set describes teams with a total maxPlayer count greater than 40, it is processed as a large match. Learn more in [Design a FlexMatch large-match rule set](match-design-rulesets-large.md). 
 

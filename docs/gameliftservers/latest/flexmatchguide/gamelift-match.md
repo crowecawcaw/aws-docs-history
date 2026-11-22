@@ -1,7 +1,6 @@
 
 
 # How Amazon GameLift Servers FlexMatch works
-<a name="gamelift-match"></a>
 
 This topic provides an overview of the Amazon GameLift Servers FlexMatch service, including the core components of a FlexMatch system and how they interact.
 

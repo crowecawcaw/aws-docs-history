@@ -1,7 +1,6 @@
 
 
 # MatchmakingTimedOut
-<a name="match-events-matchmakingtimedout"></a>
 
 Matchmaking ticket has failed by timing out.
 

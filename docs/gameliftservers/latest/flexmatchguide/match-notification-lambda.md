@@ -1,7 +1,6 @@
 
 
 # Configure a topic subscription to invoke a Lambda function
-<a name="match-notification-lambda"></a>
 
 You can invoke a Lambda function using event notifications published to your Amazon SNS topic. When configuring the matchmaker, be sure to set the notification target to your SNS topic's ARN.
 

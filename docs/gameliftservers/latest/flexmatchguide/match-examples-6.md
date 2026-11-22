@@ -1,7 +1,6 @@
 
 
 # Example: Compare attributes across all players
-<a name="match-examples-6"></a>
 
 This example illustrates how to compare player attributes across a group of players. 
 

@@ -1,7 +1,6 @@
 
 
 # Rule set schema for large matches
-<a name="match-ruleset-schema-large"></a>
 
 The following schema documents all possible properties and allowed values for a rule set that is used to build matches of greater than 40 players. If the total of `maxPlayers` values for all teams in the rule set exceeds 40, then FlexMatch processes match requests that use this rule set under the large-match guidelines. 
 

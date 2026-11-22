@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FlexMatch API reference (AWS SDK)
-<a name="reference-awssdk-flex"></a>
 
 This topic provides a task-based list of API operations for Amazon GameLift Servers FlexMatch. The Amazon GameLift Servers FlexMatch service API is packaged into the AWS SDK in the `aws.gamelift` namespace. [Download the AWS SDK](https://aws.amazon.com/tools/#SDKs) or [view the Amazon GameLift Servers API reference documentation](https://docs.aws.amazon.com/gamelift/latest/apireference/). 
 

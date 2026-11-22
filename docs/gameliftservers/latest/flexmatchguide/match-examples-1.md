@@ -1,7 +1,6 @@
 
 
 # Example: Create two teams with evenly matched players
-<a name="match-examples-1"></a>
 
 This example illustrates how to set up two equally matched teams of players with the following instructions. 
 + Create two teams of players.

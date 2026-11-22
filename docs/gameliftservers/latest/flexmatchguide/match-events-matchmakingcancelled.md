@@ -1,7 +1,6 @@
 
 
 # MatchmakingCancelled
-<a name="match-events-matchmakingcancelled"></a>
 
 Matchmaking ticket has been canceled due to StopMatchmaking API call.
 

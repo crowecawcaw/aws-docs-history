@@ -1,7 +1,6 @@
 
 
 # Roadmap: Add matchmaking to a Amazon GameLift Servers hosting solution
-<a name="match-tasks"></a>
 
 FlexMatch is available with the managed Amazon GameLift Servers hosting for custom game servers and Amazon GameLift Servers Realtime. To add FlexMatch matchmaking to your game, complete the following tasks. 
 + **Set up a matchmaker.** A matchmaker receives matchmaking requests from players and processes them. It groups players based on a set of defined rules and, for each successful match, creates a new game session and player sessions. Follow these steps to set up a matchmaker:

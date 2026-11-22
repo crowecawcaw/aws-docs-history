@@ -1,7 +1,6 @@
 
 
 # Build a FlexMatch rule set
-<a name="match-rulesets"></a>
 
 Every FlexMatch matchmaker must have a rule set. The rule set determines the two key elements of a match: your game's team structure and size, and how to group players together for the best possible match. 
 

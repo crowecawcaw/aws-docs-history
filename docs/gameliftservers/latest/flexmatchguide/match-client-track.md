@@ -1,7 +1,6 @@
 
 
 # Track matchmaking events
-<a name="match-client-track"></a>
 
 Set up notifications to track events that Amazon GameLift Servers emits for matchmaking processes. You can set up notifications either directly, by creating an SNS topic, or by using Amazon EventBridge. For more information on setting up notifications, see [Set up FlexMatch event notifications](match-notification.md). Once you've set up notifications, add a listener on your client service to detect the events and respond as needed. 
 

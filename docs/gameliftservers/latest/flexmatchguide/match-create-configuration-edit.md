@@ -1,7 +1,6 @@
 
 
 # Tutorial: Edit a matchmaking configuration
-<a name="match-create-configuration-edit"></a>
 
 To edit a matchmaking configuration, choose **Matchmaking configurations** from the navigation bar and choose the configuration you want to edit. You can update any field in an existing configuration except for its name. 
 

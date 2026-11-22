@@ -1,7 +1,6 @@
 
 
 # Request matchmaking for players
-<a name="match-client-start"></a>
 
 Add code to your game backend service to manage matchmaking requests to a FlexMatch matchmaker. The process of requesting FlexMatch matchmaking is identical for games that use FlexMatch with Amazon GameLift Servers hosting and for games that use FlexMatch as a standalone solution.
 

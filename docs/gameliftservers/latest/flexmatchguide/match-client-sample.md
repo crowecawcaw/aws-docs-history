@@ -1,7 +1,6 @@
 
 
 # Sample matchmaking requests
-<a name="match-client-sample"></a>
 
 The following code snippets build matchmaking requests for several different matchmakers. As described, a request must provide the player attributes that are required by the matchmaker in use, as defined in the matchmaker's rule set. The attribute provided must use the same data type, number (N) or string (S) that is defined in the rule set. 
 

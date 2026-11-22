@@ -1,7 +1,6 @@
 
 
 # Update match data on the game server
-<a name="match-backfill-server-data"></a>
 
 No matter how you initiate match backfill requests in your game, your game server must be able to handle the game session updates that Amazon GameLift Servers delivers as a result of match backfill requests.
 

@@ -1,7 +1,6 @@
 
 
 # Set up an SNS topic with server-side encryption
-<a name="queue-notification-sns-sse"></a>
 
 You can use server-side encryption (SSE) to store sensitive data in encrypted topics. SSE protects the contents of messages in Amazon SNS topics using keys managed in AWS Key Management Service (AWS KMS). For more information about server-side encryption with Amazon SNS, see [Encryption at rest](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) in the *Amazon Simple Notification Service Developer Guide*.
 

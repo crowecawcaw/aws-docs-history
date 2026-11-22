@@ -1,7 +1,6 @@
 
 
 # What is Amazon GameLift Servers FlexMatch?
-<a name="match-intro"></a>
 
 Amazon GameLift Servers FlexMatch is a customizable matchmaking service for multiplayer games. With FlexMatch, you can build a custom set of rules that define what a multiplayer match looks like for your game, and determines how to evaluate and select compatible players for each match. You can also fine-tune key aspects of the matchmaking algorithm to fit your game needs.
 

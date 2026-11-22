@@ -1,7 +1,6 @@
 
 
 # FlexMatch matchmaking events
-<a name="match-events"></a>
 
 Amazon GameLift Servers FlexMatch emits events for each matchmaking ticket as it is processed. You can publish these events to an Amazon SNS topic, as described in [Set up FlexMatch event notifications](match-notification.md). These events are also emitted to Amazon CloudWatch Events in near real time and on a best-effort basis.
 

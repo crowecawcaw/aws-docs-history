@@ -1,7 +1,6 @@
 
 
 # Preparing your game for FlexMatch
-<a name="match-integration-intro"></a>
 
 Use Amazon GameLift Servers FlexMatch to add player matchmaking functionality to your games. You can use FlexMatch with a managed Amazon GameLift Servers hosting solution or as a standalone service with another hosting solution. If you want to add FlexMatch to an Amazon GameLift Servers FleetIQ solution, use it as a standalone service. For more information on how FlexMatch works, see [How Amazon GameLift Servers FlexMatch works](gamelift-match.md).
 

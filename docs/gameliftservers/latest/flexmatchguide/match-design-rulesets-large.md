@@ -1,7 +1,6 @@
 
 
 # Design a FlexMatch large-match rule set
-<a name="match-design-rulesets-large"></a>
 
 If your rule set creates matches that allow 41 to 200 players, you need to make some adjustments to your rule set configuration. These adjustments optimize the match algorithm so that it can build viable large matches while also keeping player wait times short. As a result, large match rule sets replace time-consuming custom rules with standard solutions that are optimized for common matchmaking priorities. 
 

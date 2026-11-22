@@ -1,7 +1,6 @@
 
 
 # MatchmakingSucceeded
-<a name="match-events-matchmakingsucceeded"></a>
 
 Matchmaking has successfully completed and a game session has been created.
 

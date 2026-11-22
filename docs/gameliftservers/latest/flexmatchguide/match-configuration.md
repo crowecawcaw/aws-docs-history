@@ -1,7 +1,6 @@
 
 
 # Design a FlexMatch matchmaker
-<a name="match-configuration"></a>
 
 This topic provides guidance on how to design a matchmaker that fits your game. 
 

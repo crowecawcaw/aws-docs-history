@@ -1,7 +1,6 @@
 
 
 # Roadmap: Create a standalone matchmaking solution with FlexMatch
-<a name="match-tasks-safm"></a>
 
 This topic outlines the complete integration process for implementing FlexMatch as a standalone matchmaking service. Use this process if your multiplayer game is hosted using peer-to-peer, custom-configured on-premises hardware, or other cloud compute primitives. This process is also for use with Amazon GameLift Servers FleetIQ, which is a hosting optimization solution for games that are hosted on Amazon EC2. If you're hosting your game using Amazon GameLift Servers managed hosting (including Amazon GameLift Servers Realtime), see [Roadmap: Add matchmaking to a Amazon GameLift Servers hosting solution](match-tasks.md).
 

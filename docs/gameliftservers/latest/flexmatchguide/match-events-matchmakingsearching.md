@@ -1,7 +1,6 @@
 
 
 # MatchmakingSearching
-<a name="match-events-matchmakingsearching"></a>
 
 Ticket has been entered into matchmaking. This includes new requests and requests that were part of a proposed match that failed.
 

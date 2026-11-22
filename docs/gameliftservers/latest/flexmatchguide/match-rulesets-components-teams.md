@@ -1,7 +1,6 @@
 
 
 # Define match teams
-<a name="match-rulesets-components-teams"></a>
 
 Describe the structure and size of the teams for a match. Each match must have at least one team, and you can define as many teams as you want. Your teams can have the same number of players or be asymmetric. For example, you might define a single-player monster team and a hunters team with 10 players.
 

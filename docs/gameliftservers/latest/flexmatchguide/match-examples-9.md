@@ -1,7 +1,6 @@
 
 
 # Example: Create a large match with players with similar attributes
-<a name="match-examples-9"></a>
 
 This example illustrates how to set up a rule set for matches with two teams using `batchDistance`. In the example: 
 + The `SimilarLeague` rule ensures all players in a match have a `league` within 2 of other players. 

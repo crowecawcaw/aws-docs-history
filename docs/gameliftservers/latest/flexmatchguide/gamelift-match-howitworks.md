@@ -1,7 +1,6 @@
 
 
 # FlexMatch matchmaking process
-<a name="gamelift-match-howitworks"></a>
 
 This topic describes the sequence of events in a basic matchmaking scenario, including the interactions between the various game components and the FlexMatch service. 
 

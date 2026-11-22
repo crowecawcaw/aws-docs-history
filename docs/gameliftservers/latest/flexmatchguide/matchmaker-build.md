@@ -1,7 +1,6 @@
 
 
 # Building a Amazon GameLift Servers FlexMatch matchmaker
-<a name="matchmaker-build"></a>
 
 This section describes the key elements of a matchmaker and how to create and customize one for your game. This includes setting up a matchmaking configuration and a matchmaking rule set.
 

@@ -1,7 +1,6 @@
 
 
 # Design a FlexMatch rule set
-<a name="match-design-ruleset"></a>
 
 This topic covers the basic structure of a rule set and how to build a rule set for small matches up to 40 players. A matchmaking rule set does two things: lay out a match's team structure and size and tell the matchmaker how to choose players to form the best possible match. 
 

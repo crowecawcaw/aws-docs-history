@@ -1,7 +1,6 @@
 
 
 # Set up a game server for FlexMatch
-<a name="match-server-setup"></a>
 
 Game servers that are hosted with Amazon GameLift Servers must be integrated with the Amazon GameLift Servers server SDK and have core functionality as described in [Add Amazon GameLift Servers to your game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html). This functionality makes it possible for your game server to run on Amazon GameLift Servers hosting resources and communicate with the Amazon GameLift Servers service. The following instructions describe additional tasks that you need to do to add FlexMatch functionality.
 

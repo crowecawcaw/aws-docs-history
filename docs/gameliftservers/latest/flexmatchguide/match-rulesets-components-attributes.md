@@ -1,7 +1,6 @@
 
 
 # Declare player attributes
-<a name="match-rulesets-components-attributes"></a>
 
 In this section, list individual player attributes to include in matchmaking requests. There are two reasons you might declare player attributes in a rule set: 
 + When the rule set contains rules that rely on player attributes.

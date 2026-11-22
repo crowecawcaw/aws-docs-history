@@ -1,7 +1,6 @@
 
 
 # Customize match algorithm for large matches
-<a name="match-design-rulesets-large-algorithm"></a>
 
 Add an algorithm component to the rule set, if one doesn't already exist. Set the following properties. 
 + `strategy` (required) – Set the `strategy` property to “balanced”. This setting triggers FlexMatch to do additional post-match checks to find the optimal team balance based on a specified player attribute, which is defined in the `balancedAttribute` property. The balanced strategy replaces the need for custom rules to build evenly matched teams.

@@ -1,7 +1,6 @@
 
 
 # Connect to a match
-<a name="match-client-connect"></a>
 
 Add code to your client service to handle a successfully formed match (status `COMPLETED` or event `MatchmakingSucceeded`). This includes notifying the match's players and handing off connection information to their game clients. 
 

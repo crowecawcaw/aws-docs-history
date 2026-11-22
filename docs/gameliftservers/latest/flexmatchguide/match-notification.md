@@ -1,7 +1,6 @@
 
 
 # Set up FlexMatch event notifications
-<a name="match-notification"></a>
 
 You can use event notifications to track the status of individual matchmaking requests. All games in production, or in pre-production with high-volume matchmaking activity should use event notifications.
 

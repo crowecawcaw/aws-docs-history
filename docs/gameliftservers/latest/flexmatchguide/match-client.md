@@ -1,7 +1,6 @@
 
 
 # Add FlexMatch to a game client
-<a name="match-client"></a>
 
 This topic describes how to add FlexMatch matchmaking functionality to your client-side game components.
 

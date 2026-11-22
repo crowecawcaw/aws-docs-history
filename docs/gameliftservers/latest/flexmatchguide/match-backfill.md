@@ -1,7 +1,6 @@
 
 
 # Backfill existing games with FlexMatch
-<a name="match-backfill"></a>
 
 Match backfill uses your FlexMatch mechanisms to find new players for existing matched game sessions. Although you can always add players to any game (see [Join a player to a game session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-join)), match backfill ensures that new players meet the same match criteria as current players. In addition, match backfill assigns the new players to teams, manages player acceptance, and sends updated match information to the game server. Learn more about match backfill in [FlexMatch matchmaking process](gamelift-match-howitworks.md).
 

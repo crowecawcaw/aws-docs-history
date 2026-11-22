@@ -1,7 +1,6 @@
 
 
 # Example: Set team-level requirements and latency limits
-<a name="match-examples-3"></a>
 
 This example illustrates how to set up player teams and apply a set of rules to each team instead of each individual player. It uses a single definition to create three equally matched teams. It also establishes a maximum latency for all players. Latency maximums can be relaxed over time to complete the match. This example sets out the following instructions:
 + Create three teams of players.

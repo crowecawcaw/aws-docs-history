@@ -1,7 +1,6 @@
 
 
 # Turn on automatic backfill
-<a name="match-backfill-auto"></a>
 
 With automatic match backfill, Amazon GameLift Servers automatically triggers a backfill request whenever a game session starts with one or more unfilled player slots. This feature allows games to start as soon as the minimum number of matched players is found and fill remaining slots later as additional players are matched. You can opt to stop automatic backfill at any time. 
 

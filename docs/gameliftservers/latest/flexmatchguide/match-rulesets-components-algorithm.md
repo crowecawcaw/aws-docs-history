@@ -1,7 +1,6 @@
 
 
 # Customize the match algorithm
-<a name="match-rulesets-components-algorithm"></a>
 
 FlexMatch optimizes the default algorithm for most games to get players into acceptable matches with minimal wait time. You can customize the algorithm and adjust matchmaking for your game.
 

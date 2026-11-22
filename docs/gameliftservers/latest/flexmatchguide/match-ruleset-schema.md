@@ -1,7 +1,6 @@
 
 
 # FlexMatch rule set schema
-<a name="match-ruleset-schema"></a>
 
 FlexMatch rule sets use standard schema for small-match and large-match rules. For detailed descriptions of each section, see [FlexMatch rule set property definitions](match-ruleset-property-definitions.md).
 

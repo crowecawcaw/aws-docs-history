@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FlexMatch reference
-<a name="reference-flexmatch"></a>
 
  This section contains reference documentation for matchmaking with Amazon GameLift Servers FlexMatch. 
 
