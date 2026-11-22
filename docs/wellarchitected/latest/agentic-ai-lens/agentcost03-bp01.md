@@ -1,7 +1,6 @@
 
 
 # AGENTCOST03-BP01 Design cost-effective retrieval systems with tiered memory
-<a name="agentcost03-bp01"></a>
 
  Agent memory has to serve two opposing needs at once: fast access for active context, and cheap storage for history that is rarely touched. Tiered memory matches each class of data to infrastructure priced for its actual access pattern, and selective retrieval keeps token costs proportional to what the current task needs. 
 

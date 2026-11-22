@@ -1,7 +1,6 @@
 
 
 # Workflow orchestration and multi-agent collaboration
-<a name="agentperf05"></a>
 
  The most impactful agent use cases (complex research, multi-domain customer service, and process automation) require multiple agents working together, and well-designed orchestration is what makes the whole greater than the sum of its parts. Complex agentic AI systems often involve multiple agents collaborating to solve tasks that exceed the capability of any single agent. Workflow orchestration coordinates these multi-agent interactions through patterns like supervisor-worker hierarchies, peer-to-peer collaboration, and pipeline-based task decomposition. The performance of multi-agent systems depends on how efficiently work is distributed, how agents are selected and invoked, how intermediate results are passed between agents, and how parallel execution is used to reduce latency. 
 

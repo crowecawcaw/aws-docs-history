@@ -1,7 +1,6 @@
 
 
 # AGENTPERF05-BP04 Implement efficient agent delegation and handoff patterns
-<a name="agentperf05-bp04"></a>
 
  Smooth agent-to-agent transitions make multi-agent workflows feel like a single cohesive experience, where the receiving agent picks up exactly where the delegating agent left off. Delegation and handoff both require efficient context transfer. The receiving agent needs enough context to act, but transferring too much wastes time and tokens. 
 

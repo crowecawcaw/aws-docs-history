@@ -1,7 +1,6 @@
 
 
 # AGENTOPS02-BP04 Maintain feedback control loops for continuous improvement
-<a name="agentops02-bp04"></a>
 
  Agents that improve in step with real-world usage outperform agents frozen at deployment. A working feedback loop connects quality signals, user feedback, behavioral cues, and business outcomes to prioritized improvement actions. 
 

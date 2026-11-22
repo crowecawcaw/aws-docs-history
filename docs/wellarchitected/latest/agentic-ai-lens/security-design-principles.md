@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="security-design-principles"></a>
 
 In addition to the lens-level design principles, the security best practices in this lens are represented by at least one of the following principles:
 + **Treat every input as untrusted and every output as potentially harmful:** Multi-layer validation, prompt injection defenses, and output filtering apply to user inputs, memory reads, tool I/O, and agent-to-agent messages alike. The agent itself is not a trust boundary.

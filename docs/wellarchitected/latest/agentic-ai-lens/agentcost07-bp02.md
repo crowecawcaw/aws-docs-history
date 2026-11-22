@@ -1,7 +1,6 @@
 
 
 # AGENTCOST07-BP02 Establish proactive anomaly detection for agent cost patterns
-<a name="agentcost07-bp02"></a>
 
  Generic billing alerts help you find cost escalation more quickly after it starts. Agent-specific anomaly detection catches reasoning loop token spikes, tool invocation storms, and memory growth quickly, and routing those alerts correctly means that you can alert the team that owns the agent instead of the operations team. 
 

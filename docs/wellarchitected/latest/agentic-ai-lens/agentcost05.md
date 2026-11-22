@@ -1,7 +1,6 @@
 
 
 # Agent cost visibility and attribution
-<a name="agentcost05"></a>
 
  Organizations that instrument agent costs at the reasoning-cycle level make data-driven optimization decisions that compound savings across their entire agent fleet. Traditional cost tracking fails with agentic systems because costs span reasoning cycles, multi-agent workflows, tool invocations, and tenant boundaries that standard billing can't capture. 
 

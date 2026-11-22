@@ -1,7 +1,6 @@
 
 
 # AGENTCOST06-BP02 Cost optimize versioning and deployment through efficient artifact management
-<a name="agentcost06-bp02"></a>
 
  Agent runtimes that create an immutable version on every configuration change accumulate hundreds of versions during normal development, each holding references to container images that can't be managed easily. Layered base images, endpoint-based traffic routing, and automated cleanup policies keep deployment cost proportional to real usage rather than to the number of past configurations. 
 

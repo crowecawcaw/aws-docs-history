@@ -1,7 +1,6 @@
 
 
 # AGENTREL08-BP02 Implement agent tracing for telemetry throughout agent processing
-<a name="agentrel08-bp02"></a>
 
  Request-boundary telemetry can't distinguish between normal variation and genuine degradation. Stage-level telemetry across the full processing lifecycle gives operators the signal they need to activate graceful degradation at the right time rather than too early or too late. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTCOST07-BP01 Implement automated cost controls with intelligent cutoffs
-<a name="agentcost07-bp01"></a>
 
  Autonomous agents that invoke tools and accumulate memory without caps are a primary cost risk of agentic systems. Hierarchical budget limits, automatic cutoffs on runaway sessions, and graduated throttling help keep your costs bounded without forcing the agent to stop working at the first sign of pressure. 
 

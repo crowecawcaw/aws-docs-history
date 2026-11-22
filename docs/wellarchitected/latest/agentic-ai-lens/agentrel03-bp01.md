@@ -1,7 +1,6 @@
 
 
 # AGENTREL03-BP01 Design an information classification model to identify short-term and long-term memories
-<a name="agentrel03-bp01"></a>
 
  A single undifferentiated memory store blurs conversation context with durable knowledge and pulls stale or irrelevant data into active tasks. Classifying memory at ingestion time and routing each item to the right tier keeps retrieval predictable and storage costs aligned with how long each type actually needs to live. 
 

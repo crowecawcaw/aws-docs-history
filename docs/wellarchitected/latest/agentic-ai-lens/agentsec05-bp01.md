@@ -1,7 +1,6 @@
 
 
 # AGENTSEC05-BP01 Implement comprehensive logging and decision artifact storage
-<a name="agentsec05-bp01"></a>
 
  Agent decisions are only auditable if the reasoning behind them is captured, preserved intact, and reachable at the speed investigations actually move. Tamper-evident artifact storage, attribution to the original trigger, and a queryable index turn raw log volume into forensic capability. 
 

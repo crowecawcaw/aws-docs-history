@@ -1,7 +1,6 @@
 
 
 # AGENTREL06-BP01 Develop agent-based integrations with existing or legacy systems
-<a name="agentrel06-bp01"></a>
 
  Legacy systems expose interfaces built for synchronous, deterministic callers, while agents are asynchronous and probabilistic. Adapter layers translate between the two worlds so agents can use existing capabilities without the legacy side needing to change. 
 

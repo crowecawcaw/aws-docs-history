@@ -1,7 +1,6 @@
 
 
 # Prompt and configuration lifecycle management
-<a name="agentops02"></a>
 
 Agent prompts, configurations, and tool permissions define agent behavior and evolve continually as business needs change. Managing these artifacts requires balancing rapid iteration with stability so that changes are tracked, tested, and reversible.
 

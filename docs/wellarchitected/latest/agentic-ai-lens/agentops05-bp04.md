@@ -1,7 +1,6 @@
 
 
 # AGENTOPS05-BP04 Define and track KPIs for agent workflows
-<a name="agentops05-bp04"></a>
 
  Infrastructure metrics like CPU, memory, and invocation count explain whether an agent is running. However, these metrics don't determine whether an agent is actually working. Key performance indicators (KPIs) tied to business outcomes give teams and stakeholders a shared language for discussing and improving agent performance. 
 

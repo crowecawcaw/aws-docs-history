@@ -1,7 +1,6 @@
 
 
 # Tool integration and management practices
-<a name="agentops04"></a>
 
 Agents rely on external tools and services to complete work, and the way those integrations are managed determines whether agent behavior stays consistent as the tool inventory grows. Without a shared registry, standardized protocols, and common fallback behavior, every new tool adds operational burden and every tool failure risks broader agent outages.
 

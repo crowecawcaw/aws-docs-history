@@ -1,7 +1,6 @@
 
 
 # Secure agent inputs and outputs
-<a name="agentsec08"></a>
 
  Agents process inputs from users, tools, and other agents, and they generate outputs for downstream systems, memory stores, and end users. Without proper validation, adversarial inputs such as prompt injection can influence agent behavior, and agent outputs can inadvertently disclose sensitive information or generate harmful content. Multi-layer validation at both the input and output boundaries helps verify that agents operate safely within their intended scope. 
 

@@ -1,7 +1,6 @@
 
 
 # Operational practices for agentic AI systems
-<a name="agentops01"></a>
 
 Agentic systems that are built on strong operational foundations (with clear roles, reliable handoffs, and tested failure recovery) earn stakeholder trust and scale confidently into production. These systems combine precedent and best practices from several architectural disciplines, including generative AI and multi-agent coordination. These practices can't be combined without careful consideration. They must be judiciously selected and refined based on the workload being built and the business problem being addressed.
 

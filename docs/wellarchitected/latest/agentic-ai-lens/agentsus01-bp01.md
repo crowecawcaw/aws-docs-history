@@ -1,7 +1,6 @@
 
 
 # AGENTSUS01-BP01 Design specialized agents with explicit resource boundaries
-<a name="agentsus01-bp01"></a>
 
  Monolithic agents that over-provision for worst-case inputs waste compute without reliable audit trails to track consumption. To make consumption traceable at every layer, use specialized agents with single atomic capabilities and explicit resource boundaries. Give each agent a timeout, a memory ceiling, and a token budget. Each unit of resource spend then maps back to the task that caused it. 
 

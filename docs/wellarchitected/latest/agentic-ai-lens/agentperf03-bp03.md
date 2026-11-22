@@ -1,7 +1,6 @@
 
 
 # AGENTPERF03-BP03 Optimize RAG retrieval pipelines for latency and precision
-<a name="agentperf03-bp03"></a>
 
  Retrieval-augmented generation gives agents access to knowledge beyond the model's training data, but every reasoning iteration that queries a retrieval pipeline pays its latency and inherits the quality of its results. A well-tuned RAG pipeline returns high-relevance passages within a small latency budget. Without this discipline, retrieval either dominates per-iteration latency or returns noisy context that degrades reasoning quality. 
 

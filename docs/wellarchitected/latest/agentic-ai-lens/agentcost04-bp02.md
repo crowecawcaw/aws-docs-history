@@ -1,7 +1,6 @@
 
 
 # AGENTCOST04-BP02 Cost optimize tool serving through serverless and resource sharing
-<a name="agentcost04-bp02"></a>
 
  Tool infrastructure that runs constantly to serve unpredictable agent traffic carries the highest idle cost in an agent stack. Serverless tool serving with shared infrastructure across agents aligns spend with actual invocations and removes the fixed overhead of per-agent dedicated instances. 
 

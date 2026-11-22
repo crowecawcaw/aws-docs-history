@@ -1,7 +1,6 @@
 
 
 # AGENTREL05-BP01 Design modular, fault-tolerant agentic reasoning components
-<a name="agentrel05-bp01"></a>
 
  A monolithic reasoning pipeline fails completely whenever any stage fails. Splitting cognition into modular stages with clear interfaces and stage-specific fallbacks lets an agent keep reasoning, with reduced quality, even when one stage is degraded. 
 

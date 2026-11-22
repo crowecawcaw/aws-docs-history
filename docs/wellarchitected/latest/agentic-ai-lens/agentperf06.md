@@ -1,7 +1,6 @@
 
 
 # Tool integration and framework optimization
-<a name="agentperf06"></a>
 
  Agents extend their capabilities by invoking external tools (APIs, databases, search engines, code interpreters, and other services) and operate within frameworks that provide the scaffolding for agent behavior. The performance of tool integrations directly impacts agent responsiveness because tool invocations occur within the agent reasoning loop, adding latency to every iteration that requires external capabilities. Framework selection and configuration similarly affect performance through their impact on agent loop efficiency, memory management, and orchestration overhead. Optimizing this layer requires selecting frameworks that minimize overhead, designing tool integration strategies that reduce invocation latency, implementing efficient tool discovery and selection mechanisms, and using meta-tools that compose multiple capabilities into single efficient operations. 
 

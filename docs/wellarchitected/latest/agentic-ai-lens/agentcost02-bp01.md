@@ -1,7 +1,6 @@
 
 
 # AGENTCOST02-BP01 Architect tiered model selection for cost-performance optimization
-<a name="agentcost02-bp01"></a>
 
  Running every agent task on the largest available model inflates inference cost by an order of magnitude for work that smaller models handle correctly. Match each task to the cheapest model capable of acceptable quality, and escalate only when confidence drops. 
 

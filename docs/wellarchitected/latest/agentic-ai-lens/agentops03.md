@@ -1,7 +1,6 @@
 
 
 # Agent lifecycle and deployment processes
-<a name="agentops03"></a>
 
 Agent lifecycle management extends beyond traditional software deployment to include behavioral evolution, capability updates, and operational governance. Agents require ongoing management as they adapt to changing business requirements, integrate new tools, and scale across different environments.
 

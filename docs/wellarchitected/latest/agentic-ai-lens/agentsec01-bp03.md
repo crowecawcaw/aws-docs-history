@@ -1,7 +1,6 @@
 
 
 # AGENTSEC01-BP03 Monitor for hallucination propagation
-<a name="agentsec01-bp03"></a>
 
  A single hallucinated fact stored as memory becomes ground truth for every agent that reads it next. Continuous grounding checks and confidence scoring keep fabricated content from entering memory or cascading across a multi-agent workflow. 
 

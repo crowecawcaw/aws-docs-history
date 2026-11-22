@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="sustainability-design-principles"></a>
 
 In addition to the lens-level design principles, the sustainability best practices in this lens are represented by at least one of the following principles:
 + **Right-size each agent to its capability:** Resource boundaries (timeout, memory, token budget) match the actual work of a single capability rather than the worst-case input across many. For long-running or exploratory agents, declared success criteria, cost ceilings, and termination conditions keep extended execution a bounded investment instead of open-ended drift.

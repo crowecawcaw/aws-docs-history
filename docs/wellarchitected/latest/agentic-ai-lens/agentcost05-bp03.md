@@ -1,7 +1,6 @@
 
 
 # AGENTCOST05-BP03 Design tenant-aware cost allocation for agent as a service (AaaS) pricing models
-<a name="agentcost05-bp03"></a>
 
  Agent as a service (AaaS) offerings without per-tenant cost attribution can bill only by capacity estimates, can't detect noisy neighbors until infrastructure has already scaled, and can't decide when a tenant should move to dedicated infrastructure. Propagating tenant context through every operation and tracking cost at the tenant level fixes all three problems at once. 
 

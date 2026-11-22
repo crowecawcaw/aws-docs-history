@@ -1,7 +1,6 @@
 
 
 # AGENTSUS03-BP04 Decommission unused agents and prevent agent sprawl
-<a name="agentsus03-bp04"></a>
 
  Every agent that stays deployed past its usefulness consumes infrastructure, expands the attack surface, and adds operational overhead that never shows up as an explicit line item. Active portfolio management helps prevent the silent accumulation of cost and complexity that comes with scaled adoption. 
 

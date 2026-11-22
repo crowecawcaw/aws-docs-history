@@ -1,7 +1,6 @@
 
 
 # AGENTSEC07-BP04 Behavioral anomaly detection and agent containment
-<a name="agentsec07-bp04"></a>
 
  Detection without containment leaves issues identified but running. Containment without detection relies on manual observation. Per-agent baselines paired with automated credential revocation and forensic capture stop affected agents within minutes while preserving what investigators need. 
 

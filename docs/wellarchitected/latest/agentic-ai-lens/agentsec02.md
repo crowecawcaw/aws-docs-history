@@ -1,7 +1,6 @@
 
 
 # Secure agent tool usage
-<a name="agentsec02"></a>
 
  Agents interact with external systems through tools such as APIs, databases, file systems, and other services. Without proper controls, an agent with tool access can be directed to perform unintended actions. Authorization, input validation, and tool governance reduce the risk of tool misuse and unauthorized operations. 
 

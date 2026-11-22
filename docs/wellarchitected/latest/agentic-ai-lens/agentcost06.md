@@ -1,7 +1,6 @@
 
 
 # Agent discovery and deployment cost optimization
-<a name="agentcost06"></a>
 
  Teams that optimize agent lifecycle infrastructure through lightweight discovery, efficient versioning, and warm initialization help keep operational overhead from growing faster than the agent fleet itself. Agent infrastructure costs can escalate through inefficient discovery mechanisms, version proliferation, and cold start penalties. 
 

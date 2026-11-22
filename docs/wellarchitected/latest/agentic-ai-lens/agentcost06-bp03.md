@@ -1,7 +1,6 @@
 
 
 # AGENTCOST06-BP03 Design cost-efficient initialization through warm pools and caching
-<a name="agentcost06-bp03"></a>
 
  Cold starts are a significant per-invocation cost in agent infrastructure, where model loading, tool registration, and memory hydration run on every fresh session. You can reduce those per-invocation costs through persistent filesystems, session affinity, and lazy context loading to reuse results while still scaling to zero for agents that are rarely called. 
 

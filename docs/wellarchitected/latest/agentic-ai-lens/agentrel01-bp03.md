@@ -1,7 +1,6 @@
 
 
 # AGENTREL01-BP03 Design specialized agents following actor model principles
-<a name="agentrel01-bp03"></a>
 
  Multi-purpose agents concentrate risk. A single failure in one function affects every other function in the same process. Specialized agents that encapsulate one atomic capability, own their state, and communicate through messages keep the impact proportional to the scope of the failing component. 
 

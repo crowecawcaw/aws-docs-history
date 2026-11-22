@@ -1,7 +1,6 @@
 
 
 # AGENTSUS03-BP01 Maintain organizational skills and competencies
-<a name="agentsus03-bp01"></a>
 
  Organizations that automate without deliberately preserving the human expertise behind the automation lose the capacity to train new staff, handle edge cases, and recover when automated systems reach their limits. Keeping a clear distinction between what agents handle autonomously and what stays with human experts sustains organizational capability across the whole lifetime of the deployment. 
 

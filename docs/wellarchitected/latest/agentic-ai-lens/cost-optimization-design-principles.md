@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="cost-optimization-design-principles"></a>
 
 In addition to the lens-level design principles, the cost optimization best practices in this lens are represented by at least one of the following principles:
 + **Pay only for the reasoning the task requires:** Match model class, context length, and reasoning depth to task complexity instead of provisioning the largest model and longest context for the worst case.

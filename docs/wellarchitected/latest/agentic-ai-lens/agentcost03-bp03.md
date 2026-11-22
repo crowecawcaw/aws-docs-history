@@ -1,7 +1,6 @@
 
 
 # AGENTCOST03-BP03 Implement cost-optimized state persistence and lifecycle management
-<a name="agentcost03-bp03"></a>
 
  Agent state grows quickly when every reasoning step triggers a checkpoint, and it stays forever when no lifecycle policy removes it. Saving state at meaningful decision points, tiering by access pattern, and automating archival keeps recoverability without paying for a growing backlog of stale sessions. 
 

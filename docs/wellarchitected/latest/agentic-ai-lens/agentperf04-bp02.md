@@ -1,7 +1,6 @@
 
 
 # AGENTPERF04-BP02 Implement efficient protocol-based agent communications
-<a name="agentperf04-bp02"></a>
 
  Standardized protocols such as the Model Context Protocol (MCP) and agent-to-agent (A2A) give agents a consistent way to communicate with tools and each other, reducing per-interaction overhead and enabling interoperability. Different protocols have different performance profiles, connection establishment, serialization, streaming, multiplexing, which makes protocol selection a meaningful performance decision for high-frequency agent communication. 
 

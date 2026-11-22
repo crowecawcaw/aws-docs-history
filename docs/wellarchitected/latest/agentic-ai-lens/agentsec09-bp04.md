@@ -1,7 +1,6 @@
 
 
 # AGENTSEC09-BP04 Establish scoped and controlled testing environments for agent security assessments
-<a name="agentsec09-bp04"></a>
 
  Penetration testing that runs real exploit attempts against production agents can trigger tool calls, corrupt memory, or expose sensitive data. Scoped test environments with dedicated credentials and isolated agent state let teams run thorough assessments without risking production impact. 
 

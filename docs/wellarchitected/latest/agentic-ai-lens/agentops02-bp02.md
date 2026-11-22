@@ -1,7 +1,6 @@
 
 
 # AGENTOPS02-BP02 Implement configuration drift detection and remediation
-<a name="agentops02-bp02"></a>
 
  Configurations can drift, creating outdated or unstable versions over time. For example, a manual tweak in one environment, a guardrail flag changed during an incident, or an experimental override never reverted can produce agents that behave differently in production than in testing. Automated drift detection catches these events before they turn into incidents. 
 

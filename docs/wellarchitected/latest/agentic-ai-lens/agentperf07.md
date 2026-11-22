@@ -1,7 +1,6 @@
 
 
 # Multi-tenancy and resource optimization
-<a name="agentperf07"></a>
 
  A well-designed multitenant agent service lets organizations serve many teams and customers from shared infrastructure while delivering consistent, predictable performance to each. Multitenant agent deployments must isolate one tenant's workload so it can't degrade the performance experienced by other tenants, and at the same time optimize overall resource utilization to control costs. This requires designing deployment models that provide appropriate isolation boundaries, implementing throttling and quota mechanisms that enforce fair resource allocation, and right-sizing serverless compute configurations for the bursty nature of agent workloads. 
 

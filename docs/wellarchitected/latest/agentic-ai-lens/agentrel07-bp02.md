@@ -1,7 +1,6 @@
 
 
 # AGENTREL07-BP02 Enable automatic recovery from agent execution failures
-<a name="agentrel07-bp02"></a>
 
  Uniform retry wastes effort on non-retryable failures and creates thundering herds on transient ones. Classifying failures by type and applying targeted strategies, retry for transient errors, fallback for persistent ones, escalation for unrecoverable ones, keeps availability high without manual intervention. 
 

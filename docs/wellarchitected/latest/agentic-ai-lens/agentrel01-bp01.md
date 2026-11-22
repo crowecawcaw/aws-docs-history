@@ -1,7 +1,6 @@
 
 
 # AGENTREL01-BP01 Implement a resilient messaging layer
-<a name="agentrel01-bp01"></a>
 
  Direct agent-to-agent calls couple failure modes. When one agent fails, everything downstream fails with it. A messaging layer with persistence, retry, and dead-letter handling absorbs transient faults and lets workflows resume from where they stopped. 
 

@@ -1,7 +1,6 @@
 
 
 # Observability and monitoring for agentic systems
-<a name="agentops05"></a>
 
 Observability in agentic systems requires capturing not just infrastructure metrics, but also agent reasoning steps, decision paths, and workflow execution patterns. Traditional monitoring approaches must be extended to provide visibility into agent behavior, tool invocations, and multi-agent interactions.
 

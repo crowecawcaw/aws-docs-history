@@ -1,7 +1,6 @@
 
 
 # AGENTCOST01-BP03 Implement cost-effective patterns like hybrid supervisor for multi-agent coordination
-<a name="agentcost01-bp03"></a>
 
  Many multi-agent workflows pay for AI reasoning at the coordination layer for decisions that rules could make at no additional charge. Matching each orchestration decision to the cheapest mechanism capable of handling it removes that hidden cost. 
 

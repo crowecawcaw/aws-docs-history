@@ -1,7 +1,6 @@
 
 
 # Agent memory and state management
-<a name="agentrel03"></a>
 
  Agents that classify, persist, and recover memory reliably deliver consistent behavior across sessions and maintain functionality even during component failures. Agent memory is beholden to the same reliability considerations of any data store. How do you support returning the right information, and how does the agent behave when state is unavailable? 
 

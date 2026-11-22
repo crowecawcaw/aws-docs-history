@@ -1,7 +1,6 @@
 
 
 # AGENTCOST02-BP03 Use intelligent caching to reduce redundant model invocations
-<a name="agentcost02-bp03"></a>
 
  Agents repeat work constantly: identical prompts, semantically equivalent requests, the same planning steps across similar tasks. Caching at the prompt, semantic, and plan-template layers changes repetition from a recurring expense into a one-time cost paid on the first invocation. 
 

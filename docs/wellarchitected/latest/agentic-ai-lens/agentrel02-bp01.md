@@ -1,7 +1,6 @@
 
 
 # AGENTREL02-BP01 Design agents for specific and atomic tasks
-<a name="agentrel02-bp01"></a>
 
  LLM outputs are stochastic, so the scope of an agent's responsibility is also the scope of that stochasticity. Narrow, atomic agents with explicit input contracts and structured output schemas make the unpredictable parts of the model more observable, testable, and containable. 
 

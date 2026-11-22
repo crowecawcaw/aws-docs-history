@@ -1,7 +1,6 @@
 
 
 # Agent cognition
-<a name="agentrel05"></a>
 
  Agents that ground their reasoning in current, accurate information and adapt based on structured feedback deliver reliable cognition even as task requirements and data distributions evolve. Agentic cognition engines must be provided with appropriate information at all layers of workflow execution to reliably execute tasks. 
 

@@ -1,7 +1,6 @@
 
 
 # Agent monitoring, management and recovery
-<a name="agentrel07"></a>
 
  Agent systems that decompose workflows into recoverable stages, classify failures for targeted retry, and implement end-to-end distributed tracing recover smoothly from the failures that occur across their many components. 
 

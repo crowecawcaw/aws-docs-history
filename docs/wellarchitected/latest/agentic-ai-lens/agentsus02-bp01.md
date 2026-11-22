@@ -1,7 +1,6 @@
 
 
 # AGENTSUS02-BP01 Optimize context management and memory utilization
-<a name="agentsus02-bp01"></a>
 
  Agent memory that grows without bounds forces every retrieval to search through increasingly large stores and every turn to reprocess history the agent has already seen. Tiered memory with retention policies keeps infrastructure scaled to the context that actually matters, so memory operations stay fast and memory cost stays proportional to use. 
 

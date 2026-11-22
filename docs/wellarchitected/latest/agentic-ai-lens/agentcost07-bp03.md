@@ -1,7 +1,6 @@
 
 
 # AGENTCOST07-BP03 Create systematic optimization feedback loops for continuous improvement
-<a name="agentcost07-bp03"></a>
 
  One-time optimization projects can miss compounding gains, as cost-performance characteristics of agent systems shift as prompts change, tools evolve, and traffic patterns drift. A monthly review cadence, A/B-tested changes, and cost gates in the deployment pipeline turn optimization into a continual practice that can keep pace with the system. 
 

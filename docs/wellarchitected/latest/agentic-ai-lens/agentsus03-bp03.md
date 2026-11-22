@@ -1,7 +1,6 @@
 
 
 # AGENTSUS03-BP03 Maintain comprehensive specifications for agents and agentic systems
-<a name="agentsus03-bp03"></a>
 
  Agents without specifications become systems that only their original developers understand. Thorough documentation, purpose, boundaries, integration points, and decision logic keep institutional knowledge available to the whole team and verify that agent behavior is traceable as teams and business processes change. 
 

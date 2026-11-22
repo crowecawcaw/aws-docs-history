@@ -1,7 +1,6 @@
 
 
 # AGENTSEC04-BP02 Human-in-the-loop for critical decisions
-<a name="agentsec04-bp02"></a>
 
  Routing every agent action through human review produces rubber-stamp approvals. Routing none produces unbounded autonomy. Risk-tiered approval pauses agents only for the decisions where human judgment actually changes the outcome, with enough context to make those decisions meaningful. 
 

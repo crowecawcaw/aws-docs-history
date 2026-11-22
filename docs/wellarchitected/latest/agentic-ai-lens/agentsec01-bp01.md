@@ -1,7 +1,6 @@
 
 
 # AGENTSEC01-BP01 Implement memory isolation and integrity controls
-<a name="agentsec01-bp01"></a>
 
  Shared agent memory is the shortest path for a single affected session to contaminate every other one. Partitioning memory along the boundaries that matter for the workload, and verifying what comes back out, contains the scope of memory poisoning to the partition it touched. 
 

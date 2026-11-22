@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
 This section defines key terms used throughout the AWS Well-Architected Agentic AI Lens. These definitions establish a shared vocabulary for discussing agentic AI architecture and are used consistently across all pillars and best practices.
 

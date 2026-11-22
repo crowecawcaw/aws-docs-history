@@ -1,7 +1,6 @@
 
 
 # AGENTSEC05-BP02 Implement distributed tracing for agent interactions
-<a name="agentsec05-bp02"></a>
 
  A request that hops across agents, queues, and event buses is only investigable if a single identifier follows it end-to-end. Tracing with both a trace ID for instrumented services and an application-level correlation ID for asynchronous boundaries makes cross-agent incidents reconstructable. 
 

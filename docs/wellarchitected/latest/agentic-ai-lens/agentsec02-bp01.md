@@ -1,7 +1,6 @@
 
 
 # AGENTSEC02-BP01 Implement tool authorization
-<a name="agentsec02-bp01"></a>
 
  An agent with unconstrained tool access has no meaningful privilege boundary. Externally enforced authorization at the gateway, combined with identity propagation and human review for mutating operations, enforces bounded autonomy at the tool layer. 
 

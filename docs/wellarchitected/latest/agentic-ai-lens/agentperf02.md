@@ -1,7 +1,6 @@
 
 
 # Core processing and reasoning pipeline optimization
-<a name="agentperf02"></a>
 
  A well-optimized reasoning pipeline is what makes agents feel fast, responsive, and worth using. It is the difference between an agent that users rely on and one they abandon. The reasoning pipeline (encompassing perception, reasoning, planning, decision-making, and action execution) is the performance-critical path of every agentic AI system. Each iteration of the agent loop involves an LLM inference call, which is typically the most latency-intensive and resource-consuming operation in the stack. Optimizing core processing requires designing efficient reasoning pipelines that minimize unnecessary iterations, selecting models appropriate to task complexity, reducing execution path latency through architectural decisions, and optimizing streaming delivery to minimize perceived latency for user-facing interactions. Poor pipeline design produces agents that are slow, expensive, and unresponsive, regardless of how well the underlying infrastructure is provisioned. 
 

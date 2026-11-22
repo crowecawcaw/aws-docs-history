@@ -1,7 +1,6 @@
 
 
 # AGENTCOST05-BP01 Establish agent-level reasoning cost tracking and attribution
-<a name="agentcost05-bp01"></a>
 
  Account-level billing shows what an agent fleet costs, but it doesn't show where the specific costs come from. Granular tracking by agent, workflow, and reasoning phase provides trackable detail about your spending, which makes opaque costs into the input for targeted optimization. 
 

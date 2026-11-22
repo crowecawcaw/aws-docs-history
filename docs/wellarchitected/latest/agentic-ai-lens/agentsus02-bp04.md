@@ -1,7 +1,6 @@
 
 
 # AGENTSUS02-BP04 Measure and optimize the environmental footprint of agent workloads
-<a name="agentsus02-bp04"></a>
 
  Without measurement, sustainability claims are aspirational and optimizations are not tracked against real-world data. Tracking the environmental footprint of agent workloads makes sustainability an engineering metric. Baselines show where effort is worth investing, and trends show whether changes are actually working. 
 

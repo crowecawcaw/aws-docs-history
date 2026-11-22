@@ -1,7 +1,6 @@
 
 
 # AGENTOPS05-BP02 Monitor agent behavior patterns and detect anomalies
-<a name="agentops05-bp02"></a>
 
  Static threshold alerts catch obvious breakages. Anomaly detection over behavioral baselines extends coverage to gradual shifts like a slowly rising escalation rate, a quietly increasing hallucination frequency, or tool-selection patterns that drift toward less capable options, providing early visibility into behavioral trends. 
 

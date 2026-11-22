@@ -1,7 +1,6 @@
 
 
 # AGENTPERF02-BP03 Optimize agent execution paths for reduced latency
-<a name="agentperf02-bp03"></a>
 
  Most of an agent request's total latency time is spent waiting on model inference, retrieval, tool invocations, and memory lookups rather than on CPU work inside the agent process. Executing independent operations concurrently, reusing warm connections and runtimes, and deduplicating repeated lookups within a single request cut total latency without changing models or prompts. 
 

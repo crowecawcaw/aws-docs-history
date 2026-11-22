@@ -1,7 +1,6 @@
 
 
 # AGENTSEC06-BP03 Establish trust boundaries between agents
-<a name="agentsec06-bp03"></a>
 
  A flat agent network gives every affected agent a direct path to every other one. Trust zones segmented at the network and IAM layers, with application-layer verification of caller identity, stop one affected agent from escalating across the whole system. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTSEC01-BP02 Validate and sanitize memory inputs
-<a name="agentsec01-bp02"></a>
 
  Unvalidated writes into agent memory let adversarial content persist and influence every subsequent session that reads the same context. Layered validation at ingestion keeps the memory store free of injection payloads, policy-violating content, and context inconsistent with the current task. 
 

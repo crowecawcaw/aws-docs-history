@@ -1,7 +1,6 @@
 
 
 # Secure agent memory and state
-<a name="agentsec01"></a>
 
  One reason agentic AI is effective is the ability to perform long-running tasks. To achieve a goal, agents need to store context, tasks, and results. Agent memory systems can be targeted to introduce false information or influence agent decisions, so securing memory and state helps maintain agent integrity. 
 

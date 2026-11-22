@@ -1,7 +1,6 @@
 
 
 # AGENTOPS03-BP04 Implement organizational agent portfolio management and governance at scale
-<a name="agentops03-bp04"></a>
 
  A handful of agents built by one team is a project. Dozens of agents built by multiple teams is a portfolio, and portfolios need different operational mechanisms. Without cross-organizational visibility, teams build redundant agents, break each other's integrations, and lose track of which agents still earn their keep. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTPERF07-BP01 Design efficient multitenant agent deployment models
-<a name="agentperf07-bp01"></a>
 
  Organizations that serve multiple tenants from a shared agent service get better resource efficiency and faster tenant onboarding when the deployment model delivers consistent performance for every tenant. Siloed deployments provide strong isolation at higher cost. Pooled deployments maximize efficiency but need mechanisms to help prevent noisy neighbor effects. Hybrid models combine both, using pooled resources for standard tenants and dedicated resources for premium tenants. 
 

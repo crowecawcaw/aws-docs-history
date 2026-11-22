@@ -1,7 +1,6 @@
 
 
 # AGENTSUS01-BP04 Scale cognitive processing pathways appropriately
-<a name="agentsus01-bp04"></a>
 
  Foundation model inference is the single most energy-intensive operation in an agent workflow, and it runs hundreds or thousands of times a day. Matching model size, retrieval depth, and memory scope to actual task complexity keeps cognitive resource consumption proportional to the value delivered, rather than defaulting every call to the largest available model. 
 

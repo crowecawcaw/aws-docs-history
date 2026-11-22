@@ -1,7 +1,6 @@
 
 
 # Memory, context, and RAG optimization
-<a name="agentperf03"></a>
 
  Agentic AI systems depend on efficient access to contextual information through short-term conversational memory, long-term knowledge stores, retrieval-augmented generation pipelines, and LLM context windows to produce accurate, relevant responses. Memory and context management directly impacts both performance and quality. Overstuffing context windows increases inference latency and cost, and insufficient context leads to poor reasoning and hallucination. Optimizing this layer requires implementing tiered memory architectures that match storage and retrieval characteristics to access patterns, managing context windows to maximize information density without exceeding token limits, designing RAG pipelines that retrieve relevant information with minimal latency, and establishing caching strategies that reduce redundant retrievals. These optimizations matter because memory and context operations occur on every reasoning iteration, making their efficiency a multiplier across the agent lifecycle. 
 

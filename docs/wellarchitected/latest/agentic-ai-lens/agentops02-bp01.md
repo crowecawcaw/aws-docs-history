@@ -1,7 +1,6 @@
 
 
 # AGENTOPS02-BP01 Evolve agent prompts, tool calls, and configurations to reflect evolving business needs
-<a name="agentops02-bp01"></a>
 
  A prompt shapes agent behavior more directly than almost any other configuration artifact. Create a prompt lifecycle that applies code-grade discipline, versioning, review, evaluation, and rollback to prompts, which helps avoid unnoticed prompt drift and degraded decisions in agent interactions. 
 

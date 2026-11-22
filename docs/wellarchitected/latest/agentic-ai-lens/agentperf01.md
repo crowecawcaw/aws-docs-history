@@ -1,7 +1,6 @@
 
 
 # Strategic performance planning and measurement
-<a name="agentperf01"></a>
 
  Agentic AI systems introduce novel performance dimensions beyond traditional infrastructure metrics, including reasoning latency, token throughput, tool invocation efficiency, time-to-first-token, and overall task completion time. Strategic performance planning requires defining measurable success criteria with per-phase latency budgets, implementing thorough telemetry across the reasoning pipeline, systematically profiling overall latency to identify bottlenecks, and establishing performance testing practices that validate agent responsiveness under load. Without deliberate performance planning, organizations risk deploying agents that appear functional but fail to meet latency, throughput, or quality expectations at scale. 
 

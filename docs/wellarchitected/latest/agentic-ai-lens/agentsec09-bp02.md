@@ -1,7 +1,6 @@
 
 
 # AGENTSEC09-BP02 Conduct context-aware penetration testing with multi-agent attack simulation
-<a name="agentsec09-bp02"></a>
 
  Generic scanners miss vulnerabilities that only surface in agent orchestration, tool parameter construction, and inter-agent delegation. Context-aware testing driven by specialized attacker agents that adapt to what the application reveals finds the chained exploits that static scripts can't reach. 
 

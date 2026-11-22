@@ -1,7 +1,6 @@
 
 
 # AGENTPERF01-BP01 Define performance-aligned success criteria for agent workloads
-<a name="agentperf01-bp01"></a>
 
  Agent workloads are harder to measure than traditional applications because a single user request fans out into multiple inference calls, tool invocations, and memory retrievals, each with its own latency, quality, and cost signature. Without explicit performance targets, teams optimize against a moving reference and can't tell when an agent is ready for production. 
 

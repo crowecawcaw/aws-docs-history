@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="operational-excellence-design-principles"></a>
 
 In addition to the lens-level design principles, the operational excellence best practices in this lens are represented by at least one of the following principles:
 + **Define purpose, autonomy, and success criteria before deployment:** Role descriptions, scope boundaries, and measurable outcomes are prerequisites for shipping. They drive guardrails, monitoring thresholds, and escalation triggers downstream.

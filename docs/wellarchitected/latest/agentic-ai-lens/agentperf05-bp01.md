@@ -1,7 +1,6 @@
 
 
 # AGENTPERF05-BP01 Design efficient workflow orchestration patterns
-<a name="agentperf05-bp01"></a>
 
  Agents that coordinate specialized sub-agents can solve complex tasks faster than any single agent, and the orchestration pattern you choose determines whether that coordination adds milliseconds or seconds. Orchestration patterns range from static workflows (the execution graph is fully defined at design time) to dynamic workflows (the agent's reasoning determines the next step at runtime). Efficient orchestration means decomposing tasks for parallelism, minimizing data passed between steps, and matching the orchestration pattern to the task's dependency structure. 
 

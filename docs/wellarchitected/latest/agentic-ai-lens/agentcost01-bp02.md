@@ -1,7 +1,6 @@
 
 
 # AGENTCOST01-BP02 Optimize multi-agent collaboration cost through efficient handoff patterns
-<a name="agentcost01-bp02"></a>
 
  In multi-agent systems, the largest hidden cost is redundant context that travels with every handoff. Structured handoff messages and shared memory keep coordination cost proportional to task complexity rather than conversation length. 
 

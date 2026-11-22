@@ -1,7 +1,6 @@
 
 
 # AGENTPERF02-BP04 Optimize streaming responses and time-to-first-token for agent interactions
-<a name="agentperf02-bp04"></a>
 
  User-facing agents are judged on perceived latency, not total processing time. Time-to-first-token (TTFT), the delay before the first output reaches the user, is the dominant perceived-performance signal, and streaming delivery keeps TTFT short even when total processing takes several seconds. Agentic streaming is complicated by reasoning loops that must pause mid-stream to invoke tools and by multi-agent workflows where the final agent streams while upstream agents are still producing. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTCOST04-BP01 Design cost effective tool selection to minimize unnecessary invocations
-<a name="agentcost04-bp01"></a>
 
  Often, the most cost-effective tool call is the one an agent decides not to make because the answer is already in context. Context-first reasoning, cost-ranked selection, and duplicate detection tie tool invocation to the value of the information retrieved. 
 

@@ -1,7 +1,6 @@
 
 
 # Agent observability and non-repudiation
-<a name="agentsec05"></a>
 
  Without proper logging and traceability, agent actions can't be investigated or attributed. Agents operate autonomously across multiple services, tools, and data sources, generating complex interaction chains that are difficult to reconstruct after the fact. Observability through logging, distributed tracing, and decision artifact storage supports security investigations, compliance reporting, and continuous improvement of agent behavior. 
 

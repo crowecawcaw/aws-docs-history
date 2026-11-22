@@ -1,7 +1,6 @@
 
 
 # AGENTPERF01-BP03 Profile end-to-end agent latency and identify optimization targets
-<a name="agentperf01-bp03"></a>
 
  The dominant contributor to agent latency varies by task type: a simple question-and-answer request can be inference-bound, a retrieval-heavy request can be retrieval-bound, and a multi-agent workflow can be coordination-bound. Without decomposing total latency into per-phase contributions, teams optimize assumed bottlenecks rather than measured ones, and engineering effort lands on work that doesn't move performance for users. 
 

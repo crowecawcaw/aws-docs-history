@@ -1,7 +1,6 @@
 
 
 # AGENTPERF04-BP01 Optimize asynchronous message handling patterns
-<a name="agentperf04-bp01"></a>
 
  Asynchronous messaging lets agents operate independently at their optimal pace, with message queues absorbing throughput variations and leveling load across the workflow. Synchronous request-response patterns create tight coupling that makes a slow downstream agent block the entire upstream chain. Async decouples producers from consumers so fast agents are not held up by slow ones. 
 

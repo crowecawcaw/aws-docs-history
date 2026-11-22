@@ -1,7 +1,6 @@
 
 
 # AGENTSEC02-BP03 Maintain approved tool registry with security assessments
-<a name="agentsec02-bp03"></a>
 
  Every tool an agent can reach is part of its effective privilege surface. A version-controlled registry with documented security boundaries, enforced at invocation time, keeps unvetted or deprecated tools off the agent's call path. 
 

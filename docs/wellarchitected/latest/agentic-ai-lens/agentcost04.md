@@ -1,7 +1,6 @@
 
 
 # Agent tool serving cost optimization
-<a name="agentcost04"></a>
 
  Agents that evaluate tool necessity before invocation and cache results for recurring patterns keep tool costs predictable even as autonomous capabilities expand. Agent tool usage can create unpredictable cost spikes through excessive API calls, failed invocation retry storms, and always-on infrastructure that scales poorly with demand. 
 

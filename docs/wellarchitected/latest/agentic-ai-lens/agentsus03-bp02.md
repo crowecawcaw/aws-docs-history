@@ -1,7 +1,6 @@
 
 
 # AGENTSUS03-BP02 Build agents to mirror your organizational skills and competencies
-<a name="agentsus03-bp02"></a>
 
  Agents built to codify proven workflows deliver immediate value. Agents built to automate processes the organization has not mastered itself usually waste resources learning what could have been documented first. Focusing automation on well-understood work is the difference between agent adoption that pays back quickly and adoption that consumes resources on untested methodology. 
 

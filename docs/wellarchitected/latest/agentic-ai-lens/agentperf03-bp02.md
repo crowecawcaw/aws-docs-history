@@ -1,7 +1,6 @@
 
 
 # AGENTPERF03-BP02 Optimize context window utilization and prompt management
-<a name="agentperf03-bp02"></a>
 
  Every token sent to an LLM competes for the model's attention, consumes input-token cost, and adds inference latency, which makes prompt content a first-order performance lever. Effective context window management budgets tokens across prompt components, assembles only what the current task needs, and compresses or summarizes the rest. Without this discipline, conversation history and tool schemas crowd out reasoning capacity and inflate latency on every iteration. 
 

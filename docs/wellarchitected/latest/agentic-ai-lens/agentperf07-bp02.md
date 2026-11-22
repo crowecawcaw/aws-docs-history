@@ -1,7 +1,6 @@
 
 
 # AGENTPERF07-BP02 Implement tenant-aware performance isolation and throttling
-<a name="agentperf07-bp02"></a>
 
  Trust in a shared agent service is built through consistent, predictable performance for every tenant, even during demand spikes. In pooled multitenant deployments, effective isolation requires throttling at multiple layers (API, inference, memory, and tools), monitoring per-tenant resource consumption, and adaptive fairness mechanisms that distribute shared resources equitably based on current load. 
 

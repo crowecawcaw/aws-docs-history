@@ -1,7 +1,6 @@
 
 
 # AGENTOPS05-BP01 Establish end-to-end tracing and telemetry for agent operations
-<a name="agentops05-bp01"></a>
 
  When an agent produces an unexpected output, the investigation is only as good as the telemetry. Distributed tracing that captures the full execution path (reasoning, tool calls, memory operations, and model invocations) enables precise reconstruction of every decision and action. 
 

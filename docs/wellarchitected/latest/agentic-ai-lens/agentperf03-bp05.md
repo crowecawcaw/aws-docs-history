@@ -1,7 +1,6 @@
 
 
 # AGENTPERF03-BP05 Implement agentic retrieval patterns for dynamic, agent-driven knowledge access
-<a name="agentperf03-bp05"></a>
 
  Complex questions often require information from multiple sources, iterative refinement, or real-time data that a single retrieval pass can't provide. In agentic retrieval the agent actively controls the retrieval process as part of its reasoning loop, deciding when to retrieve, what to retrieve, which retrieval tool to use, and whether the retrieved context is sufficient before proceeding. Each iteration adds embedding generation, vector search, re-ranking, and context injection overhead, so the retrieval loop needs explicit termination conditions. 
 

@@ -1,7 +1,6 @@
 
 
 # Legacy system integration
-<a name="agentrel06"></a>
 
  Agents that integrate with existing systems through adapter patterns and abstraction interfaces preserve legacy system stability while enabling automation of established workflows. These systems might not be optimized for agent interactions and might require support for protocols such as MCP or A2A. How do agents integrate effectively without impacting the reliability of established processes? 
 

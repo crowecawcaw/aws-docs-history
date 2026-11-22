@@ -1,7 +1,6 @@
 
 
 # AGENTREL02-BP05 Establish tiered human oversight and approval workflows
-<a name="agentrel02-bp05"></a>
 
  Uniform oversight either slows every routine action to a crawl or lets a high-consequence decision slip through unchecked. Tiering review to match the risk and reversibility of each action balances throughput with appropriate governance. 
 

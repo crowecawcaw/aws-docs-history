@@ -1,7 +1,6 @@
 
 
 # AGENTREL06-BP03 Regularly test degraded system performance
-<a name="agentrel06-bp03"></a>
 
  Resilience claims that have never been tested under real failure conditions are just aspirations. Regular chaos engineering, fault injection, and load testing under constrained resources reveal the gaps in fallback coverage while the environment is safe to break. 
 

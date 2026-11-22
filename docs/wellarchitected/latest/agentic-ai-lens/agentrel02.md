@@ -1,7 +1,6 @@
 
 
 # Predictable task execution
-<a name="agentrel02"></a>
 
  Agents that constrain LLM stochasticity through atomic task design, least-privilege permissions, and clear instruction protocols deliver predictable outcomes even when the underlying models are non-deterministic. Agent reliability extends beyond supporting infrastructure to the reliability of executing the intended task with the appropriate data at the correct time. 
 

@@ -1,7 +1,6 @@
 
 
 # Reasoning and execution cost optimization
-<a name="agentcost01"></a>
 
  Teams that initially design cost-aware reasoning patterns can achieve predictable token budgets and avoid the cost growth that can emerge in agentic projects after launch. Agent reasoning cycles consume tokens through iterative plan-execute-verify-reflect loops, and multi-agent coordination adds multiplicative overhead. Unlike traditional applications where compute costs are predictable, agentic systems can accumulate cost in extended reasoning loops or inefficient agent-to-agent communication patterns. 
 

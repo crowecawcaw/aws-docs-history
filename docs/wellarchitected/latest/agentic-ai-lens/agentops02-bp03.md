@@ -1,7 +1,6 @@
 
 
 # AGENTOPS02-BP03 Implement agent behavior versioning and rollback capabilities
-<a name="agentops02-bp03"></a>
 
  Teams with versioned behavior and tested rollback can recover in minutes when an agent behaves unexpectedly, while teams without spend hours debugging under pressure. Rapid reversibility improves your organization's ability to confidently iterate on an agentic system. 
 

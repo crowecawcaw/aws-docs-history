@@ -1,7 +1,6 @@
 
 
 # AGENTSEC08-BP02 Output filtering for sensitive information
-<a name="agentsec08-bp02"></a>
 
  Filtering user-facing responses leaves internal data paths (inter-agent messages, memory writes, audit logs) as open channels for PII and credentials to escape. Scanning every output path with a data classification policy keeps sensitive content inside the agent's authorized handling scope. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTPERF03-BP01 Implement tiered memory management systems
-<a name="agentperf03-bp01"></a>
 
  Agents that carry context across turns and sessions deliver more personalized and accurate responses, but only when memory retrieval doesn't become the latency bottleneck on every reasoning iteration. A tiered memory architecture separates fast, transient session state from durable cross-session knowledge so each tier's storage technology, access pattern, and lifecycle can be optimized independently rather than forced through a single store. 
 

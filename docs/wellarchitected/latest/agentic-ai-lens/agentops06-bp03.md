@@ -1,7 +1,6 @@
 
 
 # AGENTOPS06-BP03 Establish SME-driven validation and business approval workflows
-<a name="agentops06-bp03"></a>
 
  Heavy approval processes slow routine work and get bypassed in emergencies. On the other hand, a lack of approval processes can produce unforeseen incidents. To keep your teams moving while protecting against the changes that actually warrant scrutiny, implement risk-tiered validation (light for minor changes, thorough for autonomy increases). 
 

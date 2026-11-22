@@ -1,7 +1,6 @@
 
 
 # AGENTCOST05-BP02 Implement distributed cost tracing for multi-agent workflows
-<a name="agentcost05-bp02"></a>
 
  In multi-agent workflows, aggregate cost tells you how much you spent but not where those specific costs came from. Tracing with workflow IDs propagating across agent boundaries makes workflow costs more clear, as it is broken down into worker execution, tool invocations, and memory operations, which helps you make data-driven architectural optimization decisions. 
 

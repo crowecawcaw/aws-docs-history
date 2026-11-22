@@ -1,7 +1,6 @@
 
 
 # AGENTREL08-BP04 Track agent memory utilization metrics
-<a name="agentrel08-bp04"></a>
 
  Memory exhaustion produces agents that look healthy but lack the context to reason well. Tracking utilization across short-term, long-term, and in-context tiers reveals the pressure before silent failures begin. 
 

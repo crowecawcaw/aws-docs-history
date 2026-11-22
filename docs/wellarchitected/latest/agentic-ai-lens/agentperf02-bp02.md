@@ -1,7 +1,6 @@
 
 
 # AGENTPERF02-BP02 Implement task-appropriate model selection strategies
-<a name="agentperf02-bp02"></a>
 
  Agent tasks vary widely in the reasoning they require, but default routing often sends every task to the same large model, paying the latency cost of a heavyweight model even for work a smaller one resolves as well. Matching model capability to task demand is one of the highest-use performance decisions in an agent system, because inference latency and throughput scale directly with model size. Done systematically, model selection reduces per-task latency without sacrificing quality on complex reasoning. 
 

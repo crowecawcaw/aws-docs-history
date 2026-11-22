@@ -1,7 +1,6 @@
 
 
 # AGENTCOST01-BP04 Design agent hierarchies and delegation patterns that reduce coordination overhead
-<a name="agentcost01-bp04"></a>
 
  Supervisor cost in agent hierarchies grows with the verbosity of capability descriptions and the frequency of check-ins. Compact manifests and autonomous workers keep coordination cost proportional to workflow complexity rather than step count. 
 

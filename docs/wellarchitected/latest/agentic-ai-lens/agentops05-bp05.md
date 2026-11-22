@@ -1,7 +1,6 @@
 
 
 # AGENTOPS05-BP05 Create workflow-specific dashboards for operational health
-<a name="agentops05-bp05"></a>
 
  Generic infrastructure dashboards can hide important metrics to agentic workflows. A dashboard designed around a specific workflow's critical path, step-level latencies, and characteristic failure modes provides detail that operators need to quickly see issues and understand the root cause. 
 

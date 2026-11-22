@@ -1,7 +1,6 @@
 
 
 # Model invocation and token cost optimization
-<a name="agentcost02"></a>
 
  Teams that right-size model selection to task complexity and optimize token consumption per invocation can improve their cost reductions without sacrificing agent decision quality. Foundation model costs can dominate agentic AI budgets, with agents potentially invoking expensive models for simple tasks or consuming excessive tokens through verbose reasoning. 
 

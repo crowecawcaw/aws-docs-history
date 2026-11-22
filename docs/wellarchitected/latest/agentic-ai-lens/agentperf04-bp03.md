@@ -1,7 +1,6 @@
 
 
 # AGENTPERF04-BP03 Design high-performing event-driven integration patterns
-<a name="agentperf04-bp03"></a>
 
  Agents that react to events in real time, data changes, user actions, and system alerts deliver faster business outcomes than agents that poll for work. Overly broad event subscriptions trigger agents for irrelevant events, missing filtering causes agents to process and discard events they don't need. Inefficient routing adds delays that push response time past user expectations. 
 

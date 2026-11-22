@@ -1,7 +1,6 @@
 
 
 # AGENTPERF02-BP01 Design efficient reasoning pipelines
-<a name="agentperf02-bp01"></a>
 
  Each iteration of the perceive-reason-act loop typically involves an LLM inference call, so the number of iterations an agent takes multiplies both latency and cost. An efficient pipeline reaches accurate decisions in the fewest iterations the task requires, uses bounded iteration limits and confidence-based early termination to help prevent runaway loops, and handles retries within explicit performance budgets rather than silently eroding them. 
 

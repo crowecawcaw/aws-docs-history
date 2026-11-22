@@ -1,7 +1,6 @@
 
 
 # AGENTOPS07-BP03 Augment change management to accommodate technical improvements and business requirements
-<a name="agentops07-bp03"></a>
 
  A change management process built only for technical changes doesn't account for how agents actually evolve. Prompt tweaks, tool additions, and model upgrades all carry business implications that pure technical review doesn't catch. A process that engages both technical and business stakeholders, proportional to change scope, keeps agents aligned with the objectives they exist to serve. 
 

@@ -1,7 +1,6 @@
 
 
 # AGENTOPS03-BP01 Define an agent lifecycle with clear SME ownership, testing, and governance
-<a name="agentops03-bp01"></a>
 
  An agent portfolio without lifecycle discipline becomes a graveyard of undocumented services with forgotten owners. Explicit lifecycle stages, named SME ownership, and clean decommissioning keep the portfolio tractable as it grows from a handful of agents to dozens or hundreds. 
 

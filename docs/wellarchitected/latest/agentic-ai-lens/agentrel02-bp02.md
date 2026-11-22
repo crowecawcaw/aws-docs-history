@@ -1,7 +1,6 @@
 
 
 # AGENTREL02-BP02 Limit agent permissions to minimum required access
-<a name="agentrel02-bp02"></a>
 
  Broad permissions turn a misinterpreted instruction into a cascading incident. Least-privilege access keeps the scope of impact of unpredictable LLM behavior narrow and makes anomalous activity more visible against a well-defined baseline. 
 

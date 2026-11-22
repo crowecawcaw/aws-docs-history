@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
 The following individuals and organizations contributed to this document.
 + Stephen Salim, Well-Architected Innovation Senior Solutions Architect, Amazon Web Services

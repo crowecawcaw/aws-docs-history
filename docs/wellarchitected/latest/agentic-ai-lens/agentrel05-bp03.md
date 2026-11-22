@@ -1,7 +1,6 @@
 
 
 # AGENTREL05-BP03 Ground agent cognition in real information
-<a name="agentrel05-bp03"></a>
 
  Training data has a cutoff and an agent reasoning only from model knowledge can hallucinate about the present. Retrieval-augmented generation grounds each answer in current, domain-specific information and reduces hallucination rates as a byproduct. 
 

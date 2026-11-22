@@ -1,7 +1,6 @@
 
 
 # AGENTREL04-BP01 Implement the arbiter agent pattern for coordinated multi-agent systems
-<a name="agentrel04-bp01"></a>
 
  Peer-to-peer coordination among agents produces deadlocks and conflicting actions at scale. A dedicated arbiter that activates only for conflict resolution preserves agent autonomy for normal work while providing a single authoritative place to resolve contention over shared resources. 
 

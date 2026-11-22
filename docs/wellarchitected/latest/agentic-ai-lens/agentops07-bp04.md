@@ -1,7 +1,6 @@
 
 
 # AGENTOPS07-BP04 Implement break-glass operational runbooks
-<a name="agentops07-bp04"></a>
 
  Write and test emergency runbooks before they are needed. Rehearsed manual fallback procedures, accessible escalation paths, and current contact information turn a complete agent failure into a brief manual period rather than a prolonged outage. 
 

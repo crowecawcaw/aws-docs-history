@@ -1,7 +1,6 @@
 
 
 # AGENTPERF05-BP03 Optimize multi-stage AI pipeline execution
-<a name="agentperf05-bp03"></a>
 
  Real-world agent tasks rarely complete in a single step. Document processing, data analysis, and customer service workflows all involve multiple sequential stages where each stage's throughput is limited by the slowest process or mechanism. Each stage transition introduces overhead (like serialization, network transfer, or cold starts), and streaming or micro-batching allows downstream stages to begin processing before upstream stages complete, overlapping execution to cut total latency. 
 

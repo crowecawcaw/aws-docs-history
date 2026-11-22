@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
 Organizations that operate agents through systematic, evidence-based practices ship improvements faster, recover from issues sooner, and maintain stakeholder confidence as agent portfolios scale. Operational excellence in agentic AI extends traditional DevOps and AIOps with agent-specific capabilities including prompt lifecycle management, behavioral monitoring, multi-faceted evaluation, and human-in-the-loop governance. Through iterative refinement, thorough observability, and evidence-based decision-making, organizations can operate agents reliably at scale while continually improving their performance, cost efficiency, and alignment with business objectives.
 

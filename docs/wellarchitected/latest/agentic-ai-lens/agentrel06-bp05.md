@@ -1,7 +1,6 @@
 
 
 # AGENTREL06-BP05 Implement dynamic capability toggling
-<a name="agentrel06-bp05"></a>
 
  Taking an entire agent offline to fix one misbehaving feature is disproportionate. Feature flags at the gateway boundary let operators disable the affected capability immediately, keeping the rest of the agent usable while fixes or investigations proceed. 
 

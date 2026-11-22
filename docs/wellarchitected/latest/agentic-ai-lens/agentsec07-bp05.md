@@ -1,7 +1,6 @@
 
 
 # AGENTSEC07-BP05 Regular security assessments and red teaming
-<a name="agentsec07-bp05"></a>
 
  Untested security controls degrade quietly as techniques evolve and configurations drift. A combination of continuous automated scanning and periodic human-led red team exercises validates that guardrails, detection rules, and response procedures still work against current attacks. 
 

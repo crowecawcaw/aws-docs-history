@@ -1,7 +1,6 @@
 
 
 # AGENTSEC06-BP01 Encrypt and sign inter-agent messages
-<a name="agentsec06-bp01"></a>
 
  Transport-level encryption stops protecting the payload the moment a message lands in a queue or event bus. Message-level signing and encryption keyed per trust zone gives receiving agents cryptographic proof of sender identity and content integrity no matter how many hops the message made. 
 

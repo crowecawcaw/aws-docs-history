@@ -1,7 +1,6 @@
 
 
 # AGENTOPS01-BP01 Establish well-defined agent roles, responsibilities, and success criteria
-<a name="agentops01-bp01"></a>
 
  An agent without a documented role can be difficult to evaluate and improve. Provide each agent a clear purpose, scope, autonomy level, and success criteria to change ambiguous behavior into something teams can observe, measure, and hold accountable for. 
 

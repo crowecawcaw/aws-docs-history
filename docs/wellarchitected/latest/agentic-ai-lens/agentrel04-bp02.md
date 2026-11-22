@@ -1,7 +1,6 @@
 
 
 # AGENTREL04-BP02 Classify agents with a thorough capability taxonomy
-<a name="agentrel04-bp02"></a>
 
  Orchestrators that pick agents by hardcoded identifiers can't adapt when the preferred agent is unavailable or when a new equivalent arrives. A structured capability taxonomy gives the orchestrator a basis for routing decisions, and substitution becomes automatic rather than a redeployment. 
 

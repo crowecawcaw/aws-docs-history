@@ -1,7 +1,6 @@
 
 
 # AGENTSEC03-BP02 Separate agent and human user permission
-<a name="agentsec03-bp02"></a>
 
  Identity propagation alone isn't enough when agents act on behalf of users. Distinct agent service identities, with hard trust boundaries helping prevent assumption of human-designated roles, keep audit attribution unambiguous and stop a misconfigured agent from escalating into a human identity space. 
 

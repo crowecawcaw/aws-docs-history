@@ -1,7 +1,6 @@
 
 
 # AGENTOPS03-BP03 Implement agent-specific scaling policies and capacity planning
-<a name="agentops03-bp03"></a>
 
  Scaling policies designed for typical web workloads don't fit agents. Model inference latency, tool dependency availability, and downstream service capacity all shape the right response to load, and a policy that ignores them either over-provisions during quiet hours or under-provisions during peaks. 
 

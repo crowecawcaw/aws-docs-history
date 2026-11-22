@@ -1,7 +1,6 @@
 
 
 # Agent memory and state cost management
-<a name="agentcost03"></a>
 
  Agents with well-tiered memory architectures maintain reasoning quality while keeping storage and retrieval costs proportional to actual usage rather than total history size. Agent memory systems can become expensive through uncontrolled context accumulation, inefficient retrieval patterns, and persistent state storage. Long-running conversations consume growing context windows, and episodic memory retrieval can trigger vector database queries on every reasoning step. 
 

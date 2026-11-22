@@ -1,7 +1,6 @@
 
 
 # AGENTREL07-BP01 Design workflows in stages with incremental recovery
-<a name="agentrel07-bp01"></a>
 
  Monolithic workflows lose everything on a single failure. Explicit stage boundaries with persisted outputs contain failures to the affected stage and let recovery start from the last completed checkpoint rather than the beginning. 
 

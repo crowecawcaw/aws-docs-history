@@ -1,7 +1,6 @@
 
 
 # AGENTREL03-BP03 Implement comprehensive state management and checkpoint-based recovery
-<a name="agentrel03-bp03"></a>
 
  Long-running workflows without checkpoints pay the full restart cost for every failure, no matter how late it happens. Persisting state at natural boundaries and designing every step to be idempotent lets an agent resume from the last completed checkpoint rather than redo work. 
 

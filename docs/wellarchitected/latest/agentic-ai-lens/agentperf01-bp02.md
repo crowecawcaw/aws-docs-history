@@ -1,7 +1,6 @@
 
 
 # AGENTPERF01-BP02 Implement comprehensive performance telemetry
-<a name="agentperf01-bp02"></a>
 
  A single agent request fans out into chains of inference calls, parallel tool invocations, memory lookups, and inter-agent communications. Infrastructure-only monitoring can't determine by itself which of those contributes to a slow or expensive response. Agent-aware telemetry decomposes execution into observable, attributable operations so that performance decisions are grounded in measured behavior. 
 

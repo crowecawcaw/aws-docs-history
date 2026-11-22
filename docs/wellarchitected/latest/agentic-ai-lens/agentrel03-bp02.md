@@ -1,7 +1,6 @@
 
 
 # AGENTREL03-BP02 Architect fault-tolerant memory stores with redundancy and failover
-<a name="agentrel03-bp02"></a>
 
  Memory failures don't need to mean agent failures. With redundancy, fallback paths, and a discipline of testing failover under controlled conditions, an agent keeps serving reduced-capability responses until its primary stores recover instead of becoming completely unavailable. 
 

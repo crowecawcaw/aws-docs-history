@@ -1,7 +1,6 @@
 
 
 # Agent governance
-<a name="agentsus03"></a>
 
  Organizations that deliberately design how agents interact with users and business processes sustain both automation value and institutional expertise as adoption scales. As agents proliferate, there is a risk that internal expertise will be diluted or lost to fully automated processes. The patterns governing agent interactions must be deliberately designed and maintained, establishing reusable approaches based on real-world organizational needs. 
 

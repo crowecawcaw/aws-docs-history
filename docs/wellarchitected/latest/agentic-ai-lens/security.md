@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
 The security portion of this lens provides security best practices and questions for organizations implementing autonomous AI agents and agentic systems on AWS. This focuses on securing AI agents, protecting against prompt injection, maintaining data privacy, and maintaining control over autonomous operations.
 

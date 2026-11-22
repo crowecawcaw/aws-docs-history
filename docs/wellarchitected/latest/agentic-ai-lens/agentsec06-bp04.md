@@ -1,7 +1,6 @@
 
 
 # AGENTSEC06-BP04 Monitor and detect coordination anomalies
-<a name="agentsec06-bp04"></a>
 
  Distributed tracing tells you what happened on one request. Coordination monitoring tells you when many requests start behaving differently from the baseline. Tracking inter-agent message rates, workflow frequencies, and topology changes against established baselines catches issues through their observable impact on coordination before they escalate into security events. 
 

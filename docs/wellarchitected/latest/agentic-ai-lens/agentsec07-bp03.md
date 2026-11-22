@@ -1,7 +1,6 @@
 
 
 # AGENTSEC07-BP03 Multiple reviewers for critical operations
-<a name="agentsec07-bp03"></a>
 
  A single reviewer is a single point of failure, both for honest errors and for social engineering. Independent, blind reviews for high-risk decisions are the defense-in-depth pattern, well known as the four-eyes principle, that keeps unilateral approval off the path. 
 

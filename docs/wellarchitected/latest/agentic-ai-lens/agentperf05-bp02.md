@@ -1,7 +1,6 @@
 
 
 # AGENTPERF05-BP02 Implement optimized multi-agent collaboration models
-<a name="agentperf05-bp02"></a>
 
  Multi-agent systems typically deliver the strongest results when each collaboration pattern is matched to the task it was designed for (for example, supervisor-worker for structured decomposition, swarm for creative exploration, and pipeline for sequential processing). Before picking any multi-agent pattern, decide whether a capability should be a sub-agent or a tool that a single agent invokes. A tool call completes in milliseconds, while a sub-agent delegation is a full LLM reasoning loop that costs time and tokens. 
 

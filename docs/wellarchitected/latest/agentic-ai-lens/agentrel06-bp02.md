@@ -1,7 +1,6 @@
 
 
 # AGENTREL06-BP02 Establish fallback mechanisms for legacy system degradation
-<a name="agentrel06-bp02"></a>
 
  Legacy systems carry lower availability SLAs than cloud-based services, and their failure modes are often unpredictable. Health-aware fallback paths, caches for reference data, queues for transactions, graceful degradation for real-time, keep agent workflows running through legacy outages. 
 
