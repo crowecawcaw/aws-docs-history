@@ -1,7 +1,6 @@
 
 
 # Edit existing data models with NoSQL Workbench
-<a name="workbench.datamodel.edit"></a>
 
 You can use the data modeler to import and modify existing data models created using NoSQL Workbench. The data modeler also includes a few sample data models to help you get started with data modeling. The data models you can edit with NoSQL Workbench can be data models that are imported from a file, the provided sample data models, or data models that you created previously. 
 

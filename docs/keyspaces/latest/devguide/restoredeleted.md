@@ -1,7 +1,6 @@
 
 
 # Restore a deleted table using Amazon Keyspaces PITR
-<a name="restoredeleted"></a>
 
 The following procedure shows how to restore a deleted table from backup to the time of deletion. You can do this using CQL or the AWS CLI. 
 

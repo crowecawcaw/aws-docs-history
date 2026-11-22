@@ -1,7 +1,6 @@
 
 
 # Create and configure AWS credentials for Amazon Keyspaces
-<a name="access.credentials"></a>
 
 To access Amazon Keyspaces programmatically with the AWS CLI, the AWS SDK, or with Cassandra client drivers and the SigV4 plugin, you need an IAM user with access keys. When you use Amazon Keyspaces programmatically, you provide your AWS access keys so that AWS can verify your identity in programmatic calls. Your access keys consist of an access key ID (for example, AKIAIOSFODNN7EXAMPLE) and a secret access key (for example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). This topic walks you through the required steps in this process. 
 

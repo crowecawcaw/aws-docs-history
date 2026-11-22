@@ -1,7 +1,6 @@
 
 
 # Getting started with NoSQL Workbench
-<a name="workbench.start"></a>
 
 To get started with NoSQL Workbench, on the Database Catalog page in NoSQL Workbench, choose Amazon Keyspaces, and then choose **Launch**. 
 

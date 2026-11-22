@@ -1,7 +1,6 @@
 
 
 # Add tags when creating a new keyspace
-<a name="Tagging.Operations.new.keyspace"></a>
 
 You can use the Amazon Keyspaces console, CQL or the AWS CLI to add tags when you create a new keyspace. 
 
@@ -26,7 +25,7 @@ You can use the Amazon Keyspaces console, CQL or the AWS CLI to add tags when yo
 **Set a tag when creating a new keyspace using CQL**
 + The following example creates a new keyspace with tags.
 
-  ```
+  ```sql
   CREATE KEYSPACE mykeyspace WITH TAGS = {'key1':'val1', 'key2':'val2'};
   ```
 

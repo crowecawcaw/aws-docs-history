@@ -1,7 +1,6 @@
 
 
 # Estimate row size in Amazon Keyspaces
-<a name="calculating-row-size"></a>
 
 Amazon Keyspaces provides fully managed storage that offers single-digit millisecond read and write performance and stores data durably across multiple AWS Availability Zones. Amazon Keyspaces attaches metadata to all rows and primary key columns to support efficient data access and high availability.
 
@@ -104,13 +103,13 @@ All column metadata, for example column ids, partition key metadata, clustering 
 
 Consider the following example of a table where all columns are of type integer. The table has two partition key columns, two clustering columns, and one regular column. Because this table has five columns, the space required for the column name identifier is 1 byte.
 
-```
+```sql
 CREATE TABLE mykeyspace.mytable(pk_col1 int, pk_col2 int, ck_col1 int, ck_col2 int, reg_col1 int, primary key((pk_col1, pk_col2),ck_col1, ck_col2));
 ```
 
 In this example, we calculate the size of data when we write a row to the table as shown in the following statement:
 
-```
+```sql
 INSERT INTO mykeyspace.mytable (pk_col1, pk_col2, ck_col1, ck_col2, reg_col1) values(1,2,3,4,5);
 ```
 

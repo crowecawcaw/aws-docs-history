@@ -1,7 +1,6 @@
 
 
 # Add an AWS Region to a keyspace in Amazon Keyspaces
-<a name="keyspaces-multi-region-add-replica"></a>
 
 You can add a new AWS Region to a keyspace that is either a single or a multi-Region keyspace. The new replica Region is applied to all tables in the keyspace. 
 

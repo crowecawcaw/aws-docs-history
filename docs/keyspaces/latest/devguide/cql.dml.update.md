@@ -1,7 +1,6 @@
 
 
 # UPDATE
-<a name="cql.dml.update"></a>
 
 Use the `UPDATE` statement to modify a row in a table.
 
@@ -25,13 +24,13 @@ condition        ::=  simple_selection operator term
 
 **Example**
 
-```
+```sql
 UPDATE "myGSGKeyspace".employees_tbl SET pay_scale = 5 WHERE id = '567-89-0123' AND division = 'Marketing' ;
 ```
 
 To increment a `counter`, use the following syntax. For more information, see [Counters](cql.elements.md#cql.data-types.numeric.counters).
 
-```
+```sql
 UPDATE ActiveUsers SET counter = counter + 1  WHERE user = A70FE1C0-5408-4AE3-BE34-8733E5K09F14 AND action = 'click';
 ```
 

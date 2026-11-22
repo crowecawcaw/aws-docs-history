@@ -1,7 +1,6 @@
 
 
 # Tutorial: Connect to Amazon Keyspaces using an interface VPC endpoint
-<a name="vpc-endpoints-tutorial"></a>
 
 This tutorial walks you through setting up and using an interface VPC endpoint for Amazon Keyspaces. 
 

@@ -1,7 +1,6 @@
 
 
 # How multi-Region replication works in Amazon Keyspaces
-<a name="multiRegion-replication_how-it-works"></a>
 
 This section provides an overview of how Amazon Keyspaces multi-Region replication works. For more information about pricing, see [Amazon Keyspaces (for Apache Cassandra) pricing](https://aws.amazon.com/keyspaces/pricing).
 

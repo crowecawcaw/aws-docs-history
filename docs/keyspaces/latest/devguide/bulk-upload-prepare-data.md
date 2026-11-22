@@ -1,7 +1,6 @@
 
 
 # Step 2: Prepare the source data for a successful data upload
-<a name="bulk-upload-prepare-data"></a>
 
 Preparing the source data for an efficient transfer is a two-step process. First, you randomize the data. In the second step, you analyze the data to determine the appropriate `cqlsh` parameter values and required table settings to ensure that the data upload is successful.
 

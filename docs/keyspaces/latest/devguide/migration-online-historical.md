@@ -1,7 +1,6 @@
 
 
 # Uploading historical data during an online migration
-<a name="migration-online-historical"></a>
 
 After implementing dual writes to ensure that new data is written to both data stores in real time, the next step in the migration plan is to evaluate how much historical data you need to copy or bulk upload from Cassandra to Amazon Keyspaces. This ensures that both, new data and historical data are going to be available in the new Amazon Keyspaces database before you’re migrating the application. 
 

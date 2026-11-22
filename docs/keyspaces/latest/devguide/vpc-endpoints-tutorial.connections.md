@@ -1,7 +1,6 @@
 
 
 # Step 6: (Optional) Best practices to configure the connection pool size for your application
-<a name="vpc-endpoints-tutorial.connections"></a>
 
 In this section, we outline how to determine the ideal connection pool size based on the query throughput requirements of your application.
 

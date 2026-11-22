@@ -1,7 +1,6 @@
 
 
 # Configure on-demand capacity mode
-<a name="ReadWriteCapacityMode.OnDemand"></a>
 
 Amazon Keyspaces (for Apache Cassandra) *on-demand* capacity mode is a flexible billing option capable of serving thousands of requests per second without capacity planning. This option offers pay-per-request pricing for read and write requests so that you pay only for what you use. 
 

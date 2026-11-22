@@ -1,7 +1,6 @@
 
 
 # Evaluate your provisioned capacity for right-sized provisioning
-<a name="CostOptimization_RightSizedProvisioning"></a>
 
 This section provides an overview of how to evaluate if you have right-sized provisioning on your Amazon Keyspaces tables. As your workload evolves, you should modify your operational procedures appropriately, especially when your Amazon Keyspaces table is configured in provisioned mode and you have the risk to over-provision or under-provision your tables.
 
@@ -50,7 +49,7 @@ If the table name is not unique within your account, you must also specify the n
 
 The write calculations file retrieves the number of WCU provisioned and consumed in the time period for the date range specified. It also generates a utilization percentage that can be used for analysis. The full content of the `write-calc.json` file should look like in the following example.
 
-```
+```json
 {
   "MetricDataQueries": [
     {
@@ -113,7 +112,7 @@ The write calculations file retrieves the number of WCU provisioned and consumed
 
 The read calculations file uses a similar metrics. This file retrieves how many RCUs were provisioned and consumed during the time period for the date range specified. The contents of the `read-calc.json` file should look like in this example.
 
-```
+```json
 {
   "MetricDataQueries": [
     {
@@ -190,7 +189,7 @@ Once you've created the files, you can start retrieving utilization data.
 
 The result for both queries is a series of data points in JSON format that can be used for analysis. Your results depend on the number of data points you specified, the period, and your own specific workload data. It could look like in the following example.
 
-```
+```json
 {
     "MetricDataResults": [
         {

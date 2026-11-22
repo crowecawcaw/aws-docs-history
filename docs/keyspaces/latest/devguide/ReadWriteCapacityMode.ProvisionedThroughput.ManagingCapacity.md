@@ -1,7 +1,6 @@
 
 
 # View the capacity mode of a table in Amazon Keyspaces
-<a name="ReadWriteCapacityMode.ProvisionedThroughput.ManagingCapacity"></a>
 
 You can query the system table in the Amazon Keyspaces system keyspace to review capacity mode information about a table. You can also see whether a table is using on-demand or provisioned throughput capacity mode. If the table is configured with provisioned throughput capacity mode, you can see the throughput capacity provisioned for the table. 
 
@@ -14,13 +13,13 @@ To change the provisioned throughput of a table, see [Change the capacity mode o
 
 **Example**
 
-```
+```sql
 SELECT * from system_schema_mcs.tables where keyspace_name = 'mykeyspace' and table_name = 'mytable';
 ```
 
 A table configured with on-demand capacity mode returns the following.
 
-```
+```JSON
 {
    "capacity_mode":{
       "last_update_to_pay_per_request_timestamp":"1579551547603",
@@ -31,7 +30,7 @@ A table configured with on-demand capacity mode returns the following.
 
 A table configured with provisioned throughput capacity mode returns the following.
 
-```
+```JSON
 {
    "capacity_mode":{
       "last_update_to_pay_per_request_timestamp":"1579048006000",

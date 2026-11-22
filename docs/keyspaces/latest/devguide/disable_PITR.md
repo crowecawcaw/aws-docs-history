@@ -1,7 +1,6 @@
 
 
 # Turn off PITR for an Amazon Keyspaces table
-<a name="disable_PITR"></a>
 
 You can turn off PITR for an Amazon Keyspaces table at any time using the console, CQL, or the AWS CLI. 
 

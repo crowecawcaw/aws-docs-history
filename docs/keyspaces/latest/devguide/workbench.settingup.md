@@ -1,7 +1,6 @@
 
 
 # Download NoSQL Workbench
-<a name="workbench.settingup"></a>
 
 Follow these instructions to download and install NoSQL Workbench.
 

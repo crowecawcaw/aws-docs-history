@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon Keyspaces with AWS Identity and Access Management (IAM) credentials
-<a name="workbench.commit.iam"></a>
 
 This section shows how to use IAM credentials to commit the data model created or edited with NoSQL Workbench.
 

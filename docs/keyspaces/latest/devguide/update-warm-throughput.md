@@ -1,7 +1,6 @@
 
 
 # Increase your existing Amazon Keyspaces table's warm throughput
-<a name="update-warm-throughput"></a>
 
 You can increase your Amazon Keyspaces table's current warm throughput values using the console, CQL, or the AWS CLI.
 
@@ -61,7 +60,7 @@ You can increase your Amazon Keyspaces table's current warm throughput values us
 **Update the pre-warming settings of a table using the SDK for Java.**
 + Update the warm-throughput settings for a table. The following code example is an example of this.
 
-  ```
+  ```java
   import software.amazon.awssdk.services.keyspaces.KeyspacesClient;
   import software.amazon.awssdk.services.keyspaces.model.*;
   

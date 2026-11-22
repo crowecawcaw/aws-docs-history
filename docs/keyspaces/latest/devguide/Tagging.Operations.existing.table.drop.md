@@ -1,7 +1,6 @@
 
 
 # Delete tags from a table
-<a name="Tagging.Operations.existing.table.drop"></a>
 
 ------
 #### [ Console ]

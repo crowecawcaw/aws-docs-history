@@ -1,7 +1,6 @@
 
 
 # View CDC streams in Amazon Keyspaces
-<a name="keyspaces-view-cdc"></a>
 
 To view or list all streams in keyspace, you can query the table `system_schema_mcs.streams` in the system keyspace using a statement in CQL, or use the `get-stream` and `list-stream` commands with the AWS CLI, or the console.
 

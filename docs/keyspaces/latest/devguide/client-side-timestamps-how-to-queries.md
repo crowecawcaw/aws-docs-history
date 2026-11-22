@@ -1,7 +1,6 @@
 
 
 # Use client-side timestamps in queries in Amazon Keyspaces
-<a name="client-side-timestamps-how-to-queries"></a>
 
 After you have turned on client-side timestamps, you can pass the timestamp in your `INSERT`, `UPDATE`, and `DELETE` statements with the `USING TIMESTAMP` clause. 
 

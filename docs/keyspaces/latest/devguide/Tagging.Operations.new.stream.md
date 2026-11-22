@@ -1,7 +1,6 @@
 
 
 # Add tags to a new stream for an existing table
-<a name="Tagging.Operations.new.stream"></a>
 
 You can add tags when you create a new stream for an existing table. You can either use the `PropagateTags` flag to apply the table tags to the stream or specify new tags for the stream. You can use CQL or the AWS CLI to tag a new stream.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Export an Amazon Keyspaces table to Amazon S3 using AWS Glue
-<a name="S3-tutorial"></a>
 
 This tutorial shows you how to export an Amazon Keyspaces table to an Amazon S3 bucket using AWS Glue. The tutorial uses the `keyspaces-bulk-cli` CLI tool available in the Amazon Keyspaces [GitHub](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue) repo. Using this tool, you can export Amazon Keyspaces data to Amazon S3 without having to set up a Spark cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Using a Cassandra Python client driver to access Amazon Keyspaces programmatically
-<a name="using_python_driver"></a>
 
  In this section, we show you how to connect to Amazon Keyspaces using a Python client driver. To provide users and applications with credentials for programmatic access to Amazon Keyspaces resources, you can do either of the following:
 + Create service-specific credentials that are associated with a specific AWS Identity and Access Management (IAM) user.
@@ -100,7 +99,7 @@ pip install cassandra-sigv4
 
 The following code example shows how to connect to Amazon Keyspaces by using the open-source DataStax Python driver for Cassandra and the SigV4 authentication plugin. The plugin depends on the AWS SDK for Python (Boto3). It uses `boto3.session` to obtain temporary credentials. 
 
-```
+```Python
 from cassandra.cluster import Cluster
 from ssl import SSLContext, PROTOCOL_TLSv1_2 , CERT_REQUIRED
 from cassandra.auth import PlainTextAuthProvider

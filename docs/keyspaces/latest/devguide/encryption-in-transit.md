@@ -1,7 +1,6 @@
 
 
 # Encryption in transit in Amazon Keyspaces
-<a name="encryption-in-transit"></a>
 
 Amazon Keyspaces only accepts secure connections using Transport Layer Security (TLS). Encryption in transit provides an additional layer of data protection by encrypting your data as it travels to and from Amazon Keyspaces. Organizational policies, industry or government regulations, and compliance requirements often require the use of encryption in transit to increase the data security of your applications when they transmit data over the network.
 

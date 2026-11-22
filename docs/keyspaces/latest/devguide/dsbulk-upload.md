@@ -1,7 +1,6 @@
 
 
 # Tutorial: Loading data into Amazon Keyspaces using DSBulk
-<a name="dsbulk-upload"></a>
 
 This step-by-step tutorial guides you through migrating data from Apache Cassandra to Amazon Keyspaces using the DataStax Bulk Loader (DSBulk) available on [GitHub](https://github.com/datastax/dsbulk.git). Using DSBulk is useful to upload datasets to Amazon Keyspaces for academic or test purposes. For more information about how to migrate production workloads, see [Offline migration process: Apache Cassandra to Amazon Keyspaces](migrating-offline.md). In this tutorial, you complete the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # DELETE
-<a name="cql.dml.delete"></a>
 
 Use the `DELETE` statement to remove a row from a table.
 
@@ -26,7 +25,7 @@ Where:
 
 **Example**
 
-```
+```sql
 DELETE manager_id FROM "myGSGKeyspace".employees_tbl WHERE id='789-01-2345' AND division='Executive' ;
 ```
 

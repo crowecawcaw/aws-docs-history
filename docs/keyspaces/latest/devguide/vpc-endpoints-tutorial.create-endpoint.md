@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a VPC endpoint for Amazon Keyspaces
-<a name="vpc-endpoints-tutorial.create-endpoint"></a>
 
 In this step, you create a dual-stack VPC endpoint for Amazon Keyspaces using the AWS CLI. To create the VPC endpoint using the VPC console, you can follow the [ Create a VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint) instructions in the *AWS PrivateLink Guide*. When filtering for the ** Service name**, enter **Cassandra**.
 

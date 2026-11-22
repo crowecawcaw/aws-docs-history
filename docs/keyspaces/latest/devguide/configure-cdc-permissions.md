@@ -1,7 +1,6 @@
 
 
 # Configure permissions to work with CDC streams in Amazon Keyspaces
-<a name="configure-cdc-permissions"></a>
 
 To enable CDC streams, the principal, for example an IAM user or role, needs the following permissions.
 
@@ -14,7 +13,7 @@ To enable a CDC stream for an Amazon Keyspaces table, the principal first needs 
 
 The following IAM policy is an example of this.
 
-```
+```JSON
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -55,7 +54,7 @@ To view or list CDC streams, the principal needs read permissions for the system
 
 The following IAM policy is an example of this.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -74,7 +73,7 @@ To view or list CDC streams with the AWS CLI or the Amazon Keyspaces API, the pr
 
 The following IAM policy is an example of this.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -96,7 +95,7 @@ The following IAM policy is an example of this.
 
 To read CDC streams, the principal needs the following permissions.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -123,7 +122,7 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
 + `DynamoDB` – Permissions to create `shard lease` tables, read and write access to the tables, and read-access to the index as required for KCL stream processing.
 + `CloudWatch` – Permissions to publish metric data from Amazon Keyspaces CDC streams processing with KCL into the namespace of your KCL client application in your CloudWatch account. For more information about monitoring, see [Monitor the Kinesis Client Library with Amazon CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-kcl.html).
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Create a new Amazon Keyspaces table with higher warm throughput
-<a name="create-table-warm-throughput"></a>
 
 You can adjust the warm throughput values when you create your Amazon Keyspaces table by using the console, CQL, or the AWS CLI.
 
@@ -124,7 +123,7 @@ You can adjust the warm throughput values when you create your Amazon Keyspaces 
 **Create a new table using the SDK for Java.**
 + Create a new table in provisioned mode and specify the expected peak capacity values for reads and writes for the new table. The following code example is an example of this.
 
-  ```
+  ```java
   import software.amazon.awssdk.services.keyspaces.KeyspacesClient;
   import software.amazon.awssdk.services.keyspaces.model.*;
   

@@ -1,7 +1,6 @@
 
 
 # Enable a CDC stream for an existing table in Amazon Keyspaces
-<a name="keyspaces-enable-cdc-alter-table"></a>
 
 To enable a CDC stream for an existing table, you can use the `ALTER TABLE` statement in CQL, the `update-table` command with the AWS CLI, or you can use the console.
 

@@ -1,7 +1,6 @@
 
 
 # Using NoSQL Workbench with Amazon Keyspaces (for Apache Cassandra)
-<a name="workbench"></a>
 
 NoSQL Workbench is a client-side application that helps you design and visualize nonrelational data models for Amazon Keyspaces more easily. NoSQL Workbench clients are available for Windows, macOS, and Linux. 
 

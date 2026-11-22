@@ -1,7 +1,6 @@
 
 
 # Delete data from a table using the CQL `DELETE` statement
-<a name="getting-started.dml.delete"></a>
 
 To delete data in your `book_awards` table, use the `DELETE` statement.
 
@@ -16,7 +15,7 @@ Deleting a column from a row removes the data from the specified cell. When you 
 
 The general syntax to delete one or more specific columns is as follows.
 
-```
+```sql
 DELETE column_name1[, column_name2...] FROM table_name WHERE condition ;
 ```
 
@@ -32,13 +31,13 @@ In your `book_awards` table, you can see that the title of the book that won the
 
 1. Run the following `DELETE` query.
 
-   ```
+   ```sql
    DELETE book_title FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
    ```
 
 1. Verify that the delete request was made as expected.
 
-   ```
+   ```sql
    SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
    ```
 
@@ -55,7 +54,7 @@ In your `book_awards` table, you can see that the title of the book that won the
 
 There might be a time when you need to delete an entire row, for example to meet a data deletion request. The general syntax for deleting a row is as follows.
 
-```
+```sql
 DELETE FROM table_name WHERE condition ;
 ```
 
@@ -69,13 +68,13 @@ DELETE FROM table_name WHERE condition ;
 
 1. Run the following `DELETE` query.
 
-   ```
+   ```sql
    DELETE FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
    ```
 
 1. Verify that the delete was made as expected.
 
-   ```
+   ```sql
    SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
    ```
 

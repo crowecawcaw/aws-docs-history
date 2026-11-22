@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon Keyspaces with service-specific credentials
-<a name="workbench.commit.ssc"></a>
 
 This section shows how to use service-specific credentials to commit the data model you created or edited with NoSQL Workbench.
 

@@ -1,7 +1,6 @@
 
 
 # Delete tags from a stream
-<a name="Tagging.Operations.existing.stream.drop"></a>
 
 To delete tags from a stream, you can use CQL or the AWS CLI. You can only delete the tags for the latest stream. 
 

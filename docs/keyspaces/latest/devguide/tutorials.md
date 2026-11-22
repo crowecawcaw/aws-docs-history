@@ -1,7 +1,6 @@
 
 
 # Tutorials and solutions for Amazon Keyspaces
-<a name="tutorials"></a>
 
 This topic includes various tutorials that walk through the detailed steps that are required to connect to Amazon Keyspaces programmatically, or to use Amazon Keyspaces with other AWS services to create solutions. The available tutorials cover different popular cross-service access scenarios and demonstrate how to integrate Amazon Keyspaces with Amazon Virtual Private Cloud, Amazon Elastic Kubernetes Service, Amazon Simple Storage Service, and AWS Glue, or with open source technologies like Apache Spark.
 

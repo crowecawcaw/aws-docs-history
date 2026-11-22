@@ -1,7 +1,6 @@
 
 
 # Online migration to Amazon Keyspaces: strategies and best practices
-<a name="migrating-online"></a>
 
 If you need to maintain application availability during a migration from Apache Cassandra to Amazon Keyspaces, you can prepare a custom online migration strategy by implementing the key components discussed in this topic. By following these best practices for online migrations, you can ensure that application availability and read-after-write consistency are maintained during the entire migration process, minimizing the impact on your users.
 

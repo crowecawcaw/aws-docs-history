@@ -1,7 +1,6 @@
 
 
 # Working with tags and labels for Amazon Keyspaces resources
-<a name="tagging-keyspaces"></a>
 
  You can label Amazon Keyspaces (for Apache Cassandra) resources using *tags*. Tags let you categorize your resources in different ways—for example, by purpose, owner, environment, or other criteria. Tags can help you do the following: 
 +  Quickly identify a resource based on the tags that you assigned to it. 

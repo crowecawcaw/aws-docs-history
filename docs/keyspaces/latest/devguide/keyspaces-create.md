@@ -1,7 +1,6 @@
 
 
 # Check keyspace creation status in Amazon Keyspaces
-<a name="keyspaces-create"></a>
 
 Amazon Keyspaces performs data definition language (DDL) operations, such as creating and deleting keyspaces, asynchronously. 
 
@@ -11,7 +10,7 @@ The recommended design pattern to check when a new keyspace is ready for use is 
 
 The following query shows whether a keyspace has been successfully created.
 
-```
+```sql
 SELECT * FROM system_schema_mcs.keyspaces WHERE keyspace_name = 'mykeyspace';
 ```
 

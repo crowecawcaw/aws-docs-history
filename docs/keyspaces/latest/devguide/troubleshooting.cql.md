@@ -1,7 +1,6 @@
 
 
 # Troubleshooting data definition language errors in Amazon Keyspaces
-<a name="troubleshooting.cql"></a>
 
 Having trouble creating resources? Here are some common issues and how to resolve them.
 

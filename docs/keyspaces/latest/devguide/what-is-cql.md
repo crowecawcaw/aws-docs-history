@@ -1,7 +1,6 @@
 
 
 # What is Cassandra Query Language (CQL)?
-<a name="what-is-cql"></a>
 
 *Cassandra Query Language* (CQL) is the primary language for communicating with Apache Cassandra. Amazon Keyspaces (for Apache Cassandra) is compatible with the CQL 3.x API (backward-compatible with version 2.x). 
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for establishing connections to Amazon Keyspaces with the Spark Cassandra Connector
-<a name="spark-tutorial-prerequisites"></a>
 
 Before you connect to Amazon Keyspaces with the Spark Cassandra Connector, you need to make sure that you've installed the following. The compatibility of Amazon Keyspaces with the Spark Cassandra Connector has been tested with the following recommended versions:
 + Java version 8

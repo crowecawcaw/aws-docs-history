@@ -1,7 +1,6 @@
 
 
 # Using a Cassandra Perl client driver to access Amazon Keyspaces programmatically
-<a name="using_perl_driver"></a>
 
 This section shows you how to connect to Amazon Keyspaces by using a Perl client driver. For this code sample, we used Perl 5. Amazon Keyspaces requires the use of Transport Layer Security (TLS) to help secure connections with clients. 
 
@@ -22,7 +21,7 @@ Amazon Keyspacescertificates are transitioning to the Amazon Trust Services (ATS
 
 1. Add the following sample code to the cqlapp.pl file.
 
-   ```
+   ```Perl
    use DBI;
    my $user = "{{ServiceUserName}}";
    my $password = "{{ServicePassword}}";

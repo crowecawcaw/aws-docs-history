@@ -1,7 +1,6 @@
 
 
 # Detective security best practices for Amazon Keyspaces
-<a name="best-practices-security-detective"></a>
 
 The following security best practices are considered detective because they can help you detect potential security weaknesses and incidents.
 

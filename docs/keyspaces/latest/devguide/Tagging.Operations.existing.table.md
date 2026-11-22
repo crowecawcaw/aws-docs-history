@@ -1,7 +1,6 @@
 
 
 # Add tags to a table
-<a name="Tagging.Operations.existing.table"></a>
 
 You can add tags to an existing table in Amazon Keyspaces using the console, CQL or the AWS CLI.
 

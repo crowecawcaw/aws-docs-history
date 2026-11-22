@@ -1,7 +1,6 @@
 
 
 # Creating CloudWatch alarms to monitor Amazon Keyspaces
-<a name="creating-alarms"></a>
 
 You can create an Amazon CloudWatch alarm for Amazon Keyspaces that sends an Amazon Simple Notification Service (Amazon SNS) message when the alarm changes state. An alarm watches a single metric over a time period that you specify. It performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods. The action is a notification sent to an Amazon SNS topic or an Application Auto Scaling policy. 
 

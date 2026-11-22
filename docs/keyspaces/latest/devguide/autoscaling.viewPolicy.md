@@ -1,7 +1,6 @@
 
 
 # View your table's Amazon Keyspaces auto scaling configuration
-<a name="autoscaling.viewPolicy"></a>
 
 You can use the console, CQL, or the AWS CLI to view and update the Amazon Keyspaces automatic scaling settings of a table.
 

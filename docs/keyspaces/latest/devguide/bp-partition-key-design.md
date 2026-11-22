@@ -1,7 +1,6 @@
 
 
 # How to use partition keys effectively in Amazon Keyspaces
-<a name="bp-partition-key-design"></a>
 
 The primary key that uniquely identifies each row in an Amazon Keyspaces table can consist of one or multiple partition key columns, which determine which partitions the data is stored in, and one or more optional clustering column, which define how data is clustered and sorted within a partition. 
 

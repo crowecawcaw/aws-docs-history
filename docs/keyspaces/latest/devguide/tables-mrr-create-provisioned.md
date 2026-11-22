@@ -1,7 +1,6 @@
 
 
 # Create a multi-Region table in provisioned mode with auto scaling in Amazon Keyspaces
-<a name="tables-mrr-create-provisioned"></a>
 
 This section provides examples of how to create a multi-Region table in provisioned mode with auto scaling. You can do this on the Amazon Keyspaces console, using CQL or the AWS CLI. 
 

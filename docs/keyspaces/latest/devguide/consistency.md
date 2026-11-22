@@ -1,7 +1,6 @@
 
 
 # Supported Apache Cassandra read and write consistency levels and associated costs
-<a name="consistency"></a>
 
 The topics in this section describe which Apache Cassandra consistency levels are supported for read and write operations in Amazon Keyspaces (for Apache Cassandra). 
 
@@ -29,7 +28,7 @@ basic.request.consistency = LOCAL_QUORUM
 
 If you're using a 3.x version Java Cassandra driver, you can specify the consistency level for the session by adding `.withQueryOptions(new QueryOptions().setConsistencyLevel(ConsistencyLevel.LOCAL_QUORUM)` as shown in the following code example.
 
-```
+```Java
 Session session = Cluster.builder()  
                       .addContactPoint(endPoint)  
                       .withPort(portNumber)  

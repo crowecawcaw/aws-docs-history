@@ -1,7 +1,6 @@
 
 
 # Step 5: Write and read Amazon Keyspaces data using the Apache Cassandra Spark Connector
-<a name="spark-tutorial-step5"></a>
 
 In this step, you start by loading the data from the sample file into a `DataFrame` with the Spark Cassandra Connector. Next, you write the data from the `DataFrame` into your Amazon Keyspaces table. You can also use this part independently, for example, to migrate data into an Amazon Keyspaces table. Finally, you read the data from your table into a `DataFrame` using the Spark Cassandra Connector. You can also use this part independently, for example, to read data from an Amazon Keyspaces table to perform data analytics with Apache Spark.
 

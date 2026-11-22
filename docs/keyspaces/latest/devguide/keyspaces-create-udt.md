@@ -1,7 +1,6 @@
 
 
 # Create a user-defined type (UDT) in Amazon Keyspaces
-<a name="keyspaces-create-udt"></a>
 
 To create a UDT in a single-Region keyspace, you can use the `CREATE TYPE` statement in CQL, the `create-type` command with the AWS CLI, or the console.
 

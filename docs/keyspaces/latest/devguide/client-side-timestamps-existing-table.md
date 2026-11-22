@@ -1,7 +1,6 @@
 
 
 # Configure client-side timestamps for a table in Amazon Keyspaces
-<a name="client-side-timestamps-existing-table"></a>
 
 Follow these examples to turn on client-side timestamps for existing tables using the Amazon Keyspaces AWS Management Console, Cassandra Query Language (CQL), or the AWS Command Line Interface.
 

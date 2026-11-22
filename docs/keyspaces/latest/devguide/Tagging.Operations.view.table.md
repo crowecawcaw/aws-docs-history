@@ -1,7 +1,6 @@
 
 
 # View the tags of a table
-<a name="Tagging.Operations.view.table"></a>
 
 The following examples show how to view the tags of a table in Amazon Keyspaces using the console, CQL, or the AWS CLI.
 
@@ -32,7 +31,7 @@ The `WHERE` clause is required, and must use one of the following formats:
 + `resource_id = {{arn}}`
 + The following query returns the tags of the specified table.
 
-  ```
+  ```sql
   SELECT * FROM system_schema_mcs.tags WHERE keyspace_name = 'mykeyspace' AND resource_name = 'mytable';
   ```
 

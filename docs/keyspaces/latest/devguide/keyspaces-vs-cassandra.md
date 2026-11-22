@@ -1,7 +1,6 @@
 
 
 # How does Amazon Keyspaces (for Apache Cassandra) compare to Apache Cassandra?
-<a name="keyspaces-vs-cassandra"></a>
 
 To establish a connection to Amazon Keyspaces, you can either use a public [AWS service endpoint](https://docs.aws.amazon.com/general/latest/gr/rande.html) or a private endpoint using [Interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html) in the [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) . Depending on the endpoint used, Amazon Keyspaces can appear to the client in one of the following ways.
 

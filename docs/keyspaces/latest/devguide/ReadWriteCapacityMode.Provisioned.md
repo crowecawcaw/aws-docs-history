@@ -1,7 +1,6 @@
 
 
 # Configure provisioned capacity mode
-<a name="ReadWriteCapacityMode.Provisioned"></a>
 
  If you choose *provisioned throughput* capacity mode, you specify the number of reads and writes per second that are required for your application. This helps you manage your Amazon Keyspaces usage to stay at or below a defined request rate to maintain predictability. To learn more about automatic scaling for provisioned throughput see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Preventative security best practices for Amazon Keyspaces
-<a name="best-practices-security-preventative"></a>
 
 The following security best practices are considered preventative because they can help you anticipate and prevent security incidents in Amazon Keyspaces.
 

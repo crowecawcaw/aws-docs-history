@@ -1,7 +1,6 @@
 
 
 # CQL language reference for Amazon Keyspaces (for Apache Cassandra)
-<a name="cql"></a>
 
 After you connect to an Amazon Keyspaces endpoint, you use Cassandra Query Language (CQL) to work with your database. CQL is similar in many ways to Structured Query Language (SQL).
 + **CQL elements** – This section covers the fundamental elements of CQL supported in Amazon Keyspaces, including identifiers, constants, terms, and data types. It explains concepts like string types, numeric types, collection types, and more. 

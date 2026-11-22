@@ -1,7 +1,6 @@
 
 
 # Configure cross-account access to Amazon Keyspaces using VPC endpoints in a shared VPC
-<a name="access.cross-account.sharedVPC"></a>
 
 You can create different AWS accounts to separate resources from applications. For example, you can create one account for your Amazon Keyspaces tables, a different account for applications in a development environment, and another account for applications in a production environment. This topic walks you through the configuration steps required to set up cross-account access for Amazon Keyspaces using interface VPC endpoints in a shared VPC. 
 
@@ -29,7 +28,7 @@ In this example we use the following three accounts in a shared VPC:
 
 1. Create an IAM role in `Account A:111111111111` that has full access to the Amazon Keyspaces table, read access to the Amazon Keyspaces system tables, and is able to describe the Amazon EC2 VPC resources as shown in the following policy example.
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -49,7 +48,7 @@ In this example we use the following three accounts in a shared VPC:
 
 1. Configure a trust policy for the IAM role in `Account A:111111111111` so that `Account B:222222222222` and `Account C:333333333333` can assume the role as trusted accounts. This is shown in the following example. 
 
-   ```
+   ```JSON
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -74,7 +73,7 @@ In this example we use the following three accounts in a shared VPC:
 
 1. In `Account B:222222222222` and `Account C:333333333333`, create new roles and attach the following policy that allows the principal to assume the shared role created in `Account A:111111111111`.
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [

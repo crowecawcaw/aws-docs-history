@@ -1,7 +1,6 @@
 
 
 # Manage throughput capacity automatically with Amazon Keyspaces auto scaling
-<a name="autoscaling"></a>
 
 Many database workloads are cyclical in nature or are difficult to predict in advance. For example, consider a social networking app where most of the users are active during daytime hours. The database must be able to handle the daytime activity, but there's no need for the same levels of throughput at night. 
 

@@ -1,7 +1,6 @@
 
 
 # Store access keys for programmatic access
-<a name="aws.credentials.manage"></a>
 
 As a best practice, we recommend that you don't embed access keys directly into code. The AWS SDKs and the AWS Command Line Tools enable you to put access keys in known locations so that you do not have to keep them in code. Put access keys in one of the following locations:
 + **Environment variables **– On a multitenant system, choose user environment variables, not system environment variables.

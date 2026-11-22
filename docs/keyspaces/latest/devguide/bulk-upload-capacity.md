@@ -1,7 +1,6 @@
 
 
 # Step 3: Set throughput capacity for the table
-<a name="bulk-upload-capacity"></a>
 
 This tutorial shows you how to tune cqlsh to load data within a set time range. Because you know how many reads and writes you perform in advance, use provisioned capacity mode. After you finish the data transfer, you should set the capacity mode of the table to match your application’s traffic patterns. To learn more about capacity management, see [Managing serverless resources in Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md).
 

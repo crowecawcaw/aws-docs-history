@@ -1,7 +1,6 @@
 
 
 # Tables
-<a name="cql.ddl.table"></a>
 
 *Tables* are the primary data structures in Amazon Keyspaces. Data in a table is organized into rows and columns. A subset of those columns is used to determine partitioning (and ultimately data placement) through the specification of a partition key.
 
@@ -131,7 +130,7 @@ Auto scaling for a multi-Region table has to be either enabled or disabled for a
 
 **Example**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS {{my_keyspace.my_table}} (
                                             id text,
                                             name text,
@@ -162,7 +161,7 @@ In a table that uses clustering columns, non-clustering columns can be declared 
 
 **Example**
 
-```
+```sql
 CREATE TABLE {{my_keyspace.my_table}} (
                                             id int,
                                             name text,
@@ -280,7 +279,7 @@ ALTER TABLE {{my_table}} WITH default_time_to_live = 2592000;
 
 This statement enables custom Time to Live settings for a table.
 
-```
+```SQL
 ALTER TABLE {{mytable}} WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
 ```
 

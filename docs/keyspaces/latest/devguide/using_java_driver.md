@@ -1,7 +1,6 @@
 
 
 # Using a Cassandra Java client driver to access Amazon Keyspaces programmatically
-<a name="using_java_driver"></a>
 
 This section shows you how to connect to Amazon Keyspaces by using a Java client driver.
 
@@ -308,7 +307,7 @@ You can use short-term credentials by using the authentication plugin for the Da
 
 1. **SSL/TLS** – Initialize the SSLEngineFactory by adding a section in the configuration file with a single line that specifies the class with `class = DefaultSslEngineFactory`. Provide the path to the trustStore file and the password that you created previously. Amazon Keyspaces doesn't support `hostname-validation` of peers, so set this option to false.
 
-```
+```Java
 datastax-java-driver {
 
     basic.contact-points = [ "{{cassandra.us-east-2.amazonaws.com}}:9142"]
@@ -339,7 +338,7 @@ Instead of adding the path to the trustStore in the configuration file, you can 
 
 This code example shows a simple command line application that creates a connection pool to Amazon Keyspaces by using the configuration file we created earlier. It confirms that the connection is established by running a simple query.
 
-```
+```Java
 package {{<your package>}};
 // add the following imports to your project
 import com.datastax.oss.driver.api.core.CqlSession;
@@ -386,7 +385,7 @@ To follow this tutorial, you need to complete the following tasks.
 **Important**  
 Replace the version of the plugin with the latest version as shown at [GitHub repository](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin#add-the-authentication-plugin-to-the-application).
 
-  ```
+  ```XML
   <dependency>
           <groupId>software.aws.mcs</groupId>
           <artifactId>aws-sigv4-auth-cassandra-java-driver-plugin</artifactId>
@@ -415,7 +414,7 @@ Create a configuration file and save the file in the application's resources fol
 
 1. **Prepared statements** – Set `prepare-on-all-nodes` to false to optimize network usage.
 
-```
+```Java
 datastax-java-driver {
     basic {
         contact-points = [ "{{cassandra.us-east-2.amazonaws.com:9142}}"]  
@@ -470,7 +469,7 @@ Instead of adding the path to the trustStore in the configuration file, you can 
 
 This code example shows a simple command line application that creates a connection pool to Amazon Keyspaces by using the configuration file we created earlier. It confirms that the connection is established by running a simple query.
 
-```
+```Java
 package {{<your package>}};
 // add the following imports to your project
 import com.datastax.oss.driver.api.core.CqlSession;
@@ -516,7 +515,7 @@ To run this code sample, you first need to complete the following tasks.
 + Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're using a version of the driver that supports Apache Cassandra 3.11.2. For more information, see the [DataStax Java Driver for Apache Cassandra documentation](https://github.com/datastax/java-driver).
 + Add the authentication plugin to your application. The authentication plugin supports version 3.x of the DataStax Java driver for Apache Cassandra. If you’re using Apache Maven, or a build system that can use Maven dependencies, add the following dependencies to your `pom.xml` file. Replace the version of the plugin with the latest version as shown at [GitHub repository](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin/tree/3.x-Driver-Compatible).
 
-  ```
+  ```XML
   <dependency>
           <groupId>software.aws.mcs</groupId>
           <artifactId>aws-sigv4-auth-cassandra-java-driver-plugin_3</artifactId>
@@ -529,7 +528,7 @@ To run this code sample, you first need to complete the following tasks.
 
 This code example shows a simple command line application that creates a connection pool to Amazon Keyspaces. It confirms that the connection is established by running a simple query.
 
-```
+```Java
 package {{<your package>}};
 // add the following imports to your project
 

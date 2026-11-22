@@ -1,7 +1,6 @@
 
 
 # Step 5: Run the DSBulk `load` command to upload data from the CSV file to the target table
-<a name="dsbulk-upload-run"></a>
 
 In the final step of this tutorial, you upload the data into Amazon Keyspaces.
 

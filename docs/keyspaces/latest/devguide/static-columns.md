@@ -1,7 +1,6 @@
 
 
 # Estimate capacity consumption for static columns in Amazon Keyspaces
-<a name="static-columns"></a>
 
 In an Amazon Keyspaces table with clustering columns, you can use the `STATIC` keyword to create a static column. The value stored in a static column is shared between all rows in a logical partition. When you update the value of this column, Amazon Keyspaces applies the change automatically to all rows in the partition. 
 

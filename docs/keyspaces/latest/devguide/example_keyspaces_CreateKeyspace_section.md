@@ -1,7 +1,6 @@
 
 
 # Use `CreateKeyspace` with an AWS SDK
-<a name="example_keyspaces_CreateKeyspace_section"></a>
 
 The following code examples show how to use `CreateKeyspace`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create a new keyspace.
     /// </summary>
@@ -36,7 +35,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples). 
 
-```
+```java
     public static void createKeySpace(KeyspacesClient keyClient, String keyspaceName) {
         try {
             CreateKeyspaceRequest keyspaceRequest = CreateKeyspaceRequest.builder()
@@ -60,7 +59,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples). 
 
-```
+```kotlin
 suspend fun createKeySpace(keyspaceNameVal: String) {
     val keyspaceRequest =
         CreateKeyspaceRequest {
@@ -81,7 +80,7 @@ suspend fun createKeySpace(keyspaceNameVal: String) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples). 
 
-```
+```python
 class KeyspaceWrapper:
     """Encapsulates Amazon Keyspaces (for Apache Cassandra) keyspace and table actions."""
 
@@ -130,7 +129,7 @@ class KeyspaceWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kys->createkeyspace(
           iv_keyspacename = iv_keyspace_name ).

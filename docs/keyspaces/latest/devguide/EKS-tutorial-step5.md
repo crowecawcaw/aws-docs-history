@@ -1,7 +1,6 @@
 
 
 # Step 5: (Optional) Cleanup
-<a name="EKS-tutorial-step5"></a>
 
 Follow these steps to remove all the resources created in this tutorial.
 

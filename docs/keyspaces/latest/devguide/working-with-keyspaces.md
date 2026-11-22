@@ -1,7 +1,6 @@
 
 
 # System keyspaces in Amazon Keyspaces
-<a name="working-with-keyspaces"></a>
 
 System keyspaces and system tables in Amazon Keyspaces (for Apache Cassandra) are read-only resources that store metadata about your Amazon Keyspaces resources. System keyspaces are present in every AWS account, regardless of whether you have created any keyspaces or tables. They are a compatibility feature with Apache Cassandra, and they are provided at no additional charge.
 

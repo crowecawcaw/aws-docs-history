@@ -1,7 +1,6 @@
 
 
 # Delete a table in Amazon Keyspaces
-<a name="getting-started.clean-up.table"></a>
 
 To avoid being charged for tables and data that you don't need, delete all the tables that you're not using. When you delete a table, the table and its data are deleted and you stop accruing charges for them. However, the keyspace remains. When you delete a keyspace, the keyspace and all its tables are deleted and you stop accruing charges for them.
 
@@ -41,13 +40,13 @@ The following procedure deletes a table and all its data using CQL.
 
 1. Delete your table by entering the following statement.
 
-   ```
+   ```sql
    DROP TABLE IF EXISTS catalog.book_awards ;
    ```
 
 1. Verify that your table was deleted.
 
-   ```
+   ```sql
    SELECT * FROM system_schema.tables WHERE keyspace_name = 'catalog' ;
    ```
 

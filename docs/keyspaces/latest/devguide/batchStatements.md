@@ -1,7 +1,6 @@
 
 
 # Use batch statements in Amazon Keyspaces
-<a name="batchStatements"></a>
 
 You can combine multiple `INSERT`, `UPDATE`, and `DELETE` operations into a `BATCH` statement. `LOGGED` batches are the default.
 
@@ -67,7 +66,7 @@ You can construct a logged batch of prepared statements in two ways. The followi
 
 In the first approach, you prepare each statement individually and add the bound statements to a `BatchStatement`. This approach supports batches that span multiple tables in the same AWS account and AWS Region. The following Java code example shows this approach:
 
-```
+```Java
 import com.datastax.driver.core.BatchStatement;
 import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.Session;
@@ -90,7 +89,7 @@ try {
 
 In the second approach, you prepare an entire `BEGIN BATCH ... APPLY BATCH` block as a single statement, and then bind and run it. This approach is best suited to a batch whose statements target a single table. To prepare a batch that spans multiple tables, use the first approach. The following Java code example shows how to prepare a whole batch block as a single statement:
 
-```
+```Java
 import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.Session;
 

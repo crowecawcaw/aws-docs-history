@@ -1,7 +1,6 @@
 
 
 # Amazon Keyspaces (for Apache Cassandra) libraries and tools
-<a name="examples-tools"></a>
 
 This section provides information about Amazon Keyspaces (for Apache Cassandra) libraries, code examples, and tools.
 

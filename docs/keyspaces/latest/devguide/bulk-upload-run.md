@@ -1,7 +1,6 @@
 
 
 # Step 5: Run the `cqlsh COPY FROM` command to upload data from the CSV file to the target table
-<a name="bulk-upload-run"></a>
 
 To run the `cqlsh COPY FROM` command, complete the following steps.
 
@@ -9,7 +8,7 @@ To run the `cqlsh COPY FROM` command, complete the following steps.
 
 1. Choose your keyspace with the following code.
 
-   ```
+   ```SQL
    USE {{catalog}};
    ```
 

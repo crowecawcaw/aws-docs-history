@@ -1,7 +1,6 @@
 
 
 # Configure cross-account access to Amazon Keyspaces with VPC endpoints
-<a name="access.cross-account"></a>
 
 You can create and use separate AWS accounts to isolate resources and for use in different environments, for example development and production. This topic walks you through cross-account access for Amazon Keyspaces using interface VPC endpoints in an Amazon Virtual Private Cloud. For more information about IAM cross-account access configuration, see [Example scenario using separate development and production accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html#id_roles_common-scenarios_aws-accounts-example) in the IAM User Guide. 
 

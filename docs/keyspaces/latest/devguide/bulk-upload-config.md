@@ -1,7 +1,6 @@
 
 
 # Step 4: Configure `cqlsh COPY FROM` settings
-<a name="bulk-upload-config"></a>
 
 This section outlines how to determine the parameter values for `cqlsh COPY FROM`. The `cqlsh COPY FROM` command reads the CSV file that you prepared earlier and inserts the data into Amazon Keyspaces using CQL. The command divides up the rows and distributes the `INSERT` operations among a set of workers. Each worker establishes a connection with Amazon Keyspaces and sends `INSERT` requests along this channel. 
 

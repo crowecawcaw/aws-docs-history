@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon Keyspaces metrics in CloudWatch
-<a name="view-metrics"></a>
 
 When you interact with Amazon Keyspaces, it sends the following metrics and dimensions to Amazon CloudWatch. All metrics are aggregated and reported every minute. You can use the following procedures to view the metrics for Amazon Keyspaces.
 

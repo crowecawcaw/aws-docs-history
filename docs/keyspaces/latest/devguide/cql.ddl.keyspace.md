@@ -1,7 +1,6 @@
 
 
 # Keyspaces
-<a name="cql.ddl.keyspace"></a>
 
 A *keyspace* groups related tables that are relevant for one or more applications. In terms of a relational database management system (RDBMS), keyspaces are roughly similar to databases, tablespaces, or similar constructs.
 

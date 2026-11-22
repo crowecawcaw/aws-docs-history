@@ -1,7 +1,6 @@
 
 
 # User-defined types (UDTs) in Amazon Keyspaces
-<a name="udts"></a>
 
 A user-defined type (UDT) is a grouping of fields and data types that you can use to define a single column in Amazon Keyspaces. Valid data types for UDTs are all supported Cassandra data types, including collections and other UDTs that you've already created in the same keyspace. For more information about supported Cassandra data types, see [Cassandra data type support](cassandra-apis.md#cassandra-data-type).
 

@@ -1,7 +1,6 @@
 
 
 # Add tags to a new stream when creating a table
-<a name="Tagging.Operations.new.table.stream"></a>
 
 You can add tags to streams when you create a new table with a stream using CQL or the AWS CLI to tag a stream.
 

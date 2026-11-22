@@ -1,7 +1,6 @@
 
 
 # How to access CDC stream endpoints in Amazon Keyspaces
-<a name="CDC_access-endpoints"></a>
 
 Amazon Keyspaces maintains separate [endpoints](programmatic.endpoints.md#global_endpoints) for keyspaces/tables and for CDC streams in each AWS Region where Amazon Keyspaces is available. To access a CDC stream, select the Region of the table and replace the `cassandra` prefix with `cassandra-streams` in the endpoint name as shown in the following example:
 

@@ -1,7 +1,6 @@
 
 
 # Estimate the read capacity consumption of table scans
-<a name="table_scans"></a>
 
 Queries that result in full table scans, for example queries using the `ALLOW FILTERING` option, are another example of queries that process more reads than what they return as results. And the read capacity consumption is based on the data read, not the data returned.
 

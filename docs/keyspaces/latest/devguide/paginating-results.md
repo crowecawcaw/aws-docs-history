@@ -1,7 +1,6 @@
 
 
 # Paginate results in Amazon Keyspaces
-<a name="paginating-results"></a>
 
 Amazon Keyspaces automatically *paginates* the results from `SELECT` statements when the data read to process the `SELECT` statement exceeds 1 MB. With pagination, the `SELECT` statement results are divided into "pages" of data that are 1 MB in size (or less). An application can process the first page of results, then the second page, and so on. Clients should always check for pagination tokens when processing `SELECT` queries that return multiple rows.
 

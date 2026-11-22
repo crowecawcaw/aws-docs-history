@@ -1,7 +1,6 @@
 
 
 # Step 1: Create the source CSV file and a target table for the data upload using DSBulk
-<a name="dsbulk-upload-source"></a>
 
 For this tutorial, we use a comma-separated values (CSV) file with the name `keyspaces_sample_table.csv` as the source file for the data migration. The provided sample file contains a few rows of data for a table with the name `book_awards`.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Keyspaces (for Apache Cassandra)
-<a name="getting-started"></a>
 
 If you're new to Apache Cassandra and Amazon Keyspaces, this tutorial guides you through installing the necessary programs and tools to use Amazon Keyspaces successfully. You'll learn how to create a keyspace and table using Cassandra Query Language (CQL), the AWS Management Console, or the AWS Command Line Interface (AWS CLI). You then use Cassandra Query Language (CQL) to perform create, read, update, and delete (CRUD) operations on data in your Amazon Keyspaces table. 
 

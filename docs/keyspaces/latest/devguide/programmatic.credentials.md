@@ -1,7 +1,6 @@
 
 
 # Create credentials for programmatic access to Amazon Keyspaces
-<a name="programmatic.credentials"></a>
 
 To provide users and applications with credentials for programmatic access to Amazon Keyspaces resources, you can do either of the following:
 + Create service-specific credentials that are similar to the traditional username and password that Cassandra uses for authentication and access management. AWS service-specific credentials are associated with a specific AWS Identity and Access Management (IAM) user and can only be used for the service they were created for. For more information, see [Using IAM with Amazon Keyspaces (for Apache Cassandra)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html) in the IAM User Guide.

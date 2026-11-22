@@ -1,7 +1,6 @@
 
 
 # Using the AWS CLI to connect to Amazon Keyspaces
-<a name="access.cli"></a>
 
  You can use the AWS Command Line Interface (AWS CLI) to control multiple AWS services from the command line and automate them through scripts. With Amazon Keyspaces you can use the AWS CLI for data definition language (DDL) operations, such as creating a table. In addition, you can use infrastructure as code (IaC) services and tools such as AWS CloudFormation and Terraform.
 

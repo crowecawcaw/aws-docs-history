@@ -1,7 +1,6 @@
 
 
 # Troubleshooting common errors when using the Spark Cassandra Connector with Amazon Keyspaces
-<a name="spark-tutorial-step6"></a>
 
 If you're using Amazon Virtual Private Cloud and you connect to Amazon Keyspaces, the most common errors experienced when using the Spark connector are caused by the following configuration issues.
 + The IAM user or role used in the VPC lacks the required permissions to access the `system.peers` table in Amazon Keyspaces. For more information, see [Populating `system.peers` table entries with interface VPC endpoint information](vpc-endpoints.md#system_peers).

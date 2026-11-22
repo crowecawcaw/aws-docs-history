@@ -1,7 +1,6 @@
 
 
 # Identify your unused resources to optimize costs in Amazon Keyspaces
-<a name="CostOptimization_UnusedResources"></a>
 
 This section provides an overview of how to evaluate your unused resources regularly. As your application requirements evolve, you should ensure no resources are unused and contributing to unnecessary Amazon Keyspaces costs. The procedures described below use Amazon CloudWatch metrics to identify unused resources and take action to reduce costs.
 
@@ -51,7 +50,7 @@ If the table name is not unique within your account, you must also specify the n
 
    The following result shows a table receiving read traffic in the evaluated period:
 
-   ```
+   ```json
            {
                "Timestamp": "2022-08-25T19:40:00Z",
                "Sum": 36023355.0,
@@ -66,7 +65,7 @@ If the table name is not unique within your account, you must also specify the n
 
    The following result shows a table not receiving read traffic in the evaluated period:
 
-   ```
+   ```json
            {
                "Timestamp": "2022-08-01T19:50:00Z",
                "Sum": 0.0,
@@ -94,7 +93,7 @@ If the table name is not unique within your account, you must also specify the n
 
    The following result shows a table receiving write traffic in the evaluated period:
 
-   ```
+   ```json
            {
                "Timestamp": "2022-08-19T20:15:00Z",
                "Sum": 41014457.0,
@@ -109,7 +108,7 @@ If the table name is not unique within your account, you must also specify the n
 
    The following result shows a table not receiving write traffic in the evaluated period:
 
-   ```
+   ```json
            {
                "Timestamp": "2022-07-31T20:15:00Z",
                "Sum": 0.0,

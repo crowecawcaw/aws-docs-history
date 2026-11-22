@@ -1,7 +1,6 @@
 
 
 # Tutorial: Integrate with Apache Spark to import or export data
-<a name="spark-integrating"></a>
 
 Apache Spark is an open-source engine for large-scale data analytics. Apache Spark enables you to perform analytics on data stored in Amazon Keyspaces more efficiently. You can also use Amazon Keyspaces to provide applications with consistent, single-digit-millisecond read access to analytics data from Spark. The open-source Spark Cassandra Connector simplifies reading and writing data between Amazon Keyspaces and Spark. 
 

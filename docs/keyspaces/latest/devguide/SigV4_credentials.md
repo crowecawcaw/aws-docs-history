@@ -1,7 +1,6 @@
 
 
 # Credentials required by the AWS CLI, the AWS SDK, or the Amazon Keyspaces SigV4 plugin for Cassandra client drivers
-<a name="SigV4_credentials"></a>
 
 The following credentials are required to authenticate the IAM user or role:
 

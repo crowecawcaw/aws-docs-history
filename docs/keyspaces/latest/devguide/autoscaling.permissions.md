@@ -1,7 +1,6 @@
 
 
 # Configure permissions for Amazon Keyspaces automatic scaling
-<a name="autoscaling.permissions"></a>
 
 To get started, confirm that the principal has the appropriate permissions to create and manage automatic scaling settings. In AWS Identity and Access Management (IAM), the AWS managed policy `AmazonKeyspacesFullAccess` is required to manage Amazon Keyspaces scaling policies. 
 

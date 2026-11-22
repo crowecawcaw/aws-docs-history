@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure the application
-<a name="EKS-tutorial-step2"></a>
 
 In this step you build your application that connects to Amazon Keyspaces using the SigV4 plugin. You can view and download the example Java application from the Amazon Keyspaces example code repo on [Github](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/eks). Or you can follow along using your own application, making sure to complete all configuration steps.
 
@@ -19,7 +18,7 @@ In this step you build your application that connects to Amazon Keyspaces using 
 
       In this step you configure the SigV4 authentication plugin. You can use the following example in your application. If you haven't already done so, you need to generate your IAM access keys (an access key ID and a secret access key) and save them in your AWS config file or as environment variables. For detailed instructions, see [Credentials required by the AWS CLI, the AWS SDK, or the Amazon Keyspaces SigV4 plugin for Cassandra client drivers](SigV4_credentials.md). Update the AWS Region and the service endpoint for Amazon Keyspaces as needed. For more service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md). Replace the truststore location, truststore name, and the truststore password with your own.
 
-      ```
+      ```Java
       datastax-java-driver {
         basic.contact-points = ["cassandra.{{us-east-1}}.amazonaws.com:9142"]
         basic.load-balancing-policy.local-datacenter = "{{us-east-1}}"
@@ -39,7 +38,7 @@ In this step you build your application that connects to Amazon Keyspaces using 
 
       This adds the ability to use a `WebIdentityTokenCredentialsProvider` that returns the AWS credentials that the application needs to provide so that the service account can assume the IAM role. You can do this based on the following example.
 
-      ```
+      ```XML
               <dependency>
                   <groupId>com.amazonaws</groupId>
                   <artifactId>aws-java-sdk-sts</artifactId>
@@ -51,7 +50,7 @@ In this step you build your application that connects to Amazon Keyspaces using 
 
        This package implements the SigV4 authentication plugin that is needed to authenticate to Amazon Keyspaces
 
-      ```
+      ```XML
               <dependency>
                   <groupId>software.aws.mcs</groupId>
                   <artifactId>aws-sigv4-auth-cassandra-java-driver-plugin</artifactId>

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="bulk-upload-troubleshooting"></a>
 
 After the data upload has completed, check to see if rows were skipped. To do so, navigate to the source directory of the source CSV file and search for a file with the following name.
 

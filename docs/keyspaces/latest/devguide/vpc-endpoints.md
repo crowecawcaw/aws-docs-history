@@ -1,7 +1,6 @@
 
 
 # Using Amazon Keyspaces with interface VPC endpoints
-<a name="vpc-endpoints"></a>
 
 Interface VPC endpoints enable private communication between your virtual private cloud (VPC) running in Amazon VPC and Amazon Keyspaces. Interface VPC endpoints are powered by AWS PrivateLink, which is an AWS service that enables private communication between VPCs and AWS services. 
 
@@ -34,7 +33,7 @@ Populating the `system.peers` table with your available interface VPC endpoints 
 
 To grant the IAM entity used to connect to Amazon Keyspaces permissions to look up the necessary interface VPC endpoint information, you can update your existing IAM role or user policy, or create a new IAM policy as shown in the following example.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -141,7 +140,7 @@ Amazon Keyspaces supports using interface VPC endpoints in all of the AWS Region
 
 If you are using IAM policies with [condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) to restrict incoming traffic, the table restore operation may fail. For example, if you restrict source traffic to specific VPC endpoints using `aws:SourceVpce` condition keys, the table restore operation fails. To allow Amazon Keyspaces to perform a restore operation on your principal's behalf, you must add an `aws:ViaAWSService` condition key to your IAM policy. The `aws:ViaAWSService` condition key allows access when any AWS service makes a request using the principal's credentials. For more information, see [IAM JSON policy elements: Condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*. The following policy is an example of this. 
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

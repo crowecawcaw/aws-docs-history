@@ -1,7 +1,6 @@
 
 
 # Set the provisioned capacity of a multi-Region table manually in Amazon Keyspaces
-<a name="tables-mrr-capacity-manually"></a>
 
 If you have to turn off auto scaling for a multi-Region table, you can provision the table's read capacity for a replica table manually using CQL or the AWS CLI. 
 

@@ -1,7 +1,6 @@
 
 
 # Optimize client driver connections for the serverless environment
-<a name="connections"></a>
 
 To communicate with Amazon Keyspaces, you can use any of the existing Apache Cassandra client drivers of your choice. Because Amazon Keyspaces is a serverless service, we recommend that you optimize the connection configuration of your client driver for the throughput needs of your application. This topic introduces best practices including how to calculate how many connections your application requires, as well as monitoring and error handling of connections.
 
@@ -102,7 +101,7 @@ To learn more about cross-account access to Amazon Keyspaces using a shared VPC,
 
 To help identify the number of endpoints your application is connected to, you can log the number of peers discovered in the `system.peers` table. The following example is an example of Java code which prints the number of peers after the connection has been established. 
 
-```
+```Java
 ResultSet result = session.execute(new SimpleStatement("SELECT * FROM system.peers"));
 
 logger.info("number of Amazon Keyspaces endpoints:" + result.all().stream().count());

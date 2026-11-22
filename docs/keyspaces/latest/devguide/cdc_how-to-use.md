@@ -1,7 +1,6 @@
 
 
 # How to use change data capture (CDC) streams in Amazon Keyspaces
-<a name="cdc_how-to-use"></a>
 
 **Topics**
 + [Configure permissions](configure-cdc-permissions.md)

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Keyspaces (for Apache Cassandra)
-<a name="Keyspaces-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon Keyspaces (for Apache Cassandra) as part of multiple AWS compliance programs. These include:
 + ISO/IEC 27001:2013, 27017:2015, 27018:2019, and ISO/IEC 9001:2015. For more information, see [AWS ISO and CSA STAR certifications and services](https://aws.amazon.com/compliance/iso-certified/).

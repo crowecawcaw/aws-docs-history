@@ -1,7 +1,6 @@
 
 
 # Decommissioning Cassandra after an online migration
-<a name="migration-online-decommission"></a>
 
 After the application migration is complete with your application is fully running on Amazon Keyspaces and you have validated data consistency over a period of time, you can plan to decommission your Cassandra cluster. During this phase, you can evaluate if the data remaining in your Cassandra cluster needs to be archived or can be deleted. This depends on your organization’s policies for data handling and retention.
 

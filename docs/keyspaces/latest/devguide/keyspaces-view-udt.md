@@ -1,7 +1,6 @@
 
 
 # View user-defined types (UDTs) in Amazon Keyspaces
-<a name="keyspaces-view-udt"></a>
 
 To view or list all UDTs in a single-Region keyspace, you can query the table `system_schema_mcs.types` in the system keyspace using a statement in CQL, or use the `get-type` and `list-type` commands with the AWS CLI, or the console.
 

@@ -1,7 +1,6 @@
 
 
 # Update the provisioned capacity and auto scaling settings for a multi-Region table in Amazon Keyspaces
-<a name="tables-mrr-autoscaling"></a>
 
 This section includes examples of how to use the console, CQL, and the AWS CLI to manage the Amazon Keyspaces auto scaling settings of provisioned multi-Region tables. For more information about general auto scaling configuration options and how they work, see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md). 
 

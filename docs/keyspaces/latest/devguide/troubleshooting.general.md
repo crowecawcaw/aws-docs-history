@@ -1,7 +1,6 @@
 
 
 # Troubleshooting general errors in Amazon Keyspaces
-<a name="troubleshooting.general"></a>
 
 Getting general errors? Here are some common issues and how to resolve them.
 

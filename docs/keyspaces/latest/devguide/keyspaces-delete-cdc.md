@@ -1,7 +1,6 @@
 
 
 # Disable a CDC stream in Amazon Keyspaces
-<a name="keyspaces-delete-cdc"></a>
 
 To disable a CDC stream in a keyspace, you can use the `ALTER TABLE` statement in CQL, the `update-table` command with the AWS CLI, or the console.
 

@@ -1,7 +1,6 @@
 
 
 # Delete tags from a keyspace
-<a name="Tagging.Operations.existing.keyspace.drop"></a>
 
 ------
 #### [ Console ]
@@ -24,7 +23,7 @@
 **Delete a tag from an existing keyspace using CQL**
 + 
 
-  ```
+  ```sql
   ALTER KEYSPACE mykeyspace DROP TAGS {'key1':'val1', 'key2':'val2'};
   ```
 

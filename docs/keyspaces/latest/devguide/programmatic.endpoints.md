@@ -1,7 +1,6 @@
 
 
 # Service endpoints for Amazon Keyspaces
-<a name="programmatic.endpoints"></a>
 
 **Topics**
 + [Ports and protocols](#ports)

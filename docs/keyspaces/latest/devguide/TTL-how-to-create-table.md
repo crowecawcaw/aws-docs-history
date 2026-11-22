@@ -1,7 +1,6 @@
 
 
 # Create a new table with default Time to Live (TTL) settings
-<a name="TTL-how-to-create-table"></a>
 
 In Amazon Keyspaces, you can set a default TTL value for all rows in a table when the table is created. 
 
@@ -47,7 +46,7 @@ The following examples show how to create a new table with a default TTL value.
 
 1. The following statement creates a new table with the default TTL value set to 3,024,000 seconds, which represents 35 days.
 
-   ```
+   ```SQL
    CREATE TABLE {{my_table}} (
                    userid uuid,
                    time timeuuid,
@@ -60,7 +59,7 @@ The following examples show how to create a new table with a default TTL value.
 
 1. To confirm the TTL settings for the new table, use the `cqlsh` `DESCRIBE` statement as shown in the following example. The output shows the default TTL setting for the table as `default_time_to_live`.
 
-   ```
+   ```SQL
    DESC TABLE {{my_table}};
    ```
 

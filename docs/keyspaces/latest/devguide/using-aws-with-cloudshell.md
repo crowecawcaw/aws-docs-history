@@ -1,7 +1,6 @@
 
 
 # Using AWS CloudShell to access Amazon Keyspaces
-<a name="using-aws-with-cloudshell"></a>
 
 AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. You can run AWS CLI commands against AWS services using your preferred shell (Bash, PowerShell or Z shell). AWS CloudShell comes pre-authenticated with your console credentials and includes common tools for working with AWS services, including the AWS CLI, Python, and Node.js.
 

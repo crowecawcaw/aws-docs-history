@@ -1,7 +1,6 @@
 
 
 # Step 3: Create the application image and upload the Docker file to your Amazon ECR repository
-<a name="EKS-tutorial-step3"></a>
 
 In this step, you compile the example application, build a Docker image, and push the image to your Amazon ECR repository.
 

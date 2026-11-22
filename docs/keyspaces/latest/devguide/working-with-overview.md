@@ -1,7 +1,6 @@
 
 
 # Working with Amazon Keyspaces (for Apache Cassandra) features
-<a name="working-with-overview"></a>
 
 This chapter provides details about working with Amazon Keyspaces and various database features, for example backup and restore, Time to Live, and multi-Region replication. 
 + **Time to Live** – Amazon Keyspaces expires data from tables automatically based on the Time to Live value you set. Learn how to configure TTL and how to use it in your tables.

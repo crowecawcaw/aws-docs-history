@@ -1,7 +1,6 @@
 
 
 # Use point-in-time recovery in Amazon Keyspaces
-<a name="PointInTimeRecovery_Tutorial"></a>
 
 With Amazon Keyspaces (for Apache Cassandra), you can restore tables to a specific point in time using Point-in-Time Restore (PITR). PITR enables you to restore a table to a prior state within the last 35 days, providing data protection and recovery capabilities. This feature is valuable in cases such as accidental data deletion, application errors, or for testing purposes. You can quickly and efficiently recover data, minimizing downtime and data loss. The following sections guide you through the process of restoring tables using PITR in Amazon Keyspaces, ensuring data integrity and business continuity. 
 

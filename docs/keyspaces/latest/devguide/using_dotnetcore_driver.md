@@ -1,7 +1,6 @@
 
 
 # Using a Cassandra .NET Core client driver to access Amazon Keyspaces programmatically
-<a name="using_dotnetcore_driver"></a>
 
 This section shows you how to connect to Amazon Keyspaces by using a .NET Core client driver. The setup steps will vary depending on your environment and operating system, you might have to modify them accordingly. Amazon Keyspaces requires the use of Transport Layer Security (TLS) to help secure connections with clients. To connect to Amazon Keyspaces using TLS, configure your driver to use the system trust store, which includes the Amazon Root CAs 1-4.
 
@@ -13,7 +12,7 @@ This section shows you how to connect to Amazon Keyspaces by using a .NET Core c
 
 1. The following example uses a .NET Core C\# console project to connect to Amazon Keyspaces and run a query.
 
-   ```
+   ```C#
    using Cassandra;
    using System;
    using System.Collections.Generic;

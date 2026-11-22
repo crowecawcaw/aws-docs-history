@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Amazon Keyspaces with an AWS SDK
-<a name="example_keyspaces_Scenario_GetStartedKeyspaces_section"></a>
 
 The following code examples show how to:
 + Create a keyspace and table. The table schema holds movie data and has point-in-time recovery enabled.
@@ -16,7 +15,7 @@ The following code examples show how to:
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples). 
 
-```
+```csharp
 global using System.Security.Cryptography.X509Certificates;
 global using Amazon.Keyspaces;
 global using Amazon.Keyspaces.Model;
@@ -308,7 +307,7 @@ public class KeyspacesBasics
 }
 ```
 
-```
+```csharp
 namespace KeyspacesActions;
 
 /// <summary>
@@ -496,7 +495,7 @@ public class KeyspacesWrapper
 }
 ```
 
-```
+```csharp
 using System.Net;
 using Cassandra;
 
@@ -714,7 +713,7 @@ public class CassandraWrapper
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples). 
 
-```
+```java
 /**
  * Before running this Java (v2) code example, set up your development
  * environment, including your credentials.
@@ -1286,7 +1285,7 @@ public class ScenarioKeyspaces {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples). 
 
-```
+```kotlin
 /**
  Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -1869,7 +1868,7 @@ suspend fun createKeySpace(keyspaceNameVal: String) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class KeyspaceScenario:
     """Runs an interactive scenario that shows how to get started using Amazon Keyspaces."""
 
@@ -2098,7 +2097,7 @@ if __name__ == "__main__":
 ```
 Define a class that wraps keyspace and table actions.  
 
-```
+```python
 class KeyspaceWrapper:
     """Encapsulates Amazon Keyspaces (for Apache Cassandra) keyspace and table actions."""
 
@@ -2362,7 +2361,7 @@ class KeyspaceWrapper:
 ```
 Define a class that creates a TLS connection to a keyspace, authenticates with SigV4, and sends CQL queries to a table in the keyspace.  
 
-```
+```python
 class QueryManager:
     """
     Manages queries to an Amazon Keyspaces (for Apache Cassandra) keyspace.

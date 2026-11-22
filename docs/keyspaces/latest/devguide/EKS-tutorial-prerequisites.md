@@ -1,7 +1,6 @@
 
 
 # Prerequisites for connecting from Amazon EKS to Amazon Keyspaces
-<a name="EKS-tutorial-prerequisites"></a>
 
 **Create the following AWS resources before you can begin with the tutorial**
 

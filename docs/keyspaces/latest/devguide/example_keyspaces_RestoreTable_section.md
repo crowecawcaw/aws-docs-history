@@ -1,7 +1,6 @@
 
 
 # Use `RestoreTable` with an AWS SDK
-<a name="example_keyspaces_RestoreTable_section"></a>
 
 The following code examples show how to use `RestoreTable`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Restores the specified table to the specified point in time.
     /// </summary>
@@ -45,7 +44,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples). 
 
-```
+```java
     public static void restoreTable(KeyspacesClient keyClient, String keyspaceName, ZonedDateTime utc) {
         try {
             Instant myTime = utc.toInstant();
@@ -74,7 +73,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples). 
 
-```
+```kotlin
 suspend fun restoreTable(
     keyspaceName: String?,
     utc: ZonedDateTime,
@@ -106,7 +105,7 @@ suspend fun restoreTable(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples). 
 
-```
+```python
 class KeyspaceWrapper:
     """Encapsulates Amazon Keyspaces (for Apache Cassandra) keyspace and table actions."""
 
@@ -162,7 +161,7 @@ class KeyspaceWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kys->restoretable(
           iv_sourcekeyspacename = iv_source_keyspace_name

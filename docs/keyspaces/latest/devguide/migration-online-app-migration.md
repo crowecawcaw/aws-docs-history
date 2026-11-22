@@ -1,7 +1,6 @@
 
 
 # Migrating the application during an online migration
-<a name="migration-online-app-migration"></a>
 
 In the fourth phase of an online migration, you are migrating your application and transitioning to Amazon Keyspaces as the primary data store. This means that you switch your application to read and write directly from and to Amazon Keyspaces. To ensure minimal disruption to your users, this should be a well-planned and coordinated process. 
 

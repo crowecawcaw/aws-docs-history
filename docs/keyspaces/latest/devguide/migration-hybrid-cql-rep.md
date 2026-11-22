@@ -1,7 +1,6 @@
 
 
 # Migrate data using CQLReplicator
-<a name="migration-hybrid-cql-rep"></a>
 
 With [CQLReplicator](https://github.com/aws-samples/cql-replicator), you can read data from Apache Cassandra in near real time through intelligently scanning the Cassandra token ring using CQL queries. CQLReplicator doesn’t use Cassandra CDC and instead implements a caching strategy to reduce the performance penalties of full scans. 
 

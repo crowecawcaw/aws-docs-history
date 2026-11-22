@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Keyspaces
-<a name="security-iam-awsmanpol"></a>
 
 
 

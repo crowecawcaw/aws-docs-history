@@ -1,7 +1,6 @@
 
 
 # Tutorial prerequisites and considerations
-<a name="vpc-endpoints-tutorial.before-you-begin"></a>
 
 Before you start this tutorial, follow the AWS setup instructions in [Accessing Amazon Keyspaces (for Apache Cassandra)](accessing.md). These steps include signing up for AWS and creating an AWS Identity and Access Management (IAM) principal with access to Amazon Keyspaces. Take note of the name of the IAM user and the access keys because you'll need them later in this tutorial.
 

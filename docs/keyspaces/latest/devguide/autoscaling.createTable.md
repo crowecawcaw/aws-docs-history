@@ -1,7 +1,6 @@
 
 
 # Create a new table with automatic scaling
-<a name="autoscaling.createTable"></a>
 
 When you create a new Amazon Keyspaces table, you can automatically enable auto scaling for the table's write or read capacity. This allows Amazon Keyspaces to contact Application Auto Scaling on your behalf to register the table as a scalable target and adjust the provisioned write or read capacity. 
 

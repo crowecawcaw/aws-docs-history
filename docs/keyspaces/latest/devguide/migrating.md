@@ -1,7 +1,6 @@
 
 
 # Migrating to Amazon Keyspaces (for Apache Cassandra)
-<a name="migrating"></a>
 
 Migrating to Amazon Keyspaces (for Apache Cassandra) presents a range of compelling benefits for businesses and organizations. Here are some key advantages that make Amazon Keyspaces an attractive choice for migration.
 + **Scalability** – Amazon Keyspaces is designed to handle massive workloads and scale seamlessly to accommodate growing data volumes and traffic. With traditional Cassandra, scaling is not performed on demand and requires planning for future peaks. With Amazon Keyspaces, you can easily scale your tables up or down based on demand, ensuring that your applications can handle sudden spikes in traffic without compromising performance.

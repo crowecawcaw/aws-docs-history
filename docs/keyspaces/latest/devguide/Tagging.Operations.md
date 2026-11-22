@@ -1,7 +1,6 @@
 
 
 # Tag keyspaces, tables, and streams in Amazon Keyspaces
-<a name="Tagging.Operations"></a>
 
 You can add, list, edit, or delete tags for keyspaces, tables, and streams using the Amazon Keyspaces console, the AWS CLI, or Cassandra Query Language (CQL). You can then activate these user-defined tags so that they appear on the AWS Billing and Cost Management console for cost allocation tracking. For more information, see [Create cost allocation reports using tags for Amazon Keyspaces](CostAllocationReports.md). 
 

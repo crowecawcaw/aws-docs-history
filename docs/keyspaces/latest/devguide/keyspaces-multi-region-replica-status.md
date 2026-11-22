@@ -1,7 +1,6 @@
 
 
 # Check the replication progress when adding a new Region to a keyspace
-<a name="keyspaces-multi-region-replica-status"></a>
 
 Adding a new Region to an Amazon Keyspaces keyspace is a long running operation. To track progress you can use the queries shown in this section.
 

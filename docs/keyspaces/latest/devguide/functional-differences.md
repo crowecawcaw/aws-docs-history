@@ -1,7 +1,6 @@
 
 
 # Functional differences: Amazon Keyspaces vs. Apache Cassandra
-<a name="functional-differences"></a>
 
 The following are the functional differences between Amazon Keyspaces and Apache Cassandra.
 

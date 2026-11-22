@@ -1,7 +1,6 @@
 
 
 # Multi-Region replication for Amazon Keyspaces (for Apache Cassandra)
-<a name="multiRegion-replication"></a>
 
 You can use Amazon Keyspaces multi-Region replication to replicate your data with automated, fully managed, *active-active* replication across the AWS Regions of your choice. With active-active replication, each Region is able to perform reads and writes in isolation. You can improve both availability and resiliency from Regional degradation, while also benefiting from low-latency local reads and writes for global applications. 
 

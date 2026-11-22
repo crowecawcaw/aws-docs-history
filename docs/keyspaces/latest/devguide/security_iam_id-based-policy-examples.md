@@ -1,7 +1,6 @@
 
 
 # Amazon Keyspaces identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Amazon Keyspaces resources. They also can't perform tasks using the console, CQLSH, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -42,7 +41,7 @@ For more information about Amazon Keyspaces managed policies, see [AWS managed p
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -94,7 +93,7 @@ System tables are read-only and cannot be modified.
 
 The following is a sample policy that grants read-only (`SELECT`) access to the Amazon Keyspaces system tables. For all samples, replace the Region and account ID in the Amazon Resource Name (ARN) with your own.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -113,7 +112,7 @@ The following is a sample policy that grants read-only (`SELECT`) access to the 
 
 The following sample policy adds read-only access to the user table `mytable` in the keyspace `mykeyspace`.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -133,7 +132,7 @@ The following sample policy adds read-only access to the user table `mytable` in
 
 The following sample policy assigns read/write access to a user table and read access to the system tables.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -154,7 +153,7 @@ The following sample policy assigns read/write access to a user table and read a
 
 The following sample policy allows a user to create tables in keyspace `mykeyspace`.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -175,7 +174,7 @@ The following sample policy allows a user to create tables in keyspace `mykeyspa
 
 The following sample policy assigns read access to the system tables, but restricts `SELECT` (read) and `MODIFY` (write) access to the user table `mytable`. 
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -211,7 +210,7 @@ You can use conditions in your identity-based policy to control access to Amazon
 
 The following example shows how you can create a policy that grants permissions to a user to view a table if the table's `Owner` contains the value of that user's user name. In this example you also give read access to the system tables.
 
-```
+```JSON
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -237,7 +236,7 @@ You can attach this policy to the IAM users in your account. If a user named `ri
 
 The following policy grants permissions to a user to create tables with tags if the table's `Owner` contains the value of that user's user name.
 
-```
+```JSON
 { 
     "Version": "2012-10-17",		 	 	  
     "Statement": [ 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Loading data into Amazon Keyspaces using cqlsh
-<a name="bulk-upload"></a>
 
 This tutorial guides you through the process of migrating data from Apache Cassandra to Amazon Keyspaces using the `cqlsh COPY FROM` command. The `cqlsh COPY FROM` command is useful to quickly and easily upload small datasets to Amazon Keyspaces for academic or test purposes. For more information about how to migrate production workloads, see [Offline migration process: Apache Cassandra to Amazon Keyspaces](migrating-offline.md). In this tutorial, you'll complete the following steps: 
 

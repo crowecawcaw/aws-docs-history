@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Keyspaces (for Apache Cassandra)
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon Keyspaces (for Apache Cassandra). For notification about updates to this documentation, you can subscribe to an RSS feed.
 + **Latest documentation update:** January 28, 2026

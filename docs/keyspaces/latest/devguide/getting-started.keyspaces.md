@@ -1,7 +1,6 @@
 
 
 # Create a keyspace in Amazon Keyspaces
-<a name="getting-started.keyspaces"></a>
 
 In this section, you create a keyspace using the console, `cqlsh`, or the AWS CLI.
 
@@ -66,7 +65,7 @@ The following procedure creates a keyspace using CQL.
 
 1. Create your keyspace using the following CQL command.
 
-   ```
+   ```sql
    CREATE KEYSPACE catalog WITH REPLICATION = {'class': 'SingleRegionStrategy'};
    ```
 
@@ -76,7 +75,7 @@ Amazon Keyspaces defaults all input to lowercase unless you enclose it in quotat
 
 1. Verify that your keyspace was created.
 
-   ```
+   ```sql
    SELECT * from system_schema.keyspaces;
    ```
 

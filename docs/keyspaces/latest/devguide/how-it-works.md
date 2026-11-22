@@ -1,7 +1,6 @@
 
 
 # Amazon Keyspaces: How it works
-<a name="how-it-works"></a>
 
 Amazon Keyspaces removes the administrative overhead of managing Cassandra. To understand why, it's helpful to begin with Cassandra architecture and then compare it to Amazon Keyspaces.
 
@@ -74,7 +73,7 @@ To help you get started, you can find end-to-end code samples of connecting to A
 
  Consider the following Python program, which connects to a Cassandra cluster and queries a table.
 
-```
+```python
 from cassandra.cluster import Cluster
 #TLS/SSL configuration goes here
 

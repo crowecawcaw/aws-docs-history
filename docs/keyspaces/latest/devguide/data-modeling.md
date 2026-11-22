@@ -1,7 +1,6 @@
 
 
 # Data modeling best practices: recommendations for designing data models
-<a name="data-modeling"></a>
 
 Effective data modeling is crucial for optimizing performance and minimizing costs when working with Amazon Keyspaces (for Apache Cassandra). This topic covers key considerations and recommendations for designing data models that suit your application's data access patterns. 
 + **Partition Key Design ** – The partition key plays a critical role in determining how data is distributed across partitions in Amazon Keyspaces. Choosing an appropriate partition key can significantly impact query performance and throughput costs. This section discusses strategies for designing partition keys that promote even distribution of read and write activity across partitions. 

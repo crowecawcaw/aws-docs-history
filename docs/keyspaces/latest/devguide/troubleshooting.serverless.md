@@ -1,7 +1,6 @@
 
 
 # Troubleshooting capacity management errors in Amazon Keyspaces
-<a name="troubleshooting.serverless"></a>
 
 Having trouble with serverless capacity? Here are some common issues and how to resolve them.
 

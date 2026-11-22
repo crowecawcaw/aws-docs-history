@@ -1,7 +1,6 @@
 
 
 # Step 1: Launch an Amazon EC2 instance
-<a name="vpc-endpoints-tutorial.launch-ec2-instance"></a>
 
 In this step, you launch an Amazon EC2 instance in your default Amazon VPC. You can then create and use a VPC endpoint for Amazon Keyspaces.
 

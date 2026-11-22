@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Keyspaces API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Keyspaces is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Keyspaces. CloudTrail captures Data Definition Language (DDL) API calls and Data Manipulation Language (DML) API calls for Amazon Keyspaces as events. The calls that are captured include calls from the Amazon Keyspaces console and programmatic calls to the Amazon Keyspaces API operations. 
 
@@ -85,7 +84,7 @@ CloudTrail log files contain one or more log entries. An event represents a sing
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateKeyspace`, `DropKeyspace`, `CreateTable`, and `DropTable` actions: 
 
-```
+```JSON
 {
   "Records": [
     {
@@ -308,7 +307,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following log file shows an example of a `SELECT` statement.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -365,7 +364,7 @@ The following log file shows an example of a `SELECT` statement.
 
 The following log file shows an example of an `INSERT` statement.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -424,7 +423,7 @@ The following log file shows an example of an `INSERT` statement.
 
 The following log file shows an example of an `UPDATE` statement.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -480,7 +479,7 @@ The following log file shows an example of an `UPDATE` statement.
 
 The following log file shows an example of a `DELETE` statement.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {

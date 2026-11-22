@@ -1,7 +1,6 @@
 
 
 # Encryption at rest: How to use customer managed keys to encrypt tables in Amazon Keyspaces
-<a name="encryption.customermanaged"></a>
 
 You can use the console or CQL statements to specify the AWS KMS key for new tables and update the encryption keys of existing tables in Amazon Keyspaces. The following topic outlines how to implement customer managed keys for new and existing tables. 
 
@@ -60,7 +59,7 @@ For example, the following example key policy provides only the required permiss
 
 Before using an example key policy, replace the example principals with actual principals from your AWS account.
 
-```
+```JSON
 {
   "Id": "key-policy-cassandra",
   "Version":"2012-10-17",		 	 	 
@@ -148,7 +147,7 @@ If the key you selected is not accessible or is missing the required permissions
 
 To create a new table that uses a customer managed key for encryption at rest, you can use the `CREATE TABLE` statement as shown in the following example. Make sure to replace the key ARN with an ARN for a valid key with permissions granted to Amazon Keyspaces.
 
-```
+```SQL
 CREATE TABLE {{my_keyspace.my_table}}(id bigint, name text, place text STATIC, PRIMARY KEY(id, name)) WITH CUSTOM_PROPERTIES = {
         'encryption_specification':{
                 'encryption_type': 'CUSTOMER_MANAGED_KMS_KEY', 
@@ -188,7 +187,7 @@ If the key you selected is not valid, see [Troubleshooting key access](https://d
 
 To change the encryption key of an existing table, you use the `ALTER TABLE` statement to specify a customer managed key for encryption at rest. Make sure to replace the key ARN with an ARN for a valid key with permissions granted to Amazon Keyspaces.
 
-```
+```SQL
 ALTER TABLE {{my_keyspace.my_table}} WITH CUSTOM_PROPERTIES = {     
               'encryption_specification':{ 
                       'encryption_type': 'CUSTOMER_MANAGED_KMS_KEY', 
@@ -201,7 +200,7 @@ If you receive an `Invalid Request Exception`, you need to confirm that the cust
 
 To change the encryption key back to the default encryption at rest option with AWS owned keys, you can use the `ALTER TABLE` statement as shown in the following example.
 
-```
+```SQL
 ALTER TABLE {{my_keyspace.my_table}} WITH CUSTOM_PROPERTIES = {
                 'encryption_specification':{
                       'encryption_type' : 'AWS_OWNED_KMS_KEY' 

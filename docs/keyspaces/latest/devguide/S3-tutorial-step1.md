@@ -1,7 +1,6 @@
 
 
 # Step 1: Bootstrap the infrastructure and AWS Glue jobs
-<a name="S3-tutorial-step1"></a>
 
 In this step, you use the `keyspaces-bulk-cli` CLI to create and configure all the AWS resources required for the automated data export of an Amazon Keyspaces table to an Amazon S3 bucket using AWS Glue. The `bootstrap` command performs all setup tasks in a single step.
 

@@ -1,7 +1,6 @@
 
 
 # Configure automatic scaling on an existing table
-<a name="autoscaling.configureTable"></a>
 
 You can update an existing Amazon Keyspaces table to turn on auto scaling for the table's write or read capacity. If you're updating a table that is currently in on-demand capacity mode, than you first have to change the table's capacity mode to provisioned capacity mode.
 

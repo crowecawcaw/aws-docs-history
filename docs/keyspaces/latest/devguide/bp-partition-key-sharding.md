@@ -1,7 +1,6 @@
 
 
 # Use write sharding to evenly distribute workloads across partitions
-<a name="bp-partition-key-sharding"></a>
 
 One way to better distribute writes across a partition in Amazon Keyspaces is to expand the space. You can do this in several different ways. You can add an additional partition key column to which you write random numbers to distribute the rows among partitions. Or you can use a number that is calculated based on something that you're querying on.
 

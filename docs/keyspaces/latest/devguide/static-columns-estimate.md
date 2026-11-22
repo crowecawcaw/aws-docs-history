@@ -1,7 +1,6 @@
 
 
 # Calculate the static column size per logical partition in Amazon Keyspaces
-<a name="static-columns-estimate"></a>
 
 This section provides details about how to estimate the encoded size of static columns in Amazon Keyspaces. The encoded size is used when you're calculating your bill and quota use. You should also use the encoded size when you calculate provisioned throughput capacity requirements for tables. To calculate the encoded size of static columns in Amazon Keyspaces, you can use the following guidelines.
 + Partition keys can contain up to 2048 bytes of data. Each key column in the partition key requires up to 3 bytes of metadata. These metadata bytes count towards your static data size quota of 1 MB per partition. When calculating the size of your static data, you should assume that each partition key column uses the full 3 bytes of metadata.
@@ -17,13 +16,13 @@ partition key columns + static columns + metadata = total encoded size of static
 
 Consider the following example of a table where all columns are of type integer. The table has two partition key columns, two clustering columns, one regular column, and one static column.
 
-```
+```sql
 CREATE TABLE mykeyspace.mytable(pk_col1 int, pk_col2 int, ck_col1 int, ck_col2 int, reg_col1 int, static_col1 int static, primary key((pk_col1, pk_col2),ck_col1, ck_col2));
 ```
 
 In this example, we calculate the size of static data of the following statement:
 
-```
+```sql
 INSERT INTO mykeyspace.mytable (pk_col1, pk_col2, static_col1) values(1,2,6);
 ```
 
@@ -70,13 +69,13 @@ To calculate the total size of an update of static and nonstatic data in the sam
 
 Consider the following example of a table where all columns are of type integer. The table has two partition key columns, two clustering columns, one regular column, and one static column.
 
-```
+```sql
 CREATE TABLE mykeyspace.mytable(pk_col1 int, pk_col2 int, ck_col1 int, ck_col2 int, reg_col1 int, static_col1 int static, primary key((pk_col1, pk_col2),ck_col1, ck_col2));
 ```
 
 In this example, we calculate the size of data when we write a row to the table, as shown in the following statement:
 
-```
+```sql
 INSERT INTO mykeyspace.mytable (pk_col1, pk_col2, ck_col1, ck_col2, reg_col1, static_col1) values(2,3,4,5,6,7);
 ```
 

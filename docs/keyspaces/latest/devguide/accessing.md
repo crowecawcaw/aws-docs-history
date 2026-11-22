@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon Keyspaces (for Apache Cassandra)
-<a name="accessing"></a>
 
 You can access Amazon Keyspaces using the console, AWS CloudShell, programmatically by running a `cqlsh` client, the AWS SDK, or by using an Apache 2.0 licensed Cassandra driver. Amazon Keyspaces supports drivers and clients that are compatible with Apache Cassandra 3.11.2. Before accessing Amazon Keyspaces, you must complete setting up AWS Identity and Access Management and then grant an IAM identity access permissions to Amazon Keyspaces.
 

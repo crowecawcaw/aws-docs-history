@@ -1,7 +1,6 @@
 
 
 # Turn off Amazon Keyspaces auto scaling for a table
-<a name="autoscaling.turnoff"></a>
 
 You can turn off Amazon Keyspaces auto scaling for your table at any time. If you no longer need to scale your table's read or write capacity, you should consider turning off auto scaling so that Amazon Keyspaces doesn't continue modifying your table’s read or write capacity settings. You can update the table using the console, CQL, or the AWS CLI.
 

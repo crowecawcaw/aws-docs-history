@@ -1,7 +1,6 @@
 
 
 # Evaluate your table's Application Auto Scaling settings
-<a name="CostOptimization_AutoScalingSettings"></a>
 
 This section provides an overview of how to evaluate the Application Auto Scaling settings of your Amazon Keyspaces tables. [Amazon Keyspaces Application Auto Scaling](autoscaling.md) is a feature that manages table throughput based on your application traffic and your target utilization metric. This ensures your tables have the required capacity required for your application patterns.
 
@@ -54,7 +53,7 @@ When you're using multi-Region tables in provisioned capacity mode with Amazon K
 
    The values for the Application Auto Scaling policies are highlighted below. You need to ensure that the target value is greater than 50% to avoid over-provisioning. You should obtain a result similar to the following:
 
-   ```
+   ```JSON
    {
        "ScalingPolicies": [
            {
@@ -171,7 +170,7 @@ You can use the AWS CLI to execute the following steps to create a scheduled aut
 
    You should get a result like this:
 
-   ```
+   ```json
    {
        "ScheduledActions": [
            {

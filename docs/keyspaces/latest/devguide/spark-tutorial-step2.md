@@ -1,7 +1,6 @@
 
 
 # Step 2: Configure the Apache Cassandra Spark Connector
-<a name="spark-tutorial-step2"></a>
 
 Apache Spark is a general-purpose compute platform that you can configure in different ways. To configure Spark and the Spark Cassandra Connector for integration with Amazon Keyspaces, we recommend that you start with the minimum configuration settings described in the following section, and then increase them later as appropriate for your workload.
 + **Create Spark partition sizes smaller than 8 MBs.**

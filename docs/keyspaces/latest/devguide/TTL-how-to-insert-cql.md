@@ -1,7 +1,6 @@
 
 
 # Use the `INSERT` statement to set custom Time to Live (TTL) values for new rows
-<a name="TTL-how-to-insert-cql"></a>
 
 **Note**  
 Before you can set custom TTL values for rows using the `INSERT` statement, you must first enable custom TTL on the table. For more information, see [Update table with custom Time to Live (TTL)](TTL-how-to-enable-custom-alter.md).
@@ -13,7 +12,7 @@ Setting TTL values for new rows using the `INSERT` statement takes precedence ov
 
 The following CQL statement inserts a row of data into the table and changes the default TTL setting to 259,200 seconds (which is equivalent to 3 days).
 
-```
+```SQL
 INSERT INTO {{my_table}} (userid, time, subject, body, user)
         VALUES (B79CB3BA-745E-5D9A-8903-4A02327A7E09, 96a29100-5e25-11ec-90d7-b5d91eceda0a, 'Message', 'Hello','205.212.123.123')
         USING TTL 259200;
@@ -21,6 +20,6 @@ INSERT INTO {{my_table}} (userid, time, subject, body, user)
 
 To confirm the TTL settings for the inserted row, use the following statement.
 
-```
+```SQL
 SELECT TTL (subject) from {{my_table}};
 ```

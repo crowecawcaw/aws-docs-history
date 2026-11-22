@@ -1,7 +1,6 @@
 
 
 # Configure the IAM permissions required to create multi-Region keyspaces and tables
-<a name="howitworks_replication_permissions"></a>
 
 To successfully create multi-Region keyspaces and tables, the IAM principal needs to be able to create a service-linked role. This service-linked role is a unique type of IAM role that is predefined by Amazon Keyspaces. It includes all the permissions that Amazon Keyspaces requires to perform actions on your behalf. For more information about the service-linked role, see [Using roles for Amazon Keyspaces Multi-Region Replication](using-service-linked-roles-multi-region-replication.md).
 

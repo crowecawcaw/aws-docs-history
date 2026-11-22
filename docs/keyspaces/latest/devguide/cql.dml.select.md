@@ -1,7 +1,6 @@
 
 
 # SELECT
-<a name="cql.dml.select"></a>
 
 Use a SELECT statement to query data. 
 
@@ -28,7 +27,7 @@ ordering_clause  ::=  column_name [ ASC | DESC ] ( ',' column_name [ ASC | DESC 
 
 **Examples**
 
-```
+```sql
 SELECT name, id, manager_id FROM "myGSGKeyspace".employees_tbl ;
 
 SELECT JSON name, id, manager_id FROM "myGSGKeyspace".employees_tbl ;
@@ -42,7 +41,7 @@ The `IN` keyword specifies equality for one or more values. It can be applied to
 
 **Examples**
 
-```
+```sql
 SELECT * from {{mykeyspace.mytable}} WHERE primary.key1 IN (1,2) and clustering.key1 = 2;
 SELECT * from {{mykeyspace.mytable}} WHERE primary.key1 IN (1,2) and clustering.key1 <= 2;
 SELECT * from {{mykeyspace.mytable}} WHERE primary.key1 = 1 and clustering.key1 IN (1, 2);
@@ -57,7 +56,7 @@ The `ORDER BY` clause specifies the sort order of the returned results. It takes
 
 **Example**
 
-```
+```sql
 SELECT name, id, division, manager_id FROM "myGSGKeyspace".employees_tbl WHERE id = '012-34-5678' ORDER BY division;
 ```
 
@@ -83,7 +82,7 @@ You can use the `TTL` function with the `SELECT` statement to retrieve the expir
 
 **Example**
 
-```
+```SQL
 SELECT TTL({{my_column}}) from {{my_table}};
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Connect from a containerized application hosted on Amazon Elastic Kubernetes Service
-<a name="EKS-tutorial"></a>
 
 This tutorial walks you through the steps required to set up an Amazon Elastic Kubernetes Service (Amazon EKS) cluster to host a containerized application that connects to Amazon Keyspaces using SigV4 authentication.
 

@@ -1,7 +1,6 @@
 
 
 # Add new tags to a stream
-<a name="Tagging.Operations.existing.stream"></a>
 
 You can add new tags to an existing stream in Amazon Keyspaces using the CQL or the AWS CLI. You can only add tags to the latest stream.
 

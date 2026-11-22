@@ -1,7 +1,6 @@
 
 
 # Create a table in Amazon Keyspaces
-<a name="getting-started.tables"></a>
 
 In this section, you create a table using the console, `cqlsh`, or the AWS CLI.
 
@@ -158,7 +157,7 @@ publisher      text
 
 1. Verify that your table was created.
 
-   ```
+   ```sql
    SELECT * from system_schema.tables WHERE keyspace_name='catalog.book_awards' ;
    ```
 
@@ -173,7 +172,7 @@ publisher      text
 
 1. Verify your table's structure.
 
-   ```
+   ```sql
    SELECT * FROM system_schema.columns WHERE keyspace_name = 'catalog' AND table_name = 'book_awards';
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Step 1: Configure the Amazon EKS cluster and setup IAM permissions
-<a name="EKS-tutorial-step1"></a>
 
 **Configure the Amazon EKS cluster and create the IAM resources that are required to allow an Amazon EKS service account to connect to your Amazon Keyspaces table**
 

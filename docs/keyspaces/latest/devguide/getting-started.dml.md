@@ -1,7 +1,6 @@
 
 
 # Create, read, update, and delete data (CRUD) using CQL in Amazon Keyspaces
-<a name="getting-started.dml"></a>
 
 In this step of the tutorial, you'll learn how to insert, read, update, and delete data in an Amazon Keyspaces table using CQL data manipulation language (DML) statements. In Amazon Keyspaces, you can only create DML statements in CQL language. In this tutorial, you'll practice running DML statements using the `cqlsh-expansion` with [AWS CloudShell](using-aws-with-cloudshell.md) in the AWS Management Console.
 + **Inserting data** – This section covers inserting single and multiple records into a table using the `INSERT` statement. You'll learn how to upload data from a CSV file and verify successful inserts using `SELECT` queries. 

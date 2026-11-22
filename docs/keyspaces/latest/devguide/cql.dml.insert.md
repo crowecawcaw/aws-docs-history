@@ -1,7 +1,6 @@
 
 
 # INSERT
-<a name="cql.dml.insert"></a>
 
 Use the `INSERT` statement to add a row to a table.
 
@@ -18,7 +17,7 @@ names            ::=  '(' column_name ( ',' column_name )* ')'
 
 **Example**
 
-```
+```sql
 INSERT INTO "myGSGKeyspace".employees_tbl (id, name, project, region, division, role, pay_scale, vacation_hrs, manager_id)
 VALUES ('012-34-5678','Russ','NightFlight','US','Engineering','IC',3,12.5, '234-56-7890') ;
 ```
@@ -45,7 +44,7 @@ You can use the `JSON` keyword to insert a `JSON`-encoded map as a single row. F
 
 **Example**
 
-```
+```sql
 INSERT INTO "myGSGKeyspace".employees_tbl JSON '{"id":"012-34-5678",
                                                  "name": "Russ",
                                                  "project": "NightFlight",
@@ -61,7 +60,7 @@ If the JSON data contains duplicate keys, Amazon Keyspaces stores the last value
 
 **Example**
 
-```
+```sql
 INSERT INTO "myGSGKeyspace".employees_tbl JSON '{"id":"012-34-5678",
                                                  "name": "Russ",
                                                  "project": "NightFlight",

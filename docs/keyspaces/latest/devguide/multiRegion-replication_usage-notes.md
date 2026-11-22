@@ -1,7 +1,6 @@
 
 
 # Amazon Keyspaces multi-Region replication usage notes
-<a name="multiRegion-replication_usage-notes"></a>
 
 Consider the following when you're using multi-Region replication with Amazon Keyspaces.
 + You can select any of the [available public](programmatic.endpoints.md#global_endpoints) AWS Regions. For more information about AWS Regions [that are disabled by default](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable), see [Multi-Region replication in AWS Regions disabled by default](multiRegion-replication_how-it-works.md#howitworks_mrr_opt_in).

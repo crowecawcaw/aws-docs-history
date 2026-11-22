@@ -1,7 +1,6 @@
 
 
 # Create a migration plan for migrating from Apache Cassandra to Amazon Keyspaces
-<a name="migrating-cassandra"></a>
 
 For a successful migration from Apache Cassandra to Amazon Keyspaces, we recommend a review of the applicable migration concepts and best practices as well as a comparison of the available options. 
 

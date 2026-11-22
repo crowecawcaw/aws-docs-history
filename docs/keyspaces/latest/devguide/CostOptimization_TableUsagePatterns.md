@@ -1,7 +1,6 @@
 
 
 # Evaluate your table usage patterns to optimize performance and cost
-<a name="CostOptimization_TableUsagePatterns"></a>
 
 This section provides an overview of how to evaluate if you are efficiently using your Amazon Keyspaces tables. There are certain usage patterns which are not optimal for Amazon Keyspaces, and they allow room for optimization from both a performance and a cost perspective.
 

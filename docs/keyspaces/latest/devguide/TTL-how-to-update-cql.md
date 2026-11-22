@@ -1,7 +1,6 @@
 
 
 # Use the `UPDATE` statement to edit custom Time to Live (TTL) settings for rows and columns
-<a name="TTL-how-to-update-cql"></a>
 
 **Note**  
 Before you can set custom TTL values for rows and columns, you must enable TTL on the table first. For more information, see [Update table with custom Time to Live (TTL)](TTL-how-to-enable-custom-alter.md).
@@ -14,13 +13,13 @@ Setting TTL values for rows and columns takes precedence over the default TTL se
 
 To change the TTL settings of the 'subject' column inserted earlier from 259,200 seconds (3 days) to 86,400 seconds (one day), use the following statement.
 
-```
+```SQL
 UPDATE {{my_table}} USING TTL 86400 set subject = 'Updated Message' WHERE userid = B79CB3BA-745E-5D9A-8903-4A02327A7E09 and time = 96a29100-5e25-11ec-90d7-b5d91eceda0a;
 ```
 
 You can run a simple select query to see the updated record before the expiration time.
 
-```
+```SQL
 SELECT * from {{my_table}};
 ```
 
@@ -35,7 +34,7 @@ b79cb3ba-745e-5d9a-8903-4a02327a7e09  | 96a29100-5e25-11ec-90d7-b5d91eceda0a | H
 
 To confirm that the expiration was successful, run the same query again after the configured expiration time.
 
-```
+```SQL
 SELECT * from {{my_table}};
 ```
 

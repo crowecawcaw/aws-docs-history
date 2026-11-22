@@ -1,7 +1,6 @@
 
 
 # Estimate the read capacity consumption of limit queries
-<a name="limit_queries"></a>
 
  When processing a query that uses the `LIMIT` clause, Amazon Keyspaces reads rows up to the maximum page size when trying to match the condition specified in the query. If Amazon Keyspaces can't find sufficient matching data that meets the `LIMIT` value on the first page, one or more paginated calls could be needed. To continue reads on the next page, you can use a pagination token. The default page size is 1MB. To consume less read capacity when using `LIMIT` clauses, you can reduce the page size. For more information about pagination, see [Paginate results in Amazon Keyspaces](paginating-results.md).
 

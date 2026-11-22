@@ -1,7 +1,6 @@
 
 
 # Turn off auto scaling for a table in Amazon Keyspaces
-<a name="tables-mrr-autoscaling-off"></a>
 
 This section provides examples of how to turn off auto scaling for a multi-Region table in provisioned capacity mode. You can do this on the Amazon Keyspaces console, using CQL or the AWS CLI. 
 

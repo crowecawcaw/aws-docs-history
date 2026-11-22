@@ -1,7 +1,6 @@
 
 
 # Validating data consistency during an online migration
-<a name="migration-online-validation"></a>
 
  The next step in the online migration process is data validation. Dual writes are adding new data to your Amazon Keyspaces database and you have completed the migration of historical data either using bulk upload or data expiration with TTL. 
 

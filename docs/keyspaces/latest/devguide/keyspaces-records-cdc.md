@@ -1,7 +1,6 @@
 
 
 # Access records in CDC streams in Amazon Keyspaces
-<a name="keyspaces-records-cdc"></a>
 
 To access the records in a stream, you use the [Amazon Keyspaces Streams API](https://docs.aws.amazon.com/keyspaces/latest/StreamsAPIReference/Welcome.html). The following section contains examples on how to access records using the AWS CLI.
 

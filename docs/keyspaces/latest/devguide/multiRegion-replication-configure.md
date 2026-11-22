@@ -1,7 +1,6 @@
 
 
 # Configure multi-Region replication for Amazon Keyspaces (for Apache Cassandra)
-<a name="multiRegion-replication-configure"></a>
 
 You can use the console, Cassandra Query Language (CQL), or the AWS Command Line Interface to create and manage multi-Region keyspaces and tables in Amazon Keyspaces. 
 

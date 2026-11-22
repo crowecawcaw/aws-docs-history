@@ -1,7 +1,6 @@
 
 
 # Update table with custom Time to Live (TTL)
-<a name="TTL-how-to-enable-custom-alter"></a>
 
 To enable Time to Live custom settings for a table so that TTL values can be applied to individual rows and columns without setting a TTL default value for the entire table, you can use the following commands.
 
@@ -14,7 +13,7 @@ After `ttl` is enabled, you can't disable it for the table.
 **Enable custom TTL settings for a table using CQL**
 + 
 
-  ```
+  ```SQL
   ALTER TABLE {{my_table}} WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
   ```
 

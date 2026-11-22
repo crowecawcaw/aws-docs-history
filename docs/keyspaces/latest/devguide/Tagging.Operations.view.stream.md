@@ -1,7 +1,6 @@
 
 
 # View the tags of a stream
-<a name="Tagging.Operations.view.stream"></a>
 
 The following examples show how to view the tags of a stream in Amazon Keyspaces using CQL or the AWS CLI.
 
@@ -30,7 +29,7 @@ SELECT * FROM system_schema_mcs.tags WHERE resource_id = {{stream_arn}};
 ```
 + The following query returns the tags for the specified stream.
 
-  ```
+  ```sql
   SELECT tags FROM system_schema_mcs.tags WHERE resource_id = '{{arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/my_keyspace/table/my_table/stream/2025-05-06T17:17:39.800}}';
   ```
 

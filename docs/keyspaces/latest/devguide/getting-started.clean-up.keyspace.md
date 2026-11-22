@@ -1,7 +1,6 @@
 
 
 # Delete a keyspace in Amazon Keyspaces
-<a name="getting-started.clean-up.keyspace"></a>
 
 To avoid being charged for keyspaces, delete all the keyspaces that you're not using. When you delete a keyspace, the keyspace and all its tables are deleted and you stop accruing charges for them.
 
@@ -41,13 +40,13 @@ The following procedure deletes a keyspace and all its tables and data using CQL
 
 1. Delete your keyspace by entering the following statement.
 
-   ```
+   ```sql
    DROP KEYSPACE IF EXISTS catalog ;
    ```
 
 1. Verify that your keyspace was deleted.
 
-   ```
+   ```sql
    SELECT * from system_schema.keyspaces ;
    ```
 

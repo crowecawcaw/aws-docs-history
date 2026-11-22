@@ -1,7 +1,6 @@
 
 
 # Use the Kinesis Client Library (KCL) to process Amazon Keyspaces streams
-<a name="cdc_how-to-use-kcl"></a>
 
 This topic describes how to use the Kinesis Client Library (KCL) to consume and process data from Amazon Keyspaces change data capture (CDC) streams.
 

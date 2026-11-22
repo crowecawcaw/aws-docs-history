@@ -1,7 +1,6 @@
 
 
 # Create new access keys for an IAM user
-<a name="create.keypair"></a>
 
 If you already have an IAM user, you can create new access keys at any time. For more information about key management, for example how to update access keys, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). 
 

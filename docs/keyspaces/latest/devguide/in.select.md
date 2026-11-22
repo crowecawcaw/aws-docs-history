@@ -1,7 +1,6 @@
 
 
 # Use the `IN` operator with the `SELECT` statement in a query in Amazon Keyspaces
-<a name="in.select"></a>
 
 **SELECT IN**
 

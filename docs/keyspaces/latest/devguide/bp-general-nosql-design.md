@@ -1,7 +1,6 @@
 
 
 # Key differences and design principles of NoSQL design
-<a name="bp-general-nosql-design"></a>
 
 NoSQL database systems like Amazon Keyspaces use alternative models for data management, such as key-value pairs or document storage. When you switch from a relational database management system to a NoSQL database system like Amazon Keyspaces, it's important to understand the key differences and specific design approaches.
 

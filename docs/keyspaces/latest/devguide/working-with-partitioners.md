@@ -1,7 +1,6 @@
 
 
 # Working with partitioners in Amazon Keyspaces
-<a name="working-with-partitioners"></a>
 
 In Apache Cassandra, partitioners control which nodes data is stored on in the cluster. Partitioners create a numeric token using a hashed value of the partition key. Cassandra uses this token to distribute data across nodes. Clients can also use these tokens in `SELECT` operations and `WHERE` clauses to optimize read and write operations. For example, clients can efficiently perform parallel queries on large tables by specifying distinct token ranges to query in each parallel job. 
 

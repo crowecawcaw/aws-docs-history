@@ -1,7 +1,6 @@
 
 
 # Step 4: Prepare the source data and the target table in Amazon Keyspaces
-<a name="spark-tutorial-step4"></a>
 
 In this step, you create a source file with sample data and an Amazon Keyspaces table.
 

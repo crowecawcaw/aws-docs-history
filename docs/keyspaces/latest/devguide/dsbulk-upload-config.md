@@ -1,7 +1,6 @@
 
 
 # Step 4: Configure `DSBulk` settings to upload data from the CSV file to the target table
-<a name="dsbulk-upload-config"></a>
 
 This section outlines the steps required to configure DSBulk for data upload to Amazon Keyspaces. You configure DSBulk by using a configuration file. You specify the configuration file directly from the command line.
 

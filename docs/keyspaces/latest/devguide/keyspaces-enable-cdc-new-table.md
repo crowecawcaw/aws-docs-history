@@ -1,7 +1,6 @@
 
 
 # Enable a CDC stream when creating a new table in Amazon Keyspaces
-<a name="keyspaces-enable-cdc-new-table"></a>
 
 To enable a CDC stream when you create a table, you can use the `CREATE TABLE` statement in CQL or the `create-table` command with the AWS CLI. 
 

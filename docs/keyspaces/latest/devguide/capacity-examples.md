@@ -1,7 +1,6 @@
 
 
 # Estimate capacity consumption of read and write throughput in Amazon Keyspaces
-<a name="capacity-examples"></a>
 
 When you read or write data in Amazon Keyspaces, the amount of read/write request units (RRUs/WRUs) or read/write capacity units (RCUs/WCUs) your query consumes depends on the total amount of data Amazon Keyspaces has to process to run the query. In some cases, the data returned to the client can be a subset of the data that Amazon Keyspaces had to read to process the query. For conditional writes, Amazon Keyspaces consumes write capacity even if the conditional check fails.
 

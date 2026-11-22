@@ -1,7 +1,6 @@
 
 
 # Estimate capacity consumption of lightweight transactions in Amazon Keyspaces
-<a name="lightweight_transactions"></a>
 
 Lightweight transactions (LWT) allow you to perform conditional write operations against your table data. Conditional update operations are useful when inserting, updating and deleting records based on conditions that evaluate the current state. 
 

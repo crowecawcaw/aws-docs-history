@@ -1,7 +1,6 @@
 
 
 # Order results with `ORDER BY` in Amazon Keyspaces
-<a name="ordering-results"></a>
 
 The `ORDER BY` clause specifies the sort order of the results returned in a `SELECT` statement. The statement takes a list of column names as arguments and for each column you can specify the sort order for the data. You can only specify clustering columns in ordering clauses, non-clustering columns are not allowed.
 

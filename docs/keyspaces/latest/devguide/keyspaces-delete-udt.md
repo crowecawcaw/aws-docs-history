@@ -1,7 +1,6 @@
 
 
 # Delete a user-defined type (UDT) in Amazon Keyspaces
-<a name="keyspaces-delete-udt"></a>
 
 To delete a UDT in a keyspace, you can use the `DROP TYPE` statement in CQL, the `delete-type` command with the AWS CLI, or the console.
 

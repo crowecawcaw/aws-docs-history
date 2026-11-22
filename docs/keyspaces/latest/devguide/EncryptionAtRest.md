@@ -1,7 +1,6 @@
 
 
 # Encryption at rest in Amazon Keyspaces
-<a name="EncryptionAtRest"></a>
 
 Amazon Keyspaces (for Apache Cassandra) *encryption at rest* provides enhanced security by encrypting all your data at rest using encryption keys stored in [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/). This functionality helps reduce the operational burden and complexity involved in protecting sensitive data. With encryption at rest, you can build security-sensitive applications that meet strict compliance and regulatory requirements for data protection. 
 

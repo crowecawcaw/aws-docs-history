@@ -1,7 +1,6 @@
 
 
 # How to commit data models to Amazon Keyspaces and Apache Cassandra
-<a name="workbench.commit"></a>
 
 This section shows you how to commit completed data models to Amazon Keyspaces and Apache Cassandra clusters. This process automatically creates the server-side resources for keyspaces and tables based on the settings that you defined in the data model. 
 

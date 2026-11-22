@@ -1,7 +1,6 @@
 
 
 # Cassandra Query Language (CQL) elements in Amazon Keyspaces
-<a name="cql.elements"></a>
 
 Learn about the Cassandra Query Language (CQL) elements that are supported by Amazon Keyspaces, including identifiers, constants, terms, and data types.
 

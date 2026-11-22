@@ -1,7 +1,6 @@
 
 
 # Create temporary credentials to connect to Amazon Keyspaces using an IAM role and the SigV4 plugin
-<a name="temporary.credentials.IAM"></a>
 
 The recommended way to access Amazon Keyspaces programmatically is by using [temporary credentials ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) to authenticate with the SigV4 plugin. In many scenarios, you don't need long-term access keys that never expire (as you have with an IAM user). Instead, you can create an IAM role and generate temporary security credentials. Temporary security credentials consist of an access key ID and a secret access key, but they also include a security token that indicates when the credentials expire. To learn more about how to use IAM roles instead of long-term access keys, see [ Switching to an IAM role (AWS API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-api.html).
 

@@ -1,7 +1,6 @@
 
 
 # Writing new data during an online migration
-<a name="migration-online-dw"></a>
 
 The first step in an online migration plan is to ensure that any new data written by the application is stored in both databases, your existing Cassandra cluster and Amazon Keyspaces. The goal is to provide a consistent view across the two data stores. You can do this by applying all new writes to both databases. To implement dual writes, consider one of the following three options.
 + **ZDM Dual Write Proxy for Amazon Keyspaces Migration** – Using the ZDM Proxy for Amazon Keyspaces available on [Github](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/migration/online/zdm-proxy/README.md), you can migrate your Apache Cassandra workloads to Amazon Keyspaces without application downtime. This enhanced solution implements AWS best practices and extends the official ZDM Proxy capabilities.

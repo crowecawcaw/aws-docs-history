@@ -1,7 +1,6 @@
 
 
 # Prerequisites: Steps to complete before you can upload data using `cqlsh COPY FROM`
-<a name="bulk-upload-prequs"></a>
 
 You must complete the following tasks before you can start this tutorial.
 
