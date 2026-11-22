@@ -1,7 +1,6 @@
 
 
 # Use `ConfirmSubscription` with an AWS SDK or CLI
-<a name="example_sns_ConfirmSubscription_section"></a>
 
 The following code examples show how to use `ConfirmSubscription`.
 
@@ -33,7 +32,7 @@ For more information, see [Creating a subscription to an Amazon SNS topic](https
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.ConfirmSubscriptionRequest;
@@ -101,7 +100,7 @@ public class ConfirmSubscription {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -110,7 +109,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { ConfirmSubscriptionCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -157,7 +156,7 @@ export const confirmSubscription = async (
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;

@@ -1,7 +1,6 @@
 
 
 # Message ordering and deduplication strategies using Amazon SNS FIFO topics
-<a name="sns-fifo-topics"></a>
 
 This topic provides information of the features and functionalities of Amazon SNS FIFO (First-In-First-Out) topics and how they integrate with [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html). You'll learn how to use these services together to ensure strict message ordering and deduplication, essential for applications that require data consistency. This content covers the specific use cases where Amazon SNS FIFO topics are beneficial, providing insight into scenarios where message order and uniqueness are critical.
 

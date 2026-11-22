@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message replay for FIFO topic subscribers
-<a name="message-archiving-and-replay-subscriber"></a>
 
 Amazon SNS replay allows topic subscribers to retrieve and redeliver archived messages from the topic data store to a subscribed endpoint.
 + Messages can be replayed immediately after the subscription is created.
@@ -54,7 +53,7 @@ To replay archived messages use the attribute `ReplayPolicy`. `ReplayPolicy` can
 
 For example, to recover from a downstream failure and resend all messages for a two hour time period on October 1, 2023, use the `SetSubscriptionAttributes` API action to set a `ReplayPolicy` as follows:
 
-```
+```json
 {
   "PointType":"Timestamp", 
   "StartingPoint":"2023-10-01T10:00:00.000Z", 
@@ -64,7 +63,7 @@ For example, to recover from a downstream failure and resend all messages for a 
 
 To replay all messages sent to the topic as of October 1, 2023, and continue receiving all newly published messages to your topic, use the `SetSubscriptionAttributes` API action to set a `ReplayPolicy` on your subscription as follows:
 
-```
+```json
 {
   "PointType":"Timestamp",
   "StartingPoint":"2023-10-01T00:00:00.000Z"
@@ -80,7 +79,7 @@ To use an AWS SDK, you must configure it with your credentials. For more informa
 
 The following code example shows how to set the `ReplayPolicy` on a subscription to redeliver messages from the Amazon SNS FIFO topic's archive for a 2-hour time window on October 1st 2023.
 
-```
+```json
 // Specify the ARN of the Amazon SNS subscription to initiate the ReplayPolicy on.
 String subscriptionArn =
     "arn:aws:sns:us-east-2:123456789012:MyArchiveTopic.fifo:1d2a3e9d-7f2f-447c-88ae-03f1c68294da";

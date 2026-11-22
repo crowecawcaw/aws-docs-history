@@ -1,7 +1,6 @@
 
 
 # Adding and verifying phone numbers in the Amazon SNS SMS sandbox
-<a name="sns-sms-sandbox-verifying-phone-numbers"></a>
 
 Before you can start sending SMS messages from your AWS account while in the [SMS sandbox](sns-sms-sandbox.md), you must complete the following setup steps. This ensures that your account is ready for SMS messaging and that your destination phone numbers are properly verified.
 

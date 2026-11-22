@@ -1,7 +1,6 @@
 
 
 # Amazon SNS mobile app attributes
-<a name="sns-msg-status"></a>
 
 Amazon Simple Notification Service (Amazon SNS) provides support to log the delivery status of push notification messages. After you configure application attributes, log entries will be sent to CloudWatch Logs for messages sent from Amazon SNS to mobile endpoints. Logging message delivery status helps provide better operational insight, such as the following: 
 + Know whether a push notification message was delivered from Amazon SNS to the push notification service.
@@ -40,7 +39,7 @@ After you configure message delivery status attributes for an application endpoi
 
 **SUCCESS**
 
-```
+```json
 {
   "status": "SUCCESS",
   "notification": {
@@ -60,7 +59,7 @@ After you configure message delivery status attributes for an application endpoi
 
 **FAILURE**
 
-```
+```json
 {
   "status": "FAILURE",
   "notification": {
@@ -87,7 +86,7 @@ The [AWS SDKs](https://aws.amazon.com/tools/) provide APIs in several languages 
 
 The following Java example shows how to use the `SetPlatformApplicationAttributes` API to configure application attributes for message delivery status of push notification messages. You can use the following attributes for message delivery status: `SuccessFeedbackRoleArn`, `FailureFeedbackRoleArn`, and `SuccessFeedbackSampleRate`. The `SuccessFeedbackRoleArn` and `FailureFeedbackRoleArn` attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `SuccessFeedbackSampleRate` attribute is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the `FailureFeedbackRoleArn` attribute, then all failed message deliveries generate CloudWatch Logs. 
 
-```
+```java
 SetPlatformApplicationAttributesRequest setPlatformApplicationAttributesRequest = new SetPlatformApplicationAttributesRequest();
 Map<String, String> attributes = new HashMap<>();
 attributes.put("SuccessFeedbackRoleArn", "arn:aws:iam::111122223333:role/SNS_CWlogs");

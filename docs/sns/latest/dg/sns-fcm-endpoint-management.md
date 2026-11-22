@@ -1,7 +1,6 @@
 
 
 # Amazon SNS management of Firebase Cloud Messaging endpoints
-<a name="sns-fcm-endpoint-management"></a>
 
 ## Managing and maintaining device tokens
 <a name="sns-managing-device-tokens"></a>

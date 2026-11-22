@@ -1,7 +1,6 @@
 
 
 # Tutorial: Publishing a message with attributes to an Amazon SNS topic
-<a name="sns-tutorial-publish-message-with-attributes"></a>
 
 After you [create a topic](sns-create-topic.md) and [subscribe an endpoint to it](sns-create-subscribe-endpoint-to-topic.md), you can *publish* messages to a topic with message attributes. Message attributes let you provide structured metadata items about the message. For more information, see [Amazon SNS message attributes](sns-message-attributes.md).
 
@@ -26,7 +25,7 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
    The following code example simplifies publishing messages with attributes. The `SNSMessageAttributes` class stores the `messageAttributes` field as a map. Use the overloaded `addAttribute` method to add attributes with the data types `String`, `String.Array`, and `Number`. To publish the message, call the `publish` method with the `AmazonSNS` client and the topic ARN.
 
-   ```
+   ```java
    import com.amazonaws.services.sns.AmazonSNS;
    import com.amazonaws.services.sns.model.MessageAttributeValue;
    import com.amazonaws.services.sns.model.PublishRequest;
@@ -97,7 +96,7 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
    The following code excerpt initializes and uses the example `SNSMessageAttributes` class.
 
-   ```
+   ```java
    // Initialize the example class.
    final SNSMessageAttributes message = new SNSMessageAttributes(messageBody);
    
@@ -133,7 +132,7 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
    The message is published and the `MessageId` is printed, for example:
 
-   ```
+   ```bash
    MessageId: 1234a567-bc89-012d-3e45-6fg7h890123i
    ```
 
@@ -146,7 +145,7 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
 1. The following code example helps simplify publishing messages with attributes. The `SNSMessageAttributes` class stores the `MessageAttributes` field as a dictionary. You can use the overloaded `addAttribute` method to add attributes with the data types `String`, `String.Array`, and `Number`. To publish the message, use the `publish` method. Provide the `AmazonSimpleNotificationServiceClient` client and the topic ARN.
 
-   ```
+   ```cs
    using System;
    using System.Collections.Generic;
    using Amazon.SimpleNotificationService;
@@ -257,7 +256,7 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
    The following code excerpt initializes and uses the example `SNSMessageAttributes` class.
 
-   ```
+   ```cs
    // Initialize the example class.
    SNSMessageAttributes message = new SNSMessageAttributes(messageBody);
    
@@ -293,6 +292,6 @@ For detailed instructions on publishing a message with attributes to an Amazon S
 
    The message is published and the `MessageId` is printed, for example:
 
-   ```
+   ```bash
    MessageId: 1234a567-bc89-012d-3e45-6fg7h890123i
    ```

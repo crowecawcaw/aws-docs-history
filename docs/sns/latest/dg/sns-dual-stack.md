@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon SNS using Dual-stack (IPv4 and IPv6) endpoints
-<a name="sns-dual-stack"></a>
 
  Dual-stack endpoints support both IPv4 and IPv6 traffic. When you make a request to a dual-stack endpoint, the endpoint URL resolves to an IPv4 or an IPv6 address. For more information on dual-stack and FIPS endpoints, see the [SDK Reference guide](https://docs.aws.amazon.com/sdkref/latest/guide/feature-endpoints.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Media services
-<a name="sns-event-sources-media"></a>
 
 The following table describes how Amazon SNS integrates with Amazon Elastic Transcoder to send notifications when media transcoding jobs change status, enabling you to efficiently monitor and manage the conversion of media files stored in Amazon S3 into formats suitable for consumer playback devices. 
 

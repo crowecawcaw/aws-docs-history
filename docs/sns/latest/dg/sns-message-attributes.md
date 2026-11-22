@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message attributes
-<a name="sns-message-attributes"></a>
 
 Amazon SNS supports delivery of message attributes, which let you provide structured metadata items (such as timestamps, geospatial data, signatures, and identifiers) about the message. For SQS subscriptions, a maximum of 10 message attributes can be sent when [Raw Message Delivery](sns-large-payload-raw-message-delivery.md) is enabled. To send more than 10 message attributes, Raw Message Delivery must be disabled. Messages with more than 10 message attributes directed towards Raw Message Delivery enabled Amazon SQS subscriptions will be discarded as client side errors.
 

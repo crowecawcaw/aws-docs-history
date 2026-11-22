@@ -1,7 +1,6 @@
 
 
 # Amazon SNS sensitive data types: Protected health information (PHI)
-<a name="sns-message-data-protection-sensitive-data-types-phi"></a>
 
 The following table lists and describes the types of protected health information (PHI) that Amazon SNS can detect using managed data identifiers.
 

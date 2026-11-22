@@ -1,7 +1,6 @@
 
 
 # Use `CreateTopic` with an AWS SDK or CLI
-<a name="example_sns_CreateTopic_section"></a>
 
 The following code examples show how to use `CreateTopic`.
 
@@ -19,7 +18,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 Create a topic with a specific name.  
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.SimpleNotificationService;
@@ -63,7 +62,7 @@ Create a topic with a specific name.
 ```
 Create a new topic with a name and specific FIFO and de-duplication attributes.  
 
-```
+```csharp
     /// <summary>
     /// Create a new topic with a name and specific FIFO and de-duplication attributes.
     /// </summary>
@@ -109,7 +108,7 @@ Create a new topic with a name and specific FIFO and de-duplication attributes.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Create an Amazon Simple Notification Service (Amazon SNS) topic.
 /*!
   \param topicName: An Amazon SNS topic name.
@@ -172,7 +171,7 @@ For more information, see [Using the AWS Command Line Interface with Amazon SQS 
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -224,7 +223,7 @@ func (actor SnsActions) CreateTopic(ctx context.Context, topicName string, isFif
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreateTopicRequest;
@@ -293,7 +292,7 @@ public class CreateTopic {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -302,7 +301,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { CreateTopicCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -337,7 +336,7 @@ export const createTopic = async (topicName = "TOPIC_NAME") => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun createSNSTopic(topicName: String): String {
     val request =
         CreateTopicRequest {
@@ -358,7 +357,7 @@ suspend fun createSNSTopic(topicName: String): String {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -399,7 +398,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -427,7 +426,7 @@ class SnsWrapper:
             return topic
 ```
 
-```
+```python
 class SnsWrapper:
     """Wrapper class for managing Amazon SNS operations."""
 
@@ -498,7 +497,7 @@ class SnsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
-```
+```ruby
 # This class demonstrates how to create an Amazon Simple Notification Service (SNS) topic.
 class SNSTopicCreator
   # Initializes an SNS client.
@@ -544,7 +543,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
-```
+```rust
 async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
     let resp = client.create_topic().name(topic_name).send().await?;
 
@@ -564,7 +563,7 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->createtopic( iv_name = iv_topic_name ). " oo_result is returned for testing purposes. "
         MESSAGE 'SNS topic created' TYPE 'I'.
@@ -580,7 +579,7 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
-```
+```swift
 import AWSSNS
 
         let config = try await SNSClient.SNSClientConfig(region: region)

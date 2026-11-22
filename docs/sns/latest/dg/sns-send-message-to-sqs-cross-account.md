@@ -1,7 +1,6 @@
 
 
 # Sending Amazon SNS messages to an Amazon SQS queue in a different account
-<a name="sns-send-message-to-sqs-cross-account"></a>
 
 This document describes how to publish a notification to an Amazon SNS topic with one or more subscriptions to Amazon SQS queues in another account. You set up the topic and queues the same way as if they were in the same account (see [Fanout Amazon SNS notifications to Amazon SQS queues for asynchronous processing](sns-sqs-as-subscriber.md)). The major difference is how you handle subscription confirmation. That depends on how you subscribe the queue to the topic.
 
@@ -28,7 +27,7 @@ The account that created the Amazon SQS queue is the queue owner. When the queue
 
 1. Enter the following policy:
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -110,7 +109,7 @@ To be able to communicate with the service, the queue must have permissions for 
 
 The following is an example policy statement that allows the Amazon SNS topic to send a message to the Amazon SQS queue.
 
-```
+```json
 {
    "Sid": "Stmt1234",
    "Effect": "Allow",
@@ -162,7 +161,7 @@ The following is an example policy statement that allows the Amazon SNS topic to
 
    An XML response is displayed, for example:
 
-   ```
+   ```xml
    <ConfirmSubscriptionResponse>
       <ConfirmSubscriptionResult>
          <SubscriptionArn>arn:aws:sns:us-east-2:123456789012:MyTopic:1234a567-bc89-012d-3e45-6fg7h890123i</SubscriptionArn>

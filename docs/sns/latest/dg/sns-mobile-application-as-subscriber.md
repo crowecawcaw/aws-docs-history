@@ -1,7 +1,6 @@
 
 
 # Sending mobile push notifications with Amazon SNS
-<a name="sns-mobile-application-as-subscriber"></a>
 
 You can use Amazon SNS to send push notification messages directly to apps on mobile devices. Push notification messages sent to a mobile endpoint can appear in the mobile app as message alerts, badge updates, or sound alerts. 
 

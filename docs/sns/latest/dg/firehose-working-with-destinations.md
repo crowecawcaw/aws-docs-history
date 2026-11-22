@@ -1,7 +1,6 @@
 
 
 # Managing Amazon SNS messages across multiple delivery stream destinations
-<a name="firehose-working-with-destinations"></a>
 
 [ delivery streams](sns-firehose-as-subscriber.md) let you manage Amazon SNS messages across multiple destinations. You can integrate with Amazon S3, Amazon OpenSearch Service, Amazon Redshift, and HTTP endpoints for storage, indexing, and analysis.
 

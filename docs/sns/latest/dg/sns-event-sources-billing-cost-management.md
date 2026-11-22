@@ -1,7 +1,6 @@
 
 
 # Billing & cost management services
-<a name="sns-event-sources-billing-cost-management"></a>
 
 The following table describes how AWS Billing and Cost Management integrates with Amazon SNS to provide notifications for budgets, price changes, and cost anomalies. 
 

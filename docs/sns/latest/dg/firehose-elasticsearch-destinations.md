@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon SNS messages with Amazon OpenSearch Service destinations
-<a name="firehose-elasticsearch-destinations"></a>
 
 This section explains how delivery streams publish data to Amazon OpenSearch Service (OpenSearch Service).
 

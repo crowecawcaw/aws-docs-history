@@ -1,7 +1,6 @@
 
 
 # Setting-up initial AWS resources for Amazon SNS message archiving and analytics
-<a name="firehose-example-initial-resources"></a>
 
 This topic describes how to create the resources needed for the [message archiving and analytics example use case](firehose-example-use-case.md):
 + An Amazon Simple Storage Service (Amazon S3) bucket
@@ -42,7 +41,7 @@ This topic describes how to create the resources needed for the [message archivi
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

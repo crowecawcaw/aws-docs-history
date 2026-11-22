@@ -1,7 +1,6 @@
 
 
 # Moving out of the Amazon SNS SMS sandbox
-<a name="sns-sms-sandbox-moving-to-production"></a>
 
 Moving your AWS account out of the [SMS sandbox](sns-sms-sandbox.md) requires you to first add, verify, and test destination phone numbers. After you complete these steps, create a case with AWS Support.
 

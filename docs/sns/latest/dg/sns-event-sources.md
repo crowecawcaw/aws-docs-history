@@ -1,7 +1,6 @@
 
 
 # Amazon SNS event sources
-<a name="sns-event-sources"></a>
 
 Amazon SNS integrates with a wide range of AWS services across various categories, allowing these services to publish events to Amazon SNS topics. This integration provides real-time notifications of key events, such as changes in infrastructure, application performance, and cost management.
 

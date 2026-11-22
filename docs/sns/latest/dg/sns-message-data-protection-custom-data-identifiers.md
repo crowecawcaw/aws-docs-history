@@ -1,7 +1,6 @@
 
 
 # Using custom data identifiers in Amazon SNS
-<a name="sns-message-data-protection-custom-data-identifiers"></a>
 
 Custom data identifiers (CDIs) let you define your own custom regular expressions that can be used in your data protection policy. Using custom data identifiers, you can target business-specific personally identifiable information (PII) use cases that [managed data identifiers](sns-message-data-protection-managed-data-identifiers.md) can't provide. For example, you can use a custom data identifier to look for company-specific employee IDs. Custom data identifiers can be used with managed data identifiers.
 
@@ -23,7 +22,7 @@ The following data protection policy instructs the Amazon SNS topic to detect pa
 
 1. Refer to the following custom data identifier in a policy statement.
 
-   ```
+   ```json
     {
      "Name": "__example_data_protection_policy",
      "Description": "Example data protection policy",

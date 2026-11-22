@@ -1,7 +1,6 @@
 
 
 # What is Amazon SNS?
-<a name="welcome"></a>
 
 Amazon Simple Notification Service (Amazon SNS) is a fully managed service that provides message delivery from publishers (producers) to subscribers (consumers). Publishers communicate asynchronously with subscribers by sending messages to a *topic*, which is a logical access point and communication channel.
 

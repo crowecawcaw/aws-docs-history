@@ -1,7 +1,6 @@
 
 
 # Management & governance services
-<a name="sns-event-sources-management-governance"></a>
 
 The following table describes how Amazon SNS integrates with AWS management and governance services such as Amazon Q Developer in chat applications, CloudFormation, CloudTrail, CloudWatch, AWS Config, AWS Control Tower, AWS License Manager, AWS Service Catalog, and AWS Systems Manager, providing notifications for key events like infrastructure changes, compliance alerts, and operational insights. 
 

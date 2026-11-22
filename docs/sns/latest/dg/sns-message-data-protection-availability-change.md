@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message data protection availability change
-<a name="sns-message-data-protection-availability-change"></a>
 
 **Important**  
 Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
@@ -49,7 +48,7 @@ If you currently use Amazon SNS message data protection, you can review your con
 **Using the AWS CLI**  
 To check if a specific topic has message data protection enabled, run the following command. Replace {{topic-arn}} with your Amazon SNS topic ARN.
 
-```
+```bash
 aws sns get-data-protection-policy --resource-arn {{topic-arn}}
 ```
 
@@ -75,7 +74,7 @@ You can remove data protection policies from your Amazon SNS topics at any time,
 **Using the AWS CLI**  
 To disable message data protection, delete the data protection policy from your topic. Replace {{topic-arn}} with your Amazon SNS topic ARN.
 
-```
+```bash
 aws sns put-data-protection-policy --resource-arn {{topic-arn}} --data-protection-policy ""
 ```
 

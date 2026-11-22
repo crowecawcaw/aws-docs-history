@@ -1,7 +1,6 @@
 
 
 # HTTP/HTTPS notification JSON format
-<a name="http-notification-json"></a>
 
 When Amazon SNS sends a notification to a subscribed HTTP or HTTPS endpoint, the POST message sent to the endpoint has a message body that contains a JSON document with the following name-value pairs.
 
@@ -44,7 +43,7 @@ Amazon SNS represents the message attributes that you attached to the published 
 
 The following HTTP POST message is an example of a `Notification` message to an HTTP endpoint.
 
-```
+```http
 POST / HTTP/1.1
 x-amz-sns-message-type: Notification
 x-amz-sns-message-id: 22b80b92-fdea-4c2c-8f9d-bdfb0c7bf324

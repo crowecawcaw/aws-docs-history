@@ -1,7 +1,6 @@
 
 
 # Numeric value matching
-<a name="numeric-value-matching"></a>
 
 Filter messages by matching numeric values to message attribute values or to message body property values. Numeric values aren't enclosed in double quotation marks in the JSON policy. You can use the following numeric operations for filtering.
 
@@ -15,29 +14,29 @@ When a policy property value includes the keyword `numeric` and the operator `=`
 
 Consider the following policy property:
 
-```
+```json
 "price_usd": [{"numeric": ["=",301.5]}]
 ```
 
 It matches either of the following message attributes:
 
-```
+```json
 "price_usd": {"Type": "Number", "Value": 301.5}
 ```
 
-```
+```json
 "price_usd": {"Type": "Number", "Value": 3.015e2}
 ```
 
 It also matches either of the following message bodies:
 
-```
+```json
 {
    "price_usd": 301.5
 }
 ```
 
-```
+```json
 {
    "price_usd": 3.015e2
 }
@@ -50,29 +49,29 @@ When a policy property value includes the keyword `anything-but`, it matches any
 
 Consider the following policy property:
 
-```
+```json
 "price": [{"anything-but": [100, 500]}]
 ```
 
 It matches either of the following message attributes:
 
-```
+```json
 "price": {"Type": "Number", "Value": 101}
 ```
 
-```
+```json
 "price": {"Type": "Number", "Value": 100.1}
 ```
 
 It also matches either of the following message bodies:
 
-```
+```json
 {
    "price": 101
 }
 ```
 
-```
+```json
 {
    "price": 100.1
 }
@@ -80,13 +79,13 @@ It also matches either of the following message bodies:
 
 Moreover, it matches the following message attribute (because it contains a value that *isn't* `100` or `500`):
 
-```
+```json
 "price": {"Type": "Number.Array", "Value": "[100, 50]"}
 ```
 
 And it also matches the following message body (because it contains a value that *isn't* `100` or `500`):
 
-```
+```json
 {
    "price": [100, 50]
 }
@@ -94,13 +93,13 @@ And it also matches the following message body (because it contains a value that
 
 However, it doesn't match the following message attribute:
 
-```
+```json
 "price": {"Type": "Number", "Value": 100}
 ```
 
 Nor does it match the following message body:
 
-```
+```json
 {
    "price": 100
 }
@@ -113,7 +112,7 @@ In addition to the operator `=`, a numeric policy property can include the follo
 
 Consider the following policy property:
 
-```
+```json
 "price_usd": [{"numeric": ["<", 0]}]
 ```
 
@@ -121,7 +120,7 @@ It matches any message attribute or message body property with negative numeric 
 
 Consider another message attribute:
 
-```
+```json
 "price_usd": [{"numeric": [">", 0, "<=", 150]}]
 ```
 

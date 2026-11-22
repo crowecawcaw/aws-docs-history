@@ -1,7 +1,6 @@
 
 
 # Active tracing in Amazon SNS
-<a name="sns-active-tracing"></a>
 
 Use AWS X-Ray to trace and analyze user requests as they pass through your Amazon SNS topics to [Amazon Data Firehose](sns-firehose-as-subscriber.md), [AWS Lambda](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-lambda.html), [Amazon SQS](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-sqs.html), and HTTP/S endpoint subscriptions.
 
@@ -51,7 +50,7 @@ Once you've enabled X-Ray for your Amazon SNS topic, you can use the [X-Ray serv
 
 The following code example shows how to enable active tracing on an Amazon SNS topic by using the AWS SDK for Java.
 
-```
+```java
 public static void enableActiveTracing(SnsClient snsClient, String topicArn) {
 
         try {

@@ -1,7 +1,6 @@
 
 
 # HTTP/HTTPS subscription confirmation JSON format
-<a name="http-subscription-confirmation-json"></a>
 
 After you subscribe an HTTP/HTTPS endpoint, Amazon SNS sends a subscription confirmation message to the HTTP/HTTPS endpoint. This message contains a `SubscribeURL` value that you must visit to confirm the subscription (alternatively, you can use the `Token` value with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html)). 
 
@@ -48,7 +47,7 @@ The URL to the certificate that was used to sign the message.
 
 The following HTTP POST message is an example of a `SubscriptionConfirmation` message to an HTTP endpoint.
 
-```
+```http
 POST / HTTP/1.1
 x-amz-sns-message-type: SubscriptionConfirmation
 x-amz-sns-message-id: 165545c9-2a5c-472c-8df2-7ff2be2b3b1b

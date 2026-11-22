@@ -1,7 +1,6 @@
 
 
 # Example cases for Amazon SNS access control
-<a name="sns-access-policy-use-cases"></a>
 
 This section describes a few examples of typical use cases for access control.
 
@@ -14,7 +13,7 @@ The `AddPermission` action allows you to specify a topic, a list of AWS account 
 
 For example, if you call `AddPermission` on the topic arn:aws:sns:us-east-2:444455556666:MyTopic, specify AWS account ID 1111-2222-3333, the `Publish` action, and the label `grant-1234-publish`, Amazon SNS will generate and insert the following policy statement into the topic’s access control policy:
 
-```
+```json
 {
   "Statement": [{
     "Sid": "grant-1234-publish",
@@ -44,7 +43,7 @@ Here’s how you can create a policy that limits subscriptions to HTTPS:
 
 1. **Write the Policy.** The policy must specify the AWS account ID that you want to grant access to and enforce the condition that only HTTPS subscriptions are allowed. Below is an example policy that grants the AWS account ID 1111-2222-3333 permission to subscribe to the topic, but only if the protocol used is HTTPS.
 
-   ```
+   ```json
    {
      "Statement": [{
        "Sid": "Statement1",
@@ -65,7 +64,7 @@ Here’s how you can create a policy that limits subscriptions to HTTPS:
 
 1. **Apply the Policy.** Use the `SetTopicAttributes` action in the Amazon SNS API to apply this policy to your topic. Set the `Policy` attribute of the topic to the JSON policy you created.
 
-   ```
+   ```java
    snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
            .topicArn("arn:aws:sns:us-east-2:444455556666:MyTopic")
            .attributeName("Policy")
@@ -87,7 +86,7 @@ You can achieve this by using the `SetQueueAttributes` action to apply a custom 
 
 The following is an example of an Amazon SQS policy that grants Amazon SNS permission to send messages to your queue. Note that this policy is associated with the Amazon SQS queue, not the Amazon SNS topic. The actions specified are Amazon SQS actions, and the resource is the Amazon Resource Name (ARN) of the queue. You can retrieve the queue's ARN by using the `GetQueueAttributes` action.
 
-```
+```json
 {
   "Statement": [{
     "Sid": "Allow-SNS-SendMessage",
@@ -125,7 +124,7 @@ Here’s how you can set it up:
 
    The following is an example policy:
 
-   ```
+   ```json
    {
      "Statement": [{
        "Effect": "Allow",
@@ -147,7 +146,7 @@ Here’s how you can set it up:
 
 1. **Apply the Policy.** Use the `SetTopicAttributes` action to set this policy on your Amazon SNS topic. This will update the topic’s access control to include the permissions specified in your custom policy.
 
-   ```
+   ```java
    snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
            .topicArn("arn:aws:sns:us-east-2:111122223333:MyTopic")
            .attributeName("Policy")
@@ -186,7 +185,7 @@ You can allow another AWS service to publish to a topic that is owned by another
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "__default_policy_ID",
@@ -244,7 +243,7 @@ You can find your organization ID in the [ Organizations console](https://consol
 
 In this example, any AWS account in organization `myOrgId` can publish to Amazon SNS topic `MyTopic` in account `444455556666`. The policy checks the organization ID value using the `aws:PrincipalOrgID` global condition key.
 
-```
+```json
 {
     "Statement": [
         {
@@ -315,7 +314,7 @@ Replace the example values in the policy below with your own.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "__default_policy_ID",
@@ -368,7 +367,7 @@ Use the following steps to enable cross-account Amazon SNS notifications for Clo
 
 In this case, the topic in account 444455556666 is allowed to publish only from the VPC endpoint with the ID `vpce-1ab2c34d`.
 
-```
+```json
 {
   "Statement": [{
     "Effect": "Deny",

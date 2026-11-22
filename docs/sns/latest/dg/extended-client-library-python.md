@@ -1,7 +1,6 @@
 
 
 # Amazon SNS Extended Client Library for Python
-<a name="extended-client-library-python"></a>
 
 ## Prerequisites
 <a name="prereqs-sns-extended-client-library-python"></a>
@@ -37,7 +36,7 @@ The following code example shows how to:
 
 To publish a large message, use the Amazon SNS Extended Client Library for Python. The message you send references an Amazon S3 object containing the actual message content.
 
-```
+```python
 import boto3
 from sns_extended_client import SNSExtendedClientSession
 from json import loads
@@ -205,7 +204,7 @@ fetch_and_print_from_sqs(sqs, demo_queue_url,platform_endpoint)
 
 **Output**
 
-```
+```text
 Published using SNS extended client:
 Published Message: ["software.amazon.payloadoffloading.PayloadS3Pointer", {"s3BucketName": "extended-client-bucket-store", "s3Key": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}]
 Message Stored in S3 Bucket is: This message should be published to S3

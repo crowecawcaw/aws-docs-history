@@ -1,7 +1,6 @@
 
 
 # Subscribing a Lambda function to an Amazon SNS topic
-<a name="lambda-console"></a>
 
 This topic explains how to subscribe a Lambda function to an Amazon SNS topic, enabling the function to be triggered by published messages.
 

@@ -1,7 +1,6 @@
 
 
 # Publish Amazon SNS messages to Amazon SQS queues using an AWS SDK
-<a name="example_sqs_Scenario_TopicsAndQueues_section"></a>
 
 The following code examples show how to:
 + Create topic (FIFO or non-FIFO).
@@ -16,7 +15,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```csharp
 /// <summary>
 /// Console application to run a feature scenario for topics and queues.
 /// </summary>
@@ -511,7 +510,7 @@ public static class TopicsAndQueues
 ```
 Create a class that wraps Amazon SQS operations.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper for Amazon Simple Queue Service (SQS) operations.
 /// </summary>
@@ -690,7 +689,7 @@ public class SQSWrapper
 ```
 Create a class that wraps Amazon SNS operations.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper for Amazon Simple Notification Service (SNS) operations.
 /// </summary>
@@ -860,7 +859,7 @@ public class SNSWrapper
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -1506,7 +1505,7 @@ Aws::String AwsDoc::TopicsAndQueues::createPolicyForQueue(const Aws::String &que
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -1812,7 +1811,7 @@ func RunTopicsAndQueuesScenario(
 ```
 Define a struct that wraps Amazon SNS actions used in this example.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -1930,7 +1929,7 @@ func (actor SnsActions) Publish(ctx context.Context, topicArn string, message st
 ```
 Define a struct that wraps Amazon SQS actions used in this example.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -2094,7 +2093,7 @@ func (actor SqsActions) DeleteQueue(ctx context.Context, queueUrl string) error 
 ```
 Clean up resources.  
 
-```
+```go
 import (
 	"context"
 	"fmt"
@@ -2157,7 +2156,7 @@ func (resources Resources) Cleanup(ctx context.Context) {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/topics_and_queues#code-examples). 
 
-```
+```java
 package com.example.sns;
 
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -2868,7 +2867,7 @@ public class SNSWorkflow {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-topics-queues#code-examples). 
 This is the entry point for this scenario.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 import { SQSClient } from "@aws-sdk/client-sqs";
 
@@ -2888,7 +2887,7 @@ export const startSnsWorkflow = () => {
 ```
 The preceding code provides the necessary dependencies and starts the scenario. The next section contains the bulk of the example.  
 
-```
+```javascript
 const toneChoices = [
   { name: "cheerful", value: "cheerful" },
   { name: "funny", value: "funny" },
@@ -3308,7 +3307,7 @@ export class TopicsQueuesWkflw {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/topics_and_queues#code-examples). 
 
-```
+```kotlin
 package com.example.sns
 
 import aws.sdk.kotlin.services.sns.SnsClient
@@ -3923,7 +3922,7 @@ suspend fun createFIFO(topicName: String?, duplication: String): String? {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class TopicsAndQueuesScenario:
     """Manages the Topics and Queues feature scenario."""
 
@@ -4270,7 +4269,7 @@ class TopicsAndQueuesScenario:
 ```
 Create classes that wrap Amazon SNS and Amazon SQS operations for use in the scenario.  
 
-```
+```python
 class SnsWrapper:
     """Wrapper class for managing Amazon SNS operations."""
 
@@ -4803,7 +4802,7 @@ class SqsWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs/scenario#code-examples). 
 
-```
+```swift
 import ArgumentParser
 import AWSClientRuntime
 import AWSSNS

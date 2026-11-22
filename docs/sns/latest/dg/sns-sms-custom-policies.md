@@ -1,7 +1,6 @@
 
 
 # Managing custom Amazon SNS IAM policies
-<a name="sns-sms-custom-policies"></a>
 
 Custom IAM policies allow you to specify permissions for individual IAM users, groups, or roles, granting or restricting access to specific AWS resources and actions. When managing Amazon SNS resources, custom IAM policies allow you to tailor access permissions according to your organization's security and operational requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message batching
-<a name="sns-batch-api-actions"></a>
 
 ## What is message batching?
 <a name="what-is-message-batching"></a>
@@ -26,7 +25,7 @@ For messages published to FIFO topics, you also need to include a `MessageDedupl
 
 **Publishing a batch of 10 messages to a Standard topic**
 
-```
+```java
 // Imports
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishBatchRequest;
@@ -90,7 +89,7 @@ public static void publishBatchToTopic(SnsClient snsClient, String topicArn, int
 
 **Publishing a batch of 10 messages to a FIFO topic**
 
-```
+```java
 // Imports
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishBatchRequest;

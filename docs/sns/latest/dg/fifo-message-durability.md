@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message durability for FIFO topics
-<a name="fifo-message-durability"></a>
 
 Amazon SNS FIFO topics and Amazon SQS queues are durable. Both resource types store messages redundantly across multiple Availability Zones, and provide dead-letter queues to handle exceptional cases.
 

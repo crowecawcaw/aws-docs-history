@@ -1,7 +1,6 @@
 
 
 # Step 1: Make sure your endpoint is ready to process Amazon SNS messages
-<a name="SendMessageToHttp.prepare"></a>
 
 Before you subscribe your HTTP or HTTPS endpoint to a topic, you must make sure the endpoint can handle the HTTP POST requests that Amazon SNS uses to send the subscription confirmation and notification messages. Usually, this means creating and deploying a web application that processes the HTTP requests from Amazon SNS. For example, use a Java servlet if your endpoint host runs Linux with Apache and Tomcat. When you subscribe an HTTP endpoint, Amazon SNS sends it a subscription confirmation request. Your endpoint must be prepared to receive and process this request when you create the subscription. Amazon SNS sends this request at that time. Amazon SNS will not send notifications to the endpoint until you confirm the subscription. After you confirm, Amazon SNS sends notifications to the endpoint when a publish action is performed on the topic.
 
@@ -11,7 +10,7 @@ Before you subscribe your HTTP or HTTPS endpoint to a topic, you must make sure 
 
    For details about the HTTP header, see [HTTP/HTTPS headers](http-header.md). The following HTTP POST request is an example of a subscription confirmation message.
 
-   ```
+   ```http
    POST / HTTP/1.1
        x-amz-sns-message-type: SubscriptionConfirmation
        x-amz-sns-message-id: 165545c9-2a5c-472c-8df2-7ff2be2b3b1b
@@ -44,7 +43,7 @@ Before you subscribe your HTTP or HTTPS endpoint to a topic, you must make sure 
 **SubscriptionConfirmation**  
 Read the value for `SubscribeURL` and visit that URL. To confirm the subscription and start receiving notifications at the endpoint, you must visit the `SubscribeURL`URL (for example, by sending an HTTP GET request to the URL). See the example HTTP request in the previous step to see what the `SubscribeURL` looks like. For more information about the format of the `SubscriptionConfirmation` message, see [HTTP/HTTPS subscription confirmation JSON format](http-subscription-confirmation-json.md). When you visit the URL, you will get back a response that looks like the following XML document. The document returns the subscription ARN for the endpoint within the `ConfirmSubscriptionResult` element.  
 
-   ```
+   ```xml
    <ConfirmSubscriptionResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
       <ConfirmSubscriptionResult>
          <SubscriptionArn>arn:aws:sns:us-west-2:123456789012:MyTopic:2bcfbf39-05c3-41de-beaa-fcfcc21c8f55</SubscriptionArn>
@@ -59,7 +58,7 @@ As an alternative to visiting the `SubscribeURL`, you can confirm the subscripti
 Read the values for `Subject` and `Message` to get the notification information that was published to the topic.  
 For details about the format of the `Notification` message, see [HTTP/HTTPS headers](http-header.md). The following HTTP POST request is an example of a notification message sent to the endpoint example.com.  
 
-   ```
+   ```http
    POST / HTTP/1.1
        x-amz-sns-message-type: Notification
        x-amz-sns-message-id: 22b80b92-fdea-4c2c-8f9d-bdfb0c7bf324

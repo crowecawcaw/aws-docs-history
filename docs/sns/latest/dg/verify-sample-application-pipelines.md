@@ -1,7 +1,6 @@
 
 
 # Step 3: Verifying Amazon SNS application and pipeline performance
-<a name="verify-sample-application-pipelines"></a>
 
 ## Step 1: Verifying the execution of the sample checkout pipeline
 <a name="verify-execution-checkout-pipeline"></a>

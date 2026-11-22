@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon SNS topic encryption with server-side encryption
-<a name="sns-enable-encryption-for-topic"></a>
 
 Amazon SNS supports server-side encryption (SSE) to protect the contents of messages using AWS Key Management Service (AWS KMS). Follow the instructions below to enable SSE using the Amazon SNS console or CDK.
 
@@ -27,7 +26,7 @@ If you don’t see the key or have insufficient permissions, ask your administra
 
 To use the AWS managed SNS  key in your CDK application, add the following snippet:
 
-```
+```java
 import software.amazon.awscdk.services.sns.*;
 import software.amazon.awscdk.services.kms.*;
 import software.amazon.awscdk.core.*;
@@ -52,7 +51,7 @@ public class SnsEncryptionExample extends Stack {
 + **Custom KMS key** – You can specify a custom key if required. In the Amazon SNS console, select your custom KMS key from the list or enter the ARN.
 + **Permissions for custom KMS keys** – If using a custom KMS key, include the following in the key policy to allow Amazon SNS to encrypt and decrypt messages:
 
-```
+```json
 { 
     "Effect": "Allow", 
     "Principal": { 

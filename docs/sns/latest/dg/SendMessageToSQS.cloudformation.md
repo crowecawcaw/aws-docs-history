@@ -1,7 +1,6 @@
 
 
 # Automate Amazon SNS to Amazon SQS messaging with AWS CloudFormation
-<a name="SendMessageToSQS.cloudformation"></a>
 
 CloudFormation enables you to use a template file to create and configure a collection of AWS resources together as a single unit. This section has an example template that makes it easy to deploy topics that publish to queues. The templates take care of the setup steps for you by creating two queues, creating a topic with subscriptions to the queues, adding a policy to the queues so that the topic can send messages to the queues, and creating IAM users and groups to control access to those resources.
 
@@ -20,7 +19,7 @@ MyRDMessageQueueGroup is an IAM group whose members have permission to read and 
 
 The following listing shows the CloudFormation template contents.
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   

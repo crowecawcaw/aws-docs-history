@@ -1,11 +1,10 @@
 
 
 # Automating Amazon SNS message archiving with an CloudFormation template
-<a name="firehose-example-cfn"></a>
 
 To automate the deployment of the Amazon SNS [message archiving and analytics example use case](firehose-example-use-case.md), you can use the following YAML template:
 
-```
+```yaml
 ---
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Template for creating an SNS archiving use case

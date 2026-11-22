@@ -1,7 +1,6 @@
 
 
 # Step 2: Executing the SNS-linked sample application
-<a name="execute-sample-application"></a>
 
 1. In the AWS Lambda console, on the navigation panel, choose **Applications**.
 
@@ -21,7 +20,7 @@
 
 1. Copy the following JSON to a file named `test_event.json`.
 
-   ```
+   ```json
    {
       "id": 15311,
       "date": "2019-03-25T23:41:11-08:00",
@@ -37,7 +36,7 @@
 
 1. To send an HTTPS request to your API endpoint, pass the sample event payload as input by executing a `curl` command, for example:
 
-   ```
+   ```bash
    curl -d "$(cat test_event.json)" https://abcdefghij.execute-api.us-east-2.amazonaws.com/Prod/checkout
    ```
 

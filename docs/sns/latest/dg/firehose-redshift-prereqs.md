@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using Amazon Redshift to analyze messages
-<a name="firehose-redshift-prereqs"></a>
 
 Before you begin, make sure you've addressed all prerequisites in [Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics](prereqs-kinesis-data-firehose.md). You also need a SQL query tool. Amazon Redshift doesn't provide or install any SQL client tools or libraries. You must install one that you can use to access the Amazon Redshift clusters that contain your Amazon SNS notifications. This tutorial uses [SQL Workbench/J](http://www.sql-workbench.net/), a free, DBMS-independent, cross-platform SQL query tool.
 

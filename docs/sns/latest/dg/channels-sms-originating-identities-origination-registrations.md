@@ -1,7 +1,6 @@
 
 
 # Register an origination ID
-<a name="channels-sms-originating-identities-origination-registrations"></a>
 
 Registering an origination ID is important for compliance with country-specific regulations and improving deliverabililty. It ensures that your messages are recognized, trusted, and have a higher chance of successful delivery.
 

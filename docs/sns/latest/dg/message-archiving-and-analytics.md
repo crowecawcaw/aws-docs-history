@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message archiving, replay, and analytics
-<a name="message-archiving-and-analytics"></a>
 
 Amazon SNS standard topics support message archiving through . You can fan out notifications to Firehose delivery streams, which allows you to send notifications to storage and analytics destinations that Firehose supports, including Amazon Simple Storage Service (Amazon S3), Amazon Redshift, and more.
 

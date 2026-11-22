@@ -1,7 +1,6 @@
 
 
 # Create an delivery stream
-<a name="firehose-redshift-create-akf-delivery-stream"></a>
 
 **To create an Firehose delivery stream for delivering Amazon SNS notifications to Amazon Redshift**
 
@@ -13,7 +12,7 @@
 
 1. For **COPY options**, paste the following:
 
-   ```
+   ```json
    {
      "jsonpaths": [
        "$.Type",

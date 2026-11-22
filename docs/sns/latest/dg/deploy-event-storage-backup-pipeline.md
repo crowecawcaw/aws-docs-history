@@ -1,7 +1,6 @@
 
 
 # Deploying and subscribing the Event Storage and Backup Pipeline to Amazon SNS
-<a name="deploy-event-storage-backup-pipeline"></a>
 
 
 |  | 

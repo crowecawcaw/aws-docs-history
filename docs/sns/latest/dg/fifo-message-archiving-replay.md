@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message archiving and replay for FIFO topics
-<a name="fifo-message-archiving-replay"></a>
 
 ## What is message archiving and replay?
 <a name="what-is-message-archiving-and-replay"></a>

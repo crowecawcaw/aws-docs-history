@@ -1,7 +1,6 @@
 
 
 # Filter policy constraints in Amazon SNS
-<a name="subscription-filter-policy-constraints"></a>
 
 When you’re setting up filter policies in Amazon SNS, there are a few important rules to keep in mind. These rules help make sure the effective application of filter policies while maintaining system performance and compatibility.
 
@@ -50,7 +49,7 @@ Failure to double-escape these characters will result in the filter policy not m
 
 In the following policy example, the first key has **three** match operators, the second has **one** match operator, and the third has **two** match operators.
 
-```
+```json
 {
    "key_a": ["value_one", "value_two", "value_three"],
    "key_b": ["value_one"],
@@ -60,7 +59,7 @@ In the following policy example, the first key has **three** match operators, th
 
 The total combination is calculated as the product of the number of match operators for each key in the filter policy:
 
-```
+```json
 3(match operators of key_a) 
 x 1(match operators of key_b) 
 x 2(match operators of key_c) 
@@ -80,7 +79,7 @@ In the following policy example:
 + There are two leaf keys: `key_c` and `key_e`.
 + `key_c` has **four** match operators with a nested level of **three**, and `key_e` has **three** match operators with a nested level of **two**.
 
-```
+```json
 {
 "key_a": {
     "key_b": {
@@ -112,7 +111,7 @@ x 2(nested level of key_e)
 
 Fields contain one or more patterns. The following example shows a field using two patterns:
 
-```
+```json
 {
     "greeting": [
       {"anything-but": {"prefix": "Hello"}},
@@ -137,7 +136,7 @@ Fields contain one or more patterns. The following example shows a field using t
 
   The following is an example of the complexity calculation:
 
-  ```
+  ```json
   {
     "filename": [
       {"wildcard": "*.txt"},     // 1 point

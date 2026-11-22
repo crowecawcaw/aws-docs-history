@@ -1,7 +1,6 @@
 
 
 # Use `ListTopics` with an AWS SDK or CLI
-<a name="example_sns_ListTopics_section"></a>
 
 The following code examples show how to use `ListTopics`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -77,7 +76,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Retrieve a list of Amazon Simple Notification Service (Amazon SNS) topics.
 /*!
   \param clientConfiguration: AWS client configuration.
@@ -150,7 +149,7 @@ For more information, see [Creating an Amazon SNS topic](https://docs.aws.amazon
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sns#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -205,7 +204,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.ListTopicsRequest;
@@ -255,7 +254,7 @@ public class ListTopics {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -264,7 +263,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { ListTopicsCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -294,7 +293,7 @@ export const listTopics = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun listSNSTopics() {
     SnsClient.fromEnvironment { region = "us-east-1" }.use { snsClient ->
         val response = snsClient.listTopics(ListTopicsRequest { })
@@ -312,7 +311,7 @@ suspend fun listSNSTopics() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -348,7 +347,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -382,7 +381,7 @@ class SnsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-sns' # v2: require 'aws-sdk'
 
 def list_topics?(sns_client)
@@ -417,7 +416,7 @@ run_me if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
-```
+```rust
 async fn show_topics(client: &Client) -> Result<(), Error> {
     let resp = client.list_topics().send().await?;
 
@@ -438,7 +437,7 @@ async fn show_topics(client: &Client) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->listtopics( ).            " oo_result is returned for testing purposes. "
         DATA(lt_topics) = oo_result->get_topics( ).
@@ -455,7 +454,7 @@ async fn show_topics(client: &Client) -> Result<(), Error> {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns/basics#code-examples). 
 
-```
+```swift
 import AWSSNS
 
         let config = try await SNSClient.SNSClientConfig(region: region)

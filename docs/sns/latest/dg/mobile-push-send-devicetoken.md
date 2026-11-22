@@ -1,7 +1,6 @@
 
 
 # Integrating device tokens with Amazon SNS for mobile notifications
-<a name="mobile-push-send-devicetoken"></a>
 
 When you first register an app and mobile device with a notification service, such as Apple Push Notification Service (APNs) and Firebase Cloud Messaging (FCM), device tokens or registration IDs are returned by the service. These tokens/IDs are added to Amazon SNS to create an endpoint for the app and device, using the [`PlatformApplicationArn`](https://docs.aws.amazon.com/sns/latest/api/API_PlatformApplication.html) API. After the endpoint is created, an [`EndpointArn`](https://docs.aws.amazon.com/sns/latest/api/API_Endpoint.html) is returned, which Amazon SNS uses to direct notifications to the correct app/device.
 

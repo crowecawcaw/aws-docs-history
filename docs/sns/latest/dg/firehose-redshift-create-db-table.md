@@ -1,7 +1,6 @@
 
 
 # Create a database table
-<a name="firehose-redshift-create-db-table"></a>
 
 After you connect to the initial database in Amazon Redshift, you typically use it as the base for creating a new database. However, for passing Amazon SNS notifications through Firehose to Amazon Redshift, you need to create a table that omits the `Message` and `MessageAttributes` fields. This page shows how to create the table using SQL Workbench/J.
 
@@ -11,7 +10,7 @@ After you connect to the initial database in Amazon Redshift, you typically use 
 
 1. In SQL Workbench/J, copy the following code and paste it into the **Statement 1** window.
 
-   ```
+   ```sql
    CREATE TABLE notifications (
        type varchar(256),
        messageid varchar(256),

@@ -1,7 +1,6 @@
 
 
 # Publishing Amazon SNS notifications with platform-specific payloads
-<a name="sns-send-custom-platform-specific-payloads-mobile-devices"></a>
 
 You can use the AWS Management Console or Amazon SNS APIs to send custom messages with platform-specific payloads to mobile devices. For information about using the Amazon SNS APIs, see [Mobile push API actions](mobile-push-api.md) and the `SNSMobilePush.java` file in `[snsmobilepush.zip](samples/snsmobilepush.zip)`. 
 
@@ -12,7 +11,7 @@ When you send platform-specific payloads, the data must be formatted as JSON key
 
 The following examples show a custom message for the FCM platform.
 
-```
+```json
 {
 "GCM": "{\"fcmV1Message\": {\"message\": {\"notification\": {\"title\": \"Hello\", \"body\": \"This is a test.\"}, \"data\": {\"dataKey\": \"example\"}}}}"
 }
@@ -25,7 +24,7 @@ In addition to sending custom data as key-value pairs, you can send platform-spe
 
 The following example shows the inclusion of the FCM parameters `time_to_live` and `collapse_key` after the custom data key-value pairs in the FCM `data` parameter.
 
-```
+```json
 {
 "GCM": "{\"fcmV1Message\": {\"message\": {\"notification\": {\"title\": \"TitleTest\", \"body\": \"Sample message for Android or iOS endpoints.\"}, \"data\":{\"time_to_live\": 3600,\"collapse_key\":\"deals\"}}}}"
 }
@@ -47,7 +46,7 @@ To send a message to an application installed on devices for multiple platforms,
 
 The following example shows a message to send to subscribed mobile endpoints on APNs, FCM, and ADM: 
 
-```
+```json
 { 
   "default": "This is the default message which must be present when publishing a message to a topic. The default message will only be used if a message is not present for 
 one of the notification platforms.",     
@@ -69,7 +68,7 @@ Amazon SNS can send messages to APNs as `alert` or `background` notifications (f
 
 We recommend specifying custom values for the `AWS.SNS.MOBILE.APNS.PUSH_TYPE` [reserved message attribute](sns-message-attributes.md#sns-attrib-mobile-reserved) using the Amazon SNS `Publish` API action, AWS SDKs, or the AWS CLI. The following CLI example sets `content-available` to `1` and `apns-push-type` to `background` for the specified topic. 
 
-```
+```bash
 aws sns publish \
 --endpoint-url https://sns.us-east-1.amazonaws.com \
 --target-arn arn:aws:sns:us-east-1:123456789012:endpoint/APNS_PLATFORM/MYAPP/1234a567-bc89-012d-3e45-6fg7h890123i \
@@ -102,7 +101,7 @@ If Amazon SNS sends a raw configuration object for APNs as a background-only not
 
 The following is an example raw configuration object.
 
-```
+```json
 {
   "APNS": "{\"aps\":{\"content-available\":1},\"Foo1\":\"Bar\",\"Foo2\":123}"
 }

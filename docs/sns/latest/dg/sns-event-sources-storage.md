@@ -1,7 +1,6 @@
 
 
 # Storage services
-<a name="sns-event-sources-storage"></a>
 
 The following table describes how Amazon SNS integrates with AWS storage services like AWS Backup, Amazon Elastic File System (EFS), Amazon Glacier, Amazon S3, and AWS Snowball Edge to provide notifications for various events such as backup activities, file system alarms, data retrieval jobs, bucket changes, and data transfer operations. 
 

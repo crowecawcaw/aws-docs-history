@@ -1,7 +1,6 @@
 
 
 # Front-end web & mobile services
-<a name="sns-event-sources-front-end-web-mobile"></a>
 
 The following table describes how Amazon SNS integrates with AWS End User Messaging SMS to enhance customer engagement by sending emails, SMS, voice messages, and push notifications, including the ability to configure two-way SMS for receiving customer messages. 
 

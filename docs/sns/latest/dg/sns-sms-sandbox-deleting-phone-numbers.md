@@ -1,7 +1,6 @@
 
 
 # Deleting phone numbers from the Amazon SNS SMS sandbox
-<a name="sns-sms-sandbox-deleting-phone-numbers"></a>
 
 You can delete both pending and verified destination phone numbers from the [SMS sandbox](sns-sms-sandbox.md).
 

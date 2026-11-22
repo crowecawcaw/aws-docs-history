@@ -1,7 +1,6 @@
 
 
 # Mobile push API actions
-<a name="mobile-push-api"></a>
 
 To use the Amazon SNS mobile push APIs, you must first meet the prerequisites for the push notification service, such as Apple Push Notification Service (APNs) and Firebase Cloud Messaging (FCM). For more information about the prerequisites, see [Prerequisites for Amazon SNS user notifications](sns-prerequisites-for-mobile-push-notifications.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Analyzing Amazon SNS messages stored in Amazon S3 using Athena
-<a name="firehose-message-analysis-s3"></a>
 
 This page explains how to analyze Amazon SNS messages sent through delivery streams to Amazon Simple Storage Service (Amazon S3) destinations.
 
@@ -22,7 +21,7 @@ For this example query, assume the following:
 
 The following query returns all SNS messages received in the specified date range:
 
-```
+```sql
 SELECT * 
 FROM default.notifications
 WHERE from_iso8601_timestamp(timestamp) BETWEEN TIMESTAMP '2020-12-01 00:00:00' AND TIMESTAMP '2020-12-02 00:00:00';

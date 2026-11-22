@@ -1,7 +1,6 @@
 
 
 # Best practices for managing Amazon SNS mobile push notifications
-<a name="mobile-push-notifications-best-practices"></a>
 
 This section describes best practices that might help you improve your customer engagement.
 

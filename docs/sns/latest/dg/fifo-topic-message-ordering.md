@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message ordering details for FIFO topics
-<a name="fifo-topic-message-ordering"></a>
 
 An Amazon SNS FIFO topic always delivers messages to subscribed Amazon SQS queues in the exact order in which the messages are published to the topic, and only once. With an Amazon SQS FIFO queue subscribed, the consumer of the queue receives the messages in the exact order in which the messages are delivered to the queue, and no duplicates. With an Amazon SQS standard queue subscribed, however, the consumer of the queue may receive messages out of order, and more than once. This enables further decoupling of subscribers from publishers, giving subscribers more flexibility in terms of message consumption and cost optimization, as shown in the following diagram, based on the [Amazon SNS FIFO topic example use case](fifo-example-use-case.md).
 

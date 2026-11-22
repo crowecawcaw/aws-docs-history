@@ -1,7 +1,6 @@
 
 
 # Getting started with configuration management
-<a name="example_config_service_GettingStarted_053_section"></a>
 
 The following code example shows how to:
 + Create an Amazon S3 bucket
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/053-aws-config-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Config Setup Script (v2)

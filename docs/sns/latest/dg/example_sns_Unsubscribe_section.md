@@ -1,7 +1,6 @@
 
 
 # Use `Unsubscribe` with an AWS SDK or CLI
-<a name="example_sns_Unsubscribe_section"></a>
 
 The following code examples show how to use `Unsubscribe`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 Unsubscribe from a topic by a subscription ARN.  
 
-```
+```csharp
     /// <summary>
     /// Unsubscribe from a topic by a subscription ARN.
     /// </summary>
@@ -40,7 +39,7 @@ Unsubscribe from a topic by a subscription ARN.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Delete a subscription to an Amazon Simple Notification Service (Amazon SNS) topic.
 /*!
   \param subscriptionARN: The Amazon Resource Name (ARN) for an Amazon SNS topic subscription.
@@ -90,7 +89,7 @@ For more information, see [Deleting an Amazon SNS topic and subscription](https:
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SnsException;
@@ -155,7 +154,7 @@ public class Unsubscribe {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -164,7 +163,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { UnsubscribeCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -202,7 +201,7 @@ const unsubscribe = async (
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun unSub(subscriptionArnVal: String) {
     val request =
         UnsubscribeRequest {
@@ -223,7 +222,7 @@ suspend fun unSub(subscriptionArnVal: String) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -264,7 +263,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -288,7 +287,7 @@ class SnsWrapper:
             raise
 ```
 
-```
+```python
 class SnsWrapper:
     """Wrapper class for managing Amazon SNS operations."""
 
@@ -343,7 +342,7 @@ class SnsWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_sns->unsubscribe( iv_subscriptionarn = iv_subscription_arn ).
         MESSAGE 'Subscription deleted.' TYPE 'I'.
@@ -361,7 +360,7 @@ class SnsWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
-```
+```swift
 import AWSSNS
 
         let config = try await SNSClient.SNSClientConfig(region: region)

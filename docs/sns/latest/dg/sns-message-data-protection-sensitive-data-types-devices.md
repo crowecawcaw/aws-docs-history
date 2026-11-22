@@ -1,7 +1,6 @@
 
 
 # Amazon SNS sensitive data types: Devices
-<a name="sns-message-data-protection-sensitive-data-types-devices"></a>
 
 The following table lists and describes the types of device identifiers that Amazon SNS can detect using managed data identifiers.
 

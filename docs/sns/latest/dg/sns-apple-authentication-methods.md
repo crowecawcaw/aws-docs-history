@@ -1,7 +1,6 @@
 
 
 # Amazon SNS Apple push notification authentication methods
-<a name="sns-apple-authentication-methods"></a>
 
 You can authorize Amazon SNS to send push notifications to your iOS or macOS app by providing information that identifies you as the developer of the app. To authenticate, provide either a *key* or a *certificate* [when creating a platform application](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html), both of which you can get from your Apple Developer account.
 

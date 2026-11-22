@@ -1,7 +1,6 @@
 
 
 # Step 4: Simulating an issue and replay events for recovery
-<a name="simulate-issue-replay-events-for-recovery"></a>
 
 ## Step 1: Enable the simulated issue and send a second API request
 <a name="enable-simulated-issue-send-second-api-request"></a>
@@ -16,7 +15,7 @@
 
 1. Copy the following JSON to a file named `test_event_2.json`.
 
-   ```
+   ```json
    {
    	   "id": 9917,
    	   "date": "2019-03-26T21:11:10-08:00",
@@ -32,7 +31,7 @@
 
 1. To send an HTTPS request to your API endpoint, pass the sample event payload as input by executing a `curl` command, for example:
 
-   ```
+   ```bash
    curl -d "$(cat test_event_2.json)" https://abcdefghij.execute-api.us-east-2.amazonaws.com/Prod/checkout
    ```
 

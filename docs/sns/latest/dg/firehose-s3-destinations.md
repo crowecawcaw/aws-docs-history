@@ -1,7 +1,6 @@
 
 
 # Storing and analyzing Amazon SNS messages in Amazon S3 destinations
-<a name="firehose-s3-destinations"></a>
 
 This topic explains how delivery streams publish data to Amazon Simple Storage Service (Amazon S3).
 

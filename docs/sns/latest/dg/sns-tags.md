@@ -1,7 +1,6 @@
 
 
 # Amazon SNS topic tagging
-<a name="sns-tags"></a>
 
 Amazon SNS supports tagging of Amazon SNS topics. This can help you track and manage the costs associated with your topics, provide enhanced security in your AWS Identity and Access Management (IAM) policies, and lets you easily search or filter through thousands of topics. Tagging enables you to manage your Amazon SNS topics using AWS Resource Groups. For more information on Resource Groups, see the [AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html).
 
@@ -45,7 +44,7 @@ Setting the IAM permission for `Publish` sets permission for both `Publish` and 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -84,7 +83,7 @@ An AWS account can have tens of thousands of Amazon SNS topics (see [Amazon SNS 
 
 For example, you may have hundreds of topics associated with your production environment. Rather than having to manually search for these topics, you can query for all topics with a given tag:
 
-```
+```java
 import com.amazonaws.services.resourcegroups.AWSResourceGroups;
 import com.amazonaws.services.resourcegroups.AWSResourceGroupsClientBuilder;
 import com.amazonaws.services.resourcegroups.model.QueryType;

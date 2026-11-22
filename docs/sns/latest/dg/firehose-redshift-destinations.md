@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon SNS message delivery and analysis in Amazon Redshift destinations
-<a name="firehose-redshift-destinations"></a>
 
 This topic explains how to fan out Amazon SNS notifications to an delivery stream. The stream then publishes data to Amazon Redshift. With this setup, you can connect to the Amazon Redshift database and use a SQL query tool to retrieve Amazon SNS messages that match specific criteria.
 

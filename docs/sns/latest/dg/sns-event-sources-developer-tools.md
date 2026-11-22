@@ -1,7 +1,6 @@
 
 
 # Developer tools services
-<a name="sns-event-sources-developer-tools"></a>
 
 The following table describes how Amazon SNS integrates with AWS developer tools services, such as AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, Amazon CodeGuru, and AWS CodePipeline to provide notifications for critical events such as build status changes, repository updates, deployment progress, performance anomalies, and pipeline actions. 
 

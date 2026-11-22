@@ -1,7 +1,6 @@
 
 
 # Evaluation logic
-<a name="sns-access-policy-language-evaluation-logic"></a>
 
 The goal at evaluation time is to decide whether a grant request should be allowed or denied. The evaluation logic follows several basic rules:
 + By default, all requests to use your resource coming from anyone but you are denied

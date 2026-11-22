@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Amazon SNS
-<a name="security-iam"></a>
 
 Access to Amazon SNS requires credentials that AWS can use to authenticate your requests. These credentials must have permissions to access AWS resources, such an Amazon SNS topics and messages. The following sections provide details on how you can use [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Amazon SNS to help secure your resources by controlling access to them. 
 

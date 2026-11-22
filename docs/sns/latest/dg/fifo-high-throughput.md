@@ -1,7 +1,6 @@
 
 
 # High throughput FIFO topics in Amazon SNS
-<a name="fifo-high-throughput"></a>
 
 High throughput FIFO topics in Amazon SNS efficiently manage high message throughput while maintaining strict message order, ensuring reliability and scalability for applications processing numerous messages. This solution is ideal for scenarios demanding both high throughput and ordered message delivery. To improve message throughput using high throughput FIFO topics, increasing the number of message groups is recommended. For more information on high throughput message quotas, see [Amazon SNS service quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *Amazon Web Services General Reference*.
 

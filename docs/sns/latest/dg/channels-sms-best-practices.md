@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon SNS SMS messaging
-<a name="channels-sms-best-practices"></a>
 
 **Important**  
 The Amazon SNS SMS Developer Guide has been updated. Amazon SNS has integrated with [AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html) for the delivery of SMS messages. This guide contains the latest information on how to create, configure, and manage your Amazon SNS SMS messages.
@@ -69,6 +68,8 @@ Your mockups or screen shot should include all of the required disclosures liste
 The following example complies with the mobile carriers’ requirements for a multi-factor authentication use case.
 
 ![A step-by-step mockup of the opt-in workflow for enabling multi-factor authentication (MFA) on a user account with ExampleCorp. The process begins with the user providing basic account information such as name and email. Next, the user decides whether to enable MFA for added security. If MFA is enabled, the user selects how they want to receive the MFA token, with options like text message or phone call. If the user selects text message, they receive an SMS with a verification code. The final step requires the user to enter the received code to confirmm their phone number, completing the opt-in process. This mockup ensures all necessary disclosures are provided for SMS compliance.](https://docs.aws.amazon.com/sns/latest/dg/images/best-practices-usecase.png)
+
+**Mockup of a multi-factor authentication use case**
 
 
 It contains finalized text and images, and it shows the entire opt-in flow, complete with annotations. In the opt-in flow, the customer has to take distinct, intentional actions to provide their consent to receive text messages and contains all of the required disclosures.

@@ -1,7 +1,6 @@
 
 
 # Publish an Amazon SNS SMS text message using an AWS SDK
-<a name="example_sns_PublishTextSMS_section"></a>
 
 The following code examples show how to publish SMS messages using Amazon SNS.
 
@@ -11,7 +10,7 @@ The following code examples show how to publish SMS messages using Amazon SNS.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
-```
+```csharp
 namespace SNSMessageExample
 {
     using System;
@@ -79,7 +78,7 @@ namespace SNSMessageExample
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 /**
  * Publish SMS: use Amazon Simple Notification Service (Amazon SNS) to send an SMS text message to a phone number.
  * Note: This requires additional AWS configuration prior to running example. 
@@ -135,7 +134,7 @@ bool AwsDoc::SNS::publishSms(const Aws::String &message,
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;
@@ -201,7 +200,7 @@ public class PublishTextSMS {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun pubTextSMS(
     messageVal: String?,
     phoneNumberVal: String?,
@@ -226,7 +225,7 @@ suspend fun pubTextSMS(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -269,7 +268,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -311,7 +310,7 @@ class SnsWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     " iv_phone_number = '+12065550101' - Phone number in E.164 format
     TRY.
         oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "

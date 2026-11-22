@@ -1,7 +1,6 @@
 
 
 # Amazon SNS sensitive data types: Personally identifiable information (PII)
-<a name="sns-message-data-protection-sensitive-data-types-pii"></a>
 
 The following table lists and describes the types of personally identifiable information (PII) that Amazon SNS can detect using managed data identifiers.
 

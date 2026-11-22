@@ -1,7 +1,6 @@
 
 
 # Customer engagement services
-<a name="sns-event-sources-customer-engagement"></a>
 
 The following table describes how Amazon SNS enhances customer engagement services by integrating with Connect Customer, AWS End User Messaging SMS, and Amazon Simple Email Service (SES), enabling you to receive alerts and validations, configure two-way SMS messaging, and monitor email notifications for bounces, complaints, and deliveries. 
 

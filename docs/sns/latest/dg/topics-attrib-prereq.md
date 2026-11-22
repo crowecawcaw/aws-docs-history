@@ -1,7 +1,6 @@
 
 
 # Prerequisites for delivery status logging
-<a name="topics-attrib-prereq"></a>
 
 This topic outlines the necessary IAM permissions for enabling Amazon SNS to write delivery logs to CloudWatch and explains the default log group naming convention. This ensures you have the correct setup and access to monitor and analyze message delivery logs in CloudWatch logs.
 
@@ -14,7 +13,7 @@ The IAM role attached for delivery status logging must include the following per
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -37,6 +36,6 @@ The IAM role attached for delivery status logging must include the following per
 
 By default, Amazon SNS creates CloudWatch log groups for delivery status logs using the following naming convention. Log streams within this group correspond to the endpoint protocols (for example, Lambda, Amazon SQS). Make sure you have permissions to view these logs in the CloudWatch Logs console.
 
-```
+```php
 sns/<region>/<account-id>/<topic-name>
 ```

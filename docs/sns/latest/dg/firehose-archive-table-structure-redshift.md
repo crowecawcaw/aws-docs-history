@@ -1,7 +1,6 @@
 
 
 # Structuring Amazon SNS message archives in Amazon Redshift tables
-<a name="firehose-archive-table-structure-redshift"></a>
 
 For Amazon Redshift endpoints, Amazon SNS messages are archived as rows in a table. Here's an example of how the data is stored:
 

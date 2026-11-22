@@ -1,7 +1,6 @@
 
 
 # Subscribing an HTTPS endpoint to an Amazon SNS topic
-<a name="sns-subscribe-https-s-endpoints-to-topic"></a>
 
 This topic explains how to subscribe HTTP/S endpoints to Amazon SNS topics.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SNS event destinations
-<a name="sns-event-destinations"></a>
 
 This topic lists all event destinations, organized by [application-to-application (A2A) messaging](sns-system-to-system-messaging.md) and [application-to-person (A2P) notifications](sns-user-notifications.md).
 

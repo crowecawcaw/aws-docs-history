@@ -1,7 +1,6 @@
 
 
 # Step 6: Send Amazon SNS messages to the HTTP/HTTPS endpoint
-<a name="SendMessageToHttp.publish"></a>
 
 You can send a message to a topic's subscriptions by publishing to the topic. To publish to a topic, you can use the Amazon SNS console, the `[sns-publish](https://docs.aws.amazon.com/cli/latest/reference/sns/publish.html)` CLI command, or the `[Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html)` API.
 

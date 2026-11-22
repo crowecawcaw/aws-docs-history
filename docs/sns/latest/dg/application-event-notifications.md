@@ -1,7 +1,6 @@
 
 
 # Amazon SNS application event notifications for mobile applications
-<a name="application-event-notifications"></a>
 
 Amazon SNS provides support to trigger notifications when certain application events occur. You can then take some programmatic action on that event. Your application must include support for a push notification service such as Apple Push Notification Service (APNs), Firebase Cloud Messaging (FCM), and Windows Push Notification Services (WNS). You set application event notifications using the Amazon SNS console, AWS CLI, or the AWS SDKs.
 
@@ -60,7 +59,7 @@ Run the [set-platform-application-attributes](https://docs.aws.amazon.com/cli/la
 
 The following example sets the same Amazon SNS topic for all four application events:
 
-```
+```bash
 aws sns set-platform-application-attributes
 --platform-application-arn arn:aws:sns:us-east-1:12345EXAMPLE:app/FCM/MyFCMPlatformApplication
 --attributes EventEndpointCreated="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents",

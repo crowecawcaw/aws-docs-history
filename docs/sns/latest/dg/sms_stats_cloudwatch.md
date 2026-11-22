@@ -1,7 +1,6 @@
 
 
 # Amazon SNS SMS delivery monitoring with Amazon CloudWatch metrics and logs
-<a name="sms_stats_cloudwatch"></a>
 
 You can use Amazon CloudWatch and Amazon CloudWatch Logs to monitor your SMS message deliveries.
 
@@ -52,7 +51,7 @@ Depending on the destination phone number's carrier, it can take up to 72 hours 
 
 The delivery status log for a successful SMS delivery will resemble the following example:
 
-```
+```json
 {
     "notification": {
         "messageId": "34d9b400-c6dd-5444-820d-fbeb0f1f54cf",
@@ -79,7 +78,7 @@ The delivery status log for a successful SMS delivery will resemble the followin
 
 The delivery status log for a failed SMS delivery will resemble the following example:
 
-```
+```json
 {
     "notification": {
         "messageId": "1077257a-92f3-5ca3-bc97-6a915b310625",

@@ -1,7 +1,6 @@
 
 
 # Publishing an Amazon SNS message
-<a name="sns-publishing"></a>
 
 After you [create an Amazon SNS topic](sns-create-topic.md) and [subscribe](sns-create-subscribe-endpoint-to-topic.md) an endpoint to it, you can *publish* messages to the topic. When a message is published, Amazon SNS attempts to deliver the message to the subscribed [endpoints](sns-create-subscribe-endpoint-to-topic.md#sns-endpoints). 
 
@@ -68,7 +67,7 @@ The following code examples show how to use `Publish`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 Publish a message to a topic.  
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.SimpleNotificationService;
@@ -116,7 +115,7 @@ Publish a message to a topic.
 ```
 Publish a message to a topic with group, duplication, and attribute options.  
 
-```
+```csharp
     /// <summary>
     /// Publish messages using user settings.
     /// </summary>
@@ -180,7 +179,7 @@ Publish a message to a topic with group, duplication, and attribute options.
 ```
 Apply the user's selections to the publish action.  
 
-```
+```csharp
     /// <summary>
     /// Publish a message to a topic with an attribute and optional deduplication and group IDs.
     /// </summary>
@@ -229,7 +228,7 @@ Apply the user's selections to the publish action.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Send a message to an Amazon Simple Notification Service (Amazon SNS) topic.
 /*!
   \param message: The message to publish.
@@ -263,7 +262,7 @@ bool AwsDoc::SNS::publishToTopic(const Aws::String &message,
 ```
 Publish a message with an attribute.  
 
-```
+```cpp
         static const Aws::String TONE_ATTRIBUTE("tone");
         static const Aws::Vector<Aws::String> TONES = {"cheerful", "funny", "serious",
                                                        "sincere"};
@@ -364,7 +363,7 @@ For more information, see [Sending SMS messages using Amazon SNS](https://docs.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -416,7 +415,7 @@ func (actor SnsActions) Publish(ctx context.Context, topicArn string, message st
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;
@@ -483,7 +482,7 @@ public class PublishTopic {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -492,7 +491,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { PublishCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -528,7 +527,7 @@ export const publish = async (
 ```
 Publish a message to a topic with group, duplication, and attribute options.  
 
-```
+```javascript
   async publishMessages() {
     const message = await this.prompter.input({
       message: MESSAGES.publishMessagePrompt,
@@ -602,7 +601,7 @@ Publish a message to a topic with group, duplication, and attribute options.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun pubTopic(
     topicArnVal: String,
     messageVal: String,
@@ -627,7 +626,7 @@ suspend fun pubTopic(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -670,12 +669,12 @@ try {
 **Tools for PowerShell V4**  
 **Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**  
 
-```
+```powershell
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute @{'City'=[Amazon.SimpleNotificationService.Model.MessageAttributeValue]@{DataType='String'; StringValue ='AnyCity'}}
 ```
 **Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**  
 
-```
+```powershell
 $cityAttributeValue = New-Object Amazon.SimpleNotificationService.Model.MessageAttributeValue
 $cityAttributeValue.DataType = "String"
 $cityAttributeValue.StringValue = "AnyCity"
@@ -695,12 +694,12 @@ Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Mess
 **Tools for PowerShell V5**  
 **Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**  
 
-```
+```powershell
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute @{'City'=[Amazon.SimpleNotificationService.Model.MessageAttributeValue]@{DataType='String'; StringValue ='AnyCity'}}
 ```
 **Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**  
 
-```
+```powershell
 $cityAttributeValue = New-Object Amazon.SimpleNotificationService.Model.MessageAttributeValue
 $cityAttributeValue.DataType = "String"
 $cityAttributeValue.StringValue = "AnyCity"
@@ -724,7 +723,7 @@ Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Mess
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 Publish a message with attributes so that a subscription can filter based on attributes.  
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -770,7 +769,7 @@ class SnsWrapper:
 ```
 Publish a message that takes different forms based on the protocol of the subscriber.  
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -818,7 +817,7 @@ class SnsWrapper:
             return message_id
 ```
 
-```
+```python
 class SnsWrapper:
     """Wrapper class for managing Amazon SNS operations."""
 
@@ -901,7 +900,7 @@ class SnsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
-```
+```ruby
 # Service class for sending messages using Amazon Simple Notification Service (SNS)
 class SnsMessageSender
   # Initializes the SnsMessageSender with an SNS client
@@ -951,7 +950,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
-```
+```rust
 async fn subscribe_and_publish(
     client: &Client,
     topic_arn: &str,
@@ -989,7 +988,7 @@ async fn subscribe_and_publish(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "
           iv_topicarn = iv_topic_arn
@@ -1001,7 +1000,7 @@ async fn subscribe_and_publish(
 ```
 Publish a message with attributes to a topic.  
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "
           iv_topicarn = iv_topic_arn
@@ -1014,7 +1013,7 @@ Publish a message with attributes to a topic.
 ```
 Publish a multi-format message to a topic.  
 
-```
+```sap-abap
     " Build JSON message structure for multi-format message
     DATA(lv_json_message) = |\{ "default": "{ iv_default_message }", "sms": "{ iv_sms_message }", "email": "{ iv_email_message }" \}|.
 
@@ -1037,7 +1036,7 @@ Publish a multi-format message to a topic.
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
-```
+```swift
 import AWSSNS
 
         let config = try await SNSClient.SNSClientConfig(region: region)

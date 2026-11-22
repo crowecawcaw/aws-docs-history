@@ -1,7 +1,6 @@
 
 
 # Publish SMS messages to an Amazon SNS topic using an AWS SDK
-<a name="example_sns_UsageSmsTopic_section"></a>
 
 The following code example shows how to:
 + Create an Amazon SNS topic.
@@ -15,7 +14,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 Create a topic and return its ARN.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreateTopicRequest;
@@ -77,7 +76,7 @@ public class CreateTopic {
 ```
 Subscribe an endpoint to a topic.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SnsException;
@@ -140,7 +139,7 @@ public class SubscribeTextSMS {
 ```
 Set attributes on the message, such as the ID of the sender, the maximum price, and its type. Message attributes are optional.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SetSmsAttributesRequest;
@@ -188,7 +187,7 @@ public class SetSMSAttributes {
 ```
 Publish a message to a topic. The message is sent to every subscriber.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;

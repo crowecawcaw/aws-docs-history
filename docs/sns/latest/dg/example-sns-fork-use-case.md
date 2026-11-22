@@ -1,7 +1,6 @@
 
 
 # AWS Event Fork Pipelines use case example
-<a name="example-sns-fork-use-case"></a>
 
 The following scenario describes an event-driven, serverless e-commerce application that uses AWS Event Fork Pipelines. You can use this [example e-commerce application](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-example-ecommerce-checkout-api) in the AWS Serverless Application Repository and then deploy it in your AWS account using the AWS Lambda console, where you can test it and examine its source code in GitHub.
 
@@ -33,7 +32,7 @@ Instead of implementing this event processing logic, the application owner can s
 
 The following JSON filter policy is set in the configuration for the Event Search and Analytics Pipeline. It matches only incoming orders in which the total amount is $100 or higher. For more information, see [Amazon SNS message filtering](sns-message-filtering.md).
 
-```
+```json
 {				
    "amount": [{ "numeric": [ ">=", 100 ] }]
 }

@@ -1,7 +1,6 @@
 
 
 # Data protection policy operations in Amazon SNS
-<a name="sns-message-data-protection-operations"></a>
 
 **Important**  
 Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
@@ -22,7 +21,7 @@ You can use the following AWS services in each of the following log destination 
 + ** **(Optional) – The `DeliveryStream` must be in the topic region and have **Direct PUT** as the source of delivery stream. For additional details, see [Source, Destination, and Name](https://docs.aws.amazon.com/firehose/latest/dev/create-name.html) in the *Amazon Data Firehose Developer Guide*.
 + **Amazon S3** (Optional) – An Amazon S3 bucket name. [Extra actions are required for using Amazon S3 bucket with SSE-KMS encryption enabled](#flow-logs-s3-cmk-policy).
 
-```
+```json
 {
   "Operation": {
     "Audit": {
@@ -72,7 +71,7 @@ When you specify logging destinations in the data protection policy, you must ad
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -138,7 +137,7 @@ If you choose SSE-KMS, you must use a customer managed key. You must update the 
 
 In the following example, `callerPrincipal` is used to identify the source of the sensitive content, and `messageID` is used as a reference to check against the `Publish` API response.
 
-```
+```json
 {
   "messageId": "34d9b400-c6dd-5444-820d-fbeb0f1f54cf",
   "auditTimestamp": "2022-05-12T2:10:44Z",
@@ -187,7 +186,7 @@ When an audit operation has specified the `FindingsDestination` or the `NoFindin
 The **De-identify** operation masks or redacts sensitive data from published or delivered messages. This operation is available for both inbound and outbound messages, and requires one of the following types of configurations:
 + **MaskConfig** – Mask using a supported character from the following table. For example, ssn: `123-45-6789` becomes ssn: `###########`.
 
-  ```
+  ```json
   {
   "Operation": {
       "Deidentify": {
@@ -233,7 +232,7 @@ The **De-identify** operation masks or redacts sensitive data from published or 
 
 + **RedactConfig** – Redact by removing the data entirely. For example, ssn: `123-45-6789` becomes ssn:` `.
 
-  ```
+  ```json
   {
   "Operation": {
       "Deidentify": {
@@ -251,7 +250,7 @@ On an inbound message, the sensitive data is de-identified after the audit opera
 
 The **Deny** operation interrupts either the `Publish` API request or the delivery of the message if the message contains sensitive data. The Deny operation object is empty, as it doesn't require additional configuration.
 
-```
+```json
 "Operation": {
     "Deny": {}
 }
@@ -263,7 +262,7 @@ On an inbound message, the `SNS:Publish` API caller receives an authorization er
 
 On an outbound message, the Amazon SNS topic does not deliver the message to the subscription. To track unauthorized deliveries, enable the topic’s [delivery status logging](sns-topic-attributes.md). The following is an example of a delivery status log:
 
-```
+```json
 {
     "notification": {
         "messageMD5Sum": "29638742ffb68b32cf56f42a79bcf16b",

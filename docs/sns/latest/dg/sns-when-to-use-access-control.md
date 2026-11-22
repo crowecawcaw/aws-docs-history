@@ -1,7 +1,6 @@
 
 
 # Amazon SNS access control use cases
-<a name="sns-when-to-use-access-control"></a>
 
 You have a great deal of flexibility in how you grant or deny access to a resource. However, the typical use cases are fairly simple: 
 + You want to grant another AWS account a particular type of topic action (for example, Publish). For more information, see [Grant AWS account access to a topic](sns-access-policy-use-cases.md#sns-grant-aws-account-access-to-topic).

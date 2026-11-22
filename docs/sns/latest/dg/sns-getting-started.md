@@ -1,7 +1,6 @@
 
 
 # Create an Amazon SNS topic and publish messages
-<a name="sns-getting-started"></a>
 
 This topic provides the foundational steps for managing Amazon SNS resources, specifically focusing on topics, subscriptions, and message publishing. First, you will set up the necessary access permissions for Amazon SNS, ensuring that you have the correct permissions to create and manage Amazon SNS resources. Next, you will create a new Amazon SNS topic, which serves as the central hub for managing and delivering messages to subscribers. After creating the topic, you will proceed to create a subscription to this topic, allowing specific endpoints to receive the messages published to it.
 

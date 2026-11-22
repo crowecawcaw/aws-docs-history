@@ -1,7 +1,6 @@
 
 
 # Amazon SNS code examples for FIFO topics
-<a name="fifo-topic-code-examples"></a>
 
 Use the following code examples to integrate the [auto parts price management example use case](fifo-example-use-case.md) with an Amazon SNS FIFO topic and either an Amazon SQS FIFO queue or a standard queue.
 
@@ -28,7 +27,7 @@ This example
 + subscribes the queues to the topic and publishes a message to the topic.
 The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java) verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java) also shows the addition of access policies and deletes the resources at the end.  
 
-```
+```java
 public class PriceUpdateExample {
     public final static SnsClient snsClient = SnsClient.create();
     public final static SqsClient sqsClient = SqsClient.create();
@@ -173,7 +172,7 @@ public class PriceUpdateExample {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.  
 
-```
+```python
 def usage_demo():
     """Shows how to subscribe queues to a FIFO topic."""
     print("-" * 88)
@@ -410,7 +409,7 @@ class FifoTopicWrapper:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.  
 
-```
+```sap-abap
     " Creates a FIFO topic. "
     DATA lt_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>tt_topicattributesmap.
     DATA ls_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>ts_topicattributesmap_maprow.
@@ -494,7 +493,7 @@ CloudFormation allows you to use a template file to create and configure a colle
 **Note**  
 If you test this code sample by publishing a message to the topic, make sure you publish the message with the `business` attribute. Specify either `retail` or `wholesale` for the attribute value. Otherwise, the message is filtered out and not delivered to the subscribed queues. 
 
-```
+```java
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {

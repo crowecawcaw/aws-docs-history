@@ -1,7 +1,6 @@
 
 
 # Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics
-<a name="prereqs-kinesis-data-firehose"></a>
 
 To subscribe an delivery stream to an SNS topic, your AWS account must have:
 + A standard SNS topic. For more information, see [Creating an Amazon SNS topic](sns-create-topic.md).
@@ -15,7 +14,7 @@ To subscribe an delivery stream to an SNS topic, your AWS account must have:
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ To subscribe an delivery stream to an SNS topic, your AWS account must have:
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

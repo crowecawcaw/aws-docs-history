@@ -1,7 +1,6 @@
 
 
 # Using the Amazon SNS SMS sandbox
-<a name="sns-sms-sandbox"></a>
 
 Newly created Amazon SNS SMS accounts are automatically placed into the SMS sandbox to make sure the security of both AWS customers and recipients by mitigating the risk of fraud and abuse. This environment serves as a secure space for testing and development purposes. While operating within the SMS sandbox, you have access to all Amazon SNS features but are subject to certain limitations:
 + You can only send SMS messages to verified destination phone numbers.

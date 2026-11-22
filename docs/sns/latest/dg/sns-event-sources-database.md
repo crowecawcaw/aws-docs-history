@@ -1,7 +1,6 @@
 
 
 # Database services
-<a name="sns-event-sources-database"></a>
 
 The following table describes how Amazon SNS integrates with AWS database services such as AWS Database Migration Service (DMS), Amazon DynamoDB, Amazon ElastiCache, Amazon Neptune, Amazon Redshift, and Amazon Relational Database Service (RDS) to send notifications about important events such as data migrations, maintenance activities, cache updates, and database changes. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SNS dead-letter queues
-<a name="sns-dead-letter-queues"></a>
 
 A dead-letter queue is an Amazon SQS queue that an Amazon SNS subscription can target for messages that can't be delivered to subscribers successfully. Messages that can't be delivered due to client errors or server errors are held in the dead-letter queue for further analysis or reprocessing. For more information, see [Configuring an Amazon SNS dead-letter queue for a subscription](sns-configure-dead-letter-queue.md) and [Amazon SNS message delivery retries](sns-message-delivery-retries.md).
 
@@ -41,7 +40,7 @@ Your messages are moved into a dead-letter queue using a *redrive policy*. A red
 
 The following JSON object is a sample redrive policy, attached to an SNS subscription.
 
-```
+```json
 {
   "deadLetterTargetArn": "arn:aws:sqs:us-east-2:123456789012:MyDeadLetterQueue"
 }

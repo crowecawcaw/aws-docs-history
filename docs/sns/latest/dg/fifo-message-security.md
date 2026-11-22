@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message security for FIFO topics
-<a name="fifo-message-security"></a>
 
 You can enable encryption for Amazon SNS FIFO topics and Amazon SQS FIFO queues using [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/) [customer master keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys).
 + You can create new encrypted FIFO topics and queues or enable encryption for existing ones.

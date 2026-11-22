@@ -1,7 +1,6 @@
 
 
 # Managing Amazon SNS encryption keys and costs
-<a name="sns-key-management"></a>
 
 The following sections provide information about working with keys managed in AWS Key Management Service (AWS KMS).
 
@@ -77,7 +76,7 @@ If selecting a customer-managed key for your Amazon SNS topic and you are using 
 
 The publisher must have the `kms:GenerateDataKey*` and `kms:Decrypt` permissions for the AWS KMS key.
 
-```
+```json
 {
   "Statement": [{
     "Effect": "Allow",
@@ -105,7 +104,7 @@ Several AWS services publish events to Amazon SNS topics. To allow these event s
 
 1. To allow the AWS service to have the `kms:GenerateDataKey*` and `kms:Decrypt` permissions, add the following statement to the KMS policy.
 
-   ```
+   ```json
    {
      "Statement": [{
        "Effect": "Allow",
@@ -158,7 +157,7 @@ Some Amazon SNS event sources require you to provide an IAM role (rather than th
 **Important**  
 Adding the `aws:SourceAccount`, `aws:SourceArn`, and `aws:SourceOrgID` to a AWS KMS policy is not supported for EventBridge-to-encrypted topics.
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Principal": {

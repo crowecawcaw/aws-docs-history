@@ -1,7 +1,6 @@
 
 
 # Common Amazon SNS mobile push API errors
-<a name="mobile-push-api-error"></a>
 
 Errors that are returned by the Amazon SNS APIs for mobile push are listed in the following table. For more information about the Amazon SNS APIs for mobile push, see [Mobile push API actions](mobile-push-api.md).
 

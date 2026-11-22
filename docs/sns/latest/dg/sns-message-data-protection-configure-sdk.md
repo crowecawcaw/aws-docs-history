@@ -1,7 +1,6 @@
 
 
 # Creating Amazon SNS data protection policies to secure message data using the SDK
-<a name="sns-message-data-protection-configure-sdk"></a>
 
 **Important**  
 Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
@@ -19,7 +18,7 @@ Use the following options to create a new data protection policy together with a
 ------
 #### [ Java ]
 
-```
+```java
 /**
  * For information regarding CreateTopic see this documentation topic:
  *
@@ -47,7 +46,7 @@ public static String createSNSTopicWithDataProtectionPolicy(SnsClient snsClient,
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import {CreateTopicCommand } from "@aws-sdk/client-sns";
 import {snsClient } from "./libs/snsClient.js";
@@ -75,7 +74,7 @@ Use the following options to create or retrieve a new data protection policy tog
 ------
 #### [ Java ]
 
-```
+```java
 public static void putDataProtectionPolicy(SnsClient snsClient, String topicName, String dataProtectionPolicy) {
 
     try {
@@ -116,7 +115,7 @@ public static void getDataProtectionPolicy(SnsClient snsClient, String topicName
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import {PutDataProtectionPolicyCommand, GetDataProtectionPolicyCommand } from "@aws-sdk/client-sns";
 import {snsClient } from "./libs/snsClient.js";

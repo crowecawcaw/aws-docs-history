@@ -1,7 +1,6 @@
 
 
 # Build an application to submit data to a DynamoDB table
-<a name="example_cross_SubmitDataApp_section"></a>
 
 The following code examples show how to build an application that submits data to an Amazon DynamoDB table and notifies you when a user updates the table.
 

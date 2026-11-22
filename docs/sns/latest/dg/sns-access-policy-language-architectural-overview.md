@@ -1,7 +1,6 @@
 
 
 # Amazon SNS access control architecture overview
-<a name="sns-access-policy-language-architectural-overview"></a>
 
 The following figure and table describe the main components that interact to provide access control for your resources.
 

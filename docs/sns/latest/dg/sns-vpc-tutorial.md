@@ -1,7 +1,6 @@
 
 
 # Publishing an Amazon SNS message from Amazon VPC
-<a name="sns-vpc-tutorial"></a>
 
 This section describes how to publish to an Amazon SNS topic while keeping the messages secure in a private network. You publish a message from an Amazon EC2 instance that's hosted in Amazon Virtual Private Cloud (Amazon VPC). The message stays within the AWS network without traveling the public internet. By publishing messages privately from a VPC, you can improve the security of the traffic between your applications and Amazon SNS. This security is important when you publish personally identifiable information (PII) about your customers, or when your application is subject to market regulations. For example, publishing privately is helpful if you have a healthcare system that must comply with the Health Insurance Portability and Accountability Act (HIPAA), or a financial system that must comply with the Payment Card Industry Data Security Standard (PCI DSS).
 
@@ -59,13 +58,13 @@ A *key pair* is used to log in to an Amazon EC2 instance. It consists of a publi
 
    1. Open a terminal and navigate to the directory that contains the private key: 
 
-      ```
+      ```bash
       $ cd /{{filepath_to_private_key}}/
       ```
 
    1. Set the permissions using the following command:
 
-      ```
+      ```bash
       $ chmod 400 VPCE-Tutorial-KeyPair.pem
       ```
 
@@ -138,14 +137,14 @@ At this point, the publish attempt fails. In a later step, after you create a VP
 
 1. Open a terminal. From the directory that contains the key pair, connect to the instance using the following command, where {{instance-hostname}} is the hostname that you copied from the Amazon EC2 console:
 
-   ```
+   ```bash
    $ ssh -i VPCE-Tutorial-KeyPair.pem ec2-user@{{instance-hostname}}
    ```
 
 **To verify that the instance lacks internet connectivity**
 + In your terminal, attempt to connect to any public endpoint, such as amazon.com:
 
-  ```
+  ```bash
   $ ping amazon.com
   ```
 
@@ -161,7 +160,7 @@ At this point, the publish attempt fails. In a later step, after you create a VP
 
 1. In your terminal, attempt to publish a message to the topic:
 
-   ```
+   ```bash
    $ aws sns publish --region {{aws-region}} --topic-arn {{sns-topic-arn}} --message "Hello"
    ```
 
@@ -217,13 +216,13 @@ Now that your VPC includes an endpoint for Amazon SNS, you can log in to the Ama
 
 1. If your terminal is no longer connected to your Amazon EC2 instance, connect again:
 
-   ```
+   ```bash
    $ ssh -i VPCE-Tutorial-KeyPair.pem ec2-user@{{instance-hostname}}
    ```
 
 1. Run the same command that you did previously to publish a message to your Amazon SNS topic. This time, the publish attempt succeeds, and Amazon SNS returns a message ID:
 
-   ```
+   ```bash
    $ aws sns publish --region {{aws-region}} --topic-arn {{sns-topic-arn}} --message "Hello"
    
    

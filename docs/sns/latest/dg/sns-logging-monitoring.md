@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon SNS
-<a name="sns-logging-monitoring"></a>
 
 Amazon SNS allows you to track and monitor messaging activity by logging API calls with CloudTrail and monitoring topics with CloudWatch. These tools help you gain insights into message delivery, troubleshoot issues, and make sure the health of your messaging workflows. This topic covers the following:
 + [Logging AWS SNS API calls using AWS CloudTrail](logging-using-cloudtrail.md). This logging enables you to track the actions performed on your Amazon SNS topics, such as topic creation, subscription management, and message publishing. By analyzing CloudTrail logs, you can identify who made specific API requests and when those requests were made, helping you audit and troubleshoot your Amazon SNS usage.

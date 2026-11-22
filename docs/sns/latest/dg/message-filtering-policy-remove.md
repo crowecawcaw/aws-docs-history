@@ -1,7 +1,6 @@
 
 
 # Removing a subscription filter policy in Amazon SNS
-<a name="message-filtering-policy-remove"></a>
 
 To stop filtering the messages that are sent to a subscription, remove the subscription's filter policy by overwriting it with an empty JSON body. After you remove the policy, the subscription accepts every message that's published to it.
 
@@ -27,7 +26,7 @@ To stop filtering the messages that are sent to a subscription, remove the subsc
 
 To remove a filter policy with the AWS CLI, use the [`set-subscription-attributes`](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) command and provide an empty JSON body for the `--attribute-value` argument:
 
-```
+```bash
 $ aws sns set-subscription-attributes --subscription-arn {{arn:aws:sns: ...}} --attribute-name FilterPolicy --attribute-value "{}"
 ```
 

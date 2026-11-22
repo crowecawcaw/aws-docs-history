@@ -1,7 +1,6 @@
 
 
 # Step 3: Confirm your Amazon SNS subscription
-<a name="SendMessageToHttp.confirm"></a>
 
 To confirm your Amazon SNS subscription, follow these steps to make sure your endpoint can successfully receive messages. This process involves setting up your endpoint to handle incoming confirmation messages, retrieving the confirmation URL, and confirming the subscription. You can confirm the subscription either automatically or manually, depending on your setup.
 

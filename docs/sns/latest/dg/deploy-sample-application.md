@@ -1,7 +1,6 @@
 
 
 # Step 1: Deploying the sample Amazon SNS application
-<a name="deploy-sample-application"></a>
 
 1. Sign in to the [AWS Lambda console](https://console.aws.amazon.com/lambda/).
 

@@ -1,7 +1,6 @@
 
 
 # Use `GetTopicAttributes` with an AWS SDK or CLI
-<a name="example_sns_GetTopicAttributes_section"></a>
 
 The following code examples show how to use `GetTopicAttributes`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetTopicAttributes`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -72,7 +71,7 @@ The following code examples show how to use `GetTopicAttributes`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Retrieve the properties of an Amazon Simple Notification Service (Amazon SNS) topic.
 /*!
   \param topicARN: The Amazon Resource Name (ARN) for an Amazon SNS topic.
@@ -142,7 +141,7 @@ For more information, see [Creating an Amazon SNS topic](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.GetTopicAttributesRequest;
@@ -208,7 +207,7 @@ public class GetTopicAttributes {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -217,7 +216,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { GetTopicAttributesCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -262,7 +261,7 @@ export const getTopicAttributes = async (topicArn = "TOPIC_ARN") => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sns#code-examples). 
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set region
@@ -291,7 +290,7 @@ getTopicAttribsPromise
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun getSNSTopicAttributes(topicArnVal: String) {
     val request =
         GetTopicAttributesRequest {
@@ -312,7 +311,7 @@ suspend fun getSNSTopicAttributes(topicArnVal: String) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 $SnSclient = new SnsClient([
     'profile' => 'default',
     'region' => 'us-east-1',
@@ -339,7 +338,7 @@ try {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->gettopicattributes( iv_topicarn = iv_topic_arn ). " oo_result is returned for testing purposes. "
         DATA(lt_attributes) = oo_result->get_attributes( ).

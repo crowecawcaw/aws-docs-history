@@ -1,7 +1,6 @@
 
 
 # Sending SMS messages using Amazon SNS
-<a name="sms_sending-overview"></a>
 
 This section describes how to send SMS messages with Amazon SNS. You can publish to a topic, subscribe phone numbers to topics, set attributes on messages, or publish directly to mobile phones.
 
@@ -33,7 +32,7 @@ Complete the following steps if you don't already have a topic to which you want
 
    1. (Optional) For **Display name**, enter a custom prefix for your SMS messages. When you send a message to the topic, Amazon SNS prepends the display name followed by a right angle bracket (>) and a space. Display names are not case sensitive, and Amazon SNS converts display names to uppercase characters. For example, if the display name of a topic is `MyTopic` and the message is `Hello World!`, the message appears as:
 
-      ```
+      ```bash
       MYTOPIC> Hello World!
       ```
 
@@ -108,7 +107,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 Create a topic and return its ARN.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreateTopicRequest;
@@ -170,7 +169,7 @@ public class CreateTopic {
 ```
 Subscribe an endpoint to a topic.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SnsException;
@@ -233,7 +232,7 @@ public class SubscribeTextSMS {
 ```
 Set attributes on the message, such as the ID of the sender, the maximum price, and its type. Message attributes are optional.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SetSmsAttributesRequest;
@@ -281,7 +280,7 @@ public class SetSMSAttributes {
 ```
 Publish a message to a topic. The message is sent to every subscriber.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;
@@ -454,7 +453,7 @@ The following code examples show how to publish SMS messages using Amazon SNS.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
-```
+```csharp
 namespace SNSMessageExample
 {
     using System;
@@ -522,7 +521,7 @@ namespace SNSMessageExample
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 /**
  * Publish SMS: use Amazon Simple Notification Service (Amazon SNS) to send an SMS text message to a phone number.
  * Note: This requires additional AWS configuration prior to running example. 
@@ -578,7 +577,7 @@ bool AwsDoc::SNS::publishSms(const Aws::String &message,
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;
@@ -644,7 +643,7 @@ public class PublishTextSMS {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun pubTextSMS(
     messageVal: String?,
     phoneNumberVal: String?,
@@ -669,7 +668,7 @@ suspend fun pubTextSMS(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -712,7 +711,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -754,7 +753,7 @@ class SnsWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     " iv_phone_number = '+12065550101' - Phone number in E.164 format
     TRY.
         oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "

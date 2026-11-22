@@ -1,7 +1,6 @@
 
 
 # Amazon SNS person-to-person long codes
-<a name="channels-sms-originating-identities-long-codes"></a>
 
 **Important**  
 Effective August 31, 2023, a dedicated number such as a [10DLC](https://docs.aws.amazon.com/sms-voice/latest/userguide/registrations.html) number or a [toll-free number](https://docs.aws.amazon.com/sms-voice/latest/userguide/registrations-tfn.html) is required to send SMS text messages to the United States and its territories (Puerto Rico, Guam, American Samoa Islands and the US Virgin Islands). Your long code request will be rejected if you use the United States as the location for these regions.

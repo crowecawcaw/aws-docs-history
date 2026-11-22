@@ -1,7 +1,6 @@
 
 
 # Amazon SNS documentation history
-<a name="sns-release-notes"></a>
 
 The following table describes recent changes to the *Amazon Simple Notification Service Developer Guide*.
 
@@ -9,8 +8,8 @@ Service features are sometimes rolled out incrementally to the AWS Regions where
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Amazon SNS message data protection is no longer open to new customers.](#sns-release-notes) | Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon Simple Notification Service message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html). | April 30, 2026 | 
-| [Amazon SNS message data protection will no longer be open to new customers starting April 30, 2026.](#sns-release-notes) | Amazon SNS message data protection will no longer be available to new customers starting April 30, 2026. For more information and guidance on alternatives, see [Amazon Simple Notification Service message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html). | March 31, 2026 | 
+| [Amazon SNS message data protection is no longer open to new customers.](sns-release-notes.md) | Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon Simple Notification Service message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html). | April 30, 2026 | 
+| [Amazon SNS message data protection will no longer be open to new customers starting April 30, 2026.](sns-release-notes.md) | Amazon SNS message data protection will no longer be available to new customers starting April 30, 2026. For more information and guidance on alternatives, see [Amazon Simple Notification Service message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html). | March 31, 2026 | 
 | [Added support for dual-stack (IPv4 and IPv6) endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ipv6-support.html) | Amazon SNS now supports IPv6 for API requests, allowing clients to connect to public endpoints using IPv4, IPv6, or dual stack. | April 3, 2025 | 
 | [Amazon SNS added the `FifoThroughputScope` attribute for Amazon SNS FIFO topics](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html) | Amazon SNS support the FifoThroughputScope attribute, which specifies the throughput quota and deduplication behaviour to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup`. | January 21, 2025 | 
 | [`AmazonSNSFullAccess` and `AmazonSNSReadOnlyAccess` managed policy updates](https://docs.aws.amazon.com/sns/latest/dg/security-iam-awsmanpol.html) | Amazon SNS added new permissions the AmazonSNSFullAccess and AmazonSNSReadOnlyAccess managed policies, which allows additional access to Amazon SNS through the AWS Management Console. | September 24, 2024 | 

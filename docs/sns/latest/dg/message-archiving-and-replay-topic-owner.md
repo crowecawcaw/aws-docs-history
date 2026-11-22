@@ -1,7 +1,6 @@
 
 
 # Amazon SNS message archiving for FIFO topic owners
-<a name="message-archiving-and-replay-topic-owner"></a>
 
 Message archiving lets you archive a single copy of all messages published to your topic. You can store published messages within your topic by enabling the message archive policy on the topic, which enables message archiving for all subscriptions linked to that topic. Messages can be archived for a minimum of one day to a maximum of 365 days.
 
@@ -41,7 +40,7 @@ To avoid accidental message deletions, you can not delete a topic with an active
 
 To create a message archive policy using the API, you need to add the attribute `ArchivePolicy` to your topic. You can set an `ArchivePolicy` using the API actions `CreateTopic` and `SetTopicAttributes`. `ArchivePolicy` has a single value, `MessageRetentionPeriod`, which represents the number of days Amazon SNS retains messages. To activate message archiving for your topic, set the `MessageRetentionPeriod` to an integer value greater than zero. For example, to retain messages in your archive for 30 days, set the `ArchivePolicy` to:
 
-```
+```json
 {
     "ArchivePolicy": {
         "MessageRetentionPeriod": "30"
@@ -51,7 +50,7 @@ To create a message archive policy using the API, you need to add the attribute 
 
 To disable message archiving for your topic, and clear the archive, unset the `ArchivePolicy`, as follows:
 
-```
+```json
 {}
 ```
 
@@ -62,7 +61,7 @@ To use an AWS SDK, you must configure it with your credentials. For more informa
 
 The following code example shows how to set the `ArchivePolicy` for an Amazon SNS topic to retain all messages published to the topic for 30 days.
 
-```
+```json
 // Specify the ARN of the Amazon SNS topic to set the ArchivePolicy for.
 String topicArn =
     "arn:aws:sns:us-east-2:123456789012:MyArchiveTopic.fifo";
@@ -103,7 +102,7 @@ For Amazon SNS to access encrypted messages from within your topic’s archive a
 
 The following is an example policy that is required to allow the Amazon SNS service principal to decrypt stored messages during a replay of historical messages from within your topic.
 
-```
+```json
 {
     "Sid": "Allow SNS to decrypt archived messages",
     "Effect": "Allow",
@@ -133,7 +132,7 @@ You can monitor archived messages using Amazon CloudWatch using the following me
 
 The `GetTopicAttributes` API has a `BeginningArchiveTime` property, which represents the oldest timestamp at which a subscriber can start a replay. The following represents a sample response for this API action:
 
-```
+```json
 {
  "ArchivePolicy": {
     "MessageRetentionPeriod": "{{<integer>}}"

@@ -1,7 +1,6 @@
 
 
 # Create a platform endpoint for Amazon SNS push notifications using an AWS SDK
-<a name="example_sns_CreatePlatformEndpoint_section"></a>
 
 The following code examples show how to create a platform endpoint for Amazon SNS push notifications.
 
@@ -32,7 +31,7 @@ For more information, see [Setting up an Amazon SNS platform endpoint for mobile
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreatePlatformEndpointRequest;

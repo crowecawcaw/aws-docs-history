@@ -1,7 +1,6 @@
 
 
 # SetTopicAttributes delivery policy JSON format
-<a name="set-topic-attributes-delivery-policy-json"></a>
 
 If you send a request to the `SetTopicAttributes` action and set the `AttributeName` parameter to a value of `DeliveryPolicy`, the value of the `AttributeValue` parameter must be a valid JSON object. For example, the following example sets the delivery policy to 5 total retries.
 
@@ -16,7 +15,7 @@ http://sns.us-east-2.amazonaws.com/
 
 Use the following JSON format for the value of the `AttributeValue` parameter.
 
-```
+```json
 {
     "http" : {
         "defaultHealthyRetryPolicy" : {

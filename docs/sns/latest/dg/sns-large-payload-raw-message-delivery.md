@@ -1,7 +1,6 @@
 
 
 # Amazon SNS raw message delivery
-<a name="sns-large-payload-raw-message-delivery"></a>
 
 To avoid having [Fanout to Firehose delivery streams](sns-firehose-as-subscriber.md), [Amazon SQS](sns-sqs-as-subscriber.md), and [HTTP/S](sns-http-https-endpoint-as-subscriber.md) endpoints process the JSON formatting of messages, Amazon SNS allows raw message delivery:
 + When you enable raw message delivery for or Amazon SQS endpoints, any Amazon SNS metadata is stripped from the published message and the message is sent as is.
@@ -32,7 +31,7 @@ To enable raw message delivery using an AWS SDK, you must use the `SetSubscripti
 In the following examples, the same message is sent to the same Amazon SQS queue twice. The only difference is that raw message delivery is disabled for the first message, and enabled for the second. 
 + Raw message delivery is **disabled**
 
-  ```
+  ```json
   {
     "Type": "Notification",
     "MessageId": "dc1e94d9-56c5-5e96-808d-cc7f68faa162",

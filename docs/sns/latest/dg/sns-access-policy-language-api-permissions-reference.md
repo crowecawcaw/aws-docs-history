@@ -1,7 +1,6 @@
 
 
 # Amazon SNS API permissions: Actions and resources reference
-<a name="sns-access-policy-language-api-permissions-reference"></a>
 
 The following list grants information specific to the Amazon SNS implementation of access control:
 + Each policy must cover only a single topic (when writing a policy, don't include statements that cover different topics)

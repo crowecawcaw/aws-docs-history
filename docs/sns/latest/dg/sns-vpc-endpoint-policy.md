@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon VPC endpoint policy for Amazon SNS
-<a name="sns-vpc-endpoint-policy"></a>
 
 You can create a policy for Amazon VPC endpoints for Amazon SNS in which you specify the following:
 + The principal that can perform actions.
@@ -12,7 +11,7 @@ For more information, see [Controlling Access to Services with VPC Endpoints](ht
 
 The following example VPC endpoint policy specifies that the IAM user `MyUser` is allowed to publish to the Amazon SNS topic `MyTopic`.
 
-```
+```json
 {
   "Statement": [{
     "Action": ["sns:Publish"],

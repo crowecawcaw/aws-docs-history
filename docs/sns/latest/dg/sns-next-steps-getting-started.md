@@ -1,7 +1,6 @@
 
 
 # Next steps
-<a name="sns-next-steps-getting-started"></a>
 
 Now that you've created a topic with a subscription and sent messages to the topic, you might want to try the following:
 + Explore the [AWS Developer Center](https://aws.amazon.com/developer/).

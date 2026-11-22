@@ -1,7 +1,6 @@
 
 
 # Applying a subscription filter policy in Amazon SNS
-<a name="message-filtering-apply"></a>
 
 Message filtering in Amazon SNS allows you to selectively deliver messages to subscribers based on filter policies. These policies define conditions that messages must meet to be delivered to a subscription. While raw message delivery is an option that can affect message processing, it is not required for subscription filters to work.
 
@@ -50,7 +49,7 @@ AWS services such as IAM and Amazon SNS use a distributed computing model called
 
 To apply a filter policy with the AWS Command Line Interface (AWS CLI), use the [`set-subscription-attributes`](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) command, as shown in the following example. For the `--attribute-name` option, specify `FilterPolicy`. For `--attribute-value`, specify your **JSON policy**. 
 
-```
+```bash
 $ aws sns set-subscription-attributes --subscription-arn {{arn:aws:sns: ...}} --attribute-name FilterPolicy --attribute-value {{'{"store":["example_corp"],"event":["order_placed"]}'}}
 ```
 
@@ -58,7 +57,7 @@ To provide valid JSON for your policy, enclose the attribute names and values in
 
 If you want to switch from attribute-based (default) to payload-based message filtering, you can use the [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) command as well. For the `--attribute-name` option, specify `FilterPolicyScope`. For `--attribute-value`, specify `MessageBody`. 
 
-```
+```bash
 $ aws sns set-subscription-attributes --subscription-arn arn:aws:sns: ... --attribute-name FilterPolicyScope --attribute-value MessageBody
 ```
 
@@ -133,7 +132,7 @@ For more information, see [Amazon SNS subscription filter policies](https://docs
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.SnsException;
@@ -216,7 +215,7 @@ public class UseMessageFilterPolicy {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -257,7 +256,7 @@ class SnsWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_sns->setsubscriptionattributes(
             iv_subscriptionarn = iv_subscription_arn

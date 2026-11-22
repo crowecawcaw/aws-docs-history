@@ -1,7 +1,6 @@
 
 
 # Amazon SNS features and capabilities
-<a name="welcome-features"></a>
 
 Amazon SNS offers a comprehensive set of features designed to enhance messaging between applications and users. These features enable seamless communication, secure message delivery, and robust message management, ensuring high availability, durability, and flexibility for a wide range of messaging use cases.
 

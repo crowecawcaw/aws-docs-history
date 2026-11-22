@@ -1,7 +1,6 @@
 
 
 # Subscribing to Amazon SNS daily SMS usage reports
-<a name="sms_stats_usage"></a>
 
 You can monitor your SMS deliveries by subscribing to daily usage reports from Amazon SNS. For each day that you send at least one SMS message, Amazon SNS delivers a usage report as a CSV file to the specified Amazon S3 bucket. The SMS usage report takes 24 hours to become available in the Amazon S3 bucket.
 
@@ -78,7 +77,7 @@ Use the following example that includes confused deputy protection when you crea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ You can publish usage reports to Amazon S3 buckets that are owned by the AWS acc
 
 After you subscribe to daily usage reports, each day, Amazon SNS puts a CSV file with usage data in the following location:
 
-```
+```bash
 {{<my-s3-bucket>}}/SMSUsageReports/{{<region>}}/{{YYYY}}/{{MM}}/{{DD}}/{{00x}}.csv.gz
 ```
 

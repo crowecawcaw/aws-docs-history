@@ -1,14 +1,13 @@
 
 
 # Example code for an Amazon SNS endpoint Java servlet
-<a name="sns-example-code-endpoint-java-servlet"></a>
 
 **Important**  
 The following code snippets help you understand a Java servlet that processes Amazon SNS HTTP POST requests. Make sure any portions of these snippets are suitable for your purposes before using them in production. For example, in a production environment, verify that the identity of the received Amazon SNS messages is from Amazon SNS. This helps prevent spoofing attacks. You can do this by checking that the DNS Name value (*DNS Name=sns.us-west-2.amazonaws.com* in us-west-2; this varies by Region) for the *Subject Alternative Name* field, as presented in the Amazon SNS Certificate, matches the received Amazon SNS messages. For more information about verifying server identity, see section [3.1. Server Identity](http://tools.ietf.org/search/rfc2818) in *RFC 2818*. Also see [Verifying the signatures of Amazon SNS messages](sns-verify-signature-of-message.md)
 
 The following method implements an example of a handler for HTTP POST requests from Amazon SNS in a Java servlet.
 
-```
+```java
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SecurityException {
     //Get the message type header.
     String messagetype = request.getHeader("x-amz-sns-message-type");
@@ -83,7 +82,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 The following example Java method creates a signature using information from a `Message` object that contains the data sent in the request body. It then verifies that signature against the original Base64-encoded signature of the message. The original signature is also read from the `Message` object.
 
-```
+```java
 private static boolean isMessageSignatureValid(Message msg) {
     try {
         URL url = new URL(msg.getSigningCertURL());
@@ -122,7 +121,7 @@ private static void verifyMessageSignatureURL(Message msg, URL endpoint) {
 
 The following example Java methods work together to create the string to sign for an Amazon SNS message. The `getMessageBytesToSign` method calls the appropriate string-to-sign method based on the message type. It returns the string to sign as a byte array. The `buildNotificationStringToSign` and `buildSubscriptionStringToSign` methods create the string to sign. They use the formats described in [Verifying the signatures of Amazon SNS messages](sns-verify-signature-of-message.md).
 
-```
+```java
 private static byte [] getMessageBytesToSign (Message msg) {
     byte [] bytesToSign = null;
     if (msg.getType().equals("Notification"))

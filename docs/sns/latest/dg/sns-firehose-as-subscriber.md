@@ -1,7 +1,6 @@
 
 
 # Fanout to Firehose delivery streams
-<a name="sns-firehose-as-subscriber"></a>
 
 You can subscribe [ delivery streams](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html) to Amazon SNS topics, allowing you to send notifications to additional storage and analytics endpoints. Messages published to an Amazon SNS topic are sent to the subscribed Firehose delivery stream, and delivered to the destination as configured in Firehose. A subscription owner can subscribe up to five Firehose delivery streams to an Amazon SNS topic. Each Firehose delivery stream has a [default quota](https://docs.aws.amazon.com/firehose/latest/dev/limits.html) for requests and throughput per second. This limit could result in more messages published (inbound traffic) than delivered (outbound traffic). When there's more inbound than outbound traffic, your subscription can accumulate a large message backlog, causing high message delivery latency. You can request an [increase in quota](https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) based on the publish rate to avoid adverse impact on your workload. 
 

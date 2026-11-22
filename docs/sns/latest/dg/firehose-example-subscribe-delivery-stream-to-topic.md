@@ -1,7 +1,6 @@
 
 
 # Subscribing the Firehose delivery stream to the Amazon SNS topic
-<a name="firehose-example-subscribe-delivery-stream-to-topic"></a>
 
 This topic explains how to create the following resources for the [message archiving and analytics example use case](firehose-example-use-case.md):
 + The AWS Identity and Access Management (IAM) role that allows the Amazon SNS subscription to put records on the delivery stream.
@@ -34,7 +33,7 @@ This topic explains how to create the following resources for the [message archi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

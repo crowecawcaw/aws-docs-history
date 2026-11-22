@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon SNS topics using AWS X-Ray
-<a name="sns-troubleshooting"></a>
 
 AWS X-Ray collects data about requests that your application serves, and lets you view and filter data to identify potential issues and opportunities for optimization. For any traced request to your application, you can see detailed information about the request, the response, and the calls that your application makes to downstream AWS resources, microservices, databases and HTTP web APIs.
 

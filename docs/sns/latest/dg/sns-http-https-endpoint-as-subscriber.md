@@ -1,7 +1,6 @@
 
 
 # Fanout Amazon SNS notifications to HTTPS endpoints
-<a name="sns-http-https-endpoint-as-subscriber"></a>
 
 You can use Amazon SNS to send notification messages to one or more HTTP or HTTPS endpoints. When you subscribe an endpoint to a topic, you can publish a notification to the topic and Amazon SNS sends an HTTP POST request delivering the contents of the notification to the subscribed endpoint. When you subscribe the endpoint, you choose whether Amazon SNS uses HTTP or HTTPS to send the POST request to the endpoint. If you use HTTPS, then you can take advantage of the support in Amazon SNS for the following: 
 + **Server Name Indication (SNI)**—This allows Amazon SNS to support HTTPS endpoints that require SNI, such as a server requiring multiple certificates for hosting multiple domains. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication).
@@ -17,7 +16,7 @@ The request contains the subject and message that were published to the topic al
 **Note**  
 Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted. However, messages that Amazon SNS self-throttles due to the `maxReceivesPerSecond` setting are not subject to the delivery retry policy. Self-throttled messages are re-queued and continue to be delivered as capacity allows, without consuming retry attempts.
 
-```
+```http
 POST / HTTP/1.1
     x-amz-sns-message-type: Notification
     x-amz-sns-message-id: da41e39f-ea4d-435a-b922-c6aae3915ebe

@@ -1,7 +1,6 @@
 
 
 # Analyzing Amazon SNS messages stored in Amazon Redshift destinations
-<a name="firehose-message-analysis-redshift"></a>
 
 This topic describes how to analyze Amazon SNS messages sent through delivery streams to Amazon Redshift destinations.
 
@@ -24,7 +23,7 @@ To transform the JSON metadata for the Amazon Redshift endpoint, you can use the
 
 The following query returns all SNS messages received in the specified date range:
 
-```
+```sql
 SELECT *
 FROM public.notifications
 WHERE timestamp > '2020-12-01T09:00:00.000Z' AND timestamp < '2020-12-02T09:00:00.000Z';
