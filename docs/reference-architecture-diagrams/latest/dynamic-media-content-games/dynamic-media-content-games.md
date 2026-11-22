@@ -1,7 +1,6 @@
 
 
 # Dynamic Media Content for Games
-<a name="dynamic-media-content-games"></a>
 
 Publication date: **October 8, 2020 ([Diagram history](#dynamic-media-history))**
 
