@@ -1,7 +1,6 @@
 
 
 # Control Your AWS Costs
-<a name="control-your-costs-free-tier-budgets"></a>
 
 
 |  |  | 
