@@ -1,7 +1,6 @@
 
 
 # Specify a licensing option for your import
-<a name="licensing-specify-option"></a>
 
 You can specify either a license type or a usage operation for the VMs that you migrate. Specifying a license option ensures your operating system is licensed appropriately and your billing is optimized. If you choose a license type that is incompatible with your VM, the VM Import task fails with an error message. For more information on troubleshooting errors, see [Troubleshooting VM Import/Export](vmimport-troubleshooting.md).
 

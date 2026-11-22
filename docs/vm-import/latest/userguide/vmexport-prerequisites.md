@@ -1,7 +1,6 @@
 
 
 # Prerequisites for exporting an instance from Amazon EC2
-<a name="vmexport-prerequisites"></a>
 
 To export a VM from Amazon EC2, first meet the following prerequisites:
 + Create an Amazon S3 bucket for storing the exported instances or choose an existing bucket. The bucket must be in the Region where you want export your VMs. Additionally, the bucket must belong to the AWS account where you are performing the export operation. For more information, see the [Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/).
@@ -53,7 +52,7 @@ To export a VM from Amazon EC2, first meet the following prerequisites:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -124,7 +123,7 @@ aws s3api put-bucket-policy \
 **To configure the S3 bucket**  
 Use the [Write-S3BucketOwnershipControl](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3BucketOwnershipControl.html) cmdlet to change the object ownership.
 
-```
+```powershell
 Write-S3BucketOwnershipControl `
     -BucketName "amzn-s3-demo-export-bucket" `
     -OwnershipControls_Rule @{ObjectOwnership="BucketOwnerPreferred"}
@@ -132,7 +131,7 @@ Write-S3BucketOwnershipControl `
 
 Use the [Write-S3BucketPolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3BucketPolicy.html) cmdlet to attach the bucket policy. For `CanonicalUser`, enter the canonical account ID for the bucket Region. For `Resource`, enter the name of your bucket in the bucket ARNs.
 
-```
+```powershell
 Write-S3BucketPolicy `
     -BucketName "{{amzn-s3-demo-export-bucket}}" `
     -Policy `

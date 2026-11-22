@@ -1,7 +1,6 @@
 
 
 # Configurations to export VMs from your virtualization environment
-<a name="prepare-vm-image"></a>
 
 Before you can import your VM to Amazon EC2, you need to export it from your virtualization environment. Use the following guidelines to configure your VM before exporting it.
 
@@ -53,7 +52,7 @@ The following configurations should be made in your Windows VM before you export
 
   1. Copy the following sample file below and set the **processorArchitecture** parameter to **x86** or **amd64**, depending on your operating system architecture:
 
-     ```
+     ```xml
      <?xml version='1.0' encoding='UTF-8'?>
      <unattend xmlns:wcm='https://schemas.microsoft.com/WMIConfig/2002/State' xmlns='urn:schemas-microsoft-com:unattend'>
       <settings pass='oobeSystem'>

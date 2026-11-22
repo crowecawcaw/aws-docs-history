@@ -1,7 +1,6 @@
 
 
 # Licensing considerations
-<a name="licensing-considerations"></a>
 
 We recommend that you review the following licensing considerations appropriate for the operating system that you wish to import.
 

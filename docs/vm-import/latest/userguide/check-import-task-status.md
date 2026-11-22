@@ -1,7 +1,6 @@
 
 
 # Monitor an import image task
-<a name="check-import-task-status"></a>
 
 You can monitor the progress of an import image task for VM Import/Export. The following are the status values for an import image task:
 + `active` — The import task is in progress.
@@ -26,7 +25,7 @@ aws ec2 describe-import-image-tasks \
 
 The following is example output. When the import task is completed, the ID of the AMI is provided in `ImageId`.
 
-```
+```json
 {
     "ImportImageTasks": [
         {
@@ -78,7 +77,7 @@ The following is example output. You can display any additional fields that you 
 **To get the status of an import image task**  
 Use the [Get-EC2ImportImageTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImportImageTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ImportImageTask `
     -ImportTaskId {{import-ami-01234567890abcdef}} |
         Format-List ImportTaskId, Status, Progress, ImageId, 

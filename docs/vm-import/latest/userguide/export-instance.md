@@ -1,7 +1,6 @@
 
 
 # Start an instance export task
-<a name="export-instance"></a>
 
 When you export your instance using VM Import/Export, the exported file is written to the specified S3 bucket using the following S3 key:
 
@@ -37,7 +36,7 @@ aws ec2 create-instance-export-task \
 
 The following is an example response. The status shown is `active`, which means that the export task is in progress. The instance export is finished when the status is `completed`.
 
-```
+```json
 {
     "ExportTask": {
         "Description": "Jul 15 14:55 My instance export",
@@ -63,7 +62,7 @@ The following is an example response. The status shown is `active`, which means 
 **To export an instance**  
 Use the [New-EC2InstanceExportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2InstanceExportTask.html) cmdlet.
 
-```
+```powershell
 New-EC2InstanceExportTask `
     -Description ((Get-Date -Format "MMM dd HH:mm ") + "{{My instance export}}") `
     -InstanceId "{{i-1234567890abcdef0}}" `

@@ -1,7 +1,6 @@
 
 
 # Cancel an export image task
-<a name="cancel-image-export"></a>
 
 After you start an image export using VM Import/Export, you can cancel the export operation if needed. If you attempt to cancel the export task after it is complete or is in the process of transferring the final disk image, the cancel operation fails and returns an error.
 
@@ -24,7 +23,7 @@ aws ec2 cancel-export-task \
 **To cancel an export image task**  
 Use the [Stop-EC2ExportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2ExportTask.html) cmdlet.
 
-```
+```powershell
 Stop-EC2ExportTask `
     -ExportTaskId {{export-ami-1234567890abcdef0}}
 ```

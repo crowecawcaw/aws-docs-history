@@ -1,7 +1,6 @@
 
 
 # Create an EC2 instance from an imported image
-<a name="import-vm-next-steps"></a>
 
 After the import image task is complete, you can launch an instance using the resulting AMI or copy the AMI to another Region. For more information, see the following documentation in the *Amazon EC2 User Guide*:
 + [Launch an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html)

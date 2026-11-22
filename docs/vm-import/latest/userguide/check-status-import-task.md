@@ -1,7 +1,6 @@
 
 
 # Monitor an import snapshot task
-<a name="check-status-import-task"></a>
 
 After you start an import snapshot task using VM Import/Export, you can monitor the import operation. If the task status is `active`, it means that the import task is in progress. The snapshot is ready to use when the status is `completed`.
 
@@ -18,7 +17,7 @@ aws ec2 describe-import-snapshot-tasks \
 
 The following is example output.
 
-```
+```json
 {
     "ImportSnapshotTasks": [
         {
@@ -71,7 +70,7 @@ The following is example output. You can display any additional fields that you 
 **To get the status of an import snapshot task**  
 Use the [Get-EC2ImportSnapshotTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImportSnapshotTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ImportSnapshotTask `
     -ImportTaskId {{import-snap-1234567890abcdef0}} | 
         Format-List *,
@@ -106,7 +105,7 @@ UserBucket         :
 **To get the status of all import snapshot tasks**  
 Use the [Get-EC2ImportSnapshotTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImportSnapshotTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ImportSnapshotTask |
     Format-Table Description, ImportTaskId, 
         @{Name='Status';Expression={$_.SnapshotTaskDetail.Status}},

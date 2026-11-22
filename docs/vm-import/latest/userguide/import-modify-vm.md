@@ -1,7 +1,6 @@
 
 
 # Programmatic modifications made to VMs by VM Import/Export
-<a name="import-modify-vm"></a>
 
 When importing a VM using the `ImportImage` API, AWS modifies the file system and adds drivers to make the imported VM bootable. When writing a modified file, AWS retains the original file at the same location under a new name. The following actions may occur:
 

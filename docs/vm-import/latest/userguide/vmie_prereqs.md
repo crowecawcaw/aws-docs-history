@@ -1,7 +1,6 @@
 
 
 # VM Import/Export Requirements
-<a name="vmie_prereqs"></a>
 
 Before attempting to import a VM, you might need to perform tasks such as preparing your AWS environment by creating a service account with appropriate permissions. You might also need to prepare your locally hosted VM so that is accessible once it is imported into AWS. Review each of these requirements to ensure that your resources are supported for import and take action as needed.
 

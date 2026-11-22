@@ -1,7 +1,6 @@
 
 
 # Monitor an instance export task
-<a name="vmexport-monitor"></a>
 
 After you start an instance export task using VM Import/Export, you can monitor the export operation.
 
@@ -68,7 +67,7 @@ The following is example output. You can display any additional fields that you 
 **To monitor an instance export task**  
 Use the [Get-EC2ExportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ExportTask `
     -ExportTaskId {{export-i-1234567890abcdef0}} |
         Format-List *, 
@@ -99,7 +98,7 @@ InstanceExportDetails :
 **To monitor all instance export tasks**  
 Use the [Get-EC2ExportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ExportTask |
     Format-Table Description, ExportTaskId, State,
         @{Name='S3Bucket';Expression={$_.ExportToS3Task.S3Bucket}},

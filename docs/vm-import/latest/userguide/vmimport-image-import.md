@@ -1,7 +1,6 @@
 
 
 # Import a VM to Amazon EC2 as an image using VM Import/Export
-<a name="vmimport-image-import"></a>
 
 **Tip**  
 To import your virtual machines (VMs) with a console-based experience, you can use the *Import virtual machine images to AWS* template in the [Migration Hub Orchestrator console](https://console.aws.amazon.com/migrationhub/orchestrator). For more information, see the [*AWS Migration Hub Orchestrator User Guide*](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html).

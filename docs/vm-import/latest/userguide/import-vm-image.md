@@ -1,7 +1,6 @@
 
 
 # Import your VM as an image
-<a name="import-vm-image"></a>
 
 After exporting your VM from your virtualization environment, you can import it to Amazon EC2 using VM Import/Export. The import process is the same regardless of the origin of the VM.
 
@@ -66,7 +65,7 @@ aws ec2 import-image \
 
 Use the [Import-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2Image.html) cmdlet as follows.
 
-```
+```powershell
 Import-EC2Image `
     -Description ((Get-Date -Format "MMM dd HH:mm ") + "{{My server OVA}}") `
     -LicenseType "AWS" `
@@ -120,7 +119,7 @@ aws ec2 import-image \
 
 Use the [Import-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2Image.html) cmdlet as follows.
 
-```
+```powershell
 Import-EC2Image `
     -Description ((Get-Date -Format "MMM dd HH:mm ") + "{{My server disks}}") `
     -LicenseType "AWS" `
@@ -175,7 +174,7 @@ aws ec2 import-image \
 
 Use the [Import-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2Image.html) cmdlet as follows.
 
-```
+```powershell
 Import-EC2Image `
     -Description ((Get-Date -Format "MMM dd HH:mm ") + "{{My server disks}}") `
     -LicenseType "AWS" `

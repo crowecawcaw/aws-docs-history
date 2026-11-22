@@ -1,7 +1,6 @@
 
 
 # Considerations for image export
-<a name="limits-image-export"></a>
 
 Exporting images and volumes is subject to the following limitations:
 + You must export to one of the following image formats that your virtualization environment supports:

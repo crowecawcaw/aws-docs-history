@@ -1,7 +1,6 @@
 
 
 # Limitations for resources being imported with VM Import/Export
-<a name="limitations-image-importing"></a>
 
 Review the following limitations that apply when you import a VM into Amazon EC2.
 

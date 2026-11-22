@@ -1,7 +1,6 @@
 
 
 # Export your VM from its virtualization environment
-<a name="export-vm-image"></a>
 
 After you have prepared your VM for export, you can export it from your virtualization environment. When importing a VM as an image, you can import disks in the following formats: Open Virtualization Archive (OVA), Virtual Machine Disk (VMDK), Virtual Hard Disk (VHD/VHDX), and raw. With some virtualization environments, you would export to Open Virtualization Format (OVF), which typically includes one or more VMDK, VHD, or VHDX files, and then package the files into an OVA file.
 

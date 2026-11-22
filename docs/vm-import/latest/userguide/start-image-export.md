@@ -1,7 +1,6 @@
 
 
 # Start an export image task
-<a name="start-image-export"></a>
 
 When you export your image using VM Import/Export, the exported file is written to the specified S3 bucket using the following S3 key:
 
@@ -29,7 +28,7 @@ aws ec2 export-image \
 
 The following is example output.
 
-```
+```json
 {
     "Description": "Jul 15 16:31 My image export",
     "DiskImageFormat": "VMDK",
@@ -51,7 +50,7 @@ The following is example output.
 **To export an image**  
 Use the [Export-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Export-EC2Image.html) cmdlet.
 
-```
+```powershell
 Export-EC2Image `
     -Description ((Get-Date -Format "MMM dd HH:mm ") + "My image export") `
     -ImageId {{ami-1234567890abcdef0}} `

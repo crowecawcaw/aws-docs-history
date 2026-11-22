@@ -1,7 +1,6 @@
 
 
 # Accessing VM Import/Export
-<a name="vmimport-interface"></a>
 
 You can access VM Import/Export using the following interfaces.
 

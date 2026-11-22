@@ -1,7 +1,6 @@
 
 
 # Licensing for your imported VMs
-<a name="licensing"></a>
 
 When you create a new VM Import task, you have two options for how to specify the license type for the operating system. You can specify a value for either the `--license-type` or the `--usage-operation` parameter. Specifying a value for both parameters will return an error. You can use `--usage-operation` to blend your operating system and SQL Server licenses.
 

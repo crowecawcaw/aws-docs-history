@@ -1,7 +1,6 @@
 
 
 # Import a disk as an EBS snapshot using VM Import/Export
-<a name="vmimport-import-snapshot"></a>
 
 VM Import/Export enables you to import your disks as Amazon EBS snapshots. After the snapshot is created, you can create an EBS volume from the snapshot, and then attach the volume to an EC2 instance.
 
@@ -34,7 +33,7 @@ aws ec2 import-snapshot \
 
 The file `containers.json` is a JSON document that contains the required information.
 
-```
+```json
 {
     "Description": "My server VM",
     "Format": "VMDK",
@@ -47,7 +46,7 @@ The file `containers.json` is a JSON document that contains the required informa
 
 The following is example output.
 
-```
+```json
 {
     "Description": "My server VM",
     "ImportTaskId": "import-snap-1234567890abcdef0",
@@ -72,7 +71,7 @@ The following is example output.
 **To import a snapshot**  
 Use the [Import-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2Snapshot.html) cmdlet.
 
-```
+```powershell
 Import-EC2Snapshot `
     -DiskContainer_Description "My server VM" `
     -DiskContainer_Format "VMDK" `

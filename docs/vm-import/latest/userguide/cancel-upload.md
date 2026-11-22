@@ -1,7 +1,6 @@
 
 
 # Cancel an import image task
-<a name="cancel-upload"></a>
 
 After you start an image import task using VM Import/Export, you can cancel the import operation if needed.
 
@@ -24,7 +23,7 @@ aws ec2 cancel-import-task \
 **To cancel an import image task**  
 Use the [Stop-EC2ImportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2ImportTask.html) cmdlet.
 
-```
+```powershell
 Stop-EC2ImportTask `
     -ImportTaskId {{import-ami-1234567890abcdef0}}
 ```

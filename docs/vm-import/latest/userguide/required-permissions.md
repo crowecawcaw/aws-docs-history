@@ -1,7 +1,6 @@
 
 
 # Required permissions for VM Import/Export
-<a name="required-permissions"></a>
 
 VM Import/Export requires certain permissions for your users, groups, and roles. Additionally, a service role is required to perform certain operations on your behalf.
 
@@ -28,7 +27,7 @@ Some actions require the use of an Amazon Simple Storage Service (Amazon S3) buc
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -104,7 +103,7 @@ You must enable AWS Security Token Service (AWS STS) in any Region where you pla
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -137,7 +136,7 @@ You must enable AWS Security Token Service (AWS STS) in any Region where you pla
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -185,7 +184,7 @@ You must enable AWS Security Token Service (AWS STS) in any Region where you pla
 
 1. (Optional) To import resources encrypted using an AWS KMS key from AWS Key Management Service, add the following permissions to the `role-policy.json` file.
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -204,7 +203,7 @@ You must enable AWS Security Token Service (AWS STS) in any Region where you pla
 
 1. (Optional) To attach license configurations to an AMI, add the following License Manager permissions to the `role-policy.json` file.
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -229,7 +228,7 @@ You must enable AWS Security Token Service (AWS STS) in any Region where you pla
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

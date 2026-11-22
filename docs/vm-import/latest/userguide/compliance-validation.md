@@ -1,7 +1,6 @@
 
 
 # Compliance validation for VM Import/Export
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of VM Import/Export as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

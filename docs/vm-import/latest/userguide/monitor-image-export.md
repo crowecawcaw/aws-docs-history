@@ -1,7 +1,6 @@
 
 
 # Monitor an export image task
-<a name="monitor-image-export"></a>
 
 After you start an image export using VM Import/Export, you can monitor the export operation.
 
@@ -18,7 +17,7 @@ aws ec2 describe-export-image-tasks \
 
 The following is example output. The status shown is `active`, which means that the export task is in progress. The image is ready to use when the status is `completed`.
 
-```
+```json
 {
   "ExportImageTasks": [
       {
@@ -70,7 +69,7 @@ The following is example output.
 **To monitor an export image task**  
 Use the [Get-EC2ExportImageTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportImageTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ExportImageTask `
    -ExportImageTaskId {{export-ami-1234567890abcdef0}} |
       Format-List *, 
@@ -96,7 +95,7 @@ S3ExportLocation  :
 **To monitor all export image tasks**  
 Use the [Get-EC2ExportImageTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportImageTask.html) cmdlet as follows.
 
-```
+```powershell
 Get-EC2ExportImageTask | 
    Format-Table Description, ExportImageTaskId, ImageId, Status, Progress,  
    @{Name='S3Bucket';Expression={$_.S3ExportLocation.S3Bucket}}
