@@ -1,7 +1,6 @@
 
 
 # DataDeletionJobSummary
-<a name="API_DataDeletionJobSummary"></a>
 
 Provides a summary of the properties of a data deletion job. For a complete listing, call the [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html) API operation.
 

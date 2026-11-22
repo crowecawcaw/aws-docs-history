@@ -1,7 +1,6 @@
 
 
 # SolutionUpdateConfig
-<a name="API_SolutionUpdateConfig"></a>
 
 The configuration details of the solution update.
 

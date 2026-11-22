@@ -1,7 +1,6 @@
 
 
 # CampaignUpdateSummary
-<a name="API_CampaignUpdateSummary"></a>
 
 Provides a summary of the properties of a campaign update. For a complete listing, call the [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) API.
 

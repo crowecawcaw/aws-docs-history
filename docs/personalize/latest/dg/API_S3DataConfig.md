@@ -1,7 +1,6 @@
 
 
 # S3DataConfig
-<a name="API_S3DataConfig"></a>
 
 The configuration details of an Amazon S3 input or output bucket.
 

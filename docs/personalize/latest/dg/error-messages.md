@@ -1,7 +1,6 @@
 
 
 # Common error messages in Amazon Personalize
-<a name="error-messages"></a>
 
  The following sections list and explain some of the messages that you might encounter when using Amazon Personalize. 
 

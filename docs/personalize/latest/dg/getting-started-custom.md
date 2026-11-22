@@ -1,7 +1,6 @@
 
 
 # Getting started with a Custom dataset group
-<a name="getting-started-custom"></a>
 
 **Important**  
 In this tutorial you create a solution that uses automatic training. By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, make sure to delete the solution when you are finished. For more information, see [Requirements for deleting Amazon Personalize resources](deleting-resources.md).

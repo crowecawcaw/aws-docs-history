@@ -1,7 +1,6 @@
 
 
 # Installing the Amazon Personalize Search Ranking plugin on an OpenSearch Service domain
-<a name="open-search-install-managed"></a>
 
 After you complete the Amazon Personalize workflow and meet the requirements listed in [Plugin requirements](plugin-requirements.md), you're ready to install the plugin on your domain.
 

@@ -1,7 +1,6 @@
 
 
 # PutUsers
-<a name="API_UBS_PutUsers"></a>
 
 Adds one or more users to a Users dataset. For more information see [Importing users individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
 

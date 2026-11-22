@@ -1,7 +1,6 @@
 
 
 # RecommenderConfig
-<a name="API_RecommenderConfig"></a>
 
 The configuration details of the recommender.
 

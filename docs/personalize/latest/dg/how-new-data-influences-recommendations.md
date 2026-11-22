@@ -1,7 +1,6 @@
 
 
 # How new data influences real-time recommendations
-<a name="how-new-data-influences-recommendations"></a>
 
 After you create a recommender or custom solution version, how new data influences real-time recommendations depends on the data's type, the method of import, and the domain use case or custom recipe you use. The following sections explain how new data influences real-time recommendations before the next training. 
 

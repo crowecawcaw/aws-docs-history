@@ -1,7 +1,6 @@
 
 
 # EventTrackerSummary
-<a name="API_EventTrackerSummary"></a>
 
 Provides a summary of the properties of an event tracker. For a complete listing, call the [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html) API.
 

@@ -1,7 +1,6 @@
 
 
 # Importing data into Data Wrangler
-<a name="dw-import-data"></a>
 
  After you configure a SageMaker AI domain and launch Data Wrangler in a new tab, you are ready to import data from your source into Data Wrangler. When you use Data Wrangler to prepare data for Amazon Personalize, you import one dataset at a time. We recommend starting with an Item interactions dataset. You can't use Data Wrangler to prepare an Actions dataset or Action interactions dataset.
 

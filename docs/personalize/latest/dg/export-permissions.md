@@ -1,7 +1,6 @@
 
 
 # Dataset export job permissions requirements
-<a name="export-permissions"></a>
 
 To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket. To grant permissions, attach a new AWS Identity and Access Management (IAM) policy to your Amazon Personalize service role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions.
 
@@ -12,7 +11,7 @@ To export a dataset, Amazon Personalize needs permission to add files to your Am
 
 The following example policy grants your Amazon Personalize service role permission to use the `PutObject` and `ListBucket` Actions. Replace `amzn-s3-demo-bucket` with the name of your output bucket. For information about attaching policies to a IAM service role, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](granting-personalize-s3-access.md#attaching-s3-policy-to-role). 
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Id": "PersonalizeS3BucketAccessPolicy",
@@ -38,7 +37,7 @@ The following example policy grants your Amazon Personalize service role permiss
 
 The following example policy grants Amazon Personalize permission to use the `PutObject` and `ListBucket` Actions on an Amazon S3 bucket. Replace `amzn-s3-demo-bucket` with the name of your bucket. For information on adding an Amazon S3 bucket policy to a bucket, see [Adding a bucket policy by using the Amazon S3 console](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html) in the *Amazon Simple Storage Service User Guide.* 
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Id": "PersonalizeS3BucketAccessPolicy",

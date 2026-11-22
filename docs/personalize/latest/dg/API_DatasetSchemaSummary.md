@@ -1,7 +1,6 @@
 
 
 # DatasetSchemaSummary
-<a name="API_DatasetSchemaSummary"></a>
 
 Provides a summary of the properties of a dataset schema. For a complete listing, call the [DescribeSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html) API.
 

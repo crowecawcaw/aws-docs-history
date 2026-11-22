@@ -1,7 +1,6 @@
 
 
 # FieldsForThemeGeneration
-<a name="API_FieldsForThemeGeneration"></a>
 
 A string to string map of the configuration details for theme generation.
 

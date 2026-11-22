@@ -1,7 +1,6 @@
 
 
 # Setting up open source OpenSearch permissions
-<a name="opensearch-granting-access"></a>
 
 If you use open source OpenSearch, you must be able to access your Amazon Personalize resources from your open search cluster. To grant access, do the following:
 + If you're setting up OpenSearch from scratch, you can use a [quick start bash script](https://github.com/opensearch-project/search-processor/blob/main/helpers/personalized_search_ranking_quickstart.sh) to run an OpenSearch cluster in a Docker container. The script uses the default credentials in your AWS profile. You can specify an alternate profile when you run the script. 
@@ -11,7 +10,7 @@ If you use open source OpenSearch, you must be able to access your Amazon Person
 
   To manually add your AWS credentials to your OpenSearch keystore, run the following command where your OpenSearch cluster is running (such as a Docker container). Then provide each credential. If you don't use a session token, you can omit the final line in the command. 
 
-  ```
+  ```json
   opensearch-keystore add \
   personalized_search_ranking.aws.access_key \
   personalized_search_ranking.aws.secret_key \
@@ -31,7 +30,7 @@ The following policy example grants a user or role the minimum permissions to ge
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -55,7 +54,7 @@ Additionally, if you run your OpenSearch cluster on an Amazon EC2 instance and g
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

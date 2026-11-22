@@ -1,7 +1,6 @@
 
 
 # Getting item metadata with real-time recommendations
-<a name="getting-recommendations-with-metadata"></a>
 
  If you configured your campaign or recommender to return metadata for recommended items, you can specify the columns to include in your [GetRecommendations](API_RS_GetRecommendations.md) API operation. Or you can specify the columns when you test the campaign with the Amazon Personalize console. 
 
@@ -18,7 +17,7 @@ The following code samples show how to specify the metadata columns to include w
 
 If you enabled metadata in recommendations for your campaign or recommender, you can specify the Items dataset metadata columns to include in the response. The following code sample shows how to specify the metadata columns as part of your request for recommendations.
 
-```
+```cmd
 aws personalize-runtime get-recommendations \
 --campaign-arn {{campaign arn}} \
 --user-id {{User ID}} \
@@ -31,7 +30,7 @@ aws personalize-runtime get-recommendations \
 
 If you enabled metadata in recommendations for your campaign or recommender, you can specify the Items dataset metadata columns to include in the response. The following code sample shows how to specify the metadata columns as part of your request for recommendations.
 
-```
+```py
 import boto3
 
 personalizeRt = boto3.client('personalize-runtime')

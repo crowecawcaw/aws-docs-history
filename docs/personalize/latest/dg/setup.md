@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon Personalize
-<a name="setup"></a>
 
 Before using Amazon Personalize, you must have an Amazon Web Services (AWS) account with an administrative user. After you set up the required permissions, you can access Amazon Personalize through the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or the AWS SDKs.
 

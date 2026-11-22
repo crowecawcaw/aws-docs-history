@@ -1,7 +1,6 @@
 
 
 # Analyzing quality and quantity of data in Amazon Personalize datasets
-<a name="analyzing-data"></a>
 
 After you import data into an Item interactions, Users, or Items dataset, you can use the Amazon Personalize console to analyze the data. You can learn about your data through data insights and column and row statistics. And you can learn what actions you can take to improve your data. These actions can help you meet Amazon Personalize resource requirements, such as model training requirements, or they can lead to improved recommendations. 
 

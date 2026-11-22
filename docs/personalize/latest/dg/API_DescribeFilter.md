@@ -1,7 +1,6 @@
 
 
 # DescribeFilter
-<a name="API_DescribeFilter"></a>
 
 Describes a filter's properties.
 

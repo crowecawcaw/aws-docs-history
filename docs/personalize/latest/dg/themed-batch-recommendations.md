@@ -1,7 +1,6 @@
 
 
 # Batch recommendations with themes from Content Generator
-<a name="themed-batch-recommendations"></a>
 
 **Important**  
 When you get batch recommendations with themes, you incur additional costs. For more information, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
@@ -49,7 +48,7 @@ When you get batch recommendations with themes, Amazon Personalize ranks each se
 
  The following example shows the format of the output of a batch inference job that generates movie recommendations with themes. 
 
-```
+```json
 {"input":{"itemId":"40"},"output":{"recommendedItems":["36","50","44","22","21","29","3","1","2","39"],"theme":"Movies with a strong female lead","itemsThemeRelevanceScores":[0.19994527,0.183059963,0.17478035,0.1618133,0.1574806,0.15468733,0.1499242,0.14353688,0.13531424,0.10291852]}}
 {"input":{"itemId":"43"},"output":{"recommendedItems":["50","21","36","3","17","2","39","1","10","5"],"theme":"The best movies of 1995","itemsThemeRelevanceScores":[0.184988,0.1795761,0.11143453,0.0989443,0.08258403,0.07952615,0.07115086,0.0621634,-0.138913,-0.188913]}}
 ...

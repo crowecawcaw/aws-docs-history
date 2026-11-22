@@ -1,7 +1,6 @@
 
 
 # Custom datasets and schemas
-<a name="custom-datasets-and-schemas"></a>
 
 When you create a Custom dataset group, you create your own schemas from scratch. Custom dataset group datasets and schemas have fewer required fields and more flexibility. The following topics explain the schema and data requirements for datasets a Custom dataset group. Each dataset section lists the required data for the dataset type and provides a JSON example of a schema. 
 

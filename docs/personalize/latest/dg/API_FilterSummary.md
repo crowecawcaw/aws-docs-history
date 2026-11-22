@@ -1,7 +1,6 @@
 
 
 # FilterSummary
-<a name="API_FilterSummary"></a>
 
 A short summary of a filter's attributes.
 

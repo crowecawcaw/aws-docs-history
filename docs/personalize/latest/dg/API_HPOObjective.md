@@ -1,7 +1,6 @@
 
 
 # HPOObjective
-<a name="API_HPOObjective"></a>
 
 The metric to optimize during hyperparameter optimization (HPO).
 

@@ -1,7 +1,6 @@
 
 
 # PutItems
-<a name="API_UBS_PutItems"></a>
 
 Adds one or more items to an Items dataset. For more information see [Importing items individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html). 
 

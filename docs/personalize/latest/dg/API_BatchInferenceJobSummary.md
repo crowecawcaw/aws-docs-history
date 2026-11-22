@@ -1,7 +1,6 @@
 
 
 # BatchInferenceJobSummary
-<a name="API_BatchInferenceJobSummary"></a>
 
 A truncated version of the [BatchInferenceJob](https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html). The [ListBatchInferenceJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html) operation returns a list of batch inference job summaries.
 

@@ -1,7 +1,6 @@
 
 
 # DescribeDatasetGroup
-<a name="API_DescribeDatasetGroup"></a>
 
 Describes the given dataset group. For more information on dataset groups, see [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
 

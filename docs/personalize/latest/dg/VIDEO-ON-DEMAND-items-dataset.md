@@ -1,7 +1,6 @@
 
 
 # Items dataset requirements (VIDEO\_ON\_DEMAND domain)
-<a name="VIDEO-ON-DEMAND-items-dataset"></a>
 
  An *Items dataset* stores metadata about your items in your catalogue. This might include information such as price, genre, and availability for each item. For information about the types of item data you can import into Amazon Personalize, see [Item metadata](items-datasets.md). For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). These requirements apply to all schemas, regardless of domain. 
 

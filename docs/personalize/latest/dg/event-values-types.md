@@ -1,7 +1,6 @@
 
 
 # Choosing the item interaction data used for training
-<a name="event-values-types"></a>
 
 **Important**  
 By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
@@ -21,7 +20,7 @@ You can choose item interaction data as follows:
 
 The following code shows how to use the AWS SDK for Python (Boto3) to create a solution that uses only `watch` events where the user watched more than half of the video.
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')

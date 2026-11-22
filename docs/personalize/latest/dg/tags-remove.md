@@ -1,7 +1,6 @@
 
 
 # Removing tags from Amazon Personalize resources
-<a name="tags-remove"></a>
 
 You can remove tags from Amazon Personalize resources with the Amazon Personalize console or the [UntagResource](API_UntagResource.md) API operation with the AWS Command Line Interface (AWS CLI) or AWS SDKs. The following examples show how to remove a tag from an Amazon Personalize dataset group. You can remove tags from other Amazon Personalize resources in the same way.
 
@@ -32,7 +31,7 @@ After you add tags to a resource in Amazon Personalize, you can remove the tags 
 
 To remove tags from an existing resource with the AWS CLI, use the following `untag-resource` command. For `resource-arn`, specify the Amazon Resource Name (ARN) of the resource. For `tag-keys`, specify the keys of the tags to be removed. 
 
-```
+```cmd
 aws personalize untag-resource \
 --resource-arn {{resource ARN}} \
 --tag-keys {{key1}} {{key2}}
@@ -43,7 +42,7 @@ aws personalize untag-resource \
 
 To remove tags from an existing Amazon Personalize resource with the AWS SDKs, use the [UntagResource](API_UntagResource.md) API operation. The following code shows how to remove multiple tags from a dataset group with the SDK for Python (Boto3). For `resourceArn`, specify the Amazon Resource Name (ARN) of the resource. For `tagKeys`, specify the keys of the tags to be removed.
 
-```
+```py
 import boto3
         
 personalize = boto3.client('personalize')

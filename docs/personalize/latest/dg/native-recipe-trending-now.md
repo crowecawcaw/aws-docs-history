@@ -1,7 +1,6 @@
 
 
 # Trending-Now recipe
-<a name="native-recipe-trending-now"></a>
 
  The Trending-Now recipe (aws-trending-now) generates recommendations for items that are rapidly becoming more popular with your users. You might use the Trending-Now recipe if items gaining in popularity are more relevant to your customers. For example, your customers might highly value what other users are interacting with. Common uses include recommending viral social media content, breaking news articles, or recent sports videos. 
 
@@ -52,7 +51,7 @@ The table also provides the following information for each hyperparameter:
 
 The following code shows how to create a solution with the Trending-Now recipe using the SDK for Python (Boto3). Possible values for `trend_discovery_frequency` are `30 minutes`, `1 hour`, `3 hours`, and `1 day`. For information about creating a solution with the console, see [Creating a solution (console)](create-solution.md#configure-solution-console). 
 
-```
+```py
 import boto3
             
 personalize = boto3.client("personalize")

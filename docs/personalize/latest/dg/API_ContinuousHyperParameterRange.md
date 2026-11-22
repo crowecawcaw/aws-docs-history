@@ -1,7 +1,6 @@
 
 
 # ContinuousHyperParameterRange
-<a name="API_ContinuousHyperParameterRange"></a>
 
 Provides the name and range of a continuous hyperparameter.
 

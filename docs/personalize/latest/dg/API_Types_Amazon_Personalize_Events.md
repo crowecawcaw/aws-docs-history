@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize Events
-<a name="API_Types_Amazon_Personalize_Events"></a>
 
 The following data types are supported by Amazon Personalize Events:
 +  [Action](API_UBS_Action.md) 

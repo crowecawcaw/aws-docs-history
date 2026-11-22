@@ -1,7 +1,6 @@
 
 
 # HPOConfig
-<a name="API_HPOConfig"></a>
 
 Describes the properties for hyperparameter optimization (HPO).
 

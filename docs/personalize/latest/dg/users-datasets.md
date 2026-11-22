@@ -1,7 +1,6 @@
 
 
 # Preparing user metadata for training
-<a name="users-datasets"></a>
 
  The user data that you can import into Amazon Personalize includes numerical data, such as user age, and categorical metadata, such as gender or loyalty membership. You import metadata about your users into an Amazon Personalize *Users dataset*. 
 
@@ -63,7 +62,7 @@ The `USER_ID` column is required and stores unique identifiers for each individu
 
 After you finish preparing your data, you are ready to create a schema JSON file. This file tells Amazon Personalize about the structure of your data. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). This is what the schema JSON file would look like for the above sample data.
 
-```
+```json
 {
   "type": "record",
   "name": "Users",

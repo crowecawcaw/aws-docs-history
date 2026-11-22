@@ -1,7 +1,6 @@
 
 
 # Legacy HRNN recipes
-<a name="legacy-user-personalization-recipes"></a>
 
 Legacy HRNN recipes are no longer available. This documentation is for reference purposes.
 

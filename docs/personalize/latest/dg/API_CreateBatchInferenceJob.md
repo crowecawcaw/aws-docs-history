@@ -1,7 +1,6 @@
 
 
 # CreateBatchInferenceJob
-<a name="API_CreateBatchInferenceJob"></a>
 
 Generates batch recommendations based on a list of items or users stored in Amazon S3 and exports the recommendations to an Amazon S3 bucket.
 

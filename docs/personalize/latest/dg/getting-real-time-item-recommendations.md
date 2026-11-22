@@ -1,7 +1,6 @@
 
 
 # Getting real-time item recommendations
-<a name="getting-real-time-item-recommendations"></a>
 
  You can get real-time item recommendations from an Amazon Personalize recommender or custom campaign with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or AWS SDKs. 
 
@@ -50,7 +49,7 @@ To change the number of recommended items, change the value for `numResults`. Th
 
  If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events). 
 
-```
+```cmd
 aws personalize-runtime get-recommendations \
 --campaign-arn {{campaign arn}} \
 --user-id {{User ID}} \
@@ -73,7 +72,7 @@ If you enabled metadata in recommendations for your campaign or recommender, you
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalizeRt = boto3.client('personalize-runtime')
@@ -92,7 +91,7 @@ for item in response['itemList']:
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
     public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String campaignArn, String userId) {
 
         try {
@@ -120,7 +119,7 @@ for item in response['itemList']:
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 

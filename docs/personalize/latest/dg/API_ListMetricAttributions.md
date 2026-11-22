@@ -1,7 +1,6 @@
 
 
 # ListMetricAttributions
-<a name="API_ListMetricAttributions"></a>
 
 Lists metric attributions.
 

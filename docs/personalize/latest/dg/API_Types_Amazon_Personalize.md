@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize
-<a name="API_Types_Amazon_Personalize"></a>
 
 The following data types are supported by Amazon Personalize:
 +  [Algorithm](API_Algorithm.md) 

@@ -1,7 +1,6 @@
 
 
 # Giving Amazon Personalize permission to use your AWS KMS key
-<a name="granting-personalize-key-access"></a>
 
  If you specify a AWS Key Management Service (AWS KMS) key when you use the Amazon Personalize console or APIs, or if you use your AWS KMS key to encrypt an Amazon S3 bucket, you must grant Amazon Personalize permission to use your key. To grant permissions, your AWS KMS key policy *and* IAM policy attached to your service role must grant Amazon Personalize permission to use your key. This applies for creating the following in Amazon Personalize. 
 + Dataset groups
@@ -34,7 +33,7 @@ The following key policy example grants Amazon Personalize and your role the min
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-policy-123",
@@ -71,7 +70,7 @@ The following key policy example grants Amazon Personalize and your role the min
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

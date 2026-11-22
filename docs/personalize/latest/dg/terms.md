@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize terms
-<a name="terms"></a>
 
  This section introduces the terms used in Amazon Personalize. 
 

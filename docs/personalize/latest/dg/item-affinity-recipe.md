@@ -1,7 +1,6 @@
 
 
 # Item-Affinity recipe
-<a name="item-affinity-recipe"></a>
 
 The Item-Affinity (aws-item-affinity) recipe is a USER\_SEGMENTATION recipe that creates a user segment (group of users) for each item that you specify. These are the users Amazon Personalize predicts will most likely interact with each item. Use Item-Affinity to learn more about your users and take actions based on their respective user segments. 
 

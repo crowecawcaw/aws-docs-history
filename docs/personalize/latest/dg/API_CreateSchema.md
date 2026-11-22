@@ -1,7 +1,6 @@
 
 
 # CreateSchema
-<a name="API_CreateSchema"></a>
 
 Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.
 

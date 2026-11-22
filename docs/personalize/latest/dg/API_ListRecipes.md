@@ -1,7 +1,6 @@
 
 
 # ListRecipes
-<a name="API_ListRecipes"></a>
 
 Returns a list of available recipes. The response provides the properties for each recipe, including the recipe's Amazon Resource Name (ARN).
 

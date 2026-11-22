@@ -1,7 +1,6 @@
 
 
 # Importing interactions individually
-<a name="importing-interactions"></a>
 
  After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md) to create an Item interactions dataset, you can individually import one or more new events into the dataset. To import interaction *[events](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#event)* individually, you create an *[event tracker](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#event-tracker)* and then import one or more events into your Item interactions dataset. You can import historical individual interaction events using the Amazon Personalize console, or import historical or real-time events using the AWS Command Line Interface (AWS CLI), or the AWS SDKs.
 

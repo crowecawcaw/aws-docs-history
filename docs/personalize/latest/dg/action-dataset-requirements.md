@@ -1,7 +1,6 @@
 
 
 # Actions dataset schema requirements (custom)
-<a name="action-dataset-requirements"></a>
 
 An *action* is an engagement activity that you might want to recommend to your customers. Actions might include installing your mobile app, completing a membership profile, joining your loyalty program, or signing up for promotional emails. An *Actions dataset* stores data about your actions. For information about the types of action data you can import into Amazon Personalize, see [Action metadata](actions-datasets.md). 
 
@@ -63,7 +62,7 @@ The following example shows how to structure an Actions schema. The `ACTION_ID` 
 
 For this schema, the first few lines of historical data in a CSV file might look like the following.
 
-```
+```json
 ACTION_ID,VALUE,MEMBERSHIP_LEVEL,CREATION_TIMESTAMP,REPEAT_FREQUENCY
 1,10,Deluxe|Premium,1510003267,7
 2,5,Basic,1580003267,7

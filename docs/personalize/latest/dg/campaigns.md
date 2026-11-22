@@ -1,7 +1,6 @@
 
 
 # Deploying an Amazon Personalize solution version with a campaign
-<a name="campaigns"></a>
 
 For real-time recommendations with custom resources, after you complete [Manually creating a solution version](creating-a-solution-version.md), you are ready to deploy your solution version with a campaign.
 
@@ -125,7 +124,7 @@ The following code sample shows you how to create a campaign. It deploys the lat
 
 For a complete list of all parameters, see [CreateCampaign](API_CreateCampaign.md).
 
-```
+```json
 aws personalize create-campaign \
 --name {{campaign-name}} \
 --solution-version-arn {{solution-arn}}/\$LATEST \
@@ -161,7 +160,7 @@ For a complete list of all parameters, see [CreateCampaign](API_CreateCampaign.m
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 personalize = boto3.client('personalize')
@@ -184,7 +183,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { CreateCampaignCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

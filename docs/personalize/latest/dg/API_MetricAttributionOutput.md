@@ -1,7 +1,6 @@
 
 
 # MetricAttributionOutput
-<a name="API_MetricAttributionOutput"></a>
 
 The output configuration details for a metric attribution.
 

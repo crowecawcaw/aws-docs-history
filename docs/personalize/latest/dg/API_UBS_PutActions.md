@@ -1,7 +1,6 @@
 
 
 # PutActions
-<a name="API_UBS_PutActions"></a>
 
 Adds one or more actions to an Actions dataset. For more information see [Importing actions individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html). 
 

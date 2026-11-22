@@ -1,7 +1,6 @@
 
 
 # Getting batch user segments with custom resources
-<a name="getting-user-segments"></a>
 
  To get *user segments*, you use a batch segment job. A *batch segment job* is a tool that imports your batch input data from an Amazon S3 bucket and uses your solution version trained with a USER\_SEGMENTATION recipe to generate * user segments* for each row of input data.
 

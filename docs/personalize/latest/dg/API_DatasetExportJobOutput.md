@@ -1,7 +1,6 @@
 
 
 # DatasetExportJobOutput
-<a name="API_DatasetExportJobOutput"></a>
 
 The output configuration parameters of a dataset export job.
 

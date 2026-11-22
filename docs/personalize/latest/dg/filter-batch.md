@@ -1,7 +1,6 @@
 
 
 # Filtering batch recommendations and user segments (custom resources)
-<a name="filter-batch"></a>
 
 Filtering batch recommendations and user segments works nearly the same as filtering real-time recommendations. It follows the same workflow described in [Getting batch item recommendations](getting-batch-recommendations.md) or [Getting batch user segments](getting-user-segments.md). To filter batch recommendations or user segments, you do the following: 
 
@@ -29,7 +28,7 @@ For filters with placeholder parameters, such as `$GENRE`, you must provide the 
 
 The following is an example of the first few lines of a JSON input file for a *batch inference job*. The example includes the `filterValues` object. The `GENRES` key corresponds to a `$GENRES` placeholder in the filter expression. The job in this example uses the User-Personalization recipe. For RELATED\_ITEMS recipes, provide an itemId instead of the userId. For PERSONALIZED\_RANKING recipes provide the userID and an itemList. 
 
-```
+```json
 {"userId": "5","filterValues":{"GENRES":"\"horror\",\"comedy\",\"drama\""}}
 {"userId": "3","filterValues":{"GENRES":"\"horror\",\"comedy\""}}
 {"userId": "34","filterValues":{"GENRES":"\"drama\""}}
@@ -41,7 +40,7 @@ For more examples of batch inference job input data by recipe see [Batch inferen
 
 The following is an example of the first few lines of a JSON input file with filter values for a *batch segment job*. The `GENRES` key corresponds to a `$GENRES` placeholder in the filter expression.
 
-```
+```json
 {"itemAttributes": "ITEMS.genres = \"Comedy\" AND ITEMS.genres = \"Action\"","filterValues":{"COUNTRY":"\"Japan\""}}
 {"itemAttributes": "ITEMS.genres = \"Horror\"","filterValues":{"COUNTRY":"\"United States\"\""}}
 {"itemAttributes": "ITEMS.genres = \"Action\" AND ITEMS.genres = \"Adventure\"","filterValues":{"COUNTRY":"\"England\""}}
@@ -61,7 +60,7 @@ To filter batch recommendations with the AWS SDKs, create a filter and include t
 
  The following code shows how to create a batch inference job with a filter using the AWS SDK for Python (Boto3). We recommend using a different location for your output data (either a folder or a different Amazon S3 bucket). For complete explanation of all fields, see see [Creating a batch inference job (AWS SDKs)](creating-batch-inference-job.md#batch-sdk). 
 
-```
+```python
 import boto3
      
 personalize = boto3.client("personalize")

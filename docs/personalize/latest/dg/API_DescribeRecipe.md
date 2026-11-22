@@ -1,7 +1,6 @@
 
 
 # DescribeRecipe
-<a name="API_DescribeRecipe"></a>
 
 Describes a recipe.
 

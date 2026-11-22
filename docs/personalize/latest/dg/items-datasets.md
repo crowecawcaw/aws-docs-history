@@ -1,7 +1,6 @@
 
 
 # Preparing item metadata for training
-<a name="items-datasets"></a>
 
  Item metadata includes numerical and categorical data about the items your users interact with. Examples of item metadata include creation timestamp, price, genre, description, and availability. You import metadata about your items into an Amazon Personalize *Items dataset*. 
 

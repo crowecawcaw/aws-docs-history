@@ -1,7 +1,6 @@
 
 
 # Giving Amazon Personalize permission to access your resources
-<a name="set-up-required-permissions"></a>
 
  To give Amazon Personalize permission to access your resources, you create an IAM policy that provides Amazon Personalize full access to your Amazon Personalize resources. Or you can use the AWS managed `AmazonPersonalizeFullAccess` policy. `AmazonPersonalizeFullAccess` provides more permissions than are necessary. We recommend creating a new IAM policy that only grants the necessary permissions. For more information about managed policies, see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies). 
 

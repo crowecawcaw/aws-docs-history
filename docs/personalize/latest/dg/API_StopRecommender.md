@@ -1,7 +1,6 @@
 
 
 # StopRecommender
-<a name="API_StopRecommender"></a>
 
 Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.
 

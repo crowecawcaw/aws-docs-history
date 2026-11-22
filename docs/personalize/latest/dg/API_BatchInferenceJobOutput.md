@@ -1,7 +1,6 @@
 
 
 # BatchInferenceJobOutput
-<a name="API_BatchInferenceJobOutput"></a>
 
 The output configuration parameters of a batch inference job.
 

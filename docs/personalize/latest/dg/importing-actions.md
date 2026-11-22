@@ -1,7 +1,6 @@
 
 
 # Importing actions individually
-<a name="importing-actions"></a>
 
 After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md) to create an [Actions dataset](actions-datasets.md), you can individually import one or more new actions into the dataset. When you individually import actions, you keep your Actions dataset current with small batch imports as your catalog grows. You can import up to 10 actions at a time. If you have a large number of new actions, we recommend that you first import data in bulk and then import action data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md).
 
@@ -44,7 +43,7 @@ Use the following `put-actions` command to add one or more actions with the AWS 
 
 For `properties`, for each field in your Actions dataset, replace the `propertyName` with the field name from your schema in camel case. For example, ACTION\_EXPIRATION\_TIMESTAMP would be `actionExpirationTimestamp` and CREATION\_TIMESTAMP would be creationTimestamp. Replace `property data` with the data for the property.
 
-```
+```cmd
 aws personalize-events put-actions \
   --dataset-arn {{dataset arn}} \
   --actions '[{
@@ -64,7 +63,7 @@ Add one or more actions to your Actions dataset using the PutActions operation. 
 
  The following code shows how to add one or more actions to your Actions dataset. For each action, specify the `actionId`. If an action with the same `actionId` is already in your Actions dataset, Amazon Personalize replaces it with the new one. For `properties`, for each additional field in your Actions dataset, replace the `propertyName` with the field name from your schema in camel case. For example, ACTION\_EXPIRATION\_TIMESTAMP would be `actionExpirationTimestamp` and CREATION\_TIMESTAMP would be creationTimestamp. Replace `property data` with the data for the property. 
 
-```
+```py
 import boto3
 
 personalize_events = boto3.client(service_name='personalize-events')

@@ -1,7 +1,6 @@
 
 
 # Requirements for deleting Amazon Personalize resources
-<a name="deleting-resources"></a>
 
 Deleting resources can help you avoid unnecessary costs. For example, you incur campaign costs while a campaign is active. To avoid unnecessary costs, make sure to delete the campaign when you are finished. For a complete list of charges and prices, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/). 
 

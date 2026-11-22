@@ -1,7 +1,6 @@
 
 
 # Setting up permissions
-<a name="aws-personalize-set-up-permissions"></a>
 
  You must give users, groups, or roles permission to interact with Amazon Personalize resources. And you must give Amazon Personalize permission to access the resources you create in Amazon Personalize and to perform tasks on your behalf. 
 

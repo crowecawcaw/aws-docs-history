@@ -1,7 +1,6 @@
 
 
 # BatchSegmentJobOutput
-<a name="API_BatchSegmentJobOutput"></a>
 
 The output configuration parameters of a batch segment job.
 

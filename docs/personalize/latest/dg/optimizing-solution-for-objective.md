@@ -1,7 +1,6 @@
 
 
 # Optimizing a solution for an additional objective
-<a name="optimizing-solution-for-objective"></a>
 
 **Important**  
 By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
@@ -67,7 +66,7 @@ The following is an example of the `create-solution` AWS CLI command. Replace th
 
 For `optimizationObjective`, replace `COLUMN_NAME` with the numerical metadata column name from the Items dataset that is related to your objective. For `objectiveSensitivity`, specify OFF, LOW, MEDIUM, or HIGH.
 
-```
+```cmd
 aws personalize create-solution \
 --name {{solution name}} \
 --dataset-group-arn {{dataset group arn}} \
@@ -97,7 +96,7 @@ When your solution is ready, create a new solution version (for example code see
 
 For `optimizationObjective`, replace `COLUMN_NAME` with the numerical metadata column name from the Items dataset that is related to your objective. For `objectiveSensitivity`, specify OFF, LOW, MEDIUM, or HIGH.
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -122,7 +121,7 @@ print('solution_arn: ', solution_arn)
 
 To create a solution that is optimized for an additional objective, use the following `createPersonalizeSolution` method and pass the following as parameters: an Amazon Personalize service client, the dataset group's Amazon Resource Name (ARN), a solution name, the recipe ARN, the item attribute, and the objective sensitivity level.
 
-```
+```java
 public static String createPersonalizeSolution(PersonalizeClient personalizeClient, 
                                              String datasetGroupArn, 
                                              String solutionName, 
@@ -161,7 +160,7 @@ public static String createPersonalizeSolution(PersonalizeClient personalizeClie
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { CreateSolutionCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

@@ -1,7 +1,6 @@
 
 
 # EventTracker
-<a name="API_EventTracker"></a>
 
 Provides information about an event tracker.
 

@@ -1,7 +1,6 @@
 
 
 # EventParameters
-<a name="API_EventParameters"></a>
 
 Describes the parameters of events, which are used in solution creation.
 

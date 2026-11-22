@@ -1,7 +1,6 @@
 
 
 # ThemeGenerationConfig
-<a name="API_ThemeGenerationConfig"></a>
 
 The configuration details for generating themes with a batch inference job.
 

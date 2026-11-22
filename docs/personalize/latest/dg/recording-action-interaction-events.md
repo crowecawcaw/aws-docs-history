@@ -1,7 +1,6 @@
 
 
 # Recording real-time action interaction events
-<a name="recording-action-interaction-events"></a>
 
 An *action interaction* event is an interaction between a user and an *action*. For example, a user enrolling in a membership program or applying for a credit card.
 

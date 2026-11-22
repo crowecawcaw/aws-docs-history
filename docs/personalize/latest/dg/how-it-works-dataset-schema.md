@@ -1,7 +1,6 @@
 
 
 # Creating schema JSON files for Amazon Personalize schemas
-<a name="how-it-works-dataset-schema"></a>
 
  After you [prepare your data](preparing-training-data.md), you are ready to create schema JSON files for each type of data that you are importing. These files outline the structure and content of your data, including column names and their data types.
 
@@ -48,7 +47,7 @@ Amazon Personalize schemas support the following Avro types for fields:
 
  Some required and reserved fields support null data. Adding a `null` type to a field allows you to use imperfect data (for example, metadata with blank values) to generate recommendations. For information about which fields support null data, see the schema requirements topic for your domain: [VIDEO\_ON\_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md), [ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md), or [Custom datasets and schemas](custom-datasets-and-schemas.md). The following example shows how to add a null type for a GENDER field.
 
-```
+```json
 {
   "name": "GENDER",
   "type": [

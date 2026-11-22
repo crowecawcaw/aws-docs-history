@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Personalize metric attribution
-<a name="creating-metric-attribution"></a>
 
 **Important**  
  After you create a metric attribution and record events or import incremental bulk data, you will incur some monthly CloudWatch cost per metric. For information about CloudWatch pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/) page. To stop sending metrics to CloudWatch, [delete the metric attribution](deleting-metric-attribution.md). 
@@ -56,7 +55,7 @@ You can apply `SUM()` functions to only numeric columns of Items and Item intera
    + If you choose **Build metric attributes**, for each metric provide a name, event type, and choose a function. For `SUM()` functions, choose the column name. Choose **Add metric attribute** to add additional metrics. 
    + If you choose **Input metric attributes**, enter each metric in JSON format. The following shows how to format a metric.
 
-     ```
+     ```json
      {
          "EventType": "watch",
          "MetricName": "MinutesWatchedTracker", 
@@ -75,7 +74,7 @@ You can apply `SUM()` functions to only numeric columns of Items and Item intera
 
  For each metric specify a name, event type, and expression (a function). Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`. For SUM() functions, specify the dataset type and column name. For example, `SUM(Items.LENGTH)`. For information on each parameter, see [CreateMetricAttribution](API_CreateMetricAttribution.md). 
 
-```
+```json
 aws personalize create-metric-attribution \
 --name {{metric attribution name}} \
 --dataset-group-arn {{dataset group arn}} \
@@ -97,7 +96,7 @@ aws personalize create-metric-attribution \
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -137,7 +136,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createMetricAttribution(PersonalizeClient personalizeClient,
                                              String eventType,
                                              String expression,
@@ -191,7 +190,7 @@ public static String createMetricAttribution(PersonalizeClient personalizeClient
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { CreateMetricAttributionCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

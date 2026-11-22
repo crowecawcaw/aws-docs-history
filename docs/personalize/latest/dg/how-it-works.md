@@ -1,7 +1,6 @@
 
 
 # How Amazon Personalize works
-<a name="how-it-works"></a>
 
  Amazon Personalize uses your data to train domain-based or customizable recommendation models. You use a private recommendation API in your application to request real-time recommendations. Amazon Personalize also supports batch workflows get item recommendations and user segments. 
 

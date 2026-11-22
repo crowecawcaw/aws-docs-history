@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize and generative AI
-<a name="personalize-with-gen-ai"></a>
 
  Amazon Personalize works well with generative artificial intelligence (generative AI). Amazon Personalize Content Generator, with the help of generative AI, can add engaging themes to batch recommendations for related items. *Content Generator* is a generative AI capability managed by Amazon Personalize.
 
@@ -51,7 +50,7 @@ LangChain is a framework for developing applications powered by language models.
 
  For example, you can use the following code to add Amazon Personalize recommendations for a user to your chain. 
 
-```
+```py
 from aws_langchain import AmazonPersonalize
 from aws_langchain import AmazonPersonalizeChain
 from langchain.llms.bedrock import Bedrock

@@ -1,7 +1,6 @@
 
 
 # Promoting items in real-time recommendations
-<a name="promoting-items"></a>
 
  With all domain use cases and some custom recipes, you can specify a promotion when you get real-time recommendations. 
 
@@ -42,19 +41,19 @@ All use cases support promotions. The following custom recipes support promotion
 
 The following expression includes only items from the category "in-house". You might use this expression if you want to promote your own content in your recommendations. 
 
-```
+```sql
 INCLUDE ItemID WHERE Items.OWNER IN ("in-house")
 ```
 
 The following expression includes only items created more recently than a timestamp you specify. You might use this expression to promote new items in recommendations.
 
-```
+```sql
 INCLUDE ItemID WHERE Items.CREATION_TIMESTAMP > $DATE
 ```
 
 The following expression shows how you might apply a request filter to promoted items. It includes only available clothing items as promoted items. In this scenario, the `Items.AVAILABLE IN ("True")` would also be used in the request filter expression, so that all recommendations are for items that are available. 
 
-```
+```sql
 INCLUDE ItemID WHERE Items.CATEGORY IN ("clothing") AND Items.AVAILABLE IN ("True")
 ```
 
@@ -67,13 +66,13 @@ For a more complete list of filter examples, see [Filter expression examples](fi
 
 If you don't already use a promotion, your filter expression can promote items created after a certain date:
 
-```
+```sql
 INCLUDE ItemID WHERE Items.CREATION_TIMESTAMP > $DATE
 ```
 
 If you already use a promotion, you create an expression that chains both the promotion and the new item condition statements:
 
-```
+```sql
 INCLUDE ItemID WHERE Items.CATEGORY IN ("clothing") OR Items.CREATION_TIMESTAMP > $DATE
 ```
 
@@ -120,7 +119,7 @@ The code shows how to use both a request filter and a promotion filter. A promot
 
 For information about additional fields, see [Getting item recommendations (AWS SDKs)](getting-real-time-item-recommendations.md#get-item-rec-sdk) and [Getting a personalized ranking using contextual metadata](get-personalized-rankings-sdk.md#personalized-ranking-contextual-metadata-example).
 
-```
+```cmd
 aws personalize-runtime get-recommendations \
 --campaign-arn {{CampaignArn}} \
 --user-id {{1}} \
@@ -140,7 +139,7 @@ aws personalize-runtime get-recommendations \
 
  A list of recommended items displays. Promoted items are positioned randomly relative to other recommended items, but in sorted order relative to other promoted items. Depending on your recipe, recommended items that aren't part of a promotion are sorted by relevance to the user, popularity, or similarity. If there aren't enough items that meet the promotion criteria, the result will contain as many promoted items as possible. 
 
-```
+```json
 {
   "itemList": [
       { 
@@ -176,7 +175,7 @@ For information about additional fields, see [Getting item recommendations (AWS 
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalizeRt = boto3.client('personalize-runtime')
@@ -212,7 +211,7 @@ for item in response['itemList']:
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static void getRecommendationsWithPromotedItems(PersonalizeRuntimeClient personalizeRuntimeClient,
                                        String campaignArn,
                                        String userId,
@@ -277,7 +276,7 @@ public static void getRecommendationsWithPromotedItems(PersonalizeRuntimeClient 
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { GetRecommendationsCommand, PersonalizeRuntimeClient } from
   "@aws-sdk/client-personalize-runtime";
@@ -326,7 +325,7 @@ run();
 
  A list of recommended items displays. Promoted items are positioned randomly relative to other recommended items, but in sorted order relative to other promoted items. Depending on your recipe, recommended items that aren't part of a promotion are sorted by relevance to the user, popularity, or similarity. If there aren't enough items that meet the promotion criteria, the result will contain as many promoted items as possible. 
 
-```
+```json
 {
   "itemList": [
       { 

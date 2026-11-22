@@ -1,7 +1,6 @@
 
 
 # Item interactions dataset requirements (VIDEO\_ON\_DEMAND domain)
-<a name="VIDEO-ON-DEMAND-interactions-dataset"></a>
 
  An *Item interactions dataset* stores historical and real-time data from interactions between users and items in your VIDEO\_ON\_DEMAND catalog. For more information about the types of data you can store in an interactions dataset, see [Item interaction data](interactions-datasets.md). 
 
@@ -29,7 +28,7 @@ For more information on minimum requirements and maximum data limits for an Item
 
  The following is the default VIDEO\_ON\_DEMAND domain schema for Item interactions datasets. 
 
-```
+```json
 {
 
   "type": "record",

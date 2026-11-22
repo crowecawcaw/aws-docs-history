@@ -1,7 +1,6 @@
 
 
 # Filter expression structure and elements
-<a name="creating-filter-expressions"></a>
 
 This section includes information about the structure of filter expressions and their elements.
 
@@ -14,7 +13,7 @@ This section includes information about the structure of filter expressions and 
 
 The general structure of a filter expression is as follows: 
 
-```
+```sql
 EXCLUDE/INCLUDE ItemID/ActionID/UserID WHERE {{dataset type}}.{{field}} IN/NOT IN ({{value/parameter}})
 ```
 

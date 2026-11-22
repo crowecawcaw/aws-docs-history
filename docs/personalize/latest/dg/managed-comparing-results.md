@@ -1,13 +1,12 @@
 
 
 # Comparing personalized Amazon OpenSearch Service results to results without personalization
-<a name="managed-comparing-results"></a>
 
 The Amazon Personalize Search Ranking plugin rearranges search results based on both the ranking from Amazon Personalize and the ranking from OpenSearch. The way that the plugin re-ranks the results depends on how you configured the `personalized_search_ranking` response processor in your pipelines. 
 
 To understand how results are ranked, you can run queries with and without personalization, and compare the results. You can use the following Python code to run two different queries and output the results to two JSON files. The first method runs a query that uses the plugin to re-rank results. The second runs a method that generates results without personalization.
 
-```
+```python
 import json
 import requests
 from requests_auth_aws_sigv4 import AWSSigV4

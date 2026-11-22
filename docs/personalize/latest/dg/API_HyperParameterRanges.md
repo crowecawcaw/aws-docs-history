@@ -1,7 +1,6 @@
 
 
 # HyperParameterRanges
-<a name="API_HyperParameterRanges"></a>
 
 Specifies the hyperparameters and their ranges. Hyperparameters can be categorical, continuous, or integer-valued.
 

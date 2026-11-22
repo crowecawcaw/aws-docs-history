@@ -1,7 +1,6 @@
 
 
 # UpdateDataset
-<a name="API_UpdateDataset"></a>
 
 Update a dataset to replace its schema with a new or existing one. For more information, see [Replacing a dataset's schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html). 
 

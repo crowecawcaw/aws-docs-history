@@ -1,7 +1,6 @@
 
 
 # TagResource
-<a name="API_TagResource"></a>
 
 Add a list of tags to a resource.
 

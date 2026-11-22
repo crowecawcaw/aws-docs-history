@@ -1,7 +1,6 @@
 
 
 # DescribeMetricAttribution
-<a name="API_DescribeMetricAttribution"></a>
 
 Describes a metric attribution.
 

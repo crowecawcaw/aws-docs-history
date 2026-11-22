@@ -1,7 +1,6 @@
 
 
 # DescribeDataDeletionJob
-<a name="API_DescribeDataDeletionJob"></a>
 
 Describes the data deletion job created by [CreateDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataDeletionJob.html), including the job status.
 

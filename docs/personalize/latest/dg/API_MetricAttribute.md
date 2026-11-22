@@ -1,7 +1,6 @@
 
 
 # MetricAttribute
-<a name="API_MetricAttribute"></a>
 
 Contains information on a metric that a metric attribution reports on. For more information, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
 

@@ -1,7 +1,6 @@
 
 
 # Pipeline metrics example
-<a name="monitor-response"></a>
 
 As you apply the Amazon Personalize Search Ranking plugin to OpenSearch queries, you can monitor the plugin by getting metrics for your search pipelines. Pipeline metrics include statistics like the number of failed requests for the `personalized_search_ranking` response processor. 
 

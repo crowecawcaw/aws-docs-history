@@ -1,13 +1,12 @@
 
 
 # Recording multiple action interaction events
-<a name="recording-multiple-action-interactions"></a>
 
 The following code shows how to record multiple action interaction events for the same user with the same sessionId. 
 
 **Corresponding Action interactions dataset**
 
-```
+```cmd
 USER_ID, ACTION_ID, EVENT_TYPE, TIMESTAMP
 user123, action123, Taken, 1543531139
 user123, action345, Not Taken, 1543531139
@@ -16,7 +15,7 @@ user123, action345, Not Taken, 1543531139
 ------
 #### [ AWS CLI ]
 
-```
+```cmd
 aws personalize-events put-action-interactions \
 --tracking-id 6ddfe6b7-cd83-4dd4-b09d-4c35ecbacfe1 \
 --action-interactions '[{
@@ -37,7 +36,7 @@ aws personalize-events put-action-interactions \
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize_events = boto3.client(service_name='personalize-events')

@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize Runtime
-<a name="API_Operations_Amazon_Personalize_Runtime"></a>
 
 The following actions are supported by Amazon Personalize Runtime:
 +  [GetActionRecommendations](API_RS_GetActionRecommendations.md) 

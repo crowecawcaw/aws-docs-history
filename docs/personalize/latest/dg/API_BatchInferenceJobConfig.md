@@ -1,7 +1,6 @@
 
 
 # BatchInferenceJobConfig
-<a name="API_BatchInferenceJobConfig"></a>
 
 The configuration details of a batch inference job.
 

@@ -1,7 +1,6 @@
 
 
 # Importing users individually
-<a name="importing-users"></a>
 
  After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md) to create a Users dataset, you can individually import one or more new users into the dataset. Individually importing users allows you to keep your Users dataset current with small batch imports as your catalog grows. You can import up to 10 users at a time. If you have a large amount of new users, we recommend that you first import data in bulk and then import user data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md). 
 
@@ -44,7 +43,7 @@ Use the following `put-users` command to add one or more users with the AWS CLI.
 
 For `properties`, for each field in your Users dataset, replace the `propertyName` with the field name from your schema in camel case. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`. Replace `user data` with the data for the user. For categorical string data, to include multiple categories for a single property, separate each category with a pipe (`|`). For example `\"Premium Class|Legacy Member\"`.
 
-```
+```cmd
 aws personalize-events put-users \
   --dataset-arn {{dataset arn}} \
   --users '[{
@@ -69,7 +68,7 @@ For categorical string data, to include multiple categories for a single propert
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize_events = boto3.client(service_name='personalize-events')
@@ -90,7 +89,7 @@ personalize_events.put_users(
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
                          String datasetArn,
                          String user1Id,
@@ -136,7 +135,7 @@ public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 import {
   PutUsersCommand,
   PersonalizeEventsClient,

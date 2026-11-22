@@ -1,7 +1,6 @@
 
 
 # CategoricalHyperParameterRange
-<a name="API_CategoricalHyperParameterRange"></a>
 
 Provides the name and range of a categorical hyperparameter.
 

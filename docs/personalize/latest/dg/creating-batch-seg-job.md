@@ -1,7 +1,6 @@
 
 
 # Getting user segments with a batch segment job
-<a name="creating-batch-seg-job"></a>
 
  If you used a USER\_SEGMENTATION recipe, you can create batch segment jobs to get user segments with your solution version. Each user segment is sorted in descending order based on the probability that each user will interact with items in your inventory. Depending on the recipe, your input data must be a list of items ([Item-Affinity recipe](item-affinity-recipe.md)) or item attributes ([Item-Attribute-Affinity recipe](item-attribute-affinity-recipe.md)) in JSON format. You can create a batch segment job with the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs. 
 
@@ -88,7 +87,7 @@ We recommend using a different location for your output data (either a folder or
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 personalize_rec = boto3.client(service_name='personalize')
@@ -109,7 +108,7 @@ personalize_rec.create_batch_segment_job (
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
                                                         String solutionVersionArn,
                                                         String jobName,
@@ -191,7 +190,7 @@ public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { CreateBatchSegmentJobCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";

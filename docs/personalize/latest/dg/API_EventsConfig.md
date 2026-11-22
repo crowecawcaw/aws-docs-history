@@ -1,7 +1,6 @@
 
 
 # EventsConfig
-<a name="API_EventsConfig"></a>
 
 Describes the configuration of events, which are used in solution creation.
 

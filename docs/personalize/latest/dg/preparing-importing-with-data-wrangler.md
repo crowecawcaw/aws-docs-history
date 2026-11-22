@@ -1,7 +1,6 @@
 
 
 # Preparing and importing bulk data using Amazon SageMaker AI Data Wrangler
-<a name="preparing-importing-with-data-wrangler"></a>
 
 **Important**  
 As you use Data Wrangler, you incur SageMaker AI costs. For a complete list of charges and prices, see the Data Wrangler tab of [Amazon SageMaker AI pricing](https://aws.amazon.com/sagemaker/pricing/). To avoid incurring additional fees, when you are finished, shut down your Data Wrangler instance. For more information, see [Shut Down Data Wrangler](https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler-shut-down.html). 

@@ -1,7 +1,6 @@
 
 
 # Use `CreateBatchInferenceJob` with an AWS SDK
-<a name="personalize_example_personalize_CreateBatchInferenceJob_section"></a>
 
 The following code examples show how to use `CreateBatchInferenceJob`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreateBatchInferenceJob`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples). 
 
-```
+```java
         public static String createPersonalizeBatchInferenceJob(PersonalizeClient personalizeClient,
                         String solutionVersionArn,
                         String jobName,
@@ -110,7 +109,7 @@ The following code examples show how to use `CreateBatchInferenceJob`.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
-```
+```javascript
 // Get service clients module and commands using ES6 syntax.
 import { CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";

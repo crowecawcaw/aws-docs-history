@@ -1,7 +1,6 @@
 
 
 # DescribeAlgorithm
-<a name="API_DescribeAlgorithm"></a>
 
 Describes the given algorithm.
 

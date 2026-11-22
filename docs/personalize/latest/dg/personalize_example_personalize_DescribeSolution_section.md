@@ -1,7 +1,6 @@
 
 
 # Use `DescribeSolution` with an AWS SDK
-<a name="personalize_example_personalize_DescribeSolution_section"></a>
 
 The following code example shows how to use `DescribeSolution`.
 
@@ -11,7 +10,7 @@ The following code example shows how to use `DescribeSolution`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples). 
 
-```
+```java
     public static void describeSpecificSolution(PersonalizeClient personalizeClient, String solutionArn) {
 
         try {

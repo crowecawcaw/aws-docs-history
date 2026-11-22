@@ -1,7 +1,6 @@
 
 
 # DescribeDatasetImportJob
-<a name="API_DescribeDatasetImportJob"></a>
 
 Describes the dataset import job created by [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html), including the import job status.
 

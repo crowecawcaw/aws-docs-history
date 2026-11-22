@@ -1,7 +1,6 @@
 
 
 # Choosing a recipe
-<a name="working-with-predefined-recipes"></a>
 
  When you create a custom solution, you specify a recipe and configure training parameters. *Recipes* are Amazon Personalize algorithms that are prepared for specific use cases. Amazon Personalize provides recipes, based on common use cases, for training models. When you create a solution version for the solution, Amazon Personalize trains the models backing the solution version based on the recipe and training configuration. 
 

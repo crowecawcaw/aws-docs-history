@@ -1,7 +1,6 @@
 
 
 # Getting started (SDK for Java 2.x)
-<a name="getting-started-java"></a>
 
 This tutorial shows you how to complete the Amazon Personalize workflow from start to finish with the AWS SDK for Java 2.x. 
 
@@ -32,7 +31,7 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
 
 1.  Add the following dependencies to your pom.xml file. The latest version numbers may be different than the example code. 
 
-   ```
+   ```xml
    <dependency>
    	<groupId>software.amazon.awssdk</groupId>
    	<artifactId>personalize</artifactId>
@@ -52,7 +51,7 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
 
 1.  Add the following import statements to your project. 
 
-   ```
+   ```java
    // import client packages
    import software.amazon.awssdk.services.personalize.PersonalizeClient;
    import software.amazon.awssdk.services.personalizeruntime.PersonalizeRuntimeClient;
@@ -94,7 +93,7 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
 
 After you add Amazon Personalize dependencies to your pom.xml file and import the required packages, create the following Amazon Personalize clients:
 
-```
+```java
 PersonalizeClient personalizeClient = PersonalizeClient.builder()
   .region({{region}})
   .build();
@@ -111,7 +110,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
 1.  Save the following Avro schema as a JSON file in your working directory. This schema matches the columns in the CSV file you created when you completed the [Getting started prerequisites](gs-prerequisites.md). 
 
-   ```
+   ```json
    {
      "type": "record",
      "name": "Interactions",
@@ -136,7 +135,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
 1. Use the following `createSchema` method to create a schema in Amazon Personalize. Pass the following as parameters: an Amazon Personalize service client, the name for your schema, and the file path for the schema JSON file you created in the previous step. The method returns the Amazon Resource Name (ARN) of your new schema. Store it for later use. 
 
-   ```
+   ```java
        public static String createSchema(PersonalizeClient personalizeClient, String schemaName, String filePath) {
    
            String schema = null;
@@ -168,7 +167,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
 1. Create a dataset group. Use the following `createDatasetGroup` method to create a dataset group. Pass the following as parameters: an Amazon Personalize service client and the name for the dataset group. The method returns the ARN of your new dataset group. Store it for later use.
 
-   ```
+   ```java
        public static String createDatasetGroup(PersonalizeClient personalizeClient, String datasetGroupName) {
    
            try {
@@ -185,7 +184,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
 1. Create an Item interactions dataset. Use the following `createDataset` method to create an Item interactions dataset. Pass the following as parameters: an Amazon Personalize service client, the name for your dataset, your schema's ARN, your dataset group's ARN, and `Interactions` for the dataset type. The method returns the ARN of your new dataset. Store it for later use.
 
-   ```
+   ```java
        public static String createDataset(PersonalizeClient personalizeClient,
                String datasetName,
                String datasetGroupArn,
@@ -216,7 +215,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
    Pass the following as parameters: an Amazon Personalize service client, a name for the job, your Item interactions dataset's ARN, the Amazon S3 bucket path (`s3://{{bucket name}}/{{folder name}}/ratings.csv`) where you stored the training data, and your service role's ARN (you created this role as part of the [Getting started prerequisites](gs-prerequisites.md)). The method returns the ARN of your dataset import job. Optionally store it for later use. 
 
-   ```
+   ```java
        public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
                String jobName,
                String datasetArn,
@@ -281,7 +280,7 @@ After you import your data, you create a solution and solution version as follow
 
 1. Create a new solution with the following `createPersonalizeSolution` method. Pass the following as parameters: an Amazon Personalize service client, your dataset groups Amazon Resource Name (ARN), a name for the solution, and the ARN for the User-Personalization-v2 recipe (`arn:aws:personalize:::recipe/aws-user-personalization-v2`). The method returns the ARN your new solution. Store it for later use. 
 
-   ```
+   ```java
        public static String createPersonalizeSolution(PersonalizeClient personalizeClient,
                String datasetGroupArn,
                String solutionName,
@@ -307,7 +306,7 @@ After you import your data, you create a solution and solution version as follow
 
 1. Create a solution version with the following `createPersonalizeSolutionVersion` method. Pass as a parameter the ARN of the solution the previous step. The following code first checks to see if your solution is ready and then creates a solution version. During training, the code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status. When training is complete, the method returns the ARN of your new solution version. Store it for later use. 
 
-   ```
+   ```java
        public static String createPersonalizeSolutionVersion(PersonalizeClient personalizeClient, String solutionArn) {
            long maxTime = 0;
            long waitInMilliseconds = 30 * 1000; // 30 seconds
@@ -386,7 +385,7 @@ For more information, see [Manually creating a solution version](creating-a-solu
 
 After you train and evaluate your solution version, deploy it with an Amazon Personalize campaign. Use the following `createPersonalCampaign` method to deploy a solution version. Pass the following as parameters: an Amazon Personalize service client, the Amazon Resource Name (ARN) of the solution version you created in the previous step, and a name for the campaign. The method returns the ARN of your new campaign. Store it for later use.
 
-```
+```java
 public static String createPersonalCompaign(PersonalizeClient personalizeClient, String solutionVersionArn, String name) {
 
     try {
@@ -414,7 +413,7 @@ For more information about Amazon Personalize campaigns, see [Deploying an Amazo
 
 After you create a campaign, you use it to get recommendations. Use the following `getRecs` method to get recommendations for a user. Pass as parameters an Amazon Personalize runtime client, the Amazon Resource Name (ARN) of the campaign you created in the previous step, and a user ID (for example, `123`) from the historical data you imported. The method prints the list of recommended items to the screen.
 
-```
+```java
     public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String campaignArn, String userId) {
 
         try {

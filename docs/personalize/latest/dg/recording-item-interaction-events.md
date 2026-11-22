@@ -1,7 +1,6 @@
 
 
 # Recording real-time item interaction events
-<a name="recording-item-interaction-events"></a>
 
  An *item interaction event* is an interaction between a user and an item in your catalog. For example, a user purchasing shoes or watching movie.
 

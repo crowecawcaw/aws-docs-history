@@ -1,7 +1,6 @@
 
 
 # Getting started prerequisites
-<a name="gs-prerequisites"></a>
 
 The following steps are prerequisites for the getting started exercises.
 
@@ -34,7 +33,7 @@ To create training data, download, modify, and save the movie ratings data to an
 
       These columns must be exactly as shown for Amazon Personalize to recognize the data. The first few rows of your data should look as follows:
 
-      ```
+      ```csv
       USER_ID,ITEM_ID,TIMESTAMP,EVENT_TYPE
       1,1,964982703,watch
       1,3,964981247,watch

@@ -1,7 +1,6 @@
 
 
 # Preparing item interaction data for training
-<a name="interactions-datasets"></a>
 
  An *item interaction* is a positive interaction event between a user and an item in your catalogue. For example, a user watching a movie, viewing a listing, or purchasing a pair of shoes. You import data about your users' interactions with your items into a *Item interactions dataset*. You can record multiple event types, such as *click*, *watch* or *purchase*. 
 
@@ -224,7 +223,7 @@ Amazon Personalize requires the `USER_ID`, `ITEM_ID`, and `TIMESTAMP` column. `U
 
 After you finish preparing your data, you are ready to create a schema JSON file. This file tells Amazon Personalize about the structure of your data. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). This is what the schema JSON file would look like for the sample data.
 
-```
+```json
 {
   "type": "record",
   "name": "Interactions",

@@ -1,7 +1,6 @@
 
 
 # HPOResourceConfig
-<a name="API_HPOResourceConfig"></a>
 
 Describes the resource configuration for hyperparameter optimization (HPO).
 

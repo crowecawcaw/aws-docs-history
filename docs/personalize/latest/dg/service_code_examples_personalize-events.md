@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Personalize Events using AWS SDKs
-<a name="service_code_examples_personalize-events"></a>
 
 The following code examples show how to use Amazon Personalize Events with an AWS software development kit (SDK). 
 

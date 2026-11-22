@@ -1,7 +1,6 @@
 
 
 # Preparing action metadata for training
-<a name="actions-datasets"></a>
 
  An *action* is an engagement or revenue generating activity that you might want to recommend to your users. Actions might include installing your mobile app, completing a membership profile, joining your loyalty program, or signing up for promotional emails. You import data about your actions into an Amazon Personalize *Actions dataset*. Examples of data for an action include a unique ID for the action, the action's estimated value, or the action's expiration timestamp.
 

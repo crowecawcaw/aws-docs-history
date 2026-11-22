@@ -1,7 +1,6 @@
 
 
 # User-Personalization recipe
-<a name="native-recipe-new-item-USER_PERSONALIZATION"></a>
 
 **Important**  
 We recommend using the [User-Personalization-v2](native-recipe-user-personalization-v2.md) recipe. It can consider up to 5 million items with faster training, and generate more relevant recommendations with lower latency.
@@ -152,7 +151,7 @@ When you have created a dataset group and uploaded your dataset(s) with impressi
 
    Replace `solution name` with your solution name and `dataset group arn` with the Amazon Resource Name (ARN) of your dataset group.
 
-   ```
+   ```python
    import boto3
    
    personalize = boto3.client('personalize')
@@ -170,7 +169,7 @@ When you have created a dataset group and uploaded your dataset(s) with impressi
 
 1. Create a new *solution version* with the updated training data and set `trainingMode` to `FULL` using the following code snippet. Replace the `solution arn` with the ARN of your solution.
 
-   ```
+   ```python
    import boto3
            
    personalize = boto3.client('personalize')
@@ -189,7 +188,7 @@ When you have created a dataset group and uploaded your dataset(s) with impressi
 
    Use the following Python snippet to create a new campaign with an emphasis on exploration with exploration cut-off at 30 days. Creating a campaign usually takes a few minutes but can take over an hour.
 
-   ```
+   ```python
    import boto3
            
    personalize = boto3.client('personalize')
@@ -222,7 +221,7 @@ When your campaign is created, you can use it to get recommendations for a user 
 
 1. Call the `get_recommendations` method. Change the `campaign arn` to the ARN of your new campaign and `user id` to the userId of the user.
 
-   ```
+   ```python
    import boto3
                
    rec_response = personalize_runtime.get_recommendations(campaignArn = '{{campaign arn}}', userId = '{{user id}}')
@@ -231,7 +230,7 @@ When your campaign is created, you can use it to get recommendations for a user 
 
 1. Create a new event tracker for sending PutEvents requests. Replace `event tracker name` with the name of your event tracker and `dataset group arn` with the ARN of your dataset group.
 
-   ```
+   ```python
    import boto3
            
    personalize = boto3.client('personalize')
@@ -247,7 +246,7 @@ When your campaign is created, you can use it to get recommendations for a user 
 
 1.  Use the `recommendationId` from step 1 and the `event tracking id` from step 2 to create a new `PutEvents` request. This request logs the new impression data from the user’s session. Change the `user id` to the ID of the user. 
 
-   ```
+   ```python
    import boto3
                
    personalize_events.put_events(

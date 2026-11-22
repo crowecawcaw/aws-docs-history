@@ -1,7 +1,6 @@
 
 
 # Importing bulk data into Amazon Personalize with a dataset import job
-<a name="bulk-data-import-step"></a>
 
 After you have formatted your input data (see [Preparing training data for Amazon Personalize](preparing-training-data.md)) and completed [Creating a schema and a dataset](data-prep-creating-datasets.md), you are ready to import your bulk data with a dataset import job. A *dataset import job* is a bulk import tool that populates a dataset with data from Amazon S3.
 
@@ -102,7 +101,7 @@ By default, a dataset import job replaces any existing data in the dataset that 
 
    Provide the AWS Identity and Access Management (IAM) role Amazon Resource Name (ARN) that you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions). The default `import-mode` is `FULL`. For more information see [Updating data in datasets after training](updating-datasets.md). For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md).
 
-   ```
+   ```json
    aws personalize create-dataset-import-job \
    --job-name {{dataset import job name}} \
    --dataset-arn {{dataset arn}} \
@@ -113,7 +112,7 @@ By default, a dataset import job replaces any existing data in the dataset that 
 
    The dataset import job ARN is displayed, as shown in the following example.
 
-   ```
+   ```json
    {
      "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/DatasetImportJobName"
    }
@@ -121,14 +120,14 @@ By default, a dataset import job replaces any existing data in the dataset that 
 
 1. Check the status by using the `describe-dataset-import-job` command. Provide the dataset import job ARN that was returned in the previous step. For more information about the operation, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md).
 
-   ```
+   ```cmd
    aws personalize describe-dataset-import-job \
    --dataset-import-job-arn {{dataset import job arn}}
    ```
 
    The properties of the dataset import job, including its status, are displayed. Initially, the `status` shows as CREATE PENDING.
 
-   ```
+   ```json
    {
      "datasetImportJob": {
          "jobName": "Dataset Import job name",
@@ -171,7 +170,7 @@ For the `roleArn`, specify the AWS Identity and Access Management (IAM) role tha
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -199,7 +198,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
                                                       String jobName,
                                                       String datasetArn,
@@ -263,7 +262,7 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { CreateDatasetImportJobCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

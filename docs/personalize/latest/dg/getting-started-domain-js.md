@@ -1,7 +1,6 @@
 
 
 # Getting started with a Domain dataset group (SDK for JavaScript v3)
-<a name="getting-started-domain-js"></a>
 
 This tutorial shows you how to use the AWS SDK for JavaScript v3 to create a Domain dataset group for the VIDEO\_ON\_DEMAND domain. In this tutorial, you create a recommender for the *Top picks for you* use case.
 
@@ -37,7 +36,7 @@ After you complete the prerequisites, install the following Amazon Personalize d
 
 The following is an example of a `package.json` file you can use. To install the dependencies with Node.js, navigate to where you saved the `package.json` file and run `npm install`.
 
-```
+```json
 {
   "name": "personalize-js-project",
   "version": "1.0.0",
@@ -65,7 +64,7 @@ After you install the dependencies, create your Amazon Personalize clients. In t
 
 The following is an example of a `personalizeClient.js` file.
 
-```
+```JavaScript
 import { PersonalizeClient } from "@aws-sdk/client-personalize";
 import { PersonalizeRuntimeClient } from "@aws-sdk/client-personalize-runtime";
 import { PersonalizeEventsClient } from "@aws-sdk/client-personalize-events";
@@ -86,7 +85,7 @@ After you create your Amazon Personalize clients, import the historical data you
 
 1.  Save the following Avro schema as a JSON file in your working directory. This schema matches the columns in the CSV file that you created when you completed the [Creating the training data (Domain dataset group)](gs-prerequisites.md#gs-data-prep-domain). 
 
-   ```
+   ```json
    {
      "type": "record",
      "name": "Interactions",
@@ -115,7 +114,7 @@ After you create your Amazon Personalize clients, import the historical data you
 
 1. Create a domain schema in Amazon Personalize with the following `createDomainSchema.js` code. Replace `SCHEMA_PATH` with the path to the schema.json file you just created. Update the `createSchemaParam` to specify a name for the schema, and for `domain` specify `VIDEO_ON_DEMAND`. 
 
-   ```
+   ```JavaScript
    // Get service clients module and commands using ES6 syntax.
    import { CreateSchemaCommand } from "@aws-sdk/client-personalize";
    import { personalizeClient } from "./libs/personalizeClients.js";
@@ -158,7 +157,7 @@ After you create your Amazon Personalize clients, import the historical data you
 
 1. Create a domain dataset group in Amazon Personalize with the following `createDomainDatasetGroup.js` code. Update the `domainDatasetGroupParams` to specify a name for the dataset group, and for `domain` specify `VIDEO_ON_DEMAND`.
 
-   ```
+   ```JavaScript
    // Get service clients module and commands using ES6 syntax.
    import { CreateDatasetGroupCommand } from "@aws-sdk/client-personalize";
    import { personalizeClient } from "./libs/personalizeClients.js";
@@ -189,7 +188,7 @@ After you create your Amazon Personalize clients, import the historical data you
 
 1. Create an Item interactions dataset in Amazon Personalize with the following `createDataset.js` code. Update the `createDatasetParam` to specify the Amazon Resource Name (ARN) of the dataset group and schema you just created, give the dataset a name, and for `datasetType`, specify `Interactions`.
 
-   ```
+   ```JavaScript
    // Get service clients module and commands using ES6 syntax.
    import { CreateDatasetCommand } from "@aws-sdk/client-personalize";
    import { personalizeClient } from "./libs/personalizeClients.js";
@@ -224,7 +223,7 @@ After you create your Amazon Personalize clients, import the historical data you
    + For `dataLocation`, specify the Amazon S3 bucket path (`s3://{{https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com}}/{{folder name}}/ratings.csv`) where you stored the training data.
    + For `roleArn` specify the Amazon Resource Name for your Amazon Personalize service role. You created this role as part of the [Getting started prerequisites](gs-prerequisites.md).
 
-   ```
+   ```JavaScript
    // Get service clients module and commands using ES6 syntax.
    import { CreateDatasetImportJobCommand } from "@aws-sdk/client-personalize";
    import { personalizeClient } from "./libs/personalizeClients.js";
@@ -262,7 +261,7 @@ After you create your Amazon Personalize clients, import the historical data you
 
 After your dataset import job completes, you are ready create a recommender. To create a recommender, use the following `createRecommender.js` code. Update the `createRecommenderParam` with the following: Specify a name for the recommender, specify your dataset group's ARN, and for `recipeArn` specify `arn:aws:personalize:::recipe/aws-vod-top-picks`.
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { CreateRecommenderCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";
@@ -296,7 +295,7 @@ run();
 
 After you create a recommender, you use it to get recommendations. Use the following `getRecommendations.js` code to get recommendations for a user. Update the `getRecommendationsParam` to specify the ARN of the recommender you created in the previous step, and specify a user ID (for example, `123`). 
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 import { personalizeRuntimeClient } from "./libs/personalizeClients.js";

@@ -1,7 +1,6 @@
 
 
 # BatchSegmentJob
-<a name="API_BatchSegmentJob"></a>
 
 Contains information on a batch segment job.
 

@@ -1,7 +1,6 @@
 
 
 # Use case and recipe features
-<a name="use-case-recipe-features"></a>
 
  With some use case and recipes, Amazon Personalize uses the following features to generate more relevant recommendations and improve item discovery and engagement. 
 

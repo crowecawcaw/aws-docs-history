@@ -1,7 +1,6 @@
 
 
 # Measuring recommendation impact with a metric attribution
-<a name="metric-attributions"></a>
 
  To measure the impact of item recommendations, you can create a metric attribution. A *metric attribution* creates reports based on the item interactions and items data that you import, and the metrics that you specify. For example, the total length of movies watched by users, or the total number of click events. Amazon Personalize aggregates calculations over a 15-minute window. For streamed interaction data and incremental bulk data, Amazon Personalize automatically sends metric reports to Amazon CloudWatch. For bulk data, you can choose to publish reports to an Amazon S3 bucket. 
 

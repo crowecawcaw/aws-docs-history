@@ -1,7 +1,6 @@
 
 
 # Choosing a use case
-<a name="domain-use-cases"></a>
 
 When you create a recommender in a Domain dataset group, you specify a use case. Amazon Personalize trains the models backing the recommender with the best configurations for the use case. Each domain has different use cases. For example, if you specify *VIDEO\_ON\_DEMAND* for your Domain dataset group, only VIDEO\_ON\_DEMAND use cases are available. Each use case has different requirements for getting recommendations. Some use cases require specific event types. You are free to include additional event types. 
 

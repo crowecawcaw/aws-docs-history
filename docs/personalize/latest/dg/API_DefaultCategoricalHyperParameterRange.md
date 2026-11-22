@@ -1,7 +1,6 @@
 
 
 # DefaultCategoricalHyperParameterRange
-<a name="API_DefaultCategoricalHyperParameterRange"></a>
 
 Provides the name and default range of a categorical hyperparameter and whether the hyperparameter is tunable. A tunable hyperparameter can have its value determined during hyperparameter optimization (HPO).
 

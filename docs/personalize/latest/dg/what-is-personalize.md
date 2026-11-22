@@ -1,7 +1,6 @@
 
 
 # What is Amazon Personalize?
-<a name="what-is-personalize"></a>
 
 Amazon Personalize is a fully managed machine learning service that uses your data to generate item recommendations for your users. It can also generate user segments based on the users' affinity for certain items or item metadata. 
 

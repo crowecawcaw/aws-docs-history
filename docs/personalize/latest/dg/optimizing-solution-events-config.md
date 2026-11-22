@@ -1,7 +1,6 @@
 
 
 # Optimizing a solution with events configuration
-<a name="optimizing-solution-events-config"></a>
 
 **Important**  
 By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
@@ -54,7 +53,7 @@ You can optimize with events configuration with the User-Personalization-v2 or P
 
 The following is an example of the create-solution AWS CLI command. Replace the `solution name`, `dataset group arn`, and `recipe arn` values with your own. 
 
-```
+```cmd
 aws personalize create-solution \
 --name {{solution name}} \
 --dataset-group-arn {{dataset group arn}} \
@@ -77,7 +76,7 @@ You can optimize with events configuration with the User-Personalization-v2 or P
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 personalize = boto3.client('personalize')
@@ -105,7 +104,7 @@ print('solution_arn: ', solution_arn)
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createPersonalizeSolution(PersonalizeClient personalizeClient, 
 							  String datasetGroupArn, 
 							  String solutionName, 

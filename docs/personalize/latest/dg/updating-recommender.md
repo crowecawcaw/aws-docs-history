@@ -1,7 +1,6 @@
 
 
 # Updating a recommender
-<a name="updating-recommender"></a>
 
  After you create a recommender, you can update the recommender's configuration: 
 + You can update the columns the recommender uses in training. If you modify the columns used when training, Amazon Personalize automatically starts a full retraining of the models backing your recommender. While the update completes, you can still get recommendations from the recommender. The recommender uses the previous configuration until the update completes. To track the status of this update, use the `latestRecommenderUpdate` returned in the [DescribeRecommender](API_DescribeRecommender.md) operation. If you provide the same columns you provided when you created the recommender, no update occurs. 
@@ -39,7 +38,7 @@ You can update recommenders with the Amazon Personalize console, AWS Command Lin
 
 To update recommender with the AWS CLI, use the `update-recommender` command. Provide the Amazon Resource Name (ARN) for the recommender and updated configuration. The following code shows how to update the columns a recommender uses for training.
 
-```
+```cmd
 aws personalize update-recommender \
 --dataset-group-arn {{dataset group ARN}} \
 --recommender-config "{\"trainingDataConfig\": {\"excludedDatasetColumns\": { \"{{datasetType}}\" : [ \"{{column1Name}}\", \"{{column2Name}}\"]}}}"
@@ -57,7 +56,7 @@ To update recommender with the AWS, use the [UpdateRecommender](API_UpdateRecomm
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -77,7 +76,7 @@ update_recommender_response = personalize.update_recommender(
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { UpdateRecommenderCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

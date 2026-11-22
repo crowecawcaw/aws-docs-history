@@ -1,7 +1,6 @@
 
 
 # Use `CreateBatchSegmentJob` with an AWS SDK
-<a name="personalize_example_personalize_CreateBatchSegmentJob_section"></a>
 
 The following code example shows how to use `CreateBatchSegmentJob`.
 
@@ -11,7 +10,7 @@ The following code example shows how to use `CreateBatchSegmentJob`.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
-```
+```javascript
 // Get service clients module and commands using ES6 syntax.
 import { CreateBatchSegmentJobCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";

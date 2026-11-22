@@ -1,7 +1,6 @@
 
 
 # UpdateSolution
-<a name="API_UpdateSolution"></a>
 
 Updates an Amazon Personalize solution to use a different automatic training configuration. When you update a solution, you can change whether the solution uses automatic training, and you can change the training frequency. For more information about updating a solution, see [Updating a solution](https://docs.aws.amazon.com/personalize/latest/dg/updating-solution.html).
 

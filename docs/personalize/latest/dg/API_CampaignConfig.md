@@ -1,7 +1,6 @@
 
 
 # CampaignConfig
-<a name="API_CampaignConfig"></a>
 
 The configuration details of a campaign.
 

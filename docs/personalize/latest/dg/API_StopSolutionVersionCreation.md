@@ -1,7 +1,6 @@
 
 
 # StopSolutionVersionCreation
-<a name="API_StopSolutionVersionCreation"></a>
 
 Stops creating a solution version that is in a state of CREATE\_PENDING or CREATE IN\_PROGRESS. 
 

@@ -1,7 +1,6 @@
 
 
 # DatasetImportJob
-<a name="API_DatasetImportJob"></a>
 
 Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. For more information, see [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html).
 

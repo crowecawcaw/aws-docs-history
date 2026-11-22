@@ -1,7 +1,6 @@
 
 
 # Filtering recommendations and user segments
-<a name="filter"></a>
 
 When getting recommendations with a domain recommender or custom campaign, you can filter results based on custom criteria. For example, you might not want to recommend products that a user has already purchased or recommend only items for a particular age group. 
 

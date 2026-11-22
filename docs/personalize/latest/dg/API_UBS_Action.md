@@ -1,7 +1,6 @@
 
 
 # Action
-<a name="API_UBS_Action"></a>
 
 Represents action metadata added to an Action dataset using the `PutActions` API. For more information see [Importing actions individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html). 
 

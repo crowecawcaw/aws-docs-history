@@ -1,7 +1,6 @@
 
 
 # SolutionVersion
-<a name="API_SolutionVersion"></a>
 
 An object that provides information about a specific version of a [Solution](https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html) in a Custom dataset group.
 

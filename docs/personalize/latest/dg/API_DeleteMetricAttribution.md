@@ -1,7 +1,6 @@
 
 
 # DeleteMetricAttribution
-<a name="API_DeleteMetricAttribution"></a>
 
 Deletes a metric attribution.
 

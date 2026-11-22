@@ -1,7 +1,6 @@
 
 
 # Specifying resources with AWS CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
  Amazon Personalize is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you can specify (such as Amazon Personalize dataset groups). CloudFormation then provisions and configures those resources for you. 
 
@@ -36,7 +35,7 @@ Amazon Personalize supports specifying datasets, dataset groups, dataset import 
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "AWSTemplateFormatVersion":"2010-09-09",
    "Resources":{
@@ -53,7 +52,7 @@ Amazon Personalize supports specifying datasets, dataset groups, dataset import 
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MyDatasetGroup:
@@ -70,7 +69,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
@@ -97,7 +96,7 @@ Resources:
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MyDataset:
@@ -122,7 +121,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Resources": {
@@ -140,7 +139,7 @@ Resources:
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MySchema:
@@ -162,7 +161,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Resources": {
@@ -184,7 +183,7 @@ Resources:
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   MySolution:

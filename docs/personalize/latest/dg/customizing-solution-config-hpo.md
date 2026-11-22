@@ -1,7 +1,6 @@
 
 
 # Hyperparameters and HPO
-<a name="customizing-solution-config-hpo"></a>
 
 **Important**  
 By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](updating-solution.md) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
@@ -12,7 +11,7 @@ Hyperparameters are specified using the `algorithmHyperParameters` key that is p
 
 A condensed version of the `CreateSolution` request is below. The example includes the `solutionConfig` object. You use `solutionConfig` to override the default parameters of a recipe. 
 
-```
+```json
 {
   "name": "string",
   "recipeArn": "string",
@@ -55,7 +54,7 @@ Hyperparameters can be categorical, continuous, or integer-valued. The `hpoConfi
 
 The following code shows how to create a solution with HPO enabled using the AWS SDK for Python (Boto3). The solution in the example uses the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) recipe and has HPO set to `true`. The code provides a value for `hidden_dimension` and the `categoricalHyperParameterRanges` and `integerHyperParameterRanges`. The `continousHyperParameterRange` is empty and the `hpoResourceConfig` sets the `maxNumberOfTrainingJobs` and `maxParallelTrainingJobs`. 
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')

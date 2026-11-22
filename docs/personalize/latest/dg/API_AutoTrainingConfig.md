@@ -1,7 +1,6 @@
 
 
 # AutoTrainingConfig
-<a name="API_AutoTrainingConfig"></a>
 
 The automatic training configuration to use when `performAutoTraining` is true.
 

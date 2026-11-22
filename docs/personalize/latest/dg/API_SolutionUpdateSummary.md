@@ -1,7 +1,6 @@
 
 
 # SolutionUpdateSummary
-<a name="API_SolutionUpdateSummary"></a>
 
 Provides a summary of the properties of a solution update. For a complete listing, call the [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html) API.
 

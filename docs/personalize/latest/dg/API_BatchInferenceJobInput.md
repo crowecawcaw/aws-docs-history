@@ -1,7 +1,6 @@
 
 
 # BatchInferenceJobInput
-<a name="API_BatchInferenceJobInput"></a>
 
 The input configuration of a batch inference job.
 

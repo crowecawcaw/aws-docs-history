@@ -1,7 +1,6 @@
 
 
 # Creating a batch inference job
-<a name="creating-batch-inference-job"></a>
 
  Create a batch inference job to get batch item recommendations for users based on input data from Amazon S3. The input data can be a list of users or items (or both) in JSON format. You can create a batch inference job with the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs. 
 
@@ -101,7 +100,7 @@ To generate themes for similar items, you must use the Similar-Items recipe and 
 
 The following code creates a batch inference job that generates recommendations with themes. Leave the `batch-inference-job-mode` set to `THEME_GENERATION`. Replace `COLUMN_NAME` with the name of the column that stores your item name data. 
 
-```
+```json
 aws personalize create-batch-inference-job \
 --job-name {{Themed batch job name}} \
 --solution-version-arn {{Solution version ARN}} \
@@ -136,7 +135,7 @@ We recommend using a different location for your output data (either a folder or
 
 The example includes optional User-Personalization recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration. For more information, see [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md). 
 
-```
+```python
 import boto3
 
 personalize_rec = boto3.client(service_name='personalize')
@@ -165,7 +164,7 @@ personalize_rec.create_batch_inference_job (
 
 The example includes optional User-Personalization recipe specific `itemExplorationConfig` fields: `explorationWeight` and `explorationItemAgeCutOff`. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration. For more information, see [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md). 
 
-```
+```java
 public static String createPersonalizeBatchInferenceJob(PersonalizeClient personalizeClient,
                                                         String solutionVersionArn,
                                                         String jobName,
@@ -256,7 +255,7 @@ public static String createPersonalizeBatchInferenceJob(PersonalizeClient person
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";
@@ -308,7 +307,7 @@ To generate themes for similar items, you must use the Similar-Items recipe and 
 
 The following code creates a batch inference job that generates recommendations with themes. Leave the `batchInferenceJobMode` set to `"THEME_GENERATION"`. Replace `COLUMNN_NAME` with the name of the column that stores your item name data. 
 
-```
+```python
 import boto3
 
 personalize_rec = boto3.client(service_name='personalize')

@@ -1,7 +1,6 @@
 
 
 # ActionInteraction
-<a name="API_UBS_ActionInteraction"></a>
 
 Represents an action interaction event sent using the `PutActionInteractions` API.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started (AWS CLI)
-<a name="getting-started-cli"></a>
 
 In this exercise, you use the AWS Command Line Interface (AWS CLI) to explore Amazon Personalize. You create a campaign that returns movie recommendations for a given user ID.
 
@@ -21,13 +20,13 @@ Follow the steps to create a dataset group, add a dataset to the group, and then
 
 1. Create a dataset group by running the following command. You can encrypt the dataset group by passing a [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) key ARN and the ARN of an IAM role that has access permissions to that key as input parameters. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md).
 
-   ```
+   ```cmd
    aws personalize create-dataset-group --name MovieRatingDatasetGroup --kms-key-arn {{arn:aws:kms:us-west-2:01234567890:key/1682a1e7-a94d-4d92-bbdf-837d3b62315e}} --role-arn {{arn:aws:iam::01234567890:KMS-key-access}}
    ```
 
    The dataset group ARN is displayed, for example:
 
-   ```
+   ```json
    {
      "datasetGroupArn": "arn:aws:personalize:us-west-2:acct-id:dataset-group/MovieRatingDatasetGroup"
    }
@@ -35,14 +34,14 @@ Follow the steps to create a dataset group, add a dataset to the group, and then
 
    Use the `describe-dataset-group` command to display the dataset group you created, specifying the returned dataset group ARN.
 
-   ```
+   ```cmd
    aws personalize describe-dataset-group \
    --dataset-group-arn arn:aws:personalize:us-west-2:{{acct-id}}:dataset-group/MovieRatingDatasetGroup
    ```
 
    The dataset group and its properties are displayed, for example:
 
-   ```
+   ```json
    {
        "datasetGroup": {
            "name": "MovieRatingDatasetGroup",
@@ -58,7 +57,7 @@ Wait until the dataset group's `status` shows as ACTIVE before creating a datase
 
    If you don't remember the dataset group ARN, use the `list-dataset-groups` command to display all the dataset groups that you created, along with their ARNs.
 
-   ```
+   ```cmd
    aws personalize list-dataset-groups
    ```
 **Note**  
@@ -66,7 +65,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Create a schema file in JSON format by saving the following code to a file named `MovieRatingSchema.json`. The schema matches the headers you previously added to `ratings.csv`. The schema name is `Interactions`, which matches one of the types of datasets recognized by Amazon Personalize. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md).
 
-   ```
+   ```json
    {
      "type": "record",
      "name": "Interactions",
@@ -91,7 +90,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Create a schema by running the following command. Specify the file you saved in the previous step. The example shows the file as belonging to the current folder. For more information about the API, see [CreateSchema](API_CreateSchema.md).
 
-   ```
+   ```json
    aws personalize create-schema \
      --name MovieRatingSchema \
      --schema file://MovieRatingSchema.json
@@ -99,7 +98,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
    The schema Amazon Resource Name (ARN) is displayed, for example:
 
-   ```
+   ```json
    {
      "schemaArn": "arn:aws:personalize:us-west-2:acct-id:schema/MovieRatingSchema"
    }
@@ -107,7 +106,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Create an empty dataset by running the following command. Provide the dataset group ARN and schema ARN that were returned in the previous steps. The `dataset-type` must match the schema `name` from the previous step. For more information about the API, see [CreateDataset](API_CreateDataset.md).
 
-   ```
+   ```json
    aws personalize create-dataset \
      --name MovieRatingDataset \
      --dataset-group-arn arn:aws:personalize:us-west-2:{{acct-id}}:dataset-group/MovieRatingDatasetGroup \
@@ -117,7 +116,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
    The dataset ARN is displayed, for example:
 
-   ```
+   ```json
    {
      "datasetArn": "arn:aws:personalize:us-west-2:acct-id:dataset/MovieRatingDatasetGroup/INTERACTIONS"
    }
@@ -127,7 +126,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
    1. Create a dataset import job by running the following command. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps. Supply the AWS Identity and Access Management (IAM) role ARN you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions). For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md).
 
-      ```
+      ```cmd
       aws personalize create-dataset-import-job \
         --job-name MovieRatingImportJob \
         --dataset-arn arn:aws:personalize:us-west-2:{{acct-id}}:dataset/MovieRatingDatasetGroup/INTERACTIONS \
@@ -137,7 +136,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
       The dataset import job ARN is displayed, for example:
 
-      ```
+      ```json
       {
         "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/MovieRatingImportJob"
       }
@@ -145,14 +144,14 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
    1. Check the status by using the `describe-dataset-import-job` command. Provide the dataset import job ARN that was returned in the previous step. For more information about the API, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md).
 
-      ```
+      ```cmd
       aws personalize describe-dataset-import-job \
         --dataset-import-job-arn arn:aws:personalize:us-west-2:{{acct-id}}:dataset-import-job/MovieRatingImportJob
       ```
 
       The properties of the dataset import job, including its status, are displayed. Initially, the `status` shows as CREATE PENDING, for example:
 
-      ```
+      ```json
       {
         "datasetImportJob": {
             "jobName": "MovieRatingImportJob",
@@ -182,7 +181,7 @@ You train a model using a recipe and your training data. Amazon Personalize prov
 
 1. Create the configuration for training a model by running the following command. This command creates a solution that uses automatic training. It automatically creates a new solution version every seven days (the default).
 
-   ```
+   ```cmd
    aws personalize create-solution \
      --name MovieSolution \
      --dataset-group-arn arn:aws:personalize:us-west-2:{{acct-id}}:dataset-group/MovieRatingDatasetGroup \
@@ -193,7 +192,7 @@ You train a model using a recipe and your training data. Amazon Personalize prov
 
    The solution ARN is displayed, for example:
 
-   ```
+   ```json
    {
      "solutionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution"
    }
@@ -201,14 +200,14 @@ You train a model using a recipe and your training data. Amazon Personalize prov
 
 1. Check the *create* status using the `describe-solution` command. Provide the solution ARN that was returned in the previous step. For more information about the API, see [DescribeSolution](API_DescribeSolution.md).
 
-   ```
+   ```cmd
    aws personalize describe-solution \
      --solution-arn arn:aws:personalize:us-west-2:{{acct-id}}:solution/MovieSolution
    ```
 
    The properties of the solution and the create `status` are displayed. For example:
 
-   ```
+   ```json
    {      
      "solution": {
          "name": "MovieSolution",
@@ -235,20 +234,20 @@ You train a model using a recipe and your training data. Amazon Personalize prov
 
 1.  With automatic training, solution version training starts within one after the solution is ACTIVE. After training starts, you can get the solution version's Amazon Resource Name (ARN) with the following [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html) command: 
 
-   ```
+   ```cmd
    aws personalize list-solution-versions --solution-arn arn:aws:personalize:us-west-2:{{acct-id}}:solution/MovieSolution
    ```
 
 1. Check the *training* status of the solution version by using the `describe-solution-version` command. Provide the solution version ARN that was returned in the previous step. For more information about the API, see [DescribeSolutionVersion](API_DescribeSolutionVersion.md).
 
-   ```
+   ```cmd
    aws personalize describe-solution-version \
      --solution-version-arn arn:aws:personalize:us-west-2:{{acct-id}}:solution/MovieSolution/{{version-id}}
    ```
 
    The properties of the solution version and the training `status` are displayed. Initially, the status shows as CREATE PENDING, for example:
 
-   ```
+   ```json
    {
      "solutionVersion": {
          "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution/<version-id>",
@@ -266,14 +265,14 @@ Training takes time. Wait until training is complete (the *training* status of t
 
 1. You can validate the performance of the solution version by reviewing its metrics. Get the metrics for the solution version by running the following command. Provide the solution version ARN that was returned previously. For more information about the API, see [GetSolutionMetrics](API_GetSolutionMetrics.md).
 
-   ```
+   ```cmd
    aws personalize get-solution-metrics \
      --solution-version-arn arn:aws:personalize:us-west-2:{{acct-id}}:solution/MovieSolution/{{version-id}}
    ```
 
    A sample response is shown:
 
-   ```
+   ```json
    {
      "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/www-solution/<version-id>",
      "metrics": {
@@ -296,7 +295,7 @@ Before you can get recommendations, you must deploy a solution version. Deployin
 
 1. Create a campaign by running the following command. Provide the solution version ARN that was returned in the previous step. For more information about the API, see [CreateCampaign](API_CreateCampaign.md).
 
-   ```
+   ```cmd
    aws personalize create-campaign \
      --name MovieRecommendationCampaign \
      --solution-version-arn arn:aws:personalize:us-west-2:{{acct-id}}:solution/MovieSolution/{{version-id}} \
@@ -305,7 +304,7 @@ Before you can get recommendations, you must deploy a solution version. Deployin
 
    A sample response is shown:
 
-   ```
+   ```json
    {
      "campaignArn": "arn:aws:personalize:us-west-2:acct-id:campaign/MovieRecommendationCampaign"
    }
@@ -313,14 +312,14 @@ Before you can get recommendations, you must deploy a solution version. Deployin
 
 1. Check the deployment status by running the following command. Provide the campaign ARN that was returned in the previous step. For more information about the API, see [DescribeCampaign](API_DescribeCampaign.md).
 
-   ```
+   ```cmd
    aws personalize describe-campaign \
      --campaign-arn arn:aws:personalize:us-west-2:{{acct-id}}:campaign/MovieRecommendationCampaign
    ```
 
    A sample response is shown:
 
-   ```
+   ```json
    {
      "campaign": { 
          "name": "MovieRecommendationCampaign",
@@ -345,7 +344,7 @@ Get recommendations by running the `get-recommendations` command. Provide the ca
 Not all recipes support the `GetRecommendations` API. For more information, see [Choosing a recipe](working-with-predefined-recipes.md).  
 The AWS CLI command you call in this step, `personalize-runtime`, is different than in previous steps.
 
-```
+```cmd
 aws personalize-runtime get-recommendations \
   --campaign-arn arn:aws:personalize:us-west-2:{{acct-id}}:campaign/MovieRecommendationCampaign \
   --user-id 123
@@ -353,7 +352,7 @@ aws personalize-runtime get-recommendations \
 
 In response, the campaign returns a list of item recommendations (movie IDs) the user might like. The list is sorted in descending order of relevance for the user.
 
-```
+```json
 {
   "itemList": [
       {

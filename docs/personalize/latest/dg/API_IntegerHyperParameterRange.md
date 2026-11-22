@@ -1,7 +1,6 @@
 
 
 # IntegerHyperParameterRange
-<a name="API_IntegerHyperParameterRange"></a>
 
 Provides the name and range of an integer-valued hyperparameter.
 

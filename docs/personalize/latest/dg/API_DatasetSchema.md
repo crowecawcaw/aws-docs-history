@@ -1,7 +1,6 @@
 
 
 # DatasetSchema
-<a name="API_DatasetSchema"></a>
 
 Describes the schema for a dataset. For more information on schemas, see [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
 

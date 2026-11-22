@@ -1,7 +1,6 @@
 
 
 # Recording a single item interaction event
-<a name="putevents-example"></a>
 
 After you create an *Item interactions dataset* and an [event tracker](event-get-tracker.md) for your dataset group, you are ready to record item interaction events. The following example shows a `PutEvents` operation that passes one item interaction event. The corresponding schema is shown, along with an example row from the Item interactions dataset.
 
@@ -13,7 +12,7 @@ The `trackingId` comes from the event tracker you created in [Creating an item i
 
 **Corresponding dataset columns**
 
-```
+```cmd
 Dataset columns: USER_ID, ITEM_ID, TIMESTAMP, EVENT_TYPE
 Example data: user123, item-xyz, 1543631760, click
 ```
@@ -23,7 +22,7 @@ Example data: user123, item-xyz, 1543631760, click
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize_events = boto3.client(service_name='personalize-events')
@@ -43,7 +42,7 @@ personalize_events.put_events(
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { PutEventsCommand } from "@aws-sdk/client-personalize-events";
 import { personalizeEventsClient } from "./libs/personalizeClients.js";
@@ -85,7 +84,7 @@ run();
 ------
 #### [ AWS CLI ]
 
-```
+```json
 aws personalize-events put-events \
     --tracking-id tracking_id \
     --user-id {{USER_ID}} \

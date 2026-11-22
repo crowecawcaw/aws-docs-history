@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize Search Ranking plugin requirements
-<a name="plugin-requirements"></a>
 
 Before you start personalizing results from OpenSearch, note the following guidelines and requirements for the Amazon Personalize Search Ranking plugin:
 + You must use OpenSearch version 2.9.0 or later. If you use Amazon OpenSearch Service, your domain must use version 2.9 or later.

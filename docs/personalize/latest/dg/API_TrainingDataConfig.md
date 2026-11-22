@@ -1,7 +1,6 @@
 
 
 # TrainingDataConfig
-<a name="API_TrainingDataConfig"></a>
 
 The training data configuration to use when creating a domain recommender or custom solution version (trained model).
 

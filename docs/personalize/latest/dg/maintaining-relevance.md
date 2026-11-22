@@ -1,7 +1,6 @@
 
 
 # Maintaining recommendation relevance
-<a name="maintaining-relevance"></a>
 
  Relevant recommendations can increase user engagement, click-through rate, and conversion rate for your application as your catalogue grows. To maintain and improve the relevance of Amazon Personalize recommendations for your users, keep your data and custom resources up to date. This allows Amazon Personalize to learn from your user’s most recent behavior and include your newest items in recommendations. 
 

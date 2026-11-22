@@ -1,7 +1,6 @@
 
 
 # Filter
-<a name="API_Filter"></a>
 
 Contains information on a recommendation filter, including its ARN, status, and filter expression.
 

@@ -1,7 +1,6 @@
 
 
 # Manually installing the Amazon Personalize Search Ranking plugin on an existing OpenSearch cluster
-<a name="opensearch-manual-install"></a>
 
 If you already have an OpenSearch cluster, you can manually install the plugin on your cluster directly from the OpenSearch GitHub repository.
 
@@ -9,7 +8,7 @@ If you already have an OpenSearch cluster, you can manually install the plugin o
 
 1.  Use the following command to start your OpenSearch cluster: 
 
-   ```
+   ```cmd
    bin/opensearch
    ```
 

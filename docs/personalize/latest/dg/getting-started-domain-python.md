@@ -1,7 +1,6 @@
 
 
 # Getting started with a Domain dataset group (SDK for Python (Boto3))
-<a name="getting-started-domain-python"></a>
 
 This tutorial shows you how to use the SDK for Python (Boto3) to create a Domain dataset group for the VIDEO\_ON\_DEMAND domain. In this tutorial, you create a recommender for the *Top picks for you* use case.
 
@@ -29,7 +28,7 @@ In the following steps, you verify your environment and create SDK for Python (B
 
 After you complete the prerequisites, run the following Python example to confirm that your environment is configured correctly. This code also creates the Amazon Personalize boto3 clients that you use in this tutorial. If your environment is configured correctly, a list of the available recipes is displayed and you can run the other examples in this tutorial.
 
-```
+```python
 import boto3
 
 personalizeRt = boto3.client('personalize-runtime')
@@ -48,7 +47,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Use the following code to create a schema in Amazon Personalize. Replace `gs-domain-interactions-schema` with a name for the schema. 
 
-   ```
+   ```py
    import json
    schema = {
      "type": "record",
@@ -87,7 +86,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Create a dataset group with the following code. Replace `dataset group name` with a name for the dataset group.
 
-   ```
+   ```py
    response = personalize.create_dataset_group(
      name = '{{dataset group name}}',
      domain = 'VIDEO_ON_DEMAND'
@@ -103,7 +102,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Create an Item interactions dataset in your new dataset group with the following code. Give the dataset a name and provide the `schema_arn` and `dataset_group_arn` from the previous steps.
 
-   ```
+   ```python
    response = personalize.create_dataset(
        name = '{{interactions-dataset-name}}',
        schemaArn = interactions_schema_arn,
@@ -118,7 +117,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
    Pass the following as parameters: a name for the job, the `dataset_arn` from the previous step, the Amazon S3 bucket path (`s3://{{bucket name}}/{{folder name}}/ratings.csv`) where you stored the training data, and your IAM service role's ARN. You created this role as part of the [Getting started prerequisites](gs-prerequisites.md). Amazon Personalize needs permission to access the bucket. For information on granting access, see [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md). 
 
-   ```
+   ```python
    import time
    response = personalize.create_dataset_import_job(
        jobName = '{{JobName}}',
@@ -155,7 +154,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 After your dataset import job completes, you are ready create a recommender. Use the following code to create a recommender. Pass the following as parameters: a name for the recommender, your dataset group's Amazon Resource Name (ARN), and `arn:aws:personalize:::recipe/aws-vod-top-picks` for the recipe ARN. The code uses the describe\_recommender method to track the status of the recommender.
 
-```
+```python
 import time
 create_recommender_response = personalize.create_recommender(
   name = 'gs-python-top-picks',
@@ -192,7 +191,7 @@ while time.time() < max_time:
 
 After you create a recommender, you use it to get recommendations with the following code. Pass as parameters the Amazon Resource Name (ARN) of the recommender you created in the previous step, and a user ID (for example, `123`). The method prints the list of recommended items. 
 
-```
+```python
 response = personalizeRt.get_recommendations(
     recommenderArn = "arn:aws:personalize:us-west-2:014025156336:recommender/gs-python-top-picks-89",
     userId = '123'

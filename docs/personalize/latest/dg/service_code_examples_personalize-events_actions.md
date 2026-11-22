@@ -1,7 +1,6 @@
 
 
 # Actions for Amazon Personalize Events using AWS SDKs
-<a name="service_code_examples_personalize-events_actions"></a>
 
 The following code examples demonstrate how to perform individual Amazon Personalize Events actions with AWS SDKs. Each example includes a link to GitHub, where you can find instructions for setting up and running the code. 
 

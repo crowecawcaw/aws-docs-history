@@ -1,7 +1,6 @@
 
 
 # Configuring permissions when resources are in the same account
-<a name="service-role-managed"></a>
 
 If your OpenSearch Service and Amazon Personalize resources are in the same account, you must create an IAM service role for OpenSearch Service. This role must have permission to get a personalized ranking from your Amazon Personalize campaign. The following is required to grant your OpenSearch Service service role permission to get a personalized ranking from your Amazon Personalize campaign:
 + The role's trust policy must grant `AssumeRole` permissions for OpenSearch Service. For a trust policy example, see [Trust policy example](#opensearch-granting-access-managed-trust-policy). 
@@ -25,7 +24,7 @@ The following trust policy example grants `AssumeRole` permissions for OpenSearc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -53,7 +52,7 @@ The following policy example grants the role the minimum permissions to get a pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

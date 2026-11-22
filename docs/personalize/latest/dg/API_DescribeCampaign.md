@@ -1,7 +1,6 @@
 
 
 # DescribeCampaign
-<a name="API_DescribeCampaign"></a>
 
 Describes the given campaign, including its status.
 

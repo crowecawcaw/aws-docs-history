@@ -1,7 +1,6 @@
 
 
 # DatasetSummary
-<a name="API_DatasetSummary"></a>
 
 Provides a summary of the properties of a dataset. For a complete listing, call the [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html) API.
 

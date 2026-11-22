@@ -1,7 +1,6 @@
 
 
 # ListSchemas
-<a name="API_ListSchemas"></a>
 
 Returns the list of schemas associated with the account. The response provides the properties for each schema, including the Amazon Resource Name (ARN). For more information on schemas, see [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
 

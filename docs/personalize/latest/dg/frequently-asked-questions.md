@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions for Amazon Personalize
-<a name="frequently-asked-questions"></a>
 
  The following are answers to frequently asked questions related to importing data, training, model deployment, recommendations, and filters in Amazon Personalize. 
 
@@ -111,7 +110,7 @@ For ECOMMERCE Domain dataset groups, if you create a recommender with the [Recom
 
 For other Domain dataset group use cases or custom resources, use a filter to remove purchased items. Add a `Purchased` event type attribute to your data, record *Purchase* events with the `PutItems` operation, and create a filter that removes purchased items from recommendations. For example:
 
-```
+```sql
 EXCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("purchased")
 ```
 

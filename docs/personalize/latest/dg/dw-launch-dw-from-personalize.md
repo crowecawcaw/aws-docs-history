@@ -1,7 +1,6 @@
 
 
 # Launching Data Wrangler from Amazon Personalize
-<a name="dw-launch-dw-from-personalize"></a>
 
 To launch Data Wrangler from Amazon Personalize, you use the Amazon Personalize console to configure a SageMaker AI domain and launch Data Wrangler. 
 

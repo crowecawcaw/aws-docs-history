@@ -1,7 +1,6 @@
 
 
 # Deleting users and their data with a data deletion job
-<a name="delete-records"></a>
 
  After you import data, you can delete users and their data, including their metadata and interactions data, from a dataset group. You might delete user data as part of a compliance program, or to address user deletion requests, or to keep your data current as your user base changes.
 
@@ -116,7 +115,7 @@ The role you use must have permission to perform the `GetObject` and `ListBucket
 
  To delete users with the AWS CLI, use the `create-data-deletion-job` command. This command uses the CreateDataDeletion API operation. The following code shows how to create a data deletion job. To use the code, update it to specify the jobs name, the IAM role that you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions), and the Amazon S3 location of your data. You prepared this file in [Preparing a list of users to delete](#prepare-deletion-input-file). 
 
-```
+```json
 aws personalize create-data-deletion-job \
 --job-name {{deletion job name}} \
 --dataset-group-arn {{dataset group ARN}} \
@@ -135,7 +134,7 @@ If the job fails for any reason, we recommend creating another data deletion job
 
  To delete users with the AWS SDKs, use the [CreateDataDeletionJob](API_CreateDataDeletionJob.md) API operation. The following code shows how to create a data deletion job. To use the code, update it to specify the jobs name, the IAM role that you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions), and the Amazon S3 location of your data. You prepared this file in [Preparing a list of users to delete](#prepare-deletion-input-file). 
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')

@@ -1,7 +1,6 @@
 
 
 # DefaultHyperParameterRanges
-<a name="API_DefaultHyperParameterRanges"></a>
 
 Specifies the hyperparameters and their default ranges. Hyperparameters can be categorical, continuous, or integer-valued.
 

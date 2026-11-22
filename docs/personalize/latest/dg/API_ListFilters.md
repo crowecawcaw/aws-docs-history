@@ -1,7 +1,6 @@
 
 
 # ListFilters
-<a name="API_ListFilters"></a>
 
 Lists all filters that belong to a given dataset group.
 

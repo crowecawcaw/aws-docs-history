@@ -1,7 +1,6 @@
 
 
 # Users dataset requirements (ECOMMERCE domain)
-<a name="ECOMMERCE-users-dataset"></a>
 
  A *Users dataset* stores metadata about your users. This might include information such as age, gender, and loyalty membership for each user. For more information on the types of user data you can import into Amazon Personalize, see [User metadata](users-datasets.md). For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). These requirements apply to all schemas, regardless of domain. 
 
@@ -25,7 +24,7 @@ Categorical values can have at most 1000 characters. If you have a user with a c
 
  The following is the default ECOMMERCE domain schema for Users datasets with a CATEGORY field as the required metadata field. 
 
-```
+```json
 {
 
   "type": "record",

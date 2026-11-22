@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize
-<a name="API_Operations_Amazon_Personalize"></a>
 
 The following actions are supported by Amazon Personalize:
 +  [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) 

@@ -1,7 +1,6 @@
 
 
 # Creating a pipeline in Amazon OpenSearch Service
-<a name="managed-opensearch-plugin-pipeline-example"></a>
 
 After you [install the Amazon Personalize Search Ranking plugin](open-search-install-managed.md), you're ready to configure it by creating an OpenSearch search pipeline. 
 
@@ -11,7 +10,7 @@ After you create a search pipeline with a `personalized_search_ranking` response
 
 You can use the following Python code to create a search pipeline with a `personalized_search_ranking` response processor on an OpenSearch Service domain. Replace `domain endpoint` with your domain endpoint URL. For example: `https://<domain name>.<AWS region>.es-staging.amazonaws.com`. For a complete explanation of each `personalized_search_ranking` parameter, see [Fields for the `personalized_search_ranking` response processor](opensearch-plugin-pipeline-fields.md). 
 
-```
+```python
 import requests
 from requests_auth_aws_sigv4 import AWSSigV4
 

@@ -1,7 +1,6 @@
 
 
 # Evaluating an Amazon Personalize solution version with metrics
-<a name="working-with-training-metrics"></a>
 
  You can evaluate the performance of your solution version through offline and online metrics. *Online metrics* are the empirical results you observe in your users' interactions with real-time recommendations. For example, you might record your users' click-through rate as they browse your catalog. You are responsible for generating and recording any online metrics. 
 
@@ -55,13 +54,13 @@ To view recommender metrics in the console, you navigate to the details page for
 
 You retrieve the metrics for a specific solution version by calling the [GetSolutionMetrics](API_GetSolutionMetrics.md) operation. The following code shows how to retrieve metrics with the AWS CLI. 
 
-```
+```cmd
 personalize get-solution-metrics --solution-version-arn {{solution version ARN}}
 ```
 
 The following is an example the output from a solution version created using the [User-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe with an additional optimization objective.
 
-```
+```json
 {
     "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/SolutionName/<version-id>",
     "metrics": {
@@ -88,7 +87,7 @@ You retrieve the metrics for a specific solution version by calling the [GetSolu
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 personalize = boto3.client('personalize')
@@ -102,7 +101,7 @@ print(response['metrics'])
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static void getSolutionVersionMetrics(PersonalizeClient personalizeClient, String solutionVersionArn) {
 
     try {
@@ -122,7 +121,7 @@ public static void getSolutionVersionMetrics(PersonalizeClient personalizeClient
 
 The following is an example the output from a solution version created using the [User-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe with an additional optimization objective.
 
-```
+```json
 {
     "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution/<version-id>",
     "metrics": {

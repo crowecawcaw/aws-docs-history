@@ -1,7 +1,6 @@
 
 
 # Getting recommendations from Amazon Personalize
-<a name="getting-recommendations"></a>
 
  After you [create a recommender](creating-recommenders.md) or [create a campaign](campaigns.md), you are ready to get recommendations. Depending on your resources, you can get recommendations in real time or with a batch workflow. 
 +  With custom resources, you can get real-time recommendations or batch recommendations. For real-time recommendations, you must create a custom campaign before you get recommendations. For batch recommendations, you don't need to create a campaign.

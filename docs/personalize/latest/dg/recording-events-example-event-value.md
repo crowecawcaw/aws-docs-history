@@ -1,7 +1,6 @@
 
 
 # Recording multiple item interaction events with event value data
-<a name="recording-events-example-event-value"></a>
 
 After you create an *Item interactions dataset* and an [event tracker](event-get-tracker.md) for your dataset group, you are ready to record item interaction events. The following example shows how to record multiple item interaction events with different event types and different event values.
 
@@ -10,7 +9,7 @@ After you create an *Item interactions dataset* and an [event tracker](event-get
 ------
 #### [ Python ]
 
-```
+```py
 import boto3
 import json
 
@@ -43,7 +42,7 @@ personalize_events.put_events(
 ------
 #### [ AWS CLI ]
 
-```
+```json
 aws personalize-events put-events \
     --tracking-id {{tracking_id}} \
     --user-id user555 \
@@ -64,7 +63,7 @@ aws personalize-events put-events \
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static void putMultipleEvents(PersonalizeEventsClient personalizeEventsClient, 
                             String trackingId, 
                             String sessionId, 

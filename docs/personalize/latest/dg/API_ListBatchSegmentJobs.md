@@ -1,7 +1,6 @@
 
 
 # ListBatchSegmentJobs
-<a name="API_ListBatchSegmentJobs"></a>
 
 Gets a list of the batch segment jobs that have been performed off of a solution version that you specify.
 

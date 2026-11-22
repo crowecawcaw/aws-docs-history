@@ -1,7 +1,6 @@
 
 
 # User
-<a name="API_UBS_User"></a>
 
 Represents user metadata added to a Users dataset using the `PutUsers` API. For more information see [Importing users individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
 

@@ -1,7 +1,6 @@
 
 
 # Popularity-Count recipe
-<a name="native-recipe-popularity"></a>
 
 Popularity-Count recommends the most popular items based your interactions data. The most popular items are the items with the most interactions data from unique users. The recipe returns the same popular items for all users. Popularity-Count is a good baseline for comparing with other recipes using the evaluation metrics Amazon Personalize generates when you create a solution version. For more information, see [Evaluating an Amazon Personalize solution version with metrics](working-with-training-metrics.md). 
 

@@ -1,7 +1,6 @@
 
 
 # DefaultIntegerHyperParameterRange
-<a name="API_DefaultIntegerHyperParameterRange"></a>
 
 Provides the name and default range of a integer-valued hyperparameter and whether the hyperparameter is tunable. A tunable hyperparameter can have its value determined during hyperparameter optimization (HPO).
 

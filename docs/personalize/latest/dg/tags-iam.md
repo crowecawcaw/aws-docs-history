@@ -1,7 +1,6 @@
 
 
 # Using tags in IAM policies
-<a name="tags-iam"></a>
 
 After you start implementing tags, you can apply tag-based, resource-level permissions to AWS Identity and Access Management (IAM) policies and API operations. This includes operations that support adding tags to resources when resources are created. By using tags in this way, you can implement granular control of which groups and users in your AWS account have permission to create and tag resources, and which groups and users have permission to create, update, and remove tags more generally.
 
@@ -12,7 +11,7 @@ For example, you can create a policy that allows a user to have full access to a
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -40,7 +39,7 @@ The following example shows how to create a policy to allow creating and deletin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

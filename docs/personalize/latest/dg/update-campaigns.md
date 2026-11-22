@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon Personalize campaign's configuration
-<a name="update-campaigns"></a>
 
 To change your campaign's [Minimum provisioned TPS](campaigns.md#min-tps-auto-scaling), manually deploy a new solution version, or modify a campaign's configuration, such as turning on the option to include metadata in recommendations, you must manually update the campaign. 
 
@@ -48,7 +47,7 @@ To deploy a new solution version, change your campaign's [Minimum provisioned TP
 
 Replace `campaign arn` with the Amazon Resource Name (ARN) of the campaign you want to update. Replace `new solution version arn` with the solution version you want to deploy. 
 
-```
+```json
 aws personalize update-campaign \
 --campaign-arn {{campaign arn}} \
 --solution-version-arn {{new solution version arn}} \
@@ -65,7 +64,7 @@ To deploy a new solution version, change your campaign's [Minimum provisioned TP
 
 Use the following `update_campaign` method to deploy a new solution version. Replace `campaign arn` with the Amazon Resource Name (ARN) of the campaign you want to update, replace the `new solution version arn` with the new solution version ARN and optionally change the `minProvisionedTPS`.
 
-```
+```python
 import boto3
 
 personalize = boto3.client('personalize')
@@ -89,7 +88,7 @@ print('Status: ' + description['status'])
 
 Use the following `updateCampaign` method to update a campaign to use a new solution version. Pass as parameters an Amazon Personalize service client, the new solution version's Amazon Resource Name (ARN), and the [Minimum provisioned TPS](campaigns.md#min-tps-auto-scaling). 
 
-```
+```java
 public static void updateCampaign(PersonalizeClient personalizeClient, 
                                 String campaignArn,
                                 String solutionVersionArn, 

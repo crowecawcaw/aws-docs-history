@@ -1,7 +1,6 @@
 
 
 # BatchSegmentJobInput
-<a name="API_BatchSegmentJobInput"></a>
 
 The input configuration of a batch segment job.
 

@@ -1,7 +1,6 @@
 
 
 # HRNN-Coldstart recipe (legacy)
-<a name="native-recipe-hrnn-coldstart"></a>
 
 **Note**  
 Legacy HRNN recipes are no longer available. This documentation is for reference purposes.  

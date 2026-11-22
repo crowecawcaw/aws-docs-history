@@ -1,7 +1,6 @@
 
 
 # Getting started tutorials
-<a name="getting-started"></a>
 
  The following sections help you get started using Amazon Personalize with the Amazon Personalize console, AWS CLI, and AWS SDKs. The tutorials use historical data that consists of 100,000 movie ratings on 9,700 movies from 600 users.
 

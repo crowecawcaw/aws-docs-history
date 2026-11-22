@@ -1,7 +1,6 @@
 
 
 # DataDeletionJob
-<a name="API_DataDeletionJob"></a>
 
 Describes a job that deletes all references to specific users from an Amazon Personalize dataset group in batches. For information about creating a data deletion job, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
 

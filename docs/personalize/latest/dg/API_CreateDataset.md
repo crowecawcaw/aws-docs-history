@@ -1,7 +1,6 @@
 
 
 # CreateDataset
-<a name="API_CreateDataset"></a>
 
 Creates an empty dataset and adds it to the specified dataset group. Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
 

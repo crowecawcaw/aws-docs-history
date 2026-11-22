@@ -1,7 +1,6 @@
 
 
 # UpdateMetricAttribution
-<a name="API_UpdateMetricAttribution"></a>
 
 Updates a metric attribution.
 

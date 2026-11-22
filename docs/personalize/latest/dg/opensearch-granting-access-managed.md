@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon OpenSearch Service permissions
-<a name="opensearch-granting-access-managed"></a>
 
 If you use Amazon OpenSearch Service, you must be able to access your Amazon Personalize resources from your OpenSearch Service domain. 
 

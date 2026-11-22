@@ -1,7 +1,6 @@
 
 
 # RecommenderSummary
-<a name="API_RecommenderSummary"></a>
 
 Provides a summary of the properties of the recommender.
 

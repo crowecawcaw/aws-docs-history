@@ -1,7 +1,6 @@
 
 
 # Items dataset schema requirements (custom)
-<a name="item-dataset-requirements"></a>
 
  An *Items dataset* stores metadata about your items in your catalogue. This might include information such as price, genre, and availability for each item. For information about the types of item data you can import into Amazon Personalize, see [Item metadata](items-datasets.md). 
 
@@ -62,7 +61,7 @@ The following example shows how to structure an Items schema. The `ITEM_ID` fiel
 
 For this schema, the first few lines of historical data in a CSV file might look like the following.
 
-```
+```json
 ITEM_ID,GENRES,CREATION_TIMESTAMP,DESCRIPTION
 1,Adventure|Animation|Children|Comedy|Fantasy,1570003267,"This is an animated movie that features action, comedy, and fantasy. Audience is children. This movie was released in 2004."
 2,Adventure|Children|Fantasy,1571730101,"This is an adventure movie with elements of fantasy. Audience is children. This movie was release in 2010."

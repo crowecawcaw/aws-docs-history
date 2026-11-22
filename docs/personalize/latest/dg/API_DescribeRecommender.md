@@ -1,7 +1,6 @@
 
 
 # DescribeRecommender
-<a name="API_DescribeRecommender"></a>
 
 Describes the given recommender, including its status.
 

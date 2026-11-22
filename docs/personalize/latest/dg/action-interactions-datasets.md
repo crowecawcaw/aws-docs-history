@@ -1,7 +1,6 @@
 
 
 # Preparing action interaction data for training
-<a name="action-interactions-datasets"></a>
 
  If you use the [Next-Best-Action](native-recipe-next-best-action.md) custom recipe, Amazon Personalize uses action interactions data to identify user interest and predict the actions they will most likely take. An *action interaction* is an interaction involving a user and an action in your [Actions dataset](actions-datasets.md). For example, if you have an *enroll* action in your Actions dataset, and a user takes this action, you would record the user's ID, the action's ID, the timestamp, and for event type, record `TAKEN`. 
 
@@ -61,7 +60,7 @@ USER_ID,ACTION_ID,EVENT_TYPE,TIMESTAMP
 
 After you finish preparing your data, you are ready to create a schema JSON file. This file tells Amazon Personalize about the structure of your data. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). This is what the schema JSON file would look like for the above sample data.
 
-```
+```json
 {
 
   "type": "record",

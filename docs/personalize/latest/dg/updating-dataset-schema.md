@@ -1,7 +1,6 @@
 
 
 # Replacing a dataset's schema to add new columns
-<a name="updating-dataset-schema"></a>
 
  After you create an Items or Users dataset, you can replace its schema with a new or existing one. You might replace a dataset's schema if your data structure changed after you created the dataset. For example, you might have a new column of item metadata that you want Amazon Personalize to consider during training. Or you might want to add a column of data to use only when filtering recommendations. 
 
@@ -59,7 +58,7 @@ To replace a dataset's schema with the AWS CLI, you use the `update-dataset` com
 
  The following code shows how to update a dataset's schema with the AWS CLI. To replace a dataset's schema with a new one, first use the `create-schema` command. Then use the following code to replace the current schema with the new one. For information about creating a schema with the AWS CLI, see [Creating a dataset and a schema (AWS CLI)](data-prep-creating-datasets.md#data-prep-creating-ds-cli). For information about datasets and schema requirements, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). 
 
-```
+```json
 aws personalize update-dataset \
 --dataset-arn {{Dataset ARN}} \
 --schema-arn {{New schema ARN}}
@@ -74,7 +73,7 @@ To replace a dataset's schema with the AWS SDKs, you use the `UpdateDataset` API
 
 The following code shows how to replace a dataset's schema with the AWS SDK for Python (Boto3). To replace a dataset's schema with a new one, first use the [CreateSchema](API_CreateSchema.md) operation. Then use the following code to replace the current schema with the new one. For information about creating a schema with the AWS SDKs, see [Creating a dataset and a schema (AWS SDKs)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk). For information on dataset and schema requirements, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). 
 
-```
+```python
 import boto3
 
 personalize = boto3.client('personalize')

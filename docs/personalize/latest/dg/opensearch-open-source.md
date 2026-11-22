@@ -1,7 +1,6 @@
 
 
 # Personalizing results from open source Open Search with Amazon Personalize
-<a name="opensearch-open-source"></a>
 
 To personalize results open source OpenSearch, you do the following:
 

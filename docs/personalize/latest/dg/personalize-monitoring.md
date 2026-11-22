@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Personalize with Amazon CloudWatch
-<a name="personalize-monitoring"></a>
 
 With Amazon CloudWatch, you can get metrics associated with Amazon Personalize. You can set up alarms to notify you when one or more of these metrics fall outside a defined threshold. To see metrics, you can use [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/), [Amazon AWS Command Line Interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/), or the [CloudWatch API](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/).
 

@@ -1,7 +1,6 @@
 
 
 # CreateSolutionVersion
-<a name="API_CreateSolutionVersion"></a>
 
 Trains or retrains an active solution in a Custom dataset group. A solution is created using the [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) operation and must be in the ACTIVE state before calling `CreateSolutionVersion`. A new version of the solution is created every time you call this operation.
 

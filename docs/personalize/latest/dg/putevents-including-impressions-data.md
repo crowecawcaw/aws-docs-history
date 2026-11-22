@@ -1,7 +1,6 @@
 
 
 # Recording item interaction events with impressions data
-<a name="putevents-including-impressions-data"></a>
 
 If you use the [User-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe or add the IMPRESSIONS field to your schema for a dataset in a Domain dataset group, you can record impressions data in your PutEvents operation. Impressions are lists of items that were visible to a user when they interacted with (for example, clicked or watched) a particular item. Amazon Personalize uses impressions data to guide exploration, where recommendations include items with less interactions data or relevance. For information on the *implicit* and *explicit* impressions Amazon Personalize can model, see [Impressions data](interactions-datasets.md#interactions-impressions-data). 
 
@@ -15,7 +14,7 @@ To manually record impressions data for an event, list the impressions in the [P
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize_events = boto3.client(service_name='personalize-events')
@@ -40,7 +39,7 @@ personalize_events.put_events(
 
 Use the following `putEvents` method to record an event with impressions data and a recommendationId. For the impressions parameter, pass the list of itemIds as an ArrayList.
 
-```
+```java
 public static void putEvents(PersonalizeEventsClient personalizeEventsClient, 
                                 String trackingId, 
                                 String sessionId, 

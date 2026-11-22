@@ -1,7 +1,6 @@
 
 
 # Getting a personalized ranking (AWS CLI)
-<a name="get-personalized-rankings-cli"></a>
 
 The following code samples show how different variations of how to get a personalized ranking with the AWS CLI.
 
@@ -14,7 +13,7 @@ The following code samples show how different variations of how to get a persona
 
  Use the following `get-personalized-ranking` command to get a personalized ranking with the AWS CLI. Specify the Amazon Resource Name (ARN) for your campaign, the User ID for the user, and provide a list of item IDs for the items to be ranked for the user (each separated by a space). The items to be ranked must be in the data that you used to train the solution version. A list of ranked recommendations displays. Amazon Personalize considers the first item in the list of most interest to the user. 
 
-```
+```cmd
 aws personalize-runtime get-personalized-ranking \
 --campaign-arn {{Campaign ARN}} \
 --user-id {{12}} \
@@ -28,7 +27,7 @@ If you enabled metadata in recommendations for your campaign, you can specify th
 
 The following code sample shows how to specify the metadata columns as part of your request for a personalized ranking.
 
-```
+```cmd
 aws personalize-runtime get-personalized-ranking \
 --campaign-arn {{Campaign ARN}} \
 --user-id {{12}} \

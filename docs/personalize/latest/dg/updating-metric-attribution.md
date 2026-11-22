@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon Personalize metric attribution
-<a name="updating-metric-attribution"></a>
 
  When you update a metric attribution, you can add and remove metrics and modify its output configuration. You can update a metric attribution with the Amazon Personalize console, AWS Command Line Interface, or AWS SDKS. 
 
@@ -32,7 +31,7 @@ To update a metric attribution with the Amazon Personalize console, you make you
 
 After you create a metric attribution, you can use the AWS Command Line Interface (AWS CLI) to add and remove metrics and modify its output configuration. The following code shows how to remove metrics with the `update-metric-attribution` command:
 
-```
+```cmd
 aws personalize update-metric-attribution \
 --metric-attribution-arn {{metric attribution arn}} \
 --remove-metrics {{metricName1}} {{metricName2}}
@@ -40,7 +39,7 @@ aws personalize update-metric-attribution \
 
  The following code shows how to add an additional metric and specify a new output configuration:
 
-```
+```cmd
 aws personalize update-metric-attribution \
 --metric-attribution-arn {{metric attribution arn}} \
 --metrics-output-config "{\"roleArn\": \"{{new role ARN}}\", \"s3DataDestination\":{\"kmsKeyArn\":\"{{kms key ARN}}\",\"path\":\"s3://{{amzn-s3-demo-bucket2}}/{{new-folder-name}}/\"}}" \
@@ -61,7 +60,7 @@ After you create a metric attribution, you can add or remove metrics and modify 
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
             
 personalize = boto3.client('personalize')
@@ -77,7 +76,7 @@ response = personalize.update_metric_attribution(
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static void removeMetrics(PersonalizeClient client,
                                  String metricAttributionArn,
                                  String metric1Name,
@@ -104,7 +103,7 @@ public static void removeMetrics(PersonalizeClient client,
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import {UpdateMetricAttributionCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";
@@ -140,7 +139,7 @@ run();
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -169,7 +168,7 @@ response = personalize.update_metric_attribution(
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalizeClient,
                                                 String metricAttributionArn,
                                                 String newMetric1EventType,
@@ -226,7 +225,7 @@ public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalize
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import {UpdateMetricAttributionCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

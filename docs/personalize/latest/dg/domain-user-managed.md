@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon OpenSearch Service domain security
-<a name="domain-user-managed"></a>
 
 To use the plugin with OpenSearch Service, the user or role that's accessing your domain must have `PassRole` permissions for the [IAM service role for OpenSearch Service](service-role-managed.md) you just created. Also, the user or role must have permission to perform the `es:ESHttpGet` and `es:ESHttpPut` actions.
 
@@ -17,7 +16,7 @@ The following IAM policy example grants a user or role `PassRole` permissions fo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ The following IAM policy grants the minimum permissions to create pipelines and 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Exporting the training data in a dataset to Amazon S3
-<a name="export-data"></a>
 
 After you import your data into an Amazon Personalize dataset, you can export the data to an Amazon S3 bucket. You might export data to verify and inspect the data that Amazon Personalize uses to generate recommendations, view the item interaction events that you previously recorded in real time, or perform offline analysis on your data. 
 

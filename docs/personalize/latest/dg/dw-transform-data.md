@@ -1,7 +1,6 @@
 
 
 # Transforming data
-<a name="dw-transform-data"></a>
 
  To transform data in Data Wrangler, you add a **Transform** step to your data flow. Data Wrangler includes over 300 transforms that you can use to prepare your data, including a **Map columns for Amazon Personalize** transform. And you can use the general Data Wrangler transforms to fix issues such as outliers, type issues, and missing values. 
 

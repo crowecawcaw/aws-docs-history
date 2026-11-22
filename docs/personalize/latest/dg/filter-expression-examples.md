@@ -1,7 +1,6 @@
 
 
 # Filter expression examples
-<a name="filter-expression-examples"></a>
 
  Use the filter expressions in the following sections to learn how to build your own filter expressions. 
 

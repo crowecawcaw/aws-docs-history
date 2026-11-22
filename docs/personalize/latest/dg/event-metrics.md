@@ -1,7 +1,6 @@
 
 
 # Event metrics and attribution reports
-<a name="event-metrics"></a>
 
 To monitor the type and number of events sent to Amazon Personalize, use Amazon CloudWatch metrics. For more information, see [Monitoring Amazon Personalize with Amazon CloudWatch](personalize-monitoring.md). 
 
@@ -14,7 +13,7 @@ To monitor the type and number of events sent to Amazon Personalize, use Amazon 
 
  The following code shows how to provide an `eventAttributionSource` for an event in a PutEvents operation. 
 
-```
+```py
 response = personalize_events.put_events(
     trackingId = '{{eventTrackerId}}',
     userId= '{{userId}}',
@@ -35,7 +34,7 @@ print(statusCode)
 
 The following code shows how to provide a `recommendationId` for an event in a PutEvents operation.
 
-```
+```py
 response = personalize_events.put_events(
     trackingId = '{{eventTrackerId}}',
     userId= '{{userId}}',

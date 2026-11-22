@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics for Amazon Personalize
-<a name="cloudwatch-metrics"></a>
 
 This section contains information about the Amazon CloudWatch metrics available for Amazon Personalize. For more information, see [Monitoring Amazon Personalize with Amazon CloudWatch](personalize-monitoring.md).
 

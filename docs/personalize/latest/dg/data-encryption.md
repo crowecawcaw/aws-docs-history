@@ -1,7 +1,6 @@
 
 
 # Data encryption in Amazon Personalize
-<a name="data-encryption"></a>
 
 The following information explains where Amazon Personalize uses data encryption to protect your data.
 

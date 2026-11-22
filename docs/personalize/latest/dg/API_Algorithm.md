@@ -1,7 +1,6 @@
 
 
 # Algorithm
-<a name="API_Algorithm"></a>
 
 Describes a custom algorithm.
 

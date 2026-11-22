@@ -1,7 +1,6 @@
 
 
 # PredictedItem
-<a name="API_RS_PredictedItem"></a>
 
 An object that identifies an item.
 

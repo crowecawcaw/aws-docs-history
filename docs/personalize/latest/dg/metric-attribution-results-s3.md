@@ -1,7 +1,6 @@
 
 
 # Publishing metric attribution reports to Amazon S3
-<a name="metric-attribution-results-s3"></a>
 
 For all bulk data, if you provide an Amazon S3 bucket when you create your metric attribution, you can choose to publish metric reports to your Amazon S3 bucket each time you create a dataset import job for interactions data.
 
@@ -11,7 +10,7 @@ To publish metrics to Amazon S3, you provide a path to your Amazon S3 bucket in 
 
 The following is an example of how the first few rows of a metric report CSV file might appear. The metric in this example reports on the total clicks from two different recommenders over 15 minute intervals. Each recommender is identified by its Amazon Resource Name (ARN) in the EVENT\_ATTRIBUTION\_SOURCE column. 
 
-```
+```txt
 METRIC_NAME,EVENT_TYPE,VALUE,MATH_FUNCTION,EVENT_ATTRIBUTION_SOURCE,TIMESTAMP
 COUNTWATCHES,WATCH,12.0,samplecount,arn:aws:personalize:us-west-2:acctNum:recommender/recommender1Name,1666925124
 COUNTWATCHES,WATCH,112.0,samplecount,arn:aws:personalize:us-west-2:acctNum:recommender/recommender2Name,1666924224
@@ -35,7 +34,7 @@ To publish metrics to an Amazon S3 bucket with the Amazon Personalize console, c
 
 To publish metrics to an Amazon S3 bucket with the AWS Command Line Interface (AWS CLI), use the following code to create a dataset import job and provide the `publishAttributionMetricsToS3` flag. If you don't want to publish metrics for a particular job, omit the flag. For information on each parameter, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md). 
 
-```
+```json
 aws personalize create-dataset-import-job \
 --job-name {{dataset import job name}} \
 --dataset-arn {{dataset arn}} \
@@ -53,7 +52,7 @@ To publish metrics to an Amazon S3 bucket with the AWS SDKs, create a dataset im
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```py
 import boto3
 
 personalize = boto3.client('personalize')
@@ -82,7 +81,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
                                                       String jobName,
                                                       String datasetArn,
@@ -148,7 +147,7 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients and commands using ES6 syntax.
 import { CreateDatasetImportJobCommand, PersonalizeClient } from
   "@aws-sdk/client-personalize";

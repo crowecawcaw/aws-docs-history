@@ -1,7 +1,6 @@
 
 
 # Filter expressions
-<a name="filter-expressions"></a>
 
 To configure filters, you must use a properly formatted *filter expression*. Filter expressions are composed of dataset and field identifiers in `dataset`.`field` format, along with logical operators, keywords, and values. For values, you can specify fixed values or add placeholder parameters set the filter criteria when you get recommendations.
 

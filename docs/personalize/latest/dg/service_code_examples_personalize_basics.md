@@ -1,7 +1,6 @@
 
 
 # Basic examples for Amazon Personalize using AWS SDKs
-<a name="service_code_examples_personalize_basics"></a>
 
 The following code examples show how to use the basics of Amazon Personalize with AWS SDKs. 
 

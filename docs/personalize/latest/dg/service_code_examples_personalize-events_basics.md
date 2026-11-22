@@ -1,7 +1,6 @@
 
 
 # Basic examples for Amazon Personalize Events using AWS SDKs
-<a name="service_code_examples_personalize-events_basics"></a>
 
 The following code examples show how to use the basics of Amazon Personalize Events with AWS SDKs. 
 

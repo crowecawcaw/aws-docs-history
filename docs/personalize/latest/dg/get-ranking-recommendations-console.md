@@ -1,7 +1,6 @@
 
 
 # Getting a personalized ranking (console)
-<a name="get-ranking-recommendations-console"></a>
 
 To get a personalized ranking for a user from the Amazon Personalize console, choose the campaign that you are using and then provide their user ID, specify the list of items you want ranked for the user, optionally choose a filter, and optionally provide any context data. 
 

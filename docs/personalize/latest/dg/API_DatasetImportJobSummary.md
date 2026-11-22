@@ -1,7 +1,6 @@
 
 
 # DatasetImportJobSummary
-<a name="API_DatasetImportJobSummary"></a>
 
 Provides a summary of the properties of a dataset import job. For a complete listing, call the [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html) API.
 

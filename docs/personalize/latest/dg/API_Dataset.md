@@ -1,7 +1,6 @@
 
 
 # Dataset
-<a name="API_Dataset"></a>
 
 Provides metadata for a dataset.
 

@@ -1,7 +1,6 @@
 
 
 # DatasetUpdateSummary
-<a name="API_DatasetUpdateSummary"></a>
 
 Describes an update to a dataset.
 

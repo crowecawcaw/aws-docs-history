@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon Personalize resources
-<a name="tagging-resources"></a>
 
 A *tag* is a label that you optionally define and associate with AWS resources, including certain types of Amazon Personalize resources. A resource can have as many as 50 tags. 
 

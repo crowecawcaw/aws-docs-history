@@ -1,7 +1,6 @@
 
 
 # StartRecommender
-<a name="API_StartRecommender"></a>
 
 Starts a recommender that is INACTIVE. Starting a recommender does not create any new models, but resumes billing and automatic retraining for the recommender.
 

@@ -1,7 +1,6 @@
 
 
 # Recipe
-<a name="API_Recipe"></a>
 
 Provides information about a recipe. Each recipe provides an algorithm that Amazon Personalize uses in model training when you use the [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) operation. 
 

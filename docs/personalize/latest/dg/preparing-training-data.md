@@ -1,7 +1,6 @@
 
 
 # Preparing training data for Amazon Personalize
-<a name="preparing-training-data"></a>
 
 After you [choose a domain use case or recipe](use-cases-and-recipes.md) and note its data requirements, you are ready to start preparing your data. Amazon Personalize can use the following types of data:
 + [**Item interactions**](interactions-datasets.md) – In Amazon Personalize, an *item interaction* is a positive interaction event between a user and an item in your catalogue. For example, a user watching a movie, viewing a listing, or purchasing a pair of shoes.

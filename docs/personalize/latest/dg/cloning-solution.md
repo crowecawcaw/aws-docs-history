@@ -1,7 +1,6 @@
 
 
 # Cloning a solution (console)
-<a name="cloning-solution"></a>
 
  When you create a new solution, you can use the Amazon Personalize console to clone a solution. When you clone a solution, you can use the configuration of the existing solution as a starting point, such as the recipe and hyperparameters, and make any changes as necessary. This is useful if you want to make one change to a solution, but leave all other properties unchanged. For example, adding a new column of training data to your dataset. In this case, you would clone a solution, give the solution a name, change the columns used when training, and leave all other properties unchanged. 
 

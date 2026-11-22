@@ -1,7 +1,6 @@
 
 
 # User-Personalization-v2 recipe
-<a name="native-recipe-user-personalization-v2"></a>
 
 The User-Personalization-v2 (aws-user-personalization-v2) recipe recommends items a user will interact with based on their preferences. For example, you might use User-Personalization-v2 to generate personalized movie recommendations for a streaming app, or personalized product recommendations for a retail app. Other use cases include generating real-time recommendations for a news site or batch recommendations for a personalized marketing campaign. 
 

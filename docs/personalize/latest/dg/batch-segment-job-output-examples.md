@@ -1,7 +1,6 @@
 
 
 # Batch segment job output format examples
-<a name="batch-segment-job-output-examples"></a>
 
 A batch segment job imports your batch input data from an Amazon S3 bucket, uses your solution version trained with a USER\_SEGMENTATION recipe to generate *user segments*, and exports the segments to an Amazon S3 bucket.
 

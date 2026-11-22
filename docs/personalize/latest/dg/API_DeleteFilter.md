@@ -1,7 +1,6 @@
 
 
 # DeleteFilter
-<a name="API_DeleteFilter"></a>
 
 Deletes a filter.
 

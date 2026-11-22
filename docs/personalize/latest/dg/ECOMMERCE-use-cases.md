@@ -1,7 +1,6 @@
 
 
 # ECOMMERCE use cases
-<a name="ECOMMERCE-use-cases"></a>
 
 The following sections list the requirements and Amazon Resource Name (ARN) for each ECOMMERCE use case. For all use cases, your interactions data must have the following: 
 + At minimum 1000 item interactions records from users interacting with items in your catalog. These interactions can be from bulk imports, or streamed events, or both.

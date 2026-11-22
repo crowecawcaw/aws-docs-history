@@ -1,7 +1,6 @@
 
 
 # Updating data in datasets after training
-<a name="updating-datasets"></a>
 
  As your catalog grows, import additional training data into your datasets. This helps maintain and improve the relevance of Amazon Personalize recommendations. You can import more data with bulk or individual data import operations. 
 + With individual imports, Amazon Personalize appends the new records to the dataset. To update an individual item, user, or action, you can import a record with the same ID but with the modified attributes. You can import up to 10 records per individual import operation. 

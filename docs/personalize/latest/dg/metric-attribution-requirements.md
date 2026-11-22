@@ -1,7 +1,6 @@
 
 
 # Guidelines and requirements for a metric attribution
-<a name="metric-attribution-requirements"></a>
 
  Amazon Personalize starts calculating and reporting the impact of recommendations only after you create a metric attribution. To build the most complete history, we recommend creating a metric attribution before you import your interactions data. When you create a dataset import job for an Item interactions dataset with the Amazon Personalize console, you have the option to create a metric attribution in a new tab. Then you can return to the import job to complete it. 
 
@@ -40,7 +39,7 @@ To give Amazon Personalize access to CloudWatch, attach a new AWS Identity and A
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -68,7 +67,7 @@ To give Amazon Personalize access to CloudWatch, attach a new AWS Identity and A
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "PersonalizeS3BucketAccessPolicy",
@@ -98,7 +97,7 @@ To give Amazon Personalize access to CloudWatch, attach a new AWS Identity and A
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "PersonalizeS3BucketAccessPolicy",

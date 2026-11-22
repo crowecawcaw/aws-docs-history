@@ -1,7 +1,6 @@
 
 
 # DatasetExportJob
-<a name="API_DatasetExportJob"></a>
 
 Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html).
 

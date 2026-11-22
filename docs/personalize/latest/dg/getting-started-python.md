@@ -1,7 +1,6 @@
 
 
 # Getting started (SDK for Python (Boto3))
-<a name="getting-started-python"></a>
 
 This tutorial shows you how to complete the Amazon Personalize workflow from start to finish with the SDK for Python (Boto3). 
 
@@ -29,7 +28,7 @@ In the following steps, you verify your environment and create SDK for Python (B
 
 After you complete the prerequisites, run the following Python example to confirm that your environment is configured correctly. This code also creates the Amazon Personalize boto3 clients you use in this tutorial. If your environment is configured correctly, a list of the available recipes is displayed, and you can run the other examples in this tutorial.
 
-```
+```python
 import boto3
 
 personalizeRt = boto3.client('personalize-runtime')
@@ -48,7 +47,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Use the following code to create a schema in Amazon Personalize. Replace `getting-started-schema` with a name for the schema. 
 
-   ```
+   ```py
    import json
    schema = {
      "type": "record",
@@ -82,7 +81,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Create a dataset group with the following code. Replace `dataset group name` with a name for the dataset group.
 
-   ```
+   ```py
    response = personalize.create_dataset_group(name = '{{dataset group name}}')
    dataset_group_arn = response['datasetGroupArn']
    
@@ -95,7 +94,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
 1. Create an Item interactions dataset in your new dataset group with the following code. Give the dataset a name and provide the `schema_arn` and `dataset_group_arn` from the previous steps.
 
-   ```
+   ```python
    response = personalize.create_dataset(
        name = '{{datase_name}}',
        schemaArn = '{{schema_arn}}',
@@ -110,7 +109,7 @@ After you create Amazon Personalize boto3 clients and verify your environment, i
 
    Pass the following as parameters: a name for the job, the `dataset_arn` from the previous step, the Amazon S3 bucket path (`s3://{{bucket name}}/{{folder name}}/ratings.csv`) where you stored the training data, and your IAM service role's ARN. You created this role as part of the [Getting started prerequisites](gs-prerequisites.md). Amazon Personalize needs permission to access the bucket. See [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md). 
 
-   ```
+   ```python
    import time
    response = personalize.create_dataset_import_job(
        jobName = '{{JobName}}',
@@ -150,7 +149,7 @@ After importing your data, you create a solution and solution version as follows
 
 1.  Create a new solution with the following code. Pass the following as parameters: the `dataset_group_arn` from earlier, a name for the solution, and the ARN for the User-Personalization-v2 recipe (`arn:aws:personalize:::recipe/aws-user-personalization-v2`). Store the ARN of your new solution for later use. 
 
-   ```
+   ```python
    create_solution_response = personalize.create_solution(
      name='{{solution name}}', 
      recipeArn= 'arn:aws:personalize:::recipe/aws-user-personalization-v2', 
@@ -162,7 +161,7 @@ After importing your data, you create a solution and solution version as follows
 
 1. Create a solution version with the following code. Pass as a parameter the `solution_arn` from the previous step. The following code creates a solution version. During training, the code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status. When training is complete, the method returns the ARN of your new solution version. Store it for later use. 
 
-   ```
+   ```python
    import time
    import json
    
@@ -192,7 +191,7 @@ After importing your data, you create a solution and solution version as follows
 
 After you create your solution version, deploy it with an Amazon Personalize campaign. Use the following code to create a campaign that deploys your solution version. Pass the following as parameters: the `solution_version_arn`, and a name for the campaign. The method returns the Amazon Resource Name (ARN) of your new campaign. Store it for later use.
 
-```
+```python
 response = personalize.create_campaign(
     name = '{{campaign name}}',
     solutionVersionArn = '{{solution version arn}}'
@@ -211,7 +210,7 @@ print('Status: ' + description['status'])
 
 After you create a campaign, you can use it to get recommendations. The following code shows how to get recommendations from a campaign and print out each recommended item's ID. Pass the ARN of the campaign you created in the previous step. For user ID, you pass the ID of a user that from the training data, such as `123`.
 
-```
+```py
 response = personalizeRt.get_recommendations(
     campaignArn = '{{Campaign ARN}}',
     userId = '123',

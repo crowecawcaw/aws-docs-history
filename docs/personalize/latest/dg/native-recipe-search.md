@@ -1,7 +1,6 @@
 
 
 # Personalized-Ranking recipe
-<a name="native-recipe-search"></a>
 
 **Important**  
 We recommend using the [Personalized-Ranking-v2](native-recipe-personalized-ranking-v2.md) recipe. It can consider up to 5 million items with faster training, and generate more accurate rankings with lower latency.

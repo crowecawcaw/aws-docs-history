@@ -1,7 +1,6 @@
 
 
 # Getting batch item recommendations with custom resources
-<a name="getting-batch-recommendations"></a>
 
  With custom resources, you can get item recommendations with an asynchronous batch flow. For example, you might get product recommendations for all users on an email list or [item-to-item similarities](native-recipe-similar-items.md) across an inventory. 
 

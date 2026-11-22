@@ -1,7 +1,6 @@
 
 
 # PutActionInteractions
-<a name="API_UBS_PutActionInteractions"></a>
 
 Records action interaction event data. An *action interaction* event is an interaction between a user and an *action*. For example, a user taking an action, such a enrolling in a membership program or downloading your app.
 

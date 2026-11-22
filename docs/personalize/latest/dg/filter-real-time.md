@@ -1,7 +1,6 @@
 
 
 # Filtering real-time recommendations
-<a name="filter-real-time"></a>
 
 You can filter real-time recommendations with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or the AWS SDKs.
 
@@ -146,7 +145,7 @@ Use the following `create-filter` operation to create a filter and specify the f
 
 Replace the `Filter name` with the name of the filter, and the `Dataset group ARN` with the Amazon Resource Name (ARN) of the dataset group. Replace the sample `filter-expression` with your own filter expression. 
 
-```
+```cmd
 aws personalize create-filter \
   --name {{Filter name}} \
   --dataset-group-arn {{dataset group arn}} \
@@ -169,7 +168,7 @@ If your expression has any parameters, include the `filter-values` object. For e
 **Important**  
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.
 
-```
+```cmd
 aws personalize-runtime get-recommendations \
   --campaign-arn {{Campaign ARN}} \
   --user-id {{User ID}} \
@@ -185,7 +184,7 @@ aws personalize-runtime get-recommendations \
 
  Use the following `delete-filter` operation to delete a filter. Replace `filter ARN` with the ARN of the filter. 
 
-```
+```cmd
 aws personalize delete-filter --filter-arn {{Filter ARN}}
 ```
 
@@ -205,7 +204,7 @@ To filter recommendations using a filter with parameters and a campaign you depl
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
  
 personalize = boto3.client('personalize')
@@ -222,7 +221,7 @@ print("Filter ARN: " + filter_arn)
 ------
 #### [ SDK for Java 2.x ]
 
-```
+```java
 public static String createFilter(PersonalizeClient personalizeClient,
                                  String filterName,
                                  String datasetGroupArn,
@@ -247,7 +246,7 @@ public static String createFilter(PersonalizeClient personalizeClient,
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { CreateFilterCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";
@@ -294,7 +293,7 @@ For filter expressions that use an `INCLUDE` element to include items, you must 
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 personalize_runtime = boto3.client("personalize-runtime")
@@ -316,7 +315,7 @@ response = personalize_runtime.get_recommendations(
 
 The following example uses two parameters, one with two values and one with one value. Depending on your filter expression, modify the code to add or remove parameterName and parameterValue fields.
 
-```
+```java
 public static void getFilteredRecs(PersonalizeRuntimeClient personalizeRuntimeClient,
                                    String campaignArn,
                                    String userId,
@@ -361,7 +360,7 @@ public static void getFilteredRecs(PersonalizeRuntimeClient personalizeRuntimeCl
 ------
 #### [ SDK for JavaScript v3 ]
 
-```
+```JavaScript
 // Get service clients module and commands using ES6 syntax.
 import { GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 import { personalizeRuntimeClient } from "./libs/personalizeClients.js";
@@ -401,7 +400,7 @@ run();
 
  Use the following `delete_filter` method to delete a filter. Replace `filter ARN` with the ARN of the filter. 
 
-```
+```python
 import boto3
 personalize = boto3.client("personalize")
 

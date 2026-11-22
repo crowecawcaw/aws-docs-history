@@ -1,7 +1,6 @@
 
 
 # DescribeFeatureTransformation
-<a name="API_DescribeFeatureTransformation"></a>
 
 Describes the given feature transformation.
 

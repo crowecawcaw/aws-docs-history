@@ -1,7 +1,6 @@
 
 
 # AlgorithmImage
-<a name="API_AlgorithmImage"></a>
 
 Describes an algorithm image.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a new cluster and installing the plugin with a script
-<a name="opensearch-install-with-script"></a>
 
 If you haven't created an OpenSearch cluster, you can use a quickstart bash script to create one. This script sets up an OpenSearch cluster in a Docker container, sets up credentials using your default AWS profile, and installs the Amazon Personalize Search Ranking plugin.
 
@@ -15,13 +14,13 @@ If you haven't created an OpenSearch cluster, you can use a quickstart bash scri
 
 1. In your working directory, run the script with the following command.
 
-   ```
+   ```cmd
    sh personalized_search_ranking_quickstart.sh
    ```
 
    With this command, the script uses the credentials in your default AWS profile. To provide an alternate profile, use the `--profile` argument.
 
-   ```
+   ```cmd
    sh personalized_search_ranking_quickstart.sh --profile {{profile-name}}
    ```
 

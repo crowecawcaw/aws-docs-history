@@ -1,7 +1,6 @@
 
 
 # Use `CreateSchema` with an AWS SDK
-<a name="personalize_example_personalize_CreateSchema_section"></a>
 
 The following code examples show how to use `CreateSchema`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreateSchema`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#code-examples). 
 
-```
+```java
     public static String createSchema(PersonalizeClient personalizeClient, String schemaName, String filePath) {
 
         String schema = null;
@@ -42,7 +41,7 @@ The following code examples show how to use `CreateSchema`.
 ```
 Create a schema with a domain.  
 
-```
+```java
     public static String createDomainSchema(PersonalizeClient personalizeClient, String schemaName, String domain,
             String filePath) {
 
@@ -81,7 +80,7 @@ Create a schema with a domain.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize#code-examples). 
 
-```
+```javascript
 // Get service clients module and commands using ES6 syntax.
 import { CreateSchemaCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";
@@ -120,7 +119,7 @@ run();
 ```
 Create a schema with a domain.  
 
-```
+```javascript
 // Get service clients module and commands using ES6 syntax.
 import { CreateSchemaCommand } from "@aws-sdk/client-personalize";
 import { personalizeClient } from "./libs/personalizeClients.js";

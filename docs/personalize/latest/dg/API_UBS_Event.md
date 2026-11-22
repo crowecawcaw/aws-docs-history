@@ -1,7 +1,6 @@
 
 
 # Event
-<a name="API_UBS_Event"></a>
 
 Represents item interaction event information sent using the `PutEvents` API.
 

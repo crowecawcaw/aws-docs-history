@@ -1,7 +1,6 @@
 
 
 # PredictedAction
-<a name="API_RS_PredictedAction"></a>
 
 An object that identifies an action.
 

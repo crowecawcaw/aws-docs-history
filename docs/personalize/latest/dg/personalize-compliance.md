@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Personalize
-<a name="personalize-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon Personalize as part of multiple AWS compliance programs. These include SOC, PCI, HIPAA, and others.
 

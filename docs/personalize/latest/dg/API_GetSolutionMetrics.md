@@ -1,7 +1,6 @@
 
 
 # GetSolutionMetrics
-<a name="API_GetSolutionMetrics"></a>
 
 Gets the metrics for the specified solution version.
 

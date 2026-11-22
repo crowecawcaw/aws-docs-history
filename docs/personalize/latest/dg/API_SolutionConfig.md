@@ -1,7 +1,6 @@
 
 
 # SolutionConfig
-<a name="API_SolutionConfig"></a>
 
 Describes the configuration properties for the solution.
 
