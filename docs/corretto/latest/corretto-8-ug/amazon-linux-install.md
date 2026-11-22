@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 8 Installation Instructions for Amazon Linux 2, Amazon Linux 2023, and Amazon Linux 2027
-<a name="amazon-linux-install"></a>
 
  This topic describes how to install and uninstall Amazon Corretto 8 on a host or container running the Amazon Linux 2, Amazon Linux 2023, or Amazon Linux 2027 operating systems. 
 
@@ -57,12 +56,12 @@
 ```
 java -version
 ```
-Expected output for 8u512:   
+Expected output for 8u514:   
 
 ```
-openjdk version "1.8.0_512"
-OpenJDK Runtime Environment Corretto-8.512.09.1 (build 1.8.0_512-b09)
-OpenJDK 64-Bit Server VM Corretto-8.512.09.1 (build 25.512-b09, mixed mode)
+openjdk version "1.8.0_514"
+OpenJDK Runtime Environment Corretto-8.514.01.1 (build 1.8.0_514-b01)
+OpenJDK 64-Bit Server VM Corretto-8.514.01.1 (build 25.514-b01, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 

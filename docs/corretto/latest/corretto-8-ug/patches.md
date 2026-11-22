@@ -1,7 +1,6 @@
 
 
 # List of Patches for Amazon Corretto 8
-<a name="patches"></a>
 
 This section lists all the patches applied to OpenJDK for Amazon Corretto 8. We also provide links to the issues in the OpenJDK project.
 

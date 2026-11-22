@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon Corretto 8 on Docker Images
-<a name="docker-install"></a>
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 8. You must have the latest version of Docker installed. 
 
@@ -21,9 +20,9 @@ docker run amazoncorretto:8 java -version
 **Example**  
 
 ```
-openjdk version "1.8.0_512"
-OpenJDK Runtime Environment Corretto-8.512.09.1 (build 1.8.0_512-b09)
-OpenJDK 64-Bit Server VM Corretto-8.512.09.1 (build 25.512-b09, mixed mode)
+openjdk version "1.8.0_514"
+OpenJDK Runtime Environment Corretto-8.514.01.1 (build 1.8.0_514-b01)
+OpenJDK 64-Bit Server VM Corretto-8.514.01.1 (build 25.514-b01, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance

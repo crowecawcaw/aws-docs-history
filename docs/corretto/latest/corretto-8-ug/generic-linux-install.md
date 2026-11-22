@@ -1,7 +1,6 @@
 
 
 # Amazon Corretto 8 Installation Instructions for Debian-Based, RPM-Based and Alpine Linux Distributions
-<a name="generic-linux-install"></a>
 
 This topic describes how to install Amazon Corretto 8 on Debian-based, RPM-based and Alpine Linux distributions. 
 
@@ -64,7 +63,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB
 **Example**  
 
    ```
-   sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.512.09-1_amd64.deb
+   sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.514.01-1_amd64.deb
    ```
 
 ### Verify Your Installation
@@ -77,12 +76,12 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB
 ```
 java -version
 ```
-Expected output for 8u512:   
+Expected output for 8u514:   
 
 ```
-openjdk version "1.8.0_512"
-OpenJDK Runtime Environment Corretto-8.512.09.1 (build 1.8.0_512-b09)
-OpenJDK 64-Bit Server VM Corretto-8.512.09.1 (build 25.512-b09, mixed mode)
+openjdk version "1.8.0_514"
+OpenJDK Runtime Environment Corretto-8.514.01.1 (build 1.8.0_514-b01)
+OpenJDK 64-Bit Server VM Corretto-8.514.01.1 (build 25.514-b01, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
@@ -160,7 +159,7 @@ sudo zypper install java-1.8.0-amazon-corretto-devel
 **Example**  
 
    ```
-   sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_512.b09-1.x86_64.rpm
+   sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_514.b01-1.x86_64.rpm
    ```
 
 ### Verify Your Installation
@@ -173,12 +172,12 @@ sudo zypper install java-1.8.0-amazon-corretto-devel
 ```
 java -version
 ```
-Expected output for 8u512:   
+Expected output for 8u514:   
 
 ```
-openjdk version "1.8.0_512"
-OpenJDK Runtime Environment Corretto-8.512.09.1 (build 1.8.0_512-b09)
-OpenJDK 64-Bit Server VM Corretto-8.512.09.1 (build 25.512-b09, mixed mode)
+openjdk version "1.8.0_514"
+OpenJDK Runtime Environment Corretto-8.514.01.1 (build 1.8.0_514-b01)
+OpenJDK 64-Bit Server VM Corretto-8.514.01.1 (build 25.514-b01, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
