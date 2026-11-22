@@ -1,7 +1,6 @@
 
 
 # Getting started with Reachability Analyzer using the AWS CLI
-<a name="getting-started-cli"></a>
 
 You can use Reachability Analyzer to determine whether a destination resource in your virtual private cloud (VPC) is reachable from a source resource. To get started, you specify a source and a destination. For example, you can run a reachability analysis between two network interfaces or between a network interface and a gateway. If there is a reachable path between the source and destination, Reachability Analyzer displays the details. Otherwise, Reachability Analyzer identifies the blocking component.
 
@@ -26,7 +25,7 @@ aws ec2 create-network-insights-path
 
 The following is an example `source-filter.json`.
 
-```
+```json
 {
     "DestinationPortRange": {
         "FromPort": {{22}},
@@ -37,7 +36,7 @@ The following is an example `source-filter.json`.
 
 The following is example output.
 
-```
+```json
 {
     "NetworkInsightsPaths": {
         "NetworkInsightsPathId": "nip-0b26f224f1d131fa8",
@@ -63,7 +62,7 @@ aws ec2 create-network-insights-path
 
 The following is an example of `source-filter.json`.
 
-```
+```json
 {
     "DestinationAddress": "{{34.230.71.227}}",
     "DestinationPortRange": {
@@ -84,7 +83,7 @@ aws ec2 start-network-insights-analysis --network-insights-path-id {{nip-0abc123
 
 The following is example output.
 
-```
+```json
 {
     "NetworkInsightsAnalysis": {
         "NetworkInsightsAnalysisId": "nia-0abc123def456789",
@@ -108,7 +107,7 @@ aws ec2 describe-network-insights-analyses --network-insights-analysis-ids {{nia
 **Example 1: Not reachable**  
 The following is example output where the path is not reachable. When a path is not reachable, `NetworkPathFound` is `false` and `ExplanationCode` contains an explanation code. For descriptions of the explanation codes, see [Reachability Analyzer explanation codes](explanation-codes.md). In this example, `ENI_SG_RULES_MISMATCH`, indicates that the security group does not allow the traffic. After you add a rule to the security group to allow the traffic, you can reanalyze the same path and confirm that it is reachable.
 
-```
+```json
 {
     "NetworkInsightsAnalyses": [
         {
@@ -273,7 +272,7 @@ The following is example output where the path is not reachable. When a path is 
 **Example 2: Reachable**  
 The following is example output where the path is reachable. When a path is reachable, `NetworkPathFound` is `true`, `ForwardPathComponents` contains component-by-component details about the shortest reachable path from source to destination, and `ReturnPathComponents` contains component-by-component details about the shortest reachable path from destination to source.
 
-```
+```json
 {
     "NetworkInsightsAnalyses": [
         {

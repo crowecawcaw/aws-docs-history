@@ -1,7 +1,6 @@
 
 
 # How Reachability Analyzer works
-<a name="how-reachability-analyzer-works"></a>
 
 Reachability Analyzer analyzes the path between a source and destination by building a model of the network configuration, and then checking for reachability based on the configuration. It does not send packets or analyze the data plane.
 
@@ -82,7 +81,7 @@ Consider the following when working with Reachability Analyzer:
 + If you enable trusted access, the delegated administrator account can create and delete paths that traverse owner and participant subnets within your organization from AWS Organizations. This account can also start and delete path analyses. For more information, see [Cross-account analyses for Reachability Analyzer](multi-account.md).
 + Paths are not a shareable resource.
 + Transit gateway Connect attachments are not supported. Reachability Analyzer analyzes connectivity only up to these attachments.
-+ Reachability Analyzer does not yet support analysis of transit gateway policy tables.
++ Reachability Analyzer does not yet support analysis of 1:1 NAT on transit gateway attachments.
 + With the TCP protocol, when a network path traverses a transit gateway route table, only forward traffic is analyzed.
 + Paths through a Gateway Load Balancer endpoint do not include the Gateway Load Balancer or its targets. You should verify connectivity between the Gateway Load Balancer and its targets using a separate analysis.
 + Reachability Analyzer does not consider the health of registered targets.

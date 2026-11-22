@@ -1,7 +1,6 @@
 
 
 # Reachability Analyzer explanation codes
-<a name="explanation-codes"></a>
 
 If a destination is not reachable, Reachability Analyzer provides one or more explanation codes to help you diagnose and address network misconfiguration.
 

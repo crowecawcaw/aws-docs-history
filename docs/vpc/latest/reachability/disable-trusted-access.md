@@ -1,7 +1,6 @@
 
 
 # Disable trusted access in Reachability Analyzer
-<a name="disable-trusted-access"></a>
 
 After you disable trusted access, the users in the management account and delegated administrator accounts can't run a new cross-account analysis in Reachability Analyzer. However, they can still see the previously run analyses. Before you can disable trusted access, you must deregister the delegated administrator accounts.
 

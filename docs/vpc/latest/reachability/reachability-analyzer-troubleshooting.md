@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Reachability Analyzer
-<a name="reachability-analyzer-troubleshooting"></a>
 
 The following error messages are returned by Reachability Analyzer:
 

@@ -1,7 +1,6 @@
 
 
 # Reachability Analyzer additional detail codes
-<a name="additional-detail-codes"></a>
 
 Reachability Analyzer uses additional detail codes to provide information about the result of a path analysis.
 

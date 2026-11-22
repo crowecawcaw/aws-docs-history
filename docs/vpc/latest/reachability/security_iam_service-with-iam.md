@@ -1,7 +1,6 @@
 
 
 # How Reachability Analyzer works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Reachability Analyzer, learn what IAM features are available to use with Reachability Analyzer.
 
@@ -57,7 +56,7 @@ ec2
 
 To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
     "ec2:{{action1}}",
     "ec2:{{action2}}"
@@ -66,7 +65,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action.
 
-```
+```json
 "Action": "ec2:Describe*"
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Cross-account analyses for Reachability Analyzer
-<a name="multi-account"></a>
 
 Reachability Analyzer analyzes the path between a source and destination. To analyze paths across multiple AWS accounts, enable trusted access for Reachability Analyzer with your organization from AWS Organizations. You can also register member accounts as delegated administrator accounts. A user in the management account can define paths and run analyses using sources and destinations from any account in the organization. A user in a delegated administrator account can define paths and run analyses using sources and destinations from any account in the organization other than the management account, plus any resources in the management account that were explicitly shared with the delegated administrator account.
 

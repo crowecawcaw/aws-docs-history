@@ -1,7 +1,6 @@
 
 
 # Cross-account access roles for Reachability Analyzer
-<a name="cross-account-access-roles"></a>
 
 When you enable trusted access for Reachability Analyzer, we use CloudFormation StackSets to deploy the IAMRoleForReachabilityAnalyzerCrossAccountResourceAccess IAM role to all member accounts in the organization. This role allows the management account and delegated administrator accounts to specify resources from member accounts in path analyses.
 
@@ -14,7 +13,7 @@ Deregistering a delegated administrator removes it from the account list so that
 
 This IAM policy role enables cross-account read-only access to resources through role switching. For more information, see [AmazonEC2ReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess) and [AWSDirectConnectReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess) in the IAM console.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Enables Console Access role
 Resources:

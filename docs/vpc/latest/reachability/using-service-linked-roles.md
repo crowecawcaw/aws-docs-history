@@ -1,7 +1,6 @@
 
 
 # Use service-linked roles for Reachability Analyzer
-<a name="using-service-linked-roles"></a>
 
 Reachability Analyzer uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts) for multi-account analysis. A service-linked role is a unique type of IAM role that is linked directly to Reachability Analyzer. Service-linked roles are predefined by Reachability Analyzer and include all the permissions that the service requires to call other AWS services on your behalf. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot cross-account analyses in Reachability Analyzer
-<a name="multi-account-troubleshooting"></a>
 
 The following information can help you troubleshoot common issues with running cross-account analyses in Reachability Analyzer.
 
@@ -34,7 +33,7 @@ If you receive this error while attempting to access resources from another acco
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
