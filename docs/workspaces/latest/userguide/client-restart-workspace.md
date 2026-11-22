@@ -1,7 +1,6 @@
 
 
 # Restarting a WorkSpace
-<a name="client-restart-workspace"></a>
 
 If you are experiencing issues with your WorkSpace, you can restart (reboot) it. Restarting a WorkSpace disconnects you from your WorkSpace, so that it can be shut down and restarted. Your user data, operating system, and system settings are not affected. This process takes several minutes to finish.
 

@@ -1,7 +1,6 @@
 
 
 # Switching running mode for a WorkSpace
-<a name="client-switch-running-mode"></a>
 
 You can specify whether your WorkSpace is always running or whether it stops after a specified period of inactivity. WorkSpaces provides the following two running modes that you can choose from.
 + **AlwaysOn** — Keeps your WorkSpace always running. 

@@ -1,7 +1,6 @@
 
 
 # Supported DCV features for WorkSpaces
-<a name="supported-features-wsp"></a>
 
 The following table compares the features that are supported by the DCV WorkSpaces clients.
 

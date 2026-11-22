@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Android client application
-<a name="amazon-workspaces-android-client"></a>
 
 The following information will help you get started with the WorkSpaces Android client application.
 

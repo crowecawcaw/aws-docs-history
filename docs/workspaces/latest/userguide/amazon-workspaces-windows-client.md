@@ -1,13 +1,12 @@
 
 
 # WorkSpaces Windows client application
-<a name="amazon-workspaces-windows-client"></a>
 
 The following information will help you get started with the WorkSpaces Windows client application.
 
 **Topics**
 + [Requirements](#windows-requirements)
-+ [New client experience (Public Preview)](#windows-new-client-experience)
++ [New client experience](#windows-new-client-experience)
 + [Setup and installation](#windows_setup)
 + [Determining your client version](#determine-version-windows)
 + [Client updates](#windows_update_client)
@@ -25,47 +24,29 @@ The following information will help you get started with the WorkSpaces Windows 
 
 ## Requirements
 <a name="windows-requirements"></a>
-+ The Amazon WorkSpaces client for Windows requires a Microsoft supported version of Windows 11. For more details, see [Windows 11 release information](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information). For information about supported WorkSpaces client versions, see [End of life policy for WorkSpaces client applications](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-eol.html).
 
-## New client experience (Public Preview)
+The WorkSpaces client for Windows has the following requirement:
++ The Amazon WorkSpaces client for Windows requires a Microsoft supported version of Windows 11. For more information about Windows 11, see [Windows 11 release information](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) on the Microsoft website. For more information about supported WorkSpaces client versions, see [End of life policy for WorkSpaces client applications](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-eol.html).
+
+## New client experience
 <a name="windows-new-client-experience"></a>
 
-Starting with version 5.34, the WorkSpaces client for Windows includes a new client experience alongside the current (classic) experience. The new client experience includes an updated interface and is designed to be easier to use, with a simplified connection flow, easier-to-find settings and session tools, more helpful error messaging, and a new Session Health feature.
+Starting with version 5.37, you can use a new client experience alongside the current (classic) experience. The new client experience is the default. It includes an updated interface that is designed to be easier to use, with a simplified connection flow, easier-to-find settings and session tools, and more helpful error messaging. It also includes WorkSpaces Advisor (Preview). With WorkSpaces Advisor (Preview), you can resolve issues before and during a session.
 
 **Note**  
-The new client experience supports connecting to DCV-based WorkSpaces only.
+The new client experience supports connecting to DCV-based WorkSpaces only. If your WorkSpace uses PCoIP, or if you connect to WorkSpaces Pools, the client opens your WorkSpace in the classic experience automatically. You don't need to sign in again.
 
 ### Switching between experiences
 <a name="windows-switching-experiences"></a>
 
-By default, the client opens in the classic experience. If your administrator has not disabled the new experience, after entering your registration code, you will see a link on the top right of the client application that lets you try the new experience. Choose **Try New WorkSpaces** to start.
-
-**Note**  
-Switching experiences may take a few moments.
-
-![The WorkSpaces Windows client with the Try New WorkSpaces link in the upper-right corner.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-try-new.png)
-
-
-If your administrator has set a policy that requires a specific experience (new or classic), the option to switch is hidden and the client uses the experience your administrator selected. For more information, contact your administrator.
-
-### Returning to the classic experience
-<a name="windows-returning-to-classic"></a>
-
-If you switched to the new experience and want to return to classic, choose the **Return to classic** option on the top right of the new experience.
-
-**Note**  
-Switching back may take a few moments.
-
+By default, the client opens in the new experience. You can switch between the two experiences, unless your administrator has set a policy that requires a specific experience. The client remembers your choice the next time you open it.
++ To switch to the classic experience, choose **Return to classic** in the top right of the new experience.  
 ![The new client experience with the Return to classic option in the upper-right corner.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-return-to-classic.png)
++ To switch to the new experience, choose **Switch to New WorkSpaces** in the top right of the classic experience.  
+![The classic WorkSpaces Windows client with the Switch to New WorkSpaces link in the upper-right corner.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-switch-to-new-workspaces.png)
 
-
-### Preview badge
-<a name="windows-preview-badge"></a>
-
-While the new experience is in Public Preview, a **Preview** badge appears in the client. Choose the badge to see release notes, known limitations, and a link to send your feedback to AWS.
-
-![The Preview badge in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-preview-badge.png)
-
+**Note**  
+Switching experiences might take a few moments.
 
 ### What's different in the new client experience?
 <a name="windows-whats-different"></a>
@@ -75,25 +56,23 @@ The new experience includes the following changes and improvements:
 + **Simplified connection and sign-in flow** — a revised flow for registering and connecting to a WorkSpace, and additional customization options for managing WorkSpaces you frequently access. For more details, see [Connecting to your WorkSpace](#windows_connecting) and [Managing your sign-in information](#manage-login-info-windows).
 + **Support for color themes** — choose between light, dark, or follow your system's theme settings. Change this from the **WorkSpaces** menu > **Settings** > **Appearance**.  
 ![The Appearance settings showing light, dark, and system theme options in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-appearance-themes.png)
-+ **New toolbar** — a consolidated toolbar available during your WorkSpace session, providing access to keyboard shortcuts, device controls you can use for your session (camera, microphone, audio, USB devices), file transfer options, and a new Session Health feature. In addition, the new toolbar includes a set of window actions you can take – minimize, maximize / full screen, and disconnect / close.
-  + When your session is in **windowed mode**, the toolbar appears at the top of the session window, as part of the window title, so it does not block your session view.  
++ **New toolbar** — a consolidated toolbar available during your WorkSpace session, providing access to keyboard shortcuts, device controls you can use for your session (camera, microphone, audio, USB devices), file transfer options, and WorkSpaces Advisor (Preview). In addition, the new toolbar includes a set of window actions you can take – minimize, maximize / full screen, and disconnect / close.
+  + When your session is in **windowed mode**, the toolbar appears as part of the window title bar, so it does not block your session view.  
 ![The new client toolbar at the top of the session window in windowed mode.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-toolbar-windowed.png)
   + When your session is in **full screen mode**, the toolbar floats near the top of the screen for a few seconds, and then automatically hides away to help you focus.
-    + If you need to move it out of the way, click-and-hold anywhere on it, drag it alongside the top edge of the screen, and drop it into any other horizontal position.
+    + If you need to move it out of the way, select and hold it, and then drag it to another position along the top edge of the screen.
     + If you want the toolbar to reappear, move your mouse near the top edge of the screen near the minimized toolbar and it will reappear in full.
-    + If you want to keep the toolbar always visible, choose **Pin the toolbar** (pin icon).  
+    + If you want to keep the toolbar always visible, choose **Pin the toolbar**.
+
+      The following screenshot shows the floating toolbar in full screen mode with the **Pin the toolbar** control.  
 ![The floating in-session toolbar in full screen mode with the Pin the toolbar control.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-toolbar-pin.png)
-+ **Session Health** — a new feature that monitors session quality conditions (including network status, service reachability, Wi-Fi signal strength, network latency, bandwidth, and local device metrics which may sometimes affect your session, such as local device CPU utilization and memory usage) and suggests actions you can take to resolve issues.
-  + The **Session health** icon will change color if anything needs attention, and choosing the icon will open the panel on the right side where details will be provided. Choose the relevant questions at the bottom of the panel to learn more.
-  + If you need to move the panel out of the way, choose **Undock** (undock icon) on the top right of the panel, and you can move it freely around the session. Choose **Dock** (dock icon) to move it back to the right side.  
-![The Session Health panel open on the right side of the session.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-session-health.png)  
-![The Session Health panel showing network status, service reachability, and latency.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-session-health-panel1.png)  
-![The Session Health panel showing local device metrics and recommended actions.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-session-health-panel2.png)
++ **WorkSpaces Advisor (Preview)** — WorkSpaces Advisor monitors your session in the WorkSpaces client: before you connect, while you're connected, and after you disconnect. If anything needs attention, the WorkSpaces Advisor (Preview) icon changes color and shows an alert indicator. Choose the icon to open the panel, where you can view the details.  
+![The WorkSpaces Advisor (Preview) panel in the new client experience, showing session health details.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-workspaces-advisor-preview.png)
 + **Simplified full screen mode and usage of multiple external displays** — For more details, see [Full screen mode and using multiple displays](#full-screen-mode).
 + **New Devices panel to manage local devices you can use in your WorkSpace session** — including your local speakers, microphone, and camera, in addition to other USB devices that have been enabled by your administrator.  
 ![The Devices panel for managing local speakers, microphone, camera, and USB devices.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-devices-panel.png)
 + **New File transfer experience to move files to and from your WorkSpace** — when this feature is enabled by your administrator.
-  + Choose the **File transfer** (folder icon) in the toolbar to get started.
+  + Choose **File transfer** in the toolbar to get started.
   + Choose the **Back**, **Forward**, **Up**, and **Refresh** icons to navigate your WorkSpace storage folders.
   + Choose **Upload here** to select a file from your local device to transfer to your WorkSpace.
   + Select a file on your WorkSpace and choose **Download** to transfer it to your local device.
@@ -109,31 +88,24 @@ The new experience includes the following changes and improvements:
 
 ### Known limitations
 <a name="windows-known-issues"></a>
-+ At launch, the new client experience is supported in English only. Additional supported languages will be added shortly after launch.
-+ The USB redirection driver is currently not available to download from the client settings menu; it's available during the installation process when you install the client for all users on the Windows device.
+
+The following limitation currently applies to the WorkSpaces client for Windows:
++ The USB redirection driver is currently not available to download from the client settings menu. It's available during the installation process when you install the client for all users on the Windows device.
 
 ## Setup and installation
 <a name="windows_setup"></a>
 
-You can download the latest version of the WorkSpaces client for Windows from the [Amazon WorkSpaces Client Download page](https://clients.amazonworkspaces.com/).
-
-You have two options for how to install the Amazon WorkSpaces client application:
-+ **Install just for you.** If you choose this option and you share your local device with other users, the WorkSpaces client application is available only to you. If other users on the machine also want to use the WorkSpaces client application, they must install the application for their own use.
+You can download the latest version of the WorkSpaces client for Windows from the [Amazon WorkSpaces Client Download page](https://clients.amazonworkspaces.com/). You have two options for how to install the Amazon WorkSpaces client application:
++ **Install only for you.** If you choose this option and you share your local device with other users, the WorkSpaces client application is available only to you. If other users on the device also want to use it, they must install it for their own use.
 + **Install for all users of your device.** If you choose this option, the WorkSpaces client application is available to anyone who logs on to your local device. Installing the WorkSpaces client application for all users requires you to have administrator credentials on your local device.
-
-If you have questions about which option to choose, ask your administrator for guidance.
 
 ### Installing the USB redirection driver
 <a name="install-usb-redirection"></a>
 
-To use your local USB devices on your WorkSpace, you will need to install the USB redirection driver. To install this driver, install the WorkSpaces application for all users, and then check the box to **Install driver for USB redirection**. This requires you to have administrator credentials on your local device.
+To use your local USB devices on your WorkSpace, install the USB redirection driver. To install the driver, install the WorkSpaces application for all users, and then select **Install driver for USB redirection**. Installing the driver requires administrator credentials on your local device.
 
 ## Determining your client version
 <a name="determine-version-windows"></a>
-
-**Classic client experience**
-
-Choose **Amazon WorkSpaces** > **About Amazon WorkSpaces**.
 
 **New client experience**
 
@@ -141,6 +113,10 @@ Choose **Amazon WorkSpaces** > **About**.
 
 ![The About dialog showing the client version in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-about.png)
 
+
+**Classic client experience**
+
+Choose **Amazon WorkSpaces** > **About Amazon WorkSpaces**.
 
 ## Client updates
 <a name="windows_update_client"></a>
@@ -150,7 +126,7 @@ The WorkSpaces client for Windows automatically checks for available updates, an
 **Note**  
 Automatic client updates are supported in most AWS Regions. In Regions where automatic client updates are not supported, or if your administrator has disabled automatic client updates, a message appears in the client when a new version is available and you have the option to install it.
 
-Client updates maintain the same installation context as the original installation. This means if the WorkSpaces client was originally installed for all users on the local device, future automatic updates will apply to all users. Similarly, if the client was installed for a single user, future updates will only apply to that specific user.
+Client updates maintain the same installation context as the original installation. This means if the WorkSpaces client was originally installed for all users on the local device, future automatic updates apply to all users. Similarly, if the client was installed for a single user, future updates apply only to that specific user.
 
 ## Client language
 <a name="windows_client_lang"></a>
@@ -163,35 +139,20 @@ You can choose the language displayed by the WorkSpaces client for Windows.
 
 1. Choose your desired language from the dropdown and choose **Save**.
 
-**Note**  
-The new client experience is currently supported in English only. Support for additional languages will be added in a future update.
-
 ## Connecting to your WorkSpace
 <a name="windows_connecting"></a>
 
-**Classic client experience**
-
-1. Open the WorkSpaces client. If this is your first time, the client prompts you to enter a registration code, which should be included in your welcome email or provided by your administrator. Enter the registration code and choose **Register**.
-
-1. On the sign-in screen, enter your credentials and choose **Sign in**. If multi-factor authentication is enabled, enter the verification code you received when prompted. If your administrator has not disabled it, you can select the **Keep me logged in** checkbox at the bottom of the sign-in screen to securely save your credentials. This enables you to reconnect to your WorkSpace without re-entering your credentials while the client remains open.
-
-1. After your session connection is established, your WorkSpace will be displayed.
-
-1. The next time you open the WorkSpaces client, the last used registration code is pre-populated. Choose **Continue** or **Register** to continue to the sign-in step.
-
-1. To enter a different registration code, choose **Change Registration Code** at the bottom of the sign-in page, choose from other saved registration codes in the dropdown, or type in your new registration code.
-
 **New client experience**
 
-1. Open the WorkSpaces client. If this is your first time, the client prompts you to enter a registration code, which should be included in your welcome email or provided by your administrator. Enter the registration code, optionally give your WorkSpace a friendly name, and choose **Add**.
+1. Open the WorkSpaces client. If this is your first time, the client prompts you to enter a registration code, which is included in your welcome email or provided by your administrator. Enter the registration code, optionally give your WorkSpace a friendly name, and choose **Add**.
 
 1. On the sign-in screen, enter your credentials and choose **Sign in**. If multi-factor authentication is enabled, enter the verification code you received when prompted.
 
-1. After your session connection is established, your WorkSpace will be displayed.
+1. After your session connection is established, your WorkSpace appears.
 
-1. The next time you open the WorkSpaces client, your WorkSpace will appear on the home screen and you can proceed with the sign-in step directly.
+The next time you open the WorkSpaces client, your WorkSpace appears on the home screen and you can proceed with the sign-in step directly. To enter a different registration code, choose **Change** next to the currently selected WorkSpace, choose from other saved WorkSpaces in the list, or choose **Add a new WorkSpace** to enter your new registration code.
 
-1. To enter a different registration code, choose **Change** next to the currently selected WorkSpace, choose from other saved WorkSpaces in the list, or choose **Add a new WorkSpace** to enter your new registration code.
+The following screenshots show the registration screen for adding a WorkSpace and the WorkSpace list where you manage your saved WorkSpaces.
 
 ![The registration screen for adding a WorkSpace with a registration code and friendly name.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-add-workspace.png)
 
@@ -199,12 +160,18 @@ The new client experience is currently supported in English only. Support for ad
 ![The WorkSpace list with options to set default, rename, change color, and remove a WorkSpace.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-workspace-list.png)
 
 
-## Managing your sign-in information
-<a name="manage-login-info-windows"></a>
-
 **Classic client experience**
 
-To view and manage your saved registration codes, choose **Settings** > **Manage Login Information**. From here, you can view the Region your WorkSpaces are in, add or edit a friendly name for your WorkSpaces, manage the **Keep me logged in** option for your WorkSpaces, and **Remove** any registration codes you no longer need.
+1. Open the WorkSpaces client. If this is your first time, the client prompts you to enter a registration code, which is included in your welcome email or provided by your administrator. Enter the registration code and choose **Register**.
+
+1. On the sign-in screen, enter your credentials and choose **Sign in**. If multi-factor authentication is enabled, enter the verification code you received when prompted. If your administrator has not disabled it, you can select the **Keep me logged in** checkbox at the bottom of the sign-in screen to securely save your credentials. This enables you to reconnect to your WorkSpace without re-entering your credentials while the client remains open.
+
+1. After your session connection is established, your WorkSpace appears.
+
+The next time you open the WorkSpaces client, the last used registration code is pre-populated. Choose **Continue** or **Register** to continue to the sign-in step. To enter a different registration code, choose **Change Registration Code** at the bottom of the sign-in page, choose from other saved registration codes in the dropdown, or type in your new registration code.
+
+## Managing your sign-in information
+<a name="manage-login-info-windows"></a>
 
 **New client experience**
 
@@ -214,16 +181,18 @@ To view and manage your saved WorkSpaces, choose **Change** next to the currentl
 + Choose **Change color** (color icon) on a saved WorkSpace to change its color (useful for easy recognition in the list).
 + Choose **Remove** (trash icon) to remove a WorkSpace you no longer need.
 + Choose **Add a new WorkSpace** at the bottom of the list to add a new WorkSpace.
-+ Ctrl\+Alt\+Shift\+ArrowDown—Minimize window
-+ Ctrl\+Alt\+Shift\+F11—Clear keyboard focus
 
 ![The WorkSpace list with options to set default, rename, change color, and remove a WorkSpace.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-workspace-list.png)
 
 
+**Classic client experience**
+
+To view and manage your saved registration codes, choose **Settings** > **Manage Login Information**. From here, you can view the Region your WorkSpaces are in, add or edit a friendly name for your WorkSpaces, manage the **Keep me logged in** option for your WorkSpaces, and **Remove** any registration codes you no longer need.
+
 ## Network connectivity and reconnecting to your WorkSpace
 <a name="windows-network-connectivity"></a>
 
-An interruption of network connectivity may result in your active session being disconnected. This can be caused by events such as closing the laptop lid or the loss of your wireless network connection. The WorkSpaces client for Windows attempts to reconnect the session automatically if network connectivity is recovered within a certain amount of time. The default session resumption timeout is 20 minutes, but this timeout can be modified by your administrator.
+An interruption of network connectivity might result in your active session being disconnected. This can be caused by events such as closing the laptop lid or losing your wireless network connection. With the WorkSpaces client for Windows, your session reconnects automatically if network connectivity is recovered within a certain amount of time. The default session resumption timeout is 20 minutes. Your administrator can change this timeout.
 
 ## Connection settings
 <a name="windows-connection-settings"></a>
@@ -231,7 +200,21 @@ An interruption of network connectivity may result in your active session being 
 ### IPv6 settings
 <a name="ipv6-network-settings"></a>
 
-The WorkSpaces client for Windows supports connecting to your WorkSpace using IPv4 and IPv6 connections.
+With the WorkSpaces client for Windows, you can connect to your WorkSpace using IPv4 and IPv6 connections.
+
+**New client experience**
+
+By default, the new client experience prefers an IPv6 connection for streaming when your network supports it, and falls back to using IPv4 if not. If you want to change this to use IPv4 only:
+
+1. Choose **Amazon WorkSpaces** > **Settings** > **Connections**.
+
+1. Turn off the **Use IPv6 when available** toggle.
+
+![The Connections settings with the Use IPv6 when available toggle.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-connections-ipv6.png)
+
+
+**Note**  
+If you are in an active WorkSpace session, changes to IPv6 connection settings take effect on the next session.
 
 **Classic client experience**
 
@@ -244,24 +227,27 @@ By default, the classic client experience uses an IPv4 connection for streaming.
 **Note**  
 IPv6 connections are supported on the WorkSpaces client application version 5.30.1 or later. You cannot change IPv6 settings if you are in an active WorkSpace session. Change the setting before connecting to your WorkSpace.
 
-**New client experience**
-
-By default, the new client experience prefers an IPv6 connection for streaming when your network supports it, and falls back to using IPv4 if not. If you want to change this to use IPv4 only:
-
-1. Choose **Amazon WorkSpaces** > **Settings** > **Connections**.
-
-1. Disable the **Use IPv6 when available** toggle.
-
-![The Connections settings with the Use IPv6 when available toggle.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-connections-ipv6.png)
-
-
-**Note**  
-If you are in an active WorkSpace session, changes to IPv6 connection settings will take effect on the next session.
-
 ### Proxy servers
 <a name="windows_proxy_server"></a>
 
 If your administrator requires you to use a proxy server, configure the proxy in the client settings before connecting to your WorkSpace.
+
+**New client experience**
+
+1. Choose **Amazon WorkSpaces** > **Settings** > **Connections**.
+
+1. Under **Use a proxy server**, choose **Set up**. Choose:
+   + **Don't use a proxy server** to disable the usage of a proxy server.
+   + **Use your computer's proxy settings** to use the proxy server settings from your local computer. Choose **Open your computer's proxy settings** to view and change these settings locally.
+   + **Use a custom HTTPS proxy server** to use a custom proxy server. Enter the IP address or URL and port number for your custom proxy server.
+
+1. Choose **Save**.
+
+![The Connections settings showing proxy server options.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-connections-proxy.png)
+
+
+**Note**  
+If you are in an active WorkSpace session, changes to proxy server settings take effect on the next session.
 
 **Classic client experience**
 
@@ -275,21 +261,6 @@ By default, the classic client experience uses the proxy server settings specifi
    + **Customize proxy server** to use a custom proxy server. Enter the IP address or URL and port number for your custom proxy server.
 
 1. After making your changes, choose **Save**.
-
-**New client experience**
-
-1. Choose **Amazon WorkSpaces** > **Settings** > **Connections**.
-
-1. Under **Use a proxy server**, choose **Set up**. Choose:
-   + **Don't use a proxy server** to disable the usage of a proxy server.
-   + **Use your computer's proxy settings** to use the proxy server settings from your local computer. Choose **Open your computer's proxy settings** to view and change these settings locally.
-   + **Use a custom HTTPS proxy server** to use a custom proxy server. Enter the IP address or URL and port number for your custom proxy server. Choose **Save**.
-
-![The Connections settings showing proxy server options.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-connections-proxy.png)
-
-
-**Note**  
-If you are in an active WorkSpace session, changes to proxy server settings will take effect on the next session.
 
 ## Using external displays
 <a name="using-external-displays"></a>
@@ -307,26 +278,6 @@ You can use locally connected external displays in your WorkSpaces session, enab
 
 ### Full screen mode and using multiple displays
 <a name="full-screen-mode"></a>
-
-**Classic client experience**
-
-While in windowed mode, you can switch to full screen mode by choosing **View** > **Enter Full Screen**.
-
-While in full screen mode, you can switch back to windowed mode by moving your mouse to the top of the screen, waiting a moment for the menu to reappear, and choosing **View** > **Leave Full Screen**.
-
-**To use multiple displays**
-
-1. Connect the displays to your local device and configure your local display settings as needed.
-
-1. In the WorkSpaces client for Windows, log in to your WorkSpace.
-
-1. To extend your WorkSpace session to all your connected displays, choose **View** > **Enter Full Screen On All Displays**.
-
-1. To extend your WorkSpaces session to a subset of your connected displays, choose **View** > **Enter Full Screen On Selected Displays**. Your connected displays will appear; select the displays you want to extend your session to.
-
-**Note**  
-You'll need to select displays that are adjacent to each other.
-To make changes to your connected displays, display layout, or other display settings, visit your local device display settings.
 
 **New client experience**
 
@@ -346,6 +297,8 @@ To configure your default full screen mode:
 You'll need to select displays that are adjacent to each other.
 To make changes to your connected displays, display layout, or other display settings, visit your local device display settings.
 
+The following screenshots show the full screen mode options, the monitor selection screen, and the **Maximize** / **Full screen** icon.
+
 ![The Display settings showing full screen mode options in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-display-fullscreen.png)
 
 
@@ -358,18 +311,34 @@ To make changes to your connected displays, display layout, or other display set
 ![The Maximize and Full screen icon in the upper-right corner of the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-maximize-icon.png)
 
 
+**Classic client experience**
+
+Although you are in windowed mode, you can switch to full screen mode by choosing **View** > **Enter Full Screen**.
+
+Although you are in full screen mode, you can switch back to windowed mode by moving your mouse to the top of the screen, waiting a moment for the menu to reappear, and choosing **View** > **Leave Full Screen**.
+
+**To use multiple displays**
+
+1. Connect the displays to your local device and configure your local display settings as needed.
+
+1. In the WorkSpaces client for Windows, log in to your WorkSpace.
+
+1. To extend your WorkSpace session to all your connected displays, choose **View** > **Enter Full Screen On All Displays**.
+
+1. To extend your WorkSpaces session to a subset of your connected displays, choose **View** > **Enter Full Screen On Selected Displays**. Your connected displays will appear; select the displays you want to extend your session to.
+
+**Note**  
+You'll need to select displays that are adjacent to each other.
+To make changes to your connected displays, display layout, or other display settings, visit your local device display settings.
+
 ## Keyboard shortcuts
 <a name="keyboard-shortcuts"></a>
 
 The following keyboard shortcuts are supported in the WorkSpaces client:
-+ **Ctrl \+ Alt \+ Enter** — Toggle full screen mode (that is, enter or exit full screen mode)
++ **Ctrl \+ Alt \+ Enter** — Toggle full screen mode to enter or exit full screen mode
 + **Ctrl \+ Alt \+ Shift \+ ArrowDown** — Minimize the WorkSpaces client window
 + **Ctrl \+ Alt \+ Shift \+ F11** — Clear keyboard focus
 + **Ctrl \+ Alt \+ F12** — Disconnect from your WorkSpace session
-
-**Classic client experience**
-
-In the classic client experience, in addition to the supported keyboard shortcuts described above, you can send a Ctrl \+ Alt \+ Del command to your WorkSpace from the client. To do so, choose **View** > **Send Ctrl \+ Alt \+ Del**.
 
 **New client experience**
 
@@ -380,8 +349,34 @@ In the new client experience, in addition to the supported keyboard shortcuts de
 ![The Keyboard shortcuts menu with the Send Ctrl+Alt+Del option.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-keyboard-shortcuts.png)
 
 
+**Classic client experience**
+
+In the classic client experience, in addition to the supported keyboard shortcuts described above, you can send a Ctrl \+ Alt \+ Del command to your WorkSpace from the client. To do so, choose **View** > **Send Ctrl \+ Alt \+ Del**.
+
 ## Disconnecting and exiting
 <a name="windows_disconnect"></a>
+
+**New client experience**
+
+To disconnect from your WorkSpace session while leaving it active, use one of the following methods:
++ Choose **Amazon WorkSpaces** > **Disconnect**. Your WorkSpace session is disconnected but remains active, and the client continues running in case you want to sign in again.
++ Close the WorkSpaces client window by choosing **Disconnect** (X icon) in the upper right corner. Your WorkSpace session is disconnected, but remains active, and the client continues running in case you want to sign in again.
+
+To disconnect from and end your WorkSpace session, use one of the following methods:
++ Choose **Amazon WorkSpaces** > **Exit**. Your WorkSpace session ends, and the client application closes.
++ You can also sign out from the WorkSpace itself. Your WorkSpace session ends, and the client continues running in case you want to sign in again.
+
+**Note**  
+The new client experience will prompt you to confirm before disconnecting or exiting. You can disable this prompt by choosing **Don't ask me again**. If you want to change this later, choose **Amazon WorkSpaces** > **Settings** > **Appearance** and manage the settings under **Confirmation dialogs**.
+
+![The Amazon WorkSpaces menu showing the Disconnect option in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-disconnect.png)
+
+
+![The Amazon WorkSpaces menu showing the Exit option in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-exit.png)
+
+
+![The Appearance settings with the Confirmation dialogs options.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-confirmation-dialogs.png)
+
 
 **Classic client experience**
 
@@ -394,29 +389,7 @@ To disconnect from and end your WorkSpace session, use one of the following meth
 **Note**  
 This option is only available for WorkSpaces Pools.
 + Choose **Amazon WorkSpaces** > **Quit Amazon WorkSpaces**. Your WorkSpace session will end, and the client will close.
-+ You can also sign out from the WorkSpace itself. Your WorkSpace session will end, and the client continues running in case you want to sign in again.
-
-**New client experience**
-
-To disconnect from your WorkSpace session while leaving it active, use one of the following methods:
-+ Choose **Amazon WorkSpaces** > **Disconnect**. Your WorkSpace session will be disconnected, but will remain active, and the client continues running in case you want to sign in again.
-+ Close the WorkSpaces client window by choosing **Disconnect** (X icon) in the upper right corner. Your WorkSpace session will be disconnected, but will remain active, and the client continues running in case you want to sign in again.
-
-To disconnect from and end your WorkSpace session, use one of the following methods:
-+ Choose **Amazon WorkSpaces** > **Exit**. Your WorkSpace session will end, and the client application will close.
-+ You can also sign out from the WorkSpace itself. Your WorkSpace session will end, and the client continues running in case you want to sign in again.
-
-![The Amazon WorkSpaces menu showing the Disconnect option in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-disconnect.png)
-
-
-![The Amazon WorkSpaces menu showing the Exit option in the new client experience.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-exit.png)
-
-
-**Note**  
-The new client experience will prompt you to confirm before disconnecting or exiting. You can disable this prompt by choosing **Don't ask me again**. If you want to change this later, choose **Amazon WorkSpaces** > **Settings** > **Appearance** and manage the settings under **Confirmation dialogs**.
-
-![The Appearance settings with the Confirmation dialogs options.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-confirmation-dialogs.png)
-
++ You can also sign out from the WorkSpace itself. Your WorkSpace session ends, and the client continues running in case you want to sign in again.
 
 ## Clipboard support
 <a name="windows_clipboard_support"></a>
@@ -425,16 +398,6 @@ The clipboard supports copying and pasting of text and images between your local
 
 ## Diagnostic logging
 <a name="diagnostic-log-uploads-users"></a>
-
-**Classic client experience**
-
-To troubleshoot issues with your WorkSpaces client for Windows, you can enable diagnostic logging. The log files are sent automatically to AWS and include information about your device and connection to the AWS network.
-
-To enable diagnostic logging:
-
-1. Choose **Settings** > **Manage Diagnostic Logging Settings**.
-
-1. Check the box to enable Diagnostic Logging.
 
 **New client experience**
 
@@ -450,10 +413,20 @@ To send your current logs:
 
 1. Copy the reference code displayed and provide it to AWS Support.
 
-Your client device ID is also displayed on this screen and can be copied for reference.
+This screen also displays your client device ID, which you can copy for reference.
 
 ![The Logging settings with automatic upload and Send logs to AWS options.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-logging.png)
 
+
+**Classic client experience**
+
+To troubleshoot issues with your WorkSpaces client for Windows, you can enable diagnostic logging. The log files are sent automatically to AWS and include information about your device and connection to the AWS network.
+
+To enable diagnostic logging:
+
+1. Choose **Settings** > **Manage Diagnostic Logging Settings**.
+
+1. Select the **Diagnostic Logging** check box.
 
 ## Release notes
 <a name="windows-release-notes"></a>
@@ -463,6 +436,7 @@ The following table describes the changes to each release of the Windows client 
 
 | Release | Date | Changes | 
 | --- | --- | --- | 
+| 5.37.0 | November 17, 2026 |  +  The new client experience is now the default. You can still switch to the classic experience, and your choice is remembered. Administrators may continue to require the classic experience. <br />+  PCoIP-based WorkSpaces and WorkSpaces Pools now open in the classic experience automatically when started from the new client experience, without needing you to sign in again. <br />+  Added the WorkSpaces Advisor (preview) to the new client experience. It checks your device, network, and the WorkSpaces service, and recommends resolution steps when registration, sign-in, or connecting encounter issues, or when your session disconnects. <br />+  Added a welcome tour to the new client experience, shown on first launch and in your first session. You can replay them any time from the Help menu. <br />+  WorkSpace registration codes now stay in sync between the classic and new client experiences. <br />+  Your display language choice now carries over in both directions between the classic and new client experiences. <br />+  Added a self-service option to enable nested virtualization for supported WorkSpaces in the new client experience. <br />+  Added the ability to choose the microphone and speaker used for your session in the new client experience. <br />+  The new client experience now opens on the display where you last used it. If that display isn't connected, it opens on the display you launched it from. <br />+  Added relative mouse mode, which uses relative coordinates and is useful for graphics applications such as computer-aided design (CAD) or video games, to the new client experience. <br />+  Added support for redirecting mailto and ftp links from your WorkSpace to your local device in the new client experience. <br />+  Added support for command-line sign-in in the new client experience. <br />+  Added a short, optional satisfaction survey that may appear occasionally in the new client experience, after disconnecting from your session. <br />+  The new client experience now uses the proxy configured in Settings for streaming over TCP and for the Advisor's network checks. <br />+  When you first open this client, your network settings are carried over from the experience you used last, ensuring connectivity in the new client. <br />+  Refreshed the visual design of the new client experience, and updated the app icon for both experiences and the installer. <br />+  The installer now shows you any existing copies of the client and what will happen to each, and upgrades only the copy in the installation scope you choose. <br />+  Documentation and other external links in the new client experience now open China-specific sites in China Regions. <br />+  Self-service dialogs in the new client experience now default to Cancel, so pressing Enter no longer starts the action, and screen readers read their options by name. <br />+  Fixed an issue in the new client experience that prevented signing in with certificate-based authentication to a WorkSpace that doesn't support it. You are now asked to sign in with your password instead, as in the classic experience. <br />+  Fixed an issue in the new client experience that caused some screens to not follow Windows contrast themes. <br />+  Fixed an issue in the new client experience that caused screen readers to not read in-session notifications. <br />+  Fixed an issue in the new client experience that caused a Windows location prompt to appear under certain conditions. <br />+  Fixed an issue in the new client experience that could prevent automatic updates from starting for single user installations. <br />+  Updated the DCV SDK. <br />+  Additional bug fixes and enhancements.   | 
 | 5.36.0 | October 22, 2026 |  +  Reduced the time it takes to connect to your WorkSpace in the new client experience. <br />+  The new client experience now remembers the display and window state, size, and position of your last session, restoring them the next time you connect. <br />+  Added an option in the new client experience to download and install the USB redirection driver from within the session when it's not already installed. <br />+  Added an option in the new client experience to copy details for USB devices that are not yet allowed, making it easier to share these with your administrator. <br />+  The new client experience now uses the language selected in the classic client to improve the switching experience. <br />+  Improved the smoothness of the loading animation shown before the session starts in the new client experience. <br />+  Fixed issues in the new client experience that could prevent signing in, including a WebView2 initialization error. <br />+  Fixed an issue in the new client experience that prevented screenshots and screen sharing from working properly in certain conditions, such as during a Microsoft Teams meeting. <br />+  Fixed an issue in the new client experience that rendered the full screen options for all or selected displays unavailable after reconnecting with a different display setup. <br />+  Fixed an issue in the new client experience that caused empty translucent windows to briefly appear before the session loaded. <br />+  Fixed an issue in the new client experience where WorkSpace details displayed the protocol incorrectly as UDP for a TCP connection. <br />+  Updated the DCV SDK. <br />+  Additional bug fixes and enhancements.   | 
 | 5.35.0 | October 8, 2026 |  +  Improved full screen mode in the new client experience, adding a dedicated full screen button in the toolbar and a convenient dropdown to choose between full screen modes anytime. <br />+  Added language support for French, German, Portuguese, Spanish, Japanese, Korean, and Chinese in the new client experience (available under Settings). <br />+  Added an option to "Show in folder" to file upload notifications in the new client experience, simplifying the navigation to the uploaded file's location. <br />+  Re-enabled support for honoring printer preferences when printing from a session, which had been temporarily disabled in version 5.34.1. <br />+  Improved the message shown when choosing Try New WorkSpaces to clarify that PCoIP-based WorkSpaces and WorkSpaces Pools are not supported in the new client experience. <br />+  Fixed an issue in the new client experience that allowed connecting to a WorkSpace that was not available, such as one under maintenance, under certain conditions. <br />+  Fixed an issue in the new client experience that prevented signing in after the sign-in page had been open for about 30 minutes. <br />+  Fixed an issue that prevented the Settings and self-service options in the new client experience from displaying correctly when a high contrast theme was enabled or changed in the local Windows device. <br />+  Reduced the size of the Windows client installer. <br />+  Updated the DCV SDK. <br />+  Updated the WebView2 SDK. <br />+  Additional bug fixes and enhancements.   | 
 | 5.34.1 | September 4, 2026 |  +  Temporarily disabled support for honoring printer preferences, an enhancement introduced in client version 5.34.0, due to an issue causing delays with printer detection.   | 

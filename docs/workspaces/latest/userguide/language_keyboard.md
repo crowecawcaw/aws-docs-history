@@ -1,7 +1,6 @@
 
 
 # Language and keyboard settings for WorkSpaces
-<a name="language_keyboard"></a>
 
 To use the same language and keyboard settings on your client device and your WorkSpace, use one of the following methods, depending on which protocol your WorkSpace is using: PCoIP or DCV. 
 

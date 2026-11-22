@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Web Access
-<a name="amazon-workspaces-web-access"></a>
 
 **Note**  
 As of November 7, 2025, Amazon WorkSpaces PCoIP Web Access is no longer open to new customers. The feature will only receive critical functional and security updates going forward. While existing users can continue using the feature, new users will not be able to connect to their PCoIP WorkSpaces using Web Access.  

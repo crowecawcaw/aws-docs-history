@@ -1,7 +1,6 @@
 
 
 # Peripheral device support for WorkSpaces client applications
-<a name="peripheral_devices"></a>
 
 The Amazon WorkSpaces client applications offer the following support for peripheral devices. If you have an issue with using a particular device, have your WorkSpaces administrator send a report to [https://console.aws.amazon.com/support/home\#/](https://console.aws.amazon.com/support/home#/).
 

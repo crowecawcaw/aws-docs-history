@@ -1,7 +1,6 @@
 
 
 # Connect Customer audio optimization for WorkSpaces
-<a name="amazon_connect_support"></a>
 
 Amazon WorkSpaces allows you to add Connect Customer Contact Control Panel (CCP) to your WorkSpace so you can use Connect Customer audio optimization.
 

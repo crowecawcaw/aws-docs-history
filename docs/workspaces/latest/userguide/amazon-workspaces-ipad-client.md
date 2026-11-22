@@ -1,7 +1,6 @@
 
 
 # WorkSpaces iPad client application
-<a name="amazon-workspaces-ipad-client"></a>
 
 The following information will help you get started with the WorkSpaces iPad client application.
 

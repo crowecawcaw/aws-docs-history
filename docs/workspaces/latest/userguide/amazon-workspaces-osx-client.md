@@ -1,7 +1,6 @@
 
 
 # WorkSpaces macOS client application
-<a name="amazon-workspaces-osx-client"></a>
 
 The following information helps you get started with the WorkSpaces macOS client application.
 

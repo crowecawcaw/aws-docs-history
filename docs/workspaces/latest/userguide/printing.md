@@ -1,7 +1,6 @@
 
 
 # Printing from a WorkSpace
-<a name="printing"></a>
 
 The following printing methods are supported by Amazon WorkSpaces.
 

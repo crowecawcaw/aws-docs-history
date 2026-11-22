@@ -1,7 +1,6 @@
 
 
 # Increasing WorkSpace disk size
-<a name="client-increase-disk-workspace"></a>
 
 You can increase your WorkSpace disk size to add more storage capacity. You can increase the size of your C: drive (for Linux, this is /) up to 175 GB, and you can increase the size of your D: drive (for Linux, this is /home) up to 100 GB without contacting your administrator. If you need your drives increased beyond these limits, your administrator must increase the sizes of your drives for you. 
 

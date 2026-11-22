@@ -1,7 +1,6 @@
 
 
 # WorkSpaces clients
-<a name="amazon-workspaces-clients"></a>
 
 You can use the Amazon WorkSpaces client to connect to your WorkSpace from a supported device. Client applications are available for Windows, macOS, Linux, iPad, Android, Chromebook, and you can also connect from a supported web browser.
 

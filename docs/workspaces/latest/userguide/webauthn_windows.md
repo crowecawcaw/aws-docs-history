@@ -1,7 +1,6 @@
 
 
 # Configure WebAuthn on Windows WorkSpaces
-<a name="webauthn_windows"></a>
 
 Windows WorkSpaces support two WebAuthn modes: Enhanced and Standard.
 

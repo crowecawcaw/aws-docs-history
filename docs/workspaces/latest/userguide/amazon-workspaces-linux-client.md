@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Linux client application
-<a name="amazon-workspaces-linux-client"></a>
 
 The following information will help you get started with the WorkSpaces Linux client application.
 

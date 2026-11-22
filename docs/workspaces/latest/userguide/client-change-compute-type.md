@@ -1,7 +1,6 @@
 
 
 # Changing compute type for WorkSpaces
-<a name="client-change-compute-type"></a>
 
 You can change your WorkSpace compute type to choose a different bundle for your WorkSpace. If your administrator recently created your WorkSpace, you must wait 6 hours before you can change your WorkSpace compute type. After that, you can switch to a larger compute type once in a 6-hour period, or to a smaller compute type once in a 30-day period.
 

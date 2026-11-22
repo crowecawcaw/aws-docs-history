@@ -1,7 +1,6 @@
 
 
 # File transfer support in the WorkSpaces client applications
-<a name="file-transfer"></a>
 
 You can upload and download files on local computer and your **My Storage** folder if your WorkSpaces administrator has enabled file transfer.
 

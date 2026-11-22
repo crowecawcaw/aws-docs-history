@@ -1,7 +1,6 @@
 
 
 # Enabling high DPI display for WorkSpaces
-<a name="high_dpi_support"></a>
 
 The Amazon WorkSpaces Android version 2.4.21 or later client application and the version 3.0\+ client applications for Windows, macOS, and Linux support high pixel density (high DPI) displays. Screen resolution is defined by the number of pixels per inch (PPI) or dots per inch (DPI) that the screen can display horizontally and vertically. Some common screen resolutions are:
 + 1280x720 – High definition (HD), also known as 720p
@@ -17,9 +16,9 @@ Although all of these resolutions are labeled "high definition (HD)," that doesn
 + [Overview](#high-dpi-overview)
 + [Limitations](#high-dpi-limitations)
 + [Enabling high DPI mode for Android](#high-dpi-android)
-+ [Enabling high DPI mode for Windows, macOS, or Linux](#w2aac25c17)
-+ [Adjusting the scaling settings on a Windows WorkSpace](#w2aac25c19)
-+ [Adjusting the scaling settings on a Linux WorkSpace](#w2aac25c21)
++ [Enabling high DPI mode for Windows, macOS, or Linux](#w2aac27c17)
++ [Adjusting the scaling settings on a Windows WorkSpace](#w2aac27c19)
++ [Adjusting the scaling settings on a Linux WorkSpace](#w2aac27c21)
 
 ## Overview
 <a name="high-dpi-overview"></a>
@@ -51,7 +50,7 @@ The maximum display size supported for high DPI mode in the Amazon WorkSpaces cl
    The screen resolution of your WorkSpace will change to match the high DPI resolution of your device.
 
 ## Enabling high DPI mode for Windows, macOS, or Linux
-<a name="w2aac25c17"></a>
+<a name="w2aac27c17"></a>
 
 **To enable high DPI mode for Windows, macOS, or Linux**
 
@@ -88,7 +87,7 @@ If the images and text in your WorkSpace are smaller than you prefer, you will a
 When you dock or undock a laptop, or switch to another client device, you might need to readjust the scaling settings in the WorkSpace to suit the new monitor.
 
 ## Adjusting the scaling settings on a Windows WorkSpace
-<a name="w2aac25c19"></a>
+<a name="w2aac27c19"></a>
 
 **To adjust the scaling settings on a Windows WorkSpace**
 
@@ -109,7 +108,7 @@ If you see the message "The display settings cannot be changed from a remote ses
 1. If you are using multiple monitors, repeat these steps to set the scaling settings for each monitor.
 
 ## Adjusting the scaling settings on a Linux WorkSpace
-<a name="w2aac25c21"></a>
+<a name="w2aac27c21"></a>
 
 **To adjust the scaling settings on a Linux WorkSpace**
 **Note**  
