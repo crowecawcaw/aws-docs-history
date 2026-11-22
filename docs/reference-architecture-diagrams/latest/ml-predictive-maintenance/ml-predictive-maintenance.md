@@ -1,7 +1,6 @@
 
 
 # Machine Learning Enabled Predictive Maintenance on AWS
-<a name="ml-predictive-maintenance"></a>
 
 Publication date: **September 13, 2022 ([Diagram history](#mlpm-diagram-history))**
 
