@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Sending encrypted or signed email
-<a name="send_encrypted_email"></a>
 
 With S/MIME, you can send signed or encrypted emails inside and outside of your organization. After you configure S/MIME in the email client settings, all emails that you send are automatically signed. Encryption options depend on different email clients and respective platforms. The Amazon WorkMail web app client is not supported.
 
