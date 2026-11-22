@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  AWS Coding Plugin for SAP ABAP ("Coding Plugin") runs on your machine, inside your own Eclipse installation. Its security model is a set of trust boundaries between the parts it connects. These boundaries are: the plug-in and Eclipse, the plug-in and Kiro, Kiro and the Model Context Protocol (MCP) servers, and the path to your SAP system. This chapter describes each boundary and what crosses it.
 

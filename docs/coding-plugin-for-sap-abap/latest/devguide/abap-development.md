@@ -1,7 +1,6 @@
 
 
 # ABAP development
-<a name="abap-development"></a>
 
 Developing ABAP objects differs from classic Git-based development workflows. ABAP objects are not files, and a change becomes an inactive version in the live system.
 

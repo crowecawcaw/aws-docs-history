@@ -1,7 +1,6 @@
 
 
 # Steering
-<a name="steering"></a>
 
 Steering gives Kiro durable, project-level instructions that apply to every prompt, kept as Markdown files under `.kiro/steering/`. For how steering works and how to write your own, see [Steering](https://kiro.dev/docs/steering/) in the Kiro documentation.
 

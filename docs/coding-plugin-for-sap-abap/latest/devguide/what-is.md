@@ -1,7 +1,6 @@
 
 
 # What is AWS Coding Plugin for SAP ABAP?
-<a name="what-is"></a>
 
  AWS Coding Plugin for SAP ABAP ("Coding Plugin") is an Eclipse plug-in that adds agentic AI development, powered by Kiro, to the SAP ABAP Development Tools (ADT) environment you already use. It provides an AI chat panel, spec-driven development workflows, editor actions, and direct access to your SAP system through your existing ADT connection. For Kiro’s own behavior, including its security model, sign-in, and steering semantics, see the [Kiro documentation](https://kiro.dev/docs/) on the Kiro website.
 

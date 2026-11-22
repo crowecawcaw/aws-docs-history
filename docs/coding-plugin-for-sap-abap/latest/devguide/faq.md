@@ -1,7 +1,6 @@
 
 
 # AWS Coding Plugin for SAP ABAP FAQ
-<a name="faq"></a>
 
 Common questions about AWS Coding Plugin for SAP ABAP ("Coding Plugin"). Each answer links to the chapter that covers the topic in full.
 

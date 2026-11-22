@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 These practices help you get the most from Coding Plugin. Agentic development for SAP ABAP changes frequently. For the latest guidance and innovations, see the [AWS for SAP blog](https://aws.amazon.com/blogs/awsforsap/).
 

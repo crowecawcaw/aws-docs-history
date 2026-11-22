@@ -1,7 +1,6 @@
 
 
 # Working with ABAP
-<a name="abap-capabilities"></a>
 
  AWS Coding Plugin for SAP ABAP ("Coding Plugin") works directly in your SAP ABAP system through the SAP ABAP Development Tools (ADT) connection you already use in Eclipse. These ABAP tools come from SAP’s first-party ADT Model Context Protocol (MCP) server, the canonical and preferred source of ADT functionality, and from the plug-in’s own MCP server, which is vastly more functional and uniquely optimized for agentic use. The two overlap somewhat (see [Architecture](architecture.md)).
 

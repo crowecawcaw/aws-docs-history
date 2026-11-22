@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Coding Plugin for SAP ABAP
-<a name="getting-started"></a>
 
 This tutorial takes you from an empty Eclipse workspace to your first spec running against your SAP system. The setup takes a few minutes, not counting Kiro CLI installation and sign-in if you have not done those already.
 

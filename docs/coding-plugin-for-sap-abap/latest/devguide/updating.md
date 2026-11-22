@@ -1,7 +1,6 @@
 
 
 # Updates and maintenance
-<a name="updating"></a>
 
 You update AWS Coding Plugin for SAP ABAP ("Coding Plugin") through Eclipse, from the same update site you installed it from. The plug-in and Kiro CLI update on two independent tracks: Eclipse updates the plug-in when you run Help > Check for Updates, and Kiro CLI updates itself separately. Updating one does not update the other.
 

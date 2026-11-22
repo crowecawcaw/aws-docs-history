@@ -1,7 +1,6 @@
 
 
 # Spec-driven development with AWS Coding Plugin for SAP ABAP
-<a name="spec-driven-development"></a>
 
 Spec-driven development (SDD) makes a written specification, not the code, the primary artifact. A *spec* is a set of documents that state what to build. The plug-in generates the SAP ABAP from the spec, so the code is an output rather than the source of truth. SDD is a discipline, not a feature of any one tool, and AWS Coding Plugin for SAP ABAP ("Coding Plugin") brings it to Eclipse and SAP ABAP Development Tools (ADT).
 

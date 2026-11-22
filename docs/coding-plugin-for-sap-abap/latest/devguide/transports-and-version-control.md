@@ -1,7 +1,6 @@
 
 
 # Managing change and code reviews
-<a name="transports-and-version-control"></a>
 
  AWS Coding Plugin for SAP ABAP ("Coding Plugin") gives Kiro the tools to assign your changes to transports and to work with your SAP system’s Change and Transport System. It adds no version history of its own. You review and revert the changes it makes with your SAP system’s own version control, exactly as you would review and revert your own.
 
