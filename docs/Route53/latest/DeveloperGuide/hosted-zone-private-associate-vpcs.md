@@ -1,7 +1,6 @@
 
 
 # Associating more VPCs with a private hosted zone
-<a name="hosted-zone-private-associate-vpcs"></a>
 
 You can use the Amazon Route 53 console to associate more VPCs with a private hosted zone if you created the hosted zone and the VPCs by using the same AWS account.
 

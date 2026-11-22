@@ -1,7 +1,6 @@
 
 
 # Values that appear in VPC Resolver query logs
-<a name="resolver-query-logs-format"></a>
 
 Each log file contains one log entry for each DNS query that Amazon Route 53 received from DNS resolvers in the corresponding edge location. Each log entry includes the following values:
 

@@ -1,7 +1,6 @@
 
 
 # .management
-<a name="management"></a>
 
 Used for information about the business world and company management.
 

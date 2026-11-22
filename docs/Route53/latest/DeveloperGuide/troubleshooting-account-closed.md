@@ -1,7 +1,6 @@
 
 
 # My AWS account is closed or permanently closed, and my domain is registered with Route 53
-<a name="troubleshooting-account-closed"></a>
 
 If you close your AWS account, or if your account is closed or permanently closed, your domains will go through a deletion process:
 

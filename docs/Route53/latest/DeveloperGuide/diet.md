@@ -1,7 +1,6 @@
 
 
 # .diet
-<a name="diet"></a>
 
 **Important**  
 You can no longer use Route 53 to register new .diet domains or transfer .diet domains to Route 53. We'll continue to support .diet domains that are already registered with Route 53.

@@ -1,7 +1,6 @@
 
 
 # .report
-<a name="report"></a>
 
 Used as a general extension, but ideal for information about business reports, community publications, book reports, or news reporting.
 

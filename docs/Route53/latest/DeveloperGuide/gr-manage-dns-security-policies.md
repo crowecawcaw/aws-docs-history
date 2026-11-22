@@ -1,7 +1,6 @@
 
 
 # Manage DNS security policies in Route 53 Global Resolver
-<a name="gr-manage-dns-security-policies"></a>
 
 ## Managing global resolvers
 <a name="gr-managing-resolvers"></a>

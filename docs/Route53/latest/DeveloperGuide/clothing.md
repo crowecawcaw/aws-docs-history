@@ -1,7 +1,6 @@
 
 
 # .clothing
-<a name="clothing"></a>
 
 Used by those in the fashion industry, including retailers, department stores, designers, tailors, and outlets.
 

@@ -1,7 +1,6 @@
 
 
 # .futbol
-<a name="futbol"></a>
 
 Used for information about soccer (futbol).
 

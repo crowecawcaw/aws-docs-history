@@ -1,7 +1,6 @@
 
 
 # .xxx
-<a name="xxx"></a>
 
 Used for websites that host adults-only content.
 

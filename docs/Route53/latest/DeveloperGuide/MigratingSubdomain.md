@@ -1,7 +1,6 @@
 
 
 # Migrating DNS service for a subdomain to Amazon Route 53 without migrating the parent domain
-<a name="MigratingSubdomain"></a>
 
 You can migrate a subdomain to use Amazon Route 53 as the DNS service without migrating the parent domain from another DNS service.
 

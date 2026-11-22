@@ -1,7 +1,6 @@
 
 
 # .com.mx (Mexico)
-<a name="com.mx"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # .auction
-<a name="auction"></a>
 
 Used for events related to auctions and auction-based buying and selling.
 

@@ -1,7 +1,6 @@
 
 
 # .tienda
-<a name="tienda"></a>
 
 Used by retail businesses that want to connect with Spanish-speaking consumers.
 

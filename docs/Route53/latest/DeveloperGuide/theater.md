@@ -1,7 +1,6 @@
 
 
 # .theater
-<a name="theater"></a>
 
 Used for websites dedicated to theaters, plays, and musicals.
 

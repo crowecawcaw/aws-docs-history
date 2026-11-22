@@ -1,7 +1,6 @@
 
 
 # Getting started with Resolver DNS Firewall
-<a name="resolver-dns-firewall-getting-started"></a>
 
 The DNS Firewall console includes a wizard that guides you through the following steps for getting started with DNS Firewall:
 + Create rule groups for each set of rules that you want to use.
@@ -12,6 +11,9 @@ The DNS Firewall console includes a wizard that guides you through the following
 <a name="dns-firewall-walled-garden-example"></a>
 
 In this tutorial, you'll create a rule group that blocks all but a select group of domains that you trust. This is called a closed platform, or walled garden approach.
+
+**Tip**  
+If you don't know in advance every domain that your workloads need, you can use an Automated Allowlist rule. DNS Firewall observes the DNS query traffic of your VPCs, and you review and add the domains to allow. For more information, see [Automated Allowlists](firewall-advanced-automated-allowlists.md).
 
 **To configure a DNS Firewall rule group using the console wizard**
 

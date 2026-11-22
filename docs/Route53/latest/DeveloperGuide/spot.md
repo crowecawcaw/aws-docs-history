@@ -1,7 +1,6 @@
 
 
 # .spot
-<a name="spot"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 API permissions: Actions, resources, and conditions reference
-<a name="r53-api-permissions-ref"></a>
 
 When you set up [Access control](security-iam.md#access-control) and write a permissions policy that you can attach to an IAM identity (identity-based policies), you can use the lists of [Actions, resources, and condition keys for Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html), [Actions, resources, and condition keys for Route 53 Domains](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53domains.html), [Actions, resources, and condition keys for VPC Resolver](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53resolver.html), and [Actions, resources, and condition keys for Amazon Route 53 Profiles enables sharing DNS settings with VPCs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53profilesenablessharingdnssettingswithvpcs.html) in the *Service Authorization Reference*. The pages include each Amazon Route 53 API action, the actions that you must grant permissions access to, and the AWS resource that you must grant access to. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field. 
 

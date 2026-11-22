@@ -1,7 +1,6 @@
 
 
 # .ceo
-<a name="ceo"></a>
 
 Used for information about CEOs and their equals.
 

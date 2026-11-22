@@ -1,7 +1,6 @@
 
 
 # .de (Germany)
-<a name="de"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # .org.uk (United Kingdom)
-<a name="org.uk"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

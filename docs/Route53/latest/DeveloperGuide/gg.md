@@ -1,7 +1,6 @@
 
 
 # .gg (Guernsey)
-<a name="gg"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

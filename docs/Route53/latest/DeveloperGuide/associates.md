@@ -1,7 +1,6 @@
 
 
 # .associates
-<a name="associates"></a>
 
 Used by businesses and firms that include the term "associates" in their titles. Also used by any groups or agencies that want to indicate the professional nature of their organizations.
 

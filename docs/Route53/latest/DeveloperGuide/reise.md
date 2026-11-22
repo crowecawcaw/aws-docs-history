@@ -1,7 +1,6 @@
 
 
 # .reise
-<a name="reise"></a>
 
 Used for websites related to travels or journeys. "Reise" is a German word that means "rise," "arise," or "set out on a journey."
 

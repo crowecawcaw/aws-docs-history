@@ -1,7 +1,6 @@
 
 
 # Values specific for latency records
-<a name="resource-record-sets-values-latency"></a>
 
 When you create latency records, you specify the following values.
 

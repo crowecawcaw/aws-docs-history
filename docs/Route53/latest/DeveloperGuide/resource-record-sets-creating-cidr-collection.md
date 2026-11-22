@@ -1,7 +1,6 @@
 
 
 # Creating a CIDR collection with CIDR locations and blocks
-<a name="resource-record-sets-creating-cidr-collection"></a>
 
 
 

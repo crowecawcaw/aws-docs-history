@@ -1,7 +1,6 @@
 
 
 # Working with records
-<a name="rrsets-working-with"></a>
 
 After you create a hosted zone for your domain, such as example.com, you create records to tell the Domain Name System (DNS) how you want traffic to be routed for that domain.
 

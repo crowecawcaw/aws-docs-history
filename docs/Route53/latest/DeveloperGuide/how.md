@@ -1,7 +1,6 @@
 
 
 # .how
-<a name="how"></a>
 
 Used by thinkers, tinkerers, and knowledge-seekers to explore everything from "how do" to "how to."
 

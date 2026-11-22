@@ -1,7 +1,6 @@
 
 
 # Routing traffic to Amazon VPC Lattice service domain endpoint
-<a name="routing-to-vpc-lattice-service"></a>
 
 Amazon VPC Lattice is a fully managed application networking service that you use to connect, secure, and monitor the services and resources for your application. You can use VPC Lattice with a single virtual private cloud (VPC) or across multiple VPCs from one or more accounts. For more information, see [What is Amazon VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/what-is-vpc-lattice.html) in the *Amazon VPC Lattice User Guide*.
 

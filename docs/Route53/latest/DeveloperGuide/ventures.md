@@ -1,7 +1,6 @@
 
 
 # .ventures
-<a name="ventures"></a>
 
 Used by entrepreneurs, startups, venture capitalists, investment banks, and financiers.
 

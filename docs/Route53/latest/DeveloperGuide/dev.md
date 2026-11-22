@@ -1,7 +1,6 @@
 
 
 # .dev
-<a name="dev"></a>
 
 Used as a secure domain for developers and technology.
 

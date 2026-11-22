@@ -1,7 +1,6 @@
 
 
 # .coffee
-<a name="coffee"></a>
 
 Used by those in the coffee industry.
 

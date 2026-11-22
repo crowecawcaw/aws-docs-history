@@ -1,7 +1,6 @@
 
 
 # Configuring white-label name servers
-<a name="white-label-name-servers"></a>
 
 Each Amazon Route 53 hosted zone is linked to four name servers, known as a delegation set. By default, the name servers have names like ns-2048.awsdns-64.com. If you want your name servers to match the domain name of your hosted zone, for example, ns1.example.com, you can set up white-label name servers, also known as vanity name servers or private name servers.
 

@@ -1,7 +1,6 @@
 
 
 # My browser displays a "Server not found" error
-<a name="troubleshooting-server-not-found"></a>
 
 If your browser displays a "Server not found" error when you try to browse to a domain (example.com) or a subdomain (www.example.com), here are some common explanations.
 

@@ -1,7 +1,6 @@
 
 
 # .soccer
-<a name="soccer"></a>
 
 Used for websites dedicated to the game of soccer.
 

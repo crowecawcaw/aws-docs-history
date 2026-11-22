@@ -1,7 +1,6 @@
 
 
 # Region availability for Resolver DNS Firewall
-<a name="resolver-dns-firewall-availability"></a>
 
 The DNS Firewall is available in the following AWS Regions:
 + Africa (Cape Town) 

@@ -1,7 +1,6 @@
 
 
 # .land
-<a name="land"></a>
 
 Used by farmers, real estate agents, commercial developers, and anyone with an interest in property.
 

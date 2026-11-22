@@ -1,7 +1,6 @@
 
 
 # .shoes
-<a name="shoes"></a>
 
 Used by shoe retailers, designers, manufacturers, or fashion bloggers.
 

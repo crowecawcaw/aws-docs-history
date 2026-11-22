@@ -1,7 +1,6 @@
 
 
 # .limo
-<a name="limo"></a>
 
 Used by chauffeurs, limousine companies, and car rental agencies.
 

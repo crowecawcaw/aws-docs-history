@@ -1,7 +1,6 @@
 
 
 # .games
-<a name="games"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

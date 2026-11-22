@@ -1,7 +1,6 @@
 
 
 # Routing traffic to an Amazon CloudFront distribution by using your domain name
-<a name="routing-to-cloudfront-distribution"></a>
 
 This topic provides comprehensive procedures for routing DNS traffic to any Amazon CloudFront distribution. If you're setting up a static website with Amazon CloudFront and Amazon Simple Storage Service, see [Use an Amazon CloudFront distribution to serve a static website](getting-started-cloudfront-overview.md) for a complete tutorial.
 

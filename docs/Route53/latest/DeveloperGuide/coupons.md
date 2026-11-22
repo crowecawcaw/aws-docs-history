@@ -1,7 +1,6 @@
 
 
 # .coupons
-<a name="coupons"></a>
 
 Used by retailers and manufacturers that provide online coupons and coupon codes.
 

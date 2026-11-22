@@ -1,7 +1,6 @@
 
 
 # .irish
-<a name="irish"></a>
 
 Used for promoting Irish culture and organizations.
 

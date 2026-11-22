@@ -1,7 +1,6 @@
 
 
 # .phd
-<a name="phd"></a>
 
 Used by anyone with a doctorate to showcase their publications and accomplishments.
 

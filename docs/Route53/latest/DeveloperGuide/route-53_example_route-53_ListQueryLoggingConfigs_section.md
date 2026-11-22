@@ -1,7 +1,6 @@
 
 
 # Use `ListQueryLoggingConfigs` with a CLI
-<a name="route-53_example_route-53_ListQueryLoggingConfigs_section"></a>
 
 The following code examples show how to use `ListQueryLoggingConfigs`.
 
@@ -38,7 +37,7 @@ For more information, see [Logging DNS queries](https://docs.aws.amazon.com/Rout
 **Tools for PowerShell V4**  
 **Example 1: This example returns all the configurations for DNS query logging that are associated with the current AWS account.**  
 
-```
+```powershell
 Get-R53QueryLoggingConfigList
 ```
 **Output:**  
@@ -55,7 +54,7 @@ e38dddda-ceb6-45c1-8cb7-f0ae56aaaa2b Z3MEQ8T7AAA1BF arn:aws:logs:us-east-1:11111
 **Tools for PowerShell V5**  
 **Example 1: This example returns all the configurations for DNS query logging that are associated with the current AWS account.**  
 
-```
+```powershell
 Get-R53QueryLoggingConfigList
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Configure and manage DNS Firewall rules
-<a name="gr-configure-manage-firewall-rules"></a>
 
 ## Creating and viewing firewall rules
 <a name="gr-creating-viewing-firewall-rules"></a>

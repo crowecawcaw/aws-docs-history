@@ -1,7 +1,6 @@
 
 
 # .info
-<a name="info"></a>
 
 Used for the dissemination of information. 
 

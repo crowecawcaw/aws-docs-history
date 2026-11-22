@@ -1,7 +1,6 @@
 
 
 # Creating records by importing a zone file
-<a name="resource-record-sets-creating-import"></a>
 
 If you're moving from another DNS service provider, and if that provider lets you export your current DNS settings to a zone file, you can quickly create all the records for an Amazon Route 53 hosted zone by importing that zone file.
 

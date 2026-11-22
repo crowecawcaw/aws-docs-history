@@ -1,7 +1,6 @@
 
 
 # Updating name servers to use another registrar
-<a name="domain-register-other-dns-service"></a>
 
 If you want to move DNS management to another registrar, you need to update the name servers to point to <a name="domain-register-other-dns-service-new-procedure"></a>
 

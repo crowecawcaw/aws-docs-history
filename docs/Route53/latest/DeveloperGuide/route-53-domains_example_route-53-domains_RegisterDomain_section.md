@@ -1,7 +1,6 @@
 
 
 # Use `RegisterDomain` with an AWS SDK or CLI
-<a name="route-53-domains_example_route-53-domains_RegisterDomain_section"></a>
 
 The following code examples show how to use `RegisterDomain`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Initiate a domain registration request.
     /// </summary>
@@ -135,7 +134,7 @@ For more information, see [Registering a New Domain](https://docs.aws.amazon.com
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
-```
+```java
     public static String requestDomainRegistration(Route53DomainsClient route53DomainsClient,
             String domainSuggestion,
             String phoneNumber,
@@ -187,7 +186,7 @@ For more information, see [Registering a New Domain](https://docs.aws.amazon.com
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
-```
+```kotlin
 suspend fun requestDomainRegistration(
     domainSuggestion: String?,
     phoneNumberVal: String?,

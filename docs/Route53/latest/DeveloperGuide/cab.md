@@ -1,7 +1,6 @@
 
 
 # .cab
-<a name="cab"></a>
 
 Used by companies and individuals affiliated with the taxicab industry.
 

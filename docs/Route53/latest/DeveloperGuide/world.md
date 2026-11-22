@@ -1,7 +1,6 @@
 
 
 # .world
-<a name="world"></a>
 
 Used by anyone who wants to provide information about global subjects.
 

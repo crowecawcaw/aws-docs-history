@@ -1,7 +1,6 @@
 
 
 # .poker
-<a name="poker"></a>
 
 Used by poker players and gaming websites.
 

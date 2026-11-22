@@ -1,7 +1,6 @@
 
 
 # .website
-<a name="website"></a>
 
 Used for information about website development, promotion, improvements, and experiences.
 

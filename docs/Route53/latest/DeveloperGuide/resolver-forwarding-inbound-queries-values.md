@@ -1,7 +1,6 @@
 
 
 # Values that you specify when you create or edit inbound endpoints
-<a name="resolver-forwarding-inbound-queries-values"></a>
 
 When you create or edit an inbound endpoint, you specify the following values:
 

@@ -1,7 +1,6 @@
 
 
 # Moving geolocation routing to IP-based routing
-<a name="resource-record-sets-move-geolocation-to-cidr"></a>
 
 If you use geolocation or geoproximity routing and specific clients are consistently routed to a non-optimal endpoint based on their physical location or network topology, you can target those clients’ public IP ranges with IP-based routing instead.
 

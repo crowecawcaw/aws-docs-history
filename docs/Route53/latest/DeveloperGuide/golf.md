@@ -1,7 +1,6 @@
 
 
 # .golf
-<a name="golf"></a>
 
 Used for websites devoted to the game of golf.
 

@@ -1,7 +1,6 @@
 
 
 # .fund
-<a name="fund"></a>
 
 Used as a general extension for anything related to funding.
 

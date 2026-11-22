@@ -1,7 +1,6 @@
 
 
 # .plumbing
-<a name="plumbing"></a>
 
 Used by those in the plumbing industry.
 

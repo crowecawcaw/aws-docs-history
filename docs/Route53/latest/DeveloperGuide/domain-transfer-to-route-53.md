@@ -1,7 +1,6 @@
 
 
 # Transferring registration for a domain to Amazon Route 53
-<a name="domain-transfer-to-route-53"></a>
 
 **Important**  
 During the transfer of any country code top-level domains (ccTLDs) to Route 53, except for .cc and .tv, updates to the owner contact are ignored and the owner contact data from the registry is used. You can update the owner contact after the transfer is complete. For more information, see [Updating contact information and ownership for a domain](domain-update-contacts.md).

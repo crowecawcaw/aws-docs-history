@@ -1,7 +1,6 @@
 
 
 # .cool
-<a name="cool"></a>
 
 Used by organizations and groups who want to associate their brand with the latest trends.
 

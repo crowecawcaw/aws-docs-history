@@ -1,7 +1,6 @@
 
 
 # Forwarding outbound DNS queries to your network
-<a name="resolver-forwarding-outbound-queries"></a>
 
 To forward DNS queries that originate on Amazon EC2 instances in one or more VPCs to your network, you create an outbound endpoint and one or more rules:
 

@@ -1,7 +1,6 @@
 
 
 # Considerations when working with public hosted zones
-<a name="hosted-zone-public-considerations"></a>
 
 Note the following considerations when working with public hosted zones:
 

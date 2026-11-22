@@ -1,7 +1,6 @@
 
 
 # .lifestyle
-<a name="lifestyle"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

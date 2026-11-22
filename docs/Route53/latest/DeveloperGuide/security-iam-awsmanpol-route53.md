@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Route 53
-<a name="security-iam-awsmanpol-route53"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -65,7 +64,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -141,7 +140,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -182,7 +181,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -222,7 +221,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -267,7 +266,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -318,7 +317,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -348,6 +347,13 @@ This policy includes the following permissions.
 
 You can't attach `Route53ResolverServiceRolePolicy` to your IAM entities. This policy is attached to a service-linked role that allows Route 53 VPC Resolver to access AWS services and resources that are used or managed by VPC Resolver. For more information, see [Using Service-Linked Roles for Amazon Route 53 Resolver](using-service-linked-roles.md).
 
+## AWS managed policy: Route53PrivateHealthChecksServiceRolePolicy
+<a name="security-iam-awsmanpol-Route53PrivateHealthChecksServiceRolePolicy"></a>
+
+You can't attach `Route53PrivateHealthChecksServiceRolePolicy` to your IAM entities. Route 53 attaches this policy to the `AWSServiceRoleForRoute53PrivateHealthChecks` service-linked role, which Route 53 uses to create and manage the network interfaces that connect Route 53 health checkers to the private endpoints in your VPCs. Route 53 can create, tag, and delete only network interfaces that have a `Name` tag that starts with `healthchecksource-`, and can read your network interfaces, security groups, VPCs, and subnets. For more information, see [Using service-linked roles for Amazon Route 53 Private endpoint health checks](using-service-linked-roles-private-endpoint-health-checks.md).
+
+To view the permissions for this policy, see [Route53PrivateHealthChecksServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/Route53PrivateHealthChecksServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
 ## AWS managed policy: AmazonRoute53ProfilesFullAccess
 <a name="security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess"></a>
 
@@ -368,7 +374,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -429,7 +435,7 @@ This policy grants read-only access to Amazon Route 53 Profile resources.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -473,6 +479,7 @@ View details about updates to AWS managed policies for Route 53 since this serv
 | Change | Description | Date | 
 | --- | --- | --- | 
 | [AmazonRoute53ProfilesFullAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess) – Updated policy | Adds permission for `UpdateProfileAssociation`. With this permission, principals can change the name or priority of a Profile association with a VPC. | November 09, 2026 | 
+| [Route53PrivateHealthChecksServiceRolePolicy](#security-iam-awsmanpol-Route53PrivateHealthChecksServiceRolePolicy) – New policy | Amazon Route 53 added a new policy for the `AWSServiceRoleForRoute53PrivateHealthChecks` service-linked role. Route 53 uses the role to create and manage the network interfaces that private endpoint health checks use to reach endpoints in your VPCs. | October 30, 2026 | 
 | [AmazonRoute53FullAccess](#security-iam-awsmanpol-AmazonRoute53FullAccess) – Updated policy | Adds permission for `iam:CreateServiceLinkedRole`, limited to the `route53healthchecks.amazonaws.com` service. With this permission, principals can create the service-linked role for health checking when the role doesn't exist in the account yet. | October 08, 2026 | 
 | [AmazonRoute53FullAccess](#security-iam-awsmanpol-AmazonRoute53FullAccess) – Updated policy | Adds permissions for `cloudwatch:GetMetricData` ,`tag:GetResources`, `es:ListDomainNames`, `es:DescribeDomains`, `cloudfront:GetDistributionTenantByDomain`, `cloudfront:GetConnectionGroup` and `lightsail:GetContainerServices`. With these permissions, you can fetch up to 500 CloudWatch health check metrics, up to 100 names of health checks, get the domain configuration for the specified Amazon OpenSearch Service domains, and list the names of all Amazon OpenSearch Service domains owned by the current user in the active Region, fetch the CloudFront multi-tenant distributions and get the Lightsail container services. | June 01, 2025 | 
 | [AmazonRoute53ProfilesFullAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess) – Updated policy | Adds permissions for `GetProfilePolicy` and `PutProfilePolicy`. These are permission-only IAM actions. If an IAM principal doesn't have these permissions granted, an error occurs when attempting to share the Profile using the AWS RAM service. | August 27, 2024 | 

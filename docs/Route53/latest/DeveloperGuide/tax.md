@@ -1,7 +1,6 @@
 
 
 # .tax
-<a name="tax"></a>
 
 Used for information about taxes, tax preparation, and tax law.
 

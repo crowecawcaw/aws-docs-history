@@ -1,7 +1,6 @@
 
 
 # Working with customer managed keys for DNSSEC
-<a name="dns-configuring-dnssec-cmk-requirements"></a>
 
 When you enable DNSSEC signing in Amazon Route 53, Route 53 creates a key-signing key (KSK) for you. To create a KSK, Route 53 must use a customer managed key in AWS Key Management Service that supports DNSSEC. This section describes the details and requirements for the customer managed key that are helpful to know as you work with DNSSEC.
 

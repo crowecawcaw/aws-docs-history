@@ -1,7 +1,6 @@
 
 
 # .es (Spain)
-<a name="es"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

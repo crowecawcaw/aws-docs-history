@@ -1,7 +1,6 @@
 
 
 # Values specific for geoproximity alias records
-<a name="resource-record-sets-values-geoprox-alias"></a>
 
 When you create geoproximity alias records, you specify the following values.
 
@@ -98,7 +97,7 @@ For more information about Local Zones, see [Available Local Zones](https://docs
 
 You can also identify the Local Zones Group for a specific Local Zone by using the [describe-availability-zones](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html) CLI command:
 
-```
+```bash
 aws ec2 describe-availability-zones \
     --region us-west-2 \
     --all-availability-zones \

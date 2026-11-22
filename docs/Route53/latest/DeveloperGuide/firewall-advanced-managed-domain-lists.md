@@ -1,7 +1,6 @@
 
 
 # Advanced Managed Domain Lists
-<a name="firewall-advanced-managed-domain-lists"></a>
 
 Advanced Managed Domain Lists contain domain names that are associated with malicious activity or other not-safe-for-work domains. Advanced Managed Domain Lists are categorized into Threat and Content categories, designed to help protect you from common web threats and also block query resolution to domains not safe-for-work.
 

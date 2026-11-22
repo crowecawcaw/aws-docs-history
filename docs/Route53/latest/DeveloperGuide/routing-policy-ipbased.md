@@ -1,7 +1,6 @@
 
 
 # IP-based routing
-<a name="routing-policy-ipbased"></a>
 
 With IP-based routing in Amazon Route 53, you can fine-tune your DNS routing based on your knowledge of your network, applications, and clients. This helps you make the best DNS routing choices for your end users. IP-based routing gives you fine-grained control to boost performance or cut network costs by uploading your data to Route 53 as user-IP-to-endpoint mappings.
 

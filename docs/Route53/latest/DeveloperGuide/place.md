@@ -1,7 +1,6 @@
 
 
 # .place
-<a name="place"></a>
 
 Used as a general extension, but ideal for the home and travel sectors.
 

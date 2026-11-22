@@ -1,7 +1,6 @@
 
 
 # .repair
-<a name="repair"></a>
 
 Used by repair services or by those who want to teach others how to repair all kinds of items.
 

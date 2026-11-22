@@ -1,7 +1,6 @@
 
 
 # .claims
-<a name="claims"></a>
 
 Used by companies that handle insurance claims or provide legal services.
 

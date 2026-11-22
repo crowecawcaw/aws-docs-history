@@ -1,7 +1,6 @@
 
 
 # How domain registration works
-<a name="welcome-domain-registration"></a>
 
 If you want to create a website or a web application, you start by registering the name of your website, known as a [domain name](route-53-concepts.md#route-53-concepts-domain-name). Your domain name is the name, such as example.com, that your users enter in a browser to display your website.
 

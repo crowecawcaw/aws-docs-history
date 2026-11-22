@@ -1,7 +1,6 @@
 
 
 # Using latency and weighted records in Amazon Route 53 to route traffic to multiple Amazon EC2 instances in a Region
-<a name="TutorialLBRMultipleEC2InRegion"></a>
 
 If your application is running on Amazon EC2 instances in two or more Amazon EC2 regions, and if you have more than one Amazon EC2 instance in one or more regions, you can use latency-based routing to route traffic to the correct region and then use weighted records to route traffic to instances within the Region based on weights that you specify. 
 

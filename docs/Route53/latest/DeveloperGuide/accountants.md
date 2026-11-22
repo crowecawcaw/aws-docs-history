@@ -1,7 +1,6 @@
 
 
 # .accountants
-<a name="accountants"></a>
 
 Used by businesses, groups, and individuals affiliated with the accounting profession.
 

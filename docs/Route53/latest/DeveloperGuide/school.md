@@ -1,7 +1,6 @@
 
 
 # .school
-<a name="school"></a>
 
 Used for information about education, educational institutions, and school-related activities.
 

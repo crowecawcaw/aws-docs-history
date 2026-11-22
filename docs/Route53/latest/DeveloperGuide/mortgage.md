@@ -1,7 +1,6 @@
 
 
 # .mortgage
-<a name="mortgage"></a>
 
 Used by the mortgage industry.
 

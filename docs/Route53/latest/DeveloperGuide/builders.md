@@ -1,7 +1,6 @@
 
 
 # .builders
-<a name="builders"></a>
 
 Used by companies and individuals affiliated with the construction industry.
 

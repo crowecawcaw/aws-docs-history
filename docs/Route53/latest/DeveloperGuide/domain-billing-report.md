@@ -1,7 +1,6 @@
 
 
 # Downloading a domain billing report
-<a name="domain-billing-report"></a>
 
 If you manage multiple domains and you want to view charges by domain for a specified time period, you can download a domain billing report. This report includes all charges that apply to domain registration, including the following:
 + Registering a domain

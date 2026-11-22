@@ -1,9 +1,10 @@
 
 
 # Geoproximity routing
-<a name="routing-policy-geoproximity"></a>
 
 With geoproximity routing, Amazon Route 53 routes traffic to your resources based on the location of your users and your resources. It sends traffic to the closest available resource. You can also choose to send more or less traffic to a given resource by setting a value called a *bias*. A bias expands or shrinks the geographic region from which traffic goes to a resource.
+
+You can use geoproximity routing for records in both public and private hosted zones. For private hosted zones, see [Geoproximity routing in private hosted zones](routing-policy-geoproximity-phz.md).
 
 You create geoproximity rules for your resources and specify one of the following values for each rule:
 + If you're using AWS resources, specify the AWS Region or Local Zone Group that you created the resource in.
@@ -16,16 +17,6 @@ To learn about the difference between AWS Regions and Local Zones, see [Regions 
 To optionally change the size of the geographic region from which Route 53 routes traffic to a resource, specify the applicable value for the bias:
 + To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from 1 to 99 for the bias. Route 53 shrinks the size of adjacent regions. 
 + To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of -1 to -99. Route 53 expands the size of adjacent regions. 
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-flow-geoprox-routing-map-new)
-+ [Old console](#traffic-flow-geoprox-routing-map-old)
-
-------
-#### [ New console ]
 
 The following map shows four AWS Regions (numbered 1 through 5):
 
@@ -54,29 +45,6 @@ The following map shows what happens if you change the bias to -25 for the US We
 
 ![A map of the world that shows how traffic is routed when you add a bias of -25 in the US West (Oregon) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-minus25-new.png)
 
-
-------
-#### [ Old console ]
-
-The following map shows four AWS Regions (numbered 1 through 4) and a location in Johannesburg, South Africa that is specified by latitude and longitude (5).
-
-**Note**  
-The maps are available only with Traffic Flow.
-
-![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), US East (N. Virginia), Europe (Paris), and Asia Pacific (Tokyo), and you have a record for a non-AWS resource in Johannesburg, South Africa.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-no-bias.png)
-
-
-The following map shows what happens if you add a bias of \+25 for the US East (N. Virginia) Region (number **2** on the map). Traffic is routed to the resource in that Region from a larger portion of North America than previously, and from all of South America.
-
-![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-plus-25.png)
-
-
-The following map shows what happens if you change the bias to -25 for the US East (N. Virginia) Region. Traffic is routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed to resources in the adjacent regions **1**, **3**, and **5**. 
-
-![A map of the world that shows how traffic is routed when you add a bias of -25 in the US East (N. Virginia) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-minus-25.png)
-
-
-------
 
 The effect of changing the bias for your resources depends on several factors, including the following:
 + The number of resources that you have.

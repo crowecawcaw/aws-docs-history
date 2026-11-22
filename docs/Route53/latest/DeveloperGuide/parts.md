@@ -1,7 +1,6 @@
 
 
 # .parts
-<a name="parts"></a>
 
 Used as a general extension, but ideal for parts manufacturers, sellers, and buyers.
 

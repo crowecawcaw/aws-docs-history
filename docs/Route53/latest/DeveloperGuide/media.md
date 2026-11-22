@@ -1,7 +1,6 @@
 
 
 # .media
-<a name="media"></a>
 
 Used by the media and entertainment sectors.
 

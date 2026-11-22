@@ -1,7 +1,6 @@
 
 
 # Adding Palo Alto Networks rules to DNS Firewall rule groups
-<a name="firewall-partner-panw-adding-rules"></a>
 
 After you subscribe, you can create one or more rules using Palo Alto Networks threat feeds within any DNS Firewall rule group.
 

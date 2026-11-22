@@ -1,7 +1,6 @@
 
 
 # Making Amazon Route 53 the DNS service for an existing domain
-<a name="MigratingDNS"></a>
 
 If you're transferring one or more domain registrations to Route 53, and your current registrar doesn't provide paid DNS service, you need to migrate DNS service before you transfer the domain. Otherwise, the registrar will stop providing DNS service when you transfer your domains. The associated websites and web applications will become unavailable on the internet. (You can also migrate DNS service to another DNS service provider. You don't have to use Route 53 as the DNS service provider for domains registered with Route 53.)
 

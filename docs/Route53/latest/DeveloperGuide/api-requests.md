@@ -1,7 +1,6 @@
 
 
 # Making API Requests
-<a name="api-requests"></a>
 
 **Topics**
 + [Making API Requests for Hosted Zones, Resource Record Sets, and Health Checks](api-requests-rest.md)

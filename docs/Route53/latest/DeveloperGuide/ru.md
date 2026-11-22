@@ -1,7 +1,6 @@
 
 
 # .ru (Russian Federation)
-<a name="ru"></a>
 
 **Important**  
 You can no longer use Route 53 to register new .ru domains, transfer .ru domains to Route 53, or renew existing .ru domains with Route 53. If you have existing .ru domains with Route 53, transfer them to a registrar that supports .ru immediately to avoid any service disruption.

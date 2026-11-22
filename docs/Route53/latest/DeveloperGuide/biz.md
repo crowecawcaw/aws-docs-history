@@ -1,7 +1,6 @@
 
 
 # .biz
-<a name="biz"></a>
 
 Used for business or commercial use.
 

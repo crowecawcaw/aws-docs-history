@@ -1,7 +1,6 @@
 
 
 # .mx (Mexico)
-<a name="mx"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

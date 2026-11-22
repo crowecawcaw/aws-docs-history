@@ -1,7 +1,6 @@
 
 
 # .xyz
-<a name="xyz"></a>
 
 Used as a general extension for any purpose.
 

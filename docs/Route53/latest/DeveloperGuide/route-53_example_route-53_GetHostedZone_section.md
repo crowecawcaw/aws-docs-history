@@ -1,7 +1,6 @@
 
 
 # Use `GetHostedZone` with a CLI
-<a name="route-53_example_route-53_GetHostedZone_section"></a>
 
 The following code examples show how to use `GetHostedZone`.
 
@@ -49,7 +48,7 @@ For more information, see [Working with hosted zones](https://docs.aws.amazon.co
 **Tools for PowerShell V4**  
 **Example 1: Returns details of the hosted zone with ID Z1D633PJN98FT9.**  
 
-```
+```powershell
 Get-R53HostedZone -Id Z1D633PJN98FT9
 ```
 +  For API details, see [GetHostedZone](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -57,7 +56,7 @@ Get-R53HostedZone -Id Z1D633PJN98FT9
 **Tools for PowerShell V5**  
 **Example 1: Returns details of the hosted zone with ID Z1D633PJN98FT9.**  
 
-```
+```powershell
 Get-R53HostedZone -Id Z1D633PJN98FT9
 ```
 +  For API details, see [GetHostedZone](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

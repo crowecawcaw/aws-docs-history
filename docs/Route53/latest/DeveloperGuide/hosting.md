@@ -1,7 +1,6 @@
 
 
 # .hosting
-<a name="hosting"></a>
 
 **Important**  
 You can no longer use Route 53 to register new .hosting domains or transfer .hosting domains to Route 53. We'll continue to support .hosting domains that are already registered with Route 53.

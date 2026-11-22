@@ -1,7 +1,6 @@
 
 
 # Europe
-<a name="registrar-tld-list-europe"></a>
 
 You can use the following top-level domains (TLDs) for Europe to register domains with Amazon Route 53.
 

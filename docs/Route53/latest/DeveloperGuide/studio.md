@@ -1,7 +1,6 @@
 
 
 # .studio
-<a name="studio"></a>
 
 Used as a general extension, but ideal for those in the real estate, art, or entertainment industries.
 

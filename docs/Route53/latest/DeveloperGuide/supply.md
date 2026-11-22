@@ -1,7 +1,6 @@
 
 
 # .supply
-<a name="supply"></a>
 
 Used by businesses that sell goods online.
 

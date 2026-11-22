@@ -1,7 +1,6 @@
 
 
 # .free
-<a name="free"></a>
 
 Used for websites offering free products, services, or content.
 

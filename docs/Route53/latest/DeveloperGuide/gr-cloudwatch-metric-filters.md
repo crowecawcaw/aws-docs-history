@@ -1,7 +1,6 @@
 
 
 # Example metric filters
-<a name="gr-cloudwatch-metric-filters"></a>
 
 This section contains example metric filter patterns and Amazon CloudWatch Logs Insights queries for Route 53 Global Resolver DNS query logs.
 

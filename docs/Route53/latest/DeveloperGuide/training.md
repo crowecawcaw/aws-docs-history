@@ -1,7 +1,6 @@
 
 
 # .training
-<a name="training"></a>
 
 Used by trainers, coaches, and educators.
 

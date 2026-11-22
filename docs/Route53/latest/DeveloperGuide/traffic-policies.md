@@ -1,7 +1,6 @@
 
 
 # Creating and managing traffic policies
-<a name="traffic-policies"></a>
 
 
 
@@ -17,17 +16,7 @@
 ## Creating a traffic policy
 <a name="traffic-policies-creating"></a>
 
-To create a traffic policy, perform the following procedure.
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policies-creating-new)
-+ [Old console](#traffic-policies-creating-old)
-
-------
-#### [ New console ]<a name="traffic-policies-creating-procedure"></a>
+To create a traffic policy, perform the following procedure.<a name="traffic-policies-creating-procedure"></a>
 
 **To create a traffic policy**
 
@@ -63,48 +52,8 @@ If you delete a rule that has child rules and endpoints, Amazon Route 53 also d
 
 1. If you specified settings for policy records in the preceding step, choose **Create policy records**.
 
-------
-#### [ Old console ]<a name="traffic-policies-creating-procedure-old"></a>
-
-**To create a traffic policy**
-
-1. Design your configuration. For information about how complex DNS routing configurations work, see [Configuring DNS failover](dns-failover-configuring.md) in [Creating Amazon Route 53 health checks](dns-failover.md).
-
-1. Based on the design for your configuration, create the health checks that you want to use for your endpoints.
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Traffic policies**.
-
-1. Choose **Create traffic policy**.
-
-1. On the **Name policy** page, specify the applicable values. For more information, see [Values that you specify when you create a traffic policy](#traffic-policies-creating-values).
-
-1. Choose **Next**.
-
-1. On the **Create traffic policy** *policy name* **v1** page, specify the applicable values. For more information, see [Values that you specify when you create a traffic policy](#traffic-policies-creating-values).
-
-   You can delete rules, endpoints, and branches of a traffic policy in the following ways:
-   + To delete a rule or an endpoint, choose the **x** in the upper-right corner of the box.
-**Important**  
-If you delete a rule that has child rules and endpoints, Amazon Route 53 also deletes all of the children. 
-   + If you connect two rules to the same child rule or endpoint and you want to delete one of the connections, pause your cursor on the connection that you want to delete, and choose the **x** for that connection.
-
-1. Choose **Create traffic policy**.
-
-1. *Optional*: On the **Create policy records with traffic policy** page, use the new traffic policy to create one or more policy records in one hosted zone. For more information, see [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values). You can also create policy records later, either in the same hosted zone or in additional hosted zones.
-
-   If you don't want to create policy records now, choose **Skip this step**, and the console displays the list of traffic policies and policy records that you have created by using the current AWS account.
-
-1. If you specified settings for policy records in the preceding step, choose **Create policy record**.
-
-------
-
 ## Values that you specify when you create a traffic policy
 <a name="traffic-policies-creating-values"></a>
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console. The following list applies for both console, except where noted.
 
 When you create a traffic policy, you specify the following values.
 + [Policy name](#traffic-policies-creating-values-policy-name)
@@ -114,7 +63,7 @@ When you create a traffic policy, you specify the following values.
 + [Connect to](#traffic-policies-creating-values-connect-to)
 + [Value type](#traffic-policies-creating-values-value-type)
 + [Value](#traffic-policies-creating-values-value)
-+ [Key (new console only)](#traffic-policies-creating-values-key)
++ [Key](#traffic-policies-creating-values-key)
 
 ### Policy name
 <a name="traffic-policies-creating-values-policy-name"></a>
@@ -277,7 +226,7 @@ When you create a policy record based on this traffic policy, the bucket that yo
 Enter a value that corresponds with the value that you specified for **DNS type** when you started this traffic policy. For example, if you chose **MX** for **DNS type**, enter two values: the priority that you want to assign to a mail server and the domain name of the mail server, such as `10 sydney.mail.example.com`.  
 For more information about supported DNS types, see [Supported DNS record types](ResourceRecordTypes.md).
 
-### Key (new console only)
+### Key
 <a name="traffic-policies-creating-values-key"></a>
 
 Enter a friendly name for a routing rule or an endpoint for **Key**. This value displays as the name of a node in the editor.
@@ -286,16 +235,6 @@ Enter a friendly name for a routing rule or an endpoint for **Key**. This value 
 <a name="traffic-flow-geoproximity-map"></a>
 
 A *geoproximity rule* lets you specify the locations of your resources, both in AWS Regions , or Local Zones, and, using latitude and longitude, in non-AWS locations. When you create a geoproximity rule, by default, Route 53 routes internet traffic to the resource that is closest to your users. You can also choose to route more traffic or less traffic to a resource by specifying a *bias*, which expands or shrinks the geographic area from which traffic is routed to a resource. For more information about geoproximity routing, see [Geoproximity routing](routing-policy-geoproximity.md).
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-flow-geoprox-map-new)
-+ [Old console](#traffic-flow-geoprox-map-old)
-
-------
-#### [ New console ]
 
 You can display a map that shows the effect of your current geoproximity settings. For example, if you have resources in the US West (Oregon), Europe (Frankfurt), and Asia Pacific (Tokyo) Regions, and if you don't specify a bias, the map looks like this.
 
@@ -312,26 +251,6 @@ Note the following:
 + You can move the map around inside the map window to see specific areas. Use a touchpad or drag the map to navigate. You can also move the map window in a browser window.
 + If you have more than one geoproximity rule in a policy, you can view the map for only one rule at a time.
 
-------
-#### [ Old console ]
-
-You can display a map that shows the effect of your current geoproximity settings. For example, if you have resources in the US West (Oregon), Europe (Frankfurt), and Asia Pacific (Tokyo) Regions, and if you don't specify a bias, the map looks like this.
-
-![Map of the world that shows three regions approximately divided into North and South America; Europe, Africa, and western Asia; and the rest of Asia and Australia.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map.png)
-
-
-To display the map for a geoproximity rule, choose the graph icon next to **Show geoproximity map**. (This icon appears at the top of the rule.) To hide the map, choose the icon again or choose the **x** in the upper right corner of the map.
-
-Note the following:
-+ The map is accurate to within approximately 10 miles (16 kilometers).
-+ The map automatically adjusts when you add, edit, or delete Regions, or when you change the bias setting for a Region.
-+ The Region number and color in each rule definition correspond with numbers and colors on the map.
-+ You can zoom in and zoom out to see more or less detail. Use the \+ and - buttons on the map, a touchpad, or the wheel on a mouse to change the zoom level.
-+ You can move the map around inside the map window to see specific areas. Use a touchpad or drag the map to navigate. You can also move the map window in a browser window.
-+ If you have more than one geoproximity rule in a policy, you can view the map for only one rule at a time.
-
-------
-
 ## Creating additional versions of a traffic policy
 <a name="traffic-policies-creating-versions"></a>
 
@@ -339,17 +258,7 @@ When you edit a traffic policy, Amazon Route 53 automatically creates another v
 
 Route 53 doesn't reuse version numbers for new versions of a given traffic policy. For example, if you create three versions of **MyTrafficPolicy**, delete the last two versions, and then create another version, the new version is version 4. By retaining the previous versions, Route 53 ensures that you can roll back to a previous configuration if a new configuration doesn't route traffic as you wanted it to. 
 
-To create a new traffic policy version, perform the following procedure.
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policies-creating-versions-new-console)
-+ [Old console](#traffic-policies-creating-versions-old-console)
-
-------
-#### [ New console ]<a name="traffic-policies-creating-versions-procedure"></a>
+To create a new traffic policy version, perform the following procedure.<a name="traffic-policies-creating-versions-procedure"></a>
 
 **To create another version of a traffic policy**
 
@@ -383,43 +292,6 @@ If you delete a rule that has child rules and endpoints, Route 53 also deletes 
 
 1. If you specified settings for policy records in the preceding step, choose **Create policy record**.
 
-------
-#### [ Old console ]<a name="traffic-policies-creating-versions-procedure-old"></a>
-
-**To create another version of a traffic policy**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Traffic policies**.
-
-1. Choose the name of the traffic policy that you want to create a new version of.
-
-1. In the **Traffic policy versions** table at the top of the page, select the check box for the traffic policy version that you want to use as a basis for the new traffic policy version.
-
-1. Choose **Edit policy as new version**.
-
-1. On the **Update description** page, enter a description for the new traffic policy version. Specify a description that distinguishes this version from other versions of the same traffic policy. When you create a new policy record, the value that you specify appears in the list of available versions for this traffic policy.
-
-1. Choose **Next**.
-
-1. Update the configuration as applicable. For more information, see [Values that you specify when you create a traffic policy](#traffic-policies-creating-values).
-
-   You can delete rules, endpoints, and branches of a traffic policy in the following ways:
-   + To delete a rule or an endpoint, choose the **x** in the upper-right corner of the box.
-**Important**  
-If you delete a rule that has child rules and endpoints, Route 53 also deletes all of the children. 
-   + If you connect two rules to the same child rule or endpoint and you want to delete one of the connections, pause your cursor on the connection that you want to delete, and choose the **x** for that connection.
-
-1. When you're finished editing, choose **Save as new version**.
-
-1. *Optional*: Specify the settings to create one or more policy records in one hosted zone by using the new traffic policy version. For more information, see [Values that you specify when you create or update a policy record](traffic-policy-records.md#traffic-policy-records-creating-values). You can also create policy records later, either in the same hosted zone or in additional hosted zones.
-
-   If you don't want to create policy records now, choose **Skip this step**, and the console displays the list of traffic policies and policy records that you have created by using the current AWS account.
-
-1. If you specified settings for policy records in the preceding step, choose **Create policy record**.
-
-------
-
 ## Creating a traffic policy by using a JSON document
 <a name="traffic-policy-import"></a>
 
@@ -427,17 +299,7 @@ You can create a new traffic policy or a new version of an existing traffic poli
 
 The easiest way to get the JSON-formatted document for an existing traffic policy version is to use the `get-traffic-policy` command in the AWS CLI. For more information, see [get-traffic-policy](https://docs.aws.amazon.com/cli/latest/reference/route53/get-traffic-policy.html) in the *AWS CLI Command Reference*. 
 
-The JSON file created by the `get-traffic-policy` command includes backward slashes (\\) as escape characters. Before you import the JSON file, replace all the backward slashes with null characters.
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-import-new-console)
-+ [Old console](#traffic-policy-import-old-console)
-
-------
-#### [ New console ]<a name="traffic-policy-import-procedure"></a>
+The JSON file created by the `get-traffic-policy` command includes backward slashes (\\) as escape characters. Before you import the JSON file, replace all the backward slashes with null characters.<a name="traffic-policy-import-procedure"></a>
 
 **To create a traffic policy by importing a JSON document**
 
@@ -477,63 +339,10 @@ Choose the tab for the console you are using.
 
 1. Choose **Update**.
 
-------
-#### [ Old console ]<a name="traffic-policy-import-procedure-old"></a>
-
-**To create a traffic policy by importing a JSON document**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. To create a new traffic policy by importing a JSON document, perform the following steps:
-
-   1. In the navigation pane, choose **Traffic policies**.
-
-   1. Choose **Create traffic policy**.
-
-   1. On the **Name policy** page, specify the applicable values. For more information, see [Values that you specify when you create a traffic policy](#traffic-policies-creating-values).
-
-   1. Skip to step 4.
-
-1. To create a new version of an existing traffic policy by importing a JSON document, perform the following steps:
-
-   1. In the navigation pane, choose **Traffic policies**.
-
-   1. Choose the name of the traffic policy that you want to base the new version on. 
-
-   1. In the **Traffic policy versions** table, select the check box for the version that you want to base the new version on.
-
-   1. Choose **Edit policy as new version**.
-
-   1. On the **Update description** page, enter a description for the new version.
-
-   1. Skip to step 4.
-
-1. Choose **Next**.
-
-1. Choose **Import traffic policy**.
-
-1. Enter a new traffic policy, paste an example traffic policy, or paste an existing traffic policy. 
-
-   For example policies, see [Traffic Flow policy JSON examples](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html#traffic-policy-document-format-examples)
-
-1. Choose **Import traffic policy**.
-
-------
-
 ## Viewing traffic policy versions and the associated policy records
 <a name="traffic-policies-viewing"></a>
 
-You can view all of the versions that you've created for a traffic policy as well as all of the policy records that you've created by using each of the versions of the traffic policy.
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-view-new-console)
-+ [Old console](#traffic-policy-view-old-console)
-
-------
-#### [ New console ]<a name="traffic-policies-viewing-procedure"></a>
+You can view all of the versions that you've created for a traffic policy as well as all of the policy records that you've created by using each of the versions of the traffic policy.<a name="traffic-policies-viewing-procedure"></a>
 
 **To view traffic policy versions and the associated policy records**
 
@@ -575,51 +384,6 @@ Indicates the version of the traffic policy that you used to create the policy r
 **TTL (in seconds)**  
 The amount of time, in seconds, that you want DNS recursive resolvers to cache information about this record. If you specify a longer value (for example, 172,800 seconds, or two days), you pay less for Route 53 service because recursive resolvers send requests to Route 53 less often. However, it takes longer for changes to the records (for example, a new IP address) to take effect because recursive resolvers use the values in their cache for longer periods instead of asking Route 53 for the latest information.
 
-------
-#### [ Old console ]<a name="traffic-policies-viewing-procedure-old"></a>
-
-**To view traffic policy versions and the associated policy records**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Traffic policies**.
-
-1. Choose the name of a traffic policy.
-
-1. The top table lists all of the versions that you've created of a traffic policy. The table includes the following information:  
-**Version number**  
-The number of each version of a traffic policy that you've created. If you choose the version number, the console displays the configuration for that version.  
-**Number of policy records**  
-The number of policy records that you've created by using this traffic policy version.  
-**DNS type**  
-The DNS type that you specified when you created the traffic policy version.  
-**Version description**  
-The description that you specified when you created the traffic policy version.
-
-1. The bottom table lists all of the policy records that you've created by using the traffic policy versions in the top table. The table includes the following information:  
-**Policy record DNS name**  
-The DNS names that you've associated the traffic policy with.  
-**Status**  
-Possible values include the following:    
-**Applied**  
-Route 53 has finished creating or updating a policy record and the corresponding records.  
-**Creating**  
-Route 53 is creating the records for a new policy record.  
-**Updating**  
-You have updated a policy record and Route 53 is in the process of creating a new group of records that will replace the existing group of records for the specified DNS name.  
-**Deleting**  
-Route 53 is in the process of deleting a policy record and the associated records.  
-**Failed**  
-Route 53 wasn't able to create or update the policy record and the associated records.   
-**Version used**  
-Indicates the version of the traffic policy that you used to create the policy record.  
-**DNS type**  
-The DNS type of all of the records that Route 53 created for this policy record. When you edit a policy record, you must specify a traffic policy version that has the same DNS type as the DNS type for the policy record that you're editing.  
-**TTL (in seconds)**  
-The amount of time, in seconds, that you want DNS recursive resolvers to cache information about this record. If you specify a longer value (for example, 172,800 seconds, or two days), you pay less for Route 53 service because recursive resolvers send requests to Route 53 less often. However, it takes longer for changes to the records (for example, a new IP address) to take effect because recursive resolvers use the values in their cache for longer periods instead of asking Route 53 for the latest information.
-
-------
-
 ## Deleting traffic policy versions and traffic policies
 <a name="traffic-policies-deleting"></a>
 
@@ -628,17 +392,7 @@ To delete a traffic policy, you must delete all of the versions (including the o
 **Important**  
 If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 stops responding to queries for the corresponding DNS names. For example, if Route 53 is using the policy record for www.example.com to respond to DNS queries for www.example.com and you delete the policy record, users can't access your website or web application by using the domain name www.example.com. 
 
-To delete traffic policy versions and, optionally, a traffic policy, perform the following procedure:
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-delete-new-console)
-+ [Old console](#traffic-policy-delete-old-console)
-
-------
-#### [ New console ]<a name="traffic-policies-deleting-procedure"></a>
+To delete traffic policy versions and, optionally, a traffic policy, perform the following procedure:<a name="traffic-policies-deleting-procedure"></a>
 
 **To delete traffic policy versions and a traffic policy**
 
@@ -667,36 +421,3 @@ Choose the tab for the console you are using.
 1. In the list of traffic policies, select the check box for the traffic policy that you want to delete.
 
 1. Choose **Delete traffic policy**.
-
-------
-#### [ Old console ]<a name="traffic-policies-deleting-procedure-old"></a>
-
-**To delete traffic policy versions and a traffic policy**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Traffic policies**.
-
-1. Choose the name of the traffic policy for which you want to delete traffic policy versions and that, optionally, you want to delete completely.
-
-1. If the traffic policy versions that you want to delete in the top table appear in the **Version used** column in the bottom table, select the check boxes for the corresponding policy records in the bottom table. 
-
-   For example, if you want to delete version 3 of a traffic policy but you created one of the policy records in the bottom table by using version 3, select the check box for that policy record. 
-
-1. Choose **Delete policy records**.
-
-1. Choose the refresh button for the bottom table to refresh the display until the policy records that you deleted no longer appear in the table.
-
-1. In the top table, select the check boxes for the traffic policy versions that you want to delete. 
-
-1. Choose **Delete version**.
-
-1. If you deleted all traffic policy versions in the preceding step and you want to delete the traffic policy, too, choose the refresh button for the top table to refresh the display until the table is empty.
-
-1. In the navigation pane, choose **Traffic policies**. 
-
-1. In the list of traffic policies, select the check box for the traffic policy that you want to delete.
-
-1. Choose **Delete traffic policy**.
-
-------

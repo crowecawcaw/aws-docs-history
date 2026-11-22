@@ -1,7 +1,6 @@
 
 
 # Editing records
-<a name="resource-record-sets-editing"></a>
 
 The following procedure explains how to edit records using the Amazon Route 53 console. For information about how to edit records using the Route 53 API, see [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) in the *Amazon Route 53 API Reference*.
 

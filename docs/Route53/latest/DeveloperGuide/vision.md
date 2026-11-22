@@ -1,7 +1,6 @@
 
 
 # .vision
-<a name="vision"></a>
 
 Used as a general extension, but ideal for vision specialists such as optometrists and ophthalmologists.
 

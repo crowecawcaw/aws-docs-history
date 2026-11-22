@@ -1,7 +1,6 @@
 
 
 # Routing traffic to an Amazon API Gateway API by using your domain name
-<a name="routing-to-api-gateway"></a>
 
 You can use Amazon API Gateway to create, publish, maintain, monitor, and secure APIs. You can create APIs that access AWS services or other web services in addition to data stored in the AWS Cloud.
 

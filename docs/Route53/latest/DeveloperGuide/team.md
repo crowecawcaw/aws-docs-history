@@ -1,7 +1,6 @@
 
 
 # .team
-<a name="team"></a>
 
 Used by any business or organization that wants to identify as a team.
 

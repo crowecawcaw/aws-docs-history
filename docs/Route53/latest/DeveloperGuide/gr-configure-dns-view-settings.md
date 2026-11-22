@@ -1,7 +1,6 @@
 
 
 # Configure settings for DNS views in Route 53 Global Resolver
-<a name="gr-configure-dns-view-settings"></a>
 
 Route 53 Global Resolver allows you to configure different DNS policies and access controls for different groups of client devices based on their security requirements and access needs. Set up DNS policies and access controls in Route 53 Global Resolver for different groups of client devices based on their security requirements and access needs.
 

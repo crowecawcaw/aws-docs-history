@@ -1,7 +1,6 @@
 
 
 # .estate
-<a name="estate"></a>
 
 Used for information about housing and the housing sector.
 

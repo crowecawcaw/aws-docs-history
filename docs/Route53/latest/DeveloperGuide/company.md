@@ -1,7 +1,6 @@
 
 
 # .company
-<a name="company"></a>
 
 Used as a generic extension for companies of all kinds.
 

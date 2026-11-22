@@ -1,7 +1,6 @@
 
 
 # .press
-<a name="press"></a>
 
 Used for adults-only websites.
 

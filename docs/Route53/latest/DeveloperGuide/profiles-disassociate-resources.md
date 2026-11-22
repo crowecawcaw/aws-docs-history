@@ -1,7 +1,6 @@
 
 
 # Disassociating a resource from an Amazon Route 53 Profile
-<a name="profiles-disassociate-resources"></a>
 
 Before you delete a Profile, you must dissociate all resources from it.<a name="profiles-disassociate-resources-procedure"></a>
 

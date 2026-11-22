@@ -1,7 +1,6 @@
 
 
 # Managing forwarding rules
-<a name="resolver-rules-managing"></a>
 
 If you want VPC Resolver to forward queries for specified domain names to your network, you create one forwarding rule for each domain name and specify the name of the domain for which you want to forward queries.
 
@@ -225,7 +224,7 @@ Forwarding rules for reverse DNS queries are particularly useful for services li
 
 You can turn off these rules and modify all reverse DNS queries so that they are, for example, forwarded to your on-premises name servers for resolution.
 
-After you turn off the automatic rules, create rules to forward the queries as needed to your on-premises resources. For more information about how to manage forwarding rules, see [Managing forwarding rules](#resolver-rules-managing).<a name="resolver-automatic-reverse-rules-disable-procedure"></a>
+After you turn off the automatic rules, create rules to forward the queries as needed to your on-premises resources. For more information about how to manage forwarding rules, see [Managing forwarding rules](resolver-rules-managing.md).<a name="resolver-automatic-reverse-rules-disable-procedure"></a>
 
 **To turn off auto-defined rules**
 

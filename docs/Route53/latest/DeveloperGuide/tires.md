@@ -1,7 +1,6 @@
 
 
 # .tires
-<a name="tires"></a>
 
 Used by manufacturers, distributors, or buyers of tires.
 

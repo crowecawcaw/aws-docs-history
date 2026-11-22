@@ -1,7 +1,6 @@
 
 
 # TLDs that don't support privacy protection
-<a name="privacy-protection-tld-support"></a>
 
 The following TLDs do not support privacy protection. If your domain uses one of these TLDs, your contact information will be publicly visible in WHOIS queries:
 

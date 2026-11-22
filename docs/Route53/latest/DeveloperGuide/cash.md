@@ -1,7 +1,6 @@
 
 
 # .cash
-<a name="cash"></a>
 
 Used by any organization, group, or individual engaged in money-related activities.
 

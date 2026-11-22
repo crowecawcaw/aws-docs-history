@@ -1,18 +1,14 @@
 
 
 # Disabling or enabling health checks
-<a name="health-checks-disable"></a>
 
 Disabling a health check stops Route 53 from performing health checks. When you disable a health check, Route 53 stops aggregating the status of the referenced health checks. After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of **Inverted**.
 
-**Note**  
-Route 53 is updating the health checks console. During the transition period, you can continue to use the old console.
+You can also disable or enable a health check when you create or edit it. For more information, see [Values that you specify when you create or update health checks](health-checks-creating-values.md).
 
-You can disable or enable a health check on the old console when you create or edit the health check. For more information, see [Values that you specify when you create or update health checks](health-checks-creating-values.md).
+To disable or enable a health check, perform the following procedure.<a name="health-checks-disable-proc"></a>
 
-To disable health checks on the new console, perform the following procedure.<a name="health-checks-disable-proc"></a>
-
-**To disable or enable a health check (new console only)**
+**To disable or enable a health check**
 
 1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 

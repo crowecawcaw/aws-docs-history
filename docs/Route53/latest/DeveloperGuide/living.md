@@ -1,7 +1,6 @@
 
 
 # .living
-<a name="living"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

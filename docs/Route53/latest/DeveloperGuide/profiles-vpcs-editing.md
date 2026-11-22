@@ -1,7 +1,6 @@
 
 
 # Viewing VPCs associated to an Amazon Route 53 Profile
-<a name="profiles-vpcs-editing"></a>
 
 Choose the console tab to view and edit Route 53 Profile to VPC associations. Choose the CLI tab to use AWS CLI to list Profile to VPC associations, or to get information about a specific association
 + [Console](#profiles-vpcs-editing-console)
@@ -33,7 +32,7 @@ You can list the VPCs the Profile is associated to by running an AWS CLI command
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociations": [
         {
@@ -58,7 +57,7 @@ You can get information about a particular VPS the Profile is associated to by r
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociation": {
         "CreationTime": 1709338817.148,
@@ -112,7 +111,7 @@ To disassociate a Profile from a VPC, use the [disassociate-profile](https://doc
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociation": {
         "CreationTime": 1710851336.527,

@@ -1,7 +1,6 @@
 
 
 # .holdings
-<a name="holdings"></a>
 
 Used by financial advisors, stockbrokers, and those who work with investments.
 

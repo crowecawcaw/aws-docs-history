@@ -1,7 +1,6 @@
 
 
 # .solutions
-<a name="solutions"></a>
 
 Used by consultants, do-it-yourself services, and advisors of all kinds.
 

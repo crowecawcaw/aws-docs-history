@@ -1,7 +1,6 @@
 
 
 # .moi
-<a name="moi"></a>
 
 French for "me." Used to signal French-language content to Francophone end users. Suitable for personal blogs, CVs, portfolios, and hobby or interest sites in French.
 

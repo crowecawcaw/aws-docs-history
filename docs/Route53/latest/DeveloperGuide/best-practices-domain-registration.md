@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon Route 53 domain registration
-<a name="best-practices-domain-registration"></a>
 
 Follow these best practices to avoid account and domain recovery issues when you register domains with Amazon Route 53.
 

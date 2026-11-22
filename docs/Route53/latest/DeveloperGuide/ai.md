@@ -1,7 +1,6 @@
 
 
 # .ai (Anguilla)
-<a name="ai"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

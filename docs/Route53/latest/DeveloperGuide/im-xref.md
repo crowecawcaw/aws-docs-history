@@ -1,7 +1,6 @@
 
 
 # .im
-<a name="im-xref"></a>
 
 See [.im (Isle of Man)](im.md).
 

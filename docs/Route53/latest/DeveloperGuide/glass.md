@@ -1,7 +1,6 @@
 
 
 # .glass
-<a name="glass"></a>
 
 Used by those in the glass industry, such as glass cutters and window installers.
 

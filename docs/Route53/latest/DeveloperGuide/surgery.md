@@ -1,7 +1,6 @@
 
 
 # .surgery
-<a name="surgery"></a>
 
 Used for information about surgery, medicine, and healthcare.
 

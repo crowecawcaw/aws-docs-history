@@ -1,7 +1,6 @@
 
 
 # .boutique
-<a name="boutique"></a>
 
 Used for information about boutiques and small specialty shops.
 

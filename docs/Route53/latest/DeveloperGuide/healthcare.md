@@ -1,7 +1,6 @@
 
 
 # .healthcare
-<a name="healthcare"></a>
 
 Used by the healthcare sector.
 

@@ -1,7 +1,6 @@
 
 
 # .cc (Cocos (Keeling) Islands)
-<a name="cc"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

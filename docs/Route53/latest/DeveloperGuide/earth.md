@@ -1,7 +1,6 @@
 
 
 # .earth
-<a name="earth"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

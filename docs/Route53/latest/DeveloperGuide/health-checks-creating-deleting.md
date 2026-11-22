@@ -1,7 +1,6 @@
 
 
 # Creating, updating, and deleting health checks
-<a name="health-checks-creating-deleting"></a>
 
 **Important**  
 If you're updating or deleting health checks that are associated with records, review the tasks in [Updating or deleting health checks when DNS failover is configured](health-checks-updating-deleting-tasks.md) before you proceed.

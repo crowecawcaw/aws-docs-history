@@ -1,7 +1,6 @@
 
 
 # Rule actions in DNS Firewall
-<a name="resolver-dns-firewall-rule-actions"></a>
 
 When DNS Firewall finds a match between a DNS query and a domain specification in a rule, it applies the action that's specified in the rule to the query. 
 

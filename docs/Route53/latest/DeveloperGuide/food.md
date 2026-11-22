@@ -1,7 +1,6 @@
 
 
 # .food
-<a name="food"></a>
 
 Used for food-related businesses, recipes, and culinary content.
 

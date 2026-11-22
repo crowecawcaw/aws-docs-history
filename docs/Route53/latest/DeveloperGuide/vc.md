@@ -1,7 +1,6 @@
 
 
 # .vc (Saint Vincent and the Grenadines)
-<a name="vc"></a>
 
 Also used as a generic TLD, often by those involved in venture capital financing, varsity colleges, and so on.
 

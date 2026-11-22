@@ -1,7 +1,6 @@
 
 
 # .bike
-<a name="bike"></a>
 
 Used by businesses or groups that cater to cyclists, such as bike stores, motorcycle dealerships, and repair shops.
 

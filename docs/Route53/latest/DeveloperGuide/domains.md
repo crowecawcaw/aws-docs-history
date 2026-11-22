@@ -1,7 +1,6 @@
 
 
 # .domains
-<a name="domains"></a>
 
 Used for information about domain names.
 

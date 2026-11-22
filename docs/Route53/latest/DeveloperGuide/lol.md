@@ -1,7 +1,6 @@
 
 
 # .lol
-<a name="lol"></a>
 
 Used for humor and comedy websites. "LOL" is an acronym for "laugh out loud."
 

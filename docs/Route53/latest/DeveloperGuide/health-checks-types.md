@@ -1,12 +1,14 @@
 
 
 # Types of Amazon Route 53 health checks
-<a name="health-checks-types"></a>
 
 You can create the following types of Amazon Route 53 health checks:
 
-**Health checks that monitor an endpoint**  
-You can configure a health check that monitors an endpoint that you specify either by IP address or by domain name. At regular intervals that you specify, Route 53 submits automated requests over the internet to your application, server, or other resource to verify that it's reachable, available, and functional. Optionally, you can configure the health check to make requests similar to those that your users make, such as requesting a web page from a specific URL.
+**Health checks that monitor a public endpoint**  
+You can configure a health check that monitors a public endpoint that you specify either by IP address or by domain name. At regular intervals that you specify, Route 53 submits automated requests over the internet to your application, server, or other resource to verify that it's reachable, available, and functional. Optionally, you can configure the health check to make requests similar to those that your users make, such as requesting a web page from a specific URL.
+
+**Health checks that monitor a private endpoint**  
+You can create a health check that monitors a private endpoint. A private endpoint is reachable from your VPC. Examples include a resource in a private subnet or an on-premises resource that you reach over AWS Direct Connect or VPN. Private endpoint health checks run from a health check source that you create in your VPC, and you don't expose anything to the internet. For more information, see [Private endpoint health checks](health-checks-private-endpoints.md).
 
 **Health checks that monitor other health checks (calculated health checks)**  
 You can create a health check that monitors whether Route 53 considers other health checks healthy or unhealthy. One situation where this might be useful is when you have multiple resources that perform the same function, such as multiple web servers, and your chief concern is whether some minimum number of your resources are healthy. You can create a health check for each resource without configuring notification for those health checks. Then you can create a health check that monitors the status of the other health checks and that notifies you only when the number of available web resources drops below a specified threshold.

@@ -1,7 +1,6 @@
 
 
 # .qpon
-<a name="qpon"></a>
 
 Used for coupons and promo codes.
 

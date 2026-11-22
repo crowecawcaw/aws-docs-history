@@ -1,7 +1,6 @@
 
 
 # .taxi
-<a name="taxi"></a>
 
 Used by cab, chauffeur, and shuttle companies.
 

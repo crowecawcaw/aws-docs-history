@@ -1,7 +1,6 @@
 
 
 # .sh (Saint Helena)
-<a name="sh"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

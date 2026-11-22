@@ -1,7 +1,6 @@
 
 
 # Best practices for Palo Alto Networks partner managed rules
-<a name="firewall-partner-panw-best-practices"></a>
 
 We recommend the following best practices when using Palo Alto Networks partner managed DNS threat protection:
 + **Testing before production:** Before deploying to production, use `ALERT` mode to perform a dry run. Review alert logs, then switch to `BLOCK` after it is validated.

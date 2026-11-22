@@ -1,7 +1,6 @@
 
 
 # Configuring DNSSEC signing in Amazon Route 53
-<a name="dns-configuring-dnssec"></a>
 
 Domain Name System Security Extensions (DNSSEC) signing lets DNS resolvers validate that a DNS response came from Amazon Route 53 and has not been tampered with. When you use DNSSEC signing, every response for a hosted zone is signed using public key cryptography. For an overview of DNSSEC, see the DNSSEC section of [AWS re:Invent 2021 - Amazon Route 53: A year in review](https://www.youtube.com/watch?v=77V23phAaAE).
 

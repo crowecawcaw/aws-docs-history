@@ -1,7 +1,6 @@
 
 
 # Working with CIDR locations and blocks
-<a name="resource-record-sets-working-with-cidr-locations"></a>
 
 <a name="CIDR-locations-work-with-procedure"></a>
 

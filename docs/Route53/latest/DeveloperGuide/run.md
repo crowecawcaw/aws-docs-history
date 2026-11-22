@@ -1,7 +1,6 @@
 
 
 # .run
-<a name="run"></a>
 
 Used as a general extension, but ideal for the fitness and sports industry.
 

@@ -1,7 +1,6 @@
 
 
 # .partners
-<a name="partners"></a>
 
 Used by law firms, investors, and a variety of companies. Also used for social websites that build relationships.
 

@@ -1,7 +1,6 @@
 
 
 # Values specific for multivalue answer records
-<a name="resource-record-sets-values-multivalue"></a>
 
 When you create multivalue answer records, you specify the following values.
 

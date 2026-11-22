@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 API actions by function
-<a name="api-operations-by-function"></a>
 
 This topic lists all Route 53 and Route 53 Resolver API actions in groups by the function they perform. 
 
@@ -70,10 +69,14 @@ Public and private hosted zones
 + [CreateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html)
 + [DeleteHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html)
 + [GetHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html)
++ [GetHostedZoneChangeBatch](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneChangeBatch.html)
 + [GetHostedZoneCount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html)
++ [ListHostedZoneChangeBatches](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZoneChangeBatches.html)
 + [ListHostedZones](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html)
 + [ListHostedZonesByName](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html)
-+ [UpdateHostedZoneComment](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html)  
++ [UpdateHostedZoneComment](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html)
++ [UpdateHostedZoneFeatures](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneFeatures.html)
++ [UpdateHostedZoneTier](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneTier.html)  
 Public hosted zones  
 + [TestDNSAnswer](https://docs.aws.amazon.com/Route53/latest/APIReference/API_TestDNSAnswer.html)  
 Private hosted zones  
@@ -90,6 +93,7 @@ Resource record sets
 + [CreateResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateResourceRecordSetProtections.html)
 + [DeleteResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteResourceRecordSetProtections.html)
 + [ListResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSetProtections.html)
++ [ListResourceRecordSetChanges](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSetChanges.html)
 + [GetGeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html)
 + [ListGeoLocations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html)  
 Public DNS query logs  

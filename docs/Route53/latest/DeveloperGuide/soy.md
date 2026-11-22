@@ -1,7 +1,6 @@
 
 
 # .soy
-<a name="soy"></a>
 
 Used for the digital needs of the US Hispanic market, for brands, publishers, and consumers.
 

@@ -1,7 +1,6 @@
 
 
 # How health checks work in complex Amazon Route 53 configurations
-<a name="dns-failover-complex-configs"></a>
 
 Checking the health of resources in complex configurations works much the same way as in simple configurations. However, in complex configurations, you use a combination of alias records (such as weighted alias and failover alias) and non-alias records to build a decision tree that gives you greater control over how Route 53 responds to requests.
 

@@ -1,7 +1,6 @@
 
 
 # .center
-<a name="center"></a>
 
 Used as a generic extension for everything from research organizations to community centers.
 

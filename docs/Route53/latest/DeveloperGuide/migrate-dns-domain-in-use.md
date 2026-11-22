@@ -1,7 +1,6 @@
 
 
 # Making Route 53 the DNS service for a domain that's in use
-<a name="migrate-dns-domain-in-use"></a>
 
 You can migrate DNS service to Amazon Route 53 for a domain that is already receiving traffic. For example, users might already browse to a website or access a web application on the domain. Follow the procedures in this topic to migrate without disrupting service.
 

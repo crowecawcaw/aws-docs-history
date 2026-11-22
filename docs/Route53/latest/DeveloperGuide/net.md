@@ -1,7 +1,6 @@
 
 
 # .net
-<a name="net"></a>
 
 Used for all types of websites. The .net extension is an abbreviation of network.
 

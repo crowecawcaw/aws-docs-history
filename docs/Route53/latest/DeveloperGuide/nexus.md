@@ -1,7 +1,6 @@
 
 
 # .nexus
-<a name="nexus"></a>
 
 Used as a secure hub that brings it all together for whatever you're doing online.
 

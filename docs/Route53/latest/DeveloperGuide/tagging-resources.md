@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon Route 53 resources
-<a name="tagging-resources"></a>
 
 A tag is a label that you assign to an AWS resource. Each tag consists of a *key* and a *value*, both of which you define. For example, the key might be "domain" and the value might be "example.com". Tags serve many purposes. One common use is to categorize and track your Amazon Route 53 costs. When you apply tags to Route 53 hosted zones, domains, and health checks, AWS generates a cost allocation report as a CSV file. This report shows your usage and costs grouped by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information about using tags for cost allocation, see [Using cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the [AWS Billing User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/).
 

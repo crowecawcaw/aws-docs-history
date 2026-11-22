@@ -1,7 +1,6 @@
 
 
 # .town
-<a name="town"></a>
 
 Used to promote a city's locale, culture, and community.
 

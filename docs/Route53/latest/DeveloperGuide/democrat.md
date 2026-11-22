@@ -1,7 +1,6 @@
 
 
 # .democrat
-<a name="democrat"></a>
 
 Used for information about the Democratic Party. Also used by officials running for elected office, elected officials, political enthusiasts, consultants, and advisors.
 

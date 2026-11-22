@@ -1,7 +1,6 @@
 
 
 # Choosing between alias and non-alias records
-<a name="resource-record-sets-choosing-alias-non-alias"></a>
 
 Amazon Route 53 *alias records* provide a Route 53–specific extension to DNS. Alias records let you route traffic to selected AWS resources, such as CloudFront distributions and Amazon S3 buckets. They also let you route traffic from one record in a hosted zone to another record. 
 
@@ -33,6 +32,7 @@ For information about creating records by using the Route 53 console, see [Crea
 + [Values specific for failover alias records](resource-record-sets-values-failover-alias.md)
 + [Values specific for geolocation alias records](resource-record-sets-values-geo-alias.md)
 + [Values specific for geoproximity alias records](resource-record-sets-values-geoprox-alias.md)
++ [Values specific for AZ-affinity alias records](resource-record-sets-values-azaffinity-alias.md)
 + [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md)
 
 ## Comparison of alias and CNAME records

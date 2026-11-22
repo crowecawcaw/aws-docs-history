@@ -1,7 +1,6 @@
 
 
 # Using a DNS view that's shared with you
-<a name="gr-sharing-dns-views-use"></a>
 
 After another account shares a DNS view with you, accept any invitation that was sent. You can then associate your own Route 53 private hosted zones with the shared DNS view. The records in those hosted zones then resolve through the owner's global resolver for authorized clients.
 

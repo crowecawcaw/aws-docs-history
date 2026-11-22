@@ -1,7 +1,6 @@
 
 
 # Values specific for geolocation alias records
-<a name="resource-record-sets-values-geo-alias"></a>
 
 When you create geolocation alias records, you specify the following values.
 

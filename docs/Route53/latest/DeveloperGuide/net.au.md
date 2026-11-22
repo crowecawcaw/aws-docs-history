@@ -1,7 +1,6 @@
 
 
 # .net.au (Australia)
-<a name="net.au"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

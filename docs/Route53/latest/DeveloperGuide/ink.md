@@ -1,7 +1,6 @@
 
 
 # .ink
-<a name="ink"></a>
 
 Used by tattoo enthusiasts or any industry related to ink, such as printing and publishing industries.
 

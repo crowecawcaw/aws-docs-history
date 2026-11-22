@@ -1,7 +1,6 @@
 
 
 # Listing records
-<a name="resource-record-sets-listing"></a>
 
 The following procedure explains how to use the Amazon Route 53 console to list the records in a hosted zone. For information about how to list records using the Route 53 API, see [ListResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html) in the *Amazon Route 53 API Reference*. 
 

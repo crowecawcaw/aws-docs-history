@@ -1,7 +1,6 @@
 
 
 # Considerations when working with a private hosted zone
-<a name="hosted-zone-private-considerations"></a>
 
 When using private hosted zones, note the following considerations.
 + [Amazon VPC settings](#hosted-zone-private-considerations-vpc-settings)
@@ -22,7 +21,7 @@ To use private hosted zones, you must set the following Amazon VPC settings to `
 For more information, see [View and update DNS attributes for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns-updating.html) in the *Amazon VPC User Guide*.
 
 **Route 53 health checks**  
-In a private hosted zone, you can associate Route 53 health checks only with failover, multivalue answer, weighted, latency, geolocation, and geoproximity records records. For information about associating health checks with failover records, see [Configuring failover in a private hosted zone](dns-failover-private-hosted-zones.md).
+In a private hosted zone, you can associate Route 53 health checks only with az-affinity, failover, geolocation, geoproximity, latency, multivalue answer, and weighted records. For information about associating health checks with failover records, see [Configuring failover in a private hosted zone](dns-failover-private-hosted-zones.md).
 
 **Supported routing policies for records in a private hosted zone**  
 You can use the following routing policies when you create records in a private hosted zone:  
@@ -33,6 +32,7 @@ You can use the following routing policies when you create records in a private 
 + [Latency-based routing](routing-policy-latency.md)
 + [Geolocation routing](routing-policy-geo.md)
 + [Geoproximity routing](routing-policy-geoproximity.md)
++ [AZ-affinity routing](routing-policy-azaffinity.md)
 Creating records in a private hosted zone using other routing policies is not supported.
 
 **Split-view DNS**  
@@ -63,7 +63,8 @@ If you have private and public hosted zones that have overlapping namespaces, su
 
 1. If a private hosted zone name matches the domain name in the request, VPC Resolver searches the hosted zone for a record that matches the domain name and DNS type, such as an A record for accounting.example.com.
 **Note**  
-If there's a matching private hosted zone but there's no record that matches the domain name and type in the request, VPC Resolver doesn't forward the request to a public DNS resolver. Instead, it returns NXDOMAIN (non-existent domain) to the client.
+If the queried name doesn't exist in the matching private hosted zone, VPC Resolver returns NXDOMAIN (non-existent domain) to the client and doesn't retry the query against public DNS. If the name exists but has no record of the requested type, VPC Resolver returns NODATA.  
+If you enable public DNS fallback for the zone, VPC Resolver retries the query against public DNS instead of returning NXDOMAIN. For more information, see [Public DNS fallback for private hosted zones](hosted-zone-private-public-dns-fallback.md).
 
 **Private hosted zones that have overlapping namespaces**  
 If you have two or more private hosted zones that have overlapping namespaces, such as example.com and accounting.example.com, VPC Resolver routes traffic based on the most specific match.   
@@ -84,7 +85,9 @@ When users are logged into an EC2 instance in an Amazon VPC that you have associ
 
 1. VPC Resolver searches the `accounting.example.com` hosted zone for a record that matches the domain name and DNS type in the request, such as an A record for `seattle.accounting.example.com`.
 
-   If there's no record that matches the domain name and type in the request, VPC Resolver returns NXDOMAIN (non-existent domain) to the client.
+   If the queried name doesn't exist in the zone, VPC Resolver returns NXDOMAIN (non-existent domain). If the name exists but has no record of the requested type, VPC Resolver returns NODATA.
+**Note**  
+If you enable public DNS fallback for `accounting.example.com`, VPC Resolver retries queries for names that don't exist in that zone against public DNS instead of returning NXDOMAIN. It doesn't check the `example.com` zone. For more information, see [Public DNS fallback for private hosted zones](hosted-zone-private-public-dns-fallback.md).
 
 **Private hosted zones and Route 53 VPC Resolver rules**  
 If you have a private hosted zone (example.com) and a VPC Resolver rule that routes traffic to your network for the same domain name, the VPC Resolver rule takes precedence.   

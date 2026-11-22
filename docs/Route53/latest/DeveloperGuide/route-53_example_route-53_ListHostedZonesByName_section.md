@@ -1,7 +1,6 @@
 
 
 # Use `ListHostedZonesByName` with a CLI
-<a name="route-53_example_route-53_ListHostedZonesByName_section"></a>
 
 The following code examples show how to use `ListHostedZonesByName`.
 
@@ -82,12 +81,12 @@ For more information, see [Listing public hosted zones](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**  
 
-```
+```powershell
 Get-R53HostedZonesByName
 ```
 **Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**  
 
-```
+```powershell
 Get-R53HostedZonesByName -DnsName example2.com
 ```
 +  For API details, see [ListHostedZonesByName](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -95,12 +94,12 @@ Get-R53HostedZonesByName -DnsName example2.com
 **Tools for PowerShell V5**  
 **Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**  
 
-```
+```powershell
 Get-R53HostedZonesByName
 ```
 **Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**  
 
-```
+```powershell
 Get-R53HostedZonesByName -DnsName example2.com
 ```
 +  For API details, see [ListHostedZonesByName](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

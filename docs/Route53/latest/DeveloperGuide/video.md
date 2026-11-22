@@ -1,7 +1,6 @@
 
 
 # .video
-<a name="video"></a>
 
 Used by media and video industries.
 

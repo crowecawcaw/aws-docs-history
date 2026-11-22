@@ -1,7 +1,6 @@
 
 
 # Updating the priority of a Route 53 Profile association with a VPC
-<a name="profiles-vpc-update-priority"></a>
 
 When more than one Profile is associated to a VPC, the priority of each association determines the order in which VPC Resolver evaluates the Profiles. The priority is a value from 100 to 9900, a lower value means a higher priority, and each Profile association for a VPC must have a unique priority. For more information, see [How Route 53 Profile settings are prioritized](profiles.md#profiles-priority).
 
@@ -49,7 +48,7 @@ To view the Profiles that are associated to a VPC and the priority of each assoc
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociations": [
         {
@@ -86,7 +85,7 @@ To update the priority of a Profile association with a VPC, use the [update-prof
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociation": {
         "CreationTime": 1709338817.148,

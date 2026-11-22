@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from Palo Alto Networks
-<a name="firewall-partner-panw-unsubscribe"></a>
 
 **Important**  
 To stop subscription charges, you must remove all PANW rules from your DNS Firewall rule groups in addition to unsubscribing from AWS Marketplace. If you unsubscribe but leave the rules in your rule groups, charges continue until you remove the rules.

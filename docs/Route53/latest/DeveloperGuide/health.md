@@ -1,7 +1,6 @@
 
 
 # .health
-<a name="health"></a>
 
 Used for health, medical, and wellness-related websites and organizations.
 

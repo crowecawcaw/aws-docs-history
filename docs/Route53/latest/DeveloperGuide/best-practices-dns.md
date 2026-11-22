@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon Route 53 DNS
-<a name="best-practices-dns"></a>
 
 Follow these best practices to get the best results when using the Amazon Route 53 DNS service.
 
@@ -24,10 +23,10 @@ However, DNS resolvers must make more queries to answer CNAMEs, which increases 
 For more information, see [Routing internet traffic to your AWS resources](routing-to-aws-resources.md).
 
 **Advanced DNS routing**  
-+ When using geolocation, geoproximity, or latency-based routing, always set a default, unless you want some clients to receive *no answer* responses.
++ When using az-affinity, geolocation, geoproximity, or latency-based routing, always set a default (for az-affinity routing, a Global record), unless you want some clients to receive *no answer* responses.
 + To minimize application latency, use latency-based routing. This type of routing data can change frequently.
 + To provide routing stability and predictability, use either geolocation or geoproximity routing.
-For more information, see [Geolocation routing](routing-policy-geo.md), [Geoproximity routing](routing-policy-geoproximity.md), and [Latency-based routing](routing-policy-latency.md).
+For more information, see [AZ-affinity routing](routing-policy-azaffinity.md), [Geolocation routing](routing-policy-geo.md), [Geoproximity routing](routing-policy-geoproximity.md), and [Latency-based routing](routing-policy-latency.md).
 
 **DNS change propagation**  
 When you create or update a record or hosted zone by using the Route 53 console or API, it takes some time for the change to be reflected across the internet. This is called *change propagation*. While propagation typically takes less than one minute globally, there are occasionally delays, for example, due to problems syncing to one location, or in rare cases, problems within the central control plane. If you are building automated provisioning work flows, and it is important to wait for change propagation to complete before you move forward with the next work flow step, use the [GetChange](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html) API to verify that your DNS changes have gone into effect (`Status =INSYNC`) .

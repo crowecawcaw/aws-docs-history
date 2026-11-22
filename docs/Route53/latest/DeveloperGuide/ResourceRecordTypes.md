@@ -1,7 +1,6 @@
 
 
 # Supported DNS record types
-<a name="ResourceRecordTypes"></a>
 
 Amazon Route 53 supports the DNS record types that are listed in this section. Each record type also includes an example of how to format the `Value` element when you are accessing Route 53 using the API.
 

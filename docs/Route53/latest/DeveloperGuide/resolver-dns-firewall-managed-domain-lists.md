@@ -1,7 +1,6 @@
 
 
 # Managed Domain Lists
-<a name="resolver-dns-firewall-managed-domain-lists"></a>
 
 Managed Domain Lists contain domain names that are associated with malicious activity or other potential threats. AWS maintains these lists to enable Route 53 VPC Resolver customers to check outbound DNS queries against them for free when using DNS Firewall. 
 

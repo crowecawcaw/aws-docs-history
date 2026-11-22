@@ -1,7 +1,6 @@
 
 
 # Viewing DNS query metrics for a public hosted zone
-<a name="hosted-zone-public-viewing-query-metrics"></a>
 
 You can view the total number of DNS queries that Route 53 responds to for a public hosted zone or a set of public hosted zones. The metrics show up in CloudWatch, so you can view a graph, choose the time period, and customize the metrics in other ways. You can also create alarms and set up notifications when the number of DNS queries goes above or below a level that you choose.
 

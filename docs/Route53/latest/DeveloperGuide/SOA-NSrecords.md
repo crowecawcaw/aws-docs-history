@@ -1,7 +1,6 @@
 
 
 # NS and SOA records that Amazon Route 53 creates for a public hosted zone
-<a name="SOA-NSrecords"></a>
 
 For each public hosted zone that you create, Amazon Route 53 automatically creates a name server (NS) record and a start of authority (SOA) record. You rarely need to change these records. 
 

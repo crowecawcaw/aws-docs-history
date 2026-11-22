@@ -1,7 +1,6 @@
 
 
 # .sale
-<a name="sale"></a>
 
 Used by e-commerce websites.
 

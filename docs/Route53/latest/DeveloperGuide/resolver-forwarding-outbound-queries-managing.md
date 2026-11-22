@@ -1,7 +1,6 @@
 
 
 # Managing outbound endpoints
-<a name="resolver-forwarding-outbound-queries-managing"></a>
 
 To manage outbound endpoints, perform the applicable procedure.
 

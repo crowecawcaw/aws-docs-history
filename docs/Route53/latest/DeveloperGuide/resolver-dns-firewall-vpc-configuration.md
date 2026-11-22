@@ -1,7 +1,6 @@
 
 
 # DNS Firewall VPC configuration
-<a name="resolver-dns-firewall-vpc-configuration"></a>
 
 The DNS Firewall configuration for your VPC determines whether Route 53 VPC Resolver allows queries through or blocks them during failures, for example when DNS Firewall is impaired, unresponsive, or not available in the zone. VPC Resolver enforces a VPC's firewall configuration whenever you have one or more DNS Firewall rule groups associated with the VPC.
 

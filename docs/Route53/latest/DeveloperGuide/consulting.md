@@ -1,7 +1,6 @@
 
 
 # .consulting
-<a name="consulting"></a>
 
 Used by consultants and others who are affiliated with the consulting industry.
 

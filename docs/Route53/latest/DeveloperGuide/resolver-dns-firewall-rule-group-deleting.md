@@ -1,7 +1,6 @@
 
 
 # Deleting a rule group
-<a name="resolver-dns-firewall-rule-group-deleting"></a>
 
 To delete a rule group, perform the following procedure.
 

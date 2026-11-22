@@ -1,7 +1,6 @@
 
 
 # .berlin (city of Berlin in Germany)
-<a name="berlin"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

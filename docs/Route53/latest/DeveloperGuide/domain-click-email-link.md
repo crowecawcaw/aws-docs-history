@@ -1,7 +1,6 @@
 
 
 # Resending authorization and confirmation emails
-<a name="domain-click-email-link"></a>
 
 For several operations related to domain registration, ICANN requires that we get authorization from the registrant contact for the domain or confirmation that the email address for the registrant contact is valid. To get authorization or confirmation, we send an email that contains a link. You have between 3 and 15 days to choose the link, depending on the operation and the top-level domain. After that time, the link stops working.
 

@@ -1,7 +1,6 @@
 
 
 # .rocks
-<a name="rocks"></a>
 
 Used as a general extension, but ideal for anyone who "rocks": musicians, geologists, jewelers, climbers, and more.
 

@@ -1,7 +1,6 @@
 
 
 # .hot
-<a name="hot"></a>
 
 Used for websites featuring trending topics, popular content, or time-sensitive offers.
 

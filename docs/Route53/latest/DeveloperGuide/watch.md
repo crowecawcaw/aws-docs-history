@@ -1,7 +1,6 @@
 
 
 # .watch
-<a name="watch"></a>
 
 Used for information about streaming websites, web TVs, video, or watches.
 

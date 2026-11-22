@@ -1,7 +1,6 @@
 
 
 # Advanced DNS Protections
-<a name="firewall-advanced-protections"></a>
 
 DNS Firewall Advanced detects suspicious DNS queries based on known threat signatures in DNS queries. You can specify a threat type in a rule that you use in a DNS Firewall rule, inside a rule group. When you associate a rule group with a VPC, DNS Firewall compares your DNS queries against the domains that are flagged in the rules. If it finds a match, it handles the DNS query according to the matching rule's action.
 

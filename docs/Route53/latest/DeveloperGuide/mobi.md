@@ -1,7 +1,6 @@
 
 
 # .mobi
-<a name="mobi"></a>
 
 Used by companies and individuals who want to have their websites accessible on mobile phones. 
 

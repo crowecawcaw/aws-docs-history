@@ -1,7 +1,6 @@
 
 
 # .onl
-<a name="onl"></a>
 
 The .onl extension is an abbreviation for "online," and it is also the short term in Spanish for non-profit organization.
 

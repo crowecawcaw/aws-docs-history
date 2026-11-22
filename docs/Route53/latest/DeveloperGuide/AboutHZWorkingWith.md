@@ -1,7 +1,6 @@
 
 
 # Working with public hosted zones
-<a name="AboutHZWorkingWith"></a>
 
 A public hosted zone is a container that holds information about how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com). You get a public hosted zone in one of two ways:
 + When you register a domain with Route 53, Route 53 creates a hosted zone for you automatically.
@@ -24,4 +23,3 @@ You can also use a Route 53 *private* hosted zone to route traffic within one o
 + [Checking DNS responses from Route 53](dns-test.md)
 + [Configuring white-label name servers](white-label-name-servers.md)
 + [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md)
-+ [Enabling accelerated recovery for managing public DNS records](accelerated-recovery.md)

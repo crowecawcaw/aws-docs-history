@@ -1,7 +1,6 @@
 
 
 # Managing Resolver query logging configurations
-<a name="resolver-query-logging-configurations-managing"></a>
 
 ## Configuring (VPC Resolver query logging)
 <a name="resolver-query-logs-configuring"></a>

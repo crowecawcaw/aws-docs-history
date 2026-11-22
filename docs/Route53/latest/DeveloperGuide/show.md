@@ -1,7 +1,6 @@
 
 
 # .show
-<a name="show"></a>
 
 Used as a general extension, but ideal for the entertainment industry.
 

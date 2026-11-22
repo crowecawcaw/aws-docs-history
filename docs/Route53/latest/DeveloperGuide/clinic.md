@@ -1,7 +1,6 @@
 
 
 # .clinic
-<a name="clinic"></a>
 
 Used by the health care industry and by medical professionals.
 

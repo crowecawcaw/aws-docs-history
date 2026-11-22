@@ -1,7 +1,6 @@
 
 
 # Deleting a CIDR collection
-<a name="resource-record-sets-delete-cidr-collection"></a>
 
 <a name="CIDR-collection-delete-procedure"></a>
 

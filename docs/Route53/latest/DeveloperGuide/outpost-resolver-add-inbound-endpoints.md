@@ -1,7 +1,6 @@
 
 
 # Creating inbound endpoints (first-generation AWS Outposts only)
-<a name="outpost-resolver-add-inbound-endpoints"></a>
 
 **Note**  
 This content applies to first-generation AWS Outposts only. It doesn't apply to second-generation AWS Outposts.

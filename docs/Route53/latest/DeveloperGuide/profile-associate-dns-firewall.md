@@ -1,7 +1,6 @@
 
 
 # Associate DNS Firewall rule groups to a Route 53 Profile
-<a name="profile-associate-dns-firewall"></a>
 
 For instructions for creating a rule group, see [Creating a rule group and rules](resolver-dns-firewall-rule-group-adding.md), and then choose a tab to associate DNS Firewall rule groups to a Route 53 Profile by using the Route 53 console, or AWS CLI.
 + [Console](#profile-rule-group-console)
@@ -43,7 +42,7 @@ You can associate rule group to a Profile by running a AWS CLI command like the 
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileResourceAssociation": {
         "CreationTime": 1710851216.613,

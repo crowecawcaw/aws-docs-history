@@ -1,7 +1,6 @@
 
 
 # .tattoo
-<a name="tattoo"></a>
 
 Used by tattoo enthusiasts and the tattoo industry.
 

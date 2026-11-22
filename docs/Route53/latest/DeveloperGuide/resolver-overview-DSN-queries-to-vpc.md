@@ -1,7 +1,6 @@
 
 
 # Resolving DNS queries between VPCs and your network
-<a name="resolver-overview-DSN-queries-to-vpc"></a>
 
 The VPC Resolver contains endpoints that you configure to answer DNS queries to and from your on-premises environment.
 

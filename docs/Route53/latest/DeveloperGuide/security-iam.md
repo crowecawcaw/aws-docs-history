@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Amazon Route 53
-<a name="security-iam"></a>
 
 To perform any operation on Amazon Route 53 resources, such as registering a domain or updating a record, AWS Identity and Access Management (IAM) requires you to authenticate that you're an approved AWS user. If you're using the Route 53 console, you authenticate your identity by providing your AWS user name and a password. 
 
@@ -13,6 +12,7 @@ This chapter explains how to use [IAM](https://docs.aws.amazon.com/IAM/latest/Us
 + [Authenticating with identities](#security_iam_authentication)
 + [Access control](#access-control)
 + [Using Service-Linked Roles for Amazon Route 53 Resolver](using-service-linked-roles.md)
++ [Using service-linked roles for Amazon Route 53 Private endpoint health checks](using-service-linked-roles-private-endpoint-health-checks.md)
 + [AWS managed policies for Amazon Route 53](security-iam-awsmanpol-route53.md)
 + [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md)
 + [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md)

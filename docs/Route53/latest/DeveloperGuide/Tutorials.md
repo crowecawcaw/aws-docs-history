@@ -1,7 +1,6 @@
 
 
 # Tutorials
-<a name="Tutorials"></a>
 
 This section covers the following tutorials:
 

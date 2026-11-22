@@ -1,7 +1,6 @@
 
 
 # .wine
-<a name="wine"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

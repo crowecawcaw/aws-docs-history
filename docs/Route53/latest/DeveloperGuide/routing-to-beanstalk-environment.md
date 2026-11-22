@@ -1,7 +1,6 @@
 
 
 # Routing traffic to an AWS Elastic Beanstalk environment
-<a name="routing-to-beanstalk-environment"></a>
 
 If you're using AWS Elastic Beanstalk to deploy and manage applications in the AWS Cloud, you can use Amazon Route 53 to route DNS traffic for your domain, such as example.com, to a new or an existing Elastic Beanstalk environment.
 

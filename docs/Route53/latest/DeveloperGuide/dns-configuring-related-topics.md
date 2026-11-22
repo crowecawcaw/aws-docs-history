@@ -1,7 +1,6 @@
 
 
 # Related topics
-<a name="dns-configuring-related-topics"></a>
 
 For information about transferring domain registration (not just DNS hosting) to Route 53, see the following topics:
 + [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md) – Finish this checklist before transferring your domain to avoid common transfer failures.

@@ -1,7 +1,6 @@
 
 
 # Configuring failover in a private hosted zone
-<a name="dns-failover-private-hosted-zones"></a>
 
 If you're creating failover records in a private hosted zone, note the following:
 + Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you must assign a public IP address to the instance in the VPC.

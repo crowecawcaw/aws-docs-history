@@ -1,7 +1,6 @@
 
 
 # .plus
-<a name="plus"></a>
 
 Used as a general extension, but ideal for plus-size clothing, add-on software, or any product that offers "extra" features or dimensions.
 

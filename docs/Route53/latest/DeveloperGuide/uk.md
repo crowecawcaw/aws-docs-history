@@ -1,7 +1,6 @@
 
 
 # .uk (United Kingdom)
-<a name="uk"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

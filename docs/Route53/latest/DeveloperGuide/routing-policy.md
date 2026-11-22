@@ -1,7 +1,6 @@
 
 
 # Choosing a routing policy
-<a name="routing-policy"></a>
 
 When you create a record, you choose a routing policy, which determines how Amazon Route 53 responds to queries: 
 + **Simple routing policy** – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website. You can use simple routing to create records in a private hosted zone.
@@ -12,6 +11,7 @@ When you create a record, you choose a routing policy, which determines how Amaz
 + **IP-based routing policy** – Use when you want to route traffic based on the location of your users, and have the IP addresses that the traffic originates from.
 + **Multivalue answer routing policy** – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random. You can use multivalue answer routing to create records in a private hosted zone.
 + **Weighted routing policy** – Use to route traffic to multiple resources in proportions that you specify. You can use weighted routing to create records in a private hosted zone.
++ **AZ-affinity routing policy** – Use when you want to route traffic to resources in the same Availability Zone (AZ), Zone Group, or AWS Region that the query comes from, with automatic fallback to a less specific location. You can use AZ-affinity routing to create records in a private hosted zone.
 
 **Topics**
 + [Simple routing](routing-policy-simple.md)
@@ -22,4 +22,5 @@ When you create a record, you choose a routing policy, which determines how Amaz
 + [IP-based routing](routing-policy-ipbased.md)
 + [Multivalue answer routing](routing-policy-multivalue.md)
 + [Weighted routing](routing-policy-weighted.md)
++ [AZ-affinity routing](routing-policy-azaffinity.md)
 + [How Amazon Route 53 uses EDNS0 to estimate the location of a user](routing-policy-edns0.md)

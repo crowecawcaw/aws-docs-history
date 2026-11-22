@@ -1,7 +1,6 @@
 
 
 # .email
-<a name="email"></a>
 
 Used for information about promoting email.
 

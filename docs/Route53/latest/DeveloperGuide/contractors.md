@@ -1,7 +1,6 @@
 
 
 # .contractors
-<a name="contractors"></a>
 
 Used by contractors, such as contractors in the construction industry.
 

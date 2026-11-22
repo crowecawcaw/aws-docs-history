@@ -1,7 +1,6 @@
 
 
 # Monitoring Route 53 Global Resolver with Amazon CloudWatch
-<a name="gr-cloudwatch-monitoring"></a>
 
 Route 53 Global Resolver DNS publishes query log data directly to Amazon CloudWatch Logs. With CloudWatch Logs, you can search and analyze your log data, create metric filters that define patterns to look for in the data, and set alarms that send notifications based on those metric filters. For more information about Amazon CloudWatch Logs, see [What is Amazon CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 

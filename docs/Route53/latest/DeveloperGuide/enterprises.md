@@ -1,7 +1,6 @@
 
 
 # .enterprises
-<a name="enterprises"></a>
 
 Used for information about enterprises and businesses.
 

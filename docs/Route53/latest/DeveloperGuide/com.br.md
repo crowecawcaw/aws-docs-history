@@ -1,7 +1,6 @@
 
 
 # .com.br (Brazil)
-<a name="com.br"></a>
 
 **Important**  
 You can no longer use Route 53 to register new .com.br domains or transfer .com.br domains to Route 53. We'll continue to support .com.br domains that are already registered with Route 53.

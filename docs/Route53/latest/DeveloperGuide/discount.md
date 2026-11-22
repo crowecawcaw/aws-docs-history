@@ -1,7 +1,6 @@
 
 
 # .discount
-<a name="discount"></a>
 
 Used for discount websites and businesses that slash prices.
 

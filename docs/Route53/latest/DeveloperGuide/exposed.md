@@ -1,7 +1,6 @@
 
 
 # .exposed
-<a name="exposed"></a>
 
 Used as a generic extension for a variety of subjects, including photography, tabloids, and investigative journalism.
 

@@ -1,7 +1,6 @@
 
 
 # .farm
-<a name="farm"></a>
 
 Used by those in the farming industry, such as farmers and agricultural engineers.
 

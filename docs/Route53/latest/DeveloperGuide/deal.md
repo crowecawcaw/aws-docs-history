@@ -1,7 +1,6 @@
 
 
 # .deal
-<a name="deal"></a>
 
 Used for websites offering deals, discounts, and special offers.
 

@@ -1,7 +1,6 @@
 
 
 # .prof
-<a name="prof"></a>
 
 Used by professors to showcase teaching credentials, research, and publications.
 

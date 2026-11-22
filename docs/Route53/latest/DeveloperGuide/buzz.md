@@ -1,7 +1,6 @@
 
 
 # .buzz
-<a name="buzz"></a>
 
 Used for information about the latest news and events.
 

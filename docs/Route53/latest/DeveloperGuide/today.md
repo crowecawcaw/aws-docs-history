@@ -1,7 +1,6 @@
 
 
 # .today
-<a name="today"></a>
 
 Used for information about current events, news, weather, entertainment, and more. 
 

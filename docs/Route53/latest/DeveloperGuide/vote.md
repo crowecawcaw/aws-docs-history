@@ -1,7 +1,6 @@
 
 
 # .vote
-<a name="vote"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

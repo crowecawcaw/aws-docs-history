@@ -1,7 +1,6 @@
 
 
 # .ch (Switzerland)
-<a name="ch"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # .sarl
-<a name="sarl"></a>
 
 Used by limited liability companies typically located in France. "SARL" is an acronym for Société à Responsabilité Limité.
 

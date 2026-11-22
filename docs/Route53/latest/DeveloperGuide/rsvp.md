@@ -1,7 +1,6 @@
 
 
 # .rsvp
-<a name="rsvp"></a>
 
 Used for events and reservations, from weddings to fundraisers to business bookings.
 

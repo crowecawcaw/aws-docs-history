@@ -1,7 +1,6 @@
 
 
 # Sharing Resolver query logging configurations with other AWS accounts
-<a name="query-logging-configurations-managing-sharing"></a>
 
 You can share the query logging configurations that you created using one AWS account with other AWS accounts. To share configurations, the Route 53 VPC Resolver console integrates with AWS Resource Access Manager. For more information about Resource Access Manager, see the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
 

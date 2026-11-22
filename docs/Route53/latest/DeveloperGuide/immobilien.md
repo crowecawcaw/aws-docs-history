@@ -1,7 +1,6 @@
 
 
 # .immobilien
-<a name="immobilien"></a>
 
 Used for information about real estate.
 

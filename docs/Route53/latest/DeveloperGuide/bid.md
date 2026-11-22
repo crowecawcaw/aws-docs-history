@@ -1,7 +1,6 @@
 
 
 # .bid
-<a name="bid"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

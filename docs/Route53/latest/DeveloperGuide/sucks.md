@@ -1,7 +1,6 @@
 
 
 # .sucks
-<a name="sucks"></a>
 
 Used as a general extension, but ideal for those who want to share negative experiences or warn others about scams, frauds, or faulty products.
 

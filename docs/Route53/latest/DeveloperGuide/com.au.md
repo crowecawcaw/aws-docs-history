@@ -1,7 +1,6 @@
 
 
 # .com.au (Australia)
-<a name="com.au"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

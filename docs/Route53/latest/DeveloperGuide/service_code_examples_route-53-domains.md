@@ -1,7 +1,6 @@
 
 
 # Code examples for Route 53 domain registration using AWS SDKs
-<a name="service_code_examples_route-53-domains"></a>
 
 The following code examples show how to use Route 53 domain registration with an AWS software development kit (SDK). 
 

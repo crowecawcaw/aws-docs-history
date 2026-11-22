@@ -1,7 +1,6 @@
 
 
 # .ruhr (Ruhr region, western part of Germany)
-<a name="ruhr"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

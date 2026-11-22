@@ -1,7 +1,6 @@
 
 
 # .vg (British Virgin Islands)
-<a name="vg"></a>
 
 Also used as a generic TLD, often by organizations involved in video gaming.
 

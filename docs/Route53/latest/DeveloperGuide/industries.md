@@ -1,7 +1,6 @@
 
 
 # .industries
-<a name="industries"></a>
 
 Used by any business or commercial enterprise that wants to identify as an industry.
 

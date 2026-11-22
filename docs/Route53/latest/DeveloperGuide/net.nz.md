@@ -1,7 +1,6 @@
 
 
 # .net.nz (New Zealand)
-<a name="net.nz"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

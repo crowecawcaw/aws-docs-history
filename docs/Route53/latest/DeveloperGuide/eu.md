@@ -1,7 +1,6 @@
 
 
 # .eu (European Union)
-<a name="eu"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

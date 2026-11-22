@@ -1,7 +1,6 @@
 
 
 # .capital
-<a name="capital"></a>
 
 Used as a general category that describes any kind of capital, such as financial capital or the capital of a city.
 

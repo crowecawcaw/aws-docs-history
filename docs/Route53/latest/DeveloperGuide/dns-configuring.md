@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon Route 53 as your DNS service
-<a name="dns-configuring"></a>
 
 You can use Amazon Route 53 as the DNS service for your domain, such as example.com. Route 53 routes internet traffic to your website by translating domain names like www.example.com into IP addresses like 192.0.2.1. Computers use these IP addresses to connect to each other. When someone types your domain name in a browser or sends you an email, a DNS query goes to Route 53. It responds with the right value, such as the IP address for your web server.
 

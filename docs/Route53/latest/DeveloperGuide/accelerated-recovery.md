@@ -1,7 +1,6 @@
 
 
 # Enabling accelerated recovery for managing public DNS records
-<a name="accelerated-recovery"></a>
 
 Route 53 accelerated recovery for managing public DNS records helps you achieve a 60-minute Recovery Time Objective (RTO) if the US East (N. Virginia) Region becomes unavailable. When you turn on this feature for a Route 53 public hosted zone, you can resume making DNS changes within about 60 minutes after AWS detects that the US East (N. Virginia) Region is impaired.
 

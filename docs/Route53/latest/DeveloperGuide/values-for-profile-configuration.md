@@ -1,7 +1,6 @@
 
 
 # Configuration settings for Route 53 Profile
-<a name="values-for-profile-configuration"></a>
 
 When you edit a Route 53 Profile configuration, you specify the following values:
 

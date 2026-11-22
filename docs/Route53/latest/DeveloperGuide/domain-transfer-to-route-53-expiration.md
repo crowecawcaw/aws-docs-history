@@ -1,7 +1,6 @@
 
 
 # How transferring a domain to Amazon Route 53 affects the expiration date for your domain registration
-<a name="domain-transfer-to-route-53-expiration"></a>
 
 When you transfer a domain between registrars, some TLD registries let you keep the same expiration date for your domain, some registries add a year to the expiration date, and some registries change the expiration date to one year after the transfer date.
 

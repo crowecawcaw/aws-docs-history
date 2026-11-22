@@ -1,7 +1,6 @@
 
 
 # .cloud
-<a name="cloud"></a>
 
 Used as a general extension, but ideal for companies that provide cloud computing technologies and services.
 

@@ -1,7 +1,6 @@
 
 
 # .com
-<a name="com"></a>
 
 Used for commercial websites. It is the most popular extension on the internet.
 

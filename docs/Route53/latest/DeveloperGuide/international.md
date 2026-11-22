@@ -1,7 +1,6 @@
 
 
 # .international
-<a name="international"></a>
 
 Used by businesses that have international chains, individuals who travel internationally, or charity organizations with an international influence.
 

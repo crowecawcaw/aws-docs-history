@@ -1,7 +1,6 @@
 
 
 # .mba
-<a name="mba"></a>
 
 Used for websites that provide information about the master's degree in business administration (MBA).
 

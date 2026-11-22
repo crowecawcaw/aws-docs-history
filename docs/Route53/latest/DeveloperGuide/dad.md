@@ -1,7 +1,6 @@
 
 
 # .dad
-<a name="dad"></a>
 
 Used for fatherhood-related content, blogs, and marketing to dads.
 

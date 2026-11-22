@@ -1,7 +1,6 @@
 
 
 # .lgbt
-<a name="lgbt"></a>
 
 Used by the community of lesbian, gay, bisexual, and transgender people.
 

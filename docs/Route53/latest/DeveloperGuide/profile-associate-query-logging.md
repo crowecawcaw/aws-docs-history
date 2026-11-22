@@ -1,7 +1,6 @@
 
 
 # Associate VPC Resolver query logging configurations to a Route 53 Profile
-<a name="profile-associate-query-logging"></a>
 
 For instructions on how to create a VPC Resolver query logging configuration, see [Configuring (VPC Resolver query logging)](resolver-query-logging-configurations-managing.md#resolver-query-logs-configuring), and then choose a tab to associate VPC Resolver configuration to a Route 53 Profile by using the Route 53 console, or AWS CLI.
 + [Console](#profile-query-log-config-console)
@@ -35,7 +34,7 @@ You can associate a query log configuration to a Profile by running a AWS CLI co
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileResourceAssociation": {
         "CreationTime": 1710851226.613,

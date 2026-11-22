@@ -1,7 +1,6 @@
 
 
 # .haus
-<a name="haus"></a>
 
 Used by real estate and construction industries. "Haus" is a German word that means "house."
 

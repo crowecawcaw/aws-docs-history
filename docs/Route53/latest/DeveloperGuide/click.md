@@ -1,7 +1,6 @@
 
 
 # .click
-<a name="click"></a>
 
 Used by businesses that want to associate the action of clicking with their websites, for example, clicking products on a website to purchase them.
 

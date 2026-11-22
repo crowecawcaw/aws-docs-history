@@ -1,7 +1,6 @@
 
 
 # .tools
-<a name="tools"></a>
 
 Used for information about any kind of tool.
 

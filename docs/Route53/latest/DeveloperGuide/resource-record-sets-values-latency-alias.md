@@ -1,7 +1,6 @@
 
 
 # Values specific for latency alias records
-<a name="resource-record-sets-values-latency-alias"></a>
 
 When you create latency alias records, you specify the following values.
 

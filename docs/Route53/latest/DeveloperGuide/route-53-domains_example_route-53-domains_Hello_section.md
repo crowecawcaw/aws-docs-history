@@ -1,7 +1,6 @@
 
 
 # Hello Route 53 domain registration
-<a name="route-53-domains_example_route-53-domains_Hello_section"></a>
 
 The following code examples show how to get started using Route 53 domain registration.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Route 53 domain regis
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
-```
+```csharp
 public static class HelloRoute53Domains
 {
     static async Task Main(string[] args)
@@ -46,7 +45,7 @@ public static class HelloRoute53Domains
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.route53domains.Route53DomainsClient;
 import software.amazon.awssdk.services.route53.model.Route53Exception;
@@ -134,7 +133,7 @@ public class HelloRoute53 {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
-```
+```kotlin
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.

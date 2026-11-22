@@ -1,7 +1,6 @@
 
 
 # Securing DNS for clients with Route 53 Global Resolver
-<a name="gr-securing-dns"></a>
 
 The following sections describe how to create rules to secure DNS queries made by your clients.
 

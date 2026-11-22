@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for Amazon Route 53 Resolver
-<a name="using-service-linked-roles"></a>
 
 Route 53 VPC Resolver uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to VPC Resolver. Service-linked roles are predefined by VPC Resolver and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -30,7 +29,7 @@ The role permissions policy allows VPC Resolver to complete the following action
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

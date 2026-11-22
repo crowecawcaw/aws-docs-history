@@ -1,7 +1,6 @@
 
 
 # .coach
-<a name="coach"></a>
 
 Used by anyone with an interest in coaching, such as sports professionals, lifestyle coaches, or corporate trainers.
 

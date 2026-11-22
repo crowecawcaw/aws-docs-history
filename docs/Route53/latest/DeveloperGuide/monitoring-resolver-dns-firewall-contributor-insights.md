@@ -1,7 +1,6 @@
 
 
 # Using Amazon CloudWatch Contributor Insights with DNS Firewall data
-<a name="monitoring-resolver-dns-firewall-contributor-insights"></a>
 
 Amazon CloudWatch Contributor Insights analyzes log data to create time series that display contributor data. For example, you can view the rule groups and VPCs that produce the most blocked or allowed DNS queries. You can use this data to identify which rule groups, domains, or VPCs generate the most filtered traffic. For more information, see [Using Contributor Insights to analyze high-cardinality data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
 

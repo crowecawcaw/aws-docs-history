@@ -1,7 +1,6 @@
 
 
 # .maison
-<a name="maison"></a>
 
 Used by the real estate sector.
 

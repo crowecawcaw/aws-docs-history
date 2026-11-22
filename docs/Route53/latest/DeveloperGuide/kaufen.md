@@ -1,7 +1,6 @@
 
 
 # .kaufen
-<a name="kaufen"></a>
 
 Used for information about e-commerce.
 

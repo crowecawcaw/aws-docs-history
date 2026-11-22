@@ -1,7 +1,6 @@
 
 
 # .bingo
-<a name="bingo"></a>
 
 Used for online gaming websites or for sharing information about the game of bingo.
 

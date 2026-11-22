@@ -1,7 +1,6 @@
 
 
 # .delivery
-<a name="delivery"></a>
 
 Used by companies that deliver any kind of merchandise or service.
 

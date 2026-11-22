@@ -1,7 +1,6 @@
 
 
 # .football
-<a name="football"></a>
 
 Used by anyone involved in the sport of football.
 

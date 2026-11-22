@@ -1,7 +1,6 @@
 
 
 # .bet
-<a name="bet"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

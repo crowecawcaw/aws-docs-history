@@ -1,7 +1,6 @@
 
 
 # .shop
-<a name="shop"></a>
 
 Used for online and brick-and-mortar retail businesses, as well as service providers.
 

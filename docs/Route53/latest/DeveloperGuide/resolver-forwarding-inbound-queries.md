@@ -1,7 +1,6 @@
 
 
 # Forwarding inbound DNS queries to your VPCs
-<a name="resolver-forwarding-inbound-queries"></a>
 
 To forward DNS queries from your network to VPC Resolver, you create an inbound endpoint. An inbound endpoint specifies the IP addresses (from the range of IP addresses available to your VPC) that you want DNS resolvers on your network to forward DNS queries to. Those IP addresses aren't public IP addresses, so for each inbound endpoint, you need to connect your VPC to your network using either an Direct Connect connection or a VPN connection.
 

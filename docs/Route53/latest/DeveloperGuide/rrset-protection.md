@@ -1,7 +1,6 @@
 
 
 # Protecting records from changes
-<a name="rrset-protection"></a>
 
 To prevent a critical record from being changed or deleted by mistake, add a record set protection for its name and type. While the protection exists, Route 53 rejects any `ChangeResourceRecordSets` request that would create, update, or delete those records. The protection applies to every user and role, including users with full Route 53 permissions. To change a protected record, you first delete its protection.
 
@@ -68,7 +67,7 @@ The hosted zone details page has a **Protections** tab. On the **Records** tab, 
 
 1. Choose **Add protection**.
 
-If a protection already exists for a selected type, the console reports A protection already exists for {{name}} ({{type}}) and adds none of the protections.
+If a protection already exists for a selected type, the console reports `A protection already exists for {{name}} ({{type}})` and adds none of the protections.
 
 **To protect records when you create them** – On the create record page, in the **Protection** section, select **Enable protection**. The console creates the records and then adds the protections. If you see a message that the records were created but aren't protected, add the protection on the **Protections** tab. You can add protection to at most 100 records in one submission.<a name="rrset-protection-remove-procedure"></a>
 
@@ -95,7 +94,7 @@ To manage protections programmatically, use the [CreateResourceRecordSetProtecti
 
 The following command creates two protections at the apex of the `example.com` hosted zone: one for the `A` records, with a comment, and one for the `MX` records.
 
-```
+```bash
 aws route53 create-resource-record-set-protections \
     --hosted-zone-id Z1D633PJN98FT9 \
     --protections '[{"RecordName":"example.com","RecordType":"A","Comment":"Production apex. Contact the DNS team before changing."},{"RecordName":"example.com","RecordType":"MX"}]'
@@ -118,14 +117,14 @@ A successful request returns an empty response.
 
 The following command lists the protections in the hosted zone.
 
-```
+```bash
 aws route53 list-resource-record-set-protections \
     --hosted-zone-id Z1D633PJN98FT9
 ```
 
 Example output:
 
-```
+```json
 {
     "ResourceRecordSetProtections": [
         {
@@ -147,7 +146,7 @@ Route 53 returns `RecordName` in fully qualified form with a trailing dot, as `
 
 The following command deletes the protection for the `A` records at the zone apex.
 
-```
+```bash
 aws route53 delete-resource-record-set-protections \
     --hosted-zone-id Z1D633PJN98FT9 \
     --protections '[{"RecordName":"example.com","RecordType":"A"}]'

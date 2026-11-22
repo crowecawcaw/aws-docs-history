@@ -1,7 +1,6 @@
 
 
 # IAM role for publishing CloudWatch metrics from DNS query logs
-<a name="gr-cloudwatch-metrics-iam-role"></a>
 
 The AWS Identity and Access Management (IAM) policy that's attached to your IAM role or user must include at least the following permissions.
 

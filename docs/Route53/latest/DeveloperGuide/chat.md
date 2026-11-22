@@ -1,7 +1,6 @@
 
 
 # .chat
-<a name="chat"></a>
 
 Used by any kind of online chat website.
 

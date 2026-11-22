@@ -1,7 +1,6 @@
 
 
 # .host
-<a name="host"></a>
 
 Used by companies that provide web hosting platforms and services.
 

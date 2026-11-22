@@ -1,7 +1,6 @@
 
 
 # .pub
-<a name="pub"></a>
 
 Used by those in the publication, advertising, or brewing business.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing and updating Amazon Route 53 Profiles
-<a name="profiles-editing"></a>
 
 Choose the console tab to view and edit Route 53 Profile. Choose the CLI tab to use AWS CLI to list Profiles you own, are shared by you, or shared to you.
 + [Console](#profile-editing-console)
@@ -29,7 +28,7 @@ You can list the Profiles by running a AWS CLI command like the following:
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileSummaries": [
         {
@@ -48,7 +47,7 @@ You can get information about a particular VPS the Profile is associated to by r
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileAssociation": {
         "CreationTime": 1709338817.148,
@@ -101,7 +100,7 @@ You can delete a Profile by running an AWS CLI command like the following and us
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "Profile": {
         "Arn": "arn:aws:route53profiles:us-east-1:123456789012:profile/rp-6ffe47d5example",

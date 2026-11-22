@@ -1,7 +1,6 @@
 
 
 # .kitchen
-<a name="kitchen"></a>
 
 Used by kitchen retailers, cooks, food bloggers, and anyone in the food industry.
 

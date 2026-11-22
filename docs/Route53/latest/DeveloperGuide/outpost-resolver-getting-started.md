@@ -1,7 +1,6 @@
 
 
 # Getting started with VPC Resolver on AWS Outposts
-<a name="outpost-resolver-getting-started"></a>
 
 After you have ordered your AWS Outposts racks and they have been delivered, as described here: [Create an AWS Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/order-outpost-capacity.html) in the *AWS Outposts guide*, you can set up Resolver on Outpost.
 

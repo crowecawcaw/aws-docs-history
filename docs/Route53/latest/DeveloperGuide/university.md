@@ -1,7 +1,6 @@
 
 
 # .university
-<a name="university"></a>
 
 Used by universities and other educational organizations. 
 

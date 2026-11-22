@@ -1,7 +1,6 @@
 
 
 # .gold
-<a name="gold"></a>
 
 Used as a general extension, but ideal for companies that purchase or sell gold or gold-related products.
 

@@ -1,7 +1,6 @@
 
 
 # .menu
-<a name="menu"></a>
 
 Used by restaurants, cafes, and food service businesses to showcase their menus.
 

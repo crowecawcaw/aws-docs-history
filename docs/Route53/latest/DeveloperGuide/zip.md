@@ -1,7 +1,6 @@
 
 
 # .zip
-<a name="zip"></a>
 
 Used for tying things together or moving really fast.
 

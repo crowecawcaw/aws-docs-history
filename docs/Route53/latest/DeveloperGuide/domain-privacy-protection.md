@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling privacy protection for contact information for a domain
-<a name="domain-privacy-protection"></a>
 
 When you register a domain with Amazon Route 53 or transfer a domain to Route 53, Route 53 enables privacy protection by default for all the contacts for the domain. This typically hides most of your contact information from WHOIS ("Who is") queries and reduces the amount of spam that you receive. When you enable privacy protection, your contact information is replaced with contact information for the registrar or with the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name> owner."
 

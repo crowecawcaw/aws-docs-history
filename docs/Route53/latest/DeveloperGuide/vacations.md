@@ -1,7 +1,6 @@
 
 
 # .vacations
-<a name="vacations"></a>
 
 Used by the travel and tourism industry.
 

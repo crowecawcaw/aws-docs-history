@@ -1,7 +1,6 @@
 
 
 # .fish
-<a name="fish"></a>
 
 Used as a general extension, but ideal for websites related to fish and fishing.
 

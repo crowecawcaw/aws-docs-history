@@ -1,7 +1,6 @@
 
 
 # Creating records by using the Amazon Route 53 console
-<a name="resource-record-sets-creating"></a>
 
 The following procedure explains how to create records using the Amazon Route 53 console. For information about how to create records using the Route 53 API, see [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) in the *Amazon Route 53 API Reference*.
 
@@ -46,6 +45,8 @@ To create records for complex routing setups, you can also use the Traffic Flow 
    + [Values specific for multivalue answer records](resource-record-sets-values-multivalue.md)
    + [Values specific for weighted records](resource-record-sets-values-weighted.md)
    + [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md)
+   + [Values specific for AZ-affinity records](resource-record-sets-values-azaffinity.md)
+   + [Values specific for AZ-affinity alias records](resource-record-sets-values-azaffinity-alias.md)
 
 1. Choose **Create records**.
 **Note**  
@@ -71,4 +72,4 @@ Your new records take time to propagate to the Route 53 DNS servers. Currently,
 
 1. Sign in to the AWS Management Console again using the AWS account that you used to create the Route 53 hosted zone.
 
-1. Return to step 3 of the procedure [Creating records by using the Amazon Route 53 console](#resource-record-sets-creating).
+1. Return to step 3 of the procedure [Creating records by using the Amazon Route 53 console](resource-record-sets-creating.md).

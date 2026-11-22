@@ -1,7 +1,6 @@
 
 
 # .trade
-<a name="trade"></a>
 
 Used as a general extension, but ideal for commerce websites or trading services.
 

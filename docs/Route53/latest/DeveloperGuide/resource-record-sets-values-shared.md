@@ -1,7 +1,6 @@
 
 
 # Values that are common for all routing policies
-<a name="resource-record-sets-values-shared"></a>
 
 These are the common values that you can specify when you create or edit Amazon Route 53 records. These values are used by all routing policies.
 
@@ -82,4 +81,4 @@ The amount of time, in seconds, that you want DNS recursive resolvers to cache i
 
 However, if you specify a longer value for TTL, it takes longer for changes to the record (for example, a new IP address) to take effect. Recursive resolvers use the values in their cache for longer periods before they ask Route 53 for the latest information. If you're changing settings for a domain or subdomain that's already in use, we recommend that you specify a shorter value first, such as 300 seconds, and increase the value after you confirm that the new settings are correct.
 
-If you're associating this record with a health check, we recommend that you specify a TTL of 60 seconds or less so clients respond quickly to changes in health status.
+If you're associating this record with a health check, see [Best practices for Amazon Route 53 DNS](best-practices-dns.md) for TTL recommendations.

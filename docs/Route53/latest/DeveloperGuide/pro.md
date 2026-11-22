@@ -1,7 +1,6 @@
 
 
 # .pro
-<a name="pro"></a>
 
 Used by licensed and credentialed professionals and professional organizations.
 

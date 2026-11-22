@@ -1,7 +1,6 @@
 
 
 # .money
-<a name="money"></a>
 
 Used for websites that focus on money and money-related activities.
 

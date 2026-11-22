@@ -1,7 +1,6 @@
 
 
 # .rest
-<a name="rest"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

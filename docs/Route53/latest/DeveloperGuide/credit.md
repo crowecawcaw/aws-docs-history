@@ -1,7 +1,6 @@
 
 
 # .credit
-<a name="credit"></a>
 
 Used by the credit industry.
 

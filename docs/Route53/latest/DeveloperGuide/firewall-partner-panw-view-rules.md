@@ -1,7 +1,6 @@
 
 
 # View managed rules from Palo Alto Networks
-<a name="firewall-partner-panw-view-rules"></a>
 
 You can view the available PANW managed rule groups and their current state using the console, API, or CLI.
 

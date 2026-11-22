@@ -1,7 +1,6 @@
 
 
 # Creating Route 53 Profiles
-<a name="profile-create"></a>
 
 To create Route 53 Profiles, follow the guidance in this topic. Choose a tab to create a Route 53 Profile by using the Route 53 console, or AWS CLI. 
 + [Console](#profile_create_console)
@@ -31,7 +30,7 @@ You can create a Profile by running a AWS CLI command like the following and usi
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "Profile": {
         "Arn": "arn:aws:route53profiles:us-east-1:123456789012:profile/rp-6ffe47d5example",

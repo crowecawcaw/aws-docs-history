@@ -1,7 +1,6 @@
 
 
 # .realty
-<a name="realty"></a>
 
 Used by real estate agents, brokers, and property-related businesses.
 

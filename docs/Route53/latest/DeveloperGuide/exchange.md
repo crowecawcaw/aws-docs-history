@@ -1,7 +1,6 @@
 
 
 # .exchange
-<a name="exchange"></a>
 
 Used for any type of exchange: the stock exchange, the exchange of goods, or even the simple exchange of information.
 

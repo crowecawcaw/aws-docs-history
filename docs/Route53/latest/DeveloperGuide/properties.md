@@ -1,7 +1,6 @@
 
 
 # .properties
-<a name="properties"></a>
 
 Used for information about any type of property, including real estate or intellectual property. Also used by those who have houses, buildings, or land to sell, lease, or rent.
 

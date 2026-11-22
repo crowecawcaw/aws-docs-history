@@ -1,7 +1,6 @@
 
 
 # .my (Malaysia)
-<a name="my"></a>
 
 **Important**  
 Since August 2024, .my domains cannot be registered by residents of Israel. This restriction applies to both new registrations and modifications, including changes of address to an Israeli location.

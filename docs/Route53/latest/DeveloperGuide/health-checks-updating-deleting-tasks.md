@@ -1,12 +1,11 @@
 
 
 # Updating or deleting health checks when DNS failover is configured
-<a name="health-checks-updating-deleting-tasks"></a>
 
 When you want to update or delete health checks that are associated with records, or you want to change records that have associated health checks, you must consider how your changes affect routing of DNS queries and your DNS failover configuration.
 
 **Important**  
-Route 53 doesn't prevent you from deleting a health check even if the health check is associated with one or more records. If you delete a health check and you don't update the associated records, the future status of the health check can't be predicted and might change. This will affect the routing of DNS queries for your DNS failover configuration. 
+Route 53 doesn't prevent you from deleting a health check even if the health check is associated with one or more records. If you delete a health check and you don't update the associated records, Route 53 considers the health check healthy. This affects the routing of DNS queries for your DNS failover configuration. 
 
 To update or delete health checks that are already associated with records, we recommend that you perform the following tasks:
 

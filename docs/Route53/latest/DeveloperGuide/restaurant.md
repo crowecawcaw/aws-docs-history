@@ -1,7 +1,6 @@
 
 
 # .restaurant
-<a name="restaurant"></a>
 
 Used by the restaurant industry.
 

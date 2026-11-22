@@ -1,7 +1,6 @@
 
 
 # AWS services that integrate with Route 53 Global Resolver for enhanced DNS security
-<a name="gr-related-services"></a>
 
 Route 53 Global Resolver integrates seamlessly with other AWS services to provide comprehensive DNS security and management capabilities. These integrations enhance Route 53 Global Resolver's core functionality and enable advanced use cases:
 
@@ -22,3 +21,6 @@ Route 53 Global Resolver complements Route 53 Resolver DNS Firewall by providing
 
 AWS Global Accelerator  
 Route 53 Global Resolver works with AWS Global Accelerator to provide optimized global network performance for DNS resolution. For more information, see the [AWS Global Accelerator Developer Guide](https://docs.aws.amazon.com/global-accelerator/).
+
+AWS Cloud WAN  
+Route 53 Global Resolver can connect to an AWS Cloud WAN core network through a core network endpoint. After you connect the core network, its segments can be used as access sources, so clients that reach the global resolver from those segments are authorized for DNS resolution. For more information, see [Connecting a global resolver to a core network](gr-core-network-endpoints.md).

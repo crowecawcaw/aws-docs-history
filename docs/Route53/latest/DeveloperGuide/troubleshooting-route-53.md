@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Route 53
-<a name="troubleshooting-route-53"></a>
 
 This page covers the following troubleshooting topics for Amazon Route 53:
 

@@ -1,7 +1,6 @@
 
 
 # Contacting AWS Support about domain registration issues
-<a name="domain-contact-support"></a>
 
 AWS provides a Basic support plan, free of charge, for all AWS customers. The plan includes assistance for the following issues related to domain registration:
 + Transferring domains to or from Amazon Route 53

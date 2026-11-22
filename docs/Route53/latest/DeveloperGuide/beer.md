@@ -1,7 +1,6 @@
 
 
 # .beer
-<a name="beer"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListHostedZones` with an AWS SDK or CLI
-<a name="route-53_example_route-53_ListHostedZones_section"></a>
 
 The following code examples show how to use `ListHostedZones`.
 
@@ -55,12 +54,12 @@ For more information, see [Listing public hosted zones](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: Outputs all of your public and private hosted zones.**  
 
-```
+```powershell
 Get-R53HostedZoneList
 ```
 **Example 2: Outputs all of the hosted zones that are associated with the reusable delegation set that has the ID NZ8X2CISAMPLE**  
 
-```
+```powershell
 Get-R53HostedZoneList -DelegationSetId NZ8X2CISAMPLE
 ```
 +  For API details, see [ListHostedZones](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -68,12 +67,12 @@ Get-R53HostedZoneList -DelegationSetId NZ8X2CISAMPLE
 **Tools for PowerShell V5**  
 **Example 1: Outputs all of your public and private hosted zones.**  
 
-```
+```powershell
 Get-R53HostedZoneList
 ```
 **Example 2: Outputs all of the hosted zones that are associated with the reusable delegation set that has the ID NZ8X2CISAMPLE**  
 
-```
+```powershell
 Get-R53HostedZoneList -DelegationSetId NZ8X2CISAMPLE
 ```
 +  For API details, see [ListHostedZones](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -84,7 +83,7 @@ Get-R53HostedZoneList -DelegationSetId NZ8X2CISAMPLE
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/route53#code-examples). 
 
-```
+```rust
 async fn show_host_info(client: &aws_sdk_route53::Client) -> Result<(), aws_sdk_route53::Error> {
     let hosted_zone_count = client.get_hosted_zone_count().send().await?;
 

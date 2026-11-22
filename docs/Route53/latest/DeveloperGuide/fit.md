@@ -1,7 +1,6 @@
 
 
 # .fit
-<a name="fit"></a>
 
 Used for fitness, health, and wellness-related websites and businesses.
 

@@ -1,7 +1,6 @@
 
 
 # .cheap
-<a name="cheap"></a>
 
 Used by e-commerce websites to promote and sell inexpensive products.
 

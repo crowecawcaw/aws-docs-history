@@ -1,7 +1,6 @@
 
 
 # Sharing Route 53 Global Resolver DNS views between AWS accounts
-<a name="gr-sharing-dns-views"></a>
 
 You can share a Route 53 Global Resolver DNS view with other AWS accounts by using AWS Resource Access Manager (AWS RAM). AWS RAM lets you share your AWS resources with any AWS account or through AWS Organizations. For more information, see the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
 

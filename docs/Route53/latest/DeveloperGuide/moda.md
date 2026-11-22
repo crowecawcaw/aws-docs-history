@@ -1,7 +1,6 @@
 
 
 # .moda
-<a name="moda"></a>
 
 Used for information about fashion.
 

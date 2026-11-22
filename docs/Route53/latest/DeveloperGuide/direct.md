@@ -1,7 +1,6 @@
 
 
 # .direct
-<a name="direct"></a>
 
 Used as a general extension, but ideal for those who sell products directly to customers through an e-commerce website.
 

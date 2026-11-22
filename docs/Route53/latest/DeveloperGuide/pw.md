@@ -1,7 +1,6 @@
 
 
 # .pw (Palau)
-<a name="pw"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

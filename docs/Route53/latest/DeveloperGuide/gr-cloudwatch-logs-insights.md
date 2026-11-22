@@ -1,7 +1,6 @@
 
 
 # Analyzing Route 53 Global Resolver logs with Amazon CloudWatch Logs Insights
-<a name="gr-cloudwatch-logs-insights"></a>
 
 With Amazon CloudWatch Logs Insights, you can interactively search and analyze your Route 53 Global Resolver log data with queries. You can run queries to respond to operational issues and identify patterns in your DNS traffic. For more information, see [Analyzing log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
 

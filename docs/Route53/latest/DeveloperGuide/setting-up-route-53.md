@@ -1,7 +1,6 @@
 
 
 # Set up Amazon Route 53
-<a name="setting-up-route-53"></a>
 
 **Topics**
 + [Sign up for an AWS account](#sign-up-for-aws)

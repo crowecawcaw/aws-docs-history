@@ -1,7 +1,6 @@
 
 
 # Updating domain settings
-<a name="domain-update-settings"></a>
 
 This section provides information on the following topics related to managing domain settings in Route 53:
 

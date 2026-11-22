@@ -1,7 +1,6 @@
 
 
 # Active-active and active-passive failover
-<a name="dns-failover-types"></a>
 
 You can use Route 53 health checking to configure active-active and active-passive failover configurations. You configure active-active failover using any [routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) (or combination of routing policies) other than failover, and you configure active-passive failover using the failover routing policy.
 

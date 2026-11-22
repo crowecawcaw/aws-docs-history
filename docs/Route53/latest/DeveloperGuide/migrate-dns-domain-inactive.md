@@ -1,7 +1,6 @@
 
 
 # Making Route 53 the DNS service for an inactive domain
-<a name="migrate-dns-domain-inactive"></a>
 
 If you want to migrate DNS service to Amazon Route 53 for a domain that isn't getting any traffic (or is getting very little traffic), perform the procedures in this section.
 

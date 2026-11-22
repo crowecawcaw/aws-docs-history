@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Route 53 API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Route 53 is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Route 53. CloudTrail captures all API calls for Route 53 as events, including calls from the Route 53 console and from code calls to the Route 53 APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Route 53. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Route 53, the IP address that the request was made from, who made the request, when it was made, and additional details. 
 
@@ -24,6 +23,8 @@ For an ongoing record of events in your AWS account, including events for Route�
 All Route 53 actions are logged by CloudTrail and are documented in the [Amazon Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/). For example, calls to the `CreateHostedZone`, `CreateHealthCheck`, and `RegisterDomain` actions generate entries in the CloudTrail log files. 
 
 CloudTrail logs `CreateResourceRecordSetProtections` and `DeleteResourceRecordSetProtections` as management write events, and `ListResourceRecordSetProtections` as a management read event.
+
+CloudTrail logs the Change History actions `ListHostedZoneChangeBatches`, `GetHostedZoneChangeBatch`, and `ListResourceRecordSetChanges` as management read events. For more information about Change History, see [Viewing the change history of a hosted zone](hosted-zone-change-history.md).
 
 Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
 + Whether the request was made with root or IAM user credentials.
@@ -50,7 +51,7 @@ The `eventName` element identifies the action that occurred. (In CloudTrail logs
 + Update information for a registered domain
 + Create a Route 53 VPC Resolver outbound endpoint
 
-```
+```json
 {
     "Records": [
         {

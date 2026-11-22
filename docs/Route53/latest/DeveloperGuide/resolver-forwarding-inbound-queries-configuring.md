@@ -1,7 +1,6 @@
 
 
 # Configuring inbound forwarding
-<a name="resolver-forwarding-inbound-queries-configuring"></a>
 
 To create an inbound endpoint, perform the following procedure.<a name="resolver-forwarding-inbound-queries-configuring-procedure"></a>
 

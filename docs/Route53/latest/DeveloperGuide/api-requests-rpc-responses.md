@@ -1,7 +1,6 @@
 
 
 # RPC Responses
-<a name="api-requests-rpc-responses"></a>
 
 Amazon Route 53 responses are just standard HTTP responses. Some of the Route 53 actions return special information specific to Route 53 in the form of an HTTP header or JSON in the body of the response. The specific details are covered in the documentation for the action.
 

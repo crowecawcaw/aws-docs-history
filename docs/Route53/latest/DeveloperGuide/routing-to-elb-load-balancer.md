@@ -1,7 +1,6 @@
 
 
 # Routing traffic to an ELB load balancer
-<a name="routing-to-elb-load-balancer"></a>
 
 If you host a website on multiple Amazon EC2 instances, you can distribute traffic to your website across the instances by using an Elastic Load Balancing (ELB) load balancer. The ELB service automatically scales the load balancer as traffic to your website changes over time. The load balancer also can monitor the health of its registered instances and route domain traffic only to healthy instances. 
 

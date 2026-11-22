@@ -1,7 +1,6 @@
 
 
 # .name
-<a name="name"></a>
 
 Used by anyone who wants to create a personalized web presence.
 

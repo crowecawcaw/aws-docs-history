@@ -1,7 +1,6 @@
 
 
 # .gripe
-<a name="gripe"></a>
 
 Used for sharing complaints and criticism.
 

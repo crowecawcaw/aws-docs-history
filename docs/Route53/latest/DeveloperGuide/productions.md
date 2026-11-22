@@ -1,7 +1,6 @@
 
 
 # .productions
-<a name="productions"></a>
 
 Used by studios and production houses that make commercials, radio ads, and music videos.
 

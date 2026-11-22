@@ -1,7 +1,6 @@
 
 
 # Getting started with Route 53 VPC Resolver
-<a name="resolver-getting-started"></a>
 
 The Route 53 VPC Resolver console includes a wizard that guides you through the following steps for getting started with VPC Resolver:
 + Create endpoints: inbound, outbound, or both.

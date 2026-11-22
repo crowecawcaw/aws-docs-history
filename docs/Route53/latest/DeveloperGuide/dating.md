@@ -1,7 +1,6 @@
 
 
 # .dating
-<a name="dating"></a>
 
 Used for dating websites.
 

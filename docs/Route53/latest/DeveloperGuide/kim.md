@@ -1,7 +1,6 @@
 
 
 # .kim
-<a name="kim"></a>
 
 Used by people whose name or surname is Kim.
 

@@ -1,7 +1,6 @@
 
 
 # .forsale
-<a name="forsale"></a>
 
 Used for selling goods and services.
 

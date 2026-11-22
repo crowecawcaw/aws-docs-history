@@ -1,7 +1,6 @@
 
 
 # .club
-<a name="club"></a>
 
 Used by any type of club or organization.
 

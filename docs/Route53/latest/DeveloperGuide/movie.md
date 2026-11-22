@@ -1,7 +1,6 @@
 
 
 # .movie
-<a name="movie"></a>
 
 Used for websites that provide information about movies and movie-making. Suitable for both professionals and fans.
 

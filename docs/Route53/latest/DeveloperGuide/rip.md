@@ -1,7 +1,6 @@
 
 
 # .rip
-<a name="rip"></a>
 
 Used for websites dedicated to death and memorials. "RIP" is an acronym for "rest in peace."
 

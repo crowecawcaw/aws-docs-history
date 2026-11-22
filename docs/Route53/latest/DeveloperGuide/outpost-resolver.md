@@ -1,7 +1,6 @@
 
 
 # What is Amazon Route 53 on Outposts?
-<a name="outpost-resolver"></a>
 
 AWS Outposts is a fully managed service that extends AWS infrastructure, services, APIs, and tools to customer premises. With AWS Outposts, you can run AWS services with on-premises workloads by using the same programming interfaces as in AWS Regions. For more information, see [What is AWS Outposts?](https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html) in the *AWS Outposts User Guide*.
 

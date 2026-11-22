@@ -1,7 +1,6 @@
 
 
 # .esq
-<a name="esq"></a>
 
 Used by lawyers and distinguished people to showcase credentials and experience.
 

@@ -1,7 +1,6 @@
 
 
 # Disabling DNSSEC signing
-<a name="dns-configuring-dnssec-disable"></a>
 
 The steps for disabling DNSSEC signing in Route 53 vary, depending on the chain of trust that your hosted zone is part of. 
 
@@ -84,7 +83,7 @@ The following incremental steps allow you to monitor the effectiveness of the in
 
    For example:
 
-   ```
+   ```json
    aws --region us-east-1 route53 disable-hosted-zone-dnssec \
                --hosted-zone-id $hostedzone_id
    
@@ -134,7 +133,7 @@ The following incremental steps allow you to monitor the effectiveness of the in
 
    For example:
 
-   ```
+   ```json
    aws --region us-east-1 route53 activate-key-signing-key \
                --hosted-zone-id $hostedzone_id --name $ksk_name
    

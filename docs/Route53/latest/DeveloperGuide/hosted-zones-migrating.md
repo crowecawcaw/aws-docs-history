@@ -1,7 +1,6 @@
 
 
 # Migrating a hosted zone to a different AWS account
-<a name="hosted-zones-migrating"></a>
 
 When migrating a hosted zone to a different AWS account, follow these recommended steps.
 

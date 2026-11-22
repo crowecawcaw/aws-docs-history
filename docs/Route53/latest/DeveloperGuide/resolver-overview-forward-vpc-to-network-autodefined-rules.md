@@ -1,7 +1,6 @@
 
 
 # Domain names that VPC Resolver creates autodefined system rules for
-<a name="resolver-overview-forward-vpc-to-network-autodefined-rules"></a>
 
 Resolver automatically creates autodefined system rules that define how queries for selected domains are resolved by default:
 + For private hosted zones and for Amazon EC2–specific domain names (such as compute.amazonaws.com and compute.internal), autodefined rules make sure that your private hosted zones and EC2 instances continue to resolve if you create conditional forwarding rules for less specific domain names such as "." (dot) or "com".

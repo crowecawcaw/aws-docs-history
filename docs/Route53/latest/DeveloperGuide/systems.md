@@ -1,7 +1,6 @@
 
 
 # .systems
-<a name="systems"></a>
 
 Used primarily by the technology industry and those who offer technology services.
 

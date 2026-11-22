@@ -1,7 +1,6 @@
 
 
 # .camp
-<a name="camp"></a>
 
 Used by parks and recreation departments, summer camps, writers' workshops, fitness camps, and camping enthusiasts.
 

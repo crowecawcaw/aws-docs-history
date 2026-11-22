@@ -1,7 +1,6 @@
 
 
 # .actor
-<a name="actor"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

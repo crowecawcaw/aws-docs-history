@@ -1,7 +1,6 @@
 
 
 # .gives
-<a name="gives"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

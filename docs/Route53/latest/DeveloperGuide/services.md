@@ -1,7 +1,6 @@
 
 
 # .services
-<a name="services"></a>
 
 Used for websites that focus on services of any kind.
 

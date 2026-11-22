@@ -1,7 +1,6 @@
 
 
 # .equipment
-<a name="equipment"></a>
 
 Used for information about equipment, equipment retailers or manufacturers, and rental shops.
 

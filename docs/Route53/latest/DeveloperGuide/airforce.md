@@ -1,7 +1,6 @@
 
 
 # .airforce
-<a name="airforce"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

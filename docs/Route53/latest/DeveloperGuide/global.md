@@ -1,7 +1,6 @@
 
 
 # .global
-<a name="global"></a>
 
 Used by businesses or groups with an international market or vision.
 

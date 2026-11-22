@@ -1,7 +1,6 @@
 
 
 # Use `CheckDomainTransferability` with an AWS SDK or CLI
-<a name="route-53-domains_example_route-53-domains_CheckDomainTransferability_section"></a>
 
 The following code examples show how to use `CheckDomainTransferability`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Check the transferability of a domain name.
     /// </summary>
@@ -64,7 +63,7 @@ For more information, see [Transferring Registration for a Domain to Amazon Rout
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
-```
+```java
     public static void checkDomainTransferability(Route53DomainsClient route53DomainsClient, String domainSuggestion) {
         try {
             CheckDomainTransferabilityRequest transferabilityRequest = CheckDomainTransferabilityRequest.builder()
@@ -89,7 +88,7 @@ For more information, see [Transferring Registration for a Domain to Amazon Rout
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
-```
+```kotlin
 suspend fun checkDomainTransferability(domainSuggestion: String?) {
     val transferabilityRequest =
         CheckDomainTransferabilityRequest {

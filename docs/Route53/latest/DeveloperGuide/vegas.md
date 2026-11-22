@@ -1,7 +1,6 @@
 
 
 # .vegas
-<a name="vegas"></a>
 
 Used to promote the city of Las Vegas and the Las Vegas lifestyle.
 

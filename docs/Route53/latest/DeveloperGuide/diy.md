@@ -1,7 +1,6 @@
 
 
 # .diy
-<a name="diy"></a>
 
 Used for do-it-yourself projects, crafts, and home improvement content.
 

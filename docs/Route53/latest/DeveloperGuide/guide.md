@@ -1,7 +1,6 @@
 
 
 # .guide
-<a name="guide"></a>
 
 Used as a general extension, but ideal for websites that focus on travel destinations, services, and products.
 

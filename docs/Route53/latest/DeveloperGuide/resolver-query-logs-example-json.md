@@ -1,7 +1,6 @@
 
 
 # Route 53 VPC Resolver query log example
-<a name="resolver-query-logs-example-json"></a>
 
 Here's a resolver query log example:
 

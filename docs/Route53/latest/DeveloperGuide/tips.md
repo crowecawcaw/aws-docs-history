@@ -1,7 +1,6 @@
 
 
 # .tips
-<a name="tips"></a>
 
 Used by those who want to share their knowledge and advice on virtually any topic.
 

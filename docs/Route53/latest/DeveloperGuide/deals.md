@@ -1,7 +1,6 @@
 
 
 # .deals
-<a name="deals"></a>
 
 Used to provide information about online bargains and sales.
 

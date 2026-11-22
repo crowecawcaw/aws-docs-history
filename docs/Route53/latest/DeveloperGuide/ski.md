@@ -1,7 +1,6 @@
 
 
 # .ski
-<a name="ski"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

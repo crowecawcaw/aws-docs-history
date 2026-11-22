@@ -1,7 +1,6 @@
 
 
 # .porn
-<a name="porn"></a>
 
 Used for adults-only websites.
 

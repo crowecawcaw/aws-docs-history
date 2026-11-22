@@ -1,7 +1,6 @@
 
 
 # I was charged multiple invoices for my domain
-<a name="troubleshooting-multiple-invoices"></a>
 
 When you sign up for a subscription, pay a registration fee, a transfer fee, or a renewal fee with an upfront cost, a unique invoice is generated. This invoice remains on the Billing console, even if the payment transaction is unsuccessful. The related billing line item is shown as **[x] Quantity** under the **Registrar-Global** sub-section of the **Bill details by service** tab on the Billing console.
 

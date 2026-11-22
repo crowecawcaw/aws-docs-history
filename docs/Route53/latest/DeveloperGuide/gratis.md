@@ -1,7 +1,6 @@
 
 
 # .gratis
-<a name="gratis"></a>
 
 Used for websites that offer free products, such as promotional items, downloads, or coupons. "Gratis" is a Spanish word that means "free."
 

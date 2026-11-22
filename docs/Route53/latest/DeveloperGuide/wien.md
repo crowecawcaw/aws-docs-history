@@ -1,7 +1,6 @@
 
 
 # .wien (city of Vienna in Austria)
-<a name="wien"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

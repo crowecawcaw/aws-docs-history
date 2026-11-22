@@ -1,7 +1,6 @@
 
 
 # Values that Amazon Route 53 returns when you register a domain
-<a name="domain-register-values-returned"></a>
 
 When you register your domain with Amazon Route 53, Route 53 returns the following values in addition to the values that you specified. 
 

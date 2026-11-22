@@ -1,7 +1,6 @@
 
 
 # .codes
-<a name="codes"></a>
 
 Used as a generic extension for all kinds of code, such as codes of conduct, building codes, or programming code.
 

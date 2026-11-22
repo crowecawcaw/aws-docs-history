@@ -1,7 +1,6 @@
 
 
 # .gift
-<a name="gift"></a>
 
 Used by businesses or organizations that sell gifts or provide gift-related services.
 

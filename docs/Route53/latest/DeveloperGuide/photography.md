@@ -1,7 +1,6 @@
 
 
 # .photography
-<a name="photography"></a>
 
 Used by photographers and anyone interested in photos.
 

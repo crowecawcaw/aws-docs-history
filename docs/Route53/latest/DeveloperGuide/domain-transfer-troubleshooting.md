@@ -1,7 +1,6 @@
 
 
 # Preventing common Route 53 transfer issues
-<a name="domain-transfer-troubleshooting"></a>
 
 If you encounter issues while your domain transfer is in progress, here are the most common problems and how to resolve them:
 

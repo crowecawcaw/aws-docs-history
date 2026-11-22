@@ -1,7 +1,6 @@
 
 
 # Routing traffic to a website that is hosted in an Amazon S3 bucket
-<a name="RoutingToS3Bucket"></a>
 
 This topic provides comprehensive procedures for routing DNS traffic to any Amazon Simple Storage Service bucket configured for static website hosting. If you're setting up a static website with Amazon Simple Storage Service, see [Use your domain for a static website in an Amazon S3 bucket](getting-started-s3.md) for a complete tutorial.
 

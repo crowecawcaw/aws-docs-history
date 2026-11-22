@@ -1,7 +1,6 @@
 
 
 # Using partner managed DNS threat protection with Palo Alto Networks in DNS Firewall
-<a name="firewall-partner-panw"></a>
 
 This topic covers how to subscribe to, configure, and manage Palo Alto Networks (PANW) DNS threat protection rules within Amazon Route 53 Resolver DNS Firewall rule groups.
 

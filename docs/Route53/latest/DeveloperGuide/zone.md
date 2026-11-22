@@ -1,7 +1,6 @@
 
 
 # .zone
-<a name="zone"></a>
 
 Used for information about any kind of zone, including time zones, climate zones, and sports zones.
 

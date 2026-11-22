@@ -1,7 +1,6 @@
 
 
 # Adding or changing name servers and glue records for a domain
-<a name="domain-name-servers-glue-records"></a>
 
 When you register a domain with Route 53, Route 53 automatically creates a hosted zone for the domain, assigns four name servers to the hosted zone, and then updates the domain registration to use those name servers. You typically don't need to change those settings unless you want to use another DNS service or you want to use white-label name servers.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting a public hosted zone
-<a name="DeleteHostedZone"></a>
 
 This section explains how to delete a public hosted zone using the Amazon Route 53 console.
 
@@ -44,9 +43,9 @@ To use the Route 53 console to delete a public hosted zone, perform the followi
 1. Confirm that the hosted zone that you want to delete contains only an NS and an SOA record. If it contains additional records, delete them. You will also need to disable DNSSEC signing:
 **Note**  
 If you attempt to delete the hosted zone without completing these requirements, Route 53 will return an error:  
-If DNSSEC signing is enabled: The specified hosted zone contains DNSSEC Key Signing Keys and so cannot be deleted
-If other resource record sets exist (other than the default SOA and NS records): The specified hosted zone contains non-required resource record sets and so cannot be deleted
-If record set protections exist: Hosted Zone {{hosted-zone-id}} has resource record set protections. All resource record set protections need to be deleted (DeleteResourceRecordSetProtections) before deleting hosted zone.
+If DNSSEC signing is enabled: `The specified hosted zone contains DNSSEC Key Signing Keys and so cannot be deleted`
+If other resource record sets exist (other than the default SOA and NS records): `The specified hosted zone contains non-required resource record sets and so cannot be deleted`
+If record set protections exist: `Hosted Zone {{hosted-zone-id}} has resource record set protections. All resource record set protections need to be deleted (DeleteResourceRecordSetProtections) before deleting hosted zone.`
 
    1. Delete any record set protections on the **Protections** tab. You can't delete a protected record or a hosted zone that has protections. For more information about record set protections, see [Protecting records from changes](rrset-protection.md).
 

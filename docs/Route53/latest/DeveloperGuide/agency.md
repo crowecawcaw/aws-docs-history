@@ -1,7 +1,6 @@
 
 
 # .agency
-<a name="agency"></a>
 
 Used by any businesses or groups that identify as agencies. 
 

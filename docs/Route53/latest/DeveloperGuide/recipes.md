@@ -1,7 +1,6 @@
 
 
 # .recipes
-<a name="recipes"></a>
 
 Used by those with recipes to share. 
 

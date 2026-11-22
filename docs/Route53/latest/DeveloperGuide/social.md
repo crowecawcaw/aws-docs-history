@@ -1,7 +1,6 @@
 
 
 # .social
-<a name="social"></a>
 
 Used for information about social media, forums, and online conversations.
 

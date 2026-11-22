@@ -1,7 +1,6 @@
 
 
 # .memorial
-<a name="memorial"></a>
 
 Used by commemorative organizations dedicated to honoring events and people.
 

@@ -1,7 +1,6 @@
 
 
 # .community
-<a name="community"></a>
 
 Used by any type of community, club, organization, or special interest group.
 

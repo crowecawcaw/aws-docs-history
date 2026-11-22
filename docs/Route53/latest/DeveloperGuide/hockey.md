@@ -1,7 +1,6 @@
 
 
 # .hockey
-<a name="hockey"></a>
 
 Used for websites devoted to the game of hockey.
 

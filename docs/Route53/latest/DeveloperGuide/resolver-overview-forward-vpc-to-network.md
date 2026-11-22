@@ -1,7 +1,6 @@
 
 
 # How Resolver endpoints forward DNS queries from your VPCs to your network
-<a name="resolver-overview-forward-vpc-to-network"></a>
 
 When you want to forward DNS queries from the EC2 instances in one or more VPCs in an AWS Region to your network, you perform the following steps.
 

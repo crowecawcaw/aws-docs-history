@@ -1,7 +1,6 @@
 
 
 # Signing Amazon Route 53 API Requests
-<a name="api-requests-authentication"></a>
 
 Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your AWS account credentials for everyday work with Route 53. You can use the credentials for a user or you can use AWS STS to generate temporary security credentials.
 

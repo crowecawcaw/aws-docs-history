@@ -1,7 +1,6 @@
 
 
 # .green
-<a name="green"></a>
 
 Used for websites devoted to conservation, ecology, the environment, and the green lifestyle. 
 

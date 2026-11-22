@@ -1,7 +1,6 @@
 
 
 # Managing outbound endpoints on Resolver on Outpost (first-generation AWS Outposts only)
-<a name="outpost-resolver-manage-outbound-outpost"></a>
 
 **Note**  
 This content applies to first-generation AWS Outposts only. It doesn't apply to second-generation AWS Outposts.

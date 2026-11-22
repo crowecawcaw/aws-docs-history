@@ -1,7 +1,6 @@
 
 
 # Configuring DNSSEC for a domain
-<a name="domain-configure-dnssec"></a>
 
 Attackers sometimes hijack traffic to internet endpoints such as web servers by intercepting DNS queries and returning their own IP addresses to DNS resolvers in place of the actual IP addresses for those endpoints. Users are then routed to the IP addresses provided by the attackers in the spoofed response, such as fake websites. 
 

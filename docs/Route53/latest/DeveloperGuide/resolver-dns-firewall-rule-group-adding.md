@@ -1,7 +1,6 @@
 
 
 # Creating a rule group and rules
-<a name="resolver-dns-firewall-rule-group-adding"></a>
 
 To create a rule group and add rules to it, follow the steps in this procedure.
 

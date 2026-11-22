@@ -1,7 +1,6 @@
 
 
 # Use an Amazon CloudFront distribution to serve a static website
-<a name="getting-started-cloudfront-overview"></a>
 
 This topic shows you how to route DNS traffic for your domain to Amazon CloudFront distributions that serve a static website. You create alias records that point your domain and subdomain to your CloudFront distributions.
 

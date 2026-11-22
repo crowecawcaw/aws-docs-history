@@ -1,7 +1,6 @@
 
 
 # .stream
-<a name="stream"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

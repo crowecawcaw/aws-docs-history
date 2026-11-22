@@ -1,7 +1,6 @@
 
 
 # .shiksha
-<a name="shiksha"></a>
 
 Used by educational institutions. "Shiksha" is an Indian term for school.
 

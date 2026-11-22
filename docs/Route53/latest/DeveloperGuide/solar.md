@@ -1,7 +1,6 @@
 
 
 # .solar
-<a name="solar"></a>
 
 Used for information about the solar system or solar energy.
 

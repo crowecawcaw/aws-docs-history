@@ -1,7 +1,6 @@
 
 
 # Configuring logging for DNS Firewall
-<a name="firewall-resolver-query-logs-configuring"></a>
 
  You can evaluate your DNS Firewall rules by using Amazon CloudWatch metrics and the Resolver query logs. The logs provide the domain list name for all alerts and blocking actions. For more information about Amazon CloudWatch, see [Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md).
 

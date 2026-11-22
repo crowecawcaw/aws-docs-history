@@ -1,7 +1,6 @@
 
 
 # Routing traffic to an Amazon Virtual Private Cloud interface endpoint by using your domain name
-<a name="routing-to-vpc-interface-endpoint"></a>
 
 You can use AWS PrivateLink to access selected services with an Amazon Virtual Private Cloud (Amazon VPC) interface endpoint. These services include some AWS services, services that are hosted by other AWS customers and partners in their own VPCs, and supported AWS Marketplace partner services.
 

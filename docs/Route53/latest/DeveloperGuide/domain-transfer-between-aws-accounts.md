@@ -1,7 +1,6 @@
 
 
 # Transferring a domain to a different AWS account
-<a name="domain-transfer-between-aws-accounts"></a>
 
 If you registered a domain using one AWS account and you want to transfer the domain to another AWS account, you can easily transfer it by using the new console, or by using the AWS CLI or other programmatic methods.
 

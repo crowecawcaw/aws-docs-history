@@ -1,7 +1,6 @@
 
 
 # .space
-<a name="space"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

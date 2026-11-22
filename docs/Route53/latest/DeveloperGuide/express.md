@@ -1,7 +1,6 @@
 
 
 # .express
-<a name="express"></a>
 
 Used as a general extension, but ideal for those who want to emphasize the speedy delivery of good or services.
 

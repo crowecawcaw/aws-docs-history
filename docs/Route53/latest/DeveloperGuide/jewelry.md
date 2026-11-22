@@ -1,7 +1,6 @@
 
 
 # .jewelry
-<a name="jewelry"></a>
 
 Used by jewelry sellers and buyers.
 

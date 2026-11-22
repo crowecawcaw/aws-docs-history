@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create your first Route 53 Global Resolver
-<a name="gr-getting-started"></a>
 
 This getting started guide demonstrates the basic components of Route 53 Global Resolver and optionally creating a simple DNS filtering setup. This tutorial covers the core concepts but doesn't include production requirements like client configuration, logging, or private domain resolution.
 
@@ -88,7 +87,7 @@ Test that your Route 53 Global Resolver configuration is working correctly.
 
 1. From a client machine within your configured CIDR range, test DNS resolution using the anycast IP addresses provided by your global resolver:
 
-   ```
+   ```bash
    nslookup example.com <anycast-ip-address>
    ```
 
@@ -136,3 +135,4 @@ Now that you have a basic Route 53 Global Resolver configuration, you can explor
 + Configure private hosted zone forwarding for internal domains (required if you have private AWS resources). For more information, see *Working with private hosted zones*.
 + Set up encrypted DNS connectivity using DNS-over-HTTPS (DoH) or DNS-over-TLS (DoT). For more information, see *Configuring encrypted DNS*.
 + Create custom domain lists and advanced filtering rules. For more information, see *DNS filtering*.
++ Connect your global resolver to an AWS Cloud WAN core network. Create a core network endpoint so that the core network's segments can be used as access sources for DNS resolution. For more information, see [Connecting a global resolver to a core network](gr-core-network-endpoints.md).

@@ -1,7 +1,6 @@
 
 
 # Values that you specify when you create or edit Amazon Route 53 records
-<a name="resource-record-sets-values"></a>
 
 When you create records using the Amazon Route 53 console, the values that you specify depend on the routing policy that you want to use and on whether you're creating alias records, which route traffic to AWS resources.
 
@@ -25,3 +24,5 @@ Alias records that route traffic to certain AWS resources for which you specify 
 + [Values specific for multivalue answer records](resource-record-sets-values-multivalue.md)
 + [Values specific for weighted records](resource-record-sets-values-weighted.md)
 + [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md)
++ [Values specific for AZ-affinity records](resource-record-sets-values-azaffinity.md)
++ [Values specific for AZ-affinity alias records](resource-record-sets-values-azaffinity-alias.md)

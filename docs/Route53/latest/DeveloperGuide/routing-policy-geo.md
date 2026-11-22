@@ -1,7 +1,6 @@
 
 
 # Geolocation routing
-<a name="routing-policy-geo"></a>
 
 With geolocation routing, you can choose the resources that serve your traffic based on where your users are located, meaning the location that DNS queries come from. For example, you might want all queries from Europe to be routed to an Elastic Load Balancing load balancer in the Frankfurt Region. 
 

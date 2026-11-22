@@ -1,7 +1,6 @@
 
 
 # Values specific for failover alias records
-<a name="resource-record-sets-values-failover-alias"></a>
 
 When you create failover alias records, you specify the following values.
 

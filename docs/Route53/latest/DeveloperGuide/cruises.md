@@ -1,7 +1,6 @@
 
 
 # .cruises
-<a name="cruises"></a>
 
 Used by the voyage industry.
 

@@ -1,7 +1,6 @@
 
 
 # .events
-<a name="events"></a>
 
 Used for information about events of all kinds.
 

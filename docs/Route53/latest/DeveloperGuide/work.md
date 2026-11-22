@@ -1,7 +1,6 @@
 
 
 # .work
-<a name="work"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

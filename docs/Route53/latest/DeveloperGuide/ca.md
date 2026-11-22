@@ -1,7 +1,6 @@
 
 
 # .ca (Canada)
-<a name="ca"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # .furniture
-<a name="furniture"></a>
 
 Used by furniture makers and sellers and anyone affiliated with the furniture industry.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring DNS activity and performance with Route 53 Global Resolver
-<a name="gr-monitoring"></a>
 
 Route 53 Global Resolver provides comprehensive visibility into DNS activity across your organization, enabling you to identify security threats, analyze client device behavior, and maintain compliance. This chapter covers both the monitoring tools available and detailed procedures for setting up DNS monitoring, configuring logging destinations, and analyzing DNS data to investigate threats and optimize performance.
 

@@ -1,7 +1,6 @@
 
 
 # Values that you specify when you create or edit outbound endpoints
-<a name="resolver-forwarding-outbound-queries-endpoint-values"></a>
 
 When you create or edit an outbound endpoint, you specify the following values:
 

@@ -1,7 +1,6 @@
 
 
 # Values specific for IP-based records
-<a name="resource-record-sets-values-ipbased"></a>
 
 When you create IP-based records, you specify the following values.
 

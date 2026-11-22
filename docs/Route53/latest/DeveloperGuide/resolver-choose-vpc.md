@@ -1,7 +1,6 @@
 
 
 # Considerations when creating inbound and outbound endpoints
-<a name="resolver-choose-vpc"></a>
 
 Before you create inbound and outbound Resolver endpoints in an AWS Region, consider the following issues.
 

@@ -1,7 +1,6 @@
 
 
 # Manage private hosted zone associations with Route 53 Global Resolver
-<a name="gr-private-hosted-zone-associations"></a>
 
 ## Creating private hosted zones for internal applications
 <a name="gr-creating-private-hosted-zones"></a>

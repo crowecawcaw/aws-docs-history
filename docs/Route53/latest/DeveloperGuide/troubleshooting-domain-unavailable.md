@@ -1,7 +1,6 @@
 
 
 # My domain is unavailable on the internet
-<a name="troubleshooting-domain-unavailable"></a>
 
 Here are the most common reasons that your domain is not available on the internet.
 

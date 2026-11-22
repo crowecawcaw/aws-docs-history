@@ -1,7 +1,6 @@
 
 
 # .creditcard
-<a name="creditcard"></a>
 
 Used by companies or banks that issue credit cards.
 

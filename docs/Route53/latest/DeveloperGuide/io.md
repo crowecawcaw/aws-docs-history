@@ -1,7 +1,6 @@
 
 
 # .io (British Indian Ocean Territory)
-<a name="io"></a>
 
 Also used as a generic TLD, often by computer-related organizations such as online services, browser-based games, and startup companies.
 

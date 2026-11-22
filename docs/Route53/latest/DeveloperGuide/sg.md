@@ -1,7 +1,6 @@
 
 
 # .sg (Republic of Singapore)
-<a name="sg"></a>
 
 **Important**  
 You can no longer use Route 53 to register new .sg domains or transfer .sg domains to Route 53. We'll continue to support .sg domains that are already registered with Route 53.

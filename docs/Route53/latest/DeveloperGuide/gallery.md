@@ -1,7 +1,6 @@
 
 
 # .gallery
-<a name="gallery"></a>
 
 Used by owners of art galleries.
 

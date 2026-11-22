@@ -1,7 +1,6 @@
 
 
 # DNS security and split-horizon use cases for Route 53 Global Resolver
-<a name="gr-cloud-resolver-use-cases"></a>
 
 Route 53 Global Resolver addresses three primary DNS challenges for organizations:
 
@@ -21,6 +20,9 @@ Govern internet access across multiple locations by creating custom domain lists
 
 Flexible authentication for different deployment scenarios  
 Choose the authentication method that works best for your deployment: token-based authentication or IP based authentication using the source CIDR range allowlists.
+
+Connecting to AWS Cloud WAN core networks  
+Connect a global resolver to an AWS Cloud WAN (Cloud WAN) core network with a core network endpoint. After you connect the core network, you can use its segments as access sources for DNS resolution.
 
 Maintaining visibility and compliance  
 Monitor DNS activity across your organization by delivering logs to Amazon CloudWatch, Firehose, or Amazon Simple Storage Service. Choose a single destination Region for centralized log storage to support security audits, compliance requirements, and threat investigation.

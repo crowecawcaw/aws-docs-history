@@ -1,7 +1,6 @@
 
 
 # .page
-<a name="page"></a>
 
 Used to build a simple, secure online presence.
 

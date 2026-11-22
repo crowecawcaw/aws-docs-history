@@ -1,7 +1,6 @@
 
 
 # How internet traffic is routed to your website or web application
-<a name="welcome-dns-service"></a>
 
 All computers on the internet, from your smart phone or laptop to the servers that serve content for massive retail websites, communicate with one another by using numbers. These numbers, known as *IP addresses*, are in one of the following formats:
 + Internet Protocol version 4 (IPv4) format, such as 192.0.2.44

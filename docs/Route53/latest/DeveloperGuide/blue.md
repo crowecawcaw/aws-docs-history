@@ -1,7 +1,6 @@
 
 
 # .blue
-<a name="blue"></a>
 
 Used by those who like the color blue or those who want to associate the color blue with their business or brand.
 

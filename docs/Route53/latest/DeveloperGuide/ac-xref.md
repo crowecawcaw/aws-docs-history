@@ -1,7 +1,6 @@
 
 
 # .ac
-<a name="ac-xref"></a>
 
 See [.ac (Ascension Island)](ac.md).
 

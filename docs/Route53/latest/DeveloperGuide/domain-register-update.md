@@ -1,7 +1,6 @@
 
 
 # Registering new domains
-<a name="domain-register-update"></a>
 
 This section covers the following topics related to registering new domains with Amazon Route 53: 
 

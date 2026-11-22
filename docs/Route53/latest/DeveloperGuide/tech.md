@@ -1,7 +1,6 @@
 
 
 # .tech
-<a name="tech"></a>
 
 Used by technology enthusiasts and those dedicated to technology in companies, services, and manufacturers.
 

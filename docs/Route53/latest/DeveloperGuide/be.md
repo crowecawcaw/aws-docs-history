@@ -1,7 +1,6 @@
 
 
 # .be (Belgium)
-<a name="be"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

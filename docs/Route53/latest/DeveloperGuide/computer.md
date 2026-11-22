@@ -1,7 +1,6 @@
 
 
 # .computer
-<a name="computer"></a>
 
 Used as a generic extension for information about computers.
 

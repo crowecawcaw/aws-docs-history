@@ -1,7 +1,6 @@
 
 
 # Values specific for failover records
-<a name="resource-record-sets-values-failover"></a>
 
 When you create failover records, you specify the following values.
 

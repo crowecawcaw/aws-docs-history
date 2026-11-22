@@ -1,7 +1,6 @@
 
 
 # .house
-<a name="house"></a>
 
 Used by real estate agents and buyers and sellers of houses.
 

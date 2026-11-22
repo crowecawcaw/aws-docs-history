@@ -1,7 +1,6 @@
 
 
 # .fyi
-<a name="fyi"></a>
 
 Used as a general extension, but ideal for sharing information of all kinds. "FYI" is an acronym for "for your information."
 

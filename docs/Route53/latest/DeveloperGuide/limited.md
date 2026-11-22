@@ -1,7 +1,6 @@
 
 
 # .limited
-<a name="limited"></a>
 
 Used as a general extension, and suitable for a wide range of businesses, groups, and individuals.
 

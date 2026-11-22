@@ -1,7 +1,6 @@
 
 
 # .hiv
-<a name="hiv"></a>
 
 Used for websites devoted to the fight against HIV.
 

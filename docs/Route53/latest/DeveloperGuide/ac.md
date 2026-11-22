@@ -1,7 +1,6 @@
 
 
 # .ac (Ascension Island)
-<a name="ac"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

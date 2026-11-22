@@ -1,7 +1,6 @@
 
 
 # .day
-<a name="day"></a>
 
 Used to bring attention to any important day, from birthdays to weddings to special occasions.
 

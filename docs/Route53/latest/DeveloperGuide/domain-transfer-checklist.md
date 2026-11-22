@@ -1,7 +1,6 @@
 
 
 # Pre-transfer checklist for domain transfers
-<a name="domain-transfer-checklist"></a>
 
 Before you begin transferring your domain registration to Amazon Route 53, complete the following checks to avoid common transfer failures and ensure a smooth process.
 

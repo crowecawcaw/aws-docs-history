@@ -1,7 +1,6 @@
 
 
 # Associate private hosted zones to a Route 53 Profile
-<a name="profile-associate-private-hz"></a>
 
 For intructions for how to create a private hosted zone, see [Creating a private hosted zone](hosted-zone-private-creating.md), and then follow the steps in this procedure to associate a private hosted zone to a Profile.<a name="profile-associate-private-hz-procedure"></a>
 

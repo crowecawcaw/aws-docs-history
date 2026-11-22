@@ -1,7 +1,6 @@
 
 
 # .construction
-<a name="construction"></a>
 
 Used by those in the construction industry, such as builders and contractors.
 

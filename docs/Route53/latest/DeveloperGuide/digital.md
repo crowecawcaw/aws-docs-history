@@ -1,7 +1,6 @@
 
 
 # .digital
-<a name="digital"></a>
 
 Used for anything and everything digital, but ideal for technology businesses.
 

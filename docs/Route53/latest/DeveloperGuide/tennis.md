@@ -1,7 +1,6 @@
 
 
 # .tennis
-<a name="tennis"></a>
 
 Used for information related to the game of tennis.
 

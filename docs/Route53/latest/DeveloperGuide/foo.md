@@ -1,7 +1,6 @@
 
 
 # .foo
-<a name="foo"></a>
 
 Used as a secure domain for developers. Use .foo for everything and anything.
 

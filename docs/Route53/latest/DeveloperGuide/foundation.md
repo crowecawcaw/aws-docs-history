@@ -1,7 +1,6 @@
 
 
 # .foundation
-<a name="foundation"></a>
 
 Used by non-profit organizations, charities, and other kinds of foundations.
 

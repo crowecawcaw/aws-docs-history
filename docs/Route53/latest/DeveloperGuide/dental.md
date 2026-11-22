@@ -1,7 +1,6 @@
 
 
 # .dental
-<a name="dental"></a>
 
 Used by dental professionals and dental suppliers.
 

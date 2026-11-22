@@ -1,7 +1,6 @@
 
 
 # Americas
-<a name="registrar-tld-list-americas"></a>
 
 You can use the following top-level domains (TLDs) for the Americas to register domains with Amazon Route 53.
 

@@ -1,7 +1,6 @@
 
 
 # .care
-<a name="care"></a>
 
 Used by businesses or agencies in the care-giving field. Also used by charitable organizations.
 

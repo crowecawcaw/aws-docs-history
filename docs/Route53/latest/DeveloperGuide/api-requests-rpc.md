@@ -1,7 +1,6 @@
 
 
 # Making API Requests for Domain Registration and for Route 53 Resolver
-<a name="api-requests-rpc"></a>
 
 **Topics**
 + [RPC Requests](api-requests-rpc-overview.md)

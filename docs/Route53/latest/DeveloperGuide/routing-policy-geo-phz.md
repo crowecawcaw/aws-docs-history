@@ -1,7 +1,6 @@
 
 
 # Geolocation routing in private hosted zones
-<a name="routing-policy-geo-phz"></a>
 
 For private hosted zones, Route 53 responds to DNS queries based on the AWS Region of the VPC that the query originated from. For the list of AWS Regions, see [Regions and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 user guide*.
 

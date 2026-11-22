@@ -1,7 +1,6 @@
 
 
 # .academy
-<a name="academy"></a>
 
 Used by educational institutions such as schools and universities. Also used by recruiters, advisors, advertisers, students, teachers, and administrators who are affiliated with educational institutions.
 

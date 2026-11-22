@@ -1,7 +1,6 @@
 
 
 # Disassociating VPCs from a private hosted zone
-<a name="hosted-zone-private-disassociate-vpcs"></a>
 
 You can use the Amazon Route 53 console to disassociate VPCs from a private hosted zone. This causes Route 53 to stop routing traffic using records in the hosted zone for DNS queries that originate in the VPC. For example, if the example.com hosted zone is associated with a VPC and you disassociate the hosted zone from that VPC, Route 53 stops resolving DNS queries for example.com or any of the other records in the example.com hosted zone. 
 

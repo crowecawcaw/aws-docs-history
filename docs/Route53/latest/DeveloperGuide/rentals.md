@@ -1,7 +1,6 @@
 
 
 # .rentals
-<a name="rentals"></a>
 
 Used for all types of rentals.
 

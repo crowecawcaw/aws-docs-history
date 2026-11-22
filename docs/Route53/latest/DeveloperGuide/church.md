@@ -1,7 +1,6 @@
 
 
 # .church
-<a name="church"></a>
 
 Used by churches of any size or denomination to connect with their congregations and to publish information about church-related events and activities.
 

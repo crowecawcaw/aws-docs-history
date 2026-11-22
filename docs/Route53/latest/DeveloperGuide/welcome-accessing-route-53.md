@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon Route 53
-<a name="welcome-accessing-route-53"></a>
 
 You can access Amazon Route 53 in the following ways:
 + **AWS Management Console** – The procedures throughout this guide explain how to use the AWS Management Console to perform tasks.

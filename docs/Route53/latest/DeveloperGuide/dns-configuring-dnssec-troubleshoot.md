@@ -1,7 +1,6 @@
 
 
 # Troubleshooting DNSSEC signing
-<a name="dns-configuring-dnssec-troubleshoot"></a>
 
 The information in this section can help you address issues with DNSSEC signing, including enabling, disabling, and with your key-signing keys (KSKs).
 

@@ -1,7 +1,6 @@
 
 
 # .kiwi
-<a name="kiwi"></a>
 
 Used by companies and individuals who want to support New Zealand kiwi culture. It is also used as a platform for charitable aid in the reconstruction of Christchurch, damaged by earthquakes in 2010 and 2011.
 

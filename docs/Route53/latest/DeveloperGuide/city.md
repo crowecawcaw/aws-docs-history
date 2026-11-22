@@ -1,7 +1,6 @@
 
 
 # .city
-<a name="city"></a>
 
 Used to provide information about specific cities, such as points of interest, top local spots to visit, or neighborhood activities.
 

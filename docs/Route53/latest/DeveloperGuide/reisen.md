@@ -1,7 +1,6 @@
 
 
 # .reisen
-<a name="reisen"></a>
 
 Used for websites related to travels or journeys. "Reisen" is a German word that means "to travel."
 

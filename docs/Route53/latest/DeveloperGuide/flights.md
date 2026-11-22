@@ -1,7 +1,6 @@
 
 
 # .flights
-<a name="flights"></a>
 
 Used by travel agents, airlines, and anyone affiliated with the travel industry.
 

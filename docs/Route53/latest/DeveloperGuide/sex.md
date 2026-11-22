@@ -1,7 +1,6 @@
 
 
 # .sex
-<a name="sex"></a>
 
 Used for adults-only content.
 

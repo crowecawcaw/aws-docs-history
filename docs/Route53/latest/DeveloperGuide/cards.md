@@ -1,7 +1,6 @@
 
 
 # .cards
-<a name="cards"></a>
 
 Used by businesses that specialize in cards such as ecards, printed greeting cards, business cards, and playing cards. Also ideal for gamers who want to discuss the rules and strategies of card games.
 

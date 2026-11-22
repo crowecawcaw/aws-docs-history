@@ -1,7 +1,6 @@
 
 
 # .guru
-<a name="guru"></a>
 
 Used by those who want to share their knowledge about a variety of subjects.
 

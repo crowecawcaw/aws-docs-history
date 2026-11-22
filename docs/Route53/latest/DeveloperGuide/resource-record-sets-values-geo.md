@@ -1,7 +1,6 @@
 
 
 # Values specific for geolocation records
-<a name="resource-record-sets-values-geo"></a>
 
 When you create geolocation records, you specify the following values.
 

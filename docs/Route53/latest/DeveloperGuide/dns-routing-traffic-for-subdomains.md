@@ -1,7 +1,6 @@
 
 
 # Routing traffic for subdomains
-<a name="dns-routing-traffic-for-subdomains"></a>
 
 When you want to route traffic to your resources for a subdomain, such as acme.example.com or zenith.example.com, you have two options:
 

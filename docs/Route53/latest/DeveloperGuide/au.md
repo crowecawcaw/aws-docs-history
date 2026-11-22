@@ -1,7 +1,6 @@
 
 
 # .au (Australia)
-<a name="au"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

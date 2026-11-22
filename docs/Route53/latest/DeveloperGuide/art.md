@@ -1,7 +1,6 @@
 
 
 # .art
-<a name="art"></a>
 
 Used for art-related websites, portfolios, galleries, and creative projects.
 

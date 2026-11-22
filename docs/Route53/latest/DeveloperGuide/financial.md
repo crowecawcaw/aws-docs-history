@@ -1,7 +1,6 @@
 
 
 # .financial
-<a name="financial"></a>
 
 Used by the financial sector.
 

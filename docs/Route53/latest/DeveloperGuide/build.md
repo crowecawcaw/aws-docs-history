@@ -1,7 +1,6 @@
 
 
 # .build
-<a name="build"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

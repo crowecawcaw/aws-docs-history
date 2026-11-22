@@ -1,7 +1,6 @@
 
 
 # .directory
-<a name="directory"></a>
 
 Used by the media sector.
 

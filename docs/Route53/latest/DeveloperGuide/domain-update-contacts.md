@@ -1,7 +1,6 @@
 
 
 # Updating contact information and ownership for a domain
-<a name="domain-update-contacts"></a>
 
 For the administrative and technical contacts for a domain, you can change all contact information without having to authorize the changes. For more information, see [Updating contact information for a domain](#domain-update-contacts-basic).
 

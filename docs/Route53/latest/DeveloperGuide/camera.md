@@ -1,7 +1,6 @@
 
 
 # .camera
-<a name="camera"></a>
 
 Used by photography enthusiasts and anyone who wants to share photos.
 

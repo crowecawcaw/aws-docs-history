@@ -1,7 +1,6 @@
 
 
 # Analyzing DNS Firewall logs with Amazon CloudWatch Logs Insights
-<a name="monitoring-resolver-dns-firewall-logs-insights"></a>
 
 With Amazon CloudWatch Logs Insights, you can interactively search and analyze your DNS Firewall query log data. For more information, see [Analyzing log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
 

@@ -1,7 +1,6 @@
 
 
 # .lighting
-<a name="lighting"></a>
 
 Used by photographers, designers, architects, engineers, and others with an interest in lighting.
 

@@ -1,7 +1,6 @@
 
 
 # .jp (Japan)
-<a name="jp"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

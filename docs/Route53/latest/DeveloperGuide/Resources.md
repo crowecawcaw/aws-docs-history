@@ -1,7 +1,6 @@
 
 
 # Related information
-<a name="Resources"></a>
 
 The following related resources can help you as you work with this service.
 

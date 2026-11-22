@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Route 53
-<a name="route-53-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon Route 53 as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

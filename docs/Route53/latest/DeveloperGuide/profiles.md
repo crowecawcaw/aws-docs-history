@@ -1,7 +1,6 @@
 
 
 # What are Amazon Route 53 Profiles?
-<a name="profiles"></a>
 
 With Route 53 Profiles, you can apply and manage DNS-related Route 53 configurations across many VPCs and in different AWS accounts. Profiles make managing the DNS settings for many VPCs as easy as managing them for a single VPC and when you update a Profile, its settings are propagated to all the VPCs associated to the Profile. You can also share a Profile with AWS accounts in the same Regions by using AWS RAM. The currently Route 53 supported resources you can associate to a Profile are:
 + Private hosted zones and the settings specified in them. For more information about working with private hosted zones, see [Working with private hosted zones](hosted-zones-private.md).

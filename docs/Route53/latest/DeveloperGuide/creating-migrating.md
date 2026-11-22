@@ -1,7 +1,6 @@
 
 
 # Using Amazon Route 53 as the DNS service for subdomains without migrating the parent domain
-<a name="creating-migrating"></a>
 
 Amazon Route 53 provides flexibility in managing DNS for subdomains, allowing you to leverage its features without the need to migrate the entire parent domain. 
 

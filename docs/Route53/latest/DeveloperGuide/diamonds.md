@@ -1,7 +1,6 @@
 
 
 # .diamonds
-<a name="diamonds"></a>
 
 Used by diamond enthusiasts and those in the diamond industry, including sellers, resellers, and merchandisers.
 

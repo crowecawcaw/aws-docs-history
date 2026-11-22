@@ -1,7 +1,6 @@
 
 
 # .fi (Finland)
-<a name="fi"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

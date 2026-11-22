@@ -1,7 +1,6 @@
 
 
 # .black
-<a name="black"></a>
 
 Used by those who like the color black or those who want to associate the color black with their business or brand.
 

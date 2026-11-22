@@ -1,7 +1,6 @@
 
 
 # .us (United States)
-<a name="us"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

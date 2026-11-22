@@ -1,7 +1,6 @@
 
 
 # IP address ranges of Amazon Route 53 servers
-<a name="route-53-ip-addresses"></a>
 
 Amazon Web Services (AWS) publishes its current IP address ranges in JSON format. If your firewalls or security groups restrict incoming traffic based on source IP addresses, confirm that your configuration allows traffic from the applicable IP address ranges.
 

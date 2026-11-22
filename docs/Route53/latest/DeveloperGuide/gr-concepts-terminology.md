@@ -1,7 +1,6 @@
 
 
 # Key concepts and components for Route 53 Global Resolver
-<a name="gr-concepts-terminology"></a>
 
 Route 53 Global Resolver uses several key components that work together to provide split-traffic DNS resolution, high availability through global anycast architecture, and comprehensive DNS security for your organization. Understanding these Route 53 Global Resolver concepts helps you design and deploy solutions that enable seamless access to both private and public resources, help ensure service continuity across multiple Regions, and protect against DNS-based threats.
 
@@ -18,6 +17,9 @@ Two unique IPv4 or IPv6 addresses assigned to your global resolver that you conf
 
 DNS views  
 Configuration templates that let you apply different DNS policies to different groups of clients in your network. Use *DNS views* to implement split-horizon DNS—for example, apply strict filtering and token authentication for remote locations, while using IP-based access and different security policies for branch offices.
+
+Core network endpoint  
+A *core network endpoint* connects a global resolver to an AWS Cloud WAN (Cloud WAN) core network. After you connect the core network, you can use the core network's segments as access sources for DNS resolution. A global resolver can have one or more core network endpoints.
 
 ## DNS client authentication
 <a name="gr-authenticating-dns-clients"></a>
@@ -49,6 +51,9 @@ Global private zone access
 
 Seamless failover  
 *Seamless failover* ensures continuous access to both private and public resources even when individual AWS Regions become unavailable. The anycast architecture automatically routes queries to healthy regions while maintaining consistent resolution behavior.
+
+Core network traffic resolution  
+*Core network traffic resolution* extends split-traffic DNS resolution to clients that reach the global resolver through an AWS Cloud WAN core network. In addition to resolving queries from clients over the internet, Route 53 Global Resolver resolves DNS queries for clients that connect through a core network. Traffic from a connected core network's segments receives the same split-traffic resolution of both public and private domains.
 
 ## High availability and global presence
 <a name="gr-high-availability-concepts"></a>

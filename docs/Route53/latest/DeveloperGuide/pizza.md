@@ -1,7 +1,6 @@
 
 
 # .pizza
-<a name="pizza"></a>
 
 Used by pizza restaurants and pizza lovers.
 

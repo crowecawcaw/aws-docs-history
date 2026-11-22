@@ -1,7 +1,6 @@
 
 
 # Latency-based routing in private hosted zones
-<a name="routing-policy-latency-phz"></a>
 
 For private hosted zones, Route 53 answers DNS queries with an endpoint that is in the same AWS Region, or is closest in distance to the AWS Region of the VPC that the query originated from.
 

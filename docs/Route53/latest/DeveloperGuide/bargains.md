@@ -1,7 +1,6 @@
 
 
 # .bargains
-<a name="bargains"></a>
 
 Used for information about sales and promotions.
 

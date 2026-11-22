@@ -1,7 +1,6 @@
 
 
 # .insure
-<a name="insure"></a>
 
 Used by insurance companies and insurance brokers.
 

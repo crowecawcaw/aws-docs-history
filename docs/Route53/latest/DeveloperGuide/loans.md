@@ -1,7 +1,6 @@
 
 
 # .loans
-<a name="loans"></a>
 
 Used by lenders, borrowers, and credit professionals.
 

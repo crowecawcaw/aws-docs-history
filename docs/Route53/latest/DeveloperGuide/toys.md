@@ -1,7 +1,6 @@
 
 
 # .toys
-<a name="toys"></a>
 
 Used by the toy industry.
 

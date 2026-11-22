@@ -1,7 +1,6 @@
 
 
 # .co.nz (New Zealand)
-<a name="co.nz"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

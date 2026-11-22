@@ -1,7 +1,6 @@
 
 
 # Getting the name servers for a public hosted zone
-<a name="GetInfoAboutHostedZone"></a>
 
 You get the name servers for a public hosted zone if you want to change the DNS service for your domain registration. For information about how to change your DNS service, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md).
 

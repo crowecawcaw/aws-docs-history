@@ -1,7 +1,6 @@
 
 
 # Rule settings in DNS Firewall
-<a name="resolver-dns-firewall-rule-settings"></a>
 
 When you create or edit a rule in a DNS Firewall rule group, you specify the following values:
 
@@ -60,7 +59,7 @@ The confidence threshold for DNS Firewall Advanced. You must provide this value 
 + High – Detects only the most well corroborated threats with a low rate of false positives.
 + Medium – Provides a balance between detecting threats and false positives.
 + Low – Provides the highest detection rate for threats, but also increases false positives.
-For more information, see [Rule settings in DNS Firewall](#resolver-dns-firewall-rule-settings). 
+For more information, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md). 
 
 **Action**  
 How you want DNS Firewall to handle a DNS query whose domain name matches the specifications in the rule's domain list. For more information, see [Rule actions in DNS Firewall](resolver-dns-firewall-rule-actions.md). 

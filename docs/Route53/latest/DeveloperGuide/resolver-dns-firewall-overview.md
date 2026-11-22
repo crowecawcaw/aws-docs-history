@@ -1,7 +1,6 @@
 
 
 # How Resolver DNS Firewall works
-<a name="resolver-dns-firewall-overview"></a>
 
 With Resolver DNS Firewall, you can control access to sites and block DNS-level threats for DNS queries going out from your VPC through the Route 53 VPC Resolver. With DNS Firewall, you define domain name filtering rules in rule groups that you associate with your VPCs. You can specify lists of domain names to allow or block, or Resolver DNS Firewall Advanced rules that offer protection from DNS tunneling and Domain Generation Algorithm (DGA) based threats. You can customize the responses for the DNS queries that you block. For rules that contain a domain list, you can also fine-tune the rule to allow certain query types, such as MX-records, through. 
 

@@ -1,7 +1,6 @@
 
 
 # .software
-<a name="software"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

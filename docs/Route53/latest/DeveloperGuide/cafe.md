@@ -1,7 +1,6 @@
 
 
 # .cafe
-<a name="cafe"></a>
 
 Used by cafe businesses and those who have an interest in cafe culture.
 

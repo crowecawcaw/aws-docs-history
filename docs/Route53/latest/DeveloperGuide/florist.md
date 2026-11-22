@@ -1,7 +1,6 @@
 
 
 # .florist
-<a name="florist"></a>
 
 Used by florists.
 

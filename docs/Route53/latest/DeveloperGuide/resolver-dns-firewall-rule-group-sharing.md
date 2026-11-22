@@ -1,7 +1,6 @@
 
 
 # Sharing Resolver DNS Firewall rule groups between AWS accounts
-<a name="resolver-dns-firewall-rule-group-sharing"></a>
 
 You can share DNS Firewall rule groups between AWS accounts. To share rule groups, you use AWS Resource Access Manager (AWS RAM). The DNS Firewall console integrates with the AWS RAM console. For more information about AWS RAM, see the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
 

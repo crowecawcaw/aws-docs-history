@@ -1,7 +1,6 @@
 
 
 # .help
-<a name="help"></a>
 
 Used as a general extension, but ideal for websites that provide online help and information.
 

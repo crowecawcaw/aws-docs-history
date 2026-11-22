@@ -1,7 +1,6 @@
 
 
 # .link
-<a name="link"></a>
 
 Used for information about the creation of online shortcut links.
 

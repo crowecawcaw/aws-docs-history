@@ -1,7 +1,6 @@
 
 
 # .marketing
-<a name="marketing"></a>
 
 Used by the marketing sector for a variety of purposes.
 

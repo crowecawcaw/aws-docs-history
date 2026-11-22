@@ -1,7 +1,6 @@
 
 
 # .condos
-<a name="condos"></a>
 
 Used by individuals and businesses associated with condominiums.
 

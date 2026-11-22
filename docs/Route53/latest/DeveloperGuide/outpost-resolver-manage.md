@@ -1,7 +1,6 @@
 
 
 # Managing Resolver on Outpost
-<a name="outpost-resolver-manage"></a>
 
 How you manage Resolver on Outpost depends on your AWS Outposts generation:
 + For first-generation AWS Outposts, you can edit, view, and delete Resolver.

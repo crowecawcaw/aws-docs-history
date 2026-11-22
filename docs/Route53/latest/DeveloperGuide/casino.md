@@ -1,7 +1,6 @@
 
 
 # .casino
-<a name="casino"></a>
 
 Used by the gambling industry or by gamers who want to share information about gambling and casino games.
 

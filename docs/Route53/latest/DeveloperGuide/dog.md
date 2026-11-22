@@ -1,7 +1,6 @@
 
 
 # .dog
-<a name="dog"></a>
 
 Used by dog lovers and those who provide canine services and products.
 

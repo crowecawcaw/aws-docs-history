@@ -1,7 +1,6 @@
 
 
 # .apartments
-<a name="apartments"></a>
 
 Used by real estate agents, landlords, and renters.
 

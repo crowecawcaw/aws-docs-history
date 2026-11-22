@@ -1,7 +1,6 @@
 
 
 # Values specific for weighted records
-<a name="resource-record-sets-values-weighted"></a>
 
 When you create weighted records, you specify the following values.
 

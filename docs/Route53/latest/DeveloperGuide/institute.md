@@ -1,7 +1,6 @@
 
 
 # .institute
-<a name="institute"></a>
 
 Used by any organization or group, especially research and educational organizations.
 

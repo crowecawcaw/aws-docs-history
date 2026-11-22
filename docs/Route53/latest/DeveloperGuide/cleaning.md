@@ -1,7 +1,6 @@
 
 
 # .cleaning
-<a name="cleaning"></a>
 
 Used by businesses or individuals that provide cleaning services.
 

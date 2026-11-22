@@ -1,7 +1,6 @@
 
 
 # .style
-<a name="style"></a>
 
 Used as a general extension, but ideal for websites dedicated to the latest trends, especially trends in fashion, design, architecture, and art.
 

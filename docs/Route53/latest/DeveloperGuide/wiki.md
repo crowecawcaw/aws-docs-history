@@ -1,7 +1,6 @@
 
 
 # .wiki
-<a name="wiki"></a>
 
 Used for information about online documentation.
 

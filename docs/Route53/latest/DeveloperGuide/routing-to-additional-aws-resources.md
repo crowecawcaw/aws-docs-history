@@ -1,7 +1,6 @@
 
 
 # Routing traffic to other AWS resources
-<a name="routing-to-additional-aws-resources"></a>
 
 The following is the list of topics in other guides on how to use Route 53 to route traffic to those services.
 + [Using AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/using-cloud-map.html) in the *AWS Cloud Map User Guide*.

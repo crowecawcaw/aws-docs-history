@@ -1,7 +1,6 @@
 
 
 # .forum
-<a name="forum"></a>
 
 Used for online forums, discussion boards, and community platforms.
 

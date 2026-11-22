@@ -1,7 +1,6 @@
 
 
 # Viewing information about domains that are registered with Route 53
-<a name="domain-whois-rdap"></a>
 
 **Note**  
 Effective January 28, 2025, some domain registries might transition from WHOIS to the Registration Data Access Protocol (RDAP) for domain registration data queries. If you access domain registration information directly from registries via WHOIS, you might need to update your applications to use RDAP endpoints if the relevant registry discontinues WHOIS support.  

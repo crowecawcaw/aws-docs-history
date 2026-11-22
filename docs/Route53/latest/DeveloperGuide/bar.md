@@ -1,7 +1,6 @@
 
 
 # .bar
-<a name="bar"></a>
 
 Used by bars, pubs, and nightlife-related businesses and enthusiasts.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting privacy protection issues
-<a name="privacy-protection-troubleshooting"></a>
 
 Privacy protection option is not available in the console  
 This indicates that your domain's TLD does not support privacy protection. Your contact information will be publicly visible in WHOIS queries. This is normal behavior for certain TLDs due to registry policies or local regulations.  

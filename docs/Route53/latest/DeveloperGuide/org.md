@@ -1,7 +1,6 @@
 
 
 # .org
-<a name="org"></a>
 
 Used by all kinds of organizations.
 

@@ -1,7 +1,6 @@
 
 
 # Using rules to control which queries are forwarded to your network
-<a name="resolver-overview-forward-vpc-to-network-using-rules"></a>
 
 Rules control which DNS queries Resolver endpoint forwards to DNS resolvers on your network and which queries VPC Resolver answers itself. 
 

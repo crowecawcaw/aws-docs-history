@@ -1,7 +1,6 @@
 
 
 # Edit Route 53 Profile configurations
-<a name="profile-edit-configurations"></a>
 
 After you associate resources to a Profile, you can edit the default VPC configurations to decide how they are applied to the VPCs.<a name="profile-edit-configurations-procedure"></a>
 

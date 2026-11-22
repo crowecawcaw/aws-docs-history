@@ -1,7 +1,6 @@
 
 
 # .lease
-<a name="lease"></a>
 
 Used by realtors, landlords, and renters.
 

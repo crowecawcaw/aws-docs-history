@@ -1,7 +1,6 @@
 
 
 # .bot
-<a name="bot"></a>
 
 Used for chatbot and AI-related products and services. This domain extension helps convey the nature of automated systems, conversational interfaces, and emerging technologies in artificial intelligence.
 

@@ -1,7 +1,6 @@
 
 
 # DNS constraints and behaviors
-<a name="DNSBehavior"></a>
 
 DNS messaging is subject to factors that affect how you create and use hosted zones and records. This section explains these factors.
 

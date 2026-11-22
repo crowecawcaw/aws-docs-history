@@ -1,7 +1,6 @@
 
 
 # .pictures
-<a name="pictures"></a>
 
 Used by anyone interested in photography, art, and media.
 

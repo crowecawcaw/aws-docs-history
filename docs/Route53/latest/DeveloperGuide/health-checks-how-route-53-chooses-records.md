@@ -1,7 +1,6 @@
 
 
 # How Amazon Route 53 chooses records when health checking is configured
-<a name="health-checks-how-route-53-chooses-records"></a>
 
 If you configure health checking for all the records in a group of records that have the same name, the same type (such as A or AAAA), and the same routing policy (such as weighted or failover), Route 53 responds to DNS queries by choosing a healthy record and returning the applicable value from that record.
 
@@ -57,3 +56,10 @@ Failover records generally work the same way as other routing types. You create 
 For more information, see the following topics:  
 + [Configuring active-passive failover with one primary and one secondary resource](dns-failover-types.md#dns-failover-types-active-passive-one-resource)
 + [Configuring active-passive failover with multiple primary and secondary resources](dns-failover-types.md#dns-failover-types-active-passive-multiple-resources)
+
+**AZ-affinity records**  
+For AZ-affinity records, Route 53 first chooses the record for the most specific location that matches where the query comes from. The order is Availability Zone, Zone Group, AWS Region, AWS partition, and then Global. If that record is unhealthy, Route 53 falls back to the record for the next less specific location that you created a record for. Note the following:  
++ A non-alias record that doesn't have a health check is always healthy, so Route 53 doesn't fall back past it. For an AZ-affinity alias record, set **Evaluate target health** to **Yes** if you want Route 53 to fall back when the alias target is unhealthy.
++ If no record matches a query and you didn't create a Global record, Route 53 responds with no answer (NODATA).
++ If all the records that match where the query comes from are unhealthy, Route 53 responds with the most specific of those records.
+For more information, see [Health checks and AZ-affinity routing](routing-policy-azaffinity.md#routing-policy-azaffinity-healthchecks).

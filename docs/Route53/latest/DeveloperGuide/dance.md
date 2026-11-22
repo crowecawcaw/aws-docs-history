@@ -1,7 +1,6 @@
 
 
 # .dance
-<a name="dance"></a>
 
 Used by dancers, dance instructors, and dance schools.
 

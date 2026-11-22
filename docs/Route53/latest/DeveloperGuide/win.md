@@ -1,7 +1,6 @@
 
 
 # .win
-<a name="win"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

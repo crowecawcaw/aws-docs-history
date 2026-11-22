@@ -1,7 +1,6 @@
 
 
 # .bio
-<a name="bio"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

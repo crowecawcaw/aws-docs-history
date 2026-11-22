@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Route 53 domain registration with an AWS SDK
-<a name="route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section"></a>
 
 The following code examples show how to:
 + List current domains, and list operations in the past year.
@@ -19,7 +18,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```csharp
 public static class Route53DomainScenario
 {
     /*
@@ -340,7 +339,7 @@ public static class Route53DomainScenario
 ```
 Wrapper methods used by the scenario for Route 53 domain registration actions.  
 
-```
+```csharp
 public class Route53Wrapper
 {
     private readonly IAmazonRoute53Domains _amazonRoute53Domains;
@@ -606,7 +605,7 @@ public class Route53Wrapper
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
-```
+```java
 /**
  * Before running this Java V2 code example, set up your development
  * environment, including your credentials.
@@ -962,7 +961,7 @@ public class Route53Scenario {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
-```
+```kotlin
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.

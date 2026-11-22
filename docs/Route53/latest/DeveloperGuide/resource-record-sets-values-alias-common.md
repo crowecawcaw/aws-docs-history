@@ -1,7 +1,6 @@
 
 
 # Values that are common for alias records for all routing policies
-<a name="resource-record-sets-values-alias-common"></a>
 
 These are the common alias values that you can specify when you create or edit Amazon Route 53 records. These values are used by all routing policies.
 

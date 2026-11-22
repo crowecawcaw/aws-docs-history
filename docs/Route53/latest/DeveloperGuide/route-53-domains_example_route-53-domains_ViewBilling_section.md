@@ -1,7 +1,6 @@
 
 
 # Use `ViewBilling` with an AWS SDK or CLI
-<a name="route-53-domains_example_route-53-domains_ViewBilling_section"></a>
 
 The following code examples show how to use `ViewBilling`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// View billing records for the account between a start and end date.
     /// </summary>
@@ -86,7 +85,7 @@ For more information, see [Downloading a domain billing report](https://docs.aws
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
-```
+```java
     public static void listBillingRecords(Route53DomainsClient route53DomainsClient) {
         try {
             Date currentDate = new Date();
@@ -122,7 +121,7 @@ For more information, see [Downloading a domain billing report](https://docs.aws
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
-```
+```kotlin
 suspend fun listBillingRecords() {
     val currentDate = Date()
     val localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()

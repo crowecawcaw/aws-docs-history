@@ -1,7 +1,6 @@
 
 
 # Registering and managing domains using Amazon Route 53
-<a name="registrar"></a>
 
 When you want to get a new domain name, such as the **example.com** part of the URL http://example.com, you can register it with Amazon Route 53. You can also transfer the registration for existing domains from other registrars to Route 53 or transfer the registration for domains that you register with Route 53 to another registrar. 
 

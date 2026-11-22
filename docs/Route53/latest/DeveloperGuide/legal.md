@@ -1,7 +1,6 @@
 
 
 # .legal
-<a name="legal"></a>
 
 Used by members of the legal profession.
 

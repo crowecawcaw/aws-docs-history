@@ -1,7 +1,6 @@
 
 
 # Creating and managing policy records
-<a name="traffic-policy-records"></a>
 
 To route internet traffic to the resources that you specified when you created a [traffic policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-policies.html), you create one or more policy records. Each policy record identifies the hosted zone where you want to create the policy record and the domain or subdomain name that you want to route traffic for. For example, if you want to route traffic for www.example.com, you specify the hosted zone ID for the example.com hosted zone, and you specify www.example.com for the **Policy record DNS name**.
 
@@ -32,17 +31,7 @@ If you create one policy record and one or more alias records in the same hosted
 To create a policy record, perform the following procedure.
 
 **Important**  
-For each policy record that you create, you incur a monthly charge. If you later delete the policy record, the charge is prorated. For more information, see the section "Traffic Flow" on the [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/) page.
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-records-creating-new-console)
-+ [Old console](#traffic-policy-records-creating-old-console)
-
-------
-#### [ New console ]<a name="traffic-policy-records-creating-procedure"></a>
+For each policy record that you create, you incur a monthly charge. If you later delete the policy record, the charge is prorated. For more information, see the section "Traffic Flow" on the [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/) page.<a name="traffic-policy-records-creating-procedure"></a>
 
 **To create a policy record**
 
@@ -65,35 +54,8 @@ Choose the tab for the console you are using.
 **Note**  
 If the policy record status is **Failed**, choose the **info** button next to the status to get more information about the failure. If you need further help and want to contact AWS support, see [How do I get technical support from AWS?](https://repost.aws/knowledge-center/get-aws-technical-support) 
 
-------
-#### [ Old console ]<a name="traffic-policy-records-creating-procedure-old"></a>
-
-**To create a policy record**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Policy records**.
-
-1. On the **Policy records** page, choose **Create policy records**.
-
-1. On the **Create policy records** page, specify the applicable values. For more information, see [Values that you specify when you create or update a policy record](#traffic-policy-records-creating-values).
-
-1. Choose **Create policy records**.
-
-   It can take several minutes for the status of created policy record to display as **Applied**.
-
-1. If you want to create policy records in another hosted zone, repeat steps 3 through 5.
-
-**Note**  
-If the policy record status is **Failed**, choose the **info** button next to the status to get more information about the failure. If you need further help and want to contact AWS support, see [How do I get technical support from AWS?](https://repost.aws/knowledge-center/get-aws-technical-support) 
-
-------
-
 ## Values that you specify when you create or update a policy record
 <a name="traffic-policy-records-creating-values"></a>
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console. The following list applies for both console, except where noted.
 
 When you create or update a policy record, you specify the following values
 + [Traffic policy](#traffic-policy-records-creating-values-traffic-policy)
@@ -112,9 +74,9 @@ If you're updating an existing policy record, you must choose a version for whic
 **Hosted zone**  
 Choose the hosted zone in which you want to create a policy record by using the specified traffic policy and version. You can't change the value of **Hosted zone** after you create a policy record. 
 
-**DNS name (new console), Policy record DNS name (old console)**  
+**DNS name**  
 When you're creating a policy record, enter the domain name or subdomain name for which you want Route 53 to respond to DNS queries by using the configuration in the specified traffic policy and version.   
-To use the same configuration for more than one domain name or subdomain name in the specified hosted zone, choose **Add policy record** (new console), or **Add another policy record** (old console), and enter the applicable domain name or subdomain name and TTL.  
+To use the same configuration for more than one domain name or subdomain name in the specified hosted zone, choose **Add policy record**, and enter the applicable domain name or subdomain name and TTL.  
 You can't change the value of **Policy record DNS name** after you create a policy record.
 
 **TTL (in seconds)**  
@@ -123,17 +85,7 @@ Enter the amount of time, in seconds, that you want DNS recursive resolvers to c
 ## Updating policy records
 <a name="traffic-policy-records-updating"></a>
 
-To update the settings in a policy record, perform the following procedure. 
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-records-updating-new-console)
-+ [Old console](#traffic-policy-records-updating-old-console)
-
-------
-#### [ New console ]<a name="traffic-policy-records-updating-procedure"></a>
+To update the settings in a policy record, perform the following procedure. <a name="traffic-policy-records-updating-procedure"></a>
 
 **To update a policy record**
 
@@ -154,47 +106,13 @@ Choose the tab for the console you are using.
 **Note**  
 If the policy record status is **Failed**, choose the **info** button next to the status to get more information about the failure. If you need further help and want to contact AWS support, see [How do I get technical support from AWS?](https://repost.aws/knowledge-center/get-aws-technical-support) 
 
-------
-#### [ Old console ]<a name="traffic-policy-records-updating-procedure-old"></a>
-
-**To update a policy record**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Policy records**.
-
-1. On the **Policy records** page, select the check box for the policy record that you want to update, and choose **Edit policy record**. 
-
-1. On the **Edit policy record** page, specify the applicable values. For more information, see [Values that you specify when you create or update a policy record](#traffic-policy-records-creating-values).
-
-1. Choose **Edit policy record**.
-
-   It can take several minutes for the status of created policy record to display as **Applied**.
-
-1. If you want to update another policy record, repeat steps 3 through 5.
-
-**Note**  
-If the policy record status is **Failed**, choose the **info** button next to the status to get more information about the failure. If you need further help and want to contact AWS support, see [How do I get technical support from AWS?](https://repost.aws/knowledge-center/get-aws-technical-support) 
-
-------
-
 ## Deleting policy records
 <a name="traffic-policy-records-deleting"></a>
 
 To delete policy records, perform the following procedure.
 
 **Important**  
-If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 stops responding to queries for the corresponding DNS names. For example, if Route 53 is using the policy record for www.example.com to respond to DNS queries for www.example.com and you delete the policy record, users can't access your website or web application by using the domain name www.example.com. 
-
-**Note**  
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
-
-Choose the tab for the console you are using.
-+ [New console](#traffic-policy-records-deleting-new-console)
-+ [Old console](#traffic-policy-records-deleting-old-console)
-
-------
-#### [ New console ]<a name="traffic-policy-records-deleting-procedure"></a>
+If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 stops responding to queries for the corresponding DNS names. For example, if Route 53 is using the policy record for www.example.com to respond to DNS queries for www.example.com and you delete the policy record, users can't access your website or web application by using the domain name www.example.com. <a name="traffic-policy-records-deleting-procedure"></a>
 
 **To delete a policy record**
 
@@ -207,18 +125,3 @@ Choose the tab for the console you are using.
 1. On the **Delete policy record** dialog box, choose **Confirm**.
 
    Wait several minutes and refresh the page to make sure the policy record disappears from the list. 
-
-------
-#### [ Old console ]<a name="traffic-policy-records-deleting-procedure-old"></a>
-
-**To delete a policy record**
-
-1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
-
-1. In the navigation pane, choose **Policy records**.
-
-1. On the **Policy records** page, select the check boxes for the policy records that you want to delete, and choose **Delete policy record**. 
-
-   Wait several minutes and refresh the page to make sure the policy record disappears from the list. 
-
-------

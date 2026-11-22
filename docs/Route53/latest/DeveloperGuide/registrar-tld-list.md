@@ -1,7 +1,6 @@
 
 
 # Domains that you can register with Amazon Route 53
-<a name="registrar-tld-list"></a>
 
 **Important**  
 The top-level domain restrictions below apply to domain registration only. You can use the Route 53 DNS service with any top-level domain you choose and with any domain registrar. The information on this page pertains only to the domains you can register with Route 53. For more information about Route 53 as a DNS service, see [How internet traffic is routed to your website or web application](welcome-dns-service.md).

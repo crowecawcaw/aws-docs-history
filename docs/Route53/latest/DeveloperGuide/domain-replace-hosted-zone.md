@@ -1,7 +1,6 @@
 
 
 # Replacing the hosted zone for a domain that is registered with Route 53
-<a name="domain-replace-hosted-zone"></a>
 
 If you [delete the hosted zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html) for a domain, you need to create another hosted zone when you're ready to make the domain available on the internet. Perform the following procedure.
 

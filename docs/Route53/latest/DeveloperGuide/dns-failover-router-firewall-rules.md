@@ -1,7 +1,6 @@
 
 
 # Configuring router and firewall rules for Amazon Route 53 health checks
-<a name="dns-failover-router-firewall-rules"></a>
 
 When Route 53 checks the health of an endpoint, it sends an HTTP, HTTPS, or TCP request to the IP address and port that you specified when you created the health check. For a health check to succeed, your router and firewall rules must allow inbound traffic from the IP addresses that the Route 53 health checkers use.
 

@@ -1,7 +1,6 @@
 
 
 # Weighted routing
-<a name="routing-policy-weighted"></a>
 
 With weighted routing, you can link multiple resources to a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic goes to each resource. This can be useful for load balancing and testing new versions of software.
 

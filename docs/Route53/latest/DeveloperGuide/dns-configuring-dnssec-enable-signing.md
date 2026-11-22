@@ -1,7 +1,6 @@
 
 
 # Enabling DNSSEC signing and establishing a chain of trust
-<a name="dns-configuring-dnssec-enable-signing"></a>
 
 The incremental steps apply to the hosted zone owner and the parent zone maintainer. This can be the same person, but if not, the zone owner should notify and work with the parent zone maintainer.
 
@@ -92,7 +91,7 @@ When you provide or create a KMS key, there are several requirements. For more i
 
 You can use a key that you already have, or create one by running an AWS CLI command like the following using your own values for `hostedzone_id`, `cmk_arn`, `ksk_name`, and `unique_string` (to make the request unique):
 
-```
+```json
 aws --region us-east-1 route53 create-key-signing-key \
 			--hosted-zone-id $hostedzone_id \
 			--key-management-service-arn $cmk_arn --name $ksk_name \
@@ -104,7 +103,7 @@ For more information about customer managed keys, see [Working with customer man
 
 To enable DNSSEC signing, run an AWS CLI command like the following, using your own value for the `hostedzone_id`:
 
-```
+```json
 aws --region us-east-1 route53 enable-hosted-zone-dnssec \
 			--hosted-zone-id $hostedzone_id
 ```
@@ -206,7 +205,7 @@ If you don't see **View information to create DS record** in this section, then 
 
        Provide the `$ds_record_value` to the parent zone owner. You can get it by clicking on the **View Information to create DS record** in the console and copying the **DS record** field, or by calling [GetDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html) API and retrieving the value of the ‘DSRecord’ field:
 
-       ```
+       ```json
        aws --region us-east-1 route53 get-dnssec 
                    --hosted-zone-id $hostedzone_id
        ```
@@ -214,7 +213,7 @@ If you don't see **View information to create DS record** in this section, then 
        The parent zone owner can insert the record through the Route 53 console or CLI.
        +  To insert the DS record by using AWS CLI, the parent zone owner creates and names a JSON file similar to the following example. The parent zone owner might name the file something like `inserting_ds.json`. 
 
-         ```
+         ```json
          {
              "HostedZoneId": "$parent_zone_id",
              "ChangeBatch": {
@@ -240,7 +239,7 @@ If you don't see **View information to create DS record** in this section, then 
 
          Then run the following command:
 
-         ```
+         ```json
          aws --region us-east-1 route53 change-resource-record-sets 
                      --cli-input-json file://inserting_ds.json
          ```

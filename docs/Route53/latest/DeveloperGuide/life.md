@@ -1,7 +1,6 @@
 
 
 # .life
-<a name="life"></a>
 
 Used as a general extension, and suitable for a wide range of businesses, groups, and individuals.
 

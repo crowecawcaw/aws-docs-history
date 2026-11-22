@@ -1,7 +1,6 @@
 
 
 # Route 53 VPC Resolver availability and scaling
-<a name="resolver-availability-scaling"></a>
 
 Route 53 VPC Resolver, running on the Amazon VPC CIDR \+ 2 address and fd00:ec2::253, is available by default in all VPCs, and responds recursively to DNS queries for public records, Amazon VPC-specific DNS names, and Route 53 private hosted zones. There are two highly available components, transparent to users, that make up the Route 53 VPC Resolver: the Nitro Resolver service and the Zonal Resolver fleet. The Nitro Resolver Service is a service that runs in the Nitro card on Nitro instances and in Dom0 in older generation instances, and consumes packets addressed to the Route 53 VPC Resolver locally on the host server. For more information, see [The Security Design of the AWS Nitro System](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.html). 
 

@@ -1,9 +1,8 @@
 
 
 # What is Route 53 Global Resolver?
-<a name="gr-what-is-global-resolver"></a>
 
-Route 53 Global Resolver is an internet-reachable DNS resolver that provides easy, secure, and reliable DNS resolution for authorized clients in your organization across remote locations, branch offices, and on-premises environments. You can resolve queries for domains hosted on Amazon Route 53 private hosted zones or public domains on the internet, while maintaining high availability through global anycast architecture. Route 53 Global Resolver helps you protect your clients from DNS-based data exfiltration attacks, by filtering queries to potentially malicious domains.
+Route 53 Global Resolver is a DNS resolver reachable over the internet and over your private connections (managed through AWS Cloud WAN) that provides easy, secure, and reliable DNS resolution for authorized clients in your organization across remote locations, branch offices, and on-premises environments. You can resolve queries for domains hosted on Amazon Route 53 private hosted zones or public domains on the internet, while maintaining high availability through global anycast architecture. Route 53 Global Resolver helps you protect your clients from DNS-based data exfiltration attacks, by filtering queries to potentially malicious domains.
 
 Route 53 Global Resolver uses anycast IP addresses that automatically route DNS queries to the AWS Region closest to your source query location for optimal latency and availability. You can select the Regions where your global resolver should provide DNS resolution from for your authorized clients, configure different views for the clients for the resolution of private and public domains, filter malicious domains, and monitor DNS activity across your organization.
 
@@ -18,11 +17,13 @@ Route 53 Global Resolver uses anycast IP addresses that automatically route DNS 
 + [Opt-in Region considerations](gr-opt-in-regions.md)
 + [Setting up account access](gr-setting-up.md)
 + [Tutorial: Create your first Route 53 Global Resolver](gr-getting-started.md)
++ [Tutorial: Create your first Route 53 Global Resolver with AWS Cloud WAN](gr-getting-started-cwan.md)
 + [Managing DNS views](gr-manage-dns-views.md)
 + [Managing access controls](gr-managing-access-controls.md)
 + [Securing DNS](gr-securing-dns.md)
 + [Configuring private hosted associations](gr-configuring-private-hosted-zone-associations.md)
 + [Sharing DNS views between accounts](gr-sharing-dns-views.md)
++ [Core network endpoints](gr-core-network-endpoints.md)
 + [Monitoring DNS activity](gr-monitoring.md)
 + [Troubleshooting DNS issues](gr-troubleshooting-dns-issues.md)
 + [Quotas](gr-load-balancer-limits.md)

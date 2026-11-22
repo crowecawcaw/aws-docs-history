@@ -1,7 +1,6 @@
 
 
 # .technology
-<a name="technology"></a>
 
 Used by technology enthusiasts and those dedicated to technology in companies, services, and manufacturers.
 

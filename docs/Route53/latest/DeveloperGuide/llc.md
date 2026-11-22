@@ -1,7 +1,6 @@
 
 
 # .llc
-<a name="llc"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

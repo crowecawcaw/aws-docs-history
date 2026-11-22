@@ -1,7 +1,6 @@
 
 
 # Routing traffic to Amazon OpenSearch Service domain endpoint
-<a name="routing-to-open-search-service"></a>
 
 Amazon OpenSearch Service is is a managed service that makes it easy to deploy, operate, and scale OpenSearch clusters in the AWS Cloud. An OpenSearch Service Service domain is synonymous with an OpenSearch Service cluster. Domains are clusters with the settings, instance types, instance counts, and storage resources that you specify. For more information, see [What is Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html) in the *Amazon OpenSearch Service Developer Guide.*
 

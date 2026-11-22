@@ -1,14 +1,13 @@
 
 
 # How Amazon Route 53 determines whether a health check is healthy
-<a name="dns-failover-determining-health-of-endpoints"></a>
 
 The method that Amazon Route 53 uses to determine whether a health check is healthy depends on the type of health check.
 
-## How Route 53 determines the status of health checks that monitor an endpoint
+## How Route 53 determines the status of health checks that monitor a public endpoint
 <a name="dns-failover-determining-health-of-endpoints-monitor-endpoint"></a>
 
-Route 53 has health checkers in locations around the world. When you create a health check that monitors an endpoint, health checkers start to send requests to the endpoint that you specify to determine whether the endpoint is healthy. You can choose which locations you want Route 53 to use, and you can specify the interval between checks: every 10 seconds or every 30 seconds. Note that Route 53 health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second regardless of the interval you chose, followed by a few seconds with no health checks at all. 
+Route 53 has health checkers in locations around the world. When you create a health check that monitors a public endpoint, health checkers start to send requests to the endpoint that you specify. These requests determine whether the endpoint is healthy. You can choose which locations you want Route 53 to use, and you can specify the interval between checks: every 10 seconds or every 30 seconds. Note that Route 53 health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second regardless of the interval you chose, followed by a few seconds with no health checks at all. 
 
 Each health checker evaluates the health of the endpoint based on two values:
 + Response time. A resource can be slow to respond or can fail to respond to a health check request for a variety of reasons. For example, the resource is shut down for maintenance, it's under a distributed denial of service (DDoS) attack, or the network is down.
@@ -55,3 +54,14 @@ Route 53 doesn't support cross-account CloudWatch alarms.
 Because Route 53 health checks monitor CloudWatch data streams instead of the state of CloudWatch alarms, you can't force the status of a health check to change by using the CloudWatch [SetAlarmState](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html) API operation.
 
 Route 53 considers a new health check to be healthy until there's enough data to determine the actual status, healthy or unhealthy. If you chose the option to invert the health check status, Route 53 considers a new health check to be *unhealthy* until there's enough data.
+
+## How Route 53 determines the status of a private endpoint health check
+<a name="dns-failover-determining-health-of-endpoints-private-endpoint"></a>
+
+For a private endpoint health check, Route 53 sends requests from the health check source in your Amazon VPC to the endpoint that you specify. You can specify the endpoint by IP address or domain name, and you can use HTTP, HTTPS, or TCP. Route 53 sends requests at the interval that you choose: every 30 seconds (standard) or every 10 seconds (fast checks).
+
+For HTTP and HTTPS, the endpoint is healthy when it responds with an HTTP status code in the 2xx or 3xx range within the response time limit. For TCP, the endpoint is healthy when Route 53 can establish a connection. Optionally, for HTTP/HTTPS you can enable string matching so the body must contain a string you specify.
+
+Route 53 changes the status to unhealthy after the number of consecutive failures set by the failure threshold (default 3). Route 53 then updates DNS so that failover routing directs traffic to a healthy endpoint.
+
+The health check source must be in the **Available** status. For more information about sources, see [Health check sources](health-check-sources.md).

@@ -1,7 +1,6 @@
 
 
 # Resource record set permissions
-<a name="resource-record-sets-permissions"></a>
 
 Resource record set permissions use Identity and Access management (IAM) policy conditions to let you set fine-grained permissions for actions on the Route 53 console or when using the [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) API.
 

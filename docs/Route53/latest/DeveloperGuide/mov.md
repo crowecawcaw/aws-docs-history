@@ -1,7 +1,6 @@
 
 
 # .mov
-<a name="mov"></a>
 
 Used for moving pictures and other things that move.
 

@@ -1,7 +1,6 @@
 
 
 # .it (Italy)
-<a name="it"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

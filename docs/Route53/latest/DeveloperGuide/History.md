@@ -1,11 +1,11 @@
 
 
 # Document history
-<a name="History"></a>
 
 The following entries describe important changes in each release of the Route 53 documentation. For notification about updates to this documentation, you can subscribe to an RSS feed. 
 
 **Topics**
++ [2026 releases](#doc-history-2026)
 + [2025 releases](#doc-history-2025)
 + [2024 releases](#doc-history-2024)
 + [2023 releases](#doc-history-2023)
@@ -21,6 +21,57 @@ The following entries describe important changes in each release of the Route 5
 + [2012 release](#doc-history-2012)
 + [2011 releases](#doc-history-2011)
 + [2010 release](#doc-history-2010)
+
+## 2026 releases
+<a name="doc-history-2026"></a>
+
+**December 1, 2026**  
+You can now connect a global resolver to an AWS Cloud WAN (Cloud WAN) core network with a core network endpoint, so that the core network's segments can be used as access sources for DNS resolution. For more information about core network endpoints, see [Connecting a global resolver to a core network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/gr-core-network-endpoints.html).
+
+**November 20, 2026**  
+Route 53 now checks changes to the records in a hosted zone with six Change Guardrails, which reject a change that would break DNS resolution for part of your domain or delete a record or delegation that you still use. For more information, see [Change Guardrails for hosted zones](hosted-zones-change-guardrails.md).
+
+**November 20, 2026**  
+You can now review who changed the records in an advanced hosted zone, what they changed, and when. Use the new `ListHostedZoneChangeBatches`, `GetHostedZoneChangeBatch`, and `ListResourceRecordSetChanges` APIs or the Route 53 console. Route 53 retains each change for 365 days. For more information, see [Viewing the change history of a hosted zone](hosted-zone-change-history.md).
+
+**November 20, 2026**  
+You can now choose a tier for each public or private hosted zone. The `ADVANCED` tier adds Change History, the Change Guardrails that check record deletions, and public DNS fallback for private hosted zones. The `STANDARD` tier remains the default, at no additional cost. For more information, see [Hosted zone tiers](hosted-zone-tiers.md).
+
+**November 20, 2026**  
+You can now enable public DNS fallback on a private hosted zone that uses the `ADVANCED` tier. When a query from your VPC asks for a name that doesn't exist in the zone, VPC Resolver retries the query against public DNS instead of returning NXDOMAIN. For more information, see [Public DNS fallback for private hosted zones](hosted-zone-private-public-dns-fallback.md).
+
+**November 20, 2026**  
+You can now use AZ-affinity routing to route DNS queries from your VPCs to resources in the same Availability Zone, Zone Group, or AWS Region that the query comes from. If a resource is unhealthy, Route 53 falls back to a less specific location, down to a Global record. For more information, see [AZ-affinity routing](routing-policy-azaffinity.md).
+
+**November 17, 2026**  
+You can now subscribe to Infoblox DNS threat protection through AWS Marketplace and use Infoblox threat feeds in DNS Firewall rules. For more information, see [Using partner managed DNS threat protection with Infoblox in DNS Firewall](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/firewall-partner-infoblox.html).
+
+**November 16, 2026**  
+You can now use Automated Allowlists in Resolver DNS Firewall to build an allowlist of domains from the DNS query traffic of your VPCs, so that you can block all other domains. For more information, see [Automated Allowlists](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/firewall-advanced-automated-allowlists.html).
+
+**November 12, 2026**  
+You can now protect records in a hosted zone from changes. A record set protection blocks every `ChangeResourceRecordSets` change to the records that have a specific name and type until you delete the protection. Use the new `CreateResourceRecordSetProtections`, `DeleteResourceRecordSetProtections`, and `ListResourceRecordSetProtections` APIs or the Route 53 console. For more information, see [Protecting records from changes](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrset-protection.html).
+
+**November 9, 2026**  
+You can associate more than one Amazon Route 53 Profile to a VPC. Each association has a priority value from 100 to 9900, and VPC Resolver evaluates the associated Profiles in priority order, lowest value first. You set the priority when you associate a Profile to a VPC, and you can change it later. For more information, see [What are Amazon Route 53 Profiles?](profiles.md).
+
+**November 9, 2026**  
+`AmazonRoute53ProfilesFullAccess` adds permission for `UpdateProfileAssociation`, so principals can change the name or priority of a Profile association with a VPC. For more information, see [AWS managed policy: AmazonRoute53ProfilesFullAccess](security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess).
+
+**October 21, 2026**  
+You can now use AWS Network Firewall resolved IP validation with Resolver DNS Firewall to check that a connection's destination IP address was returned by the VPC Resolver. For more information, see [Resolved IP validation with Network Firewall](resolver-dns-firewall-resolved-ip-validation.md).
+
+**October 8, 2026**  
+`AmazonRoute53FullAccess` adds permission for `iam:CreateServiceLinkedRole`, limited to the `route53healthchecks.amazonaws.com` service. This permission lets principals create the service-linked role for health checking when the role doesn't exist in the account yet. For more information, see [AWS managed policy: AmazonRoute53FullAccess](security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53FullAccess).
+
+**October 1, 2026**  
+You can now monitor Route 53 Global Resolver DNS query logs with Amazon CloudWatch. Create metric filters and alarms for blocked and failed DNS queries, analyze high-impact contributors with CloudWatch Contributor Insights, and interactively query your logs with CloudWatch Logs Insights. For more information, see [Monitoring Route 53 Global Resolver with Amazon CloudWatch](gr-cloudwatch-monitoring.md).
+
+**April 14, 2026**  
+Route 53 VPC Resolver IPv6 and dual-stack outbound endpoints now support IPv6 connectivity to public DNS resolvers through an internet gateway. Enable IPv6 internet access when you create or edit an outbound endpoint to forward DNS queries to public IPv6 targets. For more information, see [Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md).
+
+**April 14, 2026**  
+Route 53 VPC Resolver inbound endpoints now support DNS64. When you enable DNS64 on an inbound endpoint, VPC Resolver synthesizes AAAA records for IPv4-only services, enabling IPv6-only clients on your on-premises network to communicate with IPv4-only AWS resources through NAT64. For more information, see [Forwarding inbound DNS queries to your VPCs](resolver-forwarding-inbound-queries.md).
 
 ## 2025 releases
 <a name="doc-history-2025"></a>

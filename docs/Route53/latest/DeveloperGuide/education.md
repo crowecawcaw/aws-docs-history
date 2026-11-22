@@ -1,7 +1,6 @@
 
 
 # .education
-<a name="education"></a>
 
 Used for information about education.
 

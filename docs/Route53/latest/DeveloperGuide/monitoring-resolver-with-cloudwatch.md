@@ -1,7 +1,6 @@
 
 
 # Monitoring Route 53 VPC Resolver endpoints with Amazon CloudWatch
-<a name="monitoring-resolver-with-cloudwatch"></a>
 
 You can use Amazon CloudWatch to monitor the number of DNS queries that are forwarded by Route 53 VPC Resolver endpoints. Amazon CloudWatch collects and processes raw data into readable, near real-time metrics. These statistics are recorded for a period of two weeks, so that you can access historical information and gain a better perspective on how your resources are performing. By default, metric data for Resolver endpoints is automatically sent to CloudWatch at five-minute intervals. The five-minute interval is also the smallest interval at which the metric data can be sent.
 

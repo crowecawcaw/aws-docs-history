@@ -1,7 +1,6 @@
 
 
 # .immo
-<a name="immo"></a>
 
 Used by the real estate sector.
 

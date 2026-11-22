@@ -1,7 +1,6 @@
 
 
 # .fr (France)
-<a name="fr"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

@@ -1,7 +1,6 @@
 
 
 # .fitness
-<a name="fitness"></a>
 
 Used to promote fitness and fitness services.
 

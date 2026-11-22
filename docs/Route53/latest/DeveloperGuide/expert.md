@@ -1,7 +1,6 @@
 
 
 # .expert
-<a name="expert"></a>
 
 Used by those who have specialized knowledge in a variety of fields. 
 

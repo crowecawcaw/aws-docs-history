@@ -1,7 +1,6 @@
 
 
 # .graphics
-<a name="graphics"></a>
 
 Used by those in the graphics industry.
 

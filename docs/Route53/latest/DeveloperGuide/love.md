@@ -1,7 +1,6 @@
 
 
 # .love
-<a name="love"></a>
 
 [Return to index](registrar-tld-list.md#index)
 

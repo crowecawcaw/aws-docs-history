@@ -1,7 +1,6 @@
 
 
 # Viewing and updating Route 53 resources associated to an Amazon Route 53 Profile
-<a name="profiles-resources-editing"></a>
 
 Choose the console tab to view the Route 53 Profile resource associations, and optionally edit the DNS Firewall rule group priority. Choose the CLI tab to use AWS CLI to list the resource associations and to see an example update to a priority of a DNS Firewall rule group.
 + [Console](#profile-list-resource-console)
@@ -35,7 +34,7 @@ You can list resources associated to a Profile by running an AWS CLI command lik
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileResourceAssociations": [
         {
@@ -61,7 +60,7 @@ You can update the priority of a DNS Firewall rule group associated to a Profile
 
 The following is an example output after you run the command:
 
-```
+```json
 {
     "ProfileResourceAssociation": {
         "CreationTime": 1710851216.613,

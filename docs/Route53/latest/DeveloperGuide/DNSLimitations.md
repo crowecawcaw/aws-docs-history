@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="DNSLimitations"></a>
 
 Amazon Route 53 API requests and entities are subject to the following quotas (formerly called "limits").
 
@@ -24,7 +23,7 @@ To view quotas and request higher quotas for Route 53, you must change the Regi
 Amazon Route 53 entities are subject to the following quotas.
 
 For information on getting current quotas (formerly called "limits"), see the following Route 53 actions:
-+ [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html) – Gets quotas on health checks, hosted zones, reusable delegation sets, traffic flow policies, and traffic flow policy records
++ [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html) – Gets quotas on health checks, health check sources, hosted zones, reusable delegation sets, traffic flow policies, and traffic flow policy records
 + [GetHostedZoneLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html) – Gets quotas on records in a hosted zone and on Amazon VPCs that you can associate with a private hosted zone
 + [GetReusableDelegationSetLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html) – Gets the quota on the number of hosted zones that you can associate with a reusable delegation set
 
@@ -251,6 +250,10 @@ The following table lists the quota for Resolver on second-generation AWS Outpos
 | Entity | Quota | 
 | --- | --- | 
 | Health checks | 200 active health checks per AWS account<br />[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas). | 
+| Health check sources | 5 health check sources per AWS account<br />[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas). | 
+| Health checks per health check source | 200 | 
+| Subnets per health check source | Exactly 3, in 3 Availability Zones. In US West (N. California), exactly 2, in 2 Availability Zones. | 
+| Security groups per subnet | 1 to 10 | 
 | Child health checks that a calculated health check can monitor | 255 | 
 | Maximum total length of headers in the response to a health check request | 16,384 bytes (16K) | 
 

@@ -1,7 +1,6 @@
 
 
 # Working with key-signing keys (KSKs)
-<a name="dns-configuring-dnssec-ksk"></a>
 
 When you enable DNSSEC signing, Route 53 creates a key-signing key (KSK) for you. You can have up to two KSKs per hosted zone in Route 53. After you enable DNSSEC signing, you can add, remove, or edit your KSKs.
 

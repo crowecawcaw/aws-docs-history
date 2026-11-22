@@ -1,7 +1,6 @@
 
 
 # .business
-<a name="business"></a>
 
 Used by any kind of business. Can be used as an alternative to the .biz extension.
 
