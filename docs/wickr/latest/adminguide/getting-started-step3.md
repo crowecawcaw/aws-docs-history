@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Step 3: Create and invite users
-<a name="getting-started-step3"></a>
 
 You can create users in your Wickr network using the following methods:
 + **Single sign-on** — If you configure SSO, you can invite users by sharing your Wickr company ID. End users register for Wickr using the provided company ID and their work email address. For more information, see [Single sign-on configuration for AWS Wickr](sso-configuration.md).

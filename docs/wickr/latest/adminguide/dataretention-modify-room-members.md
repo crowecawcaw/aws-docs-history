@@ -3,13 +3,12 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Modify room members message
-<a name="dataretention-modify-room-members"></a>
 
 The **addedusers** and **deletedusers** arrays show who was added and removed.
 
 **Member added**
 
-```
+```json
 {
   "control": {
     "addedusers": ["user003"],
@@ -28,7 +27,7 @@ The **addedusers** and **deletedusers** arrays show who was added and removed.
 
 **Member removed**
 
-```
+```json
 {
   "control": {
     "deletedusers": ["user003"],

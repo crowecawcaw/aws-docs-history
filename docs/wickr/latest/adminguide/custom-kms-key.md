@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Custom KMS key setup for data retention service
-<a name="custom-kms-key"></a>
 
 To use your own KMS keys with the data retention service, create keys with the following configurations before launching the product:
 
@@ -45,7 +44,7 @@ Password Recovery Key
 ### Retention key — Statements to add
 <a name="custom-kms-key-retention-statements"></a>
 
-```
+```json
 {
   "Sid": "EnclaveGenerateDataKey",
   "Effect": "Allow",
@@ -117,7 +116,7 @@ Purpose of each statement can be found at [Encryption at rest](encryption-rest.m
 ### Password recovery key — Statements to add
 <a name="custom-kms-key-password-recovery-statements"></a>
 
-```
+```json
 {
   "Sid": "EnclaveDeriveSharedSecret",
   "Effect": "Allow",
@@ -162,7 +161,7 @@ Purpose of each statement:
 
 Before:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -177,7 +176,7 @@ Before:
 
 After:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

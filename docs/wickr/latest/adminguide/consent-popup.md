@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Consent pop-up for AWS Wickr
-<a name="consent-popup"></a>
 
 You can configure consent pop-up for your network to display terms, policies, or organizational requirements to users when they log in to Wickr. Users must acknowledge the pop-up before they can access the application. The pop-up is displayed again when users log out and log back in, or when the pop-up content is updated.
 

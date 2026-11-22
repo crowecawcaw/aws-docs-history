@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Migration from docker method
-<a name="migration-process"></a>
 
 If you currently use the Docker-based data retention bot, you can migrate to the Serverless method with no data loss.
 
@@ -29,7 +28,11 @@ If you currently use the Docker-based data retention bot, you can migrate to the
 
 1. Test decryption Lambda function with sample messages.
 
-1. Confirm no gaps in message capture.
+1. Configure notifications for the automatic alarm and create the recommended Amazon S3 bucket alarm, so that you're notified if retained data stops arriving. For more information, see [Automatic alarms](monitor-manage.md#automatic-alarms) and [Recommended: Add an alarm on your Amazon S3 bucket](monitor-manage.md#s3-bucket-alarm).
+
+1. Spot-check several conversations from the dates when both methods were active, and confirm that the messages retained by serverless match the records retained by your Docker bot.
+
+1. If a conversation you check is missing messages, keep the Docker bot running and contact AWS Support with your network ID, the affected dates, and the conversation's `vgroupid`.
 
 ## Phase 3: Disable docker method
 <a name="disable-docker-method"></a>

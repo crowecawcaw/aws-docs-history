@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Troubleshoot network and connectivity issues
-<a name="troubleshoot-network"></a>
 
 This section helps administrators troubleshoot network and connectivity issues with AWS Wickr. Most connectivity problems reported by end users are caused by corporate network configuration (firewalls, proxies, VPNs) blocking required Wickr traffic. If the steps in this section don't resolve your issue, open a case in the [AWS Support Center](https://console.aws.amazon.com/support/home).
 

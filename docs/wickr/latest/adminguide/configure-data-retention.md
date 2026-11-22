@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Configure data retention for AWS Wickr
-<a name="configure-data-retention"></a>
 
 To configure data retention for your AWS Wickr network, you must deploy the data retention bot Docker image to a container on a host, such as a local computer or an instance in Amazon Elastic Compute Cloud (Amazon EC2). After the bot is deployed, you can configure it to store data locally or in an Amazon Simple Storage Service (Amazon S3) bucket. You can also configure the data retention bot to use other AWS services like AWS Secrets Manager (Secrets Manager), Amazon CloudWatch (CloudWatch), Amazon Simple Notification Service (Amazon SNS), and AWS Key Management Service (AWS KMS). The following topics describe how to configure and run the data retention bot for your Wickr network.
 

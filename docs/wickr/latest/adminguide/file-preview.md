@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # File preview for AWS Wickr
-<a name="file-preview"></a>
 
 Organizations using the Wickr Premium tier (including Premium free trial), can now manage file download permissions at the security group level.
 

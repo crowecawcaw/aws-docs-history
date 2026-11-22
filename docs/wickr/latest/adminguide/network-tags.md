@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Network tags for AWS Wickr
-<a name="network-tags"></a>
 
 You can apply tags to Wickr networks. You can then use those tags to search and filter your Wickr networks or track your AWS costs. You can configure network tags on the **Network home** page of the AWS Management Console for Wickr.
 

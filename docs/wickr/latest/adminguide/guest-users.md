@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Guest users in AWS Wickr network
-<a name="guest-users"></a>
 
 The Wickr guest user feature allows individual guest users to sign in to the Wickr client and collaborate with Wickr network users. Wickr administrators can enable or disable guest users for their Wickr networks.
 

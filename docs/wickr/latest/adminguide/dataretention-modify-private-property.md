@@ -3,11 +3,10 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Modify private property
-<a name="dataretention-modify-private-property"></a>
 
 This message identifies when a conversation is pinned or unpinned. The **pinned** value is true when the conversation is pinned, and false when it is being unpinned.
 
-```
+```json
 {
   "control": {
     "pinned": true,

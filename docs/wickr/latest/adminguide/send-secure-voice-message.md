@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Send a secure voice message (Push-to-talk) in ATAK
-<a name="send-secure-voice-message"></a>
 
 You can send a secure voice message (Push-to-talk) in the Wickr plugin for ATAK.
 

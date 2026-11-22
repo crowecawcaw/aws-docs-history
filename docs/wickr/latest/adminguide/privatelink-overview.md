@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # AWS PrivateLink for AWS Wickr
-<a name="privatelink-overview"></a>
 
 With AWS PrivateLink for AWS Wickr, you can establish a private connection between your Virtual Private Cloud (VPC) and a subset of endpoints in AWS Wickr by using interface VPC endpoints. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that you can use to access services running on AWS by using private IP addresses.
 

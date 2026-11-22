@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Step 2: Configure your network
-<a name="getting-started-step2"></a>
 
 Complete the following procedure to access the AWS Management Console for Wickr, where you can add users, add security groups, configure SSO, configure data retention, and additional network settings.
 

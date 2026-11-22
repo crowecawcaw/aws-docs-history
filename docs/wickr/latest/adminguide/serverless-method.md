@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Serverless data retention for AWS Wickr
-<a name="serverless-method"></a>
 
 AWS Wickr data retention can retain all conversations in your network, including direct message conversations and conversations in Groups or Rooms between in-network (internal) members and those with other teams (external) with whom your network is federated. Serverless data retention is available only if you have an AWS Wickr Premium plan and opt in. It is not available for AWS Wickr Enterprise.
 

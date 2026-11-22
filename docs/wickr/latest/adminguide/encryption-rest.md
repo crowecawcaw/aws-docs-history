@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Encryption at rest
-<a name="encryption-rest"></a>
 
 AWS Wickr Data Retention Service transparently encrypts all retained messages and file attachments at rest by default. You do not need to perform any additional configuration to ensure your data is encrypted at rest. The Data Retention Service applies encryption on the server-side for all customer data stored in Amazon S3.
 
@@ -45,7 +44,7 @@ Multi-region keys are not currently supported. The KMS key must be in the same r
 
 The following key policy is automatically configured when deploying via Service Catalog. If you need to manually configure a key, use the following least-privilege policy:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -160,7 +159,7 @@ The Data Retention Service is deployed through AWS Service Catalog. When you lau
 
 The KMS key ARN is also registered via the Wickr Admin SDK endpoint:
 
-```
+```HTTP
 PUT /networks/{{{networkId}}}/serverless-resources
 {
   "s3BucketName": "wickr-drs-{{{networkId}}}-{{{region}}}-{{{suffix}}}",

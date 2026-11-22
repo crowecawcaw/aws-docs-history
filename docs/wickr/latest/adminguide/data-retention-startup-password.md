@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Start the bot with password prompt (no AWS service)
-<a name="data-retention-startup-password"></a>
 
 The following Docker command starts the data retention bot. Password is entered when prompted by the data retention bot. It will start using the default file streaming using the default values defined in the [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md) section of this guide.
 

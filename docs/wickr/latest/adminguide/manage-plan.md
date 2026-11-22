@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Manage network plan for AWS Wickr
-<a name="manage-plan"></a>
 
 In the AWS Management Console for Wickr, you can manage your network plan based on your business needs.
 

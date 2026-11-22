@@ -3,11 +3,10 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Reaction messages
-<a name="dataretention-reaction-messages"></a>
 
 When a user adds or removes an emoji reaction on a message, Wickr generates a reaction edit message. The **reactAdded** field indicates whether the reaction was added (true) or removed (false).
 
-```
+```json
 {
   "edit": {
     "originalmessageid": "73117f005f6811f19b07b1408476c2f4",

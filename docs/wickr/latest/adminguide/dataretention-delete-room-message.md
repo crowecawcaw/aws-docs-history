@@ -3,11 +3,10 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Delete room message
-<a name="dataretention-delete-room-message"></a>
 
 Wickr generates this message when a room is permanently deleted.
 
-```
+```json
 {
   "message_id": "06364710f89811e899418b6723464a0c",
   "msg_ts": "1544019245.000000",

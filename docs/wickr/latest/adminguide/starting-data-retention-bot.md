@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Start the data retention bot for your Wickr network
-<a name="starting-data-retention-bot"></a>
 
 Before you run the data retention bot, you should determine how you want to configure it. If you plan to run the bot on a host that:
 + Will not have access to AWS services, then your options are limited. In that case you will use the default message streaming options. You should decide whether you want to limit the size of the captured message files to a specific size or time interval. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md).

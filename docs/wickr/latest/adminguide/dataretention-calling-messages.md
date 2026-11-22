@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Calling messages
-<a name="dataretention-calling-messages"></a>
 
 Calls can have four status values.
 
@@ -19,7 +18,7 @@ Calls can have four status values.
 
 The following is a call start example.
 
-```
+```json
 {
   "call": {
     "calluri": "35.94.128.212:16450",
@@ -52,7 +51,7 @@ The **participants** array has the **username\_hash** of the users that were on 
 
 When a user is invited to an active call, it appears as a new call started. You can use the **invitemsgid** field to match invites to the original call.
 
-```
+```json
 {
   "call": {
     "calluri": "18.234.76.29:16504",
@@ -83,7 +82,7 @@ When a user is invited to an active call, it appears as a new call started. You 
 
 The following is a call end example. The **duration** field shows the call length in seconds.
 
-```
+```json
 {
   "call": {
     "duration": 38,

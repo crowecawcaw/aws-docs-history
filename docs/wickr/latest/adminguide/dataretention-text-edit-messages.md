@@ -3,11 +3,10 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Text edit messages
-<a name="dataretention-text-edit-messages"></a>
 
 When a user edits a previously sent message, the **edit** object contains the updated text and a reference to the original message.
 
-```
+```json
 {
   "edit": {
     "originalmessageid": "84da42d05f6811f19b07b1408476c2f4",

@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # What is ATAK?
-<a name="what-is-atak"></a>
 
 The Android Team Awareness Kit (ATAK)—or Android Tactical Assault Kit (also ATAK) for military use—is a smart phone geospatial infrastructure and situational awareness application that enables safe collaboration over geography. While it was initially designed for use in combat zones, ATAK has been adapted to fit the missions of local, state, and federal agencies.
 

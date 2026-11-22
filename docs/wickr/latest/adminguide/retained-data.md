@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Access retained data
-<a name="retained-data"></a>
 
 ## S3 bucket structure
 <a name="bucket-structure"></a>
@@ -45,7 +44,7 @@ Messages in S3 are encrypted with your KMS key. Complete the following procedure
 
 1. Provide input JSON:
 
-   ```
+   ```JSON
    {
     "startDate": {{"2026-06-03",}}
     "endDate": {{"2026-06-04",}}
@@ -61,7 +60,7 @@ Messages in S3 are encrypted with your KMS key. Complete the following procedure
 
 **In the AWS CLI**:
 
-```
+```JSON
 aws stepfunctions start-execution \
  --state-machine-arn arn:aws:states:us-east-1:111122223333:stateMachine:DecryptionStateMachine \
  --input '{
@@ -84,7 +83,7 @@ s3:{{//amzn-s3-demo-bucket-decrypted/}}wickr-drs-decrypted/{{{requested-date-tim
 
 The following Python example reads a decrypted message file from the bucket:
 
-```
+```JSON
 import boto3
 s3 = boto3.client({{'s3'}})
 response = s3.get_object(

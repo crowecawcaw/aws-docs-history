@@ -3,7 +3,6 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Architecture Overview
-<a name="architecture"></a>
 
 The following diagram shows the components of serverless data retention and which account each one runs in. Wickr Message Routing and the Nitro Enclave run in the Wickr-managed service account. Your AWS KMS keys, the cross-account IAM role, the retention and decrypted Amazon S3 buckets, the on-demand decryption workflow, and CloudWatch monitoring run in your account.
 

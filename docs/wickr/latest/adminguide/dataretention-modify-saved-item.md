@@ -3,11 +3,10 @@
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Modify saved item in room
-<a name="dataretention-modify-saved-item"></a>
 
 Wickr generates this message when a file is saved, renamed, moved, or deleted in a room's Saved Items (File Vault). The **filevaultinfo** object describes the action taken.
 
-```
+```json
 {
   "control": {
     "bor": 0,
