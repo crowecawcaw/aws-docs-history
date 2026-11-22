@@ -1,7 +1,6 @@
 
 
 # EMR Serverless Job resiliency
-<a name="jobs-resiliency"></a>
 
  EMR Serverless releases 7.1.0 and higher include support for job resiliency, so it automatically retries any failed jobs without any manual input from you. Another benefit of job resiliency is that EMR Serverless moves job runs to different Availability Zone (AZ) should an AZ experience any issues. 
 
@@ -22,7 +21,7 @@ By default, EMR Serverless doesn't rerun batch jobs. To enable retries for batch
 
 The following example demonstrates how to specify a max number of 10 attempts when starting a job run.
 
-```
+```bash,sh,zsh
 aws emr-serverless start-job-run
  --application-id {{<APPLICATION_ID>}} \
  --execution-role-arn {{<JOB_EXECUTION_ROLE>}} \
@@ -41,7 +40,7 @@ aws emr-serverless start-job-run
 
 EMR Serverless indefinitely retries streaming jobs if they fail. To prevent thrashing because of repeated unrecoverable failures, use the `maxFailedAttemptsPerHour` to configure thrash prevention control for streaming job retries. This parameter lets you specify the maximum number of failed attempts allowed with an hour before EMR Serverless stops retrying. The default is five. Accepted values are 1 to 10, inclusive.
 
-```
+```bash,sh,zsh
 aws emr-serverless start-job-run
  --application-id {{<APPPLICATION_ID>}} \
  --execution-role-arn {{<JOB_EXECUTION_ROLE>}} \
@@ -60,7 +59,7 @@ aws emr-serverless start-job-run
 
 You can also use the other job run API operations get information about jobs. For example, use the `attempt` parameter with the `GetJobRun` operation to get details about a specific job attempt. If you don't include the `attempt` parameter, the operation returns information about the latest attempt.
 
-```
+```bash,sh,zsh
 aws emr-serverless get-job-run \
     --job-run-id {{job-run-id}} \
     --application-id {{application-id}} \
@@ -69,7 +68,7 @@ aws emr-serverless get-job-run \
 
 The `ListJobRunAttempts` operation returns information about all attempts related to a job run.
 
-```
+```bash,sh,zsh
 aws emr-serverless list-job-run-attempts \
   --application-id {{application-id}} \
   --job-run-id {{job-run-id}}
@@ -77,7 +76,7 @@ aws emr-serverless list-job-run-attempts \
 
 The `GetDashboardForJobRun` operation creates and returns a URL that use to access the application UIs for a job run. The `attempt` parameter lets you get a URL for a specific attempt. If you don't include the `attempt` parameter, the operation returns information about the latest attempt.
 
-```
+```bash,sh,zsh
 aws emr-serverless get-dashboard-for-job-run \
     --application-id {{application-id}} \
     --job-run-id {{job-run-id}} \
@@ -96,7 +95,7 @@ Every time EMR Serverless retries a job, the attempt generates its own set of lo
 
 The following is an example of what the format looks like.
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>/attempts/<attemptNumber>/'.
 ```
 

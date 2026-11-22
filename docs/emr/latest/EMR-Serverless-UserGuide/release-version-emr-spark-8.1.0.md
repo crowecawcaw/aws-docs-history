@@ -1,7 +1,6 @@
 
 
 # `AWS runtime for Apache Spark` (emr-spark-8.1.0)
-<a name="release-version-emr-spark-8.1.0"></a>
 
 The following table lists the application versions available with `AWS runtime for Apache Spark` (emr-spark-8.1.0).
 
@@ -23,6 +22,8 @@ The following table lists the application versions available with `AWS runtime f
   + **Merged Spark configuration** — Starting with `emr-spark-8.1.0`, EMR Serverless merges Spark configuration instead of replacing it. It combines the configuration set at the application level with the configuration set for an individual job or session. When the same configuration is set at both levels, the job or session value takes precedence. In `emr-spark-8.0.0`, the job or session configuration replaces the application-level configuration entirely.
   + **Fine-grained access control for Spark Connect sessions** — AWS Lake Formation fine-grained access control is now supported for interactive PySpark sessions that you run through Apache Spark Connect. The table, row, column, and cell-level permissions that you define in Lake Formation are enforced on your session queries. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac).
 
+**Getting started**
+
 To get started with Apache Spark 4.1.1, create an EMR Serverless application using the AWS CLI:
 
 ```
@@ -31,4 +32,6 @@ aws emr-serverless create-application --type SPARK \
   --name spark4-serverless \
   --region us-east-1
 ```
+
+**Notes**
 + The `--type` parameter for `create-application` uses `SPARK` (uppercase).

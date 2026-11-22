@@ -1,7 +1,6 @@
 
 
 # Licensing information for using custom images
-<a name="concepts-licensing-images"></a>
 
 You can build custom images with EMR Serverless to perform specific tasks or to use specific versions of a software package. Modification and distribution of custom images can be subject to rules and licensing terms. The licensing text appears in the subsection that follows.
 

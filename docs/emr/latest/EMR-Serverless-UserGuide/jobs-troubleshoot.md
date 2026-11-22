@@ -1,7 +1,6 @@
 
 
 # Troubleshooting errors in EMR Serverless
-<a name="jobs-troubleshoot"></a>
 
 Use the following information to help diagnose and fix common issues that occur when working with Amazon EMR Serverless.
 

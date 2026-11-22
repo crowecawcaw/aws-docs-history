@@ -1,7 +1,6 @@
 
 
 # Tagging limitations
-<a name="tagging-restrictions"></a>
 
 The following basic limitations apply to tags:
 + Each resource can have a maximum of 50 user-created tags.

@@ -1,7 +1,6 @@
 
 
 # Running jobs from the EMR Studio console
-<a name="jobs-studio"></a>
 
 You can submit job runs to EMR Serverless applications and access the jobs from the EMR Studio console. To create or navigate to your EMR Serverless application on the EMR Studio console, follow the instructions in [Getting started from the console](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/getting-started.html#gs-console). 
 
@@ -28,7 +27,7 @@ On the **Submit job** page, submit a job to an EMR Serverless application as fol
 If you specify Spark driver and executor sizes, take memory overhead into account. Specify memory overhead values in the properties `spark.driver.memoryOverhead` and `spark.executor.memoryOverhead`. Memory overhead has a default value of 10% of container memory, with a minimum of 384 MB. The executor memory and the memory overhead together can't exceed the worker memory. For example, the maximum `spark.executor.memory` on a 30 GB worker must be 27 GB. 
    + **Job configuration** — Specify any job configuration in this field. You can use these job configurations to override the default configurations for applications. The following example shows how to override Spark default settings such as executor and driver memory.
 
-     ```
+     ```json
      {
          "applicationConfiguration": [
              {

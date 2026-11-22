@@ -1,7 +1,6 @@
 
 
 # Getting started from the AWS CLI
-<a name="gs-cli"></a>
 
 Get started with EMR Serverless from the AWS CLI with commands to create an application, run jobs, check job run output, and delete your resources.
 
@@ -15,7 +14,7 @@ Use the [`emr-serverless create-application`](https://docs.aws.amazon.com/emr-se
 
 To create a Spark application, run the following command.
 
-```
+```bash,sh,zsh
 aws emr-serverless create-application \
     --release-label emr-6.6.0 \
     --type "SPARK" \
@@ -27,7 +26,7 @@ aws emr-serverless create-application \
 
 To create a Hive application, run the following command. 
 
-```
+```bash,sh,zsh
 aws emr-serverless create-application \
     --release-label emr-6.6.0 \
     --type "HIVE" \
@@ -40,7 +39,7 @@ Note the application ID returned in the output. You'll use the ID to start the a
 
 Before you move on to [Step 2: Submit a job run to your EMR Serverless application](#gs-job-run-cli), make sure that your application has reached the `CREATED` state with the [`get-application`](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API.
 
-```
+```bash,sh,zsh
 aws emr-serverless get-application \
     --application-id {{application-id}}
 ```
@@ -67,7 +66,7 @@ In this step, we use a PySpark script to compute the number of occurrences of un
 
 1. In the following command, substitute `{{application-id}}` with your application ID. Substitute `{{job-role-arn}}` with the runtime role ARN you created in [Create a job runtime role](getting-started.md#gs-runtime-role). Substitute {{`job-run-name`}} with the name you want to call your job run. Replace all `{{amzn-s3-demo-bucket}}` strings with the Amazon S3 bucket that you created, and add `/output` to the path. This creates a new folder in your bucket where EMR Serverless can copy the output files of your application.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
        --application-id {{application-id}} \
        --execution-role-arn {{job-role-arn}} \
@@ -92,7 +91,7 @@ In this tutorial, we create a table, insert a few records, and run a count aggre
 
 1. Create a file called `hive-query.ql` that contains all the queries that you want to run in your Hive job.
 
-   ```
+   ```sql
    create database if not exists emrserverless;
    use emrserverless;
    create table if not exists test_table(id int);
@@ -103,13 +102,13 @@ In this tutorial, we create a table, insert a few records, and run a count aggre
 
 1. Upload `hive-query.ql` to your S3 bucket with the following command.
 
-   ```
+   ```bash,sh,zsh
    aws s3 cp hive-query.ql s3://{{amzn-s3-demo-bucket}}/emr-serverless-hive/query/hive-query.ql
    ```
 
 1. In the following command, substitute `{{application-id}}` with your own application ID. Substitute `{{job-role-arn}}` with the runtime role ARN you created in [Create a job runtime role](getting-started.md#gs-runtime-role). Replace all `{{amzn-s3-demo-bucket}}` strings with the Amazon S3 bucket that you created, and add `/output` and `/logs` to the path. This creates new folders in your bucket, where EMR Serverless can copy the output and log files of your application.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
        --application-id {{application-id}} \
        --execution-role-arn {{job-role-arn}} \
@@ -153,7 +152,7 @@ The job run should typically take 3-5 minutes to complete.
 
 You can check for the state of your Spark job with the following command.
 
-```
+```bash,sh,zsh
 aws emr-serverless get-job-run \
     --application-id {{application-id}} \
     --job-run-id {{job-run-id}}
@@ -168,7 +167,7 @@ For Spark applications, EMR Serverless pushes event logs every 30 seconds to the
 
 You can check for the state of your Hive job with the following command.
 
-```
+```bash,sh,zsh
 aws emr-serverless get-job-run \
     --application-id {{application-id}} \
     --job-run-id {{job-run-id}}
@@ -190,7 +189,7 @@ When you’re done working with this tutorial, consider deleting the resources t
 
 To delete an application, use the following command. 
 
-```
+```bash,sh,zsh
 aws emr-serverless delete-application \
     --application-id {{application-id}}
 ```
@@ -200,7 +199,7 @@ aws emr-serverless delete-application \
 
 To delete your S3 logging and output bucket, use the following command. Replace `{{amzn-s3-demo-bucket}}` with the actual name of the S3 bucket created in [Prepare storage for EMR Serverless](getting-started.md#gs-prepare-storage).
 
-```
+```bash,sh,zsh
 aws s3 rm s3://{{amzn-s3-demo-bucket}} --recursive
 aws s3api delete-bucket --bucket {{amzn-s3-demo-bucket}}
 ```
@@ -210,7 +209,7 @@ aws s3api delete-bucket --bucket {{amzn-s3-demo-bucket}}
 
 To delete the runtime role, detach the policy from the role. You can then delete both the role and the policy.
 
-```
+```bash,sh,zsh
 aws iam detach-role-policy \
     --role-name EMRServerlessS3RuntimeRole \
     --policy-arn {{policy-arn}}
@@ -218,14 +217,14 @@ aws iam detach-role-policy \
 
 To delete the role, use the following command.
 
-```
+```bash,sh,zsh
 aws iam delete-role \
     --role-name EMRServerlessS3RuntimeRole
 ```
 
 To delete the policy that was attached to the role, use the following command.
 
-```
+```bash,sh,zsh
 aws iam delete-policy \
     --policy-arn {{policy-arn}}
 ```

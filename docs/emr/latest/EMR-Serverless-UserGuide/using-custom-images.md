@@ -1,7 +1,6 @@
 
 
 # Using custom images with EMR Serverless
-<a name="using-custom-images"></a>
 
 **Topics**
 + [Use a custom Python version](#image-python)

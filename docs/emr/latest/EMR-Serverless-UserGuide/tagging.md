@@ -1,7 +1,6 @@
 
 
 # Tagging resources
-<a name="tagging"></a>
 
 Assign your own metadata to each resource using tags to help you manage your EMR Serverless resources. This section provides an overview of the tag functions and shows how to create tags.
 

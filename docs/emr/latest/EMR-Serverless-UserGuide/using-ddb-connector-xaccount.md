@@ -1,7 +1,6 @@
 
 
 # Setting up cross-account access
-<a name="using-ddb-connector-xaccount"></a>
 
 To set up cross-account access for EMR Serverless, complete the following steps. In the example, `AccountA` is the account where you created your Amazon EMR Serverless application, and `AccountB` is the account where your Amazon DynamoDB is located.
 
@@ -28,7 +27,7 @@ To set up cross-account access for EMR Serverless, complete the following steps.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -55,7 +54,7 @@ To set up cross-account access for EMR Serverless, complete the following steps.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

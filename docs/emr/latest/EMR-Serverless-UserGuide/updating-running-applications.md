@@ -1,7 +1,6 @@
 
 
 # Updating Running Applications
-<a name="updating-running-applications"></a>
 
 You can update key application configurations such as maximum capacity, and custom image settings — without stopping and restarting the application.
 

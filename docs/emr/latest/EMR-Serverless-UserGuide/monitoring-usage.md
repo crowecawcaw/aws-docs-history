@@ -1,7 +1,6 @@
 
 
 # EMR Serverless usage metrics
-<a name="monitoring-usage"></a>
 
 You can use Amazon CloudWatch usage metrics to provide visibility into the resources that your account uses. Use these metrics to visualize your service usage on CloudWatch graphs and dashboards.
 

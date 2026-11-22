@@ -1,7 +1,6 @@
 
 
 # Working with tags using the AWS CLI and the Amazon EMR Serverless API
-<a name="using-tags"></a>
 
 Use the following AWS CLI commands or Amazon EMR Serverless API operations to add, update, list, and delete the tags for your resources. 
 
@@ -20,7 +19,7 @@ The following examples demonstrate how to tag or untag resources using the AWS C
 
 The following command tags an existing application.
 
-```
+```bash
 aws emr-serverless tag-resource --resource-arn resource_ARN --tags team=devs
 ```
 
@@ -28,7 +27,7 @@ aws emr-serverless tag-resource --resource-arn resource_ARN --tags team=devs
 
 The following command deletes a tag from an existing application.
 
-```
+```bash
 aws emr-serverless untag-resource --resource-arn resource_ARN --tag-keys tag_key
 ```
 
@@ -36,6 +35,6 @@ aws emr-serverless untag-resource --resource-arn resource_ARN --tag-keys tag_key
 
 The following command lists the tags associated with an existing resource.
 
-```
+```bash
 aws emr-serverless list-tags-for-resource --resource-arn resource_ARN
 ```

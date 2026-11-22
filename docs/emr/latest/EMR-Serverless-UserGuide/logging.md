@@ -1,7 +1,6 @@
 
 
 # Storing logs
-<a name="logging"></a>
 
 To monitor your job progress on EMR Serverless and troubleshoot job failures, choose how EMR Serverless stores and serves application logs. When you submit a job run, specify managed storage, Amazon S3, and Amazon CloudWatch as your logging options.
 
@@ -28,7 +27,7 @@ To turn off this option from EMR Studio, deselect the **Allow AWS to retain logs
 
 To turn off this option from the AWS CLI, use the `managedPersistenceMonitoringConfiguration` configuration when you submit a job run.
 
-```
+```literal
 {
     "monitoringConfiguration": {
         "managedPersistenceMonitoringConfiguration": {
@@ -45,7 +44,7 @@ If your EMR Serverless application is in a private subnet with VPC endpoints for
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -85,7 +84,7 @@ Before your jobs can send log data to Amazon S3, include the following permissio
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -107,7 +106,7 @@ Before your jobs can send log data to Amazon S3, include the following permissio
 
 To set up an Amazon S3 bucket to store logs from the AWS CLI, use the `s3MonitoringConfiguration` configuration when you start a job run. To do this, provide the following `--configuration-overrides` in the configuration. 
 
-```
+```literal
 {
     "monitoringConfiguration": {
         "s3MonitoringConfiguration": {
@@ -119,19 +118,19 @@ To set up an Amazon S3 bucket to store logs from the AWS CLI, use the `s3Monitor
 
 For batch jobs that don't have retries enabled, EMR Serverless sends the logs to the following path:
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>'
 ```
 
 Spark driver logs are stored in the following path by EMR Serverless
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>/SPARK_DRIVER/'
 ```
 
 Spark executor logs are stored in the following path by EMR Serverless
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>/SPARK_EXECUTOR/<EXECUTOR-ID>'
 ```
 
@@ -139,7 +138,7 @@ The <EXECUTOR-ID> is an integer.
 
 EMR Serverless releases 7.1.0 and higher support retry attempts for streaming jobs and batch jobs. If you run a job with retries enabled, EMR Serverless automatically adds an attempt number to the log path prefix, so you can better distinguish and track logs.
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>/attempts/<attemptNumber>/'
 ```
 
@@ -165,7 +164,7 @@ Before your jobs can send log data to Amazon CloudWatch, include the following p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -207,13 +206,13 @@ If you don’t specify the optional values, then CloudWatch publishes the logs t
 
 EMR Serverless releases 7.1.0 and higher support retry attempts for streaming jobs and batch jobs. If you enabled retries for a job, EMR Serverless automatically adds an attempt number to the log path prefix, so you can better distinguish and track logs. 
 
-```
+```bash,sh,zsh
 '/applications/{{<applicationId>}}/jobs/{{<jobId>}}/attempts/{{<attemptNumber>}}/worker-type'
 ```
 
 The following demonstrates the minimum configuration that is required to turn on Amazon CloudWatch logging with the default settings for EMR Serverless:
 
-```
+```json
 {
     "monitoringConfiguration": {
         "cloudWatchLoggingConfiguration": {
@@ -225,7 +224,7 @@ The following demonstrates the minimum configuration that is required to turn on
 
 The following example shows all of the required and optional configurations that specify when you turn on Amazon CloudWatch logging for EMR Serverless. The supported `logTypes` values are also listed in the following this example.
 
-```
+```json
 {
     "monitoringConfiguration": {
         "cloudWatchLoggingConfiguration": {

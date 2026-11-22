@@ -1,7 +1,6 @@
 
 
 # Getting started with Trusted-Identity Propagation
-<a name="security-iam-service-trusted-prop-getting-started"></a>
 
 This section helps you configure EMR-Serverless application with Apache Livy Endpoint to integrate with AWS IAM Identity Center and enable [Trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html).
 
@@ -73,7 +72,7 @@ As EMR-Serverless leverage Identity-enhanced job-execution-role credentials to p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

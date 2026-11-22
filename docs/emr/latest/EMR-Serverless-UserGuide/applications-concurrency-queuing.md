@@ -1,7 +1,6 @@
 
 
 # Job concurrency and queuing for an EMR Serverless application
-<a name="applications-concurrency-queuing"></a>
 
 Starting with Amazon EMR version 7.0.0 and later, specify job run queue timeout and concurrency configuration for your application. When you specify this configuration, Amazon EMR Serverless starts by queuing your job and begins execution based on concurrency utilization on your application. For example, if your job run concurrency is 10, only ten jobs are run at a time on your application. Remaining jobs are queued until one of the running jobs terminates. If queue timeout is reached earlier, your job times out. For more information, refer to [Job run states](job-states.html).
 

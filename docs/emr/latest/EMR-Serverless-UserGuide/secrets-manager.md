@@ -1,7 +1,6 @@
 
 
 # Secrets Manager for data protection with EMR Serverless
-<a name="secrets-manager"></a>
 
 AWS Secrets Manager is a secret storage service for protecting database credentials, API keys, and other secret information. Then in your code, replace hardcoded credentials with an API call to Secrets Manager. This helps ensure that the secret can't be compromised by someone examining your code, because the secret isn't there. For an overview, refer to the [AWS Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide).
 
@@ -39,7 +38,7 @@ In the examples, replace `{{SecretName}}` with the name of the secret to retriev
 
 **Example – Specify secret references in the external Hive metastore configuration for Spark**  
 
-```
+```bash,sh,zsh
 aws emr-serverless start-job-run \
   --application-id "{{application-id}}" \
   --execution-role-arn "{{job-role-arn}}" \
@@ -68,7 +67,7 @@ aws emr-serverless start-job-run \
 
 **Example – Specify secret references for the external Hive metastore configuration in the `spark-defaults` classification**  
 
-```
+```bash,sh,zsh
 {
         "classification": "spark-defaults",
         "properties": {
@@ -85,7 +84,7 @@ aws emr-serverless start-job-run \
 
 **Example – Specify secret references in the external Hive metastore configuration for Hive**  
 
-```
+```bash,sh,zsh
 aws emr-serverless start-job-run \
   --application-id "{{application-id}}" \
   --execution-role-arn "{{job-role-arn}}" \
@@ -112,7 +111,7 @@ aws emr-serverless start-job-run \
 
 **Example – Specify secret references for the external Hive metastore configuration in the `hive-site` classification**  
 
-```
+```bash,sh,zsh
 {
     "classification": "hive-site",
     "properties": {
@@ -141,7 +140,7 @@ You must include the following permissions in the resource policy for the secret
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -176,7 +175,7 @@ Create your secret with the following policy for the customer-managed AWS Key Ma
 
 **Policy for customer-managed AWS KMS key**
 
-```
+```json
 {
     "Sid": "Allow EMR Serverless to use the key for decrypting secrets",
     "Effect": "Allow",

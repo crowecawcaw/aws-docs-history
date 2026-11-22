@@ -1,7 +1,6 @@
 
 
 # Getting started streaming jobs
-<a name="jobs-spark-streaming-getting-started"></a>
 
 See the following instructions to learn how to get started with streaming jobs.
 
@@ -9,7 +8,7 @@ See the following instructions to learn how to get started with streaming jobs.
 
 1. Once your application is ready, set the `mode` parameter to `STREAMING` to submit a streaming job, similar to the following AWS CLI example.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
    --application-id {{<APPPLICATION_ID>}} \
    --execution-role-arn {{<JOB_EXECUTION_ROLE>}} \

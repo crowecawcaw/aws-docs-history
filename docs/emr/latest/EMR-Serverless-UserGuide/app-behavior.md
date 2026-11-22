@@ -1,7 +1,6 @@
 
 
 # Understanding application behavior in EMR Serverless
-<a name="app-behavior"></a>
 
 This section describes job submission behavior, capacity configuration for scaling, and worker configuration settings for EMR Serverless.
 

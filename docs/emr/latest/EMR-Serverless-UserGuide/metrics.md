@@ -1,7 +1,6 @@
 
 
 # Monitoring EMR Serverless
-<a name="metrics"></a>
 
 This section covers the ways that monitor your Amazon EMR Serverless applications and jobs.
 

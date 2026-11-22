@@ -1,7 +1,6 @@
 
 
 # Metastore configuration for EMR Serverless
-<a name="metastore-config"></a>
 
 A *Hive metastore* is a centralized location that stores structural information about your tables, including schemas, partition names, and data types. With EMR Serverless, persist this table metadata in a metastore that has access to your jobs.
 
@@ -85,7 +84,7 @@ To set up cross-account access for EMR Serverless, first sign in to the followin
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -124,7 +123,7 @@ To set up cross-account access for EMR Serverless, first sign in to the followin
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

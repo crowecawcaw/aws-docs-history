@@ -1,7 +1,6 @@
 
 
 # Using shuffle-optimized disks
-<a name="jobs-shuffle-optimized-disks"></a>
 
 With Amazon EMR releases 7.1.0 and higher, use shuffle-optimized disks when you run Apache Spark or Hive jobs to improve performance for I/O-intensive workloads. Compared to standard disks, shuffle-optimized disks provide higher IOPS (I/O operations per second) for faster data movement and reduced latency during shuffle operations. Shuffle-optimized disks let you attach disk sizes of up to 2 TB per worker, so configure the appropriate capacity for your workload requirements.
 
@@ -23,7 +22,7 @@ See the following steps to use shuffle-optimized disks in your workflows.
 
 1. Create an EMR Serverless release 7.1.0 application with the following command.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless create-application \
      --type "SPARK" \
      --name my-application-name \
@@ -33,7 +32,7 @@ See the following steps to use shuffle-optimized disks in your workflows.
 
 1. Configure your Spark job to include the parameters `spark.emr-serverless.driver.disk.type` and/or `spark.emr-serverless.executor.disk.type` to run with shuffle-optimized disks. You can use either one or both parameters, depending on your use case.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
        --application-id {{application-id}} \
        --execution-role-arn {{job-role-arn}} \
@@ -59,7 +58,7 @@ See the following steps to use shuffle-optimized disks in your workflows.
 
 1. Create an EMR Serverless release 7.1.0 application with the following command.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless create-application \
      --type "HIVE" \
      --name my-application-name \
@@ -69,7 +68,7 @@ See the following steps to use shuffle-optimized disks in your workflows.
 
 1. Configure your Hive job to include the parameters `hive.driver.disk.type` and/or `hive.tez.disk.type` to run with shuffle-optimized disks. You can use either one or both parameters, depending on your use case.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
        --application-id {{application-id}} \
        --execution-role-arn {{job-role-arn}} \
@@ -111,7 +110,7 @@ When this application runs Spark jobs, it first consumes the pre-initialized wor
 ------
 #### [ Spark ]
 
-```
+```bash,sh,zsh
 aws emr-serverless create-application \
   --type "SPARK" \
   --name {{<my-application-name>}} \
@@ -145,7 +144,7 @@ aws emr-serverless create-application \
 ------
 #### [ Hive ]
 
-```
+```bash,sh,zsh
 aws emr-serverless create-application \
   --type "HIVE" \
   --name {{<my-application-name>}} \

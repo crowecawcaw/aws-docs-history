@@ -1,7 +1,6 @@
 
 
 # Customizing an EMR Serverless image
-<a name="application-custom-image"></a>
 
 Starting with Amazon EMR 6.9.0, use custom images to package application dependencies and runtime environments into a single container with Amazon EMR Serverless. This simplifies how you manage workload dependencies and makes your packages more portable. When you customize your EMR Serverless image, it provides the following benefits:
 + Installs and configures packages that are optimized to your workloads. These packages are not widely available in the public distribution of Amazon EMR runtime environments.
@@ -31,7 +30,7 @@ Before you create an EMR Serverless custom image, complete these prerequisites.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -156,7 +155,7 @@ Choose the AWS Management Console tab or AWS CLI tab according to how you want t
 #### [ CLI ]
 + Create an application with the `image-configuration` parameter. EMR Serverless applies this setting to all worker types.
 
-  ```
+  ```bash
   aws emr-serverless create-application \
   --release-label emr-6.9.0 \
   --type SPARK \
@@ -167,7 +166,7 @@ Choose the AWS Management Console tab or AWS CLI tab according to how you want t
 
   To create an application with different image settings for each worker type, use the `worker-type-specifications` parameter.
 
-  ```
+  ```bash
   aws emr-serverless create-application \
   --release-label emr-6.9.0 \
   --type SPARK \
@@ -187,7 +186,7 @@ Choose the AWS Management Console tab or AWS CLI tab according to how you want t
 
   To update an application, use the `image-configuration` parameter. EMR Serverless applies this setting to all worker types.
 
-  ```
+  ```bash
   aws emr-serverless update-application \
   --application-id {{application-id}} \
   --image-configuration '{
@@ -207,7 +206,7 @@ Add the following resource policy to the Amazon ECR repository to allow the EMR 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

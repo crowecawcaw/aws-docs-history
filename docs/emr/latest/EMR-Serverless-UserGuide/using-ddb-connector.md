@@ -1,7 +1,6 @@
 
 
 # Connecting to DynamoDB with Amazon EMR Serverless
-<a name="using-ddb-connector"></a>
 
 In this tutorial, you upload a subset of data from the [United States Board on Geographic Names](https://www.usgs.gov/us-board-on-geographic-names) to an Amazon S3 bucket and then use Hive or Spark on Amazon EMR Serverless to copy the data to an Amazon DynamoDB table for querying. 
 
@@ -18,7 +17,7 @@ To create an Amazon S3 bucket, follow the instructions in [Creating a bucket](ht
 
 1. Extract the `features.txt` file from the archive and access the first the few lines in the file:
 
-   ```
+   ```bash
    unzip features.zip
    head features.txt
    ```

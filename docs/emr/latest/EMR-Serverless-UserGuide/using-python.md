@@ -1,7 +1,6 @@
 
 
 # Using different Python versions with EMR Serverless
-<a name="using-python"></a>
 
 In addition to the use case in [Using Python libraries with EMR Serverless](using-python-libraries.md), you can also use Python virtual environments to work with different Python versions than the version packaged in the Amazon EMR release for your Amazon EMR Serverless application. To do this, build a Python virtual environment with the Python version you want to use.
 
@@ -12,7 +11,7 @@ In addition to the use case in [Using Python libraries with EMR Serverless](usin
 If you use Amazon EMR releases 7.0.0 and higher, run your commands in an Amazon Linux 2023 environment similar to the one you use for your EMR Serverless applications.   
  If you use release 6.15.0 or lower, run the following commands in a similar Amazon Linux 2 environment.
 
-   ```
+   ```bash
    # install Python 3.9.9 and activate the venv
    yum install -y gcc openssl-devel bzip2-devel libffi-devel tar gzip wget make
    wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz && \
@@ -45,7 +44,7 @@ If you use Amazon EMR releases 7.0.0 and higher, run your commands in an Amazon 
 
 1. Set your properties to use the Python virtual environment and submit the Spark job.
 
-   ```
+   ```bash
    # note that the archive suffix "environment" is the same as the directory where you copied the Python binary.
    --conf spark.archives=s3://amzn-s3-demo-bucket/EXAMPLE-PREFIX/pyspark_venv_python_3.9.9.tar.gz#environment 
    --conf spark.emr-serverless.driverEnv.PYSPARK_DRIVER_PYTHON=./environment/bin/python

@@ -1,7 +1,6 @@
 
 
 # Submitting EMR Serverless jobs from Airflow
-<a name="using-airflow"></a>
 
 The Amazon Provider in Apache Airflow provides EMR Serverless operators. For more information about operators, refer to [Amazon EMR Serverless Operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/emr_serverless.html) in the Apache Airflow documentation.
 

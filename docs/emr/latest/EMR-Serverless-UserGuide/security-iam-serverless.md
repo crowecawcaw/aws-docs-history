@@ -1,7 +1,6 @@
 
 
 # How EMR Serverless works with IAM
-<a name="security-iam-serverless"></a>
 
 Before you use IAM to manage access to Amazon EMR Serverless, learn what IAM features are available to use with Amazon EMR Serverless.
 

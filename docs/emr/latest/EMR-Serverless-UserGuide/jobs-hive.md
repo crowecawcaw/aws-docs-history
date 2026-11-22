@@ -1,7 +1,6 @@
 
 
 # Using Hive configurations when you run EMR Serverless jobs
-<a name="jobs-hive"></a>
 
 You can run Hive jobs on an application with the `type` parameter set to `HIVE`. Jobs must be compatible with the Hive version compatible with the Amazon EMR release version. For example, when you run jobs on an application with Amazon EMR release 6.6.0, your job must be compatible with Apache Hive 3.1.2. For information on the application versions for each release, refer to [Amazon EMR Serverless release versions](release-versions.md).
 
@@ -158,7 +157,7 @@ The following table lists the optional Hive properties and their default values 
 
 The following code example shows how to run a Hive query with the `StartJobRun` API.
 
-```
+```bash
 aws emr-serverless start-job-run \
     --application-id {{application-id}} \
     --execution-role-arn {{job-role-arn}} \

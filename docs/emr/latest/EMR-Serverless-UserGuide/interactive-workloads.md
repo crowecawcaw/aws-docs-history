@@ -1,7 +1,6 @@
 
 
 # Run interactive workloads with EMR Serverless through EMR Studio
-<a name="interactive-workloads"></a>
 
 With EMR Serverless interactive applications, run interactive workloads for Spark with EMR Serverless using notebooks that are hosted in EMR Studio.
 
@@ -39,7 +38,7 @@ Add the following additional permissions to the IAM policy for the Studio users:
 + **`iam:PassRole`** - Grants permission to access the IAM execution role that you plan to use when you attach to an application. The appropriate `PassRole`permission is required to attach to an EMR Serverless application from an EMR Studio Workspace.  
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

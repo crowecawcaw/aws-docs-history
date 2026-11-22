@@ -1,7 +1,6 @@
 
 
 # Pre-initialized capacity for working with an application in EMR Serverless
-<a name="pre-init-capacity"></a>
 
 EMR Serverless provides an optional feature that keeps driver and workers pre-initialized and ready to respond in seconds. This effectively creates a warm pool of workers for an application. This feature is called *pre-initialized capacity*. To configure this feature, set the `initialCapacity` parameter of an application to the number of workers you want to pre-initialize. With pre-initialized worker capacity, jobs start immediately. This is ideal when you want to implement iterative applications and time-sensitive jobs.
 

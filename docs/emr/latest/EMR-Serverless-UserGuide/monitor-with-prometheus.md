@@ -1,7 +1,6 @@
 
 
 # Monitor Spark metrics with Amazon Managed Service for Prometheus
-<a name="monitor-with-prometheus"></a>
 
 With Amazon EMR releases 7.1.0 and higher, you can integrate EMR Serverless with Amazon Managed Service for Prometheus to collect Apache Spark metrics for EMR Serverless jobs and applications. This integration is available when you submit a job or create an application using either the AWS console, the EMR Serverless API, or the AWS CLI.
 
@@ -12,7 +11,7 @@ Before you can deliver your Spark metrics to Amazon Managed Service for Promethe
 + [Create an Amazon Managed Service for Prometheus workspace.](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html) This workspace serves as an ingestion endpoint. Make a note of the URL displayed for **Endpoint - remote write URL**. You'll need to specify the URL when you create your EMR Serverless application.
 + To grant access of your jobs to Amazon Managed Service for Prometheus for monitoring purposes, add the following policy to your job execution role.
 
-  ```
+  ```bash,sh,zsh
   {
       "Sid": "AccessToPrometheus",
       "Effect": "Allow",
@@ -41,7 +40,7 @@ You can also use the AWS CLI or EMR Serverless API to integrate your EMR Serverl
 ------
 #### [ create-application ]
 
-```
+```bash,sh,zsh
 aws emr-serverless create-application \
 --release-label emr-7.1.0 \
 --type "SPARK" \
@@ -55,7 +54,7 @@ aws emr-serverless create-application \
 ------
 #### [ start-job-run ]
 
-```
+```bash,sh,zsh
 aws emr-serverless start-job-run \
 --application-id {{<APPPLICATION_ID>}} \
 --execution-role-arn {{<JOB_EXECUTION_ROLE>}} \

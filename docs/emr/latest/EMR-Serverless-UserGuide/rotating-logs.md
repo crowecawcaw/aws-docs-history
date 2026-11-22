@@ -1,7 +1,6 @@
 
 
 # Rotating logs
-<a name="rotating-logs"></a>
 
 Amazon EMR Serverless can rotate Spark application logs and event logs. Log rotation helps with the issue of long running jobs generating large log files that can take up all of your disk space. Rotating logs helps you save disk storage and reduces the amount of job failures because you have no more space left on your disk. 
 
@@ -37,6 +36,6 @@ The same behavior applies to Spark executors as well. This change is only applic
 
 EMR Serverless releases 7.1.0 and higher support retry attempts for streaming and batch jobs. If you enabled retry attempts with your job, EMR Serverless adds a prefix to the log path for such jobs so you can better track and distinguish the logs from one another. This path contains all rotated logs.
 
-```
+```bash,sh,zsh
 '/applications/<applicationId>/jobs/<jobId>/attempts/<attemptNumber>/'.
 ```

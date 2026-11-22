@@ -1,7 +1,6 @@
 
 
 # Getting started with EMR Serverless from the console
-<a name="gs-console"></a>
 
 This section describes working with EMR Serverless, including creating an EMR Studio. It also describes how to submit job runs and view logs.
 
@@ -44,7 +43,7 @@ In this tutorial, we use a PySpark script to compute the number of occurrences o
 
 1. Upload the sample script `wordcount.py` into your new bucket with the following command.
 
-   ```
+   ```bash,sh,zsh
    aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scripts/wordcount.py s3://{{amzn-s3-demo-bucket}}/scripts/
    ```
 
@@ -57,7 +56,7 @@ In this tutorial, we use a PySpark script to compute the number of occurrences o
    + In the **Script arguments** field, enter `["s3://{{amzn-s3-demo-bucket}}/emr-serverless-spark/output"]`.
    + In the **Spark properties** section, choose **Edit as text** and enter the following configurations.
 
-     ```
+     ```bash,sh,zsh
      --conf spark.executor.cores=1 --conf spark.executor.memory=4g --conf spark.driver.cores=1 --conf spark.driver.memory=4g --conf spark.executor.instances=1
      ```
 
@@ -74,7 +73,7 @@ In this part of the tutorial, we create a table, insert a few records, and run a
 
 1. Create a file called `hive-query.ql` that contains all the queries that you want to run in your Hive job.
 
-   ```
+   ```sql
    create database if not exists emrserverless;
    use emrserverless;
    create table if not exists test_table(id int);
@@ -85,7 +84,7 @@ In this part of the tutorial, we create a table, insert a few records, and run a
 
 1. Upload `hive-query.ql` to your S3 bucket with the following command.
 
-   ```
+   ```bash,sh,zsh
    aws s3 cp hive-query.ql s3://{{amzn-s3-demo-bucket}}/emr-serverless-hive/query/hive-query.ql
    ```
 
@@ -97,12 +96,12 @@ In this part of the tutorial, we create a table, insert a few records, and run a
    + In the **Script location** field, enter `s3://{{amzn-s3-demo-bucket}}/emr-serverless-hive/query/hive-query.ql` as the S3 URI.
    + In the **Hive properties** section, choose **Edit as text**, and enter the following configurations.
 
-     ```
+     ```bash,sh,zsh
      --hiveconf hive.log.explain.output=false
      ```
    + In the **Job configuration** section, choose **Edit as JSON**, and enter the following JSON.
 
-     ```
+     ```json
      {
         "applicationConfiguration": 
         [{

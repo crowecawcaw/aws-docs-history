@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="emr-serverless-lf-troubleshooting"></a>
 
 See the following sections for troubleshooting solutions.
 

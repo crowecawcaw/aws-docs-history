@@ -1,7 +1,6 @@
 
 
 # Amazon EMR Serverless release versions
-<a name="release-versions"></a>
 
 An Amazon EMR release is a set of open source applications from the big data ecosystem. Each release includes big data applications, components, and features that you select to have Amazon EMR Serverless deploy and configure when you run your job.
 
@@ -11,6 +10,7 @@ With Amazon EMR 6.6.0 and higher, deploy EMR Serverless. This deployment option 
 For information about the minimum supported releases in each Region, see [Regional release support](endpoints-quotas.md#regional-release-support).
 
 **Topics**
++ [`AWS runtime for Apache Spark` (emr-spark-8.2.0)](release-version-emr-spark-8.2.0.md)
 + [`AWS runtime for Apache Spark` (emr-spark-8.1.0)](release-version-emr-spark-8.1.0.md)
 + [`AWS runtime for Apache Spark` (emr-spark-8.0.0)](release-version-emr-spark-8.0.0.md)
 + [`AWS runtime for Apache Spark` (emr-spark-8.0-preview)](release-version-emr-spark-8.0-preview.md)

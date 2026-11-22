@@ -1,7 +1,6 @@
 
 
 # Working with AWS Glue multi-catalog hierarchy on EMR Serverless
-<a name="external-metastore-glue-multi"></a>
 
 You can configure your EMR Serverless applications to work with the AWS Glue multi-catalog hierarchy. The following example shows how to use EMR-S Spark with the AWS Glue multi-catalog hierarchy.
 

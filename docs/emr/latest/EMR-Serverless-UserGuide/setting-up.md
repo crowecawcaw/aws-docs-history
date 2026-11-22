@@ -1,7 +1,6 @@
 
 
 # Prerequisites for getting started with EMR Serverless
-<a name="setting-up"></a>
 
 This section describes the administrative prerequisites for running EMR Serverless. These include account configuration and permissions management.
 
@@ -28,7 +27,7 @@ For users who need to get started with EMR Serverless in a sandbox environment, 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -126,7 +125,7 @@ If you want to use EMR Serverless APIs, install the latest version of the AWS Co
 
 1. To verify the setup, enter the following command at the command prompt.
 
-   ```
+   ```bash
    aws emr-serverless help
    ```
 
@@ -134,7 +133,7 @@ If you want to use EMR Serverless APIs, install the latest version of the AWS Co
 
    To set your AWS Region with a profile, first add a named profile in the `~/.aws/config` file or the `%UserProfile%/.aws/config` file (for Microsoft Windows). Follow the steps in [Named profiles for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html). Next, set your AWS Region and other settings with a command similar to the one in the following example.
 
-   ```
+   ```bash
    [profile emr-serverless]
    aws_access_key_id = ACCESS-KEY-ID-OF-IAM-USER
    aws_secret_access_key = SECRET-ACCESS-KEY-ID-OF-IAM-USER

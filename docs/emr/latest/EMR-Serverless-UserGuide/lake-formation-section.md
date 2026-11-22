@@ -1,7 +1,6 @@
 
 
 # Using Lake Formation with EMR Serverless
-<a name="lake-formation-section"></a>
 
 You can configure EMR Serverless applications to use Lake Formation with either full table access or fine-grained access control. For details on supported features in each access mode, review the following table.
 
@@ -19,3 +18,4 @@ You can configure EMR Serverless applications to use Lake Formation with either 
 | Full table access for Delta Lake | EMR 7.11\+ | 
 | Write operations (DDL, DML) for Hive, Iceberg and Delta Lake tables | EMR 7.12\+ | 
 | Full table access for Hudi | EMR 7.12\+ | 
+| Lake Formation-governed AWS Glue user-defined functions | EMR 7.14\+, EMR Spark 8.2\+ | 

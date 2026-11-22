@@ -1,7 +1,6 @@
 
 
 # Configure IPv6 subnets for EMR Serverless applications
-<a name="ipv6-subnets"></a>
 
 With Amazon EMR Serverless, you can run your Apache Spark and Apache Hive jobs over IPv6 in your Amazon Virtual Private Cloud (Amazon VPC). If you supply dual-stack (IPv4 and IPv6) or IPv6-only subnets, EMR Serverless runs your jobs using the addressing mode of those subnets. Your jobs can then reach IPv6 endpoints in your VPC and external IPv6 endpoints. IPv6-only subnets run over IPv6 automatically. For dual-stack subnets, you enable IPv6 with a configuration property, as described in [Configuring IPv6 properties](#ipv6-properties).
 
@@ -55,7 +54,7 @@ The following procedure creates a Spark application that uses dual-stack subnets
 
 The following AWS CLI command creates a Spark application with dual-stack subnets and enables IPv6:
 
-```
+```bash
 aws emr-serverless create-application \
 --type SPARK \
 --name {{my-application-name}} \
@@ -95,7 +94,7 @@ For IPv6-only subnets, omit `--runtime-configuration`. The application runs over
 
    The following AWS CLI command updates the application with the new subnets and the enablement property:
 
-   ```
+   ```bash
    aws emr-serverless update-application \
    --application-id {{application-id}} \
    --network-configuration '{
@@ -156,7 +155,7 @@ For more information about declaring `runtimeConfiguration` at the application l
 + IPv4-only and IPv6-only subnets cannot be mixed in one application.
 + Your job code and any SDKs, drivers, or endpoints it uses must support IPv6 when the application runs IPv6-only. With EMR Serverless, you get IPv6 connectivity; it does not modify your application code or third-party endpoints.
 
-## Troubleshooting
+## Troubleshooting IPv6 for EMR Serverless applications
 <a name="ipv6-troubleshooting"></a>
 
 This topic helps you diagnose and resolve common IPv6 networking issues with EMR Serverless applications, including DNS resolution failures, missing auto-assigned IPv6 addresses, unexpected IPv4 usage, and subnet validation errors. The following are symptoms you might see when running IPv6 jobs, and what to do about each.

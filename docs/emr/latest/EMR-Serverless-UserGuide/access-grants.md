@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Access Grants with EMR Serverless
-<a name="access-grants"></a>
 
 ## S3 Access Grants overview for EMR Serverless
 <a name="access-grants-overview"></a>
@@ -23,7 +22,7 @@ You can enable S3 Access Grants on EMR Serverless and launch a Spark application
 
 1. Set up a job execution role for your EMR Serverless application. Include the required IAM permissions that you must run Spark jobs and use S3 Access Grants, `s3:GetDataAccess` and `s3:GetAccessGrantsInstanceForPrefix`:
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Action": [
@@ -41,7 +40,7 @@ If you specify IAM roles for job execution that have additional permissions to a
 
 1. Launch your EMR Serverless application with an Amazon EMR release label of 6.15.0 or higher and the `spark-defaults` classification, as the following example shows. Replace the values in `{{red text}}` with the appropriate values for your usage scenario.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
      --application-id {{application-id}} \
      --execution-role-arn {{job-role-arn}} \

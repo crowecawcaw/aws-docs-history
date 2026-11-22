@@ -1,12 +1,11 @@
 
 
 # Using EMR Serverless with AWS Lake Formation for fine-grained access control
-<a name="emr-serverless-lf-enable"></a>
 
 ## Overview
 <a name="emr-serverless-lf-enable-overview"></a>
 
-With Amazon EMR releases 7.2.0 and higher, leverage AWS Lake Formation to apply fine-grained access controls on Data Catalog tables that are backed by S3. This capability lets you configure table, row, column, and cell level access controls for read queries within your Amazon EMR Serverless Spark jobs. To configure fine-grained access control for Apache Spark batch jobs and interactive sessions, use EMR Studio. Interactive Spark Connect sessions are also supported with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac). See the following sections to learn more about Lake Formation and how to use it with EMR Serverless.
+With Amazon EMR releases 7.2.0 and higher, leverage AWS Lake Formation to apply fine-grained access controls on Data Catalog tables that are backed by S3. This capability lets you configure table, row, column, and cell level access controls for read queries within your Amazon EMR Serverless Spark jobs. To configure fine-grained access control for Apache Spark batch jobs and interactive sessions, use EMR Studio. Interactive Spark Connect sessions are also supported with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac). With release `emr-7.14.0` and later, or `emr-spark-8.2.0` and later, you can also run Lake Formation-governed AWS Glue user-defined functions. For more information, see [Using user-defined functions with Lake Formation fine-grained access control](emr-serverless-lf-udf.md). See the following sections to learn more about Lake Formation and how to use it with EMR Serverless.
 
 Using Amazon EMR Serverless with AWS Lake Formation incurs additional charges. For more information, refer to [Amazon EMR pricing](https://aws.amazon.com/emr/pricing/).
 
@@ -33,9 +32,9 @@ The following is a high-level overview of how EMR Serverless gets access to data
 
 1. EMR Serverless sends the job to a user driver and runs the job in the user profile. The user driver runs a lean version of Spark that has no ability to launch tasks, request executors, access S3 or the Glue Catalog. It builds a job plan.
 
-1. EMR Serverless sets up a second driver called the system driver and runs it in the system profile (with a privileged identity). EMR Serverless sets up an encrypted TLS channel between the two drivers for communication. The user driver uses the channel to send the job plans to the system driver. The system driver does not run user-submitted code. It runs full Spark and communicates with S3, and the Data Catalog for data access. It request executors and compiles the Job Plan into a sequence of execution stages. 
+1. EMR Serverless sets up a second driver called the system driver and runs it in the system profile (with a privileged identity). EMR Serverless sets up an encrypted TLS channel between the two drivers for communication. The user driver uses the channel to send the job plans to the system driver. The system driver does not run user-submitted code. The exception is Lake Formation-governed user-defined functions that a Lake Formation row-level security policy or a Data Catalog view calls. For more information, see [Using user-defined functions with Lake Formation fine-grained access control](emr-serverless-lf-udf.md). It runs full Spark and communicates with S3, and the Data Catalog for data access. It request executors and compiles the Job Plan into a sequence of execution stages. 
 
-1. EMR Serverless then runs the stages on executors with the user driver or system driver. User code in any stage is run exclusively on user profile executors.
+1. EMR Serverless then runs the stages on executors with the user driver or system driver. User code in any stage is run exclusively on user profile executors. Lake Formation-governed user-defined functions that your query calls also run on user profile executors; those that a Lake Formation row-level security policy or a Data Catalog view calls run on system profile executors.
 
 1. Stages that read data from Data Catalog tables protected by AWS Lake Formation or those that apply security filters are delegated to system executors.
 
@@ -64,7 +63,7 @@ You can also enable Lake Formation when you create a new application in EMR Stud
 
 To enable Lake Formation for individual Spark jobs, set `spark.emr-serverless.lakeformation.enabled` to true when using `spark-submit`.
 
-```
+```bash,sh,zsh
 --conf spark.emr-serverless.lakeformation.enabled=true
 ```
 
@@ -80,7 +79,7 @@ The following is an example policy of how to provide IAM permissions to access a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

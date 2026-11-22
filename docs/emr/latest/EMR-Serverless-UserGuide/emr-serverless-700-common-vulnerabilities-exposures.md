@@ -1,7 +1,6 @@
 
 
 # 7.0.0 common vulnerabilities and exposures
-<a name="emr-serverless-700-common-vulnerabilities-exposures"></a>
 
 The following table lists all CVEs that don't impact EMR Serverless applications that run on recommended configurations of Amazon EMR 7.0.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 

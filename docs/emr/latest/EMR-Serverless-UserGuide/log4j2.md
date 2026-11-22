@@ -1,7 +1,6 @@
 
 
 # Configure Apache Log4j2 properties for Amazon EMR Serverless
-<a name="log4j2"></a>
 
 This page describes how to configure custom [Apache Log4j 2.x](https://logging.apache.org/log4j/2.x/) properties for EMR Serverless jobs at `StartJobRun`. If you want to configure Log4j classifications at the application level, refer to [Default application configuration for EMR Serverless](default-configs.md).
 
@@ -34,7 +33,7 @@ The following example shows how to submit a Spark job with `applicationConfigura
 
 To configure Log4j classifications at the application level instead of when you submit the job, refer to [Default application configuration for EMR Serverless](default-configs.md).
 
-```
+```bash,sh,zh
 aws emr-serverless start-job-run \
     --application-id application-id \
     --execution-role-arn job-role-arn \
@@ -78,7 +77,7 @@ The following code samples demonstrate how to create a Spark application while y
 
 **Example - Using Log4j2 for a Spark job with Python**  
 
-```
+```python
 import os
 import sys
 
@@ -107,7 +106,7 @@ if __name__ == "__main__":
 ```
 To customize Log4j2 for the driver when you execute a Spark job, use the following configuration:  
 
-```
+```python
 {
    "classification": "spark-driver-log4j2",
       "properties": {
@@ -123,7 +122,7 @@ To customize Log4j2 for the driver when you execute a Spark job, use the followi
 
 **Example - Using Log4j2 for a Spark job with Scala**  
 
-```
+```scala
 import org.apache.log4j.Logger
 import org.apache.spark.sql.SparkSession
 
@@ -146,7 +145,7 @@ object ExampleClass {
 ```
 To customize Log4j2 for the driver when you execute a Spark job, use the following configuration:  
 
-```
+```scala
 {
    "classification": "spark-driver-log4j2",
       "properties": {

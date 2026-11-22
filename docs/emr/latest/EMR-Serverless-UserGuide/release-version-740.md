@@ -1,7 +1,6 @@
 
 
 # EMR Serverless 7.4.0
-<a name="release-version-740"></a>
 
 The following table lists the application versions available with EMR Serverless 7.4.0.
 

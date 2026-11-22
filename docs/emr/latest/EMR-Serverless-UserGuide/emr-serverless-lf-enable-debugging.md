@@ -1,7 +1,6 @@
 
 
 # Debugging jobs and sessions
-<a name="emr-serverless-lf-enable-debugging"></a>
 
 **Note**  
 With this feature, access **stdout** and **stderr** logs for the system profile workers that may contain sensitive, unfiltered information. The following permission should be used only for accessing non-production data. For applications created for use with production jobs, we strongly suggest that you add these permissions only to administrators or users with elevated data access.

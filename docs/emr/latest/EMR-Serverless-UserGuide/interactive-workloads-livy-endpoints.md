@@ -1,7 +1,6 @@
 
 
 # Run interactive workloads with EMR Serverless through an Apache Livy endpoint
-<a name="interactive-workloads-livy-endpoints"></a>
 
 With Amazon EMR releases 6.14.0 and higher, create and enable an Apache Livy endpoint when creating an EMR Serverless application and run interactive workloads through your self-hosted notebooks or with a custom client. An Apache Livy endpoint offers the following benefits:
 + You can securely connect to an Apache Livy endpoint through Jupyter notebooks and manage Apache Spark workloads with Apache Livy's REST interface.
@@ -27,7 +26,7 @@ In addition to the required permissions to access EMR Serverless, also add the f
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -79,7 +78,7 @@ To create an Apache Livy-enabled application and run it, follow these steps.
 
 1. To create an Apache Livy-enabled application, run the following command.
 
-   ```
+   ```bash,sh,zsh
     aws emr-serverless create-application \
    --name {{my-application-name}} \ 
    --type '{{application-type}}' \
@@ -89,21 +88,21 @@ To create an Apache Livy-enabled application and run it, follow these steps.
 
 1. After EMR Serverless creates your application, start the application to make the Apache Livy endpoint available.
 
-   ```
+   ```bash,sh,zsh
     aws emr-serverless start-application \
     --application-id {{application-id}}
    ```
 
    Use the following command to check whether the status of your application. Once the status becomes `STARTED`, access the Apache Livy endpoint.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless get-application \
    --region {{<AWS_REGION>}} --application-id {{>application_id>}}
    ```
 
 1. Use the following URL to access the endpoint:
 
-   ```
+   ```bash,sh,zsh
    https://_{{<application-id>}}_.livy.emr-serverless-services._{{<AWS_REGION>}}_.amazonaws.com
    ```
 
@@ -116,7 +115,7 @@ Once the endpoint is ready, submit workloads based on your use case. You must si
 
 To create an Apache Livy session, submit `emr-serverless.session.executionRoleArn` in the `conf` parameter of your request body. The following example is a sample `POST /sessions` request.
 
-```
+```bash,sh,zsh
 {    
     "kind": "pyspark",
     "heartbeatTimeoutInSecond": 60, 
@@ -148,13 +147,13 @@ You can also send requests directly to the Apache Livy endpoint from an HTTP cli
 
 Before you start sending requests to the endpoint, make sure that you've installed the following libraries:
 
-```
+```bash,sh,zsh
 pip3 install botocore awscrt requests
 ```
 
 The following is a sample Python script to send HTTP requests directly to an endpoint:
 
-```
+```bash,sh,zsh
 from botocore import crt
 import requests 
 from botocore.awsrequest import AWSRequest
@@ -283,19 +282,19 @@ Before you install sparkmagic, make sure that you have configured AWS credential
 
 1. Install the EMR Serverless custom authenticator.
 
-   ```
+   ```bash,sh,zsh
    pip install emr-serverless-customauth
    ```
 
 1. Now provide the path to the custom authenticator and the Apache Livy endpoint URL in the sparkmagic configuration json file. Use the following command to open the configuration file.
 
-   ```
+   ```bash,sh,zsh
    vim ~/.sparkmagic/config.json
    ```
 
    The following is a sample `config.json` file.
 
-   ```
+   ```bash,sh,zsh
    {
    "kernel_python_credentials" : {
        "username": "",
@@ -324,7 +323,7 @@ Before you install sparkmagic, make sure that you have configured AWS credential
 
 1. You can then run the following notebook commands and your code to get started.
 
-   ```
+   ```bash,sh,zsh
    %%info //Returns the information about the current sessions.
    ```
 

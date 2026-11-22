@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for EMR Serverless
-<a name="using-service-linked-roles"></a>
 
 Amazon EMR Serverless uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to EMR Serverless. Service-linked roles are predefined by EMR Serverless and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -24,7 +23,9 @@ The role permissions policy named `AmazonEMRServerlessServiceRolePolicy` allows 
 **Note**  
 Managed policy contents change, so the policy shown here might be out of date. View the most up-to-date policy [AmazonEMRServerlessServiceRolePolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRServerlessServiceRolePolicy) in the AWS Management Console.
 + Action: `ec2:CreateNetworkInterface`
++ Action: `ec2:CreateNetworkInterfacePermission`
 + Action: `ec2:DeleteNetworkInterface`
++ Action: `ec2:DeleteNetworkInterfacePermission`
 + Action: `ec2:DescribeNetworkInterfaces`
 + Action: `ec2:DescribeSecurityGroups`
 + Action: `ec2:DescribeSubnets`
@@ -40,7 +41,7 @@ The following is the full `AmazonEMRServerlessServiceRolePolicy` policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -92,7 +93,7 @@ The following trust policy is attached to this role to allow the EMR Serverless 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="emr-serverless-lf-enable-considerations"></a>
 
 ## General
 <a name="emr-s-lf-considerations"></a>
@@ -12,6 +11,10 @@ Review the following limitations when using Lake Formation with EMR Serverless.
 When you enable Lake Formation for a Spark job on EMR Serverless, the job launches a system driver and a user driver. If you specified pre-initialized capacity at launch, the drivers provision from the pre-initialized capacity, and the number of system drivers is equal to the number of user drivers that you specify. If you choose On Demand capacity, EMR Serverless launches a system driver in addition to a user driver. To estimate the costs associated with your EMR Serverless with Lake Formation job, use the [AWS Pricing Calculator](https://calculator.aws/#/addService/EMR).
 + Amazon EMR Serverless with Lake Formation is available in all supported [EMR Serverless Regions](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/considerations.html).
 + Starting with Amazon EMR 7.14.0, Lake Formation-enabled applications support the use of [custom EMR Serverless images](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-custom-image.html) in the user space only. The system space, which enforces Lake Formation policies, continues to use the default EMR Serverless base image. This support also applies to the AWS runtime for Apache Spark 8.x release line beginning with `emr-spark-8.1.0`. Custom images with Lake Formation aren’t supported on Amazon EMR 7.13.0 and earlier releases, or on `emr-spark-8.0.0`.
++ Lake Formation-governed user-defined functions are supported with release `emr-7.14.0` and later, or `emr-spark-8.2.0` and later.
++ An application, job run, or session can declare up to 10 governed user-defined functions, in the same AWS Region and partition as the application.
++ Every declared user-defined function must have `SELECT` on each table that the job run or session reads with fine-grained access control.
++ Revoking Lake Formation permissions on a governed user-defined function doesn't stop running job runs and sessions immediately. To stop access fastest, cancel the job runs and sessions that declare the user-defined function. Revoking the user-defined function's `SELECT` on a table applies to new data access requests, and temporary credentials that Lake Formation already issued remain valid until they expire. Revoking `EXECUTE` from the job runtime role takes effect when the current authorization expires, after at most 1 hour. For details, see [Security considerations](emr-serverless-lf-udf.md#emr-serverless-lf-udf-security).
 + You can't turn off `DynamicResourceAllocation` for Lake Formation jobs.
 + You can use Lake Formation with Spark batch jobs, interactive Spark Connect sessions, and Livy sessions. Fine-grained access control for Spark Connect sessions is supported starting with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac).
 + EMR Serverless with Lake Formation only supports a single Spark session throughout a job. For an interactive Spark Connect session, this means that only one client can connect and run queries against a Lake Formation-enabled session, because the system profile is bound to the first client's remote Spark session UUID.
@@ -21,7 +24,7 @@ When you enable Lake Formation for a Spark job on EMR Serverless, the job launch
   + Spark streaming
   + Access control for nested columns
 + EMR Serverless blocks functionalities that might undermine the complete isolation of system driver, including the following:
-  + UDTs, HiveUDFs, and any user-defined function that involves custom classes
+  + UDTs, HiveUDFs, and any user-defined function that involves custom classes. Starting with release `emr-7.14.0` and later, or `emr-spark-8.2.0` and later, Lake Formation-governed AWS Glue user-defined functions that you declare in `spark.aws.lakeformation.artifacts` are supported. For more information, see [Using user-defined functions with Lake Formation fine-grained access control](emr-serverless-lf-udf.md).
   + Custom data sources
   + Supply of additional jars for Spark extension, connector, or metastore
   + `ANALYZE TABLE` command
@@ -50,6 +53,7 @@ When you enable Lake Formation for a Spark job on EMR Serverless, the job launch
 <a name="emr-s-lf-debug-logs"></a>
 + EMR Serverless restricts access to system driver Spark logs on Lake Formation-enabled applications. Since the system driver runs with elevated permissions, events and logs that the system driver generates can include sensitive information. To prevent unauthorized users or code from accessing this sensitive data, EMR Serverless disables access to system driver logs.
 + System profile logs are always persisted in managed storage – this is a mandatory setting that cannot be disabled. These logs are stored securely and encrypted using either a Customer Managed KMS key or an AWS Managed KMS keys.
++ System profile logs can include output from governed user-defined functions. For more information, see [Security considerations](emr-serverless-lf-udf.md#emr-serverless-lf-udf-security).
 
 ## Iceberg
 <a name="emr-s-lf-iceberg"></a>

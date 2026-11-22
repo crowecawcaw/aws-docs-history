@@ -1,14 +1,13 @@
 
 
 # Encrypting logs
-<a name="jobs-log-encryption"></a>
 
 ## Encrypting EMR Serverless logs with managed storage
 <a name="jobs-log-encryption-managed-storage"></a>
 
 To encrypt logs in managed storage with your own KMS key, use the `managedPersistenceMonitoringConfiguration` configuration when you submit a job run.
 
-```
+```literal
 {
     "monitoringConfiguration": {
         "managedPersistenceMonitoringConfiguration" : {
@@ -23,7 +22,7 @@ To encrypt logs in managed storage with your own KMS key, use the `managedPersis
 
 To encrypt logs in your Amazon S3 bucket with your own KMS key, use the `s3MonitoringConfiguration` configuration when you submit a job run.
 
-```
+```literal
 {
     "monitoringConfiguration": {
         "s3MonitoringConfiguration": {
@@ -39,7 +38,7 @@ To encrypt logs in your Amazon S3 bucket with your own KMS key, use the `s3Monit
 
 To encrypt logs in Amazon CloudWatch with your own KMS key, use the `cloudWatchLoggingConfiguration` configuration when you submit a job run.
 
-```
+```literal
 {
     "monitoringConfiguration": {
         "cloudWatchLoggingConfiguration": {
@@ -67,7 +66,7 @@ The user who submits the job or views the logs or the application UIs must have 
 
 The following key policy provides the permissions to `kms:GenerateDataKey` and `kms:Decrypt`:
 
-```
+```literal
 {
     "Effect": "Allow",
     "Principal":{
@@ -90,7 +89,7 @@ The following IAM policy provides the permissions to `kms:GenerateDataKey` and `
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -118,7 +117,7 @@ To launch the Spark or Tez UI, give your users, groups, or roles permissions to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -145,7 +144,7 @@ When you encrypt logs with your own encryption key either in managed storage or 
 
 The `emr-serverless.amazonaws.com` principal must have the following permissions in the policy for the KMS key:
 
-```
+```literal
 {
     "Effect": "Allow",
     "Principal":{
@@ -173,7 +172,7 @@ The job runtime role must have the following permissions in its IAM policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -204,7 +203,7 @@ To associate the KMS key ARN to your log group, use the following IAM policy for
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -231,7 +230,7 @@ Configure the KMS key policy to grant KMS permissions to Amazon CloudWatch:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "key-default-1",

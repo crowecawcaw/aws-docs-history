@@ -1,7 +1,6 @@
 
 
 # Streaming job log management
-<a name="jobs-spark-streaming-log-management"></a>
 
 Streaming jobs support log rotation for Spark application logs and event logs, and log compaction for Spark event logs. This helps you manage your resources effectively.
 

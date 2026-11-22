@@ -1,7 +1,6 @@
 
 
 # Run interactive sessions with Amazon EMR Serverless through Spark Connect
-<a name="spark-connect"></a>
 
 With Amazon EMR release `emr-7.13.0` and later, you can connect to an Amazon EMR Serverless application from self-managed PySpark clients such as VS Code, PyCharm, and Jupyter notebooks using the EMR Serverless session APIs with Apache Spark Connect. Spark Connect uses a client-server architecture that decouples your application code from the Spark driver process. You develop and debug PySpark code in your local IDE while Spark operations run on EMR Serverless compute. Spark Connect offers the following benefits:
 + Connect to EMR Serverless from any PySpark client, including VS Code, PyCharm, and Jupyter notebooks.
@@ -35,7 +34,7 @@ Grants permission to access the IAM execution role when creating the Spark Conne
 `emr-serverless:GetResourceDashboard`  
 Grants permission to generate the Spark UI URL and provides access to the logs for the session.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -91,7 +90,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 1. Create an application with Spark Connect sessions.
 
-   ```
+   ```bash
    aws emr-serverless create-application \
      --type "SPARK" \
      --name "spark-connect-app" \
@@ -101,21 +100,21 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 1. After Amazon EMR Serverless creates your application, start the application if you have not enabled auto-start to accept Spark Connect sessions.
 
-   ```
+   ```bash
    aws emr-serverless start-application \
      --application-id {{APPLICATION_ID}}
    ```
 
 1. Use the following command to check the status of your application. After the status becomes `STARTED`, start a session.
 
-   ```
+   ```bash
    aws emr-serverless get-application \
      --application-id {{APPLICATION_ID}}
    ```
 
 1. Start a session with an IAM execution role that grants access to your data.
 
-   ```
+   ```bash
    aws emr-serverless start-session \
      --application-id {{APPLICATION_ID}} \
      --execution-role-arn arn:aws:iam::{{account-id}}:role/{{EMRServerlessExecutionRole}}
@@ -123,7 +122,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 1. Monitor the session state using the `get-session` API and wait for the session to be in `STARTED` or `IDLE` state.
 
-   ```
+   ```bash
    aws emr-serverless get-session \
      --application-id {{APPLICATION_ID}} \
      --session-id {{SESSION_ID}}
@@ -131,7 +130,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 1. Retrieve the Spark Connect endpoint and authentication token. The endpoint URL returned by `GetSessionEndpoint` does not include a port number. When constructing the `sc://` connection URL, you must append `:443` — for example, `sc://`{{hostname}}`:443/;use_ssl=true;x-aws-proxy-auth=`{{token}}. Without it, the PySpark client defaults to port 15002, which is not reachable on EMR Serverless.
 
-   ```
+   ```bash
    aws emr-serverless get-session-endpoint \
      --application-id {{APPLICATION_ID}} \
      --session-id {{SESSION_ID}}
@@ -139,7 +138,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
    The response includes the endpoint URL and an authentication token:
 
-   ```
+   ```json
    {
      "endpoint": "{{ENDPOINT_URL}}",
      "authToken": "{{AUTH_TOKEN}}",
@@ -149,7 +148,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 1. After the endpoint is ready, connect from a PySpark client. Install the PySpark client that matches the Spark version on your EMR Serverless application, and the AWS SDK for Python.
 
-   ```
+   ```bash
    # Match the PySpark version to your EMR Serverless release version (3.5.6 for emr-7.13.0)
    pip install pyspark[connect]==3.5.6
    pip install boto3
@@ -157,7 +156,7 @@ To create a Spark Connect-enabled application and connect to it, follow these st
 
 The following is a sample Python script to start a session and send requests directly to the session endpoint:
 
-```
+```python
 import boto3
 import time
 from pyspark.sql import SparkSession
@@ -230,7 +229,7 @@ print(f"Session {session_id} terminated.")
 
 To access the live Spark UI or Spark History Server for a session, use the `GetResourceDashboard` API.
 
-```
+```python
 response = client.get_resource_dashboard(
     applicationId=APPLICATION_ID,
     resourceId=session_id,
@@ -250,7 +249,7 @@ Enable Lake Formation for a session in one of the following ways:
 + Start the session on an application that already has Lake Formation enabled. For more information, see [Enabling Lake Formation in Amazon EMR](emr-serverless-lf-enable.md#emr-serverless-lf-enable-config).
 + Set `spark.emr-serverless.lakeformation.enabled` to `true` under the `spark-defaults` classification when you start the session.
 
-  ```
+  ```bash
   aws emr-serverless start-session \
     --application-id APPLICATION_ID \
     --execution-role-arn EXECUTION_ROLE_ARN \
@@ -265,6 +264,8 @@ Enable Lake Formation for a session in one of the following ways:
       ]
     }'
   ```
+
+With release `emr-7.14.0` and later, or `emr-spark-8.2.0` and later, you can also use Lake Formation-governed AWS Glue user-defined functions in a Spark Connect session. Declare them in `spark.aws.lakeformation.artifacts` when you start the session. For more information, see [Using user-defined functions with Lake Formation fine-grained access control](emr-serverless-lf-udf.md).
 
 The considerations and limitations that apply to EMR Serverless with Lake Formation also apply to Spark Connect sessions. For more information, see [Considerations and limitations](emr-serverless-lf-enable-considerations.md).
 

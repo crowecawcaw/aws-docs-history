@@ -1,7 +1,6 @@
 
 
 # EMR Serverless 6.11.0
-<a name="release-version-6110"></a>
 
 The following table lists the application versions available with EMR Serverless 6.11.0.
 

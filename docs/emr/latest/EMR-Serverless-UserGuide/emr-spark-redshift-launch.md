@@ -1,7 +1,6 @@
 
 
 # Launching a Spark application with the Amazon Redshift integration for Apache Spark
-<a name="emr-spark-redshift-launch"></a>
 
 To use the integration with EMR Serverless 6.9.0, pass the required Spark-Redshift dependencies with your Spark job. Use `--jars` to include Redshift connector related libraries. To access other file locations supported by the `--jars` option, refer to the [Advanced Dependency Management](https://spark.apache.org/docs/latest/submitting-applications.html#advanced-dependency-management) section of the Apache Spark documentation. 
 + `spark-redshift.jar`
@@ -16,7 +15,7 @@ Amazon EMR releases 6.10.0 and higher don't require the `minimal-json.jar` depen
 
 Launch a Spark job on Amazon EMR Serverless with the Amazon Redshift integration for Apache Spark on EMR Serverless release 6.10.0 and higher.
 
-```
+```bash
 spark-submit my_script.py
 ```
 
@@ -33,7 +32,7 @@ To launch a Spark job on Amazon EMR Serverless with the Amazon Redshift integrat
     /usr/share/aws/redshift/spark-redshift/lib/minimal-json.jar
 ```
 
-```
+```bash
 spark-submit \
   --jars /usr/share/aws/redshift/jdbc/RedshiftJDBC.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-redshift.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-avro.jar,/usr/share/aws/redshift/spark-redshift/lib/minimal-json.jar \
   my_script.py

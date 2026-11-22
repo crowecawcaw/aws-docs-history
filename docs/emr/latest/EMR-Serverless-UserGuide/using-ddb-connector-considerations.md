@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="using-ddb-connector-considerations"></a>
 
 Note these behaviors and limitations when you use the DynamoDB connector with Apache Spark or Apache Hive.
 

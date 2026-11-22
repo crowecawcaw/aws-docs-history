@@ -1,7 +1,6 @@
 
 
 # Considerations for EMR Serverless Trusted-Identity-Propagation integration
-<a name="security-iam-service-trusted-prop-considerations-limitations"></a>
 
 Consider the following when you use IAM Identity Center Trusted-Identity-Propagation with EMR Serverelss Application:
 + Trusted Identity Propagation through Identity Center is supported on Amazon EMR 7.8.0 and higher, and only with Apache Spark.

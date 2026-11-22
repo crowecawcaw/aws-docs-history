@@ -1,7 +1,6 @@
 
 
 # Using Apache Hudi with EMR Serverless
-<a name="using-hudi"></a>
 
 This section describes using Apache Hudi with EMR Serverless applications. Hudi is a data-management framework that makes data processing more simple.
 

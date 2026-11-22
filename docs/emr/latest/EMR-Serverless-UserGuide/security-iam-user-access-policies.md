@@ -1,7 +1,6 @@
 
 
 # User access policy examples for EMR Serverless
-<a name="security-iam-user-access-policies"></a>
 
 You can set up fine-grained policies for your users depending on the actions you want each user to perform when interacting with EMR Serverless applications. The following policies are examples that might help in setting up the appropriate permissions for your users. This section focuses only on EMR Serverless policies. For samples of EMR Studio user policies, refer to [Configure EMR Studio user permissions](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-permissions.html#emr-studio-advanced-permissions-policy). For information about how to attach policies to IAM users (principals), refer to [ Managing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html) in the IAM User Guide.
 
@@ -17,7 +16,7 @@ The following is a sample policy that allows power users to create and modify EM
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -57,7 +56,7 @@ We strongly recommend setting this policy to ensure that users cannot create EC2
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -127,7 +126,7 @@ This following is a sample policy that allows users read-only permissions on EMR
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -163,7 +162,7 @@ You can use tag conditions for fine-grained access control. For example, you can
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

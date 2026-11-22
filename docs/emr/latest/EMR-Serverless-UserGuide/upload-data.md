@@ -1,7 +1,6 @@
 
 
 # Get data into S3 Express One Zone with EMR Serverless
-<a name="upload-data"></a>
 
 With Amazon EMR releases 7.2.0 and higher, use EMR Serverless with the [Amazon S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone.html) storage class for improved performance when you run jobs and workloads. S3 Express One Zone is a a high-performance, single-zone Amazon S3 storage class that delivers consistent, single-digit millisecond data access for most latency-sensitive applications. At the time of its release, S3 Express One Zone delivers the lowest latency and highest performance cloud object storage in Amazon S3.
 
@@ -12,7 +11,7 @@ With Amazon EMR releases 7.2.0 and higher, use EMR Serverless with the [Amazon S
 
 To change the `s3` scheme, specify the following cluster configurations: 
 
-```
+```json
 [
   {
     "Classification": "core-site",
@@ -26,7 +25,7 @@ To change the `s3` scheme, specify the following cluster configurations:
 
 To change the `s3n` scheme, specify the following cluster configurations: 
 
-```
+```json
 [
   {
     "Classification": "core-site",
@@ -56,7 +55,7 @@ Follow these steps to get started with S3 Express One Zone.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -78,7 +77,7 @@ Follow these steps to get started with S3 Express One Zone.
 
 1. Run your job. Note that use the `S3A` scheme to access S3 Express One Zone buckets.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \      
    --application-id {{<application-id>}} \          
    --execution-role-arn {{<job-role-arn>}} \

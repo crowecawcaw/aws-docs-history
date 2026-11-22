@@ -1,7 +1,6 @@
 
 
 # Enabling Job Level Cost Allocation
-<a name="jobs-job-level-cost-allocation"></a>
 
 Job level cost allocation enables granular billing attribution for EMR Serverless at the individual job run level, rather than aggregating all costs at the application level. When enabled, you can filter and track costs in AWS Cost Explorer and Cost and Usage Reports by specific job run IDs and tags associated with job runs, providing better visibility into charges for job runs submitted.
 
@@ -17,7 +16,7 @@ You can configure job-level cost allocation during application creation or updat
 
 Specify the `jobLevelCostAllocation` parameter when creating a new application:
 
-```
+```bash,sh,zsh
 # Enable job-level cost allocation:
 aws emr-serverless create-application \
     --name "my-application" \
@@ -39,7 +38,7 @@ aws emr-serverless create-application \
 
 Update the `jobLevelCostAllocationConfiguration` parameter for an existing application:
 
-```
+```bash,sh,zsh
 # Enable job-level cost allocation:
 aws emr-serverless update-application \
     --application-id <application-id> \

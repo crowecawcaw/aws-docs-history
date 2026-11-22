@@ -1,7 +1,6 @@
 
 
 # Other considerations
-<a name="considerations"></a>
 
 The following list contains other considerations with EMR Serverless.
 + EMR Serverless is available in the following AWS Regions:

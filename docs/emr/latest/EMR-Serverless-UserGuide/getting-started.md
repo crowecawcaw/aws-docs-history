@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EMR Serverless
-<a name="getting-started"></a>
 
 This tutorial helps you get started with EMR Serverless when you deploy a sample Spark or Hive workload. You'll create, run, and debug your own application. We show default options in most parts of this tutorial.
 
@@ -55,7 +54,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -126,7 +125,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -163,7 +162,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -188,7 +187,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 1. Create an IAM role named `EMRServerlessS3RuntimeRole`. Use the trust policy that you created in the previous step.
 
-   ```
+   ```bash,sh,zsh
    aws iam create-role \
        --role-name EMRServerlessS3RuntimeRole \
        --assume-role-policy-document file://emr-serverless-trust-policy.json
@@ -205,7 +204,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -265,7 +264,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 1. Create an IAM policy named `EMRServerlessS3AndGlueAccessPolicy` with the policy file that you created in **Step 3**. Take note of the ARN in the output, as you will use the ARN of the new policy in the next step. 
 
-   ```
+   ```bash,sh,zsh
    aws iam create-policy \
        --policy-name EMRServerlessS3AndGlueAccessPolicy \
        --policy-document file://emr-sample-access-policy.json
@@ -275,7 +274,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 1. Attach the IAM policy `EMRServerlessS3AndGlueAccessPolicy` to the job runtime role `EMRServerlessS3RuntimeRole`.
 
-   ```
+   ```bash,sh,zsh
    aws iam attach-role-policy \
        --role-name EMRServerlessS3RuntimeRole \
        --policy-arn {{policy-arn}}

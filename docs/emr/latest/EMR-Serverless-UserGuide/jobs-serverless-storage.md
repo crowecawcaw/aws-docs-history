@@ -1,7 +1,6 @@
 
 
 # Using serverless storage for Amazon EMR Serverless
-<a name="jobs-serverless-storage"></a>
 
 With Amazon EMR releases 7.12 and higher, use serverless storage when you run Apache Spark jobs to eliminate local disk provisioning and reduce data processing costs, and prevent job failures from disk capacity constraints. Serverless storage automatically handles shuffle, disk spill, and disk caching operations for your jobs without requiring capacity configuration and stores intermediate data at no cost. Amazon EMR Serverless stores intermediate data in a fully managed serverless storage that scales automatically based on workload demands and enables Spark to release compute workers immediately when idle, reducing compute costs.
 
@@ -24,7 +23,7 @@ See the following steps to use serverless storage for EMR Serverless in your Spa
 
    Create an EMR Serverless release 7.12 (or later) application with serverless storage enabled by setting the spark property `spark.aws.serverlessStorage.enabled` to **true** in the spark-defaults classification.
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless create-application \
      --type "SPARK" \
      --name {{my-application}} \
@@ -42,7 +41,7 @@ See the following steps to use serverless storage for EMR Serverless in your Spa
 
    Start a job run on your application. Serverless storage for EMR Serverless automatically handles intermediate data operation such as shuffle for your job. 
 
-   ```
+   ```bash,sh,zsh
    aws emr-serverless start-job-run \
      --application-id {{<application-id>}} \
      --execution-role-arn {{<job-role-arn>}} \

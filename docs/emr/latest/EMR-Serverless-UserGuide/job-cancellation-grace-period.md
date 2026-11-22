@@ -1,7 +1,6 @@
 
 
 # EMR Serverless job run cancellation with grace period
-<a name="job-cancellation-grace-period"></a>
 
 In data processing systems, abrupt terminations can lead to resource waste, incomplete operations, and potential data inconsistencies. Amazon EMR Serverless allows you to specify a grace period when canceling job runs. This feature allows time for proper cleanup and completion of in-progress work before job termination.
 
@@ -37,7 +36,7 @@ To implement graceful shutdown for batch jobs, follow these steps:
 ------
 #### [ Example in Scala ]
 
-   ```
+   ```scala
    import org.apache.hadoop.util.ShutdownHookManager
    
    // Register shutdown hook with priority (second argument)
@@ -52,7 +51,7 @@ To implement graceful shutdown for batch jobs, follow these steps:
 ------
 #### [ Example in PySpark ]
 
-   ```
+   ```python
    import atexit
    
    def cleanup():
@@ -69,7 +68,7 @@ To implement graceful shutdown for batch jobs, follow these steps:
 
    **Example**
 
-   ```
+   ```shell
    # Default (immediate termination)
    aws emr-serverless cancel-job-run \
      --application-id {{APPLICATION_ID}} \
@@ -106,7 +105,7 @@ Specify a grace period when canceling the job to allow time for the ongoing micr
 
 **Example**
 
-```
+```shell
 # Default graceful shutdown (120 seconds)
 aws emr-serverless cancel-job-run \
   --application-id {{APPLICATION_ID}} \

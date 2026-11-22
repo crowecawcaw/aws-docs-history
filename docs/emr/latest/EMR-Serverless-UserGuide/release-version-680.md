@@ -1,7 +1,6 @@
 
 
 # EMR Serverless 6.8.0
-<a name="release-version-680"></a>
 
 The following table lists the application versions available with EMR Serverless 6.8.0.
 

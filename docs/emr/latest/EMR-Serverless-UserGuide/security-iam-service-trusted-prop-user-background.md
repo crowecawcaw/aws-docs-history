@@ -1,7 +1,6 @@
 
 
 # User background sessions
-<a name="security-iam-service-trusted-prop-user-background"></a>
 
 User background sessions enable long-running analytics and machine learning flows to continue even after the user has logged off from their notebook interface. This capability is implemented through EMR Serverless integration with IAM Identity Center's trusted identity propagation feature. This section explains the configuration options and behaviors for user background sessions.
 
