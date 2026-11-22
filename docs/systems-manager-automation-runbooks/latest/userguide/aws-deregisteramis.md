@@ -1,7 +1,6 @@
 
 
 # `AWS-DeregisterAMIs`
-<a name="aws-deregisteramis"></a>
 
  **Description** 
 

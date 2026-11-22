@@ -1,7 +1,6 @@
 
 
 # `AWS-StopRdsInstance`
-<a name="automation-aws-stoprdsinstance"></a>
 
  **Description** 
 

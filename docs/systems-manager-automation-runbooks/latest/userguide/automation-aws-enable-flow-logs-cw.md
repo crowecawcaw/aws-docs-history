@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableVPCFlowLogsToCloudWatch`
-<a name="automation-aws-enable-flow-logs-cw"></a>
 
  **Description** 
 

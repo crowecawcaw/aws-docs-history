@@ -1,7 +1,6 @@
 
 
 # `AWS-SetupJupyter`
-<a name="aws-setup-jupyter"></a>
 
  **Description** 
 

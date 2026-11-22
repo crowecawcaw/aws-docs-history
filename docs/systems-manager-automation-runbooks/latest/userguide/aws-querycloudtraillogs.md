@@ -1,7 +1,6 @@
 
 
 # `AWS-QueryCloudTrailLogs`
-<a name="aws-querycloudtraillogs"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudTrailEncryptionWithKMS`
-<a name="automation-aws-ctrail-kms"></a>
 
  **Description** 
 

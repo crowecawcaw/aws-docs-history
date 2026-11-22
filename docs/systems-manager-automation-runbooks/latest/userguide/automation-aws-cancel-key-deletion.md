@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-CancelKeyDeletion`
-<a name="automation-aws-cancel-key-deletion"></a>
 
  **Description** 
 

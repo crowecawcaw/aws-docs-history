@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteRDSCluster`
-<a name="automation-aws-delete-rds-cluster"></a>
 
  **Description** 
 

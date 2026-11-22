@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ActivateWindowsWithAmazonLicense`
-<a name="automation-awssupport-activatewindowswithamazonlicense"></a>
 
  **Description** 
 

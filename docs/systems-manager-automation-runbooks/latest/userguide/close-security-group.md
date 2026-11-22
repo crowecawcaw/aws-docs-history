@@ -1,7 +1,6 @@
 
 
 # `AWS-CloseSecurityGroup`
-<a name="close-security-group"></a>
 
  **Description** 
 

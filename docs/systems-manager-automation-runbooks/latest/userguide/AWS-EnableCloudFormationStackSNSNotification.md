@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCloudFormationSNSNotification`
-<a name="AWS-EnableCloudFormationStackSNSNotification"></a>
 
  **Description** 
 

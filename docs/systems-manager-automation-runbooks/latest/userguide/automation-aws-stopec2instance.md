@@ -1,7 +1,6 @@
 
 
 # `AWS-StopEC2Instance`
-<a name="automation-aws-stopec2instance"></a>
 
 **Description**
 

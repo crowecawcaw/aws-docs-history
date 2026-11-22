@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRedshiftClusterEncryption`
-<a name="automation-aws-enable-redshift-encrypt"></a>
 
  **Description** 
 

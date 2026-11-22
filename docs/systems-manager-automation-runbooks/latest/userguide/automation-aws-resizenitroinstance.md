@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-ResizeNitroInstance`
-<a name="automation-aws-resizenitroinstance"></a>
 
  **Description** 
 

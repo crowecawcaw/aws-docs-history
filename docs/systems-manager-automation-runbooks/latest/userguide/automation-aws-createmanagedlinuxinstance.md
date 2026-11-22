@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateManagedLinuxInstance`
-<a name="automation-aws-createmanagedlinuxinstance"></a>
 
  **Description** 
 

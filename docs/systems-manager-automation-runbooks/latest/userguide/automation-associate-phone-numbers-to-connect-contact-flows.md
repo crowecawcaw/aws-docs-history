@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-AssociatePhoneNumbersToConnectContactFlows`
-<a name="automation-associate-phone-numbers-to-connect-contact-flows"></a>
 
  **Description** 
 
@@ -43,7 +42,7 @@ Linux, macOS, Windows
 
 The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-```
+```json
         {
             "Statement": [
                 {
@@ -123,7 +122,7 @@ If providing `LambdaRoleArn` parameter, the role requires the following actions 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

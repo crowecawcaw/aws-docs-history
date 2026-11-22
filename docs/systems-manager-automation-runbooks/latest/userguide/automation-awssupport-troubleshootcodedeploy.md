@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootCodeDeploy`
-<a name="automation-awssupport-troubleshootcodedeploy"></a>
 
  **Description** 
 

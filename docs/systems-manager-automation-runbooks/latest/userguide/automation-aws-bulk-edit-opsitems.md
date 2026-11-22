@@ -1,7 +1,6 @@
 
 
 # `AWS-BulkEditOpsItems`
-<a name="automation-aws-bulk-edit-opsitems"></a>
 
  **Description** 
 

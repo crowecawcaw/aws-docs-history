@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteIAMUser`
-<a name="automation-aws-delete-iam-user"></a>
 
  **Description** 
 

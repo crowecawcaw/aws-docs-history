@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DisablePublicAccessToRDSInstance`
-<a name="automation-aws-disable-rds-instance-public-access"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-StartStopAuroraCluster`
-<a name="start-stop-aurora-cluster"></a>
 
 **Description**
 

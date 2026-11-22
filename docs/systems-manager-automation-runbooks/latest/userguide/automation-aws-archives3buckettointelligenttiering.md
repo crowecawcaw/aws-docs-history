@@ -1,7 +1,6 @@
 
 
 # `AWS-ArchiveS3BucketToIntelligentTiering`
-<a name="automation-aws-archives3buckettointelligenttiering"></a>
 
  **Description** 
 

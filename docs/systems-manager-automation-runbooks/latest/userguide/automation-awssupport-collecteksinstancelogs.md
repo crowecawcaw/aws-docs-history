@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CollectEKSInstanceLogs`
-<a name="automation-awssupport-collecteksinstancelogs"></a>
 
  **Description** 
 

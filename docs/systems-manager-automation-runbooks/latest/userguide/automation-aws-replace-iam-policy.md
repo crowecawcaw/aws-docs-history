@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ReplaceIAMInlinePolicy`
-<a name="automation-aws-replace-iam-policy"></a>
 
  **Description** 
 

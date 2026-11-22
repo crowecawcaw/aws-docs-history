@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCloudTrailKmsEncryption`
-<a name="enable-cloudtrail-kms-encryption"></a>
 
 **Description**
 

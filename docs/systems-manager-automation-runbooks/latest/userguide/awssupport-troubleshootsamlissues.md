@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootSAMLIssues`
-<a name="awssupport-troubleshootsamlissues"></a>
 
  **Description** 
 
@@ -54,7 +53,7 @@ Example Policy:
 
 ****  
 
-```
+```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [

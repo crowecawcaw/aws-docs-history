@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteRedshiftCluster`
-<a name="automation-aws-delete-redshift"></a>
 
  **Description** 
 

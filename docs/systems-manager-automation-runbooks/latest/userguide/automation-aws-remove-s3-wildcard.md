@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RemovePrincipalStarFromS3BucketPolicy`
-<a name="automation-aws-remove-s3-wildcard"></a>
 
  **Description** 
 

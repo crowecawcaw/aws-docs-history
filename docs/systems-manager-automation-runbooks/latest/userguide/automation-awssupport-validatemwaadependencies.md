@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ValidateMWAADependencies`
-<a name="automation-awssupport-validatemwaadependencies"></a>
 
  **Description** 
 

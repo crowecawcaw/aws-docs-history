@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DropInvalidHeadersForALB`
-<a name="automation-aws-drop-alb-headers"></a>
 
  **Description** 
 

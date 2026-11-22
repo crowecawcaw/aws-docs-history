@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootPatchManagerLinux`
-<a name="automation-troubleshoot-patch-manager-linux"></a>
 
  **Description** 
 

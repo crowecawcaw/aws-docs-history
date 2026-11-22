@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRDSInstanceDeletionProtection`
-<a name="automation-aws-enable-rds-instance-deletion-protection"></a>
 
  **Description** 
 

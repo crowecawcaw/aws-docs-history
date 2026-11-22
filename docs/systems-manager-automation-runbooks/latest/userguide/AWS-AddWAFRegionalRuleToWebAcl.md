@@ -1,7 +1,6 @@
 
 
 # `AWS-AddWAFRegionalRuleToWebAcl`
-<a name="AWS-AddWAFRegionalRuleToWebAcl"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service
-<a name="automation-ref-opensearch"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon OpenSearch Service. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -11,3 +10,6 @@
 + [`AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups`](automation-aws-update-opensearch-security-group.md)
 + [`AWSSupport-TroubleshootOpenSearchRedYellowCluster`](automation-troubleshoot-opensearch-red-yellow-cluster.md)
 + [`AWSSupport-TroubleshootOpenSearchHighCPU`](automation-troubleshoot-opensearch-high-cpu.md)
++ [`AWSSupportRemediator-EnforceOpenSearchEncryptionWithLatestPolicy`](automation-awssupportremediator-enforceopensearchencryptionwithlatestpolicy.md)
++ [`AWSSupportRemediator-EnableOpenSearchNodeToNodeEncryption`](automation-awssupportremediator-enableopensearchnodetonodeencryption.md)
++ [`AWSSupportRemediator-EnableOpenSearchLogging`](automation-awssupportremediator-enableopensearchlogging.md)

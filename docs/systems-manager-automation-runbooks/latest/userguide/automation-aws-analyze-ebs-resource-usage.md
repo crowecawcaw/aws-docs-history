@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-AnalyzeEBSResourceUsage`
-<a name="automation-aws-analyze-ebs-resource-usage"></a>
 
  **Description** 
 
@@ -95,7 +94,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 ****  
 
-```
+```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [{

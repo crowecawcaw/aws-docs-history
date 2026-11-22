@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteOpenSearchDomain`
-<a name="automation-aws-delete-opensearch-domain"></a>
 
  **Description** 
 

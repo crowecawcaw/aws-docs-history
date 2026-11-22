@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableStepFunctionsStateMachineLogging`
-<a name="aws-enablestepfunctionsstatemachinelogging"></a>
 
  **Description** 
 

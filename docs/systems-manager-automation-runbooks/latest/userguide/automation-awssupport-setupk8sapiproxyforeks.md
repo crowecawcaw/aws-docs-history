@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-SetupK8sApiProxyForEKS`
-<a name="automation-awssupport-setupk8sapiproxyforeks"></a>
 
  **Description** 
 
@@ -79,7 +78,7 @@ The `UnscopedActions` statement uses `"Resource": "*"` because those actions don
 + {{AUTOMATION\_ROLE\_NAME}} – The name of the role that you pass in `AutomationAssumeRole`.
 + {{LAMBDA\_ROLE\_NAME}} – The name of the role that you pass in `LambdaRoleArn`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -205,7 +204,7 @@ The `ProxyNetworkInterfaces` statement is needed only for a cluster with a priva
 
 If `LambdaRoleArn` is empty, or the calling runbook doesn't pass it, the automation creates the execution role itself. In that case, leave out the `PassLambdaRole` statement from the preceding policy and add the following statements.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ConnectivityTroubleshooter`
-<a name="automation-awssupport-connectivitytroubleshooter"></a>
 
  **Description** 
 

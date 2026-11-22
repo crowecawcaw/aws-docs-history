@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCopyTagsToSnapshotOnRDSDBInstance`
-<a name="automation-aws-enable-tags-snapshot-rds-instance"></a>
 
  **Description** 
 

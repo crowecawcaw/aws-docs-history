@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CollectAmazonConnectContactFlowLog`
-<a name="automation-collect-amazon-connect-contact-flow-log"></a>
 
  **Description** 
 
@@ -34,7 +33,7 @@ Linux, macOS, Windows
 
 The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-```
+```json
         {
             "Statement": [
                 {

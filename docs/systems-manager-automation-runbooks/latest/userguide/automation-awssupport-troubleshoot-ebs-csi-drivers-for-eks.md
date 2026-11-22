@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEbsCsiDriversForEks`
-<a name="automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks"></a>
 
  **Description** 
 
@@ -84,7 +83,7 @@ Follow these steps to configure the automation:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -108,7 +107,7 @@ Follow these steps to configure the automation:
      + This permission is optional if you don't specify `S3BucketName`
      + The Amazon S3 bucket must be private and in the same AWS region where you execute the SSM automation.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [

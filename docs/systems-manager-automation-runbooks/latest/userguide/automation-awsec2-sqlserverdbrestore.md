@@ -1,7 +1,6 @@
 
 
 # `AWSEC2-SQLServerDBRestore`
-<a name="automation-awsec2-sqlserverdbrestore"></a>
 
 **Description**
 
@@ -129,7 +128,7 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

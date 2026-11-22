@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootMSKClusterConnection`
-<a name="automation-awssupport-troubleshootmskclusterconnection"></a>
 
 ## Description
 <a name="automation-awssupport-troubleshootmskclusterconnection-description"></a>
@@ -165,7 +164,7 @@ The automation requires the following permissions:
 
 To run this runbook, the `AutomationAssumeRole` or your IAM user requires the following actions. The following example shows a least-privilege IAM policy that scopes permissions to specific resource patterns used by the automation:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

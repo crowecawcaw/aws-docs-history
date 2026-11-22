@@ -1,7 +1,6 @@
 
 
 # Amazon VPC
-<a name="automation-ref-vpc"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Virtual Private Cloud. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -22,6 +21,10 @@
 + [`AWS-DisablePublicAccessForSecurityGroup`](automation-aws-disablepublicaccessforsecuritygroup.md)
 + [`AWSConfigRemediation-DisableSubnetAutoAssignPublicIP`](automation-aws-disable-subnet-auto-public-ip.md)
 + [`AWSSupport-EnableVPCFlowLogs`](automation-aws-enable-vpc-flowlogs.md)
++ [`AWSSupportRemediator-RemoveAllRulesFromDefaultSg`](automation-awssupportremediator-removeallrulesfromdefaultsg.md)
++ [`AWSSupportRemediator-DeleteUnusedNacl`](automation-awssupportremediator-deleteunusednacl.md)
++ [`AWSSupportRemediator-DisableAutoAssignPublicIpv4Addresses`](automation-awssupportremediator-disableautoassignpublicipv4addresses.md)
++ [`AWSSupportRemediator-DisableTgwAutoVpcAttach`](automation-awssupportremediator-disabletgwautovpcattach.md)
 + [`AWSConfigRemediation-EnableVPCFlowLogsToCloudWatch`](automation-aws-enable-flow-logs-cw.md)
 + [`AWSConfigRemediation-EnableVPCFlowLogsToS3Bucket`](automation-aws-enable-flow-logs-s3.md)
 + [`AWS-ReleaseElasticIP`](automation-aws-releaseelasticip.md)

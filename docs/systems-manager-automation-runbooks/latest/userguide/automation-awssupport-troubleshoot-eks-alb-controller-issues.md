@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEKSALBControllerIssues`
-<a name="automation-awssupport-troubleshoot-eks-alb-controller-issues"></a>
 
  **Description** 
 

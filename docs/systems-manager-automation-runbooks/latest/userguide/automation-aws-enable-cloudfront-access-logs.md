@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudFrontAccessLogs`
-<a name="automation-aws-enable-cloudfront-access-logs"></a>
 
  **Description** 
 

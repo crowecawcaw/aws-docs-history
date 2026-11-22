@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing
-<a name="automation-ref-elb"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Elastic Load Balancing. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -17,3 +16,9 @@
 + [`AWS-UpdateCLBDesyncMitigationMode`](AWS-UpdateCLBDesyncMitigationMode.md)
 + [`AWSSupport-TroubleshootALB5XXErrors`](automation-awssupport-troubleshootalb5xxerrors.md)
 + [`AWSSupport-TroubleshootELBHealthChecks`](automation-aws-troubleshootelbhealthchecks.md)
++ [`AWSSupportRemediator-EnableNlbCrossZoneLoadBalancing`](automation-awssupportremediator-enablenlbcrosszoneloadbalancing.md)
++ [`AWSSupportRemediator-EnableClbConnectionDraining`](automation-awssupportremediator-enableclbconnectiondraining.md)
++ [`AWSSupportRemediator-DeleteIdleClassicLoadBalancer`](automation-awssupportremediator-deleteidleclassicloadbalancer.md)
++ [`AWSSupportRemediator-DropInvalidHeadersForAlb`](automation-awssupportremediator-dropinvalidheadersforalb.md)
++ [`AWSSupportRemediator-EnableElbDeletionProtection`](automation-awssupportremediator-enableelbdeletionprotection.md)
++ [`AWSSupportRemediator-EnableElbLogging`](automation-awssupportremediator-enableelblogging.md)

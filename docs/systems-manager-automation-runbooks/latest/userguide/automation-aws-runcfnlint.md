@@ -1,7 +1,6 @@
 
 
 # `AWS-RunCfnLint`
-<a name="automation-aws-runcfnlint"></a>
 
  **Description** 
 

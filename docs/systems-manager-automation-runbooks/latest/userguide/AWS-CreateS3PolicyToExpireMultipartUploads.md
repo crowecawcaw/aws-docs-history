@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateS3PolicyToExpireMultipartUploads`
-<a name="AWS-CreateS3PolicyToExpireMultipartUploads"></a>
 
  **Description** 
 

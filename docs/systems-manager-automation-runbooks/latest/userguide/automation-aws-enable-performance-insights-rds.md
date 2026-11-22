@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnablePerformanceInsightsOnRDSInstance`
-<a name="automation-aws-enable-performance-insights-rds"></a>
 
  **Description** 
 

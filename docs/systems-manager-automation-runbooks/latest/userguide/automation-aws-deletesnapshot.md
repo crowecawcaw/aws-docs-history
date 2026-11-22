@@ -1,7 +1,6 @@
 
 
 # `AWS-DeleteSnapshot`
-<a name="automation-aws-deletesnapshot"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-ASGEnterStandby`
-<a name="automation-aws-asgenterstandby"></a>
 
 **Description**
 

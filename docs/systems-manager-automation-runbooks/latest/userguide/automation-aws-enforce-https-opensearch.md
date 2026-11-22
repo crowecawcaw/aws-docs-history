@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnforceHTTPSOnOpenSearchDomain`
-<a name="automation-aws-enforce-https-opensearch"></a>
 
  **Description** 
 

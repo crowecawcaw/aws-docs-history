@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableS3BucketEncryption`
-<a name="automation-aws-enableS3bucketencryption"></a>
 
  **Description** 
 

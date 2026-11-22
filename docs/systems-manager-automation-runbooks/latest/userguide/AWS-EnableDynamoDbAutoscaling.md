@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableDynamoDbAutoscaling`
-<a name="AWS-EnableDynamoDbAutoscaling"></a>
 
  **Description** 
 

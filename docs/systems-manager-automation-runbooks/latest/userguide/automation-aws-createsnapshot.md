@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateSnapshot`
-<a name="automation-aws-createsnapshot"></a>
 
  **Description** 
 

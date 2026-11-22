@@ -1,7 +1,6 @@
 
 
 # `AWS-BulkDeleteAssociation`
-<a name="aws-bulkdeleteassociation"></a>
 
  **Description** 
 

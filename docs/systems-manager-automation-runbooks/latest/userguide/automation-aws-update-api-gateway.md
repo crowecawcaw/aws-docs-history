@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-UpdateAPIGatewayMethodCaching`
-<a name="automation-aws-update-api-gateway"></a>
 
  **Description** 
 

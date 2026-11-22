@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ResetAccess`
-<a name="automation-awssupport-resetaccess"></a>
 
  **Description** 
 

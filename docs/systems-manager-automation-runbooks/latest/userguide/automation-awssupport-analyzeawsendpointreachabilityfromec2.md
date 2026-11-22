@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-AnalyzeAWSEndpointReachabilityFromEC2`
-<a name="automation-awssupport-analyzeawsendpointreachabilityfromec2"></a>
 
  **Description** 
 

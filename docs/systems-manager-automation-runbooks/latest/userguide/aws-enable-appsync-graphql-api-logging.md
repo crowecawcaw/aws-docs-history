@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableAppSyncGraphQLApiLogging`
-<a name="aws-enable-appsync-graphql-api-logging"></a>
 
  **Description** 
 

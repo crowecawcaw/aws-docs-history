@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootDMSEndpointConnection`
-<a name="automation-awssupport-troubleshootdmsendpointconnection"></a>
 
  **Description** 
 

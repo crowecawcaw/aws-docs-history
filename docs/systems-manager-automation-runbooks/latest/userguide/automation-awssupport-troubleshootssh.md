@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootSSH`
-<a name="automation-awssupport-troubleshootssh"></a>
 
  **Description** 
 

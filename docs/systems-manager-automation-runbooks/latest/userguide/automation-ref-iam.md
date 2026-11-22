@@ -1,7 +1,6 @@
 
 
 # IAM
-<a name="automation-ref-iam"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for AWS Identity and Access Management. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -22,3 +21,4 @@
 + [`AWSConfigRemediation-SetIAMPasswordPolicy`](automation-aws-set-iam-policy.md)
 + [`AWSSupport-ContainIAMPrincipal`](awssupport-contain-iam-principal.md)
 + [`AWSSupport-TroubleshootSAMLIssues`](awssupport-troubleshootsamlissues.md)
++ [`AWSSupportRemediator-DeactivateIamAccessKey`](automation-awssupportremediator-deactivateiamaccesskey.md)

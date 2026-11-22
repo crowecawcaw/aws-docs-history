@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-EmptyS3Bucket`
-<a name="automation-aws-empty-s3-bucket"></a>
 
  **Description** 
 

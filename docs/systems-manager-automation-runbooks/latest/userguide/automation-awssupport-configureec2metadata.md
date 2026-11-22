@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ConfigureEC2Metadata`
-<a name="automation-awssupport-configureec2metadata"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteSecret`
-<a name="automation-aws-delete-secret"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-ReleaseElasticIP`
-<a name="automation-aws-releaseelasticip"></a>
 
  **Description** 
 

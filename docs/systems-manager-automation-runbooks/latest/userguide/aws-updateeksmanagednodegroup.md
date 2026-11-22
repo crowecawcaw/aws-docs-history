@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateEKSManagedNodeGroup`
-<a name="aws-updateeksmanagednodegroup"></a>
 
  **Description** 
 

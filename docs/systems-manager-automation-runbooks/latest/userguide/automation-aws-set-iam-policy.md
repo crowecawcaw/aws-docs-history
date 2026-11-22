@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-SetIAMPasswordPolicy`
-<a name="automation-aws-set-iam-policy"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-DisableIncomingSSHOnPort22`
-<a name="disable-incoming-ssh"></a>
 
 **Description**
 

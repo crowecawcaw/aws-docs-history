@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableEnhancedMonitoringOnRDSInstance`
-<a name="automation-aws-enable-rds-monitoring"></a>
 
  **Description** 
 

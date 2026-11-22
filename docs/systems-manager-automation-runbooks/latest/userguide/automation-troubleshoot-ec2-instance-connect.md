@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEC2InstanceConnect`
-<a name="automation-troubleshoot-ec2-instance-connect"></a>
 
  **Description** 
 

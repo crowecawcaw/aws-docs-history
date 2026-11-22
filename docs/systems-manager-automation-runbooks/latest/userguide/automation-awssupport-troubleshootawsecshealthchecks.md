@@ -1,7 +1,8 @@
 
 
 # `AWSSupport-TroubleshootAWSECSHealthChecks`
-<a name="automation-awssupport-troubleshootawsecshealthchecks"></a>
+
+**Description**
 
 The `AWSSupport-TroubleshootAWSECSHealthChecks` runbook helps diagnose and troubleshoot issues where Amazon Elastic Container Service (Amazon ECS) tasks running on Amazon Elastic Compute Cloud (Amazon EC2) instances or AWS Fargate (Fargate) fail Application Load Balancer (ALB) health checks.
 
@@ -87,7 +88,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -168,7 +169,11 @@ Example IAM policy:
 }
 ```
 
+**Outputs**
+
 `ExecutionResult.message` - A summary of findings from all diagnostic steps, including network connectivity, task health, target group status, and recommendations.
+
+**Instructions**
 
 Follow these steps to configure the automation:
 
@@ -230,6 +235,8 @@ Follow these steps to configure the automation:
      Compiles all findings into a summary report with recommendations.
 
 1. After completion, review the Outputs section for the detailed results of the execution.
+
+**References**
 
 Systems Manager Automation
 +  [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootAWSECSHealthChecks/description) 

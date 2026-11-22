@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ShareRDSSnapshot`
-<a name="automation-aws-sharerdssnapshot"></a>
 
  **Description** 
 

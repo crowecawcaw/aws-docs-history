@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudFrontOriginAccessIdentity`
-<a name="automation-aws-enable-cloudfront-origin-access"></a>
 
  **Description** 
 

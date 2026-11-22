@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteIAMRole`
-<a name="automation-aws-delete-iam-role"></a>
 
  **Description** 
 

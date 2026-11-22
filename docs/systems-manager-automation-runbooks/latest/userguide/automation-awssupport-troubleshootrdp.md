@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootRDP`
-<a name="automation-awssupport-troubleshootrdp"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-MigrateXenToNitroLinux`
-<a name="automation-awssupport-migrate-xen-to-nitro"></a>
 
  **Description** 
 

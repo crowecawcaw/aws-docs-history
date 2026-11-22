@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCWAlarm`
-<a name="enable-cw-alarm"></a>
 
 **Description**
 

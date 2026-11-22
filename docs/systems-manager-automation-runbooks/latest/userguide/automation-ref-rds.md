@@ -1,7 +1,6 @@
 
 
 # Amazon RDS
-<a name="automation-ref-rds"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Relational Database Service. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -34,3 +33,17 @@
 + [`AWSSupport-TroubleshootConnectivityToRDS`](automation-awssupport-troubleshootconnectivitytords.md)
 + [`AWSSupport-TroubleshootRDSIAMAuthentication`](automation-aws-troubleshoot-rds-iam-authentication.md)
 + [`AWSSupport-ValidateRdsNetworkConfiguration`](automation-aws-validate-rds-network-configuration.md)
++ [`AWSSupportRemediator-EnableRdsLogExports`](automation-awssupportremediator-enablerdslogexports.md)
++ [`AWSSupportRemediator-StopIdleRdsInstance`](automation-awssupportremediator-stopidlerdsinstance.md)
++ [`AWSSupportRemediator-UpdateRdsInstanceMinorVersionUpgrade`](automation-awssupportremediator-updaterdsinstanceminorversionupgrade.md)
++ [`AWSSupportRemediator-EnableRdsIamDatabaseAuthentication`](automation-awssupportremediator-enablerdsiamdatabaseauthentication.md)
++ [`AWSSupportRemediator-EnableRdsEnhancedMonitoring`](automation-awssupportremediator-enablerdsenhancedmonitoring.md)
++ [`AWSSupportRemediator-EnableRdsCopyTagsToSnapshot`](automation-awssupportremediator-enablerdscopytagstosnapshot.md)
++ [`AWSSupportRemediator-EnableRdsMultiAz`](automation-awssupportremediator-enablerdsmultiaz.md)
++ [`AWSSupportRemediator-EnableRdsDeletionProtection`](automation-awssupportremediator-enablerdsdeletionprotection.md)
++ [`AWSSupportRemediator-EnableRdsBackupRetention`](automation-awssupportremediator-enablerdsbackupretention.md)
++ [`AWSSupportRemediator-DisablePublicAccessOnRdsInstance`](automation-awssupportremediator-disablepublicaccessonrdsinstance.md)
++ [`AWSSupportRemediator-DisablePublicAccessOnRdsSnapshot`](automation-awssupportremediator-disablepublicaccessonrdssnapshot.md)
++ [`AWSSupportRemediator-EnableRdsInstanceStorageAutoScaling`](automation-awssupportremediator-enablerdsinstancestorageautoscaling.md)
++ [`AWSSupportRemediator-EnableRdsPerformanceInsights`](automation-awssupportremediator-enablerdsperformanceinsights.md)
++ [`AWSSupportRemediator-RemediateRdsParameterGroupParameter`](automation-awssupportremediator-remediaterdsparametergroupparameter.md)

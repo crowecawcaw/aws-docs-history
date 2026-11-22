@@ -1,7 +1,6 @@
 
 
 # `AWS-AddOpsItemDedupStringToEventBridgeRule`
-<a name="automation-aws-add-dedup-string-ev"></a>
 
  **Description** 
 

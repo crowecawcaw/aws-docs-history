@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootRDSIAMAuthentication`
-<a name="automation-aws-troubleshoot-rds-iam-authentication"></a>
 
  **Description** 
 

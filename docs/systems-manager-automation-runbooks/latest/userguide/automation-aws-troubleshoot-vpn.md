@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootVPN`
-<a name="automation-aws-troubleshoot-vpn"></a>
 
  **Description** 
 

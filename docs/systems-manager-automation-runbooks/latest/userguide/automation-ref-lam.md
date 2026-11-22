@@ -1,7 +1,6 @@
 
 
 # Lambda
-<a name="automation-ref-lam"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for AWS Lambda. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -14,3 +13,5 @@
 + [`AWSSupport-TroubleshootLambdaInternetAccess`](AWSSupport-TroubleshootLambdaInternetAccess.md)
 + [`AWSSupport-TroubleshootLambdaS3Event`](automation-aws-troubleshootlambdas3event.md)
 + [`AWSSupport-TroubleshootLambdaVpcConnectivity`](automation-awssupport-troubleshootlambdavpcconnectivity.md)
++ [`AWSSupportRemediator-ResizeLambdaMemory`](automation-awssupportremediator-resizelambdamemory.md)
++ [`AWSSupportRemediator-UpdateLambdaMemory`](automation-awssupportremediator-updatelambdamemory.md)

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-RemediateLambdaS3Event`
-<a name="automation-awssupport-remediatelambdas3event"></a>
 
  **Description** 
 

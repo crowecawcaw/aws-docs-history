@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootDMSTableErrors`
-<a name="awssupport-troubleshoot-dms-table-errors"></a>
 
  **Description** 
 
@@ -78,7 +77,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 ****  
 
-```
+```json
             {
                 "Version":"2012-10-17",		 	 	 
                 "Statement": [

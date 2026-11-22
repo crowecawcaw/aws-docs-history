@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CheckAndMountEFS`
-<a name="automation-awssupport-check-and-mount-efs"></a>
 
  **Description** 
 

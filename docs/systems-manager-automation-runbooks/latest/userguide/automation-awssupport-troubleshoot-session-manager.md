@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootSessionManager`
-<a name="automation-awssupport-troubleshoot-session-manager"></a>
 
  **Description** 
 

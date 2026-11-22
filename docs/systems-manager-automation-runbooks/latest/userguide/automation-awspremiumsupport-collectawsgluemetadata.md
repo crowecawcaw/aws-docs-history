@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-CollectAWSGlueMetadata`
-<a name="automation-awspremiumsupport-collectawsgluemetadata"></a>
 
 ## Description
 <a name="automation-awspremiumsupport-collectawsgluemetadata-description"></a>
@@ -175,7 +174,7 @@ Amazon
 
 The following example policy shows the least-privilege permissions required for the `AutomationAssumeRole`. Replace `REGION`, `ACCOUNTID`, and `S3_BUCKET_NAME` with your own values:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

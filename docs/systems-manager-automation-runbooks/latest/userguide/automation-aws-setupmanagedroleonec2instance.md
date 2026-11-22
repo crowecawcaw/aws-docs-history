@@ -1,7 +1,6 @@
 
 
 # `AWS-SetupManagedRoleOnEC2Instance`
-<a name="automation-aws-setupmanagedroleonec2instance"></a>
 
  **Description** 
 

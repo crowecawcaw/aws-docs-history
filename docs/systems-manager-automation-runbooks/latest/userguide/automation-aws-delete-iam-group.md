@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedIAMGroup`
-<a name="automation-aws-delete-iam-group"></a>
 
  **Description** 
 

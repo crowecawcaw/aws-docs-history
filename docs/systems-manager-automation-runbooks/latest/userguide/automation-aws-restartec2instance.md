@@ -1,7 +1,6 @@
 
 
 # `AWS-RestartEC2Instance`
-<a name="automation-aws-restartec2instance"></a>
 
 **Description**
 

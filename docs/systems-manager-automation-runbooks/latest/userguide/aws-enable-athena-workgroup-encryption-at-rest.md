@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableAthenaWorkGroupEncryptionAtRest`
-<a name="aws-enable-athena-workgroup-encryption-at-rest"></a>
 
  **Description** 
 

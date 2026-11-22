@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootAWSBatchJob`
-<a name="automation-aws-troubleshoot-aws-batch-job"></a>
 
  **Description** 
 

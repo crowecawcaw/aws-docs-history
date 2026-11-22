@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RotateSecret`
-<a name="automation-aws-rotate-secret"></a>
 
  **Description** 
 

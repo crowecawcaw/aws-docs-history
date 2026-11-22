@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnforceSSLOnlyConnectionsToRedshiftCluster`
-<a name="automation-aws-enforce-redshift-ssl-only"></a>
 
  **Description** 
 

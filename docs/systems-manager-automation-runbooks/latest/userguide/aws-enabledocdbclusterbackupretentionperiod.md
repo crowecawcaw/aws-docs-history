@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableDocDbClusterBackupRetentionPeriod`
-<a name="aws-enabledocdbclusterbackupretentionperiod"></a>
 
  **Description** 
 

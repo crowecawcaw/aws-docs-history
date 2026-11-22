@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateEKSCluster`
-<a name="automation-updateekscluster"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-DeleteEKSCluster`
-<a name="automation-aws-deleteekscluster"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootElasticBeanstalk`
-<a name="automation-awssupport-troubleshoot-elastic-beanstalk"></a>
 
  **Description** 
 

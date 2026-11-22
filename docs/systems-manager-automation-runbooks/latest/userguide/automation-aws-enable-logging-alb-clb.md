@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableLoggingForALBAndCLB`
-<a name="automation-aws-enable-logging-alb-clb"></a>
 
  **Description** 
 

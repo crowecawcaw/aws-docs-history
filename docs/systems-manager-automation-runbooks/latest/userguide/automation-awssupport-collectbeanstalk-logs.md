@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CollectElasticBeanstalkLogs`
-<a name="automation-awssupport-collectbeanstalk-logs"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-ChangeDDBRWCapacityMode`
-<a name="change-read-write-capacity"></a>
 
 **Description**
 

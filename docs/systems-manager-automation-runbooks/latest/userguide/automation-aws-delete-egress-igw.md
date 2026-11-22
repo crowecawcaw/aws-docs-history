@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteEgressOnlyInternetGateway`
-<a name="automation-aws-delete-egress-igw"></a>
 
  **Description** 
 

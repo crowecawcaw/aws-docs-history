@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DetachAndDeleteInternetGateway`
-<a name="automation-aws-detach-delete-igw"></a>
 
  **Description** 
 

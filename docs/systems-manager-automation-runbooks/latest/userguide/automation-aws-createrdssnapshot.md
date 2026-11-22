@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateRdsSnapshot`
-<a name="automation-aws-createrdssnapshot"></a>
 
  **Description** 
 

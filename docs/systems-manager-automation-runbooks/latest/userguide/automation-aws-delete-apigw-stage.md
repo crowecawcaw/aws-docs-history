@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteAPIGatewayStage`
-<a name="automation-aws-delete-apigw-stage"></a>
 
  **Description** 
 

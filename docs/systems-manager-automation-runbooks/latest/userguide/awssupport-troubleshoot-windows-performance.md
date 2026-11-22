@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootWindowsPerformance`
-<a name="awssupport-troubleshoot-windows-performance"></a>
 
  **Description** 
 

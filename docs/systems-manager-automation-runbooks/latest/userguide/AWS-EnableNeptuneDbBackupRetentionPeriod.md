@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableNeptuneDbBackupRetentionPeriod`
-<a name="AWS-EnableNeptuneDbBackupRetentionPeriod"></a>
 
  **Description** 
 

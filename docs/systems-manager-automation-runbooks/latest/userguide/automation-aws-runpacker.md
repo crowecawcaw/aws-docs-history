@@ -1,7 +1,6 @@
 
 
 # `AWS-RunPacker`
-<a name="automation-aws-runpacker"></a>
 
  **Description** 
 

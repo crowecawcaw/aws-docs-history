@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-ChangeInstanceTypeIntelToAMD`
-<a name="automation-aws-changeinstancetypeinteltoamd"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-RemoveNetworkACLUnrestrictedSSHRDP`
-<a name="aws-remove-nacl-unrestricted-ssh-rdp"></a>
 
  **Description** 
 

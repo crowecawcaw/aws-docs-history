@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-PostgreSQLWorkloadReview`
-<a name="automation-aws-postgresqlworkloadreview"></a>
 
  **Description** 
 
@@ -71,7 +70,7 @@ If you set the `UpdateRdsRouteTable` parameter to `yes`, the runbook updates the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ If you set the `UpdateRdsRouteTable` parameter to `yes`, the runbook updates the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

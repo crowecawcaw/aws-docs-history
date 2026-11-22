@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableNeptuneClusterDeletionProtection`
-<a name="AWS-EnableNeptuneClusterDeletionProtection"></a>
 
  **Description** 
 

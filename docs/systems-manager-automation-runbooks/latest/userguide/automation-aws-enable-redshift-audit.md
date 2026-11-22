@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRedshiftClusterAuditLogging`
-<a name="automation-aws-enable-redshift-audit"></a>
 
  **Description** 
 

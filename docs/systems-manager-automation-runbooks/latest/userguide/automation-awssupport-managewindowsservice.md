@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ManageWindowsService`
-<a name="automation-awssupport-managewindowsservice"></a>
 
  **Description** 
 

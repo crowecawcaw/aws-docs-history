@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableSNSTopicDeliveryStatusLogging`
-<a name="aws-enable-sns-topic-delivery-status-logging"></a>
 
  **Description** 
 

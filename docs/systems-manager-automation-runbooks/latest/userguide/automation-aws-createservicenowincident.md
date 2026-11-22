@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateServiceNowIncident`
-<a name="automation-aws-createservicenowincident"></a>
 
  **Description** 
 

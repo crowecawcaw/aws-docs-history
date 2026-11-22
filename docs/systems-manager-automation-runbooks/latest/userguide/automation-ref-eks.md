@@ -1,7 +1,6 @@
 
 
 # Amazon EKS
-<a name="automation-ref-eks"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Elastic Kubernetes Service. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -23,3 +22,4 @@
 + [`AWSSupport-TroubleshootEKSALBControllerIssues`](automation-awssupport-troubleshoot-eks-alb-controller-issues.md)
 + [`AWSSupport-TroubleshootEKSCNI`](automation-awssupport-troubleshootekscni.md)
 + [`AWSSupport-TroubleshootEKSDNSFailure`](automation-awssupport-troubleshooteksdnsfailure.md)
++ [`AWSSupportRemediator-EnableEksAuditLogging`](automation-awssupportremediator-enableeksauditlogging.md)

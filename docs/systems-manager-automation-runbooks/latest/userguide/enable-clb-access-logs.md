@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCLBAccessLogs`
-<a name="enable-clb-access-logs"></a>
 
 **Description**
 

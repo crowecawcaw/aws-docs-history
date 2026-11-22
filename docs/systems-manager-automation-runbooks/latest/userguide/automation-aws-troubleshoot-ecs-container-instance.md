@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootECSContainerInstance`
-<a name="automation-aws-troubleshoot-ecs-container-instance"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RevokeUnusedIAMUserCredentials`
-<a name="automation-aws-revoke-iam-user"></a>
 
  **Description** 
 

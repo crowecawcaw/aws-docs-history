@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CalculateEBSPerformanceMetrics`
-<a name="automation-calculate-ebs-performance-metrics"></a>
 
  **Description** 
 
@@ -53,7 +52,7 @@ Sample Policy
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-UpdateXRayKMSKey`
-<a name="automation-aws-update-xray-key"></a>
 
  **Description** 
 

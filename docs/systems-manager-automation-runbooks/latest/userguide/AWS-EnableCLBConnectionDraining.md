@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCLBConnectionDraining`
-<a name="AWS-EnableCLBConnectionDraining"></a>
 
  **Description** 
 

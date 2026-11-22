@@ -1,7 +1,6 @@
 
 
 # `AWS-PatchInstanceWithRollback`
-<a name="automation-aws-patchinstancewithrollback"></a>
 
 **Description**
 

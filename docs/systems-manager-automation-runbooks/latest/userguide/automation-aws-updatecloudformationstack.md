@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateCloudFormationStack`
-<a name="automation-aws-updatecloudformationstack"></a>
 
  **Description** 
 

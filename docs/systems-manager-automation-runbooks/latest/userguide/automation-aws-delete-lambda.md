@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteLambdaFunction`
-<a name="automation-aws-delete-lambda"></a>
 
  **Description** 
 

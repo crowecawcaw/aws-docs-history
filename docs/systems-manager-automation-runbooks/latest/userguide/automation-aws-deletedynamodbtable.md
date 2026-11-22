@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteDynamoDbTable`
-<a name="automation-aws-deletedynamodbtable"></a>
 
  **Description** 
 

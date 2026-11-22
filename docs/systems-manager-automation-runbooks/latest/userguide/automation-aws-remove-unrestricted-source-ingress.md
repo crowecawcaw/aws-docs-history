@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules`
-<a name="automation-aws-remove-unrestricted-source-ingress"></a>
 
  **Description** 
 

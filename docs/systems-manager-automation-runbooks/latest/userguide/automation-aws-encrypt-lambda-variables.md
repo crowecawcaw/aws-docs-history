@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK`
-<a name="automation-aws-encrypt-lambda-variables"></a>
 
  **Description** 
 

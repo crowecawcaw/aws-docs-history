@@ -1,12 +1,16 @@
 
 
 # Amazon Redshift
-<a name="automation-ref-rs"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Redshift. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
 **Topics**
 + [`AWSSupport-TroubleshootEC2ConnectivityToRedshift`](automation-awssupport-troubleshootec2connectivitytoredshift.md)
++ [`AWSSupportRemediator-PauseRedshiftCluster`](automation-awssupportremediator-pauseredshiftcluster.md)
++ [`AWSSupportRemediator-DisablePublicAccessOnRedshiftCluster`](automation-awssupportremediator-disablepublicaccessonredshiftcluster.md)
++ [`AWSSupportRemediator-EnableRedshiftClusterAuditLogging`](automation-awssupportremediator-enableredshiftclusterauditlogging.md)
++ [`AWSSupportRemediator-EnableRedshiftClusterEnhancedVpcRouting`](automation-awssupportremediator-enableredshiftclusterenhancedvpcrouting.md)
++ [`AWSSupportRemediator-EnableRedshiftClusterVersionAutoUpgrade`](automation-awssupportremediator-enableredshiftclusterversionautoupgrade.md)
 + [`AWSConfigRemediation-DeleteRedshiftCluster`](automation-aws-delete-redshift.md)
 + [`AWSConfigRemediation-DisablePublicAccessToRedshiftCluster`](automation-aws-disable-redshift-public-access.md)
 + [`AWSConfigRemediation-EnableRedshiftClusterAuditLogging`](automation-aws-enable-redshift-audit.md)

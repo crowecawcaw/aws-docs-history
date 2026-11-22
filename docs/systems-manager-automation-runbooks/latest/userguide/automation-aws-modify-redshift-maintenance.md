@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings`
-<a name="automation-aws-modify-redshift-maintenance"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateWorkSpace`
-<a name="aws-create-workspace"></a>
 
  **Description** 
 

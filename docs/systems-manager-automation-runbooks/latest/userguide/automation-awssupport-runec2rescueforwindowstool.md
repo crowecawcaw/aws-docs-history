@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-RunEC2RescueForWindowsTool`
-<a name="automation-awssupport-runec2rescueforwindowstool"></a>
 
  **Description** 
 
@@ -54,7 +53,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example Policy: 
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ResetLinuxUserPassword`
-<a name="automation-awssupport-resetlinuxuserpassword"></a>
 
 **Description**
 

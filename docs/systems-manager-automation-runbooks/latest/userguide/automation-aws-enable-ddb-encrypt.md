@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableEncryptionOnDynamoDbTable`
-<a name="automation-aws-enable-ddb-encrypt"></a>
 
  **Description** 
 

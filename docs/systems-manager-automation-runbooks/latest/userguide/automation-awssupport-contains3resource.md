@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ContainS3Resource`
-<a name="automation-awssupport-contains3resource"></a>
 
  **Description** 
 
@@ -79,7 +78,7 @@ This runbook operates differently based on the resource type and action:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

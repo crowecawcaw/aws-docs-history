@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableAccountAccessAnalyzer`
-<a name="automation-aws-enable-account-access-analyzer"></a>
 
  **Description** 
 

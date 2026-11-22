@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateEncryptedRdsSnapshot`
-<a name="create-encrypted-rds-snapshot"></a>
 
 **Description**
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-CreateGuardDutyDetector`
-<a name="automation-aws-enable-guard-detect"></a>
 
  **Description** 
 

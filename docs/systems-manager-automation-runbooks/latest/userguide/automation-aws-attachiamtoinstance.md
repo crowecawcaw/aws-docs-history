@@ -1,7 +1,6 @@
 
 
 # `AWS-AttachIAMToInstance`
-<a name="automation-aws-attachiamtoinstance"></a>
 
  **Description** 
 

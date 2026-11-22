@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateWindowsAmi`
-<a name="automation-aws-updatewindowsami"></a>
 
 **Description**
 

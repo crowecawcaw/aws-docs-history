@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing`
-<a name="automation-aws-enable-nlb-crosszone"></a>
 
  **Description** 
 

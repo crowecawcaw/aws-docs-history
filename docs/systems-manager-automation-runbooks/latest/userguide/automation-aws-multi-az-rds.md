@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableMultiAZOnRDSInstance`
-<a name="automation-aws-multi-az-rds"></a>
 
  **Description** 
 

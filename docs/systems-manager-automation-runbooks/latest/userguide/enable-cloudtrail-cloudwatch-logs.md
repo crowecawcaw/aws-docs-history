@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCloudTrailCloudWatchLogs`
-<a name="enable-cloudtrail-cloudwatch-logs"></a>
 
 **Description**
 

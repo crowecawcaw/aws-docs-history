@@ -1,23 +1,22 @@
 
 
 # `AWSSupport-AnalyzeEMRLogs`
-<a name="automation-awssupport-analyzeemrlogs"></a>
 
  **Description** 
 
 This runbook helps identify errors while running a job on an Amazon EMR cluster. The runbook analyzes a list of defined logs on the file system and looks for a list of predefined keywords. These log entries are used to create Amazon CloudWatch Events events so you can take any needed actions based on the events. Optionally, the runbook publishes log entries to the Amazon CloudWatch Logs log group of your choosing. This runbook currently looks for the following errors and patterns in log files:
-+  container\_out\_of\_memory – YARN container ran out of memory, running job may fail. 
-+  yarn\_nodemanager\_health: CORE or TASK node is running low on disk space and will not be able to run tasks. 
-+  node\_state\_change: CORE or TASK node is unreachable by the MASTER node. 
-+  step\_failure: An EMR Step has failed. 
-+  no\_core\_nodes\_running: No CORE nodes are currently running, cluster is unhealthy. 
-+  hdfs\_missing\_blocks: There are missing HDFS blocks which could lead to data loss. 
-+  hdfs\_high\_util: HDFS Utilization is high, which may affect jobs and cluster health. 
-+  instance\_controller\_restart: Instance-Controller process has restarted. This process is essential for cluster health. 
-+  instance\_controller\_restart\_legacy: Instance-Controller process has restarted. This process is essential for cluster health. 
-+  high\_load: High Load Average detected, may affect node health reporting or result in timeouts or slowdowns. 
-+  yarn\_node\_blacklisted: CORE or TASK node has been blacklisted by YARN from running tasks. 
-+  yarn\_node\_lost: CORE or TASK node has been marked as LOST by YARN, possible connectivity issues. 
++  `container_out_of_memory – YARN container ran out of memory, running job may fail.` 
++  `yarn_nodemanager_health: CORE or TASK node is running low on disk space and will not be able to run tasks.` 
++  `node_state_change: CORE or TASK node is unreachable by the MASTER node.` 
++  `step_failure: An EMR Step has failed.` 
++  `no_core_nodes_running: No CORE nodes are currently running, cluster is unhealthy.` 
++  `hdfs_missing_blocks: There are missing HDFS blocks which could lead to data loss.` 
++  `hdfs_high_util: HDFS Utilization is high, which may affect jobs and cluster health.` 
++  `instance_controller_restart: Instance-Controller process has restarted. This process is essential for cluster health.` 
++  `instance_controller_restart_legacy: Instance-Controller process has restarted. This process is essential for cluster health.` 
++  `high_load: High Load Average detected, may affect node health reporting or result in timeouts or slowdowns.` 
++  `yarn_node_blacklisted: CORE or TASK node has been blacklisted by YARN from running tasks.` 
++  `yarn_node_lost: CORE or TASK node has been marked as LOST by YARN, possible connectivity issues.` 
 
  Instances associated with the `ClusterID` that you specify must be managed by AWS Systems Manager. You can run this automation once, schedule the automation to run at a specific time interval, or remove a schedule created previously by an automation. This runbook supports Amazon EMR release versions 5.20 to 6.30. 
 

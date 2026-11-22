@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RemoveUserPolicies`
-<a name="automation-aws-remove-user-policies"></a>
 
  **Description** 
 

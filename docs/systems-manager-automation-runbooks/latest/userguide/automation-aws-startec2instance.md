@@ -1,7 +1,6 @@
 
 
 # `AWS-StartEC2Instance`
-<a name="automation-aws-startec2instance"></a>
 
 **Description**
 

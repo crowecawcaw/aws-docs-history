@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-TroubleshootEKSCluster`
-<a name="automation-awspremiumsupport-troubleshootekscluster"></a>
 
  **Description** 
 

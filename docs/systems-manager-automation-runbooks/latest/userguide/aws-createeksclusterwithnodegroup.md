@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateEKSClusterWithNodegroup`
-<a name="aws-createeksclusterwithnodegroup"></a>
 
  **Description** 
 

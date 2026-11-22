@@ -1,7 +1,6 @@
 
 
 # `AWS-CopySnapshot`
-<a name="automation-aws-copysnapshot"></a>
 
  **Description** 
 

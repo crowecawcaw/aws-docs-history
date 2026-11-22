@@ -1,7 +1,6 @@
 
 
 # `AWS-DetachEBSVolume`
-<a name="automation-aws-detachebsvolume"></a>
 
  **Description** 
 

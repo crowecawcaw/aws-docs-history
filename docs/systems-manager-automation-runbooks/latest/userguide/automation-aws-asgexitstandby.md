@@ -1,7 +1,6 @@
 
 
 # `AWS-ASGExitStandby`
-<a name="automation-aws-asgexitstandby"></a>
 
 **Description**
 

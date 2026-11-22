@@ -1,7 +1,6 @@
 
 
 # `AWS-RestoreDynamoDBTable`
-<a name="aws-restore-dynamodb-table"></a>
 
  **Description** 
 

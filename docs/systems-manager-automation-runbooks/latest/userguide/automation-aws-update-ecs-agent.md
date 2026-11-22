@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateAmazonECSAgent`
-<a name="automation-aws-update-ecs-agent"></a>
 
  **Description** 
 

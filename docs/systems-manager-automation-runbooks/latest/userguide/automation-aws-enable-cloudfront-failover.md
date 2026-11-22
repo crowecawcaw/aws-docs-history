@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudFrontOriginFailover`
-<a name="automation-aws-enable-cloudfront-failover"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateEKSSelfManagedLinuxNodeGroups`
-<a name="aws-updateeksselfmanagedlinuxnodegroup"></a>
 
  **Description** 
 

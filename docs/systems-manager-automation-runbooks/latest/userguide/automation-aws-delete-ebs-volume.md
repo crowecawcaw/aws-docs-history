@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedEBSVolume`
-<a name="automation-aws-delete-ebs-volume"></a>
 
  **Description** 
 

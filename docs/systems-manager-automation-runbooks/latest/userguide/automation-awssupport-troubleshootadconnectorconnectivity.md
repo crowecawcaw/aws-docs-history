@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootADConnectorConnectivity`
-<a name="automation-awssupport-troubleshootadconnectorconnectivity"></a>
 
  **Description** 
 

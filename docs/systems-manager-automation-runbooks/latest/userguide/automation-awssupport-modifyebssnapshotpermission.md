@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ModifyEBSSnapshotPermission`
-<a name="automation-awssupport-modifyebssnapshotpermission"></a>
 
  **Description** 
 

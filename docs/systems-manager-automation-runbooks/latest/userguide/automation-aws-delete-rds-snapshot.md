@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteRDSInstanceSnapshot`
-<a name="automation-aws-delete-rds-snapshot"></a>
 
  **Description** 
 

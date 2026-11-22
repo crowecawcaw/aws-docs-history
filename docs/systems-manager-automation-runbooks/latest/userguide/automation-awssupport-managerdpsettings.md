@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ManageRDPSettings`
-<a name="automation-awssupport-managerdpsettings"></a>
 
  **Description** 
 

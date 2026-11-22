@@ -1,7 +1,8 @@
 
 
 # `AWSSupport-TroubleshootEC2ConnectivityToRedshift`
-<a name="automation-awssupport-troubleshootec2connectivitytoredshift"></a>
+
+**Description**
 
 The `AWSSupport-TroubleshootEC2ConnectivityToRedshift` runbook provides comprehensive troubleshooting for Amazon Elastic Compute Cloud (Amazon EC2) instances that cannot connect to Amazon Redshift clusters. It systematically analyzes network connectivity paths, security configurations, and provides detailed remediation recommendations.
 
@@ -10,6 +11,8 @@ The runbook supports the following connectivity scenarios:
 + **Cross-Amazon VPC connectivity** - Connection across different VPCs using Amazon VPC peering or AWS Transit Gateway.
 + **Public vs private Amazon Redshift clusters** - Different connectivity patterns based on cluster accessibility.
 + **Internet-based access** - Amazon EC2 instances connecting to publicly accessible Amazon Redshift clusters via Internet Gateway or NAT Gateway.
+
+**How it works**
 
 The runbook uses Amazon VPC Reachability Analyzer as the primary diagnostic tool to quickly identify connectivity issues between the Amazon EC2 instance and the Amazon Redshift cluster. If Reachability Analyzer is not supported in your AWS Region or fails for any reason, the runbook automatically falls back to comprehensive standard connectivity checks covering security groups, network ACLs, route tables, and DNS configuration.
 
@@ -61,7 +64,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -96,6 +99,8 @@ Example IAM policy:
     ]
 }
 ```
+
+**Instructions**
 
 Follow these steps to configure the automation:
 
@@ -149,11 +154,15 @@ Follow these steps to configure the automation:
    + **`GenerateFinalReport`**: Generates a comprehensive diagnostic report consolidating all findings, including categorized issue summaries, prioritized remediation steps, network topology analysis, and detailed recommendations.
 
 1. After the automation completes, review the **Outputs** section for the detailed results of the execution.
+
+**Outputs**
 + `GenerateFinalReport.DiagnosticReport` - A comprehensive diagnostic report with all findings and remediation recommendations.
 + `GenerateFinalReport.OverallStatus` - The overall connectivity status result.
 + `GenerateFinalReport.IssuesSummary` - A categorized summary of all identified issues.
 + `GenerateFinalReport.InstanceIPFinalValue` - The final source IP address used during the analysis.
 + `GenerateFinalReport.ConnectivityMethod` - The detected connectivity method between the Amazon EC2 instance and Amazon Redshift cluster.
+
+**References**
 
 AWS Systems Manager Automation
 +  [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEC2ConnectivityToRedshift/description) 

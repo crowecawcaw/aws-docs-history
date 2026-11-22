@@ -1,7 +1,6 @@
 
 
 # `AWSEC2-CloneInstanceAndUpgradeWindows`
-<a name="automation-awsec2-CloneInstanceAndUpgradeWindows"></a>
 
 **Description**
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableSQSEncryption`
-<a name="aws-enablesqsencryption"></a>
 
  **Description** 
 

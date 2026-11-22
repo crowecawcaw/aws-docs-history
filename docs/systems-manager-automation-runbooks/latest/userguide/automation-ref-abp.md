@@ -1,7 +1,6 @@
 
 
 # API Gateway
-<a name="automation-ref-abp"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon API Gateway. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -13,3 +12,6 @@
 + [`AWSSupport-TroubleshootAPIGatewayHttpErrors`](automation-aws-troubleshootapigatewayhttp-errors.md)
 + [`AWSSupport-TroubleshootAPIGatewayLambdaInvocation`](automation-awssupport-troubleshootapigatewaylambdainvocation.md)
 + [`AWSSupport-TroubleshootAPIGatewayVpcLinkIntegration`](automation-awssupport-troubleshootapigatewayvpclinkintegration.md)
++ [`AWSSupportRemediator-EnableApiGatewayXRayTracing`](automation-awssupportremediator-enableapigatewayxraytracing.md)
++ [`AWSSupportRemediator-EnableApiGatewayCacheEncryption`](automation-awssupportremediator-enableapigatewaycacheencryption.md)
++ [`AWSSupportRemediator-EnableApiGateWayExecutionLogging`](automation-awssupportremediator-enableapigatewayexecutionlogging.md)

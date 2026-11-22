@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CloneXenEC2InstanceAndMigrateToNitro`
-<a name="automation-awssupport-clonexenec2instanceandmigratetonitro"></a>
 
  **Description** 
 
@@ -81,7 +80,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateEKSClusterWithFargateProfile`
-<a name="aws-createeksclusterwithfargateprofile"></a>
 
  **Description** 
 

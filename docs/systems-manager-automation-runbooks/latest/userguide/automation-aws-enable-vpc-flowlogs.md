@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-EnableVPCFlowLogs`
-<a name="automation-aws-enable-vpc-flowlogs"></a>
 
  **Description** 
 
@@ -116,7 +115,7 @@ Sample Policy
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ConfigureLambdaFunctionXRayTracing`
-<a name="automation-aws-config-lambda-xray"></a>
 
  **Description** 
 

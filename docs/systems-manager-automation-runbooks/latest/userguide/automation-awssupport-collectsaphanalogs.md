@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CollectSAPHANALogs`
-<a name="automation-awssupport-collectsaphanalogs"></a>
 
  **Description** 
 

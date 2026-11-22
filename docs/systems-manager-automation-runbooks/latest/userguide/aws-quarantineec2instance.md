@@ -1,7 +1,6 @@
 
 
 # `AWS-QuarantineEC2Instance`
-<a name="aws-quarantineec2instance"></a>
 
  **Description** 
 

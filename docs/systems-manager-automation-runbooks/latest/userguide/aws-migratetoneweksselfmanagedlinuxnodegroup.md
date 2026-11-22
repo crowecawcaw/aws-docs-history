@@ -1,7 +1,6 @@
 
 
 # `AWS-MigrateToNewEKSSelfManagedNodeGroup`
-<a name="aws-migratetoneweksselfmanagedlinuxnodegroup"></a>
 
  **Description** 
 

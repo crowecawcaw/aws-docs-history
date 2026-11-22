@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-RecoverWorkSpace`
-<a name="automation-awssupport-recover-workspace"></a>
 
  **Description** 
 

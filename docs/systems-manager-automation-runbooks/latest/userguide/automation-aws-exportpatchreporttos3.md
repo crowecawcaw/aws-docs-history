@@ -1,7 +1,6 @@
 
 
 # `AWS-ExportPatchReportToS3`
-<a name="automation-aws-exportpatchreporttos3"></a>
 
  **Description** 
 

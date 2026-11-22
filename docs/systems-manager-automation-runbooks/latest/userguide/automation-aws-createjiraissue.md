@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateJiraIssue`
-<a name="automation-aws-createjiraissue"></a>
 
  **Description** 
 

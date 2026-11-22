@@ -1,7 +1,6 @@
 
 
 # `AWS-RebootRdsInstance`
-<a name="automation-aws-rebootrdsinstance"></a>
 
  **Description** 
 

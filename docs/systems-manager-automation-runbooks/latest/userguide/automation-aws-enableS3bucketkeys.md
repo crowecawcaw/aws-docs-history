@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableS3BucketKeys`
-<a name="automation-aws-enableS3bucketkeys"></a>
 
  **Description** 
 

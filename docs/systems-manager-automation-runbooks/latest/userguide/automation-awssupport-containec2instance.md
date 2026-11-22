@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ContainEC2Instance`
-<a name="automation-awssupport-containec2instance"></a>
 
  **Description** 
 
@@ -88,7 +87,7 @@ Example Policy:
 
 ****  
 
-```
+```json
 	{
 		"Version":"2012-10-17",		 	 	 
 		"Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootAPIGatewayVpcLinkIntegration`
-<a name="automation-awssupport-troubleshootapigatewayvpclinkintegration"></a>
 
 ## Description
 <a name="automation-awssupport-troubleshootapigatewayvpclinkintegration-description"></a>
@@ -71,7 +70,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

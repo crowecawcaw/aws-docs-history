@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications`
-<a name="automation-aws-enable-eb-notifications"></a>
 
  **Description** 
 

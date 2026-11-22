@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootSUSERegistration`
-<a name="automation-awssupport-troubleshoot-suse-registration"></a>
 
 **Description**
 

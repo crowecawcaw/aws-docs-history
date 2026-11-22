@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DetachAndDeleteVirtualPrivateGateway`
-<a name="automation-aws-detach-delete-vpg"></a>
 
  **Description** 
 

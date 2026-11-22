@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCWLoggingForSessionManager`
-<a name="automation-aws-enable-cw-log-sm"></a>
 
  **Description** 
 

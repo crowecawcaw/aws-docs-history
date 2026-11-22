@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudTrailLogFileValidation`
-<a name="automation-aws-enable-ctrail-log-validation"></a>
 
  **Description** 
 

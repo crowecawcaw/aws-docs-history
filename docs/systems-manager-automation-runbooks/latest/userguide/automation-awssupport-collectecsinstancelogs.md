@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CollectECSInstanceLogs`
-<a name="automation-awssupport-collectecsinstancelogs"></a>
 
  **Description** 
 

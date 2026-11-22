@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-GrantPermissionsToIAMUser`
-<a name="automation-awssupport-grantpermissionstoiamuser"></a>
 
  **Description** 
 
@@ -74,7 +73,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -135,7 +134,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
  The user must have the **ssm:StartAutomationExecution** permissions on the runbook, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole** . Here are the permissions each IAM role needs: 
 
-```
+```json
 AutomationAssumeRole
 
                     {
@@ -155,7 +154,7 @@ AutomationAssumeRole
                     }
 ```
 
-```
+```json
 LambdaAssumeRole
 
                 {

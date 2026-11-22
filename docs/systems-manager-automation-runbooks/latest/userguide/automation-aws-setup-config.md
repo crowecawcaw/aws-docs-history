@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-SetupConfig`
-<a name="automation-aws-setup-config"></a>
 
  **Description** 
 

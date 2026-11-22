@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteRDSInstance`
-<a name="automation-aws-delete-rds-instance"></a>
 
  **Description** 
 

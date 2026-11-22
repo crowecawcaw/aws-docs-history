@@ -1,7 +1,6 @@
 
 
 # `AWS-ECSRunTask`
-<a name="aws-run-ecs-task"></a>
 
  **Description** 
 

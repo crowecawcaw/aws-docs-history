@@ -1,7 +1,6 @@
 
 
 # `AWS-ResizeInstance`
-<a name="automation-aws-resizeinstance"></a>
 
 **Description**
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-DisablePublicAccessForSecurityGroup`
-<a name="automation-aws-disablepublicaccessforsecuritygroup"></a>
 
  **Description** 
 

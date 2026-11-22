@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateImage`
-<a name="automation-aws-createimage"></a>
 
 **Description**
 
@@ -47,7 +46,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

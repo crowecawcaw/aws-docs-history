@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootManagedInstance`
-<a name="automation-awssupport-troubleshoot-managed-instance"></a>
 
  **Description** 
 

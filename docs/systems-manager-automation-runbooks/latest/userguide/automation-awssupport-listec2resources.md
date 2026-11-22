@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ListEC2Resources`
-<a name="automation-awssupport-listec2resources"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-BulkResolveOpsItems`
-<a name="automation-aws-bulk-resolve-opsitems"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRDSInstanceBackup`
-<a name="automation-aws-enable-rds-instance-backup"></a>
 
  **Description** 
 

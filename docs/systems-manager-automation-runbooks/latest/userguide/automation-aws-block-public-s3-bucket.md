@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock`
-<a name="automation-aws-block-public-s3-bucket"></a>
 
  **Description** 
 

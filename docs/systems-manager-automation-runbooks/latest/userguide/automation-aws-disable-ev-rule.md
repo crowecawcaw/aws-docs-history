@@ -1,7 +1,6 @@
 
 
 # `AWS-DisableEventBridgeRule`
-<a name="automation-aws-disable-ev-rule"></a>
 
  **Description** 
 

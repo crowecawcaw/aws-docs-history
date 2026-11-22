@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableElasticBeanstalkEnvironmentLogStreaming`
-<a name="automation-aws-enable-eb-logging"></a>
 
  **Description** 
 

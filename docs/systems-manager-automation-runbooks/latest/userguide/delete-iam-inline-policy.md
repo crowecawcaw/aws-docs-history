@@ -1,7 +1,6 @@
 
 
 # `AWS-DeleteIAMInlinePolicy`
-<a name="delete-iam-inline-policy"></a>
 
 **Description**
 

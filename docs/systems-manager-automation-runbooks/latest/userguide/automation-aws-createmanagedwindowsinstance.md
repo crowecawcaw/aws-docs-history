@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateManagedWindowsInstance`
-<a name="automation-aws-createmanagedwindowsinstance"></a>
 
  **Description** 
 

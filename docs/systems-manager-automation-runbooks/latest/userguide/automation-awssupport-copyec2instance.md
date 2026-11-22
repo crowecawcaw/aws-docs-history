@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CopyEC2Instance`
-<a name="automation-awssupport-copyec2instance"></a>
 
  **Description** 
 

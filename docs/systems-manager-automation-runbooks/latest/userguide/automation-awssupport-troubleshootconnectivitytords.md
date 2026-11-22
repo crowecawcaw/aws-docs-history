@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootConnectivityToRDS`
-<a name="automation-awssupport-troubleshootconnectivitytords"></a>
 
  **Description** 
 

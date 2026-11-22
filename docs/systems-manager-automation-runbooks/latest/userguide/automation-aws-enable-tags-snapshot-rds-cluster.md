@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCopyTagsToSnapshotOnRDSCluster`
-<a name="automation-aws-enable-tags-snapshot-rds-cluster"></a>
 
  **Description** 
 

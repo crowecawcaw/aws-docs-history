@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedENI`
-<a name="automation-aws-delete-eni"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableNeptuneDbAuditLogsToCloudWatch`
-<a name="AWS-EnableNeptuneDbAuditLogsToCloudWatch"></a>
 
  **Description** 
 

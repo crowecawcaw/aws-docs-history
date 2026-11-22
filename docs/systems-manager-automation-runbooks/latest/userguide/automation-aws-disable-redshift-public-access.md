@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DisablePublicAccessToRedshiftCluster`
-<a name="automation-aws-disable-redshift-public-access"></a>
 
  **Description** 
 

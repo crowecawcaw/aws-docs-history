@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RemoveVPCDefaultSecurityGroupRules`
-<a name="automation-aws-remove-default-secg-rules"></a>
 
  **Description** 
 

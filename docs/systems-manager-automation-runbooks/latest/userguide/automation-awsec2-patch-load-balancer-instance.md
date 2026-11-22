@@ -1,7 +1,6 @@
 
 
 # `AWSEC2-PatchLoadBalancerInstance`
-<a name="automation-awsec2-patch-load-balancer-instance"></a>
 
 **Description**
 

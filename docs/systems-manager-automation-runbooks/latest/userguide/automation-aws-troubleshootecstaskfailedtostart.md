@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootECSTaskFailedToStart`
-<a name="automation-aws-troubleshootecstaskfailedtostart"></a>
 
  **Description** 
 

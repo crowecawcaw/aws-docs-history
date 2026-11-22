@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-StartEC2RescueWorkflow`
-<a name="automation-awssupport-startec2rescueworkflow"></a>
 
  **Description** 
 
@@ -16,13 +15,13 @@ Amazon EC2 instances created from Marketplace Amazon Machine Images (AMIs) are n
 
 To base64 encode a script, you can use either Powershell or Bash. Powershell:
 
-```
+```powershell
 [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes([System.IO.File]::ReadAllText('PATH_TO_FILE')))
 ```
 
 Bash:
 
-```
+```bash
 base64 PATH_TO_FILE
 ```
 
@@ -190,7 +189,7 @@ It needs whatever permissions the script that you pass in `OfflineScript` calls 
 If you set `S3BucketName`, it needs `s3:PutObject` and `s3:AbortMultipartUpload` on that bucket under the `S3Prefix` that you specify, because the automation passes the bucket and prefix to your script rather than uploading on its own.
 If you leave `HelperInstanceProfileName` empty, the automation creates a helper IAM role and instance profile on your behalf, which requires permissions to create and configure IAM resources that this policy doesn't grant.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

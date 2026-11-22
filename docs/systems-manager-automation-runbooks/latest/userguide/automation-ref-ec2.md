@@ -1,7 +1,6 @@
 
 
 # Amazon EC2
-<a name="automation-ref-ec2"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Elastic Compute Cloud. Runbooks for Amazon Elastic Block Store are located in the [Amazon EBS](automation-ref-ebs.md) section of the Runbook Reference. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -29,6 +28,10 @@
 + [`AWSEC2-SQLServerDBRestore`](automation-awsec2-sqlserverdbrestore.md)
 + [`AWSSupport-ActivateWindowsWithAmazonLicense`](automation-awssupport-activatewindowswithamazonlicense.md)
 + [`AWSSupport-AnalyzeAWSEndpointReachabilityFromEC2`](automation-awssupport-analyzeawsendpointreachabilityfromec2.md)
++ [`AWSSupportRemediator-ChangeInstanceType`](automation-awssupportremediator-changeinstancetype.md)
++ [`AWSSupportRemediator-EnableAutoScalingGroupElbHealthCheck`](automation-awssupportremediator-enableautoscalinggroupelbhealthcheck.md)
++ [`AWSSupportRemediator-EnableEc2InstanceImdsv2`](automation-awssupportremediator-enableec2instanceimdsv2.md)
++ [`AWSSupportRemediator-TerminateEc2InstanceStoppedForPeriodOfTime`](automation-awssupportremediator-terminateec2instancestoppedforperiodoftime.md)
 + [`AWSPremiumSupport-ChangeInstanceTypeIntelToAMD`](automation-aws-changeinstancetypeinteltoamd.md)
 + [`AWSSupport-CheckXenToNitroMigrationRequirements`](automation-awssupport-checkxentonitromigrationrequirements.md)
 + [`AWSSupport-CloneXenEC2InstanceAndMigrateToNitro`](automation-awssupport-clonexenec2instanceandmigratetonitro.md)
@@ -65,3 +68,9 @@
 + [`AWSSupport-TroubleshootWindowsPerformance`](awssupport-troubleshoot-windows-performance.md)
 + [`AWSSupport-TroubleshootWindowsUpdate`](awssupport-troubleshoot-windows-update.md)
 + [`AWSSupport-UpgradeWindowsAWSDrivers`](automation-awssupport-upgradewindowsawsdrivers.md)
++ [`AWSSupportRemediator-TerminateEc2Instance`](automation-awssupportremediator-terminateec2instance.md)
++ [`AWSSupportRemediator-ResizeInstanceByComputeOptimizerRecommendation`](automation-awssupportremediator-resizeinstancebycomputeoptimizerrecommendation.md)
++ [`AWSSupportRemediator-StopEc2Instance`](automation-awssupportremediator-stopec2instance.md)
++ [`AWSSupportRemediator-ResizeInstanceByOneLevel`](automation-awssupportremediator-resizeinstancebyonelevel.md)
++ [`AWSSupportRemediator-ReleaseElasticIP`](automation-awssupportremediator-releaseelasticip.md)
++ [`AWSSupportRemediator-EnableEc2InstanceDetailedMonitoring`](automation-awssupportremediator-enableec2instancedetailedmonitoring.md)

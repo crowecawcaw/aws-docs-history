@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableMinorVersionUpgradeOnRDSDBInstance`
-<a name="automation-aws-enable-rds-minor-version"></a>
 
  **Description** 
 

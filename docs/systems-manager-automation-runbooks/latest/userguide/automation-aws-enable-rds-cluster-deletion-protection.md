@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRDSClusterDeletionProtection`
-<a name="automation-aws-enable-rds-cluster-deletion-protection"></a>
 
  **Description** 
 

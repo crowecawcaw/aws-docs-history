@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateALBDesyncMitigationMode`
-<a name="AWS-UpdateALBDesyncMitigationMode"></a>
 
  **Description** 
 

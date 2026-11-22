@@ -1,7 +1,6 @@
 
 
 # `AWS-ConfigureMaintenanceWindows`
-<a name="aws-configuremaintenancewindows"></a>
 
  **Description** 
 

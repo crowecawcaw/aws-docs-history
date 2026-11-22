@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedIAMPolicy`
-<a name="automation-aws-delete-iam-policy"></a>
 
  **Description** 
 

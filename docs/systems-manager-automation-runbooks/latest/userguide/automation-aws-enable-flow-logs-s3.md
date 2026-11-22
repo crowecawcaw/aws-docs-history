@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableVPCFlowLogsToS3Bucket`
-<a name="automation-aws-enable-flow-logs-s3"></a>
 
  **Description** 
 

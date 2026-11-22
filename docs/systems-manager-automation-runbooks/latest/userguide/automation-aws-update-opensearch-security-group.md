@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups`
-<a name="automation-aws-update-opensearch-security-group"></a>
 
  **Description** 
 

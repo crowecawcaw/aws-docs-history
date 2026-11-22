@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ConfigureDNSQueryLogging`
-<a name="automation-aws-configure-dns-query-logging"></a>
 
  **Description** 
 

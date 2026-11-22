@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootIAMAccessDeniedEvents`
-<a name="awssupport-troubleshootiamaccessdeniedevents"></a>
 
  **Description** 
 
@@ -71,7 +70,7 @@ Example Policy:
 
 ****  
 
-```
+```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [

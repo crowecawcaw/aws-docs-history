@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudFrontDefaultRootObject`
-<a name="automation-aws-enable-cloudfront-root-object"></a>
 
  **Description** 
 

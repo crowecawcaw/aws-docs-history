@@ -1,7 +1,6 @@
 
 
 # `AWS-DeleteCloudFormationStack`
-<a name="automation-aws-deletecloudformationstack"></a>
 
  **Description** 
 

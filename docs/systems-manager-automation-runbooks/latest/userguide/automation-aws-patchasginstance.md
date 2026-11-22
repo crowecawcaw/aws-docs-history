@@ -1,7 +1,6 @@
 
 
 # `AWS-PatchAsgInstance`
-<a name="automation-aws-patchasginstance"></a>
 
 **Description**
 

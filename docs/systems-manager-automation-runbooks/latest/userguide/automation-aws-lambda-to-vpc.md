@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-MoveLambdaToVPC`
-<a name="automation-aws-lambda-to-vpc"></a>
 
  **Description** 
 

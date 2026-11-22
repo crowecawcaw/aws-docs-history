@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ConfigureTrafficMirroring`
-<a name="automation-aws-configuretrafficmirroring"></a>
 
  **Description** 
 

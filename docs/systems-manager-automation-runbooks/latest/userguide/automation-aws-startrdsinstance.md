@@ -1,7 +1,6 @@
 
 
 # `AWS-StartRdsInstance`
-<a name="automation-aws-startrdsinstance"></a>
 
  **Description** 
 

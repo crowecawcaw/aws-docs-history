@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ValidateRdsNetworkConfiguration`
-<a name="automation-aws-validate-rds-network-configuration"></a>
 
  **Description** 
 
@@ -50,7 +49,7 @@ Sample policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

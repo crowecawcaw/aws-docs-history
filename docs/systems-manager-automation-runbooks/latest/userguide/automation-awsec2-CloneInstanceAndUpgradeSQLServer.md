@@ -1,7 +1,6 @@
 
 
 # `AWSEC2-CloneInstanceAndUpgradeSQLServer`
-<a name="automation-awsec2-CloneInstanceAndUpgradeSQLServer"></a>
 
 **Description**
 

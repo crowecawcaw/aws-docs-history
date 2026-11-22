@@ -1,7 +1,6 @@
 
 
 # `AWS-ConfigureS3BucketVersioning`
-<a name="automation-aws-configures3bucketversioning"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-TerminateEC2Instance`
-<a name="automation-aws-terminateec2instance"></a>
 
 **Description**
 

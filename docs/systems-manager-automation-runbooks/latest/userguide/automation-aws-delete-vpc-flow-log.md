@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteVPCFlowLog`
-<a name="automation-aws-delete-vpc-flow-log"></a>
 
  **Description** 
 

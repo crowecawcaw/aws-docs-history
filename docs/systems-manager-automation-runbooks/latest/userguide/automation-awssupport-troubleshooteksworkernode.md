@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEKSWorkerNode`
-<a name="automation-awssupport-troubleshooteksworkernode"></a>
 
  **Description** 
 

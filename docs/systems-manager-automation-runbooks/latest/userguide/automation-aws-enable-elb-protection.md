@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableELBDeletionProtection`
-<a name="automation-aws-enable-elb-protection"></a>
 
  **Description** 
 

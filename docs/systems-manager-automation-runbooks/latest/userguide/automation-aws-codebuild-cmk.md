@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ConfigureCodeBuildProjectWithKMSCMK`
-<a name="automation-aws-codebuild-cmk"></a>
 
  **Description** 
 

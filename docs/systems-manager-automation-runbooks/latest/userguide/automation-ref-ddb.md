@@ -1,7 +1,6 @@
 
 
 # DynamoDB
-<a name="automation-ref-ddb"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon DynamoDB. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -15,3 +14,5 @@
 + [`AWSConfigRemediation-EnablePITRForDynamoDbTable`](automation-aws-enable-pitr-ddb.md)
 + [`AWS-EnableDynamoDbAutoscaling`](AWS-EnableDynamoDbAutoscaling.md)
 + [`AWS-RestoreDynamoDBTable`](aws-restore-dynamodb-table.md)
++ [`AWSSupportRemediator-EnableDynamoDbDeletionProtection`](automation-awssupportremediator-enabledynamodbdeletionprotection.md)
++ [`AWSSupportRemediator-EnableDynamoDbPitr`](automation-awssupportremediator-enabledynamodbpitr.md)

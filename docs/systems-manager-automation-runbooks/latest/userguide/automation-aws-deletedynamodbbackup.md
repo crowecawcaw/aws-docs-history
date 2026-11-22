@@ -1,7 +1,6 @@
 
 
 # `AWS-DeleteDynamoDbBackup`
-<a name="automation-aws-deletedynamodbbackup"></a>
 
  **Description** 
 

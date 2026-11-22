@@ -1,7 +1,8 @@
 
 
 # `AWSSupport-TroubleshootAPIGatewayLambdaInvocation`
-<a name="automation-awssupport-troubleshootapigatewaylambdainvocation"></a>
+
+**Description**
 
 The `AWSSupport-TroubleshootAPIGatewayLambdaInvocation` runbook helps you troubleshoot Amazon API Gateway integrations with AWS Lambda functions in HTTP and REST APIs. The runbook supports Lambda functions used as an integration or as an authorizer, and covers the following use cases:
 + **Insufficient or missing permissions:** Identifies missing permissions in Lambda resource policies or IAM roles.
@@ -20,6 +21,8 @@ The runbook doesn't cover client-side throttling on API Gateway.
 
 **Additional costs**  
 Using this runbook queries metrics from Amazon CloudWatch. Standard CloudWatch charges might apply to your AWS account for the metrics queried during the analysis. For more information about pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+
+**How it works**
 
 The runbook performs the following validation and analysis steps:
 + Validates that the specified API Gateway API, stage, and route or resource exist, and confirms that a Lambda integration or authorizer is configured.
@@ -66,7 +69,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -134,6 +137,8 @@ The IAM user or role that starts the runbook requires the following actions:
 `ssm:ListDocuments`
 `ssm:StartAutomationExecution`
 
+**Instructions**
+
 Follow these steps to configure the automation:
 
 1. Open [AWSSupport-TroubleshootAPIGatewayLambdaInvocation](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootAPIGatewayLambdaInvocation/description) in Systems Manager under Documents.
@@ -191,6 +196,8 @@ Follow these steps to configure the automation:
      Compiles a summary report of the findings, validation issues, permission problems, and troubleshooting recommendations with actionable guidance and relevant references.
 
 1. After completion, review the Outputs section for the detailed results of the execution.
+
+**References**
 
 Systems Manager Automation
 + [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootAPIGatewayLambdaInvocation/description)

@@ -1,7 +1,6 @@
 
 
 # `AWSPremiumSupport-TroubleshootEC2DiskUsage`
-<a name="automation-awspremiumsupport-troubleshootEC2diskusage"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableWAFClassicLogging`
-<a name="automation-aws-enable-waf-logging"></a>
 
  **Description** 
 

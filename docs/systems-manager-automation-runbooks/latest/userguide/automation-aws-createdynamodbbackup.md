@@ -1,7 +1,6 @@
 
 
 # `AWS-CreateDynamoDBBackup`
-<a name="automation-aws-createdynamodbbackup"></a>
 
  **Description** 
 

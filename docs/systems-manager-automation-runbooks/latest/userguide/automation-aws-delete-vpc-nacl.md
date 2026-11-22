@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedVPCNetworkACL`
-<a name="automation-aws-delete-vpc-nacl"></a>
 
  **Description** 
 

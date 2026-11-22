@@ -1,7 +1,6 @@
 
 
 # `AWS-SetupInventory`
-<a name="automation-aws-setupinventory"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-SetupManagedInstance`
-<a name="automation-aws-setupmanagedinstance"></a>
 
  **Description** 
 

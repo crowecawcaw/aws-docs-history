@@ -1,7 +1,6 @@
 
 
 # `AWS-ConfigureS3BucketLogging`
-<a name="automation-aws-configures3bucketlogging"></a>
 
  **Description** 
 

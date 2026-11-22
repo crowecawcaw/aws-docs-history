@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ShareEncryptedAMIOrEBSSnapshot`
-<a name="awssupport-share-encrypted-ami-or-ebs-snapshot"></a>
 
  **Description** 
 
@@ -115,7 +114,7 @@ Follow these steps to configure the automation:
 
 The IAM role or user in the destination account must configure the following IAM permissions to launch encrypted Amazon EC2 instances from the shared encrypted AMI or to create volumes from the shared encrypted Amazon EBS snapshot:
 
-```
+```json
     {
         "Version": "2012-10-17",		 	 	 
         "Statement": [

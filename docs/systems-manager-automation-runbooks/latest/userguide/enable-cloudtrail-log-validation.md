@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCloudTrailLogFileValidation`
-<a name="enable-cloudtrail-log-validation"></a>
 
 **Description**
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting`
-<a name="automation-aws-enable-redshift-enhanced-routing"></a>
 
  **Description** 
 

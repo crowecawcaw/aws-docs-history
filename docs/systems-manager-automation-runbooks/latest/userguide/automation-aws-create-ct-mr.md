@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-CreateCloudTrailMultiRegionTrail`
-<a name="automation-aws-create-ct-mr"></a>
 
  **Description** 
 

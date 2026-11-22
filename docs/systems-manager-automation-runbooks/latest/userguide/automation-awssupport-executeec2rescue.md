@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ExecuteEC2Rescue`
-<a name="automation-awssupport-executeec2rescue"></a>
 
  **Description** 
 

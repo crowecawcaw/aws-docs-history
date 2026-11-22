@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-RestoreEC2InstanceFromSnapshot`
-<a name="automation-awssupport-restoreec2instancefromsnapshot"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEKSNetwork`
-<a name="automation-awssupport-troubleshooteksnetwork"></a>
 
 ## Description
 <a name="automation-awssupport-troubleshooteksnetwork-description"></a>
@@ -48,7 +47,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 The following example policy shows the least-privilege permissions required for the `AutomationAssumeRole`. Replace `REGION`, `ACCOUNTID`, `SOURCE_CLUSTER_NAME`, `DESTINATION_CLUSTER_NAME`, and `S3_BUCKET_NAME` with your own values:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

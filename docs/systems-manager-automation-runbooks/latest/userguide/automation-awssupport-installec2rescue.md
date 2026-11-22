@@ -1,13 +1,16 @@
 
 
 # `AWSSupport-InstallEC2Rescue`
-<a name="automation-awssupport-installec2rescue"></a>
+
+**Description**
 
 The `AWSSupport-InstallEC2Rescue` runbook installs and runs the [Amazon EC2 Rescue for Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) or [Amazon EC2 Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html) tool on the target Amazon Elastic Compute Cloud (Amazon EC2) instance.
 
 **Prerequisites**  
 For Linux instances, Amazon EC2 Rescue for Linux requires Python 2.7.9, 3.2, or a later version installed on the target instance.
 For Windows instances, Amazon EC2 Rescue for Windows requires .NET Framework 3.5 SP1 or later and the AWS Tools for PowerShell installed on the target instance.
+
+**How it works**
 
 The runbook performs the following operations:
 + Installs the `AWSSupport-EC2Rescue` distributor package on the target instance using `AWS-ConfigureAWSPackage`.
@@ -39,7 +42,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 Example IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -66,7 +69,11 @@ Example IAM policy:
 }
 ```
 
+**Outputs**
+
 `installEC2Rescue.Output` - The output of the EC2 Rescue package installation.
+
+**Instructions**
 
 Follow these steps to configure the automation:
 
@@ -109,6 +116,8 @@ Follow these steps to configure the automation:
      Runs the Amazon EC2 Rescue for Windows Server tool on the target instance.
 
 1. After completion, review the Outputs section for the detailed results of the execution.
+
+**References**
 
 Systems Manager Automation
 +  [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-InstallEC2Rescue/description) 

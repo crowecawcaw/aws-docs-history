@@ -1,7 +1,6 @@
 
 
 # Amazon EBS
-<a name="automation-ref-ebs"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Elastic Block Store. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -10,6 +9,10 @@
 + [`AWS-ArchiveEBSVolumeSnapshots`](aws-archiveebsvolumesnapshots.md)
 + [`AWS-AttachEBSVolume`](automation-aws-attachebsvolume.md)
 + [`AWSSupport-CalculateEBSPerformanceMetrics`](automation-calculate-ebs-performance-metrics.md)
++ [`AWSSupportRemediator-DeleteUnusedEbsVolume`](automation-awssupportremediator-deleteunusedebsvolume.md)
++ [`AWSSupportRemediator-CreateEbsSnapshot`](automation-awssupportremediator-createebssnapshot.md)
++ [`AWSSupportRemediator-DisablePublicAccessOnEbsSnapshot`](automation-awssupportremediator-disablepublicaccessonebssnapshot.md)
++ [`AWSSupportRemediator-EncryptEbsByDefault`](automation-awssupportremediator-encryptebsbydefault.md)
 + [`AWS-CopySnapshot`](automation-aws-copysnapshot.md)
 + [`AWS-CreateSnapshot`](automation-aws-createsnapshot.md)
 + [`AWS-DeleteSnapshot`](automation-aws-deletesnapshot.md)

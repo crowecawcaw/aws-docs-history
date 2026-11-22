@@ -1,7 +1,6 @@
 
 
 # `AWS-UpdateLinuxAmi`
-<a name="automation-aws-updatelinuxami"></a>
 
 **Description**
 

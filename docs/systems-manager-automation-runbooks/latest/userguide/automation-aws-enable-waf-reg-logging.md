@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableWAFClassicRegionalLogging`
-<a name="automation-aws-enable-waf-reg-logging"></a>
 
  **Description** 
 

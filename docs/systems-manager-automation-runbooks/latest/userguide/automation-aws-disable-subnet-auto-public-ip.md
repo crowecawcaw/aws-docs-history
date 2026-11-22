@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DisableSubnetAutoAssignPublicIP`
-<a name="automation-aws-disable-subnet-auto-public-ip"></a>
 
  **Description** 
 

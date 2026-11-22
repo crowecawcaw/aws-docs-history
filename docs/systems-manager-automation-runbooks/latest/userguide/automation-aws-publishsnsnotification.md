@@ -1,7 +1,6 @@
 
 
 # `AWS-PublishSNSNotification`
-<a name="automation-aws-publishsnsnotification"></a>
 
  **Description** 
 

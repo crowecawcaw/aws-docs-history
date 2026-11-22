@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootCFNCustomResource`
-<a name="automation-awssupport-TroubleshootCFNCustomResource"></a>
 
  **Description** 
 

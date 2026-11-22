@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootLinuxMGNDRSAgentLogs`
-<a name="automation-troublshoot-linux-mngdrs-agent-logs"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWS-DisableSageMakerNotebookRootAccess`
-<a name="AWS-DisableSageMakerNotebookRootAccess"></a>
 
  **Description** 
 

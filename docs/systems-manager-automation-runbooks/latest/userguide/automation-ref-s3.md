@@ -1,7 +1,6 @@
 
 
 # Amazon S3
-<a name="automation-ref-s3"></a>
 
  AWS Systems Manager Automation provides predefined runbooks for Amazon Simple Storage Service. For more information about runbooks, see [Working with runbooks](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html). For information about how to view runbook content, see [View runbook content](automation-runbook-reference.md#view-automation-json). 
 
@@ -23,3 +22,7 @@
 + [`AWSSupport-TroubleshootS3EventNotifications`](awssupport-troubleshoot-s3-event-notifications.md)
 + [`AWSSupport-ContainS3Resource`](automation-awssupport-contains3resource.md)
 + [`AWSSupport-TroubleshootS3AccessSameAccount`](automation-aws-troubleshoots3accesssameaccount.md)
++ [`AWSSupportRemediator-EnableS3AbortIncompleteMultipartUpload`](automation-awssupportremediator-enables3abortincompletemultipartupload.md)
++ [`AWSSupportRemediator-EnableBucketVersioning`](automation-awssupportremediator-enablebucketversioning.md)
++ [`AWSSupportRemediator-BlockS3BucketPublicAccess`](automation-awssupportremediator-blocks3bucketpublicaccess.md)
++ [`AWSSupportRemediator-EnableBucketAccessLogging`](automation-awssupportremediator-enablebucketaccesslogging.md)

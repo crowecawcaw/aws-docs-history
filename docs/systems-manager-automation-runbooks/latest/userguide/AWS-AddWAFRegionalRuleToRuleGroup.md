@@ -1,7 +1,6 @@
 
 
 # `AWS-AddWAFRegionalRuleToRuleGroup`
-<a name="AWS-AddWAFRegionalRuleToRuleGroup"></a>
 
  **Description** 
 

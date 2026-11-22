@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ModifyEBSVolumeType`
-<a name="automation-aws-modify-ebs-type"></a>
 
  **Description** 
 

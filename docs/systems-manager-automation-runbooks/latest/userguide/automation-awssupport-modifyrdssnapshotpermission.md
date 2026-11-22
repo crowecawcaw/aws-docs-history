@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-ModifyRDSSnapshotPermission`
-<a name="automation-awssupport-modifyrdssnapshotpermission"></a>
 
  **Description** 
 

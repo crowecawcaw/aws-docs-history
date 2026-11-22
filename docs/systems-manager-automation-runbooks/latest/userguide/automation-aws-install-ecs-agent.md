@@ -1,7 +1,6 @@
 
 
 # `AWS-InstallAmazonECSAgent`
-<a name="automation-aws-install-ecs-agent"></a>
 
  **Description** 
 

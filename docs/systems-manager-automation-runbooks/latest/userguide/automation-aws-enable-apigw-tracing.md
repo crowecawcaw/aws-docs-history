@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableAPIGatewayTracing`
-<a name="automation-aws-enable-apigw-tracing"></a>
 
  **Description** 
 

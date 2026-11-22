@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnforceEC2InstanceIMDSv2`
-<a name="automation-aws-enforce-ec2-imdsv2"></a>
 
 **Description**
 

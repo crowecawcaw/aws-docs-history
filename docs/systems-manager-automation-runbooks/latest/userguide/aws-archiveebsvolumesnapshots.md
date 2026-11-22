@@ -1,7 +1,6 @@
 
 
 # `AWS-ArchiveEBSVolumeSnapshots`
-<a name="aws-archiveebsvolumesnapshots"></a>
 
  **Description** 
 

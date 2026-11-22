@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-CheckXenToNitroMigrationRequirements`
-<a name="automation-awssupport-checkxentonitromigrationrequirements"></a>
 
  **Description** 
 

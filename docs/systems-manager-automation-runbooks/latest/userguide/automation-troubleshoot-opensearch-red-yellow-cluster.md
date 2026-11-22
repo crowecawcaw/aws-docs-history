@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootOpenSearchRedYellowCluster`
-<a name="automation-troubleshoot-opensearch-red-yellow-cluster"></a>
 
  **Description** 
 
@@ -74,7 +73,7 @@ Overview of `LambdaExecutionRole` policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-ModifyRedshiftClusterNodeType`
-<a name="automation-aws-modify-redshift-cluster-node"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootLambdaS3Event`
-<a name="automation-aws-troubleshootlambdas3event"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableKeyRotation`
-<a name="automation-aws-enable-key-rotation"></a>
 
  **Description** 
 

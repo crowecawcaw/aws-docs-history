@@ -1,7 +1,6 @@
 
 
 # `AWS-ConfigureCloudWatchOnEC2Instance`
-<a name="automation-aws-configurecloudwatchonec2instance"></a>
 
  **Description** 
 

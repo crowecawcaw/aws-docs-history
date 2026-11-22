@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootWindowsUpdate`
-<a name="awssupport-troubleshoot-windows-update"></a>
 
  **Description** 
 

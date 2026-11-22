@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EncryptSNSTopic`
-<a name="automation-aws-encrypt-sns-topic"></a>
 
  **Description** 
 

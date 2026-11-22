@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableKinesisStreamEncryption`
-<a name="aws-enablekinesisstreamencryption"></a>
 
  **Description** 
 

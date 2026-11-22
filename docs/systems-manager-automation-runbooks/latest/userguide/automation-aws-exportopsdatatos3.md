@@ -1,7 +1,6 @@
 
 
 # `AWS-ExportOpsDataToS3`
-<a name="automation-aws-exportopsdatatos3"></a>
 
  **Description** 
 

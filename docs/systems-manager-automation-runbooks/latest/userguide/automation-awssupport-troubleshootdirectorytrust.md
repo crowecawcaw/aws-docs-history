@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootDirectoryTrust`
-<a name="automation-awssupport-troubleshootdirectorytrust"></a>
 
  **Description** 
 

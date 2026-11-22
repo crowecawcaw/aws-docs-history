@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteRDSClusterSnapshot`
-<a name="automation-aws-delete-rds-cluster-snap"></a>
 
  **Description** 
 

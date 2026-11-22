@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DetachIAMPolicy`
-<a name="automation-aws-detach-iam-policy"></a>
 
  **Description** 
 

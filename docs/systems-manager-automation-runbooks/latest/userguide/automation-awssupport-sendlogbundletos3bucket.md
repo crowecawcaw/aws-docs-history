@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-SendLogBundleToS3Bucket`
-<a name="automation-awssupport-sendlogbundletos3bucket"></a>
 
  **Description** 
 

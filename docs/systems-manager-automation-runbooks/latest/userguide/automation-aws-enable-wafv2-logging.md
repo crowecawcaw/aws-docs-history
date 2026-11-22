@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableWAFV2Logging`
-<a name="automation-aws-enable-wafv2-logging"></a>
 
  **Description** 
 

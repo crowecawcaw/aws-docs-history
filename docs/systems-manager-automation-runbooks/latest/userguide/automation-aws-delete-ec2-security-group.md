@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteUnusedSecurityGroup`
-<a name="automation-aws-delete-ec2-security-group"></a>
 
  **Description** 
 

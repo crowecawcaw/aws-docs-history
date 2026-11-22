@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck`
-<a name="automation-aws-enable-asg-health-check"></a>
 
 **Description**
 

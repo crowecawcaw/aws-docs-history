@@ -1,7 +1,6 @@
 
 
 # `AWS-EnableCloudTrail`
-<a name="automation-aws-enablecloudtrail"></a>
 
  **Description** 
 

@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-TroubleshootEKSDNSFailure`
-<a name="automation-awssupport-troubleshooteksdnsfailure"></a>
 
  **Description** 
 

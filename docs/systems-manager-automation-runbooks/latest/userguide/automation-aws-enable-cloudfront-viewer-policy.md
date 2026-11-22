@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS`
-<a name="automation-aws-enable-cloudfront-viewer-policy"></a>
 
  **Description** 
 

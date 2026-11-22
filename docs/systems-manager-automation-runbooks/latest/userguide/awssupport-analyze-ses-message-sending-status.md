@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-AnalyzeSESMessageSendingStatus`
-<a name="awssupport-analyze-ses-message-sending-status"></a>
 
 **Description**  
  The `AWSSupport-AnalyzeSESMessageSendingStatus` automation runbook summarizes the email delivery status of undelivered email messages and gives you advice to solve why it was undelivered. The runbook retrieves Amazon Simple Email Service (Amazon SES) email sending events stored in an Amazon CloudWatch Logs group published by Amazon SES. For Amazon SES event publishing details, please refer to [Monitoring using Amazon Simple Email Service event publishing](https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html). The runbook also provides a summary and the timeline of the email deliveries as well as recommendations which can potentially affect undelivered email messages. You can find those messages in the output section of each executions. Please note that this runbook can only troubleshoot the events after the event store deployment. 

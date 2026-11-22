@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableRedshiftClusterAutomatedSnapshot`
-<a name="automation-aws-enable-redshift-snapshot"></a>
 
  **Description** 
 

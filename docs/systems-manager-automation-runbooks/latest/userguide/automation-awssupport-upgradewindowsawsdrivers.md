@@ -1,7 +1,6 @@
 
 
 # `AWSSupport-UpgradeWindowsAWSDrivers`
-<a name="automation-awssupport-upgradewindowsawsdrivers"></a>
 
  **Description** 
 

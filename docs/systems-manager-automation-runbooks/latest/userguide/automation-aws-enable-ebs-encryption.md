@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnableEbsEncryptionByDefault`
-<a name="automation-aws-enable-ebs-encryption"></a>
 
  **Description** 
 

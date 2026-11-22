@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-RestrictBucketSSLRequestsOnly`
-<a name="automation-aws-s3-deny-http"></a>
 
  **Description** 
 

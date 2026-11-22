@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-DeleteAccessKeysFromCodeBuildProject`
-<a name="automation-aws-delete-cb-keys"></a>
 
  **Description** 
 

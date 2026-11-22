@@ -1,7 +1,6 @@
 
 
 # `AWSConfigRemediation-EnablePITRForDynamoDbTable`
-<a name="automation-aws-enable-pitr-ddb"></a>
 
  **Description** 
 
