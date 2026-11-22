@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Attribute References
-<a name="schemas_attributereferences"></a>
 
 Amazon Cloud Directory facets contain attributes. Attributes can be either an attribute definition or an attribute reference. Attribute definitions are attributes that declare their name and primitive type (string, binary, Boolean, DateTime, or number). They can also optionally declare their required behavior, default value, immutable flag, and attribute rules (such as min/max length).
 

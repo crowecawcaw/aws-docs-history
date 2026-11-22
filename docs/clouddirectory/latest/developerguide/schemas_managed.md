@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Managed Schema
-<a name="schemas_managed"></a>
 
 Cloud Directory makes it easy for you to rapidly develop applications by using a managed schema. With a managed schema, you can create a directory and start creating and retrieving objects from it at a faster pace. For more information, see [Create Your Directory](how_to_manage_directory_create.md).
 

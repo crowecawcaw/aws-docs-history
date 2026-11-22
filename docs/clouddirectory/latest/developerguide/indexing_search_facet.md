@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Facet-Based Indexing
-<a name="indexing_search_facet"></a>
 
 With facet-based indexing and search, you can optimize your directory searches by searching only a subset of your directory. To do this, you use a schema *facet*. For example, instead of searching across all the user objects in your directory, you can search only the user objects that contain an employee facet. This efficiency helps reduce the latency time and amount of data retrieved for the query. 
 

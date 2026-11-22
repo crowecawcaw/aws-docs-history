@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Indexing and Search
-<a name="indexing_search"></a>
 
 Amazon Cloud Directory supports two methods of indexing: Value based and type based. Value-based indexing is the most common form. With it you can index and search for objects in the directory based on the values of object attributes. With type-based indexing, you can index and search for objects in the directory based on object types. Facets help define object types. For more information about schemas and facets, see [Schemas](schemas.md) and [Facets](schemas_whatarefacets.md).
 

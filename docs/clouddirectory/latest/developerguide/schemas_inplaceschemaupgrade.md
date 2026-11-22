@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # In-Place Schema Upgrade
-<a name="schemas_inplaceschemaupgrade"></a>
 
 Cloud Directory offers the updating of existing schema attributes and facets to help integrate your applications with AWS provided services. Schemas that are in either the published or applied states have versions and cannot be changed. For more information, see [Schema Lifecycle](schemas_lifecycle.md). 
 

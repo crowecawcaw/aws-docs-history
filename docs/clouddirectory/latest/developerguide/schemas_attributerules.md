@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Attribute Rules
-<a name="schemas_attributerules"></a>
 
 Rules describe permissible values of an attribute type and constrain the values that are allowed for any particular attribute. You must specify rules as part of an attribute definition when you create a facet. Cloud Directory supports the following rule types:
 +  String length

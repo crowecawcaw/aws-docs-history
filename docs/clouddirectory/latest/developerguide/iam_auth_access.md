@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Identity and Access Management in Amazon Cloud Directory
-<a name="iam_auth_access"></a>
 
 Access to Amazon Cloud Directory requires credentials that AWS can use to authenticate your requests. Those credentials must have permissions to access AWS resources. The following sections provide details on how you can use [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Cloud Directory to help secure your resources by controlling who can access them:
 

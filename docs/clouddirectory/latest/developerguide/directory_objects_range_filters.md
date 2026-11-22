@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Range Filters
-<a name="directory_objects_range_filters"></a>
 
 Several Cloud Directory list APIs allow specifying a filter in the form of a range. These filters allow you to efficiently select subsets of the links attached to the specified node.
 

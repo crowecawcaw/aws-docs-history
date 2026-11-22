@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Transaction Support
-<a name="transaction_support"></a>
 
 With Amazon Cloud Directory, it’s often necessary to add new objects or add relationships between new objects and existing objects to reflect changes in a real-world hierarchy. Batch operations can make directory tasks like these easier to manage by providing the following benefits:
 + Batch operations can minimize the number of round trips required to write and read objects to and from your directory, improving the overall performance of your application.

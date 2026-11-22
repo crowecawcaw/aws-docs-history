@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Create Your Directory
-<a name="how_to_manage_directory_create"></a>
 
 Before you can create a directory in Amazon Cloud Directory, Directory Service requires that you first apply a schema to it. A directory cannot be created without a schema and typically has one schema applied to it. However, you use Cloud Directory API operations to apply additional schemas to a directory. For more information, see [ApplySchema](http://docs.aws.amazon.com/amazoncds/latest/APIReference/API_ApplySchema.html) in the *Amazon Cloud Directory API Reference Guide*.
 

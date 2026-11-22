@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Format Specification
-<a name="schemas_jsonformat"></a>
 
 A Cloud Directory schema adds structure to the data in your data directories. Cloud Directory provides two mechanisms for you to define your schema. Developers can use specific API operations to construct a schema or they can upload a schema entirely using schema upload capabilities. Schema documents can be uploaded via API calls or through the console. This section describes the format to use when you upload entire schema documents.
 

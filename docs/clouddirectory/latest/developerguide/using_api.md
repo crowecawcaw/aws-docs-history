@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Using the Cloud Directory APIs
-<a name="using_api"></a>
 
 Amazon Cloud Directory includes a set of API operations that enable programmatic access to Cloud Directory capabilities. You can use the [Amazon Cloud Directory API Reference Guide](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/welcome.html) to learn how to make requests to the Cloud Directory API for creating and managing the various elements. It also covers the components of requests, the content of responses, and how to authenticate requests.
 

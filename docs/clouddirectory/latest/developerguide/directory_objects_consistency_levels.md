@@ -3,7 +3,6 @@
 Amazon Cloud Directory is no longer open to new customers, and will reach end of support on July 24, 2027. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and [Amazon Neptune](https://aws.amazon.com/neptune/). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/). 
 
 # Consistency Levels
-<a name="directory_objects_consistency_levels"></a>
 
 Amazon Cloud Directory is a distributed directory store. Data is distributed to multiple servers in different Availability Zones. A successful write request updates the data on all servers. Data is eventually available on all servers, usually within a second. To aid users of the service, Cloud Directory offers two consistency levels for read operations. This section describes the different consistency levels and eventually consistent nature of Cloud Directory.
 
