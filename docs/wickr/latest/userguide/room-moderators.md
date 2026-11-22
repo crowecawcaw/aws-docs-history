@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Manage room moderators in the Wickr client
-<a name="room-moderators"></a>
 
 You can manage room moderators in the Wickr client. Rooms can have moderators who are able to add members, add moderators, remove members, configure room settings, and delete the room.
 

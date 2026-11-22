@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # View room or group details in the Wickr client
-<a name="room-details"></a>
 
 You can view room or group details in the Wickr client.
 

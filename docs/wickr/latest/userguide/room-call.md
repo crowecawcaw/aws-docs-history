@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Start a room or group meeting in the Wickr client
-<a name="room-call"></a>
 
 You can start a meeting in a room or group in the Wickr client.
 

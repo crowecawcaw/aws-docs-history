@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Message forwarding in the Wickr client
-<a name="message-forwarding"></a>
 
 You can forward a message to another recipient, room, or group in the Wickr client.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Install the Wickr plugin for ATAK
-<a name="install-atak"></a>
 
 You can install the Wickr plugin for ATAK on an Android device.
 

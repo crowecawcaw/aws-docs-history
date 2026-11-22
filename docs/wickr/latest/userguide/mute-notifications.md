@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Mute notifications in the Wickr client
-<a name="mute-notifications"></a>
 
 Mute notifications feature allows you to pause message alerts for specific conversations. You can set custom mute duration and synchronize notification settings across all your devices.
 

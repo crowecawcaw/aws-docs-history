@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # AWS Wickr Rooms and group messages
-<a name="rooms"></a>
 
 Create a room or a group message to have conversations with multiple Wickr users. Rooms can have moderators who are able to add members, add moderators, remove members, configure room settings, and delete the room. Rooms and groups can have a maximum of 500 members. Group messages do not have moderators; all members can add additional members and leave the group on their own. You can configure expiration and burn-on-read timers for rooms and group messages.
 

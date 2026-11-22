@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Emojis in the Wickr client
-<a name="emoji-reactions"></a>
 
 You can use emojis to react to an individual message with a specific emotion. For example, if someone is trying to coordinate plans, you could respond with a yes (![thumbs up emoji](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-yes.png)) or no (![thumbs down emoji](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-no.png)) reaction to indicate your preferences. Emojis can help de-clutter your messages by removing replies or reply-alls.
 

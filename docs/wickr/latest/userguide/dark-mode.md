@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Dark mode in the Wickr client
-<a name="dark-mode"></a>
 
 Dark mode is an appearance setting that replaces bright backgrounds with dark colors and light text, creating a softer visual experience.
 

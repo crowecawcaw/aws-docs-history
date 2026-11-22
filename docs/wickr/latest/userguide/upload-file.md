@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Upload a file in the Wickr client
-<a name="upload-file"></a>
 
 Users in self-moderated group conversations and moderators of room conversations can upload a file to a room in the Wickr client.
 

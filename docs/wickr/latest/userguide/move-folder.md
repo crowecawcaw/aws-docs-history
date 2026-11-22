@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Move a file or folder in the Wickr client
-<a name="move-folder"></a>
 
 Moderators can move folders, or files between folders in the Wickr client.
 

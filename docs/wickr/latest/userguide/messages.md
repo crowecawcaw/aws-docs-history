@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # AWS Wickr Messages
-<a name="messages"></a>
 
 You can write and receive direct messages with other Wickr users. Direct messages are one-on-one conversations between Wickr users. After you send a direct message, you can view contact details, search messages, start a call, and more. This section contains an overview of all the feature available through direct message.
 

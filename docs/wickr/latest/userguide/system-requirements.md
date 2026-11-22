@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # System requirements for AWS Wickr
-<a name="system-requirements"></a>
 
 The Wickr client has the following system requirements.
 + Android version 13.0 or newer

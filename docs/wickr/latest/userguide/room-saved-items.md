@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # View room or group saved items in the Wickr client
-<a name="room-saved-items"></a>
 
 You can view saved items for a room or group in the Wickr client.
 

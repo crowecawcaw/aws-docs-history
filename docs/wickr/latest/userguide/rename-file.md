@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Rename a file or folder in the Wickr client
-<a name="rename-file"></a>
 
 Moderators can rename a file or folder to a room in the Wickr client.
 

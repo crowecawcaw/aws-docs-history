@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Manage files in the Wickr client
-<a name="room-file-management"></a>
 
 Users in self-moderated group conversations and moderators of room conversations can upload files, view files saved from messages, delete files, and organize them into folders. Each room and group includes a **Files** tab to enhance file organization and accessibility.
 

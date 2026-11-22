@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Troubleshoot message delivery issues
-<a name="troubleshoot-messages"></a>
 
 This section helps you troubleshoot common message delivery issues with AWS Wickr, including unsent messages, missing messages, and delivery failures. If the steps below don't resolve your issue, contact your Wickr network administrator.
 

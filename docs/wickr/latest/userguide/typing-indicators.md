@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Typing indicators in the Wickr client
-<a name="typing-indicators"></a>
 
 Typing indicators are a useful tool that allows users to see and share when messages are being typed. These indicators can be enabled or disabled at any time and appear as text-based notifications showing the name of the user who is typing. In case multiple users are typing simultaneously, the notification will display "several users are typing" to make it easier to follow the conversation.
 

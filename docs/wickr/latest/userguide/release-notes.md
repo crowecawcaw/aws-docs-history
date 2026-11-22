@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Release notes for AWS Wickr
-<a name="release-notes"></a>
 
 To help you keep track of the ongoing updates and improvements to Wickr, we publish release notices that describe recent changes.
 

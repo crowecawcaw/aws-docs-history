@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # AWS Wickr Data retention
-<a name="data-retention"></a>
 
 AWS Wickr Data retention can retain all conversations in network. This includes direct messages and conversations in Groups or Rooms between in-network (internal) members and those with other teams (external) with whom your network is federated. Data retention is only available to AWS Wickr Premium plan customers and enterprise customers who opt in for data retention. For more information about the Premium plan, see [Wickr Pricing](https://aws.amazon.com/wickr/pricing/).
 

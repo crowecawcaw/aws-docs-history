@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # AWS Wickr Device sync
-<a name="device-sync"></a>
 
 If your organization has SSO enabled, you can sync existing data from your original device to a new device.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Troubleshoot network and connectivity issues
-<a name="troubleshoot-network"></a>
 
 This section helps you troubleshoot network and connectivity issues with AWS Wickr. Most connectivity problems are caused by your network configuration, not the Wickr service. If the steps below don't resolve your issue, contact your Wickr network administrator.
 

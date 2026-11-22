@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Getting started with AWS Wickr
-<a name="getting-started"></a>
 
 Get started with AWS Wickr by accepting an invitation email, or getting a Wickr company ID from your company's Wickr administrator and downloading the client.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Refer a friend in the Wickr client
-<a name="referral"></a>
 
 You can refer a friend to use Wickr in the Wickr client 
 

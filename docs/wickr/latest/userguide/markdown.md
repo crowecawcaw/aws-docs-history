@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Markdown (preview) for AWS Wickr
-<a name="markdown"></a>
 
 Wickr has launched Markdown as a preview feature. Markdown is a lightweight markup language used to format plain text. Using markdown can help improve the readability and detail of your messages. 
 

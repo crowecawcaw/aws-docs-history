@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Remove a folder or file in the Wickr client
-<a name="remove-folder"></a>
 
 Moderators can remove a folder or file from a room in the Wickr client.
 

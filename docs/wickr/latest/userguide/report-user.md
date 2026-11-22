@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Report a user in the Wickr client
-<a name="report-user"></a>
 
 If you encounter any behavior that violates our [Terms of Service](https://wickr.com/terms/) we ask that you report it to us.
 

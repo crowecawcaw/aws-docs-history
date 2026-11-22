@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # AWS Wickr Guest users
-<a name="guest-users"></a>
 
 The Wickr guest user feature allows individual guest users to sign in to the Wickr client and collaborate with Wickr network users.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Troubleshooting and support for AWS Wickr
-<a name="troubleshoot"></a>
 
 The following topics can help you troubleshoot common issues with AWS Wickr. Wickr uses a shared-responsibility support model: try to resolve the issue yourself first, then escalate to your organization. Your administrator escalates to AWS when an issue is on the service side.
 

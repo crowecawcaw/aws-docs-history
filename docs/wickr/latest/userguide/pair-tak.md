@@ -3,7 +3,6 @@
 This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Pair ATAK with Wickr
-<a name="pair-tak"></a>
 
 You can pair the ATAK application with Wickr after you successfully installed the Wickr plugin for ATAK.
 
