@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Security
-<a name="developer-associate-02-domain2"></a>
 
 **Topics**
 + [Task 1: Implement authentication and/or authorization for applications and AWS services](#developer-associate-02-domain2-task1)

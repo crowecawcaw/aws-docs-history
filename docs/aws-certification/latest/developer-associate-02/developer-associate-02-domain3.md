@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Deployment
-<a name="developer-associate-02-domain3"></a>
 
 **Topics**
 + [Task 1: Prepare application artifacts to be deployed to AWS](#developer-associate-02-domain3-task1)
