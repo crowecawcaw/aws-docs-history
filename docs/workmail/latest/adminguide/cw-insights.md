@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Using CloudWatch Insights with Amazon WorkMail
-<a name="cw-insights"></a>
 
 If you turned on email event logging in the Amazon WorkMail console or enabled audit logs delivery to CloudWatch Logs, you can use Amazon CloudWatch Logs Insights to query your event logs. For more information about turning on email event logging, see [Enabling email event logging](tracking.md). For more information about CloudWatch Logs Insights, see [Analyze log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) in the *Amazon CloudWatch Logs User Guide*.
 

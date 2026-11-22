@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling IAM Identity Center in Amazon WorkMail
-<a name="enabling_identity_center"></a>
 
 When you enable IAM Identity Center, it acts as an authentication layer for the Amazon WorkMail users. IAM Identity Center users are managed separately from the Amazon WorkMail directory. It is recommended to use the same usernames across IAM Identity Center and Amazon WorkMail.
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Assigning IAM Identity Center users and groups to Amazon WorkMail application
-<a name="assigning_usersandgroups"></a>
 
 When you enable IAM Identity Center in Amazon WorkMail, WorkMail creates an application in IAM Identity Center on your behalf. By default, IAM Identity Center users must be assigned to this application or belong to a group which is assigned to this application in order to access a mailbox in the Amazon WorkMail organization. For more information, see [AWS managed applications](https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html) in the AWS IAM Identity Center User Guide.
 

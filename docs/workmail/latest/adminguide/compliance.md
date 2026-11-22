@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Compliance validation for Amazon WorkMail
-<a name="compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon WorkMail as part of multiple AWS compliance programs. These include SOC, ISO, and C5.
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Configuring personal access tokens
-<a name="personal_access-token"></a>
 
 You can enable personal access token for Amazon WorkMail users to access their mailboxes using desktop and mobile email clients. After IAM Identity Center is enabled, by default, the personal access token status is set to active and is valid for 365 days. After enabling IAM Identity Center, your users’ existing credentials will no longer be valid to log into their email clients. Your users can generate the personal access token from the Amazon WorkMail web application and use it to log into any email clients. You can edit the personal access token expiration and when the token expires, your user can generate a new one.
 

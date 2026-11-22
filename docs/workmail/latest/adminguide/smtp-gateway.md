@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling SMTP gateways
-<a name="smtp-gateway"></a>
 
 You enable Simple Mail Transfer Protocol (SMTP) gateways for use with outbound email flow rules. Outbound email flow rules let you route email messages sent from your Amazon WorkMail organization through an SMTP gateway. For more information, see [Outbound email rule actions](email-flows.md#email-flows-rule-outbound).
 

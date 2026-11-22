@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Choosing the default domain
-<a name="default_domain"></a>
 
 You can make a domain associated with your organization the default for users and groups in that organization. Making a domain the default does not change existing email addresses.
 

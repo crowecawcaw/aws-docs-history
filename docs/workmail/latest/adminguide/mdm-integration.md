@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Integrating with mobile device management solutions
-<a name="mdm-integration"></a>
 
 Amazon WorkMail supports some basic mobile device management capabilities through mobile device policies and mobile device access rules. However, those features can only interact with mobile devices through the Microsoft Exchange ActiveSync (EAS) protocol, so they have limited ability to introspect and enforce device security posture. Administrators who need greater control over device security and compliance can use a third-party mobile device management (MDM) solution.
 

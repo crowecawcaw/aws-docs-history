@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Data protection in Amazon WorkMail
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon WorkMail. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -139,7 +138,7 @@ The following is a key policy for an example AWS managed CMK for Amazon WorkMail
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id" : "auto-workmail-1",
@@ -192,7 +191,7 @@ Amazon WorkMail uses the same encryption context format in all AWS KMS cryptogra
 
 In its [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) and [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS, Amazon WorkMail uses an encryption context where the key is `aws:workmail:arn` and the value is the Amazon Resource Name (ARN) of the organization. 
 
-```
+```json
 "aws:workmail:arn":"arn:aws:workmail:{{region}}:{{account ID}}:organization/{{organization-ID}}"
 ```
 
@@ -214,7 +213,7 @@ When you create a mailbox, Amazon WorkMail generates a mailbox key and calls AWS
 
 The event that records the `Encrypt` operation is similar to the following example event. The user is the Amazon WorkMail service. The parameters include the CMK ID (`keyId`) and the encryption context for the Amazon WorkMail organization. Amazon WorkMail also passes in the mailbox key, but that is not recorded in the CloudTrail log.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -257,7 +256,7 @@ When you add, view, or delete a mailbox message, Amazon WorkMail asks AWS KMS to
 
 The event that records the `Decrypt` operation is similar to the following example event. The user is the Amazon WorkMail service. The parameters include the encrypted mailbox key (as a ciphertext blob), which is not recorded in the log, and the encryption context for the Amazon WorkMail organization. AWS KMS derives the ID of the CMK from the ciphertext.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

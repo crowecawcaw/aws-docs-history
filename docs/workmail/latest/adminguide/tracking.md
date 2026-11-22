@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling email event logging
-<a name="tracking"></a>
 
 You enable email event logging in the Amazon WorkMail console in order to track email messages for your organization. Email event logging uses an AWS Identity and Access Management service-linked role (SLR) to grant permissions to publish the email event logs to Amazon CloudWatch. For more information about IAM service-linked roles, see [Using service-linked roles for Amazon WorkMail](using-service-linked-roles.md).
 
@@ -69,7 +68,7 @@ We recommend using the default settings when enabling email event logging for Am
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -101,7 +100,7 @@ If you're a `WorkMailFullAccess` managed policy user, you must include the term 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

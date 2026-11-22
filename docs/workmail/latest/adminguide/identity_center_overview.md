@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Working with IAM Identity Center
-<a name="identity_center_overview"></a>
 
 You can enable multi-factor authentication (MFA) in Amazon WorkMail by associating your Amazon WorkMail users with IAM Identity Center. For more information, see [What is IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 

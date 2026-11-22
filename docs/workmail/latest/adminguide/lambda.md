@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Configuring AWS Lambda for Amazon WorkMail
-<a name="lambda"></a>
 
 Use the **Run Lambda** action in inbound and outbound email flow rules to pass email messages that match the rules to an AWS Lambda function for processing.
 
@@ -66,7 +65,7 @@ Synchronous **Run Lambda** rules support the **\*** destination condition only.
 
 The Lambda function is triggered using the following event data. The presentation of the data varies depending on which programming language is used for the Lambda function.
 
-```
+```json
 {
     "summaryVersion": "2018-10-10",
     "envelope": {
@@ -127,7 +126,7 @@ When an email flow rule with a synchronous **Run Lambda** action matches an inbo
 
 The following example shows a synchronous **Run Lambda** response. Responses vary based on the programming language used for the Lambda function.
 
-```
+```json
 {
     "actions": [                          
       {
@@ -187,7 +186,7 @@ The following examples demonstrate the structure of common synchronous **Run Lam
 **Example : Remove specified recipients from an email message**  
 The following example demonstrates the structure of a synchronous **Run Lambda** response for removing recipients from an email message.  
 
-```
+```json
 {
     "actions": [
       {
@@ -211,7 +210,7 @@ The following example demonstrates the structure of a synchronous **Run Lambda**
 **Example : Bounce with a custom email message**  
 The following example demonstrates the structure of a synchronous **Run Lambda** response for bouncing with a custom email message.  
 
-```
+```json
 {
     "actions" : [
       {
@@ -230,7 +229,7 @@ The following example demonstrates the structure of a synchronous **Run Lambda**
 **Example : Add recipients to an email message**  
 The following example demonstrates the structure of a synchronous **Run Lambda** response for adding recipients to the email message. This does not update the **To** or **CC** fields of the email message.  
 
-```
+```json
 {
     "actions": [
       {

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Setting mailbox retention policies
-<a name="mailbox-retention-policy"></a>
 
 You can set mailbox retention policies for your Amazon WorkMail organization. Retention policies automatically delete email messages from user mailboxes after a time period that you choose. You can choose which mailbox folders to apply retention policies to. Also, you can choose whether to set different retention policies for different folders. Mailbox retention policies apply to the selected folders in all of the user mailboxes in your organization. Users can't override the retention policies.
 

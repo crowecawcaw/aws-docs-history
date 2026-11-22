@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Managing mobile devices
-<a name="manage-devices"></a>
 
 The topics in this section explain how to remotely wipe mobile devices, remove devices from your organization, and view the details for devices. For information about editing your organization's mobile device policy, see [Editing your organization's mobile device policy](edit_mobile_policy.md).
 

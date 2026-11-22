@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Managing mobile device access overrides
-<a name="mobile-overrides"></a>
 
 You use mobile device access overrides to override the results of mobile device access rules. The overrides apply to specific users and devices, and it reverses the default access rule. You can also use overrides to create one-off exceptions to access rules and allow or deny specific user and device pairs. In addition, you can use overrides with a `DefaultDenyAll` mobile device access rule. That defers access decisions to a third-party mobile device management (MDM) solution. For more information, see [Managing overrides](#managing-overrides) and [Integrating with mobile device management solutions](mdm-integration.md) 
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Configure availability settings on Amazon WorkMail
-<a name="enable_interop_wm"></a>
 
 Configure availability settings on Amazon WorkMail to enable querying external systems, offering calendaring functionality, and to get calendar free/busy information. Amazon WorkMail supports two modes of obtaining free/busy information from a remote system:
 + **Exchange Web Services (EWS)** — In this configuration, Amazon WorkMail will query an Exchange server or another WorkMail organization for availability information using the EWS protocol. This is the simplest configuration but requires the Exchange server’s EWS endpoint to be accessible through the public internet. 

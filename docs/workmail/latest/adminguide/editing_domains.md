@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Editing domain identity policies
-<a name="editing_domains"></a>
 
 Domain identity policies specify permissions for email actions, such as redirecting email messages. For example, you can redirect emails to any email address in your Amazon WorkMail organization.
 
@@ -43,7 +42,7 @@ If you use a custom Amazon SES policy, adapt this example for use in your domain
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

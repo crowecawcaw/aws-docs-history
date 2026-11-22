@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Amazon WorkMail quotas
-<a name="workmail_limits"></a>
 
 Amazon WorkMail can be used by both enterprise customers and small business owners. Although we support most use cases without the need to configure any changes in quotas, we also protect our users and the internet against abuse of the product. Therefore, some customers may run into quotas that we have set. This section describes these quotas and how to change them.
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Associating Amazon WorkMail users with IAM Identity Center users
-<a name="connecting_wmusers"></a>
 
 When a user signs in to the Amazon WorkMail web client with their IAM Identity Center user credentials, the client will open the mailbox of the associated Amazon WorkMail user. If no user in the WorkMail organization is associated with the IAM Identity Center user, WorkMail will create an association between the IAM Identity Center user signing in and the WorkMail user having the same username, if such a WorkMail user exists. Otherwise, the client will display an error message to the user.
 

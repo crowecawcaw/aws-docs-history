@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Programmatic access to mailboxes
-<a name="mail_perms_programmatic"></a>
 
 To programmatically access Amazon WorkMail mailboxes, use the Exchange Web Services (EWS) protocol. With EWS, you can access all item types in a mailbox. Here are some EWS libraries that you can use with Amazon WorkMail: 
 + **Java** – [EWS Java API](https://github.com/OfficeDev/ews-java-api)

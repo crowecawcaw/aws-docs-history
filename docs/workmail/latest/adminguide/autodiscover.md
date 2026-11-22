@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling AutoDiscover to configure endpoints
-<a name="autodiscover"></a>
 
 AutoDiscover enables you to configure Microsoft Outlook and mobile clients by using only your email address and password. The service maintains a connection to Amazon WorkMail and updates local settings whenever you change endpoints or settings. In addition, AutoDiscover enables your client to use additional Amazon WorkMail features, such as the Offline Address Book, Out-of-Office Assistant, and the ability to view free/busy time in Calendar. 
 
@@ -138,7 +137,7 @@ Once you've configured your DNS provider for AutoDiscover, you can test your Aut
 
 1. Next, test a real AutoDiscover request. Create a `request.xml` file with the following XML content:
 
-   ```
+   ```xml
    <?xml version="1.0" encoding="utf-8"?> 
    
    <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/requestschema/2006">
@@ -159,7 +158,7 @@ Once you've configured your DNS provider for AutoDiscover, you can test your Aut
 
    The response will look similar to the following example if the endpoint is configured correctly:
 
-   ```
+   ```xml
    $ curl -d @request.xml -u testuser@company.tld -v https://autodiscover.company.tld/autodiscover/autodiscover.xml
    
    Enter host password for user 'testuser@company.tld':

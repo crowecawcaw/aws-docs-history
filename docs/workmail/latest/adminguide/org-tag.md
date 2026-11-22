@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Tagging an organization
-<a name="org-tag"></a>
 
 Tagging an Amazon WorkMail organization resource allows you to:
 + Differentiate between organizations in the AWS Billing and Cost Management console.

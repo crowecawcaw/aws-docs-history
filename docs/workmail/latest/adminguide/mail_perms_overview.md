@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Working with mailbox permissions
-<a name="mail_perms_overview"></a>
 
 You can use mailbox permissions in Amazon WorkMail to grant users and groups the right to work in other users' mailboxes. Mailbox permissions apply to an entire mailbox. They enable multiple users to access the same mailbox without sharing that mailbox's credentials. Users with mailbox permissions can read and modify mailbox data and send email from the shared mailbox.
 

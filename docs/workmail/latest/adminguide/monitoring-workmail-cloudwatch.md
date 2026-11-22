@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Monitoring Amazon WorkMail with CloudWatch metrics
-<a name="monitoring-workmail-cloudwatch"></a>
 
 You can monitor Amazon WorkMail using CloudWatch, which collects raw data and processes it into readable, near real-time metrics. The no charge metrics are stored for 15 months so that you can access historical information to see how your web application or service is performing. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Creating email flow rules
-<a name="create-email-rules"></a>
 
 Email flow rules apply [rule actions](email-flows.md#email-flows-rule-actions) to incoming and outgoing email messages. The actions apply when messages match a specified [pattern](email-flows.md#email-flows-patterns). New email flow rules take effect immediately.
 

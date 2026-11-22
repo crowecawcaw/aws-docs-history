@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enable email routing between Microsoft Exchange and Amazon WorkMail users
-<a name="setup-msexchange"></a>
 
 With email routing between Microsoft Exchange Server and Amazon WorkMail, users can keep their existing email addresses after they migrate to Amazon WorkMail. Email routing lets you keep Microsoft Exchange Server as the primary Simple Mail Transfer Protocol (SMTP) server for incoming email for your organization.
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling groups
-<a name="enable_existing_group"></a>
 
 When you integrate Amazon WorkMail with your corporate Active Directory, or you already have groups available in your simple Active Directory, you can use those groups as security groups or distribution lists in Amazon WorkMail.
 
