@@ -1,7 +1,6 @@
 
 
 # Security best practices for AWS Console Mobile Application
-<a name="security-best-practices"></a>
 
 We recommend taking some basic security precautions when using the Console Mobile Application on your device. These measures will help protect your AWS account in the event that your device is lost or stolen.
 + Make sure your device is protected by biometrics or a PIN code if your device allows.

@@ -1,7 +1,6 @@
 
 
 # IAM permissions for listing mobile devices as delivery channels
-<a name="permissions-policies"></a>
 
 The AWS Console Mobile Application supports push notifications via [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is.html). If you enable push notifications, the Console Mobile Application collects your device nickname (if applicable) to help identify your device. You can manage your mobile device’s push notifications from the AWS User Notifications console by adding your device as a delivery channel. Delivery channels allow you to receive and view notifications in locations other than the AWS Management Console. You can remove your device as a delivery channel at any time.
 
@@ -17,7 +16,7 @@ For more information about delivery channels, see [Managing delivery channels](h
 
 You can attach the following policy to your IAM identities. This policy allows access to `ListDeviceIdentities`.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -39,7 +38,7 @@ You can attach the following policy to your IAM identities. This policy allows a
 
 You can attach the following policy to your IAM identities. This policy denies access to `ListDeviceIdentities`.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -64,7 +63,7 @@ You can attach the following policy to your IAM identities. This policy denies a
 
 This policy allows a specific resource access to `GetDeviceIdentity`.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ This policy allows a specific resource access to `GetDeviceIdentity`.
 
 This policy denies a specific resource access to `GetDeviceIdentity`.
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -105,6 +104,6 @@ This policy denies a specific resource access to `GetDeviceIdentity`.
 
 The following shows an example of the denial response:
 
-```
+```json
 {"message": "User: arn:aws:iam::123456789012:user/testUser-readOnly is not authorized to perform: consoleapp:GetDeviceIdentity on resource: arn:aws:consoleapp::123456789012:device/2FQVtmveB13WEXAMPL3D3V1D/identity/123456789012 with an explicit deny"}
 ```

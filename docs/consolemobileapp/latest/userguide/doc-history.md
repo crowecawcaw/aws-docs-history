@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Console Mobile Application User Guide
-<a name="doc-history"></a>
 
 The following table describes the document history for the AWS Console Mobile Application User Guide.
 

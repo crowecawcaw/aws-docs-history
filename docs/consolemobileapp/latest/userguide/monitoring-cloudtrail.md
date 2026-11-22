@@ -1,7 +1,6 @@
 
 
 # Logging DeviceIdentity API calls in AWS CloudTrail
-<a name="monitoring-cloudtrail"></a>
 
 Mobile devices using the Console Mobile Application can be configured as delivery channels for AWS User Notifications. This is done using the ListDeviceIdentities and GetDeviceIdentity APIs. These APIs are integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service on these APIs. CloudTrail captures API calls for ListDeviceIdentities and GetDeviceIdentity as events. The calls captured include calls from the the User Notifications console and code calls to the aforementioned API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for ListDeviceIdentities and GetDeviceIdentity. If you don’t configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to ListDeviceIdentities and GetDeviceIdentity, the IP address from which the request was made, who made the request, when it was made, and additional details. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
@@ -33,7 +32,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `ListDeviceIdentities` action.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

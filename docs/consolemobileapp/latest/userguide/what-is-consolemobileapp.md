@@ -1,7 +1,6 @@
 
 
 # What is the AWS Console Mobile Application?
-<a name="what-is-consolemobileapp"></a>
 
 The AWS Console Mobile Application lets you view and manage a select set of resources and receive important push notifications to stay informed and connected with your AWS resources while on-the-go.
 

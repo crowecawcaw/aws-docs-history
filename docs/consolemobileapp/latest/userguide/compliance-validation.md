@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Console Mobile Application
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS Console Mobile Application as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up for the AWS Console Mobile Application
-<a name="setting-up"></a>
 
 Complete the tasks in this section to get set up to use the Console Mobile Application.
 

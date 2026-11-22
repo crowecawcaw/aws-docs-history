@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 In this section, you’ll find answers to some common questions and concerns.
 

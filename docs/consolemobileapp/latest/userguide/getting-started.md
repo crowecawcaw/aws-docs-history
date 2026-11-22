@@ -1,7 +1,6 @@
 
 
 # Getting started with the AWS Console Mobile Application
-<a name="getting-started"></a>
 
 Use this tutorial to get started with the Console Mobile Application. You’ll learn about required IAM permissions, how to authenticate through the app, and how to view your AWS resources through the app.
 
@@ -32,7 +31,7 @@ To use AWS Billing and Cost Management in the Console Mobile Application, you ne
 
 The following example shows a JSON policy that allows the user to use the AWS Cost Explorer API:
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
