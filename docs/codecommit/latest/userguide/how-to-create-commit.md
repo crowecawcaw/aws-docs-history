@@ -1,7 +1,6 @@
 
 
 # Create a commit in AWS CodeCommit
-<a name="how-to-create-commit"></a>
 
 When you create the first commit for a new repository, you use the AWS CLI and the **put-file** command. This creates the first commit and it allows you to create and specify the default branch for your new repository. You can use Git or the AWS CLI to create a commit in a CodeCommit repository. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository. To create a commit directly in the CodeCommit console, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md). 
 

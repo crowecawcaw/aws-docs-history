@@ -1,7 +1,6 @@
 
 
 # Merge a pull request in an AWS CodeCommit repository
-<a name="how-to-merge-pull-request"></a>
 
 After your code has been reviewed and all approval rules (if any) on the pull request have been satisfied, you can merge a pull request in one of several ways:
 + <a name="is-mergable"></a>You can use the console to merge your source branch to the destination branch using one of the available merge strategies, which also closes the pull request. You can also resolve any merge conflicts in the console. The console displays a message that indicates if the pull request is mergeable or if conflicts must be resolved. When all conflicts are resolved and you choose **Merge**, the merge is performed using the merge strategy that you choose. Fast-forward is the default merge strategy, which is the default option for Git. Depending on the state of the code in the source and destination branches, that strategy might not be available, but other options might be, such as squash or 3-way.

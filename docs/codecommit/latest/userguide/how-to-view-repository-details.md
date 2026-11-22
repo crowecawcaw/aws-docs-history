@@ -1,7 +1,6 @@
 
 
 # View CodeCommit repository details
-<a name="how-to-view-repository-details"></a>
 
 You can use the AWS CodeCommit console, AWS CLI, or Git from a local repo connected to the CodeCommit repository to view information about available repositories.
 

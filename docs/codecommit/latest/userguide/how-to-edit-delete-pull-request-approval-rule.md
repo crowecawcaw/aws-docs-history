@@ -1,7 +1,6 @@
 
 
 # Edit or delete an approval rule for a pull request
-<a name="how-to-edit-delete-pull-request-approval-rule"></a>
 
 When you have an approval rule on a pull request, you cannot merge that pull request until its conditions have been met. You can change the approval rules for pull requests to make it easier to satisfy their conditions, or to increase the rigor of reviews. You can change the number of users who must approve a pull request. You can also add, remove, or change the membership in an approval pool of users for the rule. Lastly, if you no longer want to use an approval rule for a pull request, you can delete it.
 

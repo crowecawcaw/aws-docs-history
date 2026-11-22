@@ -1,7 +1,6 @@
 
 
 # Example: Create an AWS CodeCommit trigger for an AWS Lambda function
-<a name="how-to-notify-lambda"></a>
 
 You can create a trigger for a CodeCommit repository so that events in the repository invoke a Lambda function. In this example, you create a Lambda function that returns the URL used to clone the repository to an Amazon CloudWatch log. 
 
@@ -42,7 +41,7 @@ When you use the Lambda console to create the function, you can also create a Co
 
    For Node.js:
 
-   ```
+   ```nodejs
    import {
      CodeCommitClient,
      GetRepositoryCommand,
@@ -81,7 +80,7 @@ When you use the Lambda console to create the function, you can also create a Co
 
    For Python:
 
-   ```
+   ```python
    import json
    import boto3
    

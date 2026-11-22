@@ -1,7 +1,6 @@
 
 
 # Delete an approval rule template
-<a name="how-to-delete-template"></a>
 
 You can delete an approval rule template if you are not using it in any repositories. Deleting unused approval rule templates helps keep your templates organized and makes it easier to find templates that make sense for your workflows.
 

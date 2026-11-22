@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS CodeCommit
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use CodeCommit resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -268,7 +267,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

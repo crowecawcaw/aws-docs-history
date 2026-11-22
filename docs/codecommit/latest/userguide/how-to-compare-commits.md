@@ -1,7 +1,6 @@
 
 
 # Compare commits in AWS CodeCommit
-<a name="how-to-compare-commits"></a>
 
 You can use the CodeCommit console to view the differences between commit specifiers in a CodeCommit repository. You can quickly view the difference between a commit and its parent. You can also compare any two references, including commit IDs. 
 

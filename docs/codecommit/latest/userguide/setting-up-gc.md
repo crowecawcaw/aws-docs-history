@@ -1,7 +1,6 @@
 
 
 # Setup for HTTPS users using Git credentials
-<a name="setting-up-gc"></a>
 
 The simplest way to set up connections to AWS CodeCommit repositories is to configure Git credentials for CodeCommit in the IAM console, and then use those credentials for HTTPS connections. You can also use these same credentials with any third-party tool or integrated development environment (IDE) that supports HTTPS authentication using a static user name and password. For examples, see [For connections from development tools](setting-up-ide.md).
 

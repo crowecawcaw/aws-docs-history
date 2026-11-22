@@ -1,7 +1,6 @@
 
 
 # Resolve conflicts in a pull request in an AWS CodeCommit repository
-<a name="how-to-resolve-conflict-pull-request"></a>
 
 If your pull request has conflicts and cannot be merged, you can try to resolve the conflicts in one of several ways:
 + On your local computer, you can use the **git diff** command to find the conflicts between the two branches and make changes to resolve them. You can also use a difference tool or other software to help you find and resolve differences. Once you have resolved them to your satisfaction, you can push your source branch with the changes that contain the resolved conflicts, which updates the pull request. For more information about **git diff** and **git difftool**, see your Git documentation.

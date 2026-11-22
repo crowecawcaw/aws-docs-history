@@ -1,7 +1,6 @@
 
 
 # Share a AWS CodeCommit repository
-<a name="how-to-share-repository"></a>
 
 After you have created a CodeCommit repository, you can share it with other users. First, determine whether you will use a federated access, temporary credentials, or a web identity provider such as IAM Identity Center when accessing CodeCommit, or if you want to use Git credentials or SSH key pairs with IAM users. If you're using the former, you will need to set up users, access, and permissions for your identity provider, and then provide instructions for your users to use **git-remote-codecommit**. For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md) and [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md).
 

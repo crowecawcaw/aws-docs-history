@@ -1,7 +1,6 @@
 
 
 # Tagging repositories in AWS CodeCommit
-<a name="how-to-tag-repository"></a>
 
 A *tag* is a custom attribute label that you or AWS assigns to an AWS resource. AWS tags are different from Git tags, which can be applied to commits. Each AWS tag has two parts:
 + A *tag key* (for example, `CostCenter`, `Environment`, `Project`, or `Secret`). Tag keys are case sensitive.

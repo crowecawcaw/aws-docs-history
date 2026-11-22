@@ -1,7 +1,6 @@
 
 
 # Integrate Visual Studio with AWS CodeCommit
-<a name="setting-up-ide-vs"></a>
 
 You can use Visual Studio to make code changes in a CodeCommit repository. The AWS Toolkit for Visual Studio now includes features that make working with CodeCommit easier and more convenient when working in Visual Studio.. The Toolkit for Visual Studio integration is designed to work with Git credentials and an IAM user. You can clone existing repositories, create repositories, commit and push code changes to a repository, and more. 
 

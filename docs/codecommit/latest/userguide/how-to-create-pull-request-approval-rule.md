@@ -1,7 +1,6 @@
 
 
 # Create an approval rule for a pull request
-<a name="how-to-create-pull-request-approval-rule"></a>
 
 Creating approval rules for your pull requests helps ensure the quality of your code by requiring users to approve the pull request before the code can be merged into the destination branch. You can specify the number of users who must approve a pull request. You can also specify an approval pool of users for the rule. If you do so, only approvals from those users count toward the number of required approvals for the rule. 
 

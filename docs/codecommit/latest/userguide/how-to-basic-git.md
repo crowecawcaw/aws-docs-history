@@ -1,7 +1,6 @@
 
 
 # Basic Git commands
-<a name="how-to-basic-git"></a>
 
 You can use Git to work with a local repo and the CodeCommit repository to which you've connected the local repo.
 

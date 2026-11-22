@@ -1,7 +1,6 @@
 
 
 # View Git tag details in AWS CodeCommit
-<a name="how-to-view-tag-details"></a>
 
 In Git, a tag is a label you can apply to a reference like a commit to mark it with information that might be important to other repository users. For example, you might tag the commit that was the beta release point for a project with the tag **beta**. For more information, see [Use Git to create a tag](how-to-create-tag.md#how-to-create-tag-git). Git tags are different from repository tags. For more information about how to use repository tags, see [Add a tag to a repository](how-to-tag-repository-add.md).
 

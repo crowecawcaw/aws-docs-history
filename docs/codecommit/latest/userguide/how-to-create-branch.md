@@ -1,7 +1,6 @@
 
 
 # Create a branch in AWS CodeCommit
-<a name="how-to-create-branch"></a>
 
 You can use the CodeCommit console or the AWS CLI to create branches for your repository. This is a quick way to separate work on a new or different version of files without impacting work in the default branch. After you create a branch in the CodeCommit console, you must pull that change to your local repo. Alternatively, you can create a branch locally and then use Git from a local repo connected to the CodeCommit repository to push that change. 
 

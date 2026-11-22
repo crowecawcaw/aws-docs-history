@@ -1,7 +1,6 @@
 
 
 # Setting up for AWS CodeCommit
-<a name="setting-up"></a>
 
 You can sign in to the AWS Management Console and [upload, add, or edit a file](files.md) to a repository directly from the AWS CodeCommit console. This is a quick way to make a change. However, if you want to work with multiple files, files across branches, and so on, consider setting up your local computer to work with repositories. The easiest way to set up CodeCommit is to configure HTTPS Git credentials for AWS CodeCommit. This HTTPS authentication method: 
 + Uses a static user name and password.

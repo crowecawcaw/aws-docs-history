@@ -1,7 +1,6 @@
 
 
 # Using AWS CodeCommit with interface VPC endpoints
-<a name="codecommit-and-interface-VPC"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and CodeCommit. You can use this connection to enable CodeCommit to communicate with your resources on your VPC without going through the public internet.
 

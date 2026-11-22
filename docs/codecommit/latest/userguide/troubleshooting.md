@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS CodeCommit
-<a name="troubleshooting"></a>
 
 The following information might help you troubleshoot common issues in AWS CodeCommit.
 

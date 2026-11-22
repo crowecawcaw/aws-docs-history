@@ -1,7 +1,6 @@
 
 
 # AWS CodeCommit command line reference
-<a name="cmd-ref"></a>
 
 This reference helps you learn how to use the AWS CLI.
 

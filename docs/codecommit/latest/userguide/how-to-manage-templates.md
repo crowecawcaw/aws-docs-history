@@ -1,7 +1,6 @@
 
 
 # Manage approval rule templates
-<a name="how-to-manage-templates"></a>
 
 You can manage the approval rule templates in an AWS Region to help understand how they are being used and what they are for. For example, you can edit the names and descriptions of approval rule templates to help others understand their purpose. You can list all the approval rule templates in an AWS Region, and get information about the content and structure of a template. You can review which templates are associated with a repository, and which repositories are associated with a template.
 

@@ -1,7 +1,6 @@
 
 
 # Setup steps for SSH connections to AWS CodeCommit repositories on Windows
-<a name="setting-up-ssh-windows"></a>
 
 Before you can connect to AWS CodeCommit for the first time, you must complete some initial configuration steps. After you set up your computer and AWS profile, you can connect to a CodeCommit repository and clone that repository to your computer (also known as creating a local repo). If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git).
 

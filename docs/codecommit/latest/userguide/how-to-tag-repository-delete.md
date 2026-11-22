@@ -1,7 +1,6 @@
 
 
 # Remove a tag from a repository
-<a name="how-to-tag-repository-delete"></a>
 
 You can remove one or more tags associated with a repository. Removing a tag does not delete the tag from other AWS resources that are associated with that tag.
 

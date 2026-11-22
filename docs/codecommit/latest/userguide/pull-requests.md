@@ -1,7 +1,6 @@
 
 
 # Working with pull requests in AWS CodeCommit repositories
-<a name="pull-requests"></a>
 
 A pull request is the primary way you and other repository users can review, comment on, and merge code changes from one branch to another. You can use pull requests to collaboratively review code changes for minor changes or fixes, major feature additions, or new versions of your released software. Here is one possible workflow for a pull request:
 

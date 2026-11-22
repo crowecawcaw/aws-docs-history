@@ -1,7 +1,6 @@
 
 
 # Troubleshooting SSH connections to AWS CodeCommit
-<a name="troubleshooting-ssh"></a>
 
 The following information might help you troubleshoot common issues when using SSH to connect to CodeCommit repositories.
 

@@ -1,7 +1,6 @@
 
 
 # Create a pull request
-<a name="how-to-create-pull-request"></a>
 
 Creating pull requests helps other users see and review your code changes before you merge them into another branch. First, you create a branch for your code changes. This is referred to as the source branch for a pull request. After you commit and push changes to the repository, you can create a pull request that compares the contents of that branch (the source branch) to the branch where you want to merge your changes after the pull request is closed (the destination branch). 
 

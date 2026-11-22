@@ -1,7 +1,6 @@
 
 
 # Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit
-<a name="setting-up-git-remote-codecommit"></a>
 
 If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set up access using **git-remote-codecommit**. This utility provides a simple method for pushing and pulling code from CodeCommit repositories by extending Git. It is the recommended method for supporting connections made with federated access, identity providers, and temporary credentials. To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [ Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*. If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM. For information about permissions sets, see [ Permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html) in the *AWS IAM Identity Center User Guide*. 
 
@@ -25,7 +24,7 @@ These procedures are written with the assumption that you have an Amazon Web Ser
 Before you can use **git-remote-codecommit**, you must install some prerequisites on your local computer. These include:
 + A supported version of Python. For more information about supported versions of Python, see [git-remote-codecommit](https://pypi.org/project/git-remote-codecommit/).
 
-  For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](#setting-up-git-remote-codecommit).
+  For more information about setting up and using git-remote-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md).
 + Git
 
 **Note**  

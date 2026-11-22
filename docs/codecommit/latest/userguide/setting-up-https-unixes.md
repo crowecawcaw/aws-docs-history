@@ -1,7 +1,6 @@
 
 
 # Setup steps for HTTPS connections to AWS CodeCommit repositories on Linux, macOS, or Unix with the AWS CLI credential helper
-<a name="setting-up-https-unixes"></a>
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps. For most users, this can be done most easily by following the steps in [For HTTPS users using Git credentials](setting-up-gc.md). However, if you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you can use the credential helper that is included in the AWS CLI.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the credential helper and HTTPS connections to AWS CodeCommit
-<a name="troubleshooting-ch"></a>
 
 The following information might help you troubleshoot common issues when you use the credential helper included with the AWS CLI and HTTPS to connect to CodeCommit repositories.
 

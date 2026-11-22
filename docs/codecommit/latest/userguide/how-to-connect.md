@@ -1,7 +1,6 @@
 
 
 # Connect to an AWS CodeCommit repository
-<a name="how-to-connect"></a>
 
 When you connect to a CodeCommit repository for the first time, you typically clone its contents to your local machine. You can also [add files](how-to-create-file.md#how-to-create-file-console) to and [edit files](how-to-edit-file.md#how-to-edit-file-console) in a repository directly from the CodeCommit console. Alternatively, if you already have a local repo, you can add a CodeCommit repository as a remote. This topic provides instructions for connecting to a CodeCommit repository. If you want to migrate an existing repository to CodeCommit, see [Migrate to CodeCommit](how-to-migrate-repository.md).
 

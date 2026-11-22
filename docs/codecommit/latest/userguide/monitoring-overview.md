@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS CodeCommit
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of CodeCommit and your other AWS solutions. AWS provides the following monitoring tools to watch CodeCommit, report when something is wrong, and take automatic actions when appropriate:
 + Amazon EventBridge can be used to automate your AWS services and respond automatically to system events, such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you and which automated actions to take when an event matches a rule. For more information, see [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/) and [Monitoring CodeCommit events in Amazon EventBridge and Amazon CloudWatch Events](monitoring-events.md).

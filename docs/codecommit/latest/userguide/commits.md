@@ -1,7 +1,6 @@
 
 
 # Working with commits in AWS CodeCommit repositories
-<a name="commits"></a>
 
 Commits are snapshots of the contents and changes to the contents of your repository. Every time a user commits and pushes a change, that information is saved and stored. So, too, is information that includes who committed the change, the date and time of the commit, and the changes made as part of the commit. You can also add tags to commits, to easily identify specific commits. In CodeCommit, you can:
 + Review commits.

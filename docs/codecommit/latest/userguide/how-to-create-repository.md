@@ -1,7 +1,6 @@
 
 
 # Create an AWS CodeCommit repository
-<a name="how-to-create-repository"></a>
 
 Use the AWS CodeCommit console or the AWS Command Line Interface (AWS CLI) to create an empty CodeCommit repository. To add tags to a repository after you create it, see [Add a tag to a repository](how-to-tag-repository-add.md).
 

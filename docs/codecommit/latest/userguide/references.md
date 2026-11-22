@@ -1,7 +1,6 @@
 
 
 # AWS CodeCommit reference
-<a name="references"></a>
 
 The following reference topics can help you better understand CodeCommit, Git, AWS Regions, service limits, and more.
 

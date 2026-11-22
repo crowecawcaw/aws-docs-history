@@ -1,7 +1,6 @@
 
 
 # Logging AWS CodeCommit API calls with AWS CloudTrail
-<a name="integ-cloudtrail"></a>
 
 CodeCommit is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in CodeCommit. CloudTrail captures all API calls for CodeCommit as events, including calls from the CodeCommit console, your Git client, and from code calls to the CodeCommit APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for CodeCommit. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to CodeCommit, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 

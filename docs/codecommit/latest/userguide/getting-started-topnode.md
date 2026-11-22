@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started-topnode"></a>
 
 The easiest way to get started with CodeCommit is to follow the steps in [Getting started with CodeCommit ](getting-started-cc.md). If you are new to Git and CodeCommit, you should also consider following the steps in [Getting started with Git and CodeCommit](getting-started.md). This helps you familiarize yourself with CodeCommit and the basics of using Git when interacting with your CodeCommit repositories.
 

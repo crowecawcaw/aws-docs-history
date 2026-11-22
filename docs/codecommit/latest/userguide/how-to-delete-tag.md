@@ -1,7 +1,6 @@
 
 
 # Delete a Git tag in AWS CodeCommit
-<a name="how-to-delete-tag"></a>
 
 To delete a Git tag in a CodeCommit repository, use Git from a local repo connected to the CodeCommit repository. .
 

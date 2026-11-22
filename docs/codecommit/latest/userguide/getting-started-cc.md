@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS CodeCommit
-<a name="getting-started-cc"></a>
 
 This tutorial shows you how to use some key CodeCommit features. First, you create a repository and commit some changes to it. Then, you browse the files and view the changes. You can also create a pull request so other users can review and comment on changes to your code. 
 

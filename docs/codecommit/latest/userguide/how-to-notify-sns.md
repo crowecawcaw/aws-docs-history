@@ -1,7 +1,6 @@
 
 
 # Example: Create an AWS CodeCommit trigger for an Amazon SNS topic
-<a name="how-to-notify-sns"></a>
 
 You can create a trigger for a CodeCommit repository so that events in that repository trigger notifications from an Amazon Simple Notification Service (Amazon SNS) topic. You might want to create a trigger to an Amazon SNS topic to enable users to subscribe to notifications about repository events, such as the deletion of branches. You can also take advantage of the integration of Amazon SNS topics with other services, such as Amazon Simple Queue Service (Amazon SQS) and AWS Lambda. 
 

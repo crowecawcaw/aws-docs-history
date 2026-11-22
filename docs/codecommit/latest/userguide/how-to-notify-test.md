@@ -1,7 +1,6 @@
 
 
 # Test triggers for an AWS CodeCommit repository
-<a name="how-to-notify-test"></a>
 
 You can test the triggers that have been created for a CodeCommit repository. Testing involves running the trigger with sample data from your repository, including the most recent commit ID. If no commit history exists for the repository, sample values consisting of zeroes are generated instead. Testing triggers helps you confirm you have correctly configured access between CodeCommit and the target of the trigger, whether that is an AWS Lambda function or an Amazon Simple Notification Service notification. 
 

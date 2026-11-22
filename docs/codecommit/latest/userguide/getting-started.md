@@ -1,7 +1,6 @@
 
 
 # Getting started with Git and AWS CodeCommit
-<a name="getting-started"></a>
 
 If you are new to Git and CodeCommit, this tutorial helps you learn some simple commands to get you started. If you are already familiar with Git, you can skip this tutorial and go to [Getting started with CodeCommit ](getting-started-cc.md).
 
@@ -82,7 +81,7 @@ In this step, you set up a local repo on your local machine to connect to your r
    + Copy the HTTPS (GRC) URL if you are using the **git-remote-codecommit** command on your local computer.
    + Copy the SSH URL if you are using an SSH public/private key pair with your IAM user.
 **Note**  
- If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account in the AWS Region where you are signed in. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md) or follow the steps in the [Getting started with Git and CodeCommit](#getting-started) tutorial.
+ If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account in the AWS Region where you are signed in. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md) or follow the steps in the [Getting started with Git and CodeCommit](getting-started.md) tutorial.
 
 1. (Optional) We recommend that you configure your local Git client to use **main** as the name for the default branch for your repository. This is the name used for the default branch in all examples in this guide. It is also the same default branch name CodeCommit uses if you make your first commit in the console. Run the following command to configure the default branch name globally for your system:
 
@@ -435,7 +434,7 @@ This step is written with the assumption you have permissions to create IAM user
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -458,7 +457,7 @@ If you want the IAM user to be able to push commits to any repository associated
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

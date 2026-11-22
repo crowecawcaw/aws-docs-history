@@ -1,7 +1,6 @@
 
 
 # View pull requests in an AWS CodeCommit repository
-<a name="how-to-view-pull-request"></a>
 
 You can use the AWS CodeCommit console or the AWS CLI to view pull requests for your repository. By default, you see only open pull requests, but you can change the filter to view all pull requests, only closed requests, only pull requests that you created, and more. 
 

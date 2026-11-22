@@ -1,7 +1,6 @@
 
 
 # Integrate AWS Cloud9 with AWS CodeCommit
-<a name="setting-up-ide-c9"></a>
 
 You can use AWS Cloud9 to make code changes in a CodeCommit repository. AWS Cloud9 contains a collection of tools that you can use to write code and build, run, test, debug, and release software. You can clone existing repositories, create repositories, commit and push code changes to a repository, and more, all from your AWS Cloud9 EC2 development environment. The AWS Cloud9 EC2 development environment is generally preconfigured with the AWS CLI, an Amazon EC2 role, and Git, so in most cases, you can run a few simple commands and start interacting with your repository.
 

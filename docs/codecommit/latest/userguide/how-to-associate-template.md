@@ -1,7 +1,6 @@
 
 
 # Associate an approval rule template with a repository
-<a name="how-to-associate-template"></a>
 
 Approval rule templates are created in a specific AWS Region, but they do not affect any repositores in that AWS Region until they are associated. To apply a template to one or more repositories, you must associate the template with the repository or repositories. You can apply a single template to multiple repositories in an AWS Region. This helps you automate and standardize the development workflow in your repositories by creating consistent conditions for approving and merging pull requests.
 

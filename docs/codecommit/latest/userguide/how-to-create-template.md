@@ -1,7 +1,6 @@
 
 
 # Create an approval rule template
-<a name="how-to-create-template"></a>
 
 You can create one or more approval rule templates to help you customize your development workflows across repositories. By creating multiple templates, you can configure the automatic creation of approval rules so that different branches have appropriate levels of approvals and control. For example, you can create different templates for production and development branches and apply these templates to one or more repositories. When users create pull requests in those repositories, the request is evaluated against those templates. If the request matches the conditions in the applied templates, approval rules are created for the pull request.
 

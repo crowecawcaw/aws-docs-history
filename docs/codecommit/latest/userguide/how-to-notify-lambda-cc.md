@@ -1,7 +1,6 @@
 
 
 # Example: Create a trigger in AWS CodeCommit for an existing AWS Lambda function
-<a name="how-to-notify-lambda-cc"></a>
 
 The easiest way to create a trigger that invokes a Lambda function is to create that trigger in the Lambda console. This built-in integration ensures that CodeCommit has the permissions required to run the function. To add a trigger for an existing Lambda function, go to the Lambda console, and choose the function. On the **Triggers** tab for the function, follow the steps in **Add trigger**. These steps are similar to the ones in [Create the Lambda function](how-to-notify-lambda.md#how-to-notify-lambda-create-function).
 
@@ -75,7 +74,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

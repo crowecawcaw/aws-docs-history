@@ -1,7 +1,6 @@
 
 
 # Change or disable notifications
-<a name="how-to-repository-email-console-edit"></a>
 
 You can use the AWS CodeCommit console to change how notifications created before November 5, 2019 are configured, including the event types that send emails to users and the Amazon SNS topic used to send emails about the repository. You can also use the CodeCommit console to manage the list of email addresses and endpoints subscribed to the topic or to disable notifications. <a name="how-to-repository-email-change-console"></a>
 

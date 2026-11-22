@@ -1,7 +1,6 @@
 
 
 # Migrate to AWS CodeCommit
-<a name="how-to-migrate-repository"></a>
 
 You can migrate a Git repository to a CodeCommit repository in a number of ways: by cloning it, mirroring it, migrating all or just some of the branches, and so on. You can also migrate local, unversioned content on your computer to CodeCommit.
 

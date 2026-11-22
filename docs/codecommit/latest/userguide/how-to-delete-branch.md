@@ -1,7 +1,6 @@
 
 
 # Delete a branch in AWS CodeCommit
-<a name="how-to-delete-branch"></a>
 
 You can use the CodeCommit console to delete a branch in a repository. Deleting a branch in CodeCommit does not delete that branch in a local repo, so users might continue to have copies of that branch until the next time they pull changes. To delete a branch locally and push that change to the CodeCommit repository, use Git from a local repo connected to the CodeCommit repository. 
 

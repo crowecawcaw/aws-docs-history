@@ -1,7 +1,6 @@
 
 
 # Migrate a repository incrementally
-<a name="how-to-push-large-repositories"></a>
 
 When migrating to AWS CodeCommit, consider pushing your repository in increments or chunks to reduce the chances an intermittent network issue or degraded network performance causes the entire push to fail. By using incremental pushes with a script like the one included here, you can restart the migration and push only those commits that did not succeed on the earlier attempt.
 
@@ -132,7 +131,7 @@ Do not use the `-c` option if you want to rerun the script after a failure. The 
 
 For your convenience, we have developed a sample Python script, `incremental-repo-migration.py`, for pushing a repository incrementally. This script is an open source code sample and provided as-is.
 
-```
+```python
 # Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved. Licensed under the Amazon Software License (the "License").
 # You may not use this file except in compliance with the License. A copy of the License is located at
 #    http://aws.amazon.com/asl/

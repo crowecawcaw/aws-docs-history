@@ -1,7 +1,6 @@
 
 
 # Override approval rules on a pull request
-<a name="how-to-override-approval-rules"></a>
 
 In the normal course of development, you want users to meet the conditions of approval rules before you merge pull requests. However, there might be times when you need to expedite merging a pull request. For example, you might want to put a bug fix into production, but no one in the approval pool is available to approve the pull request. In cases like these, you can choose to override the approval rules on a pull request. You can override all approval rules for a pull request, including those created specifically for the pull request and generated from an approval rule template. You cannot selectively override a specific approval rule, just all rules. After you have set aside the approval rule requirements by overriding the rules, you can merge the pull request to its destination branch.
 

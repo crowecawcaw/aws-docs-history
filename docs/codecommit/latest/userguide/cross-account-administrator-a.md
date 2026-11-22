@@ -1,7 +1,6 @@
 
 
 # Cross-account repository access: Actions for the administrator in AccountA
-<a name="cross-account-administrator-a"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, an AccountA administrator must:
 + Create a policy in AccountA that grants access to the repository.
@@ -38,7 +37,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -76,7 +75,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

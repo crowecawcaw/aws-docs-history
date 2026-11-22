@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Git credentials and HTTPS connections to AWS CodeCommit
-<a name="troubleshooting-gc"></a>
 
 The following information might help you troubleshoot common issues when using Git credentials and HTTPS to connect to AWS CodeCommit repositories.
 

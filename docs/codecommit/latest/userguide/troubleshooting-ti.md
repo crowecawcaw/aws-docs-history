@@ -1,7 +1,6 @@
 
 
 # Troubleshooting triggers and AWS CodeCommit
-<a name="troubleshooting-ti"></a>
 
 The following information might help you troubleshoot issues with triggers in AWS CodeCommit.
 

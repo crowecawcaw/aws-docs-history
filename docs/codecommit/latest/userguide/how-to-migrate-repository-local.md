@@ -1,7 +1,6 @@
 
 
 # Migrate local or unversioned content to AWS CodeCommit
-<a name="how-to-migrate-repository-local"></a>
 
 The procedures in this topic show you how to migrate an existing project or local content on your computer to a CodeCommit repository. As part of this process, you:
 + Complete the initial setup required for CodeCommit.

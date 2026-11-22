@@ -1,7 +1,6 @@
 
 
 # Cross-account repository access: Actions for the repository user in AccountB
-<a name="cross-account-user-b"></a>
 
 To access the repository in AccountA, users in the AccountB group must configure their local computers for repository access. The following sections provide steps and examples.
 

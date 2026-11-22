@@ -1,7 +1,6 @@
 
 
 # Authentication and access control for AWS CodeCommit
-<a name="auth-and-access-control"></a>
 
 Access to AWS CodeCommit requires credentials. Those credentials must have permissions to access AWS resources, such as CodeCommit repositories, and your IAM user, which you use to manage your Git credentials or the SSH public key that you use for making Git connections. The following sections provide details on how you can use [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and CodeCommit to help secure access to your resources:
 + [Authentication](#authentication)
@@ -155,7 +154,7 @@ The following example policy allows a user to create a branch in a repository na
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

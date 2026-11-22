@@ -1,7 +1,6 @@
 
 
 # Comment on a commit in AWS CodeCommit
-<a name="how-to-commit-comment"></a>
 
 You can use the CodeCommit console to comment on commits in a repository, and view and reply to other users' comments on commits. This can help you discuss changes made in a repository, including:
 + Why changes were made.

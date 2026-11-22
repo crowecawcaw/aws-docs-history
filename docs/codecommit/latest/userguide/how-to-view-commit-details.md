@@ -1,7 +1,6 @@
 
 
 # View commit details in AWS CodeCommit
-<a name="how-to-view-commit-details"></a>
 
 You can use the AWS CodeCommit console to browse the history of commits in a repository. This can help you identify changes made in a repository, including:
 + When and by whom the changes were made.

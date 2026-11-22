@@ -1,7 +1,6 @@
 
 
 # Update a pull request
-<a name="how-to-update-pull-request"></a>
 
 You can update a pull request with further code changes by pushing commits to the source branch of an open pull request. For more information, see [Create a commit in AWS CodeCommit](how-to-create-commit.md).
 

@@ -1,7 +1,6 @@
 
 
 # Creating CodeCommit resources with AWS CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS CodeCommit is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as repositories), and CloudFormation provisions and configures those resources for you. 
 
@@ -31,7 +30,7 @@ The name of the Amazon S3 bucket that contains the ZIP file with the content tha
 
  **JSON**:
 
-```
+```json
 {
     "MyRepo": {
         "Type": "AWS::CodeCommit::Repository",
@@ -53,7 +52,7 @@ The name of the Amazon S3 bucket that contains the ZIP file with the content tha
 
 **YAML**:
 
-```
+```yaml
 MyRepo:
   Type: AWS::CodeCommit::Repository
   Properties:
@@ -76,7 +75,7 @@ Repositories created using the AWS CDK use CloudFormation functionality in their
 
 The following AWS CDK Typescript example creates a CodeCommit repository named {{MyDemoRepo}}. The newly created repository is populated with code stored in an Amazon S3 bucket named {{MySourceCodeBucket}} and placed in a branch named {{development}}, which is the default branch for the repository. 
 
-```
+```typescript
 import * as cdk from '@aws-cdk/core';
 import codecommit = require('@aws-cdk/aws-codecommit');
 export class CdkCodecommitStack extends cdk.Stack {

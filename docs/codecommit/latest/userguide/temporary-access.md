@@ -1,7 +1,6 @@
 
 
 # Connecting to AWS CodeCommit repositories with rotating credentials
-<a name="temporary-access"></a>
 
 You can give users access to your AWS CodeCommit repositories without configuring IAM users for them or using an access key and secret key. To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [ Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*. If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM. For information about permissions sets, see [ Permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html) in the *AWS IAM Identity Center User Guide*. You can also configure role-based access for IAM users to access CodeCommit repositories in separate Amazon Web Services accounts (a technique known as *cross-account access*). For a walkthrough of configuring cross-account access to a repository, see [Configure cross-account access to an AWS CodeCommit repository using roles](cross-account.md). 
 

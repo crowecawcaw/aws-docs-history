@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies (IAM Policies) for CodeCommit
-<a name="auth-and-access-control-iam-identity-based-access-control"></a>
 
 The following examples of identity-based policies demonstrate how an account administrator can attach permissions policies to IAM identities (users, groups, and roles) to grant permissions to perform operations on CodeCommit resources.
 
@@ -21,7 +20,7 @@ The following is an example of an identity-based permissions policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # Review a pull request
-<a name="how-to-review-pull-request"></a>
 
 You can use the AWS CodeCommit console to review the changes included in a pull request. You can add comments to the request, files, and individual lines of code. You can also reply to comments made by other users. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request.
 

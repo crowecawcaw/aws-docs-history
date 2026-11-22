@@ -1,7 +1,6 @@
 
 
 # Browse files in an AWS CodeCommit repository
-<a name="how-to-browse"></a>
 
 After you connect to a CodeCommit repository, you can clone it to a local repo or use the CodeCommit console to browse its contents. This topic describes how to use the CodeCommit console to browse the content of a CodeCommit repository.
 
