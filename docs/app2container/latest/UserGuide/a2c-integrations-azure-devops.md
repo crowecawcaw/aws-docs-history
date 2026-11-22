@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Set up CI/CD pipelines with Microsoft Azure DevOps
-<a name="a2c-integrations-azure-devops"></a>
 
 Azure DevOps is a continuous delivery platform, orchestrator, and cloud provider from Microsoft. App2Container integrates with Azure DevOps Services to automate the build and deployment process that updates your application container images in Amazon ECR. For more information about Azure DevOps, see [What is Azure DevOps?](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) in the Microsoft documentation.
 

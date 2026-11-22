@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Manage secrets for AWS App2Container
-<a name="manage-secrets"></a>
 
 App2Container uses AWS Secrets Manager to manage the credentials necessary to connect your worker machine to application servers and run remote commands. Secrets Manager encrypts your secrets for storage and provides an Amazon Resource Name (ARN) so that you can access the secret. When you run the **remote configure** command, you provide the secret ARN that App2Container uses to connect to your target server when you run the remote command.
 

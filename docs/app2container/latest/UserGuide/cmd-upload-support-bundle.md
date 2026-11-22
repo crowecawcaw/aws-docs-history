@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # app2container upload-support-bundle command
-<a name="cmd-upload-support-bundle"></a>
 
 For assistance with troubleshooting, run this command to securely upload App2Container logs and supporting artifacts to the AWS App2Container support team. The following list shows the types of files that you can upload with the **upload-support-bundle** command:
 + App2Container logs

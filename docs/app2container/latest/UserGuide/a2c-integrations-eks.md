@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Deploy application containers to Amazon EKS with AWS App2Container
-<a name="a2c-integrations-eks"></a>
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that you can use to run Kubernetes on AWS. Amazon EKS streamlines the provisioning of highly available and secure clusters, and automates key maintenance tasks such as patching, node provisioning, and updates. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. For more information about Amazon EKS, see [What is Amazon EKS?](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) in the *[*Amazon EKS User Guide*](https://docs.aws.amazon.com/eks/latest/userguide/)*.
 

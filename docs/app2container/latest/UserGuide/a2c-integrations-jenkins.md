@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Set up CI/CD pipelines with Jenkins
-<a name="a2c-integrations-jenkins"></a>
 
 Jenkins is an open source automation server that which supports building, deploying, and automating your application with the help of Jenkins Pipeline. Jenkins Pipeline is a suite of plugins that supports implementing and integrating continuous delivery pipelines into Jenkins. These plugins can be used to integrate with AWS App2Container to automate deployments for your applications. App2Container can help configure a Jenkins pipeline in your existing Jenkins environment.
 

@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Troubleshooting App2Container issues
-<a name="troubleshooting"></a>
 
 The following documentation can help you troubleshoot problems that you might have with the App2Container CLI.
 
@@ -128,7 +127,7 @@ You can repeat this process as needed to further reduce the size.
 #### Description
 <a name="ts-linux-insufficient-space-descr"></a>
 
-When you run the **containerize** command, it fails with the following error message: Error: Insufficient disk space.
+When you run the **containerize** command, it fails with the following error message: `Error: Insufficient disk space`.
 
 #### Cause
 <a name="ts-linux-insufficient-space-cause"></a>

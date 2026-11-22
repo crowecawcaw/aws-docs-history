@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Deploy application containers to AWS App Runner with AWS App2Container
-<a name="a2c-integrations-apprunner"></a>
 
 AWS App Runner is an AWS service that provides a way for existing container images or source code to run directly as web services in AWS. App Runner uses Fargate as its underlying environment, but has its own management layer on top. With App Runner, you can access your application through an assigned web service URL, via HTTP requests.
 

@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Set up CI/CD pipelines with AWS CodePipeline
-<a name="a2c-integration_codepipeline"></a>
 
 AWS CodePipeline is a continuous delivery service that you can use tomodel, visualize, and automate your software release process. App2Container integrates with CodePipeline to automate a consistent release process while it gives you insights to monitor and manage your pipeline. For more information, see [What is AWS CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide*.
 

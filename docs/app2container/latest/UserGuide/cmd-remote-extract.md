@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # app2container remote extract command
-<a name="cmd-remote-extract"></a>
 
 Run this command from a worker machine to generate an application archive for the specified application on the target application server. The target application server is specified by its IP address or Fully Qualified Domain Name (FQDN). Before you call this command, you must call the [remote analyze](cmd-remote-analyze.md) command.
 

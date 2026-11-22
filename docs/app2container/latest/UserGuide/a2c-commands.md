@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # App2Container command reference
-<a name="a2c-commands"></a>
 
 **Tip**  
 To containerize your applications with a console-based experience and deploy them on Amazon ECS on AWS Fargate, you can use the *Replatform applications to Amazon ECS* template on the [AWS Migration Hub Orchestrator console](https://console.aws.amazon.com/migrationhub/orchestrator?region=us-east-1#/templates). For more information, see [Replatform applications to Amazon ECS](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/replatform-to-ecs.html) in the *AWS Migration Hub Orchestrator User Guide*.

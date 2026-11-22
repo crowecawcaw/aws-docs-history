@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # FireLens log routing for Linux
-<a name="firelens-setup-linux"></a>
 
 Before starting these configuration steps, you should have an understanding of the App2Container containerization phases – Initialize, Analyze, Transform, and Deploy. To learn more about the containerization phases and the commands that run during each phase, see the [App2Container command reference](a2c-commands.md) in this user guide.
 

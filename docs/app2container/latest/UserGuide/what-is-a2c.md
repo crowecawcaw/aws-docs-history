@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # What is AWS App2Container?
-<a name="what-is-a2c"></a>
 
 AWS App2Container (A2C) is a command line tool to help you lift and shift applications that run in your on-premises data centers or on virtual machines, so that they run in containers that are managed by Amazon ECS, Amazon EKS, or AWS App Runner. For a console-based experience, you can use the *Replatform applications to Amazon ECS* template in the [AWS Migration Hub Orchestrator console](https://console.aws.amazon.com/migrationhub/orchestrator?region=us-east-1#/templates). For more information, see [Replatform applications](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/replatform-to-ecs.html) to Amazon ECS in the *AWS Migration Hub Orchestrator User Guide*.
 

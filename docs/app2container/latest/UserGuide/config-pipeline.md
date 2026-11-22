@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Configuring container pipelines
-<a name="config-pipeline"></a>
 
 This topic contains information about the files that you use to configure continuous integration and deployment (CI/CD) pipelines for your application container with CodePipeline, Jenkins, or Microsoft Azure DevOps.
 
@@ -100,7 +99,7 @@ Beta environments are not supported for App Runner.
 **Examples**  
 The following example shows a `pipeline.json` file that uses the CodePipeline environment as the pipeline for an IIS application that runs on Windows. The application runs in a beta environment, and there is no prod environment configured yet.
 
-```
+```json
 {
     "a2CTemplateVersion": "3.1",
     "imageInfo": {
@@ -131,7 +130,7 @@ The following example shows a `pipeline.json` file that uses the CodePipeline en
 
 The following example shows a `pipeline.json` file that uses the Jenkins environment as the pipeline for an IIS application that runs on Windows.
 
-```
+```json
 {
     "a2CTemplateVersion": "1.0",
     "imageInfo": {
@@ -191,7 +190,7 @@ The following example shows a `pipeline.json` file that uses the Jenkins environ
 
 The following example shows a `pipeline.json` file that uses Microsoft Azure DevOps as the pipeline for a Java application that runs on Linux. 
 
-```
+```json
 {
  	"a2CTemplateVersion": "1.0",
  	"imageInfo": {

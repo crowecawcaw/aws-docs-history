@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Getting started with AWS App2Container
-<a name="start-intro"></a>
 
 AWS App2Container is a tool that helps you break down the work of moving your applications into containers, and configuring them to be hosted in AWS using the Amazon ECS, Amazon EKS, or App Runner container management services.
 
@@ -323,19 +322,19 @@ To verify the authenticity of the download, run the following commands to downlo
 
 1. Download the App2Container certificate:
 
-   ```
+   ```bash
    curl -o app2container.cert https://app2container-keys.s3.us-east-1.amazonaws.com/latest/app2container.cert
    ```
 
 1. Download the App2Container signature file:
 
-   ```
+   ```bash
    curl -o app2container.sig https://app2container-release-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/app2container.sig
    ```
 
 1. Verify the signature:
 
-   ```
+   ```bash
    openssl dgst -sha256 -verify app2container.cert -signature app2container.sig /usr/bin/app2container
    ```
 
@@ -354,13 +353,13 @@ App2Container automatically enables NTFS long paths for all supported Windows ve
 
 1. Run the install script from the folder where you extracted it, and follow the prompts.
 
-   ```
+   ```ps
    PS> .\install.ps1
    ```
 
 1. (Optional) To verify the authenticity of the download, use the `Get-AuthenticodeSignature` PowerShell command as follows to get the Authenticode Signature of the App2Container executable.
 
-   ```
+   ```ps
    PS> Get-AuthenticodeSignature {{C:\Users\Administrator\app2container\AWSApp2Container\bin\app2container.exe}}
    ```
 
@@ -374,7 +373,7 @@ To check the downloaded zip archive for integrity, you can validate the SHA256 h
 
    From the directory where you downloaded your zip archive, run the following command to generate the hash of the downloaded archive file.
 
-   ```
+   ```ps
    PS> Get-FileHash C:\Users\Administrator\Downloads\AWSApp2Container-installer-windows.zip -Algorithm SHA256
    ```
 
@@ -460,7 +459,7 @@ On the application server, follow these steps to prepare to containerize the app
 
    The output includes a JSON object collection with one entry for each application. Each application object will include key/value pairs as shown in the following example.
 
-   ```
+   ```json
    "{{java-app-id}}": {
        "processId": {{pid}},
        "cmdline": "/user/bin/java ...",
@@ -493,7 +492,7 @@ On the application server, follow these steps to prepare to containerize your ap
 
    The output includes a JSON object collection with one entry for each application. Each application object will include key/value pairs as shown in the following example.
 
-   ```
+   ```json
    "{{iis-app-id}}": {
        "siteName": {{My site name}},
        "bindings": "{{http/*:80:}}",
