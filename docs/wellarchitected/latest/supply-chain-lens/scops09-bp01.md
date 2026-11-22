@@ -1,7 +1,6 @@
 
 
 # SCOPS09-BP01 Automate integrated data pipelines for real-time demand and supply data refresh across the supply chain
-<a name="scops09-bp01"></a>
 
  To achieve an agile and responsive supply chain, it is imperative to have access to up-to-date and accurate demand and supply data. This necessitates the implementation of automated and integrated data pipelines that can provide real-time or near real-time data refresh from all relevant sources, both internal and external. 
 

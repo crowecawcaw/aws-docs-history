@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management"></a>
 
 
 | SCSUS05: How does your data strategy support your sustainability outcomes? | 

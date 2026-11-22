@@ -1,7 +1,6 @@
 
 
 # SCREL01-BP01 Identify suppliers and logistics partners and establish backup agreements or alternate sourcing strategies to mitigate risks
-<a name="screl01-bp01"></a>
 
  Identifying critical suppliers and logistics partners is essential for building supply chain resilience, as these relationships often represent single points of failure that can severely impact operations when disrupted. Organizations should conduct thorough risk assessments to categorize partners based on their operational importance, substitutability, and geographic concentration. For high-risk dependencies, establish formal backup agreements with alternative providers who can quickly activate during disruptions, while maintaining appropriate inventory buffers for critical components. Implement regular testing of these contingency arrangements through simulated disruption scenarios to validate their effectiveness and refine response protocols before real emergencies occur. 
 

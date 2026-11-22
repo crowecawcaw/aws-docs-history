@@ -1,7 +1,6 @@
 
 
 # SCREL02-BP01 Integrate shipment tracking solutions, providing real-time visibility through IoT devices and logistics APIs
-<a name="screl02-bp01"></a>
 
  Integrate comprehensive shipment tracking solutions with core supply chain systems to create end-to-end visibility across transportation networks, warehouses, and last-mile delivery operations. Deploy IoT devices such as GPS trackers, temperature sensors, and shock monitors to capture real-time condition and location data from shipments, while establishing API connections with logistics partners to incorporate their tracking information into a unified visibility system. Implement geofencing capabilities to automatically trigger notifications and workflow actions when shipments enter or exit predefined geographic boundaries, enabling proactive exception management. 
 

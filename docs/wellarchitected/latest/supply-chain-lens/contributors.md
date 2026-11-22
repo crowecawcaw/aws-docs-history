@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 +  Sunil Vishnubhotla, Senior Technical Account Manager, AWS Enterprise Support, Amazon Web Services 

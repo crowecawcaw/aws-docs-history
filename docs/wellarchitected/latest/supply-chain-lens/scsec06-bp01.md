@@ -1,7 +1,6 @@
 
 
 # SCSEC06-BP01 Implement network segmentation and isolation to reduce risks across supply chain phases
-<a name="scsec06-bp01"></a>
 
  Network segmentation creates security boundaries between different stages of your supply chain, limiting the potential impact of security breaches. By implementing logical separation between procurement, manufacturing, distribution, and other supply chain functions, organizations can help prevent lateral movement of threats and apply specific security controls appropriate to each segment. This approach enables more granular access control, improved monitoring, and enhanced protection of sensitive assets across the supply chain environment. Effective segmentation should be based on business functions, data sensitivity, and regulatory requirements. 
 

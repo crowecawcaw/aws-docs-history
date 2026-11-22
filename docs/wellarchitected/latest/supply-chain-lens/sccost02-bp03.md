@@ -1,7 +1,6 @@
 
 
 # SCCOST02-BP03 Only store useful data and discard the rest
-<a name="sccost02-bp03"></a>
 
  A well-designed supply chain data management architecture incorporates a data lake to store processed and normalized useful data, while raw data is either discarded or archived in cost-effective storage for potential future needs. 
 

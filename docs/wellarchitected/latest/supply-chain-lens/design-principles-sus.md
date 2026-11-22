@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 
  Supply chain operations rely on a complex technology landscape for the following key reasons: 
 +  Geographical extension and coverage across the globe. 

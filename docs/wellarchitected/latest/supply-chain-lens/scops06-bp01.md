@@ -1,7 +1,6 @@
 
 
 # SCOPS06-BP01 Establish an org that fosters collaboration, data-driven decision-making, and continuous innovation in AI-driven operations
-<a name="scops06-bp01"></a>
 
  To truly realize the benefits of AI in the supply chain, an organization's structure must be purposefully designed to support it. This involves evaluating the current structure to identify and remove potential barriers to AI integration. Defining new roles and reporting lines for AI-related functions, such as AI product owners or MLOps engineers, is crucial. 
 

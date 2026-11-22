@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
 
 | SCPERF01: How do you select the best performing architecture? | 

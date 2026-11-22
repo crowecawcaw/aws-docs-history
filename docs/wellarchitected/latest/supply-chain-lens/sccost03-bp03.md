@@ -1,7 +1,6 @@
 
 
 # SCCOST03-BP03 Choose the right communication service and configuration depending on the use case
-<a name="sccost03-bp03"></a>
 
  Tailor your communication service selection and setup to match specific supply chain scenarios and requirements. 
 

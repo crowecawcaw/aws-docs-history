@@ -1,7 +1,6 @@
 
 
 # SCOPS05-BP01 Establish clear roles, responsibilities, and communication channels for all stakeholders involved in AI-driven initiatives
-<a name="scops05-bp01"></a>
 
  Successful integration of AI into the supply chain necessitates a workforce that fully comprehends and actively contributes to its success. This involves clearly defining roles and responsibilities for every stakeholder group impacted by AI, from data scientists to operational teams. 
 

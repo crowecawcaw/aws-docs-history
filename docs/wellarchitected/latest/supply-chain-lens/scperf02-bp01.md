@@ -1,7 +1,6 @@
 
 
 # SCPERF02-BP01 Use serverless compute to run tasks
-<a name="scperf02-bp01"></a>
 
  Choosing the correct compute power for the workload provides smooth performance of the application, not only for the end users also for the solution developer community to maintain the software stacks across various infrastructures. 
 

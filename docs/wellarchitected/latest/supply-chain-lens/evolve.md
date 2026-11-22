@@ -1,7 +1,6 @@
 
 
 # Evolve
-<a name="evolve"></a>
 
 
 | SCOPS12: How do you continuously evolve your supply chain operations? | 

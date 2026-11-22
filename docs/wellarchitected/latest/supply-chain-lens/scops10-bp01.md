@@ -1,7 +1,6 @@
 
 
 # SCOPS10-BP01 Implement an orderly approach for identifying, tracking, resolving, and validating corrective actions for operational issues
-<a name="scops10-bp01"></a>
 
  Efficient and effective management of operational issues is paramount for continuous improvement and resilience in the supply chain. This requires establishing a centralized system for logging and tracking all operational issues, coupled with a clear process for reporting, prioritization, and assignment. Implementing a robust root cause analysis methodology for critical issues is vital to help prevent recurrence. 
 

@@ -1,7 +1,6 @@
 
 
 # SCCOST02-BP01 Have a plan for your raw data storage to optimize cost
-<a name="sccost02-bp01"></a>
 
  Effective data management strategies can substantially lower expenses related to maintaining vast data volumes. Object storage is recommended for large-scale unstructured data due to its robustness, nearly unlimited capacity, scalability, and advanced metadata capabilities. 
 

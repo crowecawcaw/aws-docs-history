@@ -1,7 +1,6 @@
 
 
 # SCSUS07-BP01 Plan and design for automation for supply chain sustainability
-<a name="scsus07-bp01"></a>
 
  Consider optimizing your supply chain sustainability through automation, planning, and designing for automation. Plan for designing completely or partially, where applicable, all the time-consuming tasks to reduce the usage time of a required AWS resource, to collect data for peaks and valleys analysis to feed them into ML models or advanced analysis to enable automatic scalability based on demand. 
 

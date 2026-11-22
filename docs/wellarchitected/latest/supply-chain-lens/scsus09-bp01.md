@@ -1,7 +1,6 @@
 
 
 # SCSUS09-BP01 Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals
-<a name="scsus09-bp01"></a>
 
  Align supply chain workloads and the technology-related emissions to the wider organization's sustainability strategy and goals to monitor how their impact evolves over the time and contributes to your organization's sustainability targets. 
 

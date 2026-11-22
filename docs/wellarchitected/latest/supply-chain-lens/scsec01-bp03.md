@@ -1,7 +1,6 @@
 
 
 # SCSEC01-BP03 Practice continuous governance
-<a name="scsec01-bp03"></a>
 
  By establishing a CCoE with cross-functional collaboration, using cloud governance services, and fostering a culture of continuous improvement, your organization can effectively address security and compliance requirements for supply chain workloads in the cloud. 
 

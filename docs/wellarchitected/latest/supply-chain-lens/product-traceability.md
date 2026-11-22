@@ -1,7 +1,6 @@
 
 
 # Product traceability
-<a name="product-traceability"></a>
 
  Product traceability in supply chain management is the ability to track and document the journey of products and their components from raw materials to finished goods. Effective traceability enables organizations to verify product authenticity, measure contractual obligations, facilitate quality control, manage recalls efficiently, and maintain regulatory compliance while providing transparency to stakeholders. 
 

@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 
 | SCSEC05: How do you monitor and detect potential security threats or anomalies across your supply chain infrastructure and applications? | 

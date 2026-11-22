@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="security-foundations"></a>
 
 
 | SCSEC01: How does your governance model address security and compliance requirements for your supply chain workloads? | 

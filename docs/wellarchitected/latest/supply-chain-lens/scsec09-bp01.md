@@ -1,7 +1,6 @@
 
 
 # SCSEC09-BP01 Implement data classification and protection
-<a name="scsec09-bp01"></a>
 
  A comprehensive data classification framework enables organizations to identify and appropriately protect different types of supply chain information. This approach involves categorizing data based on sensitivity, regulatory requirements, and business impact to apply proportionate security controls. Organizations should implement automated discovery and classification tools to identify sensitive data across diverse supply chain systems. Protection mechanisms should align with classification levels, making sure that the most sensitive information receives the strongest safeguards while maintaining operational efficiency. 
 

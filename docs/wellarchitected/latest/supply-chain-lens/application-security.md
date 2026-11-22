@@ -1,7 +1,6 @@
 
 
 # Application security
-<a name="application-security"></a>
 
 
 | SCSEC13: How do you incorporate security practices within the software development lifecycle for supply chain applications? | 

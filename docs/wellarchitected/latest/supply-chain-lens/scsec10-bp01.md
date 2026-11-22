@@ -1,7 +1,6 @@
 
 
 # SCSEC10-BP01 Implement comprehensive data encryption
-<a name="scsec10-bp01"></a>
 
  A holistic encryption strategy is essential for protecting supply chain data throughout its lifecycle. This includes implementing strong encryption for data at rest in storage systems, databases, and backup media across all supply chain environments. Complementary transport encryption should secure data as it moves between systems, partners, and geographic locations. Organizations should select appropriate encryption algorithms and key lengths based on data sensitivity and regulatory requirements, while making sure that encryption implementation doesn't significantly impact system performance or user experience. 
 

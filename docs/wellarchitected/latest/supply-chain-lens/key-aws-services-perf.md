@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-perf"></a>
 +  [AWS Supply Chain](https://aws.amazon.com/aws-supply-chain/) 
 +  [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/) 
 +  [AWS CloudWatch](https://aws.amazon.com/cloudwatch/) 

@@ -1,7 +1,6 @@
 
 
 # SCPERF05-BP02 Evaluate compliance with performance requirements
-<a name="scperf05-bp02"></a>
 
  When many systems, including third-party systems, are involved in a workload, it is important to know the behavior of each system and to monitor who is contributing to performance loss so proper adjustments can be made. 
 

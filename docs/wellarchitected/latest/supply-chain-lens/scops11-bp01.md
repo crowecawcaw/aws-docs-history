@@ -1,7 +1,6 @@
 
 
 # SCOPS11-BP01 Use rule-based and AI-driven automation to respond to disruptions by re-routing shipments and optimizing inventory
-<a name="scops11-bp01"></a>
 
  To navigate the complexities of supply chain disruptions, using automation is essential for rapid and efficient responses. This involves identifying common disruption scenarios that necessitate re-routing or inventory reallocation and then implementing real-time visibility solutions for shipments and inventory. Configuring rule-based automation for frequent, less complex response actions can provide immediate benefits. 
 

@@ -1,7 +1,6 @@
 
 
 # SCSUS04-BP02 Build and run optimization models for resources involved in supply chains sustainability
-<a name="scsus04-bp02"></a>
 
  Consider building and run specific optimization models targeting supply chains sustainability, through scenarios simulation able to simulate resources usage and collect metrics for supply chains planning, execution and enablement. 
 

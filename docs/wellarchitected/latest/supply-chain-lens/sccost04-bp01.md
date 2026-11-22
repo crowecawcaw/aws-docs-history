@@ -1,7 +1,6 @@
 
 
 # SCCOST04-BP01 Use AWS services and advanced analytics to optimize overall supply chain costs
-<a name="sccost04-bp01"></a>
 
  Consider using AWS Supply Chain to help optimize overall supply chain costs by taking advantage of pre-built features that are already optimized for cloud infrastructure cost efficiency. 
 

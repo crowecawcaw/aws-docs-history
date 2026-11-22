@@ -1,7 +1,6 @@
 
 
 # Network architecture selection
-<a name="network-architecture-selection"></a>
 
 
 | SCPERF04: How do you select your network architecture for supply chain application? | 

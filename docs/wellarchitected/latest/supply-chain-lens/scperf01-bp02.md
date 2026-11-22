@@ -1,7 +1,6 @@
 
 
 # SCPERF01-BP02 Factor in rate of increase in load, traffic, and scale-out intervals
-<a name="scperf01-bp02"></a>
 
  Identify the upper bounds of the peak load against a system, as well as the amount of time needed to reach peak load. Load tests often overlook the rate of increase in traffic and create tests that scale up too quickly or too slowly. 
 

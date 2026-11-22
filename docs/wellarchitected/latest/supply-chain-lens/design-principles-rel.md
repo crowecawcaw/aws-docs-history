@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-rel"></a>
 +  **Inventory and order data synchronization:** Design systems to provide continuous synchronization of inventory and order data across warehouses, distribution centers, and online storefronts to help prevent stockouts or overselling. 
 +  **Implement supplier and logistics redundancy:** Architect supply chain solutions with backup suppliers and logistics providers, facilitating seamless transitions during disruptions. 
 +  **Enable demand-driven scalability:** Build systems that can scale inventory allocation, procurement, and transportation dynamically based on real-time demand forecasts. 

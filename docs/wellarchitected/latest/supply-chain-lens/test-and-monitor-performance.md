@@ -1,7 +1,6 @@
 
 
 # Test and monitor performance
-<a name="test-and-monitor-performance"></a>
 
 
 | SCPERF05: How do you test and monitor the performance of the supply chain systems? | 

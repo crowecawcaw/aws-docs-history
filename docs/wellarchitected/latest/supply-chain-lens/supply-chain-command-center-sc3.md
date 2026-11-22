@@ -1,7 +1,6 @@
 
 
 # Supply chain command center (SC3)
-<a name="supply-chain-command-center-sc3"></a>
 
  Global enterprises today face critical gaps in their supply chain systems that hamper visibility, coordination, and responsiveness across their operations. These gaps often manifest as disconnected data silos, manual intervention requirements, and the inability to adapt quickly to market changes or disruptions. Legacy systems, while robust in their core functions, frequently lack the agility and intelligence needed to manage modern supply chain complexities, leading to inefficiencies, increased costs, and missed opportunities for optimization. 
 

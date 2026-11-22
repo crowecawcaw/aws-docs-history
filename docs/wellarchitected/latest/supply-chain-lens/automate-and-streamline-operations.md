@@ -1,7 +1,6 @@
 
 
 # Automate and streamline operations
-<a name="automate-and-streamline-operations"></a>
 
 
 | SCCOST03: How do you optimize your network consumption and interactions between plant floor and overall IT infrastructure? | 

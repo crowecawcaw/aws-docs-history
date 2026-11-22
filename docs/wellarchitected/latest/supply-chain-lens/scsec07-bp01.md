@@ -1,7 +1,6 @@
 
 
 # SCSEC07-BP01 Regularly scan for vulnerabilities, patch your workloads and audit your systems for compliance
-<a name="scsec07-bp01"></a>
 
  Maintaining a proactive vulnerability management program is critical for identifying and addressing security weaknesses across supply chain systems. This involves implementing regular scanning processes to detect vulnerabilities in infrastructure, applications, and dependencies used throughout the supply chain. Establishing systematic patching procedures makes sure that identified vulnerabilities are remediated in a timely manner based on risk assessment and business impact. Complementing these activities with regular compliance audits helps verify that security controls are functioning as intended and meeting regulatory requirements. 
 

@@ -1,7 +1,6 @@
 
 
 # Planning and operations
-<a name="planning-and-operations"></a>
 
  Supply chain planning and operations involve managing the flow of goods, services, and information from suppliers to end customers. This complex process encompasses demand forecasting, inventory management, procurement, production scheduling, warehousing, transportation, and distribution activities. Organizations use supply chain planning to optimize their resources, reduce costs, minimize risks, and make timely delivery of products to customers. Effective supply chain operations require careful coordination among various stakeholders, including suppliers, manufacturers, distributors, retailers, and logistics providers. 
 

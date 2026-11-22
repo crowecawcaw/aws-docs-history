@@ -1,7 +1,6 @@
 
 
 # SCSEC03-BP01 Implement granular access controls
-<a name="scsec03-bp01"></a>
 
  Implementing granular access controls across your supply chain environment makes sure that users, systems, and third parties have precisely the level of access required for their specific functions. By defining and enforcing fine-grained permissions based on roles, responsibilities, and contextual factors such as location or time, organizations can significantly reduce the risk of unauthorized access to sensitive supply chain data and systems. This approach minimizes the potential exposure surface while maintaining operational efficiency through automated provisioning and de-provisioning processes. Regular reviews and continuous validation of access patterns help identify anomalies and maintain the principle of least privilege across complex, multi-party supply chain networks. 
 

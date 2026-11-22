@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  The AWS Well-Architected Framework is based on six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. AWS provides multiple core components that allow you to design state-of-the-art architectures for your Supply Chain workloads. In this section, we will present an overview of key definitions that will be used in this document. 
 

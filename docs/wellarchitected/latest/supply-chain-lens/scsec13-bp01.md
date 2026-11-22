@@ -1,7 +1,6 @@
 
 
 # SCSEC13-BP01 Integrate security throughout the software development lifecycle
-<a name="scsec13-bp01"></a>
 
  Incorporate security measures into the earliest stages of the software development lifecycle (SDLC) to support robust protection throughout the development process. Develop policies and procedures for secure coding practices where developers are trained to follow industry-standard guidelines. Implement security requirements during the requirements phase, design secure architectures during the design phase, develop secure code during implementation, conduct thorough security testing, and maintain secure deployment and maintenance practices. This comprehensive approach makes sure that security is not an afterthought but an integral part of the development process for supply chain applications. 
 

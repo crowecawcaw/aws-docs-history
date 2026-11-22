@@ -1,7 +1,6 @@
 
 
 # SCOPS03-BP01 Provide supply chain teams with access to real-time data, analytics, and decision-making tools
-<a name="scops03-bp01"></a>
 
  Empowering supply chain teams hinges on providing them with immediate access to current and accurate information, coupled with the analytical capabilities to interpret it. This involves investing in robust supply chain management (SCM) software that offers real-time data integration, advanced analytics, and predictive modeling features. 
 

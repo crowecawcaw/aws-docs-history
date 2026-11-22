@@ -1,7 +1,6 @@
 
 
 # Scenario summary
-<a name="scenario-summary"></a>
 
  The AWS Well-Architected Framework provides a comprehensive foundation for building resilient, efficient, and secure supply chain solutions across industries. These eight scenarios demonstrate how organizations can use AWS services to address critical supply chain challenges while maintaining architectural excellence across all pillars. 
 

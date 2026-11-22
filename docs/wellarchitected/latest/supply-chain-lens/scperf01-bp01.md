@@ -1,7 +1,6 @@
 
 
 # SCPERF01-BP01 Use internal and external risk to determine performance requirements
-<a name="scperf01-bp01"></a>
 
  External regulatory or supplier systems, as well as internal risk requirements, are often a good place to start for performance requirements. For certain systems, regulators release sector-wide guidance and data residency rules and regulators require that system have the capability to deliver on the operational resilience and the performance targets they have set for themselves. 
 

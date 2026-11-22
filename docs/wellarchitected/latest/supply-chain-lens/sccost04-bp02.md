@@ -1,7 +1,6 @@
 
 
 # SCCOST04-BP02 Implement a monitoring strategy for your cloud spend
-<a name="sccost04-bp02"></a>
 
  Continually monitor and analyze usage patterns, network traffic, and associated costs to maintain optimal cost efficiency. 
 

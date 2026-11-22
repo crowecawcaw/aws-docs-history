@@ -1,7 +1,6 @@
 
 
 # Siloed data
-<a name="siloed-data"></a>
 
  Siloed data is a major challenge faced by many companies' supply chain operations. Data exists separately and is not accessible by other departments or business unit. As a result, decision making is made at each local level while lacking upstream and downstream indicators that would drive improved supply chain execution and risk mitigation. 
 

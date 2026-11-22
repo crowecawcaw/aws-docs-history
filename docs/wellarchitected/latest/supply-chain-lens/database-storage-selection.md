@@ -1,7 +1,6 @@
 
 
 # Database and storage selection
-<a name="database-storage-selection"></a>
 
 
 | SCPERF03: How do you select the database and storage for supply chain workloads? | 

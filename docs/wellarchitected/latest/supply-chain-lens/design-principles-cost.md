@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-cost"></a>
 
  In addition to the general Well-Architected cost optimization design principles, there are some design principles specific for cost optimization for supply chain. These principles encompass the key aspects of cost optimization in the supply chain domain while using AWS services and capabilities. They focus on aligning costs with value, optimizing data management, automating operations, and maintaining ongoing cost optimization efforts. 
 +  **Align cost with supply chain value and scalability:** In supply chain, activity-based costing is crucial. Controlling costs on an activity level requires visibility, transparency and large-scale reporting. Explainability of each costing item is an industry requirement. Accurately calculating each costing item necessitates comprehensive supply chain visibility, emphasizing the need for transparency, data integration, and collaboration with suppliers and logistics partners. 

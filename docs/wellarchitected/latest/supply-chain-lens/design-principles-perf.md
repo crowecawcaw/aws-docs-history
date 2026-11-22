@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-perf"></a>
 
  Select your architecture based on performance data. Evaluate metrics across all architectural components, including system design patterns, resource type performance, and configuration benchmarks. Review architectural decisions quarterly to use new AWS Cloud capabilities. Monitor specific performance indicators against established baselines and implement corrections when metrics fall outside defined thresholds. Optimize performance through targeted techniques such as data compression, strategic caching, and balanced consistency models. 
 

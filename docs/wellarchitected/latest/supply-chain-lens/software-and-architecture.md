@@ -1,7 +1,6 @@
 
 
 # Software and architecture
-<a name="software-and-architecture"></a>
 
 
 | SCSUS04: Can you optimize your compute workloads for your supply chain sustainability? | 

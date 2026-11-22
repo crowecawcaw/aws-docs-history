@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The reliability pillar includes recommendations for a supply chain workload to perform its intended function correctly and consistently. This includes the ability to operate and test the workload through its total lifecycle. This paper provides in-depth, best practice guidance for implementing reliable supply chain workloads on AWS. 
 

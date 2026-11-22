@@ -1,7 +1,6 @@
 
 
 # SCOPS08-BP01 Implement a process for assessing, onboarding, and monitoring the operational readiness of new suppliers and logistics partners
-<a name="scops08-bp01"></a>
 
  Integrating new suppliers and logistics partners seamlessly into the supply chain is vital for maintaining operational efficiency and resilience. This requires a structured process that begins with clearly defining criteria for selecting and evaluating potential partners. A comprehensive onboarding program, including system integration and training, should be in place to facilitate a smooth transition. Conducting thorough operational readiness assessments before full engagement is crucial to verify their capabilities. 
 

@@ -1,7 +1,6 @@
 
 
 # Continuously monitor and optimize costs
-<a name="continuously-monitor-and-optimize-costs"></a>
 
 
 | SCCOST04: How do you regularly analyze and fine-tune supply chain overall IT infrastructure expenses for peak efficiency? | 

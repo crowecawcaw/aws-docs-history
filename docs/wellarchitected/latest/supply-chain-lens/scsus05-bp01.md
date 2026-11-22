@@ -1,7 +1,6 @@
 
 
 # SCSUS05-BP01 Adopt modern data management and governance practices for your supply chain sustainability, and focus on economic, environmental, and social needs
-<a name="scsus05-bp01"></a>
 
  Consider supply chain fine-tuned data lake, analytics, and data governance practices with specific focus on sustainability to address economic, environmental and social needs. 
 

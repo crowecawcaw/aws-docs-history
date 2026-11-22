@@ -1,7 +1,6 @@
 
 
 # SCCOST01-BP02 Adopt a flexible and scalable cloud infrastructure
-<a name="sccost01-bp02"></a>
 
  A typical supply chain landscape will include ERPs, warehouse management systems (WMS), and transportation management systems (TMS) running on a large infrastructure that needs to be reliable, scalable and optimized for cost and performance. 
 

@@ -1,7 +1,6 @@
 
 
 # SCSUS03-BP01 Use the supply chain operations reference (SCOR) to map your supply chain
-<a name="scsus03-bp01"></a>
 
  Consider the adoption of the SCOR model or equivalent standardized models like Value Reference Model (VRM) and managing for supply chain performance (M4SC) to map your supply chains and keep related metrics monitored, to be sure you are aligning planning, execution and enablement to the actual demand, leading to emissions optimizations. 
 

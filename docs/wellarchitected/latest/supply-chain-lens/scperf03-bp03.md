@@ -1,7 +1,6 @@
 
 
 # SCPERF03-BP03 Use cache memory to help improve the performance
-<a name="scperf03-bp03"></a>
 
  Cache memory provides improved latency of the application when accessed outside of the solution-hosted Regions. 
 

@@ -1,7 +1,6 @@
 
 
 # SCCOST02-BP02 Query and retrieve data by partitions to save cost and improve performance
-<a name="sccost02-bp02"></a>
 
  Optimize data access by using partitioned queries to enhance cost-efficiency and performance in supply chain systems. 
 

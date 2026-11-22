@@ -1,7 +1,6 @@
 
 
 # Region selection
-<a name="region-selection"></a>
 
 
 | SCSUS01: Can you optimize the AWS Regions where workloads should run to balance business needs and sustainability targets? | 

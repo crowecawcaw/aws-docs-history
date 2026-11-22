@@ -1,7 +1,6 @@
 
 
 # Warehouse automation and optimization (WAO)
-<a name="warehouse-automation-and-optimization-wao"></a>
 
  Modern warehouse operations face unprecedented challenges in meeting the demands of e-commerce growth, labor constraints, and customer expectations for rapid delivery. Drawing from Amazon's extensive experience in operating over 150 million square feet of fulfillment center space globally, the Amazon Global Engineering team has developed proven approaches for warehouse automation and optimization. These insights, combined with AWS Cloud capabilities, form the foundation of the warehouse automation and optimization (WAO) offering from AWS Professional Services, providing customers with battle-tested solutions for their warehouse operations. 
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud. The following design principles should be considered when designing and operating supply chain workloads: 
 +  **Design for global distribution and regulatory compliance:** Supply chain operations frequently span multiple Regions and jurisdictions, each with distinct regulatory requirements. Design applications that can operate across diverse geographical locations while maintaining compliance with local laws, data residency requirements, and industry-specific regulations. Implement automated compliance monitoring, Region-specific configurations, and data governance controls that adapt to local requirements. Consider regulatory variations in data protection, trade compliance, customs requirements, and industry standards when architecting your global supply chain systems. Design for high availability across multiple geographical locations to maintain business continuity and resilience against regional disruptions. 

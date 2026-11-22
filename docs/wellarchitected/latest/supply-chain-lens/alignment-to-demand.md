@@ -1,7 +1,6 @@
 
 
 # Alignment to demand
-<a name="alignment-to-demand"></a>
 
 
 | SCSUS03: Can you align your planning, execution, and enablement operations to the actual demand to optimize the emissions? | 

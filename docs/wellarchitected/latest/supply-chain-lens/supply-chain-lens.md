@@ -1,7 +1,6 @@
 
 
 # Supply Chain Lens - AWS Well-Architected Framework
-<a name="supply-chain-lens"></a>
 
 Publication date: **September 9, 2025** ([Document revisions](document-revisions.md))
 

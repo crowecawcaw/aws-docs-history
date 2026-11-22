@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-cost"></a>
 +  [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) 
 +  [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) 
 +  [AWS Cost and Usage Report](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/) 

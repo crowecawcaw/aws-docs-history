@@ -1,7 +1,6 @@
 
 
 # SCPERF02-BP02 Use machine learning capabilities for supply chain applications
-<a name="scperf02-bp02"></a>
 
  AWS Supply Chain unifies data and provides machine learning--powered actionable insights, built-in contextual collaboration, and demand planning. 
 

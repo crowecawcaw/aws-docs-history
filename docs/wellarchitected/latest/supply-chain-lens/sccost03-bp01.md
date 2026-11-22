@@ -1,7 +1,6 @@
 
 
 # SCCOST03-BP01 Compress and aggregate data whenever possible to reduce the amount of data that needs to be transmitted over the network
-<a name="sccost03-bp01"></a>
 
  Maximizing processing and sanitation of data reduces the amount of data to be sent and processed in the cloud, leading to significant cost savings and improved performance. 
 

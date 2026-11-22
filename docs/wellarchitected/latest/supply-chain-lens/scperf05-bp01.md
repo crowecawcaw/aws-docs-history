@@ -1,7 +1,6 @@
 
 
 # SCPERF05-BP01 Implement comprehensive monitoring and dashboards for supply chain performance
-<a name="scperf05-bp01"></a>
 
  Building an effective dashboard involves focusing on the key performance indicators (KPIs) that matter most to your organization and displaying them in an understandable and visually appealing way. 
 

@@ -1,7 +1,6 @@
 
 
 # SCSEC01-BP01 Establish security and governance functions in your CCoE
-<a name="scsec01-bp01"></a>
 
  A robust Cloud Center of Excellence (CCoE) should incorporate dedicated security and governance functions to implement consistent implementation of security controls across your supply chain operations. By embedding these functions within your CCoE, organizations can establish standardized security practices, compliance frameworks, and risk management processes that address the unique challenges of supply chain systems. This approach enables proactive identification and mitigation of security vulnerabilities while supporting regulatory compliance across multi-party supply chain networks. Implementing strong governance within the CCoE also facilitates clear decision-making authority, accountability structures, and continuous improvement processes for supply chain security posture. 
 

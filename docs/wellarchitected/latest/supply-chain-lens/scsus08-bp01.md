@@ -1,7 +1,6 @@
 
 
 # SCSUS08-BP01 Collect usage data to feed advanced analysis and ML models to better predict future resources needs
-<a name="scsus08-bp01"></a>
 
  Consider improving your ability to predict AWS Cloud resources required for your supply chain and sustainability-related workloads to prefer on-demand over always-on. Base this data on forecasts, seasonality, and peaks and valleys analysis to efficiently turn resources on and off accordingly or scaling resources up and down and horizontally. 
 

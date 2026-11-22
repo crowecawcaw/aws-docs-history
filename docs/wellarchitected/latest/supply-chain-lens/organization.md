@@ -1,7 +1,6 @@
 
 
 # Organization
-<a name="organization"></a>
 
 
 |  SCOPS01: How do you identify and track all stakeholders interacting with the supply chain application?  | 

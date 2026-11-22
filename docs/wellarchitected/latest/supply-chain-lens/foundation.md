@@ -1,7 +1,6 @@
 
 
 # Foundation
-<a name="foundation"></a>
 
 
 | SCREL01: How do you establish redundancy for key suppliers and logistics providers? | 

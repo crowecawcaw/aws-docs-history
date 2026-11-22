@@ -1,7 +1,6 @@
 
 
 # SCSEC14-BP01 Implement comprehensive code and dependency integrity validation
-<a name="scsec14-bp01"></a>
 
  Maintaining the integrity of application code and dependencies is critical for helping to prevent supply chain attacks that target software components. Organizations should implement code signing to verify authenticity and help prevent tampering with application components. Automated scanning of dependencies for known vulnerabilities should be integrated into development workflows to identify security issues before deployment. Establishing trusted repositories for approved components and implementing integrity verification during build and deployment processes creates multiple layers of protection against compromised software in the supply chain. 
 

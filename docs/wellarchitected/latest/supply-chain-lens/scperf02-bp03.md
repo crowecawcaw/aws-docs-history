@@ -1,7 +1,6 @@
 
 
 # SCPERF02-BP03 Use edge compute capabilities for supply chain applications
-<a name="scperf02-bp03"></a>
 
  AWS offers a robust suite of edge computing solutions that extend cloud capabilities closer to end users, devices, and on-premises locations. At the core of AWS's edge computing strategy are two main services: AWS Outposts and AWS Local Zones. 
 

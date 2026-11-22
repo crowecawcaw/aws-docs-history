@@ -1,7 +1,6 @@
 
 
 # SCOPS07-BP01 Implement processes and technologies for continuous compliance with regulations, data privacy laws, and internal policies
-<a name="scops07-bp01"></a>
 
  Maintaining continuous compliance in supply chain applications requires a multi-faceted approach. This begins with thoroughly identifying all relevant compliance frameworks and regulations and then conducting a gap analysis to pinpoint areas requiring attention. 
 

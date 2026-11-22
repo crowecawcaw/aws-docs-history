@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | SCOPS10: How are operational issues managed through to resolution, ensuring corrective actions are implemented and validated?  | 

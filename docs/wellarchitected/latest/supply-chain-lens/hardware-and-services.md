@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-and-services"></a>
 
 
 | SCSUS07: Do you plan and design your supply chain and sustainability needs for automation? | 

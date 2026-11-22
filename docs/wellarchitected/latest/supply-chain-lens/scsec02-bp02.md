@@ -1,7 +1,6 @@
 
 
 # SCSEC02-BP02 Aggregate findings and metrics to maintain centralized visibility
-<a name="scsec02-bp02"></a>
 
  Centralizing security findings and metrics across your distributed supply chain environment provides comprehensive visibility into your overall security posture and enables more effective risk management. By aggregating data from multiple sources, accounts, and regions into unified dashboards, security teams can quickly identify patterns, prioritize threats, and coordinate response efforts across the entire supply chain environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-rel"></a>
 +  [Amazon EventBridge](https://aws.amazon.com/eventbridge/): A serverless event bus that connects applications using events from your applications, SaaS providers, or AWS services, offering real-time data synchronization. 
 +  [AWS Glue](https://aws.amazon.com/glue/): A serverless data integration service that simplifies data preparation, loading, and ETL (Extract, Transform, Load) processes. 
 +  [Amazon AppFlow](https://aws.amazon.com/appflow/): A service for automating data transfers between AWS services and SaaS applications without code. 

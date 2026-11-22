@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 
  **Related documents:** 
 +  [AWS Supply Chain](https://aws.amazon.com/aws-supply-chain/) 

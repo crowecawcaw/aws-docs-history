@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 | SCSUS09: Do you align your supply chain sustainability metrics with company-wise mid/long-term sustainability goals? | 

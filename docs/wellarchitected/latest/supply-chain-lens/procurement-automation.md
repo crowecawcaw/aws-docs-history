@@ -1,7 +1,6 @@
 
 
 # Procurement automation
-<a name="procurement-automation"></a>
 
  Implementing machine learning (ML) based procurement automation in the supply chain using AWS services and the AWS Well-Architected Framework provides organizations with a robust and scalable solution. AWS offers a comprehensive suite of services that transform traditional procurement processes into intelligent, automated workflows. 
 

@@ -1,7 +1,6 @@
 
 
 # SCOPS02-BP01 Define, monitor, and communicate KPIs across the entire supply chain
-<a name="scops02-bp01"></a>
 
  To effectively manage and optimize your supply chain, it's crucial to establish a comprehensive set of KPIs that span from demand planning through to final delivery. These KPIs should be carefully selected to align with business objectives and provide actionable insights. Regular monitoring of these KPIs, ideally through interactive dashboards, allows for real-time performance assessment. Furthermore, consistent and transparent communication of KPI results to all relevant stakeholders fosters accountability and makes sure everyone is working towards shared goals, ultimately leading to improved operational efficiency, enhanced decision-making, and better alignment of supply chain activities with overall business strategy. 
 
