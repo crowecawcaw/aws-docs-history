@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Utilities to start a changeset using an AWS SDK
-<a name="marketplace-catalog_example_marketplace-catalog_ChangeSetUtilities_section"></a>
 
 The following code examples show how to define utilities to start a changeset.
 
@@ -14,7 +13,7 @@ The following code examples show how to define utilities to start a changeset.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 Utility to load a changeset from a JSON file and start processing it.  
 
-```
+```java
 package com.example.awsmarketplace.catalogapi;
 
 import java.io.ByteArrayInputStream;
@@ -169,7 +168,7 @@ public class RunChangesets {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
 Utility to start a changeset.  
 
-```
+```python
 """
 Purpose:
 
@@ -222,7 +221,7 @@ def usage_demo(change_set, change_set_name):
 ```
 Utility to load a changeset from a JSON file.  
 
-```
+```python
 """
 Purpose:
 

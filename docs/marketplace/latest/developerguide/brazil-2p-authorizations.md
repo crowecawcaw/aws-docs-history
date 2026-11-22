@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Brazil 2P Authorizations
-<a name="brazil-2p-authorizations"></a>
 
 Any ISV can authorize the AWS Brazil 2P distributor account, `664418980131`, to distribute a product in AWS Marketplace. When the `ResellerAccountId` of your Resale Authorization is `664418980131`, AWS Marketplace applies additional requirements.
 

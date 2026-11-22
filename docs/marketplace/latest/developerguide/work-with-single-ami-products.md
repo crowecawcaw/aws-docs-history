@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with AMI-based products
-<a name="work-with-single-ami-products"></a>
 
 You can use the AWS Marketplace Catalog API to automate tasks for working with Amazon Machine Image (AMI)-based products. 
 
@@ -24,7 +23,7 @@ The following topics describe how to use the Catalog API to perform actions on y
 ## Add a new version
 <a name="ami-add-version"></a>
 
-You can use the Catalog API to add a new version to an existing AMI-based product in AWS Marketplace. For more information about adding new AMI versions to your product using the AWS Marketplace Management Portal, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
+You can use the Catalog API to add a new version to an existing AMI-based product in AWS Marketplace. For more information about adding new AMI versions to your product in AWS Partner Central, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-versions.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
 
  When you create a request that includes adding a new AMI to AWS Marketplace, the AMI must be copied into the AWS Marketplace system and then scanned for security issues. You must give AWS Marketplace access to the AMI by creating an AWS Identity and Access Management (IAM) role with permissions to perform actions on your AMI. For more information on the required permissions, see [Giving AWS Marktplace access to your AMI](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-marketplace-ami-access.html) in the *AWS Marketplace Seller Guide*.
 
@@ -35,7 +34,7 @@ For AMI products, a version is made up of one or more delivery options. All deli
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -127,7 +126,7 @@ Content-type: application/json
 }
 ```
 
-The following list provides information about the input fields you use with the `AddDeliveryOptions` change type. All fields are required unless otherwise noted. For more information about these fields, see [Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the AWS Marketplace Seller Guide.
+The following list provides information about the input fields you use with the `AddDeliveryOptions` change type. All fields are required unless otherwise noted. For more information about these fields, see [Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-versions.html#single-ami-adding-version) in the AWS Marketplace Seller Guide.
 + **DeliveryOptions** (array of objects) – A list of delivery option objects, including the details of each. You must include at least one.
   + For *AMI (standalone)* delivery option, specify an object with the following details. You can only have one delivery option with this type.
     + **Details** (object) – Holds the details of this delivery option. Note that this nested details object does not need to be double-escaped.
@@ -174,7 +173,7 @@ The following list provides information about the input fields you use with the 
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
    "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -187,7 +186,7 @@ You can check the status of the request through the AWS Marketplace Management P
 
 For more information about errors in seller product change sets, see [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors).
 
-When the request is complete, the version is added, and any existing subscribers will receive an email message telling them about the new version. For more information about the process of adding a new version, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
+When the request is complete, the version is added, and any existing subscribers will receive an email message telling them about the new version. For more information about the process of adding a new version, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-versions.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
 
 **Asynchronous Errors**
 
@@ -261,7 +260,7 @@ To add a new version, call the `StartChangeSet` API operation with the `UpdateDe
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -359,7 +358,7 @@ The following is information about the input fields you provide for adding the `
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
    "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -401,7 +400,7 @@ All subscribers can use the current version regardless of the restriction status
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -439,7 +438,7 @@ The following is information about the input fields you provide for adding the `
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
    "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -478,7 +477,7 @@ To change future AWS Region support preferences, call the `StartChangeSet` API o
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -522,7 +521,7 @@ Provide information for the fields to add the `UpdateFutureRegionSupport` change
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
   "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -559,7 +558,7 @@ To add new supported Regions, call the `StartChangeSet` API operation with the `
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -599,7 +598,7 @@ Provide information for the fields to add the `AddRegions` change type.
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -637,7 +636,7 @@ To restrict previously supported Regions, call the `StartChangeSet` API operatio
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -674,7 +673,7 @@ Provide information for the fields to add the `AddRegions` change type.
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -720,7 +719,7 @@ To add new instance types, call the `StartChangeSet` API operation with the `Res
 
 Only `AddInstanceTypes` change type is shown below. Although internally metered AMI sellers are required to call `AddInstanceTypes` and `UpdatePricingTerms` change types for their AMI.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -758,7 +757,7 @@ Provide information for the fields to add the `AddInstanceTypes` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -821,7 +820,7 @@ To limit or restrict the instance types available for your AMI-based product, ca
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -859,7 +858,7 @@ Provide information for the fields to add the `RestrictInstanceTypes` change typ
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"

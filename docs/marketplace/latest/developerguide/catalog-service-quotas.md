@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Service quotas for AWS Marketplace Catalog API
-<a name="catalog-service-quotas"></a>
 
 The AWS Marketplace Catalog API has the following quotas.
 

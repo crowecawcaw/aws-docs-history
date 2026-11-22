@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with renewals
-<a name="work-with-renewals"></a>
 
 Renewals in AWS Marketplace enable sellers, including independent software vendors (ISVs) and channel partners, to seamlessly extend existing agreements with customers. During the renewal process, sellers have the option to adjust terms by creating a new offer. 
 
@@ -27,7 +26,7 @@ There are four types of renewals in AWS Marketplace:
 
  As a seller, you can offer renewals by replacing an active agreement that was originally created when the customer accepted your public offer or private offer. Using a replacement offer, you can extend a new offer to the customer that goes beyond the current agreements end date, grant new entitlements, offer pricing discounts, adjust payment schedules, change the payment schedule, or change the end user license agreement (EULA). 
 
- You can use the Catalog API to [create a replacement offer](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-private-offers.html#create-replacement-offer) (also known as an agreement-based offer) in AWS Marketplace for [supported product types](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-upgrades-and-renewals.html#private-offers-upgrades-and-renewals-supported-products). You will need to provide the unique identifier (agreement ID) of the current agreement you wish to replace. You can find this agreement ID in the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management) under the Agreements section or by using the [SearchAgreements](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html) API operation. 
+ You can use the Catalog API to [create a replacement offer](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-private-offers.html#create-replacement-offer) (also known as an agreement-based offer) in AWS Marketplace for [supported product types](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-upgrades-and-renewals.html#private-offers-upgrades-and-renewals-supported-products). You will need to provide the unique identifier (agreement ID) of the current agreement you wish to replace. You can find this agreement ID in [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home) or by using the [SearchAgreements](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html) API operation. 
 
  Once the customer accepts the replacement offer, their current agreement will be replaced with a new agreement that can extend beyond the previous end date. 
 

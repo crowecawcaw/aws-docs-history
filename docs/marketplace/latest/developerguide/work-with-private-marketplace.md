@@ -3,29 +3,33 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with the private marketplace using the AWS Marketplace API
-<a name="work-with-private-marketplace"></a>
 
 You can use the AWS Marketplace Catalog API to manage a *private marketplace* for your AWS account or [organization](https://docs.aws.amazon.com/organizations/latest/userguide/).
 
 All change types can be called only from the organization's management account or by a member account that is a delegated administrator for private marketplace. If you're a current private marketplace customer without the AWS Organizations integration for private marketplace, you can create and manage a private marketplace from any account in your organization that has the `AWSPrivateMarketplaceAdminFullAccess` IAM policy.
 
- For more information about private marketplaces, see [Private marketplaces](https://docs.aws.amazon.com/marketplace/latest/buyerguide/private-marketplace.html) in the *AWS Marketplace Buyer Guide*. 
+ For more information about private marketplaces, see [Private marketplaces](https://docs.aws.amazon.com/marketplace/latest/buyerguide/private-marketplace-current.html) in the *AWS Marketplace Buyer Guide*. 
 
- The following table details a set of tasks to manage private marketplaces and the change types that apply to each task. 
+In the AWS Marketplace Catalog API, a private marketplace is an `Experience` entity. An experience holds the product curation policy that lists the products users can procure (a `ProcurementPolicy` entity with the `PolicyType` of `PRODUCT_PROCUREMENT_POLICY`), its branding settings, and the audience of accounts, organizational units (OUs), or organization that it governs. You configure an experience and its entities with the `StartChangeSet` action.
+
+**Note**  
+To control how purchases are approved and what buyers must provide when they purchase, use buying policies. Buying policies include buyer approvals, mandatory purchase orders, and a custom procurement message. They're configured as other `ProcurementPolicy` types that you attach to an experience. For more information, see [Work with buying policies using the AWS Marketplace API](work-with-buying-policies.md).
+
+The following table lists the tasks for setting up and managing a private marketplace, the change types to call with the `StartChangeSet` action, and where to find details.
 
 
-| Task | Action | Change types | 
+| Task | Change types | More information | 
 | --- | --- | --- | 
-| [Creating a private marketplace](#creating-a-private-marketplace) | `StartChangeSet` | `CreateExperience`<br />`CreateProcurementPolicy` | 
-| [Changing the branding of a private marketplace experience](#private-marketplace-branding) | `StartChangeSet` | `CreateBrandingSettings`<br />`UpdateBrandingSettings` | 
-| [Enabling or disabling a private marketplace experience](#enable-private-marketplace) | `StartChangeSet` | `UpdateExperience` | 
-| [Enabling or disabling user requests](#private-marketplace-user-requests) | `StartChangeSet` | `UpdateProcurementPolicy` | 
-| [Getting a list of products in a private marketplace experience](#private-marketplace-policy-details) | `DescribeEntity` | Not applicable | 
-| [Adding or removing products from a private marketplace](#private-marketplace-add-products) | `StartChangeSet` | `AllowProductProcurement`<br />`DenyProductProcurement` | 
-| [Finding products](#finding-product-ids) | Not applicable | Not applicable | 
-| [Working with private marketplaces for AWS Organizations](#private-marketplace-organizations) | Not applicable | Not applicable | 
-| [Associating principals to experiences](#private-marketplace-associate-accounts) | `StartChangeSet` | `AssociateAudience`<br />`DisassociateAudience` | 
-| [Archiving and reactivating a private marketplace experience](#archiving-and-reactivating-a-private-marketplace-experience-capi) | `StartChangeSet` | `RestrictExperience`<br />`ReviveExperience` | 
+| Create a private marketplace (an experience and its product curation policy). | `CreateExperience`<br />`CreateProcurementPolicy` | [Creating a private marketplace](#creating-a-private-marketplace) | 
+| Customize the branding of your private marketplace. | `CreateBrandingSettings`<br />`UpdateBrandingSettings` | [Changing the branding of a private marketplace experience](#private-marketplace-branding) | 
+| Choose the accounts, OUs, or organization that the private marketplace governs. | `AssociateAudience`<br />`DisassociateAudience` | [Associating principals to experiences](#private-marketplace-associate-accounts) | 
+| Enable or disable your private marketplace. | `UpdateExperience` | [Enabling or disabling a private marketplace experience](#enable-private-marketplace) | 
+| Allow or deny the products that users can procure. | `AllowProductProcurement`<br />`DenyProductProcurement` | [Adding or removing products from a private marketplace](#private-marketplace-add-products) | 
+| Find the product IDs to allow or deny. | Not applicable | [Finding products](#finding-product-ids) | 
+| Let users request products that aren't yet allowed. | `UpdateProcurementPolicy` | [Enabling or disabling user requests](#private-marketplace-user-requests) | 
+| View the products in a private marketplace experience. | `DescribeEntity` (read action) | [Getting a list of products in a private marketplace experience](#private-marketplace-policy-details) | 
+| Work with private marketplaces in AWS Organizations. | Not applicable | [Working with private marketplaces for AWS Organizations](#private-marketplace-organizations) | 
+| Archive or reactivate an experience. | `RestrictExperience`<br />`ReviveExperience` | [Archiving and reactivating a private marketplace experience](#archiving-and-reactivating-a-private-marketplace-experience-capi) | 
 
 ## Creating a private marketplace
 <a name="creating-a-private-marketplace"></a>
@@ -57,7 +61,7 @@ If your account is part of an organization in AWS Organizations, see [Working wi
 
 To create the `Experience` entity, use the `StartChangeSet` action with the `CreateExperience` value for the `ChangeType` parameter to request that the experience be created by AWS Marketplace. See the following code example.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -85,7 +89,7 @@ In this action, `Entity` is a template for the entity that you want to create. I
 
 The response looks like the following.
 
-```
+```json
 {
    "ChangeSetArn": "arn:...:AWSMarketplace/ChangeSet/abcd1234example5678frjzkz",
    "ChangeSetId": "abcd1234example5678frjzkz"
@@ -96,7 +100,7 @@ The response includes a `ChangeSetId` that you can use to get the status of your
 
 A newly created `Experience` entity doesn't have a procurement policy by default. It is also created with default settings for branding. For more information about branding settings, including how to customize them, see [Changing the branding of a private marketplace experience](#private-marketplace-branding).
 
-**Create a `ProcurementPolicy` entity**
+**Create a product curation policy (`ProcurementPolicy` entity)**
 
 You must create a `ProcurementPolicy` entity. By default, a new `Experience` entity is disabled, so you can create the procurement policy before enabling it.
 
@@ -105,7 +109,7 @@ An `Experience` entity with *no* procurement policy (null) allows all products t
 
 To allow and deny products in your private marketplace, you must create the procurement policy. To do this, you again call `StartChangeSet`, but this time with the `ChangeType` of `CreateProcurementPolicy`. The following code example creates an empty procurement policy.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -128,6 +132,9 @@ Content-type: application/json
   ]
 }
 ```
+
+**Note**  
+When you don't specify a `PolicyType`, the policy is created as a product curation policy (`PRODUCT_PROCUREMENT_POLICY`) by default. To create a different policy type, specify the `PolicyType` in the `DetailsDocument`.
 
 The `Entity` you provide in this action is the `Experience` entity that you want the procurement policy created within, so you must include the identifier for the entity that you created earlier. Use `ListEntities` to find the `Experience` entity. You can also return the identifier by using `DescribeChangeSet` with the change set identifier from the `CreateExperience` action
 
@@ -154,7 +161,7 @@ You can customize the look of your private marketplace for your users. Without c
 
 To set these values, you must first create a `BrandingSettings` entity with the `CreateBrandingSettings` change type. You can then request an `UpdateBrandingSettings` change to set or change the branding. You only need to create a `BrandingSettings` object once. To create this object, call `StartChangeSet` with the `CreateBrandingSettings` change type, as shown in the following code example.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -185,7 +192,7 @@ You can specify all the details of the branding settings in the call to create t
 
 You modify the settings by calling `StartChangeSet` with the `UpdateBrandingSettings` change type. The settings are part of the `Configuration` of the `DetailsDocument` object.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -227,7 +234,7 @@ When a private marketplace is enabled (and has a procurement policy), users in a
 
 To enable a private marketplace, use the `StartChangeRequest` action with the `UpdateExperience` change type.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -263,7 +270,7 @@ Users in your organization can view the full public AWS Marketplace, but they ca
 
 You can enable or disable the ability for users to create requests for your private marketplace experience. Use `StartChangeSet` with the `UpdateProcurementPolicy` change type. The ability to make requests is disabled in the following code example.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -301,13 +308,13 @@ The products allowed (and denied) in a private marketplace are part of the procu
 
 To get the procurement policy identifier, use `DescribeEntity` on the `Experience` entity that you are interested in, as shown in the following command.
 
-```
+```json
 GET /DescribeEntity?catalog=AWSMarketplace&entityId={{exp-example01}}
 ```
 
 Following is an example response.
 
-```
+```json
 {
   "Details": "{\"Name\":\"New Private Marketplace\", \"Status\":\"Enabled\", \"ProcurementPolicies\":[\"procpolicy-123example456\"], \"BrandingSettings\":[\"brandsettings-456example123\"]}",
   "DetailsDocument":
@@ -341,7 +348,7 @@ GET /DescribeEntity?catalog=AWSMarketplace&entityId={{procpolicy-123example456}}
 
 This returns the full details of the policy, including both allowed and denied products. Following is an example response.
 
-```
+```json
 {
   "Details": "{\"Name\":\"ExampleProcurementPolicy\", \"Statements\":[{\"Effect\":\"Allow\",\"Resources\":[{\"Type\":\"Product\",\"Ids\":[\"example1-1234-abcd-5678-90abcdef1234\"]},{\"Type\":\"Product\",\"Ids\":[\"example2-2345-bcde-6789-01bcdea2345\"]}]},{\"Effect\":\"Deny\",\"Resources\":[{\"Type\":\"Product\",\"Ids\":[\"example3-3456-cdef-7890-12defabc5678\"]}]}],\"Configuration\":{\"PolicyResourceRequests\":\"Allow\"}}",
   "DetailsDocument":
@@ -404,7 +411,7 @@ By default, a private marketplace does not have any approved products in it. Use
 
 The following code example shows the `AllowProductProcurement` change type with the `StartChangeSet` action to add a product to a private marketplace.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -460,7 +467,7 @@ Whether you are working with a private marketplace for your account or your orga
 
 To list `Experience` objects in your own account, call `ListEntities` as shown in the following code example.
 
-```
+```json
 POST /ListEntities HTTP/1.1
 Content-Type: application/json
 
@@ -472,7 +479,7 @@ Content-Type: application/json
 
 However, to list the entities that have been shared with you, you must add a `FilterList` with a `Scope` of `SharedWithMe`, as shown in the following code example. As a result, AWS Marketplace searches outside of your own account to find entities that are shared with you.
 
-```
+```json
 POST /ListEntities HTTP/1.1
 Content-Type: application/json
 
@@ -490,7 +497,7 @@ In this case, only entities outside of your account (the ones for your organizat
 
 Similarly, to call `ListChangeSets`, you must set the scope, as shown in the following code example.
 
-```
+```json
 POST /ListChangeSets HTTP/1.1
 Content-Type: application/json
 
@@ -516,7 +523,7 @@ If you are a current private marketplace customer without the AWS Organizations 
 
 To associate a principal to an experience, use the `AssociateAudience` change type with the `StartChangeSet` action, as shown in the following code example.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -552,7 +559,7 @@ The *audience* is the list of *principals* that are associated with the `Experie
 
 You can also remove accounts from an experience. Use the `DisassociateAudience` change type to do this, as shown in the following code example.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -682,5 +689,5 @@ The following table lists the private marketplace entity types, purpose, and act
 | --- | --- | --- | 
 | `Experience` | Stores the top-level settings for a private marketplace | `StartChangeSet`<br />`DescribeEntity` | 
 | `BrandingSettings` | Stores the branding settings for a private marketplace | `DescribeEntity` | 
-| `ProcurementPolicy` | Stores the procurement settings and lists of products in a private marketplace | `DescribeEntity` | 
+| `ProcurementPolicy` | Stores the product curation settings and lists of allowed and denied products in a private marketplace. Other policy types are buying policies; see [Entity types defined by buying policies](work-with-buying-policies.md#entity-types-defined-by-buying-policies). | `DescribeEntity` | 
 | `Audience` | Stores the details of principals associated with a private marketplace | `DescribeEntity` | 

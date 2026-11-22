@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Using the AWS Marketplace Metering API
-<a name="metering-apis"></a>
 
 This reference provides descriptions of the AWS Marketplace Metering Service API. AWS Marketplace sellers can use this API to submit data for custom usage dimensions. For more information about the necessary permissions to use this API, see [AWS Marketplace metering and entitlement API permissions](https://docs.aws.amazon.com/marketplace/latest/userguide/iam-user-policy-for-aws-marketplace-actions.html) in the *AWS Marketplace Seller Guide.* 
 
@@ -18,7 +17,7 @@ This reference provides descriptions of the AWS Marketplace Metering Service API
 [*BatchMeterUsage*](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-metering_BatchMeterUsage.html) 
 + Submits the metering record for a set of customers. AWS CloudTrail captures `BatchMeterUsage` API calls. Use CloudTrail to verify that the software as a subscription (SaaS) metering records that you sent are accurate by searching for records using the `eventName` of `BatchMeterUsage`. You can also use CloudTrail to audit records over time. For more information, see [CloudTrail concepts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html).
 + Called from: SaaS applications
-+ Supported product type: SaaS
++ Supported product type: SaaS. Agentic Commerce products don't use this API, because AWS Marketplace meters each verified payment. For more information, see [Agentic Commerce API delivery options](work-with-saas-products.md#agentic-commerce-delivery-option).
 + Vendor-metered tagging: supports allocation tagging
 
  **Accepting new customers** 
@@ -26,7 +25,7 @@ This reference provides descriptions of the AWS Marketplace Metering Service API
 [*ResolveCustomer*](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-metering_ResolveCustomer.html) 
 + Resolves the registration token that the buyer submits through the browser during the registration process. Obtains a `CustomerIdentifier` along with the `CustomerAWSAccountId` and `ProductCode`.
 + Called from: SaaS application during the registration process
-+ Supported product type: SaaS
++ Supported product type: SaaS. Agentic Commerce products don't use this API, because buyers don't register with the seller.
 + Vendor-metered tagging: not applicable
 
  **Entitlement and metering for paid container products**

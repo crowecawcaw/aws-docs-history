@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Access control for the AWS Marketplace Compliance API
-<a name="compliance-api-access-control"></a>
 
 You can use the AWS Marketplace Compliance API to manage seller compliance in AWS Marketplace. However, first make sure your user or role can access the API functionality that you want to call.
 
@@ -45,7 +44,7 @@ Resources are objects that the actions can act upon. The Compliance API has the 
 
 To allow a user or role full access to invoice submission task operations, you can add the following IAM policy. With this policy, the user or role can use all invoice submission task actions on all resources (`"*"`).
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -65,7 +64,7 @@ To allow a user or role full access to invoice submission task operations, you c
 
 To allow a user or role full access to issued tax invoice operations, you can add the following IAM policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -83,7 +82,7 @@ To allow a user or role full access to issued tax invoice operations, you can ad
 
 To allow a user or role full access to verification operations, you can add the following IAM policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -106,7 +105,7 @@ To allow a user or role full access to verification operations, you can add the 
 
 To allow a user or role full access to tax compliance profile operations, you can add the following IAM policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -133,7 +132,7 @@ You can use resource-level permissions to allow actions on a specific resource i
 
 The following example allows the `GetInvoiceSubmissionTask` action on a specific invoice submission task.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -152,7 +151,7 @@ The following example allows the `GetInvoiceSubmissionTask` action on a specific
 
 The following example allows the `GetIssuedTaxInvoice` action on a specific issued tax invoice.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -171,7 +170,7 @@ The following example allows the `GetIssuedTaxInvoice` action on a specific issu
 
 The following example allows the `GetVerificationEvidence` action on a specific verification evidence resource.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -190,7 +189,7 @@ The following example allows the `GetVerificationEvidence` action on a specific 
 
 The following example allows the `GetTaxComplianceProfile` action on a specific tax compliance profile.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -211,7 +210,7 @@ AWS Marketplace authorizes the `StartTaxComplianceProfileChangeTask` action agai
 
 The change task ARN always ends with a wildcard, because AWS Marketplace generates a new change task identifier for each call. For the profile, use the `tax-compliance-profile/*` wildcard. This covers both creating a profile and updating one. The following example allows the `StartTaxComplianceProfileChangeTask` action on any tax compliance profile in the account.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -239,7 +238,7 @@ You can allow actions on resources based on their tags without having to specify
 
 For example, the following IAM policy allows the `GetInvoiceSubmissionTask` action on any invoice submission task resource (`"*"`) that has a tag key of `product-team` and tag value of `team-xyz`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -261,7 +260,7 @@ For example, the following IAM policy allows the `GetInvoiceSubmissionTask` acti
 
 Similarly, the following IAM policy allows the `GetIssuedTaxInvoice` action on any issued tax invoice resource (`"*"`) that has a tag key of `Department` and tag value of `Tax`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -283,7 +282,7 @@ Similarly, the following IAM policy allows the `GetIssuedTaxInvoice` action on a
 
 The following IAM policy allows the `GetVerificationEvidence` action on any verification evidence resource (`"*"`) that has a tag key of `Department` and tag value of `Compliance`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -305,7 +304,7 @@ The following IAM policy allows the `GetVerificationEvidence` action on any veri
 
 Similarly, the following IAM policy allows the `GetTaxComplianceProfile` action on any tax compliance profile resource (`"*"`) that has a tag key of `Department` and tag value of `Tax`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -327,7 +326,7 @@ Similarly, the following IAM policy allows the `GetTaxComplianceProfile` action 
 
 For the `StartTaxComplianceProfileChangeTask` action, `aws:ResourceTag` evaluates the tags on the tax compliance profile that the change task updates. The following IAM policy allows that action on a profile that has a tag key of `Department` and tag value of `Tax`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -362,7 +361,7 @@ To add tags to a resource, use the `TagResource` API action.
 
 **Request**
 
-```
+```xml
 POST /TagResource HTTP/1.1
 Content-type: application/json
 
@@ -390,7 +389,7 @@ To remove a tag or list of tags from a resource, use the `UntagResource` API act
 
 **Request**
 
-```
+```xml
 POST /UntagResource HTTP/1.1
 Content-type: application/json
 
@@ -413,7 +412,7 @@ To list all tags on a resource, use the `ListTagsForResource` API action.
 
 **Request**
 
-```
+```xml
 POST /ListTagsForResource HTTP/1.1
 Content-type: application/json
 
@@ -424,7 +423,7 @@ Content-type: application/json
 
 **Response**
 
-```
+```json
 {
   "ResourceArn": "string",
   "Tags": [
@@ -441,7 +440,7 @@ Content-type: application/json
 
 To allow a user or role to add, remove, and list tags on all Compliance API resources, they need the following IAM policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -463,7 +462,7 @@ To allow a user or role to add, remove, and list tags on all Compliance API reso
 
 You can allow a user or role to add, remove, and list tags on Compliance API resources that have specific tags. The following IAM policy allows those actions on any resource (`"*"`) that has a tag key of `product-team` and tag value of `team-xyz`.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -490,7 +489,7 @@ You can allow a user or role to add, remove, and list tags on Compliance API res
 
 You can enforce tagging when invoice submission tasks are created by using the `aws:RequestTag` and `aws:TagKeys` condition keys with the `StartInvoiceSubmissionTask` action.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -520,7 +519,7 @@ You can enforce tagging when invoice submission tasks are created by using the `
 
 You can enforce tagging when you create tax compliance profile change tasks by using the `aws:RequestTag` and `aws:TagKeys` condition keys with the `StartTaxComplianceProfileChangeTask` action.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -606,7 +605,7 @@ The `AWSMarketplaceSellerFullAccess` IAM managed policy includes all seven verif
 
 To allow a user or role full access to all verification operations, you can add the following IAM policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -632,7 +631,7 @@ To allow a user or role full access to all verification operations, you can add 
 
 To allow a user or role read-only access to business verification evidence, you can use ARN-based filtering to restrict access to a specific verification type.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -655,7 +654,7 @@ To allow a user or role read-only access to business verification evidence, you 
 
 To restrict verification process operations to a specific verification type, use the `aws-marketplace:VerificationType` condition key. The following example allows verification process operations only for business verification.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -682,7 +681,7 @@ To restrict verification process operations to a specific verification type, use
 
 To allow actions on specific verification evidence resources, specify the ARN of the resource in the `Resource` element of the IAM policy. The following example allows all evidence management actions on a specific verification evidence resource.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

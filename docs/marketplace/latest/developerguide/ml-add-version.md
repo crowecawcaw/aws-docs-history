@@ -3,9 +3,8 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Add a new version
-<a name="ml-add-version"></a>
 
-You can use the Catalog API or the AWS Marketplace Management Portal to add a new version to a machine learning product. For more information about using the portal, refer to [Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/machine-learning-products.html) in the *AWS Marketplace Seller Guide*. 
+You can use the Catalog API or AWS Partner Central to add a new version to a machine learning product. For more information about using the console, see [Adding new versions](https://docs.aws.amazon.com/marketplace/latest/userguide/ml-manage-product-version.html#ml-adding-new-versions) in the *AWS Marketplace Seller Guide*. 
 
 **Note**  
 For ML products, a version consists of a single delivery option, which represents the product you're making available. In the Catalog API, working with delivery options for ML products effectively modifies versions of your product.   
@@ -22,7 +21,7 @@ When adding new instance types, include an `UpdatePricingTerms` change type in y
 ## Request syntax
 <a name="request-syntax"></a>
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 {
@@ -181,7 +180,7 @@ Content-type: application/json
 
 When you submit the request, a change set is created and the API returns:
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -196,7 +195,7 @@ The change request enters a processing queue, where it undergoes several steps:
    +  For validation errors, see [Change set status and errors](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-seller-products.html#seller-product-change-set-errors). 
 
 1.  Status monitoring: You can check the status of the request two ways. 
-   + Via AWS Marketplace Management Portal
+   + On the product's **Change history** tab in AWS Partner Central
    + Using the `DescribeChangeSet` operation
 
 1.  Completion: When approved, the new version is added. 

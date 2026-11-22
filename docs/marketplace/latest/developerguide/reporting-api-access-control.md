@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Access control for the AWS Marketplace Reporting API
-<a name="reporting-api-access-control"></a>
 
 You use the AWS Marketplace Reporting API to get the **Procurement insights** dashboard. The API supports the [GetBuyerDashboard](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-reporting_GetBuyerDashboard.html) action. 
 
@@ -28,7 +27,7 @@ The `AWSServiceRoleForProcurementInsightsPolicy` must have the following IAM per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

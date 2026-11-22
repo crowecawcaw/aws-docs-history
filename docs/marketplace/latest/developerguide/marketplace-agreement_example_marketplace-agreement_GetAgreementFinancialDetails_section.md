@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Get financial details from an agreement using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_GetAgreementFinancialDetails_section"></a>
 
 The following code examples show how to get financial details from an agreement.
 
@@ -13,7 +12,7 @@ The following code examples show how to get financial details from an agreement.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.agreementapi.seller;
 
 import static com.example.awsmarketplace.utils.ReferenceCodesConstants.*;
@@ -72,7 +71,7 @@ public class GetAgreementFinancialDetails {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

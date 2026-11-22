@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # List agreement payment requests using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_ListAgreementPaymentRequests_section"></a>
 
 The following code examples show how to list agreement payment requests for agreements I participate in as acceptor.
 
@@ -13,7 +12,7 @@ The following code examples show how to list agreement payment requests for agre
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.agreementapi.buyer.paymentRequest;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -76,7 +75,7 @@ public class ListAgreementPaymentRequests {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript) repository. 
 
-```
+```javascript
 const {
     MarketplaceAgreementClient,
     ListAgreementPaymentRequestsCommand,
@@ -124,7 +123,7 @@ listAgreementPaymentRequests();
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
-```
+```python
 import sys
 import os
 

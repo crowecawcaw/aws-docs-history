@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # About the AWS Marketplace MCP server
-<a name="marketplace-mcp-server"></a>
 
 AWS Marketplace Model Context Protocol (MCP) provides AI-powered tools for AWS Marketplace discovery, evaluation, research, and proposal generation. MCP is a standardized protocol that enables AI assistants to interact with external systems through the following:
 + **Tools**: Functions that AI models can invoke to perform actions.

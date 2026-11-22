@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Using the AWS Marketplace Catalog API
-<a name="catalog-apis"></a>
 
 The AWS Marketplace Catalog API service provides an API interface to manage AWS Marketplace for your AWS organization or AWS account. For approved sellers, you can manage your products programmatically, including the self-service publishing capabilities on the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management). For private marketplace administrators, you can manage your private marketplace programmatically.
 
@@ -194,7 +193,7 @@ A typical use case is to create a `SaaSProduct@1.0` draft product, an `Offer@1.0
 
 The following is an example of a combined change set.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -275,7 +274,7 @@ The `Details` attribute of the `StartChangeSet` operation is a string value. Its
 
 For example, if you are using the `StartChangeSet` operation with `UpdateProcurementPolicy` to disable requests from users in your private marketplace, make a request like the following.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -296,7 +295,7 @@ Content-type: application/json
 
 In this case, the JSON object that you use for the `Details` attribute looks like the following (before conversion to a string).
 
-```
+```json
 {
     "Configuration": {
         "PolicyResourceRequests": "Deny"
@@ -312,7 +311,7 @@ But the `Details` attribute requires a string, not JSON. After converting this J
 
 With this string, you can create the full change set request, as follows.
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -358,7 +357,7 @@ The `ListEntities` action returns a list of entities. Then, you can use the `Des
 
 The following example shows using `ListEntities` to get a list of container products, and then using `DescribeEntity` to get information about one of the specific products.
 
-```
+```XML
 POST /ListEntities HTTP/1.1
 Content-type: application/json
 
@@ -372,7 +371,7 @@ For the entity type, you must use the entity type without the version. It return
 
 Here is a sample of the response to the `ListEntities` action.
 
-```
+```XML
 {
     "EntitySummaryList": [
         {
@@ -404,7 +403,7 @@ GET /DescribeEntity?catalog=AWSMarketplace&entityId={{example1-abcd-1234-5ef6-78
 
 The following shows the response to `DescribeEntity`.
 
-```
+```XML
 {
   "EntityType": "ContainerProduct@1.0",
   "EntityIdentifier": "example1-abcd-1234-5ef6-7890abcdef12@9",

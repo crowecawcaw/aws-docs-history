@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Access control for the AWS Marketplace Agreement API
-<a name="agreement-api-access-control"></a>
 
 To manage agreements in AWS Marketplace using the Agreement Service, you must ensure that your AWS Identity and Access Management (IAM) policies and roles are set up. Users must have the following policies/permissions to allow them to carry out the actions:
 + `CreateAgreementRequest` – Grants permission to users to start a new request to create a new agreement or update an existing agreement.
@@ -16,7 +15,7 @@ To manage agreements in AWS Marketplace using the Agreement Service, you must en
 + `AcceptAgreementCancellationRequest` – Grants permission to users to accept a cancellation request initiated by the seller for an agreement they participate in as acceptor. Note: Users also need `CancelAgreement` permission because approving the cancellation request leads to agreement cancellation.
 + `RejectAgreementCancellationRequest` – Grants permission to users to reject a cancellation request initiated by the seller for an agreement they participate in as acceptor.
 + `SendAgreementPaymentRequest` – Grants permission to users to send a payment request.
-+ `AcceptAgreementPaymentRequest` – Grants permission to users to accept a payment request initiated by the seller for an agreement they participate in as acceptor.
++ `AcceptAgreementPaymentRequest` – Grants permission to users to accept a payment request initiated by the seller for an agreement they participate in as acceptor. Note: While accepting the payment request, if users provide a purchase order, they will need to have `UpdatePurchaseOrders` permission as well to perform the action.
 + `RejectAgreementPaymentRequest` – Grants permission to users to reject a payment request initiated by the seller for an agreement they participate in as acceptor.
 + `GetAgreementCancellationRequest` – Grants permission to users to retrieve detailed information about a specific cancellation request for an agreement they participate in as acceptor.
 + `ListAgreementCancellationRequests` – Grants permission to users to list cancellation requests for agreements they participate in as acceptor.
@@ -24,7 +23,18 @@ To manage agreements in AWS Marketplace using the Agreement Service, you must en
 + `ListAgreementPaymentRequests` – Grants permission to users to list payment requests for agreements they participate in as acceptor.
 + `DescribeAgreement` – Grants permission to users to obtain detailed metadata about any of their agreements.
 + `GetAgreementTerms` – Grants permission to users to obtain details about the terms of an agreement.
++ `GetAgreementContacts` – Grants permission to users to obtain details about the contact information of an agreement.
 + `SearchAgreements` – Grants permission to users to search through all their agreements.
++ `CancelAgreementRequest` – Grants permission to users to cancel an agreement request they created as acceptor.
++ `GetAgreementRequest` – Grants permission to users to obtain details about an agreement request.
++ `GetAgreementRequestTerms` – Grants permission to users to obtain details about the terms of an agreement request.
++ `ListAgreementRequests` – Grants permission to users to list the agreement requests they created as acceptor.
++ `GetAgreementRequestApprovalPlans` – Grants permission to users to obtain the approval plans for an agreement request they created as acceptor.
++ `StartAgreementApprovals` – Grants permission to users to start the approvals for an agreement request they created as acceptor. Note: Users also need `AcceptAgreementRequest` permission because the agreement request is accepted when its approvals complete.
++ `ListAgreementApprovals` – Grants permission to users to list agreement approvals for agreement requests they created as acceptor, or for their AWS organization as its management account or a delegated administrator.
++ `GetAgreementApproval` – Grants permission to users to retrieve detailed information about a specific agreement approval for an agreement request they created as acceptor, or in their AWS organization as its management account or a delegated administrator.
++ `AcceptAgreementApproval` – Grants permission to users to approve an agreement approval as the management account or a delegated administrator of their AWS organization.
++ `RejectAgreementApproval` – Grants permission to users to reject an agreement approval as the management account or a delegated administrator of their AWS organization.
 
 **Note**  
 For more information about these permissions, see [Policies and permissions for AWS Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/detailed-management-portal-permissions.html) in the *AWS Marketplace Seller Guide* and [Controlling access to AWS Marketplace subscriptions](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html) in *AWS Marketplace Buyer Guide*.
@@ -45,7 +55,7 @@ You can also define a customer managed policy to control access to Agreement ser
 
 To access the AWS Marketplace Agreements API for managing the product subscriptions, you can create following policy to allow access.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -124,6 +134,34 @@ To access the AWS Marketplace Agreements API for managing the product subscripti
           "aws-marketplace:PartyType": "Acceptor"
         }
       }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:GetAgreementRequest",
+        "aws-marketplace:GetAgreementRequestTerms",
+        "aws-marketplace:CancelAgreementRequest",
+        "aws-marketplace:GetAgreementRequestApprovalPlans",
+        "aws-marketplace:StartAgreementApprovals",
+        "aws-marketplace:GetAgreementApproval",
+        "aws-marketplace:AcceptAgreementApproval",
+        "aws-marketplace:RejectAgreementApproval",
+        "aws-marketplace:GetAgreementContacts"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ForAllValues:StringEquals": {
+          "aws-marketplace:AgreementType": ["PurchaseAgreement"]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:ListAgreementRequests",
+        "aws-marketplace:ListAgreementApprovals"
+      ],
+      "Resource": "*"
     }
   ]
 }
@@ -137,7 +175,7 @@ To access the AWS Marketplace Agreements API for managing the product subscripti
 
 Below statement limits the access to `UpdatePurchaseOrders` operation only for `PurchaseAgreement` agreement type.
 
-```
+```JSON
 {
   "Effect": "Allow",
   "Action": [
@@ -157,7 +195,7 @@ Below statement limits the access to `UpdatePurchaseOrders` operation only for `
 
 Below statement limits the access to `CreateAgreementRequest` and `AcceptAgreementRequest` to only specified AWS Marketplace product ids. You can include this statement to allow creating only pre-approved product ids, such as limiting to Bedrock foundational models.
 
-```
+```JSON
 {
   "Effect": "Allow",
   "Action": [
@@ -181,7 +219,7 @@ Below statement limits the access to `CreateAgreementRequest` and `AcceptAgreeme
 
 Below statement grants the access to read details of any agreement if the user is proposer of the agreement.
 
-```
+```JSON
 {
   "Effect": "Allow",
   "Action": [

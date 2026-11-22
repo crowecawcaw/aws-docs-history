@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Logging AWS Marketplace Catalog API calls with CloudTrail
-<a name="logging-catalog-api-calls-with-cloudtrail"></a>
 
 The AWS Marketplace Catalog API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all calls to the Catalog API as events, including calls from the AWS Marketplace Management Portal.
 
@@ -38,7 +37,7 @@ These examples have been formatted for improved readability. In a CloudTrail log
 
 The following example shows a AWS Marketplace Catalog API log entry that demonstrates the `ListEntities` action:
 
-```
+```json
 [
     {
         "eventVersion": "1.05",

@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with solutions
-<a name="work-with-solutions"></a>
 
 A solution is a collection of products and services that work together to solve specific customer problems. Solutions can include AWS Marketplace products and non-AWS Marketplace products. Solutions help you showcase how multiple products integrate to address industry-specific use cases. The solution describes the customer problem, use cases, integration details, and related products.
 
@@ -849,7 +848,7 @@ The following errors are specific to `UpdateVisibility` actions in the AWS Marke
 | TOO\_FEW\_SELF\_OWNED\_PRODUCTS | The solution requires at least one AWS Marketplace product owned by the solution owner. Add an AWS Marketplace product from your account and try again. | 
 | INCOMPATIBLE\_BUYER\_ENGAGEMENT\_OPTIONS | The RequestPrivateOffer buyer engagement option must be enabled to make this solution public. Enable RequestPrivateOffer and try again. | 
 | INCOMPATIBLE\_OPERATION\_UPDATE\_VISIBILITY | UpdateVisibility isn't supported for solutions in Draft state. Publish the solution first from Draft to Limited using ReleaseSolution, then use UpdateVisibility to change to Public or Restricted. | 
-| LIMIT\_EXCEEDED\_TOO\_MANY\_PUBLIC\_SOLUTIONS | This account has reached its limit of 5 public solutions. Update an existing public solution to Limited or Restricted visibility and try again. | 
+| LIMIT\_EXCEEDED\_TOO\_MANY\_PUBLIC\_SOLUTIONS | This account has reached its limit of 100 public solutions. Update an existing public solution to Limited or Restricted visibility and try again. | 
 | MISSING\_SELLER\_PROFILE\_INFORMATION | A public seller profile is required to make solutions public. Create a public profile in your seller account and try again. | 
 
 ## Common asynchronous error codes

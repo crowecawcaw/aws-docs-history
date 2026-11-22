@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Prerequisites for publishing ML product listings
-<a name="cat-ml-prereqs"></a>
 
 Ensure that you have the following before getting started with publishing your machine learning product listing:
 + Registration as a seller in AWS Marketplace. For more information, refer to [Register as an AWS Marketplace seller](https://docs.aws.amazon.com/marketplace/latest/userguide/seller-registration-process.html).

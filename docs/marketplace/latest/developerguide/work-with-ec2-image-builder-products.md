@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with EC2 Image Builder component products
-<a name="work-with-ec2-image-builder-products"></a>
 
 As an AWS Marketplace seller, you can list AMI-based products delivered to AWS Marketplace buyers using EC2 Image Builder components. To create your component and publish an AWS Marketplace listing, proceed sequentially through the following sections.
 
@@ -75,7 +74,7 @@ Create the following IAM policies to grant AWS Marketplace access to your Image 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -97,7 +96,7 @@ Create the following IAM policies to grant AWS Marketplace access to your Image 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -134,7 +133,7 @@ Create the following IAM policies to grant AWS Marketplace access to your Image 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -160,7 +159,7 @@ Create the following IAM policies to grant AWS Marketplace access to your Image 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -202,7 +201,7 @@ Use the following procedure to create an AWS Marketplace IAM role with policies 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -356,50 +355,50 @@ The following error codes are specific to the Image Builder delivery method. For
 
 | Error code | Error message | 
 | --- | --- | 
-| ASSET\_NOT\_FOUND | Check if [component arn] exists in [account-id] AWS account and the AccessARN provided [ARN] has permissions to share this Image Builder component with AWS Marketplace. | 
-| ASSET\_NOT\_FOUND | The specified S3 link [x] within the component[x] does not exist. Provide a valid S3 link within the component. | 
-| DUPLICATE\_COMPONENT\_NAME | The component name [x] already exists within the same version. Provide a different component name. | 
-| DUPLICATE\_COMPONENT\_NAME | The component name [x] you provided is already in use by a different product. Provide a different component name. | 
-| DUPLICATE\_COMPONENT\_ARN | The component Arn [x] must be different from Component Arn used in other delivery options of the same version of this product. | 
-| DUPLICATE\_COMPONENT\_ARN | The component ARN [x] must be different from component ARN used in other versions of this product. | 
-| SCAN\_ERROR | Fix security vulnerability [y] on Component [x]. | 
-| ASSET\_ACCESS\_EXCEPTION | We don't have the necessary permissions to read the contents from the specified S3 bucket[x]. Ensure the S3 bucket has the appropriate read permissions. | 
-| ASSET\_ACCESS\_EXCEPTION | We don't have the necessary permissions to read the contents of the specified component ARN[x]. Ensure the component ARN has the appropriate read permissions. | 
-| ASSET\_ACCESS\_EXCEPTION | We don't have the necessary permissions to read the contents of the specified package URI [x]. Ensure the package URI has the appropriate read permissions. | 
-| ASSET\_ACCESS\_EXCEPTION | Failed to read from the HTTP source [x]. Verify that the provided HTTP source is correct. | 
-| INVALID\_IMAGE\_BUILDER\_COMPONENT\_PACKAGE | Component assets exceed the size limit for ingestion. Reduce the size of S3/web downloads or eliminate unnecessary downloads to proceed. | 
-| INVALID\_IMAGE\_BUILDER\_COMPONENT\_PACKAGE | Component assets are taking too long to ingest. Ensure that your network connection is stable and has adequate bandwidth. | 
-| TOO\_MANY\_IMAGE\_BUILDER\_COMPONENTS | Max of 5 unique component names are supported per product, restrict the additional delivery option. | 
-| INCOMPLETE\_SELLER\_PUBLIC\_PROFILE | Your seller public profile is not complete. Complete your public profile before adding versions to the product. | 
-| INVALID\_DESCRIPTION | The description is missing. Provide a description with fewer than 1024 characters in component [x]. | 
-| INVALID\_COMPONENT\_NAME | Provide a component name with fewer than [x] characters. | 
-| INVALID\_SUPPORTED\_OS\_VERSION | The OS version is missing. Provide a valid supported OS version in component [x]. | 
-| INVALID\_PATH\_FORMAT | Step [STEP\_NAME] in phase [PHASE\_NAME] is not allowed to use S3 or web URLs for the InstallMSI/UninstallMSI actions. Ensure that the path specified is a valid local path accessible from the system executing the action. | 
-| INCOMPATIBLE\_OS\_TYPE | The specified component OS type[x] is not compatible with the platform of the base image. Provide an OS type that is compatible with the base image. | 
-| ASSET\_ACCESS\_EXCEPTION | We don't have the necessary permissions to read the contents from the specified SSM parameter [x]. Ensure that the IAM access role provided in the API input has the required read permissions. | 
-| ASSET\_ACCESS\_EXCEPTION | We don't have the necessary permissions to read the contents from the specified SecretsManager secret [x]. Ensure that the IAM access role provided in the API input has the required read permissions. | 
-| INVALID\_IB\_COMPONENT\_BUILD\_VERSION | Component ARN [x] has a build version of [y]. AWS Marketplace only supports build version 1. Create a new EC2 Image Builder version with Build versions 1, and try again on AWS Marketplace | 
-| INVALID\_IB\_COMPONENT\_PARAMETER | Unable to parse the SSM parameter in input [x] for component [y]. | 
-| INVALID\_IB\_COMPONENT\_PARAMETER | Unable to parse the SecretsManager secret in input [x] for component [y]. | 
-| MISSING\_IB\_COMPONENT\_PARAMETER | Parameter not found in component [x] for input [y] | 
-| INVALID\_IB\_COMPONENT\_PARAMETER | Provide a default value for parameter [x] in component [y]. | 
-| FAILED\_LAUNCH\_TEST | The launch test for component [x] has failed. Error message: [z] | 
-| SSHAuthFailedForUserAndKeypair | Unable to log into the instance with OS default username [X]. | 
-| INVALID\_IB\_COMPONENT | A component build phase is required. Add a valid build phase to component [x] | 
-| DUPLICATE\_VERSION\_TITLE | The version title must be different from any other version titles of this product. | 
-| INVALID\_VERSION\_TITLE | Remove spaces before the trademark symbol. | 
-| INVALID\_VERSION\_TITLE | Remove unsupported characters: [x, y, z] | 
-| INVALID\_VERSION\_TITLE | Remove spaces from the beginning of the version title. | 
-| INVALID\_VERSION\_TITLE | Provide version title with fewer than [x] characters. | 
-| INVALID\_RELEASE\_NOTES | Remove spaces before the trademark symbol. | 
-| INVALID\_RELEASE\_NOTES | Remove unsupported characters: [x, y, z] | 
-| INVALID\_RELEASE\_NOTES | Remove spaces from the beginning of release notes. | 
-| INVALID\_RELEASE\_NOTES | Provide release notes with fewer than (x) characters. | 
-| INVALID\_USAGE\_INSTRUCTIONS | Remove spaces before the trademark symbol. | 
-| INVALID\_USAGE\_INSTRUCTIONS | Remove unsupported characters: [x, y, z] | 
-| INVALID\_USAGE\_INSTRUCTIONS | Provide usage instructions with fewer than (x) characters. | 
-| DUPLICATE\_DELIVERY\_OPTION\_TITLES | Provide unique delivery option title. | 
-| INVALID\_DELIVERY\_OPTION\_TITLES | Delivery option title already exists, retry with a different title. | 
+| ASSET\_NOT\_FOUND | `Check if [component arn] exists in [account-id] AWS account and the AccessARN provided [ARN] has permissions to share this Image Builder component with AWS Marketplace.` | 
+| ASSET\_NOT\_FOUND | `The specified S3 link [x] within the component[x] does not exist. Provide a valid S3 link within the component.` | 
+| DUPLICATE\_COMPONENT\_NAME | `The component name [x] already exists within the same version. Provide a different component name.` | 
+| DUPLICATE\_COMPONENT\_NAME | `The component name [x] you provided is already in use by a different product. Provide a different component name.` | 
+| DUPLICATE\_COMPONENT\_ARN | `The component Arn [x] must be different from Component Arn used in other delivery options of the same version of this product.` | 
+| DUPLICATE\_COMPONENT\_ARN | `The component ARN [x] must be different from component ARN used in other versions of this product.` | 
+| SCAN\_ERROR | `Fix security vulnerability [y] on Component [x].` | 
+| ASSET\_ACCESS\_EXCEPTION | `We don't have the necessary permissions to read the contents from the specified S3 bucket[x]. Ensure the S3 bucket has the appropriate read permissions.` | 
+| ASSET\_ACCESS\_EXCEPTION | `We don't have the necessary permissions to read the contents of the specified component ARN[x]. Ensure the component ARN has the appropriate read permissions.` | 
+| ASSET\_ACCESS\_EXCEPTION | `We don't have the necessary permissions to read the contents of the specified package URI [x]. Ensure the package URI has the appropriate read permissions.` | 
+| ASSET\_ACCESS\_EXCEPTION | `Failed to read from the HTTP source [x]. Verify that the provided HTTP source is correct.` | 
+| INVALID\_IMAGE\_BUILDER\_COMPONENT\_PACKAGE | `Component assets exceed the size limit for ingestion. Reduce the size of S3/web downloads or eliminate unnecessary downloads to proceed.` | 
+| INVALID\_IMAGE\_BUILDER\_COMPONENT\_PACKAGE | `Component assets are taking too long to ingest. Ensure that your network connection is stable and has adequate bandwidth.` | 
+| TOO\_MANY\_IMAGE\_BUILDER\_COMPONENTS | `Max of 5 unique component names are supported per product, restrict the additional delivery option.` | 
+| INCOMPLETE\_SELLER\_PUBLIC\_PROFILE | `Your seller public profile is not complete. Complete your public profile before adding versions to the product.` | 
+| INVALID\_DESCRIPTION | `The description is missing. Provide a description with fewer than 1024 characters in component [x].` | 
+| INVALID\_COMPONENT\_NAME | `Provide a component name with fewer than [x] characters.` | 
+| INVALID\_SUPPORTED\_OS\_VERSION | `The OS version is missing. Provide a valid supported OS version in component [x].` | 
+| INVALID\_PATH\_FORMAT | `Step [STEP_NAME] in phase [PHASE_NAME] is not allowed to use S3 or web URLs for the InstallMSI/UninstallMSI actions. Ensure that the path specified is a valid local path accessible from the system executing the action.` | 
+| INCOMPATIBLE\_OS\_TYPE | `The specified component OS type[x] is not compatible with the platform of the base image. Provide an OS type that is compatible with the base image.` | 
+| ASSET\_ACCESS\_EXCEPTION | `We don't have the necessary permissions to read the contents from the specified SSM parameter [x]. Ensure that the IAM access role provided in the API input has the required read permissions.` | 
+| ASSET\_ACCESS\_EXCEPTION | `We don't have the necessary permissions to read the contents from the specified SecretsManager secret [x]. Ensure that the IAM access role provided in the API input has the required read permissions.` | 
+| INVALID\_IB\_COMPONENT\_BUILD\_VERSION | `Component ARN [x] has a build version of [y]. AWS Marketplace only supports build version 1. Create a new EC2 Image Builder version with Build versions 1, and try again on AWS Marketplace` | 
+| INVALID\_IB\_COMPONENT\_PARAMETER | `Unable to parse the SSM parameter in input [x] for component [y].` | 
+| INVALID\_IB\_COMPONENT\_PARAMETER | `Unable to parse the SecretsManager secret in input [x] for component [y].` | 
+| MISSING\_IB\_COMPONENT\_PARAMETER | `Parameter not found in component [x] for input [y]` | 
+| INVALID\_IB\_COMPONENT\_PARAMETER | `Provide a default value for parameter [x] in component [y].` | 
+| FAILED\_LAUNCH\_TEST | `The launch test for component [x] has failed. Error message: [z]` | 
+| SSHAuthFailedForUserAndKeypair | `Unable to log into the instance with OS default username [X].` | 
+| INVALID\_IB\_COMPONENT | `A component build phase is required. Add a valid build phase to component [x]` | 
+| DUPLICATE\_VERSION\_TITLE | `The version title must be different from any other version titles of this product.` | 
+| INVALID\_VERSION\_TITLE | `Remove spaces before the trademark symbol.` | 
+| INVALID\_VERSION\_TITLE | `Remove unsupported characters: [x, y, z]` | 
+| INVALID\_VERSION\_TITLE | `Remove spaces from the beginning of the version title.` | 
+| INVALID\_VERSION\_TITLE | `Provide version title with fewer than [x] characters.` | 
+| INVALID\_RELEASE\_NOTES | `Remove spaces before the trademark symbol.` | 
+| INVALID\_RELEASE\_NOTES | `Remove unsupported characters: [x, y, z]` | 
+| INVALID\_RELEASE\_NOTES | `Remove spaces from the beginning of release notes.` | 
+| INVALID\_RELEASE\_NOTES | `Provide release notes with fewer than (x) characters.` | 
+| INVALID\_USAGE\_INSTRUCTIONS | `Remove spaces before the trademark symbol.` | 
+| INVALID\_USAGE\_INSTRUCTIONS | `Remove unsupported characters: [x, y, z]` | 
+| INVALID\_USAGE\_INSTRUCTIONS | `Provide usage instructions with fewer than (x) characters.` | 
+| DUPLICATE\_DELIVERY\_OPTION\_TITLES | `Provide unique delivery option title.` | 
+| INVALID\_DELIVERY\_OPTION\_TITLES | `Delivery option title already exists, retry with a different title.` | 
 
 ## Updating information about an existing version
 <a name="updating-ec2-ib-product-version"></a>

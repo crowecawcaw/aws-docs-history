@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with offer sets
-<a name="work-with-offer-sets"></a>
 
 AWS Marketplace offer sets enable sellers to package multiple private offers into unified multi-product transactable packages for buyers. This capability addresses growing customer demand for comprehensive, end-to-end solutions in complex enterprise environments.
 
@@ -267,7 +266,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 After successful processing, AWS Marketplace generates an offer set in Draft state with a unique identifier prefixed with `offerset-`.
 
@@ -321,7 +320,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ## Associate offers with an offer set
 <a name="associate-offers"></a>
@@ -389,7 +388,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ### Asynchronous Errors
 <a name="associate-offers-asynchronous-errors"></a>
@@ -456,7 +455,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ### Asynchronous Errors
 <a name="disassociate-offers-asynchronous-errors"></a>
@@ -521,7 +520,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ### Asynchronous Errors
 <a name="associate-solution-asynchronous-errors"></a>
@@ -582,7 +581,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ### Asynchronous Errors
 <a name="disassociate-solution-asynchronous-errors"></a>
@@ -641,7 +640,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 ### Asynchronous Errors
 <a name="release-offer-set-asynchronous-errors"></a>
@@ -715,7 +714,7 @@ When buyers request changes to a released offer set, use the recreation workflow
 
 1. Create a new offer set entity
 
-1. For offers that don't require changes, clone existing offers through the AWS Marketplace Management Portal
+1. For offers that don't require changes, clone existing offers in AWS Partner Central
 
 1. For offers requiring modifications, create new offers with the requested changes, specifying the new `OfferSetId`
 

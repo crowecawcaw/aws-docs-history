@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Get details of an agreement cancellation request using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_GetAgreementCancellationRequest_section"></a>
 
 The following code examples show how to get details of a specific agreement cancellation request.
 
@@ -13,7 +12,7 @@ The following code examples show how to get details of a specific agreement canc
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.agreementapi.buyer.agreementCancellation;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -65,7 +64,7 @@ public class GetAgreementCancellationRequest {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript) repository. 
 
-```
+```javascript
 const {
     MarketplaceAgreementClient,
     GetAgreementCancellationRequestCommand,
@@ -103,7 +102,7 @@ getAgreementCancellationRequest();
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
-```
+```python
 import sys
 import os
 

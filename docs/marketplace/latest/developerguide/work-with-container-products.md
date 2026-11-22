@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with container-based products using the AWS Marketplace APIs
-<a name="work-with-container-products"></a>
 
 You can use the AWS Marketplace Catalog API to automate tasks for working with container-based products. 
 
@@ -24,8 +23,8 @@ The following topics describe how to use the Catalog API to perform actions on y
 If you already have a container-based product in AWS Marketplace, you can use the AWS Marketplace Catalog API to add a new version. This requires that you have already created repositories in AWS Marketplace for each container image or artifact that is part of your product, and that you can copy them from your local Docker and Helm files.
 
 **Note**  
-For details about creating a container-based product using the AWS Marketplace Management Portal, see [Getting started with container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html) in the *AWS Marketplace Seller Guide*.  
-For details about adding a new version, including creating repositories and building Docker and Helm files into those repositories, by using the AWS Marketplace Management Portal, see [Add a new version of your product](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html#container-add-version) in the *AWS Marketplace Seller Guide*.  
+For details about creating a container-based product using AWS Partner Central, see [Getting started with container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html) in the *AWS Marketplace Seller Guide*.  
+For details about adding a new version, including creating repositories and building Docker and Helm files into those repositories, by using AWS Partner Central, see [Add a new version of your product](https://docs.aws.amazon.com/marketplace/latest/userguide/container-add-version.html) in the *AWS Marketplace Seller Guide*.  
 If you have not already created new repositories, you can create them using the Catalog API, see [Create repositories and resources](#container-repos).
 
 To add a new version, call the `StartChangeSet` API operation with the `AddDeliveryOptions` change type, as shown in the following example.
@@ -35,7 +34,7 @@ A version of a container-based product is made up of one or more delivery option
 
 **Container Image Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -94,7 +93,7 @@ Content-type: application/json
 
 **Amazon Bedrock AgentCore Runtime delivery request syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -162,7 +161,7 @@ Content-type: application/json
 
 **Helm Chart Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -230,7 +229,7 @@ Content-type: application/json
 
 **Amazon EKS Add-On Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 {
@@ -263,8 +262,8 @@ Content-type: application/json
                 "AddOnVersion": "{{1.2.1}}",
                 "AddOnType": "networking",
                 "CompatibleKubernetesVersions": [
-                  "1.25",
-                  "1.26"
+                  "1.34",
+                  "1.35"
                 ],
                 "SupportedArchitectures": [
                   "amd64",
@@ -299,12 +298,12 @@ Provide information for the fields to add the `AddDeliveryOptions` change type:
 + `DetailsDocument` (object) (required) – Details of the request. It includes all the information about the version that you are adding. This field is a string field.
   + `Version` (object) – Details about the version that you are adding to your product.
     + `VersionTitle` (string) – The title of the version that you are creating. Typically this is a description of the version, like **Version 1.1** or simply **1.1**. Your buyers will be able to choose the version to deploy from a list of version titles.
-    + `ReleaseNotes` (string) – The detailed notes about this version. Must be less than 30,000 characters.
+    + `ReleaseNotes` (string) – The detailed notes about this version. Can be up to 30,000 characters.
   + `DeliveryOptions` (array of objects) – An array of delivery options, where each is a method of delivery for your product version. For example, if you have one delivery option for Amazon Elastic Container Service (Amazon ECS) and another for Amazon Elastic Kubernetes Service (Amazon EKS), you must have two delivery options.
     + `DeliveryOptionTitle` (string) – A short description that helps your buyer to choose between your delivery options.
     + `Details` (object) – The resources used for this delivery option. This is a details field within the details field. You do not need to doubly escape characters in this field.
       + `AddOnName – `A unique add-on name that buyers will see in the Amazon EKS catalog. This name will add a prefix later using `SellerAlias`. For example, where `isv-alias_` is the ISV provided add-on name.
-      + `AddOnType – `The type of add-on chosen from a list of supported values from Amazon EKS: Gitops \| monitoring \| logging \| cert-management \| policy-management \| cost-management \| autoscaling \| storage \| kubernetes-management \| service-mesh \| etcd-backup \| ingress-service-type \| load-balancer \| local-registry\| networking \| Security \| backup \| ingress-controller \| observability
+      + `AddOnType – `The type of add-on chosen from a list of supported values from Amazon EKS: gitops \| monitoring \| logging \| cert-management \| policy-management \| cost-management \| autoscaling \| storage \| kubernetes-management \| service-mesh \| etcd-backup \| ingress-service-type \| load-balancer \| local-registry \| networking \| security \| backup \| ingress-controller \| observability
       + `AddOnVersion – `A semantic version so that buyer can choose a specific version of AddOn they need to install or upgrade.
       + `CompatibleKubernetesVersions` – The Amazon EKS Kubernetes versions that this software is compatible with.
       + `CompatibleServices` (array of strings) – An array of services that the release is compatible with. Valid options: `ECS`, `EKS`, `ECS-Anywhere`, `EKS-Anywhere`, and `Bedrock-AgentCore`.
@@ -345,7 +344,7 @@ For paid products, provide at least 1 override parameter for service account con
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -354,7 +353,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed, including scanning the container images and other information to ensure that it meets the [AWS Marketplace guidelines for container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-policies.html). This process can take a few minutes to hours, depending on the number and size of your containers. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request on the **Change history** tab of your product in AWS Partner Central, or directly through the AWS Marketplace Catalog API with the [DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html) API operation.
 
 For more information about change sets, see [Working with change sets](catalog-apis.md#working-with-change-sets). For more information about errors in seller product change sets, see [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors).
 
@@ -449,7 +448,7 @@ The following errors are specific to `AddDeliveryOptions` actions in the AWS Mar
 You can use the Catalog API to update visibility for an Amazon EKS add-on delivery option of your product version in AWS Marketplace. Container and Helm delivery options for your container product are automatically created with 'Public' visibility status.
 
 **Note**  
-The ability to update visibility of your product version is supported only for the Amazon EKS add-on delivery option from the listed versions. If your product isn't 'Public' already, submit a request to publish the product with 'Public' visibility status by using the AWS Marketplace Management Portal.
+The ability to update visibility of your product version is supported only for the Amazon EKS add-on delivery option from the listed versions. If your product isn't 'Public' already, submit a request to publish the product with 'Public' visibility status by using AWS Partner Central.
 
 By default, when you create a version with the Amazon EKS add-on delivery option, it's published in 'Limited' status. A 'Limited' status means the product isn't publicly available across all the Regions for your buyers to use and deploy in an Amazon EKS cluster. You can update the visibility of the delivery option from 'Limited' to 'Public' by calling the `StartChangeSet` API operation with the `UpdateDeliveryOptionsVisibility` change type. Specify the `DeliveryOptions Id` from your product version that corresponds to the Amazon EKS add-on delivery option.
 
@@ -504,7 +503,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed, including scanning the container images and other information to ensure that it meets the [AWS Marketplace guidelines for container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-policies.html). This process can take a few minutes to hours, depending on the number and size of your containers. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or through the AWS Marketplace Catalog API by using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request on the **Change history** tab of your product in AWS Partner Central, or directly through the AWS Marketplace Catalog API with the [DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html) API operation.
 
 For more information about change sets, see [Working with change sets](catalog-apis.md#working-with-change-sets). For more information about errors in seller product change sets, see [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors).
 
@@ -529,13 +528,13 @@ The following table shows errors that are specific to `AddDeliveryOptions` actio
 ## Create repositories and resources
 <a name="container-repos"></a>
 
-To create a new version of a container-based product, you must have the resources for the version available in AWS Marketplace repositories. You create the repositories and then push (upload) the Docker (and Helm) resources into the repositories. To learn how to create the repositories through the AWS Marketplace Management Portal, see [ Add a new version of your product](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html#container-add-version) in the *AWS Marketplace Seller Guide*.
+To create a new version of a container-based product, you must have the resources for the version available in AWS Marketplace repositories. You create the repositories and then push (upload) the Docker (and Helm) resources into the repositories. To learn how to create the repositories through AWS Partner Central, see [ Step 1: Add repositories](https://docs.aws.amazon.com/marketplace/latest/userguide/container-add-version.html#add-repositories) in the *AWS Marketplace Seller Guide*.
 
 To create new repositories, call `StartChangeSet` with the `AddRepositories` change type, as shown in the following example.
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -571,7 +570,7 @@ Content-type: application/json
 
 Provide information for the fields to add the `AddRepositories` change type:
 
-For more information about creating repositories, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
+For more information about creating repositories, see [ Step 1: Add repositories](https://docs.aws.amazon.com/marketplace/latest/userguide/container-add-version.html#add-repositories) in the *AWS Marketplace Seller Guide*.
 + `Entity` (object) (required) – Your container-based product. 
   + **Identifier** (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
   + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `ContainerProduct@1.0`. 
@@ -583,7 +582,7 @@ For more information about creating repositories, see [ Adding a new version](ht
 **Note**  
 You can have up to 70 repositories per product, although you can add multiple resources, and versions of resources, to a single repository by giving them different tags when you push them.
 
-After you create one or more repositories, you add your resources to the repositories. For information about how to push resources to repositories, see [ Pushing an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-push.html) in the *Amazon Elastic Container Registry User Guide*. For information about the specific push commands needed for one of your repositories, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
+After you create one or more repositories, you add your resources to the repositories. For information about how to push resources to repositories, see [ Pushing an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-push.html) in the *Amazon Elastic Container Registry User Guide*. For information about the specific push commands needed for one of your repositories, see [ Step 2: Upload container images and artifacts to repositories](https://docs.aws.amazon.com/marketplace/latest/userguide/container-add-version.html#upload-resources) in the *AWS Marketplace Seller Guide*.
 
 **Asynchronous Errors**
 
@@ -609,7 +608,7 @@ To update an existing version of your container-based product, call the `StartCh
 
 **Container Image Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1 
 Content-type: application/json
 
@@ -650,7 +649,7 @@ Content-type: application/json
 
 **Helm Chart Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1 
 Content-type: application/json
 
@@ -704,7 +703,7 @@ Content-type: application/json
 
 **Amazon EKS Add-On Delivery Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1 
 Content-type: application/json
 
@@ -737,8 +736,8 @@ Content-type: application/json
                         "AddOnVersion":"{{1.2.1}}",
                         "AddOnType":"networking",
                         "CompatibleKubernetesVersions":[
-                           "1.19",
-                           "1.20"
+                           "1.34",
+                           "1.35"
                         ],
                         "SupportedArchitectures":[
                            "amd64",
@@ -763,7 +762,7 @@ Content-type: application/json
 
 Provide information for the fields to add the `UpdateDeliveryOptions` change type:
 
-For more information about these fields, see [ Adding a new version](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-adding-version) in the *AWS Marketplace Seller Guide*.
+For more information about these fields, see [ Step 4: Update version information](https://docs.aws.amazon.com/marketplace/latest/userguide/container-add-version.html#container-product-updating-version) in the *AWS Marketplace Seller Guide*.
 + `Entity` (object) (required) – Your container-based product. 
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
   + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `ContainerProduct@1.0`. 
@@ -801,7 +800,7 @@ For more information about these fields, see [ Adding a new version](https://doc
           This property can't be updated if the product is already published publicly.
         + `ContainerImages` (array of strings) – An array of container image URLs used by this version. The path will be the repository that you have uploaded the image to, with the tag for the image used by this version. The list must include all needed images, even images that have not changed from previous versions. See the next section for information about creating repositories using the Catalog API.
         + `HelmChartUri` (string) – The URL to the Helm chart hosted in Amazon ECR that the buyer will install to launch the software.
-        + `CompatibleServices` (array of strings) – An array of services that the release is compatible with. Valid options are `ECS` and `EKS`.
+        + `CompatibleServices` (array of strings) – An array of services that the release is compatible with. Valid options are `EKS` and `EKS-Anywhere`.
         + `Description` (string) – A longer description of the delivery option to give details to your buyer. You can also include a link to more instructions provided elsewhere.
         + `UsageInstructions` (string) – Provide instructions about the usage for this delivery option. Can be up to 4,000 characters.
         + `MarketplaceServiceAccountName` (string) – The name of the Kubernetes service account. The service account will be used to connect to AWS Identity and Access Management for permissions to call AWS services.
@@ -815,7 +814,7 @@ For more information about these fields, see [ Adding a new version](https://doc
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -824,7 +823,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed, including scanning the container images and other information to ensure that it meets the [AWS Marketplace guidelines for container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-policies.html). This process can take a few minutes to hours, depending on the number and size of your containers. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request on the **Change history** tab of your product in AWS Partner Central, or directly through the AWS Marketplace Catalog API with the [DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html) API operation.
 
 For more information about change sets, see [Working with change sets](catalog-apis.md#working-with-change-sets). For more information about errors in seller product change sets, see [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors).
 
@@ -897,12 +896,11 @@ To restrict a version, call the `StartChangeSet` API operation with the `Restric
 
 **Note**  
 Restricting one or more, but not all, delivery options from a version will remove those options from being available to your buyers. Restricting all delivery options for a version will remove that version from the AWS Marketplace catalog.  
-Restricting an Amazon EKS add-on is currently not supported through the Catalog API.  
 Restricted versions are still available for existing customers.
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -940,7 +938,7 @@ Provide information for the fields to add the `RestrictDeliveryOptions` change t
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "{{example123456789012abcdef}}",
    "ChangeSetArn": "arn:aws:aws-marketplace:{{us-east-1}}:{{123456789012}}:AWSMarketplace/ChangeSet/{{example123456789012abcdef}}"
@@ -949,7 +947,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This process can take a few minutes to hours. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request on the **Change history** tab of your product in AWS Partner Central, or directly through the AWS Marketplace Catalog API with the [DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html) API operation.
 
 For more information about change sets, see [Working with change sets](catalog-apis.md#working-with-change-sets). For more information about errors in seller product change sets, see [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors).
 

@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Discover products and pricing
-<a name="work-with-catalog-to-discover-products"></a>
 
 You can use the AWS Marketplace Discovery API to programmatically search the catalog, retrieve detailed product information, and access pricing details including public and private offers. This section describes common workflows for discovering products and evaluating pricing.
 
@@ -12,7 +11,7 @@ You can use the AWS Marketplace Discovery API to programmatically search the cat
 
 Use `SearchFacets` to retrieve available filter values and build a browsing experience. Facets include categories, pricing models, fulfillment types, publishers, and deployment status. Each facet value includes a count of matching listings.
 
-```
+```python
 response = client.search_facets(
     facetTypes=['CATEGORY', 'PRICING_MODEL', 'FULFILLMENT_OPTION_TYPE']
 )
@@ -28,7 +27,7 @@ for facet_type, values in response['listingFacets'].items():
 
 Use `SearchListings` to find listings by keyword and filters. You can combine text search with facet-based filters, and sort results by relevance or customer rating.
 
-```
+```python
 results = client.search_listings(
     searchText='computer vision',
     filters=[
@@ -49,7 +48,7 @@ for listing in results['listingSummaries']:
 
 Use `GetListing` to retrieve a listing's full details, including descriptions, categories, badges, pricing model summaries, reviews, and associated products and offers.
 
-```
+```python
 listing = client.get_listing(listingId='listing-saas-abc123')
 
 print(f"Name: {listing['listingName']}")
@@ -63,7 +62,7 @@ print(f"Rating: {listing['reviewSummary']['reviewSourceSummaries'][0]['averageRa
 
 Use `GetProduct` to get detailed product information including descriptions, highlights, categories, and seller engagements. Use `ListFulfillmentOptions` to see how the product can be deployed (AMI, SaaS, Container, Helm, etc.).
 
-```
+```python
 product = client.get_product(productId='prod-gitpod-enterprise')
 
 print(f"Description: {product['shortDescription']}")
@@ -76,12 +75,45 @@ for option in fulfillment['fulfillmentOptions']:
         print(f"  Deploy as: {variant_data['fulfillmentOptionType']}")
 ```
 
+## Get case studies, specializations, and trust center information
+<a name="discovery-list-listing-attributes"></a>
+
+Use `ListListingAttributes` to retrieve a listing's case studies, specializations, and trust center information, such as certifications, documents, and controls. You can use this information to evaluate the seller before you buy.
+
+Specify one or more attribute types in `attributeTypes`. Each result in `listingAttributes` contains one member, named for its attribute type, such as `caseStudy` or `trustCenterCertification`. One page can contain results for several types. An attribute type that does not apply to the listing returns no results instead of an error.
+
+The following Python example requests three attribute types and uses a paginator to retrieve every page of results:
+
+```python
+paginator = client.get_paginator('list_listing_attributes')
+pages = paginator.paginate(
+    listingId='listing-saas-abc123',
+    attributeTypes=['CASE_STUDY', 'SPECIALIZATION_DETAIL', 'TRUST_CENTER_CERTIFICATION']
+)
+
+for page in pages:
+    for attribute in page['listingAttributes']:
+        # Each attribute is a union. The member that is present names its type.
+        if 'caseStudy' in attribute:
+            print(f"Case study: {attribute['caseStudy']['caseStudyName']}")
+        elif 'specializationDetail' in attribute:
+            detail = attribute['specializationDetail']
+            if 'specialization' in detail:
+                print(f"Specialization: {detail['specialization']['specializationName']}")
+            else:
+                # A category under the specialization that parentSpecializationId names.
+                category = detail['specializationCategory']
+                print(f"  Category: {category['specializationCategoryName']}")
+        elif 'trustCenterCertification' in attribute:
+            print(f"Certification: {attribute['trustCenterCertification']['displayName']}")
+```
+
 ## Find available offers for a product
 <a name="discovery-find-offers"></a>
 
 Use `ListPurchaseOptions` to find all available purchase options (offers and offer sets) for a product. You can filter by product ID, seller, purchase option type, visibility scope, and availability status.
 
-```
+```python
 options = client.list_purchase_options(
     filters=[{
         'filterType': 'PRODUCT_ID',
@@ -99,7 +131,7 @@ for option in options['purchaseOptions']:
 
 Use `GetOfferTerms` to retrieve the full commercial structure of an offer. Each offer contains one or more terms — pricing terms (usage-based, fixed upfront, configurable upfront, BYOL, free trial), legal terms, payment schedules, validity terms, support terms, and renewal terms.
 
-```
+```python
 terms = client.get_offer_terms(offerId='offer-abc123')
 
 for term in terms['offerTerms']:
@@ -117,7 +149,7 @@ for term in terms['offerTerms']:
 
 When a purchase option returned by `ListPurchaseOptions` has a `purchaseOptionType` of `OFFERSET`, it represents a grouped collection of private offers for a multi-product solution. Use `GetOfferSet` to retrieve the details of the offer set, including the associated products and offers, seller of record, availability dates, and buyer notes. You can then call `GetOffer` and `GetOfferTerms` for each individual offer within the set.
 
-```
+```python
 # Find offer sets for a product
 options = client.list_purchase_options(
     filters=[
@@ -150,7 +182,7 @@ for option in options.get('purchaseOptions', []):
 
 To access private offer pricing, the calling IAM principal must have the appropriate permissions. Private offers include negotiated pricing, custom terms, and organization-specific offers. Use the `VISIBILITY_SCOPE` filter with value `PRIVATE` in `ListPurchaseOptions` to find private offers available to your account.
 
-```
+```python
 private_options = client.list_purchase_options(
     filters=[
         {'filterType': 'PRODUCT_ID', 'filterValues': ['prod-gitpod-enterprise']},

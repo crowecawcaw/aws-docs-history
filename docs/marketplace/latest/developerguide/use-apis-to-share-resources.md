@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Using the AWS Marketplace API to share resources
-<a name="use-apis-to-share-resources"></a>
 
 AWS Marketplace Catalog API integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. A *resource* is an entity that users can work with in AWS Marketplace, such as a product, an offer, or a resale authorization. With AWS RAM, you can share some AWS Marketplace Catalog API resources with other AWS accounts. You share resources that you own by creating a *resource share*. A resource share specifies the resources that you want to share and the consumers with whom to share them. 
 
@@ -81,7 +80,7 @@ You can create a read-only resource-based policy on your shared resource using a
 
 Request
 
-```
+```json
 POST /PutResourcePolicy HTTP/1.1 
 Content-type: application/json
 
@@ -107,7 +106,7 @@ Content-type: application/json
 
 Response
 
-```
+```json
 HTTP/1.1 200
 Content-type: application/json
 
@@ -121,7 +120,7 @@ As a sharing account, you can create a read and write resource-based policy on y
 
 Request
 
-```
+```json
 POST /PutResourcePolicy HTTP/1.1 
 Content-type: application/json
 
@@ -148,7 +147,7 @@ Content-type: application/json
 
 Response
 
-```
+```json
 HTTP/1.1 200
 Content-type: application/json
 
@@ -162,7 +161,7 @@ As a sharing account, you can view the resource policy that is set on your share
 
 Request
 
-```
+```json
 POST /GetResourcePolicy HTTP/1.1 
 Content-type: application/json
 
@@ -173,7 +172,7 @@ Content-type: application/json
 
 Response
 
-```
+```json
 HTTP/1.1 200
 Content-type: application/json
 
@@ -204,7 +203,7 @@ As a sharing account, you can delete the resource policy that is set on your sha
 
 Request
 
-```
+```json
 POST /DeleteResourcePolicy HTTP/1.1 
 Content-type: application/json
 
@@ -215,7 +214,7 @@ Content-type: application/json
 
 Response
 
-```
+```json
 HTTP/1.1 200
 Content-type: application/json
 
@@ -232,7 +231,7 @@ You can view the resources shared with you only if the resources were shared thr
 
 Request
 
-```
+```json
 POST /ListEntities HTTP/1.1
 Content-type: application/json
 {
@@ -250,7 +249,7 @@ Content-type: application/json
 
 Response
 
-```
+```json
 HTTP/1.1 200
 Content-type: application/json
 

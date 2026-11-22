@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Logging AWS Marketplace Discovery API calls with AWS CloudTrail
-<a name="logging-discovery-api-calls-with-cloudtrail"></a>
 
 The AWS Marketplace Discovery API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all Discovery API calls as events, including calls from the AWS SDK and the AWS CLI.
 
@@ -20,6 +19,7 @@ All Discovery API actions are logged by CloudTrail. The following operations gen
 + `GetOfferSet`
 + `ListPurchaseOptions`
 + `ListFulfillmentOptions`
++ `ListListingAttributes`
 + `SearchFacets`
 + `SearchListings`
 
@@ -30,7 +30,7 @@ The event source for Discovery API events is `discovery-marketplace.amazonaws.co
 
 The following example shows a CloudTrail log entry that demonstrates the `GetListing` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with multi-product solutions
-<a name="work-with-multi-product-solutions"></a>
 
 AWS Marketplace multi-product solutions combine multiple products and services to address specific customer needs. Two capabilities support this:
 + **Solutions** – Dedicated pages that show customers how your AWS Marketplace products work together.

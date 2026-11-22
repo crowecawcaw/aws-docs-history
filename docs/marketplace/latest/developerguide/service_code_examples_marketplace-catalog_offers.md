@@ -3,11 +3,11 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Offers for AWS Marketplace Catalog API
-<a name="service_code_examples_marketplace-catalog_offers"></a>
 
 The following code examples show how to use AWS Marketplace Catalog API with AWS SDKs.
 
 **Topics**
++ [Add a free trial that converts to a paid subscription to the public offer of a SaaS subscription product](marketplace-catalog_example_marketplace-catalog_AddFreeTrialWithAutoConversionToPublicOfferForSaasProduct_section.md)
 + [Create a custom dimension for a SaaS product and create a private offer](marketplace-catalog_example_marketplace-catalog_CreateSaasProductCustomDimensionAndPrivateOffer_section.md)
 + [Create a draft private offer for an AMI or SaaS product](marketplace-catalog_example_marketplace-catalog_CreateDraftPrivateOffer_section.md)
 + [Create a private offer with contract and Pay-As-You-Go pricing for a SaaS product](marketplace-catalog_example_marketplace-catalog_CreatePrivateOfferWithContractWithPayAsYouGoPricingForSaasProduct_section.md)
@@ -19,9 +19,10 @@ The following code examples show how to use AWS Marketplace Catalog API with AWS
 + [Create a private offer with hourly pricing for an AMI product](marketplace-catalog_example_marketplace-catalog_CreatePrivateOfferWithHourlyPricingForAmiProduct_section.md)
 + [Create a private offer with subscription pricing for a SaaS product](marketplace-catalog_example_marketplace-catalog_CreatePrivateOfferWithSubscriptionPricingForSaasProduct_section.md)
 + [Create a private offer with tiered contract pricing for a SaaS product](marketplace-catalog_example_marketplace-catalog_CreatePrivateOfferWithTieredContractPricingForSaasProduct_section.md)
-+ [Create a public free trial offer with subscription pricing for a SaaS product](marketplace-catalog_example_marketplace-catalog_CreatePublicFreeTrialOfferWithSubscriptionPricingForSaasProduct_section.md)
 + [Create a replacement private offer with contract pricing](marketplace-catalog_example_marketplace-catalog_CreateReplacementPrivateOfferWithContractPricing_section.md)
++ [Deprecated - Create a public free trial offer with subscription pricing for a SaaS product](marketplace-catalog_example_marketplace-catalog_CreatePublicFreeTrialOfferWithSubscriptionPricingForSaasProduct_section.md)
 + [Describe a public offer](marketplace-catalog_example_marketplace-catalog_DescribeOffer_section.md)
++ [Enable free trial auto-conversion for a SaaS subscription product](marketplace-catalog_example_marketplace-catalog_EnableFreeTrialAutoConversionForSaasProduct_section.md)
 + [Expire a draft private offer](marketplace-catalog_example_marketplace-catalog_ExpirePrivateOffer_section.md)
 + [List all private offers](marketplace-catalog_example_marketplace-catalog_ListAllPrivateOffers_section.md)
 + [List released public and private offers for a specific product ID](marketplace-catalog_example_marketplace-catalog_ListProductPublicOrPrivateReleasedOffers_section.md)
@@ -31,5 +32,5 @@ The following code examples show how to use AWS Marketplace Catalog API with AWS
 + [Update name and description of a public offer](marketplace-catalog_example_marketplace-catalog_UpdateOfferNameAndDescription_section.md)
 + [Update the EULA of an offer](marketplace-catalog_example_marketplace-catalog_UpdateEula_section.md)
 + [Update the expiration date of a private offer to a future date](marketplace-catalog_example_marketplace-catalog_UpdateOfferExpirationDateOfPrivateOffer_section.md)
-+ [Update the free trial duration of a public free trial offer for a SaaS product](marketplace-catalog_example_marketplace-catalog_UpdateFreeTrialDurationOfPublicFreeTrialOfferForSaasProduct_section.md)
++ [Update the free trial duration of a public free trial offer for a SaaS subscription product](marketplace-catalog_example_marketplace-catalog_UpdateFreeTrialDurationOfPublicFreeTrialOfferForSaasProduct_section.md)
 + [Update the refund policy of an offer](marketplace-catalog_example_marketplace-catalog_UpdateRefundPolicy_section.md)

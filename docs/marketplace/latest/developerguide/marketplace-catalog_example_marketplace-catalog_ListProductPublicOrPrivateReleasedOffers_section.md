@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # List released public and private offers for a specific product ID using an AWS SDK
-<a name="marketplace-catalog_example_marketplace-catalog_ListProductPublicOrPrivateReleasedOffers_section"></a>
 
 The following code example shows how to list released public and private offers for a specific product ID.
 
@@ -13,7 +12,7 @@ The following code example shows how to list released public and private offers 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.catalogapi;
 
 import java.util.ArrayList;

@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Agreements for AWS Marketplace Agreement API
-<a name="service_code_examples_marketplace-agreement_agreements"></a>
 
 The following code examples show how to use AWS Marketplace Agreement API with AWS SDKs.
 
@@ -12,18 +11,23 @@ The following code examples show how to use AWS Marketplace Agreement API with A
 + [Accept an agreement payment request](marketplace-agreement_example_marketplace-agreement_AcceptAgreementPaymentRequest_section.md)
 + [Amend a SaaS contract agreement renewal term](marketplace-agreement_example_marketplace-agreement_AmendSaaSContractRenewalTerm_section.md)
 + [Amend an AMI ConfigurableUpfrontPricingTerm for usage pricing model](marketplace-agreement_example_marketplace-agreement_AmendAmiConfigurableUpfrontPricingTermForUsagePricingModel_section.md)
++ [Approve an agreement approval](marketplace-agreement_example_marketplace-agreement_AcceptAgreementApproval_section.md)
++ [Cancel an agreement request](marketplace-agreement_example_marketplace-agreement_CancelAgreementRequest_section.md)
 + [Create a new AMI free trial agreement](marketplace-agreement_example_marketplace-agreement_NewAmiFreeTrial_section.md)
 + [Create a new SaaS contract agreement with upfront payment](marketplace-agreement_example_marketplace-agreement_NewSaaSContractWithUpfrontPayment_section.md)
 + [Get all agreement IDs](marketplace-agreement_example_marketplace-agreement_GetAllAgreementsIds_section.md)
 + [Get all agreements](marketplace-agreement_example_marketplace-agreement_GetAllAgreements_section.md)
 + [Get customer ID from an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementCustomer_section.md)
++ [Get details of an agreement approval](marketplace-agreement_example_marketplace-agreement_GetAgreementApproval_section.md)
 + [Get details of an agreement cancellation request](marketplace-agreement_example_marketplace-agreement_GetAgreementCancellationRequest_section.md)
 + [Get details of an agreement payment request](marketplace-agreement_example_marketplace-agreement_GetAgreementPaymentRequest_section.md)
++ [Get details of an agreement request](marketplace-agreement_example_marketplace-agreement_GetAgreementRequest_section.md)
 + [Get financial details from an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementFinancialDetails_section.md)
 + [Get free trial details from an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementTermsFreeTrialDetails_section.md)
 + [Get information about an agreement](marketplace-agreement_example_marketplace-agreement_DescribeAgreement_section.md)
 + [Get product and offer details from an agreement](marketplace-agreement_example_marketplace-agreement_GetProductAndOfferDetailFromAgreement_section.md)
 + [Get the EULA of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementTermsEula_section.md)
++ [Get the approval plans of an agreement request](marketplace-agreement_example_marketplace-agreement_GetAgreementRequestApprovalPlans_section.md)
 + [Get the auto renewal terms of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementAutoRenewal_section.md)
 + [Get the dimensions purchased in an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementTermsDimensionPurchased_section.md)
 + [Get the end time behavior of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementEndTimeBehavior_section.md)
@@ -36,8 +40,12 @@ The following code examples show how to use AWS Marketplace Agreement API with A
 + [Get the status of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementStatus_section.md)
 + [Get the support terms of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementTermsSupportTerm_section.md)
 + [Get the terms of an agreement](marketplace-agreement_example_marketplace-agreement_GetAgreementTerms_section.md)
++ [Get the terms of an agreement request](marketplace-agreement_example_marketplace-agreement_GetAgreementRequestTerms_section.md)
++ [List agreement approvals](marketplace-agreement_example_marketplace-agreement_ListAgreementApprovals_section.md)
 + [List agreement cancellation requests](marketplace-agreement_example_marketplace-agreement_ListAgreementCancellationRequests_section.md)
 + [List agreement payment requests](marketplace-agreement_example_marketplace-agreement_ListAgreementPaymentRequests_section.md)
++ [List agreement requests](marketplace-agreement_example_marketplace-agreement_ListAgreementRequests_section.md)
++ [Reject an agreement approval](marketplace-agreement_example_marketplace-agreement_RejectAgreementApproval_section.md)
 + [Reject an agreement cancellation request](marketplace-agreement_example_marketplace-agreement_RejectAgreementCancellationRequest_section.md)
 + [Reject an agreement payment request](marketplace-agreement_example_marketplace-agreement_RejectAgreementPaymentRequest_section.md)
 + [Replace a SaaS contract agreement with an agreement-based offer](marketplace-agreement_example_marketplace-agreement_ReplaceSaaSContractWithAgreementBasedOffer_section.md)
@@ -56,4 +64,5 @@ The following code examples show how to use AWS Marketplace Agreement API with A
 + [Search for agreements with two custom filters](marketplace-agreement_example_marketplace-agreement_SearchAgreementsByTwoFilters_section.md)
 + [Search for the agreements that will renew](marketplace-agreement_example_marketplace-agreement_SearchAgreementsRenewing_section.md)
 + [Search for the agreements the acceptor opted out of renewing](marketplace-agreement_example_marketplace-agreement_SearchAgreementsAcceptorOptedOut_section.md)
++ [Start the approval of an agreement request](marketplace-agreement_example_marketplace-agreement_StartAgreementApprovals_section.md)
 + [Update purchase orders after agreement acceptance](marketplace-agreement_example_marketplace-agreement_UpdatePurchaseOrdersAfterAgreementAcceptance_section.md)

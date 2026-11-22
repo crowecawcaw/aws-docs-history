@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Amend a SaaS contract agreement renewal term using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_AmendSaaSContractRenewalTerm_section"></a>
 
 The following code examples show how to amend a SaaS contract agreement to add or update its renewal term.
 
@@ -13,7 +12,7 @@ The following code examples show how to amend a SaaS contract agreement to add o
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.agreementapi.buyer;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -202,7 +201,7 @@ public class AmendSaaSContractRenewalTerm {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript) repository. 
 
-```
+```javascript
 const {
     MarketplaceAgreementClient,
     CreateAgreementRequestCommand,
@@ -368,7 +367,7 @@ amendSaaSContractAgreementRenewalTerm();
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
-```
+```python
 """
 Demonstrates how to create a SaaS agreement with CONTRACT pricing model and then turn on
 the auto-renewal setting using the AWS Marketplace Agreement Service APIs.

@@ -3,11 +3,10 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with private offers using the AWS Marketplace APIs
-<a name="work-with-private-offers"></a>
 
 You can use the AWS Marketplace Catalog API to automate tasks for working with offers. 
 
-You can create offers with the Catalog API for AMI, container, SaaS, machine learning, professional services, and AWS Data Exchange data products. For the rules that apply to offers for professional services products, see [Create offers for professional services products](work-with-professional-services-products.md#proserv-offers).
+You can create offers with the Catalog API for AMI, container, SaaS, machine learning, professional services, and AWS Data Exchange data products. For the rules that apply to offers for professional services products, see [Creating offers for professional services products](work-with-professional-services-products.md#proserv-offers).
 
 While the *product* describes what is being sold in AWS Marketplace, the *offer* describes the terms and rules of how a product is purchased and consumed. AWS Marketplace products can have multiple offers sold by different sellers. Each AWS Marketplace offer, however, can only be created for one product. An *offer* contains a collection of agreement terms between two parties. The accepted offer terms are translated into an agreement as proof of a transaction.
 
@@ -55,7 +54,7 @@ To create a new offer for a product that your own account owns, call the `StartC
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -89,7 +88,7 @@ Provide information for the fields to add the `CreateOffer` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -98,13 +97,13 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 If the `Status` is `SUCCEEDED`, then a new `OfferId` is generated.
 
 The response looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef",
@@ -165,7 +164,7 @@ Creating the offer takes two steps: find the subsidiary authorization for the pr
 
 To create the offer, you need the ID of an `Active` subsidiary authorization that targets your account. To find it, call the `[ListEntities](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html)` API operation with `EntityType` set to `SubsidiaryAuthorization`. When you call it from a subsidiary account, the response contains only the active authorizations shared with your account. For the full list of filters and sort options, see [List your subsidiary authorizations](work-with-subsidiary-authorizations.md#list-subsidiary-authorizations).
 
-```
+```json
 POST /ListEntities HTTP/1.1
 Content-type: application/json
 
@@ -182,7 +181,7 @@ Content-type: application/json
 
 The response looks like the following.
 
-```
+```json
 {
   "EntitySummaryList": [
     {
@@ -212,7 +211,7 @@ To create a new private offer using a subsidiary authorization, call the `StartC
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -251,14 +250,14 @@ You don't supply the product ID or the seller of record. AWS Marketplace derives
 
 A change set is created for your request. The response gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example444455556666abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:444455556666:AWSMarketplace/ChangeSet/example444455556666abcdef"
 }
 ```
 
-The change request is added to a queue and processed. You can check the status of the request through the AWS Marketplace Management Portal, or directly through the Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation. If the `Status` is `SUCCEEDED`, a new `OfferId` is generated and the offer is in `Draft` state.
+The change request is added to a queue and processed. You can check the status of the request in AWS Partner Central, or directly through the Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation. If the `Status` is `SUCCEEDED`, a new `OfferId` is generated and the offer is in `Draft` state.
 
 **Note**  
 AWS Marketplace re-validates the offer against the subsidiary authorization when you publish it with `ReleaseOffer`. If the primary account revoked or narrowed the authorization after you created the offer, the release fails. For more information, see [Publish an offer](#release-offer).
@@ -287,7 +286,7 @@ To create a replacement offer for an agreement on a product that your own accoun
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -319,7 +318,7 @@ Provide information for the fields to add the `CreateReplacementOffer` change ty
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -328,7 +327,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -370,7 +369,7 @@ To create a replacement offer using a subsidiary authorization, call the `StartC
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -409,7 +408,7 @@ Prices on the new offer are seeded from the prior offer. You can change them wit
 
 A change set is created for your request. The response gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example444455556666abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:444455556666:AWSMarketplace/ChangeSet/example444455556666abcdef"
@@ -492,7 +491,7 @@ Provide information for the fields to add the `UpdateInformation` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -501,7 +500,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -546,7 +545,7 @@ To update the targeting configuration of your offer, call the `StartChangeSet` A
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -595,7 +594,7 @@ Provide information for the fields to add the `UpdateTargeting` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -604,7 +603,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -655,7 +654,7 @@ To update the refund policy, call the `StartChangeSet` API operation with the `U
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -695,7 +694,7 @@ Provide information for the fields to add the `UpdateSupportTerms` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -704,7 +703,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -738,7 +737,7 @@ To update legal resources of your offer, call the `StartChangeSet` API operation
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -788,7 +787,7 @@ Provide information for the fields to add the `UpdateLegalTerms` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -797,7 +796,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -841,11 +840,14 @@ To update pricing terms for your offer, call the `StartChangeSet` API operation 
 The following request syntax combines multiple examples. This combination doesn't work as a valid payload. For example, a `Terms` array can't include both the term type `FixedUpfrontPricingTerm` and the term type `ConfigurableUpfrontPricingTerm`. For examples of how different term types are combined for different pricing use cases, see [Manage offers with API](https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api) in the *AWS Marketplace seller workshop*.
 
 **Note**  
+For an Agentic Commerce product, use a public offer with the `Usage` pricing model. Include one `UsageBasedPricingTerm` in USD with exactly one rate card item. In that item, set `DimensionKey` to `agentic_commerce_default` and `Price` to "1.00" (string format). This price is a metering unit, not the price of a request. Buyers pay the amount in your signed quote, and AWS Marketplace meters that amount against the dimension. In the AWS Marketplace console, AWS Marketplace sets this rate for you. If you use the AWS Marketplace Catalog API and set a different price, AWS Marketplace bills buyers the wrong amount. Agentic Commerce products don't support private offers. For more information, see [Configure pricing for Agentic Commerce products](work-with-saas-products.md#saas-agentic-commerce-pricing).
+
+**Note**  
 For SaaS products with Free pricing model, you must include either `UsageBasedPricingTerm` or `ConfigurableUpfrontPricingTerm` with at least one RateCard (dimension) where all prices are set to $0.00. This requirement is unique to SaaS products.
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1005,7 +1007,7 @@ Currently, **MultipleDimensionSelection** and **QuantityConfiguration** values n
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1014,7 +1016,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1188,7 +1190,7 @@ To control the discoverability of your offer, call the `StartChangeSet` API oper
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1227,7 +1229,7 @@ A change set is created for your request. The response to this request gives you
 }
 ```
 
-The change request is added to a queue and processed. It includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. You can check the status of the request through the AWS Marketplace Management Portal, or in the Catalog API with the `DescribeChangeSet` action.
+The change request is added to a queue and processed. It includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. You can check the status of the request in AWS Partner Central, or in the Catalog API with the `DescribeChangeSet` action.
 
 **Synchronous Validations**
 
@@ -1266,7 +1268,7 @@ To define the expiration date details of agreements created using the offer, cal
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1310,7 +1312,7 @@ Provide information for the fields to add the `UpdateValidityTerms` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1319,7 +1321,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1382,7 +1384,7 @@ To update payment schedule details for your offer, call the `StartChangeSet` API
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1433,7 +1435,7 @@ Provide information for the fields to add the `UpdatePaymentScheduleTerms` chang
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1442,7 +1444,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1494,7 +1496,7 @@ To set the net payment term of your offer, call the `StartChangeSet` API operati
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1534,7 +1536,7 @@ Provide information for the fields to add the `UpdateNetPaymentTerms` change typ
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1543,7 +1545,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1583,7 +1585,7 @@ To control renewal options of the agreements that are created using this offer, 
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1657,7 +1659,7 @@ Provide information for the fields to add the `UpdateRenewalTerms` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1666,7 +1668,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1732,7 +1734,7 @@ To publish your offer, call the `StartChangeSet` API operation with the `Release
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -1759,7 +1761,7 @@ Provide information for the fields to add the `ReleaseOffer` change type:
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -1768,7 +1770,7 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take a few minutes. 
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 **Synchronous Validations**
 
@@ -1818,7 +1820,7 @@ To describe existing offer details, call the `DescribeEntity` API operation with
 
 **Request Syntax**
 
-```
+```json
 GET /DescribeEntity?catalog=<Catalog>&entityId=<EntityId> HTTP/1.1
 ```
 
@@ -1830,7 +1832,7 @@ Provide information for the fields to add the `DescribeEntity` change type:
 
 The response to this request gives you the offer details and looks like the following.
 
-```
+```json
 {
   "EntityType": "Offer@1.0",
   "EntityIdentifier": "offer-ad8EXAMPLE51@1",
@@ -1990,7 +1992,7 @@ The response to this request gives you the offer details and looks like the foll
 
 The following `DescribeEntity` response for an offer created from a subsidiary authorization is trimmed to the relevant fields.
 
-```
+```json
 {
   "EntityType": "Offer@1.0",
   "EntityIdentifier": "offer-hrja4qluqqoua@2",

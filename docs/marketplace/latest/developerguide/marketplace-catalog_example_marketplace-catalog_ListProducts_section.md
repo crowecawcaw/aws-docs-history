@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # List all AMI, SaaS, or Container products and associated public offers using an AWS SDK
-<a name="marketplace-catalog_example_marketplace-catalog_ListProducts_section"></a>
 
 The following code examples show how to list all AMI, SaaS, or Container products and associated public offers.
 
@@ -13,7 +12,7 @@ The following code examples show how to list all AMI, SaaS, or Container product
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.catalogapi;
 
 import java.util.ArrayList;
@@ -153,7 +152,7 @@ public class ListEntities {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
 
-```
+```python
 """
 Purpose
 Shows how to use the AWS SDK for Python (Boto3) to display information about AMI products and their associated offers in the AWS Marketplace Catalog

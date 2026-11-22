@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Access control for the AWS Marketplace Catalog API
-<a name="catalog-api-access-control"></a>
 
 You can use the AWS Marketplace Catalog API to manage [a seller product in AWS Marketplace](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/seller-products.html) or an [experience in a private marketplace](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/private-marketplace.html). However, first make sure your user or role can access the API functionality that you want to call.
 
@@ -51,7 +50,7 @@ There are two resource types in the Catalog API:
 
 To allow a user or role the permission to make changes to all entities in an AWS account, you can add the following IAM policy. With this policy, the user or role can use the `StartChangeSet` action on all resources (`"*"`).
 
-```
+```json
 {
   "Statement": [
     {
@@ -80,7 +79,7 @@ For example, you can allow changes to a specific seller product in the AWS accou
 **Note**  
 To specify granular, resource-level permissions with actions that create new change sets, you need to also include a `ChangeSet` ARN to the list of resources. The `ChangeSet` ARN must include the wildcard (`/*`) to match any new change set ID that's created as shown.
 
-```
+```json
 {
   "Statement": [
     {
@@ -102,7 +101,7 @@ For another example, you can allow changes to a specific experience in a private
 **Note**  
 To specify granular, resource-level permissions with actions that create new change sets, you need to also include a `ChangeSet` ARN to the list of resources. The `ChangeSet` ARN must include the wildcard (`/*`) to match any new change set ID that's created as shown.
 
-```
+```json
 {
   "Statement": [
     {
@@ -134,7 +133,7 @@ To limit the action to one or multiple change types, specify the `ChangeType` in
 **Note**  
 To specify granular, resource-level permissions with actions that create new change sets, you need to also include a `ChangeSet` ARN to the list of resources. The `ChangeSet` ARN must include the wildcard (`/*`) to match any new change set ID that's created as shown.
 
-```
+```json
 {
   "Statement": [
     {
@@ -166,7 +165,7 @@ You can allow actions on a group of entities without having to keep updating the
 
 For example, the following IAM policy allows the `DescribeEntity` action on any entity resource (`"*"`) that has a tag key of `product-team` and tag value of `team-xyz`.
 
-```
+```json
 {
   "Statement": [
     {
@@ -189,7 +188,7 @@ You can also allow describing and canceling change sets that were created with s
 
 For example, the following IAM policy allows the `DescribeChangeSet` and `CancelChangeSet` actions on any change set resource (`"*"`) that has a tag key of `product-team` and tag value of `team-xyz`.
 
-```
+```json
 {
   "Statement": [
     {
@@ -216,7 +215,7 @@ For example, the following IAM policy allows the `StartChangeSet` action on any 
 **Note**  
 If your policy to allow the `StartChangeSet` action includes a condition to match against specific tags, the same policy must also include the `TagResource` action. This is because the policy condition must match both the tag on the entity and the tag on the newly created change set resulting from the change request. Thus, it requires the user or role to also have the permission to tag the newly created change set. For an example of starting a change set and tagging the change set, see [Example: Adding tags to an entity and change set during creation](#example-adding-tags-entity-creation).
 
-```
+```json
 {
   "Statement": [
     {
@@ -258,7 +257,7 @@ Customers who want to use a Resale Authorization ChangeType or a CPPO ChangeType
 
 ****  
 
-      ```
+      ```json
       {
       "Version":"2012-10-17",		 	 	 
       	"Statement": [
@@ -339,7 +338,7 @@ Customers who want to use a Resale Authorization ChangeType or a CPPO ChangeType
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -390,7 +389,7 @@ To add tags to an entity or change set, use the `TagResource` API action.
 
 **Request**
 
-```
+```xml
 POST /TagResource HTTP/1.1
 Content-type: application/json
 
@@ -431,7 +430,7 @@ To remove a tag or list of tags from an entity or change set, use the `UntagReso
 
 **Request**
 
-```
+```xml
 POST /UntagResource HTTP/1.1
 Content-type: application/json
 
@@ -463,7 +462,7 @@ To list all tags that have been added to and not yet removed from a change set o
 
 **Request**
 
-```
+```xml
 POST /ListTagsForResource HTTP/1.1
 Content-type: application/json
 
@@ -479,7 +478,7 @@ Request parameters include:
 
 **Response**
 
-```
+```json
 {
   "ResourceArn": "string",
   "Tags": [
@@ -502,7 +501,7 @@ You can add tags when entities or change sets are created.
 
 The following is an example of a `StartChangeSet` request that updates the product metadata for a seller product. This request adds a tag to the change set that's created with this request by including the tag in the `ChangeSetTags` property.
 
-```
+```xml
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -534,7 +533,7 @@ For more information about managing seller products, see [Working with seller pr
 
 The following is an example of a `StartChangeSet` request that creates a private marketplace experience entity. The request adds tags to both the entity resource and change set resource created with this request by including the tags in the `EntityTags` and `ChangeSetTags` properties. With these tags, the permission policy of a user or role can be specified to only allow describing or canceling the change set this request creates or only allow creating further change sets on the entity this request creates. For more information, see [Granting permission to create entities and change sets only with tags](#grant-permission-create-entities-change-sets-tags).
 
-```
+```xml
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -571,7 +570,7 @@ For more information about managing a private marketplace, see [Working with a p
 
 To allow a user or role to add, remove, and list tags on all entities or change sets, they need the following IAM policy.
 
-```
+``` json
 {
   "Statement": [
     {
@@ -592,7 +591,7 @@ To allow a user or role to add, remove, and list tags on all entities or change 
 
 You can allow a user or role to add, remove, and list tags on entities or change sets that have specific tags. The following IAM policy allows those actions on any entity resource (`"*"`) that has a tag key of `product-team` and tag value of `team-xyz`.
 
-```
+```json
 {
   "Statement": [
     {
@@ -623,7 +622,7 @@ You can enforce tagging when entities or change sets are created. Add the follow
 
 For existing entities, this policy also enforces tagging change sets when requesting changes to those entities. This also requires that the existing entity has this existing tag. This is because the policy condition must match both the tag on the existing entity and the newly created change set resulting from the change request. For an example of adding tags to change requests, see [Example: Adding tags to a change set when creating a change set](#example-adding-tags-creating-change-set).
 
-```
+```json
 {
   "Statement": [
     {

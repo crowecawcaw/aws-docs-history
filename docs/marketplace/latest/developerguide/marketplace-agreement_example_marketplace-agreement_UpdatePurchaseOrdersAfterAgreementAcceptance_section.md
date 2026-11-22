@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Update purchase orders after agreement acceptance using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_UpdatePurchaseOrdersAfterAgreementAcceptance_section"></a>
 
 The following code examples show how to update purchase orders after the agreement has been accepted.
 
@@ -13,7 +12,7 @@ The following code examples show how to update purchase orders after the agreeme
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
-```
+```java
 package com.example.awsmarketplace.agreementapi.buyer;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -188,7 +187,7 @@ public class UpdatePurchaseOrdersAfterAgreementAcceptance {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript) repository. 
 
-```
+```javascript
 const {
     MarketplaceAgreementClient,
     CreateAgreementRequestCommand,
@@ -337,7 +336,7 @@ listAgreementChargesAndUpdatePurchaseOrders();
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
-```
+```python
 """
 Demonstrates how to associate a purchase order reference with a SaaS agreement with CONTRACT
 pricing model using the AWS Marketplace Agreement Service APIs.

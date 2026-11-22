@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Update pricing terms
-<a name="update-pricing-terms"></a>
 
 You can use the Catalog API to update the pricing of your machine learning products in AWS Marketplace.
 
@@ -15,7 +14,7 @@ To update pricing terms, call the `StartChangeSet` operation with the `UpdatePri
 ## Request syntax
 <a name="request-syntax"></a>
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 {
@@ -152,7 +151,7 @@ The change request enters a processing queue, where it undergoes several steps:
    + For validation errors, see [Change set status and errors](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-seller-products.html#seller-product-change-set-errors).
 
 1. Status monitoring: You can check the status of the request two ways.
-   + Via AWS Marketplace Management Portal
+   + On the offer's **Requests log** tab in AWS Partner Central
    + Using the `DescribeChangeSet` operation
 
 1. Completion: When approved, the pricing terms are updated.

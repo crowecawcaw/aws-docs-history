@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Build interfaces with catalog data
-<a name="build-interfaces-with-catalog-data"></a>
 
 You can use the AWS Marketplace Discovery API to programmatically access the catalog and display product and pricing information on your own platforms. This section describes how to build custom interfaces such as storefronts, partner portals, and integrated sales experiences for your customers to navigate, using the Discovery API.
 
@@ -14,7 +13,7 @@ A typical integration follows this pattern:
 
 1. **Browse experience** — Call `SearchListings` to retrieve listing summaries based on search text and filters, and `SearchFacets` to populate category navigation and filter options with counts.
 
-1. **Product detail pages** — Call `GetListing` or `GetProduct` to display full product details, media, and reviews.
+1. **Product detail pages** — Call `GetListing` or `GetProduct` to display full product details, media, and reviews, and `ListListingAttributes` to display case studies, specializations, and trust center information.
 
 1. **Pricing display** — Call `ListPurchaseOptions`, `GetOffer`, and `GetOfferTerms` to show pricing options.
 
@@ -23,7 +22,7 @@ A typical integration follows this pattern:
 
 Use `SearchListings` to retrieve listing summaries based on search text and filters, and `SearchFacets` to build dynamic filter navigation. Facets include categories, fulfillment types, pricing models, pricing units, publishers, and deployment status. Each facet value includes a count of matching listings, which you can display alongside filter options.
 
-```
+```python
 import boto3
 
 client = boto3.client('marketplace-discovery', region_name='us-east-1')
@@ -62,9 +61,9 @@ for listing in response['listingSummaries']:
 ## Build product detail pages
 <a name="discovery-seller-product-pages"></a>
 
-Use `GetListing` or `GetProduct` to display full product details, media, and reviews. Use `GetListing` when you need the listing overview including badges, categories, and pricing summaries. Use `GetProduct` when you need detailed product information such as descriptions, highlights, and media. Call `ListFulfillmentOptions` to retrieve deployment options for a specific product.
+Use `GetListing` or `GetProduct` to display full product details, media, and reviews. Use `GetListing` when you need the listing overview including badges, categories, and pricing summaries. Use `GetProduct` when you need detailed product information such as descriptions, highlights, and media. Call `ListFulfillmentOptions` to retrieve deployment options for a specific product. Call `ListListingAttributes` to retrieve the listing's case studies, specializations, and trust center information.
 
-```
+```python
 def get_product_page_data(listing_id, product_id):
     """Retrieve data for a product detail page."""
 
@@ -77,10 +76,20 @@ def get_product_page_data(listing_id, product_id):
     # Get deployment options for the product
     fulfillment = client.list_fulfillment_options(productId=product_id)
 
+    # Get case studies, specializations, and trust center information for the listing
+    attributes = []
+    paginator = client.get_paginator('list_listing_attributes')
+    for page in paginator.paginate(
+        listingId=listing_id,
+        attributeTypes=['CASE_STUDY', 'SPECIALIZATION_DETAIL', 'TRUST_CENTER_CERTIFICATION']
+    ):
+        attributes.extend(page['listingAttributes'])
+
     return {
         'listing': listing,
         'product': product,
-        'fulfillmentOptions': fulfillment
+        'fulfillmentOptions': fulfillment,
+        'listingAttributes': attributes
     }
 ```
 
@@ -89,7 +98,7 @@ def get_product_page_data(listing_id, product_id):
 
 Use `ListPurchaseOptions` to find available offers for a product, then `GetOffer` and `GetOfferTerms` to retrieve detailed pricing. Display pricing models, rate cards, and term details to help your customers evaluate options.
 
-```
+```python
 def get_pricing_for_product(product_id):
     """Retrieve pricing options for display."""
     options = client.list_purchase_options(

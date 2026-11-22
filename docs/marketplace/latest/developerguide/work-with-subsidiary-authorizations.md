@@ -3,7 +3,6 @@
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Work with subsidiary authorizations using the AWS Marketplace APIs
-<a name="work-with-subsidiary-authorizations"></a>
 
 With the AWS Marketplace Catalog API, you can automate tasks for working with subsidiary authorizations.
 
@@ -79,7 +78,7 @@ To create a subsidiary authorization in `Draft` state, call the `StartChangeSet`
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -145,7 +144,7 @@ You don't supply `Status`, `CreatedDate`, `Issuer`, `Rules`, or the `Resource` f
 
 A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
 
-```
+```json
 {
   "ChangeSetId": "example111122223333abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ChangeSet/example111122223333abcdef"
@@ -154,13 +153,13 @@ A change set is created for your request. The response to this request gives you
 
 The change request is added to a queue and processed.
 
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through the Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+You can check the status of the request in AWS Partner Central, or directly through the Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
 
 When the request is complete (if the `Status` is `SUCCEEDED`), a new `SubsidiaryAuthorization` is generated. Although the `SUCCEEDED` status indicates that the `CreateSubsidiaryAuthorization` change type call is completed, the subsidiary authorization is still in `Draft` state.
 
 The following shows the response from the `DescribeChangeSet` API operation.
 
-```
+```json
 {
   "ChangeSetId": "example111122223333abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ChangeSet/example111122223333abcdef",
@@ -233,7 +232,7 @@ To update a subsidiary authorization, call the `StartChangeSet` API operation wi
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -289,7 +288,7 @@ Provide information for the fields to add the `UpdateInformation` change type:
 
 **Response Syntax**
 
-```
+```json
 {
   "ChangeSetId": "example111122223333abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ChangeSet/example111122223333abcdef"
@@ -318,7 +317,7 @@ To release a subsidiary authorization, call the `StartChangeSet` API operation a
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -349,7 +348,7 @@ Provide information for the fields to add the `UpdateAvailability` change type:
 
 **Response Syntax**
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -369,7 +368,7 @@ Revoking a subsidiary authorization does not cancel offers the subsidiary accoun
 
 **Request Syntax**
 
-```
+```json
 POST /StartChangeSet HTTP/1.1
 Content-type: application/json
 
@@ -393,7 +392,7 @@ Content-type: application/json
 
 **Response Syntax**
 
-```
+```json
 {
   "ChangeSetId": "example123456789012abcdef",
   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ChangeSet/example123456789012abcdef"
@@ -409,7 +408,7 @@ The `[ListEntities](https://docs.aws.amazon.com/marketplace-catalog/latest/api-r
 
 **Request Syntax**
 
-```
+```json
 POST /ListEntities HTTP/1.1
 Content-type: application/json
 
@@ -454,7 +453,7 @@ Content-type: application/json
 
 **Response Syntax**
 
-```
+```json
 {
   "EntitySummaryList": [
     {
@@ -494,7 +493,7 @@ You can use the `[DescribeEntity](https://docs.aws.amazon.com/marketplace-catalo
 
 **Request Syntax**
 
-```
+```json
 GET /DescribeEntity?catalog=AWSMarketplace&entityId=subauthz-1a2bEXAMPLE34 HTTP/1.1
 ```
 + **catalog** (string) (required) – The catalog related to the request. Fixed value: `AWSMarketplace`.
@@ -502,7 +501,7 @@ GET /DescribeEntity?catalog=AWSMarketplace&entityId=subauthz-1a2bEXAMPLE34 HTTP/
 
 **Response Syntax**
 
-```
+```json
 {
   "EntityType": "SubsidiaryAuthorization@1.0",
   "EntityIdentifier": "subauthz-1a2bEXAMPLE34",
@@ -610,7 +609,7 @@ The following table lists the errors specific to `CreateSubsidiaryAuthorization`
 | --- | --- | 
 | INCOMPATIBLE\_PRODUCT | Provide a product in your account. | 
 | INCOMPATIBLE\_SUBSIDIARY\_ACCOUNT | This subsidiary account hasn't completed their prerequisites for using subsidiary authorization. | 
-| INCOMPATIBLE\_PRODUCT\_DIMENSIONS | Returned with one of the following messages, depending on the problem with the `Dimensions` list:+  Use existing, available dimensions in the product. – A requested dimension key doesn't exist in the product. <br />+  Every product dimension tagged Metered or ExternallyMetered must be included in the request. – A metered dimension is left out. <br />+  The Dimensions list must include at least one product dimension tagged Entitled when the product has one or more Entitled dimensions available. – The product has `Entitled` dimensions and the request includes none.  | 
+| INCOMPATIBLE\_PRODUCT\_DIMENSIONS | Returned with one of the following messages, depending on the problem with the `Dimensions` list:+  `Use existing, available dimensions in the product.` – A requested dimension key doesn't exist in the product. <br />+  `Every product dimension tagged Metered or ExternallyMetered must be included in the request.` – A metered dimension is left out. <br />+  `The Dimensions list must include at least one product dimension tagged Entitled when the product has one or more Entitled dimensions available.` – The product has `Entitled` dimensions and the request includes none.  | 
 
 **`UpdateInformation` errors**
 
