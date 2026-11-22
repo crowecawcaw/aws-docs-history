@@ -1,7 +1,6 @@
 
 
 # Server certificates for your Network Load Balancer
-<a name="tls-listener-certificates"></a>
 
 When you create a secure listener for your Network Load Balancer, you must deploy at least one certificate on the load balancer. The load balancer requires X.509 certificates (server certificate). Certificates are a digital form of identification issued by a certificate authority (CA). A certificate contains identification information, a validity period, a public key, a serial number, and the digital signature of the issuer.
 
@@ -21,6 +20,8 @@ Alternatively, you can use TLS tools to create a certificate signing request (CS
 + ECDSA 256-bit
 + ECDSA 384-bit
 + ECDSA 521-bit
+
+**Important — Behavior when using IAM-imported certificates**
 
 If you import a certificate into AWS Identity and Access Management (IAM) and attach it to an NLB TLS listener, the certificate key size and algorithm are not validated at the time of attachment. Validation occurs asynchronously after the certificate is associated with the listener. If the certificate uses an unsupported key size (for example, RSA 4096-bit), the listener will enter a non-functional state and you will receive a notification via AWS Personal Health Dashboard (PHD).
 

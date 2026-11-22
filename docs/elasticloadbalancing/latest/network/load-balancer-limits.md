@@ -1,7 +1,6 @@
 
 
 # Quotas for your Network Load Balancers
-<a name="load-balancer-limits"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 
@@ -13,6 +12,8 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 + [Load balancer](#load-balancer-quotas)
 + [Listener rules](#listener-rules-quotas)
 + [Target groups](#target-group-quotas)
++ [Trust stores](#trust-stores-quotas)
++ [Certificates](#certificates-quotas)
 + [Load Balancer Capacity Units](#lcu-quotas)
 
 ## Load balancer
@@ -60,6 +61,34 @@ The following quotas are for target groups.
 |  Targets per Target Group per Region (Application Load Balancers) | 1 | No | 
 
 ¹ This quota is shared by Application Load Balancers and Network Load Balancers.
+
+## Trust stores
+<a name="trust-stores-quotas"></a>
+
+The following quotas are for trust stores.
+
+
+| Name | Default | Adjustable | 
+| --- | --- | --- | 
+| Trust stores per account | 20 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/elasticloadbalancing/quotas/L-A8F7060B) | 
+| Number of listeners using mTLS in verify mode, per load balancer. | 2 | No | 
+
+## Certificates
+<a name="certificates-quotas"></a>
+
+The following quotas apply to certificates, including advertising CA certificate names and certificate revocation lists.
+
+
+| Name | Default | Adjustable | 
+| --- | --- | --- | 
+| CA certificate size | 16 KB | No | 
+| CA certificates per trust store | 25 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/elasticloadbalancing/quotas/L-43FE5A42) | 
+| CA certificates subject size per trust store | 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/elasticloadbalancing/quotas/L-F31E307C) | 
+| Maximum certificate chain depth | 4 | No | 
+| Revocation entries per trust store | 500,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/elasticloadbalancing/quotas/L-37E1617B) | 
+| Revocation list file size | 50 MB | No | 
+| Revocation lists per trust store | 30 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/elasticloadbalancing/quotas/L-332EE142) | 
+| TLS message size | 64 KB | No | 
 
 ## Load Balancer Capacity Units
 <a name="lcu-quotas"></a>

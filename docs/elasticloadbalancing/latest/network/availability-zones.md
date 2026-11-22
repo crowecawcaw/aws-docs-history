@@ -1,7 +1,6 @@
 
 
 # Update the Availability Zones for your Network Load Balancer
-<a name="availability-zones"></a>
 
 You can enable or disable the Availability Zones for your Network Load Balancer at any time. When you enable an Availability Zone, you must specify one subnet from that Availability Zone. After you enable an Availability Zone, the load balancer starts routing requests to the registered targets in that Availability Zone. Your load balancer is most effective if you ensure that each enabled Availability Zone has at least one registered target. Enabling multiple Availability Zones helps improve the fault tolerance of your applications.
 
@@ -66,7 +65,7 @@ aws elbv2 set-subnets \
 **To modify the Availability Zones**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

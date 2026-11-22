@@ -1,7 +1,6 @@
 
 
 # Tag a Network Load Balancer
-<a name="load-balancer-tags"></a>
 
 Tags help you to categorize your Network Load Balancers in different ways. For example, you can tag a resource by purpose, owner, or environment.
 
@@ -64,7 +63,7 @@ aws elbv2 remove-tags \
 **To add tags**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource to include the `Tags` property.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

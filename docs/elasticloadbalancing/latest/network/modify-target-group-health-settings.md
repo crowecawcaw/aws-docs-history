@@ -1,7 +1,6 @@
 
 
 # Update the target group health settings for your Network Load Balancer
-<a name="modify-target-group-health-settings"></a>
 
 By default, Network Load Balancers monitor the health of targets and route requests to healthy targets. However, if the load balancer doesn't have enough healthy targets, it automatically sends traffic to all registered targets (fail open). You can modify the target group health settings for your target group to define the thresholds for DNS failover and routing failover. For more information, see [Target group health](load-balancer-target-groups.md#target-group-health).
 
@@ -62,7 +61,7 @@ aws elbv2 modify-target-group-attributes \
 **To modify target group health settings**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource. The following example sets the healthy threshold for both unhealthy state actions to 50%.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

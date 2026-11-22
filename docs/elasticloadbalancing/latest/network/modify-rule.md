@@ -1,7 +1,6 @@
 
 
 # Edit a listener rule
-<a name="modify-rule"></a>
 
 You can edit the conditions, actions, and priority of a listener rule.
 

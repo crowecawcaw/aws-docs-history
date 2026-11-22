@@ -1,7 +1,6 @@
 
 
 # What is a Network Load Balancer?
-<a name="introduction"></a>
 
 Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It can automatically scale to the vast majority of workloads.
 
@@ -57,6 +56,7 @@ Using a Network Load Balancer instead of a Classic Load Balancer has the followi
 + Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a task and register the task with a target group using this port. This enables you to make efficient use of your clusters.
 + Support for monitoring the health of each service independently, as health checks are defined at the target group level and many Amazon CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
 + Support for the QUIC and TCP\_QUIC protocols with advanced congestion control, fewer round trip connection establishment, built in TLS, and connection migration across networks.
++ Support for mutual TLS authentication (mTLS) on TLS listeners, so the load balancer authenticates client certificates before it admits connections. For more information, see [Authenticate clients using mutual TLS for Network Load Balancers](mutual-authentication.md).
 
 For more information about the features supported by each load balancer type, see [Product comparisons](https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons) for Elastic Load Balancing.
 

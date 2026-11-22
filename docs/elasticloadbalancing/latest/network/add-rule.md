@@ -1,7 +1,6 @@
 
 
 # Add a listener rule
-<a name="add-rule"></a>
 
 You configure a listener rule with a priority, conditions, and actions. A rule routes traffic to the specified target groups when the rule conditions are met. For more information about rule concepts, see [Listener rules](load-balancer-listeners.md#listener-rules).
 

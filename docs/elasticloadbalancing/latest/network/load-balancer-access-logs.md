@@ -1,7 +1,6 @@
 
 
 # Access logs for your Network Load Balancer
-<a name="load-balancer-access-logs"></a>
 
 Elastic Load Balancing provides access logs that capture detailed information about the TLS connections established with your Network Load Balancer. You can use these access logs to analyze traffic patterns and troubleshoot issues.
 
@@ -76,7 +75,7 @@ The following table describes the fields of an access log entry, in order. All f
 | Field | Description | 
 | --- | --- | 
 | type | The type of listener. The supported value is `tls`. | 
-| version | The version of the log entry. The current version is 2.0. | 
+| version | The version of the log entry. The current version is 3.0. | 
 | time | The time recorded at the end of the TLS connection, in ISO 8601 format. | 
 | elb | The resource ID of the load balancer. | 
 | listener | The resource ID of the TLS listener for the connection. | 
@@ -97,6 +96,33 @@ The following table describes the fields of an access log entry, in order. All f
 | alpn\_be\_protocol | The application protocol negotiated with the target, in string format. The possible values are `h2`, `http/1.1`, and `http/1.0`. If no ALPN policy is configured in the TLS listener, no matching protocol is found, or no valid protocol list is sent, this value is set to `-`. | 
 | alpn\_client\_preference\_list | The value of the application\_layer\_protocol\_negotiation extension in the client hello message. This value is URL-encoded. Each protocol is enclosed in double quotes and protocols are separated by a comma. If no ALPN policy is configured in the TLS listener, no valid client hello message is sent, or the extension is not present, this value is set to `-`. The string is truncated if it is longer than 256 bytes. | 
 | tls\_connection\_creation\_time | The time recorded at the beginning of the TLS connection, in ISO 8601 format. | 
+| tls\_verify\_status | The status of the connection request. This value is `Success` if the connection is established successfully. On an unsuccessful connection, the value is `Failed:$error_code` (see the error reason codes that follow). | 
+| leaf\_client\_cert\_subject | The subject name of the leaf client certificate. This value is set to `"-"` when the TLS listener is not configured with mutual TLS (mTLS), or when the load balancer cannot load or parse the leaf client certificate. | 
+| leaf\_client\_cert\_validity | The validity of the leaf client certificate, with `NotBefore` and `NotAfter` in ISO 8601 format. This value is set to `-` under the same conditions as `leaf_client_cert_subject`. | 
+| leaf\_client\_cert\_serial\_number | The serial number of the leaf client certificate. This value is set to `-` under the same conditions as `leaf_client_cert_subject`. | 
+
+### Error reason codes
+<a name="access-log-error-reason-codes"></a>
+
+If the load balancer cannot establish a connection, it records one of the following reason codes in the `tls_verify_status` field.
+
+
+| Code | Description | 
+| --- | --- | 
+| `ClientCertMaxChainDepthExceeded` | The maximum client certificate chain depth has been exceeded. | 
+| `ClientCertMaxSizeExceeded` | The maximum client certificate size has been exceeded. | 
+| `ClientCertCrlHit` | The client certificate has been revoked by the CA. | 
+| `ClientCertCrlProcessingError` | CRL processing error. | 
+| `ClientCertUntrusted` | The client certificate is untrusted. | 
+| `ClientCertNotYetValid` | The client certificate is not yet valid. | 
+| `ClientCertExpired` | The client certificate is expired. | 
+| `ClientCertTypeUnsupported` | The client certificate type is unsupported. | 
+| `ClientCertInvalid` | The client certificate is invalid. | 
+| `ClientCertPurposeInvalid` | The client certificate purpose is invalid. | 
+| `ClientCertRejected` | The client certificate is rejected by custom server validation. | 
+| `UnmappedConnectionError` | Unmapped runtime connection error. | 
+| `ClientCertIncompatible` | The client certificate is incompatible with the chosen listener security policy. | 
+| `CertificateFilterNoMatch` | The client certificate passed trust-chain validation but did not match any configured client certificate identity filter. | 
 
 ### Example log entries
 <a name="access-log-entry-examples"></a>
@@ -106,23 +132,49 @@ The following are example log entries. Note that the text appears on multiple li
 The following is an example for a TLS listener without an ALPN policy.
 
 ```
-tls 2.0 2018-12-20T02:59:40 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
-72.21.218.154:51341 172.100.100.185:443 5 2 98 246 - 
-arn:aws:acm:us-east-2:671290407336:certificate/2a108f19-aded-46b0-8493-c63eb1ef4a99 - 
+tls 3.0 2018-12-20T02:59:40 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
+192.0.2.1:51341 192.0.2.254:443 5 2 98 246 - 
+arn:aws:acm:us-east-2:123456789012:certificate/2a108f19-aded-46b0-8493-example4a99 - 
 ECDHE-RSA-AES128-SHA tlsv12 - 
 my-network-loadbalancer-c6e77e28c25b2234.elb.us-east-2.amazonaws.com
-- - - 2018-12-20T02:59:30
+- - - 2018-12-20T02:59:30 Success "-" - -
 ```
 
 The following is an example for a TLS listener with an ALPN policy.
 
 ```
-tls 2.0 2020-04-01T08:51:42 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
-72.21.218.154:51341 172.100.100.185:443 5 2 98 246 - 
-arn:aws:acm:us-east-2:671290407336:certificate/2a108f19-aded-46b0-8493-c63eb1ef4a99 - 
+tls 3.0 2020-04-01T08:51:42 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
+192.0.2.1:51341 192.0.2.254:443 5 2 98 246 - 
+arn:aws:acm:us-east-2:123456789012:certificate/2a108f19-aded-46b0-8493-example4a99 - 
 ECDHE-RSA-AES128-SHA tlsv12 - 
 my-network-loadbalancer-c6e77e28c25b2234.elb.us-east-2.amazonaws.com
-h2 h2 "h2","http/1.1" 2020-04-01T08:51:20
+h2 h2 "h2","http/1.1" 2020-04-01T08:51:20 Success "-" - -
+```
+
+The following is an example for a TLS listener with mutual TLS (mTLS) verify mode enabled, where the connection is established successfully.
+
+```
+tls 3.0 2026-01-15T08:51:42 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
+192.0.2.1:51341 192.0.2.254:443 5 2 98 246 - 
+arn:aws:acm:us-east-2:123456789012:certificate/2a108f19-aded-46b0-8493-example4a99 - 
+ECDHE-RSA-AES128-SHA tlsv12 - 
+my-network-loadbalancer-c6e77e28c25b2234.elb.us-east-2.amazonaws.com
+h2 h2 "h2","http/1.1" 2026-01-15T08:51:20 Success 
+"CN=client1.example.com,O=Example Corp,OU=Engineering,C=US" 
+NotBefore=2026-01-01T00:00:00Z;NotAfter=2027-01-01T00:00:00Z 5afbadd079a2640200a18008250404f7ab8023
+```
+
+The following is an example for a TLS listener with mutual TLS (mTLS) verify mode enabled, where the connection is unsuccessful because the client certificate is untrusted.
+
+```
+tls 3.0 2026-01-15T09:12:05 net/my-network-loadbalancer/c6e77e28c25b2234 g3d4b5e8bb8464cd 
+192.0.2.1:51342 192.0.2.254:443 3 1 0 0 - 
+arn:aws:acm:us-east-2:123456789012:certificate/2a108f19-aded-46b0-8493-example4a99 - 
+ECDHE-RSA-AES128-SHA tlsv12 - 
+my-network-loadbalancer-c6e77e28c25b2234.elb.us-east-2.amazonaws.com
+h2 h2 "h2","http/1.1" 2026-01-15T09:12:00 Failed:ClientCertUntrusted 
+"CN=client2.example.com,O=Example Corp,OU=Engineering,C=US" 
+NotBefore=2026-01-01T00:00:00Z;NotAfter=2027-01-01T00:00:00Z 6c1dceef28c4862311c29119472626b9cd0243
 ```
 
 ## Processing access log files

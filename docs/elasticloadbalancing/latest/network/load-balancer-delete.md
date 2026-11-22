@@ -1,7 +1,6 @@
 
 
 # Delete a Network Load Balancer
-<a name="load-balancer-delete"></a>
 
 As soon as your Network Load Balancer becomes available, you are billed for each hour or partial hour that you keep it running. When you no longer need the Network Load Balancer, you can delete it. As soon as the Network Load Balancer is deleted, you stop incurring charges for it.
 

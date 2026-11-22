@@ -1,7 +1,6 @@
 
 
 # Update a TLS listener for your Network Load Balancer
-<a name="listener-update-certificates"></a>
 
 After you create a TLS listener, you can replace the default certificate, add or remove certificates from the certificate list, update the security policy, or update the ALPN policy.
 
@@ -56,7 +55,7 @@ aws elbv2 modify-listener \
 **To replace the default certificate**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource with the new default certificate.
 
-```
+```yaml
 Resources:
   myTLSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
@@ -127,7 +126,7 @@ aws elbv2 add-listener-certificates \
 **To add certificates to the certificate list**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 
-```
+```yaml
 Resources: 
   myCertificateList:
     Type: 'AWS::ElasticLoadBalancingV2::ListenerCertificate'
@@ -236,7 +235,7 @@ aws elbv2 modify-listener \
 **To update the security policy**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource with the new security policy.
 
-```
+```yaml
 Resources:
   myTLSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
@@ -296,7 +295,7 @@ aws elbv2 modify-listener \
 **To update the ALPN policy**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the ALPN policy.
 
-```
+```yaml
 Resources:
   myTLSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'

@@ -1,7 +1,6 @@
 
 
 # Listener rules for your Network Load Balancer
-<a name="create-rule"></a>
 
 You can create listener rules to route traffic to different target groups based on the source IP address type of incoming traffic. This is useful for dual-stack Network Load Balancers that need to route IPv4 and IPv6 traffic to separate target groups. You can modify, reorder, describe, and delete listener rules at any time. Changes to listener rules take effect immediately.
 

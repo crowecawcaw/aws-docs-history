@@ -1,7 +1,6 @@
 
 
 # Edit target group attributes for your Network Load Balancer
-<a name="edit-target-group-attributes"></a>
 
 After you create a target group for your Network Load Balancer, you can edit its target group attributes.
 
@@ -94,7 +93,7 @@ aws elbv2 modify-target-group-attributes \
 **To enable client IP preservation**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `preserve_client_ip.enabled` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -157,7 +156,7 @@ aws elbv2 modify-target-group-attributes \
 **To modify the deregistration delay attributes**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `deregistration_delay.timeout_seconds` and `deregistration_delay.connection_termination.enabled` attributes.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -263,7 +262,7 @@ aws elbv2 modify-target-group-attributes \
 **To enable proxy protocol version 2**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `proxy_protocol_v2.enabled` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -326,7 +325,7 @@ aws elbv2 modify-target-group-attributes \
 **To enable sticky sessions**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `stickiness.enabled` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -394,7 +393,7 @@ aws elbv2 modify-target-group-attributes \
 **To enable cross-zone load balancing for a target group**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `load_balancing.cross_zone.enabled` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -453,7 +452,7 @@ aws elbv2 modify-target-group-attributes \
 **To disable the connection termination attribute**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `target_health_state.unhealthy.connection_termination.enabled` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -515,7 +514,7 @@ aws elbv2 modify-target-group-attributes \
 **To modify the unhealthy draining interval**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `target_health_state.unhealthy.draining_interval_seconds` attribute.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

@@ -1,7 +1,6 @@
 
 
 # Update a listener for your Network Load Balancer
-<a name="listener-update-rules"></a>
 
 You can update the listener protocol, listener port or the target group which receives traffic from the forwarding action. The default action, also known as the default rule, forwards requests to the selected target group.
 
@@ -94,7 +93,7 @@ aws elbv2 remove-tags \
 **To update the default action**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the new target group.
 
-```
+```yaml
 Resources:
   myTCPListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
@@ -109,7 +108,7 @@ Resources:
 
 Alternatively, to distribute traffic between multiple target groups, define `DefaultActions` as follows.
 
-```
+```yaml
 DefaultActions:
     - Type: forward
     ForwardConfig:
@@ -123,7 +122,7 @@ DefaultActions:
 **To add tags**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the Tags property.
 
-```
+```yaml
 Resources:
   myTCPListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'

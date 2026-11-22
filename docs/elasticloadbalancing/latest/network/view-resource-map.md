@@ -1,7 +1,6 @@
 
 
 # View the Network Load Balancer resource map
-<a name="view-resource-map"></a>
 
 The Network Load Balancer resource map provides an interactive display of your Network Load Balancers architecture, including its associated listeners, target groups, and targets. The resource map also highlights the relationships and routing paths between all resources, producing a visual representation of your Network Load Balancers configuration.
 

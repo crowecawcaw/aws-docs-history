@@ -1,7 +1,6 @@
 
 
 # Listeners for your Network Load Balancers
-<a name="load-balancer-listeners"></a>
 
 A *listener* is a process that checks for connection requests, using the protocol and port that you configure. Before you start using your Network Load Balancer, you must add at least one listener. If your load balancer has no listeners, it can't receive traffic from clients. The rule that you define for a listener determines how the load balancer routes requests to the targets that you register, such as EC2 instances.
 
@@ -20,6 +19,7 @@ A *listener* is a process that checks for connection requests, using the protoco
 + [Update idle timeout](update-idle-timeout.md)
 + [Update a TLS listener](listener-update-certificates.md)
 + [Delete a listener](delete-listener.md)
++ [Mutual TLS authentication](mutual-authentication.md)
 
 ## Listener configuration
 <a name="listener-configuration"></a>
@@ -109,7 +109,7 @@ The following is the supported condition type for Network Load Balancer listener
 Route based on the IP address type of the source traffic. You specify an `IpAddressType` value of `ipv4` or `ipv6`. When the source IP version of an incoming request matches the condition, the rule action is performed.  
 The following is an example of a source-ip condition:  
 
-```
+```json
 {
   "Field": "source-ip",
   "SourceIpConfig": {
@@ -131,7 +131,7 @@ Forward requests to one or more specified target groups. If you specify multiple
 
 The following is an example of a forward action that routes to a single target group:
 
-```
+```json
 {
   "Type": "forward",
   "TargetGroupArn": "arn:aws:elasticloadbalancing:{{region}}:{{account-id}}:targetgroup/{{my-ipv4-tg}}/{{target-group-id}}"
@@ -140,7 +140,7 @@ The following is an example of a forward action that routes to a single target g
 
 The following is an example of a forward action that routes to two weighted target groups:
 
-```
+```json
 {
   "Type": "forward",
   "ForwardConfig": {
@@ -220,7 +220,7 @@ To use a TLS listener, you must deploy at least one server certificate on your l
 
 Elastic Load Balancing uses a TLS negotiation configuration, known as a security policy, to negotiate TLS connections between a client and the load balancer. A security policy is a combination of protocols and ciphers. The protocol establishes a secure connection between a client and a server and ensures that all data passed between the client and your load balancer is private. A cipher is an encryption algorithm that uses encryption keys to create a coded message. Protocols use several ciphers to encrypt data over the internet. During the connection negotiation process, the client and the load balancer present a list of ciphers and protocols that they each support, in order of preference. The first cipher on the server's list that matches any one of the client's ciphers is selected for the secure connection.
 
-Network Load Balancers do not support mutual TLS authentication (mTLS). For mTLS support, create a TCP listener instead of a TLS listener. The load balancer passes the request through as is, so you can implement mTLS on the target.
+Network Load Balancers support mutual TLS authentication (mTLS) on TLS listeners in verify mode. The load balancer authenticates client certificates before it admits connections. For more information, see [Authenticate clients using mutual TLS for Network Load Balancers](mutual-authentication.md).
 
 Network Load Balancers support TLS resumption using PSK for TLS 1.3, and session tickets for TLS 1.2 and older. Resumptions with session ID, or when multiple certificates are configured in the listener using SNI, are not supported. The 0-RTT data feature and early\_data extension are not implemented.
 

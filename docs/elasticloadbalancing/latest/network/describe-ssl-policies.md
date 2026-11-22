@@ -1,7 +1,6 @@
 
 
 # Security policies for your Network Load Balancer
-<a name="describe-ssl-policies"></a>
 
 When you create a TLS listener, you must select a security policy. A security policy determines which ciphers and protocols are supported during SSL negotiations between your load balancer and clients. You can update the security policy for your load balancer if your requirements change or when we release a new security policy. For more information, see [Update the security policy](listener-update-certificates.md#update-security-policy).
 

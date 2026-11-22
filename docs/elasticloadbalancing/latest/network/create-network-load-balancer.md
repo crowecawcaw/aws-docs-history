@@ -1,7 +1,6 @@
 
 
 # Create a Network Load Balancer
-<a name="create-network-load-balancer"></a>
 
 A Network Load Balancer takes requests from clients and distributes them across targets in a target group, such as EC2 instances. For more information, see the [Network Load Balancer overview](introduction.md#network-load-balancer-overview).
 
@@ -93,6 +92,8 @@ To utilize QUIC or TCP\_QUIC listeners, your Network Load Balancer must have no 
 
    1. For **Default SSL/TLS server certificate**, choose **From ACM** as the certificate source. Select a certificate that you provisioned or imported using AWS Certificate Manager. If you don't have an available certificate in ACM but do have a certificate for use with your load balancer, select **Import certificate** and provide the required information. Otherwise, choose **Request new ACM certificate**. For more information, see [AWS Certificate Manager certificates](https://docs.aws.amazon.com/acm/latest/userguide/gs.html) in the *AWS Certificate Manager User Guide*.
 
+   1. [TLS listeners] (Optional) To require connecting clients to present a certificate, choose **Mutual authentication (mTLS)** under **Client certificate handling**, and then choose a trust store. For more information, see [Authenticate clients using mutual TLS for Network Load Balancers](mutual-authentication.md).
+
    1. (Optional) For **ALPN policy**, choose a policy to enable ALPN. For more information, see [ALPN policies](load-balancer-listeners.md#alpn-policies).
 
 1. **Load balancer tags**
@@ -152,7 +153,7 @@ Use the [create-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2
 **To create a Network Load Balancer**  
 Define a resource of type [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html).
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

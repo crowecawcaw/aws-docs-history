@@ -1,7 +1,6 @@
 
 
 # Troubleshoot your Network Load Balancer
-<a name="load-balancer-troubleshooting"></a>
 
 The following information can help you troubleshoot issues with your Network Load Balancer.
 

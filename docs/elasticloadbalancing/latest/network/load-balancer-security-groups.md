@@ -1,7 +1,6 @@
 
 
 # Update the security groups for your Network Load Balancer
-<a name="load-balancer-security-groups"></a>
 
 You can associate a security group with your Network Load Balancer to control the traffic that is allowed to reach and leave the Network Load Balancer. You specify the ports, protocols, and sources to allow for inbound traffic and the ports, protocols, and destinations to allow for outbound traffic. If you don't assign a security group to your Network Load Balancer, all client traffic can reach the Network Load Balancer listeners and all traffic can leave the Network Load Balancer.
 
@@ -106,7 +105,7 @@ aws elbv2 set-security-groups \
 **To update the security groups**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
@@ -164,7 +163,7 @@ aws elbv2 set-security-groups \
 **To update the security settings**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

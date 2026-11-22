@@ -1,7 +1,6 @@
 
 
 # Request Load balancer Capacity Unit reservation for your Network Load Balancer
-<a name="request-capacity-unit-reservation"></a>
 
 Before you use LCU reservation, review the following:
 + LCU reservation is not supported on Network Load Balancers using TLS listeners.
@@ -50,7 +49,7 @@ aws elbv2 modify-capacity-reservation \
 **To request an LCU reservation**  
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html) resource.
 
-```
+```yaml
 Resources:
   myLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'

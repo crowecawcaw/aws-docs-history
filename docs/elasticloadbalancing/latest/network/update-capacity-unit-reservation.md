@@ -1,7 +1,6 @@
 
 
 # Update or cancel Load Balancer Capacity Unit reservations for your Network Load Balancer
-<a name="update-capacity-unit-reservation"></a>
 
 If the traffic patterns for your load balancer change, you can update or cancel the LCU reservation for your load balancer.
 

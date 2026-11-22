@@ -1,7 +1,6 @@
 
 
 # Monitor Load balancer Capacity Unit reservation for your Network Load Balancer
-<a name="monitor-capacity-unit-reservation"></a>
 
 **Reservation status**
 

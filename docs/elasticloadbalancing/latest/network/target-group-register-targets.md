@@ -1,7 +1,6 @@
 
 
 # Register targets for your Network Load Balancer
-<a name="target-group-register-targets"></a>
 
 When your target is ready to handle requests, you register it with one or more target groups. The target type of the target group determines how you register targets. For example, you can register instance IDs, IP addresses, or an Application Load Balancer. Your Network Load Balancer starts routing requests to targets as soon as the registration process completes and the targets pass the initial health checks. It can take a few minutes for the registration process to complete and health checks to start. For more information, see [Health checks for Network Load Balancer target groups](target-group-health-checks.md).
 
@@ -205,7 +204,7 @@ aws elbv2 register-targets \
 **To register targets**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the new targets. The following example registers two targets by instance ID.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
@@ -224,7 +223,7 @@ Resources:
 
 The following example registers two targets by instance ID into a QUIC or TCP\_QUIC protocol target group.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'

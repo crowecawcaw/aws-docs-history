@@ -1,7 +1,6 @@
 
 
 # CloudWatch logs for your Network Load Balancer
-<a name="load-balancer-cloudwatch-logs"></a>
 
 Amazon CloudWatch Logs support Network Load Balancer access logs as vended logs, improving observability and simplifying debugging for network traffic patterns. You can analyze Network Load Balancer access logs directly in CloudWatch to gain insights into client connections, traffic distribution, and connection status, helping you identify and troubleshoot network issues faster.
 

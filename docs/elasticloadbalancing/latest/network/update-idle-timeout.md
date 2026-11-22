@@ -1,7 +1,6 @@
 
 
 # Update the TCP idle timeout for your Network Load Balancer listener
-<a name="update-idle-timeout"></a>
 
 For each TCP request made through a Network Load Balancer, the state of that connection is tracked. If no data is sent through the connection by either the client or target for longer than the idle timeout, the connection is closed.
 
@@ -43,7 +42,7 @@ aws elbv2 modify-listener-attributes \
 
 The following is example output.
 
-```
+```json
 {
     "Attributes": [
         {
@@ -60,7 +59,7 @@ The following is example output.
 **To update the TCP idle timeout**  
 Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the `tcp.idle_timeout.seconds` listener attribute.
 
-```
+```yaml
 Resources:
   myTCPListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'

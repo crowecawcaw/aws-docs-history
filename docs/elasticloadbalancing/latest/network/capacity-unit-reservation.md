@@ -1,7 +1,6 @@
 
 
 # Capacity reservations for your Network Load Balancer
-<a name="capacity-unit-reservation"></a>
 
 Load balancer Capacity Unit (LCU) reservations allow you to reserve a static minimum capacity for your load balancer. Network Load Balancers automatically scale to support detected workloads and meet capacity needs. When minimum capacity is configured, your load balancer continues scaling up or down based on the traffic received, but also prevents the capacity from going lower than the minimum capacity configured.
 

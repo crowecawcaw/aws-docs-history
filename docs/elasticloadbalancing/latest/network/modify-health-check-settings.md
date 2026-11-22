@@ -1,7 +1,6 @@
 
 
 # Update the health check settings of a Network Load Balancer target group
-<a name="modify-health-check-settings"></a>
 
 You can update the health check settings for your target group at any time. For the list of health check settings, see [Health check settings](target-group-health-checks.md#health-check-settings).
 
@@ -41,7 +40,7 @@ aws elbv2 modify-target-group \
 **To update the health check settings**  
 Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the updated health check settings. The following example updates the **HealthyThresholdCount** and **HealthCheckTimeoutSeconds** settings.
 
-```
+```yaml
 Resources:
   myTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
