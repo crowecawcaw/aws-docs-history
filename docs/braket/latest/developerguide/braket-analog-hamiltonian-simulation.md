@@ -1,7 +1,6 @@
 
 
 # Analog Hamiltonian Simulation
-<a name="braket-analog-hamiltonian-simulation"></a>
 
 [Analog Hamiltonian Simulation](https://en.wikipedia.org/wiki/Hamiltonian_simulation) (AHS) is an emerging paradigm in quantum computing that differs significantly from the traditional quantum circuit model. Instead of a sequence of gates, where each circuit acts only on a couple of qubits at a time. An AHS program is defined by the time-dependent and space-dependent parameters of the Hamiltonian in question. The [Hamiltonian of a system](https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)) encodes its energy levels and the effects of external forces, which together govern the time evolution of its states. For an N-qubit systems, the Hamiltonian can be represented by a 2NX2N square matrix of complex numbers.
 

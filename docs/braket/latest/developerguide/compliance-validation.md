@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Braket
-<a name="compliance-validation"></a>
 
 **Note**  
 AWS compliance reports don't cover QPUs from third-party hardware providers who can choose to go through their own independent audits.

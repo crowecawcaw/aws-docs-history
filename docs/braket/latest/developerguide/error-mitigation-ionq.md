@@ -1,7 +1,6 @@
 
 
 # Error mitigation techniques on IonQ devices
-<a name="error-mitigation-ionq"></a>
 
 Error mitigation involves running multiple physical circuits and combining their measurements to give an improved result.
 
@@ -22,7 +21,7 @@ Using debiasing requires a minimum of 2500 shots.
 
 You can run a quantum task with debiasing on an IonQ device using the following code:
 
-```
+```pyton
 from braket.aws import AwsDevice
 from braket.circuits import Circuit
 from braket.error_mitigation import Debias
@@ -49,7 +48,7 @@ Importantly, sharpening assumes the form of the output distribution to be sparse
 
 You can access the probabilities from a sharpened distribution in the `additional_metadata` field on the `GateModelTaskResult` in the Braket Python SDK. Note that sharpening does not return the measurement counts, but instead returns a re-normalized probability distribution. The following code snippet shows how to access the distribution after sharpening.
 
-```
+```python
 print(result.additional_metadata.ionqMetadata.sharpenedProbabilities)
 >>> {"00": 0.51, "11": 0.549} # sharpened probabilities
 ```

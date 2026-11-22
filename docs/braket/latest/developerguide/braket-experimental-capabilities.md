@@ -1,13 +1,12 @@
 
 
 # Explore Experimental Capabilities
-<a name="braket-experimental-capabilities"></a>
 
 Experimental capabilities provide access to hardware with limited availability and emergent new software features. These features may impact device performance beyond standard specifications. You can automatically enable experimental software capabilities on a per-task basis through the Amazon Braket SDK.
 
 To use experimental capabilities, specify the `experimental_capabilities` parameter when you create quantum tasks. Set this parameter to `"ALL"` to enable all available experimental features for that task. The following example shows how to enable experimental capabilities when you run a circuit on a device:
 
-```
+```python
 from braket.aws import AwsDevice
 
 device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/quera/Aquila")

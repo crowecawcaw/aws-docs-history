@@ -1,7 +1,6 @@
 
 
 # Example of AWS CLI tagging in Amazon Braket
-<a name="braket-tags-example"></a>
 
 When you are working with the AWS Command Line Interface (AWS CLI) to interact with Amazon Braket, the following code is an example command that demonstrates how to create a tag that applies to a quantum task you create. In this example, the task is being executed on the SV1 quantum simulator with parameter settings specified for the Rigetti quantum processing unit (QPU). It is imporant that inside the example command the tag is specified at the very end, after all of the other required parameters. In this case, the tag has a **Key** of `state` and **Value** of `Washington`. These tags could be used to help categorize or identify this particular quantum task.
 

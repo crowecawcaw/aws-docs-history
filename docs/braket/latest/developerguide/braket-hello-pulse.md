@@ -1,13 +1,12 @@
 
 
 # Working with Hello Pulse
-<a name="braket-hello-pulse"></a>
 
 In this section, you will learn how to characterize and construct a single qubit gate directly using pulse on a Rigetti device. Applying an electromagnetic field to a qubit leads to Rabi oscillation, switching qubits between its 0 state and 1 state. With calibrated length and phase of the pulse, the Rabi oscillation can calculate a single qubit gates. Here, we will determine the optimal pulse length to measure a pi/2 pulse, an elementary block used to build more complex pulse sequences.
 
 First, to build a pulse sequence, import the `PulseSequence` class.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.circuits import FreeParameter
 from braket.devices import Devices
@@ -18,26 +17,26 @@ import numpy as np
 
 Next, instantiate a new Braket device using the Amazon Resource Name (ARN) of the QPU. The following code block uses Rigetti Ankaa-3.
 
-```
+```python
 device = AwsDevice(Devices.Rigetti.Ankaa3)
 ```
 
 The following pulse sequence includes two components: Playing a waveform and measuring a qubit. Pulse sequence can usually be applied to frames. With some exceptions such as barrier and delay, which can be applied to qubits. Before constructing the pulse sequence you must retrieve the available frames. The drive frame is used for applying the pulse for Rabi oscillation, and the readout frame is for measuring the qubit state. This example, uses the frames of qubit 25.
 
-```
+```python
 drive_frame = device.frames["Transmon_25_charge_tx"]
 readout_frame = device.frames["Transmon_25_readout_rx"]
 ```
 
 Now, create the waveform that will play in the drive frame. The goal is to characterize the behavior of the qubits for different pulse lengths. You will play a waveform with different lengths each time. Instead of instantiating a new waveform each time, use the Braket-supported `FreeParameter` in pulse sequence. You are able to create the waveform and the pulse sequence once with a free parameters, and then run the same pulse sequence with different input values. 
 
-```
+```python
 waveform = GaussianWaveform(FreeParameter("length"), FreeParameter("length") * 0.25, 0.2, False)
 ```
 
 Finally, put them together as a pulse sequence. In the pulse sequence, `play` plays the specified waveform on the drive frame, and the `capture_v0` measures the state from the readout frame.
 
-```
+```python
 pulse_sequence = (
     PulseSequence()
     .play(drive_frame, waveform)
@@ -47,7 +46,7 @@ pulse_sequence = (
 
 Scan across a range of pulse length and submit them to the QPU. Before executing the pulse sequences on a QPU, bind the value of free parameters.
 
-```
+```python
 start_length = 12e-9
 end_length = 2e-7
 lengths = np.arange(start_length, end_length, 12e-9)
@@ -78,13 +77,13 @@ The statistics of the qubit measurement exhibits the oscillatory dynamics of the
 
 You can view the OpenPulse program of a Braket `PulseSequence` using the following command.
 
-```
+```python
 print(pulse_sequence.to_ir())
 ```
 
 You can also construct an OpenPulse program directly.
 
-```
+```python
 from braket.ir.openqasm import Program
  
 openpulse_script = """
@@ -100,7 +99,7 @@ cal {
 
 Create a `Program` object with your script. Then, submit the program to a QPU.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.devices import Devices
 from braket.ir.openqasm import Program

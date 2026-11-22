@@ -1,7 +1,6 @@
 
 
 # Inspecting the circuit
-<a name="braket-inspecting-circut"></a>
 
 Quantum circuits in Amazon Braket have a pseudo-time concept called `Moments`. Each qubit can experience a single gate per `Moment`. The purpose of `Moments` is to make circuits and their gates easier to address and to provide a temporal structure.
 
@@ -10,7 +9,7 @@ Moments generally do not correspond to the real time at which gates are executed
 
 The depth of a circuit is given by the total number of Moments in that circuit. You can view the circuit depth calling the method `circuit.depth` as shown in the following example.
 
-```
+```python
 from braket.circuits import Circuit
 
 # Define a circuit with parametrized gates
@@ -19,7 +18,7 @@ print(circ)
 print('Total circuit depth:', circ.depth)
 ```
 
-```
+```python
 T  : │     0      │        1         │  2  │
       ┌──────────┐                    ┌───┐ 
 q0 : ─┤ Rx(0.15) ├───●────────────────┤ X ├─
@@ -43,14 +42,14 @@ The total circuit depth of the circuit above is 3 (shown as moments `0`, `1`, an
 + The key is `MomentsKey()`, which contains pseudo-time and qubit information.
 + The value is assigned in the type of `Instructions()`.
 
-```
+```python
 moments = circ.moments
 for key, value in moments.items():
     print(key)
     print(value, "\n")
 ```
 
-```
+```python
 MomentsKey(time=0, qubits=QubitSet([Qubit(0)]), moment_type=<MomentType.GATE: 'gate'>, noise_index=0, subindex=0)
 Instruction('operator': Rx('angle': 0.15, 'qubit_count': 1), 'target': QubitSet([Qubit(0)]), 'control': QubitSet([]), 'control_state': (), 'power': 1) 
 
@@ -69,7 +68,7 @@ Instruction('operator': X('qubit_count': 1), 'target': QubitSet([Qubit(0)]), 'co
 
 You can also add gates to a circuit through `Moments`.
 
-```
+```python
 from braket.circuits import Instruction, Gate
 
 new_circ = Circuit()
@@ -82,7 +81,7 @@ new_circ.moments.add(instructions)
 print(new_circ)
 ```
 
-```
+```python
 T  : │  0  │  1  │  2  │
       ┌───┐ ┌───┐       
 q0 : ─┤ S ├─┤ Z ├───────

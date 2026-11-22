@@ -1,7 +1,6 @@
 
 
 # Pulse control on Amazon Braket
-<a name="braket-pulse-control"></a>
 
 Pulses are the analog signals that control the qubits in a quantum computer. With certain devices on Amazon Braket, you can access the pulse control feature to submit circuits using pulses. You can access pulse control through the Braket SDK, using OpenQASM 3.0, or directly through the Braket APIs. First, introduce some key concepts for pulse control in Braket.
 
@@ -17,7 +16,7 @@ Pulses are the analog signals that control the qubits in a quantum computer. Wit
 
 A frame is a software abstraction that acts as both a clock within the quantum program and a phase. The clock time is incremented on each usage and a stateful carrier signal that is defined by a frequency. When transmitting signals to the qubit, a frame determines the qubit's carrier frequency, phase offset, and the time at which the waveform envelope is emitted. In Braket Pulse, constructing frames depends on the device, frequency, and phase. Depending on the device, you can either choose a predefined frame or instantiate new frames by providing a port.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.pulse import Frame, Port
 
@@ -34,7 +33,7 @@ readout_frame = Frame(frame_id="r0_measure", port=Port("channel_0", dt=1e-9), fr
 
 A port is a software abstraction representing any input/output hardware component controlling qubits. It helps hardware vendors provide an interface with which users can interact to manipulate and observe qubits. Ports are characterized by a single string that represents the name of the connector. This string also exposes a minimum time increment that specifies how finely we can define the waveforms.
 
-```
+```python
 from braket.pulse import Port
 
 Port0 = Port("channel_0", dt=1e-9)
@@ -45,7 +44,7 @@ Port0 = Port("channel_0", dt=1e-9)
 
 A waveform is a time-dependent envelope that we can use to emit signals on an output port or capture signals through an input port. You can specify your waveforms directly either through a list of complex numbers or by using a waveform template to generate a list from the hardware provider.
 
-```
+```python
 from braket.pulse import ArbitraryWaveform, ConstantWaveform
 import numpy as np
 
@@ -55,7 +54,7 @@ arb_wf = ArbitraryWaveform(amplitudes=np.linspace(0, 100))
 
  Braket Pulse provides a standard library of waveforms, including a constant waveform, a Gaussian waveform, and a Derivative Removal by Adiabatic Gate (DRAG) waveform. You can retrieve the waveform data through the `sample` function to draw the shape of the waveform as shown in the following example.
 
-```
+```python
 from braket.pulse import GaussianWaveform
 import numpy as np
 import matplotlib.pyplot as plt

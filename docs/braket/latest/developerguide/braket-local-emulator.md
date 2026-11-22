@@ -1,7 +1,6 @@
 
 
 # Local quantum device emulator
-<a name="braket-local-emulator"></a>
 
 With Amazon Braket's local emulator tool, you can emulate your verbatim quantum programs locally before running them on actual quantum hardware. The emulator uses device calibration data to validate the verbatim circuits, allowing you to catch compatibility issues earlier.
 
@@ -29,7 +28,7 @@ For more information on using a local emulator, see [ Local emulation for verbat
 
 A local quantum device emulator can be created directly from a quantum device or a set of device properties. When directly emulating a device, the emulator uses the most recent calibration data from the instantiated device. The following code example demonstrates how to directly emulate Rigetti's Ankaa-3 device.
 
-```
+```python
 from braket.aws.aws_device import AwsDevice
 
 ankaa3 = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
@@ -38,7 +37,7 @@ ankaa3_emulator = ankaa3.emulator()
 
 The following example shows creating a local device emulator from a set of Ankaa-3 device properties in the JSON format. 
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.emulation.local_emulator import LocalEmulator
 import json

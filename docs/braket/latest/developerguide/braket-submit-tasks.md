@@ -1,13 +1,12 @@
 
 
 # Submitting quantum tasks to QPUs
-<a name="braket-submit-tasks"></a>
 
 Amazon Braket provides access to several devices that can run quantum tasks. You can submit quantum tasks individually or you can set up [quantum task batching](https://docs.aws.amazon.com/braket/latest/developerguide/braket-batching-tasks.html).
 
  **Quantum processing units (QPUs)** 
 
-You can submit quantum tasks to QPUs at any time, but the task runs within certain availability windows that are displayed on the **Devices** page of the Amazon Braket console. You can retrieve the results of the quantum task with the quantum task ID, which is introduced in the next section.
+You can submit quantum tasks to a QPU when the device is `ONLINE` or `PAUSED`. When a device is `PAUSED`, your quantum tasks are queued and run after the device returns to `ONLINE` and resumes processing. You can't submit quantum tasks to a device that is `OFFLINE` or `RETIRED`. You can see a device's current status and its availability windows on the **Devices** page in the Amazon Braket console, or by calling the `GetDevice` API. You can retrieve the results of a quantum task with the quantum task ID, which is introduced in the next section.
 +  ** AQT IBEX-Q1 ** : `arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1` 
 +  ** IonQ Forte-1 ** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1` 
 +  ** IonQ Forte-Enterprise-1 ** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1` 
@@ -38,7 +37,7 @@ High-fidelity gates are enabled by the low heating rates of the trap and the use
 
 The AQT device support the following quantum gates.
 
-```
+```python
 'ccnot', 'cnot', 'cphaseshift', 'cphaseshift00', 'cphaseshift01', 'cphaseshift10', 'cswap', 'swap', 'iswap', 'pswap', 'ecr', 'cy', 'cz', 'xy', 'xx', 'yy', 'zz', 'h', 'i', 'phaseshift', 'rx', 'ry', 'rz', 's', 'si', 't', 'ti', 'v', 'vi', 'x', 'y', 'z', 'prx'
 ```
 

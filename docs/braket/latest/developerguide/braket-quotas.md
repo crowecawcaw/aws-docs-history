@@ -1,7 +1,6 @@
 
 
 # Amazon Braket Quotas
-<a name="braket-quotas"></a>
 
 The following table lists the service quotas for Amazon Braket. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
 

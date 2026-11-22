@@ -1,7 +1,6 @@
 
 
 # When will my quantum task run?
-<a name="braket-task-when"></a>
 
 When you submit a circuit, Amazon Braket sends it to the device you specify. Quantum Processing Unit (QPU) and on-demand simulator quantum tasks are queued and processed in the order they are received. The time required to process your quantum task after you submit it varies depending on the number and complexity of tasks submitted by other Amazon Braket customers and the availability of the QPU selected.
 
@@ -17,7 +16,24 @@ QPU availability varies from device to device.
 
 In the **Devices** page of the Amazon Braket console, you can see the current and upcoming availability windows and device status. Additionally, each device page shows individual queue depths for quantum tasks and hybrid jobs. 
 
-A device is considered *offline* if is not available to customers, regardless of availability window. For example, it could be offline due to scheduled maintenance, upgrades, or operational issues.
+A device's status tells you whether it can currently process your quantum tasks and hybrid jobs. The following table describes each device status.
+
+
+| Status | Description | 
+| --- | --- | 
+| `ONLINE` | The device is available and actively processing quantum tasks and hybrid jobs during its availability window. | 
+| `PAUSED` | The device is available and accepting quantum tasks and hybrid jobs, but is not processing them right now. Quantum tasks and hybrid jobs that you submit are queued and run after the device returns to `ONLINE` and resumes processing. | 
+| `OFFLINE` | The device is not available to customers, regardless of availability window, and is not accepting quantum tasks or hybrid jobs. A device can be offline due to scheduled maintenance, upgrades, or operational issues. | 
+| `RETIRED` | The device is no longer available on Amazon Braket. | 
+
+When a device is `PAUSED`, the `GetDevice` API returns a `deviceStatusReason` field that describes why the device is paused, the time the current status began, an estimated end time (when the provider supplies one), and when the status information was last updated. The reason is one of the following.
+
+
+| Reason | Description | 
+| --- | --- | 
+| `OUTSIDE_AVAILABILITY_WINDOW` | The device is outside its scheduled availability window. | 
+| `MAINTENANCE` | The device is undergoing short maintenance. | 
+| `RESERVATION` | The device is reserved. | 
 
 ## Queue visibility
 <a name="braket-queue-visibility"></a>
@@ -36,7 +52,7 @@ Queue depth refers to the number of quantum tasks and hybrid jobs queued for a p
 
 Customers wishing to view queue depth through the Braket SDK can modify the following code snippet to get the queue position of their quantum task or hybrid job: 
 
-```
+```python
 device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1")
 
 # returns the number of quantum tasks queued on the device 
@@ -57,7 +73,7 @@ Queue position refers to the current position of your quantum task or hybrid job
 
 Customers wishing to view queue position through the Braket SDK can modify the following code snippet to get the queue position of their quantum task or hybrid job: 
 
-```
+```python
 # choose the device to run your circuit 
 device = AwsDevice("arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet")
  

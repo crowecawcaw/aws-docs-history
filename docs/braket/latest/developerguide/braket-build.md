@@ -1,7 +1,6 @@
 
 
 # Building your quantum tasks with Amazon Braket
-<a name="braket-build"></a>
 
 Braket provides fully managed Jupyter notebook environments that make it straightforward to get started. Braket notebooks are pre-installed with sample algorithms, resources, and developer tools, including the Amazon Braket SDK. With the Amazon Braket SDK, you can build quantum algorithms and then test and run them on different quantum computers and simulators by changing a single line of code.
 

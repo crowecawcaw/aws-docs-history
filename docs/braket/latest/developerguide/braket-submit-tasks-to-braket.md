@@ -1,7 +1,6 @@
 
 
 # Example quantum tasks on Amazon Braket
-<a name="braket-submit-tasks-to-braket"></a>
 
 This section walks through the stages of running an example quantum task, from selecting the device to viewing the result. As a best practice for Amazon Braket, we recommend that you begin by running the circuit on a simulator, such as SV1.
 
@@ -18,7 +17,7 @@ This section walks through the stages of running an example quantum task, from s
 
 First, select and specify the device for your quantum task. This example shows how to choose the simulator, SV1.
 
-```
+```python
 from braket.aws import AwsDevice
 
 # Choose the on-demand simulator to run the circuit
@@ -27,13 +26,13 @@ device = AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/sv1")
 
 You can view some of the properties of this device as follows:
 
-```
+```python
 print(device.name)
 for iter in device.properties.action['braket.ir.openqasm.program']:
     print(iter)
 ```
 
-```
+```python
 SV1
 ('version', ['1.0'])
 ('actionType', 'braket.ir.openqasm.program')
@@ -58,7 +57,7 @@ SV1
 
 Submit an example quantum task to run on the on-demand simulator.
 
-```
+```python
 from braket.circuits import Circuit, Observable
 
 # Create a circuit with a result type
@@ -94,7 +93,7 @@ Parametric compilation can improve the performance of executing parametric circu
 **Note**  
 Parametric compilation is supported on all superconducting, gate-based QPUs from Rigetti Computing with the exception of pulse level programs.
 
-```
+```python
 from braket.circuits import Circuit, FreeParameter, Observable
 
 # Create the free parameters
@@ -133,13 +132,13 @@ This asynchronous execution facilitates the interaction with QPU devices that ar
 
 The returned result contains a range of metadata associated with the quantum task. You can check the measurement result with the following commands:
 
-```
+```python
 print('Measurement results:\n', result.measurements)
 print('Counts for collapsed states:\n', result.measurement_counts)
 print('Probabilities for collapsed states:\n', result.measurement_probabilities)
 ```
 
-```
+```python
 Measurement results:
  [[1 0 1]
  [0 0 0]
@@ -159,7 +158,7 @@ Probabilities for collapsed states:
 
 Because you've also specified the `ResultType`, you can view the returned results. The result types appear in the order in which they were added to the circuit.
 
-```
+```python
 print('Result types include:\n', result.result_types)
 print('Variance=', result.values[0])
 print('Probability=', result.values[1])
@@ -171,7 +170,7 @@ plt.xlabel('bitstrings')
 plt.ylabel('counts')
 ```
 
-```
+```python
 Result types include:
  [ResultTypeValue(type=Variance(observable=['z'], targets=[0], type=<Type.variance: 'variance'>), value=0.693084), ResultTypeValue(type=Probability(targets=[0, 2], type=<Type.probability: 'probability'>), value=array([0.777, 0.   , 0.   , 0.223]))]
 Variance= 0.693084

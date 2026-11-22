@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon Braket resources
-<a name="braket-tagging-resources"></a>
 
 A *tag* is a custom attribute label that you assign or that AWS assigns to an AWS resource. A tag is *metadata* that tells more about your resource. Each tag consists of a *key* and a *value*. Together these are known as *key-value pairs*. For tags that you assign, you define the key and value.
 

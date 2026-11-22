@@ -1,11 +1,10 @@
 
 
 # Support for OpenQASM on different Braket devices
-<a name="braket-openqasm-device-support"></a>
 
 For devices supporting OpenQASM 3.0, the `action` field supports a new action through the `GetDevice` response, as shown in the following example for the Rigetti and IonQ devices.
 
-```
+```python
 //OpenQASM as available with the Rigetti device capabilities
 {
     "braketSchemaHeader": {
@@ -45,7 +44,7 @@ For devices supporting OpenQASM 3.0, the `action` field supports a new action th
 
 For devices that support pulse control, the `pulse` field is displayed in the `GetDevice` response. The following example show this `pulse` field for the Rigetti device.
 
-```
+```python
 // Rigetti
 {
   "pulse": {
@@ -201,7 +200,7 @@ Describes the pre-built waveform functions available on the device and the assoc
 
  `τ` is the length of the waveform and `iq` is a complex number.
 
-```
+```python
 def constant(length, iq)
 ```
 
@@ -212,7 +211,7 @@ def constant(length, iq)
 
  `τ` is the length of the waveform, `σ` is the width of the Gaussian, and `A` is the amplitude. If setting `ZaE` to `True`, the Gaussian is offset and rescaled such that it is equal to zero at the start and end of the waveform, and reaches `A` at maximum.
 
-```
+```python
 def gaussian(length, sigma, amplitude=1, zero_at_edges=False)
 ```
 
@@ -223,7 +222,7 @@ def gaussian(length, sigma, amplitude=1, zero_at_edges=False)
 
  `τ` is the length of the waveform, `σ` is the width of the gaussian, `β` is a free parameter, and `A` is the amplitude. If setting `ZaE` to `True`, the Derivative Removal by Adiabatic Gate (DRAG) Gaussian is offset and rescaled such that it is equal to zero at the start and end of the waveform, and the real part reaches `A` at maximum. For more information about the DRAG waveform, see the paper [Simple Pulses for Elimination of Leakage in Weakly Nonlinear Qubits](https://doi.org/10.1103/PhysRevLett.103.110501).
 
-```
+```python
 def drag_gaussian(length, sigma, beta, amplitude=1, zero_at_edges=False)
 ```
 
@@ -239,7 +238,7 @@ Where `L` is the length, `W` is the width of the waveform, `σ` defines how fast
 
 Where `a=erf(W/2σ)`and `b=erf(-t1​/σ)/2+erf(t2​/σ)/2`.
 
-```
+```python
 def erf_square(length, width, sigma, amplitude=1, zero_at_edges=False)
 ```
 
@@ -264,7 +263,7 @@ Describes pulse element validation boundaries, including:
 
 To find out which OpenQASM 3.0 features each device supports, you can refer to the `braket.ir.openqasm.program` key in the `action` field on the device capabilities output. For example, the following are the supported operations and result types available for the Braket State Vector simulator SV1.
 
-```
+```python
 ...
   "action": {
     "braket.ir.openqasm.program": {

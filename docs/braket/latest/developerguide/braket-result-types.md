@@ -1,7 +1,6 @@
 
 
 # List of result types
-<a name="braket-result-types"></a>
 
 Amazon Braket can return different types of results when a circuit is measured using `ResultType`. A circuit can return the following types of results.
 +  `AdjointGradient` returns the gradient (vector derivative) of the expectation value of a provided observable. This observable is acting on a provided target with respect to specified parameters using the adjoint differentiation method. You can only use this method when shots=0.
@@ -30,7 +29,7 @@ Amazon Braket can return different types of results when a circuit is measured u
 
 You can check the supported result types by examining the device properties, as shown in the following example.
 
-```
+```python
 from braket.aws import AwsDevice
 
 device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
@@ -40,7 +39,7 @@ for iter in device.properties.action['braket.ir.openqasm.program'].supportedResu
     print(iter)
 ```
 
-```
+```python
 name='Sample' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
 name='Expectation' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
 name='Variance' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
@@ -49,7 +48,7 @@ name='Probability' observables=None minShots=10 maxShots=50000
 
 To call a `ResultType`, append it to a circuit, as shown in the following example.
 
-```
+```python
 from braket.circuits import Circuit, Observable
 
 circ = Circuit().h(0).cnot(0, 1).amplitude(state=["01", "10"])
@@ -78,7 +77,7 @@ An observable can be scaled and add other observables (scaled or not). This crea
 
 The `Observable` class includes the following observables.
 
-```
+```python
 import numpy as np
 
 Observable.I()
@@ -107,7 +106,7 @@ print("Self-defined Hermitian:", Observable.Hermitian(matrix=np.array([[0, 1], [
 print("Sum of other (scaled) observables:", 2.0 * Observable.X() @ Observable.X() + 4.0 * Observable.Z() @ Observable.Z())
 ```
 
-```
+```python
 Eigenvalue: [ 1. -1.]
 Basis rotation gates: (Ry('angle': -0.7853981633974483, 'qubit_count': 1),)
 The matrix form of the observable:
@@ -132,7 +131,7 @@ Each free parameter uses a string-encoded name that is used to:
 + Set parameter values
 + Identify which parameters to use
 
-```
+```python
 from braket.circuits import Circuit, FreeParameter, observables
 from braket.parametric import FreeParameter
 
@@ -146,7 +145,7 @@ circ = Circuit().h(0).rx(0, phi).ry(0, phi).cnot(0, 1).xx(0, 1, theta)
 
 The SV1 device calculates the adjoint gradient of an observable expectation value, including multi-term Hamiltonian. To differentiate parameters, specify their name (in string format) or by direct reference.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.devices import Devices
 
@@ -157,7 +156,7 @@ circ.adjoint_gradient(observable=3 * Observable.Z(0) @ Observable.Z(1) - 0.5 * o
 
 Passing fixed parameter values as arguments to a parameterized circuit will remove the free parameters. Running this circuit with `AdjointGradient` produces an error, because the free parameters no longer exist. The follow code example demonstrates the correct and incorrect usage:
 
-```
+```python
 # Will error, as no free parameters will be present
 #device.run(circ(0.2), shots=0)
 

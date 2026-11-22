@@ -1,7 +1,6 @@
 
 
 # Create and submit an example OpenQASM 3.0 quantum task
-<a name="braket-openqasm-create-submit-task"></a>
 
 You can use the Amazon Braket Python SDK, Boto3, or the AWS CLI to submit OpenQASM 3.0 quantum tasks to an Amazon Braket device.
 
@@ -16,7 +15,7 @@ You can use the Amazon Braket Python SDK, Boto3, or the AWS CLI to submit OpenQA
 
 To create an OpenQASM 3.0 task, you can start with a basic OpenQASM 3.0 program (ghz.qasm) that prepares a [GHZ state](https://en.wikipedia.org/wiki/Greenberger%E2%80%93Horne%E2%80%93Zeilinger_state) as shown in the following example.
 
-```
+```python
 // ghz.qasm
 // Prepare a GHZ state
 OPENQASM 3;
@@ -36,7 +35,7 @@ c = measure q;
 
 You can use the [Amazon Braket Python SDK](https://github.com/aws/amazon-braket-sdk-python) to submit this program to an Amazon Braket device with the following code. Be sure to replace the example Amazon S3 bucket location “amzn-s3-demo-bucket” with your own Amazon S3 bucket name.
 
-```
+```python
 with open("ghz.qasm", "r") as ghz:
     ghz_qasm_string = ghz.read()
 
@@ -63,7 +62,7 @@ my_task = device.run(
 
 You can also use [AWS Python SDK for Braket (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html) to create the quantum tasks using OpenQASM 3.0 strings, as shown in the following example. The following code snippet references ghz.qasm that prepares a [GHZ state](https://en.wikipedia.org/wiki/Greenberger%E2%80%93Horne%E2%80%93Zeilinger_state) as shown above.
 
-```
+```python
 import boto3
 import json
 
@@ -104,7 +103,7 @@ rsp = braket_client.create_quantum_task(
 
 The [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/) can also be used to submit OpenQASM 3.0 programs, as shown in the following example.
 
-```
+```python
 aws braket create-quantum-task \
     --region "us-west-1" \
     --device-arn "arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3" \

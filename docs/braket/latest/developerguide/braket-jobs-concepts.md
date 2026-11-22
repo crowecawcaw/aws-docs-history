@@ -1,7 +1,6 @@
 
 
 # Key concepts for Hybrid Jobs
-<a name="braket-jobs-concepts"></a>
 
 This section explains the key concepts of the `AwsQuantumJob.create` function provided by the Amazon Braket Python SDK and mapping to the container file structure.
 
@@ -69,7 +68,7 @@ Amazon Braket provides several environment variables to simplify the interaction
 
 Amazon Braket provides several helper functions to simplify the interactions with container inputs and outputs. These helper functions would be called from within the algorithm script that is used to run your Hybrid Job. The following example demonstrates how to use them.
 
-```
+```python
 from braket.jobs import get_checkpoint_dir, get_hyperparameters, get_input_data_dir, get_job_device_arn, get_job_name, get_results_dir, save_job_result, save_job_checkpoint, load_job_checkpoint
 
 get_checkpoint_dir() # Get the checkpoint directory

@@ -1,7 +1,6 @@
 
 
 # Tagging restrictions
-<a name="tag-restrictions"></a>
 
 The following basic restrictions apply to tags on Amazon Braket resources:
 + Maximum number of tags that you can assign to a resource: 50

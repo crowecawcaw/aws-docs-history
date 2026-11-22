@@ -1,7 +1,6 @@
 
 
 # Run your circuits with OpenQASM 3.0
-<a name="braket-openqasm"></a>
 
  Amazon Braket now supports [OpenQASM 3.0](https://openqasm.com/) for gate-based quantum devices and simulators. This user guide provides information about the subset of OpenQASM 3.0 supported by Braket. Braket customers now have the choice of submitting Braket circuits with the [SDK](braket-constructing-circuit.md) or by directly providing OpenQASM 3.0 strings to all gate-based devices with the [Amazon Braket API](https://docs.aws.amazon.com/braket/latest/APIReference/Welcome.html) and the [Amazon Braket Python SDK](https://github.com/aws/amazon-braket-sdk-python).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting OpenQASM
-<a name="braket-troubleshooting-openqasm"></a>
 
 This section provides troubleshooting pointers that might be useful when encountering errors using OpenQASM 3.0.
 
@@ -24,7 +23,7 @@ This section provides troubleshooting pointers that might be useful when encount
 
 Braket currently doesn't have a standard gate library file to be included in OpenQASM programs. For example, the following example raises a parser error.
 
-```
+```python
 OPENQASM 3;
 include "standardlib.inc";
 ```
@@ -38,7 +37,7 @@ Using non-contiguous qubits on devices that `requiresContiguousQubitIndices` be 
 
 When running quantum tasks on simulators and IonQ, the following program triggers the error.
 
-```
+```python
 OPENQASM 3;
 
 qubit[4] q;
@@ -55,7 +54,7 @@ This code generates the error message: `Device requires contiguous qubits. Qubit
 
 Mixing physical qubits with virtual qubits in the same program is not allowed and results in an error. The following code generates the error.
 
-```
+```python
 OPENQASM 3;
 
 qubit[2] q;
@@ -69,7 +68,7 @@ This code generates the error message: `[line 4] mixes physical qubits and qubit
 
 Requesting result types and that qubits are explicitly measured in the same program results in an error. The following code generates the error.
 
-```
+```python
 OPENQASM 3;
 
 qubit[2] q;
@@ -88,7 +87,7 @@ This code generates the error message: `Qubits should not be explicitly measured
 
 Only one classical register and one qubit register are allowed. The following code generates the error.
 
-```
+```python
 OPENQASM 3;
 
 qubit[2] q0;
@@ -102,7 +101,7 @@ This code generates the error message: `[line 4] cannot declare a qubit register
 
 All boxes must be preceded by a verbatim pragma. The following code generates the error.
 
-```
+```python
 box{
 rx(0.5) $0;
 }
@@ -115,7 +114,7 @@ This code generates the error message: `In verbatim boxes, native gates are requ
 
 Verbatim boxes should have native gates and physical qubits. The following code generates the native gates error.
 
-```
+```python
 #pragma braket verbatim
 box{
 x $0;
@@ -129,7 +128,7 @@ This code generates the error message: `In verbatim boxes, native gates are requ
 
 Verbatim boxes must have physical qubits. The following code generates the missing physical qubits error.
 
-```
+```python
 qubit[2] q;
 
 #pragma braket verbatim
@@ -145,7 +144,7 @@ This code generates the error message: `Physical qubits are required in verbatim
 
 You must include “braket” in the verbatim pragma. The following code generates the error.
 
-```
+```python
 #pragma braket verbatim           // Correct
 #pragma verbatim                  // wrong
 ```
@@ -157,7 +156,7 @@ This code generates the error message: `You must include “braket” in the ver
 
 Single qubits cannot be indexed. The following code generates the error.
 
-```
+```python
 OPENQASM 3;
 
 qubit q;
@@ -168,7 +167,7 @@ This code generates the error: `[line 4] single qubit cannot be indexed.`
 
 However, single qubit arrays can be indexed as follows:
 
-```
+```python
 OPENQASM 3;
 
 qubit[1] q;
@@ -180,7 +179,7 @@ h q[0];   // This is valid
 
 To use physical qubits, first confirm that the device uses physical qubits by checking `device.properties.action[DeviceActionType.OPENQASM].supportPhysicalQubits` and then verify the connectivity graph by checking `device.properties.paradigm.connectivity.connectivityGraph` or `device.properties.paradigm.connectivity.fullyConnected`.
 
-```
+```python
 OPENQASM 3;
 
 cnot $0, $14;
@@ -193,7 +192,7 @@ This code generates the error message: `[line 3] has disconnected qubits 0 and 1
 
 The `LocalSimulator` supports advanced features in OpenQASM that may not be available on QPUs or on-demand simulators. If your program contains language features specific only to the `LocalSimulator`, as seen in the following example, you will receive a warning.
 
-```
+```python
 qasm_string = """
 qubit[2] q;
 

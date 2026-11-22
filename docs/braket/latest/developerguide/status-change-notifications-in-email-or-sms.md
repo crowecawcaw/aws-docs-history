@@ -1,7 +1,6 @@
 
 
 # Set up email or SMS notifications
-<a name="status-change-notifications-in-email-or-sms"></a>
 
 Amazon Braket sends events to Amazon EventBridge when the availability of a QPU changes or when the state of your quantum task changes. Follow these steps to receive device and quantum task status change notifications by email or SMS message:
 

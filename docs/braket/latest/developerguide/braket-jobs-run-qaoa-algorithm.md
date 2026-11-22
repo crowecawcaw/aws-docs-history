@@ -1,11 +1,10 @@
 
 
 # Using Hybrid Jobs and PennyLane to run a QAOA algorithm
-<a name="braket-jobs-run-qaoa-algorithm"></a>
 
 In this section, you will use what you have learned to write an actual hybrid program using PennyLane with parametric compilation. You use the algorithm script to address a Quantum Approximate Optimization Algorithm (QAOA) problem. The program creates a cost function corresponding to a classical Max Cut optimization problem, specifies a parametrized quantum circuit, and uses a gradient descent method to optimize the parameters so that the cost function is minimized. In this example, we generate the problem graph in the algorithm script for simplicity, but for more typical use cases the best practice is to provide the problem specification through a dedicated channel in the input data configuration. The flag `parametrize_differentiable` defaults to `True` so you automatically get the benefits of improved runtime performance from parametric compilation on supported QPUs.
 
-```
+```python
 import os
 import json
 import time

@@ -1,7 +1,6 @@
 
 
 # Cancel a Hybrid Job
-<a name="braket-jobs-cancel"></a>
 
 You may need to cancel a hybrid job in a non-terminal state. This can be done either in the console or with code.
 
@@ -17,7 +16,7 @@ To confirm the cancellation, enter *cancel* into the input field when prompted a
 
 To cancel your hybrid job using code from the Braket Python SDK, use the `job_arn` to identify the hybrid job and then call the `cancel` command on it as shown in following code.
 
-```
+```python
 job = AwsQuantumJob(arn=job_arn)
 job.cancel()
 ```

@@ -1,7 +1,6 @@
 
 
 # Testing a quantum task with the local simulator
-<a name="braket-send-to-local-simulator"></a>
 
 You can send quantum tasks directly to a local simulator for rapid prototyping and testing. This simulator runs in your local environment, so you do not need to specify an Amazon S3 location. The results are computed directly in your session. To run a quantum task on the local simulator, you must only specify the shots parameter.
 
@@ -10,7 +9,7 @@ The execution speed and maximum number of qubits the local simulator can process
 
 The following commands are all identical and instantiate the state vector (noise free) local simulator.
 
-```
+```python
 # Import the LocalSimulator module
 from braket.devices import LocalSimulator
 
@@ -23,13 +22,13 @@ device = LocalSimulator(backend="braket_sv")
 
 Then run a quantum task with the following.
 
-```
+```python
 my_task = device.run(circ, shots=1000)
 ```
 
 To instantiate the local density matrix (noise) simulator customers change the backend as follows.
 
-```
+```python
 # Import the LocalSimulator module
 from braket.devices import LocalSimulator
 
@@ -43,7 +42,7 @@ The local state vector simulator and local density matrix simulator support runn
 
 For example, in the following code you can create a two-qubit circuit and only measure the first qubit by adding a `measure` instruction with the target qubits to the end of the circuit.
 
-```
+```python
 # Import the LocalSimulator module
 from braket.devices import LocalSimulator 
 

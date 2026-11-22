@@ -1,7 +1,6 @@
 
 
 # Hello AHS: Run your first Analog Hamiltonian Simulation
-<a name="braket-get-started-hello-ahs"></a>
 
 This section provides information on running your first Analog Hamiltonian Simulation.
 
@@ -32,7 +31,7 @@ We will use one neutral atom to stand for each spin, and the “up” and “dow
 
  **Prerequisites**: You need to pip install the [Braket SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk). (If you are using a Braket hosted notebook instance, this SDK comes pre-installed with the notebooks.) To reproduce the plots, you also need to separately install matplotlib with the shell command `pip install matplotlib`.
 
-```
+```python
 from braket.ahs.atom_arrangement import AtomArrangement
 import numpy as np
 import matplotlib.pyplot as plt  # Required for plotting
@@ -52,7 +51,7 @@ register.add(np.array([-0.5, 0.5 + 1/np.sqrt(2)]) * a)
 
 which we can also plot with
 
-```
+```python
 fig, ax = plt.subplots(1, 1, figsize=(7, 7))
 xs, ys = [register.coordinate_list(dim) for dim in (0, 1)]
 ax.plot(xs, ys, 'r.', ms=15)
@@ -88,7 +87,7 @@ where Ω(t),ϕ(t),Δ(t) are the time-dependent, global amplitude (aka [Rabi freq
 
 To program a smooth transition from the ferromagnetic phase to the anti-ferromagnetic phase, we specify the driving field with the following code.
 
-```
+```python
 from braket.timings.time_series import TimeSeries
 from braket.ahs.driving_field import DrivingField
 
@@ -122,7 +121,7 @@ drive = DrivingField(
 
 We can visualize the time series of the driving field with the following script.
 
-```
+```python
 fig, axes = plt.subplots(3, 1, figsize=(12, 7), sharex=True)
 
 ax = axes[0]
@@ -156,7 +155,7 @@ plt.show()  # This will show the plot below in an ipython or jupyter session
 
 The register, the driving field, (and the implicit van der Waals interactions) make up the Analog Hamiltonian Simulation program `ahs_program`.
 
-```
+```python
 from braket.ahs.analog_hamiltonian_simulation import AnalogHamiltonianSimulation
 
 ahs_program = AnalogHamiltonianSimulation(
@@ -172,7 +171,7 @@ Since this example is small (less than 15 spins), before running it on an AHS-co
 
 Here, we can set the number of shots to a high value (say, 1 million) because the local simulator tracks the time evolution of the quantum state and draws samples from the final state; hence, increasing the number of shots, while increasing the total runtime only marginally.
 
-```
+```python
 from braket.devices import LocalSimulator
 
 device = LocalSimulator("braket_ahs")
@@ -188,7 +187,7 @@ result_simulator = device.run(
 
 We can aggregate the shot results with the following function that infers the state of each spin (which may be “d” for “down”, “u” for “up”, or “e” for empty site), and counts how many times each configuration occurred across the shots.
 
-```
+```python
 from collections import Counter
 
 
@@ -223,14 +222,14 @@ counts_simulator = get_counts(result_simulator)  # Takes about 5 seconds
 print(counts_simulator)
 ```
 
-```
+```python
 *[Output]*
 {'dddddddd': 5, 'dddddddu': 12, 'ddddddud': 15, ...}
 ```
 
 Here `counts` is a dictionary that counts the number of times each state configuration is observed across the shots. We can also visualize them with the following code.
 
-```
+```python
 from collections import Counter
 
 
@@ -302,7 +301,7 @@ If you are using a Braket hosted notebook instance, the Braket SDK comes pre-ins
 
 With all dependencies installed, we can connect to the Aquila QPU.
 
-```
+```python
 from braket.aws import AwsDevice
 
 aquila_qpu = AwsDevice("arn:aws:braket:us-east-1::device/qpu/quera/Aquila")
@@ -310,7 +309,7 @@ aquila_qpu = AwsDevice("arn:aws:braket:us-east-1::device/qpu/quera/Aquila")
 
 To make our AHS program suitable for the QuEra machine, we need to round all values to comply with the levels of precision allowed by the Aquila QPU. (These requirements are governed by the device parameters with “Resolution” in their name. We can see them by executing `aquila_qpu.properties.dict()` in a notebook. For more details of capabilities and requirements of Aquila, see the [Introduction to Aquila](https://github.com/aws/amazon-braket-examples/blob/main/examples/analog_hamiltonian_simulation/01_Introduction_to_Aquila.ipynb) notebook.) We can do this by calling the `discretize` method.
 
-```
+```python
 discretized_ahs_program = ahs_program.discretize(aquila_qpu)
 ```
 
@@ -319,7 +318,7 @@ Now we can run the program (running only 100 shots for now) on the Aquila QPU.
 **Note**  
 Running this program on the Aquila processor will incur a cost. The Amazon Braket SDK includes a [Cost Tracker](https://aws.amazon.com/blogs/quantum-computing/managing-the-cost-of-your-experiments-in-amazon-braket/) that enables customers to set cost limits as well as track their costs in near real-time.
 
-```
+```python
 task = aquila_qpu.run(discretized_ahs_program, shots=100)
 
 metadata = task.metadata()
@@ -330,7 +329,7 @@ print(f"ARN: {task_arn}")
 print(f"status: {task_status}")
 ```
 
-```
+```python
 *[Output]*
 ARN: arn:aws:braket:us-east-1:123456789012:quantum-task/12345678-90ab-cdef-1234-567890abcdef
 status: CREATED
@@ -338,7 +337,7 @@ status: CREATED
 
 Due to the large variance of how long a quantum task may take to run (depending on availability windows and QPU utilization), it is a good idea to note down the quantum task ARN, so we can check its status at a later time with the following code snippet.
 
-```
+```python
 # Optionally, in a new python session
 from braket.aws import AwsQuantumTask
 
@@ -353,7 +352,7 @@ print(f"ARN: {task_arn}")
 print(f"status: {task_status}")
 ```
 
-```
+```python
 *[Output]*
 ARN: arn:aws:braket:us-east-1:123456789012:quantum-task/12345678-90ab-cdef-1234-567890abcdef
 status: COMPLETED
@@ -361,7 +360,7 @@ status: COMPLETED
 
 Once the status is COMPLETED (which can also be checked from the quantum tasks page of the Amazon Braket [console](https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/tasks)), we can query the results with:
 
-```
+```python
 result_aquila = task.result()
 ```
 
@@ -370,19 +369,19 @@ result_aquila = task.result()
 
 Using the same `get_counts` functions as before, we can compute the counts:
 
-```
+```python
 counts_aquila = get_counts(result_aquila)
    print(counts_aquila)
 ```
 
-```
+```python
 *[Output]*
 {'dddududd': 2, 'dudududu': 18, 'ddududud': 4, ...}
 ```
 
 and plot them with `plot_counts`:
 
-```
+```python
 plot_counts(counts_aquila)
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Braket notebook instance
-<a name="braket-get-started-create-notebook"></a>
 
 **Tip**  
 **Learn the foundations of quantum computing with AWS\!** Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs) and earn your own Digital badge after completing a series of learning courses and a digital assessment.
@@ -58,3 +57,5 @@ To save your work, integrate your [SageMaker AI notebook instance with a Git rep
 View and manage your Amazon Braket notebook instances in the Amazon Braket and Amazon SageMaker AI consoles. Additional Amazon Braket notebook settings are available through the [SageMaker console](https://console.aws.amazon.com/sagemaker/).
 
 If you are working in the Amazon Braket console within AWS the Amazon Braket SDK and plugins are preloaded in the notebooks you created. To run on your own machine, install the SDK and plugins when you run the command `pip install amazon-braket-sdk` or when you run the command `pip install amazon-braket-pennylane-plugin` for PennyLane plugins.
+
+Your notebook instance also includes tools for agents. For more information, see [Use agents in Amazon Braket notebook instances](braket-notebook-agents.md).

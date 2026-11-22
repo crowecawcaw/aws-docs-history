@@ -1,7 +1,6 @@
 
 
 # Monitoring quantum tasks through the Amazon Braket console
-<a name="braket-monitor-console"></a>
 
 Amazon Braket offers a convenient way of monitoring the quantum task through the [Amazon Braket console](https://console.aws.amazon.com/braket/home). All submitted quantum tasks are listed in the **Quantum Tasks** field as shown in the following figure. This service is *Region-specific*, which means that you can only view those quantum tasks created in the specific AWS Region.
 

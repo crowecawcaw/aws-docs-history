@@ -1,7 +1,6 @@
 
 
 # What OpenQASM features does Braket support?
-<a name="braket-openqasm-supported-features"></a>
 
 The following section lists the OpenQASM 3.0 data types, statements, and pragma instructions supported by Braket.
 
@@ -51,7 +50,7 @@ The following OpenQASM statements are supported by Amazon Braket.
 A device's supported gates can be found in the device properties for OpenQASM actions; no gate definitions are needed to use these gates.
 + Verbatim box statements. Currently, we do not support box duration notation. Native gates and physical qubits are required in verbatim boxes.
 
-```
+```python
 #pragma braket verbatim
 box{
     rx(0.314) $0;
@@ -117,7 +116,7 @@ For examples of each advanced feature, see this [sample notebook](https://github
 
 Cal blocks:
 
-```
+```python
 cal {
     ...
 }
@@ -125,7 +124,7 @@ cal {
 
 Defcal blocks:
 
-```
+```python
 // 1 qubit
 defcal x $0 {
 ...
@@ -149,13 +148,13 @@ defcal cz $1, $0 {
 
 Frames:
 
-```
+```python
 frame my_frame = newframe(port_0, 4.5e9, 0.0);
 ```
 
 Waveforms:
 
-```
+```python
 // prebuilt
 waveform my_waveform_1 = constant(1e-6, 1.0);
 
@@ -165,7 +164,7 @@ waveform my_waveform_2 = {0.1 + 0.1im, 0.1 + 0.1im, 0.1, 0.1};
 
  **Custom Gate Calibration Example:** 
 
-```
+```python
 cal {
     waveform wf1 = constant(1e-6, 0.25);
 }
@@ -193,7 +192,7 @@ c[0] = measure $0;
 
  **Arbitrary pulse example:** 
 
-```
+```python
 bit[2] ro;
 cal {
     waveform wf1 = {0.1 + 0.1im, 0.1 + 0.1im, 0.1, 0.1};

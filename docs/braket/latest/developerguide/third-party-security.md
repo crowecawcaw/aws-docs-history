@@ -1,7 +1,6 @@
 
 
 # Security of Amazon Braket Hardware Providers
-<a name="third-party-security"></a>
 
 QPUs on Amazon Braket are hosted by third-party hardware providers. When you run your quantum task on a QPU, Amazon Braket uses the DeviceARN as an identifier when sending the circuit to the specified QPU for processing.
 

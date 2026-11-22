@@ -1,7 +1,6 @@
 
 
 # Building your first circuit
-<a name="braket-get-started-run-circuit"></a>
 
 After your notebook instance has launched, open the instance with a standard Jupyter interface by choosing the notebook you just created.
 
@@ -17,7 +16,7 @@ You can start with a simple “Hello, world\!” example. First, construct a cir
 
 Begin by importing the Begin by importing the Amazon Braket SDK modules and defining a simpleBRAKETlong; SDK modules and defining a basic Bell State circuit.
 
-```
+```python
 import boto3
 from braket.aws import AwsDevice
 from braket.devices import LocalSimulator
@@ -29,11 +28,11 @@ bell = Circuit().h(0).cnot(0, 1)
 
 You can visualize the circuit with this command:
 
-```
+```python
 print(bell)
 ```
 
-```
+```python
 T  : │  0  │  1  │
       ┌───┐       
 q0 : ─┤ H ├───●───
@@ -50,14 +49,14 @@ Next, choose the quantum device on which to run the circuit. The Amazon Braket S
 
 To instantiate the local simulator:
 
-```
+```python
 # Instantiate the local simulator
 local_sim = LocalSimulator()
 ```
 
 and run the circuit:
 
-```
+```python
 # Run the circuit
 result = local_sim.run(bell, shots=1000).result()
 counts = result.measurement_counts
@@ -66,7 +65,7 @@ print(counts)
 
 You should see a result something like this:
 
-```
+```python
 Counter({'11': 503, '00': 497})
 ```
 
@@ -79,7 +78,7 @@ Amazon Braket also provides access to an on-demand, high-performance simulator, 
 **Note**  
 Fill in your actual, existing bucket name where the following example shows `amazon-braket-s3-demo-bucket` as your bucket name. Bucket names for Amazon Braket always begin with `amazon-braket-` followed by other identifying characters you add. If you need information on how to set up an S3 bucket, see [Getting started with Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html).
 
-```
+```python
 # Get the account ID
 aws_account_id = boto3.client("sts").get_caller_identity()["Account"]
 
@@ -93,7 +92,7 @@ s3_folder = (my_bucket, my_prefix)
 
 To run a circuit on SV1, you must provide the location of the S3 bucket you previously selected as a positional argument in the `.run()` call.
 
-```
+```python
 # Choose the cloud-based on-demand simulator to run your circuit
 device = AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/sv1")
 
@@ -113,21 +112,21 @@ After 90 days, Amazon Braket automatically removes all quantum task IDs and othe
 
 With Amazon Braket, you can run the previous quantum circuit example on a physical quantum computer by just changing a single line of code. Amazon Braket provides access to a variety of Quantum processing unit (QPU) devices. You can find information about the different devices and availability windows in the [Supported Devices](braket-devices.md) section, and in the AWS console under the **Devices** tab. The following example shows how to instantiate an IQM device.
 
-```
+```python
 # Choose the IQM hardware to run your circuit
 device = AwsDevice("arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet")
 ```
 
 Or choose an IonQ device with this code:
 
-```
+```python
 # Choose the Ionq device to run your circuit
 device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1")
 ```
 
 After selecting a device and before running your workload, you can query device queue depth with the following code to determine the number of quantum tasks or hybrid jobs. Additionally, customers can view device specific queue depths on the Devices page of the Amazon Braket Management Console. 
 
-```
+```python
 # Print your queue depth
 print(device.queue_depth().quantum_tasks)
 # Returns the number of quantum tasks queued on the device
@@ -140,7 +139,7 @@ print(device.queue_depth().jobs)
 
 When you run your task, the Amazon Braket SDK polls for a result (with a default timeout of 5 days). You can change this default by modifying the `poll_timeout_seconds` parameter in the the `.run()` command as shown in the example that follows. Keep in mind that if your polling timeout is too short, results may not be returned within the polling time, such as when a QPU is unavailable and a local timeout error is returned. You can restart the polling by calling the `task.result()` function.
 
-```
+```python
 # Define quantum task with 1 day polling timeout
 task = device.run(bell, s3_folder, poll_timeout_seconds=24*60*60)
 print(task.result().measurement_counts)
@@ -148,7 +147,7 @@ print(task.result().measurement_counts)
 
 Additionally, after submitting your quantum task or hybrid job, you can call the `queue_position()` function to check your queue position.
 
-```
+```python
 print(task.queue_position().queue_position)
 # Return the number of quantum tasks queued ahead of you
 # '2'

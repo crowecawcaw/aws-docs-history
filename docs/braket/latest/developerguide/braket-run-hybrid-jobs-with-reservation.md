@@ -1,7 +1,6 @@
 
 
 # Running hybrid jobs during a reservation
-<a name="braket-run-hybrid-jobs-with-reservation"></a>
 
 Once you have a Python function to run as a hybrid job, you can run the hybrid job in a reservation by passing the `reservation_arn` keyword argument. All the tasks within the hybrid job use the reservation ARN. Importantly, the hybrid job with `reservation_arn` *only spins up the classical compute once your reservation starts*. 
 
@@ -10,7 +9,7 @@ A hybrid job running during a reservation *only successfully runs* quantum tasks
 
 The following code demonstrates how to run a hybrid job during a reservation.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.devices import Devices
 from braket.jobs import get_job_device_arn, hybrid_job
@@ -26,7 +25,7 @@ def example_hybrid_job():
 
 For hybrid jobs that use a Python script (see the section on [Creating your first Hybrid Job](https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs-first.html) in the developer guide), you can run them within the reservation by passing the `reservation_arn` keyword argument when creating the job.
 
-```
+```python
 from braket.aws import AwsQuantumJob 
 from braket.devices import Devices
 

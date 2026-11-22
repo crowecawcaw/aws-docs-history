@@ -1,7 +1,6 @@
 
 
 # Advanced logging with Amazon Braket
-<a name="braket-monitor-logging"></a>
 
 You can record the whole task-processing process using a logger. These advanced logging techniques allow you to see the background polling and create a record for later debugging.
 
@@ -11,7 +10,7 @@ To use the logger, we recommend changing the `poll_timeout_seconds` and `poll_in
 
 First, configure the logger so that all logs are written into a text file automatically, as shown in the following example lines.
 
-```
+```python
 # import the module
 import logging
 from datetime import datetime
@@ -30,7 +29,7 @@ logger.addHandler(logging.FileHandler(filename=log_file, mode='a'))
 logger.setLevel(logging.DEBUG)
 ```
 
-```
+```python
 Task info will be logged in: device_logs-20200803203309.txt
 ```
 
@@ -38,7 +37,7 @@ Task info will be logged in: device_logs-20200803203309.txt
 
 Now you can create a circuit, submit it to a device to run, and see what happens as shown in this example.
 
-```
+```python
 # define circuit
 circ_log = Circuit().rx(0, 0.15).ry(1, 0.2).rz(2, 0.25).h(3).cnot(control=0, target=2).zz(1, 3, 0.15).x(4)
 print(circ_log)
@@ -56,12 +55,12 @@ logger.info(
 
 You can check what is written into the file by entering the following command.
 
-```
+```python
 # print logs
 ! cat {log_file}
 ```
 
-```
+```python
 Task arn:aws:braket:us-west-2:123412341234:quantum-task/5088ec6c-89cf-4338-9750-9f5bb12a0dc4: start polling for completion
 Task arn:aws:braket:us-west-2:123412341234:quantum-task/5088ec6c-89cf-4338-9750-9f5bb12a0dc4: task status CREATED
 Task arn:aws:braket:us-west-2:123412341234:quantum-task/5088ec6c-89cf-4338-9750-9f5bb12a0dc4: task status CREATED
@@ -76,7 +75,7 @@ Counter({'00001': 493, '00011': 493, '01001': 5, '10111': 4, '01011': 3, '10101'
 
 From the log file output that's returned, as shown in the previous example, you can obtain the ARN information. With the ARN ID, you can retrieve the result of the completed quantum task.
 
-```
+```python
 # parse log file for arn
 with open(log_file) as openfile:
     for line in openfile:

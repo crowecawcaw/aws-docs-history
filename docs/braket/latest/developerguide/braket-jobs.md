@@ -1,7 +1,6 @@
 
 
 # Working with Amazon Braket Hybrid Jobs
-<a name="braket-jobs"></a>
 
 Amazon Braket Hybrid Jobs offers a way for you to run hybrid quantum-classical algorithms requiring both classical AWS resources and quantum processing units (QPUs). Hybrid Jobs is designed to spin up the requested classical resources, run your algorithm, and release the instances after completion so you only pay for *what you use*. 
 

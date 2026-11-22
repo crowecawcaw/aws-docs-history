@@ -1,7 +1,6 @@
 
 
 # How to create a reservation
-<a name="braket-create-a-reservation"></a>
 
 To create a reservation, contact the Braket team by following these steps:
 

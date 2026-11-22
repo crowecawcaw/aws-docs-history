@@ -1,11 +1,10 @@
 
 
 # Using hyperparameters
-<a name="braket-jobs-hyperparameters"></a>
 
 You can define hyperparameters needed by your algorithm, such as the learning rate or step size, when you create a hybrid job. Hyperparameter values are typically used to control various aspects of the algorithm, and can often be tuned to optimize the algorithm's performance. To use hyperparameters in a Braket hybrid job, you need to specify their names and values explicitly as a dictionary. Specify the hyperparameter values to test when searching for the optimal set of values. The first step to using hyperparameters is to set up and define the hyperparameters as a dictionary, which can be seen in the following code.
 
-```
+```python
 from braket.devices import Devices
 
 device_arn = Devices.Amazon.SV1
@@ -15,7 +14,7 @@ hyperparameters = {"shots": 1_000}
 
 Then pass the hyperparameters defined in the code snippet given above to be used in the algorithm of your choice. To run the following code example, create a directory named “src” in the same path as your hyperparameter file. Inside of the "src" directory, add [0\_Getting\_started\_papermill.ipynb](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/0_Getting_started_papermill.ipynb), [notebook\_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py), and [requirements.txt](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/requirements.txt) code files. 
 
-```
+```python
 import time
 from braket.aws import AwsQuantumJob
 
@@ -34,7 +33,7 @@ print(job)
 
 To access your hyperparameters from *within* your hybrid job script, see the `load_jobs_hyperparams()` function in the [notebook\_runner.py](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/hybrid_jobs/7_Running_notebooks_as_hybrid_jobs/src/notebook_runner.py) python file. To access your hyperparameters *outside* of your hybrid job script, run the following code. 
 
-```
+```python
 from braket.aws import AwsQuantumJob
 
 # Get the job using the ARN

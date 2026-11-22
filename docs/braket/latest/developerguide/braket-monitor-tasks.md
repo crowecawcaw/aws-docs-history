@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring
-<a name="braket-monitor-tasks"></a>
 
 After you submit a quantum task through the Amazon Braket service, you can closely monitor the status and progression of that task through the Amazon Braket SDK and console. This provides you with a centralized interface to track the implementation of your workloads, identify any potential bottlenecks or issues, and take appropriate actions to optimize the performance and reliability of your quantum applications. When the quantum task completes, Braket saves the results in your specified Amazon S3 location. Completion time for quantum tasks can vary, especially for those running on quantum processing unit (QPU) devices. This is largely due to the length of the execution queue, as quantum hardware resources are shared among multiple users.
 

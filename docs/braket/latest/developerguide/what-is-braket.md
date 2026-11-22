@@ -1,7 +1,6 @@
 
 
 # What is Amazon Braket?
-<a name="what-is-braket"></a>
 
 **Tip**  
 **Learn the foundations of quantum computing with AWS\!** Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs) and earn your own Digital badge after completing a series of learning courses and a digital assessment.

@@ -1,7 +1,6 @@
 
 
 # Restrict user access to certain S3 buckets
-<a name="restrict-access-s3-buckets"></a>
 
 To restrict access for certain users to specific Amazon S3 buckets, you can add a deny policy to a specific role, user, or group.
 
@@ -12,7 +11,7 @@ The following example restricts permissions to retrieve and place objects into a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="braket-jobs-prerequisites"></a>
 
 Before you run your first hybrid job, you must ensure that you have sufficient permissions to proceed with this task. To determine that you have the correct permissions, select **Permissions** from the menu on left side of the Braket Console. The **Permissions management for Amazon Braket ** page helps you verify whether one of your existing roles has permissions that are sufficient to run your hybrid job or guides you through the creation of a default role that can be used to run your hybrid job if you do not already have such a role.
 

@@ -1,7 +1,6 @@
 
 
 # Submit an analog program using QuEra Aquila
-<a name="braket-quera-submitting-analog-program-aquila"></a>
 
 This page provides a comprehensive documentation about the capabilities of the Aquila machine from QuEra. Details covered here are the following: 
 
@@ -63,7 +62,7 @@ The user cannot control which levels are involved (that is, S−​,S\+​, n op
 **Note**  
 If the [local detuning](https://docs.aws.amazon.com/braket/latest/developerguide/braket-experimental-capabilities.html#braket-access-local-detuning) feature is not enabled for your account, use `localDetuning=[]` in the following example.
 
-```
+```python
 Program(
     braketSchemaHeader=BraketSchemaHeader(
         name='braket.ir.ahs.program',
@@ -125,7 +124,7 @@ Program(
 **Note**  
 If the [local detuning](https://docs.aws.amazon.com/braket/latest/developerguide/braket-experimental-capabilities.html#braket-access-local-detuning) feature is not enabled for your account, use `"localDetuning": []` in the following example.
 
-```
+```python
 {
     "braketSchemaHeader": {
         "name": "braket.ir.ahs.program",
@@ -215,7 +214,7 @@ If the [local detuning](https://docs.aws.amazon.com/braket/latest/developerguide
 
  **braket.tasks.analog\_hamiltonian\_simulation\_quantum\_task\_result.AnalogHamiltonianSimulationQuantumTaskResult** (example)
 
-```
+```python
 AnalogHamiltonianSimulationQuantumTaskResult(
     task_metadata=TaskMetadata(
         braketSchemaHeader=BraketSchemaHeader(
@@ -251,7 +250,7 @@ AnalogHamiltonianSimulationQuantumTaskResult(
 
  **JSON** (example)
 
-```
+```python
 {
     "braketSchemaHeader": {
         "name": "braket.task_result.analog_hamiltonian_simulation_task_result",
@@ -335,7 +334,7 @@ AnalogHamiltonianSimulationQuantumTaskResult(
 
  **braket.device\_schema.quera.quera\_device\_capabilities\_v1.QueraDeviceCapabilities** (example)
 
-```
+```python
 QueraDeviceCapabilities(
     service=DeviceServiceProperties(
         braketSchemaHeader=BraketSchemaHeader(
@@ -410,7 +409,7 @@ QueraDeviceCapabilities(
 
  **JSON** (example)
 
-```
+```python
 {
     "service": {
         "braketSchemaHeader": {

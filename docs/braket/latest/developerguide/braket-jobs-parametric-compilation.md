@@ -1,13 +1,12 @@
 
 
 # Using parametric compilation to speed up Hybrid Jobs
-<a name="braket-jobs-parametric-compilation"></a>
 
  Amazon Braket supports parametric compilation on certain QPUs. This enables you to reduce the overhead associated with the computationally expensive compilation step by compiling a circuit only once and not for every iteration in your hybrid algorithm. This can improve runtimes dramatically for Hybrid Jobs, since you avoid the need to recompile your circuit at each step. Just submit parametrized circuits to one of our supported QPUs as a Braket Hybrid Job. For long running hybrid jobs, Braket automatically uses the updated calibration data from the hardware provider when compiling your circuit to ensure the highest quality results.
 
 To create a parametric circuit, you first need to provide parameters as inputs in your algorithm script. In this example, we use a small parametric circuit and ignore any classical processing between each iteration. For typical workloads, you would submit many circuits in batch and perform classical processing such as updating the parameters in each iteration.
 
-```
+```python
 import os
 
 from braket.aws import AwsDevice
@@ -31,7 +30,7 @@ def start_here():
 
 You can submit the algorithm script to run as a Hybrid Job with the following job script. When running the Hybrid Job on a QPU that supports parametric compilation, the circuit is compiled only on the first run. In following runs, the compiled circuit is reused, increasing the runtime performance of the Hybrid Job without any additional lines of code. 
 
-```
+```python
 from braket.aws import AwsQuantumJob
 
 job = AwsQuantumJob.create(

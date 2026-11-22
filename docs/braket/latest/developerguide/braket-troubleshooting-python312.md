@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Python 3.12 Upgrade
-<a name="braket-troubleshooting-python312"></a>
 
 **Effective Date:** January 21, 2026
 
@@ -96,7 +95,7 @@ TensorFlow: 292282985366.dkr.ecr.us-west-2.amazonaws.com/amazon-braket-tensorflo
 
 **Example:**
 
-```
+```python
 from braket.jobs.hybrid_job import hybrid_job
 from braket.devices import Devices
 

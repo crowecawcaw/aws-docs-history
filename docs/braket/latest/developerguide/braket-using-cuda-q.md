@@ -1,7 +1,6 @@
 
 
 # Using CUDA-Q with Amazon Braket
-<a name="braket-using-cuda-q"></a>
 
 NVIDIA's CUDA-Q is a software library designed for programming hybrid quantum algorithms that combine CPUs, GPUs, and Quantum processing units (QPUs). It provides a unified programming model, allowing developers to express both classical and quantum instructions within a single program, streamlining workflows. CUDA-Q accelerates quantum program simulation and runtime with its built-in CPU and GPU simulators. CUDA-Q is available with native Braket notebook instances (NBIs) and Amazon Braket Hybrid Jobs.
 
@@ -16,7 +15,7 @@ CUDA-Q is installed by default in the Braket NBI environment. You can open a CUD
 
 You can also verify the version of CUDA-Q or any other third-party package installed in your NBI. For example, you can run the following command in a notebook code cell to verify the versions of CUDA-Q, Qiskit, PennyLane, and Braket packages that are installed in the environment.
 
-```
+```bash
 %pip freeze | grep -i -e cudaq -e qiskit -e pennylane -e braket
 ```
 
@@ -31,7 +30,7 @@ To get started, see the [CUDA-Q starter example](https://github.com/amazon-brake
 
 The following code snippet is a `hello-world` example for running a CUDA-Q program with Amazon Braket Hybrid Jobs.
 
-```
+```python
 image_uri = retrieve_image(Framework.CUDAQ, AwsSession().region)
 
 @hybrid_job(device='local:nvidia/qpp-cpu', image_uri=image_uri)
@@ -59,7 +58,7 @@ The above example simulates a Bell circuit on a CPU simulator. This example runs
 
 If your workloads have a high qubit count, a large number of circuits or a large number of iterations, you can use more powerful CPU computing resources by specifying the `instance_config` setting. The following code snippet shows how to configure the `instance_config` setting in the `hybrid_job` decorator. For more information about supported instance types, see [Configure your hybrid job instance](braket-jobs-configure-job-instance-for-script.md). For a list of instance types, see [Amazon EC2 Instance types](https://aws.amazon.com/ec2/instance-types/).
 
-```
+```python
 @hybrid_job(
     device="local:nvidia/qpp-cpu",
     image_uri=image_uri,
@@ -71,7 +70,7 @@ def my_job_script():
 
 For more demanding workloads, you can run your workloads on a CUDA-Q GPU simulator. To enable a GPU simulator, use the backend name `nvidia`. The `nvidia` backend operates as a CUDA-Q GPU simulator. Next, select an Amazon EC2 instance type that supports an NVIDIA GPU. The following code snippet shows the GPU-configured `hybrid_job` decorator.
 
-```
+```python
 @hybrid_job(
     device="local:nvidia/nvidia",
     image_uri=image_uri,
@@ -87,7 +86,7 @@ Set the `mgpu` option of the `nvidia` backend. This is required to parallelize t
 
 Next, specify the execution mode by setting `execution=cudaq.parallel.mpi`. The following code snippet shows these changes.
 
-```
+```python
 cudaq.set_target("nvidia", option="mqpu")
 cudaq.mpi.initialize()
 result = cudaq.observe(
@@ -98,7 +97,7 @@ cudaq.mpi.finalize()
 
 In the `hybrid_job` decorator specify an instance type that hosts multiple GPUs as shown in the following code snippet.
 
-```
+```python
 @hybrid_job(
     device="local:nvidia/nvidia-mqpu",
     instance_config=InstanceConfig(instanceType="ml.g4dn.12xlarge", instanceCount=1),
@@ -115,7 +114,7 @@ The [parallel simulations notebook](https://github.com/amazon-braket/amazon-brak
 
 After completing simulator testing, you can transition to running experiments on QPUs. Just switch the target to an Amazon Braket QPU, such as the IQM, IonQ, or Rigetti devices. The following code snippet illustrates how to set the target to the IQM Garnet device. For a list of available QPUs, see the [Amazon Braket console](https://console.aws.amazon.com/braket/home).
 
-```
+```python
 device_arn = "arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet"
 cudaq.set_target("braket", machine=device_arn)
 ```

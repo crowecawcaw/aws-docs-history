@@ -1,7 +1,6 @@
 
 
 # Setting up your coding agent for Amazon Braket
-<a name="amazon-braket-agent-setup"></a>
 
 Amazon Braket is a fully managed quantum computing service. With AI coding agents, you can accelerate quantum development. Your agent can help you build circuits, find devices, run quantum tasks and hybrid jobs, and track and control costs.
 
@@ -27,7 +26,7 @@ https://docs.aws.amazon.com/braket/latest/developerguide/samples/aws-braket-agen
 
 To give your agent expertise in Amazon Braket, install the `amazon-braket` skill. A skill is a package of instructions and reference material that your agent loads when a task needs it. The `amazon-braket` skill is part of the [Agent Toolkit for AWS](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/what-is-agent-toolkit.html), which gives AI coding agents the tools, knowledge, and guardrails they need to build, deploy, and manage applications on AWS. To install the skill into each supported agent that the AWS CLI detects on your system, run the following AWS CLI command:
 
-```
+```bash
 aws agent-toolkit add-skill \
     --skill-name amazon-braket \
     --region us-east-1
@@ -51,13 +50,13 @@ To install the `aws-core` plugin, run the following Claude Code CLI commands:
 
 1. Add the Agent Toolkit for AWS marketplace to Claude Code.
 
-   ```
+   ```bash
    claude plugin marketplace add aws/agent-toolkit-for-aws
    ```
 
 1. Install the `aws-core` plugin.
 
-   ```
+   ```bash
    claude plugin install aws-core@agent-toolkit-for-aws
    ```
 
@@ -70,13 +69,13 @@ To install the `aws-core` plugin, run the following Codex CLI commands:
 
 1. Add the Agent Toolkit for AWS marketplace to Codex.
 
-   ```
+   ```bash
    codex plugin marketplace add aws/agent-toolkit-for-aws
    ```
 
 1. Install the `aws-core` plugin.
 
-   ```
+   ```bash
    codex plugin add aws-core@agent-toolkit-for-aws
    ```
 
@@ -87,7 +86,7 @@ The plugin is now available in Codex.
 
 In Kiro, a plugin is called a power. To install the `aws-core` power, run the following Kiro CLI command. The command installs the power from the Kiro powers registry.
 
-```
+```bash
 kiro-cli powers install aws-core
 ```
 
@@ -103,7 +102,7 @@ For other agents, see your agent's documentation for skill and plugin installati
 
 To remove the `amazon-braket` skill from each agent where you installed it, run the following AWS CLI command:
 
-```
+```bash
 aws agent-toolkit remove-skill \
     --skill-name amazon-braket \
     --region us-east-1
@@ -114,16 +113,16 @@ For example commands and output, see [remove-skill](https://docs.aws.amazon.com/
 To remove the `aws-core` plugin, run the command for your agent:
 + Claude Code:
 
-  ```
+  ```bash
   claude plugin uninstall aws-core@agent-toolkit-for-aws
   ```
 + Codex:
 
-  ```
+  ```bash
   codex plugin remove aws-core@agent-toolkit-for-aws
   ```
 + Kiro:
 
-  ```
+  ```bash
   kiro-cli powers uninstall aws-core
   ```

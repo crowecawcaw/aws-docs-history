@@ -1,7 +1,6 @@
 
 
 # Managing tags in Amazon Braket
-<a name="tag-managing"></a>
 
 You set tags as *properties* on a *resource*. You can view, add, modify, list, and delete tags through the Amazon Braket console, the Amazon Braket API, or the AWS CLI. For more information, see the [Amazon Braket API reference](https://docs.aws.amazon.com/braket/latest/APIReference/Welcome.html).
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring your metrics with CloudWatch
-<a name="braket-monitor-metrics"></a>
 
 You can monitor Amazon Braket using Amazon CloudWatch, which collects raw data and processes it into readable, near real-time metrics. You view historical information generated up to 15 months ago or search metrics that have been updated in the last 2 weeks in the Amazon CloudWatch console to gain a better perspective on how Amazon Braket is performing. To learn more, see [Using CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html).
 

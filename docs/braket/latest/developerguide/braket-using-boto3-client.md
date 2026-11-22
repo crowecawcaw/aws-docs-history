@@ -1,11 +1,10 @@
 
 
 # Turn on the Amazon Braket Boto3 client
-<a name="braket-using-boto3-client"></a>
 
 To use Boto3 with Amazon Braket, you must import Boto3 and then define a client that you use to connect to the Amazon Braket API. In the following example, the Boto3 client is named `braket`.
 
-```
+```python
 import boto3
 import botocore
 
@@ -31,7 +30,7 @@ Now that you have a `braket` client established, you can make requests and proce
 
 Search for devices using the specified filters.
 
-```
+```python
 # Pass search filters and optional parameters when sending the
 # request and capture the response
 response = braket.search_devices(filters=[{
@@ -52,7 +51,7 @@ for i in range(len(response['devices'])):
 
 Retrieve the devices available in Amazon Braket.
 
-```
+```python
 # Pass the device ARN when sending the request and capture the repsonse
 response = braket.get_device(deviceArn='arn:aws:braket:::device/quantum-simulator/amazon/sv1')
 
@@ -65,7 +64,7 @@ print(f"Device {response['deviceName']} is {response['deviceStatus']}")
 
 Create a quantum task.
 
-```
+```python
 # Create parameters to pass into create_quantum_task()
 kwargs = {
     # Create a Bell pair
@@ -94,7 +93,7 @@ print(f"Quantum task {response['quantumTaskArn']} created")
 
 Retrieve the specified quantum task.
 
-```
+```python
 # Pass the quantum task ARN when sending the request and capture the response
 response = braket.get_quantum_task(quantumTaskArn='arn:aws:braket:us-west-1:123456789012:quantum-task/ce78c429-cef5-45f2-88da-123456789012')
 
@@ -107,7 +106,7 @@ print(response['status'])
 
 Search for quantum tasks that match the specified filter values.
 
-```
+```python
 # Pass search filters and optional parameters when sending the
 # request and capture the response
 response = braket.search_quantum_tasks(filters=[{
@@ -129,7 +128,7 @@ for n in range(len(response['quantumTasks'])):
 
 Cancel the specified quantum task.
 
-```
+```python
 # Pass the quantum task ARN when sending the request and capture the response
 response = braket.cancel_quantum_task(quantumTaskArn='arn:aws:braket:us-west-1:123456789012:quantum-task/ce78c429-cef5-45f2-88da-123456789012')
 

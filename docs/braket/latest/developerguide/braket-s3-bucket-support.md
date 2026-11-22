@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 buckets with Amazon Braket
-<a name="braket-s3-bucket-support"></a>
 
 Braket can accept a bucket to `CreateQuantumTask` or `CreateHybridJob` when it satisfies either of the following conditions:
 + The bucket name begins with `amazon-braket-`.

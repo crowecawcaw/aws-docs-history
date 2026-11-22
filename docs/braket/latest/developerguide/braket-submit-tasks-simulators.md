@@ -1,7 +1,6 @@
 
 
 # Submitting quantum tasks to simulators
-<a name="braket-submit-tasks-simulators"></a>
 
 Amazon Braket provides access to several simulators that can test your quantum tasks. You can submit quantum tasks individually or you can [run multiple programs](https://docs.aws.amazon.com/braket/latest/developerguide/braket-batching-tasks.html).
 
@@ -105,7 +104,7 @@ For more information about results, see [Result types](https://docs.aws.amazon.c
 
  **Noise gates and limitations** 
 
-```
+```python
 AmplitudeDamping
     Probability has to be within [0,1]
 BitFlip

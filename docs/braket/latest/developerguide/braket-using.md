@@ -1,7 +1,6 @@
 
 
 # Running your quantum tasks with Amazon Braket
-<a name="braket-using"></a>
 
 Braket provides secure, on-demand access to different types of quantum computers. You have access to gate-based quantum computers from AQT, IonQ, IQM, and Rigetti, as well as an Analog Hamiltonian Simulator from QuEra. You also have no upfront commitment, and no need to procure access through individual providers.
 + The [Amazon Braket Console](https://console.aws.amazon.com/braket/home) provides device information and status to help you create, manage, and monitor your resources and quantum tasks.

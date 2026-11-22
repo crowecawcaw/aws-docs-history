@@ -1,16 +1,17 @@
 
 
 # Document history for the Amazon Braket Developer Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for Amazon Braket.
-+ **Latest API Reference update:** November 20, 2025
-+ **Latest documentation update:** November 13, 2026
++ **Latest API Reference update:** November 18, 2026
++ **Latest documentation update:** November 18, 2026
 
 
 |  |  |  | 
 | --- |--- |--- |
 |  **Change**  |  **Description**  |  **Date**  | 
+| Agents | Amazon Braket notebook instances now include the Kiro CLI, the `amazon-braket` skill, the AWS MCP Server, and the Jupyter MCP Server. For more information, see [Use agents in Amazon Braket notebook instances](braket-notebook-agents.md). | November 19, 2026 | 
+| Added the `PAUSED` device status | Added documentation updates for the new `PAUSED` device status. | November 18, 2026 | 
 | Updated the [ AmazonBraketServiceRolePolicy](security-iam-aws-managed-policies.md#about-amazonbraketservicerolepolicy) policy | Added the **"arn:aws:logs:\*:\*:log-group:/aws/braket"** log group ARN to the Amazon CloudWatch Logs statement. See [Amazon Braket updates to AWS managed policies](security-iam-aws-managed-policies.md#braket-aws-managed-policy-updates). | November 13, 2026 | 
 | Updated the [ AmazonBraketFullAccess](security-iam-aws-managed-policies.md#about-amazonbraketfullaccess), [ AmazonBraketJobsExecutionPolicy](security-iam-aws-managed-policies.md#about-amazonbraketjobsexecution), and [ AmazonBraketServiceRolePolicy](security-iam-aws-managed-policies.md#about-amazonbraketservicerolepolicy) policies | All three Braket managed policies now allow Amazon S3 access to arbitrarily-named buckets with the **"aws:ResourceTag/AmazonBraket": "true"** condition scope. See [Amazon Braket updates to AWS managed policies](security-iam-aws-managed-policies.md#braket-aws-managed-policy-updates). | July 6, 2026 | 
 | Retired TN1 simulator | Removed the Tensor Network simulator (TN1) from documentation as the device has been retired. | June 23, 2026 | 

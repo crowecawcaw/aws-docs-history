@@ -1,13 +1,12 @@
 
 
 # Running Braket hybrid jobs in your own container
-<a name="running-hybrid-jobs-in-own-container"></a>
 
 To create a hybrid job with your own container, call `AwsQuantumJob.create()` with the argument `image_uri` specified. You can use a QPU, an on-demand simulator, or run your code locally on the classical processor available with Braket Hybrid Jobs. We recommend testing your code out on a simulator like SV1 or DM1 before running on a real QPU.
 
 To run your code on the classical processor, specify the `instanceType` and the `instanceCount` you use by updating the `InstanceConfig`. Note that if you specify an `instance_count` > 1, you need to make sure that your code can run across multiple hosts. The upper limit for the number of instances you can choose is 5. For example:
 
-```
+```python
 job = AwsQuantumJob.create(
     source_module="source_dir",
     entry_point="source_dir.algorithm_script:start_here",

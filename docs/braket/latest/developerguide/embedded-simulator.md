@@ -1,7 +1,6 @@
 
 
 # About embedded simulators
-<a name="embedded-simulator"></a>
 
 Embedded simulators operate by having the simulation embedded directly within the algorithm code. Also, it is contained within the same container and runs the simulation directly on the hybrid job instance. This approach is useful for removing bottlenecks typically associated with communicating between the simulation and a remote device. By keeping all computations in a single, cohesive environment, embedded simulators can greatly reduce memory requirements and decrease the number of circuit executions needed to achieve a target result. This can lead to substantial performance improvements, often by a factor of ten or more, as compared to traditional setups that rely on remote simulation. For more information about how embedded simulators enhance performance and enable streamlined hybrid jobs, see [Run a hybrid job with Amazon Braket Hybrid Jobs](braket-jobs.md#braket-jobs-works).
 

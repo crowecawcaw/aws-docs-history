@@ -1,7 +1,6 @@
 
 
 # Amazon VPC endpoints for Amazon Braket
-<a name="braket-privatelink"></a>
 
 You can establish a private connection between your VPC and Amazon Braket by creating an interface VPC endpoint. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/), a technology that enables access to Braket APIs without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Braket APIs.
 

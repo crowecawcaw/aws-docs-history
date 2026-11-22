@@ -1,7 +1,6 @@
 
 
 # Create a Braket notebook instance using CloudFormation
-<a name="braket-cloudformation"></a>
 
 **Tip**  
 **Learn the foundations of quantum computing with AWS\!** Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs) and earn your own Digital badge after completing a series of learning courses and a digital assessment.
@@ -30,7 +29,7 @@ You can reuse the lifecycle configuration for all of the Braket notebooks that y
 
 Use the following template to create a [SageMaker AI lifecycle configuration script](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html). The script customizes a SageMaker AI notebook instance for Braket. For configuration options for the lifecycle CloudFormation resource, see [AWS::SageMaker::NotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html) in the *CloudFormation user guide*. 
 
-```
+```yaml
 BraketNotebookInstanceLifecycleConfig:
     Type: "AWS::SageMaker::NotebookInstanceLifecycleConfig"
     Properties:
@@ -58,7 +57,7 @@ Use the following example to create a Braket notebook execution role with the re
 **Note**  
 Make sure that the role has permission for the `s3:ListBucket` and `s3:GetObject`operations on Amazon S3 buckets prefixed with `braketnotebookcdk-"`. The lifecycle configuration script requires these permissions to copy the Braket notebook installation script.
 
-```
+```yaml
 ExecutionRole: 
     Type: "AWS::IAM::Role"
     Properties: 
@@ -109,7 +108,7 @@ ExecutionRole:
 
 Use the SageMaker AI lifecycle script and the IAM role created in step 1 and step 2 to create a SageMaker AI notebook instance. The notebook instance is customized for Braket and can be accessed with the Amazon Braket console. For more information about configuration options for this CloudFormation resource, see [AWS::SageMaker::NotebookInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html) in the *CloudFormation user guide*.
 
-```
+```yaml
 BraketNotebook:
     Type: AWS::SageMaker::NotebookInstance
     Properties: 

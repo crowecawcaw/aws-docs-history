@@ -1,7 +1,6 @@
 
 
 # Bring your own container (BYOC)
-<a name="braket-jobs-byoc"></a>
 
 Amazon Braket Hybrid Jobs provides three pre-built containers for running code in different environments. If one of these containers supports your use case, you only have to provide your algorithm script when you create a hybrid job. Minor missing dependencies can be added from your algorithm script or from a `requirements.txt` file using `pip`.
 

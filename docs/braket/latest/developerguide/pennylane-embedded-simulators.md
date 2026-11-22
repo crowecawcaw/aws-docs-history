@@ -1,7 +1,6 @@
 
 
 # Run hybrid workloads with PennyLane embedded simulators
-<a name="pennylane-embedded-simulators"></a>
 
 Lets look at how you can use embedded simulators from PennyLane on Amazon Braket Hybrid Jobs to run hybrid workloads. Pennylane's GPU-based embedded simulator, `lightning.gpu`, uses the [Nvidia cuQuantum library](https://developer.nvidia.com/cuquantum-sdk) to accelerate circuit simulations. The embedded GPU simulator is pre-configured in all of the Braket [job containers](https://github.com/amazon-braket/amazon-braket-containers) that users can use out of the box. In this page, we show you how to use `lightning.gpu` to speed up your hybrid workloads.
 
@@ -10,7 +9,7 @@ Lets look at how you can use embedded simulators from PennyLane on Amazon Braket
 
 Consider the Quantum Approximate Optimization Algorithm (QAOA) examples from this [notebook](https://github.com/amazon-braket/amazon-braket-examples/tree/main/examples/hybrid_jobs/2_Using_PennyLane_with_Braket_Hybrid_Jobs). To select an embedded simulator, you specify the `device` argument to be a string of the form: `"local:<provider>/<simulator_name>"`. For example, you would set `"local:pennylane/lightning.gpu"` for `lightning.gpu`. The device string you give to the Hybrid Job when you launch is passed to the job as the environment variable `"AMZN_BRAKET_DEVICE_ARN"`.
 
-```
+```python
 device_string = os.environ["AMZN_BRAKET_DEVICE_ARN"]
 prefix, device_name = device_string.split("/")
 device = qml.device(simulator_name, wires=n_wires)
@@ -22,7 +21,7 @@ Now you are ready to prepare the hybrid job launching script. Run the QAOA algor
 
 To run the GPU, we first need to specify a compatible image and the correct instance (which defaults to a `ml.m5.2xlarge` instance).
 
-```
+```python
 from braket.aws import AwsSession
 from braket.jobs.image_uris import Framework, retrieve_image
 
@@ -32,7 +31,7 @@ instance_config = InstanceConfig(instanceType="ml.g4dn.xlarge")
 
 We then need to input these to the hybrid job decorator, along with updated device parameters in both the system and hybrid job arguments.
 
-```
+```python
 @hybrid_job(
         device="local:pennylane/lightning.gpu",
         input_data=input_file_path,
@@ -69,7 +68,7 @@ Consider the following QML workload for data parallelism which uses the [Sonar d
 
 To create a hybrid job, you can call `AwsQuantumJob.create` and specify the algorithm script, device, and other configurations through its keyword arguments.
 
-```
+```python
 instance_config = InstanceConfig(instanceType='ml.g4dn.xlarge')
 
 hyperparameters={"nwires": "10",
@@ -89,7 +88,7 @@ job = AwsQuantumJob.create(
 
 In order to use data parallelism, you need to modify few lines of code in the algorithm script for the SageMaker distributed library to correctly parallelize the training. First, you import the `smdistributed` package which does most of the heavy-lifting for distributing your workloads across multiple GPUs and multiple instances. This package is preconfigured in the Braket PyTorch and TensorFlow containers. The `dist` module tells our algorithm script what the total number of GPUs for the training (`world_size`) is as well as the `rank` and `local_rank` of a GPU core. `rank` is the absolute index of a GPU across all instances, while `local_rank` is the index of a GPU within an instance. For example, if there are four instances each with eight GPUs allocated for the training, the `rank` ranges from 0 to 31 and the `local_rank` ranges from 0 to 7.
 
-```
+```python
 import smdistributed.dataparallel.torch.distributed as dist
 
 dp_info = {
@@ -103,7 +102,7 @@ batch_size = max(batch_size, 1)
 
 Next, you define a `DistributedSampler` according to the `world_size` and `rank` and then pass it into the data loader. This sampler avoids GPUs accessing the same slice of a dataset.
 
-```
+```python
 train_sampler = torch.utils.data.distributed.DistributedSampler(
     train_dataset,
     num_replicas=dp_info["world_size"],
@@ -121,7 +120,7 @@ train_loader = torch.utils.data.DataLoader(
 
 Next, you use the `DistributedDataParallel` class to enable data parallelism.
 
-```
+```python
 from smdistributed.dataparallel.torch.parallel.distributed import DistributedDataParallel as DDP
 
 model = DressedQNN(qc_dev).to(device)
@@ -132,7 +131,7 @@ model.cuda(dp_info["local_rank"])
 
 The above are the changes you need to use data parallelism. In QML, you often want to save results and print training progress. If each GPU runs the saving and printing command, the log will be flooded with the repeated information and the results will overwrite each other. To avoid this, you can only save and print from the GPU that has `rank` 0.
 
-```
+```python
 if dp_info["rank"]==0:
     print('elapsed time: ', elapsed)
     torch.save(model.state_dict(), f"{output_dir}/test_local.pt")
@@ -143,7 +142,7 @@ if dp_info["rank"]==0:
 
 With the instance and data parallelism configured, you can now submit your hybrid job. There are 4 GPUs in a `ml.g4dn.12xlarge` instance. When you set `instanceCount=1` , the workload is distributed across the 8 GPUs in the instance. When you set `instanceCount` greater than one, the workload is distributed across GPUs available in all instances. When using multiple instances, each instance incurs a charge based on how much time you use it. For example, when you use four instances, the billable time is four times the run time per instance because there are four instances running your workloads at the same time.
 
-```
+```python
 instance_config = InstanceConfig(instanceType='ml.g4dn.12xlarge',
                                  instanceCount=1,
 )

@@ -1,7 +1,6 @@
 
 
 # Managing access to Amazon Braket
-<a name="braket-manage-access"></a>
 
 This chapter describes the permissions that are required to run Amazon Braket, or to restrict the access of specific users and roles. You can grant (or deny) the required permissions to any user or role in your account. To do so, attach the appropriate Amazon Braket policy to that user or role in your account as described in the following sections.
 
@@ -35,7 +34,7 @@ To create a notebook, you must use a role with admin permissions or that has the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

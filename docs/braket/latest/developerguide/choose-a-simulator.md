@@ -1,7 +1,6 @@
 
 
 # Compare Amazon Braket simulators
-<a name="choose-a-simulator"></a>
 
 This section helps you select the Amazon Braket simulator that is best suited for your quantum task, by describing some concepts, limitations, and use cases.
 

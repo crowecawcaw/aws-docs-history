@@ -1,7 +1,6 @@
 
 
 # Restrict user access to certain devices
-<a name="restrict-access"></a>
 
 To restrict user access for certain Braket devices, you can add a *deny permissions* policy to a specific IAM role.
 
@@ -17,7 +16,7 @@ The following example restricts access to all QPUs for the AWS account `12345678
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

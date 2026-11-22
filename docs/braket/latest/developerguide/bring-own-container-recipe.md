@@ -1,7 +1,6 @@
 
 
 # Recipe for bringing your own container
-<a name="bring-own-container-recipe"></a>
 
 In this section, we provide a step-by-step guide of what you need to bring your own container (BYOC) to Braket Hybrid Jobs — the scripts, files, and steps to combine them to get up and running with your custom Docker images. The recipes for two common cases:
 
@@ -49,7 +48,7 @@ If you created a modified container script in the previous step, you'll need to 
 
 The following is an example of a `Dockerfile` that allows you to use Julia on GPU-accelerated Jobs instances:
 
-```
+```Julia
 FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
     
@@ -167,7 +166,7 @@ You are ready to build, tag, and push the image. See the [Docker build documenta
 
 For the sample file defined above, you could run:
 
-```
+```Julia
 aws ecr get-login-password --region ${your_region} | docker login --username AWS --password-stdin ${aws_account_id}.dkr.ecr.${your_region}.amazonaws.com
  docker build -t braket-julia .
  docker tag braket-julia:latest ${aws_account_id}.dkr.ecr.${your_region}.amazonaws.com/braket-julia:latest

@@ -1,11 +1,10 @@
 
 
 # Simulate noise with OpenQASM 3.0
-<a name="braket-openqasm-noise-simulation"></a>
 
 To simulate noise with OpenQASM3, you use *pragma* instructions to add noise operators. For example, to simulate the noisy version of the [GHZ program](braket-openqasm-create-submit-task.md#braket-openqasm-example-program) provided previously, you can submit the following OpenQASM program.
 
-```
+```python
 // ghz.qasm
 // Prepare a GHZ state
 OPENQASM 3;
@@ -25,7 +24,7 @@ c = measure q;
 
 Specifications for all supported pragma noise operators are provided in the following list.
 
-```
+```python
 #pragma braket noise bit_flip(<float in [0,1/2]>) <qubit>
 #pragma braket noise phase_flip(<float in [0,1/2]>) <qubit>
 #pragma braket noise pauli_channel(<float>, <float>, <float>)  <qubit>

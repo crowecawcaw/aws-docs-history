@@ -1,7 +1,6 @@
 
 
 # Cost tracking and saving
-<a name="braket-pricing"></a>
 
 **Tip**  
 **Learn the foundations of quantum computing with AWS\!** Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs) and earn your own Digital badge after completing a series of learning courses and a digital assessment.
@@ -31,21 +30,21 @@ Amazon Braket spending limits provide optional per-device cost controls for quan
   **Search**   
  With the following AWS CLI command, you can search and list spending limits in a specific AWS region and for a specific Braket device.   
 
-```
+```bash
 aws --region {device_region} braket search-spending-limits --filters name=deviceArn,operator=EQUAL,values={device_arn}
 ```
 
   **Create**   
  With the following AWS CLI command, you can create a new spending limit for a specified quantum device in a specific region. The request is rejected if a spending limit already exists for the device.   
 
-```
+```bash
 aws --region {device_region} braket create-spending-limit --device-arn {device_arn} --spending-limit {max_spend}
 ```
 
   **Update**   
  With the following AWS CLI command, you can update an existing spending limit to a new maximum spend value. The request is rejected if the sum of the current spend and queued spend is already higher than the requested new maximum spend.   
 
-```
+```bash
 aws --region {device_region} braket update-spending-limit --spending-limit-arn {spending_limit_arn} --spending-limit {new_max_spend}
 ```
  You can provide a time-period instead of, or in addition to, the new maximum spend, as in the example above. 
@@ -53,7 +52,7 @@ aws --region {device_region} braket update-spending-limit --spending-limit-arn {
   **Delete**   
  With the following AWS CLI command, you can delete an existing spending limit.   
 
-```
+```bash
 aws --region {device_region} braket delete-spending-limit --spending-limit-arn {spending_limit_arn}
 ```
  You can provide a time-period instead of, or in addition to, the new maximum spend, as in the example above. 
@@ -130,7 +129,7 @@ Charges shown are estimates based on your Amazon Braket simulator and quantum pr
 
 In order to demonstrate how the cost tracking function can be used, we will be constructing a Bell State circuit and running it on our SV1 simulator. Begin by importing the Braket SDK modules, defining a Bell State and adding the `Tracker()` function to our circuit:
 
-```
+```python
 #import any required modules
 from braket.aws import AwsDevice
 from braket.circuits import Circuit
@@ -146,13 +145,13 @@ with Tracker() as tracker:
 print(task.measurement_counts)
 ```
 
-```
+```python
 Counter({'00': 500, '11': 500})
 ```
 
 When you run your Notebook, you can expect the following output for your Bell State simulation. The tracker function will show you the number of shots sent, quantum tasks completed, the execution duration, the billed execution duration, and your maximum cost in USD. Your execution time may vary for each simulation.
 
-```
+```python
 import datetime
 
 tracker.quantum_tasks_statistics()
@@ -165,7 +164,7 @@ tracker.quantum_tasks_statistics()
 tracker.simulator_tasks_cost()
 ```
 
-```
+```python
 Decimal('0.0037500000')
 ```
 
@@ -173,7 +172,7 @@ Decimal('0.0037500000')
 
 You can use the cost tracker to set maximum costs on a program. You may have a maximum threshold for how much you want to spend on a given program. In this way, you can use the cost tracker to build out cost control logic in your execution code. The following example takes the same circuit on a Rigetti QPU and limits the cost to 1 USD. The cost to run one iteration of the circuit in our code is 0.30 USD. We have set the logic to repeat the iterations until the total cost exceeds 1 USD; hence, the code snippet will run three times until the next iteration exceeds 1 USD. Generally, a program would continue to iterate until it reaches your desired maximum cost, in this case - three iterations.
 
-```
+```python
 device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
 with Tracker() as tracker:
     while tracker.qpu_tasks_cost() < 1:
@@ -182,7 +181,7 @@ print(tracker.quantum_tasks_statistics())
 print(tracker.qpu_tasks_cost(), "USD")
 ```
 
-```
+```python
 {'arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3': {'shots': 600, 'tasks': {'COMPLETED': 3}}}
 1.4400000000 USD
 ```

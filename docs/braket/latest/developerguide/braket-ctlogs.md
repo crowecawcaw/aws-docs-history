@@ -1,7 +1,6 @@
 
 
 # Logging your Braket actions with CloudTrail
-<a name="braket-ctlogs"></a>
 
 Amazon Braket is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Braket. CloudTrail captures all API calls for Amazon Braket as events. The calls captured include calls from the Amazon Braket console and code calls to the Amazon Braket operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Braket. If you do not configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Braket, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -38,7 +37,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example is a log entry for the `GetQuantumTask` action, which gets the details of a quantum task.
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -82,7 +81,7 @@ The following example is a log entry for the `GetQuantumTask` action, which gets
 
 The following shows a log entry for the `GetDevice` action, which returns the details of a device event.
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -130,7 +129,7 @@ The following shows a log entry for the `GetDevice` action, which returns the de
 
 You can use EventBridge to receive CloudTrail events when spending limit resources are created, updated, or deleted. This allows you to track changes to your spending limits. To filter for spending limit operations, use the following event pattern in EventBridge:
 
-```
+```json
 {
   "source": ["aws.braket"],
   "detail-type": ["AWS API Call via CloudTrail"],

@@ -1,13 +1,12 @@
 
 
 # Example: Submitting a quantum task to a QPU
-<a name="braket-submit-to-qpu"></a>
 
 Amazon Braket allows you to run a quantum circuit on a QPU device. The following example shows how to submit a quantum task to Rigetti or IonQ devices.
 
  **Choose the Rigetti Ankaa-3 device, then look at the associated connectivity graph** 
 
-```
+```python
 # import the QPU module
 from braket.aws import AwsDevice
 # choose the Rigetti device
@@ -17,7 +16,7 @@ device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
 device.properties.dict()['paradigm']['connectivity']
 ```
 
-```
+```python
 {'fullyConnected': False,
  'connectivityGraph': {'0': ['1', '7'],
   '1': ['0', '2', '8'],
@@ -110,7 +109,7 @@ The preceding dictionary `connectivityGraph` lists the neighboring qubits for ea
 
 For the IonQ Forte-Enterprise-1 device, the `connectivityGraph` is empty, as shown in the following example, because the device offers *all-to-all* connectivity. Therefore, a detailed `connectivityGraph` is not needed.
 
-```
+```python
 # or choose the IonQ Forte-Enterprise-1 device
 device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1")
 
@@ -118,13 +117,13 @@ device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1
 device.properties.dict()['paradigm']['connectivity']
 ```
 
-```
+```python
 {'fullyConnected': True, 'connectivityGraph': {...}}
 ```
 
 As shown in the following example, you have the option to adjust the shots (default=1000), the `poll_timeout_seconds` (default = 432000 = 5 days), the `poll_interval_seconds` (default = 1), and the location of the S3 bucket (`s3_location`) where your results will be stored if you choose to specify a location other than the default bucket.
 
-```
+```python
 my_task = device.run(circ, s3_location = 'amazon-braket-my-folder', shots=100, poll_timeout_seconds = 100, poll_interval_seconds = 10)
 ```
 
@@ -133,4 +132,4 @@ The IonQ and Rigetti devices compile the provided circuit into their respective 
 **Note**  
 QPU devices have limited capacity. You can expect longer wait times when capacity is reached.
 
- Amazon Braket can run QPU quantum tasks within certain availability windows, but you can still submit quantum tasks any time (24/7) because all corresponding data and metadata are stored reliably in the appropriate S3 bucket. As shown in the next section, you can recover your quantum task using `AwsQuantumTask` and your unique quantum task ID.
+ With Amazon Braket, you can run QPU quantum tasks within certain availability windows. Quantum tasks run on a QPU only when the device is `ONLINE`. For more information about device status, see [QPU availability windows and status](braket-task-when.md#braket-qpu-availability). After you submit a quantum task, all corresponding data and metadata are stored reliably in the appropriate S3 bucket, including while the quantum task waits in the queue. As shown in the next section, you can recover your quantum task using `AwsQuantumTask` and your unique quantum task ID.

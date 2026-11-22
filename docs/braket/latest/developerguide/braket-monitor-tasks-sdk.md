@@ -1,7 +1,6 @@
 
 
 # Tracking quantum tasks from the Amazon Braket SDK
-<a name="braket-monitor-tasks-sdk"></a>
 
 The command `device.run(…​)` defines a quantum task with a unique quantum task ID. You can query and track the status with `task.state()` as shown in the following example.
 
@@ -11,7 +10,7 @@ The command `device.run(…​)` defines a quantum task with a unique quantum ta
 
 When you call `task.result()`, the SDK begins polling Amazon Braket to see whether the quantum task is complete. The SDK uses the polling parameters you defined in `.run()`. After the quantum task is complete, the SDK retrieves the result from the S3 bucket and returns it as a `QuantumTaskResult` object.
 
-```
+```python
 # create a circuit, specify the device and run the circuit
 circ = Circuit().rx(0, 0.15).ry(1, 0.2).cnot(0,2)
 device = AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/sv1")
@@ -28,7 +27,7 @@ while status != 'COMPLETED':
     print('Status:', status)
 ```
 
-```
+```python
 ID of task:
 arn:aws:braket:us-west-2:123412341234:quantum-task/b68ae94b-1547-4d1d-aa92-1500b82c300d
 Status of task: QUEUED
@@ -48,14 +47,14 @@ Status: COMPLETED
 
 To cancel a quantum task, call the `cancel()` method, as shown in the following example.
 
-```
+```python
 # cancel quantum task
 task.cancel()
 status = task.state()
 print('Status of task:', status)
 ```
 
-```
+```python
 Status of task: CANCELLING
 ```
 
@@ -63,7 +62,7 @@ Status of task: CANCELLING
 
 You can check the metadata of the finished quantum task, as shown in the following example.
 
-```
+```python
 # get the metadata of the quantum task
 metadata = task.metadata()
 # example of metadata
@@ -84,7 +83,7 @@ look_up = 's3://'+results_bucket+'/'+results_object_key
 print('S3 URI:', look_up)
 ```
 
-```
+```python
 1000 shots taken on Wed, 05 Aug 2020 14:44:22 GMT.
 Bucket where results are stored: amazon-braket-123412341234
 S3 object key: simulation-output/b68ae94b-1547-4d1d-aa92-1500b82c300d
@@ -95,7 +94,7 @@ S3 URI: s3://amazon-braket-123412341234/simulation-output/b68ae94b-1547-4d1d-aa9
 
 If your kernel dies after you submit the quantum task or if you close your notebook or computer, you can reconstruct the `task` object with its unique ARN (quantum task ID). Then you can call `task.result()` to get the result from the S3 bucket where it is stored.
 
-```
+```python
 from braket.aws import AwsSession, AwsQuantumTask
 
 # restore task with unique arn

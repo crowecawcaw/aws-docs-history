@@ -1,11 +1,10 @@
 
 
 # Configure your hybrid job instance
-<a name="braket-jobs-configure-job-instance-for-script"></a>
 
 Depending on your algorithm, you may have different requirements. By default, Amazon Braket runs your algorithm script on an `ml.m5.large` instance. However, you can customize this instance type when you create a hybrid job using the following import and configuration argument.
 
-```
+```python
 from braket.jobs.config import InstanceConfig
 
 job = AwsQuantumJob.create(
@@ -17,7 +16,7 @@ job = AwsQuantumJob.create(
 
 If you are running an embedded simulation and have specified a local device in the device configuration, you can additionally request more than one instance in the `InstanceConfig` by specifying the `instanceCount` and setting it to be greater than one. The upper limit is 5. For instance, you can choose 3 instances as follows.
 
-```
+```python
 from braket.jobs.config import InstanceConfig
 job = AwsQuantumJob.create(
     ...
@@ -89,7 +88,7 @@ To view the default classical compute instance quotas for Hybrid Jobs, see the [
 
 Each instance uses a default configuration of data storage (SSD) of 30 GB. But you can adjust the storage in the same way that you configure the `instanceType`. The following example shows how to increase the total storage to 50 GB.
 
-```
+```python
 from braket.jobs.config import InstanceConfig
 
 job = AwsQuantumJob.create(
@@ -107,7 +106,7 @@ job = AwsQuantumJob.create(
 
 Utilizing your own `AwsSession` instance provides you with enhanced flexibility, such as the ability to specify a custom location for your default Amazon S3 bucket. By default, an `AwsSession` has a pre-configured Amazon S3 bucket location of `"amazon-braket-{id}-{region}"`. However, you have the option to override the default Amazon S3 bucket location when creating an `AwsSession`. Users can optionally pass in an `AwsSession` object into the `AwsQuantumJob.create()` method, by providing the `aws_session` parameter as demonstrated in the following code example.
 
-```
+```python
 aws_session = AwsSession(default_bucket="amazon-braket-s3-demo-bucket")
 
 # Then you can use that AwsSession when creating a hybrid job

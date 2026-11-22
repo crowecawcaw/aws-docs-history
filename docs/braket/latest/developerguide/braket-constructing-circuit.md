@@ -1,7 +1,6 @@
 
 
 # Constructing circuits in the SDK
-<a name="braket-constructing-circuit"></a>
 
 This section provides examples of defining a circuit, viewing available gates, extending a circuit, and viewing gates that each device supports. It also contains instructions on how to manually allocate qubits, instruct the compiler to run your circuits exactly as defined, and build noisy circuits with a noise simulator.
 
@@ -24,7 +23,7 @@ Quantum gates and circuits are defined in the [`braket.circuits`](https://github
 
 The example starts by defining a sample circuit of four qubits (labelled `q0`, `q1`, `q2`, and `q3`) consisting of standard, single-qubit Hadamard gates and two-qubit CNOT gates. You can visualize this circuit by calling the `print` function as the following example shows.
 
-```
+```python
 # Import the circuit module
 from braket.circuits import Circuit
 
@@ -33,7 +32,7 @@ my_circuit = Circuit().h(range(4)).cnot(control=0, target=2).cnot(control=1, tar
 print(my_circuit)
 ```
 
-```
+```python
 T  : │  0  │     1     │
       ┌───┐             
 q0 : ─┤ H ├───●─────────
@@ -54,7 +53,7 @@ T  : │  0  │     1     │
 
 In this example, we define a circuit with gates that depend on free parameters. We can specify the values of these parameters to create a new circuit, or, when submitting the circuit, to run as a quantum task on certain devices.
 
-```
+```python
 from braket.circuits import Circuit, FreeParameter
 
 # Define a FreeParameter to represent the angle of a gate
@@ -67,7 +66,7 @@ print(my_circuit)
 
 You can create a new, non-parameterized circuit from a parametrized one by supplying either a single `float` (which is the value all free parameters will take) or keyword arguments specifying each parameter's value to the circuit as follows.
 
-```
+```python
 my_fixed_circuit = my_circuit(1.2)
 my_fixed_circuit = my_circuit(alpha=1.2)
 print(my_fixed_circuit)
@@ -79,7 +78,7 @@ Note that `my_circuit` is unmodified, so you can use it to instantiate many new 
 
 The following example defines a circuit with gates that use control and power modifiers. You can use these modifications to create new gates, such as the controlled `Ry` gate.
 
-```
+```python
 from braket.circuits import Circuit
 
 # Create a bell circuit with a controlled x gate
@@ -100,7 +99,7 @@ Gate modifiers are supported only on the local simulator.
 
 The following example shows how to look at all the available gates in Amazon Braket.
 
-```
+```python
 from braket.circuits import Gate
 # Print all available gates in Amazon Braket
 gate_set = [attr for attr in dir(Gate) if attr[0].isupper()]
@@ -109,7 +108,7 @@ print(gate_set)
 
 The output from this code lists all of the gates.
 
-```
+```python
 ['CCNot', 'CNot', 'CPhaseShift', 'CPhaseShift00', 'CPhaseShift01', 'CPhaseShift10', 'CSwap', 'CV', 'CY', 'CZ', 'ECR', 'GPhase', 'GPi', 'GPi2', 'H', 'I', 'ISwap', 'MS', 'PRx', 'PSwap', 'PhaseShift', 'PulseGate', 'Rx', 'Ry', 'Rz', 'S', 'Si', 'Swap', 'T', 'Ti', 'U', 'Unitary', 'V', 'Vi', 'X', 'XX', 'XY', 'Y', 'YY', 'Z', 'ZZ']
 ```
 
@@ -118,7 +117,7 @@ Any of these gates can be appended to a circuit by calling the method for that t
 **Note**  
 Gates are appended in place, and the example that follows adds all of the gates listed in the previous example to the same circuit.
 
-```
+```python
 circ = Circuit()
 # toffoli gate with q0, q1 the control qubits and q2 the target.
 circ.ccnot(0, 1, 2)
@@ -194,7 +193,7 @@ circ.ms(0, 1, 0.15, 0.15, 0.15)
 
 Apart from the pre-defined gate set, you also can apply self-defined unitary gates to the circuit. These can be single-qubit gates (as shown in the following source code) or multi-qubit gates applied to the qubits defined by the `targets` parameter.
 
-```
+```python
 import numpy as np
 
 # Apply a general unitary
@@ -206,7 +205,7 @@ circ.unitary(matrix=my_unitary, targets=[0])
 
 You can extend existing circuits by adding instructions. An `Instruction` is a quantum directive that describes the quantum task to perform on a quantum device. `Instruction` operators include objects of type `Gate` only.
 
-```
+```python
 # Import the Gate and Instruction modules
 from braket.circuits import Gate, Instruction
 
@@ -239,7 +238,7 @@ new_instr = instr.copy(target_mapping={0: 5, 1: 6})
 
 Simulators support all gates in the Braket SDK, but QPU devices support a smaller subset. You can find the supported gates of a device in the device properties. The following shows an example with an IonQ device:
 
-```
+```python
 # Import the device module
 from braket.aws import AwsDevice
 
@@ -252,7 +251,7 @@ device_operations = device.properties.dict()['action']['braket.ir.openqasm.progr
 print('Quantum Gates supported by {}:\n {}'.format(device_name, device_operations))
 ```
 
-```
+```python
 Quantum Gates supported by Aria 1:
  ['x', 'y', 'z', 'h', 's', 'si', 't', 'ti', 'v', 'vi', 'rx', 'ry', 'rz', 'cnot', 'swap', 'xx', 'yy', 'zz']
 ```
@@ -263,7 +262,7 @@ Supported gates may need to be compiled into native gates before they can run on
 
 You can view the fidelity information on the **Devices** page of the Braket console. Sometimes it is helpful to access the same information programmatically. The following code shows how to extract the two qubit gate fidelity between two gates of a QPU.
 
-```
+```python
 # Import the device module
 from braket.aws import AwsDevice
  
@@ -287,7 +286,7 @@ Program sets efficiently run multiple quantum circuits in a single quantum task.
 
 The following first code example demonstrates how to build a `ProgramSet` using both parameterized circuits and circuits without parameters.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.circuits import Circuit, FreeParameter
 from braket.program_sets.circuit_binding import CircuitBinding
@@ -326,7 +325,7 @@ This program set contains four unique programs: `circ1`, `circ2`, `circ3`, and `
 
 The following second code example demonstrates how to use the `product()` method to attach the same set of observables to each executable of the program set.
 
-```
+```python
 from braket.circuits.observables import I, X, Y, Z
 
 observables = [Z(0) @ Z(1), X(0) @ X(1), Z(0) @ X(1), X(0) @ Z(1)]
@@ -344,7 +343,7 @@ For parameter-free programs, each observable is measured for each circuit. For p
 
 The following third code example demonstrates how to use the `zip()` method to pair individual observables with specific parameter sets in the `ProgramSet`.
 
-```
+```python
 program_set_3 = ProgramSet.zip(
     circuits=circuit_binding,
     observables=observables + [Y(0) @ Y(1)]
@@ -356,7 +355,7 @@ program_set_3 = ProgramSet.zip(
 
 Instead of `CircuitBinding()`, you can directly zip a list of observables with a list of circuits and input sets. 
 
-```
+```python
 program_set_4 = ProgramSet.zip(
     circuits=[circ1, circ2, circ3],
     input_sets=[{}, {}, {}],
@@ -373,7 +372,7 @@ For more information and examples on program sets, see the [Program set folder](
 
 A program set's executable count equals its number of unique parameter-bound circuits. Calculate the total number of circuit executables and shots using the following code example.
 
-```
+```python
 # Number of shots per executable
 shots = 10
 num_executables = program_set_1.total_executables
@@ -387,7 +386,7 @@ With program sets, you pay a single per-task fee and a per-shot fee based on the
 
 To run the program set, use the following code example.
 
-```
+```python
 # Run the program set
 task = device.run(
    program_set_1, shots=total_num_shots,
@@ -400,7 +399,7 @@ When using Rigetti devices, your program set may remain in the `RUNNING` state w
 
 Run the following code to analyze and measure the results of the executables in a `ProgramSet`.
 
-```
+```python
 # Get the results from a program set 
 result = task.result()
 
@@ -425,7 +424,7 @@ Additional features such as mid-circuit measurement and feed-forward operations 
 
 The following code example demonstrates partial measurement by measuring only qubit 0 in a Bell state circuit.
 
-```
+```python
 from braket.devices import LocalSimulator
 from braket.circuits import Circuit
 
@@ -456,7 +455,7 @@ Manual qubit allocation enables you to run circuits with greater accuracy and to
 
 The following example demonstrates how to allocate qubits explicitly.
 
-```
+```python
 # Import the device module
 from braket.aws import AwsDevice
 
@@ -480,7 +479,7 @@ When you run a quantum circuit on gate-based quantum computers you can direct th
 
 Verbatim compilation is supported on the AQT, IonQ, IQM, and Rigetti devices and requires the use of native gates. When using verbatim compilation, it is advisable to check the topology of the device to ensure that gates are called on connected qubits and that the circuit uses the native gates supported on the hardware. The following example shows how to programmatically access the list of native gates supported by a device.
 
-```
+```python
 device.properties.paradigm.nativeGateSet
 ```
 
@@ -488,7 +487,7 @@ For Rigetti, qubit rewiring must be turned off by setting `disableQubitRewiring=
 
 If verbatim compilation is enabled for a circuit and run on a QPU that does not support it, an error is generated indicating that an unsupported operation has caused the task to fail. As more quantum hardware natively support compiler functions, this feature will be expanded to include these devices. Devices that support verbatim compilation include it as a supported operation when queried with the following code.
 
-```
+```python
 from braket.aws import AwsDevice
 from braket.device_schema.device_action_properties import DeviceActionType
 device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
@@ -505,7 +504,7 @@ If you are using OpenQASM to write your circuits for the AQT and IonQ devices, a
 
 To instantiate the local noise simulator you can change the backend as follows.
 
-```
+```python
 # Import the device module
 from braket.aws import AwsDevice
 
@@ -520,7 +519,7 @@ You can build noisy circuits in two ways:
 
 The following example shows the approaches using a basic circuit with depolarizing noise and a custom Kraus channel.
 
-```
+```python
 import scipy.stats
 import numpy as np
 
@@ -537,7 +536,7 @@ K = [E0, E1]
 circ = circ.kraus([0, 2], K)
 ```
 
-```
+```python
 from braket.circuits import Noise
 
 # Inject noise approach
@@ -553,7 +552,7 @@ Running a circuit is the same user experience as before, as shown in the followi
 
  **Example 1** 
 
-```
+```python
 task = device.run(circ, shots=100)
 ```
 
@@ -561,7 +560,7 @@ Or
 
  **Example 2** 
 
-```
+```python
 task = device.run(circ_noise, shots=100)
 ```
 

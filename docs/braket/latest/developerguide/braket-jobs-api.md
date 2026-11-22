@@ -1,7 +1,6 @@
 
 
 # Using the API with Hybrid Jobs
-<a name="braket-jobs-api"></a>
 
 You can access and interact with Amazon Braket Hybrid Jobs directly using the API. However, defaults and convenience methods are not available when using the API directly.
 
@@ -19,7 +18,7 @@ Additionally, you need an **execution role**. This role will be passed to the se
 
 The `CreateJob` API requires that you specify all the required parameters for the hybrid job. To use Python, compress your algorithm script files to a tar bundle, such as an input.tar.gz file, and run the following script. Update the parts of the code within angled brackets (`<>`) to match your account information and entry point that specify the path, file, and method where your hybrid job starts.
 
-```
+```python
 from braket.aws import AwsDevice, AwsSession
 import boto3
 from datetime import datetime
@@ -94,19 +93,19 @@ job = client.create_job(
 
 Once you create your hybrid job, you can access the hybrid job details through the `GetJob` API or the console. To get the hybrid job details from the Python session in which you ran the `createJob` code as in the previous example, use the following Python command.
 
-```
+```python
 getJob = client.get_job(jobArn=job["jobArn"])
 ```
 
 To cancel a hybrid job, call the `CancelJob` API with the Amazon Resource Name of the job ('JobArn').
 
-```
+```python
 cancelJob = client.cancel_job(jobArn=job["jobArn"])
 ```
 
 You can specify checkpoints as part of the `createJob` API using the `checkpointConfig` parameter.
 
-```
+```python
     checkpointConfig = {
         "localPath" : "/opt/omega/checkpoints",
         "s3Uri": f"s3://{bucket}/{s3_prefix}/checkpoints"

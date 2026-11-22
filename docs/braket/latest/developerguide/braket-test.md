@@ -1,7 +1,6 @@
 
 
 # Testing your quantum tasks with Amazon Braket
-<a name="braket-test"></a>
 
 Amazon Braket provides a variety of high-performance quantum circuit simulators to help you test and validate your quantum algorithms before running them on actual quantum hardware. These simulators handle the complex underlying software and infrastructure, and Amazon Elastic Compute Cloud (Amazon EC2) clusters to take away the burden of simulating quantum circuits on classical high performance computing (HPC) infrastructure. These resources allow you to focus on developing and optimizing your quantum applications.
 
