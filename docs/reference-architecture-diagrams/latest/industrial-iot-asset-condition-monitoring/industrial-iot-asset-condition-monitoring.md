@@ -1,7 +1,6 @@
 
 
 # AWS Industrial IoT Asset Condition Monitoring
-<a name="industrial-iot-asset-condition-monitoring"></a>
 
 Publication date: **August 20, 2020 ([Diagram history](#acm-diagram-history))**
 
