@@ -1,7 +1,6 @@
 
 
 # synch/mutex/innodb/fil\_system\_mutex
-<a name="ams-waits.innodb-fil-system-mutex"></a>
 
 The `synch/mutex/innodb/fil_system_mutex` event occurs when a session is waiting to access the tablespace memory cache.
 

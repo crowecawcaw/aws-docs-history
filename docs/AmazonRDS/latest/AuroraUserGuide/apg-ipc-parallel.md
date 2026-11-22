@@ -1,7 +1,6 @@
 
 
 # IPC:parallel wait events
-<a name="apg-ipc-parallel"></a>
 
 The following `IPC:parallel wait events` indicate that a session is waiting for inter-process communication related to parallel query execution operations.
 + `IPC:BgWorkerStartup` - A process is waiting for a parallel worker process to complete its startup sequence. This happens when initializing workers for parallel query execution.

@@ -1,7 +1,6 @@
 
 
 # Differences between Babelfish for Aurora PostgreSQL and SQL Server
-<a name="babelfish-compatibility"></a>
 
 Babelfish is an evolving Aurora PostgreSQL feature, with new functionality added in each release since the initial offering in Aurora PostgreSQL 13.4. It's designed to provide T-SQL semantics on top of PostgreSQL through the T-SQL dialect using the TDS port. Each new version of Babelfish adds features and functions that better align with T-SQL functionality and behavior, as shown in the [Supported functionalities in Babelfish by version](babelfish-compatibility.supported-functionality-table.md) table. For best results when working with Babelfish, we recommend that you understand the differences that currently exist between the T-SQL supported by SQL Server and Babelfish for the latest version. To learn more, see [T-SQL differences in Babelfish](babelfish-compatibility.tsql.limitations.md).
 

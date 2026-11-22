@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL functions reference
-<a name="Appendix.AuroraPostgreSQL.Functions"></a>
 
 Following, you can find a list of Aurora PostgreSQL functions that are available for your Aurora DB clusters that run the Aurora PostgreSQL-Compatible Edition DB engine. These Aurora PostgreSQL functions are in addition to the standard PostgreSQL functions. For more information about standard PostgreSQL functions, see [PostgreSQL–Functions and Operators](https://www.postgresql.org/docs/current/functions.html). 
 

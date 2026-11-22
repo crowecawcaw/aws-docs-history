@@ -1,7 +1,6 @@
 
 
 # Improving Aurora PostgreSQL query plans
-<a name="AuroraPostgreSQL.Optimize.Maintenance"></a>
 
 Improve query plan management by evaluating plan performance and fixing plans. For more information about improving your query plans, see the following topics.
 
@@ -19,7 +18,7 @@ After the optimizer captures plans as unapproved, use the `apg_plan_mgmt.evolve_
 
 The following example demonstrates how to change the status of managed plans to approved using the `apg_plan_mgmt.evolve_plan_baselines` function. 
 
-```
+```sql
 SELECT apg_plan_mgmt.evolve_plan_baselines (
    sql_hash, 
    plan_hash, 
@@ -43,7 +42,7 @@ evolve_plan_baselines
 
 The output shows a performance report for the `rangequery` statement with parameter bindings of 1 and 10,000. The new unapproved plan (`Baseline+1`) is better than the best previously approved plan (`Baseline`). To confirm that the new plan is now `Approved`, check the `apg_plan_mgmt.dba_plans` view. 
 
-```
+```sql
 SELECT sql_hash, plan_hash, status, enabled, stmt_name 
 FROM apg_plan_mgmt.dba_plans;
 ```
@@ -63,7 +62,7 @@ The managed plan now includes two approved plans that are the statement's plan b
 
 To reject or disable plans, pass `'reject'` or `'disable' `as the action parameter to the `apg_plan_mgmt.evolve_plan_baselines` function. This example disables any captured `Unapproved` plan that is slower by at least 10 percent than the best `Approved` plan for the statement. 
 
-```
+```sql
 SELECT apg_plan_mgmt.evolve_plan_baselines(
 sql_hash,  -- The managed statement ID
 plan_hash, -- The plan ID
@@ -90,7 +89,7 @@ When you use one of these techniques to force the query optimizer to use a plan,
 
 You can use the `pg_hint_plan` extension to change the join order, the join methods, or the access paths for a SQL statement. You use a SQL comment with special `pg_hint_plan` syntax to modify how the optimizer creates a plan. For example, assume the problem SQL statement has a two-way join. 
 
-```
+```sql
 SELECT * 
 FROM t1, t2 
 WHERE t1.id = t2.id;
@@ -98,7 +97,7 @@ WHERE t1.id = t2.id;
 
 Then suppose that the optimizer chooses the join order (t1, t2), but you know that the join order (t2, t1) is faster. The following hint forces the optimizer to use the faster join order, (t2, t1). Include EXPLAIN so that the optimizer generates a plan for the SQL statement but without running the statement. (Output not shown.)
 
-```
+```sql
 /*+ Leading ((t2 t1)) */ EXPLAIN SELECT * 
 FROM t1, t2 
 WHERE t1.id = t2.id;
@@ -110,13 +109,13 @@ The following steps show how to use `pg_hint_plan`.
 
 1. Turn on the manual capture mode.
 
-   ```
+   ```sql
    SET apg_plan_mgmt.capture_plan_baselines = manual;
    ```
 
 1. Specify a hint for the SQL statement of interest. 
 
-   ```
+   ```sql
    /*+ Leading ((t2 t1)) */ EXPLAIN SELECT * 
    FROM t1, t2 
    WHERE t1.id = t2.id;
@@ -126,20 +125,20 @@ The following steps show how to use `pg_hint_plan`.
 
 1. View the managed plans by using the `apg_plan_mgmt.dba_plans` view.
 
-   ```
+   ```sql
    SELECT sql_hash, plan_hash, status, sql_text, plan_outline 
    FROM apg_plan_mgmt.dba_plans;
    ```
 
 1. Set the status of the plan to `Preferred`. Doing so makes sure that the optimizer chooses to run it, instead of selecting from the set of approved plans, when the minimum-cost plan isn't already `Approved` or `Preferred`.
 
-   ```
+   ```sql
    SELECT apg_plan_mgmt.set_plan_status({{sql-hash}}, {{plan-hash}}, 'preferred' ); 
    ```
 
 1. Turn off manual plan capture and enforce the use of managed plans.
 
-   ```
+   ```sql
    SET apg_plan_mgmt.capture_plan_baselines = false;
    SET apg_plan_mgmt.use_plan_baselines = true;
    ```

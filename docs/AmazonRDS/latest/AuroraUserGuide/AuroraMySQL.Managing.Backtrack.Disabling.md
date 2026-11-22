@@ -1,7 +1,6 @@
 
 
 # Disabling backtracking for an Aurora MySQL DB cluster
-<a name="AuroraMySQL.Managing.Backtrack.Disabling"></a>
 
 You can disable the Backtrack feature for a DB cluster.
 

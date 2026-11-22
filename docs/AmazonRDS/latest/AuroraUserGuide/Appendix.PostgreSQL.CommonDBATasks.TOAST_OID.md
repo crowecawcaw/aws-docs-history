@@ -1,7 +1,6 @@
 
 
 # Managing TOAST OID contention in Amazon Aurora PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.TOAST_OID"></a>
 
 TOAST (The Oversized-Attribute Storage Technique) is a PostgreSQL feature designed to handle large data values that exceed the typical 8KB database block size. PostgreSQL doesn't allow physical rows to span multiple blocks. The block size acts as an upper limit on row size. TOAST overcomes this restriction by splitting large field values into smaller chunks. It stores them separately in a dedicated TOAST table linked to the main table. For more information, see the [PostgreSQL TOAST storage mechanism and implementation documentation](https://www.postgresql.org/docs/current/storage-toast.html).
 
@@ -52,7 +51,7 @@ A global counter generates the OIDs and wraps around every 4 billion values, so 
 
   You can run the following SQL query to identify long-running INSERT transactions with wait events:
 
-  ```
+  ```sql
   SELECT
       datname AS database_name,
       usename AS database_user,
@@ -111,7 +110,7 @@ Depending on the number of OIDs in the TOAST table, it may take time to complete
 
 The following anonymous block counts the number of distinct OIDs used in each TOAST table and displays the parent table information:
 
-```
+```sql
 DO $$
 DECLARE
     r record;
@@ -161,7 +160,7 @@ DO
 
 The following anonymous block retrieves the maximum assigned OID for each non-empty TOAST table:
 
-```
+```sql
 DO $$
 DECLARE
     r record;

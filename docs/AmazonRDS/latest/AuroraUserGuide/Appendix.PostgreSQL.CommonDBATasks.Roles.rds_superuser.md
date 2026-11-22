@@ -1,7 +1,6 @@
 
 
 # Understanding the rds\_superuser role
-<a name="Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser"></a>
 
 In PostgreSQL, a *role* can define a user, a group, or a set of specific permissions granted to a group or user for various objects in the database. PostgreSQL commands to `CREATE USER` and `CREATE GROUP` have been replaced by the more general, `CREATE ROLE` with specific properties to distinguish database users. A database user can be thought of as a role with the LOGIN privilege. 
 

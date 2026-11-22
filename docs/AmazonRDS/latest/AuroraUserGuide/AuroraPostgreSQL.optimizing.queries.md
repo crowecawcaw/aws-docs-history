@@ -1,7 +1,6 @@
 
 
 # Optimizing query performance in Aurora PostgreSQL
-<a name="AuroraPostgreSQL.optimizing.queries"></a>
 
 Optimizing query performance is crucial because it helps databases run faster and more efficiently while using fewer resources, which results in better user experience and lower operating costs. Amazon Aurora PostgreSQL provides several features to help optimize query performance for PostgreSQL workloads.
 

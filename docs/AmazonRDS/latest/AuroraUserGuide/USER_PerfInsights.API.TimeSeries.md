@@ -1,7 +1,6 @@
 
 
 # Retrieving time-series metrics for Performance Insights
-<a name="USER_PerfInsights.API.TimeSeries"></a>
 
 The `GetResourceMetrics` operation retrieves one or more time-series metrics from the Performance Insights data. `GetResourceMetrics` requires a metric and time period, and returns a response with a list of data points. 
 

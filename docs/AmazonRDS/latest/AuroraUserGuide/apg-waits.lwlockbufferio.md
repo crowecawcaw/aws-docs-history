@@ -1,7 +1,6 @@
 
 
 # LWLock:BufferIO (IPC:BufferIO)
-<a name="apg-waits.lwlockbufferio"></a>
 
 The `LWLock:BufferIO` event occurs when Aurora PostgreSQL or RDS for PostgreSQL is waiting for other processes to finish their input/output (I/O) operations when concurrently trying to access a page. Its purpose is for the same page to be read into the shared buffer.
 

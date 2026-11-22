@@ -1,7 +1,6 @@
 
 
 # Using Aurora PostgreSQL as a Knowledge Base for Amazon Bedrock
-<a name="AuroraPostgreSQL.VectorDB"></a>
 
 You can use an Aurora PostgreSQL DB cluster as a Knowledge Base for Amazon Bedrock. For more information, see [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). A Knowledge Base automatically takes unstructured text data stored in an Amazon S3 bucket, converts it to text chunks and vectors, and stores it in a PostgreSQL database. With the generative AI applications, you can use Agents for Amazon Bedrock to query the data stored in the Knowledge Base and use the results of those queries to augment answers provided by foundational models. This workflow is called Retrieval Augmented Generation (RAG). For more information on RAG, see [Retrieval Augmented Generation (RAG)](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html).
 

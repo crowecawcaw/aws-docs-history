@@ -1,7 +1,6 @@
 
 
 # Switching a blue/green deployment in Amazon Aurora
-<a name="blue-green-deployments-switching"></a>
 
 A *switchover* transitions the DB cluster, including its DB instances, in the green environment to be the production DB cluster. Before you switch over, production traffic is routed to the cluster in the blue environment. After you switch over, production traffic is routed to the DB cluster in the green environment.
 
@@ -137,7 +136,7 @@ For PostgreSQL blue/green deployments, check the `OldestReplicationSlotLag` Clou
 
 In addition, you can run the following SQL query in the blue environment:
 
-```
+```sql
 SELECT slot_name,
        confirmed_flush_lsn as flushed,
        pg_current_wal_lsn(),

@@ -1,7 +1,6 @@
 
 
 # Invoking an AWS Lambda function from an Aurora PostgreSQL DB cluster
-<a name="PostgreSQL-Lambda"></a>
 
 AWS Lambda is an event-driven compute service that lets you run code without provisioning or managing servers. It's available for use with many AWS services, including Aurora PostgreSQL. For example, you can use Lambda functions to process event notifications from a database, or to load data from files whenever a new file is uploaded to Amazon S3. To learn more about Lambda, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the *AWS Lambda Developer Guide.* 
 
@@ -118,7 +117,7 @@ Use the PostgreSQL `psql` command-line or the pgAdmin tool to connect to your Au
 
 1. Install the `aws_lambda` extension. The `aws_commons` extension is also required. It provides helper functions to `aws_lambda` and many other Aurora extensions for PostgreSQL. If it's not already on your Aurora PostgreSQLDB cluster , it's installed with `aws_lambda` as shown following. 
 
-   ```
+   ```sql
    CREATE EXTENSION IF NOT EXISTS aws_lambda CASCADE;
    NOTICE:  installing required extension "aws_commons"
    CREATE EXTENSION
@@ -135,21 +134,21 @@ You can use the helper functions in the `aws_commons` extension to prepare entit
 
 To hold the Lambda function name information, you use the [aws\_commons.create\_lambda\_function\_arn](PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn) function. This helper function creates an `aws_commons._lambda_function_arn_1` composite structure with the details needed by the invoke function. Following, you can find three alternative approaches to setting up this composite structure.
 
-```
+```sql
 SELECT aws_commons.create_lambda_function_arn(
    'my-function',
    '{{aws-region}}'
 ) AS aws_lambda_arn_1 \gset
 ```
 
-```
+```sql
 SELECT aws_commons.create_lambda_function_arn(
    '111122223333:function:my-function',
    '{{aws-region}}'
 ) AS lambda_partial_arn_1 \gset
 ```
 
-```
+```sql
 SELECT aws_commons.create_lambda_function_arn(
    'arn:aws:lambda:{{aws-region}}:111122223333:function:my-function'
 ) AS lambda_arn_1 \gset

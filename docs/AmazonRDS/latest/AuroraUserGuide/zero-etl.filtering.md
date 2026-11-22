@@ -1,7 +1,6 @@
 
 
 # Data filtering for Aurora zero-ETL integrations
-<a name="zero-etl.filtering"></a>
 
 Aurora zero-ETL integrations support data filtering, which lets you control which data is replicated from your source Aurora DB cluster to your target data warehouse. Instead of replicating the entire database, you can apply one or more filters to selectively include or exclude specific tables. This helps you optimize storage and query performance by ensuring that only relevant data is transferred. Currently, filtering is limited to the database and table levels. Column- and row-level filtering are not supported.
 

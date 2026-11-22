@@ -1,7 +1,6 @@
 
 
 # Monitoring local write forwarding in Aurora PostgreSQL
-<a name="aurora-postgresql-write-forwarding-monitoring"></a>
 
 Using the following sections you can monitor local write forwarding in Aurora PostgreSQL clusters, including relevant CloudWatch metrics and wait events to track performance and identify potential issues.
 

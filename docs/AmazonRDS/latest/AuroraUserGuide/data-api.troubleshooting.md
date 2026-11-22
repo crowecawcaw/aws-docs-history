@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon RDS Data API
-<a name="data-api.troubleshooting"></a>
 
 Use the following sections, titled with common error messages, to help troubleshoot problems that you have with the Amazon RDS Data API (Data API).
 
@@ -20,15 +19,15 @@ Use the following sections, titled with common error messages, to help troublesh
 <a name="data-api.troubleshooting.tran-id-not-found"></a>
 
 In this case, the transaction ID specified in a Data API call wasn't found. The cause for this issue is appended to the error message, and is one of the following:
-+ Transaction may be expired.
++ `Transaction may be expired.`
 
   Make sure that each transactional call runs within three minutes of the previous one.
 
   It's also possible that the specified transaction ID wasn't created by a [BeginTransaction](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_BeginTransaction.html) call. Make sure that your call has a valid transaction ID.
-+ One previous call resulted in a termination of your transaction.
++ `One previous call resulted in a termination of your transaction.`
 
   The transaction was already ended by your `CommitTransaction` or `RollbackTransaction` call.
-+ Transaction has been aborted due to an error from a previous call.
++ `Transaction has been aborted due to an error from a previous call.`
 
   Check whether your previous calls have thrown any exceptions.
 
@@ -75,7 +74,7 @@ The Data API doesn't support all data types. This error occurs when you execute 
 
 To work around this issue, cast the unsupported data type to `TEXT`. For example:
 
-```
+```sql
 SELECT custom_type::TEXT FROM my_table;
 	-- OR
 	SELECT CAST(custom_type AS TEXT) FROM my_table;

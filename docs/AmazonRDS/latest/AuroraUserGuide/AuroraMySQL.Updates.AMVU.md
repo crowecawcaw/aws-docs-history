@@ -1,7 +1,7 @@
 
 
 # Enabling automatic upgrades between minor Aurora MySQL versions
-<a name="AuroraMySQL.Updates.AMVU"></a><a name="amvu"></a>
+<a name="amvu"></a>
 
 For an Amazon Aurora MySQL DB cluster, you can specify that Aurora upgrades the DB cluster automatically to new minor versions. You do so by setting the `AutoMinorVersionUpgrade` property (**Auto minor version upgrade** in the AWS Management Console) of the DB cluster.
 

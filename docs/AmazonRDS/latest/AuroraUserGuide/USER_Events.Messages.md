@@ -1,7 +1,6 @@
 
 
 # Amazon RDS event categories and event messages for Aurora
-<a name="USER_Events.Messages"></a>
 
 Amazon RDS generates a significant number of events in categories that you can subscribe to using the Amazon RDS Console, AWS CLI, or the API.
 
@@ -96,6 +95,10 @@ No event category exists for Aurora Serverless in the DB cluster event type. The
 | notification | RDS-EVENT-0513 | Volume replacement for DB cluster {{name}} completed. | None | 
 | maintenance, serverless | RDS-EVENT-0521 | DB cluster serverless platform update starting. | None | 
 | maintenance, serverless | RDS-EVENT-0522 | DB cluster serverless platform update completed. Database cluster is online. | None | 
+| configuration change | RDS-EVENT-0673 | The VPC configuration modification for DB cluster {{name}} has started. | Aurora started moving the DB cluster into a VPC, to a different VPC or DB subnet group, or out of a VPC. | 
+| configuration change | RDS-EVENT-0674 | The VPC configuration modification for DB cluster {{name}} has completed. | None | 
+| failure | RDS-EVENT-0675 | The VPC configuration modification for DB cluster {{name}} has failed. {{reason}} | Aurora returned the DB cluster to its previous network configuration. For more information, see [Updating the VPC for a DB cluster](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC). | 
+| failure | RDS-EVENT-0676 | DB cluster {{name}} has been placed in an incompatible network state due to a VPC configuration error: One or more instances could not be restored to the customer VPC. | Contact AWS Support. For more information, see [Updating the VPC for a DB cluster](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC). | 
 
 ## DB cluster snapshot events
 <a name="USER_Events.Messages.cluster-snapshot"></a>

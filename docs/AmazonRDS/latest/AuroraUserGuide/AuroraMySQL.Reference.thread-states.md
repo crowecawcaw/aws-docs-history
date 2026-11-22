@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL thread states
-<a name="AuroraMySQL.Reference.thread-states"></a>
 
 The following are some common thread states for Aurora MySQL.
 

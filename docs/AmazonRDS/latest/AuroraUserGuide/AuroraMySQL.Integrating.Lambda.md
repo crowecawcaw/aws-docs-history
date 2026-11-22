@@ -1,7 +1,7 @@
 
 
 # Invoking a Lambda function from an Amazon Aurora MySQL DB cluster
-<a name="AuroraMySQL.Integrating.Lambda"></a><a name="lambda"></a>
+<a name="lambda"></a>
 
 You can invoke an AWS Lambda function from an Amazon Aurora MySQL-Compatible Edition DB cluster with the native function `lambda_sync` or `lambda_async`. Before invoking a Lambda function from an Aurora MySQL, the Aurora DB cluster must have access to Lambda. For details about granting access to Aurora MySQL, see [Giving Aurora access to Lambda](AuroraMySQL.Integrating.LambdaAccess.md). For information about the `lambda_sync` and `lambda_async` stored functions, see [Invoking a Lambda function with an Aurora MySQL native function](AuroraMySQL.Integrating.NativeLambda.md). 
 

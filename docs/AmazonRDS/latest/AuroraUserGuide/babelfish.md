@@ -1,7 +1,6 @@
 
 
 # Using Babelfish for Aurora PostgreSQL
-<a name="babelfish"></a>
 
 Babelfish for Aurora PostgreSQL extends your Aurora PostgreSQL DB cluster with the ability to accept database connections from SQL Server clients. With Babelfish, applications that were originally built for SQL Server can work directly with Aurora PostgreSQL with few code changes compared to a traditional migration and without changing database drivers. For more information about migrating, see [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md).
 

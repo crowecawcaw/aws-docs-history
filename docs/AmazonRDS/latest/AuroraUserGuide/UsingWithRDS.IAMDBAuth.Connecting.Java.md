@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB cluster using IAM authentication and the AWS SDK for Java
-<a name="UsingWithRDS.IAMDBAuth.Connecting.Java"></a>
 
 You can connect to an Aurora MySQL or Aurora PostgreSQL DB cluster with the AWS SDK for Java as described following.
 
@@ -29,7 +28,7 @@ You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint 
 
 After you create an instance of `RdsIamAuthTokenGenerator`, you can call the `getAuthToken` method to obtain a signed token. Provide the AWS Region, host name, port number, and user name. The following code example illustrates how to do this.
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
@@ -75,7 +74,7 @@ In Java, the easiest way to generate an authentication token is to use `RdsIamAu
 
 However, you can also construct and sign an authentication token manually, as shown in the following code example.
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import com.amazonaws.SdkClientException;
@@ -265,7 +264,7 @@ This code example obtains AWS credentials from the [default credential provider 
 **Note**  
 Specify a password for `DEFAULT_KEY_STORE_PASSWORD` other than the prompt shown here as a security best practice.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.rds.auth.RdsIamAuthTokenGenerator;

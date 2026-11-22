@@ -1,7 +1,6 @@
 
 
 # Distributed deadlocks in Aurora PostgreSQL Limitless Database
-<a name="limitless-query.deadlocks"></a>
 
 In a DB shard group, deadlocks can occur between transactions that are distributed among different routers and shards. For example, two concurrent distributed transactions that span two shards are run, as shown in the following figure.
 

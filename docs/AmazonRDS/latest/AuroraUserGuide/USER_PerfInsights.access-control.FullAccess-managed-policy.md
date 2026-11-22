@@ -1,7 +1,6 @@
 
 
 # Attaching the AmazonRDSPerformanceInsightsFullAccess policy to an IAM principal
-<a name="USER_PerfInsights.access-control.FullAccess-managed-policy"></a>
 
 `AmazonRDSPerformanceInsightsFullAccess` is an AWS managed policy that grants access to all operations of the Amazon RDS Database Insights API.
 

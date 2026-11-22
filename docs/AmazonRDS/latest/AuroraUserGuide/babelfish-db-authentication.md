@@ -1,7 +1,6 @@
 
 
 # Database authentication with Babelfish for Aurora PostgreSQL
-<a name="babelfish-db-authentication"></a>
 
 Babelfish for Aurora PostgreSQL supports two ways to authenticate database users. Password authentication is available by default for all Babelfish DB clusters. You can also add Kerberos authentication for the same DB cluster.
 

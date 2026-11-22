@@ -1,7 +1,6 @@
 
 
 # Canceling a snapshot export task
-<a name="aurora-export-snapshot.Canceling"></a>
 
 You can cancel a DB snapshot export task using the AWS Management Console, the AWS CLI, or the RDS API.
 

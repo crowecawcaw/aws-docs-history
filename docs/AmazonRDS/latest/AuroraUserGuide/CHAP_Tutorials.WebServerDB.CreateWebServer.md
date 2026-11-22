@@ -1,7 +1,6 @@
 
 
 # Install a web server on your EC2 instance
-<a name="CHAP_Tutorials.WebServerDB.CreateWebServer"></a>
 
 Install a web server on the EC2 instance you created in [Launch an EC2 instance to connect with your DB cluster](CHAP_Tutorials.WebServerDB.LaunchEC2.md). The web server connects to the Amazon Aurora DB cluster that you created in [Create an Amazon Aurora DB cluster](CHAP_Tutorials.WebServerDB.CreateDBCluster.md). 
 
@@ -158,7 +157,7 @@ Next, you add content to your Apache web server that connects to your Amazon Aur
 We recommend placing the user name and password information in a folder that isn't part of the document root for your web server. Doing this reduces the possibility of your security information being exposed.  
 Make sure to change `master password` to a suitable password in your application.
 
-   ```
+   ```php
    <?php
    
    define('DB_SERVER', '{{db_cluster_writer_endpoint}}');
@@ -188,7 +187,7 @@ Make sure to change `master password` to a suitable password in your application
 ------
 #### [ MariaDB & MySQL ]
 
-   ```
+   ```php
    <?php include "../inc/dbinfo.inc"; ?>
    <html>
    <body>
@@ -314,7 +313,7 @@ Make sure to change `master password` to a suitable password in your application
 ------
 #### [ PostgreSQL ]
 
-   ```
+   ```php
    <?php include "../inc/dbinfo.inc"; ?>
    
    <html>

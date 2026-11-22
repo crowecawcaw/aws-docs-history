@@ -1,7 +1,6 @@
 
 
 # Using dynamic masking with Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Security.DynamicMasking"></a>
 
 Dynamic data masking is a security feature that protects sensitive data in Aurora PostgreSQL databases by controlling how data appears to users at query time. Aurora implements it through the `pg_columnmask` extension. `pg_columnmask` provides column-level data protection that complements PostgreSQL's native row-level security and granular access control mechanisms.
 

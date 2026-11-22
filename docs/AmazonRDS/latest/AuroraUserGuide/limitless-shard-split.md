@@ -1,7 +1,6 @@
 
 
 # Splitting a shard in a DB shard group
-<a name="limitless-shard-split"></a>
 
 You can split a shard in a DB shard group manually into two smaller shards. This is called a *user-initiated* shard split.
 

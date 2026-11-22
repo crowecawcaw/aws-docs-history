@@ -1,7 +1,6 @@
 
 
 # Calling the Amazon RDS Data API with the AWS CLI
-<a name="data-api.calling.cli"></a>
 
 You can call RDS Data API (Data API) using the AWS CLI.
 
@@ -48,7 +47,7 @@ aws rds-data begin-transaction --resource-arn "{{arn:aws:rds:us-east-1:123456789
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "transactionId": "{{ABC1234567890xyz}}"
 	}
@@ -102,7 +101,7 @@ aws rds-data execute-statement --resource-arn "{{arn:aws:rds:us-east-1:123456789
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "numberOfRecordsUpdated": 0,
 	    "records": [
@@ -154,7 +153,7 @@ aws rds-data execute-statement --resource-arn "{{arn:aws:rds:us-east-1:123456789
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "numberOfRecordsUpdated": 1
 	}
@@ -180,7 +179,7 @@ aws rds-data execute-statement --resource-arn "{{arn:aws:rds:us-east-1:123456789
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "numberOfRecordsUpdated": 1
 	}
@@ -209,7 +208,7 @@ aws rds-data execute-statement --resource-arn "{{arn:aws:rds:us-east-1:123456789
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "generatedFields": [],
 	    "numberOfRecordsUpdated": 0
@@ -298,7 +297,7 @@ aws rds-data commit-transaction --resource-arn "{{arn:aws:rds:us-east-1:12345678
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "transactionStatus": "Transaction Committed"
 	}
@@ -335,7 +334,7 @@ aws rds-data rollback-transaction --resource-arn "{{arn:aws:rds:us-east-1:123456
 
 The following is an example of the response.
 
-```
+```json
 {
 	    "transactionStatus": "Rollback Complete"
 	    }

@@ -1,7 +1,6 @@
 
 
 # Database is creating temporary tables on disk
-<a name="proactive-insights.temp-tables"></a>
 
 Your recent on-disk temporary table usage increased significantly, up to {{percentage}}. The database is creating around {{number}} temporary tables per second. This might impact performance and increase disk operations on {{db-instance}}.
 

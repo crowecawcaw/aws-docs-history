@@ -1,7 +1,6 @@
 
 
 # Using GTID-based replication
-<a name="mysql-replication-gtid"></a>
 
 The following content explains how to use global transaction identifiers (GTIDs) with binary log (binlog) replication between an Aurora MySQL cluster and an external source. 
 

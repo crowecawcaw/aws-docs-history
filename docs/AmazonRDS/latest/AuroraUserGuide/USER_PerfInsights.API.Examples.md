@@ -1,7 +1,6 @@
 
 
 # AWS CLI examples for Performance Insights
-<a name="USER_PerfInsights.API.Examples"></a>
 
 In the following sections, learn more about the AWS Command Line Interface (AWS CLI) for Performance Insights and use AWS CLI examples.
 

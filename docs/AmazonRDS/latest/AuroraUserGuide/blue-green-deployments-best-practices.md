@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon Aurora blue/green deployments
-<a name="blue-green-deployments-best-practices"></a>
 
 The following are best practices for blue/green deployments.
 
@@ -30,7 +29,7 @@ Consider the following general best practices when you create a blue/green deplo
 
 Consider the following best practices when you create a blue/green deployment from an Aurora MySQL DB cluster.
 + If the green environment experiences replica lag, consider the following:
-  + Disable binary log retention if it's not needed, or temporarily disable it until replication catches up. To do so, set the `binlog_format` DB cluster parameter back to `0` and reboot the green writer DB instance.
+  + Turn off binary logging if you don't need it, or turn it off temporarily until replication catches up. To do so, set the `binlog_format` DB cluster parameter to `OFF` in the green environment's DB cluster parameter group. Then reboot the green writer DB instance.
   + Temporarily set the `innodb_flush_log_at_trx_commit` parameter to `0` in the green DB parameter group. After replication catches up, revert to the default value of `1` before switchover. If an unexpected shutdown or crash occurs with the temporary parameter value, rebuild the green environment to avoid undetected data corruption. For more information, see [Configuring how frequently the log buffer is flushed](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Flush).
 
 ## Aurora PostgreSQL best practices for blue/green deployments

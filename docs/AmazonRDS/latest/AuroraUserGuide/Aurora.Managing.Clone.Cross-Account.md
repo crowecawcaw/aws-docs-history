@@ -1,7 +1,6 @@
 
 
 # Cross-account cloning with AWS RAM and Amazon Aurora
-<a name="Aurora.Managing.Clone.Cross-Account"></a>
 
 By using AWS Resource Access Manager (AWS RAM) with Amazon Aurora, you can share Aurora DB clusters and clones that belong to your AWS account with another AWS account or organization. Such *cross-account cloning* is much faster than creating and restoring a database snapshot. You can create a clone of one of your Aurora DB clusters and share the clone. Or you can share your Aurora DB cluster with another AWS account and let the account holder create the clone. The approach that you choose depends on your use case.
 
@@ -340,7 +339,7 @@ If the encrypted cluster that you plan to share uses the default RDS key, make s
 
 ****  
 
-   ```
+   ```json
    {
        "Id": "key-policy-1",
        "Version":"2012-10-17",		 	 	 
@@ -417,7 +416,7 @@ You can create DB instances only after the `restore-db-cluster-to-point-in-time`
 
 ****  
 
-   ```
+   ```json
    {
        "Id": "key-policy-1",
        "Version":"2012-10-17",		 	 	 

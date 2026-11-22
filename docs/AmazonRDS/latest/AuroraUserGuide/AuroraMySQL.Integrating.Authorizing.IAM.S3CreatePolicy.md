@@ -1,7 +1,6 @@
 
 
 # Creating an IAM policy to access Amazon S3 resources
-<a name="AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy"></a>
 
 Aurora can access Amazon S3 resources to either load data to or save data from an Aurora DB cluster. However, you must first create an IAM policy that provides the bucket and object permissions that allow Aurora to access Amazon S3.
 
@@ -21,7 +20,7 @@ The following policy adds the permissions that might be required by Aurora to ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

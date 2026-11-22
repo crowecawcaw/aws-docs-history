@@ -1,7 +1,6 @@
 
 
 # Using write forwarding in an Aurora PostgreSQL global database
-<a name="aurora-global-database-write-forwarding-apg"></a>
 
 **Topics**
 + [Region and version availability of write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-regions-versions-apg)

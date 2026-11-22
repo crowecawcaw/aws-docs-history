@@ -1,7 +1,7 @@
 
 
 # Rebooting an Amazon Aurora DB cluster or Amazon Aurora DB instance
-<a name="USER_RebootCluster"></a><a name="reboot"></a>
+<a name="reboot"></a>
 
  You might need to reboot your DB cluster or some instances within the cluster, usually for maintenance reasons. For example, suppose that you modify the parameters within a parameter group or associate a different parameter group with your cluster. In these cases, you must reboot the cluster for the changes to take effect. Similarly, you might reboot one or more reader DB instances within the cluster. You can arrange the reboot operations for individual instances to minimize downtime for the entire cluster. 
 

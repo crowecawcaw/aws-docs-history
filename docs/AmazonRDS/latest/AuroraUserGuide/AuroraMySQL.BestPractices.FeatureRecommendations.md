@@ -1,7 +1,6 @@
 
 
 # Recommendations for MySQL features in Aurora MySQL
-<a name="AuroraMySQL.BestPractices.FeatureRecommendations"></a>
 
 The following features are available in Aurora MySQL for MySQL compatibility. However, they have performance, scalability, stability, or compatibility issues in the Aurora environment. Thus, we recommend that you follow certain guidelines in your use of these features. For example, we recommend that you don't use certain features for production Aurora deployments.
 

@@ -1,7 +1,6 @@
 
 
 # Managing an Aurora PostgreSQL DB cluster in an Active Directory domain
-<a name="postgresql-kerberos-managing"></a>
 
 You can use the console, the CLI, or the RDS API to manage your DB cluster and its relationship with your Microsoft Active Directory. For example, you can associate an Active Directory to enable Kerberos authentication. You can also remove the association for an Active Directory to disable Kerberos authentication. You can also move a DB cluster to be externally authenticated by one Microsoft Active Directory to another.
 

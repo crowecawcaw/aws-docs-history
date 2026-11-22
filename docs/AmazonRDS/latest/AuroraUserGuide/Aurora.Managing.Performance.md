@@ -1,7 +1,6 @@
 
 
 # Managing performance and scaling for Aurora DB clusters
-<a name="Aurora.Managing.Performance"></a>
 
 You can use the following options to manage performance and scaling for Aurora DB clusters and DB instances:
 

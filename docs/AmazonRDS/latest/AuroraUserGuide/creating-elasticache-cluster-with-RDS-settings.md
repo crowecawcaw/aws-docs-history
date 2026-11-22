@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ElastiCache cache using Aurora DB cluster settings
-<a name="creating-elasticache-cluster-with-RDS-settings"></a>
 
 ElastiCache is a fully managed, in-memory caching service that provides microsecond read and write latencies that support flexible, real-time use cases. ElastiCache can help you accelerate application and database performance. You can use ElastiCache as a primary data store for use cases that don't require data durability, such as gaming leaderboards, streaming, and data analytics. ElastiCache helps remove the complexity associated with deploying and managing a distributed computing environment. For more information, see [Common ElastiCache Use Cases and How ElastiCache Can Help](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/elasticache-use-cases.html) for Memcached and [Common ElastiCache Use Cases and How ElastiCache Can Help](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.html) for Redis OSS. You can use the Amazon RDS console for creating ElastiCache cache. 
 

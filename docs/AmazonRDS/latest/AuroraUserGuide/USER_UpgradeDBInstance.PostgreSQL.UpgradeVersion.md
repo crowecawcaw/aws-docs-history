@@ -1,7 +1,6 @@
 
 
 # Getting a list of available versions in your AWS Region
-<a name="USER_UpgradeDBInstance.PostgreSQL.UpgradeVersion"></a>
 
 You can get a list of all engine versions available as upgrade targets for your Aurora PostgreSQL DB cluster by querying your AWS Region using the [describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html) AWS CLI command, as follows.
 

@@ -1,7 +1,6 @@
 
 
 # Migrating a snapshot of an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster
-<a name="AuroraPostgreSQL.Migrating.RDSPostgreSQL.Import.Console"></a>
 
 To create an Aurora PostgreSQL DB cluster, you can migrate a DB snapshot of an RDS for PostgreSQL DB instance. The new Aurora PostgreSQL DB cluster is populated with the data from the original RDS for PostgreSQL DB instance. For information about creating a DB snapshot, see [Creating a DB snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
 

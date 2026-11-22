@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Aurora DB engines for Aurora serverless
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2"></a>
 
 Aurora serverless is an on-demand, auto-scaling feature designed to be a cost-effective approach to running intermittent or unpredictable workloads on Amazon Aurora. It automatically scales capacity up or down as needed by your applications. With Aurora serverless, each cluster can contain a writer DB instance and multiple reader DB instances. You can combine Aurora serverless and traditional provisioned DB instances within the same cluster. For more information, see [Using Aurora serverless](aurora-serverless-v2.md).
 

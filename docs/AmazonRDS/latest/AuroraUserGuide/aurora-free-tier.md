@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora on the AWS Free Tier
-<a name="aurora-free-tier"></a>
 
 Aurora PostgreSQL is also available on the [AWS Free Tier](https://aws.amazon.com/rds/free/) through the [Create with express configuration](CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.md). In addition to the express configuration limitations, the following restrictions apply when using Aurora PostgreSQL with the AWS Free Tier:
 + Only clusters created with express configuration are supported (full configuration is not available)

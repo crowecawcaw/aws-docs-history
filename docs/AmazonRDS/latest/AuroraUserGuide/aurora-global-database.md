@@ -1,7 +1,7 @@
 
 
 # Using Amazon Aurora Global Database
-<a name="aurora-global-database"></a><a name="gdb"></a><a name="globaldb"></a><a name="global_db"></a><a name="global_database"></a>
+<a name="gdb"></a><a name="globaldb"></a><a name="global_db"></a><a name="global_database"></a>
 
  With the Amazon Aurora Global Database feature, you set up multiple Aurora DB clusters that span multiple AWS Regions. Aurora automatically synchronizes all changes made in the primary DB cluster to one or more secondary clusters. An Aurora global database has a primary DB cluster in one Region, and up to 10 secondary DB clusters in different Regions. This multi-Region configuration provides fast recovery from the rare outage that might affect an entire AWS Region. Having a full copy of all your data in multiple geographic locations also enables low-latency read operations for applications that connect from widely separated locations around the world. 
 

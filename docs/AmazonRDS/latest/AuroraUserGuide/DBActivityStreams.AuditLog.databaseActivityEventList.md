@@ -1,7 +1,6 @@
 
 
 # databaseActivityEventList JSON array for database activity streams
-<a name="DBActivityStreams.AuditLog.databaseActivityEventList"></a>
 
 The audit log payload is an encrypted `databaseActivityEventList` JSON array. The following tables lists alphabetically the fields for each activity event in the decrypted `DatabaseActivityEventList` array of an audit log. The fields differ depending on whether you use Aurora PostgreSQL or Aurora MySQL. Consult the table that applies to your database engine.
 

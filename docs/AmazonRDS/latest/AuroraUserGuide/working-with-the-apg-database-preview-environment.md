@@ -1,7 +1,6 @@
 
 
 # Working with the database preview environment
-<a name="working-with-the-apg-database-preview-environment"></a>
 
  The PostgreSQL community releases new major version of PostgreSQL annually. Similarly, Amazon Aurora makes PostgreSQL major versions available as Preview releases. This allows you to create DB cluster using the Preview version and test out its features in the Database Preview Environment. 
 
@@ -72,4 +71,4 @@ This is preview documentation for Aurora PostgreSQL version 17. It is subject to
 PostgreSQL version 17.0 is now available in the Amazon RDS Database Preview environment. PostgreSQL version 17 contains several improvements that are described in the following PostgreSQL documentation:
 + [ PostgreSQL 17 Released](https://www.postgresql.org/about/news/postgresql-17-released-2936/)
 
-For information on the Database Preview Environment, see [Working with the database preview environment](#working-with-the-apg-database-preview-environment). To access the Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/).
+For information on the Database Preview Environment, see [Working with the database preview environment](working-with-the-apg-database-preview-environment.md). To access the Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/).

@@ -1,7 +1,6 @@
 
 
 # Performing a minor version upgrade
-<a name="USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade"></a>
 
 You can use the following methods to upgrade the minor version of a DB cluster or to patch a DB cluster: 
 

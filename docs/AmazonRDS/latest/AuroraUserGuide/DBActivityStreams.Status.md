@@ -1,7 +1,6 @@
 
 
 # Getting the status of a database activity stream
-<a name="DBActivityStreams.Status"></a>
 
 You can get the status of an activity stream using the console or AWS CLI.
 
@@ -36,7 +35,7 @@ The following example shows a JSON response. The following fields are shown:
 
 These fields are the same for Aurora PostgreSQL and Aurora MySQL, except that `ActivityStreamMode` is always `async` for Aurora MySQL, while for Aurora PostgreSQL it might be `sync` or `async`.
 
-```
+```json
 {
     "DBClusters": [
         {

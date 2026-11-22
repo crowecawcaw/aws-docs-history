@@ -1,7 +1,6 @@
 
 
 # Installing the aws\_s3 extension
-<a name="USER_PostgreSQL.S3Import.InstallExtension"></a>
 
 Before you can use Amazon S3 with your Aurora PostgreSQL DB cluster, you need to install the `aws_s3` extension. This extension provides functions for importing data from an Amazon S3. It also provides functions for exporting data from an instance of an Aurora PostgreSQL DB cluster to an Amazon S3 bucket. For more information, see [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](postgresql-s3-export.md). The `aws_s3` extension depends on some of the helper functions in the `aws_commons` extension, which is installed automatically when needed. 
 

@@ -1,7 +1,6 @@
 
 
 # Promoting a read replica to a DB cluster for Aurora MySQL
-<a name="AuroraMySQL.Replication.CrossRegion.Promote"></a>
 
  You can promote an Aurora MySQL read replica to a standalone DB cluster. When you promote an Aurora MySQL read replica, its DB instances are rebooted before they become available. 
 

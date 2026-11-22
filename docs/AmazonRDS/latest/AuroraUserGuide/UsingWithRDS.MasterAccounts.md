@@ -1,7 +1,6 @@
 
 
 # Master user account privileges
-<a name="UsingWithRDS.MasterAccounts"></a>
 
 When you create a new DB cluster, the default master user that you use gets certain privileges for that DB cluster. You can't change the master user name after the DB cluster is created.
 

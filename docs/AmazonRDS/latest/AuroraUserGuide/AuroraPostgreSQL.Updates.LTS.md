@@ -1,7 +1,6 @@
 
 
 # Using an Aurora PostgreSQL long-term support (LTS) release
-<a name="AuroraPostgreSQL.Updates.LTS"></a>
 
  Each new Aurora PostgreSQL version remains available for a certain amount of time for you to use when you create or upgrade a DB cluster. After this period, you must upgrade any clusters that use that version. You can manually upgrade your cluster before the support period ends, or Aurora can automatically upgrade it for you when its Aurora PostgreSQL version is no longer supported. 
 

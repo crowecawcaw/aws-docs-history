@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="aurora-analytics-getting-started"></a>
 
 Aurora PostgreSQL includes the analytics feature by default on supported engine versions. To use it, you enable the feature through a DB cluster parameter group setting, then install the `aurora_analytics` extension in each database where you want to use it.
 
@@ -22,20 +21,20 @@ After `aurora_analytics.enabled` is set to `true`, install the extension in each
 
 1. Connect to your Aurora PostgreSQL DB cluster using `psql`, another PostgreSQL client, or the [RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html).
 
-   ```
+   ```bash
    psql --host=your-cluster-endpoint.region.rds.amazonaws.com --port=5432 --username=postgres --password
    ```
 
 1. Install the extension:
 
-   ```
+   ```SQL
    CREATE EXTENSION aurora_analytics;
    ```
 
 **Note**  
 To create the extension, you must have the `rds_superuser` role, or be a user that has been granted the `rds_extension` role and delegated this extension. To delegate the extension to a non-superuser, run the following as `rds_superuser`:  
 
-```
+```SQL
 GRANT rds_extension TO your_user;
 ALTER USER your_user SET rds.allowed_delegated_extensions = 'aurora_analytics';
 ```
@@ -50,7 +49,7 @@ After the extension is installed, you can create a foreign table and query your 
 
 The following example creates a foreign table that points to Parquet files in Amazon S3 and queries it:
 
-```
+```SQL
 -- Create a foreign table pointing to Parquet data in S3
 CREATE FOREIGN TABLE ft_orders ()
 SERVER aurora_analytics_server

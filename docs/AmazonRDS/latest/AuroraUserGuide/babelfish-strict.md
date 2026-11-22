@@ -1,7 +1,6 @@
 
 
 # Managing Babelfish error handling with escape hatches
-<a name="babelfish-strict"></a>
 
 Babelfish mimics SQL behavior for control flow and transaction state whenever possible. When Babelfish encounters an error, it returns an error code similar to the SQL Server error code. If Babelfish can't map the error to a SQL Server code, it returns a fixed error code (`33557097`) and takes specific actions based on the type of error, as follows:
 + For compile time errors, Babelfish rolls back the transaction.

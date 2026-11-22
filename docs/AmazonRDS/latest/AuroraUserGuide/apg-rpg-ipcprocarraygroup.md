@@ -1,7 +1,6 @@
 
 
 # IPC:ProcArrayGroupUpdate
-<a name="apg-rpg-ipcprocarraygroup"></a>
 
 The `IPC:ProcArrayGroupUpdate` event occurs when a session is waiting for the group leader to update the transaction status at the end of that operation. While PostgreSQL generally associates IPC type wait events with parallel query operations, this particular wait event is not specific to parallel queries.
 

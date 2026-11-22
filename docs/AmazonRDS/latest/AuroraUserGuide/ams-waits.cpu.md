@@ -1,7 +1,6 @@
 
 
 # cpu
-<a name="ams-waits.cpu"></a>
 
 The `cpu` wait event occurs when a thread is active in CPU or is waiting for CPU.
 

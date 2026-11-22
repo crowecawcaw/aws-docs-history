@@ -1,7 +1,6 @@
 
 
 # Adding a new database user when using RDS Proxy
-<a name="rds-proxy-new-db-user"></a>
 
 In some cases, you might add a new database user to an Aurora cluster that's associated with a proxy. Proceed depending on whether you're using standard authentication with Secrets Manager secrets or end-to-end IAM authentication.
 

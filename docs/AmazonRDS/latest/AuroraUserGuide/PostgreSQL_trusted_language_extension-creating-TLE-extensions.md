@@ -1,7 +1,6 @@
 
 
 # Creating TLE extensions for Aurora PostgreSQL
-<a name="PostgreSQL_trusted_language_extension-creating-TLE-extensions"></a>
 
 You can install any extensions that you create with TLE in any Aurora PostgreSQL DB cluster that has the `pg_tle` extension installed. The `pg_tle` extension is scoped to the PostgreSQL database in which it's installed. The extensions that you create using TLE are scoped to the same database. 
 

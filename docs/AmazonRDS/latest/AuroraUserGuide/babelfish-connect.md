@@ -1,7 +1,6 @@
 
 
 # Connecting to a Babelfish DB cluster
-<a name="babelfish-connect"></a>
 
 To connect to Babelfish, you connect to the endpoint of the Aurora PostgreSQL cluster running Babelfish. Your client can use one of the following client drivers compliant with TDS version 7.1 through 7.4:
 + Open Database Connectivity (ODBC)

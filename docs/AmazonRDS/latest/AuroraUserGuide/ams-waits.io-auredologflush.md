@@ -1,7 +1,6 @@
 
 
 # io/aurora\_redo\_log\_flush
-<a name="ams-waits.io-auredologflush"></a>
 
 The `io/aurora_redo_log_flush` event occurs when a session is writing persistent data to Amazon Aurora storage.
 

@@ -1,7 +1,6 @@
 
 
 # io/aurora\_respond\_to\_client
-<a name="ams-waits.respond-to-client"></a>
 
 The `io/aurora_respond_to_client` event occurs when a thread is waiting to return a result set to a client.
 

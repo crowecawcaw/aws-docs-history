@@ -1,7 +1,6 @@
 
 
 # Creating a secret access policy and role
-<a name="USER_DMS_migration-IAM.secret-iam-role-policy"></a>
 
 Follow the procedures below to create your secret access policy and role which allow DMS to access the user credentials for your source and target databases.
 
@@ -18,7 +17,7 @@ Follow the procedures below to create your secret access policy and role which a
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -48,7 +47,7 @@ Follow the procedures below to create your secret access policy and role which a
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

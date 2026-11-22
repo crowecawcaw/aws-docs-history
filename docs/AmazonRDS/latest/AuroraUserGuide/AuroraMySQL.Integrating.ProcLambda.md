@@ -1,7 +1,6 @@
 
 
 # Invoking a Lambda function with an Aurora MySQL stored procedure (deprecated)
-<a name="AuroraMySQL.Integrating.ProcLambda"></a>
 
 You can invoke an AWS Lambda function from an Aurora MySQL DB cluster by calling the `mysql.lambda_async` procedure. This approach can be useful when you want to integrate your database running on Aurora MySQL with other AWS services. For example, you might want to send a notification using Amazon Simple Notification Service (Amazon SNS) whenever a row is inserted into a specific table in your database. 
 
@@ -62,7 +61,7 @@ Although calls to the `mysql.lambda_async` procedure are asynchronous, triggers 
 The following example creates a stored procedure that you can call in your database code to send an email using a Lambda function.  
 **AWS Lambda Function**  
 
-```
+```python
 import boto3
 
 ses = boto3.client('ses')
@@ -91,7 +90,7 @@ def SES_send_email(event, context):
 ```
 **Stored Procedure**  
 
-```
+```sql
 DROP PROCEDURE IF EXISTS SES_send_email;
 DELIMITER ;;
   CREATE PROCEDURE SES_send_email(IN email_from VARCHAR(255),
@@ -112,7 +111,7 @@ DELIMITER ;
 ```
 **Call the Stored Procedure to Invoke the AWS Lambda Function**  
 
-```
+```sql
 mysql> call SES_send_email('example_from@amazon.com', 'example_to@amazon.com', 'Email subject', 'Email content');
 ```
 
@@ -120,7 +119,7 @@ mysql> call SES_send_email('example_from@amazon.com', 'example_to@amazon.com', '
 The following example creates a stored procedure that publishes an event by using Amazon SNS. The code calls the procedure from a trigger when a row is added to a table.  
 **AWS Lambda Function**  
 
-```
+```python
 import boto3
 
 sns = boto3.client('sns')
@@ -136,7 +135,7 @@ def SNS_publish_message(event, context):
 ```
 **Stored Procedure**  
 
-```
+```sql
 DROP PROCEDURE IF EXISTS SNS_Publish_Message;
 DELIMITER ;;
 CREATE PROCEDURE SNS_Publish_Message (IN subject VARCHAR(255),
@@ -152,7 +151,7 @@ DELIMITER ;
 ```
 **Table**  
 
-```
+```sql
 CREATE TABLE 'Customer_Feedback' (
   'id' int(11) NOT NULL AUTO_INCREMENT,
   'customer_name' varchar(255) NOT NULL,
@@ -162,7 +161,7 @@ CREATE TABLE 'Customer_Feedback' (
 ```
 **Trigger**  
 
-```
+```sql
 DELIMITER ;;
 CREATE TRIGGER TR_Customer_Feedback_AI
   AFTER INSERT ON Customer_Feedback
@@ -176,6 +175,6 @@ DELIMITER ;
 ```
 **Insert a Row into the Table to Trigger the Notification**  
 
-```
+```sql
 mysql> insert into Customer_Feedback (customer_name, customer_feedback) VALUES ('Sample Customer', 'Good job guys!');
 ```

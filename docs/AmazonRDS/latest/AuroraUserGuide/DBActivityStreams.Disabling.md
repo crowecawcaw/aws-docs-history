@@ -1,7 +1,6 @@
 
 
 # Stopping a database activity stream
-<a name="DBActivityStreams.Disabling"></a>
 
 You can stop an activity stream using the console or AWS CLI.
 

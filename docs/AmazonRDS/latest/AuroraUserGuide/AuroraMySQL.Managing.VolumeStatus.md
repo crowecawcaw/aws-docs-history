@@ -1,7 +1,6 @@
 
 
 # Displaying volume status for an Aurora MySQL DB cluster
-<a name="AuroraMySQL.Managing.VolumeStatus"></a>
 
 In Amazon Aurora, a DB cluster volume consists of a collection of logical blocks. Each of these represents 10 gigabytes of allocated storage. These blocks are called *protection groups*.
 
@@ -14,7 +13,7 @@ You can avoid that error by using the `SHOW VOLUME STATUS` statement. The statem
 ## Syntax
 <a name="AuroraMySQL.Managing.VolumeStatus.Syntax"></a>
 
-```
+```sql
 SHOW VOLUME STATUS
 ```
 
@@ -23,7 +22,7 @@ SHOW VOLUME STATUS
 
 The following example illustrates a typical SHOW VOLUME STATUS result.
 
-```
+```sql
 mysql> SHOW VOLUME STATUS;
 +---------------+-------+
 | Variable_name | Value |

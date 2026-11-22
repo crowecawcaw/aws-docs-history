@@ -1,7 +1,6 @@
 
 
 # Encrypting Amazon Aurora resources
-<a name="Overview.Encryption"></a>
 
 Amazon Aurora protects your data both at rest and in transit—whether moving between on-premises clients and Amazon Aurora, or between Amazon Aurora and other AWS resources. Amazon Aurora encrypts all user data in your Amazon Aurora DB clusters including logs, automated backups, and snapshots.
 
@@ -127,12 +126,10 @@ All data flowing accross AWS Regions over the AWS global network is automaticall
 All cross-Region traffic that uses Amazon VPC and Transit Gateway peering is automatically bulk-encrypted when it exits a Region. An additional layer of encryption is automatically provided at the physical layer for all traffic before it leaves AWS secured facilities.
 
 **Encryption between instances**  
-AWS provides secure and private connectivity between DB instances of all types. In addition, some instance types use the offload capabilities of the underlying Nitro System hardware to automatically encrypt in-transit traffic between instances. This encryption uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. There is no impact on network performance. To support this additional in-transit traffic encryption between instances, the following requirements must be met:  
-+ The instances use the following instance types:
-  + **General purpose**: M6i, M6id, M6in, M6idn, M7g
-  + **Memory optimized**: R6i, R6id, R6in, R6idn, R7g, X2idn, X2iedn, X2iezn
+AWS provides secure and private connectivity between DB instances of all types. In addition, some instance types use the offload capabilities of the underlying Nitro System hardware to automatically encrypt in-transit traffic between instances. This encryption uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. There is no impact on network performance. To support this additional in-transit traffic encryption between instances, your instances must meet the following requirements:  
++ The DB instance class corresponds to an Amazon EC2 instance type that supports encryption in transit between instances. For example, the db.m7i DB instance class corresponds to the M7i instance type. For the current list of supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide*. For the DB instance classes that your DB engine supports, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md).
 + The instances are in the same AWS Region.
-+ The instances are in the same VPC or peered VPCs, and the traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
++ The instances are in the same VPC or peered VPCs, and the traffic doesn't pass through a virtual network device or service, such as a load balancer or a transit gateway.
 
 ## Limitations of Amazon Aurora encrypted DB clusters
 <a name="Overview.Encryption.Limitations"></a>

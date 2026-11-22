@@ -1,7 +1,6 @@
 
 
 # Associating a DB cluster parameter group with a DB cluster in Amazon Aurora
-<a name="USER_WorkingWithParamGroups.AssociatingCluster"></a>
 
 You can create your own DB cluster parameter groups with customized settings. You can associate a DB cluster parameter group with a DB cluster using the AWS Management Console, the AWS CLI, or the RDS API. You can do so when you create or modify a DB cluster.
 

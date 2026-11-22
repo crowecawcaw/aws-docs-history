@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora PostgreSQL reference
-<a name="AuroraPostgreSQL.Reference"></a>
 
 In the following topics, you can find information about collations, functions, parameters, and wait events in Amazon Aurora PostgreSQL.
 

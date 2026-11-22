@@ -1,7 +1,6 @@
 
 
 # Checking uptime for Aurora clusters and instances
-<a name="USER_Reboot.Uptime"></a>
 
  You can check and monitor the length of time since the last reboot for each DB instance in your Aurora cluster. The Amazon CloudWatch metric `EngineUptime` reports the number of seconds since the last time a DB instance was started. You can examine this metric at a point in time to find out the uptime for the DB instance. You can also monitor this metric over time to detect when the instance is rebooted. 
 

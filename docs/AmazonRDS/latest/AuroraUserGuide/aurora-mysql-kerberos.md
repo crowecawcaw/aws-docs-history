@@ -1,7 +1,6 @@
 
 
 # Using Kerberos authentication for Aurora MySQL
-<a name="aurora-mysql-kerberos"></a>
 
 You can use Kerberos authentication to authenticate users when they connect to your Aurora MySQL DB cluster. To do so, configure your DB cluster to use AWS Directory Service for Microsoft Active Directory for Kerberos authentication. AWS Directory Service for Microsoft Active Directory is also called AWS Managed Microsoft AD. It's a feature available with Directory Service. To learn more, see [What is Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) in the *AWS Directory Service Administration Guide*.
 

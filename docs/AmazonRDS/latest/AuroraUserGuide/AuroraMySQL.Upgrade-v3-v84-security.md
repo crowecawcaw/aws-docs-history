@@ -1,7 +1,6 @@
 
 
 # Security considerations for upgrading from Aurora MySQL version 3 to version 8.4
-<a name="AuroraMySQL.Upgrade-v3-v84-security"></a>
 
 When migrating from Aurora MySQL version 3 (MySQL 8.0-compatible) to Aurora MySQL version 8.4, several important security-related changes require careful planning and consideration. This guide outlines the key security changes and provides recommendations for a smooth migration.
 
@@ -54,7 +53,7 @@ To change the default authentication plugin for all new users, update the value 
 
 To create a user with a different authentication plugin than the default, specify it explicitly in the `CREATE USER` statement:
 
-```
+```sql
 CREATE USER '{{username}}'@'{{host}}' IDENTIFIED WITH {{authentication-plugin}} BY '{{password}}';
 ```
 

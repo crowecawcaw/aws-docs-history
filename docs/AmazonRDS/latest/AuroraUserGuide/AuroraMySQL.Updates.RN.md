@@ -1,7 +1,6 @@
 
 
 # Database engine updates and fixes for Amazon Aurora MySQL
-<a name="AuroraMySQL.Updates.RN"></a>
 
 You can find the following information in the *Release notes for Amazon Aurora MySQL-Compatible Edition*:
 + [Database engine updates for Amazon Aurora MySQL version 8.4](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.html)

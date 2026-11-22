@@ -1,7 +1,6 @@
 
 
 # Managing performance and scaling for Amazon Aurora MySQL
-<a name="AuroraMySQL.Managing.Performance"></a>
 
 ## Scaling Aurora MySQL DB instances
 <a name="AuroraMySQL.Managing.Performance.InstanceScaling"></a>
@@ -142,7 +141,7 @@ Local storage is also used for importing data from Amazon S3 using `LOAD DATA FR
 
 Aurora MySQL uses separate permanent storage for error logs, general logs, slow query logs, and audit logs for most of the Aurora MySQL DB instance classes (not including burstable-performance instance class types such as db.t2, db.t3, and db.t4g). The data on this volume is retained when starting and stopping the DB instance, and during host replacement.
 
-This permanent storage volume is also backed by Amazon EBS and has a fixed size according to the DB instance class. It can't be extended by using a larger DB instance class.
+This permanent storage volume is also backed by Amazon EBS and has a fixed size that depends on the DB instance class, as shown in the following table.
 
 The following table shows the maximum amount of temporary and permanent storage available for each Aurora MySQL DB instance class. For more information on DB instance class support for Aurora, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md).
 

@@ -1,7 +1,6 @@
 
 
 # Upgrading Babelfish to a new minor version
-<a name="babelfish-information-upgrading-minor"></a>
 
 A minor version update aims to maintain backward compatibility. However, in some cases, critical security fixes or important bug fixes may not be fully backward compatible. A *patch* version includes important fixes for a minor version after its release. For example, the version label for the first release of Aurora PostgreSQL 13.4 was Aurora PostgreSQL 13.4.0. Several patches for that minor version have been released to date, including Aurora PostgreSQL 13.4.1, 13.4.2, and 13.4.4. You can find the patches available for each Aurora PostgreSQL version in the **Patch releases** list on the Aurora PostgreSQL release notes page for that version. For an example, see [PostgreSQL 14.3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#AuroraPostgreSQL.Updates.20180305.143X) in the *Release Notes for Aurora PostgreSQL*. 
 

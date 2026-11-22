@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Aurora global database
-<a name="aurora-global-database-creating"></a>
 
 To create an Aurora global database and its associated resources by using the AWS Management Console, the AWS CLI, or the RDS API, use the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon RDS Extended Support
-<a name="extended-support-overview"></a>
 
 After the Aurora end of standard support date, if you didn't disable RDS Extended Support during the [creation](extended-support-creating-db-instance.md) or [restoration](extended-support-restoring-db-instance.md) of your DB instances and DB clusters, then Amazon Aurora will automatically enroll them in RDS Extended Support. You can also prevent automatic enrollment by changing the `EngineLifecycleSupport` parameter on an existing DB instance or DB cluster. Aurora automatically upgrades your DB instance to the last minor version released before the Aurora end of standard support date, if you aren't already running that version. Amazon Aurora won't upgrade your minor version until *after* the Aurora end of standard support date for your major engine version. 
 

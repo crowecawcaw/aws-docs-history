@@ -1,7 +1,6 @@
 
 
 # Using Kerberos authentication with Aurora PostgreSQL
-<a name="postgresql-kerberos"></a>
 
 You can use Kerberos to authenticate users when they connect to your DB cluster running PostgreSQL. To do so, configure your DB cluster to use AWS Directory Service for Microsoft Active Directory for Kerberos authentication. AWS Directory Service for Microsoft Active Directory is also called AWS Managed Microsoft AD. It's a feature available with Directory Service. To learn more, see [What is Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) in the *AWS Directory Service Administration Guide*.
 

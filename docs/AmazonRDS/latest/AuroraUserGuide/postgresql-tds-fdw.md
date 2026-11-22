@@ -1,7 +1,6 @@
 
 
 # Working with SQL Server databases by using the tds\_fdw extension
-<a name="postgresql-tds-fdw"></a>
 
 You can use the PostgreSQL `tds_fdw` extension to access databases that support the tabular data stream (TDS) protocol, such as Sybase and Microsoft SQL Server databases. This foreign data wrapper lets you connect from your Aurora PostgreSQL DB cluster to databases that use the TDS protocol, including Amazon RDS for Microsoft SQL Server. For more information, see [tds-fdw/tds\_fdw](https://github.com/tds-fdw/tds_fdw) documentation on GitHub. 
 

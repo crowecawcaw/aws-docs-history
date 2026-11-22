@@ -1,7 +1,6 @@
 
 
 # Function reference for Aurora PostgreSQL query plan management
-<a name="AuroraPostgreSQL.Optimize.Functions"></a>
 
 The `apg_plan_mgmt` extension provides the following functions.
 

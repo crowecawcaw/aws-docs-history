@@ -1,7 +1,6 @@
 
 
 # Improving query performance using adaptive join
-<a name="user-apg-adaptive-join"></a>
 
 ## Overview
 <a name="user-apg-adaptive-join-intro"></a>

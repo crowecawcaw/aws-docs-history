@@ -1,7 +1,6 @@
 
 
 # Setting up network prerequisites for RDS Proxy
-<a name="rds-proxy-network-prereqs"></a>
 
  Using RDS Proxy requires you to have a common virtual private cloud (VPC) between your Aurora DB cluster and RDS Proxy. This VPC should have a minimum of two subnets that are in different Availability Zones. Your account can either own these subnets or share them with other accounts. For information about VPC sharing, see [Work with shared VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html). 
 

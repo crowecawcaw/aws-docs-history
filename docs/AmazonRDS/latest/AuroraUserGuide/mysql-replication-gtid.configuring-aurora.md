@@ -1,7 +1,7 @@
 
 
 # Enabling GTID-based replication for an Aurora MySQL cluster
-<a name="mysql-replication-gtid.configuring-aurora"></a><a name="gtid"></a>
+<a name="gtid"></a>
 
 When GTID-based replication is enabled for an Aurora MySQL DB cluster, the GTID settings apply to both inbound and outbound binlog replication. 
 

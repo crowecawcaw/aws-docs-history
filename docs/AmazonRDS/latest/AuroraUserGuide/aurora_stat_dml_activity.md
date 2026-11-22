@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_dml\_activity
-<a name="aurora_stat_dml_activity"></a>
 
 Reports cumulative activity for each type of data manipulation language (DML) operation on a database in an Aurora PostgreSQL cluster.
 

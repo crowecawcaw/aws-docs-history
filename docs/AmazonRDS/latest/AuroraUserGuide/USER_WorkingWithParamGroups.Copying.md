@@ -1,7 +1,6 @@
 
 
 # Copying a DB parameter group in Amazon Aurora
-<a name="USER_WorkingWithParamGroups.Copying"></a>
 
 You can copy custom DB parameter groups that you create. Copying a parameter group can be convenient solution. An example is when you have created a DB parameter group and want to include most of its custom parameters and values in a new DB parameter group. You can copy a DB parameter group by using the AWS Management Console. You can also use the AWS CLI [copy-db-parameter-group](https://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-parameter-group.html) command or the RDS API [CopyDBParameterGroup](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html) operation.
 

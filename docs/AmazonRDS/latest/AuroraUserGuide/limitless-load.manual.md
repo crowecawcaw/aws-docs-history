@@ -1,7 +1,6 @@
 
 
 # Setting up database authentication and resource access manually
-<a name="limitless-load.manual"></a>
 
 The manual process for setting up database authentication and resource access has the following steps:
 
@@ -129,7 +128,7 @@ Data loading requires you to provide access to AWS resources. To provide access,
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -209,7 +208,7 @@ For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/lat
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

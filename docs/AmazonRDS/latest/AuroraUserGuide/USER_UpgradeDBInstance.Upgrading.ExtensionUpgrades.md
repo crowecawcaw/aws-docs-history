@@ -1,7 +1,6 @@
 
 
 # Upgrading PostgreSQL extensions
-<a name="USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades"></a>
 
 Upgrading your Aurora PostgreSQL DB cluster to a new major or minor version doesn't upgrade the PostgreSQL extensions at the same time. For most extensions, you upgrade the extension after the major or minor version upgrade completes. However, in some cases, you upgrade the extension before you upgrade the Aurora PostgreSQL DB engine. For more information, see the [list of extensions to update](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#upgrade-extensions) in [Testing an upgrade of your production DB cluster to a new major version](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Upgrade.preliminary).
 
@@ -13,18 +12,18 @@ To update the `pg_repack` extension, drop the extension and then create the new 
 
 To update an extension after an engine upgrade, use the `ALTER EXTENSION UPDATE` command.
 
-```
+```sql
 ALTER EXTENSION {{extension_name}} UPDATE TO '{{new_version}}';
 ```
 
 To list your currently installed extensions, use the PostgreSQL [pg\_extension](https://www.postgresql.org/docs/current/catalog-pg-extension.html) catalog in the following command.
 
-```
+```sql
 SELECT * FROM pg_extension;
 ```
 
 To view a list of the specific extension versions that are available for your installation, use the PostgreSQL [ pg\_available\_extension\_versions](https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html) view in the following command. 
 
-```
+```sql
 SELECT * FROM pg_available_extension_versions;
 ```

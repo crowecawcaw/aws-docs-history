@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Aurora DB engines for Amazon RDS Proxy
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy"></a>
 
 Amazon RDS Proxy is a fully managed, highly available database proxy that makes applications more scalable by pooling and sharing established database connections. For more information about RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md).
 

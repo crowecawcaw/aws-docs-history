@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)
-<a name="CHAP_Tutorials.CreateVPCDualStack"></a>
 
 A common scenario includes a DB cluster in a virtual private cloud (VPC) based on the Amazon VPC service. This VPC shares data with a public Amazon EC2 instance that is running in the same VPC.
 

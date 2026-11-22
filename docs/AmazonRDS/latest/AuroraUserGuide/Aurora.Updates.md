@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora updates
-<a name="Aurora.Updates"></a>
 
 Amazon Aurora releases updates regularly. Updates are applied to Amazon Aurora DB clusters during system maintenance windows. The timing when updates are applied depends on the Region and maintenance window setting for the DB cluster, and also the type of update. Updates require a database restart, so you typically experience 20–30 seconds of downtime. After this downtime, you can resume using your DB cluster or clusters. You can view or change your maintenance window settings from the [AWS Management Console](https://console.aws.amazon.com/).
 

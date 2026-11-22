@@ -1,7 +1,6 @@
 
 
 # Analyzing DB load for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard
-<a name="USER_PerfInsights.AnalyzeLimitlessTables"></a>
 
 With Performance Insights, you can track metrics at the shard group level and at the instance level for an Aurora PostgreSQL Limitless Database. When analyzing DB load for an Aurora PostgreSQL Limitless Database, you might want to compare the DB load for each shard and router to the maximum vCPU.
 

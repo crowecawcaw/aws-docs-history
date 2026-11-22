@@ -1,7 +1,6 @@
 
 
 # Rebooting an Aurora cluster without read availability
-<a name="aurora-reboot-cluster"></a>
 
  Without the read availability feature, you reboot an entire Aurora DB cluster by rebooting the writer DB instance of that cluster. To do so, follow the procedure in [Rebooting a DB instance within an Aurora cluster](aurora-reboot-db-instance.md). 
 

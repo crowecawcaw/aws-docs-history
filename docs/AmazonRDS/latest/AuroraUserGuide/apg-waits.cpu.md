@@ -1,7 +1,6 @@
 
 
 # CPU
-<a name="apg-waits.cpu"></a>
 
 This event occurs when a thread is active in CPU or is waiting for CPU.
 

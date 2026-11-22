@@ -1,7 +1,6 @@
 
 
 # Overview of the Performance Schema for Database Insights in Aurora MySQL
-<a name="USER_PerfInsights.EnableMySQL"></a>
 
 The Performance Schema is an optional feature for monitoring Aurora MySQL runtime performance at a low level of detail. The Performance Schema is designed to have minimal impact on database performance. Database Insights is a separate feature that you can use with or without the Performance Schema.
 

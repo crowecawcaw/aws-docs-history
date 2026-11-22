@@ -1,7 +1,6 @@
 
 
 # Execution plan
-<a name="aurora-analytics-execution-plan"></a>
 
 Aurora PostgreSQL integrates with PostgreSQL's EXPLAIN infrastructure to help you understand how queries are executed, identify pushdown opportunities, and diagnose performance issues. This topic explains how to read foreign table query execution plans, the different plan types, and the factors that influence plan choices.
 
@@ -30,7 +29,7 @@ The entire query (including JOINs, aggregations, subqueries, CTEs, ORDER BY, and
 
 You see a single `Custom Scan` node at the top level of the plan:
 
-```
+```SQL
 EXPLAIN (COSTS OFF) SELECT status, count(*), sum(total_amount)
 FROM ft_orders
 WHERE order_date > '2024-01-01'
@@ -64,7 +63,7 @@ When the full query contains constructs that can't be pushed to the analytical e
 
 You see `Custom Scan` nodes nested inside standard PostgreSQL nodes:
 
-```
+```SQL
 EXPLAIN (COSTS OFF) SELECT ft.price, soundex(ft.mainroad)
 FROM ft_house_price ft
 LIMIT 5;
@@ -97,7 +96,7 @@ The following examples use real execution plans from a TPC-H SF100 dataset (\~34
 
 This is TPC-H Query 1, a scan, filter, group-by, and sort on a single large table:
 
-```
+```SQL
 EXPLAIN (ANALYZE, VERBOSE, COSTS OFF, TIMING OFF, BUFFERS OFF, SUMMARY OFF)
 SELECT l_returnflag, l_linestatus, count(*), sum(l_quantity), avg(l_extendedprice)
 FROM ft_lineitem
@@ -158,7 +157,7 @@ ORDER BY l_returnflag, l_linestatus;
 
 This is TPC-H Query 5, a 4-table join with filter, aggregation, sort, and limit:
 
-```
+```SQL
 EXPLAIN (ANALYZE, VERBOSE, COSTS OFF, TIMING OFF, BUFFERS OFF, SUMMARY OFF)
 SELECT n_name, count(*), sum(l_extendedprice * (1 - l_discount)) as revenue
 FROM ft_lineitem
@@ -260,7 +259,7 @@ LIMIT 5;
 
 A hybrid query that joins a foreign table with a local PostgreSQL (heap) table can be fully pushed down: the analytics engine reads the local table and performs the join and aggregation itself, as long as the query uses only supported functions, data types, and collations. In the following example, `local_supp` is a local heap table joined to the `ft_lineitem` foreign table on integer keys:
 
-```
+```SQL
 EXPLAIN (VERBOSE, COSTS OFF)
 SELECT ls.s_regionkey, count(*)
 FROM ft_lineitem
@@ -309,7 +308,7 @@ GROUP BY ls.s_regionkey;
 
 Joining a foreign table with a local PostgreSQL table does not by itself prevent full pushdown. The analytics engine can pull a local table into a pushed-down join. Full pushdown is prevented only when the query references something the engine can't push down, such as an unsupported function, data type, or collation. In the following example, the local nation table's n\_name column is character(25), an unsupported type, so Aurora PostgreSQL pushes only the foreign table scan and performs the join in PostgreSQL:
 
-```
+```SQL
 EXPLAIN (VERBOSE, COSTS OFF)
 SELECT n_name, count(*)
 FROM ft_lineitem
@@ -365,7 +364,7 @@ GROUP BY n_name;
 
 `EXPLAIN VERBOSE` reveals the exact SQL sent to the analytics engine:
 
-```
+```SQL
 EXPLAIN (VERBOSE, COSTS OFF)
 SELECT status, count(*), avg(total_amount)
 FROM ft_orders
@@ -404,7 +403,7 @@ The `Pushdown SQL` line shows:
 
 When full query pushdown fails, `EXPLAIN VERBOSE` reports **why** under the "Unsupported Pushdown Expressions" section. This tells you which constructs forced the fallback to table-scan pushdown:
 
-```
+```SQL
 EXPLAIN (VERBOSE, COSTS OFF)
 SELECT soundex(name), age
 FROM ft_passengers
@@ -459,7 +458,7 @@ To maximize performance, aim for full query pushdown. Use `EXPLAIN VERBOSE` to c
 
 **Step 1: Check your query**
 
-```
+```SQL
 EXPLAIN (VERBOSE, COSTS OFF) SELECT ... FROM ft_table ...;
 ```
 
@@ -473,7 +472,7 @@ If present, read the category and description to understand what prevented full 
 + **Unsupported function** – There is no rewrite that pushes an unsupported function down. When a query applies an unsupported function (such as `soundex()`) to a foreign table column, Aurora PostgreSQL automatically falls back to table-scan pushdown. It still pushes the scan, projection, and any supported filters to the analytics engine, and applies the function in PostgreSQL on the returned rows. To regain full pushdown, avoid the unsupported function in queries against foreign tables, or precompute its result in the source data. Otherwise, accept table-scan pushdown, which still gives you efficient columnar scanning.
 + **Non-C collation** – Add explicit `COLLATE "C"` to text comparisons:
 
-  ```
+  ```SQL
   -- Instead of:
   WHERE name LIKE 'Smith%'
   

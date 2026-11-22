@@ -1,7 +1,6 @@
 
 
 # Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch
-<a name="limitless-monitoring.cw"></a>
 
 CloudWatch metrics for Aurora PostgreSQL Limitless Database are reported under the following dimensions:
 + [DBShardGroup](#limitless-monitoring.cw.DBShardGroup)

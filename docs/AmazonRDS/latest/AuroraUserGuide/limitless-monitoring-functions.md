@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL Limitless Database functions
-<a name="limitless-monitoring-functions"></a>
 
 The following table shows the new functions for Aurora PostgreSQL Limitless Database.
 

@@ -1,7 +1,6 @@
 
 
 # Limitations for the Amazon RDS Data API
-<a name="data-api.limitations"></a>
 
 RDS Data API has the following limitations:
 + You can only execute Data API queries on writer instances in a DB cluster. However, writer instances can accept both write and read queries.

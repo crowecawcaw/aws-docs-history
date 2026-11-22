@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL query plan management
-<a name="AuroraPostgreSQL.Optimize.Start"></a>
 
 With query plan management turned on for your Aurora PostgreSQL DB cluster, the optimizer generates and stores query execution plans for any SQL statement that it processes more than once. The optimizer always sets the status of a managed statement's first generated plan to `Approved`, and stores it in the `dba_plans` view. 
 

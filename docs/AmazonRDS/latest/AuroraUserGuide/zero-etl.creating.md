@@ -1,7 +1,6 @@
 
 
 # Creating Aurora zero-ETL integrations with Amazon Redshift
-<a name="zero-etl.creating"></a>
 
 When you create an Aurora zero-ETL integration, you specify the source Aurora DB cluster and the target Amazon Redshift data warehouse. You can also customize encryption settings and add tags. Aurora creates an integration between the source DB cluster and its target. Once the integration is active, any data that you insert into the source DB cluster will be replicated into the configured Amazon Redshift target.
 
@@ -35,7 +34,7 @@ Serverless – `arn:aws:redshift-serverless:{region}:{account-id}:namespace/{{na
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -102,7 +101,7 @@ The role must have the following permissions, which allow the user to view avail
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -129,7 +128,7 @@ The role must have the following trust policy, which specifies the target accoun
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -270,7 +269,7 @@ The following sample policy demonstrates how to provide the required permissions
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "Key policy",

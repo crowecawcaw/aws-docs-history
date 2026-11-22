@@ -1,7 +1,6 @@
 
 
 # Giving Aurora access to Lambda
-<a name="AuroraMySQL.Integrating.LambdaAccess"></a>
 
 Before you can invoke Lambda functions from an Aurora MySQL DB cluster, make sure to first give your cluster permission to access Lambda.
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Aurora machine learning with Aurora PostgreSQL
-<a name="postgresql-ml"></a>
 
 By using Amazon Aurora machine learning with your Aurora PostgreSQL DB cluster, you can use Amazon Comprehend or Amazon SageMaker AI or Amazon Bedrock, depending on your needs. These services each support specific machine learning use cases.
 

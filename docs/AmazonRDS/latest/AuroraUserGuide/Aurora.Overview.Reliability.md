@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora reliability
-<a name="Aurora.Overview.Reliability"></a>
 
  Aurora is designed to be reliable, durable, and fault tolerant. You can architect your Aurora DB cluster to improve availability by doing things such as adding Aurora Replicas and placing them in different Availability Zones, and also Aurora includes several automatic features that make it a reliable database solution. 
 

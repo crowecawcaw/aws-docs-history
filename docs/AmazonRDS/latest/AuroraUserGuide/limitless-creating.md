@@ -1,7 +1,6 @@
 
 
 # Creating Aurora PostgreSQL Limitless Database tables
-<a name="limitless-creating"></a>
 
 There are three types of tables that contain your data in Aurora PostgreSQL Limitless Database:
 + Standard – This is the default table type in Aurora PostgreSQL Limitless Database. You create standard tables using the [CREATE TABLE](https://www.postgresql.org/docs/current/sql-createtable.html) command, and can run Data Description Language (DDL) and Data Manipulation Language (DML) operations on them.

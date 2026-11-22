@@ -1,7 +1,6 @@
 
 
 # Tuning query\_mem for your workload
-<a name="aurora-analytics-tuning-query-mem"></a>
 
 `query_mem` trades per-query speed against concurrency: a higher value lets each query use more memory and run faster, but fewer queries can run at once before they compete for memory. Raise it when only a few large queries run at a time and you want each to finish quickly. Lower it as concurrency rises, so more queries fit without exhausting memory.
 

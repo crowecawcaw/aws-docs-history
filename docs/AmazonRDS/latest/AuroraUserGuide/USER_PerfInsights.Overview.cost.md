@@ -1,7 +1,6 @@
 
 
 # Pricing and data retention for Database Insights
-<a name="USER_PerfInsights.Overview.cost"></a>
 
 By default, Database Insights includes 7 days of performance data history and 1 million API requests per month. You can also purchase longer retention periods. For complete pricing information, see [Database Insights Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 

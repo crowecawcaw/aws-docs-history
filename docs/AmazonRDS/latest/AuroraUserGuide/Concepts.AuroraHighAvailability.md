@@ -1,7 +1,6 @@
 
 
 # High availability for Amazon Aurora
-<a name="Concepts.AuroraHighAvailability"></a>
 
  The Amazon Aurora architecture involves separation of storage and compute. Aurora includes some high availability features that apply to the data in your DB cluster. The data remains safe even if some or all of the DB instances in the cluster become unavailable. Other high availability features apply to the DB instances. These features help to make sure that one or more DB instances are ready to handle database requests from your application. 
 
@@ -61,7 +60,7 @@ More than one Aurora Replica can share the same priority, resulting in promotion
 **Note**  
 Several factors are involved in identifying a failover target. After five unsuccessful failover attempts, promotion tiers are no longer considered.
 
-If the DB cluster doesn't contain any Aurora Replicas, then the primary instance is recreated in the same AZ during a failure event. A failure event results in an interruption during which read and write operations fail with an exception. Service is restored when the new primary instance is created, which typically takes less than 10 minutes. Promoting an Aurora Replica to the primary instance is much faster than creating a new primary instance.
+If the DB cluster doesn't contain any Aurora Replicas, then the primary database host is automatically recovered in the same AZ during a failure event. A failure event results in an interruption, during which read and write operations fail with an exception. Service is restored when the primary database host is recovered, which typically takes less than 10 minutes. Promoting an Aurora Replica to the primary role is much faster than recovering a primary host.
 
 Suppose that the primary instance in your cluster is unavailable because of an outage that affects an entire AZ. In this case, the way to bring a new primary instance online depends on whether your cluster uses a Multi-AZ configuration:
 + If your provisioned or Aurora serverless cluster contains any reader instances in other AZs, Aurora uses the failover mechanism to promote one of those reader instances to be the new primary instance.

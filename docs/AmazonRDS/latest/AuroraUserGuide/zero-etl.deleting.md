@@ -1,7 +1,6 @@
 
 
 # Deleting Aurora zero-ETL integrations
-<a name="zero-etl.deleting"></a>
 
 When you delete a zero-ETL integration, Amazon Aurora removes it from the source Aurora DB cluster. Your transactional data isn't deleted from Amazon Aurora or the analytics destination, but Aurora doesn't send new data to Amazon Redshift or Amazon SageMaker.
 

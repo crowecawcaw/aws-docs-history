@@ -1,7 +1,6 @@
 
 
 # Using a PostgreSQL client to connect to your DB cluster
-<a name="babelfish-connect-PostgreSQL"></a>
 
 You can use a PostgreSQL client to connect to Babelfish on the PostgreSQL port. Starting with version 5.1.0, the Babelfish server enforces end-to-end connection encryption by default. Update your application to work with SSL/TLS certificates. For more information about configuring SSL/TLS certificates, see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL).
 

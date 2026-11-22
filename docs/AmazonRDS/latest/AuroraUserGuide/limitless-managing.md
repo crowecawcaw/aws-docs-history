@@ -1,7 +1,6 @@
 
 
 # Managing Aurora PostgreSQL Limitless Database
-<a name="limitless-managing"></a>
 
 The following topics describe how to manage your Aurora PostgreSQL Limitless Database DB clusters.
 

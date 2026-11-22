@@ -1,7 +1,6 @@
 
 
 # Working with unlogged tables in Aurora PostgreSQL
-<a name="aurora-postgresql-unlogged-tables"></a>
 
 Amazon Aurora PostgreSQL supports unlogged tables that are crash-safe and maintain data integrity even after writer instance failures or failovers. In standard PostgreSQL, unlogged tables bypass the Write-Ahead Log (WAL) during write operations, resulting in faster write speeds. However, this comes at the cost of reduced durability, as unlogged tables are not crash-safe and can lose data after a system failure or unclean shutdown. These unlogged tables are automatically truncated after a crash or unclean shutdown. Their contents and indexes are also not replicated to standby servers.
 

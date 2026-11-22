@@ -1,7 +1,6 @@
 
 
 # Using logical replication to perform a major version upgrade for Aurora PostgreSQL
-<a name="AuroraPostgreSQL.MajorVersionUpgrade"></a>
 
 Using logical replication and Aurora fast cloning, you can perform a major version upgrade that uses the current version of Aurora PostgreSQL database while gradually migrating the changing data to the new major version database. This low downtime upgrade process is referred to as a blue/green upgrade. The current version of the database is referred as the "blue" environment and the new database version is referred as the "green" environment. 
 
@@ -66,7 +65,7 @@ When you upgrade to a newer version of Aurora PostgreSQL, you need to duplicate 
 
 For example, to get the settings for replication parameters, run the following query:
 
-```
+```sql
 SELECT name, setting FROM pg_settings WHERE name in 
 ({{'rds.logical_replication'}}, {{'max_replication_slots'}}, 
 {{'max_wal_senders'}}, {{'max_logical_replication_workers'}}, 
@@ -80,14 +79,14 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. In the example that follows, the source writer instance (blue) is an Aurora PostgreSQL DB cluster running PostgreSQL version 11.15. This is the publication node in our replication scenario. For this demonstration, our source writer instance hosts a sample table that holds a series of values:
 
-   ```
+   ```sql
    CREATE TABLE {{my_table}} (a int PRIMARY KEY);
    INSERT INTO {{my_table}} VALUES (generate_series(1,100));
    ```
 
 1. To create a publication on the source instance, connect to the writer node of the instance with psql (the CLI for PostgreSQL) or with the client of your choice). Enter the following command in each database:
 
-   ```
+   ```sql
    CREATE PUBLICATION {{publication_name}} FOR ALL TABLES;
    ```
 
@@ -95,7 +94,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. You also need to create a replication slot on the instance. The following command creates a replication slot and loads the `pgoutput` [logical decoding plug-in](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html). The plug-in changes content read from write-ahead logging (WAL) to the logical replication protocol, and filters the data according to the publication specification.
 
-   ```
+   ```sql
    SELECT pg_create_logical_replication_slot({{'replication_slot_name'}}, {{'pgoutput'}});
    ```
 
@@ -113,13 +112,13 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. The clone is the ‘green’ instance in the deployment model. It is the host of the replication subscription node. When the node becomes available, connect with psql and query the new writer node to obtain the log sequence number (LSN). The LSN identifies the beginning of a record in the WAL stream.
 
-   ```
+   ```sql
    SELECT aurora_volume_logical_start_lsn();
    ```
 
 1. In the response from the query, you find the LSN number. You need this number later in the process, so make a note of it.
 
-   ```
+   ```sql
    postgres=> SELECT aurora_volume_logical_start_lsn();
    aurora_volume_logical_start_lsn 
    ---------------
@@ -129,7 +128,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. Before upgrading the clone, drop the clone's replication slot.
 
-   ```
+   ```sql
    SELECT pg_drop_replication_slot({{'replication_slot_name'}});
    ```
 
@@ -138,7 +137,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 ![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-modify-DB-cluster.png)
 + You can also use the CLI to perform an upgrade:
 
-  ```
+  ```sql
   aws rds modify-db-cluster —db-cluster-identifier $TARGET_Aurora_ID —engine-version 13.6 —allow-major-version-upgrade —apply-immediately
   ```
 
@@ -153,7 +152,7 @@ SELECT name, setting FROM pg_settings WHERE name in
    + `publication_name` – The name of the publication server.
    + `replication_slot_name` – The name of the replication slot.
 
-   ```
+   ```sql
    CREATE SUBSCRIPTION {{subscription_name}} 
    CONNECTION {{'postgres://admin_user_name:admin_user_password@source_instance_URL/database'}} PUBLICATION {{publication_name}} 
    WITH (copy_data = false, create_slot = false, enabled = false, connect = true, slot_name = {{'replication_slot_name'}});
@@ -161,13 +160,13 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1.  After creating the subscription, query the [pg\_replication\_origin](https://www.postgresql.org/docs/14/catalog-pg-replication-origin.html) view to retrieve the roname value, which is the identifier of the replication origin. Each instance has one `roname`: 
 
-   ```
+   ```sql
    SELECT * FROM pg_replication_origin;
    ```
 
    For example:
 
-   ```
+   ```sql
    postgres=> 
    SELECT * FROM pg_replication_origin;
     
@@ -178,7 +177,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. Provide the LSN that you saved from the earlier query of the publication node and the `roname` returned from the subscription node [INSTANCE] in the command. This command uses the `[pg\_replication\_origin\_advance](https://www.postgresql.org/docs/14/functions-admin.html)` function to specify the starting point in the log sequence for replication.
 
-   ```
+   ```sql
    SELECT pg_replication_origin_advance({{'roname'}}, {{'log_sequence_number'}});
    ```
 
@@ -188,7 +187,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 1. Then, use the `ALTER SUBSCRIPTION... ENABLE` clause to turn on logical replication.
 
-   ```
+   ```sql
    ALTER SUBSCRIPTION {{subscription_name}} ENABLE;
    ```
 
@@ -196,7 +195,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
    Then, use the following command to monitor replication lag on the publication node:
 
-   ```
+   ```sql
    SELECT now() AS CURRENT_TIME, slot_name, active, active_pid, pg_size_pretty(pg_wal_lsn_diff(pg_current_wal_lsn(),
    confirmed_flush_lsn)) AS diff_size, pg_wal_lsn_diff(pg_current_wal_lsn(),
    confirmed_flush_lsn) AS diff_bytes FROM pg_replication_slots WHERE slot_type = 'logical';
@@ -204,7 +203,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
    For example:
 
-   ```
+   ```sql
    postgres=> SELECT now() AS CURRENT_TIME, slot_name, active, active_pid, pg_size_pretty(pg_wal_lsn_diff(pg_current_wal_lsn(), 
    confirmed_flush_lsn)) AS diff_size, pg_wal_lsn_diff(pg_current_wal_lsn(), confirmed_flush_lsn) AS diff_bytes FROM pg_replication_slots WHERE slot_type = 'logical';
     

@@ -1,7 +1,6 @@
 
 
 # Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4
-<a name="AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions"></a>
 
 The following prechecks run when you upgrade from Aurora MySQL version 3 (compatible with MySQL 8.0) to Aurora MySQL version 8.4 (compatible with MySQL 8.4). These prechecks identify potential compatibility issues before the upgrade begins.
 

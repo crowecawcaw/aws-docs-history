@@ -1,7 +1,6 @@
 
 
 # Adding an auto scaling policy to an Amazon Aurora DB cluster
-<a name="Aurora.Integrating.AutoScaling.Add"></a>
 
 You can add a scaling policy using the AWS Management Console, the AWS CLI, or the Application Auto Scaling API.
 
@@ -164,7 +163,7 @@ To use a predefined metric in your scaling policy, you create a target tracking 
 **Example**  
 The following example describes a typical policy configuration for target-tracking scaling for an Aurora DB cluster. In this configuration, the `RDSReaderAverageCPUUtilization` predefined metric is used to adjust the Aurora DB cluster based on an average CPU utilization of 40 percent across all Aurora Replicas.  
 
-```
+```json
 {
     "TargetValue": 40.0,
     "PredefinedMetricSpecification":
@@ -184,7 +183,7 @@ Not all Aurora metrics work for target tracking. The metric must be a valid util
 **Example**  
 The following example describes a target-tracking configuration for a scaling policy. In this configuration, a custom metric adjusts an Aurora DB cluster based on an average CPU utilization of 50 percent across all Aurora Replicas in an Aurora DB cluster named `my-db-cluster`.  
 
-```
+```json
 {
     "TargetValue": 50,
     "CustomizedMetricSpecification":
@@ -209,7 +208,7 @@ You can specify a value, in seconds, for `ScaleOutCooldown` to add a cooldown pe
 **Example**  
 The following example describes a target-tracking configuration for a scaling policy. In this configuration, the `RDSReaderAverageCPUUtilization` predefined metric is used to adjust an Aurora DB cluster based on an average CPU utilization of 40 percent across all Aurora Replicas in that Aurora DB cluster. The configuration provides a scale-in cooldown period of 10 minutes and a scale-out cooldown period of 5 minutes.  
 
-```
+```json
 {
     "TargetValue": 40.0,
     "PredefinedMetricSpecification":
@@ -231,7 +230,7 @@ You can specify a Boolean value for `DisableScaleIn` to enable or disable scale 
 **Example**  
 The following example describes a target-tracking configuration for a scaling policy. In this configuration, the `RDSReaderAverageCPUUtilization` predefined metric adjusts an Aurora DB cluster based on an average CPU utilization of 40 percent across all Aurora Replicas in that Aurora DB cluster. The configuration disables scale-in activity for the scaling policy.  
 
-```
+```json
 {
     "TargetValue": 40.0,
     "PredefinedMetricSpecification":

@@ -1,7 +1,6 @@
 
 
 # Terminology
-<a name="PostgreSQL_trusted_language_extension-terminology"></a>
 
 To help you better understand Trusted Language Extensions, view the following glossary for terms used in this topic. 
 

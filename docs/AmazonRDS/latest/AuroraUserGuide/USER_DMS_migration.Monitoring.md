@@ -1,7 +1,6 @@
 
 
 # Monitoring your data migrations
-<a name="USER_DMS_migration.Monitoring"></a>
 
 After the data migrations starts, you can monitor its status and progress. Data migrations of large data sets take hours to complete. To maintain the reliability, availability, and high performance of your data migration, monitor its progress regularly.
 

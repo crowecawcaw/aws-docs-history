@@ -1,7 +1,6 @@
 
 
 # Configuring backtracking a Aurora MySQL DB cluster
-<a name="AuroraMySQL.Managing.Backtrack.Configuring"></a>
 
 To use the Backtrack feature, you must enable backtracking and specify a target backtrack window. Otherwise, backtracking is disabled.
 

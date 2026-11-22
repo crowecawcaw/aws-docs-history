@@ -1,7 +1,6 @@
 
 
 # DML limitations and other information for Aurora PostgreSQL Limitless Database
-<a name="limitless-reference.DML-limitations"></a>
 
 The following topics describe limitations or provide more information for DML and query processing SQL commands in Aurora PostgreSQL Limitless Database.
 

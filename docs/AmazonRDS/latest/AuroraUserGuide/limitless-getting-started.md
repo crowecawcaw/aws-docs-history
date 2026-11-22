@@ -1,7 +1,6 @@
 
 
 # Getting started with Aurora PostgreSQL Limitless Database
-<a name="limitless-getting-started"></a>
 
 You perform the following actions to get started with Aurora PostgreSQL Limitless Database:
 

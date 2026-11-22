@@ -1,7 +1,7 @@
 
 
 # Amazon Aurora MySQL reference
-<a name="AuroraMySQL.Reference"></a><a name="mysqlref"></a>
+<a name="mysqlref"></a>
 
 This reference includes information about Aurora MySQL parameters, status variables, and general SQL extensions or differences from the community MySQL database engine.
 

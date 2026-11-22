@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL Limitless Database views
-<a name="limitless-monitoring-views"></a>
 
 The following table shows the new views for Aurora PostgreSQL Limitless Database.
 

@@ -1,7 +1,6 @@
 
 
 # Using local write forwarding in an Amazon Aurora MySQL DB cluster
-<a name="aurora-mysql-write-forwarding"></a>
 
 *Local (in-cluster) write forwarding* allows your applications to issue read/write transactions directly on an Aurora Replica. These transactions are then forwarded to the writer DB instance to be committed. You can use local write forwarding when your applications require *read-after-write consistency*, which is the ability to read the latest write in a transaction.
 

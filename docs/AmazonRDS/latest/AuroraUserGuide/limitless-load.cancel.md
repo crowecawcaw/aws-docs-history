@@ -1,7 +1,6 @@
 
 
 # Canceling data loading
-<a name="limitless-load.cancel"></a>
 
 To cancel a data loading job, call the `rds_aurora.limitless_data_load_cancel` stored procedure, with the job ID as the input parameter. You call this stored procedure from the same database in the DB shard group where the specific data loading job was started. For example:
 

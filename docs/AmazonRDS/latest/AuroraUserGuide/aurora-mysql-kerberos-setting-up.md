@@ -1,7 +1,6 @@
 
 
 # Setting up Kerberos authentication for Aurora MySQL DB clusters
-<a name="aurora-mysql-kerberos-setting-up"></a>
 
 Use AWS Managed Microsoft AD to set up Kerberos authentication for an Aurora MySQL DB cluster. To set up Kerberos authentication, take the following steps.
 
@@ -120,7 +119,7 @@ Optionally, you can create policies with the required permissions instead of usi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -148,7 +147,7 @@ The role must also have the following IAM role policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -172,7 +171,7 @@ For opt-in AWS Regions, use Region-specific service principals in IAM role trust
 
 The following example shows a trust policy that includes Region-specific service principals:
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -192,7 +191,7 @@ The following example shows a trust policy that includes Region-specific service
 
 Replace REGION-CODE with the code for your specific Region. For example, use the following service principals for the Asia Pacific (Melbourne) Region:
 
-```
+```json
 "Service": [
   "directoryservice.rds.ap-southeast-4.amazonaws.com",
   "rds.ap-southeast-4.amazonaws.com"
@@ -201,7 +200,7 @@ Replace REGION-CODE with the code for your specific Region. For example, use the
 
 For AWS Regions launched after Israel (Tel Aviv), starting with Canada West (Calgary), use the engine-specific service principal `directoryservice-{{engine}}.rds.{{region-code}}.amazonaws.com`, where {{engine}} is `aurora-mysql`. For example, for Canada West (Calgary) Region:
 
-```
+```json
 "Service": [
   "directoryservice-aurora-mysql.rds.ca-west-1.amazonaws.com",
   "rds.ca-west-1.amazonaws.com"

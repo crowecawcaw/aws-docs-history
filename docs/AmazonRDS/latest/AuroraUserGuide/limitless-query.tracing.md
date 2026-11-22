@@ -1,7 +1,6 @@
 
 
 # Distributed query tracing in PostgreSQL logs in Aurora PostgreSQL Limitless Database
-<a name="limitless-query.tracing"></a>
 
 Distributed query tracing is a tool to trace and correlate queries in PostgreSQL logs across Aurora PostgreSQL Limitless Database. In Aurora PostgreSQL, you use the transaction ID to identify a transaction. But in Aurora PostgreSQL Limitless Database, the transaction ID can repeat across various routers. Therefore, we recommend that you use the tracing ID instead in Limitless Database.
 

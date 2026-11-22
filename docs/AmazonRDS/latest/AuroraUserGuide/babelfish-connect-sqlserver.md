@@ -1,7 +1,6 @@
 
 
 # Using a SQL Server client to connect to your DB cluster
-<a name="babelfish-connect-sqlserver"></a>
 
 You can use a SQL Server client to connect with Babelfish on the TDS port. As of Babelfish 2.1.0 and higher releases, you can use the SSMS Object Explorer or the SSMS Query Editor to connect to your Babelfish cluster. 
 

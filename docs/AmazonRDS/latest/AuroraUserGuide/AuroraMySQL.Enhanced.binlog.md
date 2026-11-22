@@ -1,7 +1,6 @@
 
 
 # Setting up enhanced binlog for Aurora MySQL
-<a name="AuroraMySQL.Enhanced.binlog"></a>
 
 Enhanced binlog reduces the compute performance overhead caused by turning on binlog, which can reach up to 50% in certain cases. With enhanced binlog, this overhead can be reduced to about 13%. To reduce overhead, enhanced binlog writes the binary and transactions logs to storage in parallel, which minimizes the data written at the transaction commit time.
 

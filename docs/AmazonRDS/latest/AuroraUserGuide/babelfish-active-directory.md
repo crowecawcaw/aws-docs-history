@@ -1,7 +1,6 @@
 
 
 # Kerberos authentication with Babelfish
-<a name="babelfish-active-directory"></a>
 
 Babelfish for Aurora PostgreSQL 15.2 version supports authentication to your DB cluster using Kerberos. This method allows you to use Microsoft Windows Authentication to authenticate users when they connect to your Babelfish database. To do so, you must first configure your DB cluster to use AWS Directory Service for Microsoft Active Directory for Kerberos authentication. For more information, see [What is Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html) in the *AWS Directory Service Administration Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Aurora MySQL database performance
-<a name="aurora-mysql-troubleshooting"></a>
 
 This topic focuses on some common Aurora MySQL DB performance issues, and how to troubleshoot or collect information to remediate these issues quickly. We divide database performance into two categories:
 + Server performance – The entire database server runs slower.

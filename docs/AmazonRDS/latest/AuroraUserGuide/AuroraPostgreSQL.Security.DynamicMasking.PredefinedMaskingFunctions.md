@@ -1,7 +1,6 @@
 
 
 # Pre-defined data masking functions
-<a name="AuroraPostgreSQL.Security.DynamicMasking.PredefinedMaskingFunctions"></a>
 
 `pg_columnmask` extension provides built-in utility functions written in C language (for faster execution) which can be used as masking expression for `pg_columnmask` policies.
 
@@ -23,7 +22,7 @@ A function to mask text data with configurable visibility options.
 **Example of using different masking options**  
 Mask the entire input string with the default 'X' character  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_text('Hello World');
   mask_text  
 -------------
@@ -31,7 +30,7 @@ postgres=> SELECT pgcolumnmask.mask_text('Hello World');
 ```
 Use the `mask_char` argument to mask text input using a different character  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*');
   mask_text  
 -------------
@@ -39,7 +38,7 @@ postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*');
 ```
 Use `visible_prefix` and `visible_suffix` parameters to control how many characters remain unmasked at the start and end of the text  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 5, 1);
   mask_text  
 -------------
@@ -47,7 +46,7 @@ postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 5, 1);
 ```
 When `use_hash_mask` is true the input string is masked using random characters `mask_char` argument is ignored but `visible_prefix` and `visible_suffix` are still honored  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 2, 2, true);
   mask_text  
 -------------
@@ -67,7 +66,7 @@ postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 2, 2, true);
 These examples demonstrate complete timestamp masking to a default value, partial masking of specific timestamp components (year only), and masking with a custom replacement value.  
 Completely mask input value to the default timestamp  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00');
    mask_timestamp    
 ---------------------
@@ -75,7 +74,7 @@ postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00');
 ```
 To mask only one part of the timestamp from example only the year  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'year');
    mask_timestamp    
 ---------------------
@@ -83,7 +82,7 @@ postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'year');
 ```
 To change the masked value for timestamp use the `mask_value` argument  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'all', '2012-12-12 12:12:12');
    mask_timestamp    
 ---------------------
@@ -106,7 +105,7 @@ A function to mask email addresses while preserving email structure.
 These examples demonstrate complete email masking, custom mask characters, and selective masking of either the local part or domain part of the email address.  
 Complete masking  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_email('user@example.com');
     mask_email    
 ------------------
@@ -114,7 +113,7 @@ postgres=> SELECT pgcolumnmask.mask_email('user@example.com');
 ```
 Use `mask_char` to change the character used for masking  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*');
     mask_email    
 ------------------
@@ -122,7 +121,7 @@ postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*');
 ```
 Use `mask_local` and `mask_domain` to control masking on local and domain  
 
-```
+```sql
 postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*', true, false);
     mask_email    
 ------------------

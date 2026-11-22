@@ -1,7 +1,6 @@
 
 
 # Comparing Aurora MySQL version 3 and Aurora MySQL version 8.4
-<a name="AuroraMySQL.Compare-v3-v84"></a>
 
 Amazon Aurora MySQL version 8.4 introduces significant enhancements and changes compared to Aurora MySQL version 3 (compatible with MySQL 8.0). This guide highlights the key differences to help you understand what is new and what has changed.
 

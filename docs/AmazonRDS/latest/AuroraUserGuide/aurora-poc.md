@@ -1,7 +1,7 @@
 
 
 # Performing a proof of concept with Amazon Aurora
-<a name="aurora-poc"></a><a name="proof_of_concept"></a><a name="poc"></a>
+<a name="proof_of_concept"></a><a name="poc"></a>
 
  Following, you can find an explanation of how to set up and run a proof of concept for Aurora. A *proof of concept *is an investigation that you do to see if Aurora is a good fit with your application. The proof of concept can help you understand Aurora features in the context of your own database applications and how Aurora compares with your current database environment. It can also show what level of effort you need to move data, port SQL code, tune performance, and adapt your current management procedures. 
 

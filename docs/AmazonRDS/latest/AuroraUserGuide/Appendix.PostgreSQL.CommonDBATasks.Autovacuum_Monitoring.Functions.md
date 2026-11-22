@@ -1,11 +1,10 @@
 
 
 # Functions of postgres\_get\_av\_diag() in Aurora PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions"></a>
 
 The `postgres_get_av_diag()` function retrieves diagnostic information about autovacuum processes that are blocking or lagging behind in a Aurora PostgreSQL database. The query needs to be executed in the database with the oldest transaction ID for accurate results. For more information about using the database with the oldest transaction ID, see [Not connected to the database with the age of oldest transaction ID](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.NOTICE.md)
 
-```
+```sql
 SELECT
     blocker,
     DATABASE,

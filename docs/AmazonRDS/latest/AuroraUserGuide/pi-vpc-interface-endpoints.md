@@ -1,7 +1,6 @@
 
 
 # Performance Insights API and interface VPC endpoints (AWS PrivateLink)
-<a name="pi-vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon RDS Performance Insights. You can access Performance Insights as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access Performance Insights.
 
@@ -47,7 +46,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for Performance Insights actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it grants access to the listed Performance Insights actions for all principals on all resources.
 
-```
+```json
 {
    "Statement":[
       {
@@ -67,7 +66,7 @@ The following is an example of a custom endpoint policy. When you attach this po
 **Example: VPC endpoint policy that denies all access from a specified AWS account**  
 The following VPC endpoint policy denies AWS account `123456789012` all access to resources using the endpoint. The policy allows all actions from other accounts.
 
-```
+```json
 {
   "Statement": [
     {

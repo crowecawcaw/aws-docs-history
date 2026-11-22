@@ -1,9 +1,10 @@
 
 
 # Working with a DB cluster in a VPC
-<a name="USER_VPC.WorkingWithRDSInstanceinaVPC"></a>
 
-Your DB cluster is in a virtual private cloud (VPC). A VPC is a virtual network that is logically isolated from other virtual networks in the AWS Cloud. Amazon VPC makes it possible for you to launch AWS resources, such as an Amazon Aurora DB cluster or Amazon EC2 instance, into a VPC. The VPC can either be a default VPC that comes with your account or one that you create. All VPCs are associated with your AWS account. 
+Most Aurora DB clusters are in a virtual private cloud (VPC). A VPC is a virtual network that is logically isolated from other virtual networks in the AWS Cloud. Amazon VPC makes it possible for you to launch AWS resources, such as an Amazon Aurora DB cluster or Amazon EC2 instance, into a VPC. The VPC can either be a default VPC that comes with your account or one that you create. All VPCs are associated with your AWS account. 
+
+Aurora PostgreSQL DB clusters can also run without VPC networking. You connect to them over the internet through the internet access gateway. You can move a DB cluster into a VPC, out of a VPC, or to a different VPC without changing its endpoint. For more information, see [Updating the VPC for a DB cluster](#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC), [Moving a DB cluster out of a VPC](#USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC), and [Moving a DB cluster into a VPC](#USER_VPC.WorkingWithRDSInstanceinaVPC.MoveIntoVPC).
 
 Your default VPC has three subnets that you can use to isolate resources inside the VPC. The default VPC also has an internet gateway that can be used to provide access to resources inside the VPC from outside the VPC. 
 
@@ -17,6 +18,9 @@ For a list of scenarios involving Amazon Aurora DB clusters in a VPC , see [Scen
 + [Amazon Aurora IP addressing](#USER_VPC.IP_addressing)
 + [Hiding a DB cluster in a VPC from the internet](#USER_VPC.Hiding)
 + [Creating a DB cluster in a VPC](#USER_VPC.InstanceInVPC)
++ [Updating the VPC for a DB cluster](#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC)
++ [Moving a DB cluster out of a VPC](#USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC)
++ [Moving a DB cluster into a VPC](#USER_VPC.WorkingWithRDSInstanceinaVPC.MoveIntoVPC)
 
 In the following tutorials, you can learn to create a VPC that you can use for a common Amazon Aurora scenario:
 + [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md)
@@ -67,7 +71,7 @@ For Aurora Serverless for MySQL and PostreSQL, encryption control requires platf
 
 Each DB subnet group should have subnets in at least two Availability Zones in a given AWS Region. When creating a DB cluster in a VPC, you choose a DB subnet group for it. From the DB subnet group, Amazon Aurora chooses a subnet and an IP address within that subnet to associate with the primary DB instance in your DB cluster. The DB uses the Availability Zone that contains the subnet. Aurora assigns an IP address from a subnet that has free IP address space.
 
-The subnets in a DB subnet group are either public or private. The subnets are public or private, depending on the configuration that you set for their network access control lists (network ACLs) and routing tables. For a DB cluster to be publicly accessible, all of the subnets in its DB subnet group must be public. If a subnet that's associated with a publicly accessible DB cluster changes from public to private, it can affect DB cluster availability.
+The subnets in a DB subnet group are either public or private. Whether a subnet is public or private depends on the configuration that you set for its network access control lists (network ACLs) and route tables. For a DB cluster to be publicly accessible, all of the subnets in its DB subnet group must be public. Don't mix public and private subnets in the DB subnet group of a publicly accessible DB cluster. Aurora chooses a subnet from the DB subnet group for each DB instance in the cluster. If a DB instance in a private subnet becomes the writer instance during a failover, clients outside the VPC can't connect to the cluster. Likewise, if you change a subnet in the DB subnet group from public to private, DB instances in that subnet are no longer reachable from outside the VPC.
 
 To create a DB subnet group that supports dual-stack mode, make sure that each subnet that you add to the DB subnet group has an Internet Protocol version 6 (IPv6) CIDR block associated with it. For more information, see [Amazon Aurora IP addressing](#USER_VPC.IP_addressing) and [Migrating to IPv6](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html) in the *Amazon VPC User Guide.*
 
@@ -83,6 +87,7 @@ You can create a DB cluster in a shared VPC.
 
 Some considerations to keep in mind while using shared VPCs:
 + You can move a DB cluster from a shared VPC subnet to a non-shared VPC subnet and vice-versa.
++ You can move a DB cluster into a shared VPC. The DB subnet group must be in the DB cluster's account, and you must specify the VPC security groups. For more information, see [Updating the VPC for a DB cluster](#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC).
 + Participants in a shared VPC must create a security group in the VPC to allow them to create a DB cluster.
 + Owners and participants in a shared VPC can access the database by using SQL queries. However, only the creator of a resource can make any API calls on the resource.
 
@@ -366,4 +371,297 @@ For details on how to create a DB cluster, see [Creating an Amazon Aurora DB clu
 When prompted in the **Connectivity** section, enter the VPC name, the DB subnet group, and the VPC security group.
 
 **Note**  
-Updating VPCs isn't currently supported for Aurora DB clusters.
+After you create a DB cluster, you can move it to a different VPC. For more information, see [Updating the VPC for a DB cluster](#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC).
+
+## Updating the VPC for a DB cluster
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC"></a>
+
+For Aurora PostgreSQL and Aurora MySQL DB clusters, you can move a DB cluster from one VPC to another. For example, you might move a cluster from a development VPC to a production VPC, or consolidate clusters into a shared VPC. You move the cluster by modifying it and specifying a DB subnet group in the destination VPC. You don't need to take a snapshot and restore it into a new cluster.
+
+The cluster endpoint and the reader endpoint don't change. Aurora moves all DB instances in the DB cluster. The cluster uses VPC networking before and after the move. Aurora doesn't turn on the internet access gateway.
+
+The same process runs whenever you change the DB subnet group, even if the new DB subnet group is in the same VPC. The connectivity interruption and the other requirements in this section also apply to that change. If you specify the DB subnet group that the DB cluster already uses, the cluster isn't moved.
+
+**Important**  
+Connectivity to the DB cluster is interrupted while Aurora moves it to the new VPC. Apply the change immediately at a time when an interruption is acceptable, or let Aurora apply it during the next maintenance window. After the move, the IP addresses of the DB instances change. Make sure that your applications connect by using the endpoint DNS name, not an IP address, and that they can reach the new VPC.
+
+### Before you begin
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.BeforeYouBegin"></a>
++ **Create a DB subnet group in the destination VPC.** The DB subnet group must have a subnet with available IP addresses in each Availability Zone where the cluster has a DB instance. To find these Availability Zones, run `aws rds describe-db-instances --filters Name=db-cluster-id,Values={{cluster}} --query "DBInstances[].AvailabilityZone"`. If you plan to add DB instances in other Availability Zones later, include subnets in those zones too. For more information, see [Working with DB subnet groups](#USER_VPC.Subnets).
++ **Create VPC security groups in the destination VPC.** The security groups must belong to the VPC of the destination DB subnet group, and must allow your clients to connect on the database port. If you don't specify security groups, Aurora uses the default security group of the destination VPC. If the destination is a shared VPC, you must specify the security groups. If you change the DB subnet group within the same VPC and want to keep the current security groups, specify their IDs. Otherwise, the default security group replaces them.
++ **Choose the network type.** If you don't specify a network type, the cluster uses IPv4 after the move. To keep a Dual-stack cluster in Dual-stack mode, specify the Dual-stack network type. You can use Dual-stack mode only if the destination subnets support it. For more information, see [Amazon Aurora IP addressing](#USER_VPC.IP_addressing).
++ **If any DB instance is publicly accessible, prepare the destination VPC for it.** Public access stays turned on after the move, and the DB instance gets a new public IP address. Make sure that the destination VPC has an internet gateway and that the destination subnets have a route to it. Aurora doesn't check this before the move. If the destination subnets have no route to an internet gateway, the move completes, but you can't reach the DB instance from the internet. If the destination VPC has no internet gateway, the move fails, and the DB instances are unavailable. Make sure that the destination VPC has an internet gateway before you move the cluster.
++ **Remove or turn off features that the move doesn't support.** The request fails if the DB cluster has any of the following. Set them up again in the new VPC after the move, if needed.
+  + Membership in an Aurora global database
+  + Aurora Limitless Database
+  + Enhanced binlog (Aurora MySQL) or enhanced logical replication (Aurora PostgreSQL) turned on in the DB cluster parameter group
+  + Babelfish for Aurora PostgreSQL (turned on, or a change pending)
+  + An in-Region or cross-Region read replica relationship, whether the DB cluster is the source or the replica (Aurora Replicas inside the DB cluster aren't affected)
+  + A database activity stream that isn't stopped
+  + Registration as an RDS Proxy target
+  + An active zero-ETL integration
+  + A blue/green deployment
++ **Apply pending changes first.** If the DB cluster has a pending change to its DB cluster parameter group, or to a Babelfish, enhanced binlog, or enhanced logical replication parameter, apply it before you move the cluster. Wait until any pending VPC networking or internet access gateway change is complete.
++ **Make sure that all DB instances in the DB cluster are available.** If a DB instance is in the incompatible-network state when the move starts, the move fails and the whole DB cluster can enter that state.
++ **Don't delete or change the subnets or security groups in the current VPC until the move is complete.** Aurora needs them to return the cluster to the current VPC if the move fails.
++ **Plan client connectivity in the destination VPC.** Clients must be able to reach the new VPC, for example from resources in the VPC, or through VPC peering, AWS Transit Gateway, AWS Site-to-Site VPN, or Direct Connect.
++ **Check your IAM permissions.** See [IAM permissions](#USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.IAM).
+
+### IAM permissions
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.IAM"></a>
+
+To move a DB cluster to a different VPC, you need permission for `rds:ModifyDBCluster` on the DB cluster and on the destination DB subnet group. You don't need the `rds:EnableVpcNetworking` permission unless you also specify `--enable-vpc-networking`.
+
+To apply a scheduled move immediately, you also need permission for `rds:EnableVpcNetworking`.
+
+### Console
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.Console"></a>
+
+**To move a DB cluster to a different VPC**
+
+1. Sign in to the AWS Management Console and open the [Amazon RDS console](https://console.aws.amazon.com/rds/).
+
+1. In the navigation pane, choose **Databases**, and then choose the DB cluster that you want to move.
+
+1. Choose **Modify**.
+
+1. In the **Connectivity** section, for **Virtual private cloud (VPC)**, choose the destination VPC.
+
+1. For **DB subnet group**, choose a DB subnet group in the destination VPC.
+
+1. For **VPC security group (firewall)**, choose one or more security groups in the destination VPC. Optionally, change the **Network type**.
+
+1. Choose **Continue** and review the summary of modifications.
+
+1. To move the cluster now, choose **Apply immediately**. Otherwise, Aurora moves the cluster during the next maintenance window.
+
+1. Choose **Modify cluster**.
+
+The cluster status changes to `modifying` during the move. When the status returns to `available`, the DB cluster is in the new VPC.
+
+### AWS CLI
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.CLI"></a>
+
+Call the [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html) command and specify the following options:
++ `--db-cluster-identifier` – the DB cluster to move.
++ `--db-subnet-group-name` – a DB subnet group in the destination VPC.
++ `--vpc-security-group-ids` (optional) – one or more security groups in the destination VPC. Required if the destination is a shared VPC.
++ `--network-type` (optional) – `IPV4` or `DUAL`. If you omit it, the cluster uses IPv4.
++ `--apply-immediately` (optional) – move the cluster now. If you specify `--no-apply-immediately` or omit the option, Aurora moves the cluster during the next maintenance window.
+
+Don't specify `--no-enable-vpc-networking`. That option turns off VPC networking, and combining it with a DB subnet group is rejected. You don't need to specify `--enable-vpc-networking` or the internet access gateway options.
+
+Example:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster \
+    --db-cluster-identifier mydbcluster \
+    --db-subnet-group-name mysubnetgroup-vpc2 \
+    --vpc-security-group-ids sg-0abcd1234efgh5678 \
+    --network-type DUAL \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster ^
+    --db-cluster-identifier mydbcluster ^
+    --db-subnet-group-name mysubnetgroup-vpc2 ^
+    --vpc-security-group-ids sg-0abcd1234efgh5678 ^
+    --network-type DUAL ^
+    --apply-immediately
+```
+
+Because the change is asynchronous, the response still shows the cluster's current DB subnet group and security groups.
+
+### RDS API
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.API"></a>
+
+Call the ModifyDBCluster operation. Specify `DBClusterIdentifier` and a `DBSubnetGroupName` in the destination VPC. Optionally, specify `VpcSecurityGroupIds` in the destination VPC and `NetworkType`. Set `ApplyImmediately` to `true` to move the cluster now, or to `false` to move it during the next maintenance window. Don't set `EnableVPCNetworking` to `false`.
+
+### Verifying the move
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.Verifying"></a>
+
+Run the [describe-db-clusters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html) command:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-db-clusters \
+    --db-cluster-identifier mydbcluster \
+    --query "DBClusters[0].[Status,DBSubnetGroup,VpcSecurityGroups,NetworkType]"
+```
+
+For Windows:
+
+```
+aws rds describe-db-clusters ^
+    --db-cluster-identifier mydbcluster ^
+    --query "DBClusters[0].[Status,DBSubnetGroup,VpcSecurityGroups,NetworkType]"
+```
+
+When the move is complete, `Status` is `available`, and `DBSubnetGroup` and `VpcSecurityGroups` show the values in the destination VPC.
+
+If you scheduled the move for the next maintenance window, `PendingModifiedValues` shows `VPCNetworkingEnabled: true`. It doesn't show the destination DB subnet group or security groups. While the move is pending, other VPC networking or internet access gateway changes are rejected. To apply the pending move now, run modify-db-cluster with only `--db-cluster-identifier`, `--enable-vpc-networking`, and `--apply-immediately`. Don't include `--db-subnet-group-name`, `--vpc-security-group-ids`, or `--network-type`, or the request is rejected.
+
+### If the move doesn't complete
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.UpdatingVPC.NotComplete"></a>
+
+If Aurora can't move the DB cluster, it returns the cluster to its original VPC and publishes an RDS event. Check the event for the cause, correct it, and try again.
+
+If Aurora also can't restore the network configuration in the original VPC, the DB cluster and its DB instances enter the incompatible-network state, and you can't connect to the cluster. You can't take a snapshot of a DB cluster in this state, but you can restore an earlier snapshot, or do a point-in-time restore, to a new DB cluster. If the cluster status doesn't return to `available`, contact AWS Support.
+
+Aurora publishes RDS-EVENT-0673 when the move starts, RDS-EVENT-0674 when it completes, and RDS-EVENT-0675 if it fails. If Aurora rejects the change before the move starts, it publishes RDS-EVENT-0675 without RDS-EVENT-0673. If the DB cluster enters the incompatible-network state, Aurora publishes RDS-EVENT-0676. For more information, see [Amazon RDS event categories and event messages for Aurora](USER_Events.Messages.md).
+
+## Moving a DB cluster out of a VPC
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC"></a>
+
+For Aurora PostgreSQL DB clusters, you can move a DB cluster out of its VPC so that you connect to it over the internet through the internet access gateway. For example, you might do this for a development or test cluster that you want to reach from tools outside AWS without a VPN or Direct Connect. For more information about the internet access gateway, see [Internet access gateway](CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.md#CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.InternetAccessGateway).
+
+When you move a DB cluster out of a VPC, Aurora turns off VPC networking and turns on the internet access gateway in a single operation. The cluster is never left without a connectivity path. The cluster endpoint doesn't change. After the move, the endpoint works through the internet access gateway.
+
+**Important**  
+The internet access gateway supports only IAM database authentication. After the move, the cluster must use IAM database authentication, and the master user authentication type must be IAM. Applications that connect with a database password, Secrets Manager credentials, or Kerberos authentication can't connect after the move. Before you move the cluster, update your applications to connect with IAM authentication tokens. For more information, see [IAM database authentication ](UsingWithRDS.IAMDBAuth.md).  
+Connectivity to the DB cluster is briefly interrupted during the move. After the move, VPC security groups no longer apply to the cluster. Access is controlled by IAM: any IAM principal with `rds-db:connect` permission for the cluster can connect from the internet. Review your IAM policies before you move the cluster.
+
+### Before you begin
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.BeforeYouBegin"></a>
++ **Engine.** The DB cluster must be an Aurora PostgreSQL DB cluster.
++ **Change these settings first, in separate requests.** Each of these must be complete before you move the cluster out of the VPC:
+  + **Network type.** The DB cluster must use IPv4. If it uses Dual-stack mode, change it to IPv4 first. You can't change the network type in the same request as the move.
+  + **Kerberos authentication.** The DB cluster can't be joined to a directory. Remove it from the directory first. You can't do this in the same request as the move.
+  + **Port.** The DB cluster must use the default port, 5432. If it uses another port, change it to 5432 first.
+  + **Public access.** Turn off public access for every DB instance in the DB cluster.
++ **Remove or turn off features that aren't supported without VPC networking.** The request fails if the DB cluster has any of the following:
+  + Membership in an Aurora global database
+  + Aurora PostgreSQL Limitless Database
+  + Enhanced logical replication turned on in the DB cluster parameter group
+  + Babelfish for Aurora PostgreSQL (turned on, or a change pending)
+  + An in-Region or cross-Region read replica relationship, whether the DB cluster is the source or the replica
+  + A database activity stream that isn't stopped
+  + Registration as an RDS Proxy target
+  + An active zero-ETL integration
+  + A blue/green deployment
++ **Apply pending changes first.** If the DB cluster has a pending change to its DB cluster parameter group, or to a Babelfish or enhanced logical replication parameter, apply it before you move the cluster. Wait until any pending VPC networking or internet access gateway change is complete.
++ **Make sure that all DB instances in the DB cluster are available.** If a DB instance is in the incompatible-network state when the move starts, the move fails and the whole DB cluster can enter that state.
++ **Don't delete or change the subnets or security groups in the current VPC until the move is complete.** Aurora needs them to return the cluster to the VPC if the move fails.
++ **Update your applications to use IAM database authentication.** See the Important notice above. If the master user password is managed in Secrets Manager, Aurora stops managing the password and deletes the secret. The master user switches to IAM database authentication right away, even if the move waits for the maintenance window, so password logins for the master user stop soon after you make the request.
++ **Plan client connectivity.** Clients that are inside a VPC need outbound internet access to reach the internet access gateway, for example through a NAT gateway or an internet gateway.
++ **Check your IAM permissions.** See [IAM permissions](#USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.IAM).
+
+### IAM permissions
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.IAM"></a>
+
+To move a DB cluster out of a VPC, you need permission for the following actions on the DB cluster:
++ `rds:ModifyDBCluster`
++ `rds:DisableVpcNetworking`
++ `rds:EnableInternetAccessGateway`
+
+These additional permissions help prevent a DB cluster from being moved out of a VPC by mistake. `rds:ModifyDBCluster` permission alone isn't enough.
+
+To prevent DB clusters from being moved out of a VPC, deny `rds:DisableVpcNetworking` in an IAM policy or a service control policy (SCP). This also blocks creating or restoring a DB cluster with VPC networking turned off. It doesn't block creating a DB cluster with express configuration without a VPC, because that request doesn't turn off VPC networking.
+
+### Console
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.Console"></a>
+
+**To move a DB cluster out of a VPC**
+
+1. Sign in to the AWS Management Console and open the [Amazon RDS console](https://console.aws.amazon.com/rds/).
+
+1. In the navigation pane, choose **Databases**, and then choose the Aurora PostgreSQL DB cluster that you want to move.
+
+1. Choose **Modify**.
+
+1. In the **Connectivity** section, for **Network access type**, choose **Internet access gateway**.
+
+1. Make sure that IAM database authentication is turned on for the DB cluster.
+
+1. Choose **Continue** and review the summary of modifications.
+
+1. To move the cluster now, choose **Apply immediately**. Otherwise, Aurora moves the cluster during the next maintenance window.
+
+   If you turn on IAM database authentication in the same change, choose **Apply immediately**.
+
+1. Choose **Modify cluster**.
+
+The cluster status changes to `modifying` during the move. When the status returns to `available`, you can connect to the cluster through the internet access gateway. For more information, see [Connecting to clusters with express configuration](CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.md#CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.Connecting).
+
+### AWS CLI
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.CLI"></a>
+
+Call the [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html) command and specify `--no-enable-vpc-networking` and `--enable-internet-access-gateway` together. If the DB cluster doesn't already use IAM database authentication for the master user, also specify `--enable-iam-database-authentication` and `--master-user-authentication-type iam-db-auth`. If the master user password is managed in Secrets Manager, also specify `--no-manage-master-user-password`. If you turn on IAM database authentication in the same request, also specify `--apply-immediately`.
+
+Don't specify `--db-subnet-group-name`, `--vpc-security-group-ids`, or `--network-type`. To move the cluster now, specify `--apply-immediately`. If you specify `--no-apply-immediately` or omit the option, Aurora moves the cluster during the next maintenance window.
+
+Example:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-cluster \
+    --db-cluster-identifier mydbcluster \
+    --no-enable-vpc-networking \
+    --enable-internet-access-gateway \
+    --enable-iam-database-authentication \
+    --master-user-authentication-type iam-db-auth \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws rds modify-db-cluster ^
+    --db-cluster-identifier mydbcluster ^
+    --no-enable-vpc-networking ^
+    --enable-internet-access-gateway ^
+    --enable-iam-database-authentication ^
+    --master-user-authentication-type iam-db-auth ^
+    --apply-immediately
+```
+
+### RDS API
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.API"></a>
+
+Call the ModifyDBCluster operation. Set `EnableVPCNetworking` to `false` and `EnableInternetAccessGateway` to `true`. If the DB cluster doesn't already use them, set `EnableIAMDatabaseAuthentication` to `true` and `MasterUserAuthenticationType` to `iam-db-auth`. If the master user password is managed in Secrets Manager, also set `ManageMasterUserPassword` to `false`. If the request sets `EnableIAMDatabaseAuthentication`, `ApplyImmediately` must be `true`. Otherwise, set `ApplyImmediately` to `true` to move the cluster now, or to `false` to move it during the next maintenance window.
+
+### Verifying the move
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.Verifying"></a>
+
+Run the [describe-db-clusters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html) command:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-db-clusters \
+    --db-cluster-identifier mydbcluster \
+    --query "DBClusters[0].[Status,VPCNetworkingEnabled,InternetAccessGatewayEnabled,IAMDatabaseAuthenticationEnabled]"
+```
+
+For Windows:
+
+```
+aws rds describe-db-clusters ^
+    --db-cluster-identifier mydbcluster ^
+    --query "DBClusters[0].[Status,VPCNetworkingEnabled,InternetAccessGatewayEnabled,IAMDatabaseAuthenticationEnabled]"
+```
+
+When the move is complete, `Status` is `available`, `VPCNetworkingEnabled` is `false`, `InternetAccessGatewayEnabled` is `true`, and `IAMDatabaseAuthenticationEnabled` is `true`.
+
+If you scheduled the move for the next maintenance window, it appears in `PendingModifiedValues` as `VPCNetworkingEnabled: false` and `InternetAccessGatewayEnabled: true`. While the move is pending, other VPC networking or internet access gateway changes are rejected. To apply the pending move now, run the same modify-db-cluster command again with `--apply-immediately`.
+
+### If the move doesn't complete
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveOutOfVPC.NotComplete"></a>
+
+If Aurora can't move the DB cluster out of the VPC, it returns the cluster to its original VPC configuration and publishes an RDS event. Check the event for the cause, correct it, and try again.
+
+If Aurora also can't restore the network configuration in the VPC, the DB cluster and its DB instances enter the incompatible-network state. You can't take a snapshot of a DB cluster in this state, but you can restore an earlier snapshot, or do a point-in-time restore, to a new DB cluster. If the cluster status doesn't return to `available`, contact AWS Support.
+
+Aurora publishes RDS-EVENT-0673 when the move starts, RDS-EVENT-0674 when it completes, and RDS-EVENT-0675 if it fails. If Aurora rejects the change before the move starts, it publishes RDS-EVENT-0675 without RDS-EVENT-0673. If the DB cluster enters the incompatible-network state, Aurora publishes RDS-EVENT-0676. For more information, see [Amazon RDS event categories and event messages for Aurora](USER_Events.Messages.md).
+
+## Moving a DB cluster into a VPC
+<a name="USER_VPC.WorkingWithRDSInstanceinaVPC.MoveIntoVPC"></a>
+
+If an Aurora PostgreSQL DB cluster uses the internet access gateway, for example because you created it with express configuration or moved it out of a VPC, you can move it into a VPC. Aurora turns on VPC networking and turns off the internet access gateway in a single operation, and the cluster endpoint doesn't change. For the full procedure, see [Moving a cluster with express configuration into a VPC](CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.md#CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.MoveIntoVPC).

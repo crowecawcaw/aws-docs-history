@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora security
-<a name="Aurora.Overview.Security"></a>
 
  Security for Amazon Aurora is managed at three levels: 
 + To control who can perform Amazon RDS management actions on Aurora DB clusters and DB instances, you use AWS Identity and Access Management (IAM). When you connect to AWS using IAM credentials, your AWS account must have IAM policies that grant the permissions required to perform Amazon RDS management operations. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md).

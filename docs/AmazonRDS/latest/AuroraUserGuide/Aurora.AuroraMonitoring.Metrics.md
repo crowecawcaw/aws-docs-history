@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch metrics for Amazon Aurora
-<a name="Aurora.AuroraMonitoring.Metrics"></a>
 
 The `AWS/RDS` namespace includes the following metrics that apply to database entities running on Amazon Aurora. Some metrics apply to either Aurora MySQL, Aurora PostgreSQL, or both. Furthermore, some metrics are specific to a DB cluster, primary DB instance, replica DB instance, or all DB instances.
 

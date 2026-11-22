@@ -1,7 +1,6 @@
 
 
 # Restoring a DB cluster to a specified time from a retained automated backup
-<a name="aurora-pitr-retained"></a>
 
 You can restore a DB cluster from a retained automated backup after you delete the source DB cluster, if the backup is within the retention period of the source cluster. The process is similar to restoring a DB cluster from an automated backup.
 

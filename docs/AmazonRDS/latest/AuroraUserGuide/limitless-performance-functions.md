@@ -1,7 +1,6 @@
 
 
 # Building for efficiency with functions
-<a name="limitless-performance-functions"></a>
 
 User-defined functions are not single-shard optimized by default, but they can be configured to execute as single-shard operations. Functions can encapsulate logic and ensure it is executed in a single-shard optimized manner.
 

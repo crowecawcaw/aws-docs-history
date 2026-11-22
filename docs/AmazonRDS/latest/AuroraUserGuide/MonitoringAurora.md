@@ -1,7 +1,6 @@
 
 
 # Monitoring metrics in an Amazon Aurora cluster
-<a name="MonitoringAurora"></a>
 
 Amazon Aurora uses a cluster of replicated database servers. Typically, monitoring an Aurora cluster requires checking the health of multiple DB instances. The instances might have specialized roles, handling mostly write operations, only read operations, or a combination. You also monitor the overall health of the cluster by measuring the *replication lag*. This is the amount of time for changes made by one DB instance to be available to the other instances.
 

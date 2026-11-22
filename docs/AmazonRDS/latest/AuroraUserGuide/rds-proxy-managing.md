@@ -1,7 +1,6 @@
 
 
 # Managing an RDS Proxy
-<a name="rds-proxy-managing"></a>
 
  This section provides information on how to manage RDS Proxy operation and configuration. These procedures help your application make the most efficient use of database connections and achieve maximum connection reuse. The more that you can take advantage of connection reuse, the more CPU and memory overhead that you can save. This in turn reduces latency for your application and enables the database to devote more of its resources to processing application requests. 
 

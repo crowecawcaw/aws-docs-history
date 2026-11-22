@@ -1,7 +1,6 @@
 
 
 # Upgrading Amazon Aurora DB clusters
-<a name="Aurora.VersionPolicy.Upgrading"></a>
 
 With Amazon Aurora, you can control and test upgrades to your DB clusters. Amazon Aurora provides options for automatic minor version upgrades, manual upgrade control, required upgrades, and pre-upgrade testing. You can keep your clusters up-to-date with the latest minor version, deferring non-critical upgrades, forcing upgrades for serious issues, and validating upgrade behavior in nonproduction environments. The following sections detail how to manage and test Aurora DB cluster upgrades using these capabilities.
 

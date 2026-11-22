@@ -1,7 +1,6 @@
 
 
 # Optimizing data layout in Amazon S3
-<a name="aurora-analytics-data-layout"></a>
 
 Aurora PostgreSQL scans columnar data in Amazon S3, so your data layout determines how much data each query reads. Follow these practices:
 + **Avoid many small files** – Consolidate data into fewer, larger files. Reading many small files adds per-file metadata and Amazon S3 request overhead.

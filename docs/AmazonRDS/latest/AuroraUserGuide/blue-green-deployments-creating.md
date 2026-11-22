@@ -1,7 +1,6 @@
 
 
 # Creating a blue/green deployment in Amazon Aurora
-<a name="blue-green-deployments-creating"></a>
 
 RDS copies the blue environment's topology and features to a staging area. If the blue DB instance has read replicas, they are copied as replicas of the green instance. The allocated storage of all green replicas matches the green primary instance, while other storage parameters are inherited from the blue replicas.
 

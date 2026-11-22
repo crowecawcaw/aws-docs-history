@@ -1,7 +1,7 @@
 
 
 # Monitoring Amazon Aurora with Database Activity Streams
-<a name="DBActivityStreams"></a><a name="das"></a>
+<a name="das"></a>
 
 By using Database Activity Streams, you can monitor near real-time streams of database activity.
 

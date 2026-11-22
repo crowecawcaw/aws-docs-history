@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amazon Aurora global database
-<a name="aurora-global-database-monitoring"></a>
 
 When you create the Aurora DB clusters that make up your Aurora global database, you can choose many options that let you monitor your DB cluster's performance. These options include the following:
 + Amazon RDS Performance Insights – Enables performance schema in the underlying Aurora database engine. To learn more about Performance Insights and Aurora global databases, see [Monitoring an Amazon Aurora global database with Amazon RDS Performance Insights](#aurora-global-database-pi).
@@ -51,7 +50,7 @@ The `information_schema.aurora_global_db_status` and `information_schema.aurora_
 
 1. Query the `information_schema.aurora_global_db_status` table in a mysql command to list the primary and secondary volumes. This query returns the lag times of the global database secondary DB clusters, as in the following example.
 
-   ```
+   ```sql
    mysql> select * from information_schema.aurora_global_db_status;
    ```
 
@@ -77,7 +76,7 @@ The `information_schema.aurora_global_db_status` and `information_schema.aurora_
 
 1. Query the `information_schema.aurora_global_db_instance_status` table to list all secondary DB instances for both the primary DB cluster and the secondary DB clusters.
 
-   ```
+   ```sql
    mysql> select * from information_schema.aurora_global_db_instance_status;
    ```
 
@@ -103,7 +102,7 @@ The `information_schema.aurora_global_db_status` and `information_schema.aurora_
 
 To see how these values change over time, consider the following transaction block where a table insert takes an hour.
 
-```
+```sql
 mysql> BEGIN;
 mysql> INSERT INTO table1 SELECT {{Large_Data_That_Takes_1_Hr_To_Insert}};
 mysql> COMMIT;
@@ -125,7 +124,7 @@ Only Aurora PostgreSQL supports the `aurora_global_db_status` and `aurora_global
 
 1. Use the `aurora_global_db_status` function in a psql command to list the primary and secondary volumes. This shows the lag times of the global database secondary DB clusters.
 
-   ```
+   ```sql
    postgres=> select * from aurora_global_db_status();
    ```
 
@@ -152,7 +151,7 @@ Only Aurora PostgreSQL supports the `aurora_global_db_status` and `aurora_global
 
 1. Use the `aurora_global_db_instance_status` function to list all secondary DB instances for both the primary DB cluster and secondary DB clusters.
 
-   ```
+   ```sql
    postgres=> select * from aurora_global_db_instance_status();
    ```
 
@@ -180,7 +179,7 @@ Only Aurora PostgreSQL supports the `aurora_global_db_status` and `aurora_global
 
 To see how these values change over time, consider the following transaction block where a table insert takes an hour.
 
-```
+```sql
 psql> BEGIN;
 psql> INSERT INTO table1 SELECT {{Large_Data_That_Takes_1_Hr_To_Insert}};
 psql> COMMIT;

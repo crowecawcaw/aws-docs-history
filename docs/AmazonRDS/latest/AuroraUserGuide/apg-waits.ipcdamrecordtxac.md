@@ -1,7 +1,6 @@
 
 
 # IPC:DamRecordTxAck
-<a name="apg-waits.ipcdamrecordtxac"></a>
 
 The `IPC:DamRecordTxAck` event occurs when Aurora PostgreSQL in a session using database activity streams generates an activity stream event, then waits for that event to become durable. 
 

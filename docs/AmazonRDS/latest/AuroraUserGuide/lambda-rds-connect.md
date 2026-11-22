@@ -1,7 +1,6 @@
 
 
 # Automatically connecting a Lambda function and an Aurora DB cluster
-<a name="lambda-rds-connect"></a>
 
 You can use the Amazon RDS console to simplify setting up a connection between a Lambda function and an Aurora DB cluster. Often, your DB cluster is in a private subnet within a VPC. The Lambda function can be used by applications to access your private DB cluster. 
 

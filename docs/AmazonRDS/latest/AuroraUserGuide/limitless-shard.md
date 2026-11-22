@@ -1,7 +1,6 @@
 
 
 # Working with DB shard groups
-<a name="limitless-shard"></a>
 
 You perform the following tasks to add and manage a DB shard group for Aurora PostgreSQL Limitless Database.
 

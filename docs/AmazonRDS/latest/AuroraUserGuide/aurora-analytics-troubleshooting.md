@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="aurora-analytics-troubleshooting"></a>
 
 This topic describes specific symptoms, their causes, and how to resolve them. For the metrics, wait events, and diagnostic queries used to watch a workload, see [Monitoring](aurora-analytics-monitoring.md).
 
@@ -29,7 +28,7 @@ ERROR:  extension "aurora_analytics" is not available
 
 To diagnose, run the following queries. The second returns no rows on an unsupported version.
 
-```
+```SQL
 SELECT version();
 
 SELECT * FROM pg_available_extensions WHERE name = 'aurora_analytics';
@@ -51,7 +50,7 @@ HINT:  Set aurora_analytics.enabled to true in the parameter group and retry the
 
 To diagnose, run the following query.
 
-```
+```SQL
 SHOW aurora_analytics.enabled;
 ```
 
@@ -66,14 +65,14 @@ ERROR:  permission denied to create extension "aurora_analytics"
 
 **Solution**: To create the extension, you must have the `rds_superuser` role, or be a user that has been granted the `rds_extension` role and delegated this extension. Being the database owner is not sufficient. Grant the `rds_superuser` role and retry.
 
-```
+```SQL
 GRANT rds_superuser TO your_user;
 CREATE EXTENSION aurora_analytics;
 ```
 
 Alternatively, to allow a non-superuser to create the extension, grant the `rds_extension` role and delegate this specific extension. Run the following as `rds_superuser`.
 
-```
+```SQL
 GRANT rds_extension TO your_user;
 ALTER USER your_user SET rds.allowed_delegated_extensions = 'aurora_analytics';
 ```
@@ -87,7 +86,7 @@ The `rds_extension` grant alone is not sufficient. Without `aurora_analytics` in
 
 **Diagnostic**: Run the following command to check the role association status.
 
-```
+```bash
 aws rds describe-db-clusters \
   --db-cluster-identifier <cluster-id> \
   --query "DBClusters[0].AssociatedRoles"
@@ -125,7 +124,7 @@ ERROR:  [Aurora Analytics] HTTP 403 Forbidden
 
 **Diagnostic**: Run the following query to inspect the foreign table options.
 
-```
+```SQL
 SELECT ft.ftrelid::regclass, ftoptions
 FROM pg_foreign_table ft
 WHERE ft.ftrelid::regclass::text = 'ft_orders';
@@ -146,7 +145,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: curlCode: 28, Timeout was r
 
 1. Create an AWS Glue VPC interface endpoint in the same VPC as your Aurora DB cluster.
 
-   ```
+   ```bash
    aws ec2 create-vpc-endpoint \
      --vpc-id <vpc-id> \
      --vpc-endpoint-type Interface \
@@ -158,7 +157,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: curlCode: 28, Timeout was r
 
 1. Make sure that the security group allows inbound TCP 443 from your VPC CIDR.
 
-   ```
+   ```bash
    aws ec2 authorize-security-group-ingress \
      --group-id <sg-id> \
      --protocol tcp \
@@ -168,7 +167,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: curlCode: 28, Timeout was r
 
 1. Verify that DNS resolution resolves to private IPs, not public AWS IPs.
 
-   ```
+   ```bash
    nslookup glue.<region>.amazonaws.com
    ```
 
@@ -197,7 +196,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: EntityNotFoundException: Ta
 
 **Diagnostic**: Run the following command.
 
-```
+```bash
 aws glue get-table \
   --database-name <db> \
   --name <table> \
@@ -216,7 +215,7 @@ HINT:  If the S3 location contains Parquet files, verify the foreign table was c
 
 **Solution**: Recreate the foreign table with the correct format.
 
-```
+```SQL
 DROP FOREIGN TABLE ft_my_table;
 
 CREATE FOREIGN TABLE ft_my_table ()
@@ -269,7 +268,7 @@ The following are common query performance issues.
 
 **Useful queries**: To check whether queries are served from the cache or from Amazon S3, and whether they spill, run the following query.
 
-```
+```SQL
 SET aurora_analytics.track_detailed_metrics = true;
 -- Run your query, then check per-query stats
 SELECT query, analytics_cache_hit_bytes, analytics_remote_read_bytes, analytics_total_disk_spill
@@ -281,7 +280,7 @@ If `analytics_remote_read_bytes` is high relative to `analytics_cache_hit_bytes`
 
 To check how many analytical sessions are active, run the following query.
 
-```
+```SQL
 SELECT COUNT(*) FROM pg_stat_activity a
 WHERE a.state = 'active'
   AND EXISTS (
@@ -322,7 +321,7 @@ DETAIL:  Transaction cancelled due to insufficient memory
 **To resolve this issue**: Choose the path that matches the message. If the error carries a `HINT` (query memory too low), do the following:
 + Increase memory for the session, then rerun.
 
-  ```
+  ```SQL
   SET aurora_analytics.query_mem = '16GB';
   -- Rerun your query
   ```
@@ -351,7 +350,7 @@ ERROR:  [Aurora Analytics] could not write to temporary file: No space left on d
 
 **Diagnostic**: Watch `AuroraAnalyticsDiskSpillSize` in Amazon CloudWatch for instance-wide spill volume, then attribute it to a backend.
 
-```
+```SQL
 SELECT pid,
        pg_size_pretty(disk_spill_size) AS spill,
        pg_size_pretty(current_memory_usage) AS mem_used,
@@ -366,7 +365,7 @@ ORDER BY disk_spill_size DESC;
 + Optimize the query to reduce intermediate data volume. Add `LIMIT` to ORDER BY queries, add filters before joins to reduce cardinality, or pre-aggregate in subqueries before joining.
 + Check whether the read cache, rather than spill, is consuming local storage, and clear it only if it is (requires the `rds_superuser` role, and make sure no queries are running).
 
-  ```
+  ```SQL
   -- Compare the cache size against the instance's local storage first
   SELECT aurora_analytics_cache_size();
   SELECT aurora_analytics_clear_cache();
@@ -391,7 +390,7 @@ ERROR:  column "column_name" does not exist
 
 **To resolve this issue**: If the foreign table already exists and only its column definitions have drifted from the source, refresh it in place with `aurora_analytics_refresh_foreign_table`, which reconciles the column definitions without dropping and recreating the table (preserving grants and dependent objects). For the full syntax and permissions, see [SQL functions reference](aurora-analytics-sql-functions-reference.md). The `apply_changes` argument is required: pass `false` to preview the changes without modifying the table, or `true` to apply them. Run a dry run first, then apply.
 
-```
+```SQL
 -- Preview the schema changes
 SELECT aurora_analytics_refresh_foreign_table('ft_my_table', false);
 -- Apply them
@@ -400,7 +399,7 @@ SELECT aurora_analytics_refresh_foreign_table('ft_my_table', true);
 
 Alternatively, recreate the foreign table with schema inference.
 
-```
+```SQL
 DROP FOREIGN TABLE ft_my_table;
 CREATE FOREIGN TABLE ft_my_table ()
 SERVER aurora_analytics_server
@@ -423,7 +422,7 @@ ERROR:  unsupported data type for column "complex_column"
 
 **Solution**: Enable skipping of unsupported columns, then recreate the foreign table. The unsupported columns are skipped.
 
-```
+```SQL
 SET aurora_analytics.skip_unsupported_columns = true;
 -- Recreate the table, unsupported columns are skipped
 DROP FOREIGN TABLE ft_my_table;
@@ -444,7 +443,7 @@ The following are common connection and session issues.
 
 **Diagnostic**: Run the following query to find the long-running analytical queries.
 
-```
+```SQL
 WITH analytics_tables AS (
     SELECT c.relname
     FROM pg_foreign_table ft
@@ -463,13 +462,13 @@ ORDER BY a.query_start;
 
 **Solution**: Set a `statement_timeout` for analytical users to bound query runtime.
 
-```
+```SQL
 ALTER USER analyst SET statement_timeout = '30min';
 ```
 
 To stop a query that is already running, cancel or terminate its backend.
 
-```
+```SQL
 SELECT pg_cancel_backend(<pid>);     -- cancel the query
 SELECT pg_terminate_backend(<pid>);  -- terminate the session
 ```
@@ -502,7 +501,7 @@ These volume metrics alone don't distinguish cross-Region reads from a cold cach
 + Make sure target-Region networking is ready (Amazon S3 gateway VPC endpoint, proper subnet routing).
 + After switchover or failover, update foreign table definitions to point to the local-Region replica bucket.
 
-  ```
+  ```SQL
   ALTER FOREIGN TABLE ft_orders OPTIONS (SET location 's3://amzn-s3-demo-destination-bucket/data/orders/');
   ALTER FOREIGN TABLE ft_orders OPTIONS (SET region 'us-west-2');
   ```
@@ -576,7 +575,7 @@ Amazon S3 timeouts are long, with minutes of retries. Set `statement_timeout` an
 
 For transient or hard-to-reproduce issues, enable verbose logging temporarily.
 
-```
+```SQL
 -- As rds_superuser
 SET aurora_analytics.enable_logging = true;
 SET aurora_analytics.logging_level = 'DEBUG1';

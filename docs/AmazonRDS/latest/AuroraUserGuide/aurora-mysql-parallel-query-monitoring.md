@@ -1,7 +1,6 @@
 
 
 # Monitoring parallel query for Aurora MySQL
-<a name="aurora-mysql-parallel-query-monitoring"></a>
 
  If your Aurora MySQL cluster uses parallel query, you might see an increase in `VolumeReadIOPS` values. Parallel queries don't use the buffer pool. Thus, although the queries are fast, this optimized processing can result in an increase in read operations and associated charges. 
 

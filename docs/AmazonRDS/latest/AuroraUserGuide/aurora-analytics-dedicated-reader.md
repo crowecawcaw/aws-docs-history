@@ -1,7 +1,6 @@
 
 
 # Using a dedicated reader instance for analytics
-<a name="aurora-analytics-dedicated-reader"></a>
 
 For analytics-heavy workloads, run your foreign table queries on a dedicated Aurora reader instance so they do not interrupt the OLTP workload on your writer. When you set up this reader, consider the following:
 + **Adjust `shared_buffers`** – Queries against foreign tables do not use `shared_buffers`, so on the reader you can reduce `shared_buffers` and increase `query_mem` to make more memory available per query.

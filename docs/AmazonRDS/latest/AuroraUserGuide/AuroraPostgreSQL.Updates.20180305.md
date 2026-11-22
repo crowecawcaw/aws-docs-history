@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora PostgreSQL releases and engine versions
-<a name="AuroraPostgreSQL.Updates.20180305"></a>
 
 Amazon Aurora PostgreSQL-Compatible Edition releases are updated regularly. Updates are applied to Aurora PostgreSQL DB clusters during system maintenance windows. When updates are applied depends on the type of update, the AWS Region, and maintenance window setting for the DB cluster. Many of the listed releases include both a PostgreSQL version number and an Amazon Aurora version number. However, starting with the release of PostgreSQL versions 13.3, 12.8, 11.13, 10.18, and for all other later versions, Aurora version numbers aren't used. To identify the version numbers of your Aurora PostgreSQL database, see [Identifying versions of Amazon Aurora PostgreSQL](AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.Versions). 
 

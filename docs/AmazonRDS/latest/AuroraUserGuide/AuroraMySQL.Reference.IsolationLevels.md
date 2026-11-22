@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL isolation levels
-<a name="AuroraMySQL.Reference.IsolationLevels"></a>
 
 Learn how DB instances in an Aurora MySQL cluster implement the database property of isolation. This topic explains how the Aurora MySQL default behavior balances between strict consistency and high performance. You can use this information to help you decide when to change the default settings based on the traits of your workload. 
 

@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon Aurora backup storage usage
-<a name="aurora-storage-backup"></a>
 
 Amazon Aurora maintains two types of backup: automated (continuous) backups and snapshots.
 

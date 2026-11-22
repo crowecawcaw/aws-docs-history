@@ -1,7 +1,6 @@
 
 
 # Tutorial: Restore an Amazon Aurora DB cluster from a DB cluster snapshot
-<a name="tut-restore-cluster"></a>
 
 A common scenario when working with Amazon Aurora is to have a DB instance that you work with occasionally but that you don't need full time. For example, you might use a DB cluster to hold the data for a report that you run only quarterly. One way to save money on such a scenario is to take a DB cluster snapshot of the DB cluster after the report is completed. Then you delete the DB cluster, and restore it when you need to upload new data and run the report during the next quarter.
 

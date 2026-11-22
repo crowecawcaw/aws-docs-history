@@ -1,7 +1,6 @@
 
 
 # Mapping T-SQL group logins with AD security group
-<a name="babelfish-kerberos-securityad-maptsql"></a>
 
  You need to explicitly provision T-SQL Windows Group Login for each AD security group that requires access to the database server. An AD user, who is part of at least one provisioned AD security group, will get access to the database server.
 

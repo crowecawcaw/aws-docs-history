@@ -1,7 +1,6 @@
 
 
 # Optimizing correlated subqueries in Aurora PostgreSQL
-<a name="apg-correlated-subquery"></a>
 
  A correlated subquery references table columns from the outer query. It is evaluated once for every row returned by the outer query. In the following example, the subquery references a column from table ot. This table is not included in the subquery’s FROM clause, but it is referenced in the outer query’s FROM clause. If table ot has 1 million rows, the subquery needs to be evaluated 1 million times. 
 

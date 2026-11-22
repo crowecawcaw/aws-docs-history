@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Aurora machine learning
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML"></a>
 
 By using Amazon Aurora machine learning, you can integrate your Aurora DB cluster with one of the following AWS machine learning services, depending on your needs. They each support specific machine learning use cases.
 
@@ -76,43 +75,43 @@ To use an Aurora PostgreSQL DB cluster as a vector store for Amazon Bedrock Know
 The following Regions and engine versions are available for Aurora machine learning with Aurora PostgreSQL.
 
 
-| Region | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | Aurora PostgreSQL 12 | Aurora PostgreSQL 11 | 
-| --- | --- | --- | --- | --- | --- | --- | --- | 
-| US East (N. Virginia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| US East (Ohio) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| US West (N. California) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| US West (Oregon) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Africa (Cape Town) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
-| Asia Pacific (Hong Kong) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Hyderabad) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Jakarta) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Malaysia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Melbourne) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Mumbai) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (New Zealand) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Osaka) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Seoul) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Singapore) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Sydney) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Taipei) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Thailand) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Asia Pacific (Tokyo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Canada (Central) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Canada West (Calgary) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| China (Beijing) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| China (Ningxia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Frankfurt) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Ireland) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (London) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Milan) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
-| Europe (Paris) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Spain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Stockholm) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Europe (Zurich) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Israel (Tel Aviv) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Mexico (Central) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
-| Middle East (Bahrain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| Middle East (UAE) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| South America (São Paulo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| AWS GovCloud (US-East) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
-| AWS GovCloud (US-West) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Region | Aurora PostgreSQL 18 | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | Aurora PostgreSQL 12 | Aurora PostgreSQL 11 | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| US East (N. Virginia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| US East (Ohio) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| US West (N. California) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| US West (Oregon) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Africa (Cape Town) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Asia Pacific (Hong Kong) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Hyderabad) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Jakarta) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Malaysia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Melbourne) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Mumbai) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (New Zealand) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Osaka) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Seoul) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Singapore) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Sydney) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Taipei) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Thailand) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Asia Pacific (Tokyo) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Canada (Central) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Canada West (Calgary) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| China (Beijing) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| China (Ningxia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Frankfurt) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Ireland) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (London) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Milan) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Europe (Paris) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Spain) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Stockholm) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Europe (Zurich) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Israel (Tel Aviv) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Mexico (Central) | Not available | Not available | Not available | Not available | Not available | Not available | Not available | Not available | 
+| Middle East (Bahrain) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| Middle East (UAE) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| South America (São Paulo) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| AWS GovCloud (US-East) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 
+| AWS GovCloud (US-West) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.3 and higher | Version 12.4 and higher | Version 11.9, 11.12 and higher | 

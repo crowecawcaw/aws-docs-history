@@ -1,7 +1,6 @@
 
 
 # Monitoring Aurora PostgreSQL Limitless Database with Performance Insights
-<a name="limitless-monitoring.pi"></a>
 
 Use Performance Insights to monitor your Aurora PostgreSQL Limitless Database cluster. Performance Insights works similarly for Aurora PostgreSQL Limitless Database as it does for standard Aurora DB clusters. However, you track metrics at the shard group level for Aurora PostgreSQL Limitless Database.
 

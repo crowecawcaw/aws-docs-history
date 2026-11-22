@@ -1,7 +1,7 @@
 
 
 # Using Aurora serverless
-<a name="aurora-serverless-v2"></a><a name="serverless_v2"></a><a name="asv2"></a>
+<a name="serverless_v2"></a><a name="asv2"></a>
 
  Aurora serverless is an on-demand, autoscaling configuration for Amazon Aurora. Aurora serverless helps to automate the processes of monitoring the workload and adjusting the capacity for your databases. Capacity is adjusted automatically based on application demand. You're charged only for the resources that your DB clusters consume. Thus, Aurora serverless can help you to stay within budget and avoid paying for computer resources that you don't use. 
 
@@ -54,7 +54,7 @@ Aurora serverless is especially useful for the following use cases:
 +  **Simpler capacity management than provisioned** – Aurora serverless reduces the effort for planning DB instance sizes and resizing DB instances as the workload changes. It also reduces the effort for maintaining consistent capacity for all the DB instances in a cluster. 
 +  **Faster and easier scaling during periods of high activity** – Aurora serverless scales compute and memory capacity as needed, with no disruption to client transactions or your overall workload. The ability to use reader DB instances with Aurora serverless helps you to take advantage of horizontal scaling in addition to vertical scaling. The ability to use Aurora global databases means that you can spread your Aurora serverless read workload across multiple AWS Regions. This capability is more convenient than the scaling mechanisms for provisioned clusters. 
 +  **Cost-effective during periods of low activity** – Aurora serverless helps you to avoid overprovisioning your DB instances. Aurora serverless adds resources in granular increments when DB instances scale up. You pay only for the database resources that you consume. Aurora serverless resource usage is measured on a per-second basis. That way, when a DB instance scales down, the reduced resource usage is registered right away. 
-+  **Greater feature parity with provisioned** – You can use many Aurora features with Aurora serverless oFor example, with Aurora serverless you can use reader DB instances, global databases, AWS Identity and Access Management (IAM) database authentication, and Performance Insights. 
++  **Greater feature parity with provisioned** – You can use many Aurora features with Aurora serverless. For example, with Aurora serverless you can use reader DB instances, global databases, AWS Identity and Access Management (IAM) database authentication, and Performance Insights. 
 
    In particular, with Aurora serverless you can take advantage of the following features from provisioned clusters: 
   + **Reader DB instances** – Aurora serverless can take advantage of reader DB instances to scale horizontally. When a cluster contains one or more reader DB instances, the cluster can fail over immediately in case of problems with the writer DB instance.

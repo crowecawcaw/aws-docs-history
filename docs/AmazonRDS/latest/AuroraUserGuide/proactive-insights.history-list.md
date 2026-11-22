@@ -1,7 +1,6 @@
 
 
 # The InnoDB history list length increased significantly
-<a name="proactive-insights.history-list"></a>
 
 Starting on {{date}}, your history list for row changes increased significantly, up to {{length}} on {{db-instance}}. This increase affects query and database shutdown performance.
 
@@ -59,7 +58,7 @@ Make sure also to look for long-running transactions on read replicas.
 
 1. In your SQL client, run the following query:
 
-   ```
+   ```sql
    SELECT a.trx_id, 
          a.trx_state, 
          a.trx_started, 

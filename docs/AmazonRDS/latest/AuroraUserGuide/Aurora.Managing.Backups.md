@@ -1,7 +1,6 @@
 
 
 # Overview of backing up and restoring an Aurora DB cluster
-<a name="Aurora.Managing.Backups"></a>
 
 The following topics describe Aurora backups and how to restore your Aurora DB cluster.
 
@@ -23,7 +22,7 @@ If you want to retain data beyond the backup retention period, you can take a sn
 During restore operations, you have the option to specify a backup retention period for your Amazon Aurora DB cluster. When you don't explicitly set this value, the restored cluster inherits the backup retention period from the source snapshot or cluster. Note that this inheritance behavior is unique to restore operations—when creating a new cluster, the system applies default retention periods instead.
 
 **Note**  
-For Amazon Aurora DB clusters, the default backup retention period is one day regardless of how the DB cluster is created.
+For Amazon Aurora DB clusters, the default backup retention period depends on how you create the DB cluster. If you use the AWS CLI or the RDS API and don't specify a backup retention period, Aurora sets it to 1 day. If you use the AWS Management Console, the backup retention period is 7 days by default. You can change it before you create the DB cluster.
 You can't disable automated backups on Aurora. The backup retention period for Aurora is managed by the DB cluster.
 
  Your costs for backup storage depend upon the amount of Aurora backup and snapshot data you keep and how long you keep it. For information about the storage associated with Aurora backups and snapshots, see [Understanding Amazon Aurora backup storage usage](aurora-storage-backup.md). For pricing information about Aurora backup storage, see [Amazon RDS for Aurora pricing](https://aws.amazon.com/rds/aurora/pricing). After the Aurora cluster associated with a snapshot is deleted, storing that snapshot incurs the standard backup storage charges for Aurora. 

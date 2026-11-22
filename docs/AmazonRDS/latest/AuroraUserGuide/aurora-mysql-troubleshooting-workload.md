@@ -1,7 +1,6 @@
 
 
 # Troubleshooting workload issues for Aurora MySQL databases
-<a name="aurora-mysql-troubleshooting-workload"></a>
 
 Database workload can be viewed as reads and writes. With an understanding of "normal" database workload, you can tune queries and the database server to meet demand as it changes. There are a number of different reasons why performance can change, so the first step is to understand what has changed.
 + Has there been a major or minor version upgrade?

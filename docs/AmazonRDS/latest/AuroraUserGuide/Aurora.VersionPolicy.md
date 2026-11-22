@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora versions
-<a name="Aurora.VersionPolicy"></a>
 
 With Amazon Aurora, you can choose the [supported relational database engine](#Aurora.VersionPolicy.SupportedEngines) that best fits your application requirements while maintaining compatibility with the underlying engines. Aurora reuses the database engine code from supported engines, so you can leverage existing skills, tools, and libraries for those engines. When you create a cluster, you [specify the Amazon Aurora database engine version](#Aurora.VersionPolicy.ChoosingVersion) that you want to use. The version that you choose determines compatibility and available features.
 

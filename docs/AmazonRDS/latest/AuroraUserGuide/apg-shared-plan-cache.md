@@ -1,7 +1,6 @@
 
 
 # Using shared plan cache
-<a name="apg-shared-plan-cache"></a>
 
 ## Overview
 <a name="apg-shared-plan-cache-overview"></a>

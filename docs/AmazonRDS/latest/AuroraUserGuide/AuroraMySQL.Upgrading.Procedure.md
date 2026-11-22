@@ -1,7 +1,6 @@
 
 
 # How to perform an in-place upgrade
-<a name="AuroraMySQL.Upgrading.Procedure"></a>
 
 We recommend that you review the background material in [How the Aurora MySQL in-place major version upgrade works](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Sequence).
 
@@ -202,7 +201,7 @@ aws rds modify-global-cluster ^
 You can upgrade an Aurora DB cluster that has a cross-Region read replica using the in-place upgrade procedure, but there are certain considerations:
 + You must upgrade the read replica DB cluster first. If you try to upgrade the primary cluster first, you will receive an error message such as the following:
 
-  Unable to upgrade DB cluster test-xr-primary-cluster because the associated Aurora cross-Region replica test-xr-replica-cluster isn't patched yet. Upgrade the Aurora cross-Region replica and try again.
+  `Unable to upgrade DB cluster test-xr-primary-cluster because the associated Aurora cross-Region replica test-xr-replica-cluster isn't patched yet. Upgrade the Aurora cross-Region replica and try again.`
 
   This means that the primary DB cluster can't have a higher DB engine version than the replica cluster.
 + Before you upgrade the primary DB cluster, stop the write workload and disable any new connection requests to the writer DB instance of the primary cluster.

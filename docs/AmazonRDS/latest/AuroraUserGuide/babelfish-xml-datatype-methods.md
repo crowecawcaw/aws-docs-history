@@ -1,7 +1,6 @@
 
 
 # Babelfish supports XML datatype methods
-<a name="babelfish-xml-datatype-methods"></a>
 
 Starting with version 4.4.0, Babelfish now supports the xml datatype method .EXIST().
 

@@ -1,7 +1,6 @@
 
 
 # Configure multi-source replication for Amazon Aurora MySQL
-<a name="AuroraMySQL.Replication.MultiSource"></a>
 
 With multi-source replication, you can set up an Amazon Aurora MySQL DB cluster as a replica that receives binary log events from more than one source MySQL database. Each source can be an RDS for MySQL DB instance, another Aurora MySQL DB cluster, or a MySQL database running external to Amazon RDS.
 
@@ -57,11 +56,15 @@ Perform the following steps for each source DB instance.
 
 1. Determine the current binary log file and position on the source DB instance.
 
-   ```
+   **For MySQL 8.4**
+
+   ```sql
    SHOW BINARY LOG STATUS;
    ```
 
-   ```
+   **For MySQL 8.0 and earlier**
+
+   ```sql
    SHOW MASTER STATUS;
    ```
 
@@ -79,7 +82,7 @@ Perform the following steps for each source DB instance.
 
 1. Copy the database from the source DB instance to the Aurora MySQL cluster using `mysqldump`.
 
-   ```
+   ```bash
    mysqldump --databases {{database_name}} \
      --single-transaction \
      --compress \
@@ -102,7 +105,9 @@ For large databases, consider using AWS DMS or creating a snapshot and restoring
 
 For each source DB instance, connect to the **writer instance** of the Aurora MySQL DB cluster and run the stored procedures to configure and start replication on a channel.
 
-```
+**Option A: Using binary log file position**
+
+```sql
 CALL mysql.rds_set_external_source_for_channel(
   '{{source-endpoint.region.rds.amazonaws.com}}',
   3306,
@@ -117,9 +122,11 @@ CALL mysql.rds_set_external_source_for_channel(
 CALL mysql.rds_start_replication_for_channel('{{channel_1}}');
 ```
 
+**Option B: Using GTID auto-positioning**
+
 If your source DB instances use GTID-based replication, you can use auto-positioning instead of specifying binary log coordinates:
 
-```
+```sql
 CALL mysql.rds_set_external_source_with_auto_position_for_channel(
   '{{source-endpoint.region.rds.amazonaws.com}}',
   3306,
@@ -146,6 +153,8 @@ You can use replication filters to specify which databases and tables are replic
 With multi-source replication, you can configure replication filters at two levels:
 + **Global filters** – Apply to all channels. Set using the Aurora MySQL DB cluster parameter group (for example, `replicate-do-db`, `replicate-ignore-db`).
 + **Channel-level filters** – Apply only to specific channels, overriding global filters for that channel.
+
+**Key behavior**
 + You must restart replication after changing channel-level filters.
 + If no channel-specific filter is configured, Aurora MySQL applies the global filters for that channel.
 + If a filter is applied both globally and at the channel level, only the channel-level filter is applied for that channel.
@@ -160,7 +169,7 @@ You can monitor individual channels on an Aurora MySQL multi-source replica usin
 
 Connect to the writer instance of the Aurora MySQL DB cluster and run:
 
-```
+```sql
 -- View status for all channels
 SHOW REPLICA STATUS\G
 
@@ -257,7 +266,7 @@ The following example demonstrates configuring an Aurora MySQL DB cluster as a m
 
 Connect to each source and record the binary log coordinates:
 
-```
+```sql
 -- On source 1 (orders-db.xxxxx.us-east-1.rds.amazonaws.com)
 SHOW BINARY LOG STATUS;
 -- Result: mysql-bin-changelog.000045, Position: 3892
@@ -274,7 +283,7 @@ SHOW BINARY LOG STATUS;
 ### Step 2: Import data from each source
 <a name="AuroraMySQL.Replication.MultiSource.Example.Step2"></a>
 
-```
+```bash
 # Import from source 1
 mysqldump --databases orders_db --single-transaction --compress \
  -u admin -p --host=orders-db.xxxxx.us-east-1.rds.amazonaws.com | \
@@ -296,7 +305,7 @@ mysqldump --databases analytics_db --single-transaction --compress \
 
 Connect to the Aurora MySQL writer instance:
 
-```
+```sql
 -- Configure channel for source 1 (orders)
 CALL mysql.rds_set_external_source_for_channel(
  'orders-db.xxxxx.us-east-1.rds.amazonaws.com',
@@ -327,7 +336,7 @@ CALL mysql.rds_start_replication_for_channel('analytics_channel');
 ### Step 4: Verify replication status
 <a name="AuroraMySQL.Replication.MultiSource.Example.Step4"></a>
 
-```
+```sql
 SHOW REPLICA STATUS\G
 ```
 

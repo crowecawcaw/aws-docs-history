@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connection issues for Aurora MySQL databases
-<a name="mysql-troubleshooting-dbconn"></a>
 
 Ensuring reliable connectivity between your applications and your RDS DB instance is crucial for the smooth operation of your workloads. However, connectivity issues can arise because of various factors, such as network configurations, authentication problems, or resource constraints. This guide aims to provide a comprehensive approach to troubleshooting connectivity issues with Aurora MySQL.
 

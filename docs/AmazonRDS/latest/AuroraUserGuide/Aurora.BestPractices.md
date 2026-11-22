@@ -1,7 +1,6 @@
 
 
 # Best practices with Amazon Aurora
-<a name="Aurora.BestPractices"></a>
 
 Following, you can find information on general best practices and options for using or migrating data to an Amazon Aurora DB cluster.
 

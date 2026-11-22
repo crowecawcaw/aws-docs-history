@@ -1,7 +1,6 @@
 
 
 # Uninstalling Trusted Language Extensions for PostgreSQL
-<a name="PostgreSQL_trusted_language_extension-uninstalling-pg_tle-devkit"></a>
 
 If you no longer want to create your own TLE extensions using TLE, you can drop the `pg_tle` extension and remove all artifacts. This action includes dropping any TLE extensions in the database and dropping the `pgtle` schema.
 

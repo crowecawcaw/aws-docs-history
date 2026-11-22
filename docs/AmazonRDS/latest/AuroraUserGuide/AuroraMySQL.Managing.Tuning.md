@@ -1,7 +1,6 @@
 
 
 # Tuning Aurora MySQL
-<a name="AuroraMySQL.Managing.Tuning"></a>
 
 Wait events and thread states are important tuning tools for Aurora MySQL. If you can find out why sessions are waiting for resources and what they are doing, you are better able to reduce bottlenecks. You can use the information in this section to find possible causes and corrective actions.
 

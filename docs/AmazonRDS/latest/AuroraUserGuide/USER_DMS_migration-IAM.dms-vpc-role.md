@@ -1,7 +1,6 @@
 
 
 # Creating an IAM role for AWS DMS to manage Amazon VPC
-<a name="USER_DMS_migration-IAM.dms-vpc-role"></a>
 
 You must create an IAM role for AWS DMS to manage the VPC settings for your resources. This role must be available for successful migration.
 

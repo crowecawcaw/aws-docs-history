@@ -1,7 +1,6 @@
 
 
 # Granting permissions to publish notifications to an Amazon SNS topic
-<a name="USER_Events.GrantingPermissions"></a>
 
 To grant Amazon RDS permissions to publish notifications to an Amazon Simple Notification Service (Amazon SNS) topic, attach an AWS Identity and Access Management (IAM) policy to the destination topic. For more information about permissions, see [ Example cases for Amazon Simple Notification Service access control](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html) in the *Amazon Simple Notification Service Developer Guide*.
 
@@ -19,7 +18,7 @@ To see a list of resource types and their ARNs, see [Resources Defined by Amazon
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

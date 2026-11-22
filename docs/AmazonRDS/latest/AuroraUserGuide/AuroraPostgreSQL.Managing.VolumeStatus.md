@@ -1,7 +1,6 @@
 
 
 # Displaying volume status for an Aurora PostgreSQL DB cluster
-<a name="AuroraPostgreSQL.Managing.VolumeStatus"></a>
 
 In Amazon Aurora, a DB cluster volume consists of a collection of logical blocks. Each of these represents 10 gigabytes of allocated storage. These blocks are called *protection groups*. 
 
@@ -24,7 +23,7 @@ The `aurora_show_volume_status()` function is available for Aurora PostgreSQL ve
 
 **Example**
 
-```
+```sql
 customer_database=> SELECT * FROM aurora_show_volume_status();
  disks | nodes 
 -------+-------

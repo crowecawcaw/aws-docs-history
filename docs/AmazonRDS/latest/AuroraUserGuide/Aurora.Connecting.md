@@ -1,7 +1,7 @@
 
 
 # Connecting to an Amazon Aurora DB cluster
-<a name="Aurora.Connecting"></a><a name="endpoints"></a>
+<a name="endpoints"></a>
 
 You can connect to an Aurora DB cluster using the same tools that you use to connect to a MySQL or PostgreSQL database. You specify a connection string with any script, utility, or application that connects to a MySQL or PostgreSQL DB instance. You use the same public key for Secure Sockets Layer (SSL) connections. 
 

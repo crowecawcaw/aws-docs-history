@@ -1,7 +1,6 @@
 
 
 # Joining foreign tables with local tables
-<a name="aurora-analytics-local-table-casts"></a>
 
 A *local table* is a regular Aurora PostgreSQL table or materialized view stored in Aurora storage. A *local column* is a column in a local table.
 
@@ -11,7 +10,7 @@ Instead of changing the column definition, which rewrites the table, add a cast 
 
 In the following example, `heap_table` has a `character(1)` column and the database default collation is `en_US.UTF-8`. The analytics engine supports neither, so only the foreign table scan is pushed down.
 
-```
+```SQL
 postgres=> \d heap_table
                Table "public.heap_table"
  Column |     Type     | Collation | Nullable | Default
@@ -42,7 +41,7 @@ postgres=> EXPLAIN (VERBOSE, COSTS OFF) SELECT col1 FROM heap_table WHERE EXISTS
 
 With `col1::text COLLATE "C"`, the whole query is pushed down.
 
-```
+```SQL
 postgres=> EXPLAIN (COSTS OFF) SELECT col1::text COLLATE "C" FROM heap_table WHERE EXISTS (SELECT * FROM ft_a);
                   QUERY PLAN
 ----------------------------------------------

@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Aurora
-<a name="CHAP_GettingStartedAurora"></a>
 
 In this section, you can find out how to create and connect to an Aurora DB cluster using Amazon RDS. 
 

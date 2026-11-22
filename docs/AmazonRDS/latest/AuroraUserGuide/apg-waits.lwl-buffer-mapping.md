@@ -1,7 +1,6 @@
 
 
 # LWLock:buffer\_mapping
-<a name="apg-waits.lwl-buffer-mapping"></a>
 
 This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer pool.
 

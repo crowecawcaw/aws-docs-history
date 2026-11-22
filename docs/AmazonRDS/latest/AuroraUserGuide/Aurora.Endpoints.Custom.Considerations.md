@@ -1,7 +1,6 @@
 
 
 # Considerations for custom endpoints in Amazon Aurora
-<a name="Aurora.Endpoints.Custom.Considerations"></a>
 
 Use the following sections to manage, specify properties, and use membership rules for custom endpoints.
 

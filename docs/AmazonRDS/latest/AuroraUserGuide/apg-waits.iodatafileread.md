@@ -1,7 +1,6 @@
 
 
 # IO:DataFileRead
-<a name="apg-waits.iodatafileread"></a>
 
 The `IO:DataFileRead` event occurs when a connection waits on a backend process to read a required page from storage because the page isn't available in shared memory.
 
@@ -42,7 +41,7 @@ Vacuum workers can be triggered manually or automatically. We recommend adopting
 
 **Ingesting large amounts of data**  
 When your application ingests large amounts of data, `ANALYZE` operations might occur more often. The `ANALYZE` process can be triggered by an autovacuum launcher or invoked manually.  
-The `ANALYZE` operation reads a subset of the table. The number of pages that must be scanned is calculated by multiplying 30 by the `default_statistics_target` value. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET). The `default_statistics_target` parameter accepts values between 1 and 10,000, where the default is 100.
+The `ANALYZE` operation reads a subset of the table. It calculates the number of rows to scan by multiplying 300 by the `default_statistics_target` value. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET). The `default_statistics_target` parameter accepts values between 1 and 10,000, where the default is 100.
 
 **Resource starvation**  
 If instance network bandwidth or CPU are consumed, the `IO:DataFileRead` event might occur more frequently.

@@ -1,7 +1,6 @@
 
 
 # Read consistency for write forwarding
-<a name="aurora-mysql-write-forwarding-consistency"></a>
 
 You can control the degree of read consistency on a DB cluster. The read consistency level determines how long the DB cluster waits before each read operation to ensure that some or all changes are replicated from the writer. You can adjust the read consistency level to make sure that all forwarded write operations from your session are visible in the DB cluster before any subsequent queries. You can also use this setting to make sure that queries on the DB cluster always see the most current updates from the writer. This setting also applies to queries submitted by other sessions or other clusters. To specify this type of behavior for your application, choose a value for the `aurora_replica_read_consistency` DB parameter or DB cluster parameter.
 

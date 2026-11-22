@@ -1,7 +1,7 @@
 
 
 # Using the Amazon RDS Data API
-<a name="data-api"></a><a name="data_api"></a>
+<a name="data_api"></a>
 
 By using RDS Data API (Data API), you can work with a web-services interface to your Aurora DB cluster. Data API doesn't require a persistent connection to the DB cluster. Instead, it provides a secure HTTP endpoint and integration with AWS SDKs. You can use the endpoint to run SQL statements without managing connections.
 

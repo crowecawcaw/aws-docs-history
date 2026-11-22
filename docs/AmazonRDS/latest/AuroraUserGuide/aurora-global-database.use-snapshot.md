@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Aurora global database from an Aurora or Amazon RDS snapshot
-<a name="aurora-global-database.use-snapshot"></a>
 
 You can restore a snapshot of an Aurora DB cluster or from an Amazon RDS DB instance to use as the starting point for your Aurora global database. You restore the snapshot and create a new Aurora provisioned DB cluster at the same time. You then add another AWS Region to the restored DB cluster, thus turning it into an Aurora global database. Any Aurora DB cluster that you create using a snapshot in this way becomes the primary cluster of your Aurora global database.
 

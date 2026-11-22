@@ -1,7 +1,6 @@
 
 
 # Restoring a DB cluster to a specified time
-<a name="aurora-pitr"></a>
 
 You can restore a DB cluster to a specific point in time, creating a new DB cluster.
 

@@ -1,9 +1,11 @@
 
 
 # Setting up access to an Amazon S3 bucket
-<a name="USER_PostgreSQL.S3Import.AccessPermission"></a>
 
 To import data from an Amazon S3 file, give the Aurora PostgreSQL DB cluster permission to access the Amazon S3 bucket containing the file. You provide access to an Amazon S3 bucket in one of two ways, as described in the following topics.
+
+**Note**  
+Before you import data, make sure that your Aurora PostgreSQL DB cluster can reach Amazon S3 over the network. If your DB cluster is in a private subnet with no route to Amazon S3, create an Amazon S3 gateway VPC endpoint. Alternatively, provide outbound access to Amazon S3 by another method. For instructions, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.Network.md).
 
 **Topics**
 + [Using an IAM role to access an Amazon S3 bucket](#USER_PostgreSQL.S3Import.ARNRole)

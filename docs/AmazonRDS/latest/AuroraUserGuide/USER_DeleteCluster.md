@@ -1,7 +1,6 @@
 
 
 # Deleting Aurora DB clusters and DB instances
-<a name="USER_DeleteCluster"></a>
 
 You can delete an Aurora DB cluster when you no longer need it. Deleting the cluster removes the cluster volume containing all your data. Before deleting the cluster, you can save a snapshot of your data. You can restore the snapshot later to create a new cluster containing the same data.
 

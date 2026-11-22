@@ -1,7 +1,6 @@
 
 
 # Monitoring DB cluster export tasks
-<a name="export-cluster-data.Monitoring"></a>
 
 You can monitor DB cluster exports using the AWS Management Console, the AWS CLI, or the RDS API.
 

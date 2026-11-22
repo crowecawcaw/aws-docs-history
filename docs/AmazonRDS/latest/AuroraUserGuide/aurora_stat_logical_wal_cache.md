@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_logical\_wal\_cache
-<a name="aurora_stat_logical_wal_cache"></a>
 
 Shows logical write-ahead log (WAL) cache usage per slot.
 

@@ -1,7 +1,6 @@
 
 
 # Tuning Aurora PostgreSQL with Amazon DevOps Guru proactive insights
-<a name="PostgreSQL.Tuning_proactive_insights"></a>
 
 DevOps Guru proactive insights detects conditions on your Aurora PostgreSQL DB clusters that can cause problems, and lets you know about them before they occur. Proactive insights can alert you to a long running idle in transaction connection. For more information about troubleshooting long running idle in transaction connections, see [Database has long running idle in transaction connection](#proactive-insights.idle-txn)
 
@@ -48,7 +47,7 @@ You can find idle transactions by querying `pg_stat_activity`.
 
 In your SQL client, run the following query to list all connections in `idle in transaction` state and to order them by duration:
 
-```
+```sql
 SELECT now() - state_change as idle_in_transaction_duration, now() - xact_start as xact_duration,* 
 FROM  pg_stat_activity 
 WHERE state  = 'idle in transaction'
@@ -75,7 +74,7 @@ When you initiate a transaction in an interactive session with BEGIN or START TR
 
 Terminate the connection with an idle transaction using the following query:
 
-```
+```sql
 SELECT pg_terminate_backend{{(pid)}};
 ```
 

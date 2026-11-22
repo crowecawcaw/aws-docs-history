@@ -1,7 +1,6 @@
 
 
 # Excluding users or databases from audit logging
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db"></a>
 
 As discussed in [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.PostgreSQL.md), PostgreSQL logs consume storage space. Using the pgAudit extension adds to the volume of data gathered in your logs to varying degrees, depending on the changes that you track. You might not need to audit every user or database in your Aurora PostgreSQL DB cluster. 
 

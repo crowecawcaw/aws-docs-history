@@ -1,7 +1,6 @@
 
 
 # Connecting to your DB cluster using IAM authentication and the AWS SDK for Go
-<a name="UsingWithRDS.IAMDBAuth.Connecting.Go"></a>
 
 You can connect to an Aurora MySQL or Aurora PostgreSQL DB cluster with the AWS SDK for Go as described following.
 
@@ -47,7 +46,7 @@ The following code examples show how to generate an authentication token, and th
 
 This code connects to an Aurora MySQL DB cluster.
 
-```
+```go
 package main
                 
 import (
@@ -98,7 +97,7 @@ func main() {
 
 This code connects to an Aurora PostgreSQL DB cluster.
 
-```
+```go
 package main
 
 import (
@@ -158,7 +157,7 @@ The following code examples show how to generate an authentication token, and th
 
 This code connects to an Aurora MySQL DB cluster.
 
-```
+```go
 package main
          
 import (
@@ -203,7 +202,7 @@ func main() {
 
 This code connects to an Aurora PostgreSQL DB cluster.
 
-```
+```go
 package main
 
 import (

@@ -1,7 +1,6 @@
 
 
 # Constructing an ARN for Amazon RDS
-<a name="USER_Tagging.ARN.Constructing"></a>
 
 Resources created in Amazon Web Services are each uniquely identified with an Amazon Resource Name (ARN). You can construct an ARN for an Amazon RDS resource using the following syntax. 
 

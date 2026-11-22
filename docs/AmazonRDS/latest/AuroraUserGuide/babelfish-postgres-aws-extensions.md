@@ -1,7 +1,6 @@
 
 
 # Using Aurora PostgreSQL extensions with Babelfish
-<a name="babelfish-postgres-aws-extensions"></a>
 
 Aurora PostgreSQL provides extensions for working with other AWS services. These are optional extensions that support various use cases, such as using Amazon S3 with your DB cluster for importing or exporting data. 
 + To import data from an Amazon S3 bucket to your Babelfish DB cluster, you set up the `aws_s3` Aurora PostgreSQL extension. This extension also lets you export data from your Aurora PostgreSQL DB cluster to an Amazon S3 bucket. 
@@ -24,7 +23,7 @@ This procedure loads both `aws_s3` and `aws_lambda`, one after the other. You do
 
    For Linux, macOS, or Unix:
 
-   ```
+   ```cmd
    psql -h {{your-Babelfish.cluster.444455556666-us-east-1.rds.amazonaws.com}} \
    -U postgres \
    -d babelfish_db \
@@ -33,7 +32,7 @@ This procedure loads both `aws_s3` and `aws_lambda`, one after the other. You do
 
    For Windows:
 
-   ```
+   ```cmd
    psql -h {{your-Babelfish.cluster.444455556666-us-east-1.rds.amazonaws.com}} ^
    -U postgres ^
    -d babelfish_db ^
@@ -42,13 +41,13 @@ This procedure loads both `aws_s3` and `aws_lambda`, one after the other. You do
 
    The command responds with a prompt to enter the password for the user name (-U).
 
-   ```
+   ```cmd
    Password:
    ```
 
    Enter the password for the user name (-U) for the DB cluster. When you successfully connect, you see output similar to the following.
 
-   ```
+   ```cmd
    psql (13.4)
    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
    Type "help" for help.
@@ -58,14 +57,14 @@ This procedure loads both `aws_s3` and `aws_lambda`, one after the other. You do
 
 1. Grant privileges to the internal Babelfish user to create and load extensions.
 
-   ```
+   ```cmd
    babelfish_db=> GRANT rds_superuser TO master_dbo;
    GRANT ROLE
    ```
 
 1. Create and load the `aws_s3` extension. The `aws_commons` extension is required, and it's installed automatically when the `aws_s3` is installed.
 
-   ```
+   ```cmd
    babelfish_db=> create extension aws_s3 cascade;
    NOTICE:  installing required extension "aws_commons"
    CREATE EXTENSION
@@ -219,7 +218,7 @@ Currently, Babelfish doesn't support JSON. If your function returns JSON, you us
 
    1. To invoke (call) this function from your PostgreSQL port:
 
-      ```
+      ```sql
       SELECT * from aws_lambda.invoke(aws_commons.create_lambda_function_arn('my-function', 'us-east-1'), '{"body": "Hello from Postgres!"}'::json );
       ```
 
@@ -234,7 +233,7 @@ Currently, Babelfish doesn't support JSON. If your function returns JSON, you us
 
    1. To invoke (call) this function from the TDS port, connect to the port using the SQL Server `sqlcmd` command line client. For details, see [Using a SQL Server client to connect to your DB cluster](babelfish-connect-sqlserver.md). When connected, run the following:
 
-      ```
+      ```sql
       1> select lambda_wrapper();
       2> go
       ```

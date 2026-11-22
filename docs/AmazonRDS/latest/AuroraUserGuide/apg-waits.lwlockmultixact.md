@@ -1,7 +1,6 @@
 
 
 # LWLock:MultiXact
-<a name="apg-waits.lwlockmultixact"></a>
 
 The `LWLock:MultiXactMemberBuffer`, `LWLock:MultiXactOffsetBuffer`, `LWLock:MultiXactMemberSLRU`, and `LWLock:MultiXactOffsetSLRU` wait events indicate that a session is waiting to retrieve a list of transactions that modifies the same row in a given table. 
 + `LWLock:MultiXactMemberBuffer` – A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a multixact member.

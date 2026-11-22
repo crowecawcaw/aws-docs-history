@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_activity
-<a name="aurora_stat_activity"></a>
 
 Returns one row per server process, showing information related to the current activity of that process.
 

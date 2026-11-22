@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL version 8.4 compatible with MySQL 8.4
-<a name="AuroraMySQL.MySQL84"></a>
 
  Aurora MySQL version 8.4 is the latest major version of Amazon Aurora MySQL-Compatible Edition, compatible with MySQL 8.4 Community Edition. You can use Aurora MySQL version 8.4 to get the latest MySQL-compatible features, performance enhancements, and bug fixes. 
 

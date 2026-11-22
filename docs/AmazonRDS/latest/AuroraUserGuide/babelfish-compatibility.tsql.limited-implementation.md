@@ -1,7 +1,6 @@
 
 
 # Using Babelfish features with limited implementation
-<a name="babelfish-compatibility.tsql.limited-implementation"></a>
 
 Each new version of Babelfish adds support for features that better align with T-SQL functionality and behavior. Still, there are some unsupported features and differences in the current implementation. In the following, you can find information about functional differences between Babelfish and T-SQL, with some workarounds or usage notes.
 

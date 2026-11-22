@@ -1,7 +1,6 @@
 
 
 # Viewing retained automated backups for Amazon Aurora
-<a name="Aurora.Managing.Backups.Retaining.Viewing"></a>
 
 To view your retained automated backups in the RDS console, choose **Automated backups** in the navigation pane, then choose **Retained**. To view individual snapshots associated with a retained automated backup, choose **Snapshots** in the navigation pane. Alternatively, you can describe individual snapshots associated with a retained automated backup. From there, you can restore a DB instance directly from one of those snapshots.
 

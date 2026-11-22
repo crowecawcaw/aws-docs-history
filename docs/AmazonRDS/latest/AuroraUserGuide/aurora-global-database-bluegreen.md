@@ -1,7 +1,6 @@
 
 
 # Using Blue/Green Deployments for Amazon Aurora Global Database
-<a name="aurora-global-database-bluegreen"></a>
 
 Amazon RDS Blue/Green Deployments provide a capability for testing database changes safely. For your global database, blue/green deployments allow you to perform upgrades and maintenance operations with minimal downtime. You can create a fully managed staging environment (green) that mirrors your entire production environment (blue), including the primary cluster and all associated secondary regions across multiple AWS Regions. The staging environment reflects your production setup, enabling you to reliably test changes before switching over to the new environment. Throughout the process, blue/green deployments keep the staging and production environments in sync. When ready to make your staging environment the new production environment, perform a blue/green switchover. This operation transitions your primary and all secondary regions to the green environment, with downtime typically under one minute. The service automatically renames clusters, instances, and endpoints to match the original production environment, enabling your applications to access the new production environment without requiring any configuration changes and minimizing operational overhead.
 

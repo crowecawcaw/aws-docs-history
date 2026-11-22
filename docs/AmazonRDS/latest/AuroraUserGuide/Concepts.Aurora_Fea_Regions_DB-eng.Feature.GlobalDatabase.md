@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Aurora global databases
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase"></a>
 
 An *Aurora global database* is a single database that spans multiple AWS Regions, enabling low-latency global reads and disaster recovery from any Region-wide outage. It provides built-in fault tolerance for your deployment because the DB instance relies not on a single AWS Region, but upon multiple Regions and different Availability Zones. For more information, see [Using Amazon Aurora Global Database](aurora-global-database.md).
 

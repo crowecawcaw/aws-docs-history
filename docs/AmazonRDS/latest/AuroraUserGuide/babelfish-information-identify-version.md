@@ -1,7 +1,6 @@
 
 
 # Identifying your version of Babelfish
-<a name="babelfish-information-identify-version"></a>
 
 You can query Babelfish to find details about the Babelfish version, the Aurora PostgreSQL version, and the compatible Microsoft SQL Server version. You can use the TDS port or the PostgreSQL port. 
 + [To use the TDS port to query for version information](#apg-version-info-tds)

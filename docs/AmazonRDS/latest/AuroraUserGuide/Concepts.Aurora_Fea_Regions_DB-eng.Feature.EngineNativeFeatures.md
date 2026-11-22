@@ -1,7 +1,6 @@
 
 
 # Supported Regions and DB engines for Aurora engine-native features
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures"></a>
 
 Aurora database engines also support additional features and functionality specifically for Aurora. Some engine-native features might have limited support or restricted privileges for a particular Aurora DB engine, version, or Region.
 

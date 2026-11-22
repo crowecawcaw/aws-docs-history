@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Extended Support charges
-<a name="extended-support-charges"></a>
 
 You will incur charges for all engines enrolled in RDS Extended Support beginning the day after the Aurora end of standard support date. For the Aurora end of standard support date, see [Amazon Aurora major versions](Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions). 
 

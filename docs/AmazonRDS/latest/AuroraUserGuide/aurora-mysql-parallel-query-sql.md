@@ -1,7 +1,6 @@
 
 
 # SQL constructs for parallel query in Aurora MySQL
-<a name="aurora-mysql-parallel-query-sql"></a>
 
  In the following section, you can find more detail about why particular SQL statements use or don't use parallel query. This section also details how Aurora MySQL features interact with parallel query. This information can help you diagnose performance issues for a cluster that uses parallel query or understand how parallel query applies for your particular workload. 
 
@@ -55,7 +54,7 @@
 
  For example, consider the following `EXPLAIN` output. 
 
-```
+```sql
 mysql> explain select p_name, p_mfgr from part
     -> where p_brand is not null
     -> and upper(p_type) is not null
@@ -71,7 +70,7 @@ mysql> explain select p_name, p_mfgr from part
 
  In cases where parallel query isn't chosen, you can typically deduce the reason from the other columns of the `EXPLAIN` output. For example, the `rows` value might be too small, or the `possible_keys` column might indicate that the query can use an index lookup instead of a data-intensive scan. The following example shows a query where the optimizer can estimate that the query will scan only a small number of rows. It does so based on the characteristics of the primary key. In this case, parallel query isn't required. 
 
-```
+```sql
 mysql> explain select count(*) from part where p_partkey between 1 and 100;
 +----+-------------+-------+-------+---------------+---------+---------+------+------+--------------------------+
 | id | select_type | table | type  | possible_keys | key     | key_len | ref  | rows | Extra                    |
@@ -95,7 +94,7 @@ mysql> explain select count(*) from part where p_partkey between 1 and 100;
 
  For example, the following query does a full-table scan and processes all the values for the `P_BRAND` column. However, it doesn't use parallel query because the query doesn't include any `WHERE` clause. 
 
-```
+```sql
 mysql> explain select count(*), p_brand from part group by p_brand;
 +----+-------------+-------+------+---------------+------+---------+------+----------+---------------------------------+
 | id | select_type | table | type | possible_keys | key  | key_len | ref  | rows     | Extra                           |
@@ -106,7 +105,7 @@ mysql> explain select count(*), p_brand from part group by p_brand;
 
  In contrast, the following query includes `WHERE` predicates that filter the results, so parallel query can be applied: 
 
-```
+```sql
 mysql> explain select count(*), p_brand from part where p_name is not null
     ->   and p_mfgr in ('Manufacturer#1', 'Manufacturer#3') and p_retailprice > 1000
     -> group by p_brand;
@@ -119,7 +118,7 @@ mysql> explain select count(*), p_brand from part where p_name is not null
 
  If the optimizer estimates that the number of returned rows for a query block is small, parallel query isn't used for that query block. The following example shows a case where a greater-than operator on the primary key column applies to millions of rows, which causes parallel query to be used. The converse less-than test is estimated to apply to only a few rows and doesn't use parallel query. 
 
-```
+```sql
 mysql> explain select count(*) from part where p_partkey > 10;
 +----+...+----------+----------------------------------------------------------------------------+
 | id |...| rows     | Extra                                                                      |
@@ -187,7 +186,7 @@ mysql> explain select count(*), p_brand from part_small_partitions where p_name 
 
  The following simple examples illustrate the kinds of aggregate queries that can benefit from parallel query. They do so by returning intermediate results in compact form to the head node, filtering nonmatching rows from the intermediate results, or both. 
 
-```
+```sql
 mysql> explain select sql_no_cache count(distinct p_brand) from part where p_mfgr = 'Manufacturer#5';
 +----+...+----------------------------------------------------------------------------+
 | id |...| Extra                                                                      |
@@ -212,7 +211,7 @@ mysql> explain select sql_no_cache p_mfgr from part where p_retailprice > 1000 g
 
  In the following example, parallel query parallelizes the call to `LOWER` because it appears in the `WHERE` clause. Parallel query doesn't affect the calls to `SUBSTR` and `UPPER` because they appear in the select list. 
 
-```
+```sql
 mysql> explain select sql_no_cache distinct substr(upper(p_name),1,5) from part
     -> where lower(p_name) like '%cornflower%' or lower(p_name) like '%goldenrod%';
 +----+...+---------------------------------------------------------------------------------------------+
@@ -224,7 +223,7 @@ mysql> explain select sql_no_cache distinct substr(upper(p_name),1,5) from part
 
  The same considerations apply to other expressions, such as `CASE` expressions or `LIKE` operators. For example, the following example shows that parallel query evaluates the `CASE` expression and `LIKE` operators in the `WHERE` clause. 
 
-```
+```sql
 mysql> explain select p_mfgr, p_retailprice from part
     -> where p_retailprice > case p_mfgr
     ->   when 'Manufacturer#1' then 1000
@@ -252,7 +251,7 @@ mysql> explain select p_mfgr, p_retailprice from part
 
  The first example following shows that an equality comparison against the primary key column can be performed efficiently without parallel query. The second example following shows that a similar comparison against an unindexed column requires scanning millions of rows and therefore can benefit from parallel query. 
 
-```
+```sql
 mysql> explain select * from part where p_partkey = 10;
 +----+...+------+-------+
 | id |...| rows | Extra |
@@ -282,7 +281,7 @@ mysql> explain select * from part where p_type = 'LARGE BRUSHED BRASS';
 **Note**  
  Parallel query is typically used for the kinds of resource-intensive queries that benefit from the hash join optimization. The method for turning on the hash join optimization depends on the Aurora MySQL version. For details for each version, see [Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join). For information about how to use hash joins effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin). 
 
-```
+```sql
 mysql> explain select count(*) from orders join customer where o_custkey = c_custkey;
 +----+...+----------+-------+---------------+-------------+...+-----------+-----------------------------------------------------------------------------------------------------------------+
 | id |...| table    | type  | possible_keys | key         |...| rows      | Extra                                                                                                           |
@@ -294,7 +293,7 @@ mysql> explain select count(*) from orders join customer where o_custkey = c_cus
 
  For a join query that uses the nested loop mechanism, the outermost nested loop block might use parallel query. The use of parallel query depends on the same factors as usual, such as the presence of additional filter conditions in the `WHERE` clause. 
 
-```
+```sql
 mysql> -- Nested loop join with extra filter conditions can use parallel query.
 mysql> explain select count(*) from part, partsupp where p_partkey != ps_partkey and p_name is not null and ps_availqty > 0;
 +----+-------------+----------+...+----------+----------------------------------------------------------------------------+
@@ -310,7 +309,7 @@ mysql> explain select count(*) from part, partsupp where p_partkey != ps_partkey
 
  The outer query block and inner subquery block might each use parallel query, or not. Whether they do is based on the usual characteristics of the table, `WHERE` clause, and so on, for each block. For example, the following query uses parallel query for the subquery block but not the outer block. 
 
-```
+```sql
 mysql> explain select count(*) from part where
    --> p_partkey < (select max(p_partkey) from part where p_name like '%vanilla%');
 +----+-------------+...+----------+----------------------------------------------------------------------------+
@@ -328,7 +327,7 @@ mysql> explain select count(*) from part where
 
  Each query block in a `UNION` query can use parallel query, or not, based on the usual characteristics of the table, `WHERE` clause, and so on, for each part of the `UNION`. 
 
-```
+```sql
 mysql> explain select p_partkey from part where p_name like '%choco_ate%'
     -> union select p_partkey from part where p_name like '%vanil_a%';
 +----+----------------+...+----------+----------------------------------------------------------------------------+
@@ -350,7 +349,7 @@ mysql> explain select p_partkey from part where p_name like '%choco_ate%'
 
  For example, the following query plan shows a view definition that usually doesn't use parallel query. When the view is queried with additional `WHERE` clauses, Aurora MySQL uses parallel query. 
 
-```
+```sql
 mysql> create view part_view as select * from part;
 mysql> explain select count(*) from part_view where p_partkey is not null;
 +----+...+----------+----------------------------------------------------------------------------+
@@ -365,7 +364,7 @@ mysql> explain select count(*) from part_view where p_partkey is not null;
 
  The `INSERT` statement can use parallel query for the `SELECT` phase of processing, if the `SELECT` part meets the other conditions for parallel query. 
 
-```
+```sql
 mysql> create table part_subset like part;
 mysql> explain insert into part_subset select * from part where p_mfgr = 'Manufacturer#1';
 +----+...+----------+----------------------------------------------------------------------------+
@@ -382,7 +381,7 @@ mysql> explain insert into part_subset select * from part where p_mfgr = 'Manufa
 
  Parallel query is never used for `DELETE` or `UPDATE` statements, regardless of the size of the table and predicates in the `WHERE` clause. 
 
-```
+```sql
 mysql> explain delete from part where p_name is not null;
 +----+-------------+...+----------+-------------+
 | id | select_type |...| rows     | Extra       |
@@ -408,7 +407,7 @@ On Aurora reader DB instances, parallel query applies to statements performed un
 
  The following example shows how, with the `autocommit` setting turned off, running a query against a table creates a read view that implicitly begins a transaction. Queries that are run shortly afterward can still use parallel query. However, after a pause of several minutes, queries are no longer eligible for parallel query. Ending the transaction with `COMMIT` or `ROLLBACK` restores parallel query eligibility. 
 
-```
+```sql
 mysql> set autocommit=0;
 
 mysql> explain select sql_no_cache count(*) from part where p_retailprice > 10.0;
@@ -444,7 +443,7 @@ mysql> explain select sql_no_cache count(*) from part where p_retailprice > 10.0
 
  To see how many times queries weren't eligible for parallel query because they were inside long-running transactions, check the status variable `Aurora_pq_request_not_chosen_long_trx`. 
 
-```
+```sql
 mysql> show global status like '%pq%trx%';
 +---------------------------------------+-------+
 | Variable_name                         | Value |
@@ -457,7 +456,7 @@ mysql> show global status like '%pq%trx%';
 
  Parallel query can work for a table that is locked by a `LOCK TABLES` statement. 
 
-```
+```sql
 mysql> explain select o_orderpriority, o_shippriority from orders where o_clerk = 'Clerk#000095055';
 +----+...+-----------+----------------------------------------------------------------------------+
 | id |...| rows      | Extra                                                                      |

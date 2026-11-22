@@ -1,7 +1,6 @@
 
 
 # Getting started with dynamic masking
-<a name="AuroraPostgreSQL.Security.DynamicMasking.GetStarted"></a>
 
 To dynamically mask data, you install the `pg_columnmask` extension in your database and create masking policies for your tables. The setup process involves prerequisite verification, extension installation, role configuration, policy creation, and validation testing.
 
@@ -12,7 +11,7 @@ Connect to your Aurora PostgreSQL cluster using the RDS Console Query Editor or 
 
 Execute the extension creation command to enable `pg_columnmask` functionality:
 
-```
+```sql
 CREATE EXTENSION pg_columnmask;
 ```
 
@@ -24,7 +23,7 @@ Masking on a table is never applied for the table owner or `rds_superuser`.
 
 Verify the extension installation by checking the available masking functions:
 
-```
+```sql
 SELECT proname FROM pg_proc
     WHERE pronamespace = 'pgcolumnmask'::regnamespace AND proname LIKE 'mask_%';
     proname     

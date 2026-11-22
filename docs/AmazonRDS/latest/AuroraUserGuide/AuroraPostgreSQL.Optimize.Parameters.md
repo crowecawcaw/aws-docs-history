@@ -1,7 +1,6 @@
 
 
 # Parameter reference for Aurora PostgreSQL query plan management
-<a name="AuroraPostgreSQL.Optimize.Parameters"></a>
 
 You can set your preferences for the `apg_plan_mgmt` extension by using the parameters listed in this section. These are available in the custom DB cluster parameter and the DB parameter group associated with your Aurora PostgreSQL DB cluster. These parameters control the behavior of the query plan management feature and how it affects the optimizer. For information about setting up query plan management, see [Turning on Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Enable). Changing the parameters following has no effect if the `apg_plan_mgmt` extension isn't set up as detailed in that section. For information about modifying parameters, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md) and [DB parameter groups for Amazon Aurora DB instances](USER_WorkingWithDBInstanceParamGroups.md). 
 

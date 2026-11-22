@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Aurora DB engines for zero-downtime patching (ZDP)
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP"></a>
 
 Performing upgrades for Aurora DB clusters involves the possibility of an outage when the database is shut down and while it's being upgraded. By default, if you start the upgrade while the database is busy, you lose all the connections and transactions that the DB cluster is processing. If you wait until the database is idle to perform the upgrade, you might have to wait a long time.
 

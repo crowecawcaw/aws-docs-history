@@ -1,7 +1,6 @@
 
 
 # Improving Babelfish query performance
-<a name="babelfish-query-performance"></a>
 
  You can achieve faster query processing in Babelfish using query hints and the PostgreSQL optimizer. 
 

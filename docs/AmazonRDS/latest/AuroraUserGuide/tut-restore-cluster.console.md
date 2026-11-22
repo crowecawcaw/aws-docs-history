@@ -1,7 +1,6 @@
 
 
 # Tutorial: Restoring a DB cluster from a DB cluster snapshot using the Amazon RDS console
-<a name="tut-restore-cluster.console"></a>
 
 In this tutorial, you restore a DB cluster from a DB cluster snapshot using the Amazon RDS console. When you restore a DB cluster from a snapshot using the AWS Management Console, the primary (writer) DB instance is also created.
 

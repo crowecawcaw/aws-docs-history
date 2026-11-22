@@ -1,7 +1,6 @@
 
 
 # Troubleshooting out-of-memory issues for Aurora MySQL databases
-<a name="AuroraMySQLOOM"></a>
 
 When an Aurora MySQL DB instance runs critically low on memory, the operating system can terminate the database process, causing an unplanned restart. To help prevent these restarts, Aurora MySQL includes memory management capabilities that monitor system memory and take automatic recovery actions when memory is low. These actions help prevent database unavailability due to memory exhaustion.
 

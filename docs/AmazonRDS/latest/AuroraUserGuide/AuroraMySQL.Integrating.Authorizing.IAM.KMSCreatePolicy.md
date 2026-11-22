@@ -1,7 +1,6 @@
 
 
 # Creating an IAM policy to access AWS KMS resources
-<a name="AuroraMySQL.Integrating.Authorizing.IAM.KMSCreatePolicy"></a>
 
 Aurora can access the AWS KMS keys used for encrypting their database backups. However, you must first create an IAM policy that provides the permissions that allow Aurora to access KMS keys.
 
@@ -12,7 +11,7 @@ The following policy adds the permissions required by Aurora to access KMS keys 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

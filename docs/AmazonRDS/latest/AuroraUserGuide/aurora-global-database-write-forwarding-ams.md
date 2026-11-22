@@ -1,7 +1,6 @@
 
 
 # Using write forwarding in an Aurora MySQL global database
-<a name="aurora-global-database-write-forwarding-ams"></a>
 
 **Topics**
 + [Region and version availability of write forwarding in Aurora MySQL](#aurora-global-database-write-forwarding-regions-versions-ams)
@@ -448,7 +447,7 @@ The `aurora_replica_read_consistency` parameter enables write forwarding. You us
 | --- | --- | --- | 
 | Aurora\_fwd\_replica\_dml\_stmt\_count | Count | Total number of DML statements forwarded from this reader DB instance. | 
 | Aurora\_fwd\_replica\_dml\_stmt\_duration | Microseconds | Total duration of all DML statements forwarded from this reader DB instance. | 
-| Aurora\_fwd\_replica\_errors\_session\_limit | Count | Number of sessions rejected by the primary cluster due to one of the following error conditions:+  writer full <br />+  Too many forwarded statements in progress.  | 
+| Aurora\_fwd\_replica\_errors\_session\_limit | Count | Number of sessions rejected by the primary cluster due to one of the following error conditions:+  `writer full` <br />+  `Too many forwarded statements in progress`.  | 
 | Aurora\_fwd\_replica\_open\_sessions | Count | Number of sessions that are using write forwarding on a reader DB instance. | 
 | Aurora\_fwd\_replica\_read\_wait\_count | Count | Total number of read-after-write waits on this reader DB instance.  | 
 | Aurora\_fwd\_replica\_read\_wait\_duration | Microseconds | Total duration of waits due to the read consistency setting on this reader DB instance. | 

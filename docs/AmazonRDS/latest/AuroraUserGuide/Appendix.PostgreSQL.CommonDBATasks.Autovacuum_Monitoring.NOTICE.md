@@ -1,7 +1,6 @@
 
 
 # Explanation of the NOTICE messages in Aurora PostgreSQL
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.NOTICE"></a>
 
  The `postgres_get_av_diag()` function provides the following NOTICE messages:
 

@@ -1,7 +1,7 @@
 
 
 # Performance and scaling for Aurora serverless
-<a name="aurora-serverless-v2.setting-capacity"></a><a name="scaling"></a>
+<a name="scaling"></a>
 
  The following procedures and examples show how you can set the capacity range for Aurora serverless clusters and their associated DB instances. You can also use procedures following to monitor how busy your DB instances are. Then you can use your findings to determine if you need to adjust the capacity range upward or downward. 
 

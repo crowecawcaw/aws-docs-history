@@ -1,7 +1,6 @@
 
 
 # Migrating data to an Amazon Aurora MySQL DB cluster
-<a name="AuroraMySQL.Migrating"></a>
 
 You have several options for migrating data from your existing database to an Amazon Aurora MySQL DB cluster. Your migration options also depend on the database that you are migrating from and the size of the data that you are migrating.
 

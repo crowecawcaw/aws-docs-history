@@ -1,7 +1,7 @@
 
 
 # Scaling to Zero ACUs with automatic pause and resume for Aurora serverless
-<a name="aurora-serverless-v2-auto-pause"></a><a name="auto-pause"></a><a name="autopause"></a>
+<a name="auto-pause"></a><a name="autopause"></a>
 
  You can specify that Aurora serverless DB instances scale down to zero ACUs and automatically pause, if they don't have any connections initiated by user activity within a specified time period. You do so by specifying a minimum ACU value of zero for your DB cluster. You aren't charged for instance capacity while an instance is in the paused state. Enabling the automatic pause and resume feature (auto-pause) for Aurora clusters that are lightly used or have extended periods of inactivity can help you to manage costs for your database fleet. 
 

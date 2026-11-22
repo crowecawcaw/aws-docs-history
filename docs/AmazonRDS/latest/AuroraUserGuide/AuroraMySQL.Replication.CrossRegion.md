@@ -1,7 +1,6 @@
 
 
 # Replicating Amazon Aurora MySQL DB clusters across AWS Regions
-<a name="AuroraMySQL.Replication.CrossRegion"></a>
 
  You can create an Amazon Aurora MySQL DB cluster as a read replica in a different AWS Region than the source DB cluster. Taking this approach can improve your disaster recovery capabilities, let you scale read operations into an AWS Region that is closer to your users, and make it easier to migrate from one AWS Region to another. 
 

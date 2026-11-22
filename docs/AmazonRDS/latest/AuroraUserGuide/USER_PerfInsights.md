@@ -1,7 +1,6 @@
 
 
 # Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora
-<a name="USER_PerfInsights"></a>
 
 Amazon CloudWatch Database Insights expands on existing  Amazon Aurora monitoring features to illustrate and help you analyze your cluster performance. With the Amazon CloudWatch Database Insights dashboard, you can visualize the database load on your Amazon Aurora cluster load and filter the load by waits, SQL statements, hosts, or users.
 

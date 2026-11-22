@@ -1,7 +1,6 @@
 
 
 # Configuration guidelines
-<a name="rds-proxy-best-practices.configuration"></a>
 
 This section describes the settings available in RDS Proxy and provides best practices for aligning configuration across the application stack. These are combined guidelines for using RDS Proxy with Amazon RDS and Amazon Aurora. RDS-specific and Aurora-specific notes are called out where applicable.
 

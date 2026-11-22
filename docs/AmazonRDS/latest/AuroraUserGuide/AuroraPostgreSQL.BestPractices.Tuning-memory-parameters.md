@@ -1,7 +1,6 @@
 
 
 # Tuning memory parameters for Aurora PostgreSQL
-<a name="AuroraPostgreSQL.BestPractices.Tuning-memory-parameters"></a>
 
 In Amazon Aurora PostgreSQL, you can use several parameters that control the amount of memory used for various processing tasks. If a task takes more memory than the amount set for a given parameter, Aurora PostgreSQL uses other resources for processing, such as by writing to disk. This can cause your Aurora PostgreSQL DB cluster to slow or potentially halt, with an out-of-memory error. 
 

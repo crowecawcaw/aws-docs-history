@@ -1,7 +1,6 @@
 
 
 # Monitoring query execution plans and peak memory for Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Monitoring.Query.Plans"></a>
 
 You can monitor query execution plans in your Aurora PostgreSQL DB instance to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time using the `aurora_compute_plan_id` parameter. Whenever a query executes, the execution plan used by the query is assigned an identifier and the same identifier is used by subsequent executions of the same plan.
 

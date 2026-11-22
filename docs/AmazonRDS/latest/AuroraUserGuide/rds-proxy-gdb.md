@@ -1,7 +1,6 @@
 
 
 # Using RDS Proxy with Aurora global databases
-<a name="rds-proxy-gdb"></a>
 
 An *Aurora global database* is a single database that spans multiple AWS Regions, allowing for low-latency global reads and disaster recovery from any Region-wide outage. It provides built-in fault tolerance for your deployment because the DB instance relies not on a single AWS Region, but upon multiple Regions and different Availability Zones. For more information, see [Using Amazon Aurora Global Database](aurora-global-database.md).
 

@@ -1,7 +1,6 @@
 
 
 # Stopping and starting a DB cluster in a reservation
-<a name="capacity-reservations.stopstart"></a>
 
 You stop and start Aurora DB instances at the DB cluster level. The `stop-db-cluster` and `start-db-cluster` commands don't take the `--db-capacity-reservation-identifier` or `--detach-from-db-capacity-reservation` parameter, so you can't attach a DB instance to a reservation, or detach it, when you stop or start a DB cluster.
 

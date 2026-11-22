@@ -1,7 +1,6 @@
 
 
 # Best practices for Aurora MySQL performance and scaling
-<a name="AuroraMySQL.BestPractices.Performance"></a>
 
 You can apply the following best practices to improve the performance and scalability of your Aurora MySQL clusters.
 
@@ -64,14 +63,14 @@ You can enable the AKP feature by setting `aurora_use_key_prefetch`, a MySQL ser
 
 Currently, you can set these values only at the session level. The following example illustrates how to set these values to enable AKP for the current session by executing SET statements.
 
-```
+```sql
 mysql> set @@session.aurora_use_key_prefetch=on;
 mysql> set @@session.optimizer_switch='batched_key_access=on,mrr_cost_based=off';
 ```
 
 Similarly, you can use SET statements to disable AKP and the BKA Join algorithm and re-enable cost-based MRR functionality for the current session, as shown in the following example.
 
-```
+```sql
 mysql> set @@session.aurora_use_key_prefetch=off;
 mysql> set @@session.optimizer_switch='batched_key_access=off,mrr_cost_based=on';
 ```
@@ -89,7 +88,7 @@ In the output for the `EXPLAIN` statement, the `Extra` column describes addition
 
 The following example shows the use of `EXPLAIN` to view the execution plan for a query that can take advantage of AKP.
 
-```
+```sql
 mysql> explain select sql_no_cache
     ->     ps_partkey,
     ->     sum(ps_supplycost * ps_availqty) as value
@@ -163,7 +162,7 @@ To enable hash joins:
 
 Hash joins are turned on by default in Aurora MySQL version 3 and turned off by default in Aurora MySQL version 2. The following example illustrates how to enable hash joins for Aurora MySQL version 3. You can issue the statement `select @@optimizer_switch` first to see what other settings are present in the `SET` parameter string. Updating one setting in the `optimizer_switch` parameter doesn't erase or modify the other settings.
 
-```
+```sql
 mysql> SET optimizer_switch='block_nested_loop=on';
 ```
 
@@ -173,7 +172,7 @@ For Aurora MySQL version 2, hash join support is available in all minor versions
 
 With this setting, the optimizer chooses to use a hash join based on cost, query characteristics, and resource availability. If the cost estimation is incorrect, you can force the optimizer to choose a hash join. You do so by setting `hash_join_cost_based`, a MySQL server variable, to `off`. The following example illustrates how to force the optimizer to choose a hash join.
 
-```
+```sql
 mysql> SET optimizer_switch='hash_join_cost_based=off';
 ```
 
@@ -191,7 +190,7 @@ In the output for the `EXPLAIN` statement, the `Extra` column describes addition
 
 The following example shows the use of EXPLAIN to view the execution plan for a hash join query.
 
-```
+```sql
 mysql> explain SELECT sql_no_cache * FROM hj_small, hj_big, hj_big2
     ->     WHERE hj_small.col1 = hj_big.col1 and hj_big.col1=hj_big2.col1 ORDER BY 1;
 +----+-------------+----------+------+---------------+------+---------+------+------+----------------------------------------------------------------+

@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_bgwriter
-<a name="aurora_stat_bgwriter"></a>
 
 `aurora_stat_bgwriter` is a statistics view showing information about Optimized Reads cache writes.
 

@@ -1,11 +1,10 @@
 
 
 # Using Aurora PostgreSQL managed plans
-<a name="AuroraPostgreSQL.Optimize.UsePlans"></a>
 
 To get the optimizer to use captured plans for your managed statements, set the parameter `apg_plan_mgmt.use_plan_baselines` to `true`. The following is a local instance example. 
 
-```
+```sql
 SET apg_plan_mgmt.use_plan_baselines = true;
 ```
 
@@ -16,7 +15,7 @@ While the application runs, this setting causes the optimizer to use the minimum
 
 When the `apg_plan_mgmt.use_plan_baselines` parameter is set to `true`, you can use EXPLAIN ANALYZE SQL statements to cause the optimizer to show the plan it would use if it were to run the statement. The following is an example.
 
-```
+```sql
 EXPLAIN ANALYZE EXECUTE rangeQuery (1,10000);
 ```
 

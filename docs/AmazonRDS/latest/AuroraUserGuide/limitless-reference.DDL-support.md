@@ -1,7 +1,6 @@
 
 
 # Supported and unsupported Data Definition Language (DDL) SQL commands
-<a name="limitless-reference.DDL-support"></a>
 
 The following table lists the DDL commands that are supported and not supported by Aurora PostgreSQL Limitless Database, with references to limitations or more information.
 

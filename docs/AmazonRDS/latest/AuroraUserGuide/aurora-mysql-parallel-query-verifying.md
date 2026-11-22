@@ -1,7 +1,6 @@
 
 
 # Verifying which statements use parallel query for Aurora MySQL
-<a name="aurora-mysql-parallel-query-verifying"></a>
 
  In typical operation, you don't need to perform any special actions to take advantage of parallel query. After a query meets the essential requirements for parallel query, the query optimizer automatically decides whether to use parallel query for each specific query. 
 
@@ -13,7 +12,7 @@
 
  The following example demonstrates the difference between a traditional query plan and a parallel query plan. This explain plan is from Query 3 from the TPC-H benchmark. Many of the sample queries throughout this section use the tables from the TPC-H dataset. You can get the table definitions, queries, and the `dbgen` program that generates sample data from [the TPC-h website](http://www.tpc.org/tpch/). 
 
-```
+```sql
 EXPLAIN SELECT l_orderkey,
   sum(l_extendedprice * (1 - l_discount)) AS revenue,
   o_orderdate,

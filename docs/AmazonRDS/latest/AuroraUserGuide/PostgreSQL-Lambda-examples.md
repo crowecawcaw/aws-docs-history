@@ -1,7 +1,6 @@
 
 
 # Examples: Invoking Lambda functions from your Aurora PostgreSQL DB cluster
-<a name="PostgreSQL-Lambda-examples"></a>
 
 Following, you can find several examples of calling the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke) function. Most of the examples use the composite structure `aws_lambda_arn_1` that you create in [Step 4: Use Lambda helper functions with your Aurora PostgreSQL DB cluster (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function) to simplify passing the function details. For an example of asynchronous invocation, see [Example: Asynchronous (Event) invocation of Lambda functions](#PostgreSQL-Lambda-Event). All the other examples listed use synchronous invocation. 
 
@@ -19,18 +18,18 @@ To learn more about Lambda invocation types, see [Invoking Lambda functions](htt
 
 Following are two examples of a synchronous Lambda function invocation. The results of these `aws_lambda.invoke` function calls are the same.
 
-```
+```sql
 SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json);
 ```
 
-```
+```sql
 SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse');
 ```
 
 The parameters are described as follows:
 + `:'aws_lambda_arn_1'` – This parameter identifies the composite structure created in [Step 4: Use Lambda helper functions with your Aurora PostgreSQL DB cluster (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function), with the `aws_commons.create_lambda_function_arn` helper function. You can also create this structure inline within your `aws_lambda.invoke` call as follows. 
 
-  ```
+  ```sql
   SELECT * FROM aws_lambda.invoke(aws_commons.create_lambda_function_arn('my-function', '{{aws-region}}'),
   '{"body": "Hello from Postgres!"}'::json
   );
@@ -43,7 +42,7 @@ The parameters are described as follows:
 
 Following is an example of an asynchronous Lambda function invocation. The `Event` invocation type schedules the Lambda function invocation with the specified input payload and returns immediately. Use the `Event` invocation type in certain workflows that don't depend on the results of the Lambda function.
 
-```
+```sql
 SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'Event');
 ```
 
@@ -52,7 +51,7 @@ SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgr
 
 You can include the last 4 KB of the execution log in the function response by using the `log_type` parameter in your `aws_lambda.invoke` function call. By default, this parameter is set to `None`, but you can specify `Tail` to capture the results of the Lambda execution log in the response, as shown following.
 
-```
+```sql
 SELECT *, select convert_from(decode(log_result, 'base64'), 'utf-8') as log FROM aws_lambda.invoke(:'aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse', 'Tail');
 ```
 
@@ -67,7 +66,7 @@ For more information about `log_type`, see [aws\_lambda.invoke](PostgreSQL-Lambd
 
 The `aws_lambda.invoke` function has a `context` parameter that you can use to pass information separate from the payload, as shown following. 
 
-```
+```sql
 SELECT *, convert_from(decode(log_result, 'base64'), 'utf-8') as log FROM aws_lambda.invoke(:'aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse', 'Tail');
 ```
 
@@ -80,13 +79,13 @@ For more information about the `context` parameter, see the [aws\_lambda.invoke]
 
 You can specify a particular version of a Lambda function by including the `qualifier` parameter with the `aws_lambda.invoke` call. Following, you can find an example that does this using `'{{custom_version}}'` as an alias for the version.
 
-```
+```sql
 SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse', 'None', NULL, '{{custom_version}}');
 ```
 
 You can also supply a Lambda function qualifier with the function name details instead, as follows.
 
-```
+```sql
 SELECT * FROM aws_lambda.invoke(aws_commons.create_lambda_function_arn('my-function:custom_version', 'us-west-2'),
 '{"body": "Hello from Postgres!"}'::json);
 ```

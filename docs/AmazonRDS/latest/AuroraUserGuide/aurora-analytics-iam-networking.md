@@ -1,7 +1,6 @@
 
 
 # IAM and networking recommendations
-<a name="aurora-analytics-iam-networking"></a>
 
 The following recommendations apply to the IAM role and VPC networking that you configure when you set up Aurora PostgreSQL analytics:
 + **Least-privilege IAM** – Grant only `s3:ListBucket` and `s3:GetObject`. Scope these to specific Amazon S3 prefixes using `Condition` blocks. For AWS Glue, grant `glue:GetTable` on specific catalog, database, and table ARNs only.

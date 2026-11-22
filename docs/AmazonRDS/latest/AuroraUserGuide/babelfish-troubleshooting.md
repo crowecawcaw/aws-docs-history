@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Babelfish
-<a name="babelfish-troubleshooting"></a>
 
 Following, you can find troubleshooting ideas and workarounds for some Babelfish DB cluster issues. 
 

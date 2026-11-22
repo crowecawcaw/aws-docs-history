@@ -1,7 +1,6 @@
 
 
 # Upgrading Babelfish to a new major version
-<a name="babelfish-information-upgrading-major"></a>
 
 For a major version upgrade, you need to first upgrade your Babelfish for Aurora PostgreSQL DB cluster to a version that supports the major version upgrade. To achieve this, apply patch updates or minor version upgrades to your DB cluster. For more information,see [Upgrading Babelfish to a new minor version](babelfish-information-upgrading-minor.md).
 

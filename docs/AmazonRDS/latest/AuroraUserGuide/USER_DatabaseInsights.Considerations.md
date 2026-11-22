@@ -1,7 +1,6 @@
 
 
 # Considerations for Database Insights for Amazon Aurora
-<a name="USER_DatabaseInsights.Considerations"></a>
 
 Following are considerations for Database Insights for Amazon Aurora.
 + You can't manage Database Insights for a DB instance in a DB cluster.

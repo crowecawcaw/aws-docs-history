@@ -1,7 +1,6 @@
 
 
 # Using Amazon Aurora machine learning with Aurora MySQL
-<a name="mysql-ml"></a>
 
 By using Amazon Aurora machine learning with your Aurora MySQL DB cluster, you can use Amazon Bedrock, Amazon Comprehend, or Amazon SageMaker AI, depending on your needs. They each support different machine learning use cases.
 
@@ -426,7 +425,7 @@ GRANT EXECUTE ON FUNCTION {{database_name}}.invoke_titan TO {{user}}@{{domain-or
 
 Then the user can call `invoke_titan` like any other function, as shown in the following example. Make sure to format the request body according to the [Amazon Titan text models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html).
 
-```
+```json
 CREATE TABLE prompts (request varchar(1024));
 INSERT INTO prompts VALUES (
 '{
@@ -569,7 +568,7 @@ All Aurora machine learning stored functions return numeric types or `VARCHAR`. 
 
 The following example shows the `CREATE FUNCTION` syntax for working with SageMaker AI.
 
-```
+```sql
 CREATE FUNCTION {{function_name}} (
      {{arg1}} {{type1}}, 
      {{arg2}} {{type2}}, ...)

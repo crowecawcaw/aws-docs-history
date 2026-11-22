@@ -1,7 +1,6 @@
 
 
 # Create with full configuration
-<a name="CHAP_GettingStartedAurora.AuroraPostgreSQL.FullConfig"></a>
 
 This tutorial creates an EC2 instance and an Aurora PostgreSQL DB cluster. The tutorial shows you how to access the DB cluster from the EC2 instance using a standard PostgreSQL client. As a best practice, this tutorial creates a private DB cluster in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB cluster, but resources outside of the VPC can't access it.
 
@@ -300,7 +299,7 @@ The `-y` option installs the updates without asking for confirmation. To examine
 
    For example, the following SQL command shows the current date and time:
 
-   ```
+   ```sql
    SELECT CURRENT_TIMESTAMP;
    ```
 

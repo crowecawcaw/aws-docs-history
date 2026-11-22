@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora version support
-<a name="Aurora.VersionPolicy.Support"></a>
 
 If your Amazon Aurora DB has complex dependencies on specific database engine behavior, we recommend that you engage in extensive testing before you upgrade to newer database engine versions. There are long-term support options so that you can maintain your DB clusters on select Aurora engine versions even after they have been superseded by newer versions. The following sections explain the long-term support options for your Aurora DB clusters.
 

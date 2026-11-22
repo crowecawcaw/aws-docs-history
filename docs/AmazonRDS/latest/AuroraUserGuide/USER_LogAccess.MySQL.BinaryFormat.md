@@ -1,7 +1,6 @@
 
 
 # Configuring Aurora MySQL binary logging
-<a name="USER_LogAccess.MySQL.BinaryFormat"></a>
 
 The *binary log* is a set of log files that contain information about data modifications made to an Aurora MySQL DB cluster. The binary log contains information such as the following:
 + Events that describe database changes such as table creation or row modifications

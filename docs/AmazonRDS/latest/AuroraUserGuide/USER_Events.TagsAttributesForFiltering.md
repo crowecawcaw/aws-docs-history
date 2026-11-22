@@ -1,7 +1,6 @@
 
 
 # Amazon RDS event notification tags and attributes
-<a name="USER_Events.TagsAttributesForFiltering"></a>
 
 When Amazon RDS sends an event notification to Amazon Simple Notification Service (SNS) or Amazon EventBridge, the notification contains message attributes and event tags. RDS sends the message attributes separately along with the message, while the event tags are in the body of the message. Use the message attributes and the Amazon RDS tags to add metadata to your resources. You can modify these tags with your own notations about the DB instances, Aurora clusters, and so on. For more information about tagging Amazon RDS resources, see [Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md). 
 

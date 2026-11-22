@@ -1,7 +1,6 @@
 
 
 # Viewing logs, events, and streams in the Amazon RDS console
-<a name="logs-events-streams-console"></a>
 
 Amazon RDS integrates with AWS services to show information about logs, events, and database activity streams in the RDS console.
 

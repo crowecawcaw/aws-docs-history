@@ -1,7 +1,6 @@
 
 
 # DB cluster parameter group settings for Babelfish
-<a name="babelfish-configuration"></a>
 
 When you create an Aurora PostgreSQL DB cluster and choose **Turn on Babelfish**, a DB cluster parameter group is created for you automatically if you choose **Create new**. This DB cluster parameter group is based on the Aurora PostgreSQL DB cluster parameter group for the Aurora PostgreSQL version chosen for the install, for example, Aurora PostgreSQL version 14. It's named using the following general pattern: 
 

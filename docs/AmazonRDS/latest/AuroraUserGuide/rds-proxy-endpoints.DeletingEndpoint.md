@@ -1,7 +1,6 @@
 
 
 # Deleting a proxy endpoint
-<a name="rds-proxy-endpoints.DeletingEndpoint"></a>
 
  To delete an endpoint for your proxy, follow these instructions: 
 

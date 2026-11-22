@@ -1,7 +1,6 @@
 
 
 # Dropping your TLE extensions from a database
-<a name="PostgreSQL_trusted_language_extension-creating-TLE-extensions.dropping-TLEs"></a>
 
 You can drop your TLE extensions by using the `DROP EXTENSION` command in the same way that you do for other PostgreSQL extensions. Dropping the extension doesn't remove the installation files that make up the extension, which allows users to re-create the extension. To remove the extension and its installation files, do the following two-step process.
 

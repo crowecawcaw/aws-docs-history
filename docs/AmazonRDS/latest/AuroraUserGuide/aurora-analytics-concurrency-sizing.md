@@ -1,7 +1,6 @@
 
 
 # Concurrency sizing
-<a name="aurora-analytics-concurrency-sizing"></a>
 
 Higher `query_mem` gives each query more memory but leaves room for fewer queries at once, so how many foreign table queries you can run concurrently depends on instance memory and per-query `query_mem`.
 

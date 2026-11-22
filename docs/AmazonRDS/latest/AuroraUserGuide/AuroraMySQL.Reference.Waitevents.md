@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL wait events
-<a name="AuroraMySQL.Reference.Waitevents"></a>
 
 The following are some common wait events for Aurora MySQL.
 

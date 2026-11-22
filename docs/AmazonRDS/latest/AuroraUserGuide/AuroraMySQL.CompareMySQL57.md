@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL version 2 compatible with MySQL 5.7
-<a name="AuroraMySQL.CompareMySQL57"></a>
 
 This topic describes the differences between Aurora MySQL version 2 and MySQL 5.7 Community Edition.
 

@@ -1,7 +1,6 @@
 
 
 # Attaching the AmazonRDSPerformanceInsightsReadOnly policy to an IAM principal
-<a name="USER_PerfInsights.access-control.managed-policy"></a>
 
 `AmazonRDSPerformanceInsightsReadOnly` is an AWS managed policy that grants access to all read-only operations of the Amazon RDS Database Insights API. 
 

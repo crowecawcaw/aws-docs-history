@@ -1,7 +1,6 @@
 
 
 # Preparing for Amazon Aurora MySQL-Compatible Edition version 2 end of standard support
-<a name="Aurora.MySQL57.EOL"></a>
 
 Amazon Aurora MySQL-Compatible Edition version 2 (with MySQL 5.7 compatibility) is planned to reach the end of standard support on October 31, 2024. We recommend that you upgrade all clusters running Aurora MySQL version 2 to the default Aurora MySQL version 3 (with MySQL 8.0 compatibility) or higher before Aurora MySQL version 2 reaches the end of its standard support period. On October 31, 2024, Amazon RDS will automatically enroll your databases into [Amazon RDS Extended Support](extended-support.md). 
 

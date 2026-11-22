@@ -1,7 +1,6 @@
 
 
 # Using explain plan to improve Babelfish query performance
-<a name="working-with-babelfish-usage-notes-features.using.explain"></a>
 
 Starting with version 2.1.0, Babelfish includes two functions that transparently use the PostgreSQL optimizer to generate estimated and actual query plans for T-SQL queries on the TDS port. These functions are similar to using SET STATISTICS PROFILE or SET SHOWPLAN\_ALL with SQL Server databases to identify and improve slow running queries.
 

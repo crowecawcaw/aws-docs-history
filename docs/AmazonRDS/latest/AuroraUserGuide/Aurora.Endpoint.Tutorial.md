@@ -1,7 +1,6 @@
 
 
 # AWS CLI examples for custom endpoints for Amazon Aurora
-<a name="Aurora.Endpoint.Tutorial"></a>
 
 The following tutorial uses AWS CLI examples with Unix shell syntax to show how you might define a cluster with several "small" DB instances and a few "big" DB instances, and create custom endpoints to connect to each set of DB instances. To run similar commands on your own system, you should be familiar enough with the basics of working with Aurora clusters and AWS CLI usage to supply your own values for parameters such as region, subnet group, and VPC security group.
 
@@ -32,7 +31,7 @@ done
 
 The larger instances are reserved for specialized kinds of reporting queries. To make it unlikely for them to be promoted to the primary instance, the following example changes their promotion tier to the lowest priority. This example specifies the `--manage-master-user-password` option to generate the master user password and manage it in Secrets Manager. For more information, see [Password management with Amazon Aurora and AWS Secrets Manager](rds-secrets-manager.md). Alternatively, you can use the `--master-password` option to specify and manage the password yourself.
 
-```
+```bash
 for i in 09 10
 do
   aws rds modify-db-instance --db-instance-identifier custom-endpoint-demo-${i} \
@@ -44,7 +43,7 @@ Suppose that you want to use the two "bigger" instances only for the most resour
 
 The following example demonstrates the create and modify endpoint commands, and sample JSON output showing the initial and modified state of the custom endpoint.
 
-```
+```bash
 $ aws rds create-db-cluster-endpoint --region $REGION \
     --db-cluster-identifier custom-endpoint-demo \
     --db-cluster-endpoint-identifier big-instances --endpoint-type reader
@@ -82,7 +81,7 @@ $ aws rds modify-db-cluster-endpoint --db-cluster-endpoint-identifier big-instan
 
 The default `READER` endpoint for the cluster can connect to either the "small" or "big" DB instances, making it impractical to predict query performance and scalability when the cluster becomes busy. To divide the workload cleanly between the sets of DB instances, you can ignore the default `READER` endpoint and create a second custom endpoint that connects to all other DB instances. The following example does so by creating a custom endpoint and then adding an exclusion list. Any other DB instances you add to the cluster later will be added to this endpoint automatically. The `ANY` type means that this endpoint is associated with eight instances in total: the primary instance and another seven Aurora Replicas. If the example used the `READER` type, the custom endpoint would only be associated with the seven Aurora Replicas.
 
-```
+```bash
 $ aws rds create-db-cluster-endpoint --region $REGION --db-cluster-identifier custom-endpoint-demo \
     --db-cluster-endpoint-identifier small-instances --endpoint-type any
 {
@@ -119,7 +118,7 @@ $ aws rds modify-db-cluster-endpoint --db-cluster-endpoint-identifier small-inst
 
 The following example checks the state of the endpoints for this cluster. The cluster still has its original cluster endpoint, with `EndPointType` of `WRITER`, which you would still use for administration, ETL, and other write operations. It still has its original `READER` endpoint, which you wouldn't use because each connection to it might be directed to a "small" or "big" DB instance. The custom endpoints make this behavior predictable, with connections guaranteed to use one of the "small" or "big" DB instances based on the endpoint you specify.
 
-```
+```bash
 $ aws rds describe-db-cluster-endpoints --region $REGION
 {
     "DBClusterEndpoints": [

@@ -1,7 +1,6 @@
 
 
 # sp\_babelfish\_volatility
-<a name="sp_babelfish_volatility"></a>
 
 PostgreSQL function volatility helps the optimizer for a better query execution which when used in parts of certain clauses has a significant impact on query performance. 
 

@@ -1,7 +1,6 @@
 
 
 # Adding data to a source Aurora DB cluster and querying it
-<a name="zero-etl.querying"></a>
 
 To finish creating a zero-ETL integration that replicates data from Amazon Aurora into Amazon Redshift, you must create a database in the target destination.
 
@@ -42,7 +41,7 @@ The pg\_dump and pg\_restore PostgreSQL utilities initially create tables withou
 
 The following example uses the [MySQL Workbench utility](https://dev.mysql.com/downloads/workbench/).
 
-```
+```sql
 CREATE DATABASE {{my_db}};
 
 USE {{my_db}};
@@ -57,7 +56,7 @@ INSERT INTO {{books_table}} VALUES (1, 'The Shining', 'Stephen King', 1977, 'Sup
 
 The following example uses the `[psql](https://www.postgresql.org/docs/current/app-psql.html)` PostgreSQL interactive terminal. When connecting to the cluster, include the named database that you specified when creating the integration.
 
-```
+```sql
 psql -h {{mycluster}}.cluster-{{123456789012}}.us-east-2.rds.amazonaws.com -p 5432 -U {{username}} -d {{named_db}};
 
 named_db=> CREATE TABLE {{books_table}} (ID int NOT NULL, Title VARCHAR(50) NOT NULL, Author VARCHAR(50) NOT NULL,
@@ -79,7 +78,7 @@ After you add data to the Aurora DB cluster, it's replicated into the destinatio
 
 1. Use a SELECT statement to query your data. In this example, you can run the following command to select all data from the table that you created in the source Aurora DB cluster:
 
-   ```
+   ```sql
    SELECT * from {{my_db}}."{{books_table}}";
    ```  
 ![Query editor results showing sample data added to the Amazon RDS database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-redshift-editor.png)
@@ -88,7 +87,7 @@ After you add data to the Aurora DB cluster, it's replicated into the destinatio
 
 You can also query the data using the a command line client. For example:
 
-```
+```sql
 destination_database=# select * from {{my_db}}."{{books_table}}";
 
  ID |       Title |        Author |   Copyright |                  Genre |  txn_seq |  txn_id

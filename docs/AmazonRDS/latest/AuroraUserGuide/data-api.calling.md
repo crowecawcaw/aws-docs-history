@@ -1,7 +1,6 @@
 
 
 # Calling the Amazon RDS Data API
-<a name="data-api.calling"></a>
 
 With the Amazon RDS Data API (Data API) enabled on your Aurora DB cluster, you can run SQL statements on the Aurora DB cluster by using Data API or the AWS CLI. Data API supports the programming languages supported by the AWS SDKs. For more information, see [Tools to build on AWS](https://aws.amazon.com/tools/).
 

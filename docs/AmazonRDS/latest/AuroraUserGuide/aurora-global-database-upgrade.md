@@ -1,7 +1,6 @@
 
 
 # Upgrading an Amazon Aurora global database
-<a name="aurora-global-database-upgrade"></a>
 
 Upgrading an Aurora global database follows the same procedures as upgrading Aurora DB clusters. However, following are some important differences to take note of before you start the process.
 
@@ -23,7 +22,9 @@ To learn how to upgrade an Aurora MySQL global database to a higher major versio
 With an Aurora global database based on Aurora MySQL, you can perform an in-place upgrade from Aurora MySQL version 2 to version 3 only if you set the `lower_case_table_names` parameter to default and you reboot your global database.  
 To perform a major version upgrade to Aurora MySQL version 3 when using `lower_case_table_names`, use the following process:  
 Remove all secondary Regions from the global cluster. Follow the steps in [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md).
-Upgrade the engine version of the primary Region to Aurora MySQL version 3. Follow the steps in [How to perform an in-place upgrade](AuroraMySQL.Upgrading.Procedure.md).
+Remove the primary Region cluster from the global cluster so that it becomes a standalone DB cluster. Follow the steps in [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md). You can then delete the empty global cluster.
+Upgrade the engine version of the standalone DB cluster to Aurora MySQL version 3. Follow the steps in [How to perform an in-place upgrade](AuroraMySQL.Upgrading.Procedure.md).
+Create a new global database that uses the upgraded DB cluster as its primary cluster. Follow the steps in [Creating an Amazon Aurora global database](aurora-global-database-creating.md).
 Add secondary Regions to the global cluster. Follow the steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md).
 You can also use the snapshot restore method instead. For more information, see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md).
 

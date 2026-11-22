@@ -1,7 +1,6 @@
 
 
 # Operational best practices
-<a name="aurora-analytics-operational"></a>
 
 **Topics**
 + [Handling instance restarts and failovers](#aurora-analytics-restarts-failovers)

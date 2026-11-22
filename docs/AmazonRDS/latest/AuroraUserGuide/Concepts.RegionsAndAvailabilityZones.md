@@ -1,7 +1,6 @@
 
 
 # Regions and Availability Zones
-<a name="Concepts.RegionsAndAvailabilityZones"></a>
 
 Amazon cloud computing resources are hosted in multiple locations world-wide. These locations are composed of AWS Regions and Availability Zones. Each *AWS Region* is a separate geographic area. Each AWS Region has multiple, isolated locations known as *Availability Zones*.
 
@@ -10,7 +9,7 @@ For information about finding the Availability Zones for an AWS Region, see [Des
 
 Amazon operates state-of-the-art, highly-available data centers. Although rare, failures can occur that affect the availability of DB instances that are in the same location. If you host all your DB instances in one location that is affected by such a failure, none of your DB instances will be available.
 
-![AWS Region.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Con-AZ.png)
+![An AWS architecture diagram showing an Aurora multi-AZ deployment within a single AWS Region. The AWS Region contains three Availability Zones, each represented by a dashed-border box. Two Availability Zones at the top each contain an Aurora replica instance. A third Availability Zone at the bottom contains the Aurora primary DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Con-AZ.png)
 
 
 It is important to remember that each AWS Region is completely independent. Any Amazon RDS activity you initiate (for example, creating database instances or listing available database instances) runs only in your current default AWS Region. The default AWS Region can be changed in the console, or by setting the [`AWS_DEFAULT_REGION`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-region) environment variable. Or it can be overridden by using the `--region` parameter with the AWS Command Line Interface (AWS CLI). For more information, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), specifically the sections about environment variables and command line options. 

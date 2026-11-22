@@ -1,7 +1,6 @@
 
 
 # Reducing the time for physical migration to Amazon Aurora MySQL
-<a name="AuroraMySQL.Migrating.ExtMySQL.Prechecks"></a>
 
 You can make the following database modifications to speed up the process of migrating a database to Amazon Aurora MySQL.
 

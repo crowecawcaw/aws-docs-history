@@ -1,7 +1,6 @@
 
 
 # Rotating the query logs
-<a name="mysql-stored-proc-logging"></a>
 
 The following stored procedures rotate MySQL logs to backup tables. For more information, see [AuroraMySQL database log files](USER_LogAccess.Concepts.MySQL.md).
 
@@ -19,7 +18,7 @@ Rotates the `mysql.general_log` table to a backup table.
 
  
 
-```
+```sql
 CALL mysql.rds_rotate_general_log;
 ```
 
@@ -40,7 +39,7 @@ Rotates the `mysql.slow_log` table to a backup table.
 
  
 
-```
+```sql
 CALL mysql.rds_rotate_slow_log;
 ```
 

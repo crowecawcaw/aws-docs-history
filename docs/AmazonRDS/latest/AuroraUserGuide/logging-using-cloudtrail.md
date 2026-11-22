@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Aurora API calls in AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS CloudTrail is an AWS service that helps you audit your AWS account. AWS CloudTrail is turned on for your AWS account when you create it. For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
@@ -44,7 +43,7 @@ CloudTrail log files contain one or more log entries. CloudTrail log files are n
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateDBInstance` action.
 
-```
+```json
 {
     "eventVersion": "1.04",
     "userIdentity": {

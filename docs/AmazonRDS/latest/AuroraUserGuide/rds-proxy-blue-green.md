@@ -1,7 +1,6 @@
 
 
 # Using RDS Proxy with Blue/Green Deployments
-<a name="rds-proxy-blue-green"></a>
 
 Amazon RDS Proxy can be used with Blue/Green Deployments to reduce switchover downtime. RDS Proxy eliminates DNS propagation delays that typically occur during database transitions by maintaining awareness of the switchover process and automatically redirecting connections to the Green environment once it becomes the active production environment. RDS Proxy works seamlessly with Aurora database engines, and requires no application code changes or custom client drivers.
 

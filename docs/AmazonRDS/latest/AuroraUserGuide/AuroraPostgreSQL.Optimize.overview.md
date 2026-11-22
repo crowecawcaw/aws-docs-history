@@ -1,7 +1,6 @@
 
 
 # Overview of Aurora PostgreSQL query plan management
-<a name="AuroraPostgreSQL.Optimize.overview"></a>
 
 Aurora PostgreSQL query plan management is designed to ensure plan stability regardless of changes to the database that might cause query plan regression. *Query plan regression* occurs when the optimizer chooses a sub-optimal plan for a given SQL statement after system or database changes. Changes to statistics, constraints, environment settings, query parameter bindings, and upgrades to the PostgreSQL database engine can all cause plan regression.
 

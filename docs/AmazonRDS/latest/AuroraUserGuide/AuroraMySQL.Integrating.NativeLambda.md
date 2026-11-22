@@ -1,7 +1,6 @@
 
 
 # Invoking a Lambda function with an Aurora MySQL native function
-<a name="AuroraMySQL.Integrating.NativeLambda"></a>
 
 **Note**  
 You can call the native functions `lambda_sync` and `lambda_async` when you use Aurora MySQL version 2, or Aurora MySQL version 3.01 and higher. For more information about Aurora MySQL versions, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md).
@@ -30,13 +29,13 @@ The `lambda_sync` and `lambda_async` functions are built-in, native functions th
 
 In Aurora MySQL version 3 and version 8.4, the user invoking a native function must be granted the `AWS_LAMBDA_ACCESS` role. To grant this role to a user, connect to the DB instance as the administrative user, and run the following statement.
 
-```
+```sql
 GRANT AWS_LAMBDA_ACCESS TO {{user}}@{{domain-or-ip-address}}
 ```
 
 You can revoke this role by running the following statement.
 
-```
+```sql
 REVOKE AWS_LAMBDA_ACCESS FROM {{user}}@{{domain-or-ip-address}}
 ```
 
@@ -59,13 +58,13 @@ Make sure that you're granting the role to the correct user, as shown in the `my
 
 In Aurora MySQL version 2, the user invoking a native function must be granted the `INVOKE LAMBDA` privilege. To grant this privilege to a user, connect to the DB instance as the administrative user, and run the following statement.
 
-```
+```sql
 GRANT INVOKE LAMBDA ON *.* TO {{user}}@{{domain-or-ip-address}}
 ```
 
 You can revoke this privilege by running the following statement.
 
-```
+```sql
 REVOKE INVOKE LAMBDA ON *.* FROM {{user}}@{{domain-or-ip-address}}
 ```
 
@@ -100,7 +99,7 @@ Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. Howev
 
 The following query based on `lambda_sync` invokes the Lambda function `BasicTestLambda` synchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
 
-```
+```sql
 SELECT lambda_sync(
     'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
     '{"operation": "ping"}');
@@ -137,7 +136,7 @@ Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. Howev
 
 The following query based on `lambda_async` invokes the Lambda function `BasicTestLambda` asynchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
 
-```
+```sql
 SELECT lambda_async(
     'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
     '{"operation": "ping"}');
@@ -148,7 +147,7 @@ SELECT lambda_async(
 
 You can use triggers to call Lambda on data-modifying statements. The following example uses the `lambda_async` native function and stores the result in a variable.
 
-```
+```sql
 mysql>SET @result=0;
 mysql>DELIMITER //
 mysql>CREATE TRIGGER myFirstTrigger

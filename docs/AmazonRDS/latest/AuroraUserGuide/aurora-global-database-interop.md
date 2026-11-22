@@ -1,7 +1,6 @@
 
 
 # Using Amazon Aurora global databases with other AWS services
-<a name="aurora-global-database-interop"></a>
 
 You can use your Aurora global databases with other AWS services, such as Amazon S3 and AWS Lambda. Doing so requires that all Aurora DB clusters in your global database have the same privileges, external functions, and so on in the respective AWS Regions. Because a read-only Aurora secondary DB cluster in an Aurora global database can be promoted to the role of primary, we recommend that you set up write privileges ahead of time, on all Aurora DB clusters for any services you plan to use with your Aurora global database. 
 

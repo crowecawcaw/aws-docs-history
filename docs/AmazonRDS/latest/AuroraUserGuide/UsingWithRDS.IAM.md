@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon Aurora
-<a name="UsingWithRDS.IAM"></a>
 
 
 

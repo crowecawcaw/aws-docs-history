@@ -1,7 +1,6 @@
 
 
 # SQL functions reference
-<a name="aurora-analytics-sql-functions-reference"></a>
 
 These functions let you inspect analytics query performance, resource usage, and cache state, and manage foreign table definitions. Before you use them, install the extension. Run `CREATE EXTENSION aurora_analytics` in each database where you want to use analytics.
 
@@ -43,7 +42,7 @@ The diagnostic functions report all byte columns as raw bytes. Wrap these column
 ## aurora\_analytics\_stat\_statements()
 <a name="aurora-analytics-func-stat-statements"></a>
 
-```
+```SQL
 aurora_analytics_stat_statements()
 ```
 
@@ -68,7 +67,7 @@ The function also returns the normalized query text for each row.
 
 The following example lists queries that read data, sorted by remote reads from Amazon S3.
 
-```
+```SQL
 SELECT calls,
        pg_size_pretty(analytics_cache_hit_bytes) AS cache_hits,
        pg_size_pretty(analytics_remote_read_bytes) AS s3_reads,
@@ -89,7 +88,7 @@ For guidance on interpreting these statistics and tuning your workload, see [Mon
 ## aurora\_analytics\_stat\_resource\_usage()
 <a name="aurora-analytics-func-stat-resource-usage"></a>
 
-```
+```SQL
 aurora_analytics_stat_resource_usage()
 ```
 
@@ -110,7 +109,7 @@ Join `pid` to `pg_stat_activity` to see which query each backend is running.
 
 The following example lists backends that are using memory, sorted by memory usage.
 
-```
+```SQL
 SELECT pid,
        pg_size_pretty(current_memory_usage) AS mem_used,
        active_threads,
@@ -123,7 +122,7 @@ ORDER BY current_memory_usage DESC;
 ## aurora\_analytics\_instance\_metrics()
 <a name="aurora-analytics-func-instance-metrics"></a>
 
-```
+```SQL
 aurora_analytics_instance_metrics()
 ```
 
@@ -141,7 +140,7 @@ The following table describes the return columns for `aurora_analytics_instance_
 
 The following example returns the instance-wide request and cache metrics.
 
-```
+```SQL
 SELECT s3_head_request_count,
        s3_get_request_count,
        pg_size_pretty(s3_cache_hit_bytes) AS cache_hit,
@@ -152,7 +151,7 @@ FROM aurora_analytics_instance_metrics();
 ## aurora\_analytics\_cache\_size()
 <a name="aurora-analytics-func-cache-size"></a>
 
-```
+```SQL
 aurora_analytics_cache_size()
 ```
 
@@ -160,14 +159,14 @@ Returns a single `bigint` value that represents the current size, in bytes, of t
 
 The following example returns the current cache size.
 
-```
+```SQL
 SELECT pg_size_pretty(aurora_analytics_cache_size()) AS cache_size;
 ```
 
 ## aurora\_analytics\_clear\_cache()
 <a name="aurora-analytics-func-clear-cache"></a>
 
-```
+```SQL
 aurora_analytics_clear_cache()
 ```
 
@@ -178,14 +177,14 @@ This function requires the `rds_superuser` role.
 
 The following example clears the read cache.
 
-```
+```SQL
 SELECT aurora_analytics_clear_cache();
 ```
 
 ## aurora\_analytics\_refresh\_foreign\_table()
 <a name="aurora-analytics-func-refresh-foreign-table"></a>
 
-```
+```SQL
 aurora_analytics_refresh_foreign_table(table_name regclass, apply_changes boolean)
 ```
 
@@ -197,7 +196,7 @@ Permission: foreign table owner or `rds_superuser`.
 
 The following example first previews the changes and then applies them.
 
-```
+```SQL
 -- Preview the changes
 SELECT aurora_analytics_refresh_foreign_table('ft_orders', false);
 
@@ -208,7 +207,7 @@ SELECT aurora_analytics_refresh_foreign_table('ft_orders', true);
 ## aurora\_analytics\_available\_features()
 <a name="aurora-analytics-func-available-features"></a>
 
-```
+```SQL
 aurora_analytics_available_features()
 ```
 
@@ -232,7 +231,7 @@ A query is eligible for full pushdown only when every operator, function, and ty
 
 The following example lists the supported types that have pushdown restrictions.
 
-```
+```SQL
 SELECT t.typname, f.description
 FROM aurora_analytics_available_features() f
 JOIN pg_type t ON f.oid = t.oid
@@ -243,7 +242,7 @@ ORDER BY t.typname;
 ## aurora\_analytics\_stats\_duckdb\_memory()
 <a name="aurora-analytics-func-stats-duckdb-memory"></a>
 
-```
+```SQL
 aurora_analytics_stats_duckdb_memory()
 ```
 
@@ -267,14 +266,14 @@ This function reports memory usage for the current backend session only. A non-z
 
 The following example returns the memory usage for the current backend.
 
-```
+```SQL
 SELECT * FROM aurora_analytics_stats_duckdb_memory();
 ```
 
 ## aurora\_analytics\_remote\_tables()
 <a name="aurora-analytics-func-remote-tables"></a>
 
-```
+```SQL
 aurora_analytics_remote_tables(catalog text, schema_name text)
 ```
 
@@ -296,14 +295,14 @@ Permission: `USAGE` privilege on the foreign server.
 
 The following example lists the tables in a remote catalog and schema.
 
-```
+```SQL
 SELECT * FROM aurora_analytics_remote_tables('arn:aws:glue:us-east-1:111122223333:catalog', 'my_database');
 ```
 
 ## aurora\_analytics\_iceberg\_snapshots()
 <a name="aurora-analytics-func-iceberg-snapshots"></a>
 
-```
+```SQL
 aurora_analytics_iceberg_snapshots(table_name regclass)
 ```
 
@@ -325,7 +324,7 @@ Permission: foreign table owner or `rds_superuser`. `SELECT` on the table alone 
 
 The following example lists the five most recent snapshots for a foreign table.
 
-```
+```SQL
 SELECT sequence_number, snapshot_id, timestamp_ms
 FROM aurora_analytics_iceberg_snapshots('ft_transactions')
 ORDER BY sequence_number DESC
@@ -335,7 +334,7 @@ LIMIT 5;
 ## aurora\_analytics\_iceberg\_metadata()
 <a name="aurora-analytics-func-iceberg-metadata"></a>
 
-```
+```SQL
 aurora_analytics_iceberg_metadata(table_name regclass)
 ```
 
@@ -361,7 +360,7 @@ Permission: foreign table owner or `rds_superuser`. `SELECT` on the table alone 
 
 The following example lists the five largest existing data files for a foreign table.
 
-```
+```SQL
 SELECT file_path, file_format, record_count, status
 FROM aurora_analytics_iceberg_metadata('ft_transactions')
 WHERE status = 'EXISTING'
@@ -372,7 +371,7 @@ LIMIT 5;
 ## aurora\_analytics\_iceberg\_raw\_metadata()
 <a name="aurora-analytics-func-iceberg-raw-metadata"></a>
 
-```
+```SQL
 aurora_analytics_iceberg_raw_metadata(table_name regclass)
 ```
 
@@ -389,6 +388,6 @@ Use PostgreSQL JSON operators to extract specific fields from the result.
 
 The following example returns the raw Iceberg metadata for a foreign table.
 
-```
+```SQL
 SELECT aurora_analytics_iceberg_raw_metadata('ft_transactions');
 ```

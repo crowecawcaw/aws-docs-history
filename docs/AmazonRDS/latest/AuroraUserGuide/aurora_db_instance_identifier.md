@@ -1,7 +1,6 @@
 
 
 # aurora\_db\_instance\_identifier
-<a name="aurora_db_instance_identifier"></a>
 
 Reports the name of the DB instance name to which you're connected.
 

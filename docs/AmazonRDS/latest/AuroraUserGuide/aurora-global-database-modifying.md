@@ -1,7 +1,6 @@
 
 
 # Modifying an Amazon Aurora global database
-<a name="aurora-global-database-modifying"></a>
 
 The **Databases** page in the AWS Management Console lists all your Aurora global databases, showing the primary cluster and secondary clusters for each one. The Aurora global database has its own configuration settings. Specifically, it has AWS Regions associated with its primary and secondary clusters, as shown in the screenshot following.
 

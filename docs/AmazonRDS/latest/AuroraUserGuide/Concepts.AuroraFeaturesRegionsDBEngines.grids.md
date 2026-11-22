@@ -1,7 +1,6 @@
 
 
 # Supported features in Amazon Aurora by AWS Region and Aurora DB engine
-<a name="Concepts.AuroraFeaturesRegionsDBEngines.grids"></a>
 
 Aurora MySQL- and PostgreSQL-compatible database engines support several Amazon Aurora and Amazon RDS features and options. The support varies across specific versions of each database engine, and across AWS Regions. To identify Aurora database engine version support and availability for a feature in a given AWS Region, you can use the following sections.
 

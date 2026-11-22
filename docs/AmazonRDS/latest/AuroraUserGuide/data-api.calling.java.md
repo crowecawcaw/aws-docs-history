@@ -1,7 +1,6 @@
 
 
 # Calling the Amazon RDS Data API from a Java application
-<a name="data-api.calling.java"></a>
 
 You can call the Amazon RDS Data API (Data API) from a Java application.
 
@@ -21,7 +20,7 @@ You can run a `SELECT` statement and fetch the results with a Java application.
 
 The following example runs a SQL query.
 
-```
+```java
 package com.amazonaws.rdsdata.examples;
 	
 	import com.amazonaws.services.rdsdata.AWSRDSData;
@@ -68,7 +67,7 @@ If you don't specify a transaction ID, changes that result from the call are com
 
 The following example runs a SQL transaction.
 
-```
+```java
 package com.amazonaws.rdsdata.examples;
 	
 	import com.amazonaws.services.rdsdata.AWSRDSData;
@@ -121,7 +120,7 @@ If you don't specify a transaction ID, changes that result from the call are com
 
 The following example runs a batch insert operation.
 
-```
+```java
 package com.amazonaws.rdsdata.examples;
 	
 	import com.amazonaws.services.rdsdata.AWSRDSData;

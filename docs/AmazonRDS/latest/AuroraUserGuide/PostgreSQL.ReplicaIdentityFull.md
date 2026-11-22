@@ -1,7 +1,6 @@
 
 
 # Avoiding performance issues with REPLICA IDENTITY FULL in Aurora PostgreSQL
-<a name="PostgreSQL.ReplicaIdentityFull"></a>
 
 PostgreSQL logical replication requires each published table to have a *replica identity* so that the subscriber can locate the correct row to update or delete. By default, the primary key serves as the replica identity. When a table has no primary key or suitable unique index, you can set the replica identity to `FULL`, which causes PostgreSQL to use the entire row as the key.
 

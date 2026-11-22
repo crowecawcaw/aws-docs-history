@@ -1,7 +1,6 @@
 
 
 # Working with local write forwarding for Aurora PostgreSQL
-<a name="aurora-postgresql-write-forwarding-understanding"></a>
 
 Using the following sections, you can check if a database cluster has local write forwarding enabled, view compatibility considerations, and see configurable parameters and authentication setup. This information equips you with the details to utilize local write forwarding feature in Aurora PostgreSQL effectively.
 

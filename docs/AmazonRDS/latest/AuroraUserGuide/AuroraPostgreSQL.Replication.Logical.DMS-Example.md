@@ -1,7 +1,6 @@
 
 
 # Example: Logical replication using Aurora PostgreSQL and AWS Database Migration Service
-<a name="AuroraPostgreSQL.Replication.Logical.DMS-Example"></a>
 
 You can use the AWS Database Migration Service (AWS DMS) to replicate a database or a portion of a database. Use AWS DMS to migrate your data from an Aurora PostgreSQL database to another open source or commercial database. For more information about AWS DMS, see the [AWS Database Migration Service User Guide](https://docs.aws.amazon.com/dms/latest/userguide/).
 

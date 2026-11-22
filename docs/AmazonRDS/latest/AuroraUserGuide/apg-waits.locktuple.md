@@ -1,7 +1,6 @@
 
 
 # Lock:tuple
-<a name="apg-waits.locktuple"></a>
 
 The `Lock:tuple` event occurs when a backend process is waiting to acquire a lock on a tuple.
 

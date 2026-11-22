@@ -1,7 +1,6 @@
 
 
 # Setting up IAM roles to access AWS services
-<a name="AuroraMySQL.Integrating.Authorizing.IAM"></a>
 
 To permit your Aurora DB cluster to access another AWS service, do the following:
 

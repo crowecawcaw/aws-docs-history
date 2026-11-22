@@ -1,9 +1,11 @@
 
 
 # Deleting retained automated backups for Amazon Aurora
-<a name="Aurora.Managing.Backups.Retaining.Deleting"></a>
 
-You can delete retained automated backups when they are no longer needed. To delete a retained automated backup using the AWS Management Console, AWS CLI, or Amazon RDS API, use the following procedures.
+You can delete retained automated backups when you no longer need them. To delete a retained automated backup using the AWS Management Console, AWS CLI, or Amazon RDS API, use the following procedures.
+
+**Note**  
+When you delete a DB cluster and choose to retain its automated backups, the retained automated backups remain in your account until the end of the source cluster's backup retention period. Retained automated backups that you keep for more than one day after you delete the cluster incur backup storage charges. To stop these charges, delete the retained automated backups when you no longer need them. For more information, see [Retention costs](Aurora.Managing.Backups.Retaining.md#Aurora.Managing.Backups.Retaining.Costs).
 
 ## Console
 <a name="Aurora.Managing.Backups.Retaining.Deleting.CON"></a>

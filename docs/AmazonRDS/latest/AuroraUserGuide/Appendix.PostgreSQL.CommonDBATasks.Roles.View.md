@@ -1,7 +1,6 @@
 
 
 # Viewing roles and their privileges
-<a name="Appendix.PostgreSQL.CommonDBATasks.Roles.View"></a>
 
 You can view predefined roles and their privileges in your RDS for PostgreSQL DB instance using different commands depending on your PostgreSQL version. To see all predefined roles, you can connect to your RDS for PostgreSQL DB instance and run following commands using the `psql`.
 

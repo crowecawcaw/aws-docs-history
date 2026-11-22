@@ -1,7 +1,6 @@
 
 
 # Controlling Data API timeout behavior
-<a name="data-api-timeouts"></a>
 
  All calls to the Data API are synchronous. Suppose that you perform a Data API operation that runs a SQL statement such as `INSERT` or `CREATE TABLE`. If the Data API call returns successfully, the SQL processing is finished when the call returns. 
 
@@ -15,7 +14,7 @@
 
  The timeout interval is especially important for the Java 2 SDK. In that SDK, the API call timeout and the HTTP socket timeout are both 30 seconds by default. Here is an example of setting those timeouts to a higher value: 
 
-```
+```java
 public RdsDataClient createRdsDataClient() {
 	    return RdsDataClient.builder()
 	        .region(Region.US_EAST_1) // Change this to your desired Region
@@ -39,7 +38,7 @@ public RdsDataClient createRdsDataClient() {
 
  Here is an equivalent example using the asynchronous data client: 
 
-```
+```java
 public static RdsDataAsyncClient createRdsDataAsyncClient() {
 	    return RdsDataAsyncClient.builder()
 	        .region(Region.US_EAST_1) // Change this to your desired Region

@@ -1,7 +1,6 @@
 
 
 # Using switchover or failover in Amazon Aurora Global Database
-<a name="aurora-global-database-disaster-recovery"></a>
 
  The Aurora Global Database feature provides more business continuity and disaster recovery (BCDR) protection than the standard [high availability](Concepts.AuroraHighAvailability.md) provided by an Aurora DB cluster in a single AWS Region. By using Aurora Global Database, you can plan for faster recovery from rare, unplanned Regional disasters or complete service-level outages quickly. 
 
@@ -353,7 +352,7 @@ aws rds modify-db-cluster-parameter-group \
 
 For Windows:
 
-```
+```json
 aws rds modify-db-cluster-parameter-group ^
     --db-cluster-parameter-group-name {{my_custom_global_parameter_group}} ^
     --parameters "ParameterName=rds.global_db_rpo,ParameterValue={{600}},ApplyMethod=immediate"
@@ -369,13 +368,13 @@ aws rds modify-db-cluster-parameter-group ^
 
  The recovery point objective (RPO) of a global database is stored in the `rds.global_db_rpo` parameter for each DB cluster. You can connect to the endpoint for the secondary cluster you want to view and use `psql` to query the instance for this value. 
 
-```
+```sql
 {{db-name}}=>show rds.global_db_rpo;
 ```
 
  If this parameter isn't set, the query returns the following: 
 
-```
+```sql
 rds.global_db_rpo
 -------------------
  -1
@@ -384,7 +383,7 @@ rds.global_db_rpo
 
  This next response is from a secondary DB cluster that has 1 minute RPO setting. 
 
-```
+```sql
 rds.global_db_rpo
 -------------------
  60
@@ -411,7 +410,7 @@ aws rds describe-db-cluster-parameters ^
 
  The command returns output similar to the following for all `user` parameters. that aren't `default-engine` or `system` DB cluster parameters. 
 
-```
+```json
 {
     "Parameters": [
         {
@@ -475,7 +474,7 @@ aws rds reset-db-cluster-parameter-group \
 
 For Windows:
 
-```
+```json
 aws rds reset-db-cluster-parameter-group ^
     --db-cluster-parameter-group-name {{global_db_cluster_parameter_group}} ^
     --parameters "ParameterName=rds.global_db_rpo,ApplyMethod=immediate"

@@ -1,7 +1,6 @@
 
 
 # Creating a custom endpoint
-<a name="aurora-custom-endpoint-creating"></a>
 
 Create a custom endpoint using the AWS Management Console, AWS CLI, or the Amazon RDS API.
 

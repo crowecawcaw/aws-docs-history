@@ -1,7 +1,7 @@
 
 
 # Database engine updates for Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Updates"></a><a name="pgsql_relnotes"></a>
+<a name="pgsql_relnotes"></a>
 
 Following, you can find information about Amazon Aurora PostgreSQL engine version releases and updates. You can also find information about how to upgrade your Aurora PostgreSQL engine. For more information about Aurora releases in general, see [Amazon Aurora versions](Aurora.VersionPolicy.md).
 
@@ -33,7 +33,7 @@ Aurora version numbers use the {{major}}.{{minor}}.{{patch}} naming scheme. An A
 
 You can find out the Aurora version number of your Aurora PostgreSQL DB instance with the following SQL query:
 
-```
+```sql
 postgres=> SELECT aurora_version();
 ```
 

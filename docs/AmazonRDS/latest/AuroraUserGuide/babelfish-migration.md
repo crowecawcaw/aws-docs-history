@@ -1,7 +1,6 @@
 
 
 # Migrating a SQL Server database to Babelfish for Aurora PostgreSQL
-<a name="babelfish-migration"></a>
 
 You can use Babelfish for Aurora PostgreSQL to migrate an SQL Server database to an Amazon Aurora PostgreSQL DB cluster. Before migrating, review [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db). 
 

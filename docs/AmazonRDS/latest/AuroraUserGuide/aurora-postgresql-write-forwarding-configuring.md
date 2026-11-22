@@ -1,7 +1,6 @@
 
 
 # Configuring Aurora PostgreSQL for Local write forwarding
-<a name="aurora-postgresql-write-forwarding-configuring"></a>
 
  Using the following sections, you can enable local write forwarding for your Amazon Aurora PostgreSQL DB cluster, configuring consistency levels, and managing transactions with write forwarding. 
 

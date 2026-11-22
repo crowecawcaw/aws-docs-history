@@ -1,7 +1,6 @@
 
 
 # Password management with Amazon Aurora and AWS Secrets Manager
-<a name="rds-secrets-manager"></a>
 
 Amazon Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters.
 
@@ -96,7 +95,7 @@ You can use IAM condition keys to enforce Aurora management of the master user p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

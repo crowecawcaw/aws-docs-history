@@ -1,7 +1,6 @@
 
 
 # Reference for the pgAudit extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference"></a>
 
 You can specify the level of detail that you want for your audit log by changing one or more of the parameters listed in this section. 
 

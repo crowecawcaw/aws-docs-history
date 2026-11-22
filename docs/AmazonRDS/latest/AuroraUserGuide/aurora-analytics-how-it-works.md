@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="aurora-analytics-how-it-works"></a>
 
 Aurora PostgreSQL runs your analytical queries inside your DB cluster, reading Iceberg and Parquet data directly from Amazon S3, without moving it into Aurora or running a separate system. You point a PostgreSQL foreign table at your data in Amazon S3, Amazon S3 Tables, or the AWS Glue Data Catalog, then query it with standard SQL. The foreign table stores only metadata (schema and location); no data is copied into Aurora.
 
@@ -35,7 +34,7 @@ The following capabilities are supported:
 <a name="aurora-analytics-capabilities-data-access"></a>
 
 Aurora PostgreSQL provides the following data access and format capabilities:
-+ Query Apache Parquet and Apache Iceberg data stored in Amazon S3, Amazon S3 Tables, and the AWS Glue Data Catalog. For Iceberg tables managed in external Iceberg REST Catalog-compatible catalogs, use AWS Glue Data Catalog federation.
++ Query Apache Parquet and Apache Iceberg data stored in Amazon S3, Amazon S3 Tables, and the AWS Glue Data Catalog. AWS Glue Data Catalog federation is supported only for Iceberg tables managed in external Iceberg REST Catalog (IRC)-compatible catalogs, where the underlying data is Iceberg data in Amazon S3.
 + Reference data by Amazon S3 URI, AWS Glue Data Catalog ARN, or Amazon S3 Tables ARN. For AWS Glue Data Catalog locations, the data format is detected automatically from catalog metadata.
 + When you create a foreign table with an empty column list, column names and data types are automatically inferred from the Parquet or Iceberg metadata and mapped to PostgreSQL-compatible types.
 + For Iceberg tables, query the latest snapshot, a specific snapshot by ID, or as of a specific timestamp (time travel).

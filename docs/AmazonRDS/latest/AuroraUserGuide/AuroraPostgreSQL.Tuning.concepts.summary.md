@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL wait events
-<a name="AuroraPostgreSQL.Tuning.concepts.summary"></a>
 
 The following table lists the wait events for Aurora PostgreSQL that most commonly indicate performance problems, and summarizes the most common causes and corrective actions. The following wait events are a subset of the list in [Amazon Aurora PostgreSQL wait events](AuroraPostgreSQL.Reference.Waitevents.md).
 

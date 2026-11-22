@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora storage
-<a name="Aurora.Overview.StorageReliability"></a>
 
  Following, you can learn about the Aurora storage subsystem. Aurora uses a distributed and shared storage architecture that is an important factor in performance, scalability, and reliability for Aurora clusters. 
 
@@ -32,12 +31,12 @@ Aurora uses separate local storage for nonpersistent, temporary files. This incl
 Amazon Aurora has two DB cluster storage configurations:
 + **Aurora I/O-Optimized** – Improved price performance and predictability for I/O-intensive applications. You pay only for the usage and storage of your DB clusters, with no additional charges for read and write I/O operations.
 
-  Aurora I/O-Optimized is the best choice when your I/O spending is 25% or more of your total Aurora database spending.
+  Aurora I/O-Optimized can reduce your costs when your I/O spending is 25% or more of your total Aurora database spending. With Aurora I/O-Optimized, instance and storage prices are higher, but there are no I/O charges. To find out whether it lowers costs for your workload, compare your instance, storage, and I/O costs under both configurations. For more information, see [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/).
 
   You can choose Aurora I/O-Optimized when you create or modify a DB cluster with a DB engine version that supports the Aurora I/O-Optimized cluster configuration. You can switch from Aurora I/O-Optimized to Aurora Standard at any time.
 + **Aurora Standard** – Cost-effective pricing for many applications with moderate I/O usage. In addition to the usage and storage of your DB clusters, you also pay a standard rate per 1 million requests for I/O operations.
 
-  Aurora Standard is the best choice when your I/O spending is less than 25% of your total Aurora database spending.
+  Aurora Standard is typically more cost-effective when your I/O spending is less than 25% of your total Aurora database spending.
 
   You can switch from Aurora Standard to Aurora I/O-Optimized once every 30 days. When you switch between Aurora Standard and Aurora I/O-Optimized storage options for non-NVMe-based DB instances, there is no downtime. Aurora serverless instances are non-NVMe-based DB instances, so there is no downtime and no reboot required when switching from Aurora Standard to Aurora I/O-Optimized. However, for NVMe-based DB instances, switching between Aurora I/O-Optimized and Aurora Standard storage options requires a database engine restart, which may cause a brief period of downtime.
 

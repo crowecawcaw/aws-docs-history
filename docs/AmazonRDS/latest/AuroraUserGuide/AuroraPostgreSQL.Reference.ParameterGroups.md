@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora PostgreSQL parameters
-<a name="AuroraPostgreSQL.Reference.ParameterGroups"></a>
 
 You manage your Amazon Aurora DB cluster in the same way that you manage Amazon RDS DB instances, by using parameters in a DB parameter group. However, Amazon Aurora differs from Amazon RDS in that an Aurora DB cluster has multiple DB instances. Some of the parameters that you use to manage your Amazon Aurora DB cluster apply to the entire cluster, while other parameters apply only to a given DB instance in the DB cluster, as follows:
 + **DB cluster parameter group** – A DB cluster parameter group contains the set of engine configuration parameters that apply throughout the Aurora DB cluster. For example, cluster cache management is a feature of an Aurora DB cluster that's controlled by the `apg_ccm_enabled` parameter which is part of the DB cluster parameter group. The DB cluster parameter group also contains default settings for the DB parameter group for the DB instances that make up the cluster. 
@@ -22,7 +21,7 @@ You can view all available default parameter groups for RDS for PostgreSQL DB in
 
 Rather than viewing in the AWS Management Console, you can also list parameters contained in DB cluster parameter groups and DB parameter groups by using the AWS CLI or the Amazon RDS API. For example, to list parameters in a DB cluster parameter group you use the [describe-db-cluster-parameters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) AWS CLI command as follows:
 
-```
+```cmd
 aws rds describe-db-cluster-parameters --db-cluster-parameter-group-name default.aurora-postgresql12
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Understanding Babelfish architecture and configuration
-<a name="babelfish-understanding-overview-howitworks"></a>
 
 You manage the Aurora PostgreSQL-Compatible Edition DB cluster running Babelfish much as you would any Aurora DB cluster. That is, you benefit from the scalability, high-availability with failover support, and built-in replication provided by an Aurora DB cluster. To learn more about these capabilities, see [Managing performance and scaling for Aurora DB clusters](Aurora.Managing.Performance.md), [High availability for Amazon Aurora](Concepts.AuroraHighAvailability.md), and [Replication with Amazon Aurora](Aurora.Replication.md). You also have access to many other AWS tools and utilities, including the following:
 + Amazon CloudWatch is a monitoring and observability service that provides you with data and actionable insights. For more information, see [Monitoring Amazon Aurora metrics with Amazon CloudWatch](monitoring-cloudwatch.md).

@@ -1,7 +1,6 @@
 
 
 # Adding an AWS Region to an Amazon Aurora global database
-<a name="aurora-global-database-attaching"></a>
 
  You can use the following procedure to add an additional secondary cluster to an existing global database. You can also create a global database from a standalone Aurora DB cluster by using this procedure to add the first secondary AWS Region. 
 

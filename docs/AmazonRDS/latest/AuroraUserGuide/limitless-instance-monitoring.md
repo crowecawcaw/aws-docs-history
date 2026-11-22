@@ -1,7 +1,6 @@
 
 
 # Instance-specific performance and resource monitoring
-<a name="limitless-instance-monitoring"></a>
 
 Monitoring on instance level is key to understand connection skew, workload skew and data skew, as well as when to add routers or split shards to scale up for higher throughput with retained latency.
 

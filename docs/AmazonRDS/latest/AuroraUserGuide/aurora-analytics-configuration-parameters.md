@@ -1,7 +1,6 @@
 
 
 # Configuration parameters
-<a name="aurora-analytics-configuration-parameters"></a>
 
 You can configure analytics behavior and performance using PostgreSQL configuration parameters. You can set these parameters at the session, database, user, or DB cluster parameter group level using standard PostgreSQL commands.
 
@@ -65,6 +64,8 @@ This parameter controls the maximum memory that the analytics execution engine a
 
 When a query's memory usage approaches this limit, the engine spills intermediate results to temporary local storage. Spilling allows the query to complete but with reduced performance.
 
+**Default calculation**
+
 Aurora derives the default from instance memory, using the smallest of three terms:
 
 ```
@@ -101,9 +102,11 @@ When to decrease this value:
 + Many concurrent users run analytical queries.
 + You observe memory pressure across the DB instance.
 
+**Usage examples**
+
 Set different limits for different user roles:
 
-```
+```SQL
 -- Heavy analytics users
 ALTER USER data_scientist SET aurora_analytics.query_mem = '16GB';
 -- Light reporting users
@@ -112,7 +115,7 @@ ALTER USER dashboard_user SET aurora_analytics.query_mem = '8GB';
 
 Use a session-level setting for a specific complex query:
 
-```
+```SQL
 SET aurora_analytics.query_mem = '16GB';
 SELECT complex_aggregation FROM ft_large_table;
 RESET aurora_analytics.query_mem;

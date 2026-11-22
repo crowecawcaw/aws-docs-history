@@ -1,7 +1,6 @@
 
 
 # Comparing Aurora MySQL version 8.4 and MySQL 8.4 Community Edition
-<a name="AuroraMySQL.Compare-v84-community"></a>
 
 This topic describes the differences between Aurora MySQL version 8.4 and MySQL 8.4 Community Edition.
 

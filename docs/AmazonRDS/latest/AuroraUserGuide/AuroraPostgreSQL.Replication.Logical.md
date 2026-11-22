@@ -1,7 +1,6 @@
 
 
 # Overview of PostgreSQL logical replication with Aurora
-<a name="AuroraPostgreSQL.Replication.Logical"></a>
 
 By using PostgreSQL's logical replication feature with your Aurora PostgreSQL DB cluster, you can replicate and synchronize individual tables rather than the entire database instance. Logical replication uses a publish and subscribe model to replicate changes from a source to one or more recipients. It works by using change records from the PostgreSQL write-ahead log (WAL). The source, or *publisher*, sends WAL data for the specified tables to one or more recipients (*subscriber*), thus replicating the changes and keeping a subscriber's table synchronized with the publisher's table. The set of changes from the publisher are identified using a *publication*. Subscribers get the changes by creating a *subscription* that defines the connection to the publisher's database and its publications. A *replication slot* is the mechanism used in this scheme to track progress of a subscription. 
 

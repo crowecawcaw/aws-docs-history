@@ -1,7 +1,6 @@
 
 
 # Using Full Text Search in Babelfish
-<a name="babelfish-postgres-fulltextsearch"></a>
 
 Starting with version 4.0.0, Babelfish provides limited support for Full Text Search (FTS). FTS is a powerful feature in relational databases that enables efficient searching and indexing of text-heavy data. It allows you to perform complex text searches and retrieve relevant results quickly. FTS is particularly valuable for applications that deal with large volumes of textual data, such as content management systems, e-commerce platforms, and document archives.
 

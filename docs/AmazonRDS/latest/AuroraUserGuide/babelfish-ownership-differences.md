@@ -1,7 +1,6 @@
 
 
 # Addressing object ownership differences after upgrade
-<a name="babelfish-ownership-differences"></a>
 
 Babelfish versions 4.6 and later, and 5.2 and later include a change to object ownership handling through the TDS endpoint. When you create new objects through the TDS endpoint, these objects are now owned by the schema owner instead of the current user. This ownership change might affect permissions behavior for new objects compared to existing objects when you upgrade from versions earlier than 4.6 or 5.2.
 

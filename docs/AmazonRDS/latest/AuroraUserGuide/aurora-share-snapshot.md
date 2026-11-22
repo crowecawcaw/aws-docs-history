@@ -1,7 +1,6 @@
 
 
 # Sharing a DB cluster snapshot
-<a name="aurora-share-snapshot"></a>
 
 Using Amazon RDS, you can share a manual DB cluster snapshot in the following ways:
 + Sharing a manual DB cluster snapshot, whether encrypted or unencrypted, enables authorized AWS accounts to copy the snapshot.
@@ -72,7 +71,7 @@ To share a DB cluster snapshot, use the `aws rds modify-db-cluster-snapshot-attr
 The following example enables AWS account identifier `123456789012` to restore the DB cluster snapshot named `cluster-3-snapshot`.  
 For Linux, macOS, or Unix:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute \
 --db-cluster-snapshot-identifier cluster-3-snapshot \
 --attribute-name restore \
@@ -80,7 +79,7 @@ aws rds modify-db-cluster-snapshot-attribute \
 ```
 For Windows:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute ^
 --db-cluster-snapshot-identifier cluster-3-snapshot ^
 --attribute-name restore ^
@@ -91,7 +90,7 @@ aws rds modify-db-cluster-snapshot-attribute ^
 The following example enables two AWS account identifiers, `111122223333` and `444455556666`, to restore the DB cluster snapshot named `manual-cluster-snapshot1`.  
 For Linux, macOS, or Unix:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute \
 --db-cluster-snapshot-identifier manual-cluster-snapshot1 \
 --attribute-name restore \
@@ -99,7 +98,7 @@ aws rds modify-db-cluster-snapshot-attribute \
 ```
 For Windows:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute ^
 --db-cluster-snapshot-identifier manual-cluster-snapshot1 ^
 --attribute-name restore ^

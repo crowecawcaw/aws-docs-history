@@ -1,7 +1,6 @@
 
 
 # Physical migration from MySQL by using Percona XtraBackup and Amazon S3
-<a name="AuroraMySQL.Migrating.ExtMySQL.S3"></a>
 
 You can copy the full and incremental backup files from your source MySQL version 5.7 or 8.0 database to an Amazon S3 bucket. Then you can restore to an Amazon Aurora MySQL DB cluster with the same major DB engine version from those files.
 
@@ -99,7 +98,7 @@ For example, the following IAM policy grants a user the minimum required permiss
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -130,7 +129,7 @@ For example, the following IAM policy allows a user to associate the role named 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -363,7 +362,7 @@ During encrypted replication, the Aurora MySQL DB cluster acts a client to the M
 
    The following example imports SSL information into an Aurora MySQL DB cluster. In .pem format files, the body code typically is longer than the body code shown in the example.
 
-   ```
+   ```sql
    call mysql.rds_import_binlog_ssl_material(
    '{"ssl_ca":"-----BEGIN CERTIFICATE-----
    AAAAB3NzaC1yc2EAAAADAQABAAABAQClKsfkNkuSevGj3eYhCe53pcjqP3maAhDFcvBS7O6V
@@ -424,7 +423,7 @@ You can synchronize your Amazon Aurora MySQL DB cluster with the MySQL database 
 
    You can verify that SSL is enabled with the following command.
 
-   ```
+   ```sql
    mysql> show variables like 'have_ssl';
    ```
 
@@ -462,19 +461,19 @@ You can synchronize your Amazon Aurora MySQL DB cluster with the MySQL database 
 
 1. While connected to the external MySQL database, create a user to be used for replication. This account is used solely for replication and must be restricted to your domain to improve security. The following is an example.
 
-   ```
+   ```sql
    mysql> CREATE USER '{{<user_name>}}'@'{{<domain_name>}}' IDENTIFIED BY '{{<password>}}';
    ```
 
    The user requires the `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges. Grant these privileges to the user.
 
-   ```
+   ```sql
    GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '{{<user_name>}}'@'{{<domain_name>}}';
    ```
 
    If you need to use encrypted replication, require SSL connections for the replication user. For example, you can use the following statement to require SSL connections on the user account `{{<user_name>}}`.
 
-   ```
+   ```sql
    GRANT USAGE ON *.* TO '{{<user_name>}}'@'{{<domain_name>}}' REQUIRE SSL;
    ```
 **Note**  
@@ -484,7 +483,7 @@ If `REQUIRE SSL` is not included, the replication connection might silently fall
 
    You might also need to configure your local network to permit connections from the IP address of your Aurora MySQL DB cluster, so that it can communicate with your external MySQL database. To find the IP address of the Aurora MySQL DB cluster, use the `host` command.
 
-   ```
+   ```bash
    host {{<db_cluster_endpoint>}}
    ```
 
@@ -492,7 +491,7 @@ If `REQUIRE SSL` is not included, the replication connection might silently fall
 
 1. Enable binary log replication by running the [mysql.rds\_reset\_external\_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master) or [mysql.rds\_reset\_external\_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source) stored procedure. This stored procedure has the following syntax.
 
-   ```
+   ```sql
    CALL mysql.rds_set_external_master (
      host_name
      , host_port
@@ -522,7 +521,7 @@ If `REQUIRE SSL` is not included, the replication connection might silently fall
 
    The following example runs the procedure for an Aurora MySQL DB cluster that has encrypted data.
 
-   ```
+   ```sql
    CALL mysql.rds_set_external_master(
      'Externaldb.some.com',
      3306,
@@ -546,13 +545,13 @@ If `REQUIRE SSL` is not included, the replication connection might silently fall
 
 1. Start binary log replication by running the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication) stored procedure.
 
-   ```
+   ```sql
    CALL mysql.rds_start_replication;
    ```
 
 1. Monitor how far the Aurora MySQL DB cluster is behind the MySQL replication primary database. To do so, connect to the Aurora MySQL DB cluster and run the following command.
 
-   ```
+   ```sql
    Aurora MySQL version 2:
    SHOW SLAVE STATUS;
    
@@ -564,6 +563,6 @@ If `REQUIRE SSL` is not included, the replication connection might silently fall
 
 1. Connect to the MySQL replication primary database and stop replication. To do so, run the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication) stored procedure.
 
-   ```
+   ```sql
    CALL mysql.rds_stop_replication;
    ```

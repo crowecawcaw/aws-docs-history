@@ -1,7 +1,6 @@
 
 
 # Performing a major version upgrade
-<a name="USER_UpgradeDBInstance.PostgreSQL.MajorVersion"></a>
 
 Major version upgrades might contain database changes that are not backward-compatible with previous versions of the database. New functionality in a new version can cause your existing applications to stop working correctly. To avoid issues, Amazon Aurora doesn't apply major version upgrades automatically. Rather, we recommend that you carefully plan for a major version upgrade by following these steps:
 
@@ -80,14 +79,14 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 1. Check for unsupported usage:
    + Commit or roll back all open prepared transactions before attempting an upgrade. You can use the following query to verify that there are no open prepared transactions on your instance. 
 
-     ```
+     ```sql
      SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
      ```
    + Remove all uses of the *reg\** data types before attempting an upgrade. Except for `regtype` and `regclass`, you can't upgrade the *reg\** data types. The pg\_upgrade utility (used by Amazon Aurora to do the upgrade) can't persist this data type. To learn more about this utility, see [pg\_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html) in the PostgreSQL documentation.
 
      To verify that there are no uses of unsupported *reg\** data types, use the following query for each database. 
 
-     ```
+     ```sql
      SELECT count(*) FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a 
        WHERE c.oid = a.attrelid 
            AND NOT a.attisdropped 
@@ -102,7 +101,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
      ```
    + Remove all uses of the *abstime*, *reltime*, and *tinterval* data types before attempting an upgrade. These data types were removed in PostgreSQL 12. If you are upgrading to version 12 or later from an earlier version, remove all uses of these types first. To find columns that use them (including columns whose type is a domain, array, composite, or range over these types), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'pg_catalog.abstime'::pg_catalog.regtype AS oid
          UNION ALL SELECT 'pg_catalog.reltime'::pg_catalog.regtype
@@ -138,7 +137,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
      ```
    + Remove all uses of the *sql\_identifier* data type (in columns or indexes) before attempting an upgrade. The on-disk format of this data type changed in PostgreSQL 12. If you are upgrading to version 12 or later from an earlier version, remove all uses first. To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'information_schema.sql_identifier'::pg_catalog.regtype AS oid
          UNION ALL
@@ -172,7 +171,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
      ```
    + Remove all uses of the *aclitem* data type before attempting an upgrade. The internal format of this data type changed in PostgreSQL 16. If you are upgrading to version 16 or later from an earlier version, remove all uses first. To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
 
-     ```
+     ```sql
      WITH RECURSIVE oids AS (
          SELECT 'pg_catalog.aclitem'::pg_catalog.regtype AS oid
          UNION ALL
@@ -212,7 +211,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 
    For a successful upgrade, template 1 and template 0 databases must exist and should be listed as a template. To check on this, use the following command: 
 
-   ```
+   ```sql
    SELECT datname, datistemplate FROM pg_database; 
                            
    datname    | datistemplate
@@ -229,13 +228,13 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 
    For source versions earlier than 17, the upgrade process can't proceed if the Aurora PostgreSQL DB cluster is using any logical replication slots. Logical replication slots are typically used for short-term data migration tasks, such as migrating data using AWS DMS or for replicating tables from the database to data lakes, BI tools, or other targets. Before upgrading, make sure that you know the purpose of any logical replication slots that exist, and confirm that it's okay to delete them. You can check for logical replication slots using the following query:
 
-   ```
+   ```sql
    SELECT * FROM pg_replication_slots;
    ```
 
    If logical replication slots are still being used, you shouldn't delete them, and you can't proceed with the upgrade. However, if the logical replication slots aren't needed, you can delete them using the following SQL:
 
-   ```
+   ```SQL
    SELECT pg_drop_replication_slot({{slot_name}});
    ```
 
@@ -257,7 +256,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 
    Run the following command for each extension that's currently installed.
 
-   ```
+   ```sql
    ALTER EXTENSION {{PostgreSQL-extension}} UPDATE TO '{{new-version}}';
    ```
 
@@ -279,7 +278,7 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 
    To find the `unknown` data type in your database so that you can remove such columns or change them to supported data types, use the following SQL code for each database.
 
-   ```
+   ```sql
    SELECT n.nspname, c.relname, a.attname
        FROM pg_catalog.pg_class c,
        pg_catalog.pg_namespace n,
@@ -338,7 +337,7 @@ After you complete a major version upgrade, we recommend the following:
 Run ANALYZE on your system after the upgrade to avoid performance issues.
 + If you upgraded to PostgreSQL version 10, run `REINDEX` on any hash indexes you have. Hash indexes were changed in version 10 and must be rebuilt. To locate invalid hash indexes, run the following SQL for each database that contains hash indexes.
 
-  ```
+  ```sql
   SELECT idx.indrelid::regclass AS table_name, 
      idx.indexrelid::regclass AS index_name 
   FROM pg_catalog.pg_index idx

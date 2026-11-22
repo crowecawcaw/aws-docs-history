@@ -1,7 +1,6 @@
 
 
 # Comparing Aurora MySQL version 3 and MySQL 8.0 Community Edition
-<a name="AuroraMySQL.Compare-80-v3"></a>
 
 You can use the following information to learn about the changes to be aware of when you convert from a different MySQL 8.0–compatible system to Aurora MySQL version 3.
 

@@ -1,7 +1,6 @@
 
 
 # io/table/sql/handler
-<a name="ams-waits.waitio"></a>
 
 The `io/table/sql/handler` event occurs when work has been delegated to a storage engine.
 

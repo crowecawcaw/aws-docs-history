@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for Aurora MySQL in-place upgrade
-<a name="AuroraMySQL.Upgrading.Troubleshooting"></a>
 
 Use the following tips to help troubleshoot problems with Aurora MySQL in-place upgrades. These tips don't apply to Aurora Serverless DB clusters.
 

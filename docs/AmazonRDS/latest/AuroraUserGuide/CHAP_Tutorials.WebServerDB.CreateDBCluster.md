@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Aurora DB cluster
-<a name="CHAP_Tutorials.WebServerDB.CreateDBCluster"></a>
 
 Create an Amazon Aurora MySQL or Aurora PostgreSQL DB cluster that maintains the data used by a web application.
 

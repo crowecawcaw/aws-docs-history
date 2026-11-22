@@ -1,7 +1,6 @@
 
 
 # Getting an existing ARN for Amazon RDS
-<a name="USER_Tagging.ARN.Getting"></a>
 
 You can get the ARN of an RDS resource by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or RDS API. 
 
@@ -58,7 +57,7 @@ aws rds describe-db-instances ^
 ```
 The output of that command is like the following:  
 
-```
+```json
 [
     {
         "DBInstanceArn": "arn:aws:rds:us-west-2:{{account_id}}:db:{{instance_id}}", 

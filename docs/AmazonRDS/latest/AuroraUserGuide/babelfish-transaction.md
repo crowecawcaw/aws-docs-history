@@ -1,7 +1,6 @@
 
 
 # Transaction isolation levels in Babelfish
-<a name="babelfish-transaction"></a>
 
 Babelfish supports transaction isolation levels `READ UNCOMMITTED`, `READ COMMITTED` and `SNAPSHOT`. Starting from Babelfish 3.4 version additional isolation levels `REPEATABLE READ` and `SERIALIZABLE` are supported. All the isolation levels in Babelfish are supported with the behavior of corresponding isolation levels in PostgreSQL. SQL Server and Babelfish use different underlying mechanisms for implementing transaction isolation levels (blocking for concurrent access, locks held by transactions, error handling etc). And, there are some subtle differences in how concurrent access may work out for different workloads. For more information on this PostgreSQL behavior, see [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Getting information from the Babelfish system catalog
-<a name="babelfish-query-database"></a>
 
 You can obtain information about the database objects that are stored in your Babelfish cluster by querying many of the same system views as used in SQL Server. Each new release of Babelfish adds support for more system views. For a list of available views currently available, see the [SQL Server system catalog views](#system-catalog-table) table. 
 

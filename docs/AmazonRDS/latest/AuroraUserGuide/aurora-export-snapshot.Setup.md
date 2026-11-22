@@ -1,7 +1,6 @@
 
 
 # Setting up access to an Amazon S3 bucket
-<a name="aurora-export-snapshot.Setup"></a>
 
 You identify the Amazon S3 bucket, then you give the snapshot permission to access it.
 
@@ -116,7 +115,7 @@ You can use Amazon S3 buckets across AWS accounts. To use a cross-account bucket
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

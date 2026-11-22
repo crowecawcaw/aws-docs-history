@@ -1,7 +1,6 @@
 
 
 # Region and version availability for the Amazon RDS Data API
-<a name="data-api.regions"></a>
 
 For information about the Regions and engine versions available for Data API, see the following sections.
 

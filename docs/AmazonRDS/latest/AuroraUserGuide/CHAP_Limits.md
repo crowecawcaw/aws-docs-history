@@ -1,7 +1,6 @@
 
 
 # Quotas and constraints for Amazon Aurora
-<a name="CHAP_Limits"></a>
 
 Following, you can find a description of the resource quotas and naming constraints for Amazon Aurora.
 

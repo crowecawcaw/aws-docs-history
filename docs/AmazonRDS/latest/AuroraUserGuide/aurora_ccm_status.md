@@ -1,7 +1,6 @@
 
 
 # aurora\_ccm\_status
-<a name="aurora_ccm_status"></a>
 
 Displays the status of cluster cache manager. 
 

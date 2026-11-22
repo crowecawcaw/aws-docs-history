@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch metrics and Aurora MySQL status variables for write forwarding
-<a name="aurora-mysql-write-forwarding-cloudwatch"></a>
 
 The following Amazon CloudWatch metrics and Aurora MySQL status variables apply when you use write forwarding for Aurora MySQL. For more information about metrics for Aurora MySQL writer and reader DB instances, see the following topics.
 
@@ -55,7 +54,7 @@ The following Aurora MySQL status variables are measured on each reader DB insta
 | --- | --- | --- | 
 | Aurora\_fwd\_replica\_dml\_stmt\_count | Count | Total number of DML statements forwarded from this reader DB instance. | 
 | Aurora\_fwd\_replica\_dml\_stmt\_duration | Microseconds | Total duration of all DML statements forwarded from this reader DB instance. | 
-| Aurora\_fwd\_replica\_errors\_session\_limit | Count | Number of sessions rejected by the primary cluster due to one of the following error conditions:+  writer full <br />+  Too many forwarded statements in progress.  | 
+| Aurora\_fwd\_replica\_errors\_session\_limit | Count | Number of sessions rejected by the primary cluster due to one of the following error conditions:+  `writer full` <br />+  `Too many forwarded statements in progress`.  | 
 | Aurora\_fwd\_replica\_open\_sessions | Count | Number of sessions that are using write forwarding on a reader DB instance. | 
 | Aurora\_fwd\_replica\_read\_wait\_count | Count | Total number of read-after-write waits on this reader DB instance. | 
 | Aurora\_fwd\_replica\_read\_wait\_duration | Microseconds | Total duration of waits due to the read consistency setting on this reader DB instance. | 

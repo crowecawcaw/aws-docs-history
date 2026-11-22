@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Aurora DB engines for Database Insights
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights"></a>
 
 Database Insights expands on existing Amazon RDS monitoring features to illustrate and help you analyze your database performance. With the Database Insights dashboard, you can visualize the database load on your Amazon RDS DB instance load and filter the load by waits, SQL statements, hosts, or users. For more information, see [Overview of Database Insights on Amazon Aurora](USER_PerfInsights.Overview.md). 
 
@@ -122,46 +121,46 @@ The following Regions and engine versions are available for Performance Insights
 The following Regions and engine versions are available for Database Insights with Aurora PostgreSQL.
 
 
-| Region | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | Aurora PostgreSQL 12 | Aurora PostgreSQL 11 | Aurora PostgreSQL 10 | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| US East (N. Virginia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| US East (Ohio) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| US West (N. California) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| US West (Oregon) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Africa (Cape Town) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Hong Kong) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Hyderabad) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Jakarta) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Malaysia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Melbourne) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Mumbai) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (New Zealand) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Osaka) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Seoul) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Singapore) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Sydney) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Taipei) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Thailand) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Asia Pacific (Tokyo) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Canada (Central) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Canada West (Calgary) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| China (Beijing) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| China (Ningxia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Frankfurt) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Ireland) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (London) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Milan) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Paris) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Spain) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Stockholm) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Europe (Zurich) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Israel (Tel Aviv) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Mexico (Central) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Middle East (Bahrain) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| Middle East (UAE) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| South America (São Paulo) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| AWS GovCloud (US-East) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
-| AWS GovCloud (US-West) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Region | Aurora PostgreSQL 18 | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | Aurora PostgreSQL 12 | Aurora PostgreSQL 11 | Aurora PostgreSQL 10 | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| US East (N. Virginia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| US East (Ohio) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| US West (N. California) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| US West (Oregon) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Africa (Cape Town) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Hong Kong) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Hyderabad) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Jakarta) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Malaysia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Melbourne) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Mumbai) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (New Zealand) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Osaka) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Seoul) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Singapore) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Sydney) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Taipei) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Thailand) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Asia Pacific (Tokyo) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Canada (Central) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Canada West (Calgary) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| China (Beijing) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| China (Ningxia) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Frankfurt) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Ireland) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (London) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Milan) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Paris) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Spain) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Stockholm) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Europe (Zurich) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Israel (Tel Aviv) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Mexico (Central) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Middle East (Bahrain) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| Middle East (UAE) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| South America (São Paulo) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| AWS GovCloud (US-East) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
+| AWS GovCloud (US-West) | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | All versions | 
 
 ## Database Insights with Aurora Serverless
 <a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.serverless"></a>

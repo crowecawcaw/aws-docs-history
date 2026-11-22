@@ -1,7 +1,7 @@
 
 
 # Working with Amazon Aurora PostgreSQL
-<a name="Aurora.AuroraPostgreSQL"></a><a name="pgsql"></a>
+<a name="pgsql"></a>
 
 Amazon Aurora PostgreSQL is a fully managed, PostgreSQL–compatible, and ACID–compliant relational database engine that combines the speed, reliability, and manageability of Amazon Aurora with the simplicity and cost-effectiveness of open-source databases. Aurora PostgreSQL is a drop-in replacement for PostgreSQL and makes it simple and cost-effective to set up, operate, and scale your new and existing PostgreSQL deployments, thus freeing you to focus on your business and applications. To learn more about Aurora in general, see [What is Amazon Aurora?](CHAP_AuroraOverview.md). 
 

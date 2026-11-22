@@ -1,7 +1,6 @@
 
 
 # Creating IAM resources for homogeneous migrations
-<a name="USER_DMS_migration-IAM"></a>
 
 Aurora uses AWS DMS to migrate your data. To access your databases and to migrate data, AWS DMS creates a serverless environment for homogeneous data migrations. In this environment, AWS DMS requires access to VPC peering, route tables, security groups, and other AWS resources. Also, AWS DMS stores logs, metrics, and progress for each data migration in Amazon CloudWatch. To create a data migration project, AWS DMS needs access to these services.
 
@@ -40,7 +39,7 @@ In this step, you create an IAM policy that provides AWS DMS with access to Amaz
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -178,7 +177,7 @@ In this step, you create an IAM role that provides access to AWS Secrets Manager
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

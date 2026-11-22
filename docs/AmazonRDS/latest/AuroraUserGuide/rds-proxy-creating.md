@@ -1,7 +1,6 @@
 
 
 # Creating a proxy for Amazon Aurora
-<a name="rds-proxy-creating"></a>
 
 You can use Amazon RDS Proxy to improve the scalability, availability, and security of your database applications by pooling connections and managing database failovers more efficiently. This topic walks you through creating a proxy. Before you start, make sure your database meets the necessary prerequisites, including IAM permissions and VPC configuration.
 

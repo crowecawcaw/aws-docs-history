@@ -1,17 +1,19 @@
 
 
 # Reading log file contents using REST
-<a name="DownloadCompleteDBLogFile"></a>
 
 Amazon RDS provides a REST endpoint that allows access to DB instance log files. This is useful if you need to write an application to stream Amazon RDS log file contents.
 
 The syntax is:
 
 ```
-GET /v13/downloadCompleteLogFile/{{DBInstanceIdentifier}}/{{LogFileName}} HTTP/1.1
+GET /v19/downloadCompleteLogFile/{{DBInstanceIdentifier}}/{{LogFileName}} HTTP/1.1
 Content-type: application/json
 host: rds.{{region}}.amazonaws.com
 ```
+
+**Note**  
+Amazon RDS API versions earlier than 2014-10-31, including the `/v13/` path for this endpoint, stop working after March 1, 2027. Use the `/v19/` path instead.
 
 The following parameters are required:
 + `{{DBInstanceIdentifier}}`—the name of the DB instance that contains the log file you want to download.
@@ -22,7 +24,7 @@ The response contains the contents of the requested log file, as a stream.
 The following example downloads the log file named *log/ERROR.6* for the DB instance named *sample-sql* in the *us-west-2* region.
 
 ```
-GET /v13/downloadCompleteLogFile/sample-sql/log/ERROR.6 HTTP/1.1
+GET /v19/downloadCompleteLogFile/sample-sql/log/ERROR.6 HTTP/1.1
 host: rds.us-west-2.amazonaws.com
 X-Amz-Security-Token: AQoDYXdzEIH//////////wEa0AIXLhngC5zp9CyB1R6abwKrXHVR5efnAVN3XvR7IwqKYalFSn6UyJuEFTft9nObglx4QJ+GXV9cpACkETq=
 X-Amz-Date: 20140903T233749Z

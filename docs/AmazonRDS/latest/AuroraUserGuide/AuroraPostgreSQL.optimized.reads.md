@@ -1,7 +1,6 @@
 
 
 # Improving query performance for Aurora PostgreSQL with Aurora Optimized Reads
-<a name="AuroraPostgreSQL.optimized.reads"></a>
 
 You can achieve faster query processing for Aurora PostgreSQL with Aurora Optimized Reads. An Aurora PostgreSQL DB instance that uses Aurora Optimized Reads delivers up to 8x improved query latency and up to 30% cost savings for applications with large datasets, that exceed the memory capacity of a DB instance.
 
@@ -111,7 +110,7 @@ The following are some use cases that can benefit from Optimized Reads with temp
 
 You can monitor your queries that use Optimized Reads-enabled tiered cache with the EXPLAIN command as shown in the following example:
 
-```
+```sql
 Postgres=> EXPLAIN (ANALYZE, BUFFERS) SELECT c FROM sbtest15 WHERE id=100000000                   
 
 QUERY PLAN

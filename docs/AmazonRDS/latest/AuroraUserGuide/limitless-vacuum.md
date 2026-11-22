@@ -1,7 +1,6 @@
 
 
 # Reclaiming storage space by vacuuming
-<a name="limitless-vacuum"></a>
 
 PostgreSQL Multiversion Concurrency Control (MVCC) helps to preserve data integrity by saving an internal copy of updated or deleted rows until a transaction is either committed or rolled back. These copies, also called *tuples*, can cause table bloat if they aren't cleaned up regularly. PostgreSQL instances order transactions by their transaction IDs, and PostgreSQL uses transaction ID–based MVCC to control tuple visibility and provide transaction isolation. Each transaction establishes a snapshot of data, and each tuple has a version. Both the snapshot and version are transaction ID–based.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding PostgreSQL roles and permissions
-<a name="Appendix.PostgreSQL.CommonDBATasks.Roles"></a>
 
 When you create an Aurora PostgreSQL DB cluster using the AWS Management Console, an administrator account is created at the same time. By default, its name is `postgres`, as shown in the following screenshot:
 

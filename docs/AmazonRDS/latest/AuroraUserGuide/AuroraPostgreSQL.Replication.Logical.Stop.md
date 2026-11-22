@@ -1,7 +1,6 @@
 
 
 # Turning off logical replication
-<a name="AuroraPostgreSQL.Replication.Logical.Stop"></a>
 
 After completing your replication tasks, you should stop the replication process, drop replication slots, and turn off logical replication. Before dropping slots, make sure that they're no longer needed. Active replication slots can't be dropped. 
 

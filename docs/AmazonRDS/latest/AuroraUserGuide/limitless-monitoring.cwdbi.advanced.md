@@ -1,7 +1,6 @@
 
 
 # Turning on the Advanced mode of Database Insights for Aurora PostgreSQL Limitless Database
-<a name="limitless-monitoring.cwdbi.advanced"></a>
 
 To turn on the Advanced mode of Database Insights for your Aurora PostgreSQL Limitless Database, use the following procedures.
 

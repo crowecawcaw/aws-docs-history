@@ -1,7 +1,6 @@
 
 
 # Using the Aurora PostgreSQL Limitless Database data loading utility
-<a name="limitless-load.utility"></a>
 
 Aurora provides a utility for loading data directly into Limitless Database from an Aurora PostgreSQL DB cluster or RDS for PostgreSQL DB instance.
 

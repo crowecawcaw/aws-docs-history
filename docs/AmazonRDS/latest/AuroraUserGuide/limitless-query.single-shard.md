@@ -1,7 +1,6 @@
 
 
 # Single-shard queries in Aurora PostgreSQL Limitless Database
-<a name="limitless-query.single-shard"></a>
 
 A *single-shard query* is a query that can be run directly on a shard while maintaining SQL [ACID](https://en.wikipedia.org/wiki/ACID) semantics. When such a query is encountered by the query planner on the router, the planner detects it and proceeds to push down the entire SQL query to the corresponding shard.
 

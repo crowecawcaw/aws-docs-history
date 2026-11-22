@@ -1,7 +1,6 @@
 
 
 # Protecting data using encryption
-<a name="Encryption"></a>
 
 Amazon Aurora encrypts database resources at the storage layer. You can also encrypt connections to DB clusters.
 

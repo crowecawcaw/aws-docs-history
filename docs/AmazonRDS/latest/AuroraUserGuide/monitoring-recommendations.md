@@ -1,7 +1,6 @@
 
 
 # Recommendations from Amazon Aurora
-<a name="monitoring-recommendations"></a>
 
 Amazon Aurora provides automated recommendations for database resources, such as DB instances, DB clusters, and DB parameter groups. These recommendations provide best practice guidance by analyzing DB cluster configuration,  DB instance configuration, usage, and performance data.
 

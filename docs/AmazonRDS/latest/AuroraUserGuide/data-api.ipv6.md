@@ -1,7 +1,6 @@
 
 
 # Using IPv6 with Amazon RDS Data API
-<a name="data-api.ipv6"></a>
 
 Amazon RDS Data API supports IPv6 connectivity through dual-stack endpoints. This allows you to connect to Data API using IPv6 addresses while maintaining backward compatibility with IPv4.
 
@@ -81,7 +80,7 @@ Configure AWS SDKs to use dual-stack endpoints:
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 	
 	# Create RDS Data API client with IPv6 dual-stack endpoint
@@ -104,7 +103,7 @@ import boto3
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.services.rdsdata.RdsDataClient;
 	import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementRequest;
 	import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementResponse;
@@ -130,7 +129,7 @@ import software.amazon.awssdk.services.rdsdata.RdsDataClient;
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data");
 	
 	// Create RDS Data API client with IPv6 dual-stack endpoint

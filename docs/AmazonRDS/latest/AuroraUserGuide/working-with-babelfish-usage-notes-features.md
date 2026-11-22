@@ -1,7 +1,6 @@
 
 
 # Working with Babelfish
-<a name="working-with-babelfish-usage-notes-features"></a>
 
 Following, you can find usage information for Babelfish, including some of the differences between working with Babelfish and SQL Server, and between Babelfish and PostgreSQL databases. 
 

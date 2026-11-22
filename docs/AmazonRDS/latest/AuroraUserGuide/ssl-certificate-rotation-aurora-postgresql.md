@@ -1,7 +1,6 @@
 
 
 # Updating applications to connect to Aurora PostgreSQL DB clusters using new SSL/TLS certificates
-<a name="ssl-certificate-rotation-aurora-postgresql"></a>
 
 As of January 13, 2023, Amazon RDS has published new Certificate Authority (CA) certificates for connecting to your Aurora DB clusters using Secure Socket Layer or Transport Layer Security (SSL/TLS). Following, you can find information about updating your applications to use the new certificates.
 
@@ -28,7 +27,7 @@ Check the DB cluster configuration for the value of the `rds.force_ssl` paramete
 
 If `rds.force_ssl` isn't set to `1` (on), query the `pg_stat_ssl` view to check connections using SSL. For example, the following query returns only SSL connections and information about the clients using SSL.
 
-```
+```sql
 select datname, usename, ssl, client_addr from pg_stat_ssl inner join pg_stat_activity on pg_stat_ssl.pid = pg_stat_activity.pid where ssl is true and usename<>'rdsadmin';
 ```
 

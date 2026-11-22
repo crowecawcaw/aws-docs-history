@@ -1,7 +1,6 @@
 
 
 # Security with Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Security"></a>
 
 For a general overview of Aurora security, see [Security in Amazon Aurora](UsingWithRDS.md). You can manage security for Amazon Aurora PostgreSQL at a few different levels:
 + To control who can perform Amazon RDS management actions on Aurora PostgreSQL DB clusters and DB instances, use AWS Identity and Access Management (IAM). IAM handles the authentication of user identity before the user can access the service. It also handles authorization, that is, whether the user is allowed to do what they're trying to do. IAM database authentication is an additional authentication method that you can choose when you create your Aurora PostgreSQL DB cluster. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md).
@@ -56,7 +55,7 @@ SSL/TLS support is available in all AWS Regions for Aurora PostgreSQL. Amazon RD
 
 The following is an example of using psql to connect to an Aurora PostgreSQL DB cluster.
 
-```
+```bash
 $ psql -h testpg.cdhmuqifdpib.us-east-1.rds.amazonaws.com -p 5432 \
     "dbname=testpg user=testuser sslrootcert=rds-ca-2015-root.pem sslmode=verify-full"
 ```
@@ -81,7 +80,7 @@ Updating the `rds.force_ssl` parameter also sets the PostgreSQL `ssl` parameter 
 
 When the `rds.force_ssl` parameter is set to 1 for a DB cluster, you see output similar to the following when you connect, indicating that SSL/TLS is now required:
 
-```
+```bash
 $ psql postgres -h SOMEHOST.amazonaws.com -p 8192 -U someuser
 psql (9.3.12, server 9.4.4)
 WARNING: psql major version 9.3, server major version 9.4.
@@ -108,7 +107,7 @@ postgres=>
 
 You can also load the `sslinfo` extension and then call the `ssl_is_used()` function to determine if SSL/TLS is being used. The function returns `t` if the connection is using SSL/TLS, otherwise it returns `f`.
 
-```
+```sql
 postgres=> create extension sslinfo;
 CREATE EXTENSION
 
@@ -121,7 +120,7 @@ t
 
 You can use the `select ssl_cipher()` command to determine the SSL/TLS cipher:
 
-```
+```sql
 postgres=> select ssl_cipher();
 ssl_cipher
 --------------------
@@ -131,7 +130,7 @@ DHE-RSA-AES256-SHA
 
  If you enable `set rds.force_ssl` and restart your DB cluster, non-SSL connections are refused with the following message:
 
-```
+```bash
 $ export PGSSLMODE=disable
 $ psql postgres -h SOMEHOST.amazonaws.com -p 8192 -U someuser
 psql: FATAL: no pg_hba.conf entry for host "host.ip", user "someuser", database "postgres", SSL off

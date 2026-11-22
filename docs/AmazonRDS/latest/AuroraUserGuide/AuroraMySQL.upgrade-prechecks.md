@@ -1,7 +1,6 @@
 
 
 # Major version upgrade prechecks for Aurora MySQL
-<a name="AuroraMySQL.upgrade-prechecks"></a>
 
 Upgrading MySQL from one major version to another, such as going from MySQL 5.7 to MySQL 8.0, involves some significant architectural changes that require careful planning and preparation. Unlike minor version upgrades where the focus is mainly on updating the database engine software and in some cases system tables, major MySQL upgrades often introduce fundamental changes to how the database stores and manages its metadata.
 

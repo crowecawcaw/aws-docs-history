@@ -1,7 +1,6 @@
 
 
 # Optimizing binary log replication for Aurora MySQL
-<a name="binlog-optimization"></a>
 
  Following, you can learn how to optimize binary log replication performance and troubleshoot related issues in Aurora MySQL. 
 
@@ -94,7 +93,7 @@ Once enabled, the in-memory relay log feature takes effect only for Aurora-manag
 
 The in-memory relay log feature is supported on instance classes larger than t3.large, but is not available on Aurora Serverless instances. The relay log circular buffer has a fixed size of 128 MB. To monitor the memory consumption of this feature, you can run the following query:
 
-```
+```sql
 SELECT event_name, current_alloc FROM sys.memory_global_by_current_bytes WHERE event_name = 'memory/sql/relaylog_io_cache';
 ```
 
@@ -108,7 +107,7 @@ The in-memory relay log feature is controlled by the aurora\_in\_memory\_relaylo
 
 Example:
 
-```
+```sql
 CALL mysql.rds_stop_replication;
 set aurora_in_memory_relaylog to ON to enable or OFF to disable in cluster parameter group
 CALL mysql.rds_start_replication;
@@ -116,13 +115,13 @@ CALL mysql.rds_start_replication;
 
 Even when aurora\_in\_memory\_relaylog is set to ON, the in-memory relay log feature might still be disabled under certain conditions. To verify the feature's current status, you can use the following command:
 
-```
+```sql
 SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_status';
 ```
 
 If the feature is unexpectedly disabled, you can identify the reason by running:
 
-```
+```sql
 SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_disabled_reason';
 ```
 

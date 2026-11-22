@@ -1,7 +1,6 @@
 
 
 # Improved memory management in Aurora PostgreSQL
-<a name="AuroraPostgreSQL.BestPractices.memory.management"></a>
 
 Aurora PostgreSQL now includes advanced memory management capabilities to optimize database performance and resilience under varying workloads. These improvements help Aurora PostgreSQL maintain consistent availability and responsiveness, even during periods of high memory demand.
 

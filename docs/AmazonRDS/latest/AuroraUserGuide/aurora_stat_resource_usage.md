@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_resource\_usage
-<a name="aurora_stat_resource_usage"></a>
 
 Reports the real-time resource utilization which consists of backend resource metrics and cpu usage for all Aurora PostgreSQL backend processes.
 

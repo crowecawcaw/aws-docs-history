@@ -1,7 +1,6 @@
 
 
 # Checking Aurora MySQL version numbers
-<a name="AuroraMySQL.Updates.Versions"></a>
 
  Although Aurora MySQL-Compatible Edition is compatible with the MySQL database engines, Aurora MySQL includes features and bug fixes that are specific to particular Aurora MySQL versions. Application developers can check the Aurora MySQL version in their applications by using SQL. Database administrators can check and specify Aurora MySQL versions when creating or upgrading Aurora MySQL DB clusters and DB instances. 
 
@@ -60,7 +59,7 @@ For Aurora clusters managed through CloudFormation, this change in the `EngineVe
 
  The Aurora version numbers that you can retrieve in your application using SQL queries use the format `{{<major version>}}.{{<minor version>}}.{{<patch version>}}` for version 2 and version 3. For version 8.4 and higher, the format is `{{<major version>}}.{{<minor version>}}` (for example, `8.4.7`), where the major version such as `8.4` represents MySQL compatibility. You can get this version number for any DB instance in your Aurora MySQL cluster by querying the `AURORA_VERSION` system variable. To get this version number, use one of the following queries. 
 
-```
+```sql
 select aurora_version();
 select @@aurora_version;
 ```

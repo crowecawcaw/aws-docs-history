@@ -1,7 +1,6 @@
 
 
 # Considerations for DB cluster snapshot exports
-<a name="aurora-export-snapshot.Considerations"></a>
 
 ## Limitations
 <a name="aurora-export-snapshot.Limits"></a>
@@ -32,7 +31,7 @@ Exporting DB snapshot data to Amazon S3 has the following limitations:
 + For partial exports, the `ExportOnly` list has a maximum size of 200 KB.
 + We strongly recommend that you use a unique name for each export task. If you don't use a unique task name, you might receive the following error message:
 
-  ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask operation: The export task with the ID {{xxxxx}} already exists.
+  `ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask operation: The export task with the ID {{xxxxx}} already exists.`
 + You can delete a snapshot while you're exporting its data to S3, but you're still charged for the storage costs for that snapshot until the export task has completed.
 + You can't restore exported snapshot data from S3 to a new DB cluster.
 

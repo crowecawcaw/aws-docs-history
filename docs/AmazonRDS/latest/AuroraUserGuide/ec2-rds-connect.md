@@ -1,7 +1,6 @@
 
 
 # Automatically connecting an EC2 instance and an Aurora DB cluster
-<a name="ec2-rds-connect"></a>
 
 You can use the Amazon RDS console to simplify setting up a connection between an Amazon Elastic Compute Cloud (Amazon EC2) instance and an Aurora DB cluster. Often, your DB cluster is in a private subnet and your EC2 instance is in a public subnet within a VPC. You can use a SQL client on your EC2 instance to connect to your DB cluster. The EC2 instance can also run web servers or applications that access your private DB cluster. 
 

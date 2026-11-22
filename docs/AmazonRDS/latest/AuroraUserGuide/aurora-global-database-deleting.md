@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon Aurora global database
-<a name="aurora-global-database-deleting"></a>
 
  Because an Aurora global database typically holds business-critical data, you can't delete the global database and its associated clusters in a single step. To delete an Aurora global database, do the following: 
 + Remove all secondary DB clusters from the Aurora global database. Each cluster becomes a standalone Aurora DB cluster. To learn how, see [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md).

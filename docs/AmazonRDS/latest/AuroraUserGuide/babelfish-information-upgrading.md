@@ -1,7 +1,6 @@
 
 
 # Upgrading your Babelfish cluster to a new version
-<a name="babelfish-information-upgrading"></a>
 
 New versions of Babelfish become available with some new releases of the Aurora PostgreSQL database engine after version 13.4. Each new release of Babelfish has its own version number. As with Aurora PostgreSQL, Babelfish uses the {{major}}.{{minor}}.{{patch}} naming scheme for versions. For example, the first Babelfish release, Babelfish version 1.0.0, became available as part of Aurora PostgreSQL 13.4.0. 
 

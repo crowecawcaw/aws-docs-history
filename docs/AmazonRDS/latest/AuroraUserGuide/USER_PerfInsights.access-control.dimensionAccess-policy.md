@@ -1,7 +1,6 @@
 
 
 # Granting fine-grained access for Database Insights
-<a name="USER_PerfInsights.access-control.dimensionAccess-policy"></a>
 
 Fine-grained access control offers additional ways of controlling access to Database Insights. This access control can allow or deny access to individual dimensions for `GetResourceMetrics`, `DescribeDimensionKeys`, and `GetDimensionKeyDetails` Database Insights actions. To use fine-grained access, specify dimensions in the IAM policy by using condition keys. The evaluation of the access follows the IAM policy evaluation logic. For more information, see [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*. If the IAM policy statement doesn't specify any dimension, then the statement controls access to all the dimensions for the specified action. For the list of available dimensions, see [DimensionGroup](https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_DimensionGroup.html).
 
@@ -16,7 +15,7 @@ For example, if you specify `GetResourceMetrics` to the `AuthorizedActions` para
 The following example provides access to the specified dimensions for `GetResourceMetrics` and `DescribeDimensionKeys` actions.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ The following is the response for the requested dimension:
 The following example specifies one allow and two deny access for the dimensions.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

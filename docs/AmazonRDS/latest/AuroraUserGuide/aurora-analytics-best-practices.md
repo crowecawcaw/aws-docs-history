@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="aurora-analytics-best-practices"></a>
 
 Performance of queries against your Iceberg and Parquet data depends on choosing an instance class that provides enough memory and CPU for your workload, balancing memory against concurrency, and laying out your data for efficient scanning. The following practices cover instance selection, memory configuration, data layout, joins with local tables, concurrency, and operations.
 

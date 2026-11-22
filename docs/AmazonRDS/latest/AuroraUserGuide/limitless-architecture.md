@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL Limitless Database architecture
-<a name="limitless-architecture"></a>
 
 Limitless Database achieves scale with a two-layer architecture consisting of multiple database nodes. Nodes are either routers or shards.
 + Shards are Aurora PostgreSQL DB instances that each store a subset of the data for your database, allowing for simultaneous processing to achieve higher write throughput.

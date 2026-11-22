@@ -1,7 +1,6 @@
 
 
 # Processing Amazon RDS Data API query results in JSON format
-<a name="data-api-json"></a>
 
  When you call the `ExecuteStatement` operation, you can choose to have the query results returned as a string in JSON format. That way, you can use your programming language's JSON parsing capabilities to interpret and reformat the result set. Doing so can help to avoid writing extra code to loop through the result set and interpret each column value. 
 
@@ -66,12 +65,12 @@
 
  This example works with the following schema and sample data: 
 
-```
+```java
 create table test_simplified_json (a float);
 insert into test_simplified_json values(10.0);
 ```
 
-```
+```java
 public void JSON_result_set_demo() {
     var sql = "select * from test_simplified_json";
     var request = new ExecuteStatementRequest()
@@ -86,7 +85,7 @@ public void JSON_result_set_demo() {
 
  The value of the `formattedRecords` field from the preceding program is: 
 
-```
+```json
 [{"a":10.0}]
 ```
 
@@ -96,12 +95,12 @@ public void JSON_result_set_demo() {
 
  This example works with the following schema and sample data: 
 
-```
+```sql
 create table test_simplified_json (a int);
 insert into test_simplified_json values(17);
 ```
 
-```
+```java
 public void JSON_deserialization_demo() {
     var sql = "select * from test_simplified_json";
     var request = new ExecuteStatementRequest()
@@ -125,7 +124,7 @@ public void JSON_deserialization_demo() {
 
  The value of the `formattedRecords` field from the preceding program is: 
 
-```
+```json
 [{"a":17}]
 ```
 
@@ -133,7 +132,7 @@ public void JSON_deserialization_demo() {
 
  In contrast, the following Java example shows the kind of code that's required to construct a data structure holding the result set when you don't use the JSON format. In this case, each row of the result set contains fields with information about a single user. Building a data structure to represent the result set requires looping through the rows. For each row, the code retrieves the value of each field, performs an appropriate type conversion, and assigns the result to the corresponding field in the object representing the row. Then the code adds the object representing each user to the data structure representing the entire result set. If the query was changed to reorder, add, or remove fields in the result set, the application code would have to change also. 
 
-```
+```java
 /* Verbose result-parsing code that doesn't use the JSON result set format */
 for (var row: response.getRecords()) {
     var user = User.builder()
@@ -152,43 +151,43 @@ for (var row: response.getRecords()) {
 
  This example works with the following schema and sample data: 
 
-```
+```sql
 create table sample_names (id int, name varchar(128));
 insert into sample_names values (0, "Jane"), (1, "Mohan"), (2, "Maria"), (3, "Bruce"), (4, "Jasmine");
 ```
 
-```
+```json
 [{"id":0,"name":"Jane"},{"id":1,"name":"Mohan"},
 {"id":2,"name":"Maria"},{"id":3,"name":"Bruce"},{"id":4,"name":"Jasmine"}]
 ```
 
  If a column in the result set is defined as an expression, the text of the expression becomes the JSON key. Thus, it's typically convenient to define a descriptive column alias for each expression in the select list of the query. For example, the following query includes expressions such as function calls and arithmetic operations in its select list. 
 
-```
+```sql
 select count(*), max(id), 4+7 from sample_names;
 ```
 
  Those expressions are passed through to the JSON result set as keys. 
 
-```
+```json
 [{"count(*)":5,"max(id)":4,"4+7":11}]
 ```
 
  Adding `AS` columns with descriptive labels makes the keys simpler to interpret in the JSON result set. 
 
-```
+```sql
 select count(*) as rows, max(id) as largest_id, 4+7 as addition_result from sample_names;
 ```
 
  With the revised SQL query, the column labels defined by the `AS` clauses are used as the key names. 
 
-```
+```json
 [{"rows":5,"largest_id":4,"addition_result":11}]
 ```
 
  The value for each key-value pair in the JSON string can be a quoted string. The string might contain unicode characters. If the string contains escape sequences or the `"` or `\` characters, those characters are preceded by backslash escape characters. The following examples of JSON strings demonstrate these possibilities. For example, the `string_with_escape_sequences` result contains the special characters backspace, newline, carriage return, tab, form feed, and `\`. 
 
-```
+```json
 [{"quoted_string":"hello"}]
 [{"unicode_string":"邓不利多"}]
 [{"string_with_escape_sequences":"\b \n \r \t \f \\ '"}]
@@ -196,7 +195,7 @@ select count(*) as rows, max(id) as largest_id, 4+7 as addition_result from samp
 
  The value for each key-value pair in the JSON string can also represent a number. The number might be an integer, a floating-point value, a negative value, or a value represented as exponential notation. The following examples of JSON strings demonstrate these possibilities. 
 
-```
+```json
 [{"integer_value":17}]
 [{"float_value":10.0}]
 [{"negative_value":-9223372036854775808,"positive_value":9223372036854775807}]
@@ -205,20 +204,20 @@ select count(*) as rows, max(id) as largest_id, 4+7 as addition_result from samp
 
  Boolean and null values are represented with the unquoted special keywords `true`, `false`, and `null`. The following examples of JSON strings demonstrate these possibilities. 
 
-```
+```json
 [{"boolean_value_1":true,"boolean_value_2":false}]
 [{"unknown_value":null}]
 ```
 
  If you select a value of a BLOB type, the result is represented in the JSON string as a base64-encoded value. To convert the value back to its original representation, you can use the appropriate decoding function in your application's language. For example, in Java you call the function `Base64.getDecoder().decode()`. The following sample output shows the result of selecting a BLOB value of `hello world` and returning the result set as a JSON string. 
 
-```
+```java
 [{"blob_column":"aGVsbG8gd29ybGQ="}]
 ```
 
  The following Python example shows how to access the values from the result of a call to the Python `execute_statement` function. The result set is a string value in the field `response['formattedRecords']`. The code turns the JSON string into a data structure by calling the `json.loads` function. Then each row of the result set is a list element within the data structure, and within each row you can refer to each field of the result set by name. 
 
-```
+```python
 import json
 
 result = json.loads(response['formattedRecords'])
@@ -227,7 +226,7 @@ print (result[0]["id"])
 
  The following JavaScript example shows how to access the values from the result of a call to the JavaScript `executeStatement` function. The result set is a string value in the field `response.formattedRecords`. The code turns the JSON string into a data structure by calling the `JSON.parse` function. Then each row of the result set is an array element within the data structure, and within each row you can refer to each field of the result set by name. 
 
-```
+```javascript
 <script>
     const result = JSON.parse(response.formattedRecords);
     document.getElementById("display").innerHTML = result[0].id;

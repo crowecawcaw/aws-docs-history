@@ -1,7 +1,6 @@
 
 
 # IAM policies reference
-<a name="aurora-analytics-iam-policies-reference"></a>
 
 Aurora PostgreSQL requires IAM permissions to access your Iceberg and Parquet data in Amazon S3 and, optionally, AWS Glue Data Catalog or Amazon S3 Tables. The specific permissions depend on your data format and how the data is registered. This section presents examples of typical IAM policies for Aurora PostgreSQL.
 
@@ -30,10 +29,11 @@ The following table summarizes the permissions that Aurora PostgreSQL requires f
 | Apache Iceberg, Amazon S3 Tables by table ARN | Amazon S3 Tables | s3tables:GetTable, s3tables:GetTableBucket, s3tables:GetTableData, s3tables:GetNamespace | Table bucket, table | 
 | Any of the preceding, with SSE-KMS encryption | \+ AWS KMS | kms:Decrypt | KMS key | 
 
-Three points affect how much you need to grant:
+The following points affect how much you need to grant:
 + `s3:ListBucket` is required only when Aurora PostgreSQL must discover files. A location that names an exact object key needs no listing. Iceberg tables need no listing either, because Iceberg manifests carry the exact key of every data file. Crawler-registered Parquet tables in AWS Glue store a folder path rather than a manifest, which means listing is required for those.
 + Amazon S3 Tables requires four `s3tables` actions, not one. Resolving a table is a multi-step operation in the Amazon S3 Tables service: the table bucket, the namespace, the table metadata, and the table data are each authorized separately. Granting only `s3tables:GetTableData` results in an access denied error naming `s3tables:GetTableBucket`.
 + Cross-account access requires permissions on both sides. The examples in this section are same-account. When another account owns the data, the resource policy in the data owner's account and the IAM policy in your account must both allow the action.
++ Lake Formation-governed tables still need Amazon S3 permissions. Aurora PostgreSQL currently reads the data with the role's own `s3:GetObject` permission, because Lake Formation doesn't provide temporary credentials to Aurora PostgreSQL. A Lake Formation `SELECT` grant alone isn't enough. For more information, see [Lake Formation access control](aurora-analytics-limitations.md#aurora-analytics-limitations-access-control).
 
 ## Example policies
 <a name="aurora-analytics-iam-examples"></a>
@@ -45,7 +45,7 @@ These example policies use `amzn-s3-demo-bucket` as the bucket name, `amzn-s3-de
 
 The following example policy grants permission to read Parquet files directly from an Amazon S3 bucket. AWS Glue Data Catalog isn't required for Parquet.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -91,7 +91,7 @@ Grants permission to read Parquet file contents. The resource ARNs are scoped to
 
 The following example policy grants permission to query Iceberg tables that are registered in AWS Glue Data Catalog.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -139,7 +139,7 @@ Amazon S3 Tables supports two access paths, and each requires a different set of
 
 The following example policy grants permission to query an Amazon S3 Tables table through an AWS Glue ARN under the `s3tablescatalog` federated catalog, such as `arn:aws:glue:us-east-1:111122223333:table/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace/orders`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -176,7 +176,7 @@ The following example policy grants permission to query an Amazon S3 Tables tabl
 
 The following example policy grants permission to query an Amazon S3 Tables table by its table ARN, such as `arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket/table/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`. This access path doesn't involve AWS Glue, and no AWS Glue permissions are required.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -231,7 +231,7 @@ For cross-account access, you can grant `s3tables:GetTableBucket` and `s3tables:
 
 If your data is encrypted with server-side encryption using AWS KMS keys (SSE-KMS), add a statement like the following to the policy for your access path. Data that is encrypted with SSE-S3 doesn't require additional permissions.
 
-```
+```json
 {
     "Sid": "KMSDecrypt",
     "Effect": "Allow",
@@ -249,7 +249,7 @@ When another account owns your data, both accounts must allow the action. In the
 
 The following example bucket policy, in the data owner's account, grants the cluster role permission to read objects from the bucket.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -268,7 +268,7 @@ The following example bucket policy, in the data owner's account, grants the clu
 
 The following example identity-based policy, attached to the cluster role in your account, grants the same permission on the same resource.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -291,7 +291,7 @@ The same requirement applies to AWS Glue resources and AWS KMS keys that are own
 
 Whichever permissions policy you use, attach it to an IAM role whose trust policy allows Amazon RDS to assume the role on behalf of your Aurora DB cluster, as in the following example. The `aws:SourceAccount` and `aws:SourceArn` condition keys restrict the role so that it can be assumed only on behalf of your own cluster.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Upgrading the minor version or patch level of an Aurora MySQL DB cluster
-<a name="AuroraMySQL.Updates.Patching"></a>
 
  You can use the following methods to upgrade the minor version of a DB cluster or to patch a DB cluster: 
 + [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md) (for Aurora MySQL version 2, version 3, and version 8.4)

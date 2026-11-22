@@ -1,7 +1,7 @@
 
 
 # Replication with Amazon Aurora MySQL
-<a name="AuroraMySQL.Replication"></a><a name="replication"></a>
+<a name="replication"></a>
 
  The Aurora MySQL replication features are key to the high availability and performance of your cluster. Aurora makes it easy to create or resize clusters with up to 15 Aurora Replicas. 
 

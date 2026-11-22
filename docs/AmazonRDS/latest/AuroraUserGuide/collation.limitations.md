@@ -1,7 +1,6 @@
 
 
 # Collation limitations and behavior differences
-<a name="collation.limitations"></a>
 
 Babelfish uses the ICU library for collation support. PostgreSQL is built with a specific version of ICU and can match at most one version of a collation. Variations across versions are unavoidable, as are minor variations across time as languages evolve. In the following list you can find known limitations and behavior variations of Babelfish collations:
 + **Indexes and collation type dependency** – An index on a user-defined type that depends on the International Components for Unicode (ICU) collation library (the library used by Babelfish) isn't invalidated when the library version changes.

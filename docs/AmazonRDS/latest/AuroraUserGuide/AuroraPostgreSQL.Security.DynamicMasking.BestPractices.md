@@ -1,7 +1,6 @@
 
 
 # Best practices for secure pg\_columnmask implementation
-<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices"></a>
 
 The following section provides security best practices for implementing `pg_columnmask` in your Aurora PostgreSQL environment. Follow these recommendations to:
 + Establish a secure role-based access control architecture
@@ -19,7 +18,7 @@ Create dedicated roles that align with organizational functions rather than gran
 **Example of creating an organizational role hierarchy**  
 The following example creates an organizational role hierarchy with dedicated roles for different functions, then assigns individual users to the appropriate roles. In this example, organizational roles (analyst\_role, support\_role) are created first, then individual users are granted membership in these roles. This structure allows you to manage permissions at the role level rather than for each individual user.  
 
-```
+```sql
 -- Create organizational role hierarchy
 CREATE ROLE data_admin_role;
 CREATE ROLE security_admin_role;
@@ -41,7 +40,7 @@ GRANT support_role TO support_agent1, support_agent2;
 ```
 Implement the principle of least privilege by granting only the minimum permissions necessary for each role. Avoid granting broad permissions that an unauthorized user could leverage to perform inappropriate actions if they gain access to credentials.  
 
-```
+```sql
 -- Grant specific table permissions rather than schema-wide access
 GRANT SELECT ON sensitive_data.customers TO analyst_role;
 GRANT SELECT ON sensitive_data.transactions TO analyst_role;
@@ -61,7 +60,7 @@ Follow these three practices when developing masking functions:
 
 The following example demonstrates all three practices:
 
-```
+```sql
 -- Secure masking function combining early binding, schema qualification,
 -- and input validation
 CREATE OR REPLACE FUNCTION data_masking.secure_mask_phone(phone_number TEXT)
@@ -92,7 +91,7 @@ Open cursors retain the masking context from declaration. Only newly declared cu
 
 **Example of cursor retaining cleartext after concurrent role revocation**  
 
-```
+```sql
 -- Session 1 (data_analyst1):
 BEGIN;
 DECLARE customer_cursor CURSOR FOR SELECT id, name, email FROM customers;
@@ -132,7 +131,7 @@ Table triggers with pg\_columnmask
 Triggers are passed a transition table which contains the old and new version of the rows modified by the firing DML query. Depending upon when the trigger is fired, Aurora PostgreSQL populates the old and new rows. For example, a `BEFORE INSERT` trigger only has new versions of the rows and empty old versions because there is no old version to refer.  
 `pg_columnmask` does not mask transition tables inside triggers on tables. Triggers can use masked columns inside their body and it sees unmasked data. The trigger creator should make sure how the trigger gets executed for an user. The following example works correctly in this case.  
 
-```
+```sql
 -- Example for table trigger uses masked column in its definition
 -- Create a table and insert some rows
 CREATE TABLE public.credit_card_table (
@@ -214,7 +213,7 @@ COMMIT;
 ```
 A trigger can unintentionally disclose unmasked data to the current user if the trigger creator is not careful about the statements they use in the trigger body. For example using a `RAISE NOTICE ‘%’, masked_column;` prints the column to current user.  
 
-```
+```sql
 -- Example showing table trigger disclosing column value to current user
 CREATE OR REPLACE FUNCTION notice_trigger_func()
     RETURNS TRIGGER AS
@@ -266,7 +265,7 @@ UPDATE 1
 Triggers on views with pg\_columnmask (Instead of triggers)  
 You can create `INSTEAD OF` triggers only on views in PostgreSQL. They are used for running DML statements on views that are not updatable. Transit tables are always masked inside instead of trigger (IOT), because the view and the base tables used inside the view query could have different owners. In which case, base tables might have some masking policies applicable on the view owner and the view owner must always see masked data from base tables inside its triggers. This is different from triggers on tables because in that case the trigger creator and the data inside the tables are owned by the same user which is not the case here.  
 
-```
+```sql
 -- Create a view over credit card table
 CREATE OR REPLACE VIEW public.credit_card_view
     AS

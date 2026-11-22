@@ -1,7 +1,7 @@
 
 
 # Best practices with Amazon Aurora MySQL
-<a name="AuroraMySQL.BestPractices"></a><a name="best_practices"></a>
+<a name="best_practices"></a>
 
 This topic includes information on best practices and options for using or migrating data to an Amazon Aurora MySQL DB cluster. The information in this topic summarizes and reiterates some of the guidelines and procedures that you can find in [Managing an Amazon Aurora DB cluster](CHAP_Aurora.md).
 
@@ -38,7 +38,7 @@ This topic includes information on best practices and options for using or migra
 
 To determine which DB instance in an Aurora MySQL DB cluster a connection is connected to, check the `innodb_read_only` global variable, as shown in the following example.
 
-```
+```sql
 SHOW GLOBAL VARIABLES LIKE 'innodb_read_only'; 
 ```
 

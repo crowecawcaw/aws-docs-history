@@ -1,7 +1,6 @@
 
 
 # sending data
-<a name="ams-states.sending-data"></a>
 
 The `sending data` thread state indicates that a thread is reading and filtering rows for a query to determine the correct result set. The name is misleading because it implies the state is transferring data, not collecting and preparing data to be sent later.
 

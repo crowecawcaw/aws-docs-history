@@ -1,7 +1,6 @@
 
 
 # Creating a proxy endpoint
-<a name="rds-proxy-endpoints.CreatingEndpoint"></a>
 
 To create a proxy endpoint, follow these instructions:
 

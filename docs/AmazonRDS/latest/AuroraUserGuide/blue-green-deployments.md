@@ -1,7 +1,6 @@
 
 
 # Using Amazon Aurora Blue/Green Deployments for database updates
-<a name="blue-green-deployments"></a>
 
 A blue/green deployment copies a production database environment to a separate, synchronized staging environment. By using Amazon Aurora Blue/Green Deployments, you can make changes to the database in the staging environment without affecting the production environment. For example, you can upgrade the major or minor DB engine version or change database parameters in the staging environment. When you're ready, you can promote the staging environment to be the new production database environment, with downtime typically under one minute.
 

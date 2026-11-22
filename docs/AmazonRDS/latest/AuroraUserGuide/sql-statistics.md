@@ -1,13 +1,12 @@
 
 
 # SQL statistics for Performance Insights
-<a name="sql-statistics"></a>
 
 *SQL statistics* are performance-related metrics about SQL queries. These detailed per-query metrics are exposed through the Performance Insights API, which gathers statistics for each second that a query is running and for each SQL call. The SQL statistics are an average for the selected time range.
 
 A SQL digest is a composite of all queries having a given pattern but not necessarily having the same literal values. The digest replaces literal values with a question mark. For example, `SELECT * FROM emp WHERE lname= ?`. This digest might consist of the following child queries:
 
-```
+```sql
 SELECT * FROM emp WHERE lname = 'Sanchez'
 SELECT * FROM emp WHERE lname = 'Olagappan'
 SELECT * FROM emp WHERE lname = 'Wu'

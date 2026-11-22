@@ -1,7 +1,6 @@
 
 
 # AWS Lambda function and parameter reference
-<a name="PostgreSQL-Lambda-functions"></a>
 
 Following is the reference for the functions and parameters to use for invoking Lambda with Aurora PostgreSQL .
 

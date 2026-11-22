@@ -1,7 +1,6 @@
 
 
 # Managing collations
-<a name="collation.managing"></a>
 
 The ICU library provides collation version tracking to ensure that indexes that depend on collations can be reindexed when a new version of ICU becomes available. To see if your current database has collations that need refreshing, you can use the following query after connecting using `psql` or or `pgAdmin`:
 

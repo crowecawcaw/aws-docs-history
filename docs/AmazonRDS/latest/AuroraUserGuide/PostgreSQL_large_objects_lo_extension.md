@@ -1,7 +1,6 @@
 
 
 # Managing large objects with the lo module
-<a name="PostgreSQL_large_objects_lo_extension"></a>
 
 The lo module (extension) is for database users and developers working with PostgreSQL databases through JDBC or ODBC drivers. Both JDBC and ODBC expect the database to handle deletion of large objects when references to them change. However, PostgreSQL doesn't work that way. PostgreSQL doesn't assume that an object should be deleted when its reference changes. The result is that objects remain on disk, unreferenced. The lo extension includes a function that you use to trigger on reference changes to delete objects if needed.
 

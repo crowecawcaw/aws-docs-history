@@ -1,7 +1,7 @@
 
 
 # Rebooting an Aurora cluster with read availability
-<a name="aurora-mysql-survivable-replicas"></a><a name="survivable_replicas"></a>
+<a name="survivable_replicas"></a>
 
 With the read availability feature, you can reboot the writer instance of your Aurora cluster without rebooting the reader instances in the primary or secondary DB cluster. Doing so can help maintain high availability of the cluster for read operations while you reboot the writer instance. You can reboot the reader instances later, on a schedule that's convenient for you. For example, in a production cluster you might reboot the reader instances one at a time, starting only after the reboot of the primary instance is finished. For each DB instance that you reboot, follow the procedure in [Rebooting a DB instance within an Aurora cluster](aurora-reboot-db-instance.md).
 

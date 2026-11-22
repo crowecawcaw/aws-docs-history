@@ -1,7 +1,6 @@
 
 
 # Configuring masking policy management role
-<a name="AuroraPostgreSQL.Security.DynamicMasking.PolicyManagementRole"></a>
 
 The PostgreSQL column masking extension, `pg_columnmask`, allows you to delegate the management of masking policies to a specific role, rather than requiring `rds_superuser` or table owner privileges. This provides more granular control over who can create, alter, and drop masking policies.
 
@@ -9,13 +8,13 @@ To configure the role that will have masking policy management privileges, follo
 
 1. Create the policy admin role – As an `rds_superuser`, create a new role responsible for managing masking policies:
 
-   ```
+   ```sql
    CREATE ROLE mask_admin NOLOGIN;
    ```
 
 1. Configure the PostgreSQL parameter – In your custom DB cluster parameter group, set the `pgcolumnmask.policy_admin_rolname` engine configuration parameter to the name of the role you created:
 
-   ```
+   ```sql
    pgcolumnmask.policy_admin_rolname = mask_admin
    ```
 
@@ -23,7 +22,7 @@ To configure the role that will have masking policy management privileges, follo
 
 1. Grant the role to users As an `rds_superuser`, grant the `mask_admin` role to the users who should be able to manage masking policies:
 
-   ```
+   ```sql
    CREATE USER alice LOGIN;
    CREATE USER bob LOGIN;
    GRANT mask_admin TO alice, bob;
@@ -31,7 +30,7 @@ To configure the role that will have masking policy management privileges, follo
 
    Additionally, ensure that the users have USAGE privilege on the schemas where they will be managing masking policies:
 
-   ```
+   ```sql
    GRANT USAGE ON SCHEMA hr TO alice, bob;
    ```
 

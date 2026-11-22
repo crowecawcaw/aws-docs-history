@@ -1,7 +1,6 @@
 
 
 # Resetting parameters in a DB parameter group to their default values in Amazon Aurora
-<a name="USER_WorkingWithParamGroups.Resetting"></a>
 
 You can reset parameter values in a customer-created DB parameter group to their default values. Changes to parameters in a customer-created DB parameter group are applied to all DB instances that are associated with the DB parameter group.
 

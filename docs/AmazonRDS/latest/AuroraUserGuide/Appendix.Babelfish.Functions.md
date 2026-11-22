@@ -1,7 +1,6 @@
 
 
 # Working with Babelfish for Aurora PostgreSQL procedures
-<a name="Appendix.Babelfish.Functions"></a>
 
 ## Overview
 <a name="Appendix.Babelfish.Functions.Overview"></a>

@@ -1,7 +1,6 @@
 
 
 # Overview of parameter groups
-<a name="parameter-groups-overview"></a>
 
 A *DB cluster parameter group* acts as a container for engine configuration values that apply to every DB instance in an Aurora DB cluster. For example, the Aurora shared storage model requires that every DB instance in an Aurora cluster use the same setting for parameters such as `innodb_file_per_table`. Thus, parameters that affect the physical storage layout are part of the cluster parameter group. The DB cluster parameter group also includes default values for all instance-level parameters.
 
@@ -72,7 +71,7 @@ Before you create a DB cluster, set any parameters that relate to the character 
 
 For some DB engines, you can change character set or collation values for an existing database using the `ALTER DATABASE` command, for example:
 
-```
+```sql
 ALTER DATABASE {{database_name}} CHARACTER SET {{character_set_name}} COLLATE {{collation}};
 ```
 

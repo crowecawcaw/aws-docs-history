@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora endpoint connections
-<a name="Aurora.Overview.Endpoints"></a>
 
 Amazon Aurora typically involves a cluster of DB instances instead of a single instance. Each connection is handled by a specific DB instance. When you connect to an Aurora cluster, the host name and port that you specify point to an intermediate handler called an *endpoint*. Aurora uses the endpoint mechanism to abstract these connections. Thus, you don't have to hardcode all the hostnames or write your own logic for balancing and rerouting connections when some DB instances aren't available.
 

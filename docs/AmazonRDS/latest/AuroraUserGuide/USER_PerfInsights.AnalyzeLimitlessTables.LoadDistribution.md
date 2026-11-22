@@ -1,7 +1,6 @@
 
 
 # Analyzing load distribution for Aurora PostgreSQL Limitless Database using the Performance Insights dashboard
-<a name="USER_PerfInsights.AnalyzeLimitlessTables.LoadDistribution"></a>
 
 You might want to balance the load distribution for instances on your Aurora PostgreSQL Limitless Database. To analyze load distribution of the instances on an Aurora PostgreSQL Limitless Database, use the following procedure.
 

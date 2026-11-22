@@ -1,7 +1,6 @@
 
 
 # Working with foreign tables
-<a name="aurora-analytics-foreign-tables"></a>
 
 Foreign tables give your Aurora PostgreSQL database read-only access to Apache Parquet and Apache Iceberg data stored in Amazon S3, without copying it into Aurora. You query a foreign table with standard SQL, on its own or joined with your local PostgreSQL tables, and the data stays in place in Amazon S3.
 
@@ -34,7 +33,7 @@ Aurora PostgreSQL supports the following open data formats for foreign tables.
 
 The following is the syntax for creating a foreign table:
 
-```
+```SQL
 CREATE FOREIGN TABLE [ IF NOT EXISTS ] [schema_name.]table_name ( [
     column_name data_type [, ... ]
 ] )
@@ -71,7 +70,7 @@ Required. The Amazon S3 URI, AWS Glue ARN, or Amazon S3 Tables ARN pointing to y
 + Amazon S3 Tables ARN: `arn:aws:s3tables:region:account:bucket/bucket-name/table/table-id`.
 + AWS Glue ARN (standard): `arn:aws:glue:region:account:table/database/table`.
 + AWS Glue ARN (Amazon S3 Tables): `arn:aws:glue:region:account:table/s3tablescatalog/bucket/namespace/table`.
-+ AWS Glue ARN (federated catalog): `arn:aws:glue:region:account:table/catalog/database/table`.  
++ An example AWS Glue ARN for a federated catalog is `arn:aws:glue:us-east-1:111122223333:table/catalog/database/table`. Federated catalogs are supported only for single-level Iceberg REST Catalog (IRC)-compatible catalogs, such as Snowflake Horizon and Databricks Unity Catalog. The underlying data must be Iceberg data in Amazon S3. Amazon Redshift federated catalogs are not supported. For more information about Amazon Redshift federated catalog limitations, see [Limitations](aurora-analytics-limitations.md).  
 `format`  
 The data format: `'parquet'` or `'iceberg'`.  
 + For an Amazon S3 URI, this option is required. Aurora PostgreSQL doesn't infer the format from the file extension or from the files at the location.
@@ -88,7 +87,7 @@ Optional. (Iceberg only) Query the Iceberg table as of a specific point in time.
 
 The following example creates a foreign table with explicit column definitions for your data stored in Parquet files in Amazon S3:
 
-```
+```SQL
 CREATE FOREIGN TABLE ft_orders (
     order_id INT,
     customer_id INT,
@@ -108,7 +107,7 @@ OPTIONS (
 
 To query the table:
 
-```
+```SQL
 SELECT COUNT(*) FROM ft_orders;
 ```
 
@@ -117,7 +116,7 @@ SELECT COUNT(*) FROM ft_orders;
 
 The following example creates a foreign table that uses schema auto-inference for an Iceberg table registered in the AWS Glue Data Catalog:
 
-```
+```SQL
 CREATE FOREIGN TABLE ft_orders ()
 SERVER aurora_analytics_server
 OPTIONS (
@@ -132,7 +131,7 @@ When you use an AWS Glue ARN or Amazon S3 Tables ARN for the `location`, you can
 
 To query the table:
 
-```
+```SQL
 SELECT COUNT(*) FROM ft_orders;
 ```
 
@@ -141,7 +140,7 @@ SELECT COUNT(*) FROM ft_orders;
 
 To query a specific point-in-time snapshot of an Iceberg table, specify the snapshot version you want to query with the `snapshot` option:
 
-```
+```SQL
 CREATE FOREIGN TABLE ft_orders_snapshot ()
 SERVER aurora_analytics_server
 OPTIONS (
@@ -157,7 +156,7 @@ Replace {{my\_database}} and {{orders}} with the names of your AWS Glue database
 
 To query an Iceberg table as of a specific point in time, specify the `timestamp` option:
 
-```
+```SQL
 CREATE FOREIGN TABLE ft_orders_timetravel ()
 SERVER aurora_analytics_server
 OPTIONS (
@@ -178,7 +177,7 @@ You can't set both `snapshot` and `timestamp` on the same foreign table. Use one
 
 To register multiple tables at once from an AWS Glue database or Amazon S3 Tables namespace, use `IMPORT FOREIGN SCHEMA`:
 
-```
+```SQL
 IMPORT FOREIGN SCHEMA remote_schema
     [ { LIMIT TO | EXCEPT } ( table_name [, ... ] ) ]
     FROM SERVER aurora_analytics_server
@@ -194,7 +193,7 @@ Only catalog-based sources (AWS Glue, Amazon S3 Tables) are supported. Raw Amazo
 
 To import all tables from an AWS Glue database:
 
-```
+```SQL
 IMPORT FOREIGN SCHEMA my_analytics_db
     FROM SERVER aurora_analytics_server
     INTO analytics
@@ -203,7 +202,7 @@ IMPORT FOREIGN SCHEMA my_analytics_db
 
 To import all tables from an Amazon S3 Tables namespace:
 
-```
+```SQL
 IMPORT FOREIGN SCHEMA my_namespace
     FROM SERVER aurora_analytics_server
     INTO sales_data
@@ -212,7 +211,7 @@ IMPORT FOREIGN SCHEMA my_namespace
 
 To import only specific tables:
 
-```
+```SQL
 IMPORT FOREIGN SCHEMA my_analytics_db
     LIMIT TO (orders, customers, products)
     FROM SERVER aurora_analytics_server
@@ -222,7 +221,7 @@ IMPORT FOREIGN SCHEMA my_analytics_db
 
 To exclude specific tables:
 
-```
+```SQL
 IMPORT FOREIGN SCHEMA my_analytics_db
     EXCEPT (staging_temp, debug_logs)
     FROM SERVER aurora_analytics_server
@@ -291,7 +290,7 @@ Foreign tables follow standard PostgreSQL permission controls. Use `GRANT` and `
 ### Querying foreign tables
 <a name="aurora-analytics-foreign-tables-permissions-query"></a>
 
-```
+```SQL
 -- Grant SELECT on a specific foreign table
 GRANT SELECT ON TABLE ft_orders TO analyst_role;
 
@@ -306,7 +305,7 @@ To execute `CREATE FOREIGN TABLE`, a user needs both:
 + `CREATE` privilege on the target schema
 + `USAGE` privilege on the foreign server (`aurora_analytics_server`)
 
-```
+```SQL
 -- Allow a role to create foreign tables
 GRANT CREATE ON SCHEMA analytics TO data_engineer_role;
 GRANT USAGE ON FOREIGN SERVER aurora_analytics_server TO data_engineer_role;
@@ -317,7 +316,7 @@ GRANT USAGE ON FOREIGN SERVER aurora_analytics_server TO data_engineer_role;
 
 Only the table owner can execute `ALTER FOREIGN TABLE` or `DROP FOREIGN TABLE`. However, changing any option requires `USAGE` privilege on `aurora_analytics_server`, because pointing a foreign table at a new data source is functionally equivalent to creating a new one.
 
-```
+```SQL
 -- Table owner with USAGE on server — can change location
 ALTER FOREIGN TABLE ft_orders OPTIONS (SET location 's3://new-bucket/orders/');
 
@@ -328,8 +327,42 @@ ALTER FOREIGN TABLE ft_orders ADD COLUMN new_col TEXT;
 
 To transfer ownership:
 
-```
+```SQL
 ALTER FOREIGN TABLE ft_orders OWNER TO new_owner_role;
 ```
+
+### Restricting access to columns and rows
+<a name="aurora-analytics-foreign-tables-permissions-restrict"></a>
+
+Because AWS Lake Formation data filters aren't supported (see [Lake Formation access control](aurora-analytics-limitations.md#aurora-analytics-limitations-access-control)), use PostgreSQL privileges to limit which columns and rows a database role can query.
+
+To limit columns, grant `SELECT` on specific columns of the foreign table:
+
+```SQL
+GRANT SELECT ({{customer_id}}, {{name}}, {{created_at}}) ON {{ft_customers}} TO {{analyst_role}};
+```
+
+Replace {{ft\_customers}} with the name of your foreign table, the column names with the columns that the role can query, and {{analyst\_role}} with the name of the database role.
+
+With column-level privileges, queries must name the granted columns. `SELECT *` returns a `permission denied` error.
+
+To limit columns and rows, create a view with the permitted columns and a `WHERE` clause, and grant `SELECT` on the view instead of the foreign table:
+
+```SQL
+CREATE VIEW {{customers_us}} AS
+    SELECT {{customer_id}}, {{name}}, {{created_at}}
+    FROM {{ft_customers}}
+    WHERE {{region = 'US'}};
+
+REVOKE ALL ON {{ft_customers}} FROM PUBLIC;
+GRANT SELECT ON {{customers_us}} TO {{analyst_role}};
+```
+
+Replace {{customers\_us}} with a name for the view, the column names and {{region = 'US'}} with the columns and rows that the role can query, {{ft\_customers}} with the name of your foreign table, and {{analyst\_role}} with the name of the database role.
+
+PostgreSQL row-level security policies (`ALTER TABLE ... ENABLE ROW LEVEL SECURITY`) can't be used on foreign tables, and the `security_barrier` view option has no effect on them. For more information, see [Query execution](aurora-analytics-limitations.md#aurora-analytics-limitations-query-execution).
+
+**Important**  
+With this approach, the AWS Identity and Access Management (IAM) role that Aurora PostgreSQL uses to read your data can still read the full table in Amazon S3. PostgreSQL privileges are the only access boundary. A database role with `USAGE` on `aurora_analytics_server` can create its own foreign table on the same location and read all columns and rows. Make sure that database roles that must not see restricted data don't own the foreign table, don't have `USAGE` on `aurora_analytics_server`, and aren't members of `rds_superuser`.
 
 For more information about PostgreSQL privilege management, see [GRANT](https://www.postgresql.org/docs/current/sql-grant.html) in the PostgreSQL documentation.

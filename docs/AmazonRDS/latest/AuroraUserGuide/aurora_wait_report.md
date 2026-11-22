@@ -1,7 +1,6 @@
 
 
 # aurora\_wait\_report
-<a name="aurora_wait_report"></a>
 
 This function shows wait event activity over a period of time. 
 

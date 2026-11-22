@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="aurora-analytics-prerequisites"></a>
 
 Your Aurora PostgreSQL DB cluster can read Iceberg and Parquet data from Amazon S3, Amazon S3 Tables, and the AWS Glue Data Catalog on your behalf. Before you query that data, the cluster needs three things: a way to authenticate to those services, an engine version that includes the `aurora_analytics` extension, and a network path from your VPC to reach them. The following sections walk you through creating an IAM policy and role that grant read access to the specific data you plan to query, attaching that role to your DB cluster, enabling the extension in your DB cluster parameter group, and configuring the network path your cluster uses to reach Amazon S3 and AWS Glue. You can complete these steps on any existing Aurora PostgreSQL DB cluster that meets the version requirement.
 
@@ -52,7 +51,7 @@ The minimum privileges depend on how you reference the data: the data format (Pa
 If your data is encrypted with SSE-KMS, add `kms:Decrypt` on the KMS key.
 
 **Note**  
-Additional privileges are required for `IMPORT FOREIGN SCHEMA` (`glue:GetTables` or `s3tables:ListTables`), cross-account access, resource-policy-based access, and Lake Formation-governed tables.
+Additional privileges are required for `IMPORT FOREIGN SCHEMA` (`glue:GetTables` or `s3tables:ListTables`), cross-account access, resource-policy-based access, and Lake Formation-governed tables. For Lake Formation-governed tables, the IAM role also needs Amazon S3 permissions on the data, because Lake Formation doesn't currently provide temporary credentials to Aurora PostgreSQL. Lake Formation fine-grained access control (column-level, row-level, and cell-level security) isn't supported. For more information, see [Lake Formation access control](aurora-analytics-limitations.md#aurora-analytics-limitations-access-control).
 
 For detailed policy examples, see [IAM policies reference](aurora-analytics-iam-policies-reference.md). For more information about creating IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
@@ -87,7 +86,7 @@ Create an IAM role that Aurora can assume to access your Amazon S3 data on behal
 
 1. Create a role named `AuroraAnalyticsRole`:
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name AuroraAnalyticsRole \
      --assume-role-policy-document '{
@@ -106,7 +105,7 @@ Create an IAM role that Aurora can assume to access your Amazon S3 data on behal
 
 1. Attach the policy to the role:
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name AuroraAnalyticsRole \
      --policy-arn arn:aws:iam::111122223333:policy/AuroraAnalyticsReadAccess
@@ -134,7 +133,7 @@ After you create the DB cluster, associate the IAM role that you created for the
 **To attach the IAM role using the AWS CLI**
 + Run the following command.
 
-  ```
+  ```bash
   aws rds add-role-to-db-cluster \
     --region us-east-1 \
     --db-cluster-identifier my-analytics-cluster \
@@ -184,7 +183,7 @@ The `aurora_analytics.enabled` parameter is set to `false` by default. After you
 **To enable the feature using the AWS CLI**
 + Run the following command.
 
-  ```
+  ```bash
   aws rds modify-db-cluster-parameter-group \
     --db-cluster-parameter-group-name my-analytics-params \
     --parameters "ParameterName=aurora_analytics.enabled,ParameterValue=true,ApplyMethod=immediate"

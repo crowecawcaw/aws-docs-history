@@ -1,7 +1,6 @@
 
 
 # Disabling GTID-based replication for an Aurora MySQL DB cluster
-<a name="mysql-replication-gtid.disabling"></a>
 
 You can disable GTID-based replication for an Aurora MySQL DB cluster. Doing so means that the Aurora cluster can't perform inbound or outbound binlog replication with external databases that use GTID-based replication. 
 
@@ -16,13 +15,13 @@ For more details about the stored procedures mentioned in this section, see [Aur
 
    For version 3
 
-   ```
+   ```sql
    CALL mysql.rds_set_source_auto_position(0);
    ```
 
    For version 2
 
-   ```
+   ```sql
    CALL mysql.rds_set_master_auto_position(0);
    ```
 
@@ -59,13 +58,13 @@ For more details about the stored procedures mentioned in this section, see [Aur
 
       For version 3
 
-      ```
+      ```sql
       SELECT SOURCE_POS_WAIT('{{file}}', {{position}});
       ```
 
       For version 2
 
-      ```
+      ```sql
       SELECT MASTER_POS_WAIT('{{file}}', {{position}});
       ```
 
@@ -73,13 +72,13 @@ For more details about the stored procedures mentioned in this section, see [Aur
 
       For version 3
 
-      ```
+      ```sql
       SELECT SOURCE_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
 
       For version 2
 
-      ```
+      ```sql
       SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
       ```
 

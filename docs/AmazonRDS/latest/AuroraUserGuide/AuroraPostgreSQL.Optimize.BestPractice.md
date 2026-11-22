@@ -1,7 +1,6 @@
 
 
 # Best practices for Aurora PostgreSQL query plan management
-<a name="AuroraPostgreSQL.Optimize.BestPractice"></a>
 
 Query plan management lets you control how and when query execution plans change. As a DBA, your main goals when using QPM include preventing regressions when there are changes to your database, and controlling whether to allow the optimizer to use a new plan. In the following, you can find some recommended best practices for using query plan management. Proactive and reactive plan management approaches differ in how and when new plans get approved for use. 
 

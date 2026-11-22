@@ -1,7 +1,6 @@
 
 
 # Performance and scaling for Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Managing"></a>
 
 The following section discusses managing performance and scaling for an Amazon Aurora PostgreSQL DB cluster. It also includes information about other maintenance tasks.
 
@@ -60,82 +59,90 @@ If your applications frequently open and close connections, or keep a large numb
 
 Aurora PostgreSQL stores tables and indexes in the Aurora storage subsystem. Aurora PostgreSQL uses separate temporary storage for non-persistent temporary files. This includes files that are used for such purposes as sorting large data sets during query processing or for index build operations. For more information, see the article [How can I troubleshoot local storage issues in Aurora PostgreSQL-Compatible instances?](https://repost.aws/knowledge-center/postgresql-aurora-storage-issue).
 
+The data and temporary files on these volumes are lost when starting and stopping the DB instance, and during host replacement.
+
+Operations that rebuild indexes can also use temporary storage. For example, `VACUUM FULL` and the `pg_repack` extension write a new copy of the table to the Aurora storage subsystem and then rebuild every index on the table. Each index build sorts the index data. If the sort doesn't fit in `maintenance_work_mem`, the sort writes temporary files to local storage. The sort also writes temporary files if PostgreSQL builds the index with parallel workers.
+
+Before you run these operations on a large table, use the `FreeLocalStorage` metric to check that the DB instance has enough free local storage for the index builds.
+
 These local storage volumes are backed by Amazon Elastic Block Store and can be extended by using a larger DB instance class. For more information about storage, see [Amazon Aurora storage](Aurora.Overview.StorageReliability.md). You can also increase your local storage for temporary objects by using an NVMe enabled instance type and Aurora Optimized Reads-enabled temporary objects. For more information, see [Improving query performance for Aurora PostgreSQL with Aurora Optimized Reads](AuroraPostgreSQL.optimized.reads.md).
 
 **Note**  
 You might see `storage-optimization` events when scaling DB instances, for example, from db.r5.2xlarge to db.r5.4xlarge. 
 
-The following table shows the maximum amount of temporary storage available for each Aurora PostgreSQL DB instance class. For more information on DB instance class support for Aurora, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md).
+Aurora PostgreSQL uses separate permanent storage for PostgreSQL log files for most of the Aurora PostgreSQL DB instance classes (not including burstable-performance instance class types such as db.t3 and db.t4g). The data on this volume is retained when starting and stopping the DB instance, and during host replacement. This permanent storage volume is also backed by Amazon EBS and has a fixed size that depends on the DB instance class, as shown in the following table.
+
+The following table shows the maximum amount of temporary and permanent storage available for each Aurora PostgreSQL DB instance class. For more information on DB instance class support for Aurora, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md).
 
 
-| DB instance class | Maximum temporary storage available (GiB) | 
-| --- | --- | 
-| db.x2g.16xlarge | 1829 | 
-| db.x2g.12xlarge | 1606 | 
-| db.x2g.8xlarge | 1071 | 
-| db.x2g.4xlarge | 535 | 
-| db.x2g.2xlarge | 268 | 
-| db.x2g.xlarge | 134 | 
-| db.x2g.large | 67 | 
-| db.r8g.48xlarge | 3072 | 
-| db.r8g.24xlarge | 1536 | 
-| db.r8g.16xlarge | 998 | 
-| db.r8g.12xlarge | 749 | 
-| db.r8g.8xlarge | 499 | 
-| db.r8g.4xlarge | 250 | 
-| db.r8g.2xlarge | 125 | 
-| db.r8g.xlarge | 63 | 
-| db.r8g.large | 31 | 
-| db.r7g.16xlarge | 1008 | 
-| db.r7g.12xlarge | 756 | 
-| db.r7g.8xlarge | 504 | 
-| db.r7g.4xlarge | 252 | 
-| db.r7g.2xlarge | 126 | 
-| db.r7g.xlarge | 63 | 
-| db.r7g.large | 32 | 
-| db.r7i.48xlarge | 3072 | 
-| db.r7i.24xlarge | 1500 | 
-| db.r7i.16xlarge | 1008 | 
-| db.r7i.12xlarge | 748 | 
-| db.r7i.8xlarge | 504 | 
-| db.r7i.4xlarge | 249 | 
-| db.r7i.2xlarge | 124 | 
-| db.r7i.xlarge | 62 | 
-| db.r7i.large | 31 | 
-| db.r6g.16xlarge | 1008 | 
-| db.r6g.12xlarge | 756 | 
-| db.r6g.8xlarge | 504 | 
-| db.r6g.4xlarge | 252 | 
-| db.r6g.2xlarge | 126 | 
-| db.r6g.xlarge | 63 | 
-| db.r6g.large | 32 | 
-| db.r6i.32xlarge | 1829 | 
-| db.r6i.24xlarge | 1500 | 
-| db.r6i.16xlarge | 1008 | 
-| db.r6i.12xlarge | 748 | 
-| db.r6i.8xlarge | 504 | 
-| db.r6i.4xlarge | 249 | 
-| db.r6i.2xlarge | 124 | 
-| db.r6i.xlarge | 62 | 
-| db.r6i.large | 31 | 
-| db.r5.24xlarge | 1500 | 
-| db.r5.16xlarge | 1008 | 
-| db.r5.12xlarge | 748 | 
-| db.r5.8xlarge | 504 | 
-| db.r5.4xlarge | 249 | 
-| db.r5.2xlarge | 124 | 
-| db.r5.xlarge | 62 | 
-| db.r5.large | 31 | 
-| db.r4.16xlarge | 960 | 
-| db.r4.8xlarge | 480 | 
-| db.r4.4xlarge | 240 | 
-| db.r4.2xlarge | 120 | 
-| db.r4.xlarge | 60 | 
-| db.r4.large | 30 | 
-| db.t4g.large | 16.5 | 
-| db.t4g.medium | 8.13 | 
-| db.t3.large | 16 | 
-| db.t3.medium | 7.5 | 
+| DB instance class | Maximum temporary/local storage available (GiB) | Additional maximum storage available for log files (GiB) | 
+| --- | --- | --- | 
+| db.x2g.16xlarge | 1829 | 500 | 
+| db.x2g.12xlarge | 1606 | 500 | 
+| db.x2g.8xlarge | 1071 | 500 | 
+| db.x2g.4xlarge | 535 | 500 | 
+| db.x2g.2xlarge | 268 | 60 | 
+| db.x2g.xlarge | 134 | 60 | 
+| db.x2g.large | 67 | 60 | 
+| db.r8g.48xlarge | 3072 | 500 | 
+| db.r8g.24xlarge | 1536 | 500 | 
+| db.r8g.16xlarge | 998 | 500 | 
+| db.r8g.12xlarge | 749 | 500 | 
+| db.r8g.8xlarge | 499 | 500 | 
+| db.r8g.4xlarge | 250 | 500 | 
+| db.r8g.2xlarge | 125 | 60 | 
+| db.r8g.xlarge | 63 | 60 | 
+| db.r8g.large | 31 | 60 | 
+| db.r7g.16xlarge | 1008 | 500 | 
+| db.r7g.12xlarge | 756 | 500 | 
+| db.r7g.8xlarge | 504 | 500 | 
+| db.r7g.4xlarge | 252 | 500 | 
+| db.r7g.2xlarge | 126 | 60 | 
+| db.r7g.xlarge | 63 | 60 | 
+| db.r7g.large | 32 | 60 | 
+| db.r7i.48xlarge | 3072 | 500 | 
+| db.r7i.24xlarge | 1500 | 500 | 
+| db.r7i.16xlarge | 1008 | 500 | 
+| db.r7i.12xlarge | 748 | 500 | 
+| db.r7i.8xlarge | 504 | 500 | 
+| db.r7i.4xlarge | 249 | 500 | 
+| db.r7i.2xlarge | 124 | 60 | 
+| db.r7i.xlarge | 62 | 60 | 
+| db.r7i.large | 31 | 60 | 
+| db.r6g.16xlarge | 1008 | 500 | 
+| db.r6g.12xlarge | 756 | 500 | 
+| db.r6g.8xlarge | 504 | 500 | 
+| db.r6g.4xlarge | 252 | 500 | 
+| db.r6g.2xlarge | 126 | 60 | 
+| db.r6g.xlarge | 63 | 60 | 
+| db.r6g.large | 32 | 60 | 
+| db.r6i.32xlarge | 1829 | 500 | 
+| db.r6i.24xlarge | 1500 | 500 | 
+| db.r6i.16xlarge | 1008 | 500 | 
+| db.r6i.12xlarge | 748 | 500 | 
+| db.r6i.8xlarge | 504 | 500 | 
+| db.r6i.4xlarge | 249 | 500 | 
+| db.r6i.2xlarge | 124 | 60 | 
+| db.r6i.xlarge | 62 | 60 | 
+| db.r6i.large | 31 | 60 | 
+| db.r5.24xlarge | 1500 | 500 | 
+| db.r5.16xlarge | 1008 | 500 | 
+| db.r5.12xlarge | 748 | 500 | 
+| db.r5.8xlarge | 504 | 500 | 
+| db.r5.4xlarge | 249 | 500 | 
+| db.r5.2xlarge | 124 | 60 | 
+| db.r5.xlarge | 62 | 60 | 
+| db.r5.large | 31 | 60 | 
+| db.r4.16xlarge | 960 | 500 | 
+| db.r4.8xlarge | 480 | 500 | 
+| db.r4.4xlarge | 240 | 500 | 
+| db.r4.2xlarge | 120 | 60 | 
+| db.r4.xlarge | 60 | 60 | 
+| db.r4.large | 30 | 60 | 
+| db.t4g.large | 16.5 | Not applicable | 
+| db.t4g.medium | 8.13 | Not applicable | 
+| db.t3.large | 16 | Not applicable | 
+| db.t3.medium | 7.5 | Not applicable | 
 
 **Note**  
 NVMe enabled instance types can increase the temporary space available by up to the total NVMe size. For more information, see [Improving query performance for Aurora PostgreSQL with Aurora Optimized Reads](AuroraPostgreSQL.optimized.reads.md).
@@ -143,6 +150,8 @@ NVMe enabled instance types can increase the temporary space available by up to 
 You can monitor the temporary storage available for a DB instance with the `FreeLocalStorage` CloudWatch metric, described in [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md). (This doesn't apply to Aurora serverless.)
 
 For some workloads, you can reduce the amount of temporary storage by allocating more memory to the processes that are performing the operation. To increase the memory available to an operation, increasing the values of the [work\_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM) or [maintenance\_work\_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) PostgreSQL parameters.
+
+The `FreeLocalStorage` metric doesn't include the permanent storage for log files on DB instance classes that store log files on a separate volume. For more information about how Aurora PostgreSQL manages storage for log files, see [Planning storage for Aurora database log files](USER_LogAccess.Aurora.LogStorage.md).
 
 ## Huge pages for Aurora PostgreSQL
 <a name="AuroraPostgreSQL.Managing.HugePages"></a>

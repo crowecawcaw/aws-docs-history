@@ -1,7 +1,6 @@
 
 
 # Diagnosing table and index bloat
-<a name="AuroraPostgreSQL.diag-table-ind-bloat"></a>
 
 You can use PostgreSQL Multiversion Concurrency Control (MVCC) to help preserve data integrity. PostgreSQL MVCC works by saving an internal copy of updated or deleted rows (also called *tuples*) until a transaction is either committed or rolled back. This saved internal copy is invisible to users. However, table bloat can occur when those invisible copies aren't cleaned up regularly by the VACUUM or AUTOVACUUM utilities. Unchecked, table bloat can incur increased storage costs and slow your processing speed. 
 

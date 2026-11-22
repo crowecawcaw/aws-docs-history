@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using Aurora PostgreSQL Limitless Database
-<a name="limitless-prereqs"></a>
 
 To use Aurora PostgreSQL Limitless Database, you must first perform the following tasks.
 
@@ -19,7 +18,7 @@ Before you can create a DB shard group, you must enable DB shard group operation
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon RDS events
-<a name="USER_ListEvents"></a>
 
 You can retrieve the following event information for your Amazon Aurora resources:
 + Resource name

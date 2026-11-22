@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL pg\_columnmask data movement scenarios
-<a name="AuroraPostgreSQL.Security.DynamicMasking.DataMovement"></a>
 
 `pg_columnmask` behavior varies across different data movement operations depending on whether the operation occurs at the storage, logical, or application layer. Storage-level operations (such as cloning) behave differently from logical operations (such as `pg_dump`) and application-level operations (such as FDW queries). This section describes masking behavior for common scenarios including replication, backups, exports, and migrations, and explains the security implications for each.
 

@@ -1,7 +1,6 @@
 
 
 # Babelfish architecture
-<a name="babelfish-architecture"></a>
 
 When you create an Aurora PostgreSQL cluster with Babelfish turned on, Aurora provisions the cluster with a PostgreSQL database named `babelfish_db`. This database is where all migrated SQL Server objects and structures reside. 
 

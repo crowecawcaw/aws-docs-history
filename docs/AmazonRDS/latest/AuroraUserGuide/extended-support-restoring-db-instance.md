@@ -1,7 +1,6 @@
 
 
 # Restoring an Aurora DB cluster or a global cluster with Amazon RDS Extended Support
-<a name="extended-support-restoring-db-instance"></a>
 
 When you restore an Aurora DB cluster or a global cluster, select **Enable RDS Extended Support** in the console, or use the Extended Support option in the AWS CLI or the parameter in the RDS API. When you enroll an Aurora DB cluster or a global cluster in RDS Extended Support, it is permanently enrolled in RDS Extended Support for the life of the Aurora DB cluster or global cluster. 
 

@@ -1,7 +1,6 @@
 
 
 # Aurora zero-ETL integrations
-<a name="zero-etl"></a>
 
 An Aurora zero-ETL integration with Amazon Redshift and Amazon SageMaker AI enables near real-time analytics and machine learning (ML) using data from Aurora. It's a fully managed solution for making transactional data available in your analytics destination after it is written to an Aurora DB cluster. *Extract, transform,* and *load* (ETL) is the process of combining data from multiple sources into a large, central data warehouse.
 

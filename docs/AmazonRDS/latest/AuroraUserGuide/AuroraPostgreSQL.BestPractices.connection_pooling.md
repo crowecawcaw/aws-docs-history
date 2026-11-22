@@ -1,7 +1,6 @@
 
 
 # Managing Aurora PostgreSQL connection churn with pooling
-<a name="AuroraPostgreSQL.BestPractices.connection_pooling"></a>
 
 When client applications connect and disconnect so often that Aurora PostgreSQL DB cluster response time slows, the cluster is said to be experiencing *connection churn*. Each new connection to the Aurora PostgreSQL DB cluster endpoint consumes resources, thus reducing the resources that can be used to process the actual workload. Connection churn is an issue that we recommend that you manage by following some of the best practices discussed following.
 

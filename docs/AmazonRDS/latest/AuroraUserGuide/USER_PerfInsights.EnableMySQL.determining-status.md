@@ -1,7 +1,6 @@
 
 
 # Determining whether Database Insights is managing the Performance Schema
-<a name="USER_PerfInsights.EnableMySQL.determining-status"></a>
 
 To find out whether Database Insights is currently managing the Performance Schema for all supported major engine versions, review the following table.
 

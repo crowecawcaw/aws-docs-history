@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora versioning
-<a name="Aurora.VersionPolicy.Versioning"></a>
 
 Amazon Aurora versions are different from the upstream community databases that they’re compatible with. To help you maintain application compatibility and leverage the latest DB engine features, the following sections explain Aurora versioning conventions and how Aurora versions map to their respective community databases.
 
@@ -19,7 +18,7 @@ The following examples show how to find the community version of your database f
 
 The `version` function returns the community version of your database for Aurora MySQL.
 
-```
+```SQL
 mysql> select version();
 ```
 
@@ -78,7 +77,7 @@ PostgreSQL 11.7 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.9.3, 64-bit
 
 And the `aurora_version` function returns the Aurora version:
 
-```
+```sql
 postgres=> select aurora_version();
 ```
 

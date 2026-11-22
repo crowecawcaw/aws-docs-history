@@ -1,7 +1,6 @@
 
 
 # Viewing temporary file usage with Performance Insights
-<a name="PostgreSQL.ManagingTempFiles.Example"></a>
 
 You can use Performance Insights to view temporary file usage by turning on the metrics **temp\_bytes** and **temp\_files**. The view in Performance Insights doesn't show the specific queries that generate temporary files, however, when you combine Performance Insights with the query shown for `pg_ls_tmpdir`, you can troubleshoot, analyze, and determine the changes in your query workload.
 

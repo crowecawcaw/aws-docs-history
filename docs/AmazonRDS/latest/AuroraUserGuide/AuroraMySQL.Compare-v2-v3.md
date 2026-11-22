@@ -1,7 +1,6 @@
 
 
 # Comparing Aurora MySQL version 2 and Aurora MySQL version 3
-<a name="AuroraMySQL.Compare-v2-v3"></a>
 
 Use the following to learn about changes to be aware of when you upgrade your Aurora MySQL version 2 cluster to version 3.
 

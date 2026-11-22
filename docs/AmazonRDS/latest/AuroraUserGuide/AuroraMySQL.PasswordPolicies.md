@@ -1,7 +1,6 @@
 
 
 # Password policies and Password validation in Aurora MySQL
-<a name="AuroraMySQL.PasswordPolicies"></a>
 
 **Topics**
 + [Password policies](#AuroraMySQL.PasswordPolicies.overview)
@@ -107,7 +106,7 @@ You will not be able to use the `INSTALL/UNINSTALL COMPONENT` commands for the `
 **Note**  
 Starting from Aurora MySQL version 8.4, the `validate_password` component is not listed in the `mysql.component` table. You can see the status of the component in your DB cluster parameter group or through the global variable `aurora_enable_validate_password_component`:  
 
-```
+```sql
 SELECT @@global.aurora_enable_validate_password_component;
 ```
 

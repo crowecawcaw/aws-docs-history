@@ -1,7 +1,7 @@
 
 
 # Using zero-downtime patching
-<a name="AuroraMySQL.Updates.ZDP"></a><a name="zdp"></a>
+<a name="zdp"></a>
 
 Performing upgrades for Aurora MySQL DB clusters involves the possibility of an outage when the database is shut down and while it's being upgraded. By default, if you start the upgrade while the database is busy, you lose all the connections and transactions that the DB cluster is processing. If you wait until the database is idle to perform the upgrade, you might have to wait a long time.
 

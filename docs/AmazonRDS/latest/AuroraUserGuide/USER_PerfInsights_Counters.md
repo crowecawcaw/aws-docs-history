@@ -1,7 +1,6 @@
 
 
 # Detailed Database Metrics
-<a name="USER_PerfInsights_Counters"></a>
 
 Counter metrics are operating system and database performance metrics. These metrics are exposed through the Performance Insights API. To help identify and analyze performance problems, you can correlate counter metrics with DB load. You must append a statistic function to the metric to get the metric values. For example, the supported functions for `os.memory.active` metric are `.avg`, `.min`, `.max`, `.sum`, and `.sample_count`. 
 

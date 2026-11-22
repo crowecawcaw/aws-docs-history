@@ -1,7 +1,6 @@
 
 
 # DB cluster snapshot copying
-<a name="aurora-copy-snapshot"></a>
 
 With Amazon Aurora, you can copy automated backups or manual DB cluster snapshots. After you copy a snapshot, the copy is a manual snapshot. You can make multiple copies of an automated backup or manual snapshot, but each copy must have a unique identifier.
 

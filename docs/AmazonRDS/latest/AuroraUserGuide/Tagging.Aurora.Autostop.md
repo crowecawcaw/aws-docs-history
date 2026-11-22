@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use tags to specify which Aurora DB clusters to stop
-<a name="Tagging.Aurora.Autostop"></a>
 
  Suppose that you're creating a number of Aurora DB clusters in a development or test environment. You need to keep all of these clusters for several days. Some of the clusters run tests overnight. Other clusters can be stopped overnight and started again the next day. The following example shows how to assign a tag to those clusters that are suitable to stop overnight. Then the example shows how a script can detect which clusters have that tag and then stop those clusters. In this example, the value portion of the key-value pair doesn't matter. The presence of the `stoppable` tag signifies that the cluster has this user-defined property. 
 

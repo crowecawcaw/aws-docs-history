@@ -1,7 +1,6 @@
 
 
 # Working with Trusted Language Extensions for PostgreSQL
-<a name="PostgreSQL_trusted_language_extension"></a>
 
 Trusted Language Extensions for PostgreSQL is an open source development kit for building PostgreSQL extensions. It allows you to build high performance PostgreSQL extensions and safely run them on your Aurora PostgreSQL DB cluster. By using Trusted Language Extensions (TLE) for PostgreSQL, you can create PostgreSQL extensions that follow the documented approach for extending PostgreSQL functionality. For more information, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/current/extend-extensions.html) in the PostgreSQL documentation. 
 

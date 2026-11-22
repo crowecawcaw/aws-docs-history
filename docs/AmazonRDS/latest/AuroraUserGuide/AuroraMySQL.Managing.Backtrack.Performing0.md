@@ -1,7 +1,6 @@
 
 
 # Performing a backtrack for an Aurora MySQL DB cluster
-<a name="AuroraMySQL.Managing.Backtrack.Performing0"></a>
 
 You can backtrack a DB cluster to a specified backtrack time stamp. If the backtrack time stamp isn't earlier than the earliest possible backtrack time, and isn't in the future, the DB cluster is backtracked to that time stamp. 
 

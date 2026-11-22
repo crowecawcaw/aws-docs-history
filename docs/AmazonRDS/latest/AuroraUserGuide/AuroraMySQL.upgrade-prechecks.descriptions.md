@@ -1,7 +1,6 @@
 
 
 # Precheck descriptions for upgrading Aurora MySQL version 2 to version 3
-<a name="AuroraMySQL.upgrade-prechecks.descriptions"></a>
 
 The following prechecks run when you upgrade an Aurora MySQL DB cluster from version 2 (compatible with MySQL 5.7) to version 3 (compatible with MySQL 8.0). For prechecks that run during upgrades from Aurora MySQL version 3 to version 8.4, see [Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md).
 
@@ -1908,13 +1907,13 @@ To resolve this issue:
 
 1. Uninstall each unsupported component:
 
-   ```
+   ```sql
    UNINSTALL COMPONENT 'file://{{component_name}}';
    ```
 
 1. Verify removal by checking the component list:
 
-   ```
+   ```sql
    SELECT * FROM mysql.component;
    ```
 
@@ -1949,13 +1948,13 @@ To resolve this issue:
 
 1. Uninstall each unsupported plugin:
 
-   ```
+   ```sql
    UNINSTALL PLUGIN {{plugin_name}};
    ```
 
 1. Verify removal by checking the plugin list:
 
-   ```
+   ```sql
    SHOW PLUGINS;
    ```
 
@@ -2358,7 +2357,7 @@ To resolve this warning:
 
 1. After upgrade, run the following command to remove the `validate_password` plugin:
 
-   ```
+   ```sql
    UNINSTALL PLUGIN validate_password;
    ```
 

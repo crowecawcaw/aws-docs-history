@@ -1,7 +1,6 @@
 
 
 # Enabling network communication from Amazon Aurora to other AWS services
-<a name="AuroraMySQL.Integrating.Authorizing.Network"></a>
 
 To use certain other AWS services with Amazon Aurora, the network configuration of your Aurora DB cluster must allow outbound connections to endpoints for those services. The following operations require this network configuration.
 +  Invoking AWS Lambda functions. To learn about this feature, see [Invoking a Lambda function with an Aurora MySQL native function](AuroraMySQL.Integrating.NativeLambda.md). 

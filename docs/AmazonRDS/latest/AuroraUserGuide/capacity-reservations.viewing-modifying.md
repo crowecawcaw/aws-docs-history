@@ -1,7 +1,6 @@
 
 
 # Viewing and modifying your Capacity Reservations
-<a name="capacity-reservations.viewing-modifying"></a>
 
 After you create a Capacity Reservation, you can view its state and capacity usage at any time, and change the amount of capacity it reserves as your needs change. Viewing a reservation shows the capacity reserved and still available in each Availability Zone, along with its start and end dates, commitment information, and lifecycle state. Modifying a reservation changes the number of DB instances reserved in each Availability Zone while the reservation is active.
 

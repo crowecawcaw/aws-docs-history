@@ -1,7 +1,6 @@
 
 
 # Troubleshooting memory usage issues for Aurora MySQL databases
-<a name="ams-workload-memory"></a>
 
 While CloudWatch, Enhanced Monitoring, and Performance Insights provide a good overview of memory usage at the operating system level, such as how much memory the database process is using, they don't allow you to break down what connections or components within the engine might be causing this memory usage.
 

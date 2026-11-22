@@ -1,7 +1,6 @@
 
 
 # Examples of Aurora reboot operations
-<a name="USER_Reboot.Examples"></a>
 
  The following Aurora MySQL examples show different combinations of reboot operations for reader and writer DB instances in an Aurora DB cluster. After each reboot, SQL queries demonstrate the uptime for the instances in the cluster. 
 

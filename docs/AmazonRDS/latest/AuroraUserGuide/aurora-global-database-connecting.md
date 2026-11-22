@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon Aurora Global Database
-<a name="aurora-global-database-connecting"></a>
 
  Each Aurora Global Database comes with a writer endpoint that is automatically updated by Aurora to route requests to the current writer instance of the primary DB cluster. With the writer endpoint, you don't have to modify your connection string after you change the location of the primary Region using the managed Aurora Global Database switchover and failover capabilities. To learn more about using the writer endpoint along with Aurora Global Database switchover and failover, see [Using switchover or failover in Amazon Aurora Global Database](aurora-global-database-disaster-recovery.md). For information about connecting to an Aurora Global Database with RDS Proxy, see [Using RDS Proxy with Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-gdb.html). 
 

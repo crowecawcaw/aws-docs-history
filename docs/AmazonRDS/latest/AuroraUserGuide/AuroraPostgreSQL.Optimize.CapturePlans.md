@@ -1,7 +1,6 @@
 
 
 # Capturing Aurora PostgreSQL execution plans
-<a name="AuroraPostgreSQL.Optimize.CapturePlans"></a>
 
 Aurora PostgreSQL query plan management offers two different modes for capturing query execution plans, automatic or manual. You choose the mode by setting the value of the `apg_plan_mgmt.capture_plans_baselines` to `automatic` or to `manual`. You can capture execution plans for specific SQL statements by using manual plan capture. Alternatively, you can capture all (or the slowest) plans that are executed two or more times as your application runs by using automatic plan capture.
 
@@ -14,7 +13,7 @@ To control the maximum number of plans that can be captured and stored in the `d
 
 If you have a known set of SQL statements to manage, put the statements into a SQL script file and then manually capture plans. The following shows a psql example of how to capture query plans manually for a set of SQL statements.
 
-```
+```sql
 psql> SET apg_plan_mgmt.capture_plan_baselines = manual;
 psql> \i my-statements.sql 
 psql> SET apg_plan_mgmt.capture_plan_baselines = off;

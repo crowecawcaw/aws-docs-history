@@ -1,7 +1,6 @@
 
 
 # Logging for Aurora MySQL databases
-<a name="aurora-mysql-troubleshooting-logging"></a>
 
 Aurora MySQL logs provide essential information about database activity and errors. By enabling these logs, you can identify and troubleshoot issues, understand database performance, and audit database activity. We recommend that you enable these logs for all of your Aurora MySQL DB instances to ensure optimal performance and availability of the databases. The following types of logging can be enabled. Each log contains specific information that can lead to uncovering impacts to database processing.
 + Error – Aurora MySQL writes to the error log only on startup, shutdown, and when it encounters errors. A DB instance can go hours or days without new entries being written to the error log. If you see no recent entries, it's because the server didn't encounter an error that would result in a log entry. Error logging is enabled by default. For more information, see [Aurora MySQL error logs](USER_LogAccess.MySQL.LogFileSize.md#USER_LogAccess.MySQL.Errorlog).

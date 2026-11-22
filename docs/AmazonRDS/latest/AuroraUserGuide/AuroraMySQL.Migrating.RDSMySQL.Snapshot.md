@@ -1,7 +1,6 @@
 
 
 # Migrating an RDS for MySQL snapshot to Aurora
-<a name="AuroraMySQL.Migrating.RDSMySQL.Snapshot"></a>
 
 You can migrate a DB snapshot of an RDS for MySQL DB instance to create an Aurora MySQL DB cluster. The new Aurora MySQL DB cluster is populated with the data from the original RDS for MySQL DB instance. The DB snapshot must have been made from an Amazon RDS DB instance running a MySQL version that's compatible with Aurora MySQL.
 
@@ -52,7 +51,7 @@ Be sure to perform these updates on a new DB instance restored from a snapshot o
 
 You can use the following SQL script on your existing MySQL DB instance to list the tables in your database that are MyISAM tables or compressed tables.
 
-```
+```sql
 -- This script examines a MySQL database for conditions that block
 -- migrating the database into Amazon Aurora.
 -- It needs to be run from an account that has read permission for the

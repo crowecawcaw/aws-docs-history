@@ -1,7 +1,6 @@
 
 
 # Use `DeleteDBClusterParameterGroup` with an AWS SDK
-<a name="example_aurora_DeleteDBClusterParameterGroup_section"></a>
 
 The following code examples show how to use `DeleteDBClusterParameterGroup`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete a particular parameter group by name.
     /// </summary>
@@ -39,7 +38,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -71,7 +70,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -110,7 +109,7 @@ func (clusters *DbClusters) DeleteParameterGroup(ctx context.Context, parameterG
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
-```
+```java
     public static void deleteDBClusterGroup(RdsClient rdsClient, String dbClusterGroupName, String clusterDBARN)
             throws InterruptedException {
         try {
@@ -162,7 +161,7 @@ func (clusters *DbClusters) DeleteParameterGroup(ctx context.Context, parameterG
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
-```
+```kotlin
 @Throws(InterruptedException::class)
 suspend fun deleteDBClusterGroup(
     dbClusterGroupName: String,
@@ -215,7 +214,7 @@ suspend fun deleteDBClusterGroup(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
-```
+```python
 class AuroraWrapper:
     """Encapsulates Aurora DB cluster actions."""
 
@@ -264,7 +263,7 @@ class AuroraWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
-```
+```rust
     pub async fn clean_up(self) -> Result<(), Vec<ScenarioError>> {
         let mut clean_up_errors: Vec<ScenarioError> = vec![];
 
@@ -601,7 +600,7 @@ async fn test_scenario_clean_up_errors() {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_rds->deletedbclusterparamgroup(
           iv_dbclusterparamgroupname = iv_param_group_name

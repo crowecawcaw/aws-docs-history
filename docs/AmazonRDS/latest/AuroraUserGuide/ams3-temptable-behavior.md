@@ -1,7 +1,6 @@
 
 
 # New temporary table behavior in Aurora MySQL version 3
-<a name="ams3-temptable-behavior"></a>
 
 Aurora MySQL version 3 handles temporary tables differently from earlier Aurora MySQL versions. This new behavior is inherited from MySQL 8.0 Community Edition. There are two types of temporary tables that can be created with Aurora MySQL version 3:
 + Internal (or *implicit*) temporary tables – Created by the Aurora MySQL engine to handle operations such as sorting aggregation, derived tables, or common table expressions (CTEs).
@@ -39,7 +38,7 @@ In some cases when you use the `TempTable` storage engine, the temporary data mi
 You can set the [temptable\_max\_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap) parameter to choose whether the data overflows to memory-mapped temporary files or to InnoDB internal temporary tables on disk. The different data formats and overflow criteria of these overflow mechanisms can affect query performance. They do so by influencing the amount of data written to disk and the demand on disk storage throughput.
 
 Aurora MySQL version 3 stores the overflow data in the following way:
-+ On the writer DB instance, data that overflows to InnoDB internal temporary tables or memory-mapped temporary files resides in local storage on the instance.
++ On the writer DB instance, data that overflows to memory-mapped temporary files resides in local storage on the instance. Data that overflows to InnoDB on-disk internal temporary tables resides in the shared Aurora cluster volume.
 + On reader DB instances, overflow data always resides in memory-mapped temporary files in local storage.
 
   Read-only instances can't store any data on the Aurora cluster volume.
@@ -276,7 +275,7 @@ The `temptable_max_mmap` parameter in Aurora MySQL controls the maximum amount o
 
 1. Make sure that the Performance Schema is enabled. You can verify this by running the following SQL command:
 
-   ```
+   ```sql
    SELECT @@performance_schema;
    ```
 
@@ -284,7 +283,7 @@ The `temptable_max_mmap` parameter in Aurora MySQL controls the maximum amount o
 
 1. Confirm that the temporary table memory instrumentation is enabled. You can verify this by running the following SQL command:
 
-   ```
+   ```sql
    SELECT name, enabled FROM performance_schema.setup_instruments WHERE name LIKE '%memory%temptable%';
    ```
 
@@ -308,7 +307,7 @@ This query retrieves the following information:
 + `high_count` – The highest number of allocated temporary table memory or disk blocks.
 + `high_alloc` – The highest amount of memory or disk allocated for temporary tables.
 + `high_avg_alloc` – The highest average size of temporary table memory or disk blocks.
-If your queries fail with a Table is full error using this setting, it indicates that your workload requires more disk space for temporary table operations. In this case, consider increasing your DB instance size to one with more local storage space.
+If your queries fail with a `Table is full` error using this setting, it indicates that your workload requires more disk space for temporary table operations. In this case, consider increasing your DB instance size to one with more local storage space.
 
 **Setting the optimal `temptable_max_mmap` value**  
 Use the following procedure to monitor and set the right size for the `temptable_max_mmap` parameter.  

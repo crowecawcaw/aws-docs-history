@@ -1,7 +1,7 @@
 
 
 # Upgrading Amazon Aurora PostgreSQL DB clusters
-<a name="USER_UpgradeDBInstance.PostgreSQL"></a><a name="pgsql_upgrade"></a>
+<a name="pgsql_upgrade"></a>
 
 Amazon Aurora makes new versions of the PostgreSQL database engine available in AWS Regions only after extensive testing. You can upgrade your Aurora PostgreSQL DB clusters to the new version when it's available in your Region. 
 

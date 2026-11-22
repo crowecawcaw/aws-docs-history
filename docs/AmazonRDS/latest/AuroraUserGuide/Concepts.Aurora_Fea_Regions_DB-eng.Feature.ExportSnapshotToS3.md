@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Aurora DB engines for exporting snapshot data to Amazon S3
-<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3"></a>
 
 You can export Aurora DB cluster snapshot data to an Amazon S3 bucket. You can export manual snapshots and automated system snapshots. After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more information, see [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md).
 

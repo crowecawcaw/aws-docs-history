@@ -1,7 +1,6 @@
 
 
 # Troubleshooting binary log replication lag for Aurora MySQL
-<a name="aurora-mysql-troubleshooting-replication-lag"></a>
 
 This section provides guidance on binary log replication lag for Aurora MySQL configured as a binary log replica. It covers replication architecture, parallel replication, dependency tracking, monitoring, and configuration best practices.
 
@@ -228,7 +227,7 @@ In MySQL versions 8.0.26 and earlier, `replica_parallel_type` defaults to `DATAB
 
 After changing parallel worker settings, restart replication:
 
-```
+```sql
 CALL mysql.rds_stop_replication;
 CALL mysql.rds_start_replication;
 ```
@@ -259,7 +258,7 @@ Key tables for monitoring MTR:
 
 To evaluate how evenly work is distributed across worker threads, use the following query:
 
-```
+```sql
 SELECT
   a.channel_name,
   rw1.thread_id AS replica_worker_thread_id,
@@ -338,7 +337,7 @@ Interpret the key fields:
 
 **Action:** increase `replica_parallel_workers` to the replica's vCPU count (for example, 16 on a `db.r6g.4xlarge`) and restart replication:
 
-```
+```sql
 CALL mysql.rds_stop_replication;
 CALL mysql.rds_start_replication;
 ```
@@ -383,7 +382,7 @@ Next, confirm this with the multi-threaded replica statistics in the error log:
 
 This points to a dependency problem, not a capacity problem. Check the dependency tracking method on the **source**:
 
-```
+```sql
 SELECT @@global.binlog_transaction_dependency_tracking;
 ```
 
@@ -399,7 +398,7 @@ SELECT @@global.binlog_transaction_dependency_tracking;
 
 **Action:** switch the source to row-level dependency tracking, which is independent of commit timing. Set it dynamically and persist it in the cluster (or DB) parameter group:
 
-```
+```sql
 SET GLOBAL binlog_transaction_dependency_tracking = WRITESET;
 ```
 

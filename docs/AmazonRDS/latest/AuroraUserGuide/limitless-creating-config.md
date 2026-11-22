@@ -1,7 +1,6 @@
 
 
 # Creating limitless tables by using variables
-<a name="limitless-creating-config"></a>
 
 You can use variables to create sharded and reference tables by setting the table creation mode. Then the tables that you create will use this mode until you set a different mode.
 

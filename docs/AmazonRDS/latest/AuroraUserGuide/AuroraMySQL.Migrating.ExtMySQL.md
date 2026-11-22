@@ -1,7 +1,6 @@
 
 
 # Migrating data from an external MySQL database to an Amazon Aurora MySQL DB cluster
-<a name="AuroraMySQL.Migrating.ExtMySQL"></a>
 
 If your database supports the InnoDB or MyISAM tablespaces, you have these options for migrating your data to an Amazon Aurora MySQL DB cluster: 
 + You can create a dump of your data using the `mysqldump` utility, and then import that data into an existing Amazon Aurora MySQL DB cluster. For more information, see [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.mysqldump.md).

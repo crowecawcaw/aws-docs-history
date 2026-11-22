@@ -1,7 +1,6 @@
 
 
 # synch/cond/innodb/row\_lock\_wait
-<a name="ams-waits.row-lock-wait"></a>
 
 The `synch/cond/innodb/row_lock_wait` event occurs when one session has locked a row for an update, and another session tries to update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html) in the MySQL documentation.
 

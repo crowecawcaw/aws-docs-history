@@ -1,7 +1,6 @@
 
 
 # Understanding Collations in Babelfish for Aurora PostgreSQL
-<a name="babelfish-collations"></a>
 
 When you create an Aurora PostgreSQL DB cluster with Babelfish, you choose a collation for your data. A *collation* specifies the sort order and bit patterns that produce the text or characters in a given written human language. A collation includes rules comparing data for a given set of bit patterns. Collation is related to localization. Different locales affect character mapping, sort order, and the like. Collation attributes are reflected in the names of various collations. For information about attributes, see the [Babelfish collation attributes table](#bfish-collation-attributes-table). 
 

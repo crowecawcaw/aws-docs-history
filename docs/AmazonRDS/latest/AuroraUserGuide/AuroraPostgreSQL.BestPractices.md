@@ -1,7 +1,6 @@
 
 
 # Best practices with Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.BestPractices"></a>
 
 Following, you can find several best practices for managing your Amazon Aurora PostgreSQL DB cluster. Be sure to also review basic maintenance tasks. For more information, see [Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md). 
 

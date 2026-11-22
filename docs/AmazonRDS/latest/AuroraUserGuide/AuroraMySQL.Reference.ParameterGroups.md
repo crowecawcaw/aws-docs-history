@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL configuration parameters
-<a name="AuroraMySQL.Reference.ParameterGroups"></a><a name="param_groups"></a>
+<a name="param_groups"></a>
 
 You manage your Amazon Aurora MySQL DB cluster in the same way that you manage other Amazon RDS DB instances, by using parameters in a DB parameter group. Amazon Aurora differs from other DB engines in that you have a DB cluster that contains multiple DB instances. As a result, some of the parameters that you use to manage your Aurora MySQL DB cluster apply to the entire cluster. Other parameters apply only to a particular DB instance in the DB cluster.
 

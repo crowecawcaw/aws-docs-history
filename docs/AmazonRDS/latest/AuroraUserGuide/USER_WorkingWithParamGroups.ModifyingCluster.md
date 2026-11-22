@@ -1,7 +1,6 @@
 
 
 # Modifying parameters in a DB cluster parameter groupin Amazon Aurora
-<a name="USER_WorkingWithParamGroups.ModifyingCluster"></a>
 
 You can modify parameter values in a customer-created DB cluster parameter group. You can't change the parameter values in a default DB cluster parameter group. Changes to parameters in a customer-created DB cluster parameter group are applied to all DB clusters that are associated with the DB cluster parameter group.
 

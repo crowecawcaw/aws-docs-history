@@ -1,7 +1,6 @@
 
 
 # Querying Aurora PostgreSQL Limitless Database
-<a name="limitless-query"></a>
 
 Aurora PostgreSQL Limitless Database is compatible with PostgreSQL syntax for queries. You can query your Limitless Database using `psql` or any other connection utility that works with PostgreSQL. To run queries, you connect to the limitless endpoint as shown in [Connecting to your Aurora PostgreSQL Limitless Database DB cluster](limitless-shard.md#limitless-endpoint).
 

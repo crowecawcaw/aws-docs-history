@@ -1,7 +1,6 @@
 
 
 # Session management with Amazon RDS Data API
-<a name="data-api.session-management"></a>
 
 RDS Data API maintains a pool of database connections and reuses them across calls to reduce connection overhead. Before reusing a connection, RDS Data API resets session state. The reset differs by database engine: on PostgreSQL, RDS Data API runs the `DISCARD ALL` statement to clear session state such as temporary tables, prepared statements, and session-level parameters; on MySQL, RDS Data API resets the connection (equivalent to `COM_RESET_CONNECTION`).
 

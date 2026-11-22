@@ -1,7 +1,6 @@
 
 
 # Comparing Babelfish and SQL Server isolation levels
-<a name="babelfish-transaction.examples"></a>
 
  Below are a few examples on the nuances in how SQL Server and Babelfish implement the ANSI isolation levels. 
 

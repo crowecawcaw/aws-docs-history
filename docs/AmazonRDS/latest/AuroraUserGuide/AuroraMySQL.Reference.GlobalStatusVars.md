@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL global status variables
-<a name="AuroraMySQL.Reference.GlobalStatusVars"></a>
 
  Aurora MySQL includes status variables from community MySQL and variables that are unique to Aurora. You can examine these variables to learn about what's happening inside the database engine. For more information about the status variables in community MySQL, see [Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html) in the community MySQL 8.0 documentation. 
 

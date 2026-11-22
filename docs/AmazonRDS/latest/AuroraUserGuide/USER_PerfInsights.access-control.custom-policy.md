@@ -1,7 +1,6 @@
 
 
 # Creating a custom IAM policy for Database Insights
-<a name="USER_PerfInsights.access-control.custom-policy"></a>
 
 For users who don't have either the `AmazonRDSPerformanceInsightsReadOnly` or `AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Database Insights by creating or modifying a user-managed IAM policy. When you attach the policy to an IAM permission set or role, the recipient can use Database Insights.
 

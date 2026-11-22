@@ -1,7 +1,6 @@
 
 
 # Using AD security groups for Aurora PostgreSQL access control
-<a name="AD.Security.Groups"></a>
 
 From Aurora PostgreSQL 14.10 and 15.5 versions, Aurora PostgreSQL access control can be managed using AWS Directory Service for Microsoft Active Directory (AD) security groups. Earlier versions of Aurora PostgreSQL support Kerberos based authentication with AD only for individual users. Each AD user had to be explicitly provisioned to DB cluster to get access. 
 

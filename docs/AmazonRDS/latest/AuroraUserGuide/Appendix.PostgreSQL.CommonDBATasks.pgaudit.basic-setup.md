@@ -1,7 +1,6 @@
 
 
 # Setting up the pgAudit extension
-<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup"></a>
 
 To set up the pgAudit extension on your Aurora PostgreSQL DB cluster, you first add pgAudit to the shared libraries on the custom DB cluster parameter group for your Aurora PostgreSQL DB cluster. For information about creating a custom DB cluster parameter group, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md).  Next, you install the pgAudit extension. Finally, you specify the databases and objects that you want to audit. The procedures in this section show you how. You can use the AWS Management Console or the AWS CLI. 
 

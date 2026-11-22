@@ -1,7 +1,6 @@
 
 
 # Testing Amazon Aurora PostgreSQL by using fault injection queries
-<a name="AuroraPostgreSQL.Managing.FaultInjectionQueries"></a>
 
 You can test the fault tolerance of your Aurora PostgreSQL DB cluster by using fault injection queries. Fault injection queries are issued as SQL commands to an Amazon Aurora instance. Fault injection queries let you crash the instance so that you can test failover and recovery. You can also simulate Aurora Replica failure, disk failure, and disk congestion. Fault injection queries are supported by all available Aurora PostgreSQL versions, as follows. 
 + Aurora PostgreSQL versions 12, 13, 14, and higher

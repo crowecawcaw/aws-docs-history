@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora Auto Scaling with Aurora Replicas
-<a name="Aurora.Integrating.AutoScaling"></a>
 
 To meet your connectivity and workload requirements, Aurora Auto Scaling dynamically adjusts the number of Aurora Replicas (reader DB instances) provisioned for an Aurora DB cluster. Aurora Auto Scaling is available for both Aurora MySQL and Aurora PostgreSQL. Aurora Auto Scaling enables your Aurora DB cluster to handle sudden increases in connectivity or workload. When the connectivity or workload decreases, Aurora Auto Scaling removes unnecessary Aurora Replicas so that you don't pay for unused provisioned DB instances.
 
@@ -117,7 +116,7 @@ The minimum and maximum capacity are set for an Aurora DB cluster. The specified
 You can tune the responsiveness of a target-tracking scaling policy by adding cooldown periods that affect scaling your Aurora DB cluster in and out. A cooldown period blocks subsequent scale-in or scale-out requests until the period expires. These blocks slow the deletions of Aurora Replicas in your Aurora DB cluster for scale-in requests, and the creation of Aurora Replicas for scale-out requests.
 
 You can specify the following cooldown periods:
-+ A scale-in activity reduces the number of Aurora Replicas in your Aurora DB cluster. A scale-in cooldown period specifies the amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
++ A scale-in activity reduces the number of Aurora Replicas in your Aurora DB cluster. A scale-in cooldown period specifies the amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start. However, if a scale-out activity occurs during the scale-in cooldown period, Aurora Auto Scaling scales out immediately. In this case, the scale-in cooldown period stops and doesn't complete. As a result, the next scale-in activity can start without waiting for the original cooldown period to expire.
 + A scale-out activity increases the number of Aurora Replicas in your Aurora DB cluster. A scale-out cooldown period specifies the amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 **Note**  
 A scale-out cooldown period is ignored if a subsequent scale-out request is for a larger number of Aurora Replicas than the first request.

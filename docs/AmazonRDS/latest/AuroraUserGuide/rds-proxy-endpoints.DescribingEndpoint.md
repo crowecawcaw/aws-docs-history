@@ -1,7 +1,6 @@
 
 
 # Viewing proxy endpoints
-<a name="rds-proxy-endpoints.DescribingEndpoint"></a>
 
 To view existing proxy endpoints, follow these instructions:
 

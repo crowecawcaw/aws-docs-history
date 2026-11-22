@@ -1,7 +1,6 @@
 
 
 # Accessing MySQL binary logs
-<a name="USER_LogAccess.MySQL.Binarylog"></a>
 
 You can use the mysqlbinlog utility to download or stream binary logs from RDS for MySQL DB instances. The binary log is downloaded to your local computer, where you can perform actions such as replaying the log using the mysql utility. For more information about using the mysqlbinlog utility, see [Using mysqlbinlog to back up binary log files](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-backup.html) in the MySQL documentation.
 
@@ -55,12 +54,12 @@ Binary logs must remain available on the DB instance for the mysqlbinlog utility
 
 The following example sets the retention period to 1 day.
 
-```
+```sql
 call mysql.rds_set_configuration('binlog retention hours', 24);
 ```
 
 To display the current setting, use the [mysql.rds\_show\_configuration](mysql-stored-proc-configuring.md#mysql_rds_show_configuration) stored procedure.
 
-```
+```sql
 call mysql.rds_show_configuration;
 ```

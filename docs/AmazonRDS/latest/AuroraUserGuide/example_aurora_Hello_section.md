@@ -1,7 +1,6 @@
 
 
 # Hello Aurora
-<a name="example_aurora_Hello_section"></a>
 
 The following code examples show how to get started using Aurora.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Aurora.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
-```
+```csharp
 using Amazon.RDS;
 using Amazon.RDS.Model;
 using Microsoft.Extensions.DependencyInjection;
@@ -61,7 +60,7 @@ public static class HelloAurora
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora/hello_aurora#code-examples). 
 Code for the CMakeLists.txt CMake file.  
 
-```
+```cpp
 # Set the minimum required version of CMake for this project.
 cmake_minimum_required(VERSION 3.13)
 
@@ -103,7 +102,7 @@ target_link_libraries(${PROJECT_NAME}
 ```
 Code for the hello\_aurora.cpp source file.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/rds/RDSClient.h>
 #include <aws/rds/model/DescribeDBClustersRequest.h>
@@ -171,7 +170,7 @@ int main(int argc, char **argv) {
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -222,7 +221,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rds.RdsClient;
 import software.amazon.awssdk.services.rds.paginators.DescribeDBClustersIterable;
@@ -255,7 +254,7 @@ public class DescribeDbClusters {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
-```
+```python
 import boto3
 
 # Create an RDS client
@@ -294,7 +293,7 @@ if not clusters_found:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/aurora#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-rds'
 
 # Creates an Amazon RDS client for the AWS Region
@@ -323,7 +322,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
-```
+```rust
 use aws_sdk_rds::Client;
 
 #[derive(Debug)]

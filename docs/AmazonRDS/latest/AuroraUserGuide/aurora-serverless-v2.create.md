@@ -1,7 +1,6 @@
 
 
 # Creating a DB cluster that uses Aurora serverless
-<a name="aurora-serverless-v2.create"></a>
 
 To create an Aurora cluster where you can add Aurora serverless DB instances, you follow the same procedure as in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md). With Aurora serverless, your clusters are interchangeable with provisioned clusters. You can have clusters where some DB instances use Aurora serverless and some DB instances are provisioned.
 
@@ -57,7 +56,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create an Aurora 
 
 1. For **DB instance class**, select **Serverless v2**.
 
-1. For **Capacity range**, you can accept the default range. Or you can choose other values for minimum and maximum capacity units. You can choose from 0 ACUs through 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL, in increments of 0.5 ACU.
+1. For **Capacity range**, you can accept the default range. Or you can choose other values for minimum and maximum capacity units. You can choose from 0 ACUs through 384 ACUs, in increments of 0.5 ACU.
 
    For more information about Aurora serverless capacity units, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity) and [Performance and scaling for Aurora serverless](aurora-serverless-v2.setting-capacity.md). 
 
@@ -101,7 +100,7 @@ For information about the Aurora serverless version requirements, see [Requireme
 
 To verify whether an existing cluster has the capacity settings specified, check the output of the `describe-db-clusters` command for the `ServerlessV2ScalingConfiguration` attribute. That attribute looks similar to the following.
 
-```
+```json
 "ServerlessV2ScalingConfiguration": {
     "MinCapacity": 1.5,
     "MaxCapacity": 24.0
@@ -125,7 +124,7 @@ For information about the Aurora serverless version requirements, see [Requireme
 
 To check if an existing cluster has the capacity settings specified, check the output of the `DescribeDBClusters` operation for the `ServerlessV2ScalingConfiguration` attribute. That attribute looks similar to the following.
 
-```
+```json
 "ServerlessV2ScalingConfiguration": {
     "MinCapacity": 1.5,
     "MaxCapacity": 24.0

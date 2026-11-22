@@ -1,7 +1,6 @@
 
 
 # Loading data from an Aurora PostgreSQL DB cluster or RDS for PostgreSQL DB instance
-<a name="limitless-load.data"></a>
 
 After you complete the resource and authentication setup, connect to the cluster endpoint and call the `rds_aurora.limitless_data_load_start` stored procedure from a limitless database, such as `postgres_limitless`. The limitless database is a database on the DB shard group into which you want to migrate data.
 

@@ -1,7 +1,6 @@
 
 
 # Adding a router to a DB shard group
-<a name="limitless-add-router"></a>
 
 You can add a router to a DB shard group.
 

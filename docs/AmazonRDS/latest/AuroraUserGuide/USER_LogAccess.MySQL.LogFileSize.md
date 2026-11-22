@@ -1,7 +1,6 @@
 
 
 # Overview of Aurora MySQL database logs
-<a name="USER_LogAccess.MySQL.LogFileSize"></a>
 
 You can monitor the following types of Aurora MySQL log files:
 + Error log
@@ -78,9 +77,10 @@ Aurora creates a separate log file for DB instances that have auto-pause enabled
 <a name="USER_LogAccess.AMS.LogFileSize.retention"></a>
 
 When logging is enabled, Amazon Aurora rotates or deletes log files at regular intervals. This measure is a precaution to reduce the possibility of a large log file either blocking database use or affecting performance. Aurora MySQL handles rotation and deletion as follows:
-+ The Aurora MySQL error log file sizes are constrained to no more than 15 percent of the local storage for a DB instance. To maintain this threshold, logs are automatically rotated every hour. Aurora MySQL removes logs after 30 days or when 15% of disk space is reached. If the combined log file size exceeds the threshold after removing old log files, then the oldest log files are deleted until the log file size no longer exceeds the threshold.
-+ Aurora MySQL removes the audit, general, and slow query logs after either 24 hours or when 15% of storage has been consumed.
-+ When `FILE` logging is enabled, general log and slow query log files are examined every hour and log files more than 24 hours old are deleted. In some cases, the remaining combined log file size after the deletion might exceed the threshold of 15 percent of a DB instance's local space. In these cases, the oldest log files are deleted until the log file size no longer exceeds the threshold.
++ The Aurora MySQL error log file sizes are constrained to no more than 15 percent of the storage available for log files on a DB instance. To maintain this threshold, logs are automatically rotated every hour. Aurora MySQL removes logs after 30 days or when 15 percent of the storage for log files is reached. If the combined log file size exceeds the threshold after removing old log files, then Aurora MySQL first deletes log files that it has already published to CloudWatch Logs. If the threshold is still exceeded, it deletes more log files, including files that it hasn't published yet.
++ Aurora MySQL removes the audit, general, and slow query logs after either 24 hours or when they consume 15 percent of the storage for log files. This threshold applies to the audit, general, and slow query logs combined, separately from the threshold for the error logs. Audit log files count against the threshold before general and slow query log files, so a large audit log can cause general and slow query log files to be deleted before they're published.
++ When `FILE` logging is enabled, general log and slow query log files are examined every hour and log files more than 24 hours old are deleted. In some cases, the remaining combined log file size after the deletion might exceed the threshold of 15 percent of the storage for log files. In these cases, Aurora MySQL first deletes log files that it has already published to CloudWatch Logs. If the threshold is still exceeded, it deletes more log files, including files that it hasn't published yet.
++ The amount of storage available for log files depends on the DB instance class. For more information, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage). If Aurora MySQL deletes log files before publishing them to CloudWatch Logs, you receive [RDS-EVENT-0611](USER_Events.Messages.md#RDS-EVENT-0611). For more information about planning storage for log files, see [Planning storage for Aurora database log files](USER_LogAccess.Aurora.LogStorage.md).
 + When `TABLE` logging is enabled, log tables aren't rotated or deleted. Log tables are truncated when the size of all logs combined is too large. You can subscribe to the `low storage` event category to be notified when log tables should be manually rotated or deleted to free up space. For more information, see [Working with Amazon RDS event notification](USER_Events.md).
 
   You can rotate the `mysql.general_log` table manually by calling the `mysql.rds_rotate_general_log` procedure. You can rotate the `mysql.slow_log` table by calling the `mysql.rds_rotate_slow_log` procedure.

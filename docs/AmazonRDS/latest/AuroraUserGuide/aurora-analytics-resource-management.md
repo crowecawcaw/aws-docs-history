@@ -1,7 +1,6 @@
 
 
 # Resource management
-<a name="aurora-analytics-resource-management"></a>
 
 Aurora PostgreSQL manages four types of resources to run queries against foreign tables that reference your Iceberg and Parquet data:
 + **Query memory** – The working memory (from instance memory) that a query uses for hash tables, sorting, aggregation, and intermediate results. The `aurora_analytics.query_mem` parameter controls this memory. For more information, see [Query memory](#aurora-analytics-query-memory).

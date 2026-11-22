@@ -1,7 +1,6 @@
 
 
 # Function reference for Trusted Language Extensions for PostgreSQL
-<a name="PostgreSQL_trusted_language_extension-functions-reference"></a>
 
 View the following reference documentation about functions available in Trusted Language Extensions for PostgreSQL. Use these functions to install, register, update, and manage your *TLE extensions*, that is, the PostgreSQL extensions that you develop using the Trusted Language Extensions development kit.
 

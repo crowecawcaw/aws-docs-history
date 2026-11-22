@@ -1,7 +1,6 @@
 
 
 # Fast failover with Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.BestPractices.FastFailover"></a>
 
 Following, you can learn how to make sure that failover occurs as fast as possible. To recover quickly after failover, you can use cluster cache management for your Aurora PostgreSQL DB cluster. For more information, see [Fast recovery after failover with cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.cluster-cache-mgmt.md). 
 
@@ -47,7 +46,7 @@ These settings should notify the application within five seconds when the databa
 
    We recommend doing so by using the command line with the following commands. This suggested configuration is system-wide. In other words, it also affects all other applications that create sockets with the `SO_KEEPALIVE` option on.
 
-   ```
+   ```bash
    sudo sysctl net.ipv4.tcp_keepalive_time=1
    sudo sysctl net.ipv4.tcp_keepalive_intvl=1
    sudo sysctl net.ipv4.tcp_keepalive_probes=5
@@ -76,7 +75,7 @@ Following, you can find a discussion of several configuration changes for Aurora
 
 When your application tries to establish a connection after a failover, the new Aurora PostgreSQL writer will be a previous reader. You can find it by using the Aurora read-only endpoint before DNS updates have fully propagated. Setting the java DNS time to live (TTL) to a low value, such as under 30 seconds, helps cycle between reader nodes on later connection attempts.
 
-```
+```java
 // Sets internal TTL to match the Aurora RO Endpoint TTL
 java.security.Security.setProperty("networkaddress.cache.ttl" , "1");
 // If the lookup fails, default to something like small to retry
@@ -142,7 +141,7 @@ A good way to ensure that your application can find a node to connect to is to t
 
 After you establish a connection using one of these endpoints, you can get information about the rest of the cluster. To do this, call the `aurora_replica_status` function. For example, the following command retrieves information with `aurora_replica_status`.
 
-```
+```sql
 postgres=> SELECT server_id, session_id, highest_lsn_rcvd, cur_replay_latency_in_usec, now(), last_update_timestamp
 FROM aurora_replica_status();
 
@@ -174,7 +173,7 @@ You can programmatically find the list of instances by using the [AWS SDK for Ja
 
 Following is a small example of how you might do this in Java 8.
 
-```
+```java
 AmazonRDS client = AmazonRDSClientBuilder.defaultClient();
 DescribeDBClustersRequest request = new DescribeDBClustersRequest()
    .withDBClusterIdentifier(clusterName);
@@ -216,7 +215,7 @@ From the server side, certain API operations can cause an outage that can be use
 
   The following code example shows how you can use `failoverDBCluster` to cause an outage. For more details about setting up an Amazon RDS client, see [Using the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/basics.html). 
 
-  ```
+  ```java
   public void causeFailover() {
       
       final AmazonRDS rdsClient = AmazonRDSClientBuilder.defaultClient();
@@ -243,7 +242,7 @@ The application calls the `getConnection` function when it needs a connection. A
 
 To avoid pushing the retry behavior onto the application, you can wrap this retry call into a connection pooler. With most connection poolers, you can specify a JDBC connection string. So your application can call into `getJdbcConnectionString` and pass that to the connection pooler. Doing this means you can use faster failover with Aurora PostgreSQL.
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

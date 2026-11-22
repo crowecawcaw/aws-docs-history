@@ -1,7 +1,6 @@
 
 
 # synch/mutex/innodb/buf\_pool\_mutex
-<a name="ams-waits.bufpoolmutex"></a>
 
 The `synch/mutex/innodb/buf_pool_mutex` event occurs when a thread has acquired a lock on the InnoDB buffer pool to access a page in memory.
 

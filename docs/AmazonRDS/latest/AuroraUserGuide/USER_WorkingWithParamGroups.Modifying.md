@@ -1,7 +1,6 @@
 
 
 # Modifying parameters in a DB parameter group in Amazon Aurora
-<a name="USER_WorkingWithParamGroups.Modifying"></a>
 
 You can modify parameter values in a customer-created DB parameter group; you can't change the parameter values in a default DB parameter group. Changes to parameters in a customer-created DB parameter group are applied to all DB instances that are associated with the DB parameter group. 
 

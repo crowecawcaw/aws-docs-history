@@ -1,7 +1,6 @@
 
 
 # Example: Using logical replication with Aurora PostgreSQL DB clusters
-<a name="AuroraPostgreSQL.Replication.Logical.PostgreSQL-Example"></a>
 
 The following procedure shows you how to start logical replication between two Aurora PostgreSQL DB clusters. Both the publisher and the subscriber must be configured for logical replication as detailed in [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.Configure.md).
 

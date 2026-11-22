@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL version 3 compatible with MySQL 8.0
-<a name="AuroraMySQL.MySQL80"></a>
 
  You can use Aurora MySQL version 3 to get the latest MySQL-compatible features, performance enhancements, and bug fixes. Following, you can learn about Aurora MySQL version 3, with MySQL 8.0 compatibility. You can learn how to upgrade your clusters and applications to Aurora MySQL version 3. 
 

@@ -1,7 +1,6 @@
 
 
 # Adaptive autovacuum enhancements in PostgreSQL version 18
-<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18"></a>
 
 Starting with RDS for PostgreSQL version 18, Amazon RDS enhances the adaptive autovacuum mechanism to dynamically scale `autovacuum_max_workers` when your DB instance approaches transaction ID wraparound. In earlier PostgreSQL versions, `autovacuum_max_workers` required a restart to change. PostgreSQL 18 makes `autovacuum_max_workers` a dynamic parameter, allowing Amazon RDS to adjust it without a restart.
 
@@ -32,7 +31,7 @@ When Amazon RDS modifies `autovacuum_max_workers` or any other autovacuum parame
 
 To view the current in-memory autovacuum settings, connect to your DB instance and run the following command:
 
-```
+```sql
 SHOW autovacuum_max_workers;
 ```
 

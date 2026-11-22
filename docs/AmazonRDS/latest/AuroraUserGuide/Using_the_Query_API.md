@@ -1,7 +1,6 @@
 
 
 # Using the Query API
-<a name="Using_the_Query_API"></a>
 
 The following sections briefly discuss the parameters and request authentication used with the Query API.
 

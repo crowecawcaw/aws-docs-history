@@ -1,7 +1,6 @@
 
 
 # Retaining automated backups
-<a name="Aurora.Managing.Backups.Retaining"></a>
 
 When you delete a provisioned or Aurora serverless DB cluster, you can retain automated backups. This allows you to restore a DB cluster to a specific point in time within the backup retention period, even after the cluster is deleted.
 

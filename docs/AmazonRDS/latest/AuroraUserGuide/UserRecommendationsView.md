@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon Aurora recommendations
-<a name="UserRecommendationsView"></a>
 
 Using the Amazon RDS console, you can view Amazon Aurora recommendations for your database resources. For a DB cluster, the recommendations appear for the DB cluster and its instances.
 

@@ -1,7 +1,6 @@
 
 
 # Authorizing Amazon Aurora MySQL to access other AWS services on your behalf
-<a name="AuroraMySQL.Integrating.Authorizing"></a>
 
 For your Aurora MySQL DB cluster to access other services on your behalf, create and configure an AWS Identity and Access Management (IAM) role. This role authorizes database users in your DB cluster to access other AWS services. For more information, see [Setting up IAM roles to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md).
 

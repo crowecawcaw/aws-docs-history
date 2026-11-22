@@ -1,7 +1,6 @@
 
 
 # Best practices for Aurora MySQL high availability
-<a name="AuroraMySQL.BestPractices.HA"></a>
 
 You can apply the following best practices to improve the availability of your Aurora MySQL clusters.
 

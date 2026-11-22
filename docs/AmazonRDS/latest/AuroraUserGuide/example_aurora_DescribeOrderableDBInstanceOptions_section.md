@@ -1,7 +1,6 @@
 
 
 # Use `DescribeOrderableDBInstanceOptions` with an AWS SDK or CLI
-<a name="example_aurora_DescribeOrderableDBInstanceOptions_section"></a>
 
 The following code examples show how to use `DescribeOrderableDBInstanceOptions`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get a list of orderable DB instance options for a specific
     /// engine and engine version.
@@ -48,7 +47,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -124,7 +123,7 @@ bool AwsDoc::Aurora::chooseDBInstanceClass(const Aws::String &engine,
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -174,7 +173,7 @@ func (clusters *DbClusters) GetOrderableInstances(ctx context.Context, engine st
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
-```
+```java
     public static void describeDBEngines(RdsClient rdsClient) {
         try {
             DescribeDbEngineVersionsRequest engineVersionsRequest = DescribeDbEngineVersionsRequest.builder()
@@ -208,7 +207,7 @@ func (clusters *DbClusters) GetOrderableInstances(ctx context.Context, engine st
 **Tools for PowerShell V4**  
 **Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**  
 
-```
+```powershell
 $params = @{
   Engine = 'aurora-postgresql'
   DBInstanceClass = 'db.r5.large'
@@ -218,7 +217,7 @@ Get-RDSOrderableDBInstanceOption @params
 ```
 **Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**  
 
-```
+```powershell
 $params = @{
   Engine = 'aurora-postgresql'
   EngineVersion = '13.6'
@@ -231,7 +230,7 @@ Get-RDSOrderableDBInstanceOption @params
 **Tools for PowerShell V5**  
 **Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**  
 
-```
+```powershell
 $params = @{
   Engine = 'aurora-postgresql'
   DBInstanceClass = 'db.r5.large'
@@ -241,7 +240,7 @@ Get-RDSOrderableDBInstanceOption @params
 ```
 **Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**  
 
-```
+```powershell
 $params = @{
   Engine = 'aurora-postgresql'
   EngineVersion = '13.6'
@@ -257,7 +256,7 @@ Get-RDSOrderableDBInstanceOption @params
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
-```
+```python
 class AuroraWrapper:
     """Encapsulates Aurora DB cluster actions."""
 
@@ -312,7 +311,7 @@ class AuroraWrapper:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
-```
+```rust
     pub async fn get_instance_classes(&self) -> Result<Vec<String>, ScenarioError> {
         let describe_orderable_db_instance_options_items = self
             .rds
@@ -440,7 +439,7 @@ async fn test_scenario_get_instance_classes_error() {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
-```
+```sap-abap
     " iv_engine        = 'mysql'
     " iv_engineversion = '8.0.35'
     TRY.

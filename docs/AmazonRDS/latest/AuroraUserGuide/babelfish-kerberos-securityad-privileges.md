@@ -1,7 +1,6 @@
 
 
 # Utilizing privileges of AD security group membership
-<a name="babelfish-kerberos-securityad-privileges"></a>
 
 ## Inheriting server-level privileges
 <a name="babelfish-kerberos-securityad-inheritpriv-server"></a>

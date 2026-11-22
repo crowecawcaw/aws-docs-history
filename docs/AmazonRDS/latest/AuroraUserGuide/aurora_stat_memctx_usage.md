@@ -1,7 +1,6 @@
 
 
 # aurora\_stat\_memctx\_usage
-<a name="aurora_stat_memctx_usage"></a>
 
 Reports the memory context usage for each PostgreSQL process.
 

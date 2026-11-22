@@ -1,7 +1,6 @@
 
 
 # Setting up logical replication for your Aurora PostgreSQL DB cluster
-<a name="AuroraPostgreSQL.Replication.Logical.Configure"></a>
 
 Setting up logical replication requires `rds_superuser` privileges. Your Aurora PostgreSQL DB cluster must be configured to use a custom DB cluster parameter group so that you can set the necessary parameters as detailed in the procedure following. For more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md). 
 

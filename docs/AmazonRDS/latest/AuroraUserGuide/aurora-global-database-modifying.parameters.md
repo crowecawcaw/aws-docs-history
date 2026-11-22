@@ -1,7 +1,6 @@
 
 
 # Modifying parameters for an Aurora global database
-<a name="aurora-global-database-modifying.parameters"></a>
 
 You can configure the Aurora DB cluster parameter groups independently for each Aurora cluster within the Aurora global database. Most parameters work the same as for other kinds of Aurora clusters. We recommend that you keep settings consistent among all the clusters in a global database. Doing this helps to avoid unexpected behavior changes if you promote a secondary cluster to be the primary. 
 

@@ -1,7 +1,6 @@
 
 
 # Babelfish supports Geospatial data types
-<a name="babelfish-geospatial"></a>
 
 Starting with versions 3.5.0 and 4.1.0, Babelfish includes support for the following two spatial data types:
 + **Geometry data type** – This data type is intended for storing planar or Euclidean (flat-earth) data.

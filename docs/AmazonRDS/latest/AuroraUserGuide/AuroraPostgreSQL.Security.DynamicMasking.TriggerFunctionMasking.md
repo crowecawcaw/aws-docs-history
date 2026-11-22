@@ -1,7 +1,6 @@
 
 
 # Understanding masking behavior in trigger functions
-<a name="AuroraPostgreSQL.Security.DynamicMasking.TriggerFunctionMasking"></a>
 
 When `pg_columnmask` policies are applied to tables, it's important to understand how masking interacts with trigger functions. Triggers are database functions that execute automatically in response to certain events on a table, such as INSERT, UPDATE, or DELETE operations.
 
@@ -22,7 +21,7 @@ Two server-level configuration parameters control trigger behavior with masked t
 **Example of differences between function application to table and view**  
 The following example creates a trigger function that prints old and new row values, then demonstrates how the same function behaves differently when attached to a table versus a view.  
 
-```
+```sql
 -- Create trigger function
 CREATE OR REPLACE FUNCTION print_changes()
     RETURNS TRIGGER AS
@@ -95,7 +94,7 @@ We recommend reviewing trigger behavior before implementing triggers on masked t
 **Example of renaming masking policy**  
 The following example demonstrates how to rename existing policies using the `rename_masking_policy` procedure.  
 
-```
+```sql
 -- Rename the strict policy
 CALL pgcolumnmask.rename_masking_policy(
     'employee_mask_strict',
@@ -119,7 +118,7 @@ SELECT policyname, roles, weight
 **Example of altering policy weight**  
 The following example demonstrates how to alter policy weights to change their weight.  
 
-```
+```sql
 -- Change weight of moderate policy
 CALL pgcolumnmask.alter_masking_policy(
     'employee_mask_moderate'::NAME,
@@ -144,7 +143,7 @@ SELECT policyname, roles, weight
 **Example of cleaning up**  
 The following example demonstrates how to drop all policies, tables and users.  
 
-```
+```sql
 -- Drop policies
 CALL pgcolumnmask.drop_masking_policy(
     'intern_protection_policy',

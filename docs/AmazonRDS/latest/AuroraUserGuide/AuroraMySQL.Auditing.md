@@ -1,7 +1,7 @@
 
 
 # Using Advanced Auditing with an Amazon Aurora MySQL DB cluster
-<a name="AuroraMySQL.Auditing"></a><a name="auditing"></a><a name="advanced_auditing"></a>
+<a name="auditing"></a><a name="advanced_auditing"></a>
 
 You can use the high-performance Advanced Auditing feature in Amazon Aurora MySQL to audit database activity. To do so, you enable the collection of audit logs by setting several DB cluster parameters. When Advanced Auditing is enabled, you can use it to log any combination of supported events. 
 

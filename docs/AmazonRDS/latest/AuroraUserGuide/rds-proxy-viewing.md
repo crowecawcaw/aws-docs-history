@@ -1,7 +1,6 @@
 
 
 # Viewing a proxy
-<a name="rds-proxy-viewing"></a>
 
  After you create one or more RDS proxies, you can view and manage them in the AWS Management Console, the AWS CLI, or the RDS API. You can review their configuration details, monitor performance, and determine which proxies to modify or delete as needed.
 

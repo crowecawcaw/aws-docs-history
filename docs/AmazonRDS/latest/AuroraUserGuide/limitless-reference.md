@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL Limitless Database reference
-<a name="limitless-reference"></a>
 
 We provide the following reference topics for Aurora PostgreSQL Limitless Database.
 

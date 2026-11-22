@@ -1,7 +1,6 @@
 
 
 # Deleting Aurora PostgreSQL query plans
-<a name="AuroraPostgreSQL.Optimize.Deleting"></a>
 
 Delete execution plans that you aren't using or plans that aren't valid. For more information about deleting plans, see the following sections.
 
@@ -52,7 +51,7 @@ Plans can become invalid or stale when objects that they depend on are removed, 
 
 To find and delete all plans that are invalid and haven't been used in the past week, use the `apg_plan_mgmt.validate_plans `function as follows.
 
-```
+```sql
 SELECT apg_plan_mgmt.validate_plans(sql_hash, plan_hash, 'delete') 
 FROM apg_plan_mgmt.dba_plans
 WHERE last_used < (current_date - interval '7 days');

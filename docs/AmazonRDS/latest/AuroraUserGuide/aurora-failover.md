@@ -1,7 +1,6 @@
 
 
 # Failing over an Amazon Aurora DB cluster
-<a name="aurora-failover"></a>
 
 You can perform a manual failover of an Aurora DB cluster, for example, when you want to replace a provisioned writer DB instance with an Aurora serverless writer instance.
 

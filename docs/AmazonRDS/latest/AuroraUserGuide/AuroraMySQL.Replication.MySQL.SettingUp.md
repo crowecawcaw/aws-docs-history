@@ -1,7 +1,6 @@
 
 
 # Setting up binary log replication for Aurora MySQL
-<a name="AuroraMySQL.Replication.MySQL.SettingUp"></a>
 
 Setting up MySQL replication with Aurora MySQL involves the following steps, which are discussed in detail:
 
@@ -81,13 +80,13 @@ Use the following instructions to load the dump of your replication source into 
 
 Create a user ID on the source that is used solely for replication. The following example is for RDS for MySQL or external MySQL source databases.
 
-```
+```sql
 mysql> CREATE USER '{{repl_user}}'@'{{domain_name}}' IDENTIFIED BY '{{password}}';
 ```
 
 For Aurora MySQL source databases, the `skip_name_resolve` DB cluster parameter is set to `1` (`ON`) and can't be modified, so you must use an IP address for the host instead of a domain name. For more information, see [skip\_name\_resolve](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_skip_name_resolve) in the MySQL documentation.
 
-```
+```sql
 mysql> CREATE USER '{{repl_user}}'@'{{IP_address}}' IDENTIFIED BY '{{password}}';
 ```
 
@@ -95,11 +94,11 @@ The user requires the `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges. G
 
 If you need to use encrypted replication, require SSL connections for the replication user. For example, you can use one of the following statements to require SSL connections on the user account `repl_user`.
 
-```
+```sql
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '{{repl_user}}'@'{{IP_address}}';
 ```
 
-```
+```sql
 GRANT USAGE ON *.* TO '{{repl_user}}'@'{{IP_address}}' REQUIRE SSL;
 ```
 
@@ -135,7 +134,7 @@ In Aurora MySQL version 3.04 and higher, you can start replication and then stop
 
    The following example initiates replication and replicates changes until it reaches location `120` in the `mysql-bin-changelog.000777` binary log file. In a disaster recovery scenario, assume that location `120` is just before the disaster.
 
-   ```
+   ```sql
    call mysql.rds_start_replication_until(
      'mysql-bin-changelog.000777',
      120);

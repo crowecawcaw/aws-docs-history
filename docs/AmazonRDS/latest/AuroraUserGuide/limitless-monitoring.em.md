@@ -1,7 +1,6 @@
 
 
 # Monitoring Aurora PostgreSQL Limitless Database with Enhanced Monitoring
-<a name="limitless-monitoring.em"></a>
 
 Enhanced Monitoring is required as part of enabling Aurora PostgreSQL Limitless Database. You can use it to monitor the operating system of your Limitless Database DB instances in real time.
 

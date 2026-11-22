@@ -1,7 +1,6 @@
 
 
 # Deleting a DB shard group
-<a name="limitless-shard-delete"></a>
 
 You can delete a DB shard group if necessary. Deleting the DB shard group deletes the compute nodes (shards and routers), but not the storage.
 

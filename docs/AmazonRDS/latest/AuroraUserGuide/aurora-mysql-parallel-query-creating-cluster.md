@@ -1,7 +1,6 @@
 
 
 # Creating a parallel query DB cluster in Aurora MySQL
-<a name="aurora-mysql-parallel-query-creating-cluster"></a>
 
  To create an Aurora MySQL cluster with parallel query, add new instances to it, or perform other administrative operations, you use the same AWS Management Console and AWS CLI techniques that you do with other Aurora MySQL clusters. You can create a new cluster to work with parallel query. You can also create a DB cluster to work with parallel query by restoring from a snapshot of a MySQL-compatible Aurora DB cluster. If you aren't familiar with the process for creating a new Aurora MySQL cluster, you can find background information and prerequisites in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md). 
 
@@ -34,7 +33,7 @@ You can create a parallel query cluster using the Amazon RDS console or the AWS 
 
 1. (For Aurora MySQL version 2, version 3, or version 8.4) Check that the `aurora_parallel_query` configuration setting is true.
 
-   ```
+   ```sql
    mysql> select @@aurora_parallel_query;
    +-------------------------+
    | @@aurora_parallel_query |
@@ -45,7 +44,7 @@ You can create a parallel query cluster using the Amazon RDS console or the AWS 
 
 1. (For Aurora MySQL version 2) Check that the `aurora_disable_hash_join` setting is false.
 
-   ```
+   ```sql
    mysql> select @@aurora_disable_hash_join;
    +----------------------------+
    | @@aurora_disable_hash_join |
@@ -101,7 +100,7 @@ You can create a parallel query cluster using the Amazon RDS console or the AWS 
 
    Check that the `aurora_parallel_query` configuration setting exists. If this setting has the value 1, parallel query is ready for you to use. If this setting has the value 0, set it to 1 before you can use parallel query. Either way, the cluster is capable of performing parallel queries.
 
-   ```
+   ```sql
    mysql> select @@aurora_parallel_query;
    +------------------------+
    | @@aurora_parallel_query|

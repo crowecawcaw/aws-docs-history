@@ -1,7 +1,6 @@
 
 
 # Stopping snapshot sharing
-<a name="share-snapshot-stop"></a>
 
 To stop sharing a DB cluster snapshot, you remove permission from the target AWS account.
 
@@ -31,7 +30,7 @@ To remove an AWS account identifier from the list, use the `--values-to-remove` 
 The following example prevents AWS account ID 444455556666 from restoring the snapshot.  
 For Linux, macOS, or Unix:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute \
 --db-cluster-snapshot-identifier manual-cluster-snapshot1 \
 --attribute-name restore \
@@ -39,7 +38,7 @@ aws rds modify-db-cluster-snapshot-attribute \
 ```
 For Windows:  
 
-```
+```json
 aws rds modify-db-cluster-snapshot-attribute ^
 --db-cluster-snapshot-identifier manual-cluster-snapshot1 ^
 --attribute-name restore ^
