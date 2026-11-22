@@ -1,9 +1,8 @@
 
 
 # Take a tour in the Infrastructure Composer console
-<a name="getting-started-tour"></a>
 
-To get a general idea of how AWS Infrastructure Composer works, take the tour that is built into the Infrastructure Composer console. For an overview of the Infrastructure Composer console, see [Take a tour in the Infrastructure Composer console](#getting-started-tour). For in depth guidance on using Infrastructure Composer, refer to [How to compose in AWS Infrastructure Composer](using-composer-basics.md).
+To get a general idea of how AWS Infrastructure Composer works, take the tour that is built into the Infrastructure Composer console. For an overview of the Infrastructure Composer console, see [Take a tour in the Infrastructure Composer console](getting-started-tour.md). For in depth guidance on using Infrastructure Composer, refer to [How to compose in AWS Infrastructure Composer](using-composer-basics.md).
 
 **To take a tour of Infrastructure Composer**
 

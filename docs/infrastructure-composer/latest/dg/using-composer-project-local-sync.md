@@ -1,7 +1,6 @@
 
 
 # Locally sync and save your project in the Infrastructure Composer console
-<a name="using-composer-project-local-sync"></a>
 
 This section provides information on using Infrastructure Composer's **local sync** mode to automatically sync and save your project to your local machine.
 

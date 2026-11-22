@@ -1,7 +1,6 @@
 
 
 # Using AWS Infrastructure Composer with Amazon Q Developer
-<a name="using-composer-ide-cw"></a>
 
  AWS Infrastructure Composer from the AWS Toolkit for Visual Studio Code provides an integration with Amazon Q. You can use Amazon Q within Infrastructure Composer to generate the infrastructure code for your AWS resources as you design your application.
 

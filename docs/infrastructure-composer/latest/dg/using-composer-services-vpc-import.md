@@ -1,13 +1,12 @@
 
 
 # Parameters in imported templates for an external VPC with Infrastructure Composer
-<a name="using-composer-services-vpc-import"></a>
 
 When you import an existing template with parameters defined for the security groups and subnets of an external VPC, Infrastructure Composer provides a dropdown list to select your parameters from.
 
 The following is an example of the `Parameters` section of an imported template:
 
-```
+```yaml
 ...
 Parameters:
   VPCSecurityGroups:
@@ -36,7 +35,7 @@ For more information on parameter lists type, see [Supported AWS-specific parame
 
 The following is an example of a template that defines `VPCSecurityGroups` as a list parameter type:
 
-```
+```yaml
 ...
 Parameters:
   VPCSecurityGroups:
@@ -54,7 +53,7 @@ This limitation occurs because the `SecurityGroupIds` and `SubnetIds` properties
 
 For list parameter types, the following is an example of how they are defined in the template when configured with a Lambda function:
 
-```
+```yaml
 ...
 Parameters:
   VPCSecurityGroups:

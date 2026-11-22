@@ -1,7 +1,6 @@
 
 
 # Enhanced component cards in Infrastructure Composer
-<a name="using-composer-cards-use-enhanced-component"></a>
 
 To configure enhanced component cards, Infrastructure Composer provides a form in the **Resource properties** panel. This form is curated uniquely to guide you through configuring each enhanced component card. As you fill out the form, Infrastructure Composer modifies your infrastructure code.
 

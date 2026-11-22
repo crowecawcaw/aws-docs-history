@@ -1,7 +1,6 @@
 
 
 # Reference external files in Infrastructure Composer
-<a name="using-composer-external-files"></a>
 
 You can use external files with your AWS Serverless Application Model (AWS SAM) templates to reuse repeated code and organize your projects. For example, you may have multiple Amazon API Gateway REST API resources that are described by an OpenAPI specification. Instead of replicating the OpenAPI specification code in your template, you can create one external file and reference it for each of your resources.
 

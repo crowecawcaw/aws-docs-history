@@ -1,7 +1,6 @@
 
 
 # Activate local sync in Infrastructure Composer
-<a name="using-composer-how-to-locally-sync"></a>
 
 To activate local sync, complete the following steps:
 

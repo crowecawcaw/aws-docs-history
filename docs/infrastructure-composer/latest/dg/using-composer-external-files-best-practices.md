@@ -1,7 +1,6 @@
 
 
 # Best practices for Infrastructure Composer external reference files
-<a name="using-composer-external-files-best-practices"></a>
 
 ## Use Infrastructure Composer with a local IDE
 <a name="using-composer-external-files-best-practices-ide"></a>

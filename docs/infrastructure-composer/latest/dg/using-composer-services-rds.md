@@ -1,7 +1,6 @@
 
 
 # Using Infrastructure Composer with Amazon Relational Database Service (Amazon RDS)
-<a name="using-composer-services-rds"></a>
 
 AWS Infrastructure Composer features an integration with Amazon Relational Database Service (Amazon RDS). Using the **RDS Database (External)** enhanced component card in Infrastructure Composer, you can connect your application to Amazon RDS DB clusters, instances, and proxies that are defined on another CloudFormation or AWS Serverless Application Model (AWS SAM) template.
 
@@ -80,7 +79,7 @@ When you complete the procedure listed above, Infrastructure Composer performs s
 
 When you drag an **RDS Database (external)** card onto the canvas, Infrastructure Composer updates the `Metadata` and `Parameters` sections of your template as needed. The following is an example:
 
-```
+```yaml
 Metadata:
   AWS::Composer::ExternalResources:
     ExternalRDS:
@@ -109,7 +108,7 @@ String values in the `Metadata` and `Parameters` section use the logical ID valu
 
 When you connect a **Lambda Function** card to the **RDS Database (external)** card, Infrastructure Composer provisions environment variables and AWS Identity and Access Management (IAM) policies. The following is an example:
 
-```
+```yaml
 Resources:
   Function:
     Type: AWS::Serverless::Function

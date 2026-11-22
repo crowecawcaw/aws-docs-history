@@ -1,7 +1,6 @@
 
 
 # Import an existing project folder in the Infrastructure Composer console
-<a name="using-composer-project-import-folder"></a>
 
 Using local sync mode, you can import the parent folder of an existing project. If your project contains multiple templates, you can choose the template to load.
 

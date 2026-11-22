@@ -1,7 +1,6 @@
 
 
 # Standard component cards in Infrastructure Composer
-<a name="using-composer-cards-resource-intro"></a>
 
 Before a standard component card is placed on Infrastructure Composer's visual canvas, it is listed as a **Standard (IaC) resource** card on the **Resources** palette in Infrastructure Composer. A standard (IaC) resource card represents a single CloudFormation resource. Each standard IaC resource card, once placed on the visual canvas, becomes a card labeled **Standard component**, and may be combined to represent multiple CloudFormation resources.
 

@@ -1,7 +1,6 @@
 
 
 # Update an existing stack in Infrastructure Composer in CloudFormation console mode
-<a name="composer-cfn-mode-update"></a>
 
 Follow the instructions in this topic to update an existing CloudFormation stack.
 **Note**  

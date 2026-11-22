@@ -1,7 +1,6 @@
 
 
 # Allow web page access to local files in Infrastructure Composer
-<a name="reference-fsa"></a>
 
 The Infrastructure Composer console supports [local sync mode](using-composer-project-local-sync.md) and [Importing functions from the Lambda console](other-services-lambda.md). To use these features, a web browser that supports the File System Access API is required. Any recent version of Google Chrome and Microsoft Edge support all capabilities of the File System Access API and can be used with **local sync** mode in Infrastructure Composer.
 

@@ -1,7 +1,6 @@
 
 
 # Examples for connecting cards in Infrastructure Composer
-<a name="using-composer-connecting-examples"></a>
 
 Use the examples in this section to understand how cards can be connected in Infrastructure Composer.
 
@@ -15,7 +14,7 @@ In this example, an **Amazon S3 bucket** card is connected to a **Lambda functio
 
 This interaction requires that an event be defined for the function. Here is what Infrastructure Composer provisions:
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
@@ -51,7 +50,7 @@ This interaction requires the following, which is provisioned by Infrastructure 
 + IAM policies that allow the Lambda function to interact with the Amazon S3 bucket.
 + Environment variables that influence the behavior of the Lambda function.
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 ...
 Resources:

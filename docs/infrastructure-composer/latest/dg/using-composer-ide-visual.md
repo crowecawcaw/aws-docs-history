@@ -1,7 +1,6 @@
 
 
 # Visual overview of Infrastructure Composer from the AWS Toolkit for Visual Studio Code
-<a name="using-composer-ide-visual"></a>
 
 Infrastructure Composer's visual designer in the AWS Toolkit for Visual Studio Code includes a visual canvas, which includes components that are numbered in the following image and listed below. 
 

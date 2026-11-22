@@ -1,7 +1,6 @@
 
 
 # Set up for deploying with the AWS SAM CLI and Infrastructure Composer
-<a name="other-services-cfn-sam-using"></a>
 
 To deploy your application with AWS SAM, you first need to install and access the AWS CLI and the AWS SAM CLI. The topics in this section provide details on doing this.
 

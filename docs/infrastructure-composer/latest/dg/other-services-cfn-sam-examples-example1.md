@@ -1,7 +1,6 @@
 
 
 # Use Infrastructure Composer with AWS SAM to build and deploy
-<a name="other-services-cfn-sam-examples-example1"></a>
 
 Now that you have completed [Set up for deploying with the AWS SAM CLI and Infrastructure Composer](other-services-cfn-sam-using.md), you can deploy your application with AWS SAM and Infrastructure Composer. This section provides an example detailing how you can do this. You can also refer to [Deploy your application and resources with AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-deploying.html) in the *AWS Serverless Application Model Developer Guide* for instructions on deploying your application with AWS SAM.
 

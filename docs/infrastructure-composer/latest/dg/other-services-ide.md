@@ -1,7 +1,6 @@
 
 
 # Connect the Infrastructure Composer console with your local IDE
-<a name="other-services-ide"></a>
 
 To connect the Infrastructure Composer console with your local integrated development environment (IDE), use local sync mode. This mode automatically syncs and saves data to your local machine. For more information about local sync mode, see [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md). For instructions on using local sync mode, see [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md).
 

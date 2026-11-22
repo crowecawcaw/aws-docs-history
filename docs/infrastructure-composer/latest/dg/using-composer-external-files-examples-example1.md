@@ -1,7 +1,6 @@
 
 
 # Reference an OpenAPI specification external file with Infrastructure Composer
-<a name="using-composer-external-files-examples-example1"></a>
 
 This example uses Infrastructure Composer from the console to reference an external OpenAPI specification file that defines a API Gateway REST API.
 
@@ -33,7 +32,7 @@ demo
 
 Now, you can configure the external file on our local machine. Using our IDE, open the `api-spec.yaml` located in your project folder. Replace its contents with the following:
 
-```
+```yaml
 openapi: '3.0'
 info: {}
 paths:

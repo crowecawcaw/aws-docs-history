@@ -1,7 +1,6 @@
 
 
 # Access Infrastructure Composer from the AWS Toolkit for Visual Studio Code
-<a name="setting-up-composer-access-ide"></a>
 
 Follow the instructions in this topic to access Infrastructure Composer from the AWS Toolkit for Visual Studio Code.
 

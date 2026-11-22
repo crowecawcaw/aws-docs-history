@@ -1,7 +1,6 @@
 
 
 # Use Infrastructure Composer with AWS SAM to delete a stack
-<a name="other-services-cfn-sam-examples-example2"></a>
 
 This example shows you how to delete an CloudFormation stack using the **sam delete** command.
 

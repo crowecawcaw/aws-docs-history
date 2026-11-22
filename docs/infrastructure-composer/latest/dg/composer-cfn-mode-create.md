@@ -1,7 +1,6 @@
 
 
 # Create a new template in Infrastructure Composer in CloudFormation console mode
-<a name="composer-cfn-mode-create"></a>
 
 Follow the instructions in this topic to create a new template.
 

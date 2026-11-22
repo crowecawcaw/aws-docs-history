@@ -1,7 +1,6 @@
 
 
 # AWS Infrastructure Composer end of support
-<a name="infrastructure-composer-end-of-support"></a>
 
 After careful consideration, we decided to end support for AWS Infrastructure Composer, effective December 7, 2026. Infrastructure Composer will no longer accept new customers beginning October 29, 2026. As an existing customer with an account signed up for the service before October 29, 2026, you can continue to use Infrastructure Composer features. After December 7, 2026, you will no longer be able to use Infrastructure Composer.
 

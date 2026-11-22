@@ -1,7 +1,6 @@
 
 
 # Using Infrastructure Composer in CloudFormation console mode
-<a name="using-composer-console-cfn-mode"></a>
 
 Infrastructure Composer in CloudFormation console mode is the recommended tool to visualize your CloudFormation templates. You can also use this tool to create and edit CloudFormation templates.
 

@@ -1,7 +1,6 @@
 
 
 # Adding new parameters to imported templates with Infrastructure Composer
-<a name="using-composer-services-vpc-import-add"></a>
 
 When you import an existing template with parameters defined, you can also create new parameters. Instead of selecting an existing parameter from the dropdown list, provide a new type and value. The following is an example that creates a new parameter named `MySecurityGroup`:
 
@@ -10,7 +9,7 @@ When you import an existing template with parameters defined, you can also creat
 
 For all new values that you provide in the **Resource properties** panel for the Lambda function, Infrastructure Composer defines them in a list under the `SecurityGroupIds` or `SubnetIds` properties of a Lambda function. The following is an example:
 
-```
+```yaml
 ...
 Resources:
   MyFunction:
@@ -27,7 +26,7 @@ Resources:
 
 If you want to reference the logical ID of a list parameter type from an external template, we recommend that you use the **Template** view and directly modify your template. The logical ID of a list parameter type should always be provided as a single value and as the only value.
 
-```
+```yaml
 ...
 Parameters:
   VPCSecurityGroups:

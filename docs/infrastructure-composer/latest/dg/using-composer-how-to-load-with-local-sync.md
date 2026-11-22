@@ -1,7 +1,6 @@
 
 
 # Load an existing Infrastructure Composer project with local sync activated
-<a name="using-composer-how-to-load-with-local-sync"></a>
 
 To load an existing project with local sync activated, complete the following steps:
 

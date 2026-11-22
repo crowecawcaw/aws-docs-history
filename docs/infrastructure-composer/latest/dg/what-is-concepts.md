@@ -1,7 +1,6 @@
 
 
 # Serverless concepts for AWS Infrastructure Composer
-<a name="what-is-concepts"></a>
 
 Learn about basic serverless concepts before using AWS Infrastructure Composer.
 

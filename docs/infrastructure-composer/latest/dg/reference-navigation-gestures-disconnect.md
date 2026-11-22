@@ -1,7 +1,6 @@
 
 
 # Disconnect cards in Infrastructure Composer
-<a name="reference-navigation-gestures-disconnect"></a>
 
 In Infrastructure Composer, you connect and disconnect AWS resources using *enhanced component cards* and *standard component cards*. This section describes how to disconnect both types of cards.
 

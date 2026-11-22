@@ -1,7 +1,6 @@
 
 
 # Identify Infrastructure Composer resources and related information in a VPC
-<a name="using-composer-services-vpc-tag"></a>
 
 To integrate Infrastructure Composer with Amazon VPC, you must first identify resources in a VPC and the information needed to complete an integration. This also includes configuration information related to security groups, subnet identifiers, parameter types, SSM types, static value types.
 
@@ -36,7 +35,7 @@ For the **Parameter** type, you can provide a parameter name. In the following e
 
 When you provide a parameter name, Infrastructure Composer defines it in the `Parameters` section of your template. Then, Infrastructure Composer references the parameter in your Lambda function resource. The following is an example:
 
-```
+```yaml
 ...
 Resources:
   Function:
@@ -68,7 +67,7 @@ You can reference a value from the SSM Parameter Store using a dynamic reference
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the value from the SSM Parameter Store. The following is an example:
 
-```
+```yaml
 ...
 Resources:
   Function:
@@ -88,7 +87,7 @@ You can reference an `AWS::SSM::Parameter` resource in the same template by logi
 
 The following is an example of an `AWS::SSM::Parameter` resource named `PrivateSubnet1Parameter` that stores the subnet ID for `PrivateSubnet1`:
 
-```
+```yaml
 ...
 Resources:
   PrivateSubnet1Parameter:
@@ -107,7 +106,7 @@ The following is an example of this resource value being provided by logical ID 
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the SSM parameter:
 
-```
+```yaml
 ...
 Resources:
   Function:
@@ -135,7 +134,7 @@ For the **static value** type, the following are valid values:
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the static value. The following is an example:
 
-```
+```yaml
 ...
 Resources:
   Function:
@@ -160,7 +159,7 @@ For security groups and subnets, you can use multiple types together. The follow
 
 Infrastructure Composer references all three values under the `SecurityGroupIds` property:
 
-```
+```yaml
 ...
 Resources:
   Function:

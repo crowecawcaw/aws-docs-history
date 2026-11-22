@@ -1,7 +1,6 @@
 
 
 # Create a new project in the Infrastructure Composer console
-<a name="using-composer-project-new"></a>
 
 When you create a new project, Infrastructure Composer generates a starting template. As you design your application on the canvas, your template is modified. To save your work, you must export your template or activate local sync mode.
 

@@ -1,7 +1,6 @@
 
 
 # Enhanced component cards in Infrastructure Composer
-<a name="using-composer-cards-component-intro-enhanced"></a>
 
 Enhanced component cards are created and managed by Infrastructure Composer. Each card contains CloudFormation resources that are commonly used together when building applications on AWS. Their infrastructure code is created by Infrastructure Composer following AWS best practices. Enhanced component cards are a great way to start designing your application.
 

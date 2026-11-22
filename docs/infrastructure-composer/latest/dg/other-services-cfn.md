@@ -1,7 +1,6 @@
 
 
 # Deploy your Infrastructure Composer serverless application to the AWS Cloud
-<a name="other-services-cfn"></a>
 
 **Note**  
 End of support notice: On December 7, 2026, the standalone AWS Infrastructure Composer console will no longer be available. We have replaced Infrastructure Composer with an improved visual IaC editor on the AWS console pages where it was previously embedded. The full Infrastructure Composer experience remains available via the AWS Toolkit for Visual Studio Code. For more information, see [AWS Infrastructure Composer end of support](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/infrastructure-composer-end-of-support.html).

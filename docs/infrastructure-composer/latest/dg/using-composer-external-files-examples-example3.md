@@ -1,7 +1,6 @@
 
 
 # Create an application that references an external file in Infrastructure Composer
-<a name="using-composer-external-files-examples-example3"></a>
 
 This example uses the AWS SAM CLI to create an application that references an external file for its state machine definition. You then load your project in Infrastructure Composer with your external file properly referenced.
 
@@ -67,7 +66,7 @@ This example uses the AWS SAM CLI to create an application that references an e
 
    This application references an external file for the state machine definition.
 
-   ```
+   ```yaml
    ...
    Resources:
      StockTradingStateMachine:

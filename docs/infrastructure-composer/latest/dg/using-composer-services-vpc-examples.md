@@ -1,7 +1,6 @@
 
 
 # Configure a Lambda function and a VPC defined in another template with Infrastructure Composer
-<a name="using-composer-services-vpc-examples"></a>
 
 In this example, we configure a Lambda function in Infrastructure Composer with a VPC defined on another template.
 
@@ -29,7 +28,7 @@ Now that our Lambda function is configured with our VPC, the VPC tag is displaye
 
 Infrastructure Composer has created the infrastructure code to configure our Lambda function with the security group and subnet of the external VPC.
 
-```
+```yaml
 Transform: AWS::Serverless-2016-10-31
 Resources:
   Function:

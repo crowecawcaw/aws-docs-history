@@ -1,7 +1,6 @@
 
 
 # Manage your project from the Infrastructure Composer console
-<a name="using-composer-project"></a>
 
 This topic provides guidance on the basic tasks you perform to manage your project from the Infrastructure Composer console. This includes common tasks like creating a new project, saving a project, and importing a project or template. You can also load an existing project if you activate [local sync mode](using-composer-project-local-sync.md). After activating local sync mode, you can do the following:
 + Create a new project that consists of a starting template and folder structure.

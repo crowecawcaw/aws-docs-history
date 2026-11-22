@@ -1,7 +1,6 @@
 
 
 # Using the AWS Infrastructure Composer console
-<a name="using-composer-console"></a>
 
 This section provides details on accessing and using AWS Infrastructure Composer from the Infrastructure Composer console. This is the default experience for Infrastructure Composer and is a good way to become familiar with Infrastructure Composer. You can also integrate the Infrastructure Composer console with your local IDE. For details, see [Connect the Infrastructure Composer console with your local IDE](other-services-ide.md).
 
