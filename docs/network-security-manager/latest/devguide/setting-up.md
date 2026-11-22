@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Network Security Manager
-<a name="setting-up"></a>
 
 With AWS Network Security Manager, you can work in two organizational models. Use it directly in a single account, or use it with AWS Organizations to manage protections across multiple accounts. The setup steps depend on which model you choose.
 
@@ -79,7 +78,7 @@ Call the `PutAdminAccount` operation. You must provide a priority value (1 to 10
 
 The following AWS CLI example registers an account as an AWS Network Security Manager administrator with priority 1:
 
-```
+```json
 aws network-security-manager put-admin-account \
     --account-id 111122223333 \
     --priority 1
@@ -108,9 +107,9 @@ When you remove an administrator account, AWS Network Security Manager sets the 
 
 To use AWS Network Security Manager, you need an IAM identity (user or role) with permissions to call AWS Network Security Manager operations. The IAM actions use the prefix `network-security-manager`.
 
-The following example IAM policy contains three statements. The first statement grants full access to all AWS Network Security Manager operations. The second statement grants the additional AWS Organizations and AWS WAF permissions that AWS Network Security Manager needs. AWS Network Security Manager uses these permissions to identify the accounts and organizational units (OUs) in your organization and to list the available WAF rule groups and managed products. These permissions also let AWS Network Security Manager enable trusted access and register a delegated administrator in AWS Organizations. The third statement grants the `iam:CreateServiceLinkedRole` permission that AWS Network Security Manager needs to create its service-linked role, which it requires for both single-account and multi-account use.
+The following example IAM policy contains three statements. The first statement grants full access to all AWS Network Security Manager operations. The second statement grants the additional AWS Organizations, AWS WAF, Network Firewall, CloudWatch Logs, Amazon Data Firehose, and Amazon S3 permissions that AWS Network Security Manager needs. AWS Network Security Manager uses these permissions to identify the accounts and organizational units (OUs) in your organization. It lists the available AWS WAF and Network Firewall rule groups and managed products. It also lists the log groups, delivery streams, and buckets that you can select as logging destinations. With these permissions, you can use AWS Network Security Manager to enable trusted access and register a delegated administrator in AWS Organizations. The third statement grants the `iam:CreateServiceLinkedRole` permission that AWS Network Security Manager needs to create its service-linked role, which it requires for both single-account and multi-account use.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -129,16 +128,28 @@ The following example IAM policy contains three statements. The first statement 
                 "organizations:ListAccountsForParent",
                 "organizations:EnableAWSServiceAccess",
                 "organizations:RegisterDelegatedAdministrator",
+                "organizations:ListDelegatedAdministrators",
+                "organizations:DescribeAccount",
                 "wafv2:ListRuleGroups",
                 "wafv2:ListAvailableManagedRuleGroups",
-                "wafv2:DescribeAllManagedProducts"
+                "wafv2:DescribeAllManagedProducts",
+                "network-firewall:ListRuleGroups",
+                "logs:DescribeLogGroups",
+                "firehose:ListDeliveryStreams",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
             ],
             "Resource": "*"
         },
         {
             "Effect": "Allow",
             "Action": "iam:CreateServiceLinkedRole",
-            "Resource": "*"
+            "Resource": "arn:aws:iam::*:role/aws-service-role/network-security-manager.amazonaws.com/*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": "network-security-manager.amazonaws.com"
+                }
+            }
         }
     ]
 }

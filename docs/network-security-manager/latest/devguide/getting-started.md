@@ -1,7 +1,6 @@
 
 
 # Deploy your first network security protection
-<a name="getting-started"></a>
 
 This tutorial walks you through deploying an AWS WAF web ACL using the AWS Network Security Manager console. You complete the following steps:
 
@@ -76,7 +75,7 @@ To create the VisibilityConfig rule, follow these steps:
 **AWS CLI alternative**  
 You can also create rules with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager create-rule \
     --rule-name "my-default-action-rule" \
     --firewall-type WAF \
@@ -112,7 +111,7 @@ A template groups one or more rules for reuse across policies. In this step, you
 **AWS CLI alternative**  
 You can also create a template with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager create-template \
     --template-name "my-waf-template" \
     --firewall-type WAF \
@@ -146,7 +145,7 @@ A policy combines templates with enforcement settings. In this step, you create 
 **AWS CLI alternative**  
 You can also create a policy with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager create-policy \
     --policy-name "my-waf-policy" \
     --firewall-type WAF \
@@ -176,7 +175,7 @@ A scope defines where your protections apply. In this step, you create a scope t
 **AWS CLI alternative**  
 You can also create a scope with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager create-scope \
     --scope-name "my-alb-scope" \
     --scope-configuration '{
@@ -212,7 +211,7 @@ AWS Network Security Manager begins discovering resources and applying protectio
 **AWS CLI alternative**  
 You can also create and publish a deployment with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager create-deployment \
     --deployment-name "my-first-deployment" \
     --associated-policy-list '[{"policyIdentifier": "{{policy-arn-from-step-3}}"}]' \
@@ -242,7 +241,7 @@ After you publish a deployment, AWS Network Security Manager discovers resources
 **AWS CLI alternative**  
 You can also check synchronization status with the AWS CLI:  
 
-```
+```bash
 aws network-security-manager list-resource-synchronization-statuses \
     --deployment-identifier "{{deployment-arn-from-step-5}}"
 ```
@@ -267,14 +266,14 @@ The reverse order matters because these resources reference each other. To see w
 **AWS CLI alternative**  
 Before you delete a resource, check its associations to plan the delete order:  
 
-```
+```bash
 aws network-security-manager list-resource-associations \
     --resource-arn "{{resource-arn}}"
 ```
 If a resource still has associations, remove or delete the associated resources first.  
 You can delete resources with the AWS CLI in reverse order:  
 
-```
+```bash
 aws network-security-manager delete-deployment \
     --deployment-identifier "{{deployment-arn}}"
 

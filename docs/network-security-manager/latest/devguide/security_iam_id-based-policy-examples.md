@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Network Security Manager
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Network Security Manager resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -42,7 +41,7 @@ To access the AWS Network Security Manager console, you need at minimum permissi
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -82,7 +81,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 The following policy grants you read-only access to all AWS Network Security Manager resources. This is useful for auditors or monitoring roles that need to view configurations and synchronization status without making changes.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -103,7 +102,7 @@ The following policy grants you read-only access to all AWS Network Security Man
 
 The following policy allows you to create, update, and delete rules and templates, without granting access to policies, scopes, or deployments. This is useful for teams that author security configurations but do not control enforcement.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

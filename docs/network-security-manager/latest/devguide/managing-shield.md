@@ -1,7 +1,6 @@
 
 
 # Managing DDoS protections for AWS Shield Advanced
-<a name="managing-shield"></a>
 
 With AWS Network Security Manager, you centrally configure and deploy AWS Shield Advanced protections across accounts and resources in your organization. You can define DDoS protection policies and enforce them at scale through AWS Network Security Manager policies and deployments.
 

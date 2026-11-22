@@ -1,7 +1,6 @@
 
 
 # How AWS Network Security Manager works
-<a name="concepts"></a>
 
 Use the AWS Network Security Manager resource model to design and manage network security protections for resources in a single account or across multiple accounts in your organization. This chapter explains the five resource types, how they form a hierarchy, and the key concepts that govern their behavior.
 

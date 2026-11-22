@@ -1,7 +1,6 @@
 
 
 # Quick Create for AWS WAF
-<a name="managing-waf-quick-create"></a>
 
 With Quick Create, you define and deploy AWS WAF protections in a single guided workflow. Use Quick Create when you want to set up a complete web ACL protection from rules through deployment in one session.
 

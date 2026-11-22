@@ -1,7 +1,6 @@
 
 
 # Standard creation process for AWS WAF
-<a name="managing-waf-standard"></a>
 
 With the AWS Network Security Manager standard creation process, you create each AWS WAF component—rules, templates, policies, scopes, and deployments—individually for full control. Use this approach when you want to create reusable components and combine them as needed.
 
