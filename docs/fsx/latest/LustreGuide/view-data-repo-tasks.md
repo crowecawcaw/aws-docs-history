@@ -1,7 +1,6 @@
 
 
 # Accessing data repository tasks
-<a name="view-data-repo-tasks"></a>
 
 After you create a data repository task, you can access the task, and all existing tasks in your account, using the Amazon FSx console, CLI, and API. Amazon FSx provides the following detailed task information: 
 + All existing tasks.

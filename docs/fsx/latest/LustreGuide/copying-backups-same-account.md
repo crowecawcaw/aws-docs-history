@@ -1,7 +1,6 @@
 
 
 # Copying backups within the same AWS account
-<a name="copying-backups-same-account"></a>
 
 You can copy backups of FSx for Lustre file systems using the AWS Management Console, CLI, and API, as described in the following procedures.
 

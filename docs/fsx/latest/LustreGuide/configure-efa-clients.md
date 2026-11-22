@@ -1,7 +1,6 @@
 
 
 # Configuring EFA clients
-<a name="configure-efa-clients"></a>
 
 Use the following procedures to set up your Lustre client to access an FSx for Lustre file system via Elastic Fabric Adapter (EFA).
 

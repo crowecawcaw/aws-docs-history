@@ -1,7 +1,6 @@
 
 
 # Monitoring with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor Amazon FSx for Lustre using CloudWatch, which collects and processes raw data from Amazon FSx for Lustre into readable, near real-time metrics. These statistics are retained for a period of 15 months, so that you can access historical information and gain a better perspective on how your application or service is performing. For more information about CloudWatch, see [What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*.
 

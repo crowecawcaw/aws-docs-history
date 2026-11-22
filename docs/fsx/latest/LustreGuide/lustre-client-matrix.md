@@ -1,7 +1,6 @@
 
 
 # Lustre file system and client kernel compatibility
-<a name="lustre-client-matrix"></a>
 
 We highly recommend using the Lustre version for your FSx for Lustre file system that is compatible with the Linux kernel versions of your client instances.
 

@@ -1,7 +1,6 @@
 
 
 # Protecting your data with backups
-<a name="using-backups-fsx"></a>
 
 With Amazon FSx for Lustre, you can take automatic daily backups and user-initiated backups of persistent file systems that are not linked to an Amazon S3 durable data repository. Amazon FSx backups are file-system-consistent, highly durable, and incremental. To ensure high durability, Amazon FSx for Lustre stores backups in Amazon Simple Storage Service (Amazon S3) with 99.999999999% (11 9's) durability.
 

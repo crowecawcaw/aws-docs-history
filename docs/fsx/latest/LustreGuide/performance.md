@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for Lustre performance
-<a name="performance"></a>
 
 This chapter provides Amazon FSx for Lustre performance topics, including some important tips and recommendations for maximizing the performance of your file system.
 

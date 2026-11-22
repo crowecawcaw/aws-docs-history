@@ -1,7 +1,6 @@
 
 
 # Additional information
-<a name="additional-info"></a>
 
 This section provides a reference of supported, but deprecated Amazon FSx features.
 

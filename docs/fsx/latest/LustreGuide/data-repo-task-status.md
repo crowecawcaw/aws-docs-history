@@ -1,7 +1,6 @@
 
 
 # Understanding a task's status and details
-<a name="data-repo-task-status"></a>
 
  A data repository task has descriptive information and a lifecycle status.
 

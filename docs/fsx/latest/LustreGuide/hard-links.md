@@ -1,7 +1,6 @@
 
 
 # Hard links and exporting to Amazon S3
-<a name="hard-links"></a>
 
 If automatic export (with NEW and CHANGED policies) is enabled on a DRA in your file system, each hard link contained within the DRA is exported to Amazon S3 as a separate S3 object for each hard link. If a file with multiple hard links is modified on the file system, all of the copies in S3 are updated, regardless of which hard link was used when changing the file.
 

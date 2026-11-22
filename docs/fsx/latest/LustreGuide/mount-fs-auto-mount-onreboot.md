@@ -1,7 +1,6 @@
 
 
 # Mounting your Amazon FSx file system automatically
-<a name="mount-fs-auto-mount-onreboot"></a>
 
  You can update the `/etc/fstab` file in your Amazon EC2 instance after you connect to the instance for the first time so that it mounts your Amazon FSx file system each time it reboots.
 

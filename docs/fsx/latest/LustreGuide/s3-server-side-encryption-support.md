@@ -1,7 +1,6 @@
 
 
 # Working with server-side encrypted Amazon S3 buckets
-<a name="s3-server-side-encryption-support"></a>
 
  FSx for Lustre supports Amazon S3 buckets that use server-side encryption with S3-managed keys (SSE-S3), and with AWS KMS keys stored in AWS Key Management Service (SSE-KMS). 
 

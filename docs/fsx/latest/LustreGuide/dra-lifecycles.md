@@ -1,7 +1,6 @@
 
 
 # Data repository association lifecycle state
-<a name="dra-lifecycles"></a>
 
 The data repository association lifecycle state provides status information about a specific DRA. A data repository association can have the following **Lifecycle states**:
 + **Creating** – Amazon FSx is creating the data repository association between the file system and the linked data repository. The data repository is unavailable.

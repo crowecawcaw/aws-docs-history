@@ -1,7 +1,6 @@
 
 
 # Using data repository tasks to export changes
-<a name="export-data-repo-task-dra"></a>
 
 The export data repository task exports files that are new or changed in your file system. It creates a new object in S3 for any new file on the file system. For any file that has been modified on the file system, or whose metadata has been modified, the corresponding object in S3 is replaced with a new object with the new data and metadata. No action is taken for files that have been deleted from the file system.
 

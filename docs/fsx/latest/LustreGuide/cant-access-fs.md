@@ -1,7 +1,6 @@
 
 
 # You cannot access your file system
-<a name="cant-access-fs"></a>
 
 There are a number of potential causes for being unable to access your file system, each with their own resolution, as follows.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring storage capacity increases
-<a name="monitoring-storage-capacity-increase"></a>
 
 You can monitor the progress of a storage capacity increase using the Amazon FSx console, the API, or the AWS CLI.
 

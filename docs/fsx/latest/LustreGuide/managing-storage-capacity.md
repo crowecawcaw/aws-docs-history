@@ -1,7 +1,6 @@
 
 
 # Managing storage capacity
-<a name="managing-storage-capacity"></a>
 
 You can increase the SSD or HDD storage capacity that is configured on your FSx for Lustre file system as you need additional storage and throughput. Because the throughput of an FSx for Lustre file system scales linearly with storage capacity, you also get a comparable increase in throughput capacity. To increase the storage capacity, you can use the Amazon FSx console, the AWS Command Line Interface (AWS CLI), or the Amazon FSx API.
 

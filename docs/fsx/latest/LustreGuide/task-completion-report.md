@@ -1,7 +1,6 @@
 
 
 # Working with task completion reports
-<a name="task-completion-report"></a>
 
 A *task completion report* provides details about the results of an export, import, or release data repository task. The report includes results for the files processed by the task that match the scope of the report. You can specify whether to generate a report for a task by using the `Enabled` parameter. 
 

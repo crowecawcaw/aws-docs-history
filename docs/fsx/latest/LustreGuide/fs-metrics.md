@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for Lustre metrics and dimensions
-<a name="fs-metrics"></a>
 
 Amazon FSx for Lustre publishes the metrics described in the following tables in the `AWS/FSx` namespace in Amazon CloudWatch for all FSx for Lustre file systems.
 

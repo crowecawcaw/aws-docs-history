@@ -1,7 +1,6 @@
 
 
 # Troubleshooting data repository task failures
-<a name="failed-tasks"></a>
 
 You can [turn on logging](cw-event-logging.md) to CloudWatch Logs to log information about any failures experienced while importing or exporting files using data repository tasks. For information about CloudWatch Logs event logs, see [Data repository event logs](data-repo-event-logs.md).
 

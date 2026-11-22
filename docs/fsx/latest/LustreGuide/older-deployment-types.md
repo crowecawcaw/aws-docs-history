@@ -1,7 +1,6 @@
 
 
 # Working with older deployment types
-<a name="older-deployment-types"></a>
 
 This section applies to file systems with Scratch 1 deployment type, and also to file systems with `Scratch 2` or `Persistent 1` deployment types that do not use data repository associations. Note that automatic export and support for multiple data repositories aren't available on FSx for Lustre file systems that don't use data repository associations.
 

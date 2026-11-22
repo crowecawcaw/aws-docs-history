@@ -1,7 +1,6 @@
 
 
 # Working with EFA-enabled file systems
-<a name="efa-file-systems"></a>
 
 If you are creating a file system with over 10 GBps of throughput capacity, we recommend enabling Elastic Fabric Adapter (EFA) to optimize throughput per client instance. EFA is a high-performance network interface that uses a custom-built operating system bypass technique and the AWS Scalable Reliable Datagram (SRD) network protocol to increase performance. For information about EFA, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*. 
 

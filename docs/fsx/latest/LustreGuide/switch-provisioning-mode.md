@@ -1,7 +1,6 @@
 
 
 # Changing the metadata configuration mode
-<a name="switch-provisioning-mode"></a>
 
 You can change the metadata configuration mode of an existing file system using the AWS console and CLI, as explained in the following procedures.
 

@@ -1,7 +1,6 @@
 
 
 # Performance tips
-<a name="performance-tips"></a>
 
 When using Amazon FSx for Lustre, keep the following performance tips in mind. For service limits, see [Service quotas for Amazon FSx for Lustre](limits.md).
 + **Average I/O size** – Because Amazon FSx for Lustre is a network file system, each file operation goes through a round trip between the client and Amazon FSx for Lustre, incurring a small latency overhead. Due to this per-operation latency, overall throughput generally increases as the average I/O size increases, because the overhead is amortized over a larger amount of data.

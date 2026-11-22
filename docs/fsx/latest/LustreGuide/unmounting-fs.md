@@ -1,7 +1,6 @@
 
 
 # Unmounting file systems
-<a name="unmounting-fs"></a>
 
 Before deleting an FSx for Lustre file system, ensure it is unmounted from all Amazon EC2 instances that have mounted it, and before shutting down or terminating any Amazon EC2 instance, ensure any mounted FSx for Lustre file systems are unmounted from that instance.
 

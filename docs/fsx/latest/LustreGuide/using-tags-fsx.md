@@ -1,7 +1,6 @@
 
 
 # Using tags with Amazon FSx
-<a name="using-tags-fsx"></a>
 
 You can use tags to control access to Amazon FSx resources and to implement attribute-based access control (ABAC). To apply tags to Amazon FSx resources during creation, users must have certain AWS Identity and Access Management (IAM) permissions.
 
@@ -14,7 +13,7 @@ For users to tag resources on creation, they must have permission to use the act
 
 The following example policy allows users to create file systems and apply tags to them during creation in a specific AWS account.
 
-```
+```json
 {
   "Statement": [
     {
@@ -33,7 +32,7 @@ The following example policy allows users to create file systems and apply tags 
 
 Similarly, the following policy allows users to create backups on a specific file system and apply any tags to the backup during backup creation.
 
-```
+```json
 {
   "Statement": [
     {
@@ -97,7 +96,7 @@ This policy allows the user to create a file system only when they tag it with a
 This policy allows users to create backups only on file systems that are tagged with the key value pair `key=Department, value=Finance`, and the backup will be created with the tag `Deparment=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ This policy allows users to create backups only on file systems that are tagged 
 This policy allows users to create file systems that are tagged with `Department=Finance` only from backups that are tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -171,7 +170,7 @@ This policy allows users to create file systems that are tagged with `Department
 This policy allows a user to delete only file systems that are tagged with `Department=Finance`. If they create a final backup, then it must be tagged with `Department=Finance`. For FSx for Lustre file systems, users need the `fsx:CreateBackup` privilege to create the final backup.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -208,7 +207,7 @@ This policy allows a user to delete only file systems that are tagged with `Depa
 This policy allows users to create data repository tasks tagged with `Department=Finance`, and only on file systems tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

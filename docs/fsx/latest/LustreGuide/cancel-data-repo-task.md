@@ -1,7 +1,6 @@
 
 
 # Canceling a data repository task
-<a name="cancel-data-repo-task"></a>
 
 You can cancel a data repository task while it's in either the PENDING or EXECUTING state. When you cancel a task, the following occurs:
 + Amazon FSx doesn't process any files that are in the queue to be processed.

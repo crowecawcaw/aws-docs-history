@@ -1,7 +1,6 @@
 
 
 # Service quotas for Amazon FSx for Lustre
-<a name="limits"></a>
 
 Following, you can find out about quotas when working with Amazon FSx for Lustre.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting storage issues
-<a name="lfs-migrate-ts"></a>
 
 In some cases, you may experience storage issues with your file system. You can troubleshoot these issues by using `lfs` commands, such as the `lfs migrate` command.
 

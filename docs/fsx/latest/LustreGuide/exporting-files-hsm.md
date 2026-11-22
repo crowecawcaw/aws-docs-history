@@ -1,7 +1,6 @@
 
 
 # Exporting files using HSM commands
-<a name="exporting-files-hsm"></a>
 
 **Note**  
 To export changes in your FSx for Lustre file system's data and metadata to a durable data repository on Amazon S3, use the automatic export feature described in [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md). You can also use export data repository tasks, described in [Using data repository tasks to export changes](export-data-repo-task-dra.md).

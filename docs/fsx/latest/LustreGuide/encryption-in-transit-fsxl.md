@@ -1,7 +1,6 @@
 
 
 # Encrypting data in transit
-<a name="encryption-in-transit-fsxl"></a>
 
 Scratch 2 and persistent file systems can automatically encrypt data in transit when the file system is accessed from Amazon EC2 instances that support encryption in transit, and also for all communications between hosts within the file system. To learn which EC2 instances support encryption in transit, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide*.
 

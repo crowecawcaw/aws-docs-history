@@ -1,7 +1,6 @@
 
 
 # Troubleshooting file system mount issues
-<a name="mount-troubleshooting"></a>
 
 There are a number of potential causes when a file system mount command fails, as described in the following topics.
 

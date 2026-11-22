@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy
-<a name="internetwork-privacy"></a>
 
 This topic describes how Amazon FSx secures connections from the service to other locations.
 

@@ -1,7 +1,6 @@
 
 
 # Automatically export updates to your S3 bucket
-<a name="autoexport-data-repo-dra"></a>
 
 You can configure your FSx for Lustre file system to automatically update the contents of a linked S3 bucket as files are added, changed, or deleted on the file system. FSx for Lustre creates, updates, or deletes the object in S3, corresponding to the change in the file system.
 

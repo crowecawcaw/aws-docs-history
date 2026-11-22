@@ -1,7 +1,6 @@
 
 
 # Importing changes from your data repository
-<a name="importing-files-dra"></a>
 
 You can import changes to data and POSIX metadata from a linked data repository to your Amazon FSx file system. Associated POSIX metadata includes ownership, permissions, and timestamps.
 

@@ -1,7 +1,6 @@
 
 
 # Performance characteristics of SSD and HDD storage classes
-<a name="ssd-storage"></a>
 
 The throughput that an FSx for Lustre file system provisioned with SSD or HDD storage class supports is proportional to its storage capacity. Amazon FSx for Lustre file systems scale to multiple TBps of throughput and millions of IOPS. Amazon FSx for Lustre also supports concurrent access to the same file or directory from thousands of compute instances. This access enables rapid data checkpointing from application memory to storage, which is a common technique in high performance computing (HPC). You can increase the amount of storage and throughput capacity as needed at any time after you create the file system. For more information, see [Managing storage capacity](managing-storage-capacity.md).
 

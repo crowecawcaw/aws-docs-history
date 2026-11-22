@@ -1,7 +1,6 @@
 
 
 # Automatically import updates from your S3 bucket
-<a name="autoimport-data-repo-dra"></a>
 
 You can configure FSx for Lustre to automatically update metadata in the file system as objects are added to, changed in, or deleted from your S3 bucket. FSx for Lustre creates, updates, or deletes the file and directory listing, corresponding to the change in S3. If the changed object in the S3 bucket no longer contains its metadata, FSx for Lustre maintains the current metadata values of the file, including the current permissions.
 

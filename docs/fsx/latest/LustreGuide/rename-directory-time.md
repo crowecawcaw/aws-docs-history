@@ -1,7 +1,6 @@
 
 
 # Renaming directories takes a long time
-<a name="rename-directory-time"></a>
 
 **Question**
 

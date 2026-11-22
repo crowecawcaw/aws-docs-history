@@ -1,7 +1,6 @@
 
 
 # Migrating to Amazon FSx for Lustre using AWS DataSync
-<a name="migrating-fsx-lustre"></a>
 
 You can use AWS DataSync to transfer data between FSx for Lustre file systems. DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between self-managed storage systems and AWS storage services over the internet or Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps, and access permissions.
 

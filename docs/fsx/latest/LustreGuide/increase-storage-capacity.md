@@ -1,7 +1,6 @@
 
 
 # Increasing storage capacity
-<a name="increase-storage-capacity"></a>
 
 You can increase a file system's storage capacity using the Amazon FSx console, the AWS CLI, or the Amazon FSx API.
 

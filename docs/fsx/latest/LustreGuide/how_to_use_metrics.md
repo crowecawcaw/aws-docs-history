@@ -1,7 +1,6 @@
 
 
 # How to use Amazon FSx for Lustre CloudWatch metrics
-<a name="how_to_use_metrics"></a>
 
 There are two primary architectural components of each Amazon FSx for Lustre file system:
 + One or more **object storage servers (OSSs)** that serve data to clients that access the file system. Each OSS is attached to one or more storage volumes, known as **object storage targets (OSTs)**, that host the data in your file system.

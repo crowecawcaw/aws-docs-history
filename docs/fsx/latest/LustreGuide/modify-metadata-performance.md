@@ -1,7 +1,6 @@
 
 
 # Increasing metadata performance
-<a name="modify-metadata-performance"></a>
 
 You can increase a file system's metadata performance by using the Amazon FSx console, the AWS CLI, or the Amazon FSx API.
 

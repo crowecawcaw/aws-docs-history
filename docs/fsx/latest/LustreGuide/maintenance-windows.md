@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for Lustre maintenance windows
-<a name="maintenance-windows"></a>
 
 Amazon FSx for Lustre performs routine software patching for the Lustre software it manages. Patching occurs infrequently, typically once every several weeks. The maintenance window is your opportunity to control what day and time of the week this software patching occurs. You choose the maintenance window during file system creation. If you have no time preference, then a 30-minute default window is assigned.
 

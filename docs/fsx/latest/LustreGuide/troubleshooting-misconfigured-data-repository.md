@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a misconfigured linked S3 bucket
-<a name="troubleshooting-misconfigured-data-repository"></a>
 
 In some cases, an FSx for Lustre file system's linked S3 bucket might have a misconfigured data repository lifecycle state. 
 

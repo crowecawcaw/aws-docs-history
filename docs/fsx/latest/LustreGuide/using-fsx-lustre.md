@@ -1,7 +1,6 @@
 
 
 # Deployment and storage class options for FSx for Lustre file systems
-<a name="using-fsx-lustre"></a>
 
 Amazon FSx for Lustre provides two file system deployment options: **persistent** and **scratch**. It provides three storage classes: **SSD** (solid state drive), **Intelligent-Tiering**, and **HDD** (hard disk drive).
 

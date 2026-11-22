@@ -1,7 +1,6 @@
 
 
 # Managing metadata performance
-<a name="managing-metadata-performance"></a>
 
 You can update the metadata configuration of your FSx for Lustre file system without any disruption to your end users or applications by using the Amazon FSx console, Amazon FSx API, or AWS Command Line Interface (AWS CLI). The update procedure increases the number of provisioned Metadata IOPS for your file system.
 

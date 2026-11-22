@@ -1,7 +1,6 @@
 
 
 # Preloading files into your file system
-<a name="preload-file-contents-hsm-dra"></a>
 
 You can optionally preload contents individual files or directories into your file system.
 

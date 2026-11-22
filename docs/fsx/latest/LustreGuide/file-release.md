@@ -1,7 +1,6 @@
 
 
 # Releasing files
-<a name="file-release"></a>
 
 Release data repository tasks release file data from your FSx for Lustre file system to free up space for new files. Releasing a file retains the file listing and metadata, but removes the local copy of that file's contents. If a user or application accesses a released file, the data is automatically and transparently loaded back onto your file system from your linked Amazon S3 bucket.
 

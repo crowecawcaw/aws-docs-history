@@ -1,7 +1,6 @@
 
 
 # Deleting backups
-<a name="delete-backups"></a>
 
 Deleting a backup is a permanent, unrecoverable action. Any data in a deleted backup is also deleted. Do not delete a backup unless you're sure you won't need that backup again in the future. You can't delete backups taken by AWS Backup in the Amazon FSx console, CLI, or API.
 

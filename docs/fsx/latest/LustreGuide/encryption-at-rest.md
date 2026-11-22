@@ -1,7 +1,6 @@
 
 
 # Encrypting data at rest
-<a name="encryption-at-rest"></a>
 
 Encryption of data at rest is automatically enabled when you create an Amazon FSx for Lustre file system through the AWS Management Console, the AWS CLI, or programmatically through the Amazon FSx API or one of the AWS SDKs. Your organization might require the encryption of all data that meets a specific classification or is associated with a particular application, workload, or environment. If you create a persistent file system, you can specify the AWS KMS key to encrypt the data with. If you create a scratch file system, the data is encrypted using keys managed by Amazon FSx. For more information about creating a file system encrypted at rest using the console, see [Create your Amazon FSx for Lustre file system](getting-started.md#getting-started-step1).
 

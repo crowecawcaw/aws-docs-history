@@ -1,7 +1,6 @@
 
 
 # POSIX metadata support for data repositories
-<a name="posix-metadata-support"></a>
 
 Amazon FSx for Lustre automatically transfers Portable Operating System Interface (POSIX) metadata for files, directories, and symbolic links (symlinks) when importing and exporting data to and from a linked data repository on Amazon S3. When you export changes in your file system to its linked data repository, FSx for Lustre also exports POSIX metadata changes as S3 object metadata. This means that if another FSx for Lustre file system imports the same files from S3, the files will have the same POSIX metadata in that file system, including ownership and permissions.
 

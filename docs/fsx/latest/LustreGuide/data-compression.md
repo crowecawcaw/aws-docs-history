@@ -1,7 +1,6 @@
 
 
 # Lustre data compression
-<a name="data-compression"></a>
 
 You can use the Lustre data compression feature to achieve cost savings on your high-performance Amazon FSx for Lustre file systems and backup storage. When data compression is enabled, Amazon FSx for Lustre automatically compresses newly-written files before they are written to disk and automatically uncompresses them when they are read.
 

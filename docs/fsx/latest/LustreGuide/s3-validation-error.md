@@ -1,7 +1,6 @@
 
 
 # Unable to validate access to an S3 bucket when creating a DRA
-<a name="s3-validation-error"></a>
 
 Creating a data repository association (DRA) from the Amazon FSx console or using the `create-data-repository-association` CLI command ([CreateDataRepositoryAssociation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateDataRepositoryAssociation.html) is the equivalent API action) fails with the following error message.
 

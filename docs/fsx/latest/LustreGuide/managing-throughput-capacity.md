@@ -1,7 +1,6 @@
 
 
 # Managing provisioned throughput capacity
-<a name="managing-throughput-capacity"></a>
 
 Every FSx for Lustre file system has a throughput capacity that is configured when you create the file system. For file systems using SSD or HDD storage, the throughput capacity is measured in megabytes per second per tebibyte (MBps/TiB). For file systems using Intelligent-Tiering storage, the throughput capacity is measured in megabytes per second (MBps) for the file system. Throughput capacity is one factor that determines the speed at which the file server hosting the file system can serve file data. Higher levels of throughput capacity also come with higher levels of I/O operations per second (IOPS) and more memory for caching of data on the file server. For more information, see [Amazon FSx for Lustre performance](performance.md).
 

@@ -1,7 +1,6 @@
 
 
 # Viewing data repository association details
-<a name="view-dra-details"></a>
 
 You can view the details of a data repository association using the FSx for Lustre console, the AWS CLI, and the API. The details include the DRA's association ID, file system path, data repository path, import settings, export settings, status, and the ID of its associated file system.
 

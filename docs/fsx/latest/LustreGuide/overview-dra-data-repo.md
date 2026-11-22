@@ -1,7 +1,6 @@
 
 
 # Overview of data repositories
-<a name="overview-dra-data-repo"></a>
 
 When you use Amazon FSx for Lustre with data repositories, you can ingest and process large volumes of file data in a high-performance file system by using automatic import and import data repository tasks. At the same time, you can write results to your data repositories by using automatic export or export data repository tasks. With these features, you can restart your workload at any time using the latest data stored in your data repository.
 

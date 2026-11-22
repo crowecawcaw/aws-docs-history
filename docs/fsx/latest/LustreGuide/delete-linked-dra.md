@@ -1,7 +1,6 @@
 
 
 # Deleting an association to an S3 bucket
-<a name="delete-linked-dra"></a>
 
 The following procedures walk you through the process of deleting a data repository association from an existing Amazon FSx file system to an existing S3 bucket, using the AWS Management Console and AWS Command Line Interface (AWS CLI). Deleting the data repository association unlinks the file system from the S3 bucket.
 

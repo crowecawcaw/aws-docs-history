@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon FSx for Lustre
-<a name="security-iam"></a>
 
 
 
