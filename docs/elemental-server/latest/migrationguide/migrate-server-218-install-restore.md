@@ -1,7 +1,6 @@
 
 
 # Step H: Restore the database on a AWS Elemental Server node
-<a name="migrate-server-218-install-restore"></a>
 
 You restore data using the same lifeboat script that you used to create the backup.
 

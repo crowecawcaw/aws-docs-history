@@ -1,7 +1,6 @@
 
 
 # Step B: Prepare the AWS Elemental Server node for migration
-<a name="migrate-server-218-prepare-node"></a>
 
 ## Upgrade to the latest 2.17 minor version
 <a name="migrate-server-217-upgrade-to-218"></a>

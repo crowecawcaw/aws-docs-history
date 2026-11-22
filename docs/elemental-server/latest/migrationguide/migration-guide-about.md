@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="migration-guide-about"></a>
 
 This guide describes how to upgrade AWS Elemental Server and AWS Elemental Conductor File. It describes how to perform an upgrade to version 2.18 or higher of the AWS Elemental software, and how to downgrade to a version below 2.18.
 

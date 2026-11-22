@@ -1,7 +1,6 @@
 
 
 # Step G: Install worker software on a AWS Elemental Server node
-<a name="migrate-server-218-install-software"></a>
 
 This install procedure isn't the same as the install procedure on a newly obtained appliance (as described in [AWS Elemental Server Installation Guide](https://docs.aws.amazon.com/elemental-server/latest/installguide/)). You don't have to configure the node. 
 

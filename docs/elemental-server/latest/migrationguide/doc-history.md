@@ -1,7 +1,6 @@
 
 
 # Document history for migration guide
-<a name="doc-history"></a>
 
 The following table describes the main changes to this guide.
 

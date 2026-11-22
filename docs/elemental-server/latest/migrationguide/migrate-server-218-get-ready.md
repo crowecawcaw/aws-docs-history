@@ -1,7 +1,6 @@
 
 
 # Step A: Get ready for AWS Elemental Server migration
-<a name="migrate-server-218-get-ready"></a>
 
 ## Read the essential notes
 <a name="migrate-server-218-essential-notes"></a>
