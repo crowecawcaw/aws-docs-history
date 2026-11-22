@@ -1,7 +1,6 @@
 
 
 # Oracle Commerce Lift-and-Shift to AWS
-<a name="oracle-commerce-lift-shift-chapter"></a>
 
 ## Overview
 <a name="oracle-lift-shift-overview"></a>
