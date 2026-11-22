@@ -1,7 +1,6 @@
 
 
 # AWS Direct Connect pricing
-<a name="pricing-overview"></a>
 
 **Important**  
 AWS pricing is subject to change. For current pricing, see the [Direct Connect pay-as-you-go pricing page](https://aws.amazon.com/directconnect/pricing/pay-as-you-go/). Pricing examples in this guide are illustrative only and might not reflect current pricing.

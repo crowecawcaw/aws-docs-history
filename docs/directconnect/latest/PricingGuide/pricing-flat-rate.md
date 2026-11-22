@@ -1,7 +1,6 @@
 
 
 # Flat-rate pricing
-<a name="pricing-flat-rate"></a>
 
 **Important**  
 AWS pricing is subject to change. For current pricing, see the [Direct Connect flat-rate pricing page](https://aws.amazon.com/directconnect/pricing/flat-rate/). The pricing examples in this guide are for illustration only and might not reflect current pricing.
