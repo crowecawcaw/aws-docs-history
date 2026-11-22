@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Data Operations and Support
-<a name="data-engineer-associate-01-domain3"></a>
 
 **Topics**
 + [Task 3.1: Automate data processing by using AWS services](#data-engineer-associate-01-domain3-task1)

@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Data Security and Governance
-<a name="data-engineer-associate-01-domain4"></a>
 
 **Topics**
 + [Task 4.1: Apply authentication mechanisms](#data-engineer-associate-01-domain4-task1)
