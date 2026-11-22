@@ -1,7 +1,6 @@
 
 
 # Create an AWS account to use with Quote Confirmation
-<a name="set-up-AWS-account"></a>
 
 To use the Quote Confirmation service, you need an active AWS account. This account is separate from your AWS Elemental User Community account. 
 

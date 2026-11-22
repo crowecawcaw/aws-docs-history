@@ -1,7 +1,6 @@
 
 
 # What is AWS Elemental Appliances and Software Quote Confirmation service?
-<a name="what-is"></a>
 
 The AWS Elemental Appliances and Software Quote Confirmation service lets you place orders for AWS Elemental products and services using the AWS Management Console.
 

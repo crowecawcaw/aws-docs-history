@@ -1,7 +1,6 @@
 
 
 # Document history for user guide
-<a name="doc-history"></a>
 
 The following describes the documentation for this release of AWS Elemental Appliances and Software Quote Confirmation.
 

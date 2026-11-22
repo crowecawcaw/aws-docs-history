@@ -1,7 +1,6 @@
 
 
 # Grant permissions to users for Quote Confirmation
-<a name="set-user-permissions"></a>
 
 Access to the Quote Confirmation service is granted through AWS Identity and Access Management (IAM) policies that are assigned to each user provisioned within an account. The AWS account root user (the login for the person who created the AWS account; sometimes referred to as the “account admin”) has access to all services by default and doesn't need to add any IAM policies to their user profile to use the Quote Confirmation service.
 

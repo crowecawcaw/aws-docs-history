@@ -1,7 +1,6 @@
 
 
 # Request a quote for AWS Elemental appliances and software
-<a name="request-quote"></a>
 
 To request a quote for AWS Elemental appliances and software, contact your account manager, or use your active AWS account to contact Sales.
 

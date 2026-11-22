@@ -1,7 +1,6 @@
 
 
 # Request changes to a quote in AWS Elemental Appliances and Software Quote Confirmation
-<a name="change-request"></a>
 
 When your quote is in **Pending Confirmation** status, you can request changes to it from within the AWS Management Console.
 
