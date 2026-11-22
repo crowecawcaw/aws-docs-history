@@ -1,7 +1,6 @@
 
 
 # Best Practice 1.2 – Implement infrastructure monitoring for SAP
-<a name="best-practice-1-2"></a>
 
 Set up your infrastructure monitoring to provide information about supporting services that are used to keep your SAP application running and supporting your users. Some examples include CPU and memory utilization, storage and filesystem usage and performance (IOPS and throughput), and network throughput. Include any dependent foundational services used by SAP, such as on-premises Active Directory services, DNS, and third-party tools, such as high availability (HA) and backup software. Evaluate AWS tools and SAP-specific tools from the AWS Marketplace that can help correlate and visualize this information, such as DataDog, Splunk, DynaTrace, and Avantra. Use this information to identify trends and determine when a corrective action is required.
 

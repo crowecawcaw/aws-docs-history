@@ -1,7 +1,6 @@
 
 
 # Best Practice 15.3 – Modify SAP parameters to align with hardware selection
-<a name="best-practice-15-3"></a>
 
 Tuning SAP application parameters can help improve the performance of the application. These parameters are often dependent on the underlying hardware configuration and operating system type.
 

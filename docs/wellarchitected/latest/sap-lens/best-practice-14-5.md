@@ -1,7 +1,6 @@
 
 
 # Best Practice 14.5 – Choose appropriate backup solutions and schedule
-<a name="best-practice-14-5"></a>
 
 Depending on the backup method, there is the potential to dramatically increase both read and write operations on your storage, which can negatively impact the performance of your application. This is particularly true for database level backups which might be large in volume and lengthy in duration.
 

@@ -1,7 +1,6 @@
 
 
 # Best Practice 17.6 – Evaluate cost benefits and impact of shared services and solutions
-<a name="best-practice-17-6"></a>
 
 Where the same function is required by multiple SAP systems, it can be a cost-effective option to centralize the management and costs by using existing solutions, sharing components, or both. Monitoring, backups, and connectivity are common functions that can be managed either within an AWS account boundary or in a dedicated account. Standardization, reducing duplication, and reducing complexity reduces cost.
 

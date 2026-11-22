@@ -1,7 +1,6 @@
 
 
 # Best Practice 6.2 – Build and protect the operating system
-<a name="best-practice-6-2"></a>
 
 Protecting the operating system underlying your SAP software reduces the possibility that a malicious actor could gain unauthorized access to data within the SAP application, impact software availability, or otherwise destabilize your mission-critical implementation. Follow recommendations from SAP, the operating system vendor, the database vendor, and AWS to help secure the operating system. Depending on your chosen SAP solution and operating system, you may need to enable/disable services, set specific kernel parameters, and apply different combinations of security patches. Consider how SAP requirements align with those of your organization, and identify any conflicts.
 

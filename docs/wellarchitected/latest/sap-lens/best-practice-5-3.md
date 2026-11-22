@@ -1,7 +1,6 @@
 
 
 # Best Practice 5.3 – Assess the need for specific security controls for your SAP workloads
-<a name="best-practice-5-3"></a>
 
 Based on the data classification, evaluate any controls that can help you to meet the standards and requirements established in the previous best practices. These include location, AWS account strategy and scrambling requirements for non-production SAP workloads.
 

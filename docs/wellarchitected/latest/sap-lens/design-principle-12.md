@@ -1,7 +1,6 @@
 
 
 # 12 – Plan for data recovery
-<a name="design-principle-12"></a>
 
  **How do you plan for logical, data-related recovery for your SAP workload?** Work backwards from the business requirements to define an approach to recover or reconstruct your business data. Depending on how you have architected for resilience, different scenarios might fit in this category. At a minimum, your backup or disaster recovery (DR) posture should protect you from accidental deletion, logical data corruption, and malware. Be deliberate about the decision to restore, taking into account the time to return to service and the dependencies between systems. 
 

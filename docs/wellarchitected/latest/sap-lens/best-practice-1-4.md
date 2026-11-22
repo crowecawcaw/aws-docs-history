@@ -1,7 +1,6 @@
 
 
 # Best Practice 1.4 – Implement workload configuration monitoring
-<a name="best-practice-1-4"></a>
 
 Design and configure your workload to provide information about its current configuration and changes to this configuration. Some examples are new or removed EC2 instances, scaling events, code change, patch levels, security group configuration, and resource deletion. Use this information to determine when a response is required and to decide whether a change was expected or permitted. Monitor the cost implications of configuration changes and adjust or analyze budgets if required.
 

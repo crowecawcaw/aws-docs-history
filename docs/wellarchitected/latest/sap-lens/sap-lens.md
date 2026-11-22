@@ -1,7 +1,6 @@
 
 
 # SAP Lens - AWS Well-Architected Framework
-<a name="sap-lens"></a>
 
 Publication date: **October 4, 2022** ([Document revisions](document-revisions.md))
 

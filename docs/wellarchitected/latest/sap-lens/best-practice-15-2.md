@@ -1,7 +1,6 @@
 
 
 # Best Practice 15.2 – Modify database parameters to align with hardware selection
-<a name="best-practice-15-2"></a>
 
 SAP provides specific guidance to optimize performance of an SAP system by modifying certain parameters of the underlying database. These parameters are specific to database type and can vary based on whether it’s supporting an analytical or a transactional type application.
 

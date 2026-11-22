@@ -1,7 +1,6 @@
 
 
 # Best Practice 17.4 – Review the size, granularity, and latest available EC2 instances for SAP components
-<a name="best-practice-17-4"></a>
 
 Smaller EC2 instances provide greater cost flexibility in SAP workloads. They introduce options for horizontal scaling that allow for compute to be switched off when not in use or scaled up only during peak loads. Adopting a consistent EC2 instance size at the application tier will help you maximize the benefits of Reserved Instance and Savings Plans commitments across all workloads. Take into account the latest available AWS SAP certified instances. The operational impact, license costs, support, sharing and reusability for each component should also be evaluated.
 

@@ -1,7 +1,6 @@
 
 
 # Best Practice 4.4 – Perform regular workload reviews to optimize for resiliency, performance, agility, and cost
-<a name="best-practice-4-4"></a>
 
 When running SAP on AWS, plan and dedicate time and resources for continual incremental improvement to evolve the effectiveness and efficiency of your workload. AWS regularly releases new services, approaches, improved SLAs, and price reductions that you can take advantage of to optimize your SAP workload. Understand and validate whether new service releases are applicable to your SAP workload and, where appropriate, implement them in your production environment to evolve your workload.
 

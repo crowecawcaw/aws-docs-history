@@ -1,7 +1,6 @@
 
 
 # Best Practice 6.4 – Establish a plan for upgrading and patching all applicable software
-<a name="best-practice-6-4"></a>
 
 SAP and the vendors of the underlying operating systems and databases release standard security updates on a fixed schedule as well as provide emergency updates to fix vulnerabilities. Be aware of the latest security information from each vendor. We recommend that you keep your SAP application and all underlying components updated with the latest security fixes on a scheduled basis to avoid introducing security holes. We also recommend that you put a plan in place for applying emergency fixes when critical security patches are released.
 

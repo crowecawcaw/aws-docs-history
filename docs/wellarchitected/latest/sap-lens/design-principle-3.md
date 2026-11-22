@@ -1,7 +1,6 @@
 
 
 # 3 – Understand how you will operate the workload
-<a name="design-principle-3"></a>
 
  **How do you know that you are ready to support and operate a workload?** Evaluate the operational readiness of your [workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads.html), processes and procedures, and personnel to understand the operational risks related to your [workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads.html). Create runbooks for common operations, playbooks for issues and automate as many operations as possible to improve resilience and reduce errors. 
 

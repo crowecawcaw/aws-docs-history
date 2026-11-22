@@ -1,7 +1,6 @@
 
 
 # Best Practice 18.1 – Understand the payment and commitment options available for Amazon EC2
-<a name="best-practice-18-1"></a>
 
 Consider the use of Reserved Instances and Savings Plans to provide a significant discount compared to on-demand pricing. They are available with 1-year and 3-year commitment terms with three payment options: All Upfront, Partial Upfront, and No Upfront.
 

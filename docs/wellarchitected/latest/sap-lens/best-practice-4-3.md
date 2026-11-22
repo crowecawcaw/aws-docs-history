@@ -1,7 +1,6 @@
 
 
 # Best Practice 4.3 – Regularly test business continuity plans and fault recovery
-<a name="best-practice-4-3"></a>
 
 SAP systems are generally business critical and depended upon for major customer facing transactions. Enabling the quick resumption of IT operations and minimizing data loss during a fault or disaster situation is critical for operational excellence. Business continuity plans (BCP) and fault recovery procedures are required to ensure that your operations team and systems know what to do, when to do it, and workload service can be resumed promptly in case of a fault.
 

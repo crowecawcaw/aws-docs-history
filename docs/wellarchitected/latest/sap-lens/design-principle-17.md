@@ -1,7 +1,6 @@
 
 
 # 17 – Evaluate SAP architecture patterns for cost efficiency
-<a name="design-principle-17"></a>
 
  **How do you incorporate cost considerations into the evaluation of SAP architecture patterns?** Ensure that when there is a decision to be made on architecture, that the cost implications are fully understood as part of design considerations. 
 

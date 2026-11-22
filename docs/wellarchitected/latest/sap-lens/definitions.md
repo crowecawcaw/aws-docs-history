@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
 
 | Term | Description | Examples (if applicable) | 

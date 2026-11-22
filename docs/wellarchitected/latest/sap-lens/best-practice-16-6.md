@@ -1,7 +1,6 @@
 
 
 # Best Practice 16.6 – Develop mechanisms for simulating production load for analysis purposes
-<a name="best-practice-16-6"></a>
 
 Having a clone of production data in a test system allows system administrators to simulate production SAP workloads and conduct vital performance tests, such as stress and volume testing. This type of testing can help identify potential performance bottlenecks and prevent performance issues from occurring in a live production environment.
 

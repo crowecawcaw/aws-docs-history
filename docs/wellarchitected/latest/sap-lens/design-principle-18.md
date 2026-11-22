@@ -1,7 +1,6 @@
 
 
 # 18 – Evaluate SAP compute resources for cost efficiency
-<a name="design-principle-18"></a>
 
  **How do you assess compute and storage options for your SAP workloads?** When implementing or migrating SAP to AWS, you should select cost-effective EC2 instances and storage solutions for the SAP workload to meet your cost targets. 
 

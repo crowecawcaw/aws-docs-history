@@ -1,7 +1,6 @@
 
 
 # Best Practice 18.3 – Evaluate licensing impact and optimization options
-<a name="best-practice-18-3"></a>
 
 When moving SAP workloads to AWS, there might be commercial impacts with the software licenses your SAP workloads require. You should understand these impacts and the options available to you.
 

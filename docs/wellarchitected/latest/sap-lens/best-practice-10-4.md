@@ -1,7 +1,6 @@
 
 
 # Best Practice 10.4 – Validate the design against a set of criteria based on your business requirements
-<a name="best-practice-10-4"></a>
 
 Establish a set of criteria based on your business requirements, balancing the risk of failure, impact on the business, and acceptable trade-offs. Use these criteria to validate the design and make adjustments where necessary.
 

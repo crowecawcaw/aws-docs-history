@@ -1,7 +1,6 @@
 
 
 # Best Practice 21.2 - Implement sustainability improvements for SAP software and underlying infrastructure
-<a name="best-practice-21.2"></a>
 
  After the business requirements and criteria for sustainability improvements have been defined, the SAP architect team must implement them. Given that in most cases with standard SAP architectural patterns (except for those called out in the following sections), the recommendations in the SAP Lens cost optimization pillar directly align with sustainability best practices. We will not duplicate those suggestions here and refer you to the cost optimization pillar for guidance. 
 

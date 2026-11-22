@@ -1,7 +1,6 @@
 
 
 # Best Practice 21.3 - Implement sustainability monitoring for infrastructure and SAP
-<a name="best-practice-21.3"></a>
 
  Monitoring and reporting on the sustainability of SAP workloads in the AWS Cloud provides a crucial feedback mechanism. Such monitors indicate how suggestions you’ve implemented translate into quantifiable changes over time. This data also feeds into the sustainability reporting that will be delivered to shareholders, regulators, and sustainability-minded customers. Reports using the metrics discussed in [BP 21.1](best-practice-21.1.md) (for example, cost and usage as proxy metrics) can demonstrate improvements made in the operational sustainability of your SAP landscape. This can demonstrate that you are successfully achieving the goals set by your overall corporate sustainability strategy. 
 +  Well-Architected Framework [Sustainability]: [Optimize areas of code that consume the most time or resources](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/optimize-areas-of-code-that-consume-the-most-time-or-resources.html) 

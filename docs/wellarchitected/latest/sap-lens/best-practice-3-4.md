@@ -1,7 +1,6 @@
 
 
 # Best Practice 3.4 – Use runbooks to perform SAP landscape operations
-<a name="best-practice-3-4"></a>
 
  Runbooks are documented procedures to achieve specific outcomes. Enable consistent and prompt responses to well-understood events by documenting procedures in runbooks. Understand common SAP operations that are run and create specific, versioned documentation with a review cycle. 
 +  AWS Well-Architected Framework [Operational Excellence]: [Operational Readiness](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/operational-readiness.html) 

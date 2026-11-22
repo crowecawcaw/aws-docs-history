@@ -1,7 +1,6 @@
 
 
 # 1 - Design SAP workload to allow understanding and reaction to its state
-<a name="design-principle-1"></a>
 
  **How do you design your SAP workload so that you can understand its state?** Design your SAP workload so that it provides the information necessary across all components for you to understand its internal and external state. Consider infrastructure, SAP technology/basis, front end, and network components. Design monitoring and logging approaches which capture metrics to allow real-time monitoring and also historical logging to allow remediation and post-event analysis. 
 

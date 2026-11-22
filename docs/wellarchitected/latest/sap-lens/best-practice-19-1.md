@@ -1,7 +1,6 @@
 
 
 # Best Practice 19.1 – Understand access and retention requirements
-<a name="best-practice-19-1"></a>
 
 Understand the ways in which you access and retain data. Consider active data, document management systems, and backups.
 

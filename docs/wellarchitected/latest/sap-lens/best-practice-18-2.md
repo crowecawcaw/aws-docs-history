@@ -1,7 +1,6 @@
 
 
 # Best Practice 18.2 – Use cost as a key consideration for EC2 instance selection
-<a name="best-practice-18-2"></a>
 
  By selecting the appropriate SAP Certified EC2 instances for your workload, it is possible to optimize for cost. Perform a thorough analysis of each system, ensuring that decisions are data driven where possible. Generic guidance can be found in the Well-Architected Framework [Cost Optimization Pillar - Cost-Effective Resources](https://docs.aws.amazon.com/wellarchitected/latest/framework/a-cost-effective-resources.html). 
 

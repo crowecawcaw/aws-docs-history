@@ -1,7 +1,6 @@
 
 
 # Best Practice 9.1 – Understand your strategy for SAP application and database security event analysis
-<a name="best-practice-9-1"></a>
 
  Without keeping security logs at the appropriate levels of granularity, vital data required for incident response, forensic security analysis, and threat modeling can be lost. SAP security staff must be able to evaluate potential security incidents affecting SAP systems in alignment with your business security requirements. For SAP workloads running on AWS, the AWS services described in the Well-Architected Framework Security Pillar are a helpful starting point in conjunction with the following suggestions. 
 +  Well-Architected Framework [Security]: [Detection – Configure](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/configure.html) 

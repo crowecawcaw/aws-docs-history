@@ -1,7 +1,6 @@
 
 
 # Best Practice 17.3 – Understand business requirements to make cost-optimized design decisions per environment
-<a name="best-practice-17-3"></a>
 
 Optimize the cost of each system or environment individually based on its differing characteristics. Consider capacity, performance, reliability and operating hours to match business requirements. For environments or applications that are less critical for the experience of end users or business processes, minimize storage, compute, and operating hours to reduce cost. Balance the cost savings of a reduced configuration with operational requirements for testing or support.
 

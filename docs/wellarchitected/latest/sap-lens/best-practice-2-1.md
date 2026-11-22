@@ -1,7 +1,6 @@
 
 
 # Best Practice 2.1 – Use version control and configuration management
-<a name="best-practice-2-1"></a>
 
 Configuration Management systems reduce errors caused by manual processes and reduce the level of effort to deploy changes. Doing so supports tracking changes, deploying new versions, detecting changes to existing versions, and reverting to prior versions (for example, rolling back to a known good state in the event of a failure). Integrate the version control capabilities of your configuration management systems into all your procedures across SAP – the infrastructure, the database, the application, and SAP custom code and developments (for example, ABAP, Java, and UI5/JavaScript).
 

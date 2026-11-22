@@ -1,7 +1,6 @@
 
 
 # Best Practice 3.5 – Use playbooks to investigate issues
-<a name="best-practice-3-5"></a>
 
 Enable consistent and prompt responses to issues that are not well understood, by documenting the investigation process in playbooks. Validate and evolve these playbooks by using them regularly in operations but also in non-production environments and designated practice sessions like game days.
 

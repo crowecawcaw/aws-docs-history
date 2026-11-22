@@ -1,7 +1,6 @@
 
 
 # Best Practice 12.1 – Establish a method for consistent recovery of business data
-<a name="best-practice-12-1"></a>
 
 Define data recovery plans that can help ensure business data consistency for an individual system in the event of data loss or corruption.
 

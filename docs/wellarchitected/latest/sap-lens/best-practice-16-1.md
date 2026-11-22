@@ -1,7 +1,6 @@
 
 
 # Best Practice 16.1 – Have data to evaluate performance
-<a name="best-practice-16-1"></a>
 
  To evaluate the performance of an SAP system and take action in the event performance is suboptimal, monitoring data must be collected for compute, memory, storage, and networking as described in the Well-Architected Framework Performance Excellence guidelines concerning monitoring your resources. As stated in the Well-Architected Framework Operational Excellence pillar, understanding the current state of the system, putting in place key performance indicators, and collecting metrics in a timely manner for diagnosis are crucial for investigating performance issues. 
 +  Well-Architected Framework [Performance Efficiency]: [Monitor Your Resources to Ensure That They Are Performing as Expected](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/monitor-your-resources-to-ensure-that-they-are-performing-as-expected.html) 

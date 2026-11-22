@@ -1,7 +1,6 @@
 
 
 # Best Practice 15.4 – Consider performance tuning for recovery and availability options
-<a name="best-practice-15-4"></a>
 
 In alignment with both the Well-Architected Reliability and Operational Excellence pillars, tuning of the SAP system given your chosen recovery and resiliency requirements should be evaluated to minimize any performance impact. Take into consideration items such as system performance during a backup, clustering options for the chosen database (for example, synchronous vs. asynchronous SAP HANA System Replication), and the distribution of load across multiple SAP application server instances.
 

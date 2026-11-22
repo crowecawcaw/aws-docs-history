@@ -1,7 +1,6 @@
 
 
 # Best Practice 4.1 – Understand and plan for lifecycle events of your SAP workload
-<a name="best-practice-4-1"></a>
 
  SAP workloads are highly reliant on SAP to provide new software and vulnerability patching, operating system and database kernels, and escalation for support. SAP regularly publishes information about SAP software releases: Release types, maintenance durations, planned availability, and upgrade paths in their [Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html) and SAP Notes. You should obtain specific details each of your SAP applications and track these locally to understand if your SAP software is current, supported and when it will be end of life from a maintenance perspective. 
 

@@ -1,7 +1,6 @@
 
 
 # 5 – Understand security standards and how they apply to your SAP workload
-<a name="design-principle-5"></a>
 
  **How do you define the security standards and controls to align with the criticality of your SAP workload?** Standards are published documents that define the policies and procedures required to secure your systems following best practices for a product, organization, industry, or jurisdiction. They provide a framework against which your SAP workload can be evaluated. Some standards are mandatory to ensure compliance with regulatory requirements, while others are optional but help with establishing roles and responsibilities. 
 

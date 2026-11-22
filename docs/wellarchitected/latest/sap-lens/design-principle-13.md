@@ -1,7 +1,6 @@
 
 
 # 13 – Select the optimal compute solution
-<a name="design-principle-13"></a>
 
  **How do you select the optimal compute solution for your SAP workload?** Evaluate and estimate the performance requirements using metrics from the SAP tools and existing workloads. Map the compute requirements to the SAP supported instances best suited to your workload. Consider any specific storage or network requirements for the instance types as well as the availability of the required instance types in your chosen AWS Region and Availability Zones. 
 

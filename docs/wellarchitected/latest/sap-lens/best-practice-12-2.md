@@ -1,7 +1,6 @@
 
 
 # Best Practice 12.2 – Establish a method for recovering configuration data
-<a name="best-practice-12-2"></a>
 
 A number of different types of data, which are required to run an SAP workload, do not reside in the SAP database. This includes operating system configuration, metadata to recreate the required AWS resources, and data required by the SAP applications stored within a file system. Define a process for recovering or recreating this data in the event of data loss.
 

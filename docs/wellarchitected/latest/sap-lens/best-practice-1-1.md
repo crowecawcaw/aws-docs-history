@@ -1,7 +1,6 @@
 
 
 # Best Practice 1.1 – Implement prerequisites for monitoring SAP on AWS
-<a name="best-practice-1-1"></a>
 
 SAP certification requirements for SAP on AWS are outlined in SAP Note 1656250. This note includes instructions for setting up the AWS Data Provider for SAP, enabling Amazon CloudWatch detailed monitoring, and using SAP enhanced monitoring for SAP NetWeaver solutions. Enabling these prerequisites helps ensure that your SAP workload state is able to be fully understood and investigated by AWS and SAP. These prerequisites should feed into your overall SAP monitoring strategy.
 

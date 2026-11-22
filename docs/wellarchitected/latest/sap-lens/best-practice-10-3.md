@@ -1,7 +1,6 @@
 
 
 # Best Practice 10.3 – Define an approach to help ensure the availability of critical SAP data
-<a name="best-practice-10-3"></a>
 
 The business data for an SAP application is primarily stored within the database, but may also include file-based data or binaries (for example, executables, libraries, scripts, configuration, and interface files).
 

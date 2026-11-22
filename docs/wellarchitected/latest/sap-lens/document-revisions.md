@@ -1,19 +1,18 @@
 
 
 # Document revisions
-<a name="document-revisions"></a>
 
 To be notified about updates to this whitepaper, subscribe to the RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Minor update](#document-revisions) | Corrected broken links. | April 6, 2023 | 
-| [Minor update](#document-revisions) | Corrected incorrect link. | October 28, 2022 | 
-| [Minor update](#document-revisions) | Updated text in Suggestion 1.1.2. | October 12, 2022 | 
-| [Whitepaper updated](#document-revisions) | Sustainability section added, custom lens link, and numerous changes throughout. | October 4, 2022 | 
+| [Minor update](document-revisions.md) | Corrected broken links. | April 6, 2023 | 
+| [Minor update](document-revisions.md) | Corrected incorrect link. | October 28, 2022 | 
+| [Minor update](document-revisions.md) | Updated text in Suggestion 1.1.2. | October 12, 2022 | 
+| [Whitepaper updated](document-revisions.md) | Sustainability section added, custom lens link, and numerous changes throughout. | October 4, 2022 | 
 | [Minor update](best-practice-18-3.md) | Disclaimer added to Best Practice 18.3. | April 6, 2022 | 
-| [Minor update](#document-revisions) | Corrected broken links. | January 20, 2022 | 
-| [Initial publication](#document-revisions) | SAP Lens first published. | October 28, 2021 | 
+| [Minor update](document-revisions.md) | Corrected broken links. | January 20, 2022 | 
+| [Initial publication](document-revisions.md) | SAP Lens first published. | October 28, 2021 | 
 
 **Note**  
 To subscribe to RSS updates, you must have an RSS plug-in enabled for the browser you are using.

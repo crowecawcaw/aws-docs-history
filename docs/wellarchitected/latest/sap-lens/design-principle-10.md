@@ -1,7 +1,6 @@
 
 
 # 10 – Design to withstand failure
-<a name="design-principle-10"></a>
 
  **How do you design your SAP workload to withstand failure?** Work backwards from your business requirements to define an approach for meeting the availability goals of your SAP infrastructure and data. For each failure scenario, the resiliency requirements, acceptable data loss, and mean time to recover (MTTR) need to be proportionate to the criticality of the component and the business applications it supports. Select from one of the AWS architecture patterns provided for SAP availability, and evaluate it based on the criteria you define. These criteria should include the risk and impact for each failure as well as taking into consideration cost and performance. In all cases, use initial and periodic testing to validate your decisions. 
 

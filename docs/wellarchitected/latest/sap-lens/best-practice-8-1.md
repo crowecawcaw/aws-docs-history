@@ -1,7 +1,6 @@
 
 
 # Best Practice 8.1 – Encrypt data at rest
-<a name="best-practice-8-1"></a>
 
 Data at rest refers to any data stored digitally. We use encryption to ensure that this data is only visible to authorized users and remains protected when access to the storage or database is compromised independently of the application.
 

@@ -1,7 +1,6 @@
 
 
 # Providing feedback
-<a name="providing-feedback"></a>
 
 We want to hear about your experience with the SAP Lens for the AWS Well-Architected Framework. Our goal is to make the SAP Lens the best guiding mechanism for implementing and running a Well-Architected SAP workload on AWS.
 

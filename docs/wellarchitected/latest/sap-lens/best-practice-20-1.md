@@ -1,7 +1,6 @@
 
 
 # Best Practice 20.1 – Plan consumption model and environment usage during project phases
-<a name="best-practice-20-1"></a>
 
 During projects, including but not limited to migration or implementation projects, there is often a phased approach to how you deploy systems. There is also a stabilization period where you establish the sizing and usage profile. Take advantage of the flexibility and On-Demand Instance capabilities to minimize your costs during this period.
 

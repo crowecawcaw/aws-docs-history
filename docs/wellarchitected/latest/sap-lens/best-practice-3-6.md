@@ -1,7 +1,6 @@
 
 
 # Best Practice 3.6 – Use automation to perform SAP landscape operations
-<a name="best-practice-3-6"></a>
 
 Create automation pipelines for your SAP environment builds and landscape operations. Automation using Infrastructure as Code techniques (for example, CloudFormation, Launch Wizard for SAP) allows repeatable and agile environment creation or extension. Automated pipelines and landscape operations reduce errors caused by manual processes, reduce the effort to deploy changes and improves speed to react to your business needs.
 

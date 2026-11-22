@@ -1,7 +1,6 @@
 
 
 # Best Practice 13.2 - Select EC2 instances suitable for SAP workloads
-<a name="best-practice-13-2"></a>
 
 AWS works with SAP to ensure that AWS services are suitable to implement and operate SAP software across a wide selection of instance types. Use guidance from the relevant SAP notes and documentation to identify suitable instances. EC2 instance families offer different ratios of CPU and memory, as well as storage and network throughput characteristics suitable for running SAP workloads. Map your requirements to the appropriate instance type using performance metrics, SAPS figures, and compute estimates. Confirm availability of these instances in your selected Region and Availability Zone.
 

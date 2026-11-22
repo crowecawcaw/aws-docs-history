@@ -1,7 +1,6 @@
 
 
 # Best Practice 2.2 – Implement practices to improve code quality
-<a name="best-practice-2-2"></a>
 
 Implement practices to improve code quality and minimize defects. For example, test-driven development, code reviews, and standards adoption. Use SAP Code Inspector tools at a minimum.
 

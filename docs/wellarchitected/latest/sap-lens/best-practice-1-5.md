@@ -1,7 +1,6 @@
 
 
 # Best Practice 1.5 – Implement user activity monitoring
-<a name="best-practice-1-5"></a>
 
 Configure your SAP applications to provide information about user activity, for example, response time, number of active users, transaction abandonment rates, and order processing time. Consider both inside-out approaches (monitoring SAP internal dialogue response time) and outside-in approaches (deploying agents or robots at end-user locations geographically) to understand how connectivity plays a role in the experience. Use this information to help understand how the application is used, patterns of usage, and to determine when a response is required due to poor performance.
 

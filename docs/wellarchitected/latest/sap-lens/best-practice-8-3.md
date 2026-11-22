@@ -1,7 +1,6 @@
 
 
 # Best Practice 8.3 – Secure your data recovery mechanisms to protect against threats
-<a name="best-practice-8-3"></a>
 
  To help protect against malicious activities, follow the guidelines set out within your organization’s security framework. [Protecting against ransomware](https://aws.amazon.com/security/protecting-against-ransomware/) provides an overview of the key items to address before an incident and as part of an incident response including network controls, patching, and least privilege permissions. For SAP systems, the threat is similar to other applications, but the impact is potentially greater. If SAP is a system of record, or required for mission critical transactions, consider the following suggestions to secure a backup against a malicious attack. 
 +  SAP Note: [2663467 - Tips to avoid a Ransomware situation](https://launchpad.support.sap.com/#/notes/2663467) [Requires SAP Portal Access] 

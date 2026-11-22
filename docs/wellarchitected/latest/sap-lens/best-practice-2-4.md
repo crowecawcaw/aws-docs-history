@@ -1,7 +1,6 @@
 
 
 # Best Practice 2.4 – Use multiple environments
-<a name="best-practice-2-4"></a>
 
 Use multiple SAP environments to experiment, develop, and test your workload. Use increasing levels of controls as environments approach production to gain confidence your workload will operate as intended when deployed. Generally, a three-tier environment for development, test, and production is minimum for SAP landscapes.
 

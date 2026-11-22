@@ -1,7 +1,6 @@
 
 
 # 16 – Understand ongoing performance and optimization options
-<a name="design-principle-16"></a>
 
  **What processes and procedures do you put in place to measure performance changes and opportunities for optimization?** Baseline your applications performance requirement from its historical monitoring data and set relevant alerts to inform system administrators when deviations occur. Have procedures in place for system admins to remediate such issues with manual or automated actions. 
 

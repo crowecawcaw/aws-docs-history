@@ -1,7 +1,6 @@
 
 
 # 2 – Reduce defects, ease remediation, and improve workflow of SAP change
-<a name="design-principle-2"></a>
 
  **How do you reduce defects, ease remediation, and improve flow into production?** Adopt approaches that improve flow of changes into production, which allow refactoring, fast feedback on quality, and bug fixing. These accelerate beneficial changes entering production, limit issues deployed, and enable rapid identification and remediation of issues introduced through deployment activities. 
 

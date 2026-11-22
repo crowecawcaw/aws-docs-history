@@ -1,7 +1,6 @@
 
 
 # Best Practice 14.3 - Evaluate Amazon EFS and Amazon FSx performance suitability for your SAP use case
-<a name="best-practice-14-3"></a>
 
 Amazon EFS (Linux) and Amazon FSx (Windows) provide highly durable and available file systems that can span multiple Availability Zones. Both solutions are designed to deliver high performance, however, when choosing to use network file systems consider the access patterns. For example, many small files, highly parallel writes or high write/read ratios might not be suitable. For SAP workloads, this might apply to SAP HANA XSA, Java executables, or large numbers of job and spool logs.
 

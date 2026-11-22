@@ -1,7 +1,6 @@
 
 
 # 8 – Protect your SAP data at rest and in transit
-<a name="design-principle-8"></a>
 
  **How do you protect your SAP data?** SAP systems often run the core functions within a business and store sensitive enterprise data. Best practice is to encrypt data at rest and in transit using at least one encryption mechanism to meet internal or external security requirements and controls. In addition to the controls listed in the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/), AWS provides multiple encryption solutions. Many AWS services have features which allow you to enable encryption with minimal effort and performance impact. There are encryption options available for the database and SAP application layer that you can consider. 
 

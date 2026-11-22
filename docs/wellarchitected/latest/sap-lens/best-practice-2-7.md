@@ -1,7 +1,6 @@
 
 
 # Best Practice 2.7 – Automate testing, integration, and deployment of changes
-<a name="best-practice-2-7"></a>
 
 Automate build, deployment, and testing of the workload. This reduces errors caused by manual processes and reduces the effort to deploy changes.
 

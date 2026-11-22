@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
 The reliability pillar encompasses the ability of a workload to perform its intended function correctly and consistently when it’s expected to. This includes the ability to operate and test the workload through its total lifecycle. For many businesses, being well-architected for reliability is a key requirement for SAP workloads. This is due to the mission critical nature of many SAP workloads and a need to understand the SAP architecture and the restrictions this imposes.
 

@@ -1,7 +1,6 @@
 
 
 # Best Practice 11.1 – Monitor failures of the SAP application, AWS resources, and connectivity
-<a name="best-practice-11-1"></a>
 
 Monitoring for failures of the SAP application, AWS resources, and connectivity helps you to react to failures or potential failures in a timely manner.
 

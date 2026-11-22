@@ -1,7 +1,6 @@
 
 
 # Best Practice 11.4 – Conduct periodic tests of resilience
-<a name="best-practice-11-4"></a>
 
 Periodically test resilience against critical failure scenarios to prove that software and procedures result in a predictable outcome. Evaluate any changes to architecture, software, or support personnel to determine if additional testing is necessary.
 

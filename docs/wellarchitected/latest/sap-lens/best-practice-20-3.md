@@ -1,7 +1,6 @@
 
 
 # Best Practice 20.3 – Establish a budget and mechanisms for cost allocation and tracking including anomaly detection
-<a name="best-practice-20-3"></a>
 
  There are [guidelines](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/expenditure-and-usage-awareness.html) in the Well-Architected Framework for implementing financial management. Set expectations around cloud costs with annual, quarterly, monthly, or even daily budgets depending on your business needs. Adjust forecasts regularly to align with usage, and identify patterns and anomalies. Establish mechanisms for cost allocation using account and tagging strategies. 
 

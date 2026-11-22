@@ -1,7 +1,6 @@
 
 
 # 15 – Evaluate tuning options for the operating system, database, and SAP application
-<a name="design-principle-15"></a>
 
  **How do you understand and weigh the effects of different tuning options on your SAP system performance?** The great variance in performance recommendations for different combinations of SAP software offerings, supported operating systems and databases, and versions prohibit an exhaustive list of recommendations for performance excellence in a single document. With that in mind, the following guidance should be applicable to the majority of SAP use cases, and we will call out specific focus areas where applicable. 
 

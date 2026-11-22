@@ -1,7 +1,6 @@
 
 
 # Best Practice 16.5 – Scale to meet performance demands
-<a name="best-practice-16-5"></a>
 
 One of the primary benefits of operating workloads in AWS is the ability to increase or decrease the compute capacity and change the storage performance characteristics to match the performance required for the use case. For SAP workloads, use dynamic scaling where applicable to avoid performance bottlenecks. Scenarios where dynamic scaling is not possible, such as scaling out an SAP HANA database cluster, use a manual deployment process.
 

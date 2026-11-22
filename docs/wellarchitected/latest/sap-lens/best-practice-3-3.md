@@ -1,7 +1,6 @@
 
 
 # Best Practice 3.3 – Share design standards and educate new support personnel in procedures
-<a name="best-practice-3-3"></a>
 
 Share existing best practices, design standards, checklists, operating procedures, and governance requirements across teams. Ensure all teams are aware of support procedures across all components of your SAP workload.
 

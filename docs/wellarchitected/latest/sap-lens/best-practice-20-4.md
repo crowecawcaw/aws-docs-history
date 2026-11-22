@@ -1,7 +1,6 @@
 
 
 # Best Practice 20.4 – Establish cost-related procedures and controls
-<a name="best-practice-20-4"></a>
 
  It might be necessary to adapt traditional cost assessment processes to be cloud ready. Gain familiarity with how to implement the right financial practices and policies by reviewing the [AWS Cloud Financial Management Guide](https://aws.amazon.com/executive-insights/content/cloud-financial-management-reference-guide). 
 

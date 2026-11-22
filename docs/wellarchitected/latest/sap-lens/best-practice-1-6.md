@@ -1,7 +1,6 @@
 
 
 # Best Practice 1.6 – Implement dependency monitoring
-<a name="best-practice-1-6"></a>
 
 Configure your workload to provide information about the status (for example, reachability or response time) of resources it depends on. Examples of external dependencies can include interfaces (for example, through SAP PI/PO), external data stores, DNS, on premises components, Active Directory controllers and network devices. Use this information to determine when a response is required. Consider third party monitoring tools that can provide cross-technology metrics to monitor the health of end-to-end dependencies.
 

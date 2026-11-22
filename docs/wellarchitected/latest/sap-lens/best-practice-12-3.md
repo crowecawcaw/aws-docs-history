@@ -1,7 +1,6 @@
 
 
 # Best Practice 12.3 - Define a recovery approach for your complete SAP estate
-<a name="best-practice-12-3"></a>
 
 If your SAP estate consists of multiple SAP systems, you need to create a detailed approach that defines the order in which each system is recovered, based on business priorities. Evaluate how data loss might impact consistency across systems and business operations.
 

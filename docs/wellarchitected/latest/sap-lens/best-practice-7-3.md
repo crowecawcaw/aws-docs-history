@@ -1,7 +1,6 @@
 
 
 # Best Practice 7.3 – Understand your organization’s identity management approach, and its application to SAP
-<a name="best-practice-7-3"></a>
 
 Typical SAP workloads will consist of multiple systems and therefore multiple identities. A centralized approach for managing these users can reduce the security risk and operational complexity. Your focus should be on how to use AWS services and third-party tools in your approach to SAP security, considering such options as centralized user management, single sign-on, and multi-factor authentication.
 

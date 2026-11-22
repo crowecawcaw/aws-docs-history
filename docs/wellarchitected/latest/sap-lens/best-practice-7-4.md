@@ -1,7 +1,6 @@
 
 
 # Best Practice 7.4 – Implement logging and reporting for user access and authorization changes and events
-<a name="best-practice-7-4"></a>
 
 User access and authorization events in your SAP systems should be logged, analyzed, and audited regularly. Consolidate and correlate security events from your SAP applications and database with other components of your architecture. This can allow for end-to-end tracing in the event of a critical security problem or breach. Automate analysis of events in a central Security Information and Event Management (SIEM) system. This can allow your operations team to understand if any unexpected or suspicious activity occurs outside of the bounds of normal system controls. They can then remediate as needed.
 

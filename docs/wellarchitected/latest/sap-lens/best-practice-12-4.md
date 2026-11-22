@@ -1,7 +1,6 @@
 
 
 # Best Practice 12.4 – Conduct periodic tests to validate your recovery procedure
-<a name="best-practice-12-4"></a>
 
 Periodically test recovery from critical failure scenarios to prove that software and procedures result in a predictable outcome, and to validate the state and health of the backup files. You should evaluate any change to architecture, software, or support personnel to determine if additional testing is necessary.
 

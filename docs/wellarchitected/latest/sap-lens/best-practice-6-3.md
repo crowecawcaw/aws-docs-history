@@ -1,7 +1,6 @@
 
 
 # Best Practice 6.3 – Protect the database and the application
-<a name="best-practice-6-3"></a>
 
 Security vigilance is imperative at the database and application layers, as a malicious actor gaining access at even a read-only level could compromise the security of critical business data. In all cases, follow the standard SAP best practices for database access protection and application security. These apply to both on-premises and cloud-based installations, and there are guidelines for each supported underlying database for SAP systems.
 

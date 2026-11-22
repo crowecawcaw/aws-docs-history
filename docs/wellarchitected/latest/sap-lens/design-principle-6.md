@@ -1,7 +1,6 @@
 
 
 # 6 – Use infrastructure and software controls to reduce security misconfigurations
-<a name="design-principle-6"></a>
 
  **How do you protect your SAP application and the underlying database, operating system, storage, and networks?** We recommend that SAP software solutions and the associated underlying configurations—such as operating system and database patches, parameters, cloud services, and infrastructure —be hardened. Hardening helps ensure the safety of all SAP environments, both production and non-production, at the appropriate level determined by your organization. 
 

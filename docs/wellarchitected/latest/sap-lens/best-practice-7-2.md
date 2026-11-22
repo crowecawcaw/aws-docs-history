@@ -1,7 +1,6 @@
 
 
 # Best Practice 7.2 – Manage privileged access to your SAP workload
-<a name="best-practice-7-2"></a>
 
 Adopt an approach of least privilege where possible. Only grant the minimum access required to perform a particular role to a minimum set of users, while managing usability and efficiency. There are administrative accounts (for example, `<sid>adm`), which by default, have access to significantly impact the reliability or data security of your SAP workload. Consider how you can limit this risk.
 

@@ -1,7 +1,6 @@
 
 
 # 9 – Implement a security strategy for logging, testing, and responding to security events
-<a name="design-principle-9"></a>
 
  **Do you have a strategic security plan that is supported by the appropriate logging, testing, and documented response methodology?** Having a strategic security plan helps shape the proactive and reactive tasks that must be accomplished to ensure that all security challenges are met successfully. The procedures for logging, detection, and additional protection to help identify and remediate security incidents for SAP on AWS workloads are identical to those detailed in the Well-Architected Framework Security Pillar. Review the best practices regarding detection and incident response within the Security Pillar in addition to the guidance in this section. 
 

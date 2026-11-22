@@ -1,7 +1,6 @@
 
 
 # Best Practice 16.4 – Identify and triage performance issues
-<a name="best-practice-16-4"></a>
 
 When key metrics indicate performance is degrading, have a process in place to remediate the underlying cause. Using automation (see the following best practice on dynamic scaling) can reduce the need for manual intervention, but when that is not possible, having an automated alerting process for administrators is vital.
 

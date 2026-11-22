@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
 This lens provided architectural guidance for designing, building, and operating reliable, secure, efficient, and cost-effective SAP workloads on AWS. We captured common patterns, lessons learned, and overarching SAP design recommendations.
 

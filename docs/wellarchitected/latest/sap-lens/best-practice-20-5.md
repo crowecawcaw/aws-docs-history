@@ -1,7 +1,6 @@
 
 
 # Best Practice 20.5 – Review usage for opportunities to optimize
-<a name="best-practice-20-5"></a>
 
 Review your SAP workload periodically to identify opportunities to optimize cost. Regular reviews should focus on: minimizing the differences and anomalies found between your AWS bill and your SAP workload budget, checking that all your SAP cloud resources are appropriately sized and not over-provisioned, and understanding any new AWS service releases or cost reductions that could improve the cost effectiveness of your SAP workload.
 

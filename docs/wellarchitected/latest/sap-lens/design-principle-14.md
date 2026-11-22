@@ -1,7 +1,6 @@
 
 
 # 14 – Select the optimal storage solution
-<a name="design-principle-14"></a>
 
  **How do you select the optimal storage solutions for your SAP workloads?** How you configure this storage will impact the performance of your system. AWS offers a wide range of services, including block, file, and object storage, to meet the storage needs of your SAP databases, applications, and backups. We recommend following the guidelines that have been benchmarked and certified by SAP. For SAP HANA, there are very specific guidelines. Other databases will require more analysis to match your workload. 
 

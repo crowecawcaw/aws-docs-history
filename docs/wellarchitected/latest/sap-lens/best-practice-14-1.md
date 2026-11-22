@@ -1,7 +1,6 @@
 
 
 # Best Practice 14.1 – Create mount points and volume associations to align with function
-<a name="best-practice-14-1"></a>
 
  SAP filesystems have unique performance and sharing requirements. For example, the performance profile of the database may require the data filesystem to support a high number of read I/O operations, while the log filesystem is more likely to be constrained by throughput. Filesystems such as `sapmnt` and `trans` need to be shared so that all application servers can access logs and transport files. Recognizing these differences, consider the mapping of filesystems to volumes to ensure there are no performance bottlenecks and that access requirements are met. 
 
