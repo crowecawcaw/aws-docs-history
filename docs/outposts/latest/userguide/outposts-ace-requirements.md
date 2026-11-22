@@ -1,7 +1,6 @@
 
 
 # Site requirements for Outpost ACE racks
-<a name="outposts-ace-requirements"></a>
 
 **Note**  
 Applies only if you need an ACE rack.

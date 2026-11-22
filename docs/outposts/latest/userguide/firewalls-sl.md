@@ -1,7 +1,6 @@
 
 
 # Firewalls and the service link
-<a name="firewalls-sl"></a>
 
 This section discusses firewall configurations and the service link connection.
 
@@ -17,7 +16,7 @@ If you are using a stateful firewall with your internet connection to limit conn
 ![Internet gateway connection to AWS](https://docs.aws.amazon.com/outposts/latest/userguide/images/igw-connection-Nov-23.png)
 
 
-If you use a stateful firewall that is both UDP and TCP-aware to limit connectivity regarding the service link VLAN, you can deny all inbound connections. If the firewall is acting in a stateful manner, allowed outbound connections from the Outposts service link should automatically allow reply traffic back in without explicit rule configuration. Only outbound connections initiated from the Outpost service link need to be configured as allowed.
+If you use a stateful firewall that is both UDP and TCP-aware to limit connectivity regarding the service link VLAN, you can deny all inbound connections. If the firewall is acting in a stateful manner, allowed outbound connections from the Outposts service link should automatically allow reply traffic back in without explicit rule configuration. Only outbound connections initiated from the Outpost service link need to be configured as allowed. Stateful firewalls might track active connections. They might not apply changes in the firewall configuration to active connections unless you clear the firewall state.
 
 
 | Protocol | Source Port | Source Address | Destination Port | Destination Address | 

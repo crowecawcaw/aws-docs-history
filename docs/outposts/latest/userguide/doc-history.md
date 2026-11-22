@@ -1,16 +1,16 @@
 
 
 # Document history for Outposts racks
-<a name="doc-history"></a>
 
 The following table describes the documentation updates for Outposts racks.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Decommissioning Outposts racks](https://docs.aws.amazon.com/outposts/latest/userguide/term-end-racks.html) | A decommission request applies to the entire Outpost. The preparation steps now list the local gateway resources that block a decommission request. | November 10, 2026 | 
 | [5-year term no longer available for first-generation Outposts racks](https://docs.aws.amazon.com/outposts/latest/userguide/order-outpost-capacity.html) | When you order a first-generation Outposts rack, you can select a 1-year or 3-year contract. The 5-year contract is available for second-generation Outposts racks. | September 1, 2026 | 
 | [AWS Outposts supports external block volumes from Dell and HPE storage arrays](https://docs.aws.amazon.com/outposts/latest/userguide/outpost-third-party-block-storage.html) | You can use external block data and boot volumes backed by third-party vendors such as, Dell PowerStore and HPE Alletra Storage MP B10000. | September 30, 2025 | 
 | [Metrics available for VIF connection status and BGP session state.](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-cloudwatch-metrics.html) | You can monitor the status of your AWS Outposts VIF connection and BGP session on the CloudWatch console with the **ConnectionStatus** and the **BGPSessionState** metrics.  | July 31, 2025 | 
-| [Renewing your subscription and preparing racks for return](https://docs.aws.amazon.com/outposts/latest/userguide/term-end-racks.html) | To renew a subscription or return a rack, you must complete the process at least 10 business days before the current subscription ends. | July 16, 2025 | 
+| [Renewing your subscription and preparing racks for return](https://docs.aws.amazon.com/outposts/latest/userguide/term-end-racks.html) | To renew a subscription or return a rack, you must complete the process at least 5 business days before the current subscription ends. | July 16, 2025 | 
 | [Support for AWS services](https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html#service-available) | AWS Outposts supports AWS services based on the AWS Region in which your Outpost operates. | July 14, 2025 | 
 | [Updates to static stability](https://docs.aws.amazon.com/outposts/latest/userguide/outpost-maintenance.html#outpost-network-equipment-maintenance) | In the event that your network is interrupted, instance metrics and logs will be cached locally for up to 7 days. Previously, Outposts could cache logs for just a few hours. | May 1, 2025 | 
 | [Updates to the AWS Identity and Access Management service-linked role AWSServiceRoleForOutposts\_{{OutpostID}}](https://docs.aws.amazon.com/outposts/latest/userguide/using-service-linked-roles.html) | The **AWSServiceRoleForOutposts\_{{OutpostID}}** service-linked role permissions are updated to refine how AWS Outposts manages networking resources for private connectivity, with more precise controls over network interface and security group operations needed for service link endpoint instances. | April 17, 2025 | 
@@ -44,4 +44,4 @@ The following table describes the documentation updates for Outposts racks.
 | [Additional CloudWatch metric](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-cloudwatch-metrics.html) | An additional CloudWatch metric for service link connected status is available.  | September 11, 2020 | 
 | [Support for sharing customer-owned IPv4 addresses](https://docs.aws.amazon.com/outposts/latest/userguide/sharing-outposts.html) | Use AWS Resource Access Manager to share customer-owned IPv4 addresses.  | April 20, 2020 | 
 | [Additional CloudWatch metrics](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-cloudwatch-metrics.html) | Additional CloudWatch metrics for EBS volumes are available. | April 4, 2020 | 
-| [Initial release](#doc-history) | This is the initial release of AWS Outposts. | December 3, 2019 | 
+| [Initial release](doc-history.md) | This is the initial release of AWS Outposts. | December 3, 2019 | 

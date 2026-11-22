@@ -1,7 +1,6 @@
 
 
 # Share your AWS Outposts resources
-<a name="sharing-outposts"></a>
 
 With Outpost sharing, Outpost owners can share their Outposts and Outpost resources, including Outpost sites and subnets, with other AWS accounts under the same AWS organization. As an Outpost owner, you can create and manage Outpost resources centrally, and share the resources across multiple AWS accounts within your AWS organization. This allows other consumers to use Outpost sites, configure VPCs, and launch and run instances on the shared Outpost.
 
@@ -50,7 +49,7 @@ These are the resources available for Outposts racks.
 + **S3 on Outposts** – Consumers with access to this resource can:
   + Create and manage S3 buckets, access points, and endpoints on the Outpost.
 + **Sites** – Consumers with access to this resource can:
-  + Create, manage, and control an Outpost at the site.
+  + Use the AWS Outposts API to view information about the site, including the site address.
 + **Subnets** – Consumers with access to this resource can:
   + View information about subnets.
   + Launch and run EC2 instances in subnets.
@@ -188,3 +187,4 @@ Consumers are billed for application resources that they create on shared Outpos
 The following limitations apply to working with AWS Outposts sharing:
 + Limitations for shared subnets apply to working with AWS Outposts sharing. For more information about VPC sharing limits, see [Limitations](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-share-limitations) in the *Amazon Virtual Private Cloud User Guide*.
 + Service quotas apply per individual account.
++ Consumers can't create an Outpost at a site that is shared with them. Only the account that owns the site can create an Outpost at that site.

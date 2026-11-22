@@ -1,7 +1,6 @@
 
 
 # Local network connectivity for Outposts racks
-<a name="local-rack"></a>
 
 You need the following components to connect your Outposts rack to your on-premises network:
 + Physical connectivity from the Outpost patch panel to your customer local network devices.

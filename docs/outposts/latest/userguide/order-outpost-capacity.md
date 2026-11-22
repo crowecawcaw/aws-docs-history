@@ -1,7 +1,6 @@
 
 
 # Create an order for an Outposts rack
-<a name="order-outpost-capacity"></a>
 
 To begin using AWS Outposts, you must create a site, create an Outpost, get a quote, and place your order.
 
@@ -260,7 +259,7 @@ If you need to change your capacity after you complete your order, contact [AWS 
 
    Example JSON file:
 
-   ```
+   ```JSON
    {
        "InstancePools": [
            {

@@ -1,7 +1,6 @@
 
 
 # AWS Outposts policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Outposts resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -35,7 +34,7 @@ The following example uses resource-level permissions to grant permission to get
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -57,7 +56,7 @@ The following example uses resource-level permissions to grant permission to get
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

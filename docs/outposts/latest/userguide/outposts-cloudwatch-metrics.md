@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics for Outposts racks
-<a name="outposts-cloudwatch-metrics"></a>
 
 AWS Outposts publishes data points to Amazon CloudWatch for your Outposts. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time series data, known as *metrics*. Think of a metric as a variable to monitor, and the data points as the values of that variable over time. For example, you can monitor the instance capacity available to your Outpost over a specified time period. Each data point has an associated timestamp and an optional unit of measurement.
 

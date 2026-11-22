@@ -1,7 +1,6 @@
 
 
 # Resilience in AWS Outposts
-<a name="disaster-recovery-resiliency"></a>
 
 AWS Outposts is designed to be highly available. Outposts racks are designed with redundant power and networking equipment. For additional resilience, we recommend that you provide dual power sources and redundant network connectivity for your Outpost.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor your Outposts rack
-<a name="monitor-outposts"></a>
 
 AWS Outposts integrates with the following services that offer monitoring and logging capabilities:
 

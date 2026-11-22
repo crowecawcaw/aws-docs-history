@@ -1,7 +1,6 @@
 
 
 # Local gateway route tables
-<a name="routing"></a>
 
 As part of the rack installation, AWS creates the local gateway, configures VIFs and a VIF group. The local gateway is owned by the AWS account associated with the Outpost. You create the local gateway route table. A local gateway route table must have an association to VIF group and a VPC. You create and manage the association of the VIF group and the VPC. Only the owner of the local gateway can modify the local gateway route table.
 

@@ -1,7 +1,6 @@
 
 
 # Local gateways for your Outposts racks
-<a name="outposts-local-gateways"></a>
 
 The local gateway is a core component of the architecture for your Outposts racks. A local gateway enables connectivity between your Outpost subnets and your on-premises network. If the on-premise infrastructure provides an internet access, workloads running on Outposts racks can also leverage the local gateway to communicate with regional services or regional workloads. This connectivity can be achieved either by using a public connection (internet) or using Direct Connect. For more information, see [AWS Outposts connectivity to AWS Regions](region-connectivity.md).
 
