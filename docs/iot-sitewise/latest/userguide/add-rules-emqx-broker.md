@@ -1,7 +1,6 @@
 
 
 # Add authorization rules through the EMQX Dashboard for users
-<a name="add-rules-emqx-broker"></a>
 
 You can add or update authorization rules using the EMQX Dashboard or the AWS IoT SiteWise EMQX CLI tool. The AWS IoT SiteWise EMQX CLI tool manages authorization using EMQX's built-in database.
 
@@ -38,14 +37,14 @@ The EMQX dashboard is only accessible from within the gateway host. If you try t
 **To manage authorization rules using the AWS IoT SiteWise EMQX CLI tool in Linux:**
 + Add authorization rules for a user using the following format:
 
-  ```
+  ```sh
   /greengrass/v2/bin/swe-emqx-cli auth add {{your-username}} {{your-action}} {{your-permission}} {{your-topic}} [{{your-action-permission-topic}}]
   ```
 
 **Example Add authorization rules for a user**  
 This example shows how to add rules for a user named `system1`:  
 
-```
+```sh
 /greengrass/v2/bin/swe-emqx-cli auth add system1 \
     publish allow "sensors/#" \
     subscribe allow "control/#" \
@@ -55,21 +54,21 @@ This example shows how to add rules for a user named `system1`:
 **Example : View authorization rules for a user**  
 To view authorization rules for the `system1` users, run the following command:  
 
-```
+```sh
 /greengrass/v2/bin/swe-emqx-cli auth list system1
 ```
 
 **Example : View all existing authorization rules**  
 To view all of the authorization rules you currently have, run the following command:  
 
-```
+```sh
 /greengrass/v2/bin/swe-emqx-cli auth list
 ```
 
 **Example : Delete all authorization rules for a user**  
 To delete all of the authorization rules applied to a particular user, run the following command:  
 
-```
+```sh
 /greengrass/v2/bin/swe-emqx-cli auth delete system1
 ```
 You are prompted to confirm the deletion.
@@ -80,14 +79,14 @@ You are prompted to confirm the deletion.
 **To manage authorization rules using the AWS IoT SiteWise EMQX CLI tool in Windows PowerShell:**
 + Add authorization rules for a user using the following format:
 
-  ```
+  ```sh
   C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth add {{your-username}} {{your-action}} {{your-permission}} {{your-topic}} [{{your-action-permission-topic}}]
   ```
 
 **Example : Add authorization rules for a user**  
 This example shows how to add rules for a user named `system1`:  
 
-```
+```sh
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth add system1 `
     publish allow "sensors/#" `
     subscribe allow "control/#" `
@@ -97,21 +96,21 @@ C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth add system1 `
 **Example : View authorization rules for a user**  
 To view authorization rules for the `system1` users, run the following command:  
 
-```
+```sh
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth list system1
 ```
 
 **Example : View all existing authorization rules**  
 To view all of the authorization rules you currently have, run the following command:  
 
-```
+```sh
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth list
 ```
 
 **Example : Delete all authorization rules for a user**  
 To delete all of the authorization rules applied to a particular user, run the following command:  
 
-```
+```sh
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth delete system1
 ```
 You are prompted to confirm the deletion.

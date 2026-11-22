@@ -1,7 +1,6 @@
 
 
 # Configure edge capabilities on AWS IoT SiteWise Edge
-<a name="edge-data-collection-and-processing"></a>
 
 **Note**  
 The data processing pack (DPP) feature is no longer availabke to new customers. Existing customers can continue to use the service as normal. For more information, see [Data processing pack availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-dpp-availability-change.html).

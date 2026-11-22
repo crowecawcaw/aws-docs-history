@@ -1,7 +1,6 @@
 
 
 # Define data properties
-<a name="asset-properties"></a>
 
 *Asset properties* are the structures within each asset that contain asset data. Asset properties can be any of the following types:
 + **Attributes** – An asset's generally static properties, such as device manufacturer or geographic region. For more information, see [Define static data (attributes)](attributes.md).

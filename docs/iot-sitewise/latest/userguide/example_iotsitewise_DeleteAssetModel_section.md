@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAssetModel` with an AWS SDK or CLI
-<a name="example_iotsitewise_DeleteAssetModel_section"></a>
 
 The following code examples show how to use `DeleteAssetModel`.
 
@@ -37,7 +36,7 @@ For more information, see [Deleting asset models](https://docs.aws.amazon.com/io
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
-```
+```java
     /**
      * Deletes an Asset Model with the specified ID.
      *
@@ -71,7 +70,7 @@ For more information, see [Deleting asset models](https://docs.aws.amazon.com/io
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
-```
+```javascript
 import {
   DeleteAssetModelCommand,
   IoTSiteWiseClient,
@@ -111,7 +110,7 @@ export const main = async ({ assetModelId }) => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
-```
+```python
 class IoTSitewiseWrapper:
     """Encapsulates AWS IoT SiteWise actions using the client interface."""
 
@@ -160,7 +159,7 @@ class IoTSitewiseWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ios->deleteassetmodel(
           iv_assetmodelid = iv_asset_model_id

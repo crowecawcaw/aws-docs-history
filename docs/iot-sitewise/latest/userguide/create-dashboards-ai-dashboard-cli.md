@@ -1,7 +1,6 @@
 
 
 # Create dashboards with AWS CLI
-<a name="create-dashboards-ai-dashboard-cli"></a>
 
 **Note**  
 The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
@@ -53,7 +52,7 @@ A list of properties of the widget. It varies by the type of widget. See [IoT Ap
 **Example dashboard definition**  
 The following example defines a dashboard from a payload stored in a JSON file.  
 
-```
+```bash
 aws iotsitewise create-dashboard \
   --project-id a1b2c3d4-5678-90ab-cdef-eeeeeEXAMPLE \
   --dashboard-name "Example Dashboard" \
@@ -61,7 +60,7 @@ aws iotsitewise create-dashboard \
 ```
 The following JSON example for `dashboard-definition.json` defines dashboard with the following visualization widgets:  
 
-```
+```json
 {
     "displaySettings": {
         "numColumns": 200,

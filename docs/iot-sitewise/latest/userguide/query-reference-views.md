@@ -1,7 +1,6 @@
 
 
 # Query reference views
-<a name="query-reference-views"></a>
 
 This section provides information to help you understand the views in AWS IoT SiteWise, such as process metadata and telemetry data.
 

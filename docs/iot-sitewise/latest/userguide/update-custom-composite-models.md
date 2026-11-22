@@ -1,7 +1,6 @@
 
 
 # Update custom composite models (components)
-<a name="update-custom-composite-models"></a>
 
 You can use the AWS IoT SiteWise API to update a custom composite model, or the AWS IoT SiteWise console to update components.
 
@@ -56,7 +55,7 @@ Submit a second `UpdateAssetModelCompositeModel` request that includes the new p
 
    1. Run the command below:
 
-      ```
+      ```bash
       aws iotsitewise describe-asset-model-composite-model \
       --asset-model-composite-model-id {{composite-model-id}} \
       --asset-model-id {{asset-model-id}}
@@ -66,7 +65,7 @@ Submit a second `UpdateAssetModelCompositeModel` request that includes the new p
 
    1. Run the following command to retrieve the active model definition:
 
-      ```
+      ```bash
       aws iotsitewise describe-asset-model-composite-model \
       --asset-model-composite-model-id {{composite-model-id}} \
       --asset-model-id {{asset-model-id}} \
@@ -91,7 +90,7 @@ Submit a second `UpdateAssetModelCompositeModel` request that includes the new p
 
 1. Run the following command to update the custom composite model with the definition stored in `update-custom-composite-model.json`. Replace {{composite-model-id}} with the ID of the composite model, and {{asset-model-id}} with the ID of the asset model it's in.
 
-   ```
+   ```bash
    aws iotsitewise update-asset-model-composite-model \
    --asset-model-composite-model-id {{composite-model-id}} \
    --asset-model-id {{asset-model-id}} \

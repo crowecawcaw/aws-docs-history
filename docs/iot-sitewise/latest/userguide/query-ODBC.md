@@ -1,7 +1,6 @@
 
 
 # ODBC
-<a name="query-ODBC"></a>
 
 The open-source [ODBC driver](https://github.com/awslabs/aws-iotsitewise-odbc-driver) for AWS IoT SiteWise provides an SQL-relational interface to AWS IoT SiteWise for developers and enables connectivity from business intelligence (BI) tools such as Power BI Desktop and Microsoft Excel. The AWS IoT SiteWise ODBC driver is currently available on [Windows](https://github.com/awslabs/aws-iotsitewise-odbc-driver/releases), and supports SSO with Okta and Microsoft Azure Active Directory (AD).
 

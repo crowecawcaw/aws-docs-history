@@ -1,7 +1,6 @@
 
 
 # Logical operators
-<a name="sql-supported-logical"></a>
 
 AWS IoT SiteWise supports the following logical operators.
 

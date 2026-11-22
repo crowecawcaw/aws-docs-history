@@ -1,7 +1,6 @@
 
 
 # Create a self-hosted SiteWise Edge gateway
-<a name="create-gateway-ggv2"></a>
 
 Use the AWS IoT SiteWise console or AWS CLI to create a self-hosted SiteWise Edge gateway. This procedure details how to create a self-hosted SiteWise Edge gateway that you'll install on your own hardware. For information about creating a SiteWise Edge gateway that runs on Siemens Industrial Edge, see [Host a SiteWise Edge gateway on Siemens Industrial Edge](sitewise-edge-on-siemens.md).
 

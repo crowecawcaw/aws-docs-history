@@ -1,7 +1,6 @@
 
 
 # Use temporal functions in formula expressions
-<a name="expression-temporal-functions"></a>
 
 Use temporal functions to return values based on timestamps of data points.
 

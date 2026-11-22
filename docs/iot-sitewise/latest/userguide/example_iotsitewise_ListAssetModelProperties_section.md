@@ -1,7 +1,6 @@
 
 
 # Use `ListAssetModelProperties` with an AWS SDK
-<a name="example_iotsitewise_ListAssetModelProperties_section"></a>
 
 The following code example shows how to use `ListAssetModelProperties`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ios->listassetmodelproperties(
           iv_assetmodelid = iv_asset_model_id

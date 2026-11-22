@@ -1,7 +1,6 @@
 
 
 # Asset model interfaces
-<a name="model-interfaces"></a>
 
 AWS IoT SiteWise interfaces set standards across different asset models. They define a common structure that ensures consistency while allowing for variations in implementation.
 

@@ -1,7 +1,6 @@
 
 
 # Welcome to Scenario Discovery
-<a name="sd-what-is"></a>
 
 ## What is Scenario Discovery?
 <a name="sd-what-is-overview"></a>

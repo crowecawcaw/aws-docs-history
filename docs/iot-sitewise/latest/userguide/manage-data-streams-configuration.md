@@ -1,7 +1,6 @@
 
 
 # Configure permissions and settings
-<a name="manage-data-streams-configuration"></a>
 
  Data streams are automatically created in AWS IoT SiteWise when the first time series data is received. If the data ingested is not associated with an asset property, AWS IoT SiteWise creates a new disassociated data stream which is configurable to be associated with an asset property. Configure the access control of the gateway sending data to AWS IoT SiteWise, using IAM policies to specify the type of data to be ingested. 
 
@@ -10,7 +9,7 @@
 **Example IAM user policy that disables disassociated data ingestion from the gateway**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -49,7 +48,7 @@
 **Example IAM user policy that disables all data ingestion from the gateway**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

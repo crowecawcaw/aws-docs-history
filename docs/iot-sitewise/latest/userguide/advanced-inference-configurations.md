@@ -1,7 +1,6 @@
 
 
 # Advanced inference configurations
-<a name="advanced-inference-configurations"></a>
 
 AWS IoT SiteWise allows customers to configure model inference schedules tailored to their operational needs.
 
@@ -28,7 +27,7 @@ To configure high frequency inferencing:
 + Configure `AWS/ANOMALY_DETECTION_INFERENCE` action payload value with `DataUploadFrequency` with values: `PT5M, PT10M, PT15M, PT30M, PT1H` while starting inference.
 + (Optional) Configure `DataDelayOffsetInMinutes` with the delay offset in minutes. Set this value between 0 and 60 minutes.
 
-```
+```JSON
 {
     "inferenceMode": "START",
     "dataDelayOffsetInMinutes": "DataDelayOffsetInMinutes",
@@ -38,7 +37,7 @@ To configure high frequency inferencing:
 
 **Example of high frequency inference configuration:**  
 
-```
+```JSON
 {
     "inferenceMode": "START",
     "dataDelayOffsetInMinutes": "2",
@@ -75,7 +74,7 @@ To configure low frequency inferencing:
 
 **Example of low frequency inference configuration:**  
 
-```
+```JSON
 {
     "inferenceMode": "START",
     "dataUploadFrequency": "P1D",
@@ -116,7 +115,7 @@ To configure flexible scheduling:
 
 **Example of flexible scheduling configuration:**  
 
-```
+```JSON
 {
     "inferenceMode": "START",
     "dataUploadFrequency": "PT5M",
@@ -159,7 +158,7 @@ To activate a specific model version:
 
 **Example of model version activation:**  
 
-```
+```JSON
 {
     "inferenceMode": "START",
     "dataUploadFrequency": "PT15M",

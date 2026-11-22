@@ -1,7 +1,6 @@
 
 
 # Create a Siemens Databus user for the application
-<a name="sa-databus-user"></a>
 
 AWS IoT SiteWise Edge on Siemens Industrial Edge ingests data from the Siemens Databus application. To connect SiteWise Edge to the Siemens Databus, you need a Siemens Databus user that provides access to the data you want to securely transfer to AWS IoT SiteWise. To start, create a Siemens Databus user and then provide the credentials to the SiteWise Edge application.
 

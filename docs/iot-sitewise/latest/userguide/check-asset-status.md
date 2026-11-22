@@ -1,7 +1,6 @@
 
 
 # Check the status of an asset
-<a name="check-asset-status"></a>
 
 You can use the AWS IoT SiteWise console or API to check the status of an asset.
 
@@ -37,13 +36,13 @@ To check the status of an asset, use the [DescribeAsset](https://docs.aws.amazon
 **To check the status of an asset (AWS CLI)**
 + Run the following command to describe the asset. Replace {{asset-id}} with the asset's ID or external ID. The external ID is a user-defined ID. For more information, see [Reference objects with external IDs](object-ids.md#external-id-references) in the *AWS IoT SiteWise User Guide*.
 
-  ```
+  ```bash
   aws iotsitewise describe-asset --asset-id {{asset-id}}
   ```
 
   The operation returns a response that contains the asset's details. The response contains an `assetStatus` object that has the following structure:
 
-  ```
+  ```json
   {
       {{...}}
       "assetStatus": {

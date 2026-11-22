@@ -1,7 +1,6 @@
 
 
 # How AWS IoT SiteWise works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use AWS Identity and Access Management (IAM) to manage access to AWS IoT SiteWise, you should understand what IAM features are available to use with AWS IoT SiteWise.
 

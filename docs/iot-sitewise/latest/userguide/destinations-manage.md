@@ -1,7 +1,6 @@
 
 
 # Manage AWS IoT SiteWise Edge destinations
-<a name="destinations-manage"></a>
 
 After adding destinations, you can perform various operations to manage them, such as editing destination configurations, deleting destinations, and managing path filters.
 

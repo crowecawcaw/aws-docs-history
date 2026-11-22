@@ -1,7 +1,6 @@
 
 
 # Use `CreateGateway` with an AWS SDK or CLI
-<a name="example_iotsitewise_CreateGateway_section"></a>
 
 The following code examples show how to use `CreateGateway`.
 
@@ -37,7 +36,7 @@ For more information, see [Configuring a gateway](https://docs.aws.amazon.com/io
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
-```
+```java
     /**
      * Creates a new IoT Sitewise gateway.
      *
@@ -88,7 +87,7 @@ For more information, see [Configuring a gateway](https://docs.aws.amazon.com/io
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
-```
+```javascript
 import {
   CreateGatewayCommand,
   IoTSiteWiseClient,
@@ -128,7 +127,7 @@ export const main = async ({ gatewayName }) => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
-```
+```python
 class IoTSitewiseWrapper:
     """Encapsulates AWS IoT SiteWise actions using the client interface."""
 
@@ -190,7 +189,7 @@ class IoTSitewiseWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ios->creategateway(
           iv_gatewayname = iv_gateway_name

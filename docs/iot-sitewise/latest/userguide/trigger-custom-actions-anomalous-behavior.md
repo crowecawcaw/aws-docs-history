@@ -1,7 +1,6 @@
 
 
 # Trigger custom actions on anomalous behavior (AWS Management Console)
-<a name="trigger-custom-actions-anomalous-behavior"></a>
 
 You can enable **custom actions in response to anomalous behavior** by using **AWS IoT SiteWise MQTT notifications** in combination with **AWS IoT Core**.
 
@@ -12,7 +11,7 @@ Follow these steps to configure MQTT notifications in AWS IoT SiteWise, and trig
 + Navigate to AWS IoT Core. Under MQTT test client, subscribe to the copied **Notification Topic** to monitor the incoming messages.
 + Create an **AWS IoT Core Rule** to **Process Inference Results**. (This ensures that actions are triggered only if the system detects an anomaly). Replace `notification-topic` with the **Notification Topic** that AWS IoT SiteWise generates.
 
-```
+```SQL
 SELECT * FROM "notification-topic"
   WHERE indexof(get(get(payload.values, 0).value, 'stringValue'), "NO_ANOMALY_DETECTED") < 0
 ```

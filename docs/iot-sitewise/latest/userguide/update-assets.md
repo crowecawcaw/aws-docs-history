@@ -1,7 +1,6 @@
 
 
 # Update assets in AWS IoT SiteWise
-<a name="update-assets"></a>
 
 You can use the AWS IoT SiteWise console or API to update an asset's name.
 
@@ -49,7 +48,7 @@ Use the [UpdateAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReferen
 **To update an asset's name (AWS CLI)**
 + Run the following command to update an asset's name. Replace {{asset-id}} with the ID or external ID of the asset. Update the {{asset-name}} with the new name for the asset.
 
-  ```
+  ```bash
   aws iotsitewise update-asset \
     --asset-id {{asset-id}} \
     --asset-name {{asset-name}}

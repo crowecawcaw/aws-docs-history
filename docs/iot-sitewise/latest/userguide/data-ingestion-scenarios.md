@@ -1,14 +1,13 @@
 
 
 # Common scenarios
-<a name="data-ingestion-scenarios"></a>
 
 ## Move a data stream
 <a name="data-ingestion-scenario-move-data-stream"></a>
 
  To change a data stream’s association to another asset property, first disassociate the data stream from the current asset property. When disassociating a data stream from an asset property, there must be an alias assigned to that asset property. 
 
-```
+```JSON
     aws iotsitewise disassociate-time-series-from-asset-property \ 
         --alias <asset-property-alias> \
         --assetId <asset-ID> \
@@ -17,7 +16,7 @@
 
  Now re-assign the data stream to the new asset property. 
 
-```
+```JSON
     aws iotsitewise associate-time-series-from-asset-property \ 
         --alias <data-stream-alias> \
         --assetId <new-asset-ID> \
@@ -29,7 +28,7 @@
 
  When using the `UpdateAssetProperty` API to assign an alias to a property, you may see the following error message: 
 
-```
+```bash
 Given alias <data-stream-alias> for property <property-name> with ID <property-ID> already in use by another property or data stream
 ```
 
@@ -44,7 +43,7 @@ Given alias <data-stream-alias> for property <property-name> with ID <property-I
 
  When associating a data stream to an asset property, the following error message is seen. 
 
-```
+```JSON
 assetProperty <property-name> with assetId <asset-ID> propertyId <property-ID> contains data
 ```
 

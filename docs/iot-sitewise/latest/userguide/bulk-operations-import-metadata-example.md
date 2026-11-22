@@ -1,7 +1,6 @@
 
 
 # Import metadata examples
-<a name="bulk-operations-import-metadata-example"></a>
 
 This section shows how to create metadata files to import asset models and assets with a single bulk import operation.
 
@@ -26,7 +25,7 @@ The following JSON metadata file defines these asset models and assets. Running 
 ### Metadata file for import
 <a name="bulk-import-metadata-file"></a>
 
-```
+```json
 {
     "assetModels": [
         {
@@ -116,7 +115,7 @@ The following JSON metadata file defines these asset models and assets. Running 
 ### JSON file to onboard assets and models for import
 <a name="bulk-import-JSON-file"></a>
 
-```
+```json
 {
     "assetModels": [
         {
@@ -360,7 +359,7 @@ The following JSON metadata file defines these asset models and assets. Running 
 ### JSON file to onboard additional assets
 <a name="bulk-import-JSON-file-additional-assets"></a>
 
-```
+```json
 {
     "assets": [
         {
@@ -468,7 +467,7 @@ To add a new property to an existing asset model, see the following JSON metadat
 
 This example adds a new property `Joint 1 Temperature` to the asset model.
 
-```
+```json
 {
     "assetModels": [
         {
@@ -559,7 +558,7 @@ This example adds a new property `Joint 1 Temperature` to the asset model.
 ### JSON file to update property aliases
 <a name="bulk-import-JSON-file-update-aliases"></a>
 
-```
+```json
 {
     "assetExternalId": "External_Id_Welding_Robot_3",
     "assetName": "Sample_Welding Robot 3",

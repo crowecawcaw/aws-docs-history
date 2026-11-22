@@ -1,14 +1,13 @@
 
 
 # Destinations and AWS IoT Greengrass stream manager
-<a name="destinations-gg-stream-manager"></a>
 
 AWS IoT Greengrass stream manager allows you to send data to the following AWS Cloud destinations: channels in AWS IoT Analytics, streams in Amazon Kinesis Data Streams, asset properties in AWS IoT SiteWise, or objects in Amazon Simple Storage Service (Amazon S3). For more information, see [Manage data streams on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/v2/developerguide/manage-data-streams.html) in *AWS IoT Greengrass Version 2 Developer Guide*.
 
 **Example : Data stream message structure**  
 The following example shows the required data stream message structure transmitted by the AWS IoT Greengrass stream manager.  
 
-```
+```json
 {
    "assetId": "string",
    "propertyAlias": "string",

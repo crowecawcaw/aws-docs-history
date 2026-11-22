@@ -1,7 +1,6 @@
 
 
 # Define data streams from equipment (measurements)
-<a name="measurements"></a>
 
 A *measurement* represents a device's raw sensor data stream, such as timestamped temperature values or timestamped rotations per minute (RPM) values.
 
@@ -41,7 +40,7 @@ When you define a measurement for an asset model with the AWS IoT SiteWise API, 
 The following example demonstrates a measurement that represents an asset's temperature sensor readings. This object is an example of an [AssetModelProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetModelProperty.html) that contains a [Measurement](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Measurement.html). You can specify this object as a part of the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) request payload to create a measurement property. For more information, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli).  
 The [Measurement](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Measurement.html) structure is an empty structure when you define an asset model because you later configure each asset to use unique device data streams. For more information about how to connect an asset's measurement property to a device's sensor data stream, see [Manage data streams for AWS IoT SiteWise](manage-data-streams.md).  
 
-```
+```json
 {
       {{...}}
       "assetModelProperties": [

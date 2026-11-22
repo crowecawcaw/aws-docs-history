@@ -1,7 +1,6 @@
 
 
 # Jobs progress tracking and error handling
-<a name="jobs-progress-error-handling"></a>
 
  A bulk process job takes time to process. Each job is processed in the order of AWS IoT SiteWise receiving the request. It is processed one-at-a-time for each account. When a job completes, the next in queue automatically starts processing. AWS IoT SiteWise resolves the jobs asynchronously and updates the status of each as it progresses. Each job has a status field that contains the state of the resource and an error message, if applicable.
 

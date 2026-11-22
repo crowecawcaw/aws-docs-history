@@ -1,7 +1,6 @@
 
 
 # Understand asset properties in MQTT topics
-<a name="mqtt-topics"></a>
 
 Every asset property has a unique MQTT topic path in the following format.
 

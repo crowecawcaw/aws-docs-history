@@ -1,7 +1,6 @@
 
 
 # Update assets and models
-<a name="update-assets-and-models"></a>
 
 You can update your assets, asset models, component models, and interfaces in AWS IoT SiteWise to modify their names and definitions. These update operations are asynchronous and take time to propagate through AWS IoT SiteWise. Check the status of the asset or model before you make additional changes. You must wait until the changes propagate before you can continue to use the updated asset or model.
 

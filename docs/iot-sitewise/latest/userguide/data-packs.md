@@ -1,7 +1,6 @@
 
 
 # Use packs to collect and process data in SiteWise Edge
-<a name="data-packs"></a>
 
 **Note**  
 The data processing pack (DPP) feature is no longer availabke to new customers. Existing customers can continue to use the service as normal. For more information, see [Data processing pack availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-dpp-availability-change.html).

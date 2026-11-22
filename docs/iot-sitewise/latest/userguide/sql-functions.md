@@ -1,7 +1,6 @@
 
 
 # SQL functions
-<a name="sql-functions"></a>
 
  The function groups supported are: 
 

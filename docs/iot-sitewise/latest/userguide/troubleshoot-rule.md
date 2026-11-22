@@ -1,7 +1,6 @@
 
 
 # Troubleshoot an AWS IoT SiteWise rule action
-<a name="troubleshoot-rule"></a>
 
 To troubleshoot your AWS IoT SiteWise rule action in AWS IoT Core, you can do one of the following procedures:
 + Configure Amazon CloudWatch Logs
@@ -147,7 +146,7 @@ Check that your rule's parameters, including substitution templates, result in n
 ## Troubleshoot a rule (AWS IoT SiteWise)
 <a name="rule-tutorial-troubleshoot-rule"></a>
 
-Follow the steps in this procedure to troubleshoot your rule if the CPU and memory usage data isn't appearing in AWS IoT SiteWise as expected. In this procedure, you configure the republish rule action as an error action to view error messages in the MQTT test client. You can also configure logging to CloudWatch Logs to troubleshoot. For more information, see [Troubleshoot an AWS IoT SiteWise rule action](#troubleshoot-rule).
+Follow the steps in this procedure to troubleshoot your rule if the CPU and memory usage data isn't appearing in AWS IoT SiteWise as expected. In this procedure, you configure the republish rule action as an error action to view error messages in the MQTT test client. You can also configure logging to CloudWatch Logs to troubleshoot. For more information, see [Troubleshoot an AWS IoT SiteWise rule action](troubleshoot-rule.md).
 
 **To add a republish error action to a rule**
 
@@ -179,7 +178,7 @@ In the following procedure, you subscribe to the error topic in the MQTT test cl
 
 1. In the **Topic filter** field, enter **sitewise/rule/tutorial/error** and choose **Subscribe**.
 
-When error messages appear, view the `failures` array in any error message to diagnose issues. For more information about possible issues and how to resolve them, see [Troubleshoot an AWS IoT SiteWise rule action](#troubleshoot-rule).
+When error messages appear, view the `failures` array in any error message to diagnose issues. For more information about possible issues and how to resolve them, see [Troubleshoot an AWS IoT SiteWise rule action](troubleshoot-rule.md).
 
 If errors don't appear, check that your rule is enabled and that you subscribed to the same topic that you configured in the republish error action. If errors still don't appear after you do that, check that the device script is running and updating the device's shadow successfully.
 

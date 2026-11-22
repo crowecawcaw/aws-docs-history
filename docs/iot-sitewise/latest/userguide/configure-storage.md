@@ -1,7 +1,6 @@
 
 
 # Configure storage settings in AWS IoT SiteWise
-<a name="configure-storage"></a>
 
 You can configure storage settings to opt in to service managed warm tier storage, and also to replicate data to the cold tier. To learn more about the retention period for the warm and hot tier, see [Data retention impact](#retention-period). While configuring the storage settings, do the following:
 +  **Hot tier retention** — Set a retention period for how long your data is stored in the hot tier before it's deleted, and moved to the service managed warm tier storage or cold tier storage based on your storage settings. AWS IoT SiteWise will delete any data in the hot tier that existed before the retention period ends. If you don't set a retention period, your data is stored indefinitely in the hot tier. 
@@ -66,13 +65,13 @@ You can configure storage settings to move data to the warm tier by using the AW
 
 To prevent overriding the existing configuration, retrieve the current storage configuration information by running the following command:
 
-```
+```bash
 aws iotsitewise describe-storage-configuration
 ```
 
 **Example response without existing cold tier configuration**  
 
-```
+```json
 {
           "storageType": "SITEWISE_DEFAULT_STORAGE",
           "disassociatedDataStorage": "ENABLED",
@@ -86,7 +85,7 @@ aws iotsitewise describe-storage-configuration
 
 **Example response with existing cold tier configuration**  
 
-```
+```json
 {             
       "storageType": "MULTI_LAYER_STORAGE",
           "multiLayerStorage": {
@@ -112,13 +111,13 @@ aws iotsitewise describe-storage-configuration
 
 Run the following command to configure the storage settings. Replace `file-name` with the name of the file that contains the AWS IoT SiteWise storage configuration.
 
-```
+```bash
 aws iotsitewise put-storage-configuration --cli-input-json file://file-name.json
 ```
 
 **Example AWS IoT SiteWise configuration with hot and warm tier**  
 
-```
+```json
 {
              "storageType": "SITEWISE_DEFAULT_STORAGE",
              "disassociatedDataStorage": "ENABLED",
@@ -133,7 +132,7 @@ aws iotsitewise put-storage-configuration --cli-input-json file://file-name.json
 
 **Example response**  
 
-```
+```json
 {
              "storageType": "SITEWISE_DEFAULT_STORAGE",
              "configurationStatus": {
@@ -150,7 +149,7 @@ If you have cold tier storage enabled, see [Configure storage settings with AWS 
 **Configure storage settings using AWS CLI with existing cold tier storage**
 + Run the following command to configure the storage settings. Replace {{file-name}} with the name of the file that contains the AWS IoT SiteWise storage configuration.
 
-  ```
+  ```bash
   aws iotsitewise put-storage-configuration --cli-input-json file://{{file-name}}.json
   ```  
 **Example AWS IoT SiteWise storage configuration**  
@@ -163,7 +162,7 @@ If you have cold tier storage enabled, see [Configure storage settings with AWS 
 **Note**  
 AWS IoT SiteWise will delete any data in the warm tier that's older than the retention period of the cold tier. If you don't set a retention period, your data is stored indefinitely.
 
-  ```
+  ```json
   {
         "storageType": "MULTI_LAYER_STORAGE",
           "multiLayerStorage": {
@@ -184,7 +183,7 @@ AWS IoT SiteWise will delete any data in the warm tier that's older than the ret
   ```  
 **Example response**  
 
-  ```
+  ```json
   {
         "storageType": "MULTI_LAYER_STORAGE",
         "configurationStatus": {
@@ -225,7 +224,7 @@ Make sure that your role has the permissions shown in the following example.
 **Example permissions policy:**    
 ****  
 
-          ```
+          ```json
           {
                 "Version":"2012-10-17",		 	 	 
                 "Statement": [
@@ -278,7 +277,7 @@ The following procedure shows you how to configure the storage settings to repli
 
 1. To export data to an Amazon S3 bucket in your account, run the following command to configure the storage settings. Replace {{file-name}} with the name of the file that contains the AWS IoT SiteWise storage configuration.
 
-   ```
+   ```bash
    aws iotsitewise put-storage-configuration --cli-input-json file://{{file-name}}.json
    ```  
 **Example AWS IoT SiteWise storage configuration**  
@@ -288,7 +287,7 @@ The following procedure shows you how to configure the storage settings to repli
    + Replace {{role-name}} with the name of the Amazon S3 access role that allows AWS IoT SiteWise to send data to Amazon S3.
    + Replace {{retention-in-days}} with a whole number than is greater than or equal to 30 days.
 
-   ```
+   ```json
    {
          "storageType": "MULTI_LAYER_STORAGE",
          "multiLayerStorage": {
@@ -310,7 +309,7 @@ Make sure that your role has the permissions shown in the following example.
 **Example permissions policy:**    
 ****  
 
-     ```
+     ```json
      {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -335,7 +334,7 @@ Replace amzn-s3-demo-bucket with the name of your Amazon S3 bucket.
  If the Amazon S3 bucket is encrypted using a customer managed KMS key, the KMS key must have an access policy with an IAM role for `kms:Decrypt` and `kms:GenerateDataKey` operations.   
 **Example response**  
 
-   ```
+   ```bash
    {
        "storageType": "MULTI_LAYER_STORAGE",
        "retentionPeriod": {
@@ -352,12 +351,12 @@ It can take a few minutes for AWS IoT SiteWise to update the storage configurati
 
 1. To retrieve the storage configuration information, run the following command.
 
-   ```
+   ```bash
    aws iotsitewise describe-storage-configuration
    ```  
 **Example response**  
 
-   ```
+   ```bash
    {
          "storageType": "MULTI_LAYER_STORAGE",
          "multiLayerStorage": {
@@ -386,7 +385,7 @@ It can take a few minutes for AWS IoT SiteWise to update the storage configurati
 By default, your data is only stored in the hot tier of AWS IoT SiteWise.  
 **Example response**  
 
-   ```
+   ```bash
    {
          "storageType": "SITEWISE_DEFAULT_STORAGE",
          "configurationStatus": {
@@ -397,12 +396,12 @@ By default, your data is only stored in the hot tier of AWS IoT SiteWise.
 
 1. To retrieve the storage configuration information, run the following command.
 
-   ```
+   ```bash
    aws iotsitewise describe-storage-configuration
    ```  
 **Example response**  
 
-   ```
+   ```bash
    {
          "storageType": "SITEWISE_DEFAULT_STORAGE",
          "configurationStatus": {
@@ -424,7 +423,7 @@ The following steps use AWS CLI to create a data store in AWS IoT Analytics.
 
 To create a data store, run the following command. Replace {{file-name}} with the name of the file that contains the data store configuration.
 
-```
+```bash
 aws iotanalytics create-datastore --cli-input-json file://{{file-name}}.json
 ```
 
@@ -435,7 +434,7 @@ You must use the same Amazon S3 bucket name in the AWS IoT SiteWise storage conf
 **Example AWS IoT Analytics data store configuration**  
 Replace {{data-store-name}} and {{amzn-s3-demo-bucket}} with your AWS IoT Analytics data store name and Amazon S3 bucket name.  
 
-```
+```json
 {
       "datastoreName": "{{data-store-name}}",
       "datastoreStorage": {
@@ -453,7 +452,7 @@ Replace {{data-store-name}} and {{amzn-s3-demo-bucket}} with your AWS IoT Analyt
 
 **Example response**  
 
-```
+```bash
 {
       "datastoreName": "datastore_IoTSiteWise_demo",
       "datastoreArn": "arn:aws:iotanalytics:us-west-2:123456789012:datastore/datastore_IoTSiteWise_demo",

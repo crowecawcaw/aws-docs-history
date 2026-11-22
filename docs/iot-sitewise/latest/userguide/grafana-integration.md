@@ -1,7 +1,6 @@
 
 
 # Integrate AWS IoT SiteWise with Grafana
-<a name="grafana-integration"></a>
 
 Grafana is a data visualization platform used to visualize and monitor data in dashboards. In Grafana version 10.4.0 and later, use the AWS IoT SiteWise plugin to visualize your AWS IoT SiteWise asset data in Grafana dashboards. Users can visualize data from multiple AWS sources (such as AWS IoT SiteWise, Amazon Timestream, and Amazon CloudWatch) and other data sources with a single Grafana dashboard.
 

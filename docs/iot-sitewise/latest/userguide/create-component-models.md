@@ -1,7 +1,6 @@
 
 
 # Create component models
-<a name="create-component-models"></a>
 
 Use AWS IoT SiteWise component models to define subassemblies that you can reference from asset models or other component models. In this way, you can re-use the definition of the component across multiple other models, or multiple times within the same model.
 
@@ -26,7 +25,7 @@ You can use the AWS Command Line Interface (AWS CLI) to create a component model
 
 Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) operation to create a component model with properties. This operation expects a payload with the following structure:
 
-```
+```json
 {
   "assetModelType": "COMPONENT_MODEL",
   "assetModelName": "{{String}}",
@@ -39,7 +38,7 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
 1. Create a file called `component-model-payload.json` and then copy the following JSON object into the file:
 
-   ```
+   ```json
    {
      "assetModelType": "COMPONENT_MODEL",
      "assetModelName": "",
@@ -64,7 +63,7 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
 1. Run the following command to create a component model from the definition in the JSON file.
 
-   ```
+   ```bash
    aws iotsitewise create-asset-model --cli-input-json file://component-model-payload.json
    ```
 
@@ -87,7 +86,7 @@ This section contains an example component model definition that you can use to 
 
 The following component model represents a servo motor that can be used within equipment such as CNC machines. The servo motor provides various measurements, such as temperatures and electrical resistance. These measurements are available as properties on assets created from asset models that reference the servo motor component model.
 
-```
+```json
 {
     "assetModelName": "ServoMotor",
     "assetModelType": "COMPONENT_MODEL",

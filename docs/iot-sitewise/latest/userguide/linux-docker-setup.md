@@ -1,7 +1,6 @@
 
 
 # Set up open-source integrations with Docker (Linux)
-<a name="linux-docker-setup"></a>
 
 For a streamlined deployment process, you can use Docker to set up Node-RED®, InfluxDB®, and Grafana® on a Linux environment. This method uses pre-configured containers, allowing for rapid deployment and easier management of the components.
 
@@ -50,7 +49,7 @@ Copy the contents of the following YAML file to your SiteWise Edge gateway devic
 #### Expand to view the Docker Compose YAML file example
 <a name="collapsible-section-docker-compose-file"></a>
 
-```
+```yaml
 services:
   influxdb:
     image: influxdb:latest
@@ -553,7 +552,7 @@ configs:
 
 1. In **Step 3 - Configure components**, select the `aws.greengrass.clientdevices.mqtt.EMQX` component value and add the following network configuration:
 
-   ```
+   ```json
    {
        "emqxConfig": {
            "authorization": {

@@ -1,7 +1,6 @@
 
 
 # Configure the data publish flow
-<a name="windows-nodered-data-publish-flow"></a>
 
 The data publish flow uses three nodes to create a pipeline that sends your industrial data to the cloud. This flow is essential for enabling cloud-based analytics, long-term storage, and integration with other AWS services. First, simulated device data is sent to the SiteWise Edge MQTT broker. The gateway picks up the data from the broker which allows for transmission to the AWS IoT SiteWise cloud, where you can leverage powerful analytics and visualization capabilities.
 + **Data input** - Receives device data from your industrial equipment or simulators
@@ -24,7 +23,7 @@ The turbine simulator generates wind speed data every second in this standardize
 
 **Example : Turbine data payload**  
 
-```
+```json
 {
     name: string,         // Property name/identifier
     timestamp: number,    // Epoch time in nanoseconds
@@ -41,7 +40,7 @@ This format provides several benefits:
 
 **Example : Inject node of a turbine simulator**  
 
-```
+```json
 [
     {
         "id": "string",
@@ -95,7 +94,7 @@ By standardizing the data format at this stage, you enable integration between y
 
 **Example : Payload structure for SiteWise Edge data parsing**  
 
-```
+```json
 {
   "propertyAlias": "string",  
   "propertyValues": [
@@ -120,7 +119,7 @@ Match the `propertyAlias` to your MQTT topic hierarchy (for example, `/Renton/Wi
 
 1. Import the example function node for AWS IoT SiteWise payload translation. This function handles the conversion from your standardized input format to the AWS IoT SiteWise-compatible format, ensuring proper timestamp formatting, quality indicators, and value typing.
 
-   ```
+   ```json
    [
        {
            "id": "string",
@@ -172,7 +171,7 @@ Import the example `mqtt out` node.
 
 **Example**  
 
-```
+```json
 [
     {
         "id": "string",

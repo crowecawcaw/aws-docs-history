@@ -1,7 +1,6 @@
 
 
 # Scenario Discovery search and curation of datasets
-<a name="sd-search-curation"></a>
 
 ## Overview
 <a name="sd-search-curation-overview"></a>

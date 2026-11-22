@@ -1,7 +1,6 @@
 
 
 # Set up Grafana for SiteWise Edge
-<a name="windows-grafana"></a>
 
  Grafana® lets you create local real-time monitoring dashboards for your industrial data. By visualizing the data stored in InfluxDB®, you can provide operators with immediate insights into equipment performance, process efficiency, and potential issues. This visibility at the edge is important for time-sensitive operations and maintaining continuity during network disruptions.
 
@@ -24,7 +23,7 @@ Creating a dashboard is the final step in building your local monitoring solutio
 
   You can also use the quick start guide by importing the provided example dashboard template to quickly create a dashboard with a time series plot for the data that Node-RED generates in previous section. This template provides a starting point that you can customize to meet your specific monitoring needs.
 
-  ```
+  ```json
   {
     "__inputs": [
       {

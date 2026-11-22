@@ -1,7 +1,6 @@
 
 
 # Connection string syntax and options for the ODBC driver
-<a name="query-ODBC-connecting"></a>
 
 The syntax for specifying connection-string options for the ODBC driver is as follows:
 

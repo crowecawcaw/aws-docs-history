@@ -1,7 +1,6 @@
 
 
 # Query language reference for AWS IoT SiteWise
-<a name="query-reference"></a>
 
  AWS IoT SiteWise supports a rich query language for working with your data. The available data types, operators, functions and constructs are described in the following topics.
 

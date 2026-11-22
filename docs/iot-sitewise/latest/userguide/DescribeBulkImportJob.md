@@ -1,7 +1,6 @@
 
 
 # Describe an AWS IoT SiteWise bulk import job (AWS CLI)
-<a name="DescribeBulkImportJob"></a>
 
 Use the [DescribeBulkImportJob](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeBulkImportJob.html) API operation to retrieve information about a specific bulk import job in AWS IoT SiteWise. This operation returns details such as the job's status, creation time, and error information if the job failed. You can use this operation to monitor job progress and troubleshoot issues. To use `DescribeBulkImportJob`, you need the job ID from the `CreateBulkImportJob` operation. The API returns the following information:
 + List of files being imported, including their Amazon S3 bucket locations and keys
@@ -15,13 +14,13 @@ For completed jobs, review the results to confirm successful data integration. I
 
 Replace {{job-ID}} with the ID of the bulk import job that you want to retrieve.
 
-```
+```json
 aws iotsitewise describe-bulk-import-job --job-id {{job-ID}}
 ```
 
 **Example response**  
 
-```
+```json
 {
    "files":[
       {

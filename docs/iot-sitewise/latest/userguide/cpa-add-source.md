@@ -1,7 +1,6 @@
 
 
 # Add a partner data source in SiteWise Edge
-<a name="cpa-add-source"></a>
 
 To connect a partner data source to your SiteWise Edge gateway, add it as a data source. When you add it as a data source, AWS IoT SiteWise will deploy a private AWS IoT Greengrass component to your SiteWise Edge gateway.
 

@@ -1,7 +1,6 @@
 
 
 # Partner data sources on SiteWise Edge gateways
-<a name="partner-data-sources"></a>
 
 When using an AWS IoT SiteWise Edge gateway you can connect a partner data source to your SiteWise Edge gateway and receive data from the partner in your SiteWise Edge gateway and the AWS cloud. These partner data sources are AWS IoT Greengrass components that are developed in partnership between AWS and the partner. When you add a partner data source, AWS IoT SiteWise will create this component and deploy it on your SiteWise Edge gateway. 
 

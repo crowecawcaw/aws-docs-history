@@ -1,7 +1,6 @@
 
 
 # Bulk operation prerequisites
-<a name="bulk-operations-prereqs"></a>
 
 This section explains bulk operation prerequisites, including AWS Identity and Access Management (IAM) permissions for exchanging resources between AWS services and your local machine. Before you start a bulk operation, complete the following prerequisite:
 + Create an Amazon S3 bucket to store resources. For more information about using Amazon S3, see [What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
@@ -18,7 +17,7 @@ To perform bulk operations, you need the following policies.
 
 This policy allows access to the required AWS IoT SiteWise API actions for bulk operations:
 
-```
+```json
 {
     "Sid": "SiteWiseApiAccess",
     "Effect": "Allow",
@@ -62,7 +61,7 @@ This policy allows access to the required AWS IoT SiteWise API actions for bulk 
 
 This policy allows access to the AWS IoT TwinMaker API operations that you use to work with bulk operations:
 
-```
+```json
 {
     "Sid": "MetadataTransferJobApiAccess",
     "Effect": "Allow",
@@ -86,7 +85,7 @@ This policy provides access to Amazon S3 buckets for transferring metadata for b
 
 If you use one specific bucket for working with your bulk operations metadata, this policy provides access to that bucket:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -110,7 +109,7 @@ If you use one specific bucket for working with your bulk operations metadata, t
 
 If you will use many different buckets to work with your bulk operations metadata, this policy provides access to any bucket:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

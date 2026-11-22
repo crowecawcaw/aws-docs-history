@@ -1,7 +1,6 @@
 
 
 # Converting unsupported data types
-<a name="string-conversion"></a>
 
 Optionally enable data type conversion in AWS IoT SiteWise for simple arrays and DateTime data types. AWS IoT SiteWise doesn't support all OPC UA data types. When you send unsupported data to your AWS IoT Greengrass data stream, that data is lost. However, by converting the unsupported native data types to strings, you can ingest the data into AWS IoT SiteWise rather than discarding it. AWS IoT SiteWise serializes your converted data so that you can later use your own functions to convert the strings back to their original data type downstream, if needed. 
 

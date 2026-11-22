@@ -1,7 +1,6 @@
 
 
 # Monitor data with alarms in AWS IoT SiteWise
-<a name="industrial-alarms"></a>
 
 You can configure alarms for your data to alert your team when equipment or processes perform sub-optimally. Optimal performance of a machine or process means that the values for certain metrics should be within a range of high and low limits. When these metrics are outside their operating range, equipment operators must be notified so they can fix the issue. Use alarms to quickly identify issues and notify operators to maximize performance of your equipment and processes.
 

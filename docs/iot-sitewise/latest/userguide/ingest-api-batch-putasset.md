@@ -1,7 +1,6 @@
 
 
 # BatchPutAssetPropertyValue API
-<a name="ingest-api-batch-putasset"></a>
 
 Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation to upload your data. With this operation, you can upload multiple data entries at a time to collect data from several devices and send it all in a single request.
 
@@ -18,13 +17,13 @@ To identify an asset property, specify one of the following:
 
 The following example demonstrates how to send a wind turbine's temperature and rotations per minute (RPM) readings from a payload stored in a JSON file.
 
-```
+```bash
 aws iotsitewise batch-put-asset-property-value --cli-input-json file://batch-put-payload.json
 ```
 
 The example payload in `batch-put-payload.json` has the following content.
 
-```
+```json
 {
   "enablePartialEntryProcessing": true,      
   "entries": [

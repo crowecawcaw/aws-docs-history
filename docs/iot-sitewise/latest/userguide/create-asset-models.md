@@ -1,7 +1,6 @@
 
 
 # Create asset models in AWS IoT SiteWise
-<a name="create-asset-models"></a>
 
 AWS IoT SiteWise asset models drive standardization of your industrial data. An asset model contains a name, description, asset properties, and asset hierarchy definitions. For example, you can define a wind turbine model with temperature, rotations per minute (RPM), and power properties. Then, you can define a wind farm model with a net power output property and a wind turbine hierarchy definition.
 
@@ -73,7 +72,7 @@ You can use the AWS Command Line Interface (AWS CLI) to create an asset model.
 
 Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) operation to create an asset model with properties and hierarchies. This operation expects a payload with the following structure.
 
-```
+```json
 {
   "assetModelType": "ASSET_MODEL",
   "assetModelName": "{{String}}",
@@ -87,7 +86,7 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
 1. Create a file called `asset-model-payload.json` and then copy the following JSON object into the file.
 
-   ```
+   ```json
    {
      "assetModelType": "ASSET_MODEL",
      "assetModelName": "",
@@ -122,7 +121,7 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
 1. Run the following command to create an asset model from the definition in the JSON file.
 
-   ```
+   ```bash
    aws iotsitewise create-asset-model --cli-input-json file://asset-model-payload.json
    ```
 
@@ -149,7 +148,7 @@ The following asset model represents a turbine in a wind farm. The wind turbine 
 **Note**  
 This example model resembles the wind turbine model from the AWS IoT SiteWise demo. For more information, see [Use the AWS IoT SiteWise demo](getting-started-demo.md).
 
-```
+```json
 {
   "assetModelType": "ASSET_MODEL",
   "assetModelName": "Wind Turbine Asset Model",
@@ -357,7 +356,7 @@ This example model resembles the wind farm model from the AWS IoT SiteWise demo.
 
 This asset model depends on the [Wind turbine asset model](#example-wind-turbine). Replace the `propertyId` and `childAssetModelId` values with those from an existing wind turbine asset model.
 
-```
+```json
 {
   "assetModelName": "Wind Farm Asset Model",
   "assetModelDescription": "Represents a wind farm.",

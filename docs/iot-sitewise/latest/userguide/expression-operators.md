@@ -1,7 +1,6 @@
 
 
 # Use operators in formula expressions
-<a name="expression-operators"></a>
 
 You can use the following common operators in formula expressions.
 

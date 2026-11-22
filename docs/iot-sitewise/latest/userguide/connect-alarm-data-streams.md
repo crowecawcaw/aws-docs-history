@@ -1,7 +1,6 @@
 
 
 # Map external alarm state streams in AWS IoT SiteWise
-<a name="connect-alarm-data-streams"></a>
 
 You can define property aliases to map your data streams to your alarm state properties. This helps you easily identify an alarm state property when you ingest or retrieve data. For more information about property aliases, see [Manage data streams for AWS IoT SiteWise](manage-data-streams.md).
 

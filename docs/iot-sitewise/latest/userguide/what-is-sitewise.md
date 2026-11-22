@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT SiteWise?
-<a name="what-is-sitewise"></a>
 
 AWS IoT SiteWise is a managed service with which you can collect, store, organize and monitor data from industrial equipment at scale to help you make better, data-driven decisions. You can use AWS IoT SiteWise to monitor operations across facilities, quickly compute common industrial performance metrics, and create applications that analyze industrial equipment data to prevent costly equipment issues and reduce gaps in production. 
 

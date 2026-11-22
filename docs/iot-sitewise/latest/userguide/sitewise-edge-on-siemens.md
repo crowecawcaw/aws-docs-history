@@ -1,7 +1,6 @@
 
 
 # Host a SiteWise Edge gateway on Siemens Industrial Edge
-<a name="sitewise-edge-on-siemens"></a>
 
 Host your gateway on Siemens Industrial Edge using the AWS IoT SiteWise Edge application. Just as with AWS IoT Greengrass V2, you can optimize manufacturing processes or improve operational workflows using the SiteWise Edge on Siemens Industrial Edge.
 

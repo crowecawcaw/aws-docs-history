@@ -1,7 +1,6 @@
 
 
 # Use `BatchPutAssetPropertyValue` with an AWS SDK or CLI
-<a name="example_iotsitewise_BatchPutAssetPropertyValue_section"></a>
 
 The following code examples show how to use `BatchPutAssetPropertyValue`.
 
@@ -72,7 +71,7 @@ For more information, see [Ingesting data using the AWS IoT SiteWise API](https:
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
-```
+```java
     /**
      * Sends data to the SiteWise service.
      *
@@ -143,7 +142,7 @@ For more information, see [Ingesting data using the AWS IoT SiteWise API](https:
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
-```
+```javascript
 import {
   BatchPutAssetPropertyValueCommand,
   IoTSiteWiseClient,
@@ -181,7 +180,7 @@ export const main = async ({ entries }) => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
-```
+```python
 class IoTSitewiseWrapper:
     """Encapsulates AWS IoT SiteWise actions using the client interface."""
 
@@ -233,7 +232,7 @@ class IoTSitewiseWrapper:
 ```
 A helper function to generate the entries parameter from a values list.   
 
-```
+```python
     def properties_to_values(
         self, asset_id: str, values: list[dict[str, Any]]
     ) -> list[dict[str, Any]]:
@@ -279,7 +278,7 @@ A helper function to generate the entries parameter from a values list.
 ```
 Here is an example of a values list to pass to the helper function.   
 
-```
+```python
         values = [
             {
                 "propertyId": humidity_property_id,
@@ -301,7 +300,7 @@ Here is an example of a values list to pass to the helper function.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ios->batchputassetpropertyvalue(
           it_entries = it_entries

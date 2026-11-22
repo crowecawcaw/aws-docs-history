@@ -1,7 +1,6 @@
 
 
 # Update attribute values
-<a name="update-attribute-values"></a>
 
 Assets inherit the attributes of their asset model, including the default value of the attribute. In some cases, you will want to keep the asset model's default attribute, such as for an asset manufacturer property. In other cases, you will want to update the inherited attribute, such as for an asset's latitude and longitude. 
 
@@ -40,7 +39,7 @@ Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/la
 
 1. Create a file called `batch-put-payload.json` and copy the following JSON object into the file. This example payload demonstrates how to set a wind turbine's latitude and longitude. Update the IDs, values, and timestamps to modify the payload for your use case.
 
-   ```
+   ```json
    {
      "entries": [
        {
@@ -90,7 +89,7 @@ Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/la
 
 1. Run the following command to send the attribute values to AWS IoT SiteWise:
 
-   ```
+   ```bash
    aws iotsitewise batch-put-asset-property-value -\-cli-input-json file://batch-put-payload.json
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot an AWS IoT SiteWise portal
-<a name="troubleshooting-portal"></a>
 
 Troubleshoot common issues with your AWS IoT SiteWise portals.
 
@@ -22,7 +21,7 @@ Any attached IAM policies that include a `"Condition"` element will cause a logi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ Any attached IAM policies that include a `"Condition"` element will cause a logi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

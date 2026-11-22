@@ -1,7 +1,6 @@
 
 
 # Encryption at rest in AWS IoT SiteWise
-<a name="encryption-at-rest"></a>
 
 AWS IoT SiteWise stores your data in the AWS Cloud and on AWS IoT SiteWise Edge gateways.
 
@@ -52,7 +51,7 @@ You can also use CloudTrail and Amazon CloudWatch Logs to track the requests tha
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

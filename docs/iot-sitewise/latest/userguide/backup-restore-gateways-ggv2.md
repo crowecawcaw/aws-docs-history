@@ -1,7 +1,6 @@
 
 
 # Back up and restore SiteWise Edge gateways
-<a name="backup-restore-gateways-ggv2"></a>
 
 This topic covers how to restore SiteWise Edge gateways and backup your metric data. If you are experiencing issues with a broken SiteWise Edge gateway on the same machine and need to troubleshoot the issue, please read the AWS IoT SiteWise documentation [ Troubleshooting SiteWise Edge gateway issues](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/troubleshooting-gateway.html#troubleshoot-gateway-issues).
 

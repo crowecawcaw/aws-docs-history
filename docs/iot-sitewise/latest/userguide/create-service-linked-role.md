@@ -1,7 +1,6 @@
 
 
 # Create a service-linked role for AWS IoT SiteWise
-<a name="create-service-linked-role"></a>
 
 AWS IoT SiteWise requires a service-linked role to perform certain actions and to access resources on your behalf. A service-linked role is a unique type of AWS Identity and Access Management (IAM) role that is linked directly to AWS IoT SiteWise. By creating this role, you grant AWS IoT SiteWise the necessary permissions to access other AWS services and resources required for its operation, such as Amazon S3 for data storage or AWS IoT for device communication.
 

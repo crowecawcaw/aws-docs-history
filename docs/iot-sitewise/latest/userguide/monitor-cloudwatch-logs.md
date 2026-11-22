@@ -1,7 +1,6 @@
 
 
 # Monitor with Amazon CloudWatch Logs
-<a name="monitor-cloudwatch-logs"></a>
 
 Configure AWS IoT SiteWise to log information to CloudWatch Logs to monitor and troubleshoot the service.
 
@@ -9,7 +8,7 @@ When you use the AWS IoT SiteWise console, AWS IoT SiteWise creates a service-li
 
 You must have a resource policy that allows AWS IoT SiteWise to put log events into CloudWatch streams. To create and update a resource policy for CloudWatch Logs, run the following command. Replace {{logging-policy-name}} with the name of the policy to create.
 
-```
+```bash
 aws logs put-resource-policy --policy-name {{logging-policy-name}} --policy-document "{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"IoTSiteWiseToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"iotsitewise.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"*\" } ] }"
 ```
 
@@ -20,7 +19,7 @@ To create or update a resource policy that allows AWS IoT SiteWise to only put l
 + Replace {{source-ARN}} with the ARN of your AWS IoT SiteWise resource, such as an asset model or asset. To find the ARN for each AWS IoT SiteWise resource type, see [Resource types defined by AWS IoT SiteWise](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotsitewise.html#awsiotsitewise-resources-for-iam-policies) in the *Service Authorization Reference*.
 + Replace {{account-ID}} with the AWS account ID associated with the specified AWS IoT SiteWise resource.
 
-```
+```bash
 aws logs put-resource-policy --policy-name {{logging-policy-name}} --policy-document "{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"IoTSiteWiseToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"iotsitewise.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"*\", \"Condition\":{\"StringLike\":{\"aws:SourceArn\":[\"{{source-ARN}}\"],\"aws:SourceAccount\":[\"{{account-ID}}\"]}}}]}"
 ```
 
@@ -65,13 +64,13 @@ Use the following procedure to find your current logging level in the AWS IoT Si
 
 Run the following command to find your current AWS IoT SiteWise logging level with the AWS CLI.
 
-```
+```bash
 aws iotsitewise describe-logging-options
 ```
 
 The operation returns a response that contains your logging level in the following format.
 
-```
+```json
 {
   "loggingOptions": {
     "level": "{{String}}"
@@ -106,7 +105,7 @@ Use the following procedure to change your logging level in the AWS IoT SiteWise
 
 Run the following AWS CLI command to change your AWS IoT SiteWise logging level. Replace {{logging-level}} with the logging level you want.
 
-```
+```bash
 aws iotsitewise put-logging-options --logging-options level={{logging-level}}
 ```
 
@@ -119,7 +118,7 @@ Each AWS IoT SiteWise log entry includes event information and relevant resource
 
 The following example shows a CloudWatch Logs entry that AWS IoT SiteWise logs when you successfully create an asset model.
 
-```
+```json
 {
   "eventTime": "2020-05-05T00:10:22.902Z",
   "logLevel": "INFO",

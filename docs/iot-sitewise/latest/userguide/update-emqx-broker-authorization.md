@@ -1,7 +1,6 @@
 
 
 # Update the EMQX deployment configuration for authorization
-<a name="update-emqx-broker-authorization"></a>
 
 **To update the EMQX deployment configuration for authorization**
 
@@ -36,7 +35,7 @@
 ------
 #### [ Linux ]
 
-   ```
+   ```json
    {
        "emqxConfig": {
            "authorization": {
@@ -97,7 +96,7 @@
 ------
 #### [ Windows ]
 
-   ```
+   ```json
    {
        "emqxConfig": {
            "authorization": {

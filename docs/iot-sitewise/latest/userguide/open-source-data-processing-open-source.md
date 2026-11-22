@@ -1,7 +1,6 @@
 
 
 # Process data for open source integrations
-<a name="open-source-data-processing-open-source"></a>
 
 The data can be processed (such as transformation or aggregation), at different stages using various tools, each serving different monitoring requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a SiteWise Edge gateway
-<a name="troubleshooting-gateway"></a>
 
 Troubleshoot common AWS IoT SiteWise Edge gateway issues by exploring relevant topics.
 
@@ -109,7 +108,7 @@ If there is no data shown in your dashboard, the **Publisher configuration** and
 If you see this error, you may need to update the java version of your SiteWise Edge gateway.
 + From a terminal, run the following command:
 
-  ```
+  ```bash
   java -version
   ```
 
@@ -252,7 +251,7 @@ Node-RED can't connect to MQTT broker
 Verify that the MQTT broker is running and accessible on the specified port. Check your network configuration and ensure that the broker address is correct.  
 To verify the MQTT broker status, run:  
 
-```
+```bash
 docker ps | grep emqx
 ```
 
@@ -260,7 +259,7 @@ InfluxDB connection errors
 Ensure that your authentication token is valid and that you've specified the correct organization and bucket names. Check that InfluxDB is running and accessible.  
 To verify InfluxDB status, run:  
 
-```
+```bash
 curl -I http://localhost:8086
 ```
 
@@ -286,7 +285,7 @@ High CPU or memory usage
 Monitor resource usage and adjust the configuration of your components as needed. Consider reducing the data collection frequency or implementing data filtering to reduce the processing load.  
 To monitor resource usage, run:  
 
-```
+```bash
 docker stats
 ```
 
@@ -301,26 +300,26 @@ To troubleshoot issues, check the logs for each component:
 Node-RED logs  
 View logs in the Node-RED console or run:  
 
-```
+```bash
 docker logs node-red
 ```
 
 InfluxDB logs  
 Access logs by running:  
 
-```
+```bash
 docker logs influxdb
 ```
 
 Grafana logs  
 View logs by running:  
 
-```
+```bash
 docker logs grafana
 ```
 
 SiteWise Edge logs  
-Check the SiteWise Edge gateway logs for MQTT connection and data processing issues. For more information, see [Troubleshooting a SiteWise Edge gateway](#troubleshooting-gateway).
+Check the SiteWise Edge gateway logs for MQTT connection and data processing issues. For more information, see [Troubleshooting a SiteWise Edge gateway](troubleshooting-gateway.md).
 
 ## Troubleshooting AWS IoT Greengrass issues
 <a name="troubleshoot-greengrass-issues"></a>

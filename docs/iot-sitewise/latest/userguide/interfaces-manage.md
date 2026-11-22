@@ -1,7 +1,6 @@
 
 
 # Manage interfaces, linked asset models, and properties
-<a name="interfaces-manage"></a>
 
 After creating interfaces and linking them to asset models, you can manage relationships, edit, and delete interfaces through the console or AWS CLI.
 
@@ -28,7 +27,7 @@ To change an interface's relationship to an asset model, do the following in eit
 
 To edit an interface and asset model relationship, use the `PutAssetModelInterfaceRelationship` action. Replace {{your-asset-model-id}} and {{your-interface-asset-model-id}} with your own values. For more information, see [PutAssetModelInterfaceRelationship](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutAssetModelInterfaceRelationship.html) in the *AWS IoT SiteWise API Reference*.
 
-```
+```bash
 aws iotsitewise put-asset-model-interface-relationship \
     --asset-model-id {{your-asset-model-id}} \
     --interface-asset-model-id {{your-interface-asset-model-id}}
@@ -57,7 +56,7 @@ To change an interface's property, do the following in either the AWS IoT SiteWi
 
 To edit an interface and asset model relationship, use the `PutAssetModelInterfaceRelationship` action. Replace {{your-asset-model-id}} and {{your-interface-asset-model-id}} with your own values. For more information, see [PutAssetModelInterfaceRelationship](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutAssetModelInterfaceRelationship.html) in the *AWS IoT SiteWise API Reference*.
 
-```
+```bash
 aws iotsitewise put-asset-model-interface-relationship \
     --asset-model-id {{your-asset-model-id}} \
     --interface-asset-model-id {{your-interface-asset-model-id}} \
@@ -84,7 +83,7 @@ To get a list of interfaces applied to an asset model, do the following in eithe
 
 To list interfaces, you can use the `ListInterfaceRelationships` operation. Replace {{your-interface-asset-model-id}} with your own value. For more information, see [ListInterfaceRelationships](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListInterfaceRelationships.html) in the *AWS IoT SiteWise API Reference*.
 
-```
+```bash
 aws iotsitewise list-interface-relationships \
     --interface-asset-model-id {{your-interface-asset-model-id}} \
     [--next-token {{your-next-token}}] \
@@ -112,7 +111,7 @@ View the details of applied interfaces and linked asset models.
 
 To view interface details for an interface and asset model relationship, use the `DescribeAssetModelInterfaceRelationship` action. Replace {{your-asset-model-id}} and {{your-interface-asset-model-id}} with your own values. For more information, see [DescribeAssetModelInterfaceRelationship](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelInterfaceRelationship.html) in the *AWS IoT SiteWise API Reference*.
 
-```
+```bash
 aws iotsitewise describe-asset-model-interface-relationship \
     --asset-model-id {{your-asset-model-id}} \
     --interface-asset-model-id {{your-interface-asset-model-id}}
@@ -141,7 +140,7 @@ We recommend removing an interface through the asset model. You can also delete 
 
 To remove an interface relationship from an asset model, you can use the `DeleteAssetModelInterfaceRelationship` action. Replace {{your-interface-asset-model-id}} with your own value. For more information, see [DeleteAssetModelInterfaceRelationship](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteAssetModelInterfaceRelationship.html) in the *AWS IoT SiteWise API Reference*.
 
-```
+```bash
 aws iotsitewise delete-asset-model-interface-relationship \
     --asset-model-id {{your-asset-model-id}} \
     --interface-asset-model-id {{your-interface-asset-model-id}}

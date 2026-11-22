@@ -1,7 +1,6 @@
 
 
 # Associate a data stream to an asset property
-<a name="manage-data-streams-method"></a>
 
 Manage your data streams using the AWS IoT SiteWise console or AWS CLI.
 
@@ -33,7 +32,7 @@ Use the AWS IoT SiteWise console to manage your data streams.
 
  To associate a data stream (identified by its alias) to an asset property (identified by its IDs), run the following command: 
 
-```
+```JSON
 aws iotsitewise associate-time-series-to-asset-property \ 
     --alias <data-stream-alias> \
     --assetId <asset-ID> \

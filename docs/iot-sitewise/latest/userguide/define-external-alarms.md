@@ -1,7 +1,6 @@
 
 
 # Define external alarms in AWS IoT SiteWise
-<a name="define-external-alarms"></a>
 
 External alarms contain the state of an alarm that you detect outside of AWS IoT SiteWise.
 
@@ -37,7 +36,7 @@ You can use the AWS CLI to define an external alarm on a new or existing asset m
 
 To add an external alarm to an asset model, you add an alarm composite model to the asset model. An external alarm composite model specifies the `EXTERNAL` type and doesn't specify an alarm source property. The following example composite alarm defines an external temperature alarm.
 
-```
+```json
 {
   {{...}}
   "assetModelCompositeModels": [

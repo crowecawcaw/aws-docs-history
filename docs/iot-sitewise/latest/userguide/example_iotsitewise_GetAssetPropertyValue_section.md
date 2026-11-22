@@ -1,7 +1,6 @@
 
 
 # Use `GetAssetPropertyValue` with an AWS SDK or CLI
-<a name="example_iotsitewise_GetAssetPropertyValue_section"></a>
 
 The following code examples show how to use `GetAssetPropertyValue`.
 
@@ -45,7 +44,7 @@ For more information, see [Querying current asset property values](https://docs.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
-```
+```java
     /**
      * Fetches the value of an asset property.
      *
@@ -83,7 +82,7 @@ For more information, see [Querying current asset property values](https://docs.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
-```
+```javascript
 import {
   GetAssetPropertyValueCommand,
   IoTSiteWiseClient,
@@ -123,7 +122,7 @@ export const main = async ({ entryId }) => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
-```
+```python
 class IoTSitewiseWrapper:
     """Encapsulates AWS IoT SiteWise actions using the client interface."""
 
@@ -183,7 +182,7 @@ class IoTSitewiseWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ios->getassetpropertyvalue(
           iv_assetid = iv_asset_id

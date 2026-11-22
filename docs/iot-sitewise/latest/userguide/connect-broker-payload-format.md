@@ -1,7 +1,6 @@
 
 
 # Message payload format for the EMQX broker on AWS IoT SiteWise Edge
-<a name="connect-broker-payload-format"></a>
 
 For the IoT SiteWise publisher component to consume data from your external application and publish it to the AWS IoT SiteWise cloud, the payload sent to the broker must meet specific requirements.
 
@@ -15,7 +14,7 @@ There are no restrictions on MQTT topic structure, including the number of level
 **Example property alias**  
 If the MQTT topic is `site1/line1/compressor1/temperature`, ensure the `propertyAlias` matches.  
 
-```
+```json
 {
   "assetId": "compressor_asset_01",
   "propertyAlias": "site1/line1/compressor1/temperature",
@@ -40,7 +39,7 @@ If the MQTT topic is `site1/line1/compressor1/temperature`, ensure the `property
 
 The MQTT message payload are written in JSON and follow the `PutAssetPropertyValueEntry` message format defined in the [AWS IoT SiteWise API Reference](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutAssetPropertyValueEntry.html).
 
-```
+```json
 {
    "assetId": "string",
    "propertyAlias": "string",

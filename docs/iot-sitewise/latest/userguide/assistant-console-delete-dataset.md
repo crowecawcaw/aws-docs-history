@@ -1,7 +1,6 @@
 
 
 # Delete a dataset
-<a name="assistant-console-delete-dataset"></a>
 
 **Note**  
 The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
@@ -24,7 +23,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 **Delete a dataset**
 + Delete the dataset with `datasetId`.
 
-  ```
+  ```json
   aws iotsitewise delete-dataset --region us-east-1 --dataset-id <UUID>
   ```
 

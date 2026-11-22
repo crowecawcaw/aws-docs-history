@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS IoT SiteWise
-<a name="troubleshooting"></a>
 
 Use the following information to troubleshoot issues with AWS IoT SiteWise.
 

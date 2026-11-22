@@ -1,7 +1,6 @@
 
 
 # CreateBulkImportJob API
-<a name="ingest-bulkImport"></a>
 
 Use the `CreateBulkImportJob` API to import large amounts of data from Amazon S3. Your data must be saved in the CSV format in Amazon S3. Data files can have the following columns.
 
@@ -30,13 +29,13 @@ The `ALIAS`, which is a data stream alias (for example, `/company/windfarm/3/tur
 
 **Example data file(s) in the .csv format**  
 
-```
+```csv
 asset_id,property_id,DOUBLE,1635201373,0,GOOD,1.0
 asset_id,property_id,DOUBLE,1635201374,0,GOOD,2.0
 asset_id,property_id,DOUBLE,1635201375,0,GOOD,3.0
 ```
 
-```
+```csv
 unmodeled_alias1,DOUBLE,1635201373,0,GOOD,1.0
 unmodeled_alias1,DOUBLE,1635201374,0,GOOD,2.0
 unmodeled_alias1,DOUBLE,1635201375,0,GOOD,3.0

@@ -1,7 +1,6 @@
 
 
 # Create asset models, component models, and interfaces for AWS IoT SiteWise
-<a name="create-asset-and-component-models"></a>
 
 AWS IoT SiteWise asset models, component models, and interfaces drive standardization of your industrial data. Asset models define the overall asset, such as a wind turbine or a manufacturing line. Component models represent the individual components that make up the asset, such as blades, generators, or sensors. Interfaces enforce standards across different asset models. By creating these models, you can organize and structure your asset data in a way that reflects the real-world relationships and hierarchies of your industrial equipment, making it easier to monitor, analyze, and maintain.
 

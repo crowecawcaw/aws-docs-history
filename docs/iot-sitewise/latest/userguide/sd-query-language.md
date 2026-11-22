@@ -1,7 +1,6 @@
 
 
 # Scenario Discovery query language reference
-<a name="sd-query-language"></a>
 
 ## Query workflow
 <a name="sd-query-workflow"></a>
@@ -16,7 +15,7 @@ You can also use `CancelQuery` to cancel a running query, and `ListQueries` to l
 ### Example workflow
 <a name="sd-query-workflow-example"></a>
 
-```
+```bash
 # 1. Start a query
 aws iotsitewise start-query \
   --region $REGION \
@@ -167,7 +166,7 @@ Contains metadata about data segments (timeseries references) within datasets.
 
 Timestamp formats:
 
-```
+```sql
 TIMESTAMP '2025-12-21 23:59:58.123'
 TIMESTAMP '2025-12-21 23:59:58'
 TIMESTAMP '2025-12-21'
@@ -176,7 +175,7 @@ TIMESTAMP '2025-12-21'
 ## Supported SQL clauses
 <a name="sd-query-sql-clauses"></a>
 
-```
+```sql
 SELECT expression [, ...]
   [ FROM table_name [AS alias] [, ...] ]
   [ WHERE condition ]
@@ -210,7 +209,7 @@ Scenario Discovery supports two approaches for working with VARIANT columns (sem
 
 Use dot notation to access nested fields directly on VARIANT columns:
 
-```
+```sql
 -- Access nested struct fields
 SELECT t.struct_value.observation.state.max_speed
 FROM raw_time_series t
@@ -234,7 +233,7 @@ Extracts a value from a variant object by key name. Returns a VARIANT that you c
 
 Signature: `variant_extract(variant_expr, key)`
 
-```
+```sql
 SELECT
     variant_extract(obj, 'object_type'),
     variant_extract(obj, 'object_name'),
@@ -252,7 +251,7 @@ Extracts a nested value using a dot-separated path string. The second parameter 
 
 Signature: `variant_extract_nested(variant_expr, 'dotted.path.key')`
 
-```
+```sql
 SELECT
     variant_extract(obj, 'object_type'),
     variant_extract_nested(obj, 'attributes.confidence')
@@ -270,7 +269,7 @@ Converts a variant value to a JSON string.
 
 Signature: `to_json(variant_expr)`
 
-```
+```sql
 SELECT to_json(a.objects) FROM annotations a LIMIT 5
 ```
 
@@ -279,7 +278,7 @@ SELECT to_json(a.objects) FROM annotations a LIMIT 5
 
 Use UNNEST to expand VARIANT arrays into rows:
 
-```
+```sql
 SELECT
     a.dataset_id,
     a.series_id,
@@ -354,13 +353,13 @@ LIMIT 50
 
 List all telemetry data (limited):
 
-```
+```sql
 SELECT * FROM raw_time_series LIMIT 10
 ```
 
 Filter by time range:
 
-```
+```sql
 SELECT alias, event_timestamp, double_value
 FROM raw_time_series
 WHERE event_timestamp > TIMESTAMP '2025-01-01 00:00:00'
@@ -370,7 +369,7 @@ LIMIT 100
 
 Aggregate telemetry values:
 
-```
+```sql
 SELECT
     alias,
     COUNT(*) AS data_points,
@@ -384,7 +383,7 @@ ORDER BY data_points DESC
 
 Query struct telemetry using dot notation:
 
-```
+```sql
 SELECT DISTINCT t.dataset_id, t.series_id, t.event_timestamp
 FROM raw_time_series t
 WHERE CAST(t.struct_value.observation.state.max_speed AS INT) > 0
@@ -395,7 +394,7 @@ WHERE CAST(t.struct_value.observation.state.max_speed AS INT) > 0
 
 List annotations for a dataset:
 
-```
+```sql
 SELECT dataset_id, series_id, frame_id, event_timestamp
 FROM annotations
 WHERE dataset_id = 'my-dataset-id'
@@ -405,7 +404,7 @@ LIMIT 100
 
 Extract detected objects with confidence filtering:
 
-```
+```sql
 SELECT
     a.dataset_id,
     a.series_id,
@@ -424,7 +423,7 @@ LIMIT 50
 
 Query annotation contexts using dot notation:
 
-```
+```sql
 SELECT
     a.dataset_id,
     a.frame_id,
@@ -441,7 +440,7 @@ LIMIT 100
 
 List all datasets:
 
-```
+```sql
 SELECT dataset_id, name, dataset_type, version, created_at
 FROM dataset
 ORDER BY created_at DESC
@@ -449,7 +448,7 @@ ORDER BY created_at DESC
 
 List data segments for a dataset:
 
-```
+```sql
 SELECT source_dataset_id, dataset_id, timeseries_id, alias, data_type, start_time, end_time
 FROM datasegment
 WHERE dataset_id = 'my-dataset-id'
@@ -457,7 +456,7 @@ WHERE dataset_id = 'my-dataset-id'
 
 Count data segments by type:
 
-```
+```sql
 SELECT data_type, COUNT(*) AS segment_count
 FROM datasegment
 GROUP BY data_type
@@ -468,7 +467,7 @@ GROUP BY data_type
 
 Find telemetry data for a specific dataset's segments:
 
-```
+```sql
 SELECT t.alias, t.event_timestamp, t.double_value
 FROM raw_time_series t, datasegment ds
 WHERE t.dataset_id = ds.dataset_id

@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy for AWS IoT SiteWise
-<a name="internetwork-traffic-privacy"></a>
 
 Connections between AWS IoT SiteWise and on-premises applications, such as SiteWise Edge gateways, are secured over Transport Layer Security (TLS) connections. For more information, see [Data encryption in transit for AWS IoT SiteWise](encryption-in-transit.md).
 

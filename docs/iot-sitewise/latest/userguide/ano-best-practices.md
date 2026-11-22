@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="ano-best-practices"></a>
 
 ## Understand the minimum date range
 <a name="understanding-minimum-date-range"></a>

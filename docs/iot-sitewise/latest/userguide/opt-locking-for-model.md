@@ -1,7 +1,6 @@
 
 
 # Optimistic locking for asset model writes
-<a name="opt-locking-for-model"></a>
 
  When updating an asset model, an user does the following: 
 
@@ -61,14 +60,14 @@ The procedure below describes how to perform asset model writes with optimistic 
 
    Run the following command:
 
-   ```
+   ```json
    aws iotsitewise describe-asset-model --asset-model-id asset-model-id \
    --asset-model-version ACTIVE
    ```
 
     The response returns the following structure: 
 
-   ```
+   ```json
    {
      "assetModelId": "{{String}}",
      "assetModelArn": "{{String}}",
@@ -94,7 +93,7 @@ The procedure below describes how to perform asset model writes with optimistic 
    The below scenarios describe the different write conditions depending on concurrency control requirements:
    +  Run the following command in order not to overwrite any successful updates. A new active version must not exist, since the last read active version. Replace `e-tag` with the `ETag` returned in the API operation used in the read of the active version. 
 
-     ```
+     ```json
      aws iotsitewise update-asset-model \
        --asset-model-id asset-model-id \
        --if-match e-tag \
@@ -103,7 +102,7 @@ The procedure below describes how to perform asset model writes with optimistic 
      ```
    +  When a model creation fails, an active version does not exist for it yet, because it's in a `FAILED` state. It is still possible to overwrite a new active version that is present, before your changes are committed. Run the following command to not overwrite a new active version, when an active version does not exist during your last read.
 
-     ```
+     ```json
      aws iotsitewise update-asset-model \
        --asset-model-id asset-model-id \
        --if-none-match "*" \
@@ -112,7 +111,7 @@ The procedure below describes how to perform asset model writes with optimistic 
      ```
    +  Run the following command to avoid overwriting any successful or unsuccessful updates. This command defines a write condition which ensures that a latest version is not created since your last read latest version. Replace `e-tag` with the `ETag` returned in the API operation used in the read of the active version.
 
-     ```
+     ```json
      aws iotsitewise update-asset-model \
        --asset-model-id asset-model-id \
        --if-match eTag \

@@ -1,7 +1,6 @@
 
 
 # Run a bulk import job
-<a name="running-bulk-operations-import"></a>
 
  Bulk import is the action of moving metadata into an AWS IoT SiteWise workspace. For example, bulk import can move metadata from a local file, or a file in an Amazon S3 bucket, to an AWS IoT SiteWise workspace. 
 
@@ -51,7 +50,7 @@ To perform an import action, use the following procedure:
 
    The following example shows the request body:
 
-   ```
+   ```json
    {
          "metadataTransferJobId": "{{your-transfer-job-Id}}",
          "sources": [{
@@ -68,7 +67,7 @@ To perform an import action, use the following procedure:
 
 1. Invoke the `CreateMetadataTransferJob` by running the following AWS CLI command. In this example, the request body file from the previous step is named `createMetadataTransferJobExport.json`.
 
-   ```
+   ```bash
    aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
      --cli-input-json file://createMetadataTransferJobImport.json
    ```

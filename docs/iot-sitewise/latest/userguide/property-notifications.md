@@ -1,7 +1,6 @@
 
 
 # Turn on asset property notifications in AWS IoT SiteWise
-<a name="property-notifications"></a>
 
 You can enable property notifications to publish asset data updates to AWS IoT Core, and then run queries on your data. With asset property notifications, AWS IoT SiteWise provides an CloudFormation template that you can use to export AWS IoT SiteWise data to Amazon S3.
 
@@ -53,7 +52,7 @@ Use the [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/AP
 
 1. Run the following command to retrieve the asset property's alias. Replace {{asset-id}} with the ID of the asset and {{property-id}} with the ID of the property.
 
-   ```
+   ```bash
    aws iotsitewise describe-asset-property \
      --asset-id {{asset-id}} \
      --property-id {{property-id}}
@@ -61,7 +60,7 @@ Use the [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/AP
 
    The operation returns a response that contains the asset property's details in the following format. The property alias is in `assetProperty.alias` in the JSON object.
 
-   ```
+   ```json
    {
      "assetId": "a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
      "assetName": "Wind Turbine 7",
@@ -85,7 +84,7 @@ Use the [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/AP
 
 1. Run the following command to enable notifications for the asset property. Replace {{property-alias}} with the property alias from the previous command's response, or omit `--property-alias` to update the property without an alias.
 
-   ```
+   ```bash
    aws iotsitewise update-asset-property \
      --asset-id {{asset-id}} \
      --property-id {{property-id}} \

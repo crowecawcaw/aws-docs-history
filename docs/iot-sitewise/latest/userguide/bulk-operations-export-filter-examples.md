@@ -1,7 +1,6 @@
 
 
 # Export metadata examples
-<a name="bulk-operations-export-filter-examples"></a>
 
 When you perform a bulk export of your AWS IoT SiteWise content to Amazon S3, you can specify *filters* to limit which specific asset models and assets you'd like to export. 
 
@@ -11,7 +10,7 @@ You specify the filters in an `iotSiteWiseConfiguration` section within the `sou
 You can include multiple filters. The bulk operation will export any asset model or asset that matches any of the filters.  
 If you don't provide any filters, then the operation will export all of your asset models and assets.
 
-```
+```json
 {
     "metadataTransferJobId": "{{your-transfer-job-id}}",
     "sources": [{
@@ -45,7 +44,7 @@ For more information about hierarchies, see [Define asset model hierarchies](def
 
 This filter includes the specified asset model:
 
-```
+```json
 "filterByAssetModel": {
     "assetModelId": "{{asset model ID}}"
 }
@@ -56,7 +55,7 @@ This filter includes the specified asset model:
 
 This filter includes the specified asset model, along with all assets using that asset model:
 
-```
+```json
 "filterByAssetModel": {
     "assetModelId": "{{asset model ID}}",
     "includeAssets": true
@@ -68,7 +67,7 @@ This filter includes the specified asset model, along with all assets using that
 
 This filter includes the specified asset model, along with all associated asset models in its hierarchy:
 
-```
+```json
 "filterByAssetModel": {
     "assetModelId": "{{asset model ID}}",
     "includeOffspring": true
@@ -89,7 +88,7 @@ For more information about hierarchies, see [Define asset model hierarchies](def
 
 This filter includes the specified asset:
 
-```
+```json
 "filterByAsset": {
     "assetId": "{{asset ID}}"
 }
@@ -100,7 +99,7 @@ This filter includes the specified asset:
 
 This filter includes the specified asset, along with the asset model it uses:
 
-```
+```json
 "filterByAsset": {
     "assetId": "{{asset ID}}",
     "includeAssetModel": true
@@ -112,7 +111,7 @@ This filter includes the specified asset, along with the asset model it uses:
 
 This filter includes the specified asset, along with all associated assets in its hierarchy:
 
-```
+```json
 "filterByAsset": {
     "assetId": "{{asset ID}}",
     "includeOffspring": true

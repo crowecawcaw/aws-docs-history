@@ -1,7 +1,6 @@
 
 
 # Run a bulk export job
-<a name="running-bulk-operations-export"></a>
 
  Bulk export is the action of moving metadata from an AWS IoT SiteWise workspace to an Amazon S3 bucket. 
 
@@ -15,7 +14,7 @@ The filters must be specified in an `iotSiteWiseConfiguration` section within th
 
 **Example request body with filters**  
 
-```
+```json
 {
       "metadataTransferJobId": "your-transfer-job-id",
       "sources": [
@@ -96,7 +95,7 @@ The following procedure explains the AWS CLI export action:
 
 1. Create a JSON file with your request body. The request body specifies the source and destination for the transfer job. The following example shows an example request body:
 
-   ```
+   ```json
    {
        "metadataTransferJobId": "{{your-transfer-job-Id}}",
        "sources": [{
@@ -119,7 +118,7 @@ This example will export all of your asset models and assets. To limit the expor
 
 1. Invoke the `CreateMetadataTransferJob` by running the following AWS CLI command:
 
-   ```
+   ```bash
    aws iottwinmaker create-metadata-transfer-job --region us-east-1 \ 
             --cli-input-json file://createMetadataTransferJobExport.json
    ```

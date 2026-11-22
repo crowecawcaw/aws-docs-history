@@ -1,7 +1,6 @@
 
 
 # Configure edge data processing for AWS IoT SiteWise models and assets
-<a name="edge-processing"></a>
 
 **Note**  
 The data processing pack (DPP) feature is no longer availabke to new customers. Existing customers can continue to use the service as normal. For more information, see [Data processing pack availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-dpp-availability-change.html).
@@ -17,7 +16,7 @@ If your SiteWise Edge gateway has been disconnected from the AWS Cloud for 30 da
 ## Configure an asset model for data processing on SiteWise Edge
 <a name="process-gateway-data-edge"></a>
 
-You must configure your asset model for the edge before your can process your SiteWise Edge gateway data at the edge. Your asset model edge configuration specifies where your assets properties are computed. You can choose to compute all properties at the edge and send the results to the AWS Cloud, or customize where to compute each asset property separately. For more information, see [Configure edge data processing for AWS IoT SiteWise models and assets](#edge-processing).
+You must configure your asset model for the edge before your can process your SiteWise Edge gateway data at the edge. Your asset model edge configuration specifies where your assets properties are computed. You can choose to compute all properties at the edge and send the results to the AWS Cloud, or customize where to compute each asset property separately. For more information, see [Configure edge data processing for AWS IoT SiteWise models and assets](edge-processing.md).
 
 Asset properties include metrics, transforms, and measurements:
 + Metrics are the asset's aggregated data over a specified period of time. You can compute new metrics by using existing metric data. AWS IoT SiteWise always sends your metrics to the AWS Cloud for long-term storage. AWS IoT SiteWise computes metrics on the AWS Cloud by default. You can configure your asset model to compute your metrics at the edge. AWS IoT SiteWise sends processed results to the AWS Cloud.

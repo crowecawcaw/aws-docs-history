@@ -1,7 +1,6 @@
 
 
 # Formula expression tutorials
-<a name="expression-tutorials"></a>
 
 You can follow these tutorials to use formula expressions in AWS IoT SiteWise.
 

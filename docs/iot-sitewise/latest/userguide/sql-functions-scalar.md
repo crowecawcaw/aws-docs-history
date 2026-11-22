@@ -1,7 +1,6 @@
 
 
 # Scalar functions
-<a name="sql-functions-scalar"></a>
 
  Scalar functions take one or more input values and returns a single output value. They are widely used in SQL (Structured Query Language) for data manipulation and retrieval, improving the efficiency of data processing tasks. 
 

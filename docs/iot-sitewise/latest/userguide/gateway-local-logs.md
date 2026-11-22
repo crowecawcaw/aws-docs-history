@@ -1,7 +1,6 @@
 
 
 # Use service logs in AWS IoT SiteWise
-<a name="gateway-local-logs"></a>
 
 SiteWise Edge gateway devices include service log files to help debug issues. The following sections will help you find and utilize the service log files for the AWS IoT SiteWise OPC UA Collector and AWS IoT SiteWise Publisher components.
 
@@ -32,14 +31,14 @@ The AWS IoT SiteWise OPC UA Collector component uses the following log file.
 ------
 #### [ Linux ]
 
-  ```
+  ```bash
   sudo tail -f {{/greengrass/v2}}/logs/aws.iot.SiteWiseEdgeCollectorOpcua.log
   ```
 
 ------
 #### [ Windows (PowerShell) ]
 
-  ```
+  ```powershell
   Get-Content {{C:\greengrass\v2}}\logs\aws.iot.SiteWiseEdgeCollectorOpcua.log -Tail 10 -Wait
   ```
 
@@ -72,14 +71,14 @@ The AWS IoT SiteWise Publisher component uses the following log file.
 ------
 #### [ Linux ]
 
-  ```
+  ```bash
   sudo tail -f {{/greengrass/v2}}/logs/aws.iot.SiteWiseEdgePublisher.log
   ```
 
 ------
 #### [ Windows (PowerShell) ]
 
-  ```
+  ```powershell
   Get-Content {{C:\greengrass\v2}}\logs\aws.iot.SiteWiseEdgePublisher.log -Tail 10 -Wait
   ```
 

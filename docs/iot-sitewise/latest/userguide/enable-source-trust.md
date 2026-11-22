@@ -1,7 +1,6 @@
 
 
 # Set up OPC UA servers to trust the AWS IoT SiteWise Edge gateway
-<a name="enable-source-trust"></a>
 
 If you choose a `messageSecurityMode` other than **None** when configuring your OPC UA source, you must enable your source servers to trust the AWS IoT SiteWise Edge gateway. The SiteWise Edge gateway generates a certificate that your source server might require. The process varies depending on your source servers. For more information, see the documentation for your servers.
 
@@ -28,7 +27,7 @@ Some OPC UA servers require access to the OPC UA client certificate file to trus
 
    By default, the Greengrass work folder is {{/greengrass/v2/work/aws.iot.SiteWiseEdgeCollectorOpcua}} on Linux and {{C:/greengrass/v2/work/aws.iot.SiteWiseEdgeCollectorOpcua}} on Microsoft Windows. 
 
-   ```
+   ```bash
    cd /{{sitewise-work}}/{{source-name}}/opcua-certificate-store
    ```
 
@@ -36,7 +35,7 @@ Some OPC UA servers require access to the OPC UA client certificate file to trus
 
    Run the following command to export the certificate to a `.pem` file called `aws-iot-opcua-client-certificate.pem`.
 
-   ```
+   ```bash
    keytool -exportcert -v -alias aws-iot-opcua-client -keystore aws-iot-opcua-client.pfx -storepass amazon -storetype PKCS12 -rfc > aws-iot-opcua-client-certificate.pem
    ```
 

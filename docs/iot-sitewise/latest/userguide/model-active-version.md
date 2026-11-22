@@ -1,7 +1,6 @@
 
 
 # Asset model versions
-<a name="model-active-version"></a>
 
  AWS IoT SiteWise supports asynchronous processing of create and update operations on asset models and component models. It also updates the status of the model. 
 
@@ -56,13 +55,13 @@ The AWS CLI defines component models as a type of asset model. Therefore, you us
 **To retrieve the active version of an asset model or component model (AWS CLI)**
 + Run the following command to describe the model. Replace {{asset-model-id}} with the ID or the external ID of the asset model or component model. The external ID is a user-defined ID. For more information, see [Reference objects with external IDs](object-ids.md#external-id-references) in the *AWS IoT SiteWise User Guide*.
 
-  ```
+  ```bash
   aws iotsitewise describe-asset-model --asset-model-id {{asset-model-id}} --asset-model-version ACTIVE
   ```
 
   The operation returns a response with the model's details. The response contains an `assetModelStatus` object with the following structure.
 
-  ```
+  ```json
   {
       {{...}}
       "assetModelName": "{{string}}",

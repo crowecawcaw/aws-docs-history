@@ -1,7 +1,6 @@
 
 
 # Enable anomaly detection on sensors of an asset
-<a name="anom-detection-sensors-asset"></a>
 
 ## Create a computation model (AWS CLI)
 <a name="create-computation-model"></a>
@@ -9,7 +8,7 @@
 To create a computation model, use the AWS Command Line Interface (AWS CLI). After you define the computation model, train the model, and schedule inference to do anomaly detection on an asset in AWS IoT SiteWise.
 + Create a file `anomaly-detection-computation-model-payload.json` with the following content:
 
-  ```
+  ```JSON
   {
       "computationModelName": "anomaly-detection-computation-model-name",
       "computationModelConfiguration": {
@@ -45,7 +44,7 @@ To create a computation model, use the AWS Command Line Interface (AWS CLI). Aft
   ```
 + Run the following command to create a computation model:
 
-  ```
+  ```bash
   aws iotsitewise create-computation-model \
       --cli-input-json {{file://anomaly-detection-computation-model-payload.json}}
   ```
@@ -66,13 +65,13 @@ The following procedure describes the steps for a clean payload file:
 
 1. Clean the file to remove control characters.
 
-   ```
+   ```bash
    tr -d '\n\r\t' < original-action-payload.json > training-or-inference-action-payload.json
    ```
 
 1. Execute the action with the file `@=file://...`.
 
-   ```
+   ```JSON
    aws iotsitewise execute-action \
        --target-resource computationModelId=<{{MODEL_ID}}> \
        --action-definition-id <{{ACTION_DEFINITION_ID}}> \
@@ -89,7 +88,7 @@ The following steps describes the steps to supply the payload inline, and avoid 
 
 **Example of an escaped action payload:**  
 
-```
+```JSON
 aws iotsitewise execute-action \
     --target-resource computationModelId=<{{MODEL_ID}}> \
     --action-definition-id <{{ACTION_DEFINITION_ID}}> \
@@ -104,7 +103,7 @@ With a computation model created, you can train a model against the assets. Foll
 
 1. Run the following command to find the `actionDefinitionId` of the `AWS/ANOMALY_DETECTION_TRAINING` action. Replace `computation-model-id` with the ID returned in the previous step.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model \
        --computation-model-id {{computation-model-id}}
    ```
@@ -127,7 +126,7 @@ With a computation model created, you can train a model against the assets. Foll
 
       1. (Optional) `ModelMetricsDestination` to collect comprehensive performance data (precision, recall, Area Under the Curve).
 
-   ```
+   ```JSON
    {
      "trainingMode": "TRAIN_MODEL", 
      "exportDataStartTime": StartTime,
@@ -136,7 +135,7 @@ With a computation model created, you can train a model against the assets. Foll
    ```  
 **Example of a training payload example:**  
 
-   ```
+   ```JSON
    {
      "trainingMode": "TRAIN_MODEL",            
      "exportDataStartTime": 1717225200,
@@ -152,7 +151,7 @@ With a computation model created, you can train a model against the assets. Foll
 
    1. `training-action-definition-id` with the ID of the `AWS/ANOMALY_DETECTION_TRAINING` action from Step 1.
 
-   ```
+   ```bash
    aws iotsitewise execute-action \
        --target-resource computationModelId={{computation-model-id}} \
        --resolve-to assetId={{asset-id}} \
@@ -161,13 +160,13 @@ With a computation model created, you can train a model against the assets. Foll
    ```  
 **Example of an execute action:**  
 
-   ```
+   ```bash
    aws iotsitewise execute-action --target-resource computationModelId=27cb824c-fd84-45b0-946b-0a5b0466d890 --resolve-to assetId=cefd4b68-481b-4735-b466-6a4220cd19ee --action-definition-id e54cea94-5d1c-4230-a59e-4f54dcbc972d --action-payload stringValue@=file://anomaly-detection-training-payload.json
    ```
 
 1. Run the following command to check for status of the model training process. The latest execution summary shows the execution status (`RUNNING`/`COMPLETED`/`FAILED`).
 
-   ```
+   ```bash
    aws iotsitewise list-executions \
        --target-resource-type COMPUTATION_MODEL \
        --target-resource-id {{computation-model-id}}\
@@ -177,7 +176,7 @@ With a computation model created, you can train a model against the assets. Foll
 
 1. Run the following command to check the configuration of the latest trained model. This command produces an output only if atleast one model was trained successfully.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model-execution-summary \
        --computation-model-id {{computation-model-id}} \
        --resolve-to-resource-type ASSET \
@@ -186,7 +185,7 @@ With a computation model created, you can train a model against the assets. Foll
 
 1. When a `ComputationModel` is using AssetModelProperty, use the [ListComputationModelResolveToResources](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListComputationModelResolveToResources.html) API to identify the assets with executed actions.
 
-   ```
+   ```bash
    aws iotsitewise list-computation-model-resolve-to-resources \
        --computation-model-id {{computation-model-id}}
    ```
@@ -201,7 +200,7 @@ After initial model training, you can configure automatic retraining to address 
 
 1. Run the following command to find the `actionDefinitionId` of the `AWS/ANOMALY_DETECTION_TRAINING` action. Replace `computation-model-id` with the ID returned from your computation model creation.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model \
        --computation-model-id {{computation-model-id}}
    ```
@@ -222,7 +221,7 @@ After initial model training, you can configure automatic retraining to address 
 
       1. (Optional) `ModelMetricsDestination` to get comprehensive performance data (precision, recall, Area Under the Curve).
 
-   ```
+   ```JSON
    {
        "trainingMode": "START_RETRAINING_SCHEDULER",
        "retrainingConfiguration": {
@@ -242,7 +241,7 @@ After initial model training, you can configure automatic retraining to address 
 
    1. `training-action-definition-id` with the ID of the `AWS/ANOMALY_DETECTION_TRAINING` action from Step 1.
 
-   ```
+   ```bash
    aws iotsitewise execute-action \
        --target-resource computationModelId={{computation-model-id}} \
        --resolve-to assetId={{asset-id}} \
@@ -251,7 +250,7 @@ After initial model training, you can configure automatic retraining to address 
    ```  
 **Example of execute action command**  
 
-   ```
+   ```bash
    aws iotsitewise execute-action --target-resource computationModelId=27cb824c-fd84-45b0-946b-0a5b0466d890 --resolve-to assetId=cefd4b68-481b-4735-b466-6a4220cd19ee --action-definition-id e54cea94-5d1c-4230-a59e-4f54dcbc972d --action-payload stringValue@=file://anomaly-detection-start-retraining-payload.json
    ```
 
@@ -260,7 +259,7 @@ After initial model training, you can configure automatic retraining to address 
 
 1. Run the following command to find the `actionDefinitionId` of the `AWS/ANOMALY_DETECTION_TRAINING` action. Replace `computation-model-id` with the actual ID of computation model created earlier.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model \
        --computation-model-id {{computation-model-id}}
    ```
@@ -269,7 +268,7 @@ After initial model training, you can configure automatic retraining to address 
 **Note**  
  The payload must conform to [Option 1: Use a clean payload file](#clean-payload-file). 
 
-   ```
+   ```JSON
    {
        "trainingMode": "STOP_RETRAINING_SCHEDULER"
    }
@@ -283,7 +282,7 @@ After initial model training, you can configure automatic retraining to address 
 
    1. `training-action-definition-id` with the ID of the `AWS/ANOMALY_DETECTION_TRAINING` action from Step 1.
 
-   ```
+   ```bash
    aws iotsitewise execute-action \
        --target-resource computationModelId={{computation-model-id}} \
        --resolve-to assetId={{asset-id}} \
@@ -301,7 +300,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 
 1. Run the following command to find the `actionDefinitionId` of the `AWS/ANOMALY_DETECTION_INFERENCE` action. Replace `computation-model-id` with the actual ID of computation model created earlier.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model \
        --computation-model-id {{computation-model-id}}
    ```
@@ -310,7 +309,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 **Note**  
  The payload must conform to [Option 1: Use a clean payload file](#clean-payload-file). 
 
-   ```
+   ```JSON
    "inferenceMode": "START",
    "dataUploadFrequency": "{{DataUploadFrequency}}"
    ```
@@ -339,7 +338,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 
    1. `inference-action-definition-id` with the ID of the `AWS/ANOMALY_DETECTION_INFERENCE` action from Step 1.
 
-   ```
+   ```bash
    aws iotsitewise execute-action \
        --target-resource computationModelId={{computation-model-id}} \
        --resolve-to assetId={{asset-id}} \
@@ -349,7 +348,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 
 1. Run the following command to check if inference is still running. The `inferenceTimerActive` field is set to `TRUE` when inference is active.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model-execution-summary \
        --computation-model-id {{computation-model-id}} \
        --resolve-to-resource-type ASSET \
@@ -358,7 +357,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 
 1. The following command lists all the inference executions:
 
-   ```
+   ```bash
    aws iotsitewise list-executions \
       --target-resource-type COMPUTATION_MODEL \
       --target-resource-id {{computation-model-id}} \
@@ -378,14 +377,14 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
 
 1. Run the following command to find the `actionDefinitionId` of the `AWS/ANOMALY_DETECTION_INFERENCE` action. Replace `computation-model-id` with the actual ID of computation model created earlier.
 
-   ```
+   ```bash
    aws iotsitewise describe-computation-model \
        --computation-model-id {{computation-model-id}}
    ```
 
 1. Create a file `anomaly-detection-stop-inference-payload.json` and add the following code.
 
-   ```
+   ```JSON
    {
        "inferenceMode": "STOP"
    }
@@ -402,7 +401,7 @@ After training the model, start the inference. This instructs AWS IoT SiteWise t
    1. `inference-action-definition-id` with the ID of the `AWS/ANOMALY_DETECTION_INFERENCE` action from Step 1.  
 **Example of the stop inference command:**  
 
-   ```
+   ```JSON
    aws iotsitewise execute-action \
        --target-resource computationModelId={{computation-model-id}} \
        --resolve-to assetId={{asset-id}} \
@@ -423,7 +422,7 @@ Use [ ListComputationModelDataBindingUsages](https://docs.aws.amazon.com/iot-sit
 
 Prepare a `request.json` with the following information:
 
-```
+```JSON
 {
   "dataBindingValueFilter": {
     "asset": {
@@ -451,7 +450,7 @@ Prepare a `request.json` with the following information:
 
 Use the `list-computation-model-data-binding-usages` command to retrieve the models with assets or asset models as data bindings.
 
-```
+```bash
 aws iotsitewise list-computation-model-data-binding-usages \
 --cli-input-json file://request.json
 ```

@@ -1,7 +1,6 @@
 
 
 # Use AWS IoT SiteWise APIs on the edge
-<a name="edge-apis"></a>
 
 AWS IoT SiteWise provides a subset of its APIs, along with edge-specific APIs, enabling seamless interaction with asset models and their associated assets deployed at the edge. These asset models must be configured to run on the edge. For more information, see [Configure an asset model for data processing on SiteWise Edge](edge-processing.md#process-gateway-data-edge) for detailed instructions on this setup process.
 

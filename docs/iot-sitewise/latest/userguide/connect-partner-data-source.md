@@ -1,7 +1,6 @@
 
 
 # SiteWise Edge gateway partner data source options
-<a name="connect-partner-data-source"></a>
 
 AWS IoT SiteWise allows you to connect and ingest data from various partner data sources, such as industrial equipment, sensors, and other third-party systems. To connect a partner data source, you need to follow a few steps, including configuring the data source to send data to AWS IoT SiteWise, setting up the necessary permissions and authentication, and mapping the data to your asset models. This process ensures that your partner data is seamlessly integrated into your AWS IoT SiteWise environment, enabling you to monitor and analyze it alongside your other data sources.
 

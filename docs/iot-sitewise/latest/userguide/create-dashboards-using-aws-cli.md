@@ -1,7 +1,6 @@
 
 
 # Create AWS IoT SiteWise dashboards (AWS CLI)
-<a name="create-dashboards-using-aws-cli"></a>
 
 **Note**  
 The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
@@ -80,7 +79,7 @@ The threshold value to compare data points with the `comparisonOperator`.
 **Example dashboard definition**  
 The following example defines a dashboard from a payload stored in a JSON file.  
 
-```
+```bash
 aws iotsitewise create-dashboard \
   --project-id a1b2c3d4-5678-90ab-cdef-eeeeeEXAMPLE \
   --dashboard-name "Wind Farm Dashboard" \
@@ -91,7 +90,7 @@ The following JSON example for `dashboard-definition.json` defines dashboard wit
 + A bar chart that visualizes wind speed for four turbines in the upper right of the dashboard.
 This example represents line and bar chart visualizations on a dashboard. This dashboard is similar to the [example wind farm dashboard](monitor-data.md).
 
-```
+```json
 {
   "widgets": [
     {

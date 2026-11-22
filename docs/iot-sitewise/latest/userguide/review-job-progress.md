@@ -1,7 +1,6 @@
 
 
 # Jobs progress tracking
-<a name="review-job-progress"></a>
 
 ## Review job progress and details (console)
 <a name="review-job-progress-console"></a>
@@ -67,7 +66,7 @@ After starting a bulk operation, you can check or update its status using the fo
   1. Create and run a transfer job. Call the `GetMetadataTransferJob` API.  
 **Example AWS CLI command:**  
 
-     ```
+     ```bash
      aws iottwinmaker get-metadata-transfer-job \ 
              --metadata-transfer-job-id {{your_metadata_transfer_job_id}} \
              --region {{your_region}}
@@ -88,7 +87,7 @@ After starting a bulk operation, you can check or update its status using the fo
 
   1. To specify the filters you want to use, create an AWS CLI input JSON file. want to use:
 
-     ```
+     ```json
      {
          "sourceType": "s3",
          "destinationType": "iottwinmaker",
@@ -102,13 +101,13 @@ After starting a bulk operation, you can check or update its status using the fo
 
   1.  Use the JSON file as an argument in the following AWS CLI example command:
 
-     ```
+     ```bash
      aws iottwinmaker list-metadata-transfer-job --region {{your_region}} \
              --cli-input-json file://ListMetadataTransferJobsExample.json
      ```
 + To cancel a job, use the [CancelMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CancelMetadataTransferJob.html) API action. This API cancels the specific metadata transfer job, without affecting any resources already exported or imported:
 
-  ```
+  ```bash
   aws iottwinmaker cancel-metadata-transfer-job \ 
           --region {{your_region}} \ 
           --metadata-transfer-job-id {{job-to-cancel-id}}

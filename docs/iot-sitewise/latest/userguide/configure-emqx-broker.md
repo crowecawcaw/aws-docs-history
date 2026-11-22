@@ -1,7 +1,6 @@
 
 
 # Configure the EMQX broker
-<a name="configure-emqx-broker"></a>
 
 This section covers how to add usernames and passwords. It also covers how to establish a TLS connection from an external source using the added username and password. You can configure the EMQX broker using Linux or Microsoft Windows.
 
@@ -47,7 +46,7 @@ After completing this procedure, we highly recommend configuring authorization r
 ------
 #### [ Linux ]
 
-   ```
+   ```json
    {
        "emqxConfig": {
            "authorization": {
@@ -99,7 +98,7 @@ After completing this procedure, we highly recommend configuring authorization r
 ------
 #### [ Windows ]
 
-   ```
+   ```json
    {
        "emqxConfig": {
            "authorization": {

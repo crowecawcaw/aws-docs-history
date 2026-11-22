@@ -1,7 +1,6 @@
 
 
 # Self-host an AWS IoT SiteWise Edge gateway with AWS IoT Greengrass V2
-<a name="gw-self-host-gg2"></a>
 
 Set up AWS IoT SiteWise Edge to collect, process, and visualize data from industrial equipment locally before sending it to the cloud. Self-host using AWS IoT Greengrass Version 2.
 

@@ -1,7 +1,6 @@
 
 
 # Use variables in formula expressions
-<a name="expression-variables"></a>
 
 Variables represent AWS IoT SiteWise asset properties in formula expressions. Use variables to input values from other asset properties in your expressions, so that you can process data from constant properties ([attributes](attributes.md)), raw data streams ([measurements](measurements.md)), and other formula properties.
 

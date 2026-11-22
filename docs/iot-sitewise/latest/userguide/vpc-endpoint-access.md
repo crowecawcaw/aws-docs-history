@@ -1,31 +1,30 @@
 
 
 # Access AWS IoT SiteWise through an interface VPC endpoint
-<a name="vpc-endpoint-access"></a>
 
 When you create an interface endpoint, we generate endpoint-specific DNS hostnames that you can use to communicate with AWS IoT SiteWise. The private DNS option is enabled by default. For more information, see [Using private hosted zones](https://docs.aws.amazon.com/vpc/latest/userguide/AmazonDNS-concepts.html#vpc-private-hosted-zones) in the *Amazon VPC User Guide*.
 
 *If you enable private DNS for the endpoint*, you can make API requests to AWS IoT SiteWise through one of the following VPC endpoints.
 + For the **data plane** API operations, use the following endpoint: Replace {{region}} with your AWS Region.
 
-  ```
+  ```bash
   data.iotsitewise.{{region}}.amazonaws.com
   ```
 + For the **control plane** API operations, use the following endpoint: Replace {{region}} with your AWS Region.
 
-  ```
+  ```bash
   api.iotsitewise.{{region}}.amazonaws.com
   ```
 
 If you require FIPS 140-3 validated cryptographic modules when you access AWS IoT SiteWise through the interface VPC endpoint, use the following FIPS endpoints instead. The FIPS endpoints are available through the same interface VPC endpoints with private DNS enabled, in the AWS Regions where AWS IoT SiteWise supports FIPS endpoints. For the list of AWS IoT SiteWise FIPS endpoints, see [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html) in the *AWS General Reference Guide*.
 + For the **data plane** API operations, use the following FIPS endpoint. Replace {{region}} with your AWS Region.
 
-  ```
+  ```bash
   data.iotsitewise-fips.{{region}}.amazonaws.com
   ```
 + For the **control plane** API operations, use the following FIPS endpoint. Replace {{region}} with your AWS Region.
 
-  ```
+  ```bash
   api.iotsitewise-fips.{{region}}.amazonaws.com
   ```
 
@@ -36,12 +35,12 @@ To use the FIPS endpoints with the AWS CLI and AWS SDKs, you can specify the FIP
 1. Specify the VPC endpoint url in API requests.
    + For the **data plane** API operations, use the following endpoint url. Replace {{vpc-endpoint-id}} and {{region}} with your VPC endpoint ID and Region.
 
-     ```
+     ```bash
      {{vpc-endpoint-id}}.data.iotsitewise.{{region}}.vpce.amazonaws.com
      ```
    + For the **control plane** API operations, use the following endpoint url. Replace {{vpc-endpoint-id}} and {{region}} with your VPC endpoint ID and Region.
 
-     ```
+     ```bash
      {{vpc-endpoint-id}}.api.iotsitewise.{{region}}.vpce.amazonaws.com
      ```
 

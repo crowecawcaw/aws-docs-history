@@ -1,7 +1,6 @@
 
 
 # Type conversion functions
-<a name="sql-functions-type-conv"></a>
 
  Type conversion functions are used to change the data type of a value from one to another. They are essential for ensuring data compatibility and performing operations that require data in a specific format. 
 
@@ -15,7 +14,7 @@
 
 **Example of a SQL query using the listed functions:**  
 
-```
+```SQL
 SELECT TO_TIMESTAMP (100) AS timestamp_value,
   TO_DATE(r.event_timestamp) AS date_value,
   TO_TIME(r.event_timestamp) AS time_value

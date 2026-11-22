@@ -1,7 +1,6 @@
 
 
 # Use Amazon CloudWatch Logs
-<a name="gateway-cloudwatch-logs"></a>
 
 You can configure your SiteWise Edge gateway to send logs to CloudWatch Logs. For more information, see [Enable logging for CloudWatch Logs](https://docs.aws.amazon.com/greengrass/v2/developerguide/monitor-logs.html#enable-cloudwatch-logs) in the *AWS IoT Greengrass Version 2 Developer Guide*.
 

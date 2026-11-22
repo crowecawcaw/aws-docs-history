@@ -1,7 +1,6 @@
 
 
 # Data encryption in AWS IoT SiteWise
-<a name="data-encryption"></a>
 
 Data encryption refers to protecting data while in-transit (as it travels to and from AWS IoT SiteWise, and between SiteWise Edge gateways and servers), and at rest (while it is stored on local devices or in AWS services). You can protect data in transit using Transport Layer Security (TLS) or at rest using client-side encryption. 
 

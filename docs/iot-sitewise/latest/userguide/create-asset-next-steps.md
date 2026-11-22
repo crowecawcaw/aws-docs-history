@@ -1,7 +1,6 @@
 
 
 # Configure a new asset
-<a name="create-asset-next-steps"></a>
 
 After creating an asset in AWS IoT SiteWise, there are several next steps you can take to fully utilize the asset and its data. These steps might include configuring data streams to ingest data from the asset, setting up alarms and notifications to monitor the asset's performance, creating visualizations and dashboards to display the asset's data, and integrating the asset with other AWS services or third-party applications for further analysis or automation.
 

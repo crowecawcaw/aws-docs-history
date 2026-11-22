@@ -1,7 +1,6 @@
 
 
 # Disassociate a data stream from an asset property
-<a name="disassociate-data-streams-method"></a>
 
 ------
 #### [ Console ]
@@ -29,7 +28,7 @@ Use the AWS IoT SiteWise console to disassociate your data stream from an asset 
 
 To disassociate a data stream from an asset property, (identified by its `ID`s and its alias), run the following command: 
 
-```
+```JSON
     aws iotsitewise disassociate-time-series-from-asset-property \ 
         --alias <asset-property-alias> \
         --assetId <asset-ID> \

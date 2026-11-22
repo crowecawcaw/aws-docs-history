@@ -1,7 +1,6 @@
 
 
 # Visualize and share data in Grafana
-<a name="visualize-with-grafana"></a>
 
 This tutorial guides you through configuring the AWS IoT SiteWise data source plugin with Grafana, a data visualization platform. With Grafana, you can create dashboards that visualize and monitor your industrial data. In this tutorial, a sample dataset from a wind farm demonstration is used to illustrate key concepts. After you become familiar with the process, you can repeat the tutorial with your own data.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor SiteWise Edge gateway logs
-<a name="monitor-gateway-logs"></a>
 
 You can configure your AWS IoT SiteWise Edge gateway to log information to Amazon CloudWatch Logs or the local file system.
 

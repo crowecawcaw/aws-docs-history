@@ -1,7 +1,6 @@
 
 
 # Data in transit over the local network
-<a name="local-encryption-in-transit"></a>
 
 SiteWise Edge gateways follow OPC UA specifications for communication with local OPC UA sources. It's your responsibility to configure your sources to use a message security mode that encrypts data in transit.
 

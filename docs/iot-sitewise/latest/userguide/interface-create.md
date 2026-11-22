@@ -1,7 +1,6 @@
 
 
 # Create an interface
-<a name="interface-create"></a>
 
 You can create interfaces using either the AWS IoT SiteWise console or the AWS CLI.
 
@@ -25,7 +24,7 @@ You can create interfaces using either the AWS IoT SiteWise console or the AWS C
 
 To create an interface, use the `CreateAssetModel` operation with the `assetModelType` parameter set to `INTERFACE`:
 
-```
+```bash
 aws iotsitewise create-asset-model \
   --asset-model-name "CNC-INTERFACE" \
   --asset-model-description "Standard interface for CNC machines" \

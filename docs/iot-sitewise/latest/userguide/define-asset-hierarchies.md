@@ -1,7 +1,6 @@
 
 
 # Define asset model hierarchies
-<a name="define-asset-hierarchies"></a>
 
 You can define asset model hierarchies to create logical associations between the asset models in your industrial operation. For example, you can define a wind farm composed of onshore and offshore wind farms. An onshore wind farm contains a turbine and onshore location. An offshore wind farm contains a turbine and offshore location.
 
@@ -45,7 +44,7 @@ When you define a hierarchy for an asset model with the AWS IoT SiteWise API, yo
 **Example hierarchy definition**  
 The following example demonstrates an asset model hierarchy that represents a wind farm's relationship to wind turbines. This object is an example of an [AssetModelHierarchy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetModelHierarchy.html). For more information, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli).  
 
-```
+```json
 {
   {{...}}
   "assetModelHierarchies": [

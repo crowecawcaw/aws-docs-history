@@ -1,7 +1,6 @@
 
 
 # Asset and model states
-<a name="asset-and-model-states"></a>
 
 When you create, update, or delete an asset, an asset model, or a component model, the changes take time to propagate. AWS IoT SiteWise resolves these operations asynchronously and updates the status of each resource. Each asset, asset model, and component model has a status field that contains the state of the resource and any error message, if applicable. The state can be one of the following values:
 + `ACTIVE` – The resource is active. This is the only state in which you can query and interact with assets, asset models, and component models.

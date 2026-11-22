@@ -1,7 +1,6 @@
 
 
 # OPC UA data sources for AWS IoT SiteWise Edge gateways
-<a name="configure-sources-opcua"></a>
 
 After you set up an AWS IoT SiteWise Edge gateway, you can configure data sources so that your SiteWise Edge gateway can ingest data from local industrial equipment to AWS IoT SiteWise. Each source represents a local server, such as an OPC UA server, that your SiteWise Edge gateway connects and retrieves industrial data streams. For more information about setting up a SiteWise Edge gateway, see [Create a self-hosted SiteWise Edge gateway](create-gateway-ggv2.md).
 

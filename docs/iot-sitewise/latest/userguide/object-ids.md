@@ -1,7 +1,6 @@
 
 
 # Set up AWS IoT SiteWise object IDs
-<a name="object-ids"></a>
 
  AWS IoT SiteWise defines various types of persistent objects, such as assets, asset models, properties, and hierarchies. All such objects have unique identifiers that you can use to retrieve, update, and delete them. 
 
@@ -61,7 +60,7 @@ For example, suppose you have an asset model whose UUID (asset model ID) is `a1b
 + With the asset model ID (UUID) itself: `a1b2c3d4-5678-90ab-cdef-11111EXAMPLE`
 + With the external ID: `externalId:myExternalId`
 
-```
+```bash
 aws iotsitewise describe-asset-model --asset-model-id a1b2c3d4-5678-90ab-cdef-11111EXAMPLE
 aws iotsitewise describe-asset-model --asset-model-id externalId:myExternalId
 ```

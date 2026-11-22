@@ -1,7 +1,6 @@
 
 
 # Enable CORS on AWS IoT SiteWise Edge APIs
-<a name="enable-cors-edge-apis"></a>
 
 Enabling CORS (Cross-Origin Resource Sharing) on AWS IoT SiteWise Edge APIs allows web applications to directly communicate with the APIs across different domains. This enables seamless integration, real-time data exchange, and cross-domain data access without intermediary servers or workarounds. CORS settings can be configured to specify allowable origins, ensuring controlled cross-origin access. 
 
@@ -32,7 +31,7 @@ Creating a revised CORS enabled configuration replaces the device’s current co
 
 1. In the Configuration update section, under Configuration to merge, enter the following JSON:
 
-   ```
+   ```json
    {
        "AWS_SITEWISE_EDGE_ACCESS_CONTROL_ALLOW_ORIGIN": "*"
    }

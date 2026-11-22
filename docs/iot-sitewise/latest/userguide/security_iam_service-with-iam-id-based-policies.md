@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise identity-based policies
-<a name="security_iam_service-with-iam-id-based-policies"></a>
 
 IAM policies let you control who can do what in AWS IoT SiteWise. You can decide what actions are allowed or not and set specific conditions for these actions. For example, you can make rules about who can see or change information in AWS IoT SiteWise. AWS IoT SiteWise supports specific actions, resources, and condition keys. To learn about all of the elements that you use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*.
 

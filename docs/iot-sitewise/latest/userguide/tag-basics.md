@@ -1,7 +1,6 @@
 
 
 # Use tags in AWS IoT SiteWise
-<a name="tag-basics"></a>
 
 Use tags to categorize your AWS IoT SiteWise resources by purpose, owner, environment, or any other classification for your use case. When you have many resources of the same type, you can quickly identify a specific resource based on its tags.
 

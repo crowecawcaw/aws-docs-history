@@ -1,7 +1,6 @@
 
 
 # Math functions
-<a name="sql-functions-math"></a>
 
  Math functions are pre-defined mathematical operations used within SQL queries to perform calculations on numerical data. They provide ways to manipulate and transform data without needing to extract it from the database and process it separately. 
 

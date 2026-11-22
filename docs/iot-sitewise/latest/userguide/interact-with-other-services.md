@@ -1,7 +1,6 @@
 
 
 # Interact with other AWS services
-<a name="interact-with-other-services"></a>
 
 AWS IoT SiteWise can publish asset data to the AWS IoT MQTT publish-subscribe message broker, so that you can interact with your asset data from other AWS services. AWS IoT SiteWise assigns each asset property a unique MQTT topic that you can use to route your asset data to other AWS services using AWS IoT Core rules. For example, you can configure AWS IoT Core rules to do the following tasks:
 + Identify equipment failure and notify appropriate personnel by sending data to [AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/).

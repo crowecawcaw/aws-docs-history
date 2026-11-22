@@ -1,7 +1,6 @@
 
 
 # File paths and schemas of data saved in the cold tier
-<a name="file-path-and-schema"></a>
 
 AWS IoT SiteWise stores your data in the cold tier by replicating time series, including measurements, metrics, transforms and aggregates, and also asset and asset model definitions. The following describes the file paths and schemas of data that is sent to the cold tier.
 
@@ -22,7 +21,7 @@ AWS IoT SiteWise exports equipment data (measurements) to the cold tier once eve
 
 AWS IoT SiteWise stores equipment data (measurements) in the cold tier using the following template.
 
-```
+```bash
 {{{keyPrefix}}}/raw/startYear={{{startYear}}}/startMonth={{{startMonth}}}/startDay={{{startDay}}}/seriesBucket={{{seriesBucket}}}/raw_{{{timeseriesId}}}_{{{startTimestamp}}}_{{{quality}}}.avro
 ```
 
@@ -73,7 +72,7 @@ The schema of raw data that is exported to the cold tier contains the following 
 
 **Example raw data in the cold tier**  
 
-```
+```avsc
   {"seriesId":"e9687d2a-0dbe-4f65-9ed6-6f443cba41f7_95e63da7-d34e-43e1-bc6f-1b490154b07a","timeInSeconds":1625675887,"offsetInNanos":0,"quality":"GOOD","doubleValue":{"double":0.75},"stringValue":null,"integerValue":null,"booleanValue":null,"jsonValue":null,"recordVersion":null}
   {"seriesId":"e9687d2a-0dbe-4f65-9ed6-6f443cba41f7_95e63da7-d34e-43e1-bc6f-1b490154b07a","timeInSeconds":1625675889,"offsetInNanos":0,"quality":"GOOD","doubleValue":{"double":0.69},"stringValue":null,"integerValue":null,"booleanValue":null,"jsonValue":null,"recordVersion":null}
   {"seriesId":"e9687d2a-0dbe-4f65-9ed6-6f443cba41f7_95e63da7-d34e-43e1-bc6f-1b490154b07a","timeInSeconds":1625675890,"offsetInNanos":0,"quality":"GOOD","doubleValue":{"double":0.66},"stringValue":null,"integerValue":null,"booleanValue":null,"jsonValue":null,"recordVersion":null}
@@ -91,7 +90,7 @@ AWS IoT SiteWise exports metrics, transforms, and aggregates to the cold tier on
 
 AWS IoT SiteWise stores metrics, transforms, and aggregates in the cold tier using the following template.
 
-```
+```bash
 {{{keyPrefix}}}/agg/startYear={{{startYear}}}/startMonth={{{startMonth}}}/startDay={{{startDay}}}/seriesBucket={{{seriesBucket}}}/agg_{{{timeseriesId}}}_{{{startTimestamp}}}_{{{quality}}}.avro
 ```
 
@@ -139,7 +138,7 @@ The schema of metrics, transforms, and aggregates that are exported to the cold 
 
 **Example Metric data in the cold tier**  
 
-```
+```avsc
 {"seriesId":"f74c2828-5317-4df3-ba16-6d41b5bcb531","timeInSeconds":1637334060,"offsetInNanos":0,"quality":"GOOD","resolution":"PT1M","count":31.0,"average":{"double":16.0},"min":{"double":1.0},"max":{"double":31.0},"sum":{"double":496.0},"recordVersion":null}
   {"seriesId":"f74c2828-5317-4df3-ba16-6d41b5bcb531","timeInSeconds":1637334120,"offsetInNanos":0,"quality":"GOOD","resolution":"PT1M","count":29.0,"average":{"double":46.0},"min":{"double":32.0},"max":{"double":60.0},"sum":{"double":1334.0},"recordVersion":null}
   {"seriesId":"f74c2828-5317-4df3-ba16-6d41b5bcb531","timeInSeconds":1637334540,"offsetInNanos":0,"quality":"GOOD","resolution":"PT1M","count":31.0,"average":{"double":16.0},"min":{"double":1.0},"max":{"double":31.0},"sum":{"double":496.0},"recordVersion":null}
@@ -157,7 +156,7 @@ When you enable AWS IoT SiteWise to export data to the cold tier for the first t
 
 AWS IoT SiteWise stores asset metadata in the cold tier using the following template.
 
-```
+```bash
 {{{keyPrefix}}}/asset_metadata/asset_{{{assetId}}}.ndjson
 ```
 
@@ -214,7 +213,7 @@ The schema of asset metadata that is exported to the cold tier contains the foll
 
 **Example asset metadata in the cold tier**  
 
-```
+```json
   {"assetId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d","assetExternalId":null,"assetName":"Wind Turbine Asset 2","assetModelId":"ec1d924f-f07d-444f-b072-e2994c165d35","assetModelExternalId":null,"assetModelName":"Wind Turbine Asset Model","assetPropertyId":"95e63da7-d34e-43e1-bc6f-1b490154b07a","assetPropertyExternalId":null,"assetPropertyName":"Temperature","assetPropertyDataType":"DOUBLE","assetPropertyUnit":"Celsius","assetPropertyAlias":"USA/Washington/Seattle/WT2/temp","timeSeriesId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d_95e63da7-d34e-43e1-bc6f-1b490154b07a","timeSeriesBucket":"f6","assetArn":null,"assetCompositeModelDescription":null,"assetCompositeModelName":null,"assetCompositeModelType":null,"assetCompositeModelId":null,"assetCompositeModelExternalId":null,"assetCreationDate":1619466323,"assetLastUpdateDate":1623859856,"assetStatusErrorCode":null,"assetStatusErrorMessage":null,"assetStatusState":"ACTIVE"}
   {"assetId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d","assetExternalId":null,"assetName":"Wind Turbine Asset 2","assetModelId":"ec1d924f-f07d-444f-b072-e2994c165d35","assetModelExternalId":null,"assetModelName":"Wind Turbine Asset Model","assetPropertyId":"c706d54d-4c11-42dc-9a01-63662fc697b4","assetPropertyExternalId":null,"assetPropertyName":"Pressure","assetPropertyDataType":"DOUBLE","assetPropertyUnit":"KiloPascal","assetPropertyAlias":"USA/Washington/Seattle/WT2/pressure","timeSeriesId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d_c706d54d-4c11-42dc-9a01-63662fc697b4","timeSeriesBucket":"1e","assetArn":null,"assetCompositeModelDescription":null,"assetCompositeModelName":null,"assetCompositeModelType":null,"assetCompositeModelId":null,"assetCompositeModelExternalId":null,"assetCreationDate":1619466323,"assetLastUpdateDate":1623859856,"assetStatusErrorCode":null,"assetStatusErrorMessage":null,"assetStatusState":"ACTIVE"}
   {"assetId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d","assetExternalId":null,"assetName":"Wind Turbine Asset 2","assetModelId":"ec1d924f-f07d-444f-b072-e2994c165d35","assetModelExternalId":null,"assetModelName":"Wind Turbine Asset Model","assetPropertyId":"8cf1162f-dead-4fbe-b468-c8e24cde9f50","assetPropertyExternalId":null,"assetPropertyName":"Max Temperature","assetPropertyDataType":"DOUBLE","assetPropertyUnit":null,"assetPropertyAlias":null,"timeSeriesId":"7020c8e2-e6db-40fa-9845-ed0dddd4c77d_8cf1162f-dead-4fbe-b468-c8e24cde9f50","timeSeriesBucket":"d7","assetArn":null,"assetCompositeModelDescription":null,"assetCompositeModelName":null,"assetCompositeModelType":null,"assetCompositeModelId":null,"assetCompositeModelExternalId":null,"assetCreationDate":1619466323,"assetLastUpdateDate":1623859856,"assetStatusErrorCode":null,"assetStatusErrorMessage":null,"assetStatusState":"ACTIVE"}
@@ -233,7 +232,7 @@ An external identifier for the hierarchy, target asset, or source asset is retri
 
 AWS IoT SiteWise stores asset hierarchy metadata in the cold tier using the following template.
 
-```
+```bash
 {{{keyPrefix}}}/asset_hierarchy_metadata/{{{parentAssetId}}}_{{{hierarchyId}}}.ndjson
 ```
 
@@ -270,7 +269,7 @@ The schema of asset hierarchy metadata that is exported to the cold tier contain
 
 **Example asset hierarchy metadata in the cold tier**  
 
-```
+```json
 {"sourceAssetId":"80388e72-2284-44fb-9c89-bfbaf0dfedd2","targetAssetId":"2b866c25-0c74-4750-bdf5-b73683c8a2a2","hierarchyId":"bbed9f59-0412-4585-a61d-6044db526aee","associationType":"CHILD"}
   {"sourceAssetId":"80388e72-2284-44fb-9c89-bfbaf0dfedd2","targetAssetId":"6b51246e-984d-460d-bc0b-470ea47d1e31","hierarchyId":"bbed9f59-0412-4585-a61d-6044db526aee","associationType":"CHILD"}
 ```
@@ -295,7 +294,7 @@ AWS IoT SiteWise uses these files to optimize data query performance. They appea
 
 AWS IoT SiteWise stores data index files in the cold tier using the following template.
 
-```
+```bash
 {{keyPrefix}}/index/series={{timeseriesId}}/startYear={{startYear}}/startMonth={{startMonth}}/startDay={{startDay}}/index_{{timeseriesId}}_{{startTimestamp}}_{{quality}}
 ```
 

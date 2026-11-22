@@ -1,7 +1,6 @@
 
 
 # Advanced training configurations
-<a name="adv-training-configs"></a>
 
 ## Sample rate configuration
 <a name="sample-rate-configuration"></a>
@@ -15,7 +14,7 @@ Visit [Sampling for high-frequency data and consistency between training and inf
 
 You can optionally specify a `TargetSamplingRate` in your training configuration, to control the frequency at which data is sampled. Supported values are:
 
-```
+```text
 PT1S | PT5S | PT10S | PT15S | PT30S | PT1M | PT5M | PT10M | PT15M | PT30M | PT1H
 ```
 
@@ -42,7 +41,7 @@ Add the following code to `anomaly-detection-training-payload.json`.
 
 Configure sampling by adding `TargetSamplingRate` in the training action payload, with the sampling rate of the data. The allowed values are: `PT1S | PT5S | PT10S | PT15S | PT30S | PT1M | PT5M | PT10M | PT15M | PT30M | PT1H`.
 
-```
+```JSON
 {
     "exportDataStartTime": StartTime,
     "exportDataEndTime": EndTime,
@@ -52,7 +51,7 @@ Configure sampling by adding `TargetSamplingRate` in the training action payload
 
 **Example of a sample rate configuration:**  
 
-```
+```JSON
 {
     "exportDataStartTime": 1717225200,
     "exportDataEndTime": 1722789360,
@@ -73,7 +72,7 @@ This CSV file is stored in an Amazon S3 bucket and is used during model training
 
 **Example of a CSV file:**  
 
-```
+```text
 2024-06-21T00:00:00.000000,2024-06-21T12:00:00.000000
 2024-07-11T00:00:00.000000,2024-07-11T12:00:00.000000
 2024-07-31T00:00:00.000000,2024-07-31T12:00:00.000000
@@ -96,7 +95,7 @@ For details about best practices for sampling, see [Best practices](ano-best-pra
 + Add the following to `anomaly-detection-training-payload.json`.
   + Provide the locations in the `labelInputConfiguration` section of the file. Replace `labels-bucket` with bucket name and `files-prefix` with file(s) path or any part of prefix. All files at the location are parsed, and (on success) used as label files.
 
-```
+```JSON
 {
     "exportDataStartTime": {{StartTime}},
     "exportDataEndTime": {{EndTime}},
@@ -110,7 +109,7 @@ For details about best practices for sampling, see [Best practices](ano-best-pra
 
 **Example of a label configuration:**  
 
-```
+```JSON
 {
     "exportDataStartTime": 1717225200,
     "exportDataEndTime": 1722789360,
@@ -137,7 +136,7 @@ To configure model evaluation,
 **Note**  
 The model evaluation interval (`dataStartTime` to `dataEndtime`) must either overlap, or be contiguous to the training interval. No gaps are permitted.
 
-```
+```JSON
 {
   "exportDataStartTime": {{StartTime}},
   "exportDataEndTime": {{EndTime}},
@@ -154,7 +153,7 @@ The model evaluation interval (`dataStartTime` to `dataEndtime`) must either ove
 
 **Example of a model evaluation configuration:**  
 
-```
+```JSON
 {
   "exportDataStartTime": 1717225200,
   "exportDataEndTime": 1722789360,
@@ -192,7 +191,7 @@ To enable model metrics generation, configure an Amazon S3 destination where the
 
 1. Add the following to your training action payload to specify where model metrics should be stored:
 
-   ```
+   ```JSON
    {
        "trainingMode": "TRAIN_MODEL",
        "exportDataStartTime": {{StartTime}},
@@ -205,7 +204,7 @@ To enable model metrics generation, configure an Amazon S3 destination where the
    ```  
 **Example of model metrics configuration**  
 
-   ```
+   ```JSON
    {
        "exportDataStartTime": 1717225200,
        "exportDataEndTime": 1722789360,
@@ -221,7 +220,7 @@ To enable model metrics generation, configure an Amazon S3 destination where the
 
 When you set up retraining schedules, model metrics destination is required to enable comprehensive model performance tracking and comparison:
 
-```
+```JSON
 {
     "trainingMode": "START_RETRAINING_SCHEDULER",
     "modelMetricsDestination": {
@@ -248,7 +247,7 @@ Amazon S3 prefix/path for organizing model metrics files
 
 Model metrics are stored as JSON files in your Amazon S3 bucket in the following structure:
 
-```
+```JSON
 {
     "labeled_ranges": [],
     "labeled_event_metrics": {

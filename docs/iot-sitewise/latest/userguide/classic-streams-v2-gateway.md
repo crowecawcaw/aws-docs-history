@@ -1,7 +1,6 @@
 
 
 # Classic streams, V2 gateways for AWS IoT SiteWise Edge
-<a name="classic-streams-v2-gateway"></a>
 
 Understand the features and limitations of Classic streams, V2 gateways for AWS IoT SiteWise Edge.
 

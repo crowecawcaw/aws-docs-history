@@ -1,7 +1,6 @@
 
 
 # Use OPC UA node filters in SiteWise Edge
-<a name="opc-ua-node-filters"></a>
 
 When you define OPC UA data sources for an SiteWise Edge gateway, you can define node filters. Node filters let you limit which data stream paths the SiteWise Edge gateway sends to the cloud. You can use node filters to reduce your SiteWise Edge gateway's startup time and CPU usage by only including paths to data that you model in AWS IoT SiteWise. By default, SiteWise Edge gateways upload all OPC UA paths except those that start with `/Server/`. You can use the `*` and `**` wildcard characters in your node filters to include multiple data stream paths with one filter. To learn how to set up OPC UA sources for your SiteWise Edge gateway, see [OPC UA data sources for AWS IoT SiteWise Edge gateways](configure-sources-opcua.md).
 

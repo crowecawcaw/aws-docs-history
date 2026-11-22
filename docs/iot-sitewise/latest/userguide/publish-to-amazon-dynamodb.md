@@ -1,7 +1,6 @@
 
 
 # Publish property value updates to Amazon DynamoDB
-<a name="publish-to-amazon-dynamodb"></a>
 
 This tutorial introduces a convenient way to store your data by using [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), making it easier to access historical asset data without repeatedly querying the AWS IoT SiteWise API. After you complete this tutorial, you can create custom software that consumes your asset data, such as a live map of wind speed and direction over an entire wind farm. If you want to monitor and visualize your data without implementing a custom software solution, see [Monitor data with AWS IoT SiteWise Monitor](monitor-data.md).
 
@@ -97,7 +96,7 @@ In this step, create a rule in AWS IoT Core that parses the property value notif
 
 1. Enter the following rule query statement. Replace the topic in the `FROM` section with your notification topic.
 
-   ```
+   ```sql
    SELECT
      payload.assetId AS asset,
      (SELECT VALUE (value.doubleValue) FROM payload.values) AS windspeed,

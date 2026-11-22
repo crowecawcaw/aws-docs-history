@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise query language
-<a name="sql"></a>
 
 With the AWS IoT SiteWise data retrieval [ExecuteQuery](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ExecuteQuery.html) API operation, you can retrieve information about declarative structural definitions, and the timeseries data associated with them, from the following:
 + models

@@ -1,7 +1,6 @@
 
 
 # Integrate data into SiteWise Edge using an MQTT-enabled, V3 gateway
-<a name="integrate_sitewise_edge_mqtt"></a>
 
 This tutorial guides you through integrating third-party devices and sensors that use MQTT messaging protocol with the AWS IoT SiteWise MQTT-enabled, V3 gateway. You will learn how to set up an AWS IoT SiteWise edge gateway to collect and monitor data from your MQTT-enabled devices. AWS IoT SiteWise enables you to collect, process, and monitor industrial equipment data. Use SiteWise Edge capabilities to optimize industrial IoT operations, and transform raw data into actionable insights.
 
@@ -75,7 +74,7 @@ Ensure completion of an AWS IoT policy. For detailed instruction, see [Step 1](i
 
 Use the following AWS CLI [get-policy](https://docs.aws.amazon.com/cli/latest/reference/iot/get-policy.html) command in the *AWS CLI Command Reference* to verify you have an active AWS IoT policy:
 
-```
+```bash
 aws iot get-policy --policy-name "SiteWiseTutorialDevicePolicy"
 ```
 
@@ -115,7 +114,7 @@ Ensure completion of the creation and configuration steps for an AWS IoT thing. 
 
 Use the following AWS CLI command to verify you have an active AWS IoT policy:
 
-```
+```bash
  aws iot describe-thing --thing-name "SiteWiseTutorialDevice1"
 ```
 
@@ -167,7 +166,7 @@ Use AWS CLI to create a self-hosted gateway. You need to provide a name for the 
 
 To use this example, replace the user input placeholders with your own information.
 
-```
+```bash
 aws iotsitewise create-gateway \
     --gateway-name SiteWise Tutorial Device Gateway \
     --gateway-platform greengrassV2={coreDeviceThingName={{your-core-device-thing-name}}, coreDeviceOperatingSystem={{LINUX_AMD64}}} \                        
@@ -246,7 +245,7 @@ The payload format must follow a specific structure for AWS IoT SiteWise Edge to
 
 **CPU JSON payload**
 
-```
+```JSON
 {
   "propertyAlias": "SiteWiseTutorialDevice/cpu",
   "propertyValues": [
@@ -266,7 +265,7 @@ The payload format must follow a specific structure for AWS IoT SiteWise Edge to
 
 **Memory JSON payload**
 
-```
+```JSON
 {
   "propertyAlias": "SiteWiseTutorialDevice/memory",
   "propertyValues": [
@@ -286,7 +285,7 @@ The payload format must follow a specific structure for AWS IoT SiteWise Edge to
 
 **Timestamp JSON payload**
 
-```
+```JSON
 {
   "propertyAlias": "SiteWiseTutorialDevice/timestamp",
   "propertyValues": [
@@ -327,7 +326,7 @@ Use Mosquitto to publish test data. Open a command line and run the following co
 
 **Example: CPU property **
 
-```
+```JSON
 mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/cpu" -m '{
   "propertyAlias": "SiteWiseTutorialDevice/cpu",
   "propertyValues": [
@@ -347,7 +346,7 @@ mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/cpu" -m '{
 
 **Example: Memory property**
 
-```
+```JSON
 mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/memory" -m '{
   "propertyAlias": "SiteWiseTutorialDevice/memory",
   "propertyValues": [
@@ -367,7 +366,7 @@ mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/memory" -m '{
 
 **Example: Timestamp property**
 
-```
+```JSON
 mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/timestamp" -m '{
   "propertyAlias": "SiteWiseTutorialDevice/timestamp",
   "propertyValues": [
@@ -512,7 +511,7 @@ Use the following AWS CLI commands to configure your path filters:
 
 **Example 1: Device data using wildcard**
 
-```
+```JSON
 {
  "destinations": [
    {
@@ -537,7 +536,7 @@ This path filter configuration uses multi-level wildcards (\#) to capture all da
 
 **Example 2: CPU and memory performance**
 
-```
+```JSON
 {
  "destinations": [
    {
@@ -563,7 +562,7 @@ This example captures various CPU metrics (idle time and interruption count) and
 
 **Example 3: Device diagnostics**
 
-```
+```JSON
 {
  "destinations": [
    {
@@ -601,25 +600,25 @@ Before starting this step, you should have completed steps 3 to 8 in the [Ingest
 
 1. Use the following AWS CLI command to verify you created and properly configured your SiteWise Tutorial Device Model and SiteWise Tutorial Device Fleet Model:
 
-   ```
+   ```bash
    aws iotsitewise describe-asset-model --asset-model-id {{your-device-model-id}}
    ```
 
    Use the following AWS CLI command to retrieve your asset models' ID:
 
-   ```
+   ```bash
    aws iotsitewise list-asset-models
    ```
 
 1. Use the following AWS CLI command to verify you created and properly configured your SiteWise Tutorial Device 1 asset and SiteWise Tutorial Device Fleet 1 asset:
 
-   ```
+   ```bash
    aws iotsitewise describe-asset --asset-id {{your-asset-id}}
    ```
 
    Use the following AWS CLI command to retrieve your assets' ID:
 
-   ```
+   ```bash
    aws iotsitewise list-assets
    ```
 

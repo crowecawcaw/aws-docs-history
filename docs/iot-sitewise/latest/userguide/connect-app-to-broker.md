@@ -1,7 +1,6 @@
 
 
 # Connect an application to the EMQX broker on AWS IoT SiteWise Edge
-<a name="connect-app-to-broker"></a>
 
 The EMQX broker uses Transport Layer Security (TLS) on port 8883 to encrypt all communications, ensuring your data remains protected during transmission. This section walks you through the steps to establish connections between your applications and the EMQX broker. Following these steps helps maintain the integrity and confidentiality of your industrial data. The connection process involves two main approaches: using automated IP discovery through components, or manually configuring DNS names and IP addresses as Subject Alternative Names (SANs) in your TLS certificates. Each method has its own advantages depending on your network setup and security requirements. This documentation will guide you through both options.
 
@@ -117,7 +116,7 @@ The broker's TLS server certificate updates automatically to include your new en
 
 1. Start a shell session on your gateway host.
 
-   ```
+   ```sh
    docker exec emqx openssl x509 -in ./data/cert.pem -text -noout | grep -A1 "Subject Alternative Name"
    ```
 
@@ -134,13 +133,13 @@ The broker's TLS server certificate updates automatically to include your new en
 
 1. Start a shell session on your gateway host.
 
-   ```
+   ```sh
    (Get-PfxCertificate -FilePath "C:\greengrass\v2\work\aws.greengrass.clientdevices.mqtt.EMQX\v2\data\cert.pem").Extensions | Where-Object { $_.Oid.FriendlyName -eq "Subject Alternative Name" } | ForEach-Object { "Subject Alternative Name:", ($_.Format($true) -split "`n")[0..1] }
    ```
 
 1. The command returns an output similar to the following:
 
-   ```
+   ```sh
    Subject Alternative Name:
    DNS Name={{your-endpoint}}
    DNS Name=localhost

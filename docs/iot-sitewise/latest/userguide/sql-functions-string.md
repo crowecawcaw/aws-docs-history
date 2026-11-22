@@ -1,7 +1,6 @@
 
 
 # String functions
-<a name="sql-functions-string"></a>
 
  String functions are built-in tools used to manipulate and process text data. They enable tasks like concatenation, extraction, formatting, and searching within strings. These functions are essential for cleaning, transforming, and analyzing text-based data within a database. 
 
@@ -42,7 +41,7 @@ Examples of all the functions:
 
 **Example of the concatenation operator**  
 
-```
+```SQL
 SELECT a.asset_name || ' - ' || p.property_name 
   AS full_name
   FROM asset a, asset_property p

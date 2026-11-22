@@ -1,7 +1,6 @@
 
 
 # Update an asset property alias
-<a name="update-data-streams-method"></a>
 
  Aliases must be unique within an AWS region. This includes aliases of both asset properties and data streams. Do not assign an alias to an asset property, if another property or data stream is using that alias. 
 
@@ -31,7 +30,7 @@ Use the AWS IoT SiteWise console to update an asset property alias.
 
  To update an alias on an asset property, run the following command: 
 
-```
+```JSON
     aws iotsitewise update-asset-property \
         --asset-id <asset-ID> \
         --property-id <property-ID> \

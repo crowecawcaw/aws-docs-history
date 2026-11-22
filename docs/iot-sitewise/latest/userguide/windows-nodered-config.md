@@ -1,7 +1,6 @@
 
 
 # Configure Node-RED flows for AWS IoT SiteWise data integration
-<a name="windows-nodered-config"></a>
 
 With Node-RED®, you can implement two flows to manage data between your devices and AWS IoT SiteWise. These flows work together to create a comprehensive data management solution that addresses both local and cloud data flow.
 + **Data publish flow** – Publishes to the cloud. The data publish flow sends data to AWS IoT SiteWise. This flow simulates a turbine device by generating sensor data, translating it to AWS IoT SiteWise format, and publishing to the SiteWise Edge MQTT broker. This enables you to leverage AWS IoT SiteWise's cloud capabilities for storage, analytics, and integration with other AWS services.

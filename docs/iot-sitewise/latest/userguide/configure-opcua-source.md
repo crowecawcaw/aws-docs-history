@@ -1,7 +1,6 @@
 
 
 # Set up an OPC UA source in SiteWise Edge
-<a name="configure-opcua-source"></a>
 
 You can use the AWS IoT SiteWise console or a SiteWise Edge gateway capability to define and add an OPC UA source to your SiteWise Edge gateway to represent a local OPC UA server.
 
@@ -174,7 +173,7 @@ You can define OPC UA data sources for an SiteWise Edge gateway using the AWS CL
 This capability has the following namespace.
 + `iotsitewise:opcuacollector:3`
 
-```
+```json
 {
   "sources": [
     {
@@ -272,7 +271,7 @@ This capability has the following namespace.
 
 Request syntax
 
-```
+```json
 {
   "sources": [
     {
@@ -494,7 +493,7 @@ A comma-delimited list that specifies the paths (relative to the root) to includ
 
 The following example defines an OPC UA SiteWise Edge gateway capability configuration from a payload stored in a JSON file.
 
-```
+```bash
 aws iotsitewise update-gateway-capability-configuration \
 --capability-namespace "iotsitewise:opcuacollector:2" \
 --capability-configuration file://opc-ua-configuration.json
@@ -503,7 +502,7 @@ aws iotsitewise update-gateway-capability-configuration \
 **Example : OPC UA source configuration**  
 The following `opc-ua-configuration.json` file defines a basic, insecure OPC UA source configuration.  
 
-```
+```json
 {
     "sources": [
         {
@@ -529,7 +528,7 @@ The following `opc-ua-configuration.json` file defines a basic, insecure OPC UA 
 **Example : OPC UA source configuration with defined property groups**  
 The following `opc-ua-configuration.json` file defines a basic, insecure OPC UA source configuration with defined property groups.  
 
-```
+```json
 {
     "sources": [
         {
@@ -618,7 +617,7 @@ The following JSON example for `opc-ua-configuration.json` defines an OPC UA sou
 + Filters out data streams except those whose path starts with `/WindFarm/2/WindTurbine/`.
 + Adds `/Washington` to the start of every data stream path to distinguish between this "Wind Farm \#2" and a "Wind Farm \#2" in another area.
 
-```
+```json
 {
     "sources": [
         {
@@ -656,7 +655,7 @@ The following JSON example for `opc-ua-configuration.json` defines an OPC UA sou
 + Uses the `BASIC256` security policy to secure messages.
 + Uses the `SIGN_AND_ENCRYPT` mode to secure connections.
 
-```
+```json
 {
     "sources": [
         {

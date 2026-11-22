@@ -1,7 +1,6 @@
 
 
 # Delete a portal
-<a name="portal-delete-portal-ai"></a>
 
 You might delete a portal if you created it for testing purposes or if you created a duplicate of a portal that already exists.
 

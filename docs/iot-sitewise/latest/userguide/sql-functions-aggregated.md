@@ -1,7 +1,6 @@
 
 
 # Aggregate functions
-<a name="sql-functions-aggregated"></a>
 
  Aggregate functions are database operations that perform calculations across multiple rows of data to produce a single summarized result. These functions analyze data sets to return computed values like sums, averages, counts, or other statistical measures. 
 

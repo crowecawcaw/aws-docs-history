@@ -1,7 +1,6 @@
 
 
 # Define alarms on asset models in AWS IoT SiteWise
-<a name="define-alarms"></a>
 
 Asset models drive standardization of your industrial data and alarms. You can define alarm definitions on asset models to standardize the alarms for all assets based on an asset model.
 
@@ -39,7 +38,7 @@ Data type: `STRING`
 **Example alarm composite model**  
 The following asset model represents a boiler that has an alarm to monitor its temperature. AWS IoT SiteWise sends the temperature data to AWS IoT Events to detect the alarm.  
 
-```
+```json
 {
   "assetModelName": "Boiler",
   "assetModelDescription": "A boiler that alarms when its temperature exceeds its limit.",

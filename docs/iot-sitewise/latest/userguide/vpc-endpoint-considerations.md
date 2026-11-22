@@ -1,12 +1,11 @@
 
 
 # API operations for VPC endpoints in AWS IoT SiteWise
-<a name="vpc-endpoint-considerations"></a>
 
 AWS IoT SiteWise supports making calls to the following AWS IoT SiteWise API operations from your VPC:
 + For all the **data plane** API operations, use the following endpoint: Replace `{{region}}` with your AWS Region
 
-  ```
+  ```bash
   data.iotsitewise.{{region}}.amazonaws.com
   ```
 
@@ -20,7 +19,7 @@ AWS IoT SiteWise supports making calls to the following AWS IoT SiteWise API ope
   + [GetInterpolatedAssetPropertyValues](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetInterpolatedAssetPropertyValues.html)
 + For the **control plane** API operations that you use to manage asset models, assets, SiteWise Edge gateways, tags, and account configurations, use the following endpoint. Replace `{{region}}` with your AWS Region.
 
-  ```
+  ```bash
   api.iotsitewise.{{region}}.amazonaws.com
   ```
 

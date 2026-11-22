@@ -1,7 +1,6 @@
 
 
 # Visualize and share wind farm data in SiteWise Monitor
-<a name="monitor-wind-farm"></a>
 
 This tutorial explains how to use AWS IoT SiteWise Monitor to visualize and share industrial data through managed web applications, known as portals. Each *portal* encompasses projects, providing you with the flexibility to choose which data is accessible within each project. Then, specify people in your organization that can access each portal. Your users sign in to portals using AWS IAM Identity Center accounts, so you can use your existing identity store or a store managed by AWS.
 

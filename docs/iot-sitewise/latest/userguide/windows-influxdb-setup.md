@@ -1,7 +1,6 @@
 
 
 # Set up local storage with InfluxDB
-<a name="windows-influxdb-setup"></a>
 
 With InfluxDB®, you can store time series data from your devices locally. The purpose of local storage capability is to maintain operational visibility during network disruptions and reduce latency for time-critical applications. You can perform analysis and visualization at the edge while still having the option to selectively forward data to the cloud.
 

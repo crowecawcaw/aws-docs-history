@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise Edge self-hosted gateway requirements
-<a name="configure-gateway-ggv2"></a>
 
 AWS IoT SiteWise Edge gateways run on AWS IoT Greengrass V2 as a set of AWS IoT Greengrass components that support data collection, processing, and publishing on premises. To configure a SiteWise Edge gateway that runs on AWS IoT Greengrass V2, create a gateway in the AWS Cloud and run the SiteWise Edge gateway software to set up your local device. When you use the AWS Management Console to create the SiteWise Edge gateway, an installation script is provided. Run this script on your target gateway device to set up necessary software and dependencies.
 
@@ -104,7 +103,7 @@ If you use the AWS IoT SiteWise console to create your SiteWise Edge gateway, th
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

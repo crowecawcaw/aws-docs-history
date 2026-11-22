@@ -1,7 +1,6 @@
 
 
 # Manage data streams for AWS IoT SiteWise
-<a name="manage-data-streams"></a>
 
  A data stream is the resource that contains historical time series data. Each data stream is identified by a unique alias, making it easier to keep track of the origin for each piece of data. Data streams are automatically created in AWS IoT SiteWise when the first time series data is received. If the first time series data is identified with an alias, AWS IoT SiteWise creates a new data stream with that alias, provided no asset properties are already assigned that alias. Alternatively, if the first time series data is identified with an asset ID and property ID, AWS IoT SiteWise creates a new data stream and associates that data stream with the asset property. 
 

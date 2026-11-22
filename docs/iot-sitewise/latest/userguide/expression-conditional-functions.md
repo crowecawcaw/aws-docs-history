@@ -1,7 +1,6 @@
 
 
 # Use conditional functions in formula expressions
-<a name="expression-conditional-functions"></a>
 
 In [transforms](transforms.md) and [metrics](metrics.md), you can use the following function to check a condition and return different results, whether the condition evaluates to true or false.
 

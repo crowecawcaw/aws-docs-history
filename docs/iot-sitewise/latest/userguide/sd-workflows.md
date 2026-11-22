@@ -1,7 +1,6 @@
 
 
 # Manage data workflows
-<a name="sd-workflows"></a>
 
 ## Important data pipeline concepts in Scenario Discovery
 <a name="sd-pipeline-concepts"></a>
@@ -247,7 +246,7 @@ Point the task to your container image by entering its Amazon ECR URI (your imag
 
 Example trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

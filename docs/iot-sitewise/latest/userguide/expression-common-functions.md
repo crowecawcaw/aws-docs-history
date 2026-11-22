@@ -1,7 +1,6 @@
 
 
 # Use common functions in formula expressions
-<a name="expression-common-functions"></a>
 
 In [transforms](transforms.md) and [metrics](metrics.md), you can use the following functions to calculate common mathematical functions in transforms and metrics.
 

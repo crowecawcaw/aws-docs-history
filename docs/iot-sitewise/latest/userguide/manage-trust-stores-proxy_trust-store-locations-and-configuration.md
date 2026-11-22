@@ -1,7 +1,6 @@
 
 
 # Manually configure trust stores for HTTPS proxy support in AWS IoT SiteWise Edge
-<a name="manage-trust-stores-proxy_trust-store-locations-and-configuration"></a>
 
 When configuring AWS IoT SiteWise Edge components to connect through an HTTPS proxy, add the proxy server's certificate to the appropriate trust stores. SiteWise Edge uses multiple trust stores to secure communications. There are three trust stores and your use of them depends upon the SiteWise Edge component type in your gateway implementation.
 

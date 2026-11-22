@@ -1,7 +1,6 @@
 
 
 # Associate and disassociate assets
-<a name="add-associated-assets"></a>
 
 If your asset's model defines any child asset model hierarchies, you can associate child assets to your asset. Parent assets can access and aggregate data from associated assets. For more information about hierarchical asset models, see [Define asset model hierarchies](define-asset-hierarchies.md). If you're using interfaces, hierarchies defined in the interface are enforced on the asset models that implement the interface. For more information about interfaces, see [Asset model interfaces](model-interfaces.md).
 
@@ -62,13 +61,13 @@ For this procedure, you must know the ID of the hierarchy (`hierarchyId`) in the
 **To find a hierarchy ID**
 + Run the following command to describe the parent asset. Replace {{parent-asset-id}} with the parent asset's ID or external ID.
 
-  ```
+  ```bash
   aws iotsitewise describe-asset --asset-id {{parent-asset-id}}
   ```
 
   The operation returns a response that contains the asset's details. The response contains an `assetHierarchies` list that has the following structure:
 
-  ```
+  ```json
   {
     ...
     "assetHierarchies": [
@@ -93,7 +92,7 @@ To associate a child asset to a parent asset, use the [AssociateAssets](https://
 **To associate an asset (AWS CLI)**
 + Run the following command to associate a child asset to a parent asset. Replace {{parent-asset-id}}, {{hierarchy-id}}, and {{child-asset-id}} with the respective IDs:
 
-  ```
+  ```bash
   aws iotsitewise associate-assets \
     --asset-id {{parent-asset-id}} \
     --hierarchy-id {{hierarchy-id}} \
@@ -103,7 +102,7 @@ To associate a child asset to a parent asset, use the [AssociateAssets](https://
 **To disassociate an asset (AWS CLI)**
 + Run the following command to disassociate a child asset from a parent asset. Replace {{parent-asset-id}}, {{hierarchy-id}}, and {{child-asset-id}} with the respective IDs:
 
-  ```
+  ```bash
   aws iotsitewise disassociate-assets \
     --asset-id {{parent-asset-id}} \
     --hierarchy-id {{hierarchy-id}} \

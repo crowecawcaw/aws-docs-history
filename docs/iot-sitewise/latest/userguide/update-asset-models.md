@@ -1,7 +1,6 @@
 
 
 # Update asset models, component models, and interfaces
-<a name="update-asset-models"></a>
 
 Use the AWS IoT SiteWise console or API to update an asset model, component model, or interface.
 
@@ -69,7 +68,7 @@ The following procedure can only update composite models of type `AWS/ALARM`. If
 
 1. Run the following command to retrieve the existing model definition. Replace {{asset-model-id}} with the ID or the external ID of the asset model or component model to update.
 
-   ```
+   ```bash
    aws iotsitewise describe-asset-model --asset-model-id {{asset-model-id}}
    ```
 
@@ -77,13 +76,13 @@ The following procedure can only update composite models of type `AWS/ALARM`. If
 
     For an use case where an asset model is in a `FAILED` state, retrieve the valid model definition corresponding to its active version to build your update request. See [Asset model versions](model-active-version.md) for details. Run the following command to retrieve the active model definition:
 
-   ```
+   ```bash
    aws iotsitewise describe-asset-model --asset-model-id {{asset-model-id}} --asset-model-version ACTIVE 
    ```
 
    The operation returns a response that contains the model's details. The response has the following structure.
 
-   ```
+   ```json
    {
        "assetModelId": "{{String}}",
        "assetModelArn": "{{String}}",
@@ -125,7 +124,7 @@ The following procedure can only update composite models of type `AWS/ALARM`. If
 
    The [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html) operation expects a payload with the following structure:
 
-   ```
+   ```json
    {
      "assetModelName": "{{String}}",
      "assetModelDescription": "{{String}}",
@@ -144,7 +143,7 @@ The following procedure can only update composite models of type `AWS/ALARM`. If
 
 1. Run the following command to update the asset model with the definition stored in `update-asset-model.json`. Replace {{asset-model-id}} with the ID of the asset model:
 
-   ```
+   ```bash
    aws iotsitewise update-asset-model \
      --asset-model-id {{asset-model-id}} \
      --cli-input-json file://model-payload.json

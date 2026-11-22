@@ -1,7 +1,6 @@
 
 
 # Security best practices for AWS IoT SiteWise
-<a name="security-best-practices"></a>
 
 This topic contains security best practices for AWS IoT SiteWise.
 

@@ -1,7 +1,6 @@
 
 
 # Use literals in formula expressions
-<a name="expression-literals"></a>
 
 AWS IoT SiteWise supports the use of literals in expressions and formulas. Literals are fixed values that represent a specific data type. In AWS IoT SiteWise, you can define number and string literals in formula expressions. Literals can be used in various contexts, including data transformations, alarm conditions, and visualization calculations.
 

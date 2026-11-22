@@ -1,7 +1,6 @@
 
 
 # Supported clauses
-<a name="supported-clauses"></a>
 
 The `SELECT` statement is used to retrieve data from one or more views. AWS IoT SiteWise supports the `JOIN` and `INNER JOIN` operations.
 
@@ -10,7 +9,7 @@ Views are joined with an explicit `JOIN` syntax, or with comma-separated notatio
 **Example**  
 A general `SELECT` statement:  
 
-```
+```SQL
 SELECT expression [, ...]
   [ FROM table_name AS alias [, ...] ]
   [ WHERE condition ]
@@ -23,7 +22,7 @@ SELECT expression [, ...]
 **Example**  
 A SELECT statement with the different clauses:  
 
-```
+```SQL
 SELECT
   a.asset_name,
   a.asset_id,
@@ -52,7 +51,7 @@ LIMIT 20;
 
 **Example of a query:**  
 
-```
+```SQL
 SELECT a.asset_name, p.property_name, r.event_timestamp
 FROM asset a, asset_property p, raw_time_series r
 WHERE a.asset_name='my_asset' AND p.property_name='my_property'
@@ -61,7 +60,7 @@ The above example only scans data from the asset property belonging to the speci
 
 **Example of a less optimized equivalent of the above query:**  
 
-```
+```SQL
 SELECT a.asset_name, p.property_name, r.event_timestamp
 FROM asset a
 JOIN asset_property p ON a.asset_id=p.asset_id

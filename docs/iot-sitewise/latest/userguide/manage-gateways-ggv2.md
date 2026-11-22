@@ -1,7 +1,6 @@
 
 
 # Manage SiteWise Edge gateways
-<a name="manage-gateways-ggv2"></a>
 
 You can use the AWS IoT SiteWise console and API operations to manage AWS IoT SiteWise Edge gateways. You can also use the [AWS OpsHub for AWS IoT SiteWise for Windows](https://aws-iot-sitewise.s3.amazonaws.com/gateway/OpsHub+for+AWS+IoT+SiteWise.exe) application to manage some aspects of your SiteWise Edge gateway from your local device.
 
@@ -19,7 +18,7 @@ To check if the service deleted your data, do the following:
 
 1. Unzip the log file.
 
-1. If the log file contains the following message, the service deleted your data:  {{number}} bytes of data have been deleted to prevent SiteWise Edge gateway storage from running out of space.  
+1. If the log file contains the following message, the service deleted your data: ` {{number}} bytes of data have been deleted to prevent SiteWise Edge gateway storage from running out of space. ` 
 
 ## Manage your SiteWise Edge gateway with the AWS IoT SiteWise console
 <a name="cloud-console"></a>
@@ -112,7 +111,7 @@ To access your SiteWise Edge gateway with Linux credentials, you must activate t
 
 1. To create an admin group, run the following command.
 
-   ```
+   ```bash
    sudo groupadd --system SWE_ADMIN_GROUP
    ```
 
@@ -120,7 +119,7 @@ To access your SiteWise Edge gateway with Linux credentials, you must activate t
 
 1. To create a user group, run the following command.
 
-   ```
+   ```bash
    sudo groupadd --system SWE_USER_GROUP
    ```
 
@@ -128,13 +127,13 @@ To access your SiteWise Edge gateway with Linux credentials, you must activate t
 
 1. To add a user to the admin group, run the following command. Replace {{user-name}} and {{password}} with the user name and password that you want to add.
 
-   ```
+   ```bash
    sudo useradd -p $(openssl passwd -1 {{password}}) {{user-name}}
    ```
 
 1. To add a user to either `SWE_ADMIN_GROUP` or `SWE_USER_GROUP`, replace {{user-name}} with the the user name that you added in the previous step.
 
-   ```
+   ```bash
    sudo usermod -a -G SWE_ADMIN_GROUP {{user-name}}
    ```
 
@@ -244,7 +243,7 @@ You can use the AWS IoT SiteWise console to change the version of component pack
 To list your gateways using AWS CLI, follow these steps:
 + Use the list-gateways command to view all your gateways:
 
-  ```
+  ```sh
   aws iotsitewise list-gateways
   ```
 
@@ -252,7 +251,7 @@ To list your gateways using AWS CLI, follow these steps:
 
   You can also specify pagination parameters:
 
-  ```
+  ```sh
   aws iotsitewise list-gateways --max-results {{10}} --next-token {{your-token}}
   ```
 
@@ -282,7 +281,7 @@ For more information, see [list-gateways](https://docs.aws.amazon.com/cli/latest
 To get detailed information about a specific gateway using AWS CLI, follow these steps:
 + Use the describe-gateway command with the gateway ID:
 
-  ```
+  ```sh
   aws iotsitewise describe-gateway --gateway-id {{a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE}}
   ```
 
@@ -320,7 +319,7 @@ For more information, see [describe-gateway](https://docs.aws.amazon.com/cli/lat
 To create a new IoT SiteWise gateway using AWS CLI, follow these steps:
 + Use the create-gateway command to create a new gateway:
 
-  ```
+  ```sh
   aws iotsitewise create-gateway \
       --gateway-name "NewSiteWiseGateway" \
       --gateway-platform '{
@@ -336,7 +335,7 @@ To create a new IoT SiteWise gateway using AWS CLI, follow these steps:
 
   This command returns the new gateway's ID and ARN:
 
-  ```
+  ```json
   {
       "gatewayId": "a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE",
       "gatewayArn": "arn:aws:iotsitewise:us-east-1:123456789012:gateway/a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE"
@@ -373,7 +372,7 @@ For more information, see [create-gateway](https://docs.aws.amazon.com/cli/lates
 To update an existing gateway using AWS CLI, follow these steps:
 + Use the update-gateway command to update a gateway's name:
 
-  ```
+  ```sh
   aws iotsitewise update-gateway \
       --gateway-id a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE \
       --gateway-name "UpdatedGatewayName"
@@ -411,7 +410,7 @@ For more information, see [update-gateway](https://docs.aws.amazon.com/cli/lates
 To update a gateway's capability configuration using AWS CLI, follow these steps:
 + Use the update-gateway-capability-configuration command to update the capability configuration:
 
-  ```
+  ```sh
   aws iotsitewise update-gateway-capability-configuration \
       --gateway-id a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE \
       --capability-namespace "iotsitewise:opcuacollector:1" \
@@ -438,7 +437,7 @@ To update a gateway's capability configuration using AWS CLI, follow these steps
 
   This command returns the capability namespace and sync status:
 
-  ```
+  ```json
   {
       "capabilityNamespace": "iotsitewise:opcuacollector:1",
       "capabilitySyncStatus": "CONFIGURING"
@@ -477,7 +476,7 @@ For more information, see [update-gateway-capability-configuration](https://docs
 To add tags to a gateway using AWS CLI, follow these steps:
 + Use the tag-resource command to add tags to a gateway:
 
-  ```
+  ```sh
   aws iotsitewise tag-resource \
       --resource-arn "arn:aws:iotsitewise:us-east-1:123456789012:gateway/a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE" \
       --tags '{
@@ -516,14 +515,14 @@ For more information, see [tag-resource](https://docs.aws.amazon.com/cli/latest/
 To list the tags associated with a gateway using AWS CLI, follow these steps:
 + Use the list-tags-for-resource command to list tags for a gateway:
 
-  ```
+  ```sh
   aws iotsitewise list-tags-for-resource \
       --resource-arn "arn:aws:iotsitewise:us-east-1:123456789012:gateway/a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE"
   ```
 
   This command returns the tags associated with the gateway:
 
-  ```
+  ```json
   {
       "tags": {
           "Environment": "Production",
@@ -566,7 +565,7 @@ For more information, see [list-tags-for-resource](https://docs.aws.amazon.com/c
 To remove tags from a gateway using AWS CLI, follow these steps:
 + Use the untag-resource command to remove tags from a gateway:
 
-  ```
+  ```sh
   aws iotsitewise untag-resource \
       --resource-arn "arn:aws:iotsitewise:us-east-1:123456789012:gateway/a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE" \
       --tag-keys '["Project", "Department"]'
@@ -624,13 +623,13 @@ To delete a gateway using AWS CLI, follow these steps:
 
 1. List your gateways to identify the gateway ID of the gateway you want to delete.
 
-   ```
+   ```sh
    aws iotsitewise list-gateways
    ```
 
    This command returns a list of your gateways with their IDs, names, and other information:
 
-   ```
+   ```json
    {
        "gatewaySummaries": [
            {
@@ -651,7 +650,7 @@ To delete a gateway using AWS CLI, follow these steps:
 
 1. Delete the gateway by specifying its ID:
 
-   ```
+   ```sh
    aws iotsitewise delete-gateway --gateway-id a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE
    ```
 
@@ -661,7 +660,7 @@ When you delete a gateway, some of the gateway's files remain in your gateway's 
 
 1. To verify that the gateway has been deleted, you can list your gateways again:
 
-   ```
+   ```sh
    aws iotsitewise list-gateways
    ```
 

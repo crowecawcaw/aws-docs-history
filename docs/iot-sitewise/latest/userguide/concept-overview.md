@@ -1,7 +1,6 @@
 
 
 # AWS IoT SiteWise concepts
-<a name="concept-overview"></a>
 
 The following are the core concepts of AWS IoT SiteWise:
 

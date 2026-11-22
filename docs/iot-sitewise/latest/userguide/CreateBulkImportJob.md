@@ -1,7 +1,6 @@
 
 
 # Create an AWS IoT SiteWise bulk import job (AWS CLI)
-<a name="CreateBulkImportJob"></a>
 
 Use the [CreateBulkImportJob](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateBulkImportJob.html) API operation to transfer data from Amazon S3 to AWS IoT SiteWise. The [CreateBulkImportJob](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateBulkImportJob.html) API enables ingestion of large volumes of historical data, and buffered ingestion of analytical data streams in small batches. It provides a cost-effective primitive for data ingestion. The following example uses the AWS CLI.
 
@@ -13,7 +12,7 @@ When set to `true`, the API ingests new data, calculating metrics and transformi
 
 Run the following command. Replace {{file-name}} with the name of the file that contains the bulk import job configuration.
 
-```
+```bash
 aws iotsitewise create-bulk-import-job --cli-input-json file://{{file-name}}.json
 ```
 
@@ -38,7 +37,7 @@ The following are examples of configuration settings:
 Make sure that your role has the permissions shown in the following example. Replace amzn-s3-demo-bucket{{-data}} with the name of the Amazon S3 bucket that contains your data. Also, replace {{amzn-s3-demo-bucket-for-errors}} with the name of the Amazon S3 bucket to which errors associated with this bulk import job are sent.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ Make sure that your role has the permissions shown in the following example. Rep
 }
 ```
 
-```
+```json
 {
    "adaptiveIngestion": adaptive-ingestion-flag,
    "deleteFilesAfterImport": delete-files-after-import-flag,       
@@ -98,7 +97,7 @@ Make sure that your role has the permissions shown in the following example. Rep
 
 **Example response**  
 
-```
+```json
 {
    "jobId":"f8c031d0-01d1-4b94-90b1-afe8bb93b7e5",
    "jobStatus":"PENDING",

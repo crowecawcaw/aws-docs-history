@@ -1,7 +1,6 @@
 
 
 # Create a VPC endpoint policy for AWS IoT SiteWise
-<a name="vpc-endpoint-policy"></a>
 
 You can attach an endpoint policy to your VPC endpoint that controls access to AWS IoT SiteWise. The policy specifies the following information:
 + The principal that can perform operations.

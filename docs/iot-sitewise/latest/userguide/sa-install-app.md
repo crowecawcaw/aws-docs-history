@@ -1,7 +1,6 @@
 
 
 # Install the application onto a Siemens device
-<a name="sa-install-app"></a>
 
 After you gain access to the AWS IoT SiteWise Edge application by emailing the SiteWise Edge support team for Siemens Industrial Edge, assign the application to an instance of Siemens Industrial Edge Management. Then, you can install the AWS IoT SiteWise Edge application on your device.
 

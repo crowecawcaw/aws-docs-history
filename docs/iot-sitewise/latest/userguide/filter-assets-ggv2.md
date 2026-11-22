@@ -1,7 +1,6 @@
 
 
 # Filter assets on a SiteWise Edge gateway
-<a name="filter-assets-ggv2"></a>
 
 You can use edge filtering to more efficiently manage your assets by sending only a subset of assets to a specific SiteWise Edge gateway for use in data processing. If your assets are arranged in a tree, or parent-child, structure, you can set up an IAM policy attached to a SiteWise Edge gateway’s IAM role that only allows the root of the tree, or parent, and its children to be sent to a specific SiteWise Edge gateway.
 
@@ -18,7 +17,7 @@ Set up edge filtering on your SiteWise Edge gateway by adding the following IAM 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

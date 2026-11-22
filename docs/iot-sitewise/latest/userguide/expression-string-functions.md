@@ -1,7 +1,6 @@
 
 
 # Use string functions in formula expressions
-<a name="expression-string-functions"></a>
 
 In [transforms](transforms.md) and [metrics](metrics.md), you can use the following functions to operate on strings. For more information, see [Use strings in formulas](expression-tutorials.md#use-strings-in-formulas).
 

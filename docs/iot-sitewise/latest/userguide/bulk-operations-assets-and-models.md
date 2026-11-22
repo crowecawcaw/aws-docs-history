@@ -1,7 +1,6 @@
 
 
 # Bulk operations with assets and models
-<a name="bulk-operations-assets-and-models"></a>
 
 To work with a large number of assets or asset models, use bulk operations to bulk import and export resources to a different location. For example, you can create a data file that defines assets or asset models in an Amazon S3 bucket, and use bulk import to create or update them in AWS IoT SiteWise. Alternatively, if you have a large number of assets or asset models in AWS IoT SiteWise, you can export them to Amazon S3. 
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS IoT SiteWise
-<a name="compliance-validation"></a>
 
 AWS IoT SiteWise is not in scope of any AWS compliance programs.
 

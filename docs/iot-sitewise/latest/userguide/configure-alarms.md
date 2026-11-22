@@ -1,7 +1,6 @@
 
 
 # Configure alarms on assets in AWS IoT SiteWise
-<a name="configure-alarms"></a>
 
 After you define an AWS IoT Events alarm on an asset model, you can configure the alarm on each asset based on the asset model. You can edit the threshold value and the notification settings for the alarm. Each of these values is an attribute on the asset, so you can update the default value of the attribute to configure these values.
 
@@ -47,7 +46,7 @@ Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/la
 
 1. Create a file called `batch-put-payload.json` and copy the following JSON object into the file. This example payload demonstrates how to set a wind turbine's latitude and longitude. Update the IDs, values, and timestamps to modify the payload for your use case.
 
-   ```
+   ```json
    {
      "entries": [
        {
@@ -97,6 +96,6 @@ Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/la
 
 1. Run the following command to send the attribute values to AWS IoT SiteWise:
 
-   ```
+   ```bash
    aws iotsitewise batch-put-asset-property-value -\-cli-input-json file://batch-put-payload.json
    ```

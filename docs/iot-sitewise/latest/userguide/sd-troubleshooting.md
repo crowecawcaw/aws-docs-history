@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and FAQ
-<a name="sd-troubleshooting"></a>
 
 ## Common issues
 <a name="sd-common-issues"></a>

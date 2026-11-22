@@ -1,7 +1,6 @@
 
 
 # Comparison operators
-<a name="sql-supported-comparision"></a>
 
 AWS IoT SiteWise supports the following comparison operators. All comparison operations are available for built in data types and evaluate to a boolean.
 

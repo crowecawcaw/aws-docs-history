@@ -1,7 +1,6 @@
 
 
 # Check the status of an asset or component model
-<a name="check-model-status"></a>
 
 You can use the AWS IoT SiteWise console or API to check the status of an asset model or component model.
 
@@ -41,13 +40,13 @@ The AWS CLI defines component models as a type of asset model. Therefore, you us
 **To check the status of an asset model or component model (AWS CLI)**
 + Run the following command to describe the model. Replace {{asset-model-id}} with the ID or the external ID of the asset model or component model. The external ID is a user-defined ID. For more information, see [Reference objects with external IDs](object-ids.md#external-id-references) in the *AWS IoT SiteWise User Guide*.
 
-  ```
+  ```bash
   aws iotsitewise describe-asset-model --asset-model-id {{asset-model-id}}
   ```
 
   The operation returns a response that contains the model's details. The response contains an `assetModelStatus` object that has the following structure.
 
-  ```
+  ```json
   {
       {{...}}
       "assetModelStatus": {

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS IoT SiteWise
-<a name="security-iam-awsmanpol"></a>
 
 Simplify adding permissions to users, groups, and roles using AWS managed policies rather than to writing policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team precise permissions. For a faster setup, consider using our AWS managed policies for common use cases. Find AWS managed policies in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
@@ -25,7 +24,7 @@ This policy provides read-only access to AWS IoT SiteWise, including permissions
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -109,7 +108,7 @@ This policy provides read-only access to AWS IoT SiteWise, including permissions
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -171,7 +170,7 @@ This policy provides read-only access to AWS IoT SiteWise, including permissions
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -233,7 +232,7 @@ This policy provides read-only access to AWS IoT SiteWise, including permissions
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

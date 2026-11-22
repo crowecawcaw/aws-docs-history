@@ -1,7 +1,6 @@
 
 
 # Custom composite models (components)
-<a name="custom-composite-models"></a>
 
  When you're modeling an especially complex industrial asset, such as a complicated piece of machinery that has many parts, it can become a challenge to keep your asset models organized and maintainable.
 
@@ -106,7 +105,7 @@ You can get a property's path from the `path` field of its [AssetModelProperty](
 
 For example, suppose you have an asset model `robot_model` that contains a custom composite model `servo`, which has a property `position`. If you call [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html) on `servo`, then the `position` property would list a `path` field that looks like this: 
 
-```
+```json
 "path": [
     {
        "id": "{{asset model ID}}",
@@ -136,7 +135,7 @@ To define a variable that uses the path of the referenced property, specify the 
 
 For example, to define an asset model that has a metric that references a property by using a path, you could pass a payload like this to [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html):
 
-```
+```json
 {
     {{...}}
     "assetModelProperties": [

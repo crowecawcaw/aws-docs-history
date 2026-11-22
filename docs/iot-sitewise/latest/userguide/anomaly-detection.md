@@ -1,7 +1,6 @@
 
 
 # Detect anomalies with Lookout for Equipment
-<a name="anomaly-detection"></a>
 
 **Note**  
 Anomaly detection is only available in the Regions where Amazon Lookout for Equipment is available.
@@ -54,7 +53,7 @@ To begin sending data collected by AWS IoT SiteWise to Lookout for Equipment, yo
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -123,7 +122,7 @@ To begin sending data collected by AWS IoT SiteWise to Lookout for Equipment, yo
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

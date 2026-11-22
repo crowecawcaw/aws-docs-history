@@ -1,7 +1,6 @@
 
 
 # Grant AWS IoT the required access
-<a name="grant-rule-access"></a>
 
 You use IAM roles to control the AWS resources to which each rule has access. Before you create a rule, you must create an IAM role with a policy that allows the rule to perform actions on the required AWS resource. AWS IoT assumes this role when running a rule.
 
@@ -16,7 +15,7 @@ The following example trust policy allows access to a specific asset and its chi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -46,7 +45,7 @@ Remove the `Condition` from the policy to allow access to all of your assets. Th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

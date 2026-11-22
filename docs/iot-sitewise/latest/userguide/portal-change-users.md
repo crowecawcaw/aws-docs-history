@@ -1,7 +1,6 @@
 
 
 # Add or remove portal users in AWS IoT SiteWise
-<a name="portal-change-users"></a>
 
 **Note**  
 The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).

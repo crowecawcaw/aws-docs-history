@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="anomaly-prerequisites"></a>
 
 To complete these steps, you must have an asset model and at least one asset created. For more information, see [ Create an asset model (AWS CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-asset-models.html#create-asset-model-cli), and [ Create an asset (AWS CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html#create-asset-cli). We do not support external IDs at this time.
 
@@ -14,7 +13,7 @@ Follow these steps to update your AWS CLI configuration, and access the computat
 + Install the latest awscli version `aws-cli`.
 + Verify the installation by checking for the new APIs:
 
-  ```
+  ```bash
   aws iotsitewise help
   ```
 
@@ -39,7 +38,7 @@ To set up anomaly detection, you must have the following requirements and the [U
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -73,7 +72,7 @@ To set up anomaly detection, you must have the following requirements and the [U
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -108,7 +107,7 @@ To set up anomaly detection, you must have the following requirements and the [U
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

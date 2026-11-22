@@ -1,7 +1,6 @@
 
 
 # Apply an interface to an asset model
-<a name="interfaces-link-asset-model"></a>
 
 When applying an interface to an asset model, you map asset model properties and hierarchies to their interface counterparts. For unmapped interface properties, corresponding properties are automatically created in the asset model. After linking, the service prevents changes to the asset model that would violate interface standards.
 
@@ -27,7 +26,7 @@ You can add one asset model to an interface at a time. However, multiple asset m
 
 To apply an interface to an asset model, use the `PutAssetModelInterfaceRelationship` operation:
 
-```
+```bash
 aws iotsitewise put-asset-model-interface-relationship \
   --asset-model-id "{{a1b2c3d4-5678-90ab-cdef-11111EXAMPLE}}" \ 
   --interface-asset-model-id "{{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}" \
@@ -45,7 +44,7 @@ aws iotsitewise put-asset-model-interface-relationship \
 
 To retrieve information about an interface relationship, use the `DescribeAssetModelInterfaceRelationship` operation:
 
-```
+```bash
 aws iotsitewise describe-asset-model-interface-relationship \
   --asset-model-id "{{a1b2c3d4-5678-90ab-cdef-11111EXAMPLE}}" \
   --interface-asset-model-id "{{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}"
@@ -53,7 +52,7 @@ aws iotsitewise describe-asset-model-interface-relationship \
 
 To list all asset models that have a specific interface applied to them, use the `ListInterfaceRelationships` operation:
 
-```
+```bash
 aws iotsitewise list-interface-relationships \
   --interface-asset-model-id "{{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}" \
   --max-results 10
@@ -61,7 +60,7 @@ aws iotsitewise list-interface-relationships \
 
 To delete an interface relationship, use the `DeleteAssetModelInterfaceRelationship` operation:
 
-```
+```bash
 aws iotsitewise delete-asset-model-interface-relationship \
   --asset-model-id "{{a1b2c3d4-5678-90ab-cdef-11111EXAMPLE}}" \
   --interface-asset-model-id "{{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}"

@@ -1,7 +1,6 @@
 
 
 # Filter data ingestion ranges with OPC UA
-<a name="opcua-data-acquisition"></a>
 
 You can control the way you ingest data with an OPC UA source by using scan mode and deadband ranges. These features let you control what kind of data to ingest, and how and when your server and SiteWise Edge gateway exchange this information.
 

@@ -1,7 +1,6 @@
 
 
 # Delete assets in AWS IoT SiteWise
-<a name="delete-assets"></a>
 
 You can use the AWS IoT SiteWise console or API to delete an asset no longer needed in your environment. Deleting an asset model also deletes all associated assets and component models. However, it's important to note that deleting an asset or model is a permanent action, and any data associated with the deleted resources is also be removed. Before deleting assets or models, it's recommended to review any dependencies or integrations that might be impacted and ensure that you have a backup of any important data.
 
@@ -53,13 +52,13 @@ Use the [DeleteAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReferen
 
 1. Run the following command to list the asset's hierarchies. Replace {{asset-id}} with the ID or the external ID of the asset:
 
-   ```
+   ```bash
    aws iotsitewise describe-asset --asset-id {{asset-id}}
    ```
 
    The operation returns a response that contains the asset's details. The response contains an `assetHierarchies` list that has the following structure:
 
-   ```
+   ```json
    {
      {{...}}
      "assetHierarchies": [
@@ -76,7 +75,7 @@ Use the [DeleteAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReferen
 
 1. For each hierarchy, run the following command to list the asset's children that are associated with that hierarchy. Replace {{asset-id}} with the ID or external ID of the asset and {{hierarchy-id}} with the ID or external ID of the hierarchy.
 
-   ```
+   ```bash
    aws iotsitewise list-associated-assets \
      --asset-id {{asset-id}} \
      --hierarchy-id {{hierarchy-id}}
@@ -86,6 +85,6 @@ Use the [DeleteAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReferen
 
 1. Run the following command to delete each associated asset and then to delete the asset. Replace {{asset-id}} with the ID or external ID of the asset.
 
-   ```
+   ```bash
    aws iotsitewise delete-asset --asset-id {{asset-id}}
    ```

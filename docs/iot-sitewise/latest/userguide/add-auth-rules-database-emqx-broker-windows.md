@@ -1,7 +1,6 @@
 
 
 # Configure authorization using the built-in database with Windows
-<a name="add-auth-rules-database-emqx-broker-windows"></a>
 
 This section covers configuring authorization rules using the built-in database for Windows deployments.
 
@@ -11,7 +10,7 @@ This section covers configuring authorization rules using the built-in database 
 
 1. Run the AWS IoT SiteWise EMQX CLI tool: 
 
-   ```
+   ```sh
    C:\greengrass\v2\bin\swe-emqx-cli.ps1 acl init
    ```
 

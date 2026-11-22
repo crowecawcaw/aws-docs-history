@@ -1,7 +1,6 @@
 
 
 # Understand the interface-asset model relationship
-<a name="interface-asset-model-relationship"></a>
 
 Interfaces and asset models work together in a complementary relationship:
 
@@ -70,7 +69,7 @@ Interfaces excel at defining standardized metrics that can be applied across dif
 
 When you define metrics in an interface, they're automatically applied to all asset models that implement the interface. The metrics can reference properties defined in the interface, use aggregation functions to calculate statistics across assets, and ensure consistent calculations across all implementing asset models For example, you can define an availability metric in an interface that calculates the ratio of running time to total time:
 
-```
+```json
 {
   "name": "Availability",
   "dataType": "DOUBLE",
@@ -113,7 +112,7 @@ Interfaces can also define rollup metrics that aggregate data across assets in a
 
 For example, you can define a metric that calculates the average temperature across all CNC machines in a factory:
 
-```
+```json
 {
   "name": "AverageTemperature",
   "dataType": "DOUBLE",

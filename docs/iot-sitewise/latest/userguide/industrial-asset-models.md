@@ -1,7 +1,6 @@
 
 
 # Model industrial assets
-<a name="industrial-asset-models"></a>
 
 ## Assets overview
 <a name="assets-overview"></a>

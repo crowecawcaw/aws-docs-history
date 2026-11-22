@@ -1,7 +1,6 @@
 
 
 # Inspect errors for AWS IoT SiteWise
-<a name="inspect-errors"></a>
 
 ## Inspect error details (console)
 <a name="inspect-errors-console"></a>
@@ -29,7 +28,7 @@ To handle and diagnose errors produced during a transfer job, see the following 
 
 1. After creating and running a transfer job, call [GetMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.html):
 
-   ```
+   ```bash
    aws iottwinmaker get-metadata-transfer-job \
            --metadata-transfer-job-id {{your_metadata_transfer_job_id}} \
            --region us-east-1

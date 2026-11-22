@@ -1,7 +1,6 @@
 
 
 # Key management in AWS IoT SiteWise
-<a name="key-management"></a>
 
 ## AWS IoT SiteWise cloud key management
 <a name="key-cloud-sw"></a>

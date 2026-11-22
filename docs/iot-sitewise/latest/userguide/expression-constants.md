@@ -1,7 +1,6 @@
 
 
 # Use constants in formula expressions
-<a name="expression-constants"></a>
 
 In AWS IoT SiteWise, you can use constants in your expressions and formulas to represent fixed values or predefined parameters. Constants can be used in various contexts, such as data transformations, alarm conditions, or visualization calculations. By using constants, you can simplify your expressions and make them more readable and maintainable.
 

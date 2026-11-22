@@ -1,7 +1,6 @@
 
 
 # Appendix: Create an application using the AWS CLI
-<a name="sd-create-application-cli"></a>
 
 When you create a Scenario Discovery application in the AWS IoT SiteWise console and choose **Complete Setup**, the console automatically creates two IAM service roles that the application needs. When you create an application with the AWS CLI or SDK instead, these tools don't create those roles for you. If you skip creating them, users of the application receive an AccessDenied error. This topic shows how to create the application and then create and scope the two required roles yourself so the CLI path matches the console path.
 

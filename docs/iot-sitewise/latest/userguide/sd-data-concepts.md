@@ -1,7 +1,6 @@
 
 
 # Data concepts in Scenario Discovery
-<a name="sd-data-concepts"></a>
 
 Before you manage your workflow, take a moment to understand the key data concepts in this section. Understanding these concepts and the reasoning behind them enables you to use the system more efficiently. In the previous sections, you learned about the Account and Workspace data entities. This section takes you deeper into the data entities in the system.
 
@@ -61,7 +60,7 @@ When calling `CreateBulkImportJob`, you specify the alias differently depending 
 
 Alias is required per file, along with `startTime`:
 
-```
+```json
 {
   "files": [
     {
@@ -80,7 +79,7 @@ Alias is required per file, along with `startTime`:
 
 Alias is required per file. Timestamps are derived from frame data inside the file:
 
-```
+```json
 {
   "files": [
     {
@@ -114,7 +113,7 @@ Alias is a required column inside the Parquet schema itself — each row declare
 
 Every segment returned carries its alias:
 
-```
+```json
 {
   "alias": "/fleet-7/truck-42/front_camera",
   "dataType": "VIDEO",
@@ -134,7 +133,7 @@ Every segment returned carries its alias:
 ##### CLI example — list all video aliases and enrichment status
 <a name="sd-alias-cli-example"></a>
 
-```
+```bash
 aws iotsitewise list-dataset-data-segments --region eu-west-1 \
   --workspace-name my-workspace --dataset-id my-dataset \
   --query "dataSegments[?dataType=='VIDEO'].{alias:alias,tsId:timeSeriesId,status:enrichment.status}"
@@ -145,7 +144,7 @@ aws iotsitewise list-dataset-data-segments --region eu-west-1 \
 
 `CreateEnrichmentJob` targets a single timeseries. Identify it using either `propertyAlias` or `timeSeriesId` — never both. The API rejects the request if you supply both.
 
-```
+```json
 {
   "workspaceName": "my-workspace",
   "jobConfiguration": {
@@ -174,7 +173,7 @@ This is where alias shines — you can target a video for enrichment by name wit
 
 When a dataset shows `PARTIALLY_ENRICHED`, use the alias to pinpoint which videos still need enrichment:
 
-```
+```bash
 # Step 1: Check dataset-level enrichment status
 aws iotsitewise describe-dataset --region eu-west-1 \
   --workspace-name my-workspace --dataset-id my-dataset \

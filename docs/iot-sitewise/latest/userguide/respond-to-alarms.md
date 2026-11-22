@@ -1,7 +1,6 @@
 
 
 # Respond to alarms in AWS IoT SiteWise
-<a name="respond-to-alarms"></a>
 
 When an AWS IoT Events alarm changes state, you can do the following to respond to the alarm:
 + Acknowledge an alarm to indicate that you are handling the issue.
