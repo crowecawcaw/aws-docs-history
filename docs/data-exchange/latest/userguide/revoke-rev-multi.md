@@ -1,7 +1,6 @@
 
 
 # Revoking multiple AWS Data Exchange asset revisions as a provider (console)
-<a name="revoke-rev-multi"></a>
 
 As a provider of AWS Data Exchange data products, you can use the AWS Data Exchange console to revoke subscriber access to multiple revisions using the following instructions. 
 

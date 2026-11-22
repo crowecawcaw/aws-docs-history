@@ -1,7 +1,6 @@
 
 
 # Service-linked role for AWS Data Exchange license management
-<a name="using-service-linked-roles-license-management"></a>
 
 AWS Data Exchange uses the service-linked role named `AWSServiceRoleForAWSDataExchangeLicenseManagement` – this role allows AWS Data Exchange to retrieve information about your AWS organization and manage AWS Data Exchange data grants licenses.
 

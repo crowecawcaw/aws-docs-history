@@ -1,7 +1,6 @@
 
 
 # Viewing revoked revisions as a subscriber (console)
-<a name="view-revoked-rev"></a>
 
 As a subscriber to AWS Data Exchange data products, you can use the AWS Data Exchange console to view the reason for revocation of access to a revision using the following instructions. 
 

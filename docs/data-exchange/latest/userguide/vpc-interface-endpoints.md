@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your virtual private cloud (VPC) and AWS Data Exchange by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access AWS Data Exchange API operations without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with AWS Data Exchange API operations. Traffic between your VPC and AWS Data Exchange does not leave the Amazon network. 
 
@@ -51,7 +50,7 @@ This example VPC endpoint policy allows full access only to the user `bts` in AW
 
 ****  
 
-```
+```json
 {
     "Id": "example-policy",
     "Version":"2012-10-17",		 	 	 

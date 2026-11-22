@@ -1,7 +1,6 @@
 
 
 # Creating private offers in AWS Data Exchange
-<a name="private-offer-configuration"></a>
 
 AWS Data Exchange gives providers the option to create custom offers, such as private offers. For more information on private offers, see [Creating an offer for AWS Data Exchange products](prepare-offers.md).
 

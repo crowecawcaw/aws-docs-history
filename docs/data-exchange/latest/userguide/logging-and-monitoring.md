@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Data Exchange
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of the well-architected nature of AWS Data Exchange. You should collect monitoring data from each part of your AWS solution so that you can more easily debug a multi-point failure, if one occurs. AWS provides several tools for monitoring your resources and activity in AWS Data Exchange so you can plan for and respond to potential incidents.
 

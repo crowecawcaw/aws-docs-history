@@ -1,7 +1,6 @@
 
 
 # Access an AWS Data Exchange data set after accepting a data grant
-<a name="data-grant-access-data-set"></a>
 
 The following topics describe the process of accessing a data set on AWS Data Exchange using the AWS Data Exchange console.
 

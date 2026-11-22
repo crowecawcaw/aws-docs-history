@@ -1,7 +1,6 @@
 
 
 # Creating public offers in AWS Data Exchange
-<a name="public-offer-configuration"></a>
 
 To create a new public offer:
 

@@ -1,7 +1,6 @@
 
 
 # Data in AWS Data Exchange
-<a name="data-sets"></a>
 
 Data is organized in AWS Data Exchange using three building blocks:
 + **[Assets](#assets)** – A piece of data 

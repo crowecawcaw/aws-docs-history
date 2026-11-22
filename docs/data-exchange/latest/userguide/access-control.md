@@ -1,7 +1,6 @@
 
 
 # Access control
-<a name="access-control"></a>
 
 To create, update, delete, or list AWS Data Exchange resources, you need permissions to perform the operation and to access the corresponding resources. To perform the operation programmatically, you also need valid access keys.
 
@@ -80,7 +79,7 @@ For example, you could create a policy to allow importing and exporting to AWS D
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

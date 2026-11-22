@@ -1,7 +1,6 @@
 
 
 # What is AWS Data Exchange?
-<a name="what-is"></a>
 
 AWS Data Exchange is a service that helps AWS customers easily share and manage data entitlements from other organizations at scale.
 

@@ -1,7 +1,6 @@
 
 
 # Service-linked roles for AWS Organization discovery in AWS Data Exchange
-<a name="using-service-linked-roles-aws-org-discovery"></a>
 
 AWS Data Exchange uses the service-linked role named `AWSServiceRoleForAWSDataExchangeOrganizationDiscovery` – this role allows AWS Data Exchange to retrieve information about your AWS organization to determine eligibility for AWS Data Exchange data grants license distribution.
 

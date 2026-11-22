@@ -1,7 +1,6 @@
 
 
 # Exporting AWS Data Exchange assets to an S3 bucket
-<a name="exporting-from-s3"></a>
 
 When you export assets to Amazon S3, the IAM permissions you use must include the ability to read from the AWS Data Exchange service S3 buckets and to write to the S3 bucket where your assets are stored. You can export to any S3 bucket you have permission to access, regardless of ownership. For more information, see [Amazon S3 permissions](access-control.md#additional-s3-permissions).
 

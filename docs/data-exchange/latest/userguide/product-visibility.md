@@ -1,7 +1,6 @@
 
 
 # Product visibility in AWS Data Exchange
-<a name="product-visibility"></a>
 
 New products initially have limited visibility, accessible only to allowlisted accounts and the product creator. After testing and validation, you can publish your product to make it available in the AWS Marketplace catalog for all buyers. Products in AWS Marketplace can have the following status values:
 + **Staging** – This status indicates an incomplete product for which you're still adding information. After you first save and exit the self-service experience, AWS Marketplace creates an unpublished product containing information from the completed steps. From this status, you can continue to add information or modify submitted details.

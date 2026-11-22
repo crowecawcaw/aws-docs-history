@@ -1,7 +1,6 @@
 
 
 # Setting up and querying AWS Data Exchange for Lake Formation (Test Product) (Preview)
-<a name="query-LF-data-console"></a>
 
 The following procedure shows how to set up and query a Lake Formation data permission set (Preview) using the AWS Management Console.
 

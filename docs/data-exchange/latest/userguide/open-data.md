@@ -1,7 +1,6 @@
 
 
 # Using Open Data on AWS data sets with AWS Data Exchange
-<a name="open-data"></a>
 
 The [Open Data on AWS](https://aws.amazon.com/opendata/) program is a collection of over 300 free, publicly available data sets. You can use AWS Marketplace to find Open Data on AWS data sets, along with other no-cost and paid products, all in one place. 
 

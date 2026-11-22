@@ -1,7 +1,6 @@
 
 
 # Getting started with Open Data on AWS data sets using the AWS Data Exchange console
-<a name="open-data-using-ADX-console"></a>
 
 The following topics describe how you can find and use an Open Data on AWS data set on AWS Data Exchange by using the AWS Data Exchange console. You must have an AWS account to complete this process.
 

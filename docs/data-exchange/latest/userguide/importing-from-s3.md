@@ -1,7 +1,6 @@
 
 
 # Importing AWS Data Exchange assets from an S3 bucket
-<a name="importing-from-s3"></a>
 
 When you import assets from Amazon S3 to AWS Data Exchange, the AWS Identity and Access Management (IAM) permissions you use must include the ability to write to the AWS Data Exchange service S3 buckets and to read from the S3 bucket where your assets are stored. You can import from any S3 bucket that you have permission to access, regardless of ownership. For more information, see [Amazon S3 permissions](access-control.md#additional-s3-permissions).
 

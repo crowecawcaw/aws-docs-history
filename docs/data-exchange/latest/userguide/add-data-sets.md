@@ -1,7 +1,6 @@
 
 
 # Add data sets to AWS Data Exchange
-<a name="add-data-sets"></a>
 
 **Note**  
 Data sets added via the Catalog API change set of type `AddDataSets` default to the publishing method of the product.
@@ -38,7 +37,7 @@ Before you begin, you need AWS Identity and Access Management (IAM) permissions 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

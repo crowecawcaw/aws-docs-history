@@ -1,7 +1,6 @@
 
 
 # Product best practices in AWS Data Exchange
-<a name="product-details"></a>
 
 When you publish a product on the AWS Data Exchange console, you must provide the product's details. This section covers some best practices to consider when you're preparing product details.
 

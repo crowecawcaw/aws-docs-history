@@ -1,7 +1,6 @@
 
 
 # Removing a revision in AWS Data Exchange
-<a name="remove-revision"></a>
 
 A provider can revoke subscriber access to a revision and then delete the assets of the revision using the console or the AWS Data Exchange API. For more information, see [Revoking access to revisions in AWS Data Exchange](revoking-revisions.md).
 

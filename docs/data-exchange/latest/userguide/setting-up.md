@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Data Exchange
-<a name="setting-up"></a>
 
 Before you can use any AWS service, including AWS Data Exchange, you must complete the following tasks:
 

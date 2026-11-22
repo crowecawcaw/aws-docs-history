@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from multiple data centers and network architecture that is built to meet the requirements of the most security-sensitive organizations.
 

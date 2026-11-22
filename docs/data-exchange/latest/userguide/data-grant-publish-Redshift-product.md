@@ -1,7 +1,6 @@
 
 
 # Create a data grant on AWS Data Exchange containing Amazon Redshift data sets
-<a name="data-grant-publish-Redshift-product"></a>
 
 An Amazon Redshift data set contains AWS Data Exchange datashares for Amazon Redshift. When customers subscribe to a product containing datashares, they are granted read-only access to the tables, views, schemas, and user-defined functions that a data owner adds to the datashare.
 

@@ -1,7 +1,6 @@
 
 
 # Updating product and offer details in AWS Data Exchange
-<a name="update-product-details"></a>
 
 After you publish a product, you can use the AWS Data Exchange console to edit the product details. You can also edit the product's public or custom offers and change the offer terms. When you update your product's offer terms, subscribers with an active subscription keep their existing offer terms as long as their subscription is active. Subscribers who have chosen auto-renewals use the new offer terms.
 

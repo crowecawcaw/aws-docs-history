@@ -1,7 +1,6 @@
 
 
 # Exporting assets to a signed URL as a subscriber (console)
-<a name="export-asset-url-sub"></a>
 
 As a subscriber to AWS Data Exchange data products, you can use the AWS Data Exchange console to export AWS Data Exchange assets to destinations other than S3 buckets using the following instructions.
 

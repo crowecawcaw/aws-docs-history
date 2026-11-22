@@ -1,7 +1,6 @@
 
 
 # Revoking access to an AWS Data Exchange asset revision (AWS CLI)
-<a name="revoke-rev-sdk"></a>
 
 As a provider of AWS Data Exchange data products, you can use the AWS CLI to revoke subscriber access to a revision using the following instructions. 
 
@@ -9,7 +8,7 @@ As a provider of AWS Data Exchange data products, you can use the AWS CLI to rev
 
 1. Use the `revoke-revision` command to revoke a revision. 
 
-   ```
+   ```json
    $ AWS dataexchange revoke-revision \
    --data-set-id $DATA_SET_ID \
    --revision-id $REVISION_ID \

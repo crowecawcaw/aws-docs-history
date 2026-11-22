@@ -1,7 +1,6 @@
 
 
 # Unsubscribing from an AWS Data Exchange product
-<a name="unsubscribe-product"></a>
 
 Use the AWS Data Exchange console to unsubscribe from a data product.
 

@@ -1,7 +1,6 @@
 
 
 # Revision access rules in AWS Data Exchange
-<a name="best-practices-revisions"></a>
 
 Revision access rules specify which revisions subscribers can access when they subscribe to your product in AWS Data Exchange. You choose options for subscribers to get historical and future revisions.
 + *Historical revision options* – Historical revisions are revisions that you published prior to the subscription start date. You have three options for historical revisions:

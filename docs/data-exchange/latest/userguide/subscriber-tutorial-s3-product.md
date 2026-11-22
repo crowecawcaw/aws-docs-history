@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange for Amazon S3 (Test Product)
-<a name="subscriber-tutorial-s3-product"></a>
 
 AWS Data Exchange for Amazon S3 (Test Product) is a product that helps subscribers understand how to subscribe to and interact with an AWS Data Exchange product. In this tutorial, the product contains Amazon Simple Storage Service (Amazon S3) data access data sets.You can use this product for testing purposes and to learn how to query and analyze data directly from a data provider's Amazon S3 bucket.
 

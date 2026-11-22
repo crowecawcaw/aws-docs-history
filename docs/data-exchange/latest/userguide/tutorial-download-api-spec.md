@@ -1,7 +1,6 @@
 
 
 # Downloading the AWS Data Exchange API specification
-<a name="tutorial-download-api-spec"></a>
 
 You can download the API specification with AWS Data Exchange for APIs (Test Product) using the following steps.
 

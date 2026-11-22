@@ -1,7 +1,6 @@
 
 
 # Product subscriptions in AWS Data Exchange
-<a name="product-subscriptions"></a>
 
 All AWS Data Exchange products are subscription-based. When you subscribe to a product, you agree to the product's offer terms, including the price, duration, payment schedule, data subscription agreement, and refund policy. When you subscribe to a product, you pay according to the payment schedule chosen by the provider for the duration that you subscribed to.
 

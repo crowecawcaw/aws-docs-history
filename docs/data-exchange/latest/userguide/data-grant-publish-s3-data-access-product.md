@@ -1,7 +1,6 @@
 
 
 # Creating a data grant on AWS Data Exchange containing Amazon S3 data access
-<a name="data-grant-publish-s3-data-access-product"></a>
 
 With AWS Data Exchange for Amazon S3, data owners can share direct access to Amazon S3 buckets or specific prefixes and Amazon S3 objects. Data owners also use AWS Data Exchange to automatically manage entitlements through data grants.
 
@@ -70,7 +69,7 @@ Before you can create a data grant containing Amazon S3 data access, you must me
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -107,7 +106,7 @@ Cross account KMS keys are also permitted if the `kms:CreateGrant` permission on
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -155,7 +154,7 @@ You can delegate data sharing through AWS Data Exchange to an entire Amazon S3 b
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -233,7 +232,7 @@ Similarly, to scope access to only a single file, a data owner can use the follo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Managing AWS Data Exchange subscriptions
-<a name="managing-subscriptions"></a>
 
 The following topics describe how to manage your subscriptions in AWS Data Exchange.
 

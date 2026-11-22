@@ -1,7 +1,6 @@
 
 
 # Sensitive categories of information in AWS Data Exchange
-<a name="sensitive-information"></a>
 
 When you create a product in AWS Data Exchange, you must specify whether your product contains any personal data or sensitive categories of information. 
 

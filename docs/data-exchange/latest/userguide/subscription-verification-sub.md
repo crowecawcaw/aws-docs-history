@@ -1,7 +1,6 @@
 
 
 # Subscription verification for subscribers in AWS Data Exchange
-<a name="subscription-verification-sub"></a>
 
 When you subscribe to AWS Data Exchange public products, you are required to submit additional information about your identity and your intended use case. The provider reviews this information before approving subscriptions. 
 

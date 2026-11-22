@@ -1,7 +1,6 @@
 
 
 # Viewing and downloading a data dictionary in AWS Data Exchange
-<a name="view-download-dictionaries"></a>
 
 Providers can attach data dictionaries to all AWS Data Exchange products. The following procedures describe how to view and download a data dictionary.
 

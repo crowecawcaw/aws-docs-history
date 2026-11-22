@@ -1,7 +1,6 @@
 
 
 # Subscribing to Worldwide Event Attendance (Test Product) on AWS Data Exchange
-<a name="subscribe-to-test-product"></a>
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to Worldwide Event Attendance (Test Product).
 

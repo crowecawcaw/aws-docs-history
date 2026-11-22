@@ -1,7 +1,6 @@
 
 
 # Worldwide Event Attendance (Test Product) on AWS Data Exchange
-<a name="subscriber-tutorial-RS-product"></a>
 
 Worldwide Event Attendance (Test Product) is a free product that helps subscribers understand how to subscribe to and interact with an AWS Data Exchange product containing Amazon Redshift data sets. You can use this product for testing purposes and to learn how to query, analyze, and build applications within minutes.
 

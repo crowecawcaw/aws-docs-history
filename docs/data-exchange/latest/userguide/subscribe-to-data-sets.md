@@ -1,7 +1,6 @@
 
 
 # Subscribing to AWS Data Exchange data products on AWS Data Exchange
-<a name="subscribe-to-data-sets"></a>
 
 At a high level, this is how to subscribe to AWS Data Exchange data products available through AWS Marketplace:
 

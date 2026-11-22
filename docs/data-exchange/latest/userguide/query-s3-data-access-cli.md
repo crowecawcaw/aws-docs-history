@@ -1,7 +1,6 @@
 
 
 # Setting up and querying AWS Data Exchange for Amazon S3 (Test Product)
-<a name="query-s3-data-access-cli"></a>
 
 The following procedure shows how to set up and query an Amazon S3 data access data set using the AWS Command Line Interface (AWS CLI). Before querying, you must obtain the appropriate AWS Identity and Access Management (IAM) permissions to attach policies to your user. To access data in a provider's bucket directly through the Amazon S3 delivery method, embed the following JSON policy to the user or role. 
 
@@ -22,7 +21,7 @@ If you don't have the correct permissions, you'll receive a notification detaili
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

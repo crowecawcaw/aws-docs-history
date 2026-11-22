@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange for AWS Lake Formation (Test Product) (Preview)
-<a name="subscriber-tutorial-LF-product"></a>
 
 AWS Data Exchange for AWS Lake Formation (Test Product) is a free product that helps subscribers understand how to subscribe to and interact with an AWS Data Exchange product containing AWS Lake Formation data sets. You can use this product for testing purposes and learn how to query, analyze, and share data internally within minutes.
 

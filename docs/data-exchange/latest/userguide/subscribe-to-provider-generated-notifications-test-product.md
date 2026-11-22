@@ -1,7 +1,6 @@
 
 
 # Subscribing to AWS Data Exchange for Provider-Generated Notifications (Test Product)
-<a name="subscribe-to-provider-generated-notifications-test-product"></a>
 
 The following procedure shows how to subscribe to AWS Data Exchange Provider-Generated Notifications (Test Product).
 

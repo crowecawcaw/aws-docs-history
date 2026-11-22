@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange Provider-Generated Notifications (Test Product)
-<a name="subscriber-tutorial-provider-notifications"></a>
 
 AWS Data Exchange Provider-Generated Notifications (Test Product) is a free product that helps subscribers understand how to subscribe to and interact with an AWS Data Exchange product using provider-generated notifications.
 

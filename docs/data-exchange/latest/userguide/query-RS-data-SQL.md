@@ -1,7 +1,6 @@
 
 
 # Querying Worldwide Event Attendance (Test Product) data on Amazon Redshift (SQL)
-<a name="query-RS-data-SQL"></a>
 
 The following procedure shows how to set up and query the datashare using the SQL commands.
 

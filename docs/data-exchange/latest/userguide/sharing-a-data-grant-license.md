@@ -1,7 +1,6 @@
 
 
 # Sharing an AWS Data Exchange data grant license in an organization
-<a name="sharing-a-data-grant-license"></a>
 
 When you accept a data grant, you receive a license that allows you to share the underlying data set under the following conditions:
 + The data grant sender allows you to share the underlying data set.

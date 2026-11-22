@@ -1,7 +1,6 @@
 
 
 # Approve or decline requests for subscription verification in AWS Data Exchange
-<a name="approve-or-decline-requests"></a>
 
 **Important regulatory update**  
 Effective April 8, 2025, you may not use AWS Data Exchange to provide products containing Bulk U.S. Sensitive Personal Data or U.S. Government-related Data to Countries of Concern or Covered Persons, as each is defined in the U.S. Department of Justice Final Rule on Preventing Access to U.S. Sensitive Personal Data and Government-Related Data by Countries of Concern and Covered Persons ("DOJ Rule"), available [here](https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern). You are responsible for compliance with the DOJ Rule. To support compliance, subscription verification is now enabled for all AWS Data Exchange public offers and requires subscribers to identify if they are in a Country of Concern or a Covered Person.  

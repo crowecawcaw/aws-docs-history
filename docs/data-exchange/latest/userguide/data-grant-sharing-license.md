@@ -1,7 +1,6 @@
 
 
 # Sharing your AWS Data Exchange licenses
-<a name="data-grant-sharing-license"></a>
 
 **Overview for receivers**
 

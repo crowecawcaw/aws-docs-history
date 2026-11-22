@@ -1,7 +1,6 @@
 
 
 # Email notifications for subscription verification in AWS Data Exchange
-<a name="email-notifications-pro"></a>
 
 You will receive an email message to your AWS Marketplace registered Seller AWS account email address to notify you when an AWS Data Exchange subscription request is received, or when its status has changed to cancelled or expired. Although most subscription request status changes result in an email notification, the delivery of these email messages is on a best-effort basis.
 

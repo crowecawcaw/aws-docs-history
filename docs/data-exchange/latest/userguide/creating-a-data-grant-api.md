@@ -1,7 +1,6 @@
 
 
 # Creating a data grant on AWS Data Exchange containing APIs
-<a name="creating-a-data-grant-api"></a>
 
 The following topics describe the process of creating a REST API data set and adding it to a data grant that contains APIs on AWS Data Exchange. You can complete the process by using either the AWS Data Exchange console or the AWS Command Line Interface.
 
@@ -54,7 +53,7 @@ AWS Data Exchange encrypts traffic end to end using Transport Layer Security (TL
 
 An API on AWS Data Exchange passes through all headers (except for the headers listed in [Header forwarding](publish-API-product.md#header-forwarding)), body, http method, path, and query strings as-is from the customer request and appends the following headers.
 
-```
+```json
 // These headers help prevent Confused Deputy attacks.  They enable the SourceAccount
 // and SourceArn variables in IAM policies.
 'x-amz-source-account': ACCOUNT_ID,

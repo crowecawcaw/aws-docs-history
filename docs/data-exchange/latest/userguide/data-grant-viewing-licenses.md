@@ -1,7 +1,6 @@
 
 
 # Viewing your AWS Data Exchange licenses
-<a name="data-grant-viewing-licenses"></a>
 
 The following topics explain how to view your AWS Data Exchange licenses.
 

@@ -1,7 +1,6 @@
 
 
 # Access an AWS Data Exchange data set containing Amazon S3 data access
-<a name="data-grant-access-s3-data-sets"></a>
 
 **Overview for recipients**
 
@@ -53,7 +52,7 @@ The data provided is stored in the data owner’s Amazon S3 bucket. When accessi
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [{
@@ -75,7 +74,7 @@ The data provided is stored in the data owner’s Amazon S3 bucket. When accessi
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

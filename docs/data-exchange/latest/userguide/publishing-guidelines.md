@@ -1,7 +1,6 @@
 
 
 # Publishing guidelines for AWS Data Exchange
-<a name="publishing-guidelines"></a>
 
 The following guidelines outline restrictions for listing products on AWS Data Exchange. As a provider, you're responsible for complying with these guidelines and the [Terms and Conditions for AWS Marketplace Sellers](https://aws.amazon.com/marketplace/management/seller-settings/terms) and the [AWS Customer Agreement](https://aws.amazon.com/agreement/). AWS may update these guidelines from time to time. AWS removes any product that breaches these guidelines and may suspend the provider from future use of the service. 
 

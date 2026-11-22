@@ -1,7 +1,6 @@
 
 
 # Creating an offer for AWS Data Exchange products
-<a name="prepare-offers"></a>
 
 To make a product available, you must create an *offer* in the AWS Data Exchange console. Offers define the terms that subscribers are agreeing to when they subscribe to a product. Products with visibility set to **Public** must have a public offer available to all subscribers. You can also create custom offers for selected subscribers. When you create an offer for your product, you define:
 + The data subscription agreement, which defines the terms that a prospective subscriber must agree to before purchasing a subscription for your product.

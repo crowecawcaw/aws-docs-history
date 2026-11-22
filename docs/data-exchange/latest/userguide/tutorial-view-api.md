@@ -1,7 +1,6 @@
 
 
 # Viewing the AWS Data Exchange API
-<a name="tutorial-view-api"></a>
 
 You can view the API with AWS Data Exchange for APIs (Test Product) using the following steps.
 

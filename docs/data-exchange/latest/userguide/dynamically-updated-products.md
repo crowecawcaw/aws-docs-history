@@ -1,7 +1,6 @@
 
 
 # Publishing a new data set revision in AWS Data Exchange
-<a name="dynamically-updated-products"></a>
 
 AWS Data Exchange supports dynamically updated products. Subscribers subscribe to the product for a certain duration and access all of the published data sets as long as their subscription is active. For example, a provider might want to provide a product that contains daily closing stock prices for US equities, which would be updated every day with the day’s closing prices. You can create and finalize new revisions that will be available in your product’s data sets, or add new data sets to your product. 
 

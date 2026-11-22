@@ -1,7 +1,6 @@
 
 
 # Creating a data grant on AWS Data Exchange containing AWS Lake Formation data permission data sets (Preview)
-<a name="data-grant-publish-LF-data-product"></a>
 
 If you're interested in creating data grants containing AWS Lake Formation data permission data sets during this Preview, contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service).
 

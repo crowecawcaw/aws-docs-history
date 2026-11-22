@@ -1,7 +1,6 @@
 
 
 # Publishing a product in AWS Data Exchange containing Amazon Redshift data sets
-<a name="publish-Redshift-product"></a>
 
 An Amazon Redshift data set contains AWS Data Exchange datashares for Amazon Redshift. When customers subscribe to a product containing datashares, they are granted read-only access to the tables, views, schemas, and user-defined functions that a data provider adds to the datashare.
 

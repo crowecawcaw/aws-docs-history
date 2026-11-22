@@ -1,7 +1,6 @@
 
 
 # Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access
-<a name="subscribing-to-S3-data-access"></a>
 
 AWS Data Exchange for Amazon S3 allows data subscribers to access third-party data files directly from data providers' Amazon S3 buckets. 
 
@@ -99,7 +98,7 @@ The data provided is stored in the provider's Amazon S3 bucket. When accessing t
 
 ****  
 
-      ```
+      ```json
       {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -125,7 +124,7 @@ The data provided is stored in the provider's Amazon S3 bucket. When accessing t
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -146,4 +145,4 @@ The data provided is stored in the provider's Amazon S3 bucket. When accessing t
 **Note**  
 AWS KMS grants can take up to 5 minutes for the operation to achieve eventual consistency. You might not have access to the Amazon S3 data access data set until this is complete. For more information, see [Grant in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*.
 
-For more information about how to subscribe to an Amazon S3 data set, see [Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access](#subscribing-to-S3-data-access).
+For more information about how to subscribe to an Amazon S3 data set, see [Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access](subscribing-to-S3-data-access.md).

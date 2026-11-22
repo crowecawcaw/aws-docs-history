@@ -1,7 +1,6 @@
 
 
 # Viewing your AWS Data Exchange subscriptions
-<a name="view-subscriptions"></a>
 
 View your subscriptions through the AWS Data Exchange console. 
 

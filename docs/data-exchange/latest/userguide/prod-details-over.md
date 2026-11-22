@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange product details
-<a name="prod-details-over"></a>
 
 The following topics provide best practices for the details of a product in AWS Data Exchange.
 

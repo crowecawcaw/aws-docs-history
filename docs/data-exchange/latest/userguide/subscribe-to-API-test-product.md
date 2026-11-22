@@ -1,7 +1,6 @@
 
 
 # Subscribing to AWS Data Exchange for APIs (Test Product) on AWS Data Exchange
-<a name="subscribe-to-API-test-product"></a>
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to AWS Data Exchange for APIs (Test Product).
 

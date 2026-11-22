@@ -1,7 +1,6 @@
 
 
 # Querying Worldwide Event Attendance (Test Product) data with an Amazon Redshift cluster (console)
-<a name="query-RS-data-console"></a>
 
 The following procedure shows how to set up and query the datashare using the Amazon Redshift console.
 

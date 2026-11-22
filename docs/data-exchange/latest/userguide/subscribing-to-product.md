@@ -1,7 +1,6 @@
 
 
 # Subscribing to and accessing an AWS Data Exchange product
-<a name="subscribing-to-product"></a>
 
 The following topics describe the process of subscribing to and accessing a product on AWS Data Exchange using the AWS Data Exchange console.
 

@@ -1,7 +1,6 @@
 
 
 # Using AWS Data Exchange with the AWS Marketplace Catalog API
-<a name="appendices"></a>
 
 This chapter contains supplemental information for using AWS Data Exchange and the AWS Marketplace Catalog API. The AWS Marketplace Catalog API service provides an API interface for you as a provider to programmatically access the AWS Marketplace self-service publishing capabilities.
 

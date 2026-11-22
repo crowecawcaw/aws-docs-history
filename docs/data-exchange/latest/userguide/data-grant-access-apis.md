@@ -1,7 +1,6 @@
 
 
 # Access an AWS Data Exchange data set containing APIs
-<a name="data-grant-access-apis"></a>
 
 The following topics describe the process of accessing a data set containing APIs on AWS Data Exchange using the AWS Data Exchange console.
 

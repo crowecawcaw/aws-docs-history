@@ -1,7 +1,6 @@
 
 
 # Revoking access to revisions in AWS Data Exchange
-<a name="revoking-revisions"></a>
 
 As a provider of data products in AWS Data Exchange, you can revoke subscriber access to a specific revision at any time. This action is typically done by providers for compliance reasons. Revoking a revision doesn't delete the underlying assets. After you have revoked the revision, all subscribers receive an Amazon EventBridge (formerly known as CloudWatch Events) notification that the revision has been revoked. Subscribers can then view the reason for the revoked revision on the AWS Data Exchange console. Subscribers can’t export or query the data within a revoked revision.
 

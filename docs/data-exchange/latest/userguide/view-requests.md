@@ -1,7 +1,6 @@
 
 
 # Viewing subscription verification requests
-<a name="view-requests"></a>
 
 After you publish a public offer and receive subscription verification requests, you can view the requests.
 

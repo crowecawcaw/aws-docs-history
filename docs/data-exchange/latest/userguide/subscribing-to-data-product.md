@@ -1,7 +1,6 @@
 
 
 # Subscribing to and accessing an AWS Data Exchange product containing file-based data
-<a name="subscribing-to-data-product"></a>
 
 The following topics describe the complete process of subscribing to and accessing a product containing file-based data stored as files on AWS Data Exchange. To complete the process, use the AWS Data Exchange console. 
 

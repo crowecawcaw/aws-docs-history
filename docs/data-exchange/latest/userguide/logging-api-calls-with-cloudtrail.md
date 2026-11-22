@@ -1,7 +1,6 @@
 
 
 # Logging AWS Data Exchange API calls with AWS CloudTrail
-<a name="logging-api-calls-with-cloudtrail"></a>
 
  AWS Data Exchange is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Data Exchange. AWS CloudTrail captures all calls to AWS Data Exchange API operations as events, including calls from the AWS Data Exchange console and from code calls to the AWS Data Exchange API operations.
 

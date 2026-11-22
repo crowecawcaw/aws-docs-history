@@ -1,7 +1,6 @@
 
 
 # Reviewing your pending AWS Data Exchange subscription requests
-<a name="review-pending-sub-requests"></a>
 
 Review your pending subscriptions for AWS Data Exchange products that require subscription verification.
 

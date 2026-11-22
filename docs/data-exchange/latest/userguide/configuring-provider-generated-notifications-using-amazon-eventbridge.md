@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Data Exchange provider-generated notifications using Amazon EventBridge
-<a name="configuring-provider-generated-notifications-using-amazon-eventbridge"></a>
 
 AWS Data Exchange delivers provider-generated notifications using Amazon EventBridge. Your role must be able to create Amazon EventBridge rules, a target, and must be able to subscribe to a data product. 
 

@@ -1,7 +1,6 @@
 
 
 # Products for learning about interacting with AWS Data Exchange
-<a name="ex_products_subs"></a>
 
 AWS Data Exchange offers the following products that help subscribers understand how to subscribe to and interact with an AWS Data Exchange data product. 
 

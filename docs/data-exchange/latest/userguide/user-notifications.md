@@ -1,7 +1,6 @@
 
 
 # AWS User Notifications for AWS Data Exchange events
-<a name="user-notifications"></a>
 
 You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html) to set up delivery channels that notify you about AWS Data Exchange events. You receive a notification when an event matches a specified rule. You can receive notifications for events through multiple channels, including email, Amazon Q Developer in chat applications chat notifications, or AWS Console Mobile Application push notifications. You can also see notifications using the Console Notifications Center in the AWS User Notifications console. AWS User Notifications supports aggregation, which can reduce the number of notifications you receive during specific events. For more information, see the [AWS User Notifications User Guide](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html).
 

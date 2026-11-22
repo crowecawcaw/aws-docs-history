@@ -1,7 +1,6 @@
 
 
 # Subscribing to and accessing an AWS Data Exchange product containing Amazon Redshift data sets
-<a name="subscribing-to-Redshift-product"></a>
 
 **Overview for recipients**
 

@@ -1,7 +1,6 @@
 
 
 # Making an AWS Data Exchange API call
-<a name="tutorial-make-api-call-console"></a>
 
 You can call a single endpoint in the AWS Data Exchange console.
 

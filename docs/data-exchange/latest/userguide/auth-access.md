@@ -1,7 +1,6 @@
 
 
 # Identity and access management in AWS Data Exchange
-<a name="auth-access"></a>
 
 To perform any operation in AWS Data Exchange, such as creating an import job using an AWS SDK, or subscribing to a product in the AWS Data Exchange console, AWS Identity and Access Management (IAM) requires that you authenticate that you're an approved AWS user. For example, if you're using the AWS Data Exchange console, you authenticate your identity by providing your AWS sign-in credentials.
 

@@ -1,7 +1,6 @@
 
 
 # Access an AWS Data Exchange data set containing file-based data
-<a name="data-grant-access-file-based-data"></a>
 
 The following topics describe the process of accessing a data set containing file-based data stored as files on AWS Data Exchange. To complete the process, use the AWS Data Exchange console.
 

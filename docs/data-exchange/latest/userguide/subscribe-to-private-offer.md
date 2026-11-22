@@ -1,7 +1,6 @@
 
 
 # Accepting private products and offers in AWS Data Exchange
-<a name="subscribe-to-private-offer"></a>
 
 ADX Data providers can provide a product to you in AWS Data Exchange that isn't available to the general public, or they can offer their product at terms that are different from the publicly available oﬀer terms. A private oﬀer can be different from the public oﬀer in any dimension, including price, duration, payment schedule, data subscription agreement, or refund policy. 
 
