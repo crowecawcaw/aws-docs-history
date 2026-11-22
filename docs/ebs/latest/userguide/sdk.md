@@ -1,7 +1,6 @@
 
 
 # AWS SDK code examples for EBS direct APIs
-<a name="sdk"></a>
 
 The following code examples show how to use EBS direct APIs with an AWS software development kit (SDK). 
 
@@ -21,7 +20,7 @@ The following code example shows how to use `StartSnapshot`.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
-```
+```rust
 async fn start(client: &Client, description: &str) -> Result<String, Error> {
     let snapshot = client
         .start_snapshot()
@@ -49,7 +48,7 @@ The following code example shows how to use `PutSnapshotBlock`.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
-```
+```rust
 async fn add_block(
     client: &Client,
     id: &str,
@@ -86,7 +85,7 @@ The following code example shows how to use `CompleteSnapshot`.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
-```
+```rust
 async fn finish(client: &Client, id: &str) -> Result<(), Error> {
     client
         .complete_snapshot()

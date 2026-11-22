@@ -1,7 +1,6 @@
 
 
 # Control access to Amazon Data Lifecycle Manager using IAM
-<a name="dlm-prerequisites"></a>
 
 Access to Amazon Data Lifecycle Manager requires credentials. Those credentials must have permissions to access AWS resources, such as instances, volumes, snapshots, and AMIs.
 
@@ -16,7 +15,7 @@ The ARN format of the *AWSDataLifecycleManagerDefaultRole* role differs dependin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Delete Amazon Data Lifecycle Manager policies
-<a name="delete"></a>
 
 Keep the following in mind when deleting Amazon Data Lifecycle Manager policies:
 + If you delete a policy, the snapshots or AMIs created by that policy are not automatically deleted. If you no longer need the snapshots or AMIs, you must delete them manually.
@@ -33,7 +32,7 @@ Use the [delete-lifecycle-policy](https://docs.aws.amazon.com/cli/latest/referen
 **Note**  
 You can delete snapshots created only by Amazon Data Lifecycle Manager.
 
-```
+```bash
 aws dlm delete-lifecycle-policy --policy-id policy-{{0123456789abcdef0}}
 ```
 

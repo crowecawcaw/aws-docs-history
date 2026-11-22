@@ -1,7 +1,6 @@
 
 
 # Amazon EBS optimization
-<a name="ebs-optimization"></a>
 
 An Amazon EBS–optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O. This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.
 

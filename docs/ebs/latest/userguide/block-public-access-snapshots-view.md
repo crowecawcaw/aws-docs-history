@@ -1,7 +1,6 @@
 
 
 # View the block public access setting for Amazon EBS snapshots
-<a name="block-public-access-snapshots-view"></a>
 
 Block public access can be in one of the following states for each Region in your account.
 + **Block all sharing** — All public sharing of your snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.
@@ -26,13 +25,13 @@ Block public access can be in one of the following states for each Region in you
 Use the [get-snapshot-block-public-access-state](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-snapshot-block-public-access-state.html) command.
 + For a specific Region
 
-  ```
+  ```bash
   aws ec2 get-snapshot-block-public-access-state
   ```
 
   In this example output, the `ManagedBy` field indicates the entity that configured the setting and `account` indicates that the setting was configured directly in the account. A value of `declarative-policy` would mean the setting was configured by a declarative policy. For more information, see [Declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html) in the *AWS Organizations User Guide*.
 
-  ```
+  ```json
   {
       "State": "unblocked",
       "ManagedBy": "account"
@@ -40,7 +39,7 @@ Use the [get-snapshot-block-public-access-state](https://docs.aws.amazon.com/cli
   ```
 + For all Regions
 
-  ```
+  ```bash
   echo -e "Region   \t Public Access State" ; \
   echo -e "-------------- \t ----------------------" ; \
   for region in $(
@@ -75,7 +74,7 @@ Use the [get-snapshot-block-public-access-state](https://docs.aws.amazon.com/cli
 Use the [ Get-EC2SnapshotBlockPublicAccessState](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SnapshotBlockPublicAccessState.html) cmdlet.
 + For a specific Region
 
-  ```
+  ```powershell
   Get-EC2SnapshotBlockPublicAccessState -Region {{us-east-1}}
   ```
 
@@ -88,7 +87,7 @@ Use the [ Get-EC2SnapshotBlockPublicAccessState](https://docs.aws.amazon.com/pow
   ```
 + For all Regions
 
-  ```
+  ```powershell
   (Get-EC2Region -Region {{us-east-1}}).RegionName | `
       ForEach-Object {
       [PSCustomObject]@{

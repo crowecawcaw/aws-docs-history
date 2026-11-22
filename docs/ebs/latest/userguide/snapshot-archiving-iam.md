@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions for archiving Amazon EBS snapshots
-<a name="snapshot-archiving-iam"></a>
 
 By default, users don't have permission to use snapshot archiving. To allow users to use snapshot archiving, you must create IAM policies that grant permission to use specific resources and API actions. For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the IAM User Guide.
 
@@ -27,7 +26,7 @@ To follow the principle of least privilege, do not allow full access to `kms:Cre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

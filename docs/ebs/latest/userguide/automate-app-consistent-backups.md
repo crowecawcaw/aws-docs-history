@@ -1,7 +1,6 @@
 
 
 # Automate application-consistent snapshots with Data Lifecycle Manager
-<a name="automate-app-consistent-backups"></a>
 
 You can automate application-consistent snapshots with Amazon Data Lifecycle Manager by enabling pre and post scripts in your snapshot lifecycle policies that target instances.
 
@@ -161,7 +160,7 @@ The SSM document must include required fields for `allowedValues`, including `pr
 ------
 #### [ MySQL sample document content ]
 
-```
+```yaml
 ###===============================================================================###
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -425,7 +424,7 @@ mainSteps:
 ------
 #### [ PostgreSQL sample document content ]
 
-```
+```yaml
 ###===============================================================================###
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -674,7 +673,7 @@ mainSteps:
 ------
 #### [ InterSystems IRIS sample document content ]
 
-```
+```yaml
 ###===============================================================================###
 # MIT License
 # 
@@ -874,7 +873,7 @@ For more information, see the [ GitHub repository](https://github.com/intersyste
 ------
 #### [ Empty document template ]
 
-```
+```yaml
 ###===============================================================================###
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -1014,7 +1013,7 @@ The `DLMScriptsAccess:true` tag is required by the **AWSDataLifecycleManagerSSMF
 **To create the SSM command document**  
 Use the [ create-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) command. For `--name`, specify a descriptive name for the document. For `--document-type`, specify `Command`. For `--content`, specify the path to the .yaml file with the SSM document content. For `--tags`, specify `"Key=DLMScriptsAccess,Value=true"`.
 
-```
+```bash
 $ aws ssm create-document \
 --content file:{{//path/to/file/documentContent.yaml}} \
 --name "{{document_name}}" \
@@ -1066,7 +1065,7 @@ Use one of the following methods to add the **AWSDataLifecycleManagerSSMFullAcce
 **To attach the managed policy to your custom role**  
 Use the [ attach-role-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command. For `---role-name`, specify the name of your custom role. For `--policy-arn`, specify `arn:aws:iam::aws:policy/AWSDataLifecycleManagerSSMFullAccess`.
 
-```
+```bash
 $ aws iam attach-role-policy \
 --policy-arn arn:aws:iam::aws:policy/AWSDataLifecycleManagerSSMFullAccess \
 --role-name {{your_role_name}}
@@ -1130,7 +1129,7 @@ If you get the `Role with name AWSDataLifecycleManagerDefaultRole already exists
 **To create the snapshot lifecycle policy**  
 Use the [ create-lifecycle-policy](https://docs.aws.amazon.com/cli/latest/reference/dlm/create-lifecycle-policy.html) command, and include the `Scripts` parameters in `CreateRule`. For more information about the parameters, see the [*Amazon Data Lifecycle Manager API Reference*](https://docs.aws.amazon.com/dlm/latest/APIReference/API_Script.html).
 
-```
+```bash
 $ aws dlm create-lifecycle-policy \
 --description "{{policy_description}}" \
 --state ENABLED \
@@ -1141,7 +1140,7 @@ $ aws dlm create-lifecycle-policy \
 Where `policyDetails.json` includes one of the following, depending on your use case:
 + **VSS Backup**
 
-  ```
+  ```json
   {
       "PolicyType": "EBS_SNAPSHOT_MANAGEMENT",
       "ResourceTypes": [
@@ -1169,7 +1168,7 @@ Where `policyDetails.json` includes one of the following, depending on your use 
   ```
 + **SAP HANA backups**
 
-  ```
+  ```json
   {
       "PolicyType": "EBS_SNAPSHOT_MANAGEMENT",
       "ResourceTypes": [
@@ -1200,7 +1199,7 @@ Where `policyDetails.json` includes one of the following, depending on your use 
   ```
 + **Custom SSM document**
 
-  ```
+  ```json
   {
       "PolicyType": "EBS_SNAPSHOT_MANAGEMENT",
       "ResourceTypes": [

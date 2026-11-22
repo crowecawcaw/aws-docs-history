@@ -1,7 +1,6 @@
 
 
 # Map Amazon EBS volumes to NVMe device names
-<a name="identify-nvme-ebs-device"></a>
 
 EBS uses single-root I/O virtualization (SR-IOV) to provide volume attachments on Nitro-based instances using the NVMe specification. These devices rely on standard NVMe drivers on the operating system. These drivers typically discover attached devices during instance boot, and create device nodes based on the order in which the devices respond, not on how the devices are specified in the block device mapping.
 
@@ -24,7 +23,7 @@ With Amazon Linux AMI 2017.09.01 or later (including Amazon Linux 2), you can ru
 
 The following example shows the command and output for a volume attached during instance launch. Note that the NVMe device name does not include the `/dev/` prefix.
 
-```
+```bash
 [ec2-user ~]$ sudo /sbin/ebsnvme-id /dev/nvme{{0}}n1
 Volume ID: vol-01324f611e2463981
 sda
@@ -32,7 +31,7 @@ sda
 
 The following example shows the command and output for a volume attached after instance launch. Note that the NVMe device name includes the `/dev/` prefix.
 
-```
+```bash
 [ec2-user ~]$ sudo /sbin/ebsnvme-id /dev/nvme{{1}}n1
 Volume ID: vol-064784f1011136656
 /dev/sdf
@@ -48,7 +47,7 @@ With a kernel version of 4.2 or later, you can run the **nvme id-ctrl** command 
 
 The following example gets the volume ID and NVMe device name for a volume that was attached during instance launch. Note that the NVMe device name does not include the `/dev/` prefix. The device name is available through the NVMe controller vendor-specific extension (bytes 384:4095 of the controller identification):
 
-```
+```bash
 [ec2-user ~]$ sudo nvme id-ctrl -V /dev/nvme{{0}}n1
 NVME Identify Controller:
 vid     : 0x1d0f
@@ -61,7 +60,7 @@ mn      : Amazon Elastic Block Store
 
 The following example gets the volume ID and NVMe device name for a volume that was attached after instance launch. Note that the NVMe device name includes the `/dev/` prefix.
 
-```
+```bash
 [ec2-user ~]$ sudo nvme id-ctrl -V /dev/nvme{{1}}n1
 NVME Identify Controller:
 vid     : 0x1d0f
@@ -74,7 +73,7 @@ mn      : Amazon Elastic Block Store
 
 The **lsblk** command lists available devices and their mount points (if applicable). This helps you determine the correct device name to use. In this example, `/dev/nvme0n1p1` is mounted as the root device and `/dev/nvme1n1` is attached but not mounted.
 
-```
+```bash
 [ec2-user ~]$ lsblk
 NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 nvme1n1       259:3   0  100G  0 disk
@@ -90,7 +89,7 @@ You can run the **ebsnvme-id** command to map the NVMe device disk number to an 
 
 Starting with AWS NVMe driver package `1.5.0,` the latest version of the `ebsnvme-id` tool is installed by the driver package. The latest version is only available in the driver package. The standalone download link for the `ebsnvme-id` tool will no longer receive updates. The last version available through the standalone link is `1.1.0`, which can be downloaded using the link [ebsnvme-id.zip](https://s3.amazonaws.com/ec2-windows-drivers-downloads/EBSNVMeID/Latest/ebsnvme-id.zip) and extracting the contents to your Amazon EC2 instance to get access to `ebsnvme-id.exe`.
 
-```
+```powershell
 PS C:\ProgramData\Amazon\Tools> ebsnvme-id.exe
 Disk Number: 0
 Volume ID: vol-0d6d7ee9f6e471a7f
@@ -113,7 +112,7 @@ Volume ID: vol-03e2dbe464b66f0a1
 Device Name: xvdc
 ```
 
-```
+```powershell
 PS C:\ProgramData\Amazon\Tools> ebsnvme-id.exe {{4}}
 Disk Number: 4
 Volume ID: vol-03e2dbe464b66f0a1

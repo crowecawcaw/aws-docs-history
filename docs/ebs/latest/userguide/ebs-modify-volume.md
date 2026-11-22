@@ -1,7 +1,6 @@
 
 
 # Modify an Amazon EBS volume using Elastic Volumes operations
-<a name="ebs-modify-volume"></a>
 
 With Amazon EBS Elastic Volumes, you can increase the volume size, change the volume type, or adjust the performance of your EBS volumes. If your instance supports Elastic Volumes, you can do so without detaching the volume or restarting the instance. This enables you to continue using your application while the changes take effect.
 

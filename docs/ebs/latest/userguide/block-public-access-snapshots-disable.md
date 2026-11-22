@@ -1,7 +1,6 @@
 
 
 # Disable block public access for Amazon EBS snapshots
-<a name="block-public-access-snapshots-disable"></a>
 
 Disable block public access for snapshots to allow public sharing of snapshots in the Region. After this feature is disabled, users can publicly share snapshots in the Region.
 
@@ -32,20 +31,20 @@ This setting is configured at the account level, either directly in the account 
 Use the [disable-snapshot-block-public-access](https://docs.aws.amazon.com/cli/latest/reference/ec2/disable-snapshot-block-public-access.html) command.
 + For a specific Region
 
-  ```
+  ```bash
   aws ec2 disable-snapshot-block-public-access --region {{us-east-1}}
   ```
 
   The following is example output.
 
-  ```
+  ```json
   {
       "State": "unblocked"
   }
   ```
 + For all Regions
 
-  ```
+  ```bash
   echo -e "Region   \t Public Access State" ; \
   echo -e "-------------- \t ----------------------" ; \
   for region in $(
@@ -80,7 +79,7 @@ Use the [disable-snapshot-block-public-access](https://docs.aws.amazon.com/cli/l
 Use the [ Disable-EC2SnapshotBlockPublicAccess](https://docs.aws.amazon.com/powershell/latest/reference/items/Disable-EC2SnapshotBlockPublicAccess.html) cmdlet.
 + For a specific Region
 
-  ```
+  ```powershell
   Disable-EC2SnapshotBlockPublicAccess -Region {{us-east-1}}
   ```
 
@@ -93,7 +92,7 @@ Use the [ Disable-EC2SnapshotBlockPublicAccess](https://docs.aws.amazon.com/powe
   ```
 + For all Regions
 
-  ```
+  ```powershell
   (Get-EC2Region -Region {{us-east-1}}).RegionName | `
       ForEach-Object {
       [PSCustomObject]@{

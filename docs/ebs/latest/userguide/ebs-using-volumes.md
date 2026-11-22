@@ -1,7 +1,6 @@
 
 
 # Make an Amazon EBS volume available for use
-<a name="ebs-using-volumes"></a>
 
 After you attach an Amazon EBS volume to your instance it is exposed as a block device. You can format the volume with any file system and then mount it. After you make the EBS volume available for use, you can access it in the same ways that you access any other volume. Any data written to this file system is written to the EBS volume and is transparent to applications using the device.
 
@@ -25,7 +24,7 @@ Suppose that you have an EC2 instance with an EBS volume for the root device, `/
 
    The following is example output for an instance built on the [ Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html), which exposes EBS volumes as NVMe block devices. The root device is `/dev/nvme0n1`, which has two partitions named `nvme0n1p1` and `nvme0n1p128`. The attached volume is `/dev/nvme1n1`, which has no partitions and is not yet mounted.
 
-   ```
+   ```bash
    [ec2-user ~]$ lsblk
    NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
    nvme1n1       259:0    0  10G  0 disk
@@ -36,7 +35,7 @@ Suppose that you have an EC2 instance with an EBS volume for the root device, `/
 
    The following is example output for a T2 instance. The root device is `/dev/xvda`, which has one partition named `xvda1`. The attached volume is `/dev/xvdf`, which has no partitions and is not yet mounted.
 
-   ```
+   ```bash
    [ec2-user ~]$ lsblk
    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    xvda    202:0    0    8G  0 disk
@@ -49,20 +48,20 @@ Suppose that you have an EC2 instance with an EBS volume for the root device, `/
    Use one or both of the following methods to determine whether there is a file system on the volume:
    + Use the **file -s** command to get information about a specific device, such as its file system type. If the output shows simply `data`, as in the following example output, there is no file system on the device
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo file -s {{/dev/xvdf}}
      /dev/xvdf: data
      ```
 
      If the device has a file system, the command shows information about the file system type. For example, the following output shows a root device with the XFS file system.
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo file -s {{/dev/xvda1}}
      /dev/xvda1: SGI XFS filesystem data (blksz 4096, inosz 512, v2 dirs)
      ```
    + Use the **lsblk -f** command to get information about all of the devices attached to the instance.
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo lsblk -f
      ```
 
@@ -83,19 +82,19 @@ Suppose that you have an EC2 instance with an EBS volume for the root device, `/
 **Warning**  
 Do not use this command if you're mounting a volume that already has data on it (for example, a volume that was created from a snapshot). Otherwise, you'll format the volume and delete the existing data.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkfs -t xfs {{/dev/xvdf}}
    ```
 
    If you get an error that `mkfs.xfs` is not found, use the following command to install the XFS tools and then repeat the previous command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install xfsprogs
    ```
 
 1. Use the **mkdir** command to create a mount point directory for the volume. The mount point is where the volume is located in the file system tree and where you read and write files to after you mount the volume. The following example creates a directory named `/data`.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkdir {{/data}}
    ```
 
@@ -103,13 +102,13 @@ Do not use this command if you're mounting a volume that already has data on it 
 
    If the volume has no partitions, use the following command and specify the device name to mount the entire volume.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mount {{/dev/xvdf}} {{/data}}
    ```
 
    If the volume has partitions, use the following command and specify the partition name to mount a partition.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mount {{/dev/xvdf1}} {{/data}}
    ```
 
@@ -128,7 +127,7 @@ You can use the device name, such as `/dev/xvdf`, in `/etc/fstab`, but we recomm
 
 1. (Optional) Create a backup of your `/etc/fstab` file that you can use if you accidentally destroy or delete this file while editing it.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo cp /etc/fstab /etc/fstab.orig
    ```
 
@@ -136,7 +135,7 @@ You can use the device name, such as `/dev/xvdf`, in `/etc/fstab`, but we recomm
 
    For example, the following command shows that there are two devices mounted to the instance, and it shows the UUIDs for both devices.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo blkid
    /dev/xvda1: LABEL="/" UUID="ca774df7-756d-4261-a3f1-76038323e572" TYPE="xfs" PARTLABEL="Linux" PARTUUID="02dcd367-e87c-4f2e-9a72-a3cf8f299c10"
    /dev/xvdf: UUID="aebf131c-6957-451e-8d34-ec978d9581ae" TYPE="xfs"
@@ -144,13 +143,13 @@ You can use the device name, such as `/dev/xvdf`, in `/etc/fstab`, but we recomm
 
    For Ubuntu 18.04 use the lsblk command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo lsblk -o +UUID
    ```
 
 1. Open the `/etc/fstab` file using any text editor, such as **nano** or **vim**.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo vim /etc/fstab
    ```
 
@@ -166,7 +165,7 @@ If you ever boot your instance without this volume attached (for example, after 
 
 1. To verify that your entry works, run the following commands to unmount the device and then mount all file systems in `/etc/fstab`. If there are no errors, the `/etc/fstab` file is OK and your file system will mount automatically after it is rebooted.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo umount {{/data}}
    [ec2-user ~]$ sudo mount -a
    ```
@@ -177,7 +176,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
    If you are unsure how to correct errors in `/etc/fstab` and you created a backup file in the first step of this procedure, you can restore from your backup file using the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mv /etc/fstab.orig /etc/fstab
    ```
 
@@ -209,7 +208,7 @@ Use one of the following methods to make a volume available on a Windows instanc
 
    1. Starts the ShellHWDetection service again.
 
-   ```
+   ```powershell
    Stop-Service -Name ShellHWDetection
    Get-Disk | Where PartitionStyle -eq 'raw' | Initialize-Disk -PartitionStyle {{MBR}} -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "{{Volume Label}}" -Confirm:$false
    Start-Service -Name ShellHWDetection
@@ -268,7 +267,7 @@ If you're mounting a volume that already has data on it, do not reformat the vol
 
 1. Open a command prompt, navigate to the folder in which the script is located, and run the following command to make a volume available for use on the specified disk:
 
-   ```
+   ```bash
    C:\> diskpart /s diskpart.txt
    ```
 

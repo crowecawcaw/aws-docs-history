@@ -1,7 +1,6 @@
 
 
 # Create a private connection between a VPC and Amazon EBS
-<a name="dlm-vpc-endpoints"></a>
 
 You can establish a private connection between your VPC and Amazon EBS by creating an *interface VPC endpoint*, powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/). You can access Amazon EBS as if it were in your VPC, without using an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Amazon EBS.
 
@@ -26,7 +25,7 @@ For more information, see [ Controlling access to services with VPC endpoints](h
 
 The following is an example of an endpoint policy for Amazon EBS. When attached to an endpoint, this policy grants all users permission to get summary information about Amazon Data Lifecycle Manager policies.
 
-```
+```json
 {
   "Statement": [{
     "Action": "dlm:GetLifecyclePolicies",

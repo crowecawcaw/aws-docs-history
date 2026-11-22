@@ -1,7 +1,6 @@
 
 
 # Benchmark Amazon EBS volumes
-<a name="benchmark_procedures"></a>
 
 You can test the performance of Amazon EBS volumes by simulating I/O workloads. The process is as follows:
 
@@ -117,13 +116,13 @@ You can disable C-states on Amazon Linux, RHEL, and CentOS as follows:
 
 1. Get the number of C-states.
 
-   ```
+   ```bash
    $ cpupower idle-info | grep "Number of idle states:"
    ```
 
 1. Disable the C-states from c1 to cN. Ideally, the cores should be in state c0.
 
-   ```
+   ```bash
    $ for i in `seq 1 $((N-1))`; do cpupower idle-set -d $i; done
    ```
 
@@ -190,13 +189,13 @@ Run **fio** on the RAID 0 array that you created.
 
 The following command performs 16 KB random write operations.
 
-```
+```bash
 $ sudo fio --directory=/mnt/{{p_iops_vol0}} --ioengine=psync --name {{fio_test_file}} --direct=1 --rw=randwrite --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap
 ```
 
 The following command performs 16 KB random read operations.
 
-```
+```bash
 $ sudo fio --directory=/mnt/{{p_iops_vol0}} --name {{fio_test_file}} --direct=1 --rw=randread --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap 
 ```
 
@@ -225,13 +224,13 @@ Prior to running these tests, set buffered I/O on your instance as described in 
 
 The following command performs 1 MiB sequential read operations against an attached `st1` block device (for example, `/dev/xvdf`):
 
-```
+```bash
 $ sudo fio --filename=/dev/{{<device>}} --direct=1 --rw=read --randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180 --name=fio_direct_read_test
 ```
 
 The following command performs 1 MiB sequential write operations against an attached `st1` block device:
 
-```
+```bash
 $ sudo fio --filename=/dev/{{<device>}} --direct=1 --rw=write --randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180 --name=fio_direct_write_test 
 ```
 
@@ -271,7 +270,7 @@ offset=100g
 
 Then run the following command:
 
-```
+```bash
 $ sudo fio fio_rw_mix.cfg
 ```
 

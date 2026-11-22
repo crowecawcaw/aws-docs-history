@@ -1,7 +1,6 @@
 
 
 # Amazon EBS detailed performance statistics
-<a name="nvme-detailed-performance-stats"></a>
 
 Amazon EBS NVMe block devices vend real-time, high-resolution I/O performance statistics for Amazon EBS volumes attached to Nitro-based Amazon EC2 instances. These statistics are presented as aggregated counters that are retained for the duration of the volume's attachment to the instance. The statistics provide details about the cumulative number of operations, bytes sent and received, and time spent on read and write I/O operations. Additionally, the statistics include histograms for read and write I/O operations. They also report the total time your application has exceeded the EBS volume's or attached instance's provisioned IOPS or throughput limits.
 
@@ -74,13 +73,13 @@ The `ebsnvme` script can be found in the [ amazon-ec2-utils Github repo](https:/
 
 1. Modify the permissions for the script to make it executable.
 
-   ```
+   ```bash
    sudo chmod +x ./ebsnvme
    ```
 
 1. Run the `ebsnvme` script and specify the device name for the volume.
 
-   ```
+   ```bash
    sudo ./ebsnvme stats /dev/{{nvme0n1}}
    ```
 
@@ -93,7 +92,7 @@ The `ebsnvme` script can be found in the [ amazon-ec2-utils Github repo](https:/
 
 1. Amazon Linux AMIs released after November 12, 2024 include the latest version of the `nvme-cli` tool. If you are using an older Amazon Linux AMI, update the `nvme-cli` tool.
 
-   ```
+   ```bash
    sudo yum install nvme-cli
    ```
 

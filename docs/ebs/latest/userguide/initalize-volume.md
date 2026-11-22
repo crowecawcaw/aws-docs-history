@@ -1,7 +1,6 @@
 
 
 # Initialize Amazon EBS volumes
-<a name="initalize-volume"></a>
 
 When you create an Amazon EBS volume, either from an EBS snapshot or from another EBS volume (volume copy), the data blocks must be written to the volume before you can access them. For volumes created from snapshots, the data blocks must be downloaded from Amazon S3 to the new volume. For volume copies, the data blocks must be copied from the source volume to the volume copy. This process is called *volume initialization*. During this time, the volume being initialized might experience increased I/O latency and decreased performance. Full volume performance is achieved only once all storage blocks have been downloaded and written to the volume.
 
@@ -128,7 +127,7 @@ For information about how the rate and full snapshot data size affect initializa
 **To create a volume**  
 Use the [create-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-volume.html) command. The following example creates a `gp3` volume from a snapshot in the specified Availability Zone with a volume initialization rate of `300` MiB/s. Replace the example Region, Availability Zone, and snapshot ID with the values for your resources:
 
-```
+```bash
 aws ec2 create-volume \
     --region {{us-east-1}} \
     --availability-zone {{us-east-1a}} \
@@ -145,7 +144,7 @@ If you omit `--size`, the volume uses the source snapshot's volume size. If you 
 **To create a volume**  
 Use the [New-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Volume.html) cmdlet. The following example creates a `gp3` volume from a snapshot in the specified Availability Zone with a volume initialization rate of `300` MiB/s. The command stores the returned volume object in `$volume`. Replace the example Region, Availability Zone, and snapshot ID with the values for your resources:
 
-```
+```powershell
 $volume = New-EC2Volume `
     -Region {{us-east-1}} `
     -AvailabilityZone {{us-east-1a}} `
@@ -185,7 +184,7 @@ While initializing Provisioned IOPS SSD volumes that were created from snapshots
 
 1. Use the **lsblk** command to list the block devices on your instance.
 
-   ```
+   ```bash
    $ lsblk
    NAME  MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
    xvdf  202:80   0  30G  0 disk
@@ -202,25 +201,25 @@ This step may take several minutes up to several hours, depending on your EC2 in
 **Important**  
 Incorrect use of **dd** can easily destroy a volume's data. Be sure to follow precisely the example command below. Only the `if=/dev/{{xvdf}}` parameter will vary depending on the name of the device you are reading.
 
-   ```
+   ```bash
    $ sudo dd if=/dev/{{xvdf}} of=/dev/null bs=1M
    ```
 
    [**fio**] If you have **fio** installed on your system, use the following command to initialize your volume. The `--filename` (input file) parameter should be set to the drive you wish to initialize.
 
-   ```
+   ```bash
    $ sudo fio --filename=/dev/{{xvdf}} --rw=read --bs=1M --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
    ```
 
    To install **fio** on Amazon Linux, use the following command:
 
-   ```
+   ```bash
    sudo yum install -y fio
    ```
 
    To install **fio** on Ubuntu, use the following command:
 
-   ```
+   ```bash
    sudo apt-get install -y fio
    ```
 
@@ -235,7 +234,7 @@ Before using either tool, gather information about the disks on your system as f
 
 1. Use the **wmic** command to list the available disks on your system:
 
-   ```
+   ```bash
    wmic diskdrive get size,deviceid
    ```
 
@@ -287,7 +286,7 @@ The **dd** for Windows program provides a similar experience to the **dd** progr
 **To initialize a volume using dd for Windows**  
 Run the following command to read all blocks on the specified device (and send the output to the `/dev/null` virtual device). This command safely initializes your existing data.
 
-```
+```bash
 dd if=\\.\PHYSICALDRIVE{{n}} of=/dev/null bs=1M --progress --size
 ```
 
@@ -295,7 +294,7 @@ You might get an error if **dd** attempts to read beyond the end of the volume. 
 
 If you used an earlier version of the **dd** command, it does not support the `/dev/null` device. Instead, you can use the `nul` device as follows.
 
-```
+```bash
 dd if=\\.\PHYSICALDRIVE{{n}} of=nul bs=1M --progress --size
 ```
 

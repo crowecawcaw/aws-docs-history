@@ -1,7 +1,6 @@
 
 
 # Create Amazon EBS snapshots
-<a name="ebs-creating-snapshot"></a>
 
 You can create an Amazon EBS snapshot of an Amazon EBS volume to create a point-in-time backup of that volume. You can either create snapshots of **individual Amazon EBS volumes**, or you can create **multi-volume snapshots** of all, or a subset, of the volumes attached to an Amazon EC2 instance.
 

@@ -1,7 +1,6 @@
 
 
 # Work with an impaired Amazon EBS volume
-<a name="work_volumes_impaired"></a>
 
 Use the following options if a volume is impaired because the volume's data is potentially inconsistent.
 
@@ -40,7 +39,7 @@ The simplest option is to enable I/O and then perform a data consistency check o
 **To enable I/O for a volume**  
 Use the [enable-volume-io](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-volume-io.html) command.
 
-   ```
+   ```bash
    aws ec2 enable-volume-io --volume-id {{vol-01234567890abcdef}}
    ```
 
@@ -50,7 +49,7 @@ Use the [enable-volume-io](https://docs.aws.amazon.com/cli/latest/reference/ec2/
 **To enable I/O for a volume**  
 Use the [Enable-EC2VolumeIO](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2VolumeIO.html) cmdlet.
 
-   ```
+   ```powershell
    Enable-EC2VolumeIO -VolumeId {{vol-01234567890abcdef}}
    ```
 
@@ -99,7 +98,7 @@ This procedure may cause the loss of write I/Os that were suspended when volume 
 **To enable I/O for a volume**  
 Use the [enable-volume-io](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-volume-io.html) command.
 
-   ```
+   ```bash
    aws ec2 enable-volume-io --volume-id {{vol-01234567890abcdef}}
    ```
 
@@ -109,7 +108,7 @@ Use the [enable-volume-io](https://docs.aws.amazon.com/cli/latest/reference/ec2/
 **To enable I/O for a volume**  
 Use the [Enable-EC2VolumeIO](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2VolumeIO.html) cmdlet.
 
-   ```
+   ```powershell
    Enable-EC2VolumeIO -VolumeId {{vol-01234567890abcdef}}
    ```
 

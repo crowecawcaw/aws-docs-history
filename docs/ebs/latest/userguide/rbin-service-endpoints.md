@@ -1,7 +1,6 @@
 
 
 # Service endpoints for Recycle Bin
-<a name="rbin-service-endpoints"></a>
 
 An *endpoint* is a URL that serves as an entry point for an AWS web service. Recycle Bin supports the following endpoint types:
 + IPv4 endpoints
@@ -63,14 +62,14 @@ Recycle Bin provides FIPS-validated IPv4 and dual-stack (IPv4 and IPv6) endpoint
 The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS CLI.
 + **Dual-stack**
 
-  ```
+  ```bash
   aws rbin get-rule \
   --identifier {{rule_id}} \
   --endpoint-url https://{{rbin.us-east-2.api.aws}}
   ```
 + **IPv4**
 
-  ```
+  ```bash
   aws rbin get-rule \
   --identifier {{rule_id}} \
   --endpoint-url https://{{rbin.us-east-2.amazonaws.com}}

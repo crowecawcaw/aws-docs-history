@@ -1,7 +1,6 @@
 
 
 # Recover deleted volumes from the Recycle Bin
-<a name="recycle-bin-working-with-volumes"></a>
 
 This topic explains how to recover Amazon EBS volumes from the Recycle Bin.
 
@@ -27,7 +26,7 @@ To use the Recycle Bin console, users need the `ec2:DescribeTags` permission.
 
 The following is an example IAM policy. It includes the `ec2:DescribeTags` permission for console users, and it includes the `ec2:CreateTags` and `ec2:DeleteTags` permissions for managing tags. If the permissions are not needed, you can remove them from the policy.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -96,19 +95,19 @@ You can view the volumes in the Recycle Bin using one of the following methods.
 **To view volumes in the Recycle Bin using the AWS CLI**  
 Use the [ list-volumes-in-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/list-volumes-in-recycle-bin.html) AWS CLI command. Include the `--volume-id` option to view a specific volume. Or omit the `--volume-id` option to view all volumes in the Recycle Bin.
 
-```
+```bash
 aws ec2 list-volumes-in-recycle-bin --volume-id {{volume_id}}
 ```
 
 For example, the following command provides information about volume `vol-01234567890abcdef` in the Recycle Bin.
 
-```
+```bash
 aws ec2 list-volumes-in-recycle-bin --volume-id vol-01234567890abcdef
 ```
 
 Example output:
 
-```
+```json
 {
     "VolumeRecycleBinInfo": [
         {
@@ -148,19 +147,19 @@ You can restore a volume from the Recycle Bin using one of the following methods
 **To restore a deleted volume from the Recycle Bin using the AWS CLI**  
 Use the [ restore-volume-from-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/restore-volume-from-recycle-bin.html) AWS CLI command. For `--volume-id`, specify the ID of the volume to restore.
 
-```
+```bash
 aws ec2 restore-volume-from-recycle-bin --volume-id {{volume_id}}
 ```
 
 For example, the following command restores volume `vol-01234567890abcdef` from the Recycle Bin.
 
-```
+```bash
 aws ec2 restore-volume-from-recycle-bin --volume-id vol-01234567890abcdef
 ```
 
 Example output:
 
-```
+```json
 {
     "VolumeId": "vol-01234567890abcdef",
     "State": "available",

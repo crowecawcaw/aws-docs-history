@@ -1,7 +1,6 @@
 
 
 # How does Recycle Bin work?
-<a name="recycle-bin-concepts"></a>
 
 To enable and use Recycle Bin, you must create *retention rules* in the AWS Regions in which you want to protect your resources. Retention rules specify the following:
 + The resource type that you want to protect (volumes, snapshots, or AMIs).

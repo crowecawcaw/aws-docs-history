@@ -1,7 +1,6 @@
 
 
 # Create a snapshot of an EBS volume
-<a name="ebs-create-snapshot"></a>
 
 You can create a single snapshot of a single volume. Alternatively, to automate snapshot creation, use [Amazon Data Lifecycle Manager](snapshot-lifecycle.md) or [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/multi-volume-crash-consistent.html). To create snapshots of all the volumes for an EC2 instance, use [multi-volume snapshots](ebs-create-snapshots.md).
 
@@ -36,7 +35,7 @@ If the volume is in a Region, the **Snapshot destination** does not appear. The 
 **To create a snapshot**  
 Use the [create-snapshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-snapshot.html) command.
 
-```
+```bash
 aws ec2 create-snapshot  \
     --volume-id {{vol-01234567890abcdef}} \
     --description "Snapshot of the root volume for i-1234567890abcdef0"
@@ -48,7 +47,7 @@ aws ec2 create-snapshot  \
 **To create a snapshot**  
 Use the [New-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Snapshot.html) cmdlet.
 
-```
+```powershell
 New-EC2Snapshot `
     -VolumeId {{vol-01234567890abcdef}} `
     -Description "Snapshot of the root volume for i-1234567890abcdef0"

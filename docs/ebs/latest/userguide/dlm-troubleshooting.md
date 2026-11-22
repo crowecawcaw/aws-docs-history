@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon Data Lifecycle Manager issues
-<a name="dlm-troubleshooting"></a>
 
 The following documentation can help you troubleshoot problems that you might encounter.
 

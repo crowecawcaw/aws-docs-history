@@ -1,7 +1,6 @@
 
 
 # Amazon EBS volume constraints
-<a name="volume_constraints"></a>
 
 The size of an Amazon EBS volume is constrained by the physics and arithmetic of block data storage, as well as by the implementation decisions of operating system (OS) and file system designers. AWS imposes additional limits on volume size to safeguard the reliability of its services.
 

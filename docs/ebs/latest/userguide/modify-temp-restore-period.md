@@ -1,7 +1,6 @@
 
 
 # Modify the restore period for a temporarily restored Amazon EBS snapshot
-<a name="modify-temp-restore-period"></a>
 
 When you restore a snapshot temporarily, you must specify the number of days for which the snapshot is to remain restored in your account. After the restore period expires, the snapshot is automatically removed from the standard tier.
 
@@ -42,7 +41,7 @@ Use the [ restore-snapshot-tier](https://docs.aws.amazon.com/cli/latest/referenc
 **Example: Increase or decrease the restore period**  
 The following command changes the restore period for the specified snapshot to `10` days.
 
-```
+```bash
 aws ec2 restore-snapshot-tier \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --temporary-restore-days 10
@@ -50,7 +49,7 @@ aws ec2 restore-snapshot-tier \
 
 The following is example output.
 
-```
+```json
 {
     "SnapshotId": "snap-0abcdef1234567890",
     "RestoreDuration": 10,
@@ -61,7 +60,7 @@ The following is example output.
 **Example: Change restore type to permanent**  
 The following command changes the restore type for the specified snapshot from temporary to permanent.
 
-```
+```bash
 aws ec2 restore-snapshot-tier \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --permanent-restore
@@ -69,7 +68,7 @@ aws ec2 restore-snapshot-tier \
 
 The following is example output.
 
-```
+```json
 {
     "SnapshotId": "snap-0abcdef1234567890",
     "IsPermanentRestore": true
@@ -85,7 +84,7 @@ Use the [Restore-EC2SnapshotTier](https://docs.aws.amazon.com/powershell/latest/
 **Example: Increase or decrease the restore period**  
 The following command changes the restore period for the specified snapshot to `10` days.
 
-```
+```powershell
 Restore-EC2SnapshotTier `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -TemporaryRestoreDays 10
@@ -94,7 +93,7 @@ Restore-EC2SnapshotTier `
 **Example: Change restore type to permanent**  
 The following command changes the restore type for the specified snapshot from temporary to permanent.
 
-```
+```powershell
 Restore-EC2SnapshotTier `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -PermanentRestore $true

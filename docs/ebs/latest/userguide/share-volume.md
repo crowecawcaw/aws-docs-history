@@ -1,7 +1,6 @@
 
 
 # Share a volume
-<a name="share-volume"></a>
 
 You can use AWS Resource Access Manager (AWS RAM) to share Amazon EBS volumes with other AWS accounts. After you share a volume, consuming accounts can view volume information and create copies of the shared volume in the same Availability Zone. For more information about creating copies, see [Copy an Amazon EBS volume](ebs-copying-volume.md). Consuming accounts can't attach, modify, delete, or create snapshots of a shared volume.
 

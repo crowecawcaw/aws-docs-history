@@ -1,7 +1,6 @@
 
 
 # Read Amazon EBS snapshots with EBS direct APIs
-<a name="readsnapshots"></a>
 
 The following steps describe how to use the EBS direct APIs to read snapshots:
 
@@ -27,13 +26,13 @@ The following examples show how to read snapshots using the EBS direct APIs.
 
 The following [list-snapshot-blocks](https://docs.aws.amazon.com/cli/latest/reference/ebs/list-snapshot-blocks.html) example command returns the block indexes and block tokens of blocks that are in snapshot `snap-0987654321`. The `--starting-block-index` parameter limits the results to block indexes greater than `1000`, and the `--max-results` parameter limits the results to the first `100` blocks.
 
-```
+```bash
 aws ebs list-snapshot-blocks --snapshot-id {{snap-0987654321}} --starting-block-index {{1000}} --max-results {{100}}
 ```
 
 The following example response for the previous command lists the block indexes and block tokens in the snapshot. Use the `get-snapshot-block` command and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed.
 
-```
+```json
 {
       "Blocks": [
           {
@@ -73,7 +72,7 @@ The following example response for the previous command lists the block indexes 
 
 The following [ListSnapshotBlocks](https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListSnapshotBlocks.html) example request returns the block indexes and block tokens of blocks that are in snapshot `snap-0acEXAMPLEcf41648`. The `startingBlockIndex` parameter limits the results to block indexes greater than `1000`, and the `maxResults` parameter limits the results to the first `100` blocks.
 
-```
+```http
 GET /snapshots/{{snap-0acEXAMPLEcf41648}}/blocks?maxResults={{100}}&startingBlockIndex={{1000}} HTTP/1.1
   Host: {{ebs.us-east-2.amazonaws.com}}
   Accept-Encoding: identity
@@ -84,7 +83,7 @@ GET /snapshots/{{snap-0acEXAMPLEcf41648}}/blocks?maxResults={{100}}&startingBloc
 
 The following example response for the previous request lists the block indexes and block tokens in the snapshot. Use the GetSnapshotBlock action and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed. 
 
-```
+```http
 HTTP/1.1 200 OK
   x-amzn-RequestId: d6e5017c-70a8-4539-8830-57f5557f3f27
   Content-Type: application/json
@@ -140,7 +139,7 @@ Keep the following in mind when making **paginated requests** to list the change
 
 The following [list-changed-blocks](https://docs.aws.amazon.com/cli/latest/reference/ebs/list-changed-blocks.html) example command returns the block indexes and block tokens of blocks that are different between snapshots `snap-1234567890` and `snap-0987654321`. The `--starting-block-index` parameter limits the results to block indexes greater than `0`, and the `--max-results` parameter limits the results to the first `500` blocks..
 
-```
+```bash
 aws ebs list-changed-blocks --first-snapshot-id {{snap-1234567890}} --second-snapshot-id {{snap-0987654321}} --starting-block-index {{0}} --max-results {{500}}
 ```
 
@@ -148,7 +147,7 @@ The following example response for the previous command shows that block indexes
 
 Use the `get-snapshot-block` command and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed.
 
-```
+```json
 {
       "ChangedBlocks": [
           {
@@ -187,7 +186,7 @@ Use the `get-snapshot-block` command and specify the block index and block token
 
 The following [ListChangedBlocks](https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListChangedBlocks.html) example request returns the block indexes and block tokens of blocks that are different between snapshots `snap-0acEXAMPLEcf41648` and `snap-0c9EXAMPLE1b30e2f`. The `startingBlockIndex` parameter limits the results to block indexes greater than `0`, and the `maxResults` parameter limits the results to the first `500` blocks.
 
-```
+```http
 GET /snapshots/{{snap-0c9EXAMPLE1b30e2f}}/changedblocks?firstSnapshotId={{snap-0acEXAMPLEcf41648}}&maxResults={{500}}&startingBlockIndex={{0}} HTTP/1.1
   Host: ebs.us-east-2.amazonaws.com
   Accept-Encoding: identity
@@ -200,7 +199,7 @@ The following example response for the previous request shows that block indexes
 
 Use the `GetSnapshotBlock` action and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed. 
 
-```
+```http
 HTTP/1.1 200 OK
   x-amzn-RequestId: fb0f6743-6d81-4be8-afbe-db11a5bb8a1f
   Content-Type: application/json
@@ -246,13 +245,13 @@ HTTP/1.1 200 OK
 
 The following [get-snapshot-block](https://docs.aws.amazon.com/cli/latest/reference/ebs/get-snapshot-block.html) example command returns the data in the block index `6001` with block token `AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR`, in snapshot `snap-1234567890`. The binary data is output to the `data` file in the `C:\Temp` directory on a Windows computer. If you run the command on a Linux or Unix computer, replace the output path with `/tmp/data` to output the data to the `data` file in the `/tmp` directory.
 
-```
+```bash
 aws ebs get-snapshot-block --snapshot-id {{snap-1234567890}} --block-index {{6001}} --block-token {{AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR}} {{C:/Temp/data}}
 ```
 
 The following example response for the previous command shows the size of the data returned, the checksum to validate the data, and the algorithm of the checksum. The binary data is automatically saved to the directory and file you specified in the request command.
 
-```
+```json
 {
       "DataLength": "524288",
       "Checksum": "cf0Y6/Fn0oFa4VyjQPOa/iD0zhTflPTKzxGv2OKowXc=",
@@ -265,7 +264,7 @@ The following example response for the previous command shows the size of the da
 
 The following [GetSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_GetSnapshotBlock.html) example request returns the data in the block index `3072` with block token `AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid`, in snapshot `snap-0c9EXAMPLE1b30e2f`.
 
-```
+```http
 GET /snapshots/{{snap-0c9EXAMPLE1b30e2f}}/blocks/{{3072}}?blockToken={{AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid}} HTTP/1.1
   Host: ebs.us-east-2.amazonaws.com
   Accept-Encoding: identity
@@ -276,7 +275,7 @@ GET /snapshots/{{snap-0c9EXAMPLE1b30e2f}}/blocks/{{3072}}?blockToken={{AAUBARGCa
 
 The following example response for the previous request shows the size of the data returned, the checksum to validate the data, and the algorithm used to generate the checksum. The binary data is transmitted in the body of the response and is represented as {{BlockData}} in the following example.
 
-```
+```http
 HTTP/1.1 200 OK
   x-amzn-RequestId: 2d0db2fb-bd88-474d-a137-81c4e57d7b9f
   x-amz-Data-Length: 524288

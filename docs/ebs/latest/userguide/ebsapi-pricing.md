@@ -1,7 +1,6 @@
 
 
 # Pricing for EBS direct APIs
-<a name="ebsapi-pricing"></a>
 
 ## Pricing for APIs
 <a name="api-pricing"></a>

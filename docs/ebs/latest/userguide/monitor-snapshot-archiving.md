@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon EBS snapshot archiving using CloudWatch Events
-<a name="monitor-snapshot-archiving"></a>
 
 Amazon EBS emits events related to snapshot archiving actions. You can use AWS Lambda and Amazon CloudWatch Events to handle event notifications programmatically. Events are emitted on a best effort basis. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
 
@@ -10,7 +9,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a snapshot archive action succeeds.
 
-  ```
+  ```json
   {
      "version": "0",
      "id": "01234567-0123-0123-0123-012345678901",
@@ -36,7 +35,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a snapshot archive action fails.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",
@@ -64,7 +63,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a permanent restore action succeeds.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",
@@ -90,7 +89,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a permanent restore action fails.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",
@@ -118,7 +117,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a temporary restore action succeeds.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",
@@ -146,7 +145,7 @@ The following events are available:
 
   The following is an example of an event that is emitted when a temporary restore action fails.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",
@@ -174,7 +173,7 @@ The following events are available:
 
   The following is an example.
 
-  ```
+  ```json
   {
      "version": "0",
     "id": "01234567-0123-0123-0123-012345678901",

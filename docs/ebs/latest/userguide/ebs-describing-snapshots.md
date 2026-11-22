@@ -1,7 +1,6 @@
 
 
 # View Amazon EBS snapshot information
-<a name="ebs-describing-snapshots"></a>
 
 You can view detailed information about your snapshots.
 
@@ -30,21 +29,21 @@ Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec
 **Example 1: Filter based on tags**  
 The following example describes the snapshots with the tag Stack=production.  
 
-```
+```bash
 aws ec2 describe-snapshots --filters Name=tag:{{Stack}},Values={{production}}
 ```
 
 **Example 2: Filter based on volume**  
 The following example describes the snapshots created from the specified volume.  
 
-```
+```bash
 aws ec2 describe-snapshots --filters Name=volume-id,Values={{vol-049df61146c4d7901}}
 ```
 
 **Example 3: Filter based on snapshot age**  
 You can use JMESPath to filter results using expressions. For example, the following command displays the IDs of all snapshots created by your account before the specified date. If you do not specify the owner, the results include all public snapshots.  
 
-```
+```bash
 aws ec2 describe-snapshots \
     --filters Name=owner-id,Values={{123456789012}} \
     --query "Snapshots[?(StartTime<='{{2024-03-31}}')].[SnapshotId]" \
@@ -52,7 +51,7 @@ aws ec2 describe-snapshots \
 ```
 The following command displays the IDs of all snapshots created in the specified date range.  
 
-```
+```bash
 aws ec2 describe-snapshots \
     --filters Name=owner-id,Values={{123456789012}} \
     --query "Snapshots[?(StartTime>='{{2024-01-01}}') && (StartTime<='{{2024-12-31}}')].[SnapshotId]" \
@@ -68,14 +67,14 @@ Use the [Get-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/referenc
 **Example 1: Describe a snapshot**  
 The following example describes the specified snapshot.
 
-```
+```powershell
 Get-EC2Snapshot -SnapshotId {{snap-0abcdef1234567890}}
 ```
 
 **Example 2: Filter based on volume**  
 The following example describes the snapshots created from the specified volume.
 
-```
+```powershell
 Get-EC2Snapshot`
     -Filter @{Name="volume-id"; Values="{{vol-01234567890abcdef}}"}
 ```

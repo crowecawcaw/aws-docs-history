@@ -1,7 +1,6 @@
 
 
 # Amazon EBS encryption
-<a name="ebs-encryption"></a>
 
 Use Amazon EBS encryption as a straight-forward encryption solution for your Amazon EBS resources associated with your Amazon EC2 instances. With Amazon EBS encryption, you aren't required to build, maintain, and secure your own key management infrastructure. Amazon EBS encryption uses AWS KMS keys when creating encrypted volumes and snapshots.
 
@@ -13,6 +12,7 @@ You can attach both encrypted and unencrypted volumes to an instance simultaneou
 + [How Amazon EBS encryption works](how-ebs-encryption-works.md)
 + [Amazon EBS encryption in Local Zones, Outposts, and Wavelength Zones](ebs-encryption-local-zones-outposts-wavelength.md)
 + [Requirements for Amazon EBS encryption](ebs-encryption-requirements.md)
++ [Associated KMS keys](associated-kms-keys.md)
 + [Enable Amazon EBS encryption by default](encryption-by-default.md)
 + [Encrypt EBS resources](#encryption-parameters)
 + [Rotate AWS KMS keys used for Amazon EBS encryption](kms-key-rotation.md)

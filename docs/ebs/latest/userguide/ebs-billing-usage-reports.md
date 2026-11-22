@@ -1,7 +1,6 @@
 
 
 # Understand codes for Amazon EBS in billing and usage reports
-<a name="ebs-billing-usage-reports"></a>
 
 When you use Amazon EBS, we include related codes in your AWS billing and usage reports. Reviewing these codes helps you understand your costs and usage patterns for Amazon EBS. Tracking and managing your expenses is essential for optimizing your costs.
 

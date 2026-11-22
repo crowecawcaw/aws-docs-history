@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Data Lifecycle Manager pre and post scripts
-<a name="dlm-script-monitoring"></a>
 
 **Amazon CloudWatch metrics**  
 Amazon Data Lifecycle Manager publishes the following CloudWatch metrics when pre and post scripts fail and succeed and when VSS backups fail and succeed.

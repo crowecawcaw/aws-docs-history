@@ -1,7 +1,6 @@
 
 
 # Create Amazon Data Lifecycle Manager custom policy for EBS-backed AMIs
-<a name="ami-policy"></a>
 
 The following procedure shows you how to use Amazon Data Lifecycle Manager to automate EBS-backed AMI lifecycles.
 
@@ -115,7 +114,7 @@ To simplify the syntax, the following examples use a JSON file, `policyDetails.j
 **Example 1: Age-based retention and AMI deprecation**  
 This example creates an AMI lifecycle policy that creates AMIs of all instances that have a tag key of `purpose` with a value of `production` without rebooting the targeted instances. The policy includes one schedule that creates an AMI every day at `01:00` UTC. The policy retains AMIs for `2` days and deprecates them after `1` day. It also copies the tags from the source instance to the AMIs that it creates.
 
-```
+```bash
 aws dlm create-lifecycle-policy \
     --description "{{My AMI policy}}" \
     --state ENABLED \
@@ -125,7 +124,7 @@ aws dlm create-lifecycle-policy \
 
 The following is an example of the `policyDetails.json` file.
 
-```
+```json
 {
     "PolicyType": "IMAGE_MANAGEMENT",
     "ResourceTypes": [
@@ -167,7 +166,7 @@ The following is an example of the `policyDetails.json` file.
 
 If the request succeeds, the command returns the ID of the newly created policy. The following is example output.
 
-```
+```json
 {
    "PolicyId": "policy-{{9876543210abcdef0}}"
 }
@@ -176,7 +175,7 @@ If the request succeeds, the command returns the ID of the newly created policy.
 **Example 2: Count-based retention and AMI deprecation with cross-Region copy**  
 This example creates an AMI lifecycle policy that creates AMIs of all instances that have a tag key of `purpose` with a value of `production` and reboots the target instances. The policy includes one schedule that creates an AMI every `6` hours starting at `17:30` UTC. The policy retains `3` AMIs and automatically deprecates the `2` oldest AMIs. It also has a cross-Region copy rule that copies AMIs to `us-east-1`, retains `2` AMI copies, and automatically deprecates the oldest AMI.
 
-```
+```bash
 aws dlm create-lifecycle-policy \
     --description "{{My AMI policy}}" \
     --state ENABLED \
@@ -186,7 +185,7 @@ aws dlm create-lifecycle-policy \
 
 The following is an example of the `policyDetails.json` file.
 
-```
+```json
 {
     "PolicyType": "IMAGE_MANAGEMENT",
     "ResourceTypes" : [

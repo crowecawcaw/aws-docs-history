@@ -1,7 +1,6 @@
 
 
 # Amazon Data Lifecycle Manager default policies vs custom policies
-<a name="policy-differences"></a>
 
 This section compares default policies and custom policies and highlights their similarities and differences.
 

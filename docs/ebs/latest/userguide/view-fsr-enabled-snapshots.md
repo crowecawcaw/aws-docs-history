@@ -1,7 +1,6 @@
 
 
 # Check the fast snapshot restore state for an Amazon EBS snapshot
-<a name="view-fsr-enabled-snapshots"></a>
 
 Fast snapshot restore for a snapshot can be in one of the following states.
 + `enabling` — A request was made to enable fast snapshot restore.
@@ -31,13 +30,13 @@ You can view the state of fast snapshot restore for a snapshot that you own or f
 **To view snapshots with fast snapshot restore enabled**  
 Use the [describe-fast-snapshot-restores](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-fast-snapshot-restores.html) command.
 
-```
+```bash
 aws ec2 describe-fast-snapshot-restores --filters Name=state,Values=enabled
 ```
 
 The following is example output.
 
-```
+```json
 {
     "FastSnapshotRestores": [
         {
@@ -70,7 +69,7 @@ The following is example output.
 **To view snapshots with fast snapshot restore enabled**  
 Use the [Get-EC2FastSnapshotRestore](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2FastSnapshotRestore.html) cmdlet.
 
-```
+```powershell
 Get-EC2FastSnapshotRestore `
     -Filter @{Name="state"; Values="enabled"}
 ```

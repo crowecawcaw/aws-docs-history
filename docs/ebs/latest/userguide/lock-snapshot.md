@@ -1,7 +1,6 @@
 
 
 # Lock an Amazon EBS snapshot
-<a name="lock-snapshot"></a>
 
 You can lock a snapshot that is in the `pending` or `completed` state. For more information, see [Considerations for Amazon EBS snapshot lock](snapshot-lock-considerations.md).
 
@@ -38,7 +37,7 @@ You can lock a snapshot that is in the `pending` or `completed` state. For more 
 **To lock a snapshot in governance mode**  
 Use the [lock-snapshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/lock-snapshot.html) command. For `--lock-mode`, specify `governance`. To lock the snapshot for a specific period, for `--lock-duration`, specify the period, in days.
 
-```
+```bash
 aws ec2 lock-snapshot \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --lock-mode governance \
@@ -47,7 +46,7 @@ aws ec2 lock-snapshot \
 
 To lock the snapshot until a specific date, for `--expiration-date`, specify the date and time at which the lock must expire, in the UTC time zone.
 
-```
+```bash
 aws ec2 lock-snapshot \ 
     --snapshot-id {{snap-0abcdef1234567890}} \
     --lock-mode governance \
@@ -57,7 +56,7 @@ aws ec2 lock-snapshot \
 **To lock a snapshot in compliance mode**  
 Use the [lock-snapshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/lock-snapshot.html) command. For `--lock-mode`, specify `compliance`. For `--cool-off-period`, optionally specify a cooling-off period, in hours. To lock the snapshot for a specific period, for `--lock-duration`, specify the number of days to lock the snapshot.
 
-```
+```bash
 aws ec2 lock-snapshot \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --lock-mode compliance \
@@ -67,7 +66,7 @@ aws ec2 lock-snapshot \
 
 To lock the snapshot until a specific date, for `--expiration-date`, specify the date and time at which the lock must expire, in the UTC time zone.
 
-```
+```bash
 aws ec2 lock-snapshot \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --lock-mode compliance \
@@ -80,7 +79,7 @@ aws ec2 lock-snapshot \
 **To lock a snapshot in governance mode**  
 Use the [Lock-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Lock-EC2Snapshot.html) cmdlet. You can optionally specify the duration of the snapshot lock, in days.
 
-```
+```powershell
 Lock-EC2Snapshot `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -LockMode "governance" `
@@ -89,7 +88,7 @@ Lock-EC2Snapshot `
 
 Alternatively, you can lock the snapshot until a specific date, in the UTC time zone.
 
-```
+```powershell
 Lock-EC2Snapshot `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -LockMode "governance" `
@@ -99,7 +98,7 @@ Lock-EC2Snapshot `
 **To lock a snapshot in compliance mode**  
 Use the [Lock-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Lock-EC2Snapshot.html) cmdlet. You can optionally specify a cooling-off period, in hours. You can also optionally specify the duration of the snapshot lock, in days.
 
-```
+```powershell
 Lock-EC2Snapshot `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -LockMode "compliance" `
@@ -109,7 +108,7 @@ Lock-EC2Snapshot `
 
 Alternatively, you can lock the snapshot until a specific date, in the UTC time zone.
 
-```
+```powershell
 Lock-EC2Snapshot `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -LockMode "compliance" `

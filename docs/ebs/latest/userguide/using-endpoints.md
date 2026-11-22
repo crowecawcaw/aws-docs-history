@@ -1,7 +1,6 @@
 
 
 # Service endpoints for EBS direct APIs
-<a name="using-endpoints"></a>
 
 An *endpoint* is a URL that serves as an entry point for an AWS web service. EBS direct APIs supports the following endpoint types:
 + IPv4 endpoints
@@ -74,12 +73,12 @@ This section provides some examples of how to specify an endpoint when making a 
 The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS CLI.
 + **Dual-stack**
 
-  ```
+  ```bash
   aws ebs list-snapshot-blocks --snapshot-id snap-0987654321 --starting-block-index 1000 --endpoint-url https://{{ebs.us-east-2.api.aws}}
   ```
 + **IPv4**
 
-  ```
+  ```bash
   aws ebs list-snapshot-blocks --snapshot-id snap-0987654321 --starting-block-index 1000 --endpoint-url https://{{ebs.us-east-2.amazonaws.com}}
   ```
 
@@ -89,7 +88,7 @@ The following examples show how to specify an endpoint for the `us-east-2` Regio
 The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS SDK for Java 2.x.
 + **Dual-stack**
 
-  ```
+  ```java
   AwsClientBuilder.EndpointConfiguration config = new AwsClientBuilder.EndpointConfiguration("https://{{ebs.us-east-2.api.aws}}", "{{us-east-2}}");
   AmazonEBS ebs = AmazonEBSClientBuilder.standard()
       .withEndpointConfiguration(config)
@@ -97,7 +96,7 @@ The following examples show how to specify an endpoint for the `us-east-2` Regio
   ```
 + **IPv4**
 
-  ```
+  ```java
   AwsClientBuilder.EndpointConfiguration config = new AwsClientBuilder.EndpointConfiguration("https://{{ebs.us-east-2.amazonaws.com}}", "{{us-east-2}}");
   AmazonEBS ebs = AmazonEBSClientBuilder.standard()
       .withEndpointConfiguration(config)
@@ -110,7 +109,7 @@ The following examples show how to specify an endpoint for the `us-east-2` Regio
 The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS SDK for Go.
 + **Dual-stack**
 
-  ```
+  ```go
   sess := session.Must(session.NewSession())
   svc := ebs.New(sess, &aws.Config{
       Region: aws.String(endpoints.UsEast2RegionID),
@@ -119,7 +118,7 @@ The following examples show how to specify an endpoint for the `us-east-2` Regio
   ```
 + **IPv4**
 
-  ```
+  ```go
   sess := session.Must(session.NewSession())
   svc := ebs.New(sess, &aws.Config{
       Region: aws.String(endpoints.UsEast2RegionID),

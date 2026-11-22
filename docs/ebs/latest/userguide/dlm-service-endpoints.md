@@ -1,7 +1,6 @@
 
 
 # Service endpoints for Amazon Data Lifecycle Manager
-<a name="dlm-service-endpoints"></a>
 
 An *endpoint* is a URL that serves as an entry point for an AWS web service. Amazon Data Lifecycle Manager supports the following endpoint types:
 + IPv4 endpoints
@@ -59,14 +58,14 @@ FIPS dual-stack endpoints use the following naming convention: `dlm-fips.{{regio
 The following examples show how to specify an endpoint for the `US East (N. Virginia)` Region using the AWS CLI.
 + **Dual-stack**
 
-  ```
+  ```bash
   aws dlm create-default-role \
   --resource-type snapshot \
   --endpoint-url https://{{dlm.us-east-2.api.aws}}
   ```
 + **IPv4**
 
-  ```
+  ```bash
   aws dlm create-default-role \
   --resource-type snapshot \
   --endpoint-url https://{{dlm.us-east-2.amazonaws.com}}

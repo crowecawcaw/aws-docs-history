@@ -1,7 +1,6 @@
 
 
 # Create a private connection between a VPC and EBS direct APIs
-<a name="ebs-apis-vpc-endpoints"></a>
 
 You can establish a private connection between your VPC and EBS direct APIs by creating an *interface VPC endpoint*, powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/). You can access EBS direct APIs as if it were in your VPC, without using an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with EBS direct APIs.
 
@@ -23,7 +22,7 @@ For more information, see [ Controlling access to services with VPC endpoints](h
 
 The following is an example of an endpoint policy for EBS direct APIs. When attached to an endpoint, this policy grants access to all EBS direct APIs actions on all resources, except snapshots that are tagged with key `Environment` and value `Test`.
 
-```
+```json
 {
     "Statement": [
         {

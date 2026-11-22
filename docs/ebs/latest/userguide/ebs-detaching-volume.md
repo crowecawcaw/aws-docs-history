@@ -1,7 +1,6 @@
 
 
 # Detach an Amazon EBS volume from an Amazon EC2 instance
-<a name="ebs-detaching-volume"></a>
 
 You need to detach an Amazon Elastic Block Store (Amazon EBS) volume from an instance before you can attach it to a different instance or delete it. Detaching a volume does not affect the data on the volume.
 
@@ -35,7 +34,7 @@ Use the following procedures to unmount and detach a volume from an instance. Th
 
 From your Linux instance, use the following command to unmount the `/dev/sdh` device.
 
-```
+```bash
 [ec2-user ~]$ sudo umount -d {{/dev/sdh}}
 ```
 
@@ -76,7 +75,7 @@ To detach the volume from the instance, use one of the following methods:
 **To detach an EBS volume from an instance**  
 After unmounting the volume, use the [detach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/detach-volume.html) command.
 
-```
+```bash
 aws ec2 detach-volume --volume-id {{vol-01234567890abcdef}}
 ```
 
@@ -86,7 +85,7 @@ aws ec2 detach-volume --volume-id {{vol-01234567890abcdef}}
 **To detach an EBS volume from an instance**  
 After unmounting the volume, use the [Dismount-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Dismount-EC2Volume.html) cmdlet.
 
-```
+```powershell
 Dismount-EC2Volume -VolumeId {{vol-01234567890abcdef}}
 ```
 
@@ -121,7 +120,7 @@ To guard against the possibility of data loss, take a snapshot of your volume be
 + If you've tried to force the volume to detach multiple times over several minutes and it stays in the `detaching` state, you can post a request for help to [AWS re:Post](https://repost.aws/). To help expedite a resolution, include the volume ID and describe the steps that you've already taken.
 + When you attempt to detach a volume that is still mounted, the volume can become stuck in the `busy` state while it is trying to detach. The following output from **describe-volumes** shows an example of this condition:
 
-  ```
+  ```json
   "Volumes": [
       {
           "AvailabilityZone": "us-west-2b",

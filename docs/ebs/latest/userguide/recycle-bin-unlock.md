@@ -1,7 +1,6 @@
 
 
 # Unlock a Recycle Bin retention rule to allow it to be updated or deleted
-<a name="recycle-bin-unlock"></a>
 
 You can't modify or delete a locked retention rule. If you need to modify a locked retention rule, you must first unlock it. After you have unlocked the retention rule, you must wait for the unlock delay period to expire before you can modify or delete it. You can't modify or delete a retention rule during the unlock delay period.
 
@@ -36,7 +35,7 @@ You can unlock a locked Region-level retention rule using one of the following m
 **To unlock a locked retention rule**  
 Use the [unlock-rule](https://docs.aws.amazon.com/cli/latest/reference/rbin/unlock-rule.html) AWS CLI command. For `--identifier`, specify the ID of the retention rule to unlock.
 
-```
+```bash
 aws rbin unlock-rule \
 --identifier {{rule_ID}}
 ```
@@ -44,7 +43,7 @@ aws rbin unlock-rule \
 **Example**  
 The following example command unlocks retention rule `6lsJ2Fa9nh9`
 
-```
+```bash
 aws rbin unlock-rule \
 --identifier 6lsJ2Fa9nh9
 ```

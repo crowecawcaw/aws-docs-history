@@ -1,7 +1,6 @@
 
 
 # View archived Amazon EBS snapshots
-<a name="view-archived-snapshot"></a>
 
 ------
 #### [ Console ]
@@ -43,14 +42,14 @@ The output includes the following response parameters:
 **Example: Describe a snapshot**  
 The following example displays information about the specified snapshot.
 
-```
+```bash
 aws ec2 describe-snapshot-tier-status \
     --filters "Name=snapshot-id, Values={{snap-0abcdef1234567890}}"
 ```
 
 The following is example output.
 
-```
+```json
 {
     "SnapshotTierStatuses": [
         {
@@ -72,7 +71,7 @@ The following is example output.
 **To view archived and standard tier snapshots**  
 Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command. For `--snapshot-ids`, specify the ID of the snapshot.
 
-```
+```bash
 aws ec2 describe-snapshots --snapshot-ids {{snap-0abcdef1234567890}}
 ```
 
@@ -84,7 +83,7 @@ Additionally, the `RestoreExpiryTime` response parameter is returned only for sn
 
 In the following example output, `Snap C` is temporarily restored, and it will be automatically removed from the standard tier at 2021-09-19T21:00:00.000Z (September 19, 2021 at 21:00 UTC).
 
-```
+```json
 {
     "Snapshots": [
         {
@@ -134,7 +133,7 @@ In the following example output, `Snap C` is temporarily restored, and it will b
 **To view only snapshots that are stored in the archive tier or the standard tier**  
 Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command. Include the `--filter` option, with the filter name `storage-tier`. For the filter value specify either `archive` or `standard`. The following example displays only archived snapshots.
 
-```
+```bash
 aws ec2 describe-snapshots --filters "Name=storage-tier,Values=archive"
 ```
 
@@ -144,7 +143,7 @@ aws ec2 describe-snapshots --filters "Name=storage-tier,Values=archive"
 **To view archival information about an archived snapshot**  
 Use the [Get-EC2SnapshotTierStatus](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SnapshotTierStatus.html) cmdlet.
 
-```
+```powershell
 Get-EC2SnapshotTierStatus `
     -Filter @{Name="snapshot-id"; Values="{{snap-0abcdef1234567890}}"}
 ```
@@ -152,7 +151,7 @@ Get-EC2SnapshotTierStatus `
 **To view archived and standard tier snapshots**  
 Use the [Get-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Snapshot.html) cmdlet.
 
-```
+```powershell
 Get-EC2Snapshot `
     -SnapshotId {{snap-0abcdef1234567890}}
 ```
@@ -160,7 +159,7 @@ Get-EC2Snapshot `
 **To view only snapshots that are stored in the archive tier or the standard tier**  
 Use the [Get-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Snapshot.html) cmdlet. The following example displays only archived snapshots.
 
-```
+```powershell
 Get-EC2Snapshot `
     -Filter @{Name="storage-tier"; Values="archive"}
 ```

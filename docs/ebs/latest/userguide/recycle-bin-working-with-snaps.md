@@ -1,7 +1,6 @@
 
 
 # Recover deleted snapshots from the Recycle Bin
-<a name="recycle-bin-working-with-snaps"></a>
 
 This topic explains how to recover Amazon EBS snapshots from the Recycle Bin.
 
@@ -69,19 +68,19 @@ You can view the snapshots in the Recycle Bin using one of the following methods
 **To view snapshots in the Recycle Bin using the AWS CLI**  
 Use the [ list-snapshots-in-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/list-snapshots-in-recycle-bin.html) AWS CLI command. Include the `--snapshot-id` option to view a specific snapshot. Or omit the `--snapshot-id` option to view all snapshots in the Recycle Bin.
 
-```
+```bash
 aws ec2 list-snapshots-in-recycle-bin --snapshot-id {{snapshot_id}}
 ```
 
 For example, the following command provides information about snapshot `snap-01234567890abcdef` in the Recycle Bin.
 
-```
+```bash
 aws ec2 list-snapshots-in-recycle-bin --snapshot-id snap-01234567890abcdef
 ```
 
 Example output:
 
-```
+```json
 {
     "SnapshotRecycleBinInfo": [
         {
@@ -123,19 +122,19 @@ You can restore a snapshot from the Recycle Bin using one of the following metho
 **To restore a deleted snapshot from the Recycle Bin using the AWS CLI**  
 Use the [ restore-snapshot-from-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/restore-snapshot-from-recycle-bin.html) AWS CLI command. For `--snapshot-id`, specify the ID of the snapshot to restore.
 
-```
+```bash
 aws ec2 restore-snapshot-from-recycle-bin --snapshot-id {{snapshot_id}}
 ```
 
 For example, the following command restores snapshot `snap-01234567890abcdef` from the Recycle Bin.
 
-```
+```bash
 aws ec2 restore-snapshot-from-recycle-bin --snapshot-id snap-01234567890abcdef
 ```
 
 Example output:
 
-```
+```json
 {
     "SnapshotId": "snap-01234567890abcdef",
     "Description": "Monthly data backup snapshot",

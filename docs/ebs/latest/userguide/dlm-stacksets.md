@@ -1,7 +1,6 @@
 
 
 # Enable Data Lifecycle Manager default policies across accounts and Regions
-<a name="dlm-stacksets"></a>
 
 Using CloudFormation StackSets, you can enable Amazon Data Lifecycle Manager default policies across multiple accounts and AWS Regions with a single operation.
 
@@ -91,7 +90,7 @@ For critical workloads, we recommend **CreateInterval = 1 day** and **RetainInte
 
    For `--auto-deployment`, specify `Enabled=true, RetainStacksOnAccountRemoval=true`.
 
-   ```
+   ```bash
    $ aws cloudformation create-stack-set \
    --stack-set-name {{stackset_name}} \
    --permission-model SERVICE_MANAGED \
@@ -108,7 +107,7 @@ For critical workloads, we recommend **CreateInterval = 1 day** and **RetainInte
 
    For `--regions`, specify the AWS Regions in which to enable the default policies.
 
-   ```
+   ```bash
    $ aws cloudformation create-stack-instances \
    --stack-set-name {{stackset_name}} \
    --deployment-targets OrganizationalUnitIds={{'["root_ou_id"]'}} | {{'["ou_id_1", "ou_id_2]'}} \
@@ -131,7 +130,7 @@ For critical workloads, we recommend **CreateInterval = 1 day** and **RetainInte
 
    For `--auto-deployment`, specify `Enabled=true, RetainStacksOnAccountRemoval=true`.
 
-   ```
+   ```bash
    $ aws cloudformation create-stack-set \
    --stack-set-name {{stackset_name}} \
    --template-url {{template_url}} \
@@ -149,7 +148,7 @@ For critical workloads, we recommend **CreateInterval = 1 day** and **RetainInte
 
    For `--regions`, specify the AWS Regions in which to enable the default policies.
 
-   ```
+   ```bash
    $ aws cloudformation create-stack-instances \
    --stack-set-name {{stackset_name}} \
    --accounts '["{{account_ID_1}}","{{account_ID_2}}"]' \

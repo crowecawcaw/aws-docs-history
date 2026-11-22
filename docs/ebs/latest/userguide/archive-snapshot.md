@@ -1,7 +1,6 @@
 
 
 # Archive an Amazon EBS snapshot
-<a name="archive-snapshot"></a>
 
 You can archive any snapshot that is in the `completed` state and that you own in your account. You can't archive snapshots that are in the `pending` or `error` states, or snapshots that are shared with you. For more information, see [Considerations and limitations for archiving Amazon EBS snapshots](snapshot-archive-considerations.md).
 
@@ -20,7 +19,7 @@ You can continue to use the snapshot while the archive is in process. As soon as
 
 1. In the navigation pane, choose **Snapshots**.
 
-1. In the list of snapshots, select the snapshot to archive and then choose **Actions**, **Archive snapshot**.
+1. In the list of snapshots, select the snapshot to archive and then choose **Actions**, **Archiving**, **Archive snapshot**.
 
 1. To confirm, choose **Archive snapshot**.
 
@@ -30,7 +29,7 @@ You can continue to use the snapshot while the archive is in process. As soon as
 **To archive a snapshot**  
 Use the [ modify-snapshot-tier](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-snapshot-tier.html) AWS CLI command. For `--snapshot-id`, specify the ID of the snapshot to archive. For `--storage-tier`, specify `archive`.
 
-```
+```bash
 aws ec2 modify-snapshot-tier \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --storage-tier archive
@@ -38,7 +37,7 @@ aws ec2 modify-snapshot-tier \
 
 The following is example output. The `TieringStartTime` response parameter indicates the date and time at which the archive process was started, in UTC time format (YYYY-MM-DDTHH:MM:SSZ).
 
-```
+```json
 {
     "SnapshotId": "snap-0abcdef1234567890",
     "TieringStartTime": "2021-09-15T16:44:37.574Z"
@@ -51,7 +50,7 @@ The following is example output. The `TieringStartTime` response parameter indic
 **To archive a snapshot**  
 Use the [Edit-EC2SnapshotTier](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2SnapshotTier.html) cmdlet. The following example archives the specified snapshot.
 
-```
+```powershell
 Edit-EC2SnapshotTier `
     -SnapshotId {{snap-0abcdef1234567890}} `
     -StorageTier "archive"

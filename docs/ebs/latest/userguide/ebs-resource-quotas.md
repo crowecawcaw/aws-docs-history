@@ -1,7 +1,6 @@
 
 
 # Quotas for Amazon EBS
-<a name="ebs-resource-quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 
@@ -14,6 +13,7 @@ Your AWS account has the following quotas related to Amazon EBS.
 | --- | --- | --- | --- | 
 | Archived snapshots per volume | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ebs/quotas/L-E20676C1)  | The maximum number of archived snapshots per volume. | 
 | CompleteSnapshot requests per account | Each supported Region: 10 per second | No | The maximum number of CompleteSnapshot requests allowed per account. | 
+| Concurrent associated KMS keys per snapshot | Each supported Region: 2 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ebs/quotas/L-3ED94175)  | The maximum number of concurrent KMS keys that can be associated with a single snapshot at any one time. | 
 | Concurrent snapshot copies per destination Region | Each supported Region: 20 | No | The maximum number of concurrent snapshot copies to a single destination Region. | 
 | Concurrent snapshots per Cold HDD (sc1) volume | Each supported Region: 1 | No | The maximum number of concurrent snapshots per Cold HDD (sc1) volume in this Region. | 
 | Concurrent snapshots per General Purpose SSD (gp2) volume | Each supported Region: 5 | No | The maximum number of concurrent snapshots per General Purpose SSD (gp2) volume in this Region. | 

@@ -1,7 +1,6 @@
 
 
 # Lock a Recycle Bin retention rule to prevent it from being updated or deleted
-<a name="recycle-bin-lock"></a>
 
 Recycle Bin lets you lock Region-level retention rules at any time.
 
@@ -44,7 +43,7 @@ You can lock a Region-level retention rule using one of the following methods.
 **To lock an unlocked retention rule**  
 Use the [lock-rule](https://docs.aws.amazon.com/cli/latest/reference/rbin/lock-rule.html) AWS CLI command. For `--identifier`, specify the ID of the retention rule to lock. For `--lock-configuration`, specify the unlock delay period in days.
 
-```
+```bash
 aws rbin lock-rule \
 --identifier {{rule_ID}} \
 --lock-configuration 'UnlockDelay={UnlockDelayUnit=DAYS,UnlockDelayValue={{number_of_days}}}'
@@ -53,7 +52,7 @@ aws rbin lock-rule \
 **Example**  
 The following example command locks retention rule `6lsJ2Fa9nh9` and sets the unlock delay period to 15 days.
 
-```
+```bash
 aws rbin lock-rule \
 --identifier 6lsJ2Fa9nh9 \
 --lock-configuration 'UnlockDelay={UnlockDelayUnit=DAYS,UnlockDelayValue=15}'

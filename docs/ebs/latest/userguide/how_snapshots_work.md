@@ -1,7 +1,6 @@
 
 
 # How Amazon EBS snapshots work
-<a name="how_snapshots_work"></a>
 
 The first snapshot that you create from a volume is always a *full snapshot*. It includes all of the data blocks written to the volume at the time of creating the snapshot. Subsequent snapshots of the same volume are *incremental snapshots*. They include only changed and new data blocks written to the volume since the last snapshot was created
 

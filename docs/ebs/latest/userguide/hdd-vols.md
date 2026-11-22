@@ -1,7 +1,6 @@
 
 
 # Amazon EBS Throughput Optimized HDD and Cold HDD volumes
-<a name="hdd-vols"></a>
 
 The HDD-backed volumes provided by Amazon EBS fall into these categories:
 + Throughput Optimized HDD — A low-cost HDD designed for frequently accessed, throughput-intensive workloads.

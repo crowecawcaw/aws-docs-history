@@ -1,7 +1,6 @@
 
 
 # Document history for the Amazon EBS User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for Amazon EBS.
 
@@ -36,7 +35,7 @@ The following table describes the documentation releases for Amazon EBS.
 | [Amazon EBS snapshot lock](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshot-lock.html) | You can lock your Amazon EBS snapshots to protect them against accidental or malicious deletions, or to or store them in WORM format for a specific duration. | November 15, 2023 | 
 | [Block public access for snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html) | You can now use block public access for snapshots to prevent the public sharing of your snapshots. | November 9, 2023 | 
 | [Amazon Data Lifecycle Manager pre and post scripts](https://docs.aws.amazon.com/ebs/latest/userguide/automate-app-consistent-backups.html) | You can now use pre and post scripts in your Amazon Data Lifecycle Manager snapshot policies to automate the lifecycle of application-consistent snapshots. | November 7, 2023 | 
-| [NVMe reservations](#doc-history) | Multi-Attach enabled `io2` volumes support NVMe reservations, which is a set of industry-standard storage fencing protocols. | September 18, 2023 | 
+| [NVMe reservations](doc-history.md) | Multi-Attach enabled `io2` volumes support NVMe reservations, which is a set of industry-standard storage fencing protocols. | September 18, 2023 | 
 | [Fault testing on Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fis.html) | Use AWS FIS to temporarily stop I/O between an EBS volume and the instances to which it is attached to test how your workloads handle I/O interruptions. | January 27, 2023 | 
 | [Recycle Bin retention rule lock](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-lock.html) | You can lock retention rules to help protect them against accidental or malicious modifications and deletions. | November 23, 2022 | 
 | [Condition keys for Recycle Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-perms.html#rbin-condition-keys) | You can use the `rbin:Request/ResourceType` and `rbin:Attribute/ResourceType` condition keys to filter access on Recycle Bin requests. | June 14, 2022 | 

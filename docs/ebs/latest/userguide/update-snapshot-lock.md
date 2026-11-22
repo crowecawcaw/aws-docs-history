@@ -1,7 +1,6 @@
 
 
 # Update Amazon EBS snapshot lock settings
-<a name="update-snapshot-lock"></a>
 
 The allowed updates depend on the lock state:
 + `governance` — you can change the lock mode and increase or decrease the lock duration or expiration date.
@@ -27,7 +26,7 @@ The allowed updates depend on the lock state:
 **To update snapshot lock settings**  
 Use the [lock-snapshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/lock-snapshot.html) command. Specify the ID of the snapshot and the options to modify. The following example changes the expiration date.
 
-```
+```bash
 aws ec2 lock-snapshot \
     --snapshot-id {{snap-0abcdef1234567890}} \
     --lock-mode governance \
@@ -40,7 +39,7 @@ aws ec2 lock-snapshot \
 **To update snapshot lock settings**  
 Use the [Lock-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Lock-EC2Snapshot.html) cmdlet. Specify the ID of the snapshot and the options to modify. The following example changes the expiration date.
 
-```
+```powershell
 Lock-EC2Snapshot `
     -SnapshoId {{snap-0abcdef1234567890}} `
     -LockMode "governance" `

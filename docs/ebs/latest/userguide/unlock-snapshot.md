@@ -1,7 +1,6 @@
 
 
 # Unlock an Amazon EBS snapshot
-<a name="unlock-snapshot"></a>
 
 You can unlock a snapshot only if it is locked in governance mode, or if it is locked in compliance mode and it is still within the cooling-off period.
 
@@ -24,7 +23,7 @@ You can unlock a snapshot only if it is locked in governance mode, or if it is l
 **To unlock a snapshot**  
 Use the [unlock-snapshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/unlock-snapshot.html) command.
 
-```
+```bash
 aws ec2 unlock-snapshot --snapshot-id {{snap-0abcdef1234567890}}
 ```
 
@@ -34,7 +33,7 @@ aws ec2 unlock-snapshot --snapshot-id {{snap-0abcdef1234567890}}
 **To unlock a snapshot**  
 Use the [Unlock-EC2Snapshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Unlock-EC2Snapshot.html) cmdlet.
 
-```
+```powershell
 Unlock-EC2Snapshot -SnapshotId {{snap-0abcdef1234567890}}
 ```
 

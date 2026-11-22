@@ -1,7 +1,6 @@
 
 
 # Automate cross-account snapshot copies with Data Lifecycle Manager
-<a name="event-policy"></a>
 
 Automating cross-account snapshot copies enables you to copy your Amazon EBS snapshots to specific Regions in an isolated account and encrypt those snapshots with an encryption key. This enables you to protect yourself against data loss in the event of your account being compromised.
 
@@ -72,7 +71,7 @@ Use the [ get-key-policy](https://docs.aws.amazon.com/cli/latest/reference/kms/g
 
 For example, the following command retrieves the key policy for a KMS key with an ID of `9d5e2b3d-e410-4a27-a958-19e220d83a1e` and writes it to a file named `snapshotKey.json`.
 
-```
+```bash
 $ aws kms get-key-policy \
     --policy-name default \
     --key-id {{9d5e2b3d-e410-4a27-a958-19e220d83a1e}} \
@@ -87,7 +86,7 @@ For example, in the following policy, the ARN of the default IAM role is specifi
 **Tip**  
 To follow the principle of least privilege, do not allow full access to `kms:CreateGrant`. Instead, use the `kms:GrantIsForAWSResource` condition key to allow the user to create grants on the KMS key only when the grant is created on the user's behalf by an AWS service, as shown in the following example.
 
-```
+```json
 {
     "Sid" : "Allow use of the key",
     "Effect" : "Allow",
@@ -133,7 +132,7 @@ Save and close the file. Then use the [ put-key-policy](https://docs.aws.amazon.
 
 
 
-```
+```bash
 $ aws kms put-key-policy \
     --policy-name default \
     --key-id {{9d5e2b3d-e410-4a27-a958-19e220d83a1e}} \
@@ -200,7 +199,7 @@ Use the [create-lifecycle-policy](https://docs.aws.amazon.com/cli/latest/referen
 
 For example, the following command creates a cross-account copy event policy in target account `222222222222`. The policy copies snapshots that are shared by source account `111111111111`. The policy copies snapshots to `sa-east-1` and `eu-west-2`. Snapshots copied to `sa-east-1` are unencrypted and they are retained for 3 days. Snapshots copied to `eu-west-2` are encrypted using KMS key `8af79514-350d-4c52-bac8-8985e84171c7` and they are retained for 1 month. The policy uses the default IAM role.
 
-```
+```bash
 $ aws dlm create-lifecycle-policy \
     --description {{"Copy policy"}} \
     --state ENABLED \
@@ -210,7 +209,7 @@ $ aws dlm create-lifecycle-policy \
 
 The following shows the contents of the `policyDetails.json` file.
 
-```
+```json
 {
     "PolicyType" : "EVENT_BASED_POLICY",
     "EventSource" : {
@@ -249,7 +248,7 @@ The following shows the contents of the `policyDetails.json` file.
 
 If the request succeeds, the command returns the ID of the newly created policy. The following is example output.
 
-```
+```json
 {
     "PolicyId": "policy-9876543210abcdef0"
 }
@@ -289,7 +288,7 @@ To follow the principle of least privilege, do not allow full access to `kms:Cre
 
 ****  
 
-   ```
+   ```json
     {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -352,7 +351,7 @@ To follow the principle of least privilege, do not allow full access to `kms:Cre
 
 ****  
 
-```
+```json
  {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -397,7 +396,7 @@ Save and close the file. Then use the [put-role-policy](https://docs.aws.amazon.
 
 For example
 
-```
+```bash
 $ aws iam put-role-policy \
     --role-name {{AWSDataLifecycleManagerDefaultRole}} \
     --policy-name {{CopyPolicy}} \

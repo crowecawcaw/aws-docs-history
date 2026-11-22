@@ -1,7 +1,6 @@
 
 
 # Ensure idempotency in StartSnapshot API requests
-<a name="ebs-direct-api-idempotency"></a>
 
 Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successful, the subsequent retries return the result from the original successful request and they have no additional effect.
 
@@ -14,7 +13,7 @@ A client token can be any string that includes up to 64 ASCII characters. You sh
 **To make an idempotent StartSnapshot request with your own client token using the API**  
 Specify the `ClientToken` request parameter.
 
-```
+```json
 POST /snapshots HTTP/1.1
 Host: ebs.us-east-2.amazonaws.com
 Accept-Encoding: identity
@@ -33,6 +32,6 @@ Authorization: {{<Authentication parameter>}}
 **To make an idempotent StartSnapshot request with your own client token using the AWS CLI**  
 Specify the `client-token` request parameter.
 
-```
+```bash
 $ C:\> aws ebs start-snapshot --region us-east-2 --volume-size 8 --parent-snapshot snap-123EXAMPLE1234567 --timeout 60 --client-token 550e8400-e29b-41d4-a716-446655440000
 ```

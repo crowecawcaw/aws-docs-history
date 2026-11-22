@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda to handle EventBridge events
-<a name="using_lambda"></a>
 
 You can use Amazon EBS and Amazon EventBridge to automate your data-backup workflow. This requires you to create an IAM policy, a AWS Lambda function to handle the event, and an EventBridge rule that matches incoming events and routes them to the Lambda function.
 
@@ -16,7 +15,7 @@ The following procedure uses the `createSnapshot` event to automatically copy a 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -44,7 +43,7 @@ The following procedure uses the `createSnapshot` event to automatically copy a 
 
 1. Define a function in Lambda that will be available from the EventBridge console. The sample Lambda function below, written in Node.js, is invoked by EventBridge when a matching `createSnapshot` event is emitted by Amazon EBS (signifying that a snapshot was completed). When invoked, the function copies the snapshot from `us-east-2` to `us-east-1`.
 
-   ```
+   ```java
    // Sample Lambda function to copy an EBS snapshot to a different Region
     
    var AWS = require('aws-sdk');

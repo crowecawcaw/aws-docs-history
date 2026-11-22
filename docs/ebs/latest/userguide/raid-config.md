@@ -1,7 +1,6 @@
 
 
 # Amazon EBS and RAID configuration
-<a name="raid-config"></a>
 
 With Amazon EBS, you can use any of the standard RAID configurations that you can use with a traditional bare metal server, as long as that particular RAID configuration is supported by the operating system for your instance. This is because all RAID is accomplished at the software level. 
 
@@ -48,7 +47,7 @@ You can list the devices on your instance with the **lsblk** command to find the
 
    To create a RAID 0 array, run the following command (note the `--level=0` option to stripe the array):
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mdadm --create --verbose /dev/md0 --level=0 --name={{MY_RAID}} --raid-devices={{number_of_volumes}} {{device_name1 device_name2}}
    ```
 **Tip**  
@@ -56,7 +55,7 @@ If you get the `mdadm: command not found` error, use the following command to in
 
 1.  Allow time for the RAID array to initialize and synchronize. You can track the progress of these operations with the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo cat /proc/mdstat
    ```
 
@@ -72,7 +71,7 @@ If you get the `mdadm: command not found` error, use the following command to in
 
    In general, you can display detailed information about your RAID array with the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mdadm --detail /dev/md0
    ```
 
@@ -110,7 +109,7 @@ If you get the `mdadm: command not found` error, use the following command to in
 
 1. Create a file system on your RAID array, and give that file system a label to use when you mount it later. For example, to create an ext4 file system with the label {{MY\_RAID}}, run the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkfs.ext4 -L {{MY_RAID}} /dev/md0
    ```
 
@@ -118,7 +117,7 @@ If you get the `mdadm: command not found` error, use the following command to in
 
 1. To make sure that the RAID array is reassembled automatically on boot, create a configuration file to contain the RAID information:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mdadm --detail --scan | sudo tee -a /etc/mdadm.conf
    ```
 **Note**  
@@ -126,19 +125,19 @@ If you are using a Linux distribution other than Amazon Linux, you might need to
 
 1. Create a new ramdisk image to properly preload the block device modules for your new RAID configuration:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
    ```
 
 1. Create a mount point for your RAID array.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkdir -p /mnt/{{raid}}
    ```
 
 1. Finally, mount the RAID device on the mount point that you created:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mount LABEL={{MY_RAID}} /mnt/{{raid}}
    ```
 
@@ -148,7 +147,7 @@ If you are using a Linux distribution other than Amazon Linux, you might need to
 
    1. Create a backup of your `/etc/fstab` file that you can use if you accidentally destroy or delete this file while you are editing it.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo cp /etc/fstab /etc/fstab.orig
       ```
 
@@ -170,7 +169,7 @@ If you ever intend to boot your instance without this volume attached (for examp
 
    1. After you've added the new entry to `/etc/fstab`, you need to check that your entry works. Run the **sudo mount -a** command to mount all file systems in `/etc/fstab`.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo mount -a
       ```
 
@@ -180,7 +179,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
    1. (Optional) If you are unsure how to correct `/etc/fstab` errors, you can always restore your backup `/etc/fstab` file with the following command.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo mv /etc/fstab.orig /etc/fstab
       ```
 
@@ -197,7 +196,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
 1. Open a command prompt and type the **diskpart** command.
 
-   ```
+   ```bash
    diskpart
    
    Microsoft DiskPart version 6.1.7601
@@ -207,7 +206,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
 1. At the `DISKPART` prompt, list the available disks with the following command.
 
-   ```
+   ```bash
    DISKPART> list disk
    
      Disk ###  Status         Size     Free     Dyn  Gpt
@@ -223,7 +222,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
    1. Select a disk you want to use in your array with the following command, substituting {{n}} with your disk number.
 
-      ```
+      ```bash
       DISKPART> select disk {{n}}
       
       Disk {{n}} is now the selected disk.
@@ -233,7 +232,7 @@ Errors in the `/etc/fstab` file can render a system unbootable. Do not shut down
 
    1. If the selected disk does not have an asterisk in the `Dyn` column in the previous **list disk** command output, you need to convert it to a dynamic disk.
 
-      ```
+      ```bash
       DISKPART> convert dynamic
       ```
 **Note**  
@@ -241,7 +240,7 @@ If you receive an error that the disk is write protected, you can clear the read
 
    1. Use the **detail disk** command to check for existing volumes on the selected disk.
 
-      ```
+      ```bash
       DISKPART> detail disk
       
       XENSRC PVDISK SCSI Disk Device
@@ -273,14 +272,14 @@ This destroys any existing data on the volume.
 
       1. Select the volume, substituting {{n}} with your volume number.
 
-         ```
+         ```bash
          DISKPART> select volume {{n}}
          Volume {{n}} is the selected volume.
          ```
 
       1. Delete the volume.
 
-         ```
+         ```bash
          DISKPART> delete volume
          
          DiskPart successfully deleted the volume.
@@ -292,7 +291,7 @@ This destroys any existing data on the volume.
 
 1. Verify that the disks you want to use are now dynamic. In this case, this example uses disks 1 and 2 for the RAID volume.
 
-   ```
+   ```bash
    DISKPART> list disk
    
      Disk ###  Status         Size     Free     Dyn  Gpt
@@ -306,14 +305,14 @@ This destroys any existing data on the volume.
 
    To create a striped volume array on disks 1 and 2, use the following command (note the `stripe` option to stripe the array):
 
-   ```
+   ```bash
    DISKPART> create volume stripe disk=1,2
    DiskPart successfully created the volume.
    ```
 
 1. Verify your new volume.
 
-   ```
+   ```bash
    DISKPART> list volume
    
      DISKPART> list volume
@@ -330,7 +329,7 @@ This destroys any existing data on the volume.
 
    1. Select the volume you want to format, substituting {{n}} with your volume number.
 
-      ```
+      ```bash
       DISKPART> select volume {{n}}
       
       Volume {{n}} is the selected volume.
@@ -340,7 +339,7 @@ This destroys any existing data on the volume.
 **Note**  
 To perform a full format, omit the `quick` option.
 
-      ```
+      ```bash
       DISKPART> format quick recommended label="{{My new volume}}"
       
         100 percent completed
@@ -350,7 +349,7 @@ To perform a full format, omit the `quick` option.
 
    1. Assign an available drive letter to your volume.
 
-      ```
+      ```bash
       DISKPART> assign letter {{f}}
       
       DiskPart successfully assigned the drive letter or mount point.

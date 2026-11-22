@@ -1,7 +1,6 @@
 
 
 # Considerations for Amazon EBS snapshot lock
-<a name="snapshot-lock-considerations"></a>
 
 Keep the following in mind when locking Amazon EBS snapshots.
 + You can lock a snapshot only if it is in the `pending` or `completed` state.

@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions for EBS direct APIs
-<a name="ebsapi-faq"></a>
 
 **Can a snapshot be accessed using the EBS direct APIs if it has a pending status?**  
 No. The snapshot can be accessed only if it has a completed status.

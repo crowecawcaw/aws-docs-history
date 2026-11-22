@@ -1,7 +1,6 @@
 
 
 # Monitor Data Lifecycle Manager policies using EventBridge
-<a name="monitor-cloudwatch-events"></a>
 
 Amazon EBS and Amazon Data Lifecycle Manager emit events related to lifecycle policy actions. You can use AWS Lambda and Amazon CloudWatch Events to handle event notifications programmatically. Events are emitted on a best effort basis. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
 
@@ -14,7 +13,7 @@ No events are emitted for AMI lifecycle policy actions.
 
   The following is an example of an event when the permissions granted by the IAM role are insufficient.
 
-  ```
+  ```json
   {
       "version": "0",
       "id": "01234567-0123-0123-0123-0123456789ab",
@@ -36,7 +35,7 @@ No events are emitted for AMI lifecycle policy actions.
 
   The following is an example of an event when a limit is exceeded.
 
-  ```
+  ```json
   {
       "version": "0",
       "id": "01234567-0123-0123-0123-0123456789ab",
@@ -59,7 +58,7 @@ No events are emitted for AMI lifecycle policy actions.
 
   The following is an example event when a VSS backup succeeds.
 
-  ```
+  ```json
   {
       "version": "0",
       "id": "12345678-1234-1234-1234-123456789012",

@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon EBS volume
-<a name="ebs-deleting-volume"></a>
 
 You can delete an Amazon EBS volume that you no longer need. After deletion, its data is gone and the volume can't be attached to any instance. So before deletion, you can store a snapshot of the volume, which you can use to re-create the volume later. 
 
@@ -32,7 +31,7 @@ If you delete a volume that matches a Recycle Bin retention rule, the volume is 
 **To check whether an EBS volume is in use**  
 Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command. If the volume is in use, the state is `in-use`. Otherwise, it is `available`.
 
-```
+```bash
 aws ec2 describe-volumes \
     --volume-id {{vol-01234567890abcdef}} \
     --query Volumes[*].State \
@@ -42,7 +41,7 @@ aws ec2 describe-volumes \
 **To delete an EBS volume**  
 Use the [delete-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-volume.html) command.
 
-```
+```bash
 aws ec2 delete-volume --volume-id {{vol-01234567890abcdef}}
 ```
 
@@ -52,7 +51,7 @@ aws ec2 delete-volume --volume-id {{vol-01234567890abcdef}}
 **To check whether an EBS volume is in use**  
 Use the [Get-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Volume.html) cmdlet. If the volume is in use, the state is `in-use`. Otherwise, it is `available`.
 
-```
+```powershell
 (Get-EC2Volume `
     -VolumeId {{vol-01234567890abcdef}}).State.Value
 ```
@@ -60,7 +59,7 @@ Use the [Get-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/
 **To delete an EBS volume**  
 Use the [Remove-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Volume.html) cmdlet.
 
-```
+```powershell
 Remove-EC2Volume -VolumeId {{vol-01234567890abcdef}}
 ```
 

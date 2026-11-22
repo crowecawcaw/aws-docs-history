@@ -1,7 +1,6 @@
 
 
 # Attach an Amazon EBS volume to an Amazon EC2 instance
-<a name="ebs-attaching-volume"></a>
 
 You can attach an available EBS volume to one or more of your instances that is in the same Availability Zone as the volume.
 
@@ -52,7 +51,7 @@ For information about adding EBS volumes to your instance at launch, see [instan
 **To attach an EBS volume to an instance**  
 Use the [attach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-volume.html) command. The following example attaches the specified volume to the specified instance using the specified device name.
 
-```
+```bash
 aws ec2 attach-volume \
     --volume-id {{vol-01234567890abcdef}} \
     --instance-id {{i-1234567890abcdef0}} \
@@ -65,7 +64,7 @@ aws ec2 attach-volume \
 **To attach an EBS volume to an instance**  
 Use the [Add-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Add-EC2Volume.html) cmdlet. The following example attaches the specified volume to the specified instance using the specified device name.
 
-```
+```powershell
 Add-EC2Volume `
     -VolumeId {{vol-01234567890abcdef}} `
     -InstanceId {{i-1234567890abcdef0}} `

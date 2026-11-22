@@ -1,7 +1,6 @@
 
 
 # Considerations for Recycle Bin
-<a name="recycle-bin-factors"></a>
 
 The following considerations apply when working with Recycle Bin and retention rules.
 

@@ -1,7 +1,6 @@
 
 
 # Log EBS direct APIs calls using AWS CloudTrail
-<a name="logging-ebs-apis-using-cloudtrail"></a>
 
 EBS direct APIs are integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures calls made to the EBS direct APIs as events. The calls captured include calls from the AWS Management Console and code calls to the EBS direct APIs. Using the information collected by CloudTrail, you can determine the request that was made to the EBS direct APIs, the IP address from which the request was made, when it was made, and additional details.
 
@@ -60,7 +59,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ StartSnapshot ]
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -101,7 +100,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ CompleteSnapshot ]
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -135,7 +134,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ ListSnapshotBlocks ]
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -183,7 +182,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ ListChangedBlocks ]
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -237,7 +236,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ GetSnapshotBlock ]
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -285,7 +284,7 @@ The following are example CloudTrail events for the EBS direct APIs.
 ------
 #### [ PutSnapshotBlock ]
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

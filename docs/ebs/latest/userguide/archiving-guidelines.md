@@ -1,7 +1,6 @@
 
 
 # Guidelines and best practices for archiving Amazon EBS snapshots
-<a name="archiving-guidelines"></a>
 
 This section provides some guidelines and best practices for archiving snapshots.
 
@@ -55,7 +54,7 @@ To determine the reduction in storage and storage costs in the standard tier, us
 
 1. For the snapshot that you want to archive, check the full snapshot size and the source volume from which it was created. Use the [ describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command, and for `--snapshot-id`, specify the ID of the snapshot that you want to archive.
 
-   ```
+   ```bash
    $ aws ec2 describe-snapshots --snapshot-id {{snapshot_id}}
    ```
 
@@ -63,13 +62,13 @@ To determine the reduction in storage and storage costs in the standard tier, us
 
    For example, the following command returns information about snapshot `snap-09c9114207084f0d9`.
 
-   ```
+   ```bash
    $ aws ec2 describe-snapshots --snapshot-id snap-09c9114207084f0d9
    ```
 
    The following example output shows that the full snapshot size is `5678912341` bytes (5.28 GiB), and the source volume is `vol-0f3e2c292c52b85c3`.
 
-   ```
+   ```json
    {
        "Snapshots": [
            {
@@ -91,19 +90,19 @@ To determine the reduction in storage and storage costs in the standard tier, us
 
 1. Find all of the snapshots created from the source volume. Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command. Specify the `volume-id` filter, and for the filter value, specify the volume ID from the previous step.
 
-   ```
+   ```bash
    $ aws ec2 describe-snapshots --filters "Name=volume-id, Values={{volume_id}}"
    ```
 
    For example, the following command returns all snapshots created from volume `vol-0f3e2c292c52b85c3`.
 
-   ```
+   ```bash
    $ aws ec2 describe-snapshots --filters "Name=volume-id, Values=vol-0f3e2c292c52b85c3"
    ```
 
    The following is the command output, which indicates that three snapshots were created from volume `vol-0f3e2c292c52b85c3`.
 
-   ```
+   ```json
    {
        "Snapshots": [
            {
@@ -160,19 +159,19 @@ To determine the reduction in storage and storage costs in the standard tier, us
 
 1. Find the unreferenced data in the snapshot that you want to archive. First, find the blocks that are different between the snapshot that was created immediately before the snapshot that you want to archive, and the snapshot that you want to archive. Use the [list-changed-blocks](https://docs.aws.amazon.com/cli/latest/reference/ebs/list-changed-blocks.html) command. For `--first-snapshot-id`, specify the ID of the snapshot that was created immediately before the snapshot that you want to archive. For `--second-snapshot-id`, specify the ID of the snapshot that you want to archive.
 
-   ```
+   ```bash
    $ aws ebs list-changed-blocks --first-snapshot-id {{snapshot_created_before}} --second-snapshot-id {{snapshot_to_archive}}
    ```
 
    For example, the following command shows the block indexes for the blocks that are different between snapshot `snap-08ca60083f86816b0` (the snapshot created before the snapshot you want to archive), and snapshot `snap-09c9114207084f0d9` (the snapshot you want to archive).
 
-   ```
+   ```bash
    $ aws ebs list-changed-blocks --first-snapshot-id snap-08ca60083f86816b0 --second-snapshot-id snap-09c9114207084f0d9
    ```
 
    The following shows the command output, with some blocks omitted.
 
-   ```
+   ```json
    {
        "BlockSize": 524288, 
        "ChangedBlocks": [
@@ -230,19 +229,19 @@ To determine the reduction in storage and storage costs in the standard tier, us
 
    Next, use the same command to find blocks that are different between the snapshot that you want to archive and the snapshot that was created immediately after it. For `--first-snapshot-id`, specify the ID of the snapshot that you want to archive. For `--second-snapshot-id`, specify the ID of the snapshot that was created immediately after the snapshot that you want to archive.
 
-   ```
+   ```bash
    $ aws ebs list-changed-blocks --first-snapshot-id {{snapshot_to_archive}} --second-snapshot-id {{snapshot_created_after}}
    ```
 
    For example, the following command shows the block indexes of the blocks that are different between snapshot `snap-09c9114207084f0d9` (the snapshot that you want to archive) and snapshot `snap-024f49fe8dd853fa8` (the snapshot created after the snapshot that you want to archive).
 
-   ```
+   ```bash
    $ aws ebs list-changed-blocks --first-snapshot-id snap-09c9114207084f0d9 --second-snapshot-id snap-024f49fe8dd853fa8
    ```
 
    The following shows the command output, with some blocks omitted.
 
-   ```
+   ```json
    {
        "BlockSize": 524288, 
        "ChangedBlocks": [

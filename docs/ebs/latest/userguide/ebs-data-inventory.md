@@ -1,7 +1,6 @@
 
 
 # Create an inventory of your EBS volumes
-<a name="ebs-data-inventory"></a>
 
 Amazon EBS provides scalable, high-performance block storage resources that can be used with EC2 instances. You can attach an EBS volume to an EC2 instance. You can also detach an EBS volume from an EC2 instance.
 
@@ -37,7 +36,7 @@ You can use [Amazon EC2 Global View](https://docs.aws.amazon.com/AWSEC2/latest/U
 **To describe the EBS volumes that are in use**  
 Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command. You must run this command in each Region where you have EBS volumes. The `--filters` parameter scopes the results to volumes that are `in-use`. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed.
 
-```
+```bash
 aws ec2 describe-volumes \
     --filters Name=status,Values=in-use \
     --query "Volumes[].[VolumeId,Size,Attachments[0].InstanceId]" \
@@ -78,7 +77,7 @@ After you determine the performance of your EBS volumes, you can decide the mini
 **To get information about the performance of your volumes**  
 Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command to describe the performance for your volumes that are in use. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed. For information about EBS-optimized performance, refer to [Amazon EC2 instance type specifications](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html) in the *Amazon EC2 Instance Types Guide*.
 
-```
+```bash
 aws ec2 describe-volumes \
     --filters Name=status,Values=in-use \
     --query "Volumes[].[VolumeId,VolumeType,Iops,Throughput]" \
@@ -126,7 +125,7 @@ If you have business critical data on your EBS volumes, most likely you're creat
 **To describe the snapshots for a specific volume**  
 Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command. The `--filters` parameter scopes the results to snapshots for the specified volume. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed.
 
-```
+```bash
 aws ec2 describe-snapshots \
     --filters Name=volume-id,Values={{vol-00622ef8c2ac8b762}} \
     --query Snapshots[*].[SnapshotId,CompletionTime,Description] --output table
@@ -157,7 +156,7 @@ Use the [EBS direct APIs](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-a
 
 1. Use the [create-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-volume.html) command to create a volume from the snapshot.
 
-   ```
+   ```bash
     aws ec2 create-volume \
        --volume-type {{gp3}} \
        --snapshot-id {{snap-0ad439c50efabb47c}} \
@@ -167,7 +166,7 @@ Use the [EBS direct APIs](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-a
 
 1. Use the [attach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-volume.html) command to attach the volume to an instance.
 
-   ```
+   ```bash
     aws ec2 attach-volume \
        --device {{/dev/sdf}} \
        --instance-id {{i-0b1bf24fd4f297ab9}} \

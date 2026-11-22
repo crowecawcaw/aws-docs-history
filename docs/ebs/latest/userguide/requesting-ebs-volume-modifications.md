@@ -1,7 +1,6 @@
 
 
 # Request Amazon EBS volume modifications
-<a name="requesting-ebs-volume-modifications"></a>
 
 With Elastic Volumes, you can dynamically increase the size, increase or decrease the performance, and change the volume type of your Amazon EBS volumes without detaching them.
 
@@ -57,7 +56,7 @@ Before you begin, see the following:
 **To modify an EBS volume**  
 Use the [modify-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-volume.html) command. For example, if you have a volume of type `gp2` with a size of 100 GiB, the following example changes its configuration to a volume of type `io1` with 10,000 IOPS and a size of 200 GiB.
 
-```
+```bash
 aws ec2 modify-volume \
     --volume-id {{vol-01234567890abcdef}} \
     --volume-type io1 \
@@ -67,7 +66,7 @@ aws ec2 modify-volume \
 
 The following is example output.
 
-```
+```json
 {
     "VolumeModification": {
         "TargetSize": 200,
@@ -92,7 +91,7 @@ If you've increased the size of your volume, then you must also extend the volum
 **To modify an EBS volume**  
 Use the [Edit-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Volume.html) cmdlet. For example, if you have a volume of type `gp2` with a size of 100 GiB, the following example changes its configuration to a volume of type `io1` with 10,000 IOPS and a size of 200 GiB.
 
-```
+```powershell
 Edit-EC2Volume `
     -VolumeId {{vol-01234567890abcdef}} `
     -VolumeType io1 `
@@ -113,7 +112,7 @@ If you cannot use Elastic Volumes but you need to modify the root (boot) volume,
 
 After the instance has started, you can check the file system size to see if your instance recognizes the larger volume space. On Linux, use the **df -h** command to check the file system size.
 
-```
+```bash
 [ec2-user ~]$ df -h
 Filesystem            Size  Used Avail Use% Mounted on
 /dev/xvda1            7.9G  943M  6.9G  12% /
@@ -150,7 +149,7 @@ Before you can modify a volume that was attached to an instance before November 
 **To determine whether your instances are ready**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command to determine whether the volume was attached before November 3, 2016 23:40 UTC.
 
-```
+```bash
 aws ec2 describe-instances \
     --query "Reservations[*].Instances[*].[InstanceId,LaunchTime<='2016-11-01',BlockDeviceMappings[*][Ebs.AttachTime<='2016-11-01']]" \
     --output text
@@ -176,7 +175,7 @@ True
 **To determine whether an instance is ready**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet to determine whether a volume was attached before November 3, 2016 23:40 UTC.
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances.BlockDeviceMappings | `
      Format-Table @{Name="VolumeId";Expression={$_.Ebs.VolumeId}}, `

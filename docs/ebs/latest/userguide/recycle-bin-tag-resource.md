@@ -1,7 +1,6 @@
 
 
 # Tag a Recycle Bin retention rule
-<a name="recycle-bin-tag-resource"></a>
 
 You can assign custom tags to your retention rules to categorize them in different ways, for example, by purpose, owner, or environment. This helps you to efficiently find a specific retention rule based on the custom tags that you assigned.
 
@@ -28,7 +27,7 @@ You can assign a tag to a retention rule using one of the following methods.
 **To tag a retention rule**  
 Use the [tag-resource](https://docs.aws.amazon.com/cli/latest/reference/rbin/tag-resource.html) AWS CLI command. For `--resource-arn`, specify the Amazon Resource Name (ARN) of the retention rule to tag, and for `--tags`, specify the tag key and value pair.
 
-```
+```bash
 aws rbin tag-resource \
 --resource-arn {{retention_rule_arn}} \
 --tags key={{tag_key}},value={{tag_value}}
@@ -37,7 +36,7 @@ aws rbin tag-resource \
 **Example**  
 The following example command tags retention rule `arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3` with tag `purpose=production`.
 
-```
+```bash
 aws rbin tag-resource \
 --resource-arn arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3 \
 --tags key=purpose,value=production
@@ -67,7 +66,7 @@ You can view the tags assigned to a retention rule using one of the following me
 **To view the tags assigned to a retention rule**  
 Use the [list-tags-for-resource](https://docs.aws.amazon.com/cli/latest/reference/rbin/list-tags-for-resource.html) AWS CLI command. For `--resource-arn`, specify the ARN of the retention rule.
 
-```
+```bash
 aws rbin list-tags-for-resource \
 --resource-arn {{retention_rule_arn}}
 ```
@@ -75,7 +74,7 @@ aws rbin list-tags-for-resource \
 **Example**  
 The following example command lists the tags for retention rule `arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3`.
 
-```
+```bash
 aws rbin list-tags-for-resource \
 --resource-arn arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3
 ```
@@ -108,7 +107,7 @@ You can remove tags from a retention rule using one of the following methods.
 **To remove a tag from a retention rule**  
 Use the [untag-resource](https://docs.aws.amazon.com/cli/latest/reference/rbin/untag-resource.html) AWS CLI command. For `--resource-arn`, specify the ARN of the retention rule. For `--tagkeys`, specify the tags keys of the tags to remove.
 
-```
+```bash
 aws rbin untag-resource \
 --resource-arn {{retention_rule_arn}} \
 --tagkeys {{tag_key}}
@@ -117,7 +116,7 @@ aws rbin untag-resource \
 **Example**  
 The following example command removes tags that have a tag key of `purpose` from retention rule `arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3`.
 
-```
+```bash
 aws rbin untag-resource \
 --resource-arn arn:aws:rbin:us-east-1:123456789012:rule/nOoSBBtItF3 \
 --tagkeys purpose

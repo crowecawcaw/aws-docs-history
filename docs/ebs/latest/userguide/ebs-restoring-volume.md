@@ -1,7 +1,6 @@
 
 
 # Replace an Amazon EBS volume using a snapshot
-<a name="ebs-restoring-volume"></a>
 
 Amazon EBS snapshots are the preferred backup tool on Amazon EC2 because of their speed, convenience, and cost. When creating a volume from a snapshot, you recreate its state at a specific point in time with the data saved up to that specific point intact. By attaching a volume created from a snapshot to an instance, you can duplicate data across Regions, create test environments, replace a damaged or corrupted production volume in its entirety, or retrieve specific files and directories and transfer them to another attached volume. For more information, see [Amazon EBS snapshots](ebs-snapshots.md).
 
@@ -36,7 +35,7 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Create a new volume from the snapshot. Use the [create-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-volume.html) command with the `--snapshot-id` option. For `--availability-zone`, specify the same Availability Zone as the instance. Note the ID of the new volume in the output.
 
-   ```
+   ```bash
    aws ec2 create-volume \
        --volume-type {{gp3}} \
        --snapshot-id {{snap-0abcdef1234567890}} \
@@ -45,7 +44,7 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Get the device name of the volume to replace. Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command. For `--instance-ids`, specify the ID of the instance on which to replace the volume. Note the device name and volume ID of the volume to replace.
 
-   ```
+   ```bash
    aws ec2 describe-instances \
        --instance-ids {{i-1234567890abcdef0}} \
        --query Reservations[].Instances[].BlockDeviceMappings
@@ -53,13 +52,13 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Detach the volume to replace from the instance. Use the [detach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/detach-volume.html) command.
 
-   ```
+   ```bash
    aws ec2 detach-volume --volume-id {{vol-xxxxxxxxxxxxxxxxx}}
    ```
 
 1. Attach the replacement volume to the instance. Use the [attach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-volume.html) command. For `--volume-id`, specify the ID of the replacement volume. For `--instance-id`, specify the ID of the instance on which to attach the volume. For `--device`, specify the same device name that you noted previously.
 
-   ```
+   ```bash
    aws ec2 attach-volume \
        --volume-id {{vol-01234567890abcdef}} \
        --instance-id {{i-1234567890abcdef0}} \
@@ -75,7 +74,7 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Create a new volume from the snapshot. Use the [New-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Volume.html) cmdlet with the `-SnapshotId` option. For `-AvailabilityZone`, specify the same Availability Zone as the instance. Note the ID of the new volume in the output.
 
-   ```
+   ```powershell
    New-EC2Volume `
        -VolumeType {{gp3}} `
        -SnapshotId {{snap-0abcdef1234567890}} `
@@ -84,7 +83,7 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Get the device name of the volume to replace. Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet. For `-InstanceId`, specify the ID of the instance on which to replace the volume. Note the device name and volume ID of the volume to replace.
 
-   ```
+   ```powershell
    (Get-EC2Instance `
        -InstanceId {{i-1234567890abcdef0}}).Instances.BlockDeviceMappings | `
         Format-Table DeviceName, @{Name="VolumeId";Expression={$_.Ebs.VolumeId}}
@@ -92,13 +91,13 @@ You must create the volume in the same Availability Zone as the instance. Volume
 
 1. Detach the volume to replace from the instance. Use the [Dismount-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Dismount-EC2Volume.html) cmdlet.
 
-   ```
+   ```powershell
    DismountEC2Volume -VolumeId {{vol-xxxxxxxxxxxxxxxxx}}
    ```
 
 1. Attach the replacement volume to the instance. Use the [Add-EC2Volume](https://docs.aws.amazon.com/powershell/latest/reference/items/Add-EC2Volume.html) cmdlet. For `-VolumeId`, specify the ID of the replacement volume. For `-InstanceId`, specify the ID of the instance on which to attach the volume. For `-Device`, specify the same device name that you noted previously.
 
-   ```
+   ```powershell
    Add-EC2Volume`
        -VolumeId {{vol-01234567890abcdef}} `
        -InstanceId {{i-1234567890abcdef0}} `

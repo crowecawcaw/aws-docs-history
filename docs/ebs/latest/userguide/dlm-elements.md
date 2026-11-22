@@ -1,7 +1,6 @@
 
 
 # How Amazon Data Lifecycle Manager works
-<a name="dlm-elements"></a>
 
 The following are the key elements of Amazon Data Lifecycle Manager.
 

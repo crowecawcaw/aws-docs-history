@@ -1,7 +1,6 @@
 
 
 # Archive Amazon EBS snapshots
-<a name="snapshot-archive"></a>
 
 Amazon EBS Snapshots Archive is a storage tier that you can use for low-cost, long-term storage of your rarely-accessed snapshots that do not need frequent or fast retrieval.
 

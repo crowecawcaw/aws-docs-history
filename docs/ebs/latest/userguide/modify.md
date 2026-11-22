@@ -1,7 +1,6 @@
 
 
 # Modify Amazon Data Lifecycle Manager policies
-<a name="modify"></a>
 
 Keep the following in mind when modifying Amazon Data Lifecycle Manager policies:
 + If you modify an AMI or snapshot policy by removing its target tags, the volumes or instances with those tags are no longer managed by the policy.
@@ -43,7 +42,7 @@ Use one of the following procedures to modify a lifecycle policy.
 
 Use the [update-lifecycle-policy](https://docs.aws.amazon.com/cli/latest/reference/dlm/update-lifecycle-policy.html) command to modify the information in a lifecycle policy. To simplify the syntax, this example references a JSON file, `policyDetailsUpdated.json`, that includes the policy details.
 
-```
+```bash
 aws dlm update-lifecycle-policy \
     --state DISABLED \
     --execution-role-arn arn:aws:iam::{{12345678910}}:role/{{AWSDataLifecycleManagerDefaultRole}}" \
@@ -52,7 +51,7 @@ aws dlm update-lifecycle-policy \
 
 The following is an example of the `policyDetailsUpdated.json` file.
 
-```
+```json
 {
    "ResourceTypes":[
       "{{VOLUME}}"

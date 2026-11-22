@@ -1,7 +1,6 @@
 
 
 # Control access to Amazon EBS snapshot lock
-<a name="snapshot-lock-iam"></a>
 
 By default, users don't have permission to work with snapshot locks. To allow users to use snapshot locks, you must create IAM policies that grant permission to use specific resources and API actions. For more information, see [Creating IAM policies in the IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
 
@@ -24,7 +23,7 @@ The following is an example IAM policy that gives users permission to lock and u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -80,7 +79,7 @@ The following example policy restricts users to specifying a lock duration betwe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -116,7 +115,7 @@ The following example policy restricts users to specifying a cooling-off period 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

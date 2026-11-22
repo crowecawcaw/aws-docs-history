@@ -1,7 +1,6 @@
 
 
 # Time-based copies for Amazon EBS snapshots and EBS-backed AMIs
-<a name="time-based-copies"></a>
 
 Time-based copies can help you meet compliance or business requirements for data replication by ensuring that your EBS snapshots and EBS-backed AMIs are copied, within and across AWS Regions, in a specified timeframe. Time-based copies can also help backup administrators meet stringent disaster recovery requirements (Recovery Point Objectives and Recovery Time Objectives), and it improves development agility by ensuring predictable copying times for snapshots and EBS-backed AMIs.
 

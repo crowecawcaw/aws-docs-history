@@ -1,7 +1,6 @@
 
 
 # Encryption outcomes for EBS direct APIs
-<a name="ebsapis-using-encryption"></a>
 
 When you start a new snapshot using [ StartSnapshot](https://docs.aws.amazon.com/ebs/latest/APIReference/API_StartSnapshot.html), the encryption status depends on the values that you specify for **Encrypted**, **KmsKeyArn**, and **ParentSnapshotId**, and whether your AWS account is enabled for [encryption by default](encryption-by-default.md).
 

@@ -1,7 +1,6 @@
 
 
 # Control access to Recycle Bin with IAM
-<a name="recycle-bin-perms"></a>
 
 By default, users don't have permission to work with Recycle Bin, retention rules, or with resources that are in the Recycle Bin. To allow users to work with these resources, you must create IAM policies that grant permission to use specific resources and API actions. After the policies are created, you must add permissions to your users, groups, or roles.
 
@@ -34,7 +33,7 @@ The following is an example IAM policy that includes the `tag:GetResources` perm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ The following sample IAM policy allows IAM principals to make **CreateRule** req
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -132,7 +131,7 @@ The following sample IAM policy allows IAM principals to make **ListRules** requ
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -167,7 +166,7 @@ The following sample IAM policy allows IAM principals to make **UpdateRule** req
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -197,7 +196,7 @@ The following sample IAM policy allows IAM principals to make **DeleteRule** req
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [

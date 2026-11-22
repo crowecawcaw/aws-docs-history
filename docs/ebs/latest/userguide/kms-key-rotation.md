@@ -1,7 +1,6 @@
 
 
 # Rotate AWS KMS keys used for Amazon EBS encryption
-<a name="kms-key-rotation"></a>
 
 Cryptographic best practices discourage extensive reuse of encryption keys.
 

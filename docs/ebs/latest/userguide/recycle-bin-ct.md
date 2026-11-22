@@ -1,7 +1,6 @@
 
 
 # Monitor Recycle Bin using AWS CloudTrail
-<a name="recycle-bin-ct"></a>
 
 The Recycle Bin service is integrated with AWS CloudTrail. CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls performed in Recycle Bin as events. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket. If you don't configure a trail, you can still view the most recent management events in the CloudTrail console in **Event history**. You can use the information collected by CloudTrail to determine the request that was made to Recycle Bin, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -51,7 +50,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ CreateRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -110,7 +109,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ GetRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -162,7 +161,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ ListRules ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -219,7 +218,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ UpdateRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -277,7 +276,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ DeleteRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -329,7 +328,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ TagResource ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -387,7 +386,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ UntagResource ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -442,7 +441,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ ListTagsForResource ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -494,7 +493,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ LockRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {
@@ -569,7 +568,7 @@ The following are example CloudTrail log entries.
 ------
 #### [ UnlockRule ]
 
-```
+```json
 {
 	"eventVersion": "1.08",
 	"userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Control access to EBS direct APIs using IAM
-<a name="ebsapi-permissions"></a>
 
 A user must have the following policies to use the EBS direct APIs. For more information, see [ Changing permissions for a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html).
 
@@ -22,7 +21,7 @@ The following policy allows the *read* EBS direct APIs to be used on snapshots w
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ The following policy allows all of the *read* EBS direct APIs to be used on all 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -94,7 +93,7 @@ The following policy allows the *write* EBS direct APIs to be used on snapshots 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ The following policy allows all of the EBS direct APIs to be used. It also allow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ The following policy allows all of the EBS direct APIs to be used. It also allow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -184,7 +183,7 @@ The following policy allows all of the *write* EBS direct APIs to be used on all
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

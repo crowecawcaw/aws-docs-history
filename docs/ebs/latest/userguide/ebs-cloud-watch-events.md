@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge events for Amazon EBS
-<a name="ebs-cloud-watch-events"></a>
 
 Amazon EBS sends events to Amazon EventBridge for actions performed on volumes and snapshots. With EventBridge, you can establish rules that trigger programmatic actions in response to these events. For example, you can create a rule that sends a notification to your email when a snapshot is enabled for fast snapshot restore.
 
@@ -37,7 +36,7 @@ The `createVolume` event is sent to your AWS account when an action to create a 
 **Event data**  
 The listing below is an example of a JSON object emitted by EBS for a successful `createVolume` event. 
 
-```
+```json
 {
    "version": "0",
    "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -60,7 +59,7 @@ The listing below is an example of a JSON object emitted by EBS for a successful
 
 The listing below is an example of a JSON object emitted by EBS after a failed `createVolume` event. The cause for the failure was a disabled KMS key.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{0123456789ab}}",
@@ -83,7 +82,7 @@ The listing below is an example of a JSON object emitted by EBS after a failed `
 
 The following is an example of a JSON object that is emitted by EBS after a failed `createVolume` event. The cause for the failure was a KMS key pending import.
 
-```
+```json
 {  
   "version": "0",  
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{0123456789ab}}",  
@@ -112,7 +111,7 @@ The `deleteVolume` event is sent to your AWS account when an action to delete a 
 **Event data**  
 The listing below is an example of a JSON object emitted by EBS for a successful `deleteVolume` event. 
 
-```
+```json
 {
    "version": "0",
    "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -144,7 +143,7 @@ The listing below is an example of a JSON object emitted by EBS after a failed `
 **Note**  
 AWS may attempt to reattach to a volume following routine server maintenance.
 
-```
+```json
 {
   "version": "0",    
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{0123456789ab}}",
@@ -168,7 +167,7 @@ AWS may attempt to reattach to a volume following routine server maintenance.
 
 The listing below is an example of a JSON object emitted by EBS after a failed `reattachVolume` event. The cause for the failure was a KMS key pending deletion.
 
-```
+```json
 {
   "version": "0",    
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{0123456789ab}}",
@@ -198,7 +197,7 @@ The `detachVolume` event is sent to your AWS account when a volume is detached f
 **Event data**  
 The following is an example of a successful `detachVolume` event.
 
-```
+```json
 {
   "version":"0",
   "id":"{{2ec37298-1234-e436-70fc-c96b1example}}",
@@ -269,7 +268,7 @@ The event is **not** sent for volumes created using Fast Snapshot Restore.
 
 The following is an example event.
 
-```
+```json
 {
    "version": "0",
    "id": "{{01234567-0123-0123-0123-012345678901}}",
@@ -295,7 +294,7 @@ The following is an example event.
 
 Amazon EBS sends `modifyVolume` events to EventBridge when a volume is modified. However, it is not saved, logged, or archived.
 
-```
+```json
 {
    "version": "0",
    "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -335,7 +334,7 @@ The `createSnapshot` event is sent to your AWS account when an action to create 
 **Event data**  
 The listing below is an example of a JSON object emitted by EBS for a successful `createSnapshot` event. In the `detail` section, the `source` field contains the ARN of the source volume. The `startTime` and `endTime` fields indicate when creation of the snapshot started and completed.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -367,7 +366,7 @@ The `createSnapshots` event is sent to your AWS account when an action to create
 **Event data**  
 The listing below is an example of a JSON object emitted by EBS for a successful `createSnapshots` event. In the `detail` section, the `source` field contains the ARNs of the source volumes of the multi-volume snapshot set. The `startTime` and `endTime` fields indicate when creation of the snapshot started and completed.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567-0123-0123-0123-012345678901}}",
@@ -405,7 +404,7 @@ The listing below is an example of a JSON object emitted by EBS for a successful
 
 The listing below is an example of a JSON object emitted by EBS after a failed `createSnapshots` event. The cause for the failure was one or more snapshots for the multi-volume snapshot set failed to complete. The values of `snapshot_id` are the ARNs of the failed snapshots. `startTime` and `endTime` represent when the create-snapshots action started and ended.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567-0123-0123-0123-012345678901}}",
@@ -453,7 +452,7 @@ If you are copying the snapshot across Regions, then the event is emitted in the
 **Scenario 1: Standard snapshot copy operation completes**  
 The following is an example of an event that is sent to your account when a standard snapshot copy operation completes successfully. Note that `transferType` is `standard`.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -483,7 +482,7 @@ The following is an example of an event that is sent to your account when a stan
 **Scenario 2: Time-based snapshot copy operation completes within completion duration**  
 The following is an example of an event that is sent to your account when a time-based snapshot copy operation completes within its completion duration. Note that `transferType` is `time-based` to indicate that it was a time-based snapshot copy operation. `completionDurationStartTime` indicates when the completion duration started.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -515,7 +514,7 @@ The following is an example of an event that is sent to your account when a time
 When a time-based snapshot copy operation completes, but fails to meet the requested completion duration, CloudWatch sends two events to your account. The following are examples of those events.
 + The first event is sent to your account as soon as the completion duration is missed, even if the copy operation is still in progress. For this event, the `detail-type` is `EBS Copy Snapshot Missed Completion Duration`, and `missedCompletionDurationCause` provides the reason.
 
-  ```
+  ```json
   {
    "version":"0",
    "id":"{{fd90eb95-0938-e02c-cf55-b81363b8ac12}}",
@@ -537,7 +536,7 @@ When a time-based snapshot copy operation completes, but fails to meet the reque
   ```
 + The second event is sent to your account only once the snapshot is completed. The event includes `missedCompletionDurationCause`, which provides the reason.
 
-  ```
+  ```json
   {
     "version": "0",
     "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -569,7 +568,7 @@ When a time-based snapshot copy operation completes, but fails to meet the reque
 **Scenario 4: Snapshot copy operation fails**  
 The following is an example of an event that is sent to your account when a snapshot copy operation fails. Note that `result` is `failed` to indicate that the operation failed.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -602,7 +601,7 @@ The `shareSnapshot` event is sent to your AWS account when another account share
 **Event data**  
 The following is an example of a JSON object emitted by EBS after a completed `shareSnapshot` event. In the `detail` section, the value of `source` is the AWS account number of the user that shared the snapshot with you. `startTime` and `endTime` represent when the share-snapshot action started and ended. The `shareSnapshot` event is emitted only when a private snapshot is shared with another user. Sharing a public snapshot does not trigger the event.
 
-```
+```json
 {
   "version": "0",
   "id": "{{01234567}}-{{01234}}-{{0123}}-{{0123}}-{{012345678901}}",
@@ -639,7 +638,7 @@ Amazon EBS sends events to EventBridge when the state of fast snapshot restore f
 
 The following is example data for this event.
 
-```
+```json
 {
    "version": "0",
    "id": "{{01234567}}-{{0123}}-{{0123}}-{{0123}}-{{012345678901}}",

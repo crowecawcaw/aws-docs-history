@@ -1,7 +1,6 @@
 
 
 # NVMe Abort command for Amazon EBS volumes
-<a name="abort-command"></a>
 
 The `Abort` command is an NVMe admin command that is issued to end a specific command that was previously submitted to the controller. This command is typically issued by the device driver to storage devices that have exceeded the I/O operation timeout threshold. 
 

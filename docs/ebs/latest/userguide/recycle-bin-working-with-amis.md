@@ -1,7 +1,6 @@
 
 
 # Recover deleted AMIs from the Recycle Bin
-<a name="recycle-bin-working-with-amis"></a>
 
 This topic explains how to recover Amazon EBS-backed AMIs from the Recycle Bin.
 
@@ -69,19 +68,19 @@ Use the [ list-images-in-recycle-bin](https://docs.aws.amazon.com/cli/latest/ref
 
 To view all of the AMIs in the Recycle Bin, omit the `--image-id` option. If you do not specify a value for `--max-items`, the command returns 1,000 items per page, by default. For more information, see [ Pagination](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination) in the *Amazon EC2 API Reference*.
 
-```
+```bash
 aws ec2 list-images-in-recycle-bin --image-id {{ami_id}}
 ```
 
 For example, the following command provides information about AMI `ami-01234567890abcdef` in the Recycle Bin.
 
-```
+```bash
 aws ec2 list-images-in-recycle-bin --image-id ami-01234567890abcdef
 ```
 
 Example output:
 
-```
+```json
 {
     "Images": [
         {
@@ -130,13 +129,13 @@ You can restore an AMI from the Recycle Bin using one of the following methods.
 **To restore a deleted AMI from the Recycle Bin using the AWS CLI**  
 Use the [ restore-image-from-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/restore-image-from-recycle-bin.html) AWS CLI command. For `--image-id`, specify the ID of the AMI to restore.
 
-```
+```bash
 aws ec2 restore-image-from-recycle-bin --image-id {{ami_id}}
 ```
 
 For example, the following command restores AMI `ami-01234567890abcdef` from the Recycle Bin.
 
-```
+```bash
 aws ec2 restore-image-from-recycle-bin --image-id ami-01234567890abcdef
 ```
 
